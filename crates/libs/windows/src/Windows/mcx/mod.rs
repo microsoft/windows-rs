@@ -149,7 +149,7 @@ pub const MDM_X75_DATA_BTX: u32 = 4;
 pub const MDM_X75_DATA_DEFAULT: u32 = 0;
 pub const MDM_X75_DATA_T_70: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODEMDEVCAPS {
     pub dwActualSize: u32,
     pub dwRequiredSize: u32,
@@ -178,7 +178,7 @@ impl Default for MODEMDEVCAPS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODEMSETTINGS {
     pub dwActualSize: u32,
     pub dwRequiredSize: u32,

@@ -8,7 +8,7 @@ where
     P8: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wininet.dll" "system" fn CommitUrlCacheEntryA(lpszurlname : windows_core::PCSTR, lpszlocalfilename : windows_core::PCSTR, expiretime : super::minwindef::FILETIME, lastmodifiedtime : super::minwindef::FILETIME, cacheentrytype : u32, lpheaderinfo : *const u8, cchheaderinfo : u32, lpszfileextension : windows_core::PCSTR, lpszoriginalurl : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { CommitUrlCacheEntryA(lpszurlname.param().abi(), lpszlocalfilename.param().abi(), core::mem::transmute(expiretime), core::mem::transmute(lastmodifiedtime), cacheentrytype, core::mem::transmute(lpheaderinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpheaderinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpszfileextension.param().abi(), lpszoriginalurl.param().abi()) }
+    unsafe { CommitUrlCacheEntryA(lpszurlname.param().abi(), lpszlocalfilename.param().abi(), expiretime, lastmodifiedtime, cacheentrytype, lpheaderinfo.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpheaderinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpszfileextension.param().abi(), lpszoriginalurl.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -20,7 +20,7 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wininet.dll" "system" fn CommitUrlCacheEntryW(lpszurlname : windows_core::PCWSTR, lpszlocalfilename : windows_core::PCWSTR, expiretime : super::minwindef::FILETIME, lastmodifiedtime : super::minwindef::FILETIME, cacheentrytype : u32, lpszheaderinfo : windows_core::PCWSTR, cchheaderinfo : u32, lpszfileextension : windows_core::PCWSTR, lpszoriginalurl : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { CommitUrlCacheEntryW(lpszurlname.param().abi(), lpszlocalfilename.param().abi(), core::mem::transmute(expiretime), core::mem::transmute(lastmodifiedtime), cacheentrytype, core::mem::transmute(lpszheaderinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszheaderinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpszfileextension.param().abi(), lpszoriginalurl.param().abi()) }
+    unsafe { CommitUrlCacheEntryW(lpszurlname.param().abi(), lpszlocalfilename.param().abi(), expiretime, lastmodifiedtime, cacheentrytype, core::mem::transmute(lpszheaderinfo.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszheaderinfo.map_or(0, |slice| slice.len().try_into().unwrap()), lpszfileextension.param().abi(), lpszoriginalurl.param().abi()) }
 }
 #[inline]
 pub unsafe fn CreateMD5SSOHash<P0, P1, P2>(pszchallengeinfo: P0, pwszrealm: P1, pwsztarget: P2, pbhexhash: *mut u8) -> windows_core::BOOL
@@ -39,7 +39,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wininet.dll" "system" fn CreateUrlCacheEntryA(lpszurlname : windows_core::PCSTR, dwexpectedfilesize : u32, lpszfileextension : windows_core::PCSTR, lpszfilename : windows_core::PSTR, dwreserved : u32) -> windows_core::BOOL);
-    unsafe { CreateUrlCacheEntryA(lpszurlname.param().abi(), dwexpectedfilesize, lpszfileextension.param().abi(), core::mem::transmute(lpszfilename), dwreserved) }
+    unsafe { CreateUrlCacheEntryA(lpszurlname.param().abi(), dwexpectedfilesize, lpszfileextension.param().abi(), lpszfilename, dwreserved) }
 }
 #[inline]
 pub unsafe fn CreateUrlCacheEntryW<P0, P2>(lpszurlname: P0, dwexpectedfilesize: u32, lpszfileextension: P2, lpszfilename: windows_core::PWSTR, dwreserved: u32) -> windows_core::BOOL
@@ -48,7 +48,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wininet.dll" "system" fn CreateUrlCacheEntryW(lpszurlname : windows_core::PCWSTR, dwexpectedfilesize : u32, lpszfileextension : windows_core::PCWSTR, lpszfilename : windows_core::PWSTR, dwreserved : u32) -> windows_core::BOOL);
-    unsafe { CreateUrlCacheEntryW(lpszurlname.param().abi(), dwexpectedfilesize, lpszfileextension.param().abi(), core::mem::transmute(lpszfilename), dwreserved) }
+    unsafe { CreateUrlCacheEntryW(lpszurlname.param().abi(), dwexpectedfilesize, lpszfileextension.param().abi(), lpszfilename, dwreserved) }
 }
 #[inline]
 pub unsafe fn CreateUrlCacheGroup(dwflags: u32, lpreserved: Option<*const core::ffi::c_void>) -> GROUPID {
@@ -92,7 +92,7 @@ pub unsafe fn DeleteWpadCacheForNetworks(param0: WPAD_CACHE_DELETE) -> windows_c
 #[inline]
 pub unsafe fn DetectAutoProxyUrl(pszautoproxyurl: &mut [u8], dwdetectflags: u32) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn DetectAutoProxyUrl(pszautoproxyurl : windows_core::PSTR, cchautoproxyurl : u32, dwdetectflags : u32) -> windows_core::BOOL);
-    unsafe { DetectAutoProxyUrl(core::mem::transmute(pszautoproxyurl.as_ptr()), pszautoproxyurl.len().try_into().unwrap(), dwdetectflags) }
+    unsafe { DetectAutoProxyUrl(core::mem::transmute(pszautoproxyurl.as_mut_ptr()), pszautoproxyurl.len().try_into().unwrap(), dwdetectflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -248,13 +248,13 @@ where
 #[inline]
 pub unsafe fn FtpGetCurrentDirectoryA(hconnect: super::winhttp::HINTERNET, lpszcurrentdirectory: windows_core::PSTR, lpdwcurrentdirectory: *mut u32) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn FtpGetCurrentDirectoryA(hconnect : super::winhttp::HINTERNET, lpszcurrentdirectory : windows_core::PSTR, lpdwcurrentdirectory : *mut u32) -> windows_core::BOOL);
-    unsafe { FtpGetCurrentDirectoryA(hconnect, core::mem::transmute(lpszcurrentdirectory), lpdwcurrentdirectory as _) }
+    unsafe { FtpGetCurrentDirectoryA(hconnect, lpszcurrentdirectory, lpdwcurrentdirectory as _) }
 }
 #[cfg(feature = "winhttp")]
 #[inline]
 pub unsafe fn FtpGetCurrentDirectoryW(hconnect: super::winhttp::HINTERNET, lpszcurrentdirectory: windows_core::PWSTR, lpdwcurrentdirectory: *mut u32) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn FtpGetCurrentDirectoryW(hconnect : super::winhttp::HINTERNET, lpszcurrentdirectory : windows_core::PWSTR, lpdwcurrentdirectory : *mut u32) -> windows_core::BOOL);
-    unsafe { FtpGetCurrentDirectoryW(hconnect, core::mem::transmute(lpszcurrentdirectory), lpdwcurrentdirectory as _) }
+    unsafe { FtpGetCurrentDirectoryW(hconnect, lpszcurrentdirectory, lpdwcurrentdirectory as _) }
 }
 #[cfg(feature = "winhttp")]
 #[inline]
@@ -662,7 +662,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wininet.dll" "system" fn InternetCanonicalizeUrlA(lpszurl : windows_core::PCSTR, lpszbuffer : windows_core::PSTR, lpdwbufferlength : *mut u32, dwflags : u32) -> windows_core::BOOL);
-    unsafe { InternetCanonicalizeUrlA(lpszurl.param().abi(), core::mem::transmute(lpszbuffer), lpdwbufferlength as _, dwflags) }
+    unsafe { InternetCanonicalizeUrlA(lpszurl.param().abi(), lpszbuffer, lpdwbufferlength as _, dwflags) }
 }
 #[inline]
 pub unsafe fn InternetCanonicalizeUrlW<P0>(lpszurl: P0, lpszbuffer: windows_core::PWSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> windows_core::BOOL
@@ -670,7 +670,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wininet.dll" "system" fn InternetCanonicalizeUrlW(lpszurl : windows_core::PCWSTR, lpszbuffer : windows_core::PWSTR, lpdwbufferlength : *mut u32, dwflags : u32) -> windows_core::BOOL);
-    unsafe { InternetCanonicalizeUrlW(lpszurl.param().abi(), core::mem::transmute(lpszbuffer), lpdwbufferlength as _, dwflags) }
+    unsafe { InternetCanonicalizeUrlW(lpszurl.param().abi(), lpszbuffer, lpdwbufferlength as _, dwflags) }
 }
 #[inline]
 pub unsafe fn InternetCheckConnectionA<P0>(lpszurl: P0, dwflags: u32, dwreserved: u32) -> windows_core::BOOL
@@ -706,7 +706,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("wininet.dll" "system" fn InternetCombineUrlA(lpszbaseurl : windows_core::PCSTR, lpszrelativeurl : windows_core::PCSTR, lpszbuffer : windows_core::PSTR, lpdwbufferlength : *mut u32, dwflags : u32) -> windows_core::BOOL);
-    unsafe { InternetCombineUrlA(lpszbaseurl.param().abi(), lpszrelativeurl.param().abi(), core::mem::transmute(lpszbuffer), lpdwbufferlength as _, dwflags) }
+    unsafe { InternetCombineUrlA(lpszbaseurl.param().abi(), lpszrelativeurl.param().abi(), lpszbuffer, lpdwbufferlength as _, dwflags) }
 }
 #[inline]
 pub unsafe fn InternetCombineUrlW<P0, P1>(lpszbaseurl: P0, lpszrelativeurl: P1, lpszbuffer: windows_core::PWSTR, lpdwbufferlength: *mut u32, dwflags: u32) -> windows_core::BOOL
@@ -715,7 +715,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wininet.dll" "system" fn InternetCombineUrlW(lpszbaseurl : windows_core::PCWSTR, lpszrelativeurl : windows_core::PCWSTR, lpszbuffer : windows_core::PWSTR, lpdwbufferlength : *mut u32, dwflags : u32) -> windows_core::BOOL);
-    unsafe { InternetCombineUrlW(lpszbaseurl.param().abi(), lpszrelativeurl.param().abi(), core::mem::transmute(lpszbuffer), lpdwbufferlength as _, dwflags) }
+    unsafe { InternetCombineUrlW(lpszbaseurl.param().abi(), lpszrelativeurl.param().abi(), lpszbuffer, lpdwbufferlength as _, dwflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -823,12 +823,12 @@ where
 #[inline]
 pub unsafe fn InternetEnumPerSiteCookieDecisionA(pszsitename: windows_core::PSTR, pcsitenamesize: *mut u32, pdwdecision: *mut u32, dwindex: u32) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetEnumPerSiteCookieDecisionA(pszsitename : windows_core::PSTR, pcsitenamesize : *mut u32, pdwdecision : *mut u32, dwindex : u32) -> windows_core::BOOL);
-    unsafe { InternetEnumPerSiteCookieDecisionA(core::mem::transmute(pszsitename), pcsitenamesize as _, pdwdecision as _, dwindex) }
+    unsafe { InternetEnumPerSiteCookieDecisionA(pszsitename, pcsitenamesize as _, pdwdecision as _, dwindex) }
 }
 #[inline]
 pub unsafe fn InternetEnumPerSiteCookieDecisionW(pszsitename: windows_core::PWSTR, pcsitenamesize: *mut u32, pdwdecision: *mut u32, dwindex: u32) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetEnumPerSiteCookieDecisionW(pszsitename : windows_core::PWSTR, pcsitenamesize : *mut u32, pdwdecision : *mut u32, dwindex : u32) -> windows_core::BOOL);
-    unsafe { InternetEnumPerSiteCookieDecisionW(core::mem::transmute(pszsitename), pcsitenamesize as _, pdwdecision as _, dwindex) }
+    unsafe { InternetEnumPerSiteCookieDecisionW(pszsitename, pcsitenamesize as _, pdwdecision as _, dwindex) }
 }
 #[cfg(all(feature = "windef", feature = "winhttp"))]
 #[inline]
@@ -862,17 +862,17 @@ pub unsafe fn InternetGetConnectedState(lpdwflags: *mut u32, dwreserved: Option<
 #[inline]
 pub unsafe fn InternetGetConnectedStateEx(lpdwflags: *mut u32, lpszconnectionname: Option<&mut [u8]>, dwreserved: u32) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetGetConnectedStateEx(lpdwflags : *mut u32, lpszconnectionname : windows_core::PSTR, dwnamelen : u32, dwreserved : u32) -> windows_core::BOOL);
-    unsafe { InternetGetConnectedStateEx(lpdwflags as _, core::mem::transmute(lpszconnectionname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszconnectionname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwreserved) }
+    unsafe { InternetGetConnectedStateEx(lpdwflags as _, core::mem::transmute(lpszconnectionname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszconnectionname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwreserved) }
 }
 #[inline]
 pub unsafe fn InternetGetConnectedStateExA(lpdwflags: Option<*mut u32>, lpszconnectionname: Option<&mut [u8]>, dwreserved: Option<u32>) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetGetConnectedStateExA(lpdwflags : *mut u32, lpszconnectionname : windows_core::PSTR, cchnamelen : u32, dwreserved : u32) -> windows_core::BOOL);
-    unsafe { InternetGetConnectedStateExA(lpdwflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpszconnectionname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszconnectionname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { InternetGetConnectedStateExA(lpdwflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpszconnectionname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszconnectionname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn InternetGetConnectedStateExW(lpdwflags: Option<*mut u32>, lpszconnectionname: Option<&mut [u16]>, dwreserved: Option<u32>) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetGetConnectedStateExW(lpdwflags : *mut u32, lpszconnectionname : windows_core::PWSTR, cchnamelen : u32, dwreserved : u32) -> windows_core::BOOL);
-    unsafe { InternetGetConnectedStateExW(lpdwflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpszconnectionname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszconnectionname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { InternetGetConnectedStateExW(lpdwflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpszconnectionname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszconnectionname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn InternetGetCookieA<P0, P1>(lpszurl: P0, lpszcookiename: P1, lpszcookiedata: Option<windows_core::PSTR>, lpdwsize: *mut u32) -> windows_core::BOOL
@@ -1209,19 +1209,19 @@ pub unsafe fn InternetSetStatusCallbackW(hinternet: super::winhttp::HINTERNET, l
 #[inline]
 pub unsafe fn InternetTimeFromSystemTime(pst: *const super::minwinbase::SYSTEMTIME, dwrfc: u32, lpsztime: &mut [u8]) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetTimeFromSystemTime(pst : *const super::minwinbase::SYSTEMTIME, dwrfc : u32, lpsztime : windows_core::PSTR, cbtime : u32) -> windows_core::BOOL);
-    unsafe { InternetTimeFromSystemTime(pst, dwrfc, core::mem::transmute(lpsztime.as_ptr()), lpsztime.len().try_into().unwrap()) }
+    unsafe { InternetTimeFromSystemTime(pst, dwrfc, core::mem::transmute(lpsztime.as_mut_ptr()), lpsztime.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwinbase")]
 #[inline]
 pub unsafe fn InternetTimeFromSystemTimeA(pst: *const super::minwinbase::SYSTEMTIME, dwrfc: u32, lpsztime: &mut [u8]) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetTimeFromSystemTimeA(pst : *const super::minwinbase::SYSTEMTIME, dwrfc : u32, lpsztime : windows_core::PSTR, cbtime : u32) -> windows_core::BOOL);
-    unsafe { InternetTimeFromSystemTimeA(pst, dwrfc, core::mem::transmute(lpsztime.as_ptr()), lpsztime.len().try_into().unwrap()) }
+    unsafe { InternetTimeFromSystemTimeA(pst, dwrfc, core::mem::transmute(lpsztime.as_mut_ptr()), lpsztime.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwinbase")]
 #[inline]
 pub unsafe fn InternetTimeFromSystemTimeW(pst: *const super::minwinbase::SYSTEMTIME, dwrfc: u32, lpsztime: windows_core::PWSTR, cbtime: u32) -> windows_core::BOOL {
     windows_core::link!("wininet.dll" "system" fn InternetTimeFromSystemTimeW(pst : *const super::minwinbase::SYSTEMTIME, dwrfc : u32, lpsztime : windows_core::PWSTR, cbtime : u32) -> windows_core::BOOL);
-    unsafe { InternetTimeFromSystemTimeW(pst, dwrfc, core::mem::transmute(lpsztime), cbtime) }
+    unsafe { InternetTimeFromSystemTimeW(pst, dwrfc, lpsztime, cbtime) }
 }
 #[cfg(feature = "minwinbase")]
 #[inline]
@@ -1426,14 +1426,14 @@ pub const AUTO_PROXY_FLAG_DONT_CACHE_PROXY_RESULT: u32 = 16;
 pub const AUTO_PROXY_FLAG_MIGRATED: u32 = 8;
 pub const AUTO_PROXY_FLAG_USER_SET: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTO_PROXY_SCRIPT_BUFFER {
     pub dwStructSize: u32,
     pub lpszScriptBuffer: windows_core::PSTR,
     pub dwScriptBufferSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AutoProxyHelperFunctions {
     pub lpVtbl: *const AutoProxyHelperVtbl,
 }
@@ -1443,7 +1443,7 @@ impl Default for AutoProxyHelperFunctions {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AutoProxyHelperVtbl {
     pub IsResolvable: *mut u8,
     pub GetIPAddress: *mut u8,
@@ -1492,7 +1492,7 @@ pub const COOKIE_STATE_PROMPT: InternetCookieState = 2;
 pub const COOKIE_STATE_REJECT: InternetCookieState = 5;
 pub const COOKIE_STATE_UNKNOWN: InternetCookieState = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CookieDecision {
     pub dwCookieState: u32,
     pub fAllowSession: windows_core::BOOL,
@@ -1610,21 +1610,21 @@ pub const FTP_TRANSFER_TYPE_MASK: u32 = 3;
 pub const FTP_TRANSFER_TYPE_UNKNOWN: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_ABSTRACT_ATTRIBUTE_TYPE {
     pub ShortAbstract: super::winnt::LPCTSTR,
     pub AbstractFile: super::winnt::LPCTSTR,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_ADMIN_ATTRIBUTE_TYPE {
     pub Comment: super::winnt::LPCTSTR,
     pub EmailAddress: super::winnt::LPCTSTR,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_ASK_ATTRIBUTE_TYPE {
     pub QuestionType: super::winnt::LPCTSTR,
     pub QuestionText: super::winnt::LPCTSTR,
@@ -1703,7 +1703,7 @@ pub const GOPHER_CATEGORY_ID_VIEWS: i32 = -1412641788;
 pub type GOPHER_FIND_DATA = GOPHER_FIND_DATAA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GOPHER_FIND_DATAA {
     pub DisplayString: [i8; 129],
     pub GopherType: u32,
@@ -1720,7 +1720,7 @@ impl Default for GOPHER_FIND_DATAA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GOPHER_FIND_DATAW {
     pub DisplayString: [u16; 129],
     pub GopherType: u32,
@@ -1736,7 +1736,7 @@ impl Default for GOPHER_FIND_DATAW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
     pub DegreesNorth: i32,
     pub MinutesNorth: i32,
@@ -1747,52 +1747,52 @@ pub struct GOPHER_GEOGRAPHICAL_LOCATION_ATTRIBUTE_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_LOCATION_ATTRIBUTE_TYPE {
     pub Location: super::winnt::LPCTSTR,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_MOD_DATE_ATTRIBUTE_TYPE {
     pub DateAndTime: super::minwindef::FILETIME,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_ORGANIZATION_ATTRIBUTE_TYPE {
     pub Organization: super::winnt::LPCTSTR,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_PROVIDER_ATTRIBUTE_TYPE {
     pub Provider: super::winnt::LPCTSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_SCORE_ATTRIBUTE_TYPE {
     pub Score: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_SCORE_RANGE_ATTRIBUTE_TYPE {
     pub LowerBound: i32,
     pub UpperBound: i32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_SITE_ATTRIBUTE_TYPE {
     pub Site: super::winnt::LPCTSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_TIMEZONE_ATTRIBUTE_TYPE {
     pub Zone: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_TTL_ATTRIBUTE_TYPE {
     pub Ttl: u32,
 }
@@ -1823,24 +1823,24 @@ pub const GOPHER_TYPE_UNIX_UUENCODED: u32 = 64;
 pub const GOPHER_TYPE_UNKNOWN: u32 = 536870912;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_UNKNOWN_ATTRIBUTE_TYPE {
     pub Text: super::winnt::LPCTSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_VERONICA_ATTRIBUTE_TYPE {
     pub TreeWalk: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_VERSION_ATTRIBUTE_TYPE {
     pub Version: super::winnt::LPCTSTR,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GOPHER_VIEW_ATTRIBUTE_TYPE {
     pub ContentType: super::winnt::LPCTSTR,
     pub Language: super::winnt::LPCTSTR,
@@ -1993,7 +1993,7 @@ pub const INTERENT_GOONLINE_MASK: u32 = 3;
 pub const INTERENT_GOONLINE_NOPROMPT: u32 = 2;
 pub const INTERENT_GOONLINE_REFRESH: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_ASYNC_RESULT {
     pub dwResult: usize,
     pub dwError: u32,
@@ -2013,7 +2013,7 @@ pub const INTERNET_AUTODIAL_FORCE_UNATTENDED: u32 = 2;
 pub const INTERNET_AUTODIAL_OVERRIDE_NET_PRESENT: u32 = 8;
 pub type INTERNET_BUFFERS = INTERNET_BUFFERSA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERNET_BUFFERSA {
     pub dwStructSize: u32,
     pub Next: *mut Self,
@@ -2032,7 +2032,7 @@ impl Default for INTERNET_BUFFERSA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERNET_BUFFERSW {
     pub dwStructSize: u32,
     pub Next: *mut Self,
@@ -2135,7 +2135,7 @@ impl Default for INTERNET_CACHE_ENTRY_INFOW_0 {
 pub const INTERNET_CACHE_GROUP_ADD: u32 = 0;
 pub type INTERNET_CACHE_GROUP_INFO = INTERNET_CACHE_GROUP_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -2151,7 +2151,7 @@ impl Default for INTERNET_CACHE_GROUP_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTERNET_CACHE_GROUP_INFOW {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -2169,14 +2169,14 @@ impl Default for INTERNET_CACHE_GROUP_INFOW {
 pub const INTERNET_CACHE_GROUP_REMOVE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_CACHE_TIMESTAMPS {
     pub ftExpires: super::minwindef::FILETIME,
     pub ftLastModified: super::minwindef::FILETIME,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_CERTIFICATE_INFO {
     pub ftExpiry: super::minwindef::FILETIME,
     pub ftStart: super::minwindef::FILETIME,
@@ -2188,7 +2188,7 @@ pub struct INTERNET_CERTIFICATE_INFO {
     pub dwKeySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_CONNECTED_INFO {
     pub dwConnectedState: u32,
     pub dwFlags: u32,
@@ -2201,7 +2201,7 @@ pub const INTERNET_CONNECTION_OFFLINE: u32 = 32;
 pub const INTERNET_CONNECTION_PROXY: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_COOKIE2 {
     pub pwszName: windows_core::PWSTR,
     pub pwszValue: windows_core::PWSTR,
@@ -2240,7 +2240,7 @@ pub const INTERNET_DEFAULT_FTP_PORT: u32 = 21;
 pub const INTERNET_DEFAULT_GOPHER_PORT: u32 = 70;
 pub const INTERNET_DEFAULT_SOCKS_PORT: u32 = 1080;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_DIAGNOSTIC_SOCKET_INFO {
     pub Socket: usize,
     pub SourcePort: u32,
@@ -2504,7 +2504,7 @@ impl Default for INTERNET_PER_CONN_OPTIONW_0 {
 pub type INTERNET_PER_CONN_OPTION_LIST = INTERNET_PER_CONN_OPTION_LISTA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTA {
     pub dwSize: u32,
     pub pszConnection: windows_core::PSTR,
@@ -2514,7 +2514,7 @@ pub struct INTERNET_PER_CONN_OPTION_LISTA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_PER_CONN_OPTION_LISTW {
     pub dwSize: u32,
     pub pszConnection: windows_core::PWSTR,
@@ -2527,7 +2527,7 @@ pub const INTERNET_PER_CONN_PROXY_SERVER: u32 = 2;
 pub const INTERNET_PRIORITY_FOREGROUND: u32 = 1000;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_PROXY_INFO {
     pub dwAccessType: u32,
     pub lpszProxy: super::winnt::LPCTSTR,
@@ -2583,7 +2583,7 @@ pub const INTERNET_SUPPRESS_COOKIE_POLICY: u32 = 1;
 pub const INTERNET_SUPPRESS_COOKIE_POLICY_RESET: u32 = 2;
 pub const INTERNET_SUPPRESS_RESET_ALL: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERNET_VERSION_INFO {
     pub dwMajorVersion: u32,
     pub dwMinorVersion: u32,
@@ -2597,7 +2597,7 @@ pub const ISO_GLOBAL: u32 = 1;
 pub const ISO_REGISTRY: u32 = 2;
 pub const ISO_VALID_FLAGS: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IncomingCookieState {
     pub cSession: i32,
     pub cPersistent: i32,
@@ -2613,7 +2613,7 @@ impl Default for IncomingCookieState {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InternetCookieHistory {
     pub fAccepted: windows_core::BOOL,
     pub fLeashed: windows_core::BOOL,
@@ -2706,7 +2706,7 @@ pub const MAX_GOPHER_SELECTOR_TEXT: u32 = 256;
 pub const MIN_GOPHER_ATTRIBUTE_LENGTH: u32 = 256;
 pub const NORMAL_CACHE_ENTRY: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OutgoingCookieState {
     pub cSent: i32,
     pub cSuppressed: i32,
@@ -2766,7 +2766,7 @@ pub const URLCACHE_FIND_DEFAULT_FILTER: u32 = 3145781;
 pub const URLHISTORY_CACHE_ENTRY: u32 = 2097152;
 #[repr(C)]
 #[cfg(feature = "winhttp")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URL_COMPONENTSA {
     pub dwStructSize: u32,
     pub lpszScheme: windows_core::PSTR,

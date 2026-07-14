@@ -326,7 +326,7 @@ pub const HLBWIF_HASWEBTOOLBARINFO: i32 = 16;
 pub const HLBWIF_WEBTOOLBARHIDDEN: i32 = 32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLBWINFO {
     pub cbSize: u32,
     pub grfHLBWIF: u32,
@@ -362,7 +362,7 @@ pub const HLINK_E_FIRST: i32 = -2147221248;
 pub const HLINK_S_DONTHIDE: u32 = 262400;
 pub const HLINK_S_FIRST: u32 = 262400;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLITEM {
     pub uHLID: u32,
     pub pwzFriendlyName: windows_core::PWSTR,
@@ -388,7 +388,7 @@ pub const HLSR_HOME: HLSR = 0;
 pub const HLSR_SEARCHPAGE: HLSR = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HLTBINFO {
     pub uDockType: u32,
     pub rcTbPos: super::windef::RECT,

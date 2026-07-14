@@ -89,7 +89,7 @@ impl IMFDeviceTransform {
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsample: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, coutputbuffercount, core::mem::transmute(poutputsample), pdwstatus as _) }
+        unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, coutputbuffercount, poutputsample, pdwstatus as _) }
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn SetInputStreamState<P1>(&self, dwstreamid: u32, pmediatype: P1, value: DeviceStreamState, dwflags: u32) -> windows_core::HRESULT
@@ -634,7 +634,7 @@ impl IMFTransform {
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, coutputbuffercount, core::mem::transmute(poutputsamples), pdwstatus as _) }
+        unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, coutputbuffercount, poutputsamples, pdwstatus as _) }
     }
 }
 #[repr(C)]
@@ -965,7 +965,7 @@ pub type MF3DVideoOutputType = i32;
 pub const MF3DVideoOutputType_BaseView: MF3DVideoOutputType = 0;
 pub const MF3DVideoOutputType_Stereo: MF3DVideoOutputType = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFAudioDecoderDegradationInfo {
     pub eDegradationReason: MFT_AUDIO_DECODER_DEGRADATION_REASON,
     pub eType: MFT_AUDIO_DECODER_DEGRADATION_TYPE,
@@ -986,7 +986,7 @@ pub const MFT_INPUT_STREAM_DOES_NOT_ADDREF: _MFT_INPUT_STREAM_INFO_FLAGS = 256;
 pub const MFT_INPUT_STREAM_FIXED_SAMPLE_SIZE: _MFT_INPUT_STREAM_INFO_FLAGS = 4;
 pub const MFT_INPUT_STREAM_HOLDS_BUFFERS: _MFT_INPUT_STREAM_INFO_FLAGS = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_INPUT_STREAM_INFO {
     pub hnsMaxLatency: i64,
     pub dwFlags: u32,
@@ -1019,7 +1019,7 @@ pub const MFT_OUTPUT_BOUND_LOWER_UNBOUNDED: u32 = 0;
 pub const MFT_OUTPUT_BOUND_UPPER_UNBOUNDED: i32 = -1;
 #[repr(C)]
 #[cfg(feature = "mfobjects")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct MFT_OUTPUT_DATA_BUFFER {
     pub dwStreamID: u32,
     pub pSample: core::mem::ManuallyDrop<Option<super::mfobjects::IMFSample>>,
@@ -1035,7 +1035,7 @@ pub const MFT_OUTPUT_STREAM_CAN_PROVIDE_SAMPLES: _MFT_OUTPUT_STREAM_INFO_FLAGS =
 pub const MFT_OUTPUT_STREAM_DISCARDABLE: _MFT_OUTPUT_STREAM_INFO_FLAGS = 8;
 pub const MFT_OUTPUT_STREAM_FIXED_SAMPLE_SIZE: _MFT_OUTPUT_STREAM_INFO_FLAGS = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_OUTPUT_STREAM_INFO {
     pub dwFlags: u32,
     pub cbSize: u32,
@@ -1054,7 +1054,7 @@ pub const MFT_SET_TYPE_TEST_ONLY: _MFT_SET_TYPE_FLAGS = 1;
 pub const MFT_STREAMS_UNLIMITED: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "mfobjects")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_STREAM_STATE_PARAM {
     pub StreamId: u32,
     pub State: super::mfobjects::MF_STREAM_STATE,
@@ -1066,7 +1066,7 @@ pub type PMFT_OUTPUT_DATA_BUFFER = *mut MFT_OUTPUT_DATA_BUFFER;
 pub type PMFT_STREAM_STATE_PARAM = *mut MFT_STREAM_STATE_PARAM;
 pub type PSTREAM_MEDIUM = *mut STREAM_MEDIUM;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STREAM_MEDIUM {
     pub gidMedium: windows_core::GUID,
     pub unMediumInstance: u32,

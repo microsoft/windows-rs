@@ -882,7 +882,7 @@ pub const PSCB_INITIALIZED: u32 = 1;
 pub const PSCB_PRECREATE: u32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSHNOTIFY {
     pub hdr: super::winuser::NMHDR,
     pub lParam: super::minwindef::LPARAM,
@@ -1008,5 +1008,5 @@ pub const WIZ_CXBMP: u32 = 80;
 pub const WIZ_CXDLG: u32 = 276;
 pub const WIZ_CYDLG: u32 = 140;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _PSP(pub u8);

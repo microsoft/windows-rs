@@ -342,7 +342,7 @@ impl windows_core::RuntimeType for ProviderI2cSharingMode {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.I2c.Provider.ProviderI2cSharingMode");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ProviderI2cTransferResult {
     pub Status: ProviderI2cTransferStatus,
     pub BytesTransferred: u32,

@@ -28,19 +28,19 @@ pub const MCAST_MFE_STATS: u32 = 19;
 pub const MCAST_MFE_STATS_EX: u32 = 35;
 pub const MCAST_SCOPE: u32 = 27;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_BEST_IF {
     pub dwDestAddr: u32,
     pub dwIfIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_BOUNDARYROW {
     pub dwGroupAddress: u32,
     pub dwGroupMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IFSTATUS {
     pub dwIfIndex: u32,
     pub dwAdminStatus: u32,
@@ -76,7 +76,7 @@ impl Default for MIB_IPDESTTABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPMCAST_BOUNDARY {
     pub dwIfIndex: u32,
     pub dwGroupAddress: u32,
@@ -84,7 +84,7 @@ pub struct MIB_IPMCAST_BOUNDARY {
     pub dwStatus: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_BOUNDARY_TABLE {
     pub dwNumEntries: u32,
     pub table: [MIB_IPMCAST_BOUNDARY; 1],
@@ -95,7 +95,7 @@ impl Default for MIB_IPMCAST_BOUNDARY_TABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IPMCAST_SCOPE {
     pub dwGroupAddress: u32,
     pub dwGroupMask: u32,
@@ -108,7 +108,7 @@ impl Default for MIB_IPMCAST_SCOPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_MCAST_LIMIT_ROW {
     pub dwTtl: u32,
     pub dwRateLimit: u32,
@@ -136,7 +136,7 @@ impl Default for MIB_OPAQUE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_OPAQUE_QUERY {
     pub dwVarId: u32,
     pub rgdwVarIndex: [u32; 1],
@@ -147,14 +147,14 @@ impl Default for MIB_OPAQUE_QUERY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_PROXYARP {
     pub dwAddress: u32,
     pub dwMask: u32,
     pub dwIfIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_ROUTESTATE {
     pub bRoutesSetToStack: windows_core::BOOL,
 }
@@ -192,7 +192,7 @@ pub struct SN_CHAR(pub u16);
 pub const TCP6_STATS: u32 = 38;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCPIP_OWNER_MODULE_BASIC_INFO {
     pub pModuleName: super::winnt::PWCHAR,
     pub pModulePath: super::winnt::PWCHAR,

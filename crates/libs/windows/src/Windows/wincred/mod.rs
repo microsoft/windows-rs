@@ -58,7 +58,7 @@ pub unsafe fn CredFree(buffer: *const core::ffi::c_void) {
 #[inline]
 pub unsafe fn CredGetSessionTypes(maximumpersist: &mut [u32]) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CredGetSessionTypes(maximumpersistcount : u32, maximumpersist : *mut u32) -> windows_core::BOOL);
-    unsafe { CredGetSessionTypes(maximumpersist.len().try_into().unwrap(), core::mem::transmute(maximumpersist.as_ptr())) }
+    unsafe { CredGetSessionTypes(maximumpersist.len().try_into().unwrap(), maximumpersist.as_mut_ptr()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -141,12 +141,12 @@ where
 #[inline]
 pub unsafe fn CredProtectA(fasself: bool, pszcredentials: &[u8], pszprotectedcredentials: windows_core::PSTR, pcchmaxchars: *mut u32, protectiontype: Option<*mut CRED_PROTECTION_TYPE>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CredProtectA(fasself : windows_core::BOOL, pszcredentials : windows_core::PCSTR, cchcredentials : u32, pszprotectedcredentials : windows_core::PSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL);
-    unsafe { CredProtectA(fasself.into(), core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len().try_into().unwrap(), core::mem::transmute(pszprotectedcredentials), pcchmaxchars as _, protectiontype.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CredProtectA(fasself.into(), core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len().try_into().unwrap(), pszprotectedcredentials, pcchmaxchars as _, protectiontype.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CredProtectW(fasself: bool, pszcredentials: &[u16], pszprotectedcredentials: windows_core::PWSTR, pcchmaxchars: *mut u32, protectiontype: Option<*mut CRED_PROTECTION_TYPE>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CredProtectW(fasself : windows_core::BOOL, pszcredentials : windows_core::PCWSTR, cchcredentials : u32, pszprotectedcredentials : windows_core::PWSTR, pcchmaxchars : *mut u32, protectiontype : *mut CRED_PROTECTION_TYPE) -> windows_core::BOOL);
-    unsafe { CredProtectW(fasself.into(), core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len().try_into().unwrap(), core::mem::transmute(pszprotectedcredentials), pcchmaxchars as _, protectiontype.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CredProtectW(fasself.into(), core::mem::transmute(pszcredentials.as_ptr()), pszcredentials.len().try_into().unwrap(), pszprotectedcredentials, pcchmaxchars as _, protectiontype.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -203,7 +203,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsA(psztargetname : windows_core::PCSTR, pcontext : super::sspi::PCtxtHandle, dwautherror : u32, username : windows_core::PSTR, uluserbuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, pfsave : *mut windows_core::BOOL, dwflags : u32) -> u32);
-    unsafe { CredUICmdLinePromptForCredentialsA(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUICmdLinePromptForCredentialsA(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_mut_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(feature = "sspi")]
 #[inline]
@@ -212,7 +212,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsW(psztargetname : windows_core::PCWSTR, pcontext : super::sspi::PCtxtHandle, dwautherror : u32, username : windows_core::PWSTR, uluserbuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, pfsave : *mut windows_core::BOOL, dwflags : u32) -> u32);
-    unsafe { CredUICmdLinePromptForCredentialsW(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUICmdLinePromptForCredentialsW(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_mut_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[inline]
 pub unsafe fn CredUIConfirmCredentialsA<P0>(psztargetname: P0, bconfirm: bool) -> u32
@@ -236,7 +236,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIParseUserNameA(username : windows_core::PCSTR, user : *mut i8, userbuffersize : u32, domain : *mut i8, domainbuffersize : u32) -> u32);
-    unsafe { CredUIParseUserNameA(username.param().abi(), core::mem::transmute(user.as_ptr()), user.len().try_into().unwrap(), core::mem::transmute(domain.as_ptr()), domain.len().try_into().unwrap()) }
+    unsafe { CredUIParseUserNameA(username.param().abi(), user.as_mut_ptr(), user.len().try_into().unwrap(), domain.as_mut_ptr(), domain.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn CredUIParseUserNameW<P0>(username: P0, user: &mut [u16], domain: &mut [u16]) -> u32
@@ -244,7 +244,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIParseUserNameW(username : windows_core::PCWSTR, user : *mut u16, userbuffersize : u32, domain : *mut u16, domainbuffersize : u32) -> u32);
-    unsafe { CredUIParseUserNameW(username.param().abi(), core::mem::transmute(user.as_ptr()), user.len().try_into().unwrap(), core::mem::transmute(domain.as_ptr()), domain.len().try_into().unwrap()) }
+    unsafe { CredUIParseUserNameW(username.param().abi(), user.as_mut_ptr(), user.len().try_into().unwrap(), domain.as_mut_ptr(), domain.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "sspi", feature = "windef"))]
 #[inline]
@@ -253,7 +253,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : windows_core::PCSTR, pcontext : super::sspi::PCtxtHandle, dwautherror : u32, pszusername : windows_core::PSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : u32) -> u32);
-    unsafe { CredUIPromptForCredentialsA(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUIPromptForCredentialsA(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_mut_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(all(feature = "sspi", feature = "windef"))]
 #[inline]
@@ -262,7 +262,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : super::sspi::PCtxtHandle, dwautherror : u32, pszusername : windows_core::PWSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : u32) -> u32);
-    unsafe { CredUIPromptForCredentialsW(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUIPromptForCredentialsW(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_mut_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -357,7 +357,7 @@ pub unsafe fn CredWriteW(credential: *const CREDENTIALW, flags: u32) -> windows_
 pub const BACK_BUTTON_IDENTIFY_AUTH_PACKAGE: u32 = 3402629121;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BINARY_BLOB_CREDENTIAL_INFO {
     pub cbBlob: u32,
     pub pbBlob: super::minwindef::LPBYTE,
@@ -365,7 +365,7 @@ pub struct BINARY_BLOB_CREDENTIAL_INFO {
 pub const BinaryBlobCredential: CRED_MARSHAL_TYPE = 3;
 pub const BinaryBlobForSystem: CRED_MARSHAL_TYPE = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CERT_CREDENTIAL_INFO {
     pub cbSize: u32,
     pub rgbHashOfCert: [u8; 20],
@@ -380,7 +380,7 @@ pub const CERT_HASH_LENGTH: u32 = 20;
 pub type CREDENTIAL = CREDENTIALA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIALA {
     pub Flags: u32,
     pub Type: u32,
@@ -397,7 +397,7 @@ pub struct CREDENTIALA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIALW {
     pub Flags: u32,
     pub Type: u32,
@@ -416,7 +416,7 @@ pub struct CREDENTIALW {
 pub type CREDENTIAL_ATTRIBUTE = CREDENTIAL_ATTRIBUTEA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIAL_ATTRIBUTEA {
     pub Keyword: windows_core::PSTR,
     pub Flags: u32,
@@ -425,7 +425,7 @@ pub struct CREDENTIAL_ATTRIBUTEA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIAL_ATTRIBUTEW {
     pub Keyword: windows_core::PWSTR,
     pub Flags: u32,
@@ -436,7 +436,7 @@ pub struct CREDENTIAL_ATTRIBUTEW {
 pub type CREDENTIAL_TARGET_INFORMATION = CREDENTIAL_TARGET_INFORMATIONA;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIAL_TARGET_INFORMATIONA {
     pub TargetName: windows_core::PSTR,
     pub NetbiosServerName: windows_core::PSTR,
@@ -451,7 +451,7 @@ pub struct CREDENTIAL_TARGET_INFORMATIONA {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDENTIAL_TARGET_INFORMATIONW {
     pub TargetName: windows_core::PWSTR,
     pub NetbiosServerName: windows_core::PWSTR,
@@ -500,7 +500,7 @@ pub const CREDUI_FOOTER_LINK_AUTHPACKAGE_ID: u32 = 212664322;
 pub type CREDUI_INFO = CREDUI_INFOA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDUI_INFOA {
     pub cbSize: u32,
     pub hwndParent: super::windef::HWND,
@@ -510,7 +510,7 @@ pub struct CREDUI_INFOA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREDUI_INFOW {
     pub cbSize: u32,
     pub hwndParent: super::windef::HWND,
@@ -679,7 +679,7 @@ pub const STATUS_PASSWORD_MUST_CHANGE: super::bcrypt::NTSTATUS = super::bcrypt::
 #[cfg(feature = "bcrypt")]
 pub const STATUS_WRONG_PASSWORD: super::bcrypt::NTSTATUS = super::bcrypt::NTSTATUS(0xC000006A_u32 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USERNAME_TARGET_CREDENTIAL_INFO {
     pub UserName: windows_core::PWSTR,
 }

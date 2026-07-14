@@ -44,7 +44,7 @@ pub unsafe fn GetThreadErrorMode() -> u32 {
 #[inline]
 pub unsafe fn RaiseException(dwexceptioncode: u32, dwexceptionflags: u32, lparguments: Option<&[usize]>) {
     windows_core::link!("kernel32.dll" "system" fn RaiseException(dwexceptioncode : u32, dwexceptionflags : u32, nnumberofarguments : u32, lparguments : *const usize));
-    unsafe { RaiseException(dwexceptioncode, dwexceptionflags, lparguments.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lparguments.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { RaiseException(dwexceptioncode, dwexceptionflags, lparguments.map_or(0, |slice| slice.len().try_into().unwrap()), lparguments.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]

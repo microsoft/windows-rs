@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IEnumWIA_DEV_CAPS, IEnumWIA_DEV_CAPS_Vtbl, 
 windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_CAPS, windows_core::IUnknown);
 impl IEnumWIA_DEV_CAPS {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_DEV_CAP, pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt, pceltfetched as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -602,7 +602,7 @@ impl IWiaDataTransfer {
     where
         P1: windows_core::Param<IWiaDataCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).idtGetData)(windows_core::Interface::as_raw(self), core::mem::transmute(pmedium), piwiadatacallback.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).idtGetData)(windows_core::Interface::as_raw(self), pmedium, piwiadatacallback.param().abi()) }
     }
     pub unsafe fn idtGetBandedData<P1>(&self, pwiadatatransinfo: *const WIA_DATA_TRANSFER_INFO, piwiadatacallback: P1) -> windows_core::HRESULT
     where
@@ -1200,7 +1200,7 @@ impl IWiaImageFilter {
         P1: windows_core::Param<IWiaItem2>,
         P3: windows_core::Param<super::objidlbase::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FilterPreviewImage)(windows_core::Interface::as_raw(self), lflags, pwiachilditem2.param().abi(), core::mem::transmute(inputimageextents), pinputstream.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).FilterPreviewImage)(windows_core::Interface::as_raw(self), lflags, pwiachilditem2.param().abi(), inputimageextents, pinputstream.param().abi()) }
     }
     pub unsafe fn ApplyProperties<P0>(&self, pwiapropertystorage: P0) -> windows_core::HRESULT
     where
@@ -2220,7 +2220,7 @@ impl IWiaPropertyStorage {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC, rgpropvar: *const super::propidlbase::PROPVARIANT, propidnamefirst: super::wtypes::PROPID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, core::mem::transmute(rgpropvar), propidnamefirst) }
+        unsafe { (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar, propidnamefirst) }
     }
     #[cfg(all(feature = "propidlbase", feature = "wtypes"))]
     pub unsafe fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC) -> windows_core::HRESULT {
@@ -2267,7 +2267,7 @@ impl IWiaPropertyStorage {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPropertyAttributes(&self, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyAttributes)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgflags as _, core::mem::transmute(rgpropvar)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyAttributes)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgflags as _, rgpropvar) }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -2719,7 +2719,7 @@ pub type PWIA_FORMAT_INFO = *mut WIA_FORMAT_INFO;
 #[cfg(feature = "wtypes")]
 pub type PWIA_PROPID_TO_NAME = *mut WIA_PROPID_TO_NAME;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_DATA_CALLBACK_HEADER {
     pub lSize: i32,
     pub guidFormatID: windows_core::GUID,
@@ -2727,7 +2727,7 @@ pub struct WIA_DATA_CALLBACK_HEADER {
     pub lPageCount: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_DATA_TRANSFER_INFO {
     pub ulSize: u32,
     pub ulSection: u32,
@@ -2738,7 +2738,7 @@ pub struct WIA_DATA_TRANSFER_INFO {
     pub ulReserved3: u32,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct WIA_DEV_CAP {
     pub guid: windows_core::GUID,
     pub ulFlags: u32,
@@ -2748,7 +2748,7 @@ pub struct WIA_DEV_CAP {
     pub bstrCommandline: core::mem::ManuallyDrop<windows_core::BSTR>,
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WIA_DITHER_PATTERN_DATA {
     pub lSize: i32,
     pub bstrPatternName: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -2764,7 +2764,7 @@ impl Default for WIA_DITHER_PATTERN_DATA {
 }
 pub type WIA_EVENT_HANDLER = WIA_DEV_CAP;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_EXTENDED_TRANSFER_INFO {
     pub ulSize: u32,
     pub ulMinBufferSize: u32,
@@ -2773,14 +2773,14 @@ pub struct WIA_EXTENDED_TRANSFER_INFO {
     pub ulNumBuffers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_FORMAT_INFO {
     pub guidFormatID: windows_core::GUID,
     pub lTymed: i32,
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_PROPID_TO_NAME {
     pub propid: super::wtypes::PROPID,
     pub pszName: windows_core::PWSTR,
@@ -2789,7 +2789,7 @@ pub const WiaDevMgr: windows_core::GUID = windows_core::GUID::from_u128(0xa1f4e7
 pub const WiaDevMgr2: windows_core::GUID = windows_core::GUID::from_u128(0xb6c292bc_7c88_41ee_8b54_8ec92617e599);
 pub const WiaLog: windows_core::GUID = windows_core::GUID::from_u128(0xa1e75357_881a_419e_83e2_bb16db197c68);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WiaTransferParams {
     pub lMessage: i32,
     pub lPercentComplete: i32,

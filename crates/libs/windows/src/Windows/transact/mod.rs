@@ -1,6 +1,6 @@
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BOID {
     pub rgb: [super::rpc::byte; 16],
 }
@@ -92,7 +92,7 @@ impl ITmNodeName {
         }
     }
     pub unsafe fn GetNodeName(&self, cbnodenamebuffersize: u32, pnodenamebuffer: windows_core::PWSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNodeName)(windows_core::Interface::as_raw(self), cbnodenamebuffersize, core::mem::transmute(pnodenamebuffer)) }
+        unsafe { (windows_core::Interface::vtable(self).GetNodeName)(windows_core::Interface::as_raw(self), cbnodenamebuffersize, pnodenamebuffer) }
     }
 }
 #[repr(C)]
@@ -508,7 +508,7 @@ pub const XACTHEURISTIC_COMMIT: XACTHEURISTIC = 2;
 pub const XACTHEURISTIC_DAMAGE: XACTHEURISTIC = 3;
 pub const XACTHEURISTIC_DANGER: XACTHEURISTIC = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XACTOPT {
     pub ulTimeout: u32,
     pub szDescription: [i8; 40],
@@ -524,7 +524,7 @@ pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = 1;
 pub type XACTSTAT = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACTSTATS {
     pub cOpen: u32,
     pub cCommitting: u32,
@@ -567,7 +567,7 @@ pub const XACTTC_SYNC_PHASEONE: XACTTC = 1;
 pub const XACTTC_SYNC_PHASETWO: XACTTC = 2;
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XACTTRANSINFO {
     pub uow: XACTUOW,
     pub isoLevel: ISOLEVEL,

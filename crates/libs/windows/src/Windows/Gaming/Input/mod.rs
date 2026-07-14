@@ -221,7 +221,7 @@ impl core::ops::Not for ArcadeStickButtons {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ArcadeStickReading {
     pub Timestamp: u64,
     pub Buttons: ArcadeStickButtons,
@@ -2203,7 +2203,7 @@ impl windows_core::RuntimeName for UINavigationController {
 unsafe impl Send for UINavigationController {}
 unsafe impl Sync for UINavigationController {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UINavigationReading {
     pub Timestamp: u64,
     pub RequiredButtons: RequiredUINavigationButtons,

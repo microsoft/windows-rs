@@ -377,6 +377,18 @@ snake-casing, class `Deref` target, the compound `cpp_*` `is_sys()` sites noted 
 These are not duplication-for-no-reason; collapsing them further would obscure genuine
 behavioral intent rather than clarify it.
 
+**Follow-up — `Eq` derive unification (done).** A later pass found one more divergence
+that existed for no good reason: value-type structs derived `Eq` (in addition to the
+always-present `PartialEq`) only in `Minimal` mode. `Eq` is a purely additive marker
+trait, gated on all fields being comparable (`Type::is_eq` — no floats, recursively),
+so there was no reason to withhold it from the default `windows` crate. The
+`is_minimal()` gate was dropped in `types/struct.rs` (WinRT structs) and the same
+`is_eq` check added in `types/cpp_struct.rs` (Win32 structs), so both derive `Eq`
+whenever eligible in every non-`sys` style. This also fixed a latent bug in
+`Type::is_eq`, which lacked a `CppStruct` arm and so fell through to `_ => true` for
+nested Win32 struct fields — wrongly reporting a nested float-containing struct as
+`Eq`-eligible.
+
 **Future work.**
 
 - *Filter syntax simplification (done).* The filter grammar had accumulated

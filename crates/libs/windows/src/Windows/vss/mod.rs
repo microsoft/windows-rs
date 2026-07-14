@@ -237,7 +237,7 @@ pub const VSS_ONLUNSTATECHANGE_NOTIFY_LUN_PRE_RECOVERY: VSS_HARDWARE_OPTIONS = 5
 pub const VSS_ONLUNSTATECHANGE_NOTIFY_READ_WRITE: VSS_HARDWARE_OPTIONS = 256;
 pub type VSS_PROVIDER_CAPABILITIES = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_PROVIDER_PROP {
     pub m_ProviderId: VSS_ID,
     pub m_pwszProviderName: VSS_PWSZ,
@@ -281,7 +281,7 @@ pub const VSS_SC_DISABLE_DEFRAG: VSS_SNAPSHOT_COMPATIBILITY = 1;
 pub type VSS_SNAPSHOT_COMPATIBILITY = i32;
 pub type VSS_SNAPSHOT_CONTEXT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VSS_SNAPSHOT_PROP {
     pub m_SnapshotId: VSS_ID,
     pub m_SnapshotSetId: VSS_ID,

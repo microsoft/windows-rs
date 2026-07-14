@@ -33,7 +33,7 @@ where
     unsafe { NetScheduleJobGetInfo(servername.param().abi(), jobid, pointertobuffer as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AT_ENUM {
     pub JobId: u32,
     pub JobTime: usize,
@@ -43,7 +43,7 @@ pub struct AT_ENUM {
     pub Command: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AT_INFO {
     pub JobTime: usize,
     pub DaysOfMonth: u32,

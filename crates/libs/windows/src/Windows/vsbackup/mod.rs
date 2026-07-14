@@ -20,7 +20,7 @@ pub unsafe fn GetProviderMgmtInterfaceInternal(providerid: super::vss::VSS_ID, i
     windows_core::link!("vssapi.dll" "system" fn GetProviderMgmtInterfaceInternal(providerid : super::vss::VSS_ID, interfaceid : windows_core::GUID, ppitf : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        GetProviderMgmtInterfaceInternal(core::mem::transmute(providerid), core::mem::transmute(interfaceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        GetProviderMgmtInterfaceInternal(providerid, interfaceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -104,7 +104,7 @@ impl IVssBackupComponents {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddComponent)(windows_core::Interface::as_raw(self), core::mem::transmute(instanceid), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).AddComponent)(windows_core::Interface::as_raw(self), instanceid, writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi()) }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn PrepareForBackup(&self) -> windows_core::Result<super::vss::IVssAsync> {
@@ -142,7 +142,7 @@ impl IVssBackupComponents {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBackupSucceeded)(windows_core::Interface::as_raw(self), core::mem::transmute(instanceid), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), bsucceded) }
+        unsafe { (windows_core::Interface::vtable(self).SetBackupSucceeded)(windows_core::Interface::as_raw(self), instanceid, writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), bsucceded) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn SetBackupOptions<P2, P3, P4>(&self, writerid: super::vss::VSS_ID, ct: super::vswriter::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, wszbackupoptions: P4) -> windows_core::HRESULT
@@ -151,7 +151,7 @@ impl IVssBackupComponents {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetBackupOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszbackupoptions.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBackupOptions)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszbackupoptions.param().abi()) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn SetSelectedForRestore<P2, P3>(&self, writerid: super::vss::VSS_ID, ct: super::vswriter::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, bselectedforrestore: bool) -> windows_core::HRESULT
@@ -159,7 +159,7 @@ impl IVssBackupComponents {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSelectedForRestore)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), bselectedforrestore) }
+        unsafe { (windows_core::Interface::vtable(self).SetSelectedForRestore)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), bselectedforrestore) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn SetRestoreOptions<P2, P3, P4>(&self, writerid: super::vss::VSS_ID, ct: super::vswriter::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, wszrestoreoptions: P4) -> windows_core::HRESULT
@@ -168,7 +168,7 @@ impl IVssBackupComponents {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRestoreOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszrestoreoptions.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetRestoreOptions)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszrestoreoptions.param().abi()) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn SetAdditionalRestores<P2, P3>(&self, writerid: super::vss::VSS_ID, ct: super::vswriter::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, badditionalrestores: bool) -> windows_core::HRESULT
@@ -176,7 +176,7 @@ impl IVssBackupComponents {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAdditionalRestores)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), badditionalrestores) }
+        unsafe { (windows_core::Interface::vtable(self).SetAdditionalRestores)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), badditionalrestores) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn SetPreviousBackupStamp<P2, P3, P4>(&self, writerid: super::vss::VSS_ID, ct: super::vswriter::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, wszpreviousbackupstamp: P4) -> windows_core::HRESULT
@@ -185,7 +185,7 @@ impl IVssBackupComponents {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetPreviousBackupStamp)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszpreviousbackupstamp.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetPreviousBackupStamp)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszpreviousbackupstamp.param().abi()) }
     }
     pub unsafe fn SaveAsXML(&self, pbstrxml: *const windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SaveAsXML)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrxml)) }
@@ -206,7 +206,7 @@ impl IVssBackupComponents {
         P5: windows_core::Param<windows_core::PCWSTR>,
         P7: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddAlternativeLocationMapping)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), componenttype, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszpath.param().abi(), wszfilespec.param().abi(), brecursive, wszdestination.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).AddAlternativeLocationMapping)(windows_core::Interface::as_raw(self), writerid, componenttype, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszpath.param().abi(), wszfilespec.param().abi(), brecursive, wszdestination.param().abi()) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn AddRestoreSubcomponent<P2, P3, P4, P5>(&self, writerid: super::vss::VSS_ID, componenttype: super::vswriter::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, wszsubcomponentlogicalpath: P4, wszsubcomponentname: P5, brepair: bool) -> windows_core::HRESULT
@@ -216,7 +216,7 @@ impl IVssBackupComponents {
         P4: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddRestoreSubcomponent)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), componenttype, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszsubcomponentlogicalpath.param().abi(), wszsubcomponentname.param().abi(), brepair) }
+        unsafe { (windows_core::Interface::vtable(self).AddRestoreSubcomponent)(windows_core::Interface::as_raw(self), writerid, componenttype, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszsubcomponentlogicalpath.param().abi(), wszsubcomponentname.param().abi(), brepair) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn SetFileRestoreStatus<P2, P3>(&self, writerid: super::vss::VSS_ID, ct: super::vswriter::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, status: super::vswriter::VSS_FILE_RESTORE_STATUS) -> windows_core::HRESULT
@@ -224,7 +224,7 @@ impl IVssBackupComponents {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetFileRestoreStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), status) }
+        unsafe { (windows_core::Interface::vtable(self).SetFileRestoreStatus)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), status) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn AddNewTarget<P2, P3, P4, P5, P7>(&self, writerid: super::vss::VSS_ID, ct: super::vswriter::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, wszpath: P4, wszfilename: P5, brecursive: bool, wszalternatepath: P7) -> windows_core::HRESULT
@@ -235,7 +235,7 @@ impl IVssBackupComponents {
         P5: windows_core::Param<windows_core::PCWSTR>,
         P7: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddNewTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszpath.param().abi(), wszfilename.param().abi(), brecursive, wszalternatepath.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).AddNewTarget)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszpath.param().abi(), wszfilename.param().abi(), brecursive, wszalternatepath.param().abi()) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn SetRangesFilePath<P2, P3, P5>(&self, writerid: super::vss::VSS_ID, ct: super::vswriter::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, ipartialfile: u32, wszrangesfile: P5) -> windows_core::HRESULT
@@ -244,7 +244,7 @@ impl IVssBackupComponents {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRangesFilePath)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), ipartialfile, wszrangesfile.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetRangesFilePath)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), ipartialfile, wszrangesfile.param().abi()) }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn PreRestore(&self) -> windows_core::Result<super::vss::IVssAsync> {
@@ -277,7 +277,7 @@ impl IVssBackupComponents {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddToSnapshotSet)(windows_core::Interface::as_raw(self), pwszvolumename.param().abi(), core::mem::transmute(providerid), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AddToSnapshotSet)(windows_core::Interface::as_raw(self), pwszvolumename.param().abi(), providerid, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "vss")]
@@ -289,7 +289,7 @@ impl IVssBackupComponents {
     }
     #[cfg(feature = "vss")]
     pub unsafe fn DeleteSnapshots(&self, sourceobjectid: super::vss::VSS_ID, esourceobjecttype: super::vss::VSS_OBJECT_TYPE, bforcedelete: bool, pldeletedsnapshots: *const i32, pnondeletedsnapshotid: *const super::vss::VSS_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DeleteSnapshots)(windows_core::Interface::as_raw(self), core::mem::transmute(sourceobjectid), esourceobjecttype, bforcedelete.into(), pldeletedsnapshots, pnondeletedsnapshotid) }
+        unsafe { (windows_core::Interface::vtable(self).DeleteSnapshots)(windows_core::Interface::as_raw(self), sourceobjectid, esourceobjecttype, bforcedelete.into(), pldeletedsnapshots, pnondeletedsnapshotid) }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn ImportSnapshots(&self) -> windows_core::Result<super::vss::IVssAsync> {
@@ -300,22 +300,22 @@ impl IVssBackupComponents {
     }
     #[cfg(feature = "vss")]
     pub unsafe fn BreakSnapshotSet(&self, snapshotsetid: super::vss::VSS_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BreakSnapshotSet)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotsetid)) }
+        unsafe { (windows_core::Interface::vtable(self).BreakSnapshotSet)(windows_core::Interface::as_raw(self), snapshotsetid) }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn GetSnapshotProperties(&self, snapshotid: super::vss::VSS_ID, pprop: *mut super::vss::VSS_SNAPSHOT_PROP) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSnapshotProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotid), pprop as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSnapshotProperties)(windows_core::Interface::as_raw(self), snapshotid, pprop as _) }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn Query(&self, queriedobjectid: super::vss::VSS_ID, equeriedobjecttype: super::vss::VSS_OBJECT_TYPE, ereturnedobjectstype: super::vss::VSS_OBJECT_TYPE, ppenum: *const Option<super::vss::IVssEnumObject>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), core::mem::transmute(queriedobjectid), equeriedobjecttype, ereturnedobjectstype, core::mem::transmute(ppenum)) }
+        unsafe { (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), queriedobjectid, equeriedobjecttype, ereturnedobjectstype, core::mem::transmute(ppenum)) }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn IsVolumeSupported<P1>(&self, providerid: super::vss::VSS_ID, pwszvolumename: P1, pbsupportedbythisprovider: *const windows_core::BOOL) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).IsVolumeSupported)(windows_core::Interface::as_raw(self), core::mem::transmute(providerid), pwszvolumename.param().abi(), pbsupportedbythisprovider) }
+        unsafe { (windows_core::Interface::vtable(self).IsVolumeSupported)(windows_core::Interface::as_raw(self), providerid, pwszvolumename.param().abi(), pbsupportedbythisprovider) }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn DisableWriterClasses(&self, rgwriterclassid: *const super::vss::VSS_ID, cclassid: u32) -> windows_core::HRESULT {
@@ -337,12 +337,12 @@ impl IVssBackupComponents {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ExposeSnapshot)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotid), wszpathfromroot.param().abi(), lattributes, wszexpose.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).ExposeSnapshot)(windows_core::Interface::as_raw(self), snapshotid, wszpathfromroot.param().abi(), lattributes, wszexpose.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn RevertToSnapshot(&self, snapshotid: super::vss::VSS_ID, bforcedismount: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RevertToSnapshot)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotid), bforcedismount.into()) }
+        unsafe { (windows_core::Interface::vtable(self).RevertToSnapshot)(windows_core::Interface::as_raw(self), snapshotid, bforcedismount.into()) }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn QueryRevertStatus<P0>(&self, pwszvolume: P0) -> windows_core::Result<super::vss::IVssAsync>
@@ -1037,7 +1037,7 @@ impl IVssBackupComponentsEx {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetSelectedForRestoreEx)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), bselectedforrestore, core::mem::transmute(instanceid)) }
+        unsafe { (windows_core::Interface::vtable(self).SetSelectedForRestoreEx)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), bselectedforrestore, instanceid) }
     }
 }
 #[repr(C)]
@@ -1096,7 +1096,7 @@ windows_core::imp::interface_hierarchy!(IVssBackupComponentsEx2, windows_core::I
 impl IVssBackupComponentsEx2 {
     #[cfg(feature = "vss")]
     pub unsafe fn UnexposeSnapshot(&self, snapshotid: super::vss::VSS_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnexposeSnapshot)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotid)) }
+        unsafe { (windows_core::Interface::vtable(self).UnexposeSnapshot)(windows_core::Interface::as_raw(self), snapshotid) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn SetAuthoritativeRestore<P2, P3>(&self, writerid: super::vss::VSS_ID, ct: super::vswriter::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, bauth: bool) -> windows_core::HRESULT
@@ -1104,7 +1104,7 @@ impl IVssBackupComponentsEx2 {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetAuthoritativeRestore)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), bauth) }
+        unsafe { (windows_core::Interface::vtable(self).SetAuthoritativeRestore)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), bauth) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn SetRollForward<P2, P3, P5>(&self, writerid: super::vss::VSS_ID, ct: super::vswriter::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, rolltype: super::vss::VSS_ROLLFORWARD_TYPE, wszrollforwardpoint: P5) -> windows_core::HRESULT
@@ -1113,7 +1113,7 @@ impl IVssBackupComponentsEx2 {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P5: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRollForward)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), rolltype, wszrollforwardpoint.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetRollForward)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), rolltype, wszrollforwardpoint.param().abi()) }
     }
     #[cfg(all(feature = "vss", feature = "vswriter"))]
     pub unsafe fn SetRestoreName<P2, P3, P4>(&self, writerid: super::vss::VSS_ID, ct: super::vswriter::VSS_COMPONENT_TYPE, wszlogicalpath: P2, wszcomponentname: P3, wszrestorename: P4) -> windows_core::HRESULT
@@ -1122,27 +1122,27 @@ impl IVssBackupComponentsEx2 {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRestoreName)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszrestorename.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetRestoreName)(windows_core::Interface::as_raw(self), writerid, ct, wszlogicalpath.param().abi(), wszcomponentname.param().abi(), wszrestorename.param().abi()) }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn BreakSnapshotSetEx(&self, snapshotsetid: super::vss::VSS_ID, dwbreakflags: u32) -> windows_core::Result<super::vss::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BreakSnapshotSetEx)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotsetid), dwbreakflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BreakSnapshotSetEx)(windows_core::Interface::as_raw(self), snapshotsetid, dwbreakflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn PreFastRecovery(&self, snapshotsetid: super::vss::VSS_ID, dwprefastrecoveryflags: u32) -> windows_core::Result<super::vss::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PreFastRecovery)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotsetid), dwprefastrecoveryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).PreFastRecovery)(windows_core::Interface::as_raw(self), snapshotsetid, dwprefastrecoveryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn FastRecovery(&self, snapshotsetid: super::vss::VSS_ID, dwfastrecoveryflags: u32) -> windows_core::Result<super::vss::IVssAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FastRecovery)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotsetid), dwfastrecoveryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FastRecovery)(windows_core::Interface::as_raw(self), snapshotsetid, dwfastrecoveryflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1284,7 +1284,7 @@ impl IVssBackupComponentsEx3 {
     }
     #[cfg(feature = "vss")]
     pub unsafe fn AddSnapshotToRecoverySet(&self, snapshotid: super::vss::VSS_ID, dwflags: u32, pwszdestinationvolume: Option<*const u16>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddSnapshotToRecoverySet)(windows_core::Interface::as_raw(self), core::mem::transmute(snapshotid), dwflags, pwszdestinationvolume.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).AddSnapshotToRecoverySet)(windows_core::Interface::as_raw(self), snapshotid, dwflags, pwszdestinationvolume.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "vss")]
     pub unsafe fn RecoverSet(&self, dwflags: u32) -> windows_core::Result<super::vss::IVssAsync> {
@@ -1806,7 +1806,7 @@ impl IVssWMComponent {
     }
     #[cfg(feature = "vswriter")]
     pub unsafe fn FreeComponentInfo(&self, pinfo: *const VSS_COMPONENTINFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FreeComponentInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pinfo)) }
+        unsafe { (windows_core::Interface::vtable(self).FreeComponentInfo)(windows_core::Interface::as_raw(self), pinfo) }
     }
     #[cfg(feature = "vswriter")]
     pub unsafe fn GetFile(&self, ifile: u32) -> windows_core::Result<super::vswriter::IVssWMFiledesc> {
@@ -2003,7 +2003,7 @@ impl IVssWriterComponentsExt {
 pub type PVSSCOMPONENTINFO = *const VSS_COMPONENTINFO;
 #[repr(C)]
 #[cfg(feature = "vswriter")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VSS_COMPONENTINFO {
     pub r#type: super::vswriter::VSS_COMPONENT_TYPE,
     pub bstrLogicalPath: core::mem::ManuallyDrop<windows_core::BSTR>,

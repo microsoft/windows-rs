@@ -104,13 +104,13 @@ pub unsafe fn WintrustSetRegPolicyFlags(dwpolicyflags: u32) -> windows_core::BOO
     unsafe { WintrustSetRegPolicyFlags(dwpolicyflags) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAT_MEMBERINFO {
     pub pwszSubjGuid: windows_core::PWSTR,
     pub dwCertVersion: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAT_MEMBERINFO2 {
     pub SubjectGuid: windows_core::GUID,
     pub dwCertVersion: u32,
@@ -121,7 +121,7 @@ pub const CAT_MEMBERINFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.
 pub const CAT_MEMBERINFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2222 as _);
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CAT_NAMEVALUE {
     pub pwszTag: windows_core::PWSTR,
     pub fdwFlags: u32,
@@ -149,7 +149,7 @@ pub const CPD_UISTATE_MODE_PROMPT: u32 = 0;
 pub const CPD_USE_NT5_CHAIN_FLAG: u32 = 2147483648;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_CERT {
     pub cbStruct: u32,
     pub pCert: super::wincrypt::PCCERT_CONTEXT,
@@ -230,7 +230,7 @@ impl Default for CRYPT_PROVIDER_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_DEFUSAGE {
     pub cbStruct: u32,
     pub gActionID: windows_core::GUID,
@@ -270,7 +270,7 @@ impl Default for CRYPT_PROVIDER_FUNCTIONS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_PRIVDATA {
     pub cbStruct: u32,
     pub gProviderID: windows_core::GUID,
@@ -283,7 +283,7 @@ impl Default for CRYPT_PROVIDER_PRIVDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_REGDEFUSAGE {
     pub cbStruct: u32,
     pub pgActionID: *mut windows_core::GUID,
@@ -298,7 +298,7 @@ impl Default for CRYPT_PROVIDER_REGDEFUSAGE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_SGNR {
     pub cbStruct: u32,
     pub sftVerifyAsOf: super::minwindef::FILETIME,
@@ -319,7 +319,7 @@ impl Default for CRYPT_PROVIDER_SGNR {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVIDER_SIGSTATE {
     pub cbStruct: u32,
     pub rhSecondarySigs: *mut super::wincrypt::HCRYPTMSG,
@@ -341,7 +341,7 @@ impl Default for CRYPT_PROVIDER_SIGSTATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_PROVUI_DATA {
     pub cbStruct: u32,
     pub dwFinalError: u32,
@@ -376,7 +376,7 @@ impl Default for CRYPT_PROVUI_FUNCS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPT_REGISTER_ACTIONID {
     pub cbStruct: u32,
     pub sInitProvider: CRYPT_TRUST_REG_ENTRY,
@@ -389,7 +389,7 @@ pub struct CRYPT_REGISTER_ACTIONID {
     pub sCleanupProvider: CRYPT_TRUST_REG_ENTRY,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPT_TRUST_REG_ENTRY {
     pub cbStruct: u32,
     pub pwszDLLName: *mut u16,
@@ -405,7 +405,7 @@ pub const DWACTION_FREE: u32 = 2;
 #[cfg(feature = "winnt")]
 pub type HCATADMIN = super::winnt::HANDLE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTENT_TO_SEAL_ATTRIBUTE {
     pub version: u32,
     pub seal: bool,
@@ -478,7 +478,7 @@ pub type PINTENT_TO_SEAL_ATTRIBUTE = *mut INTENT_TO_SEAL_ATTRIBUTE;
 pub type PPROVDATA_SIP = *mut PROVDATA_SIP;
 #[repr(C)]
 #[cfg(all(feature = "mscat", feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROVDATA_SIP {
     pub cbStruct: u32,
     pub gSubject: windows_core::GUID,
@@ -535,7 +535,7 @@ pub type PWINTRUST_SGNR_INFO = *mut WINTRUST_SGNR_INFO;
 pub type PWINTRUST_SIGNATURE_SETTINGS = *mut WINTRUST_SIGNATURE_SETTINGS;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEALING_SIGNATURE_ATTRIBUTE {
     pub version: u32,
     pub signerIndex: u32,
@@ -545,7 +545,7 @@ pub struct SEALING_SIGNATURE_ATTRIBUTE {
 pub const SEALING_SIGNATURE_ATTRIBUTE_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2011 as _);
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEALING_TIMESTAMP_ATTRIBUTE {
     pub version: u32,
     pub signerIndex: u32,
@@ -560,7 +560,7 @@ pub const SPC_COMMERCIAL_SP_KEY_PURPOSE_OBJID: windows_core::PCSTR = windows_cor
 pub const SPC_ENCRYPTED_DIGEST_RETRY_COUNT_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.6.2");
 pub const SPC_FILE_LINK_CHOICE: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPC_FINANCIAL_CRITERIA {
     pub fFinancialInfoAvailable: windows_core::BOOL,
     pub fMeetsCriteria: windows_core::BOOL,
@@ -570,7 +570,7 @@ pub const SPC_FINANCIAL_CRITERIA_STRUCT: windows_core::PCSTR = windows_core::PCS
 pub const SPC_GLUE_RDN_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.25");
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPC_IMAGE {
     pub pImageLink: *mut SPC_LINK,
     pub Bitmap: super::wincrypt::CRYPT_DATA_BLOB,
@@ -586,7 +586,7 @@ impl Default for SPC_IMAGE {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPC_INDIRECT_DATA_CONTENT {
     pub Data: super::wincrypt::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::wincrypt::CRYPT_ALGORITHM_IDENTIFIER,
@@ -632,7 +632,7 @@ pub const SPC_MONIKER_LINK_CHOICE: u32 = 2;
 pub const SPC_NATURAL_AUTH_PLUGIN_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.96.1.1");
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPC_PE_IMAGE_DATA {
     pub Flags: super::wincrypt::CRYPT_BIT_BLOB,
     pub pFile: PSPC_LINK,
@@ -645,7 +645,7 @@ pub const SPC_RAW_FILE_DATA_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6
 pub const SPC_RELAXED_PE_MARKER_CHECK_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.6.1");
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPC_SERIALIZED_OBJECT {
     pub ClassId: SPC_UUID,
     pub SerializedData: super::wincrypt::CRYPT_DATA_BLOB,
@@ -657,7 +657,7 @@ impl Default for SPC_SERIALIZED_OBJECT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SPC_SIGINFO {
     pub dwSipVersion: u32,
     pub gSIPGuid: windows_core::GUID,
@@ -671,7 +671,7 @@ pub const SPC_SIGINFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1
 pub const SPC_SIGINFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2130 as _);
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPC_SP_AGENCY_INFO {
     pub pPolicyInformation: *mut SPC_LINK,
     pub pwszPolicyDisplayText: windows_core::PWSTR,
@@ -688,7 +688,7 @@ pub const SPC_SP_AGENCY_INFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.
 pub const SPC_SP_AGENCY_INFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2000 as _);
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPC_SP_OPUS_INFO {
     pub pwszProgramName: windows_core::PCWSTR,
     pub pMoreInfo: *mut SPC_LINK,
@@ -703,7 +703,7 @@ impl Default for SPC_SP_OPUS_INFO {
 pub const SPC_SP_OPUS_INFO_OBJID: windows_core::PCSTR = windows_core::s!("1.3.6.1.4.1.311.2.1.12");
 pub const SPC_SP_OPUS_INFO_STRUCT: windows_core::PCSTR = windows_core::PCSTR(2007 as _);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SPC_STATEMENT_TYPE {
     pub cKeyPurposeId: u32,
     pub rgpszKeyPurposeId: *mut windows_core::PSTR,
@@ -749,7 +749,7 @@ pub const TRUSTERROR_STEP_VERIFY_MSGHASH: u32 = 18;
 pub const TRUSTERROR_STEP_VERIFY_MSGINDIRECTDATA: u32 = 19;
 pub const TRUSTERROR_STEP_WVTPARAMS: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINTRUST_BLOB_INFO {
     pub cbStruct: u32,
     pub gSubject: windows_core::GUID,
@@ -766,7 +766,7 @@ impl Default for WINTRUST_BLOB_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINTRUST_CATALOG_INFO {
     pub cbStruct: u32,
     pub dwCatalogVersion: u32,
@@ -787,7 +787,7 @@ impl Default for WINTRUST_CATALOG_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINTRUST_CERT_INFO {
     pub cbStruct: u32,
     pub pcwszDisplayName: windows_core::PCWSTR,
@@ -846,7 +846,7 @@ impl Default for WINTRUST_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINTRUST_DETACHED_SIG_BLOBS {
     pub cbContentObject: i64,
     pub pbContentObject: *mut u8,
@@ -862,7 +862,7 @@ pub const WINTRUST_DETACHED_SIG_CHOICE_BLOB: u32 = 2;
 pub const WINTRUST_DETACHED_SIG_CHOICE_HANDLE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINTRUST_DETACHED_SIG_FILE_HANDLES {
     pub hContentFile: super::winnt::HANDLE,
     pub hSignatureFile: super::winnt::HANDLE,
@@ -896,7 +896,7 @@ impl Default for WINTRUST_DETACHED_SIG_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINTRUST_FILE_INFO {
     pub cbStruct: u32,
     pub pcwszFilePath: windows_core::PCWSTR,
@@ -915,7 +915,7 @@ pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_DEFAULT: u32 = 10485760;
 pub const WINTRUST_MAX_HEADER_BYTES_TO_MAP_VALUE_NAME: windows_core::PCWSTR = windows_core::w!("MaxHeaderBytesToMap");
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINTRUST_SGNR_INFO {
     pub cbStruct: u32,
     pub pcwszDisplayName: windows_core::PCWSTR,
@@ -931,7 +931,7 @@ impl Default for WINTRUST_SGNR_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINTRUST_SIGNATURE_SETTINGS {
     pub cbStruct: u32,
     pub dwIndex: u32,
@@ -941,7 +941,7 @@ pub struct WINTRUST_SIGNATURE_SETTINGS {
     pub pCryptoPolicy: super::wincrypt::PCERT_STRONG_SIGN_PARA,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN_CERTIFICATE {
     pub dwLength: u32,
     pub wRevision: u16,
@@ -961,14 +961,14 @@ pub const WIN_CERT_TYPE_TS_STACK_SIGNED: u32 = 4;
 pub const WIN_CERT_TYPE_X509: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN_SPUB_TRUSTED_PUBLISHER_DATA {
     pub hClientToken: super::winnt::HANDLE,
     pub lpCertificate: LPWIN_CERTIFICATE,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
     pub hClientToken: super::winnt::HANDLE,
     pub SubjectType: *mut windows_core::GUID,
@@ -981,7 +981,7 @@ impl Default for WIN_TRUST_ACTDATA_CONTEXT_WITH_SUBJECT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN_TRUST_ACTDATA_SUBJECT_ONLY {
     pub SubjectType: *mut windows_core::GUID,
     pub Subject: WIN_TRUST_SUBJECT,
@@ -1001,14 +1001,14 @@ impl Default for WIN_TRUST_SUBJECT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN_TRUST_SUBJECT_FILE {
     pub hFile: super::winnt::HANDLE,
     pub lpPath: windows_core::PCWSTR,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN_TRUST_SUBJECT_FILE_AND_DISPLAY {
     pub hFile: super::winnt::HANDLE,
     pub lpPath: windows_core::PCWSTR,

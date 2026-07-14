@@ -5,7 +5,7 @@ pub const ATA_FLAGS_DRDY_REQUIRED: u32 = 1;
 pub const ATA_FLAGS_NO_MULTIPLE: u32 = 32;
 pub const ATA_FLAGS_USE_DMA: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATA_PASS_THROUGH_DIRECT {
     pub Length: u16,
     pub AtaFlags: u16,
@@ -27,7 +27,7 @@ impl Default for ATA_PASS_THROUGH_DIRECT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATA_PASS_THROUGH_DIRECT32 {
     pub Length: u16,
     pub AtaFlags: u16,
@@ -49,7 +49,7 @@ impl Default for ATA_PASS_THROUGH_DIRECT32 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATA_PASS_THROUGH_EX {
     pub Length: u16,
     pub AtaFlags: u16,
@@ -71,7 +71,7 @@ impl Default for ATA_PASS_THROUGH_EX {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ATA_PASS_THROUGH_EX32 {
     pub Length: u16,
     pub AtaFlags: u16,
@@ -96,7 +96,7 @@ pub const BOOT_PARTITION_FUNCTION_ACTIVATE: u32 = 2;
 pub const BOOT_PARTITION_FUNCTION_DOWNLOAD: u32 = 1;
 pub const BOOT_PARTITION_FUNCTION_GET_INFO: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BOOT_PARTITION_REQUEST_BLOCK {
     pub Version: u32,
     pub Size: u32,
@@ -118,7 +118,7 @@ pub const BOOT_PARTITION_STATUS_SUCCESS: u32 = 0;
 pub const BOOT_PARTITION_STATUS_WRITE_PROHIBITED: u32 = 9;
 pub const DD_SCSI_DEVICE_NAME: windows_core::PCSTR = windows_core::s!("\\Device\\ScsiPort");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSM_NOTIFICATION_REQUEST_BLOCK {
     pub Size: u32,
     pub Version: u32,
@@ -135,7 +135,7 @@ impl Default for DSM_NOTIFICATION_REQUEST_BLOCK {
 }
 pub type DUMP_DEVICE_POWERON_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void) -> i32>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DUMP_DRIVER {
     pub DumpDriverList: *mut core::ffi::c_void,
     pub DriverName: [u16; 15],
@@ -148,7 +148,7 @@ impl Default for DUMP_DRIVER {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DUMP_DRIVER_EX {
     pub DumpDriverList: *mut core::ffi::c_void,
     pub DriverName: [u16; 15],
@@ -167,7 +167,7 @@ pub const DUMP_EX_FLAG_RESUME_SUPPORT: u32 = 4;
 pub const DUMP_EX_FLAG_SUPPORT_64BITMEMORY: u32 = 1;
 pub const DUMP_EX_FLAG_SUPPORT_DD_TELEMETRY: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DUMP_POINTERS {
     pub AdapterObject: *mut _ADAPTER_OBJECT,
     pub MappedRegisterBase: *mut core::ffi::c_void,
@@ -187,7 +187,7 @@ impl Default for DUMP_POINTERS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DUMP_POINTERS_EX {
     pub Header: DUMP_POINTERS_VERSION,
     pub DumpData: *mut core::ffi::c_void,
@@ -221,7 +221,7 @@ pub const DUMP_POINTERS_EX_V3_SIZE: u32 = 60;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const DUMP_POINTERS_EX_V3_SIZE: u32 = 88;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DUMP_POINTERS_VERSION {
     pub Version: u32,
     pub Size: u32,
@@ -235,7 +235,7 @@ pub const FIRMWARE_FUNCTION_ACTIVATE: u32 = 3;
 pub const FIRMWARE_FUNCTION_DOWNLOAD: u32 = 2;
 pub const FIRMWARE_FUNCTION_GET_INFO: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FIRMWARE_REQUEST_BLOCK {
     pub Version: u32,
     pub Size: u32,
@@ -272,7 +272,7 @@ pub const FIRMWARE_STATUS_POWER_CYCLE_REQUIRED: u32 = 32;
 pub const FIRMWARE_STATUS_SUCCESS: u32 = 0;
 pub const FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR: u32 = 129;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_DEMOTE_BY_SIZE {
     pub Version: u32,
     pub Size: u32,
@@ -283,7 +283,7 @@ pub struct HYBRID_DEMOTE_BY_SIZE {
     pub LbaCount: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_DIRTY_THRESHOLDS {
     pub Version: u32,
     pub Size: u32,
@@ -296,7 +296,7 @@ pub const HYBRID_FUNCTION_ENABLE_CACHING_MEDIUM: u32 = 17;
 pub const HYBRID_FUNCTION_GET_INFO: u32 = 1;
 pub const HYBRID_FUNCTION_SET_DIRTY_THRESHOLD: u32 = 18;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION {
     pub Version: u32,
     pub Size: u32,
@@ -310,12 +310,12 @@ pub struct HYBRID_INFORMATION {
     pub Priorities: HYBRID_INFORMATION_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION_1 {
     pub PriorityLevelCount: u8,
     pub MaxPriorityBehavior: bool,
@@ -332,7 +332,7 @@ impl Default for HYBRID_INFORMATION_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION_1_0 {
     pub _bitfield: u32,
     pub MaxEvictCommands: u32,
@@ -340,7 +340,7 @@ pub struct HYBRID_INFORMATION_1_0 {
     pub MaxLbaRangeCountForChangeLba: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HYBRID_REQUEST_BLOCK {
     pub Version: u32,
     pub Size: u32,
@@ -357,7 +357,7 @@ pub const HYBRID_STATUS_INVALID_PARAMETER: u32 = 2;
 pub const HYBRID_STATUS_OUTPUT_BUFFER_TOO_SMALL: u32 = 3;
 pub const HYBRID_STATUS_SUCCESS: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IDE_IO_CONTROL {
     pub HeaderLength: u32,
     pub Signature: [u8; 8],
@@ -410,7 +410,7 @@ pub const IOCTL_SCSI_PASS_THROUGH_DIRECT_EX: u32 = 315464;
 pub const IOCTL_SCSI_PASS_THROUGH_EX: u32 = 315460;
 pub const IOCTL_SCSI_RESCAN_BUS: u32 = 266268;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SCSI_CAPABILITIES {
     pub Length: u32,
     pub MaximumTransferLength: u32,
@@ -433,7 +433,7 @@ pub const MPIO_IOCTL_FLAG_INVOLVE_DSM: u32 = 4;
 pub const MPIO_IOCTL_FLAG_USE_PATHID: u32 = 1;
 pub const MPIO_IOCTL_FLAG_USE_SCSIADDRESS: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH {
     pub PassThrough: SCSI_PASS_THROUGH,
     pub Version: u32,
@@ -444,7 +444,7 @@ pub struct MPIO_PASS_THROUGH_PATH {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH32 {
     pub PassThrough: SCSI_PASS_THROUGH32,
     pub Version: u32,
@@ -455,7 +455,7 @@ pub struct MPIO_PASS_THROUGH_PATH32 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH32_EX {
     pub PassThroughOffset: u32,
     pub Version: u32,
@@ -465,7 +465,7 @@ pub struct MPIO_PASS_THROUGH_PATH32_EX {
     pub MpioPathId: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT {
     pub PassThrough: SCSI_PASS_THROUGH_DIRECT,
     pub Version: u32,
@@ -476,7 +476,7 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT32 {
     pub PassThrough: SCSI_PASS_THROUGH_DIRECT32,
     pub Version: u32,
@@ -487,7 +487,7 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT32 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     pub PassThroughOffset: u32,
     pub Version: u32,
@@ -497,7 +497,7 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     pub MpioPathId: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     pub PassThroughOffset: u32,
     pub Version: u32,
@@ -507,7 +507,7 @@ pub struct MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     pub MpioPathId: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPIO_PASS_THROUGH_PATH_EX {
     pub PassThroughOffset: u32,
     pub Version: u32,
@@ -517,7 +517,7 @@ pub struct MPIO_PASS_THROUGH_PATH_EX {
     pub MpioPathId: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MP_DEVICE_DATA_SET_RANGE {
     pub StartingOffset: i64,
     pub LengthInBytes: u64,
@@ -555,14 +555,14 @@ pub const NRB_OUTPUT_DATA_UNDERRUN: u32 = 6;
 pub const NRB_SUCCESS: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NTSCSI_UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
     pub Buffer: super::winnt::PWCH,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVCACHE_HINT_PAYLOAD {
     pub Command: u8,
     pub Feature7_0: u8,
@@ -584,7 +584,7 @@ impl Default for NVCACHE_HINT_PAYLOAD {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     pub PriorityLevel: u8,
     pub Reserved0: [u8; 3],
@@ -600,7 +600,7 @@ impl Default for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NVCACHE_REQUEST_BLOCK {
     pub NRBSize: u32,
     pub Function: u16,
@@ -619,7 +619,7 @@ pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = 0;
 pub const NVSEPWriteCacheTypeWriteBack: NV_SEP_WRITE_CACHE_TYPE = 2;
 pub const NVSEPWriteCacheTypeWriteThrough: NV_SEP_WRITE_CACHE_TYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NV_FEATURE_PARAMETER {
     pub NVPowerModeEnabled: u16,
     pub NVParameterReserv1: u16,
@@ -659,7 +659,7 @@ impl Default for NV_SEP_CACHE_PARAMETER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NV_SEP_CACHE_PARAMETER_0_0 {
     pub _bitfield: u8,
 }
@@ -751,7 +751,7 @@ pub type PSTORAGE_FIRMWARE_INFO_V2 = *mut STORAGE_FIRMWARE_INFO_V2;
 pub type PSTORAGE_FIRMWARE_SLOT_INFO = *mut STORAGE_FIRMWARE_SLOT_INFO;
 pub type PSTORAGE_FIRMWARE_SLOT_INFO_V2 = *mut STORAGE_FIRMWARE_SLOT_INFO_V2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_ADAPTER_BUS_INFO {
     pub NumberOfBuses: u8,
     pub BusData: [SCSI_BUS_DATA; 1],
@@ -762,7 +762,7 @@ impl Default for SCSI_ADAPTER_BUS_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCSI_ADDRESS {
     pub Length: u32,
     pub PortNumber: u8,
@@ -771,14 +771,14 @@ pub struct SCSI_ADDRESS {
     pub Lun: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCSI_BUS_DATA {
     pub NumberOfLogicalUnits: u8,
     pub InitiatorBusId: u8,
     pub InquiryDataOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_INQUIRY_DATA {
     pub PathId: u8,
     pub TargetId: u8,
@@ -798,7 +798,7 @@ pub const SCSI_IOCTL_DATA_IN: u32 = 1;
 pub const SCSI_IOCTL_DATA_OUT: u32 = 0;
 pub const SCSI_IOCTL_DATA_UNSPECIFIED: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH {
     pub Length: u16,
     pub ScsiStatus: u8,
@@ -821,7 +821,7 @@ impl Default for SCSI_PASS_THROUGH {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH32 {
     pub Length: u16,
     pub ScsiStatus: u8,
@@ -845,7 +845,7 @@ impl Default for SCSI_PASS_THROUGH32 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH32_EX {
     pub Version: u32,
     pub Length: u32,
@@ -871,7 +871,7 @@ impl Default for SCSI_PASS_THROUGH32_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH_DIRECT {
     pub Length: u16,
     pub ScsiStatus: u8,
@@ -894,7 +894,7 @@ impl Default for SCSI_PASS_THROUGH_DIRECT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH_DIRECT32 {
     pub Length: u16,
     pub ScsiStatus: u8,
@@ -918,7 +918,7 @@ impl Default for SCSI_PASS_THROUGH_DIRECT32 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH_DIRECT32_EX {
     pub Version: u32,
     pub Length: u32,
@@ -944,7 +944,7 @@ impl Default for SCSI_PASS_THROUGH_DIRECT32_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH_DIRECT_EX {
     pub Version: u32,
     pub Length: u32,
@@ -969,7 +969,7 @@ impl Default for SCSI_PASS_THROUGH_DIRECT_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCSI_PASS_THROUGH_EX {
     pub Version: u32,
     pub Length: u32,
@@ -994,7 +994,7 @@ impl Default for SCSI_PASS_THROUGH_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SRB_IO_CONTROL {
     pub HeaderLength: u32,
     pub Signature: [u8; 8],
@@ -1009,7 +1009,7 @@ impl Default for SRB_IO_CONTROL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_BOOT_PARTITION_ACTIVATE {
     pub Version: u32,
     pub Size: u32,
@@ -1023,7 +1023,7 @@ impl Default for STORAGE_BOOT_PARTITION_ACTIVATE {
 }
 pub const STORAGE_BOOT_PARTITION_ACTIVATE_STRUCTURE_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_BOOT_PARTITION_DOWNLOAD {
     pub Version: u32,
     pub Size: u32,
@@ -1040,7 +1040,7 @@ impl Default for STORAGE_BOOT_PARTITION_DOWNLOAD {
 pub const STORAGE_BOOT_PARTITION_DOWNLOAD_STRUCTURE_VERSION: u32 = 1;
 pub const STORAGE_BOOT_PARTITION_GET_INFO_STRUCTURE_VERSION_V1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_BOOT_PARTITION_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -1051,7 +1051,7 @@ pub struct STORAGE_BOOT_PARTITION_INFO {
     pub ABPID: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_DIAGNOSTIC_MP_REQUEST {
     pub Version: u32,
     pub Size: u32,
@@ -1075,14 +1075,14 @@ pub const STORAGE_DIAGNOSTIC_STATUS_MORE_DATA: u32 = 6;
 pub const STORAGE_DIAGNOSTIC_STATUS_SUCCESS: u32 = 0;
 pub const STORAGE_DIAGNOSTIC_STATUS_UNSUPPORTED_VERSION: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ENDURANCE_DATA_DESCRIPTOR {
     pub Version: u32,
     pub Size: u32,
     pub EnduranceInfo: STORAGE_ENDURANCE_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_ENDURANCE_INFO {
     pub ValidFields: u32,
     pub GroupId: u32,
@@ -1097,12 +1097,12 @@ impl Default for STORAGE_ENDURANCE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ENDURANCE_INFO_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FIRMWARE_ACTIVATE {
     pub Version: u32,
     pub Size: u32,
@@ -1116,7 +1116,7 @@ impl Default for STORAGE_FIRMWARE_ACTIVATE {
 }
 pub const STORAGE_FIRMWARE_ACTIVATE_STRUCTURE_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FIRMWARE_DOWNLOAD {
     pub Version: u32,
     pub Size: u32,
@@ -1132,7 +1132,7 @@ impl Default for STORAGE_FIRMWARE_DOWNLOAD {
 pub const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION: u32 = 1;
 pub const STORAGE_FIRMWARE_DOWNLOAD_STRUCTURE_VERSION_V2: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FIRMWARE_DOWNLOAD_V2 {
     pub Version: u32,
     pub Size: u32,
@@ -1169,7 +1169,7 @@ pub const STORAGE_FIRMWARE_INFO_INVALID_SLOT: u32 = 255;
 pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION: u32 = 1;
 pub const STORAGE_FIRMWARE_INFO_STRUCTURE_VERSION_V2: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FIRMWARE_INFO_V2 {
     pub Version: u32,
     pub Size: u32,
@@ -1213,7 +1213,7 @@ impl Default for STORAGE_FIRMWARE_SLOT_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_FIRMWARE_SLOT_INFO_V2 {
     pub SlotNumber: u8,
     pub ReadOnly: bool,
@@ -1229,5 +1229,5 @@ pub const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16;
 pub const ScsiRawInterfaceGuid: windows_core::GUID = windows_core::GUID::from_u128(0x53f56309_b6bf_11d0_94f2_00a0c91efb8b);
 pub const WmiScsiAddressGuid: windows_core::GUID = windows_core::GUID::from_u128(0x53f5630f_b6bf_11d0_94f2_00a0c91efb8b);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ADAPTER_OBJECT(pub u8);

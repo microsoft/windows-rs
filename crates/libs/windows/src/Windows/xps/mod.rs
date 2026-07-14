@@ -10191,7 +10191,7 @@ impl Default for XPS_COLOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_COLOR_0_0 {
     pub alpha: u8,
     pub red: u8,
@@ -10327,7 +10327,7 @@ pub struct XPS_GLYPH_INDEX {
     pub verticalOffset: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_GLYPH_MAPPING {
     pub unicodeStringStart: u32,
     pub unicodeStringLength: u16,
@@ -10349,7 +10349,7 @@ pub type XPS_JOB_COMPLETION = i32;
 pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = 3;
 pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XPS_JOB_STATUS {
     pub jobId: u32,
     pub currentDocument: i32,

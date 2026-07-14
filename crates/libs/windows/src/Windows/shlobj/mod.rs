@@ -34,7 +34,7 @@ where
 #[inline]
 pub unsafe fn PathQualify(psz: windows_core::PWSTR) {
     windows_core::link!("shell32.dll" "system" fn PathQualify(psz : windows_core::PWSTR));
-    unsafe { PathQualify(core::mem::transmute(psz)) }
+    unsafe { PathQualify(psz) }
 }
 #[cfg(feature = "shlobj_core")]
 #[inline]
@@ -79,7 +79,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHOpenPropSheetW(pszcaption : windows_core::PCWSTR, ahkeys : *const super::minwindef::HKEY, ckeys : u32, pclsiddefault : *const windows_core::GUID, pdtobj : *mut core::ffi::c_void, psb : *mut core::ffi::c_void, pstartpage : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { SHOpenPropSheetW(pszcaption.param().abi(), core::mem::transmute(ahkeys.map_or(core::ptr::null(), |slice| slice.as_ptr())), ahkeys.map_or(0, |slice| slice.len().try_into().unwrap()), pclsiddefault.unwrap_or(core::mem::zeroed()) as _, pdtobj.param().abi(), psb.param().abi(), pstartpage.param().abi()) }
+    unsafe { SHOpenPropSheetW(pszcaption.param().abi(), ahkeys.map_or(core::ptr::null(), |slice| slice.as_ptr()), ahkeys.map_or(0, |slice| slice.len().try_into().unwrap()), pclsiddefault.unwrap_or(core::mem::zeroed()) as _, pdtobj.param().abi(), psb.param().abi(), pstartpage.param().abi()) }
 }
 #[cfg(all(feature = "urlmon", feature = "windef"))]
 #[inline]
@@ -91,7 +91,7 @@ where
     unsafe { SoftwareUpdateMessageBox(hwnd.unwrap_or(core::mem::zeroed()) as _, pszdistunit.param().abi(), dwflags, psdi.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AASHELLMENUFILENAME {
     pub cbTotal: i16,
     pub rgbReserved: [u8; 12],
@@ -103,7 +103,7 @@ impl Default for AASHELLMENUFILENAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AASHELLMENUITEM {
     pub lpReserved1: *mut core::ffi::c_void,
     pub iReserved: i32,
@@ -118,7 +118,7 @@ impl Default for AASHELLMENUITEM {
 }
 #[repr(C)]
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct BANDINFOSFB {
     pub dwMask: u32,
     pub dwStateMask: u32,
@@ -252,7 +252,7 @@ impl IActiveDesktopP {
         unsafe { (windows_core::Interface::vtable(self).SetScheme)(windows_core::Interface::as_raw(self), pwszschemename.param().abi(), dwflags) }
     }
     pub unsafe fn GetScheme(&self, pwszschemename: windows_core::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetScheme)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszschemename), pdwcchbuffer as _, dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).GetScheme)(windows_core::Interface::as_raw(self), pwszschemename, pdwcchbuffer as _, dwflags) }
     }
 }
 #[repr(C)]
@@ -574,7 +574,7 @@ windows_core::imp::define_interface!(ICurrentWorkingDirectory, ICurrentWorkingDi
 windows_core::imp::interface_hierarchy!(ICurrentWorkingDirectory, windows_core::IUnknown);
 impl ICurrentWorkingDirectory {
     pub unsafe fn GetDirectory(&self, pwzpath: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute(pwzpath.as_ptr()), pwzpath.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute(pwzpath.as_mut_ptr()), pwzpath.len().try_into().unwrap()) }
     }
     pub unsafe fn SetDirectory<P0>(&self, pwzpath: P0) -> windows_core::HRESULT
     where
@@ -727,7 +727,7 @@ windows_core::imp::interface_hierarchy!(IDocViewSite, windows_core::IUnknown);
 impl IDocViewSite {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnSetTitle(&self, pvtitle: *const super::oaidl::VARIANTARG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnSetTitle)(windows_core::Interface::as_raw(self), core::mem::transmute(pvtitle)) }
+        unsafe { (windows_core::Interface::vtable(self).OnSetTitle)(windows_core::Interface::as_raw(self), pvtitle) }
     }
 }
 #[repr(C)]
@@ -845,7 +845,7 @@ impl IDockingWindowFrame_Vtbl {
 #[cfg(all(feature = "oleidl", feature = "windef"))]
 impl windows_core::RuntimeName for IDockingWindowFrame {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IEnumPrivacyRecords(pub u8);
 windows_core::imp::define_interface!(IInitializeObject, IInitializeObject_Vtbl, 0x4622ad16_ff23_11d0_8d34_00a0c90f2719);
 windows_core::imp::interface_hierarchy!(IInitializeObject, windows_core::IUnknown);
@@ -889,7 +889,7 @@ impl INewShortcutHookA {
         unsafe { (windows_core::Interface::vtable(self).SetReferent)(windows_core::Interface::as_raw(self), pcszreferent.param().abi(), hwnd.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetReferent(&self, pszreferent: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetReferent)(windows_core::Interface::as_raw(self), core::mem::transmute(pszreferent.as_ptr()), pszreferent.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetReferent)(windows_core::Interface::as_raw(self), core::mem::transmute(pszreferent.as_mut_ptr()), pszreferent.len().try_into().unwrap()) }
     }
     pub unsafe fn SetFolder<P0>(&self, pcszfolder: P0) -> windows_core::HRESULT
     where
@@ -898,13 +898,13 @@ impl INewShortcutHookA {
         unsafe { (windows_core::Interface::vtable(self).SetFolder)(windows_core::Interface::as_raw(self), pcszfolder.param().abi()) }
     }
     pub unsafe fn GetFolder(&self, pszfolder: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfolder.as_ptr()), pszfolder.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfolder.as_mut_ptr()), pszfolder.len().try_into().unwrap()) }
     }
     pub unsafe fn GetName(&self, pszname: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
     }
     pub unsafe fn GetExtension(&self, pszextension: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(pszextension.as_ptr()), pszextension.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(pszextension.as_mut_ptr()), pszextension.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -996,7 +996,7 @@ impl INewShortcutHookW {
         unsafe { (windows_core::Interface::vtable(self).SetReferent)(windows_core::Interface::as_raw(self), pcszreferent.param().abi(), hwnd.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetReferent(&self, pszreferent: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetReferent)(windows_core::Interface::as_raw(self), core::mem::transmute(pszreferent.as_ptr()), pszreferent.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetReferent)(windows_core::Interface::as_raw(self), core::mem::transmute(pszreferent.as_mut_ptr()), pszreferent.len().try_into().unwrap()) }
     }
     pub unsafe fn SetFolder<P0>(&self, pcszfolder: P0) -> windows_core::HRESULT
     where
@@ -1005,13 +1005,13 @@ impl INewShortcutHookW {
         unsafe { (windows_core::Interface::vtable(self).SetFolder)(windows_core::Interface::as_raw(self), pcszfolder.param().abi()) }
     }
     pub unsafe fn GetFolder(&self, pszfolder: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfolder.as_ptr()), pszfolder.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfolder.as_mut_ptr()), pszfolder.len().try_into().unwrap()) }
     }
     pub unsafe fn GetName(&self, pszname: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
     }
     pub unsafe fn GetExtension(&self, pszextension: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(pszextension.as_ptr()), pszextension.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(pszextension.as_mut_ptr()), pszextension.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -1121,11 +1121,11 @@ impl IShellFolderBand {
     }
     #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
     pub unsafe fn SetBandInfoSFB(&self, pbi: *const BANDINFOSFB) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBandInfoSFB)(windows_core::Interface::as_raw(self), core::mem::transmute(pbi)) }
+        unsafe { (windows_core::Interface::vtable(self).SetBandInfoSFB)(windows_core::Interface::as_raw(self), pbi) }
     }
     #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
     pub unsafe fn GetBandInfoSFB(&self, pbi: *mut BANDINFOSFB) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBandInfoSFB)(windows_core::Interface::as_raw(self), core::mem::transmute(pbi)) }
+        unsafe { (windows_core::Interface::vtable(self).GetBandInfoSFB)(windows_core::Interface::as_raw(self), pbi) }
     }
 }
 #[repr(C)]
@@ -1283,14 +1283,14 @@ pub const SFVM_SETPOINTS: u32 = 23;
 pub const SFVM_UPDATEOBJECT: u32 = 7;
 #[repr(C)]
 #[cfg(all(feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SFV_SETITEMPOS {
     pub pidl: super::shtypes::LPCITEMIDLIST,
     pub pt: super::windef::POINT,
 }
 pub const SHCDF_UPDATEITEM: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHCOLUMNDATA {
     pub dwFlags: u32,
     pub dwFileAttributes: u32,
@@ -1322,7 +1322,7 @@ impl Default for SHCOLUMNINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHCOLUMNINIT {
     pub dwFlags: u32,
     pub dwReserved: u32,
@@ -1357,7 +1357,7 @@ pub const TBIF_PREPEND: u32 = 1;
 pub const TBIF_REPLACE: u32 = 2;
 pub const TBIF_STANDARDTOOLBAR: u32 = 131072;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TBINFO {
     pub cbuttons: u32,
     pub uFlags: u32,

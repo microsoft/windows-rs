@@ -7,7 +7,7 @@ pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768;
 pub const IOCTL_MOUSE_INSERT_DATA: u32 = 983044;
 pub const IOCTL_MOUSE_QUERY_ATTRIBUTES: u32 = 983040;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOUSE_ATTRIBUTES {
     pub MouseIdentifier: u16,
     pub NumberOfButtons: u16,
@@ -57,7 +57,7 @@ impl Default for MOUSE_INPUT_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOUSE_INPUT_DATA_0_0 {
     pub ButtonFlags: u16,
     pub ButtonData: u16,
@@ -71,7 +71,7 @@ pub const MOUSE_RIGHT_BUTTON_UP: u32 = 8;
 pub const MOUSE_SERIAL_HARDWARE: u32 = 4;
 pub const MOUSE_TERMSRV_SRC_SHADOW: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOUSE_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }

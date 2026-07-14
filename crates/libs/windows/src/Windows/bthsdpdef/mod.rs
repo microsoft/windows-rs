@@ -10,7 +10,7 @@ pub type PSDP_ULARGE_INTEGER_16 = *mut SDP_ULARGE_INTEGER_16;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SDP_ERROR(pub u16);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SDP_LARGE_INTEGER_16 {
     pub LowPart: u64,
     pub HighPart: i64,
@@ -42,13 +42,13 @@ pub const SDP_TYPE_UINT: SDP_TYPE = 1;
 pub const SDP_TYPE_URL: SDP_TYPE = 8;
 pub const SDP_TYPE_UUID: SDP_TYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SDP_ULARGE_INTEGER_16 {
     pub LowPart: u64,
     pub HighPart: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SdpAttributeRange {
     pub minAttribute: u16,
     pub maxAttribute: u16,

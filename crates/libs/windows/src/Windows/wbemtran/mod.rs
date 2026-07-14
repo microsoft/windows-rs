@@ -5,7 +5,7 @@ impl IWbemAddressResolution {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Resolve)(windows_core::Interface::as_raw(self), wsznamespacepath.param().abi(), core::mem::transmute(wszaddresstype), pdwaddresslength as _, pabbinaryaddress as _) }
+        unsafe { (windows_core::Interface::vtable(self).Resolve)(windows_core::Interface::as_raw(self), wsznamespacepath.param().abi(), wszaddresstype, pdwaddresslength as _, pabbinaryaddress as _) }
     }
 }
 #[repr(C)]

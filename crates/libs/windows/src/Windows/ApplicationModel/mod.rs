@@ -2674,7 +2674,7 @@ impl windows_core::RuntimeName for PackageId {
 unsafe impl Send for PackageId {}
 unsafe impl Sync for PackageId {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageInstallProgress {
     pub PercentComplete: u32,
 }
@@ -3084,7 +3084,7 @@ impl windows_core::RuntimeName for PackageUpdatingEventArgs {
 unsafe impl Send for PackageUpdatingEventArgs {}
 unsafe impl Sync for PackageUpdatingEventArgs {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PackageVersion {
     pub Major: u16,
     pub Minor: u16,

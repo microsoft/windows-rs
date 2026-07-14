@@ -23,13 +23,13 @@ impl Default for CHAR_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLE_FONT_INFO {
     pub nFont: u32,
     pub dwFontSize: COORD,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COORD {
     pub X: i16,
     pub Y: i16,
@@ -38,7 +38,7 @@ pub const DOUBLE_CLICK: u32 = 2;
 pub const ENHANCED_KEY: u32 = 256;
 pub const FOCUS_EVENT: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOCUS_EVENT_RECORD {
     pub bSetFocus: windows_core::BOOL,
 }
@@ -110,13 +110,13 @@ pub const LEFT_ALT_PRESSED: u32 = 2;
 pub const LEFT_CTRL_PRESSED: u32 = 8;
 pub const MENU_EVENT: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MENU_EVENT_RECORD {
     pub dwCommandId: u32,
 }
 pub const MOUSE_EVENT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MOUSE_EVENT_RECORD {
     pub dwMousePosition: COORD,
     pub dwButtonState: u32,
@@ -150,7 +150,7 @@ pub const RIGHT_CTRL_PRESSED: u32 = 4;
 pub const SCROLLLOCK_ON: u32 = 64;
 pub const SHIFT_PRESSED: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMALL_RECT {
     pub Left: i16,
     pub Top: i16,
@@ -159,7 +159,7 @@ pub struct SMALL_RECT {
 }
 pub const WINDOW_BUFFER_SIZE_EVENT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINDOW_BUFFER_SIZE_RECORD {
     pub dwSize: COORD,
 }

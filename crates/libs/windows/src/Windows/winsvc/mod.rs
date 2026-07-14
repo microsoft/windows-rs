@@ -108,7 +108,7 @@ where
     P9: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn EnumServicesStatusExA(hscmanager : SC_HANDLE, infolevel : SC_ENUM_TYPE, dwservicetype : u32, dwservicestate : u32, lpservices : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32, pszgroupname : windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { EnumServicesStatusExA(hscmanager, infolevel, dwservicetype, dwservicestate, core::mem::transmute(lpservices.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpservices.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbbytesneeded as _, lpservicesreturned as _, lpresumehandle.unwrap_or(core::mem::zeroed()) as _, pszgroupname.param().abi()) }
+    unsafe { EnumServicesStatusExA(hscmanager, infolevel, dwservicetype, dwservicestate, lpservices.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), lpservices.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbbytesneeded as _, lpservicesreturned as _, lpresumehandle.unwrap_or(core::mem::zeroed()) as _, pszgroupname.param().abi()) }
 }
 #[inline]
 pub unsafe fn EnumServicesStatusExW<P9>(hscmanager: SC_HANDLE, infolevel: SC_ENUM_TYPE, dwservicetype: u32, dwservicestate: u32, lpservices: Option<&mut [u8]>, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: Option<*mut u32>, pszgroupname: P9) -> windows_core::BOOL
@@ -116,7 +116,7 @@ where
     P9: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn EnumServicesStatusExW(hscmanager : SC_HANDLE, infolevel : SC_ENUM_TYPE, dwservicetype : u32, dwservicestate : u32, lpservices : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32, lpservicesreturned : *mut u32, lpresumehandle : *mut u32, pszgroupname : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { EnumServicesStatusExW(hscmanager, infolevel, dwservicetype, dwservicestate, core::mem::transmute(lpservices.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpservices.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbbytesneeded as _, lpservicesreturned as _, lpresumehandle.unwrap_or(core::mem::zeroed()) as _, pszgroupname.param().abi()) }
+    unsafe { EnumServicesStatusExW(hscmanager, infolevel, dwservicetype, dwservicestate, lpservices.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), lpservices.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbbytesneeded as _, lpservicesreturned as _, lpresumehandle.unwrap_or(core::mem::zeroed()) as _, pszgroupname.param().abi()) }
 }
 #[inline]
 pub unsafe fn EnumServicesStatusW(hscmanager: SC_HANDLE, dwservicetype: u32, dwservicestate: u32, lpservices: Option<*mut ENUM_SERVICE_STATUSW>, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32, lpresumehandle: Option<*mut u32>) -> windows_core::BOOL {
@@ -126,7 +126,7 @@ pub unsafe fn EnumServicesStatusW(hscmanager: SC_HANDLE, dwservicetype: u32, dws
 #[inline]
 pub unsafe fn GetServiceDirectory(hservicestatus: SERVICE_STATUS_HANDLE, edirectorytype: SERVICE_DIRECTORY_TYPE, lppathbuffer: Option<&mut [u16]>, lpcchrequiredbufferlength: *mut u32) -> u32 {
     windows_core::link!("api-ms-win-service-core-l1-1-4.dll" "system" fn GetServiceDirectory(hservicestatus : SERVICE_STATUS_HANDLE, edirectorytype : SERVICE_DIRECTORY_TYPE, lppathbuffer : *mut u16, cchpathbufferlength : u32, lpcchrequiredbufferlength : *mut u32) -> u32);
-    unsafe { GetServiceDirectory(hservicestatus, edirectorytype, core::mem::transmute(lppathbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lppathbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcchrequiredbufferlength as _) }
+    unsafe { GetServiceDirectory(hservicestatus, edirectorytype, lppathbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), lppathbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpcchrequiredbufferlength as _) }
 }
 #[inline]
 pub unsafe fn GetServiceDisplayNameA<P1>(hscmanager: SC_HANDLE, lpservicename: P1, lpdisplayname: Option<windows_core::PSTR>, lpcchbuffer: *mut u32) -> windows_core::BOOL
@@ -169,7 +169,7 @@ pub unsafe fn GetServiceRegistryStateKey(servicestatushandle: SERVICE_STATUS_HAN
 #[inline]
 pub unsafe fn GetSharedServiceDirectory(servicehandle: SC_HANDLE, directorytype: SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer: Option<&mut [u16]>, requiredbufferlength: *mut u32) -> u32 {
     windows_core::link!("api-ms-win-service-core-l1-1-5.dll" "system" fn GetSharedServiceDirectory(servicehandle : SC_HANDLE, directorytype : SERVICE_SHARED_DIRECTORY_TYPE, pathbuffer : *mut u16, pathbufferlength : u32, requiredbufferlength : *mut u32) -> u32);
-    unsafe { GetSharedServiceDirectory(servicehandle, directorytype, core::mem::transmute(pathbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pathbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredbufferlength as _) }
+    unsafe { GetSharedServiceDirectory(servicehandle, directorytype, pathbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pathbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredbufferlength as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -234,12 +234,12 @@ where
 #[inline]
 pub unsafe fn QueryServiceConfig2A(hservice: SC_HANDLE, dwinfolevel: u32, lpbuffer: Option<&mut [u8]>, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn QueryServiceConfig2A(hservice : SC_HANDLE, dwinfolevel : u32, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
-    unsafe { QueryServiceConfig2A(hservice, dwinfolevel, core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbbytesneeded as _) }
+    unsafe { QueryServiceConfig2A(hservice, dwinfolevel, lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbbytesneeded as _) }
 }
 #[inline]
 pub unsafe fn QueryServiceConfig2W(hservice: SC_HANDLE, dwinfolevel: u32, lpbuffer: Option<&mut [u8]>, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn QueryServiceConfig2W(hservice : SC_HANDLE, dwinfolevel : u32, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
-    unsafe { QueryServiceConfig2W(hservice, dwinfolevel, core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbbytesneeded as _) }
+    unsafe { QueryServiceConfig2W(hservice, dwinfolevel, lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbbytesneeded as _) }
 }
 #[inline]
 pub unsafe fn QueryServiceConfigA(hservice: SC_HANDLE, lpserviceconfig: Option<*mut QUERY_SERVICE_CONFIGA>, cbbufsize: u32, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
@@ -280,7 +280,7 @@ pub unsafe fn QueryServiceStatus(hservice: SC_HANDLE, lpservicestatus: *mut SERV
 #[inline]
 pub unsafe fn QueryServiceStatusEx(hservice: SC_HANDLE, infolevel: SC_STATUS_TYPE, lpbuffer: Option<&mut [u8]>, pcbbytesneeded: *mut u32) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn QueryServiceStatusEx(hservice : SC_HANDLE, infolevel : SC_STATUS_TYPE, lpbuffer : *mut u8, cbbufsize : u32, pcbbytesneeded : *mut u32) -> windows_core::BOOL);
-    unsafe { QueryServiceStatusEx(hservice, infolevel, core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbbytesneeded as _) }
+    unsafe { QueryServiceStatusEx(hservice, infolevel, lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbbytesneeded as _) }
 }
 #[inline]
 pub unsafe fn RegisterServiceCtrlHandlerA<P0>(lpservicename: P0, lphandlerproc: LPHANDLER_FUNCTION) -> SERVICE_STATUS_HANDLE
@@ -328,7 +328,7 @@ pub unsafe fn SetServiceStatus(hservicestatus: SERVICE_STATUS_HANDLE, lpservices
 #[inline]
 pub unsafe fn StartServiceA(hservice: SC_HANDLE, lpserviceargvectors: Option<&[windows_core::PCSTR]>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn StartServiceA(hservice : SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const windows_core::PCSTR) -> windows_core::BOOL);
-    unsafe { StartServiceA(hservice, lpserviceargvectors.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpserviceargvectors.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { StartServiceA(hservice, lpserviceargvectors.map_or(0, |slice| slice.len().try_into().unwrap()), lpserviceargvectors.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[inline]
 pub unsafe fn StartServiceCtrlDispatcherA(lpservicestarttable: *const SERVICE_TABLE_ENTRYA) -> windows_core::BOOL {
@@ -343,7 +343,7 @@ pub unsafe fn StartServiceCtrlDispatcherW(lpservicestarttable: *const SERVICE_TA
 #[inline]
 pub unsafe fn StartServiceW(hservice: SC_HANDLE, lpserviceargvectors: Option<&[windows_core::PCWSTR]>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn StartServiceW(hservice : SC_HANDLE, dwnumserviceargs : u32, lpserviceargvectors : *const windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { StartServiceW(hservice, lpserviceargvectors.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(lpserviceargvectors.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { StartServiceW(hservice, lpserviceargvectors.map_or(0, |slice| slice.len().try_into().unwrap()), lpserviceargvectors.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[inline]
 pub unsafe fn UnlockServiceDatabase(sclock: SC_LOCK) -> windows_core::BOOL {
@@ -361,14 +361,14 @@ pub const DOMAIN_JOIN_GUID: windows_core::GUID = windows_core::GUID::from_u128(0
 pub const DOMAIN_LEAVE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xddaf516e_58c2_4866_9574_c3b615d42ea1);
 pub type ENUM_SERVICE_STATUS = ENUM_SERVICE_STATUSA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATUSA {
     pub lpServiceName: windows_core::PSTR,
     pub lpDisplayName: windows_core::PSTR,
     pub ServiceStatus: SERVICE_STATUS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATUSW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpDisplayName: windows_core::PWSTR,
@@ -376,14 +376,14 @@ pub struct ENUM_SERVICE_STATUSW {
 }
 pub type ENUM_SERVICE_STATUS_PROCESS = ENUM_SERVICE_STATUS_PROCESSA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATUS_PROCESSA {
     pub lpServiceName: windows_core::PSTR,
     pub lpDisplayName: windows_core::PSTR,
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_SERVICE_STATUS_PROCESSW {
     pub lpServiceName: windows_core::PWSTR,
     pub lpDisplayName: windows_core::PWSTR,
@@ -461,7 +461,7 @@ pub type PSERVICE_TRIGGER_INFO = *mut SERVICE_TRIGGER_INFO;
 pub type PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM = *mut SERVICE_TRIGGER_SPECIFIC_DATA_ITEM;
 pub type QUERY_SERVICE_CONFIG = QUERY_SERVICE_CONFIGA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_SERVICE_CONFIGA {
     pub dwServiceType: u32,
     pub dwStartType: u32,
@@ -474,7 +474,7 @@ pub struct QUERY_SERVICE_CONFIGA {
     pub lpDisplayName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_SERVICE_CONFIGW {
     pub dwServiceType: u32,
     pub dwStartType: u32,
@@ -488,14 +488,14 @@ pub struct QUERY_SERVICE_CONFIGW {
 }
 pub type QUERY_SERVICE_LOCK_STATUS = QUERY_SERVICE_LOCK_STATUSA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_SERVICE_LOCK_STATUSA {
     pub fIsLocked: u32,
     pub lpLockOwner: windows_core::PSTR,
     pub dwLockDuration: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_SERVICE_LOCK_STATUSW {
     pub fIsLocked: u32,
     pub lpLockOwner: windows_core::PWSTR,
@@ -503,7 +503,7 @@ pub struct QUERY_SERVICE_LOCK_STATUSW {
 }
 pub const RPC_INTERFACE_EVENT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xbc90d167_9470_4139_a9ba_be0bbbf5b74d);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SC_ACTION {
     pub Type: SC_ACTION_TYPE,
     pub Delay: u32,
@@ -600,14 +600,14 @@ pub const SERVICE_CONTROL_SHUTDOWN: u32 = 5;
 pub const SERVICE_CONTROL_STATUS_REASON_INFO: u32 = 1;
 pub type SERVICE_CONTROL_STATUS_REASON_PARAMS = SERVICE_CONTROL_STATUS_REASON_PARAMSA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     pub dwReason: u32,
     pub pszComment: windows_core::PSTR,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     pub dwReason: u32,
     pub pszComment: windows_core::PWSTR,
@@ -639,7 +639,7 @@ impl Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     pub DataOffset: u32,
     pub Data: [u8; 1],
@@ -650,18 +650,18 @@ impl Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_DELAYED_AUTO_START_INFO {
     pub fDelayedAutostart: windows_core::BOOL,
 }
 pub type SERVICE_DESCRIPTION = SERVICE_DESCRIPTIONA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_DESCRIPTIONA {
     pub lpDescription: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_DESCRIPTIONW {
     pub lpDescription: windows_core::PWSTR,
 }
@@ -670,7 +670,7 @@ pub const SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON: u32 = 1;
 pub const SERVICE_ENUMERATE_DEPENDENTS: u32 = 8;
 pub type SERVICE_FAILURE_ACTIONS = SERVICE_FAILURE_ACTIONSA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONSA {
     pub dwResetPeriod: u32,
     pub lpRebootMsg: windows_core::PSTR,
@@ -684,7 +684,7 @@ impl Default for SERVICE_FAILURE_ACTIONSA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONSW {
     pub dwResetPeriod: u32,
     pub lpRebootMsg: windows_core::PWSTR,
@@ -698,7 +698,7 @@ impl Default for SERVICE_FAILURE_ACTIONSW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_FAILURE_ACTIONS_FLAG {
     pub fFailureActionsOnNonCrashFailures: windows_core::BOOL,
 }
@@ -706,7 +706,7 @@ pub const SERVICE_INACTIVE: u32 = 2;
 pub const SERVICE_INTERROGATE: u32 = 128;
 pub const SERVICE_LAUNCH_PROTECTED_ANTIMALWARE_LIGHT: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_LAUNCH_PROTECTED_INFO {
     pub dwLaunchProtected: u32,
 }
@@ -784,13 +784,13 @@ pub const SERVICE_PAUSED: u32 = 7;
 pub const SERVICE_PAUSE_CONTINUE: u32 = 64;
 pub const SERVICE_PAUSE_PENDING: u32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_PREFERRED_NODE_INFO {
     pub usPreferredNode: u16,
     pub fDelete: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_PRESHUTDOWN_INFO {
     pub dwPreshutdownTimeout: u32,
 }
@@ -799,12 +799,12 @@ pub const SERVICE_QUERY_STATUS: u32 = 4;
 pub type SERVICE_REGISTRY_STATE_TYPE = i32;
 pub type SERVICE_REQUIRED_PRIVILEGES_INFO = SERVICE_REQUIRED_PRIVILEGES_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOA {
     pub pmszRequiredPrivileges: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOW {
     pub pmszRequiredPrivileges: windows_core::PWSTR,
 }
@@ -813,7 +813,7 @@ pub const SERVICE_RUNS_IN_SYSTEM_PROCESS: u32 = 1;
 pub type SERVICE_SHARED_DIRECTORY_TYPE = i32;
 pub type SERVICE_SHARED_REGISTRY_STATE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_SID_INFO {
     pub dwServiceSidType: u32,
 }
@@ -823,7 +823,7 @@ pub const SERVICE_SID_TYPE_UNRESTRICTED: u32 = 1;
 pub const SERVICE_START: u32 = 16;
 pub const SERVICE_START_PENDING: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_START_REASON {
     pub dwReason: u32,
 }
@@ -834,7 +834,7 @@ pub const SERVICE_START_REASON_RESTART_ON_FAILURE: u32 = 8;
 pub const SERVICE_START_REASON_TRIGGER: u32 = 4;
 pub const SERVICE_STATE_ALL: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_STATUS {
     pub dwServiceType: u32,
     pub dwCurrentState: u32,
@@ -853,7 +853,7 @@ impl Default for SERVICE_STATUS_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_STATUS_PROCESS {
     pub dwServiceType: u32,
     pub dwCurrentState: u32,
@@ -925,14 +925,14 @@ pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_TIMECHANGE_INFO {
     pub liNewTime: i64,
     pub liOldTime: i64,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER {
     pub dwTriggerType: u32,
     pub dwAction: u32,
@@ -949,7 +949,7 @@ impl Default for SERVICE_TRIGGER {
 pub const SERVICE_TRIGGER_ACTION_SERVICE_START: u32 = 1;
 pub const SERVICE_TRIGGER_ACTION_SERVICE_STOP: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_CUSTOM_STATE_ID {
     pub Data: [u32; 2],
 }
@@ -965,7 +965,7 @@ pub const SERVICE_TRIGGER_DATA_TYPE_LEVEL: u32 = 3;
 pub const SERVICE_TRIGGER_DATA_TYPE_STRING: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_INFO {
     pub cTriggers: u32,
     pub pTriggers: PSERVICE_TRIGGER,
@@ -973,7 +973,7 @@ pub struct SERVICE_TRIGGER_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     pub dwDataType: u32,
     pub cbData: u32,
@@ -998,5 +998,5 @@ pub const ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE =
 pub const ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = 0;
 pub const USER_POLICY_PRESENT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x54fb46c8_f089_464c_b1fd_59d1b62c3b50);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);

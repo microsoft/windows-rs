@@ -1144,7 +1144,7 @@ impl windows_core::RuntimeName for Printing3DBaseMaterialGroup {
 unsafe impl Send for Printing3DBaseMaterialGroup {}
 unsafe impl Sync for Printing3DBaseMaterialGroup {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Printing3DBufferDescription {
     pub Format: Printing3DBufferFormat,
     pub Stride: u32,

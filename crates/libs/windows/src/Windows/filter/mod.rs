@@ -10,7 +10,7 @@ pub const CHUNK_NO_BREAK: CHUNK_BREAKTYPE = 0;
 pub const CHUNK_TEXT: CHUNKSTATE = 1;
 pub const CHUNK_VALUE: CHUNKSTATE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILTERREGION {
     pub idChunk: u32,
     pub cwcStart: u32,
@@ -69,7 +69,7 @@ impl IFilter {
     }
     #[cfg(feature = "wtypesbase")]
     pub unsafe fn BindRegion(&self, origpos: FILTERREGION, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> super::wtypesbase::SCODE {
-        unsafe { (windows_core::Interface::vtable(self).BindRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(origpos), riid, ppunk as _) }
+        unsafe { (windows_core::Interface::vtable(self).BindRegion)(windows_core::Interface::as_raw(self), origpos, riid, ppunk as _) }
     }
 }
 #[repr(C)]
@@ -154,7 +154,7 @@ impl IFilter_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IFilter {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_INFO {
     pub Width: u32,
     pub Height: u32,

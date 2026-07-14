@@ -1,6 +1,6 @@
 pub const AUTHENTICATE: OFFLOAD_OPERATION_E = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BSSID_INFO {
     pub BSSID: NDIS_802_11_MAC_ADDRESS,
     pub PMKID: NDIS_802_11_PMKID_VALUE,
@@ -14,12 +14,12 @@ pub const CLOCK_NETWORK_DERIVED: u32 = 2;
 pub const CLOCK_PRECISION: u32 = 4;
 pub const ENCRYPT: OFFLOAD_OPERATION_E = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GEN_GET_NETCARD_TIME {
     pub ReadTime: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GEN_GET_TIME_CAPS {
     pub Flags: u32,
     pub ClockPrecision: u32,
@@ -70,7 +70,7 @@ pub struct IPAddr(pub u32);
 pub struct IPMask(pub u32);
 pub const MAXIMUM_IP_OPER_STATUS_ADDRESS_FAMILIES_SUPPORTED: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AI_REQFI {
     pub Capabilities: u16,
     pub ListenInterval: u16,
@@ -85,7 +85,7 @@ pub const NDIS_802_11_AI_REQFI_CAPABILITIES: u32 = 1;
 pub const NDIS_802_11_AI_REQFI_CURRENTAPADDRESS: u32 = 4;
 pub const NDIS_802_11_AI_REQFI_LISTENINTERVAL: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_AI_RESFI {
     pub Capabilities: u16,
     pub StatusCode: u16,
@@ -98,7 +98,7 @@ pub const NDIS_802_11_AI_RESFI_STATUSCODE: u32 = 2;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NDIS_802_11_ANTENNA(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
     pub Length: u32,
     pub AvailableRequestFixedIEs: u16,
@@ -111,13 +111,13 @@ pub struct NDIS_802_11_ASSOCIATION_INFORMATION {
     pub OffsetResponseIEs: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_AUTHENTICATION_ENCRYPTION {
     pub AuthModeSupported: NDIS_802_11_AUTHENTICATION_MODE,
     pub EncryptStatusSupported: NDIS_802_11_ENCRYPTION_STATUS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AUTHENTICATION_EVENT {
     pub Status: NDIS_802_11_STATUS_INDICATION,
     pub Request: [NDIS_802_11_AUTHENTICATION_REQUEST; 1],
@@ -129,7 +129,7 @@ impl Default for NDIS_802_11_AUTHENTICATION_EVENT {
 }
 pub type NDIS_802_11_AUTHENTICATION_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_AUTHENTICATION_REQUEST {
     pub Length: u32,
     pub Bssid: NDIS_802_11_MAC_ADDRESS,
@@ -146,7 +146,7 @@ pub const NDIS_802_11_AUTH_REQUEST_KEYUPDATE: u32 = 2;
 pub const NDIS_802_11_AUTH_REQUEST_PAIRWISE_ERROR: u32 = 6;
 pub const NDIS_802_11_AUTH_REQUEST_REAUTH: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_BSSID_LIST {
     pub NumberOfItems: u32,
     pub Bssid: [NDIS_WLAN_BSSID; 1],
@@ -157,7 +157,7 @@ impl Default for NDIS_802_11_BSSID_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_BSSID_LIST_EX {
     pub NumberOfItems: u32,
     pub Bssid: [NDIS_WLAN_BSSID_EX; 1],
@@ -168,7 +168,7 @@ impl Default for NDIS_802_11_BSSID_LIST_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_CAPABILITY {
     pub Length: u32,
     pub Version: u32,
@@ -182,7 +182,7 @@ impl Default for NDIS_802_11_CAPABILITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_CONFIGURATION {
     pub Length: u32,
     pub BeaconPeriod: u32,
@@ -191,7 +191,7 @@ pub struct NDIS_802_11_CONFIGURATION {
     pub FHConfig: NDIS_802_11_CONFIGURATION_FH,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_CONFIGURATION_FH {
     pub Length: u32,
     pub HopPattern: u32,
@@ -202,7 +202,7 @@ pub struct NDIS_802_11_CONFIGURATION_FH {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NDIS_802_11_ENCRYPTION_STATUS(pub NDIS_802_11_WEP_STATUS);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_FIXED_IEs {
     pub Timestamp: [u8; 8],
     pub BeaconInterval: u16,
@@ -217,7 +217,7 @@ impl Default for NDIS_802_11_FIXED_IEs {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NDIS_802_11_FRAGMENTATION_THRESHOLD(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_KEY {
     pub Length: u32,
     pub KeyIndex: u32,
@@ -245,7 +245,7 @@ pub type NDIS_802_11_MEDIA_STREAM_MODE = i32;
 pub type NDIS_802_11_NETWORK_INFRASTRUCTURE = i32;
 pub type NDIS_802_11_NETWORK_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_NETWORK_TYPE_LIST {
     pub NumberOfItems: u32,
     pub NetworkType: [NDIS_802_11_NETWORK_TYPE; 1],
@@ -256,7 +256,7 @@ impl Default for NDIS_802_11_NETWORK_TYPE_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_NON_BCAST_SSID_LIST {
     pub NumberOfItems: u32,
     pub Non_Bcast_Ssid: [NDIS_802_11_SSID; 1],
@@ -267,7 +267,7 @@ impl Default for NDIS_802_11_NON_BCAST_SSID_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_PMKID {
     pub Length: u32,
     pub BSSIDInfoCount: u32,
@@ -279,7 +279,7 @@ impl Default for NDIS_802_11_PMKID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_PMKID_CANDIDATE_LIST {
     pub Version: u32,
     pub NumCandidates: u32,
@@ -299,7 +299,7 @@ pub type NDIS_802_11_RATES = [u8; 8];
 pub type NDIS_802_11_RATES_EX = [u8; 16];
 pub type NDIS_802_11_RELOAD_DEFAULTS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_REMOVE_KEY {
     pub Length: u32,
     pub KeyIndex: u32,
@@ -317,7 +317,7 @@ pub struct NDIS_802_11_RSSI(pub i32);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NDIS_802_11_RTS_THRESHOLD(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_SSID {
     pub SsidLength: u32,
     pub Ssid: [u8; 32],
@@ -328,7 +328,7 @@ impl Default for NDIS_802_11_SSID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_STATISTICS {
     pub Length: u32,
     pub TransmittedFragmentCount: i64,
@@ -357,7 +357,7 @@ pub struct NDIS_802_11_STATISTICS {
     pub DecryptFailureCount: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_802_11_STATUS_INDICATION {
     pub StatusType: NDIS_802_11_STATUS_TYPE,
 }
@@ -389,7 +389,7 @@ impl Default for NDIS_802_11_TEST_0 {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct NDIS_802_11_TX_POWER_LEVEL(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_VARIABLE_IEs {
     pub ElementID: u8,
     pub Length: u8,
@@ -401,7 +401,7 @@ impl Default for NDIS_802_11_VARIABLE_IEs {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_802_11_WEP {
     pub Length: u32,
     pub KeyIndex: u32,
@@ -417,7 +417,7 @@ pub type NDIS_802_11_WEP_STATUS = i32;
 pub const NDIS_802_3_MAC_OPTION_PRIORITY: u32 = 1;
 pub type NDIS_802_5_RING_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_CO_DEVICE_PROFILE {
     pub DeviceDescription: NDIS_VAR_DATA_DESC,
     pub DevSpecificInfo: NDIS_VAR_DATA_DESC,
@@ -449,7 +449,7 @@ pub struct NDIS_CO_DEVICE_PROFILE {
     pub ulUUICallInfoSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_CO_LINK_SPEED {
     pub Outbound: u32,
     pub Inbound: u32,
@@ -499,7 +499,7 @@ impl Default for NDIS_GUID_0 {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_HARDWARE_CROSSTIMESTAMP {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -519,7 +519,7 @@ pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_REINITIALIZE: u32 = 2;
 pub const NDIS_INTERRUPT_MODERATION_CHANGE_NEEDS_RESET: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -527,14 +527,14 @@ pub struct NDIS_INTERRUPT_MODERATION_PARAMETERS {
 }
 pub const NDIS_INTERRUPT_MODERATION_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1 {
     pub Supported: NDIS_IPSEC_OFFLOAD_V1_0,
     pub IPv4AH: NDIS_IPSEC_OFFLOAD_V1_1,
     pub IPv4ESP: NDIS_IPSEC_OFFLOAD_V1_2,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
@@ -543,18 +543,18 @@ pub struct NDIS_IPSEC_OFFLOAD_V1_0 {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IPSEC_OFFLOAD_V1_2 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "objectheader"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IP_OPER_STATE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -563,7 +563,7 @@ pub struct NDIS_IP_OPER_STATE {
 pub const NDIS_IP_OPER_STATE_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "ifdef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IP_OPER_STATUS {
     pub AddressFamily: u32,
     pub OperationalStatus: super::ifdef::NET_IF_OPER_STATUS,
@@ -571,7 +571,7 @@ pub struct NDIS_IP_OPER_STATUS {
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "objectheader"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_IP_OPER_STATUS_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -586,14 +586,14 @@ impl Default for NDIS_IP_OPER_STATUS_INFO {
 }
 pub const NDIS_IP_OPER_STATUS_INFO_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_IRDA_PACKET_INFO {
     pub ExtraBOFs: u32,
     pub MinTurnAroundTime: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "objectheader"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_LINK_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub MediaDuplexState: NDIS_MEDIA_DUPLEX_STATE,
@@ -604,7 +604,7 @@ pub struct NDIS_LINK_PARAMETERS {
 }
 pub const NDIS_LINK_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_LINK_SPEED {
     pub XmitLinkSpeed: u64,
     pub RcvLinkSpeed: u64,
@@ -612,7 +612,7 @@ pub struct NDIS_LINK_SPEED {
 pub const NDIS_LINK_SPEED_UNKNOWN: i32 = -1;
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "objectheader"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_LINK_STATE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub MediaConnectState: NDIS_MEDIA_CONNECT_STATE,
@@ -703,7 +703,7 @@ pub const NDIS_OBJECT_TYPE_STATUS_INDICATION: u32 = 152;
 pub const NDIS_OBJECT_TYPE_TIMER_CHARACTERISTICS: u32 = 151;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_OFFLOAD {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Checksum: NDIS_TCP_IP_CHECKSUM_OFFLOAD,
@@ -715,7 +715,7 @@ pub struct NDIS_OFFLOAD {
 pub const NDIS_OFFLOAD_FLAGS_GROUP_CHECKSUM_CAPABILITIES: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_OFFLOAD_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub IPv4Checksum: u8,
@@ -750,7 +750,7 @@ pub const NDIS_OFFLOAD_PARAMETERS_TX_RX_ENABLED: u32 = 4;
 pub const NDIS_OFFLOAD_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "objectheader"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_OPER_STATE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub OperationalStatus: super::ifdef::NET_IF_OPER_STATUS,
@@ -772,7 +772,7 @@ pub const NDIS_PACKET_TYPE_SMT: u32 = 64;
 pub const NDIS_PACKET_TYPE_SOURCE_ROUTING: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub DeviceType: u32,
@@ -790,7 +790,7 @@ pub struct NDIS_PCI_DEVICE_CUSTOM_PROPERTIES {
 }
 pub type NDIS_PHYSICAL_MEDIUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PM_PACKET_PATTERN {
     pub Priority: u32,
     pub Reserved: u32,
@@ -800,14 +800,14 @@ pub struct NDIS_PM_PACKET_PATTERN {
     pub PatternFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PM_WAKE_UP_CAPABILITIES {
     pub MinMagicPacketWakeUp: NDIS_DEVICE_POWER_STATE,
     pub MinPatternWakeUp: NDIS_DEVICE_POWER_STATE,
     pub MinLinkChangeWakeUp: NDIS_DEVICE_POWER_STATE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PNP_CAPABILITIES {
     pub Flags: u32,
     pub WakeUpCapabilities: NDIS_PM_WAKE_UP_CAPABILITIES,
@@ -817,7 +817,7 @@ pub const NDIS_PNP_WAKE_UP_MAGIC_PACKET: u32 = 1;
 pub const NDIS_PNP_WAKE_UP_PATTERN_MATCH: u32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT {
     pub Next: PNDIS_PORT,
     pub NdisReserved: *mut core::ffi::c_void,
@@ -833,7 +833,7 @@ impl Default for NDIS_PORT {
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_PORT_ARRAY {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub NumberOfPorts: u32,
@@ -850,7 +850,7 @@ impl Default for NDIS_PORT_ARRAY {
 pub const NDIS_PORT_ARRAY_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PORT_AUTHENTICATION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub SendControlState: NDIS_PORT_CONTROL_STATE,
@@ -862,7 +862,7 @@ pub const NDIS_PORT_AUTHENTICATION_PARAMETERS_REVISION_1: u32 = 1;
 pub type NDIS_PORT_AUTHORIZATION_STATE = i32;
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ndisport", feature = "objectheader"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PORT_CHARACTERISTICS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PortNumber: super::ndisport::NDIS_PORT_NUMBER,
@@ -885,7 +885,7 @@ pub struct NDIS_PORT_CONTROLL_STATE(pub NDIS_PORT_CONTROL_STATE);
 pub type NDIS_PORT_CONTROL_STATE = i32;
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "objectheader"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_PORT_STATE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub MediaConnectState: NDIS_MEDIA_CONNECT_STATE,
@@ -916,7 +916,7 @@ pub const NDIS_RECEIVE_HASH_FLAG_HASH_INFO_UNCHANGED: u32 = 2;
 pub const NDIS_RECEIVE_HASH_FLAG_HASH_KEY_UNCHANGED: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_RECEIVE_HASH_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -927,7 +927,7 @@ pub struct NDIS_RECEIVE_HASH_PARAMETERS {
 pub const NDIS_RECEIVE_HASH_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub CapabilitiesFlags: NDIS_RSS_CAPS_FLAGS,
@@ -937,7 +937,7 @@ pub struct NDIS_RECEIVE_SCALE_CAPABILITIES {
 pub const NDIS_RECEIVE_SCALE_CAPABILITIES_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_RECEIVE_SCALE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Flags: u16,
@@ -1025,7 +1025,7 @@ pub const NDIS_STATISTICS_FLAGS_VALID_XMIT_DISCARDS: u32 = 32768;
 pub const NDIS_STATISTICS_FLAGS_VALID_XMIT_ERROR: u32 = 1024;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_STATISTICS_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub SupportedStatistics: u32,
@@ -1051,7 +1051,7 @@ pub struct NDIS_STATISTICS_INFO {
 pub const NDIS_STATISTICS_INFO_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "oidtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_STATISTICS_VALUE {
     pub Oid: super::oidtypes::NDIS_OID,
     pub DataLength: u32,
@@ -1065,7 +1065,7 @@ impl Default for NDIS_STATISTICS_VALUE {
 }
 #[repr(C)]
 #[cfg(feature = "oidtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_STATISTICS_VALUE_EX {
     pub Oid: super::oidtypes::NDIS_OID,
     pub DataLength: u32,
@@ -1081,7 +1081,7 @@ impl Default for NDIS_STATISTICS_VALUE_EX {
 pub type NDIS_SUPPORTED_PAUSE_FUNCTIONS = i32;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_CONNECTION_OFFLOAD {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Encapsulation: u32,
@@ -1091,7 +1091,7 @@ pub struct NDIS_TCP_CONNECTION_OFFLOAD {
 }
 pub const NDIS_TCP_CONNECTION_OFFLOAD_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv4Transmit: NDIS_TCP_IP_CHECKSUM_OFFLOAD_0,
     pub IPv4Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_1,
@@ -1099,36 +1099,36 @@ pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv6Receive: NDIS_TCP_IP_CHECKSUM_OFFLOAD_3,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1 {
     pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
@@ -1136,20 +1136,20 @@ pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2 {
     pub IPv4: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0,
     pub IPv6: NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
@@ -1158,7 +1158,7 @@ pub struct NDIS_TCP_LARGE_SEND_OFFLOAD_V2_1 {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -1174,7 +1174,7 @@ impl Default for NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES {
 pub const NDIS_TIMEOUT_DPC_REQUEST_CAPABILITIES_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TIMESTAMP_CAPABILITIES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub HardwareClockFrequencyHz: u64,
@@ -1185,7 +1185,7 @@ pub struct NDIS_TIMESTAMP_CAPABILITIES {
 }
 pub const NDIS_TIMESTAMP_CAPABILITIES_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub PtpV2OverUdpIPv4EventMsgReceiveHw: bool,
     pub PtpV2OverUdpIPv4AllMsgReceiveHw: bool,
@@ -1203,7 +1203,7 @@ pub struct NDIS_TIMESTAMP_CAPABILITY_FLAGS {
     pub TaggedTransmitSw: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_VAR_DATA_DESC {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -1215,14 +1215,14 @@ pub struct NDIS_VLAN_ID(pub u32);
 pub type NDIS_WAN_HEADER_FORMAT = i32;
 pub type NDIS_WAN_MEDIUM_SUBTYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WAN_PROTOCOL_CAPS {
     pub Flags: u32,
     pub Reserved: u32,
 }
 pub type NDIS_WAN_QUALITY = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WLAN_BSSID {
     pub Length: u32,
     pub MacAddress: NDIS_802_11_MAC_ADDRESS,
@@ -1241,7 +1241,7 @@ impl Default for NDIS_WLAN_BSSID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NDIS_WLAN_BSSID_EX {
     pub Length: u32,
     pub MacAddress: NDIS_802_11_MAC_ADDRESS,
@@ -1300,14 +1300,14 @@ impl Default for NDIS_WMI_EVENT_HEADER {
 }
 pub const NDIS_WMI_EVENT_HEADER_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1 {
     pub Supported: NDIS_WMI_IPSEC_OFFLOAD_V1_0,
     pub IPv4AH: NDIS_WMI_IPSEC_OFFLOAD_V1_1,
     pub IPv4ESP: NDIS_WMI_IPSEC_OFFLOAD_V1_2,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub AhEspCombined: u32,
@@ -1316,7 +1316,7 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_0 {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Md5: u32,
     pub Sha_1: u32,
@@ -1326,7 +1326,7 @@ pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_1 {
     pub Receive: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     pub Des: u32,
     pub Reserved: u32,
@@ -1362,7 +1362,7 @@ pub const NDIS_WMI_OBJECT_TYPE_OUTPUT_INFO: u32 = 5;
 pub const NDIS_WMI_OBJECT_TYPE_SET: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_OFFLOAD {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Checksum: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD,
@@ -1373,7 +1373,7 @@ pub struct NDIS_WMI_OFFLOAD {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_OUTPUT_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Flags: u32,
@@ -1401,7 +1401,7 @@ impl Default for NDIS_WMI_SET_HEADER {
 pub const NDIS_WMI_SET_HEADER_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Encapsulation: u32,
@@ -1413,7 +1413,7 @@ pub struct NDIS_WMI_TCP_CONNECTION_OFFLOAD {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv4Transmit: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0,
     pub IPv4Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1,
@@ -1421,7 +1421,7 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD {
     pub IPv6Receive: NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub Encapsulation: u32,
     pub IpOptionsSupported: u32,
@@ -1431,7 +1431,7 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_0 {
     pub IpChecksum: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub Encapsulation: u32,
     pub IpOptionsSupported: u32,
@@ -1441,7 +1441,7 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_1 {
     pub IpChecksum: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub Encapsulation: u32,
     pub IpExtensionHeadersSupported: u32,
@@ -1450,7 +1450,7 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_2 {
     pub UdpChecksum: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub Encapsulation: u32,
     pub IpExtensionHeadersSupported: u32,
@@ -1459,12 +1459,12 @@ pub struct NDIS_WMI_TCP_IP_CHECKSUM_OFFLOAD_3 {
     pub UdpChecksum: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1 {
     pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
@@ -1473,20 +1473,20 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V1_0 {
     pub IpOptions: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2 {
     pub IPv4: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0,
     pub IPv6: NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_0 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
     pub MinSegmentCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub Encapsulation: u32,
     pub MaxOffLoadSize: u32,
@@ -1495,7 +1495,7 @@ pub struct NDIS_WMI_TCP_LARGE_SEND_OFFLOAD_V2_1 {
     pub TcpOptionsSupported: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS {
     pub AddressLength: u16,
     pub AddressType: u16,
@@ -1507,7 +1507,7 @@ impl Default for NETWORK_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_IP {
     pub sin_port: u16,
     pub in_addr: u32,
@@ -1519,7 +1519,7 @@ impl Default for NETWORK_ADDRESS_IP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_IP6 {
     pub sin6_port: u16,
     pub sin6_flowinfo: u32,
@@ -1532,7 +1532,7 @@ impl Default for NETWORK_ADDRESS_IP6 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_IPX {
     pub NetworkAddress: u32,
     pub NodeAddress: [u8; 6],
@@ -1544,7 +1544,7 @@ impl Default for NETWORK_ADDRESS_IPX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETWORK_ADDRESS_LIST {
     pub AddressCount: i32,
     pub AddressType: u16,
@@ -1748,7 +1748,7 @@ pub const NdisWanMediumX_25: NDIS_WAN_MEDIUM_SUBTYPE = 1;
 pub const NdisWanRaw: NDIS_WAN_QUALITY = 0;
 pub const NdisWanReliable: NDIS_WAN_QUALITY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLOAD_ALGO_INFO {
     pub algoIdentifier: u32,
     pub algoKeylen: u32,
@@ -1759,7 +1759,7 @@ pub const OFFLOAD_INBOUND_SA: u32 = 1;
 pub type OFFLOAD_INTEGRITY_ALGO = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_ADD_SA {
     pub SrcAddr: IPAddr,
     pub SrcMask: IPMask,
@@ -1785,7 +1785,7 @@ impl Default for OFFLOAD_IPSEC_ADD_SA {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_ADD_UDPESP_SA {
     pub SrcAddr: IPAddr,
     pub SrcMask: IPMask,
@@ -1818,13 +1818,13 @@ pub const OFFLOAD_IPSEC_CONF_NONE: OFFLOAD_CONF_ALGO = 0;
 pub const OFFLOAD_IPSEC_CONF_RESERVED: OFFLOAD_CONF_ALGO = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_DELETE_SA {
     pub OffloadHandle: super::winnt::HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_DELETE_UDPESP_SA {
     pub OffloadHandle: super::winnt::HANDLE,
     pub EncapTypeEntryOffldHandle: super::winnt::HANDLE,
@@ -1834,7 +1834,7 @@ pub const OFFLOAD_IPSEC_INTEGRITY_MD5: OFFLOAD_INTEGRITY_ALGO = 1;
 pub const OFFLOAD_IPSEC_INTEGRITY_NONE: OFFLOAD_INTEGRITY_ALGO = 0;
 pub const OFFLOAD_IPSEC_INTEGRITY_SHA: OFFLOAD_INTEGRITY_ALGO = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_ENTRY {
     pub UdpEncapType: UDP_ENCAP_TYPE,
     pub DstEncapPort: u16,
@@ -1845,7 +1845,7 @@ pub const OFFLOAD_MAX_SAS: u32 = 3;
 pub type OFFLOAD_OPERATION_E = i32;
 pub const OFFLOAD_OUTBOUND_SA: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFFLOAD_SECURITY_ASSOCIATION {
     pub Operation: OFFLOAD_OPERATION_E,
     pub SPI: SPI_TYPE,
@@ -2567,7 +2567,7 @@ pub type PBSSID_INFO = *mut BSSID_INFO;
 pub type PGEN_GET_NETCARD_TIME = *mut GEN_GET_NETCARD_TIME;
 pub type PGEN_GET_TIME_CAPS = *mut GEN_GET_TIME_CAPS;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PMKID_CANDIDATE {
     pub BSSID: NDIS_802_11_MAC_ADDRESS,
     pub Flags: u32,
@@ -2755,7 +2755,7 @@ pub struct SPI_TYPE(pub u32);
 pub const TIMED_SEND_CAPABLE: u32 = 16;
 pub const TIME_STAMP_CAPABLE: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORT_HEADER_OFFSET {
     pub ProtocolType: u16,
     pub HeaderOffset: u16,

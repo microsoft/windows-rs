@@ -61,7 +61,7 @@ pub struct D2D1_ELLIPSE {
 pub type D2D1_EXTEND_MODE = i32;
 pub const D2D1_EXTEND_MODE_CLAMP: D2D1_EXTEND_MODE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_FACTORY_OPTIONS {
     pub debugLevel: D2D1_DEBUG_LEVEL,
 }
@@ -94,7 +94,7 @@ pub const D2D1_LINE_JOIN_BEVEL: D2D1_LINE_JOIN = 1;
 pub const D2D1_LINE_JOIN_MITER: D2D1_LINE_JOIN = 0;
 pub const D2D1_LINE_JOIN_ROUND: D2D1_LINE_JOIN = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PIXEL_FORMAT {
     pub format: DXGI_FORMAT,
     pub alphaMode: D2D1_ALPHA_MODE,
@@ -146,7 +146,7 @@ pub struct D2D_SIZE_F {
     pub height: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D_SIZE_U {
     pub width: u32,
     pub height: u32,
@@ -209,20 +209,20 @@ pub struct DXGI_MATRIX_3X2_F {
 pub type DXGI_MODE_SCALING = i32;
 pub type DXGI_MODE_SCANLINE_ORDER = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SAMPLE_DESC {
     pub Count: u32,
     pub Quality: u32,
 }
 pub type DXGI_SCALING = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_DESC1 {
     pub Width: u32,
     pub Height: u32,
@@ -237,7 +237,7 @@ pub struct DXGI_SWAP_CHAIN_DESC1 {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGI_SWAP_CHAIN_FULLSCREEN_DESC {
     pub RefreshRate: DXGI_RATIONAL,
     pub ScanlineOrdering: DXGI_MODE_SCANLINE_ORDER,

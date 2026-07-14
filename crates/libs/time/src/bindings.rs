@@ -12,7 +12,7 @@ impl windows_core::RuntimeType for DateTime {
         windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILETIME {
     pub dwLowDateTime: u32,
     pub dwHighDateTime: u32,

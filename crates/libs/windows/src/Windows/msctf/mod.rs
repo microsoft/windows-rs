@@ -734,7 +734,7 @@ impl IEnumTfPropertyValue {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, ulcount: u32, rgvalues: *mut TF_PROPERTYVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(rgvalues), pcfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ulcount, rgvalues, pcfetched as _) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
@@ -1732,7 +1732,7 @@ windows_core::imp::interface_hierarchy!(ITfCompartment, windows_core::IUnknown);
 impl ITfCompartment {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, tid: TfClientId, pvarvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), tid, core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), tid, pvarvalue) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self) -> windows_core::Result<super::oaidl::VARIANT> {
@@ -2151,10 +2151,10 @@ impl ITfContext {
         }
     }
     pub unsafe fn GetSelection(&self, ec: TfEditCookie, ulindex: u32, ulcount: u32, pselection: *mut TF_SELECTION, pcfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), ec, ulindex, ulcount, core::mem::transmute(pselection), pcfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), ec, ulindex, ulcount, pselection, pcfetched as _) }
     }
     pub unsafe fn SetSelection(&self, ec: TfEditCookie, ulcount: u32, pselection: *const TF_SELECTION) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), ec, ulcount, core::mem::transmute(pselection)) }
+        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), ec, ulcount, pselection) }
     }
     pub unsafe fn GetStart(&self, ec: TfEditCookie) -> windows_core::Result<ITfRange> {
         unsafe {
@@ -5665,7 +5665,7 @@ impl ITfProperty {
     where
         P1: windows_core::Param<ITfRange>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), pvarvalue) }
     }
     pub unsafe fn Clear<P1>(&self, ec: TfEditCookie, prange: P1) -> windows_core::HRESULT
     where
@@ -6047,10 +6047,10 @@ impl ITfRange {
         unsafe { (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), ec, dwflags, pdataobject.param().abi()) }
     }
     pub unsafe fn ShiftStart(&self, ec: TfEditCookie, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ShiftStart)(windows_core::Interface::as_raw(self), ec, cchreq, pcch as _, core::mem::transmute(phalt)) }
+        unsafe { (windows_core::Interface::vtable(self).ShiftStart)(windows_core::Interface::as_raw(self), ec, cchreq, pcch as _, phalt) }
     }
     pub unsafe fn ShiftEnd(&self, ec: TfEditCookie, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ShiftEnd)(windows_core::Interface::as_raw(self), ec, cchreq, pcch as _, core::mem::transmute(phalt)) }
+        unsafe { (windows_core::Interface::vtable(self).ShiftEnd)(windows_core::Interface::as_raw(self), ec, cchreq, pcch as _, phalt) }
     }
     pub unsafe fn ShiftStartToRange<P1>(&self, ec: TfEditCookie, prange: P1, apos: TfAnchor) -> windows_core::HRESULT
     where
@@ -8479,7 +8479,7 @@ pub const TF_GRAVITY_BACKWARD: TfGravity = 0;
 pub const TF_GRAVITY_FORWARD: TfGravity = 1;
 pub const TF_GTP_INCL_TEXT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TF_HALTCOND {
     pub pHaltRange: core::mem::ManuallyDrop<Option<ITfRange>>,
     pub aHaltPos: TfAnchor,
@@ -8492,7 +8492,7 @@ pub const TF_IAS_QUERYONLY: u32 = 2;
 pub const TF_IE_CORRECTION: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_INPUTPROCESSORPROFILE {
     pub dwProfileType: u32,
     pub langid: super::winnt::LANGID,
@@ -8527,7 +8527,7 @@ pub const TF_IPP_FLAG_SUBSTITUTEDBYINPUTPROCESSOR: u32 = 4;
 pub const TF_IPSINK_FLAG_ACTIVE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_LANGUAGEPROFILE {
     pub clsid: windows_core::GUID,
     pub langid: super::winnt::LANGID,
@@ -8555,7 +8555,7 @@ pub const TF_MOD_RCONTROL: u32 = 16;
 pub const TF_MOD_RSHIFT: u32 = 32;
 pub const TF_MOD_SHIFT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
     pub guidType: windows_core::GUID,
     pub ichStart: i32,
@@ -8566,7 +8566,7 @@ pub struct TF_PERSISTENT_PROPERTY_HEADER_ACP {
 }
 pub const TF_POPF_ALL: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_PRESERVEDKEY {
     pub uVKey: u32,
     pub uModifiers: u32,
@@ -8624,13 +8624,13 @@ pub const TF_SD_FORWARD: TfShiftDir = 1;
 pub const TF_SD_LOADING: u32 = 2;
 pub const TF_SD_READONLY: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TF_SELECTION {
     pub range: core::mem::ManuallyDrop<Option<ITfRange>>,
     pub style: TF_SELECTIONSTYLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TF_SELECTIONSTYLE {
     pub ase: TfActiveSelEnd,
     pub fInterimChar: windows_core::BOOL,

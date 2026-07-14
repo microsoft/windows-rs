@@ -55,7 +55,7 @@ pub const DEBUG_BREAKPOINT_GO_ONLY: u32 = 1;
 pub const DEBUG_BREAKPOINT_INLINE: u32 = 3;
 pub const DEBUG_BREAKPOINT_ONE_SHOT: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_BREAKPOINT_PARAMETERS {
     pub Offset: u64,
     pub Id: u32,
@@ -76,7 +76,7 @@ pub const DEBUG_BREAK_IO: u32 = 8;
 pub const DEBUG_BREAK_READ: u32 = 1;
 pub const DEBUG_BREAK_WRITE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_CACHED_SYMBOL_INFO {
     pub ModBase: u64,
     pub Arg1: u64,
@@ -129,7 +129,7 @@ pub const DEBUG_CLASS_UNINITIALIZED: u32 = 0;
 pub const DEBUG_CLASS_USER_WINDOWS: u32 = 2;
 pub const DEBUG_CLIENT_CDB: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_CLIENT_CONTEXT {
     pub cbSize: u32,
     pub eClient: u32,
@@ -150,7 +150,7 @@ pub const DEBUG_CONNECT_SESSION_NO_ANNOUNCE: u32 = 2;
 pub const DEBUG_CONNECT_SESSION_NO_VERSION: u32 = 1;
 pub const DEBUG_CREATE_PROCESS_NO_DEBUG_HEAP: u32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_CREATE_PROCESS_OPTIONS {
     pub CreateFlags: u32,
     pub EngCreateFlags: u32,
@@ -360,7 +360,7 @@ pub const DEBUG_EVENT_CHANGE_DEBUGGEE_STATE: u32 = 1024;
 pub const DEBUG_EVENT_CHANGE_ENGINE_STATE: u32 = 2048;
 pub const DEBUG_EVENT_CHANGE_SYMBOL_STATE: u32 = 4096;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_EVENT_CONTEXT {
     pub Size: u32,
     pub ProcessEngineId: u32,
@@ -378,7 +378,7 @@ pub const DEBUG_EVENT_SESSION_STATUS: u32 = 512;
 pub const DEBUG_EVENT_SYSTEM_ERROR: u32 = 256;
 pub const DEBUG_EVENT_UNLOAD_MODULE: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_EXCEPTION_FILTER_PARAMETERS {
     pub ExecutionOption: u32,
     pub ContinueOption: u32,
@@ -474,7 +474,7 @@ pub const DEBUG_GET_PROC_FULL_MATCH: u32 = 1;
 pub const DEBUG_GET_PROC_ONLY_MATCH: u32 = 2;
 pub const DEBUG_GET_PROC_SERVICE_NAME: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_GET_TEXT_COMPLETIONS_IN {
     pub Flags: u32,
     pub MatchCountLimit: u32,
@@ -492,7 +492,7 @@ pub const DEBUG_GET_TEXT_COMPLETIONS_NO_DOT_COMMANDS: u32 = 1;
 pub const DEBUG_GET_TEXT_COMPLETIONS_NO_EXTENSION_COMMANDS: u32 = 2;
 pub const DEBUG_GET_TEXT_COMPLETIONS_NO_SYMBOLS: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_GET_TEXT_COMPLETIONS_OUT {
     pub Flags: u32,
     pub ReplaceIndex: u32,
@@ -512,7 +512,7 @@ pub const DEBUG_GSEL_INLINE_CALLSITE: u32 = 16;
 pub const DEBUG_GSEL_NEAREST_ONLY: u32 = 8;
 pub const DEBUG_GSEL_NO_SYMBOL_LOADS: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_HANDLE_DATA_BASIC {
     pub TypeNameSize: u32,
     pub ObjectNameSize: u32,
@@ -561,47 +561,47 @@ pub const DEBUG_KNOWN_STRUCT_GET_NAMES: u32 = 1;
 pub const DEBUG_KNOWN_STRUCT_GET_SINGLE_LINE_OUTPUT: u32 = 2;
 pub const DEBUG_KNOWN_STRUCT_SUPPRESS_TYPE_NAME: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_BREAKPOINT {
     pub Id: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXCEPTION {
     pub ExceptionRecord: super::winnt::EXCEPTION_RECORD64,
     pub FirstChance: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_PROCESS {
     pub ExitCode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_EXIT_THREAD {
     pub ExitCode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_LOAD_MODULE {
     pub Base: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_SERVICE_EXCEPTION {
     pub Kind: u32,
     pub DataSize: u32,
     pub Address: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_SYSTEM_ERROR {
     pub Error: u32,
     pub Level: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_LAST_EVENT_INFO_UNLOAD_MODULE {
     pub Base: u64,
 }
@@ -626,7 +626,7 @@ pub const DEBUG_MODNAME_MAPPED_IMAGE: u32 = 4;
 pub const DEBUG_MODNAME_MODULE: u32 = 1;
 pub const DEBUG_MODNAME_SYMBOL_FILE: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_MODULE_AND_ID {
     pub ModuleBase: u64,
     pub Id: u64,
@@ -635,7 +635,7 @@ pub const DEBUG_MODULE_EXE_MODULE: u32 = 4;
 pub const DEBUG_MODULE_EXPLICIT: u32 = 8;
 pub const DEBUG_MODULE_LOADED: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_MODULE_PARAMETERS {
     pub Base: u64,
     pub Size: u32,
@@ -665,7 +665,7 @@ pub const DEBUG_NOTIFY_SESSION_ACTIVE: u32 = 0;
 pub const DEBUG_NOTIFY_SESSION_INACCESSIBLE: u32 = 3;
 pub const DEBUG_NOTIFY_SESSION_INACTIVE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_OFFSET_REGION {
     pub Base: u64,
     pub Size: u64,
@@ -752,13 +752,13 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ALL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ALPHA {
     pub Type: u32,
     pub Revision: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     pub Family: u32,
     pub Model: u32,
@@ -771,7 +771,7 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_AMD64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     pub Model: u32,
     pub Revision: u32,
@@ -783,7 +783,7 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     pub Model: u32,
     pub Revision: u32,
@@ -795,7 +795,7 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_ARM64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     pub Model: u32,
     pub Revision: u32,
@@ -809,7 +809,7 @@ impl Default for DEBUG_PROCESSOR_IDENTIFICATION_IA64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_PROCESSOR_IDENTIFICATION_X86 {
     pub Family: u32,
     pub Model: u32,
@@ -833,7 +833,7 @@ pub const DEBUG_PROC_DESC_NO_USER_NAME: u32 = 32;
 pub const DEBUG_PROC_DESC_WITH_ARCHITECTURE: u32 = 128;
 pub const DEBUG_PROC_DESC_WITH_PACKAGEFAMILY: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_READ_USER_MINIDUMP_STREAM {
     pub StreamType: u32,
     pub Flags: u32,
@@ -853,7 +853,7 @@ pub const DEBUG_REGISTERS_FLOAT: u32 = 4;
 pub const DEBUG_REGISTERS_INT32: u32 = 1;
 pub const DEBUG_REGISTERS_INT64: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_REGISTER_DESCRIPTION {
     pub Type: u32,
     pub Flags: u32,
@@ -925,7 +925,7 @@ pub const DEBUG_SESSION_HIBERNATE: u32 = 6;
 pub const DEBUG_SESSION_REBOOT: u32 = 5;
 pub const DEBUG_SOURCE_IS_STATEMENT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_SPECIFIC_FILTER_PARAMETERS {
     pub ExecutionOption: u32,
     pub ContinueOption: u32,
@@ -940,7 +940,7 @@ pub const DEBUG_STACK_ARGUMENTS: u32 = 1;
 pub const DEBUG_STACK_COLUMN_NAMES: u32 = 16;
 pub const DEBUG_STACK_DML: u32 = 2048;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_STACK_FRAME {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -961,7 +961,7 @@ pub const DEBUG_STACK_FRAME_ADDRESSES: u32 = 8;
 pub const DEBUG_STACK_FRAME_ADDRESSES_RA_ONLY: u32 = 256;
 pub const DEBUG_STACK_FRAME_ARCH: u32 = 16384;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEBUG_STACK_FRAME_EX {
     pub InstructionOffset: u64,
     pub ReturnOffset: u64,
@@ -1011,7 +1011,7 @@ pub const DEBUG_STATUS_TIMEOUT: u32 = 17;
 pub const DEBUG_STATUS_WAIT_INPUT: u32 = 16;
 pub const DEBUG_STATUS_WAIT_TIMEOUT: u64 = 8589934592;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_SYMBOL_ENTRY {
     pub ModuleBase: u64,
     pub Offset: u64,
@@ -1033,7 +1033,7 @@ pub const DEBUG_SYMBOL_IS_ARRAY: u32 = 64;
 pub const DEBUG_SYMBOL_IS_FLOAT: u32 = 128;
 pub const DEBUG_SYMBOL_IS_LOCAL: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_SYMBOL_PARAMETERS {
     pub Module: u64,
     pub TypeId: u32,
@@ -1044,7 +1044,7 @@ pub struct DEBUG_SYMBOL_PARAMETERS {
 }
 pub const DEBUG_SYMBOL_READ_ONLY: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_SYMBOL_SOURCE_ENTRY {
     pub ModuleBase: u64,
     pub Offset: u64,
@@ -1090,7 +1090,7 @@ pub const DEBUG_TBINFO_PRIORITY_CLASS: u32 = 2;
 pub const DEBUG_TBINFO_START_OFFSET: u32 = 16;
 pub const DEBUG_TBINFO_TIMES: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_THREAD_BASIC_INFORMATION {
     pub Valid: u32,
     pub ExitStatus: u32,
@@ -1154,19 +1154,19 @@ impl Default for DEBUG_VALUE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_VALUE_0_0 {
     pub I64: u64,
     pub Nat: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_VALUE_0_1 {
     pub LowPart: u32,
     pub HighPart: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEBUG_VALUE_0_2 {
     pub LowPart: u64,
     pub HighPart: i64,
@@ -1313,10 +1313,10 @@ impl IDebugAdvanced2 {
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken.unwrap_or(core::mem::zeroed()) as _, filetokensize, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken.unwrap_or(core::mem::zeroed()) as _, filetokensize, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>, stringbuffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSystemObjectInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSystemObjectInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _) }
@@ -1425,10 +1425,10 @@ impl IDebugAdvanced3 {
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken.unwrap_or(core::mem::zeroed()) as _, filetokensize, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken.unwrap_or(core::mem::zeroed()) as _, filetokensize, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>, stringbuffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSystemObjectInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSystemObjectInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _) }
@@ -1443,10 +1443,10 @@ impl IDebugAdvanced3 {
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndTokenWide)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken.unwrap_or(core::mem::zeroed()) as _, filetokensize, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndTokenWide)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken.unwrap_or(core::mem::zeroed()) as _, filetokensize, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolInformationWide(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>, stringbuffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolInformationWide)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolInformationWide)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -1579,10 +1579,10 @@ impl IDebugAdvanced4 {
     where
         P2: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken.unwrap_or(core::mem::zeroed()) as _, filetokensize, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndToken)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken.unwrap_or(core::mem::zeroed()) as _, filetokensize, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>, stringbuffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSystemObjectInformation(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSystemObjectInformation)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _) }
@@ -1597,13 +1597,13 @@ impl IDebugAdvanced4 {
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndTokenWide)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken.unwrap_or(core::mem::zeroed()) as _, filetokensize, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFileAndTokenWide)(windows_core::Interface::as_raw(self), startelement, modaddr, file.param().abi(), flags, filetoken.unwrap_or(core::mem::zeroed()) as _, filetokensize, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolInformationWide(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>, stringbuffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolInformationWide)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolInformationWide)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolInformationWideEx(&self, which: u32, arg64: u64, arg32: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, infosize: Option<*mut u32>, stringbuffer: Option<&mut [u16]>, stringsize: Option<*mut u32>, pinfoex: Option<*mut SYMBOL_INFO_EX>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolInformationWideEx)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _, pinfoex.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolInformationWideEx)(windows_core::Interface::as_raw(self), which, arg64, arg32, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, infosize.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(stringbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), stringbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _, pinfoex.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -1796,7 +1796,7 @@ impl IDebugBreakpoint {
         unsafe { (windows_core::Interface::vtable(self).SetMatchThreadId)(windows_core::Interface::as_raw(self), thread) }
     }
     pub unsafe fn GetCommand(&self, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetCommand<P0>(&self, command: P0) -> windows_core::HRESULT
     where
@@ -1805,7 +1805,7 @@ impl IDebugBreakpoint {
         unsafe { (windows_core::Interface::vtable(self).SetCommand)(windows_core::Interface::as_raw(self), command.param().abi()) }
     }
     pub unsafe fn GetOffsetExpression(&self, buffer: Option<&mut [u8]>, expressionsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOffsetExpression)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), expressionsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOffsetExpression)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), expressionsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOffsetExpression<P0>(&self, expression: P0) -> windows_core::HRESULT
     where
@@ -2139,7 +2139,7 @@ impl IDebugBreakpoint2 {
         unsafe { (windows_core::Interface::vtable(self).SetMatchThreadId)(windows_core::Interface::as_raw(self), thread) }
     }
     pub unsafe fn GetCommand(&self, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetCommand<P0>(&self, command: P0) -> windows_core::HRESULT
     where
@@ -2148,7 +2148,7 @@ impl IDebugBreakpoint2 {
         unsafe { (windows_core::Interface::vtable(self).SetCommand)(windows_core::Interface::as_raw(self), command.param().abi()) }
     }
     pub unsafe fn GetOffsetExpression(&self, buffer: Option<&mut [u8]>, expressionsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOffsetExpression)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), expressionsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOffsetExpression)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), expressionsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOffsetExpression<P0>(&self, expression: P0) -> windows_core::HRESULT
     where
@@ -2160,7 +2160,7 @@ impl IDebugBreakpoint2 {
         unsafe { (windows_core::Interface::vtable(self).GetParameters)(windows_core::Interface::as_raw(self), params as _) }
     }
     pub unsafe fn GetCommandWide(&self, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCommandWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCommandWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetCommandWide<P0>(&self, command: P0) -> windows_core::HRESULT
     where
@@ -2169,7 +2169,7 @@ impl IDebugBreakpoint2 {
         unsafe { (windows_core::Interface::vtable(self).SetCommandWide)(windows_core::Interface::as_raw(self), command.param().abi()) }
     }
     pub unsafe fn GetOffsetExpressionWide(&self, buffer: Option<&mut [u16]>, expressionsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOffsetExpressionWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), expressionsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOffsetExpressionWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), expressionsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOffsetExpressionWide<P0>(&self, expression: P0) -> windows_core::HRESULT
     where
@@ -2536,7 +2536,7 @@ impl IDebugBreakpoint3 {
         unsafe { (windows_core::Interface::vtable(self).SetMatchThreadId)(windows_core::Interface::as_raw(self), thread) }
     }
     pub unsafe fn GetCommand(&self, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCommand)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetCommand<P0>(&self, command: P0) -> windows_core::HRESULT
     where
@@ -2545,7 +2545,7 @@ impl IDebugBreakpoint3 {
         unsafe { (windows_core::Interface::vtable(self).SetCommand)(windows_core::Interface::as_raw(self), command.param().abi()) }
     }
     pub unsafe fn GetOffsetExpression(&self, buffer: Option<&mut [u8]>, expressionsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOffsetExpression)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), expressionsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOffsetExpression)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), expressionsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOffsetExpression<P0>(&self, expression: P0) -> windows_core::HRESULT
     where
@@ -2557,7 +2557,7 @@ impl IDebugBreakpoint3 {
         unsafe { (windows_core::Interface::vtable(self).GetParameters)(windows_core::Interface::as_raw(self), params as _) }
     }
     pub unsafe fn GetCommandWide(&self, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCommandWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCommandWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetCommandWide<P0>(&self, command: P0) -> windows_core::HRESULT
     where
@@ -2566,7 +2566,7 @@ impl IDebugBreakpoint3 {
         unsafe { (windows_core::Interface::vtable(self).SetCommandWide)(windows_core::Interface::as_raw(self), command.param().abi()) }
     }
     pub unsafe fn GetOffsetExpressionWide(&self, buffer: Option<&mut [u16]>, expressionsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOffsetExpressionWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), expressionsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOffsetExpressionWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), expressionsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOffsetExpressionWide<P0>(&self, expression: P0) -> windows_core::HRESULT
     where
@@ -2891,7 +2891,7 @@ impl IDebugClient {
         unsafe { (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -2918,7 +2918,7 @@ impl IDebugClient {
         unsafe { (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server) }
     }
     pub unsafe fn GetRunningProcessSystemIds(&self, server: u64, ids: Option<&mut [u32]>, actualcount: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P1>(&self, server: u64, exename: P1, flags: u32) -> windows_core::Result<u32>
     where
@@ -2936,10 +2936,10 @@ impl IDebugClient {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -3090,7 +3090,7 @@ impl IDebugClient {
         unsafe { (windows_core::Interface::vtable(self).SetOutputWidth)(windows_core::Interface::as_raw(self), columns) }
     }
     pub unsafe fn GetOutputLinePrefix(&self, buffer: Option<&mut [u8]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -3099,7 +3099,7 @@ impl IDebugClient {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentity<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -3622,7 +3622,7 @@ impl IDebugClient2 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -3649,7 +3649,7 @@ impl IDebugClient2 {
         unsafe { (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server) }
     }
     pub unsafe fn GetRunningProcessSystemIds(&self, server: u64, ids: Option<&mut [u32]>, actualcount: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P1>(&self, server: u64, exename: P1, flags: u32) -> windows_core::Result<u32>
     where
@@ -3667,10 +3667,10 @@ impl IDebugClient2 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -3821,7 +3821,7 @@ impl IDebugClient2 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputWidth)(windows_core::Interface::as_raw(self), columns) }
     }
     pub unsafe fn GetOutputLinePrefix(&self, buffer: Option<&mut [u8]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -3830,7 +3830,7 @@ impl IDebugClient2 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentity<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -4456,7 +4456,7 @@ impl IDebugClient3 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -4483,7 +4483,7 @@ impl IDebugClient3 {
         unsafe { (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server) }
     }
     pub unsafe fn GetRunningProcessSystemIds(&self, server: u64, ids: Option<&mut [u32]>, actualcount: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P1>(&self, server: u64, exename: P1, flags: u32) -> windows_core::Result<u32>
     where
@@ -4501,10 +4501,10 @@ impl IDebugClient3 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -4655,7 +4655,7 @@ impl IDebugClient3 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputWidth)(windows_core::Interface::as_raw(self), columns) }
     }
     pub unsafe fn GetOutputLinePrefix(&self, buffer: Option<&mut [u8]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -4664,7 +4664,7 @@ impl IDebugClient3 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentity<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -4734,10 +4734,10 @@ impl IDebugClient3 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -5369,7 +5369,7 @@ impl IDebugClient4 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -5396,7 +5396,7 @@ impl IDebugClient4 {
         unsafe { (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server) }
     }
     pub unsafe fn GetRunningProcessSystemIds(&self, server: u64, ids: Option<&mut [u32]>, actualcount: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P1>(&self, server: u64, exename: P1, flags: u32) -> windows_core::Result<u32>
     where
@@ -5414,10 +5414,10 @@ impl IDebugClient4 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -5568,7 +5568,7 @@ impl IDebugClient4 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputWidth)(windows_core::Interface::as_raw(self), columns) }
     }
     pub unsafe fn GetOutputLinePrefix(&self, buffer: Option<&mut [u8]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -5577,7 +5577,7 @@ impl IDebugClient4 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentity<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -5647,10 +5647,10 @@ impl IDebugClient4 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -5694,10 +5694,10 @@ impl IDebugClient4 {
         }
     }
     pub unsafe fn GetDumpFile(&self, index: u32, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>, handle: Option<*mut u64>, r#type: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDumpFile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDumpFile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
     }
     pub unsafe fn GetDumpFileWide(&self, index: u32, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>, handle: Option<*mut u64>, r#type: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDumpFileWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDumpFileWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
     }
 }
 #[repr(C)]
@@ -6373,7 +6373,7 @@ impl IDebugClient5 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -6400,7 +6400,7 @@ impl IDebugClient5 {
         unsafe { (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server) }
     }
     pub unsafe fn GetRunningProcessSystemIds(&self, server: u64, ids: Option<&mut [u32]>, actualcount: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P1>(&self, server: u64, exename: P1, flags: u32) -> windows_core::Result<u32>
     where
@@ -6418,10 +6418,10 @@ impl IDebugClient5 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -6572,7 +6572,7 @@ impl IDebugClient5 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputWidth)(windows_core::Interface::as_raw(self), columns) }
     }
     pub unsafe fn GetOutputLinePrefix(&self, buffer: Option<&mut [u8]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -6581,7 +6581,7 @@ impl IDebugClient5 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentity<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -6651,10 +6651,10 @@ impl IDebugClient5 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -6698,10 +6698,10 @@ impl IDebugClient5 {
         }
     }
     pub unsafe fn GetDumpFile(&self, index: u32, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>, handle: Option<*mut u64>, r#type: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDumpFile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDumpFile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
     }
     pub unsafe fn GetDumpFileWide(&self, index: u32, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>, handle: Option<*mut u64>, r#type: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDumpFileWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDumpFileWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
     }
     pub unsafe fn AttachKernelWide<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
@@ -6710,7 +6710,7 @@ impl IDebugClient5 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptionsWide(&self, buffer: Option<&mut [u16]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptionsWide<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -6758,7 +6758,7 @@ impl IDebugClient5 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()) }
     }
     pub unsafe fn GetOutputLinePrefixWide(&self, buffer: Option<&mut [u16]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefixWide<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -6767,7 +6767,7 @@ impl IDebugClient5 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentityWide(&self, buffer: Option<&mut [u16]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentityWide<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -6859,7 +6859,7 @@ impl IDebugClient5 {
         }
     }
     pub unsafe fn GetQuitLockString(&self, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetQuitLockString)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetQuitLockString)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetQuitLockString<P0>(&self, string: P0) -> windows_core::HRESULT
     where
@@ -6868,7 +6868,7 @@ impl IDebugClient5 {
         unsafe { (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.param().abi()) }
     }
     pub unsafe fn GetQuitLockStringWide(&self, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetQuitLockStringWide<P0>(&self, string: P0) -> windows_core::HRESULT
     where
@@ -7859,7 +7859,7 @@ impl IDebugClient6 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -7886,7 +7886,7 @@ impl IDebugClient6 {
         unsafe { (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server) }
     }
     pub unsafe fn GetRunningProcessSystemIds(&self, server: u64, ids: Option<&mut [u32]>, actualcount: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P1>(&self, server: u64, exename: P1, flags: u32) -> windows_core::Result<u32>
     where
@@ -7904,10 +7904,10 @@ impl IDebugClient6 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -8058,7 +8058,7 @@ impl IDebugClient6 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputWidth)(windows_core::Interface::as_raw(self), columns) }
     }
     pub unsafe fn GetOutputLinePrefix(&self, buffer: Option<&mut [u8]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -8067,7 +8067,7 @@ impl IDebugClient6 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentity<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -8137,10 +8137,10 @@ impl IDebugClient6 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -8184,10 +8184,10 @@ impl IDebugClient6 {
         }
     }
     pub unsafe fn GetDumpFile(&self, index: u32, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>, handle: Option<*mut u64>, r#type: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDumpFile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDumpFile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
     }
     pub unsafe fn GetDumpFileWide(&self, index: u32, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>, handle: Option<*mut u64>, r#type: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDumpFileWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDumpFileWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
     }
     pub unsafe fn AttachKernelWide<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
@@ -8196,7 +8196,7 @@ impl IDebugClient6 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptionsWide(&self, buffer: Option<&mut [u16]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptionsWide<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -8244,7 +8244,7 @@ impl IDebugClient6 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()) }
     }
     pub unsafe fn GetOutputLinePrefixWide(&self, buffer: Option<&mut [u16]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefixWide<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -8253,7 +8253,7 @@ impl IDebugClient6 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentityWide(&self, buffer: Option<&mut [u16]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentityWide<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -8345,7 +8345,7 @@ impl IDebugClient6 {
         }
     }
     pub unsafe fn GetQuitLockString(&self, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetQuitLockString)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetQuitLockString)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetQuitLockString<P0>(&self, string: P0) -> windows_core::HRESULT
     where
@@ -8354,7 +8354,7 @@ impl IDebugClient6 {
         unsafe { (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.param().abi()) }
     }
     pub unsafe fn GetQuitLockStringWide(&self, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetQuitLockStringWide<P0>(&self, string: P0) -> windows_core::HRESULT
     where
@@ -9360,7 +9360,7 @@ impl IDebugClient7 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -9387,7 +9387,7 @@ impl IDebugClient7 {
         unsafe { (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server) }
     }
     pub unsafe fn GetRunningProcessSystemIds(&self, server: u64, ids: Option<&mut [u32]>, actualcount: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P1>(&self, server: u64, exename: P1, flags: u32) -> windows_core::Result<u32>
     where
@@ -9405,10 +9405,10 @@ impl IDebugClient7 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -9559,7 +9559,7 @@ impl IDebugClient7 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputWidth)(windows_core::Interface::as_raw(self), columns) }
     }
     pub unsafe fn GetOutputLinePrefix(&self, buffer: Option<&mut [u8]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -9568,7 +9568,7 @@ impl IDebugClient7 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentity<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -9638,10 +9638,10 @@ impl IDebugClient7 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -9685,10 +9685,10 @@ impl IDebugClient7 {
         }
     }
     pub unsafe fn GetDumpFile(&self, index: u32, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>, handle: Option<*mut u64>, r#type: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDumpFile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDumpFile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
     }
     pub unsafe fn GetDumpFileWide(&self, index: u32, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>, handle: Option<*mut u64>, r#type: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDumpFileWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDumpFileWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
     }
     pub unsafe fn AttachKernelWide<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
@@ -9697,7 +9697,7 @@ impl IDebugClient7 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptionsWide(&self, buffer: Option<&mut [u16]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptionsWide<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -9745,7 +9745,7 @@ impl IDebugClient7 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()) }
     }
     pub unsafe fn GetOutputLinePrefixWide(&self, buffer: Option<&mut [u16]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefixWide<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -9754,7 +9754,7 @@ impl IDebugClient7 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentityWide(&self, buffer: Option<&mut [u16]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentityWide<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -9846,7 +9846,7 @@ impl IDebugClient7 {
         }
     }
     pub unsafe fn GetQuitLockString(&self, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetQuitLockString)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetQuitLockString)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetQuitLockString<P0>(&self, string: P0) -> windows_core::HRESULT
     where
@@ -9855,7 +9855,7 @@ impl IDebugClient7 {
         unsafe { (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.param().abi()) }
     }
     pub unsafe fn GetQuitLockStringWide(&self, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetQuitLockStringWide<P0>(&self, string: P0) -> windows_core::HRESULT
     where
@@ -10873,7 +10873,7 @@ impl IDebugClient8 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -10900,7 +10900,7 @@ impl IDebugClient8 {
         unsafe { (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server) }
     }
     pub unsafe fn GetRunningProcessSystemIds(&self, server: u64, ids: Option<&mut [u32]>, actualcount: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P1>(&self, server: u64, exename: P1, flags: u32) -> windows_core::Result<u32>
     where
@@ -10918,10 +10918,10 @@ impl IDebugClient8 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -11072,7 +11072,7 @@ impl IDebugClient8 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputWidth)(windows_core::Interface::as_raw(self), columns) }
     }
     pub unsafe fn GetOutputLinePrefix(&self, buffer: Option<&mut [u8]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -11081,7 +11081,7 @@ impl IDebugClient8 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentity<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -11151,10 +11151,10 @@ impl IDebugClient8 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -11198,10 +11198,10 @@ impl IDebugClient8 {
         }
     }
     pub unsafe fn GetDumpFile(&self, index: u32, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>, handle: Option<*mut u64>, r#type: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDumpFile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDumpFile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
     }
     pub unsafe fn GetDumpFileWide(&self, index: u32, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>, handle: Option<*mut u64>, r#type: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDumpFileWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDumpFileWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
     }
     pub unsafe fn AttachKernelWide<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
@@ -11210,7 +11210,7 @@ impl IDebugClient8 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptionsWide(&self, buffer: Option<&mut [u16]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptionsWide<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -11258,7 +11258,7 @@ impl IDebugClient8 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()) }
     }
     pub unsafe fn GetOutputLinePrefixWide(&self, buffer: Option<&mut [u16]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefixWide<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -11267,7 +11267,7 @@ impl IDebugClient8 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentityWide(&self, buffer: Option<&mut [u16]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentityWide<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -11359,7 +11359,7 @@ impl IDebugClient8 {
         }
     }
     pub unsafe fn GetQuitLockString(&self, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetQuitLockString)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetQuitLockString)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetQuitLockString<P0>(&self, string: P0) -> windows_core::HRESULT
     where
@@ -11368,7 +11368,7 @@ impl IDebugClient8 {
         unsafe { (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.param().abi()) }
     }
     pub unsafe fn GetQuitLockStringWide(&self, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetQuitLockStringWide<P0>(&self, string: P0) -> windows_core::HRESULT
     where
@@ -12401,7 +12401,7 @@ impl IDebugClient9 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernel)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptions(&self, buffer: Option<&mut [u8]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptions<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -12428,7 +12428,7 @@ impl IDebugClient9 {
         unsafe { (windows_core::Interface::vtable(self).DisconnectProcessServer)(windows_core::Interface::as_raw(self), server) }
     }
     pub unsafe fn GetRunningProcessSystemIds(&self, server: u64, ids: Option<&mut [u32]>, actualcount: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRunningProcessSystemIds)(windows_core::Interface::as_raw(self), server, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), actualcount.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetRunningProcessSystemIdByExecutableName<P1>(&self, server: u64, exename: P1, flags: u32) -> windows_core::Result<u32>
     where
@@ -12446,10 +12446,10 @@ impl IDebugClient9 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -12600,7 +12600,7 @@ impl IDebugClient9 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputWidth)(windows_core::Interface::as_raw(self), columns) }
     }
     pub unsafe fn GetOutputLinePrefix(&self, buffer: Option<&mut [u8]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefix)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefix<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -12609,7 +12609,7 @@ impl IDebugClient9 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefix)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentity(&self, buffer: Option<&mut [u8]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentity)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentity<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -12679,10 +12679,10 @@ impl IDebugClient9 {
                 server,
                 systemid,
                 flags,
-                core::mem::transmute(exename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(exename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 exename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualexenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 actualdescriptionsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -12726,10 +12726,10 @@ impl IDebugClient9 {
         }
     }
     pub unsafe fn GetDumpFile(&self, index: u32, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>, handle: Option<*mut u64>, r#type: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDumpFile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDumpFile)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
     }
     pub unsafe fn GetDumpFileWide(&self, index: u32, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>, handle: Option<*mut u64>, r#type: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDumpFileWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDumpFileWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, handle.unwrap_or(core::mem::zeroed()) as _, r#type as _) }
     }
     pub unsafe fn AttachKernelWide<P1>(&self, flags: u32, connectoptions: P1) -> windows_core::HRESULT
     where
@@ -12738,7 +12738,7 @@ impl IDebugClient9 {
         unsafe { (windows_core::Interface::vtable(self).AttachKernelWide)(windows_core::Interface::as_raw(self), flags, connectoptions.param().abi()) }
     }
     pub unsafe fn GetKernelConnectionOptionsWide(&self, buffer: Option<&mut [u16]>, optionssize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKernelConnectionOptionsWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), optionssize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetKernelConnectionOptionsWide<P0>(&self, options: P0) -> windows_core::HRESULT
     where
@@ -12786,7 +12786,7 @@ impl IDebugClient9 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputCallbacksWide)(windows_core::Interface::as_raw(self), callbacks.param().abi()) }
     }
     pub unsafe fn GetOutputLinePrefixWide(&self, buffer: Option<&mut [u16]>, prefixsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), prefixsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetOutputLinePrefixWide<P0>(&self, prefix: P0) -> windows_core::HRESULT
     where
@@ -12795,7 +12795,7 @@ impl IDebugClient9 {
         unsafe { (windows_core::Interface::vtable(self).SetOutputLinePrefixWide)(windows_core::Interface::as_raw(self), prefix.param().abi()) }
     }
     pub unsafe fn GetIdentityWide(&self, buffer: Option<&mut [u16]>, identitysize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentityWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), identitysize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputIdentityWide<P2>(&self, outputcontrol: u32, flags: u32, format: P2) -> windows_core::HRESULT
     where
@@ -12887,7 +12887,7 @@ impl IDebugClient9 {
         }
     }
     pub unsafe fn GetQuitLockString(&self, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetQuitLockString)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetQuitLockString)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetQuitLockString<P0>(&self, string: P0) -> windows_core::HRESULT
     where
@@ -12896,7 +12896,7 @@ impl IDebugClient9 {
         unsafe { (windows_core::Interface::vtable(self).SetQuitLockString)(windows_core::Interface::as_raw(self), string.param().abi()) }
     }
     pub unsafe fn GetQuitLockStringWide(&self, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetQuitLockStringWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetQuitLockStringWide<P0>(&self, string: P0) -> windows_core::HRESULT
     where
@@ -13968,7 +13968,7 @@ impl IDebugControl {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds) }
     }
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::HRESULT
     where
@@ -13989,7 +13989,7 @@ impl IDebugControl {
         unsafe { (windows_core::Interface::vtable(self).SetLogMask)(windows_core::Interface::as_raw(self), mask) }
     }
     pub unsafe fn Input(&self, buffer: &mut [u8], inputsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::HRESULT
     where
@@ -14034,7 +14034,7 @@ impl IDebugControl {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args) }
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OutputCurrentState)(windows_core::Interface::as_raw(self), outputcontrol, flags) }
@@ -14061,7 +14061,7 @@ impl IDebugControl {
         }
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
+        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -14076,7 +14076,7 @@ impl IDebugControl {
         }
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: Option<*mut u32>, startoffset: Option<*mut u64>, endoffset: Option<*mut u64>, lineoffsets: Option<&mut [u64]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lineoffsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, lineoffsets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64> {
         unsafe {
@@ -14085,7 +14085,7 @@ impl IDebugControl {
         }
     }
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, frames.as_mut_ptr(), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetReturnOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -14094,7 +14094,7 @@ impl IDebugControl {
         }
     }
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, frames.map_or(core::ptr::null(), |slice| slice.as_ptr()), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDebuggeeType)(windows_core::Interface::as_raw(self), class as _, qualifier as _) }
@@ -14118,7 +14118,7 @@ impl IDebugControl {
         }
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetNumberProcessors(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -14133,11 +14133,11 @@ impl IDebugControl {
                 platformid as _,
                 major as _,
                 minor as _,
-                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 servicepackstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 servicepackstringused.unwrap_or(core::mem::zeroed()) as _,
                 servicepacknumber as _,
-                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 buildstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 buildstringused.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -14162,17 +14162,17 @@ impl IDebugControl {
         }
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: Option<&mut [u8]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u8]>, abbrevnamesize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetProcessorTypeNames)(
                 windows_core::Interface::as_raw(self),
                 r#type,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -14227,7 +14227,7 @@ impl IDebugControl {
         unsafe { (windows_core::Interface::vtable(self).SetSystemErrorControl)(windows_core::Interface::as_raw(self), outputlevel, breaklevel) }
     }
     pub unsafe fn GetTextMacro(&self, slot: u32, buffer: Option<&mut [u8]>, macrosize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetTextMacro<P1>(&self, slot: u32, r#macro: P1) -> windows_core::HRESULT
     where
@@ -14351,10 +14351,10 @@ impl IDebugControl {
         unsafe { (windows_core::Interface::vtable(self).GetNumberEventFilters)(windows_core::Interface::as_raw(self), specificevents as _, specificexceptions as _, arbitraryexceptions as _) }
     }
     pub unsafe fn GetEventFilterText(&self, index: u32, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetEventFilterCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetEventFilterCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -14363,13 +14363,13 @@ impl IDebugControl {
         unsafe { (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_mut_ptr()) }
     }
     pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: Option<&mut [u8]>, argumentsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSpecificFilterArgument<P1>(&self, index: u32, argument: P1) -> windows_core::HRESULT
     where
@@ -14381,10 +14381,10 @@ impl IDebugControl {
         unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes.unwrap_or(core::mem::zeroed()) as _, start, params as _) }
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -14396,7 +14396,7 @@ impl IDebugControl {
         unsafe { (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout) }
     }
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u8]>, descriptionused: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -15432,7 +15432,7 @@ impl IDebugControl2 {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds) }
     }
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::HRESULT
     where
@@ -15453,7 +15453,7 @@ impl IDebugControl2 {
         unsafe { (windows_core::Interface::vtable(self).SetLogMask)(windows_core::Interface::as_raw(self), mask) }
     }
     pub unsafe fn Input(&self, buffer: &mut [u8], inputsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::HRESULT
     where
@@ -15498,7 +15498,7 @@ impl IDebugControl2 {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args) }
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OutputCurrentState)(windows_core::Interface::as_raw(self), outputcontrol, flags) }
@@ -15525,7 +15525,7 @@ impl IDebugControl2 {
         }
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
+        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -15540,7 +15540,7 @@ impl IDebugControl2 {
         }
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: Option<*mut u32>, startoffset: Option<*mut u64>, endoffset: Option<*mut u64>, lineoffsets: Option<&mut [u64]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lineoffsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, lineoffsets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64> {
         unsafe {
@@ -15549,7 +15549,7 @@ impl IDebugControl2 {
         }
     }
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, frames.as_mut_ptr(), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetReturnOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -15558,7 +15558,7 @@ impl IDebugControl2 {
         }
     }
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, frames.map_or(core::ptr::null(), |slice| slice.as_ptr()), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDebuggeeType)(windows_core::Interface::as_raw(self), class as _, qualifier as _) }
@@ -15582,7 +15582,7 @@ impl IDebugControl2 {
         }
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetNumberProcessors(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -15597,11 +15597,11 @@ impl IDebugControl2 {
                 platformid as _,
                 major as _,
                 minor as _,
-                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 servicepackstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 servicepackstringused.unwrap_or(core::mem::zeroed()) as _,
                 servicepacknumber as _,
-                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 buildstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 buildstringused.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -15626,17 +15626,17 @@ impl IDebugControl2 {
         }
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: Option<&mut [u8]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u8]>, abbrevnamesize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetProcessorTypeNames)(
                 windows_core::Interface::as_raw(self),
                 r#type,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -15691,7 +15691,7 @@ impl IDebugControl2 {
         unsafe { (windows_core::Interface::vtable(self).SetSystemErrorControl)(windows_core::Interface::as_raw(self), outputlevel, breaklevel) }
     }
     pub unsafe fn GetTextMacro(&self, slot: u32, buffer: Option<&mut [u8]>, macrosize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetTextMacro<P1>(&self, slot: u32, r#macro: P1) -> windows_core::HRESULT
     where
@@ -15815,10 +15815,10 @@ impl IDebugControl2 {
         unsafe { (windows_core::Interface::vtable(self).GetNumberEventFilters)(windows_core::Interface::as_raw(self), specificevents as _, specificexceptions as _, arbitraryexceptions as _) }
     }
     pub unsafe fn GetEventFilterText(&self, index: u32, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetEventFilterCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetEventFilterCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -15827,13 +15827,13 @@ impl IDebugControl2 {
         unsafe { (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_mut_ptr()) }
     }
     pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: Option<&mut [u8]>, argumentsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSpecificFilterArgument<P1>(&self, index: u32, argument: P1) -> windows_core::HRESULT
     where
@@ -15845,10 +15845,10 @@ impl IDebugControl2 {
         unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes.unwrap_or(core::mem::zeroed()) as _, start, params as _) }
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -15860,7 +15860,7 @@ impl IDebugControl2 {
         unsafe { (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout) }
     }
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u8]>, descriptionused: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -15895,10 +15895,10 @@ impl IDebugControl2 {
                 windows_core::Interface::as_raw(self),
                 srctext.param().abi(),
                 index,
-                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 srcsize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 dstbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 dstsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -17047,7 +17047,7 @@ impl IDebugControl3 {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds) }
     }
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::HRESULT
     where
@@ -17068,7 +17068,7 @@ impl IDebugControl3 {
         unsafe { (windows_core::Interface::vtable(self).SetLogMask)(windows_core::Interface::as_raw(self), mask) }
     }
     pub unsafe fn Input(&self, buffer: &mut [u8], inputsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::HRESULT
     where
@@ -17113,7 +17113,7 @@ impl IDebugControl3 {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args) }
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OutputCurrentState)(windows_core::Interface::as_raw(self), outputcontrol, flags) }
@@ -17140,7 +17140,7 @@ impl IDebugControl3 {
         }
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
+        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -17155,7 +17155,7 @@ impl IDebugControl3 {
         }
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: Option<*mut u32>, startoffset: Option<*mut u64>, endoffset: Option<*mut u64>, lineoffsets: Option<&mut [u64]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lineoffsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, lineoffsets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64> {
         unsafe {
@@ -17164,7 +17164,7 @@ impl IDebugControl3 {
         }
     }
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, frames.as_mut_ptr(), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetReturnOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -17173,7 +17173,7 @@ impl IDebugControl3 {
         }
     }
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, frames.map_or(core::ptr::null(), |slice| slice.as_ptr()), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDebuggeeType)(windows_core::Interface::as_raw(self), class as _, qualifier as _) }
@@ -17197,7 +17197,7 @@ impl IDebugControl3 {
         }
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetNumberProcessors(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -17212,11 +17212,11 @@ impl IDebugControl3 {
                 platformid as _,
                 major as _,
                 minor as _,
-                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 servicepackstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 servicepackstringused.unwrap_or(core::mem::zeroed()) as _,
                 servicepacknumber as _,
-                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 buildstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 buildstringused.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -17241,17 +17241,17 @@ impl IDebugControl3 {
         }
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: Option<&mut [u8]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u8]>, abbrevnamesize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetProcessorTypeNames)(
                 windows_core::Interface::as_raw(self),
                 r#type,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -17306,7 +17306,7 @@ impl IDebugControl3 {
         unsafe { (windows_core::Interface::vtable(self).SetSystemErrorControl)(windows_core::Interface::as_raw(self), outputlevel, breaklevel) }
     }
     pub unsafe fn GetTextMacro(&self, slot: u32, buffer: Option<&mut [u8]>, macrosize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetTextMacro<P1>(&self, slot: u32, r#macro: P1) -> windows_core::HRESULT
     where
@@ -17430,10 +17430,10 @@ impl IDebugControl3 {
         unsafe { (windows_core::Interface::vtable(self).GetNumberEventFilters)(windows_core::Interface::as_raw(self), specificevents as _, specificexceptions as _, arbitraryexceptions as _) }
     }
     pub unsafe fn GetEventFilterText(&self, index: u32, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetEventFilterCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetEventFilterCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -17442,13 +17442,13 @@ impl IDebugControl3 {
         unsafe { (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_mut_ptr()) }
     }
     pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: Option<&mut [u8]>, argumentsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSpecificFilterArgument<P1>(&self, index: u32, argument: P1) -> windows_core::HRESULT
     where
@@ -17460,10 +17460,10 @@ impl IDebugControl3 {
         unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes.unwrap_or(core::mem::zeroed()) as _, start, params as _) }
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -17475,7 +17475,7 @@ impl IDebugControl3 {
         unsafe { (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout) }
     }
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u8]>, descriptionused: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -17510,10 +17510,10 @@ impl IDebugControl3 {
                 windows_core::Interface::as_raw(self),
                 srctext.param().abi(),
                 index,
-                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 srcsize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 dstbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 dstsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -17573,10 +17573,10 @@ impl IDebugControl3 {
             (windows_core::Interface::vtable(self).GetExpressionSyntaxNames)(
                 windows_core::Interface::as_raw(self),
                 index,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -18889,7 +18889,7 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds) }
     }
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::HRESULT
     where
@@ -18910,7 +18910,7 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).SetLogMask)(windows_core::Interface::as_raw(self), mask) }
     }
     pub unsafe fn Input(&self, buffer: &mut [u8], inputsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::HRESULT
     where
@@ -18955,7 +18955,7 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args) }
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OutputCurrentState)(windows_core::Interface::as_raw(self), outputcontrol, flags) }
@@ -18982,7 +18982,7 @@ impl IDebugControl4 {
         }
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
+        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -18997,7 +18997,7 @@ impl IDebugControl4 {
         }
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: Option<*mut u32>, startoffset: Option<*mut u64>, endoffset: Option<*mut u64>, lineoffsets: Option<&mut [u64]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lineoffsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, lineoffsets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64> {
         unsafe {
@@ -19006,7 +19006,7 @@ impl IDebugControl4 {
         }
     }
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, frames.as_mut_ptr(), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetReturnOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -19015,7 +19015,7 @@ impl IDebugControl4 {
         }
     }
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, frames.map_or(core::ptr::null(), |slice| slice.as_ptr()), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDebuggeeType)(windows_core::Interface::as_raw(self), class as _, qualifier as _) }
@@ -19039,7 +19039,7 @@ impl IDebugControl4 {
         }
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetNumberProcessors(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -19054,11 +19054,11 @@ impl IDebugControl4 {
                 platformid as _,
                 major as _,
                 minor as _,
-                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 servicepackstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 servicepackstringused.unwrap_or(core::mem::zeroed()) as _,
                 servicepacknumber as _,
-                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 buildstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 buildstringused.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -19083,17 +19083,17 @@ impl IDebugControl4 {
         }
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: Option<&mut [u8]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u8]>, abbrevnamesize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetProcessorTypeNames)(
                 windows_core::Interface::as_raw(self),
                 r#type,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -19148,7 +19148,7 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).SetSystemErrorControl)(windows_core::Interface::as_raw(self), outputlevel, breaklevel) }
     }
     pub unsafe fn GetTextMacro(&self, slot: u32, buffer: Option<&mut [u8]>, macrosize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetTextMacro<P1>(&self, slot: u32, r#macro: P1) -> windows_core::HRESULT
     where
@@ -19272,10 +19272,10 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).GetNumberEventFilters)(windows_core::Interface::as_raw(self), specificevents as _, specificexceptions as _, arbitraryexceptions as _) }
     }
     pub unsafe fn GetEventFilterText(&self, index: u32, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetEventFilterCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetEventFilterCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -19284,13 +19284,13 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_mut_ptr()) }
     }
     pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: Option<&mut [u8]>, argumentsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSpecificFilterArgument<P1>(&self, index: u32, argument: P1) -> windows_core::HRESULT
     where
@@ -19302,10 +19302,10 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes.unwrap_or(core::mem::zeroed()) as _, start, params as _) }
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -19317,7 +19317,7 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout) }
     }
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u8]>, descriptionused: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -19352,10 +19352,10 @@ impl IDebugControl4 {
                 windows_core::Interface::as_raw(self),
                 srctext.param().abi(),
                 index,
-                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 srcsize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 dstbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 dstsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -19415,10 +19415,10 @@ impl IDebugControl4 {
             (windows_core::Interface::vtable(self).GetExpressionSyntaxNames)(
                 windows_core::Interface::as_raw(self),
                 index,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -19449,7 +19449,7 @@ impl IDebugControl4 {
         }
     }
     pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
     }
     pub unsafe fn OpenLogFileWide<P0>(&self, file: P0, append: bool) -> windows_core::HRESULT
     where
@@ -19458,7 +19458,7 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()) }
     }
     pub unsafe fn InputWide(&self, buffer: &mut [u16], inputsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReturnInputWide<P0>(&self, buffer: P0) -> windows_core::HRESULT
     where
@@ -19503,7 +19503,7 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args) }
     }
     pub unsafe fn GetPromptTextWide(&self, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn AssembleWide<P1>(&self, offset: u64, instr: P1) -> windows_core::Result<u64>
     where
@@ -19515,24 +19515,24 @@ impl IDebugControl4 {
         }
     }
     pub unsafe fn DisassembleWide(&self, offset: u64, flags: u32, buffer: Option<&mut [u16]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DisassembleWide)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
+        unsafe { (windows_core::Interface::vtable(self).DisassembleWide)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
     }
     pub unsafe fn GetProcessorTypeNamesWide(&self, r#type: u32, fullnamebuffer: Option<&mut [u16]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u16]>, abbrevnamesize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetProcessorTypeNamesWide)(
                 windows_core::Interface::as_raw(self),
                 r#type,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
         }
     }
     pub unsafe fn GetTextMacroWide(&self, slot: u32, buffer: Option<&mut [u16]>, macrosize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTextMacroWide)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTextMacroWide)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetTextMacroWide<P1>(&self, slot: u32, r#macro: P1) -> windows_core::HRESULT
     where
@@ -19618,10 +19618,10 @@ impl IDebugControl4 {
         }
     }
     pub unsafe fn GetEventFilterTextWide(&self, index: u32, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetEventFilterCommandWide(&self, index: u32, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetEventFilterCommandWide<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -19630,7 +19630,7 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).SetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetSpecificFilterArgumentWide(&self, index: u32, buffer: Option<&mut [u16]>, argumentsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSpecificFilterArgumentWide<P1>(&self, index: u32, argument: P1) -> windows_core::HRESULT
     where
@@ -19639,7 +19639,7 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, argument.param().abi()) }
     }
     pub unsafe fn GetExceptionFilterSecondCommandWide(&self, index: u32, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetExceptionFilterSecondCommandWide<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -19648,7 +19648,7 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetLastEventInformationWide(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u16]>, descriptionused: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformationWide)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformationWide)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTextReplacementWide<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u16]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u16]>, dstsize: Option<*mut u32>) -> windows_core::HRESULT
     where
@@ -19659,10 +19659,10 @@ impl IDebugControl4 {
                 windows_core::Interface::as_raw(self),
                 srctext.param().abi(),
                 index,
-                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 srcsize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 dstbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 dstsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -19686,10 +19686,10 @@ impl IDebugControl4 {
             (windows_core::Interface::vtable(self).GetExpressionSyntaxNamesWide)(
                 windows_core::Interface::as_raw(self),
                 index,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -19702,7 +19702,7 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).GetEventIndexDescriptionWide)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, descsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLogFile2(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile2)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile2)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
     }
     pub unsafe fn OpenLogFile2<P0>(&self, file: P0, flags: u32) -> windows_core::HRESULT
     where
@@ -19711,7 +19711,7 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).OpenLogFile2)(windows_core::Interface::as_raw(self), file.param().abi(), flags) }
     }
     pub unsafe fn GetLogFile2Wide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile2Wide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile2Wide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
     }
     pub unsafe fn OpenLogFile2Wide<P0>(&self, file: P0, flags: u32) -> windows_core::HRESULT
     where
@@ -19723,25 +19723,25 @@ impl IDebugControl4 {
         unsafe { (windows_core::Interface::vtable(self).GetSystemVersionValues)(windows_core::Interface::as_raw(self), platformid as _, win32major as _, win32minor as _, kdmajor.unwrap_or(core::mem::zeroed()) as _, kdminor.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSystemVersionString(&self, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionString)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionString)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSystemVersionStringWide(&self, which: u32, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionStringWide)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionStringWide)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetContextStackTrace(&self, startcontext: Option<*const core::ffi::c_void>, startcontextsize: u32, frames: Option<&mut [DEBUG_STACK_FRAME]>, framecontexts: Option<*mut core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, core::mem::transmute(frames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, frames.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, frames.as_ptr(), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
     }
     pub unsafe fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: Option<*mut core::ffi::c_void>, contextsize: u32, contextused: Option<*mut u32>, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStoredEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, context.unwrap_or(core::mem::zeroed()) as _, contextsize, contextused.unwrap_or(core::mem::zeroed()) as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetManagedStatus(&self, flags: Option<*mut u32>, whichstring: u32, string: Option<&mut [u8]>, stringneeded: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetManagedStatus)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetManagedStatus)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetManagedStatusWide(&self, flags: Option<*mut u32>, whichstring: u32, string: Option<&mut [u16]>, stringneeded: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetManagedStatusWide)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetManagedStatusWide)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ResetManagedStatus(&self, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResetManagedStatus)(windows_core::Interface::as_raw(self), flags) }
@@ -21551,7 +21551,7 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds) }
     }
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::HRESULT
     where
@@ -21572,7 +21572,7 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).SetLogMask)(windows_core::Interface::as_raw(self), mask) }
     }
     pub unsafe fn Input(&self, buffer: &mut [u8], inputsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::HRESULT
     where
@@ -21617,7 +21617,7 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args) }
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OutputCurrentState)(windows_core::Interface::as_raw(self), outputcontrol, flags) }
@@ -21644,7 +21644,7 @@ impl IDebugControl5 {
         }
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
+        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -21659,7 +21659,7 @@ impl IDebugControl5 {
         }
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: Option<*mut u32>, startoffset: Option<*mut u64>, endoffset: Option<*mut u64>, lineoffsets: Option<&mut [u64]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lineoffsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, lineoffsets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64> {
         unsafe {
@@ -21668,7 +21668,7 @@ impl IDebugControl5 {
         }
     }
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, frames.as_mut_ptr(), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetReturnOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -21677,7 +21677,7 @@ impl IDebugControl5 {
         }
     }
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, frames.map_or(core::ptr::null(), |slice| slice.as_ptr()), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDebuggeeType)(windows_core::Interface::as_raw(self), class as _, qualifier as _) }
@@ -21701,7 +21701,7 @@ impl IDebugControl5 {
         }
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetNumberProcessors(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -21716,11 +21716,11 @@ impl IDebugControl5 {
                 platformid as _,
                 major as _,
                 minor as _,
-                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 servicepackstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 servicepackstringused.unwrap_or(core::mem::zeroed()) as _,
                 servicepacknumber as _,
-                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 buildstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 buildstringused.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -21745,17 +21745,17 @@ impl IDebugControl5 {
         }
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: Option<&mut [u8]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u8]>, abbrevnamesize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetProcessorTypeNames)(
                 windows_core::Interface::as_raw(self),
                 r#type,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -21810,7 +21810,7 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).SetSystemErrorControl)(windows_core::Interface::as_raw(self), outputlevel, breaklevel) }
     }
     pub unsafe fn GetTextMacro(&self, slot: u32, buffer: Option<&mut [u8]>, macrosize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetTextMacro<P1>(&self, slot: u32, r#macro: P1) -> windows_core::HRESULT
     where
@@ -21934,10 +21934,10 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).GetNumberEventFilters)(windows_core::Interface::as_raw(self), specificevents as _, specificexceptions as _, arbitraryexceptions as _) }
     }
     pub unsafe fn GetEventFilterText(&self, index: u32, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetEventFilterCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetEventFilterCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -21946,13 +21946,13 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_mut_ptr()) }
     }
     pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: Option<&mut [u8]>, argumentsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSpecificFilterArgument<P1>(&self, index: u32, argument: P1) -> windows_core::HRESULT
     where
@@ -21964,10 +21964,10 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes.unwrap_or(core::mem::zeroed()) as _, start, params as _) }
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -21979,7 +21979,7 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout) }
     }
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u8]>, descriptionused: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -22014,10 +22014,10 @@ impl IDebugControl5 {
                 windows_core::Interface::as_raw(self),
                 srctext.param().abi(),
                 index,
-                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 srcsize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 dstbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 dstsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -22077,10 +22077,10 @@ impl IDebugControl5 {
             (windows_core::Interface::vtable(self).GetExpressionSyntaxNames)(
                 windows_core::Interface::as_raw(self),
                 index,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -22111,7 +22111,7 @@ impl IDebugControl5 {
         }
     }
     pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
     }
     pub unsafe fn OpenLogFileWide<P0>(&self, file: P0, append: bool) -> windows_core::HRESULT
     where
@@ -22120,7 +22120,7 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()) }
     }
     pub unsafe fn InputWide(&self, buffer: &mut [u16], inputsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReturnInputWide<P0>(&self, buffer: P0) -> windows_core::HRESULT
     where
@@ -22165,7 +22165,7 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args) }
     }
     pub unsafe fn GetPromptTextWide(&self, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn AssembleWide<P1>(&self, offset: u64, instr: P1) -> windows_core::Result<u64>
     where
@@ -22177,24 +22177,24 @@ impl IDebugControl5 {
         }
     }
     pub unsafe fn DisassembleWide(&self, offset: u64, flags: u32, buffer: Option<&mut [u16]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DisassembleWide)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
+        unsafe { (windows_core::Interface::vtable(self).DisassembleWide)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
     }
     pub unsafe fn GetProcessorTypeNamesWide(&self, r#type: u32, fullnamebuffer: Option<&mut [u16]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u16]>, abbrevnamesize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetProcessorTypeNamesWide)(
                 windows_core::Interface::as_raw(self),
                 r#type,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
         }
     }
     pub unsafe fn GetTextMacroWide(&self, slot: u32, buffer: Option<&mut [u16]>, macrosize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTextMacroWide)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTextMacroWide)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetTextMacroWide<P1>(&self, slot: u32, r#macro: P1) -> windows_core::HRESULT
     where
@@ -22280,10 +22280,10 @@ impl IDebugControl5 {
         }
     }
     pub unsafe fn GetEventFilterTextWide(&self, index: u32, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetEventFilterCommandWide(&self, index: u32, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetEventFilterCommandWide<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -22292,7 +22292,7 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).SetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetSpecificFilterArgumentWide(&self, index: u32, buffer: Option<&mut [u16]>, argumentsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSpecificFilterArgumentWide<P1>(&self, index: u32, argument: P1) -> windows_core::HRESULT
     where
@@ -22301,7 +22301,7 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, argument.param().abi()) }
     }
     pub unsafe fn GetExceptionFilterSecondCommandWide(&self, index: u32, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetExceptionFilterSecondCommandWide<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -22310,7 +22310,7 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetLastEventInformationWide(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u16]>, descriptionused: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformationWide)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformationWide)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTextReplacementWide<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u16]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u16]>, dstsize: Option<*mut u32>) -> windows_core::HRESULT
     where
@@ -22321,10 +22321,10 @@ impl IDebugControl5 {
                 windows_core::Interface::as_raw(self),
                 srctext.param().abi(),
                 index,
-                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 srcsize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 dstbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 dstsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -22348,10 +22348,10 @@ impl IDebugControl5 {
             (windows_core::Interface::vtable(self).GetExpressionSyntaxNamesWide)(
                 windows_core::Interface::as_raw(self),
                 index,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -22364,7 +22364,7 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).GetEventIndexDescriptionWide)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, descsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLogFile2(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile2)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile2)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
     }
     pub unsafe fn OpenLogFile2<P0>(&self, file: P0, flags: u32) -> windows_core::HRESULT
     where
@@ -22373,7 +22373,7 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).OpenLogFile2)(windows_core::Interface::as_raw(self), file.param().abi(), flags) }
     }
     pub unsafe fn GetLogFile2Wide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile2Wide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile2Wide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
     }
     pub unsafe fn OpenLogFile2Wide<P0>(&self, file: P0, flags: u32) -> windows_core::HRESULT
     where
@@ -22385,40 +22385,40 @@ impl IDebugControl5 {
         unsafe { (windows_core::Interface::vtable(self).GetSystemVersionValues)(windows_core::Interface::as_raw(self), platformid as _, win32major as _, win32minor as _, kdmajor.unwrap_or(core::mem::zeroed()) as _, kdminor.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSystemVersionString(&self, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionString)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionString)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSystemVersionStringWide(&self, which: u32, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionStringWide)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionStringWide)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetContextStackTrace(&self, startcontext: Option<*const core::ffi::c_void>, startcontextsize: u32, frames: Option<&mut [DEBUG_STACK_FRAME]>, framecontexts: Option<*mut core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, core::mem::transmute(frames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, frames.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, frames.as_ptr(), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
     }
     pub unsafe fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: Option<*mut core::ffi::c_void>, contextsize: u32, contextused: Option<*mut u32>, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStoredEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, context.unwrap_or(core::mem::zeroed()) as _, contextsize, contextused.unwrap_or(core::mem::zeroed()) as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetManagedStatus(&self, flags: Option<*mut u32>, whichstring: u32, string: Option<&mut [u8]>, stringneeded: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetManagedStatus)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetManagedStatus)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetManagedStatusWide(&self, flags: Option<*mut u32>, whichstring: u32, string: Option<&mut [u16]>, stringneeded: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetManagedStatusWide)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetManagedStatusWide)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ResetManagedStatus(&self, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResetManagedStatus)(windows_core::Interface::as_raw(self), flags) }
     }
     pub unsafe fn GetStackTraceEx(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME_EX], framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStackTraceEx)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStackTraceEx)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, frames.as_mut_ptr(), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputStackTraceEx(&self, outputcontrol: u32, frames: Option<&[DEBUG_STACK_FRAME_EX]>, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, frames.map_or(core::ptr::null(), |slice| slice.as_ptr()), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
     }
     pub unsafe fn GetContextStackTraceEx(&self, startcontext: Option<*const core::ffi::c_void>, startcontextsize: u32, frames: Option<&mut [DEBUG_STACK_FRAME_EX]>, framecontexts: Option<*mut core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTraceEx)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, core::mem::transmute(frames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTraceEx)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, frames.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME_EX], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, frames.as_ptr(), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
     }
     pub unsafe fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3> {
         unsafe {
@@ -24282,7 +24282,7 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds) }
     }
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::HRESULT
     where
@@ -24303,7 +24303,7 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).SetLogMask)(windows_core::Interface::as_raw(self), mask) }
     }
     pub unsafe fn Input(&self, buffer: &mut [u8], inputsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::HRESULT
     where
@@ -24348,7 +24348,7 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args) }
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OutputCurrentState)(windows_core::Interface::as_raw(self), outputcontrol, flags) }
@@ -24375,7 +24375,7 @@ impl IDebugControl6 {
         }
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
+        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -24390,7 +24390,7 @@ impl IDebugControl6 {
         }
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: Option<*mut u32>, startoffset: Option<*mut u64>, endoffset: Option<*mut u64>, lineoffsets: Option<&mut [u64]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lineoffsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, lineoffsets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64> {
         unsafe {
@@ -24399,7 +24399,7 @@ impl IDebugControl6 {
         }
     }
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, frames.as_mut_ptr(), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetReturnOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -24408,7 +24408,7 @@ impl IDebugControl6 {
         }
     }
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, frames.map_or(core::ptr::null(), |slice| slice.as_ptr()), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDebuggeeType)(windows_core::Interface::as_raw(self), class as _, qualifier as _) }
@@ -24432,7 +24432,7 @@ impl IDebugControl6 {
         }
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetNumberProcessors(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -24447,11 +24447,11 @@ impl IDebugControl6 {
                 platformid as _,
                 major as _,
                 minor as _,
-                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 servicepackstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 servicepackstringused.unwrap_or(core::mem::zeroed()) as _,
                 servicepacknumber as _,
-                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 buildstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 buildstringused.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -24476,17 +24476,17 @@ impl IDebugControl6 {
         }
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: Option<&mut [u8]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u8]>, abbrevnamesize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetProcessorTypeNames)(
                 windows_core::Interface::as_raw(self),
                 r#type,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -24541,7 +24541,7 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).SetSystemErrorControl)(windows_core::Interface::as_raw(self), outputlevel, breaklevel) }
     }
     pub unsafe fn GetTextMacro(&self, slot: u32, buffer: Option<&mut [u8]>, macrosize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetTextMacro<P1>(&self, slot: u32, r#macro: P1) -> windows_core::HRESULT
     where
@@ -24665,10 +24665,10 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).GetNumberEventFilters)(windows_core::Interface::as_raw(self), specificevents as _, specificexceptions as _, arbitraryexceptions as _) }
     }
     pub unsafe fn GetEventFilterText(&self, index: u32, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetEventFilterCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetEventFilterCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -24677,13 +24677,13 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_mut_ptr()) }
     }
     pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: Option<&mut [u8]>, argumentsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSpecificFilterArgument<P1>(&self, index: u32, argument: P1) -> windows_core::HRESULT
     where
@@ -24695,10 +24695,10 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes.unwrap_or(core::mem::zeroed()) as _, start, params as _) }
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -24710,7 +24710,7 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout) }
     }
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u8]>, descriptionused: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -24745,10 +24745,10 @@ impl IDebugControl6 {
                 windows_core::Interface::as_raw(self),
                 srctext.param().abi(),
                 index,
-                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 srcsize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 dstbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 dstsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -24808,10 +24808,10 @@ impl IDebugControl6 {
             (windows_core::Interface::vtable(self).GetExpressionSyntaxNames)(
                 windows_core::Interface::as_raw(self),
                 index,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -24842,7 +24842,7 @@ impl IDebugControl6 {
         }
     }
     pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
     }
     pub unsafe fn OpenLogFileWide<P0>(&self, file: P0, append: bool) -> windows_core::HRESULT
     where
@@ -24851,7 +24851,7 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()) }
     }
     pub unsafe fn InputWide(&self, buffer: &mut [u16], inputsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReturnInputWide<P0>(&self, buffer: P0) -> windows_core::HRESULT
     where
@@ -24896,7 +24896,7 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args) }
     }
     pub unsafe fn GetPromptTextWide(&self, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn AssembleWide<P1>(&self, offset: u64, instr: P1) -> windows_core::Result<u64>
     where
@@ -24908,24 +24908,24 @@ impl IDebugControl6 {
         }
     }
     pub unsafe fn DisassembleWide(&self, offset: u64, flags: u32, buffer: Option<&mut [u16]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DisassembleWide)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
+        unsafe { (windows_core::Interface::vtable(self).DisassembleWide)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
     }
     pub unsafe fn GetProcessorTypeNamesWide(&self, r#type: u32, fullnamebuffer: Option<&mut [u16]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u16]>, abbrevnamesize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetProcessorTypeNamesWide)(
                 windows_core::Interface::as_raw(self),
                 r#type,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
         }
     }
     pub unsafe fn GetTextMacroWide(&self, slot: u32, buffer: Option<&mut [u16]>, macrosize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTextMacroWide)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTextMacroWide)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetTextMacroWide<P1>(&self, slot: u32, r#macro: P1) -> windows_core::HRESULT
     where
@@ -25011,10 +25011,10 @@ impl IDebugControl6 {
         }
     }
     pub unsafe fn GetEventFilterTextWide(&self, index: u32, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetEventFilterCommandWide(&self, index: u32, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetEventFilterCommandWide<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -25023,7 +25023,7 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).SetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetSpecificFilterArgumentWide(&self, index: u32, buffer: Option<&mut [u16]>, argumentsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSpecificFilterArgumentWide<P1>(&self, index: u32, argument: P1) -> windows_core::HRESULT
     where
@@ -25032,7 +25032,7 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, argument.param().abi()) }
     }
     pub unsafe fn GetExceptionFilterSecondCommandWide(&self, index: u32, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetExceptionFilterSecondCommandWide<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -25041,7 +25041,7 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetLastEventInformationWide(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u16]>, descriptionused: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformationWide)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformationWide)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTextReplacementWide<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u16]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u16]>, dstsize: Option<*mut u32>) -> windows_core::HRESULT
     where
@@ -25052,10 +25052,10 @@ impl IDebugControl6 {
                 windows_core::Interface::as_raw(self),
                 srctext.param().abi(),
                 index,
-                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 srcsize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 dstbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 dstsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -25079,10 +25079,10 @@ impl IDebugControl6 {
             (windows_core::Interface::vtable(self).GetExpressionSyntaxNamesWide)(
                 windows_core::Interface::as_raw(self),
                 index,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -25095,7 +25095,7 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).GetEventIndexDescriptionWide)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, descsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLogFile2(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile2)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile2)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
     }
     pub unsafe fn OpenLogFile2<P0>(&self, file: P0, flags: u32) -> windows_core::HRESULT
     where
@@ -25104,7 +25104,7 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).OpenLogFile2)(windows_core::Interface::as_raw(self), file.param().abi(), flags) }
     }
     pub unsafe fn GetLogFile2Wide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile2Wide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile2Wide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
     }
     pub unsafe fn OpenLogFile2Wide<P0>(&self, file: P0, flags: u32) -> windows_core::HRESULT
     where
@@ -25116,40 +25116,40 @@ impl IDebugControl6 {
         unsafe { (windows_core::Interface::vtable(self).GetSystemVersionValues)(windows_core::Interface::as_raw(self), platformid as _, win32major as _, win32minor as _, kdmajor.unwrap_or(core::mem::zeroed()) as _, kdminor.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSystemVersionString(&self, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionString)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionString)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSystemVersionStringWide(&self, which: u32, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionStringWide)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionStringWide)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetContextStackTrace(&self, startcontext: Option<*const core::ffi::c_void>, startcontextsize: u32, frames: Option<&mut [DEBUG_STACK_FRAME]>, framecontexts: Option<*mut core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, core::mem::transmute(frames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, frames.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, frames.as_ptr(), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
     }
     pub unsafe fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: Option<*mut core::ffi::c_void>, contextsize: u32, contextused: Option<*mut u32>, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStoredEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, context.unwrap_or(core::mem::zeroed()) as _, contextsize, contextused.unwrap_or(core::mem::zeroed()) as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetManagedStatus(&self, flags: Option<*mut u32>, whichstring: u32, string: Option<&mut [u8]>, stringneeded: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetManagedStatus)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetManagedStatus)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetManagedStatusWide(&self, flags: Option<*mut u32>, whichstring: u32, string: Option<&mut [u16]>, stringneeded: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetManagedStatusWide)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetManagedStatusWide)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ResetManagedStatus(&self, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResetManagedStatus)(windows_core::Interface::as_raw(self), flags) }
     }
     pub unsafe fn GetStackTraceEx(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME_EX], framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStackTraceEx)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStackTraceEx)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, frames.as_mut_ptr(), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputStackTraceEx(&self, outputcontrol: u32, frames: Option<&[DEBUG_STACK_FRAME_EX]>, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, frames.map_or(core::ptr::null(), |slice| slice.as_ptr()), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
     }
     pub unsafe fn GetContextStackTraceEx(&self, startcontext: Option<*const core::ffi::c_void>, startcontextsize: u32, frames: Option<&mut [DEBUG_STACK_FRAME_EX]>, framecontexts: Option<*mut core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTraceEx)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, core::mem::transmute(frames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTraceEx)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, frames.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME_EX], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, frames.as_ptr(), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
     }
     pub unsafe fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3> {
         unsafe {
@@ -27046,7 +27046,7 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).SetInterruptTimeout)(windows_core::Interface::as_raw(self), seconds) }
     }
     pub unsafe fn GetLogFile(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
     }
     pub unsafe fn OpenLogFile<P0>(&self, file: P0, append: bool) -> windows_core::HRESULT
     where
@@ -27067,7 +27067,7 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).SetLogMask)(windows_core::Interface::as_raw(self), mask) }
     }
     pub unsafe fn Input(&self, buffer: &mut [u8], inputsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Input)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReturnInput<P0>(&self, buffer: P0) -> windows_core::HRESULT
     where
@@ -27112,7 +27112,7 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptVaList)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args) }
     }
     pub unsafe fn GetPromptText(&self, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPromptText)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputCurrentState(&self, outputcontrol: u32, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OutputCurrentState)(windows_core::Interface::as_raw(self), outputcontrol, flags) }
@@ -27139,7 +27139,7 @@ impl IDebugControl7 {
         }
     }
     pub unsafe fn Disassemble(&self, offset: u64, flags: u32, buffer: Option<&mut [u8]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
+        unsafe { (windows_core::Interface::vtable(self).Disassemble)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
     }
     pub unsafe fn GetDisassembleEffectiveOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -27154,7 +27154,7 @@ impl IDebugControl7 {
         }
     }
     pub unsafe fn OutputDisassemblyLines(&self, outputcontrol: u32, previouslines: u32, offset: u64, flags: u32, offsetline: Option<*mut u32>, startoffset: Option<*mut u64>, endoffset: Option<*mut u64>, lineoffsets: Option<&mut [u64]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lineoffsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe { (windows_core::Interface::vtable(self).OutputDisassemblyLines)(windows_core::Interface::as_raw(self), outputcontrol, previouslines, lineoffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), offset, flags, offsetline.unwrap_or(core::mem::zeroed()) as _, startoffset.unwrap_or(core::mem::zeroed()) as _, endoffset.unwrap_or(core::mem::zeroed()) as _, lineoffsets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
     pub unsafe fn GetNearInstruction(&self, offset: u64, delta: i32) -> windows_core::Result<u64> {
         unsafe {
@@ -27163,7 +27163,7 @@ impl IDebugControl7 {
         }
     }
     pub unsafe fn GetStackTrace(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME], framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStackTrace)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, frames.as_mut_ptr(), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetReturnOffset(&self) -> windows_core::Result<u64> {
         unsafe {
@@ -27172,7 +27172,7 @@ impl IDebugControl7 {
         }
     }
     pub unsafe fn OutputStackTrace(&self, outputcontrol: u32, frames: Option<&[DEBUG_STACK_FRAME]>, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, frames.map_or(core::ptr::null(), |slice| slice.as_ptr()), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
     }
     pub unsafe fn GetDebuggeeType(&self, class: *mut u32, qualifier: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDebuggeeType)(windows_core::Interface::as_raw(self), class as _, qualifier as _) }
@@ -27196,7 +27196,7 @@ impl IDebugControl7 {
         }
     }
     pub unsafe fn GetPossibleExecutingProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetPossibleExecutingProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetNumberProcessors(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -27211,11 +27211,11 @@ impl IDebugControl7 {
                 platformid as _,
                 major as _,
                 minor as _,
-                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(servicepackstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 servicepackstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 servicepackstringused.unwrap_or(core::mem::zeroed()) as _,
                 servicepacknumber as _,
-                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(buildstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 buildstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 buildstringused.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -27240,17 +27240,17 @@ impl IDebugControl7 {
         }
     }
     pub unsafe fn GetSupportedProcessorTypes(&self, start: u32, types: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), core::mem::transmute(types.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSupportedProcessorTypes)(windows_core::Interface::as_raw(self), start, types.len().try_into().unwrap(), types.as_mut_ptr()) }
     }
     pub unsafe fn GetProcessorTypeNames(&self, r#type: u32, fullnamebuffer: Option<&mut [u8]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u8]>, abbrevnamesize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetProcessorTypeNames)(
                 windows_core::Interface::as_raw(self),
                 r#type,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -27305,7 +27305,7 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).SetSystemErrorControl)(windows_core::Interface::as_raw(self), outputlevel, breaklevel) }
     }
     pub unsafe fn GetTextMacro(&self, slot: u32, buffer: Option<&mut [u8]>, macrosize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTextMacro)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetTextMacro<P1>(&self, slot: u32, r#macro: P1) -> windows_core::HRESULT
     where
@@ -27429,10 +27429,10 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).GetNumberEventFilters)(windows_core::Interface::as_raw(self), specificevents as _, specificexceptions as _, arbitraryexceptions as _) }
     }
     pub unsafe fn GetEventFilterText(&self, index: u32, buffer: Option<&mut [u8]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetEventFilterCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetEventFilterCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -27441,13 +27441,13 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).SetEventFilterCommand)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetSpecificFilterParameters(&self, start: u32, params: &mut [DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_mut_ptr()) }
     }
     pub unsafe fn SetSpecificFilterParameters(&self, start: u32, params: &[DEBUG_SPECIFIC_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetSpecificFilterArgument(&self, index: u32, buffer: Option<&mut [u8]>, argumentsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgument)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSpecificFilterArgument<P1>(&self, index: u32, argument: P1) -> windows_core::HRESULT
     where
@@ -27459,10 +27459,10 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterParameters)(windows_core::Interface::as_raw(self), count, codes.unwrap_or(core::mem::zeroed()) as _, start, params as _) }
     }
     pub unsafe fn SetExceptionFilterParameters(&self, params: &[DEBUG_EXCEPTION_FILTER_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterParameters)(windows_core::Interface::as_raw(self), params.len().try_into().unwrap(), params.as_ptr()) }
     }
     pub unsafe fn GetExceptionFilterSecondCommand(&self, index: u32, buffer: Option<&mut [u8]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommand)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetExceptionFilterSecondCommand<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -27474,7 +27474,7 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).WaitForEvent)(windows_core::Interface::as_raw(self), flags, timeout) }
     }
     pub unsafe fn GetLastEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u8]>, descriptionused: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetCurrentTimeDate(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -27509,10 +27509,10 @@ impl IDebugControl7 {
                 windows_core::Interface::as_raw(self),
                 srctext.param().abi(),
                 index,
-                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 srcsize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 dstbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 dstsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -27572,10 +27572,10 @@ impl IDebugControl7 {
             (windows_core::Interface::vtable(self).GetExpressionSyntaxNames)(
                 windows_core::Interface::as_raw(self),
                 index,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -27606,7 +27606,7 @@ impl IDebugControl7 {
         }
     }
     pub unsafe fn GetLogFileWide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, append: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFileWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, append as _) }
     }
     pub unsafe fn OpenLogFileWide<P0>(&self, file: P0, append: bool) -> windows_core::HRESULT
     where
@@ -27615,7 +27615,7 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).OpenLogFileWide)(windows_core::Interface::as_raw(self), file.param().abi(), append.into()) }
     }
     pub unsafe fn InputWide(&self, buffer: &mut [u16], inputsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).InputWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), inputsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReturnInputWide<P0>(&self, buffer: P0) -> windows_core::HRESULT
     where
@@ -27660,7 +27660,7 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).OutputPromptVaListWide)(windows_core::Interface::as_raw(self), outputcontrol, format.param().abi(), args) }
     }
     pub unsafe fn GetPromptTextWide(&self, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPromptTextWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn AssembleWide<P1>(&self, offset: u64, instr: P1) -> windows_core::Result<u64>
     where
@@ -27672,24 +27672,24 @@ impl IDebugControl7 {
         }
     }
     pub unsafe fn DisassembleWide(&self, offset: u64, flags: u32, buffer: Option<&mut [u16]>, disassemblysize: Option<*mut u32>, endoffset: *mut u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DisassembleWide)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
+        unsafe { (windows_core::Interface::vtable(self).DisassembleWide)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), disassemblysize.unwrap_or(core::mem::zeroed()) as _, endoffset as _) }
     }
     pub unsafe fn GetProcessorTypeNamesWide(&self, r#type: u32, fullnamebuffer: Option<&mut [u16]>, fullnamesize: Option<*mut u32>, abbrevnamebuffer: Option<&mut [u16]>, abbrevnamesize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GetProcessorTypeNamesWide)(
                 windows_core::Interface::as_raw(self),
                 r#type,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
         }
     }
     pub unsafe fn GetTextMacroWide(&self, slot: u32, buffer: Option<&mut [u16]>, macrosize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTextMacroWide)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTextMacroWide)(windows_core::Interface::as_raw(self), slot, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), macrosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetTextMacroWide<P1>(&self, slot: u32, r#macro: P1) -> windows_core::HRESULT
     where
@@ -27775,10 +27775,10 @@ impl IDebugControl7 {
         }
     }
     pub unsafe fn GetEventFilterTextWide(&self, index: u32, buffer: Option<&mut [u16]>, textsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), textsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetEventFilterCommandWide(&self, index: u32, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetEventFilterCommandWide<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -27787,7 +27787,7 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).SetEventFilterCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetSpecificFilterArgumentWide(&self, index: u32, buffer: Option<&mut [u16]>, argumentsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), argumentsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSpecificFilterArgumentWide<P1>(&self, index: u32, argument: P1) -> windows_core::HRESULT
     where
@@ -27796,7 +27796,7 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).SetSpecificFilterArgumentWide)(windows_core::Interface::as_raw(self), index, argument.param().abi()) }
     }
     pub unsafe fn GetExceptionFilterSecondCommandWide(&self, index: u32, buffer: Option<&mut [u16]>, commandsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), commandsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetExceptionFilterSecondCommandWide<P1>(&self, index: u32, command: P1) -> windows_core::HRESULT
     where
@@ -27805,7 +27805,7 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).SetExceptionFilterSecondCommandWide)(windows_core::Interface::as_raw(self), index, command.param().abi()) }
     }
     pub unsafe fn GetLastEventInformationWide(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>, description: Option<&mut [u16]>, descriptionused: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformationWide)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLastEventInformationWide)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), descriptionused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTextReplacementWide<P0>(&self, srctext: P0, index: u32, srcbuffer: Option<&mut [u16]>, srcsize: Option<*mut u32>, dstbuffer: Option<&mut [u16]>, dstsize: Option<*mut u32>) -> windows_core::HRESULT
     where
@@ -27816,10 +27816,10 @@ impl IDebugControl7 {
                 windows_core::Interface::as_raw(self),
                 srctext.param().abi(),
                 index,
-                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(srcbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 srcbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 srcsize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(dstbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 dstbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 dstsize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -27843,10 +27843,10 @@ impl IDebugControl7 {
             (windows_core::Interface::vtable(self).GetExpressionSyntaxNamesWide)(
                 windows_core::Interface::as_raw(self),
                 index,
-                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(fullnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 fullnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 fullnamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(abbrevnamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 abbrevnamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 abbrevnamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -27859,7 +27859,7 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).GetEventIndexDescriptionWide)(windows_core::Interface::as_raw(self), index, which, buffer.param().abi(), buffersize, descsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLogFile2(&self, buffer: Option<&mut [u8]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile2)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile2)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
     }
     pub unsafe fn OpenLogFile2<P0>(&self, file: P0, flags: u32) -> windows_core::HRESULT
     where
@@ -27868,7 +27868,7 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).OpenLogFile2)(windows_core::Interface::as_raw(self), file.param().abi(), flags) }
     }
     pub unsafe fn GetLogFile2Wide(&self, buffer: Option<&mut [u16]>, filesize: Option<*mut u32>, flags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLogFile2Wide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLogFile2Wide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, flags as _) }
     }
     pub unsafe fn OpenLogFile2Wide<P0>(&self, file: P0, flags: u32) -> windows_core::HRESULT
     where
@@ -27880,40 +27880,40 @@ impl IDebugControl7 {
         unsafe { (windows_core::Interface::vtable(self).GetSystemVersionValues)(windows_core::Interface::as_raw(self), platformid as _, win32major as _, win32minor as _, kdmajor.unwrap_or(core::mem::zeroed()) as _, kdminor.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSystemVersionString(&self, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionString)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionString)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSystemVersionStringWide(&self, which: u32, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionStringWide)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSystemVersionStringWide)(windows_core::Interface::as_raw(self), which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetContextStackTrace(&self, startcontext: Option<*const core::ffi::c_void>, startcontextsize: u32, frames: Option<&mut [DEBUG_STACK_FRAME]>, framecontexts: Option<*mut core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, core::mem::transmute(frames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTrace)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, frames.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputContextStackTrace(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTrace)(windows_core::Interface::as_raw(self), outputcontrol, frames.as_ptr(), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
     }
     pub unsafe fn GetStoredEventInformation(&self, r#type: *mut u32, processid: *mut u32, threadid: *mut u32, context: Option<*mut core::ffi::c_void>, contextsize: u32, contextused: Option<*mut u32>, extrainformation: Option<*mut core::ffi::c_void>, extrainformationsize: u32, extrainformationused: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStoredEventInformation)(windows_core::Interface::as_raw(self), r#type as _, processid as _, threadid as _, context.unwrap_or(core::mem::zeroed()) as _, contextsize, contextused.unwrap_or(core::mem::zeroed()) as _, extrainformation.unwrap_or(core::mem::zeroed()) as _, extrainformationsize, extrainformationused.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetManagedStatus(&self, flags: Option<*mut u32>, whichstring: u32, string: Option<&mut [u8]>, stringneeded: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetManagedStatus)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetManagedStatus)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetManagedStatusWide(&self, flags: Option<*mut u32>, whichstring: u32, string: Option<&mut [u16]>, stringneeded: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetManagedStatusWide)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetManagedStatusWide)(windows_core::Interface::as_raw(self), flags.unwrap_or(core::mem::zeroed()) as _, whichstring, core::mem::transmute(string.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), string.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringneeded.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ResetManagedStatus(&self, flags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ResetManagedStatus)(windows_core::Interface::as_raw(self), flags) }
     }
     pub unsafe fn GetStackTraceEx(&self, frameoffset: u64, stackoffset: u64, instructionoffset: u64, frames: &mut [DEBUG_STACK_FRAME_EX], framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStackTraceEx)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStackTraceEx)(windows_core::Interface::as_raw(self), frameoffset, stackoffset, instructionoffset, frames.as_mut_ptr(), frames.len().try_into().unwrap(), framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputStackTraceEx(&self, outputcontrol: u32, frames: Option<&[DEBUG_STACK_FRAME_EX]>, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, frames.map_or(core::ptr::null(), |slice| slice.as_ptr()), frames.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
     }
     pub unsafe fn GetContextStackTraceEx(&self, startcontext: Option<*const core::ffi::c_void>, startcontextsize: u32, frames: Option<&mut [DEBUG_STACK_FRAME_EX]>, framecontexts: Option<*mut core::ffi::c_void>, framecontextssize: u32, framecontextsentrysize: u32, framesfilled: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContextStackTraceEx)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, core::mem::transmute(frames.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetContextStackTraceEx)(windows_core::Interface::as_raw(self), startcontext.unwrap_or(core::mem::zeroed()) as _, startcontextsize, frames.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), frames.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), framecontexts.unwrap_or(core::mem::zeroed()) as _, framecontextssize, framecontextsentrysize, framesfilled.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputContextStackTraceEx(&self, outputcontrol: u32, frames: &[DEBUG_STACK_FRAME_EX], framecontexts: *const core::ffi::c_void, framecontextssize: u32, framecontextsentrysize: u32, flags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, core::mem::transmute(frames.as_ptr()), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
+        unsafe { (windows_core::Interface::vtable(self).OutputContextStackTraceEx)(windows_core::Interface::as_raw(self), outputcontrol, frames.as_ptr(), frames.len().try_into().unwrap(), framecontexts, framecontextssize, framecontextsentrysize, flags) }
     }
     pub unsafe fn GetBreakpointByGuid(&self, guid: *const windows_core::GUID) -> windows_core::Result<IDebugBreakpoint3> {
         unsafe {
@@ -29825,10 +29825,10 @@ impl IDebugDataSpaces {
         unsafe { (windows_core::Interface::vtable(self).WriteVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, byteswritten.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReadPointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, ptrs.as_mut_ptr()) }
     }
     pub unsafe fn WritePointersVirtual(&self, offset: u64, ptrs: &[u64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, ptrs.as_ptr()) }
     }
     pub unsafe fn ReadPhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadPhysical)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread.unwrap_or(core::mem::zeroed()) as _) }
@@ -30105,10 +30105,10 @@ impl IDebugDataSpaces2 {
         unsafe { (windows_core::Interface::vtable(self).WriteVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, byteswritten.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReadPointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, ptrs.as_mut_ptr()) }
     }
     pub unsafe fn WritePointersVirtual(&self, offset: u64, ptrs: &[u64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, ptrs.as_ptr()) }
     }
     pub unsafe fn ReadPhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadPhysical)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread.unwrap_or(core::mem::zeroed()) as _) }
@@ -30159,7 +30159,7 @@ impl IDebugDataSpaces2 {
         }
     }
     pub unsafe fn GetVirtualTranslationPhysicalOffsets(&self, r#virtual: u64, offsets: Option<&mut [u64]>, levels: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetVirtualTranslationPhysicalOffsets)(windows_core::Interface::as_raw(self), r#virtual, core::mem::transmute(offsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), offsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), levels.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetVirtualTranslationPhysicalOffsets)(windows_core::Interface::as_raw(self), r#virtual, offsets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), offsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), levels.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReadHandleData(&self, handle: u64, datatype: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, datasize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadHandleData)(windows_core::Interface::as_raw(self), handle, datatype, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, datasize.unwrap_or(core::mem::zeroed()) as _) }
@@ -30473,10 +30473,10 @@ impl IDebugDataSpaces3 {
         unsafe { (windows_core::Interface::vtable(self).WriteVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, byteswritten.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReadPointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, ptrs.as_mut_ptr()) }
     }
     pub unsafe fn WritePointersVirtual(&self, offset: u64, ptrs: &[u64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, ptrs.as_ptr()) }
     }
     pub unsafe fn ReadPhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadPhysical)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread.unwrap_or(core::mem::zeroed()) as _) }
@@ -30527,7 +30527,7 @@ impl IDebugDataSpaces3 {
         }
     }
     pub unsafe fn GetVirtualTranslationPhysicalOffsets(&self, r#virtual: u64, offsets: Option<&mut [u64]>, levels: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetVirtualTranslationPhysicalOffsets)(windows_core::Interface::as_raw(self), r#virtual, core::mem::transmute(offsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), offsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), levels.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetVirtualTranslationPhysicalOffsets)(windows_core::Interface::as_raw(self), r#virtual, offsets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), offsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), levels.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReadHandleData(&self, handle: u64, datatype: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, datasize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadHandleData)(windows_core::Interface::as_raw(self), handle, datatype, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, datasize.unwrap_or(core::mem::zeroed()) as _) }
@@ -30914,10 +30914,10 @@ impl IDebugDataSpaces4 {
         unsafe { (windows_core::Interface::vtable(self).WriteVirtualUncached)(windows_core::Interface::as_raw(self), offset, buffer, buffersize, byteswritten.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReadPointersVirtual(&self, offset: u64, ptrs: &mut [u64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).ReadPointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, ptrs.as_mut_ptr()) }
     }
     pub unsafe fn WritePointersVirtual(&self, offset: u64, ptrs: &[u64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, core::mem::transmute(ptrs.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).WritePointersVirtual)(windows_core::Interface::as_raw(self), ptrs.len().try_into().unwrap(), offset, ptrs.as_ptr()) }
     }
     pub unsafe fn ReadPhysical(&self, offset: u64, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadPhysical)(windows_core::Interface::as_raw(self), offset, buffer as _, buffersize, bytesread.unwrap_or(core::mem::zeroed()) as _) }
@@ -30968,7 +30968,7 @@ impl IDebugDataSpaces4 {
         }
     }
     pub unsafe fn GetVirtualTranslationPhysicalOffsets(&self, r#virtual: u64, offsets: Option<&mut [u64]>, levels: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetVirtualTranslationPhysicalOffsets)(windows_core::Interface::as_raw(self), r#virtual, core::mem::transmute(offsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), offsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), levels.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetVirtualTranslationPhysicalOffsets)(windows_core::Interface::as_raw(self), r#virtual, offsets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), offsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), levels.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReadHandleData(&self, handle: u64, datatype: u32, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, datasize: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadHandleData)(windows_core::Interface::as_raw(self), handle, datatype, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, datasize.unwrap_or(core::mem::zeroed()) as _) }
@@ -31021,16 +31021,16 @@ impl IDebugDataSpaces4 {
         }
     }
     pub unsafe fn ReadMultiByteStringVirtual(&self, offset: u64, maxbytes: u32, buffer: Option<&mut [u8]>, stringbytes: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReadMultiByteStringVirtual)(windows_core::Interface::as_raw(self), offset, maxbytes, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringbytes.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).ReadMultiByteStringVirtual)(windows_core::Interface::as_raw(self), offset, maxbytes, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringbytes.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReadMultiByteStringVirtualWide(&self, offset: u64, maxbytes: u32, codepage: u32, buffer: Option<&mut [u16]>, stringbytes: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReadMultiByteStringVirtualWide)(windows_core::Interface::as_raw(self), offset, maxbytes, codepage, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringbytes.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).ReadMultiByteStringVirtualWide)(windows_core::Interface::as_raw(self), offset, maxbytes, codepage, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringbytes.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReadUnicodeStringVirtual(&self, offset: u64, maxbytes: u32, codepage: u32, buffer: Option<&mut [u8]>, stringbytes: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReadUnicodeStringVirtual)(windows_core::Interface::as_raw(self), offset, maxbytes, codepage, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringbytes.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).ReadUnicodeStringVirtual)(windows_core::Interface::as_raw(self), offset, maxbytes, codepage, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringbytes.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReadUnicodeStringVirtualWide(&self, offset: u64, maxbytes: u32, buffer: Option<&mut [u16]>, stringbytes: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReadUnicodeStringVirtualWide)(windows_core::Interface::as_raw(self), offset, maxbytes, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringbytes.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).ReadUnicodeStringVirtualWide)(windows_core::Interface::as_raw(self), offset, maxbytes, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringbytes.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReadPhysical2(&self, offset: u64, flags: u32, buffer: *mut core::ffi::c_void, buffersize: u32, bytesread: Option<*mut u32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadPhysical2)(windows_core::Interface::as_raw(self), offset, flags, buffer as _, buffersize, bytesread.unwrap_or(core::mem::zeroed()) as _) }
@@ -32663,7 +32663,7 @@ impl IDebugRegisters {
         }
     }
     pub unsafe fn GetDescription(&self, register: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, desc: Option<*mut DEBUG_REGISTER_DESCRIPTION>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), register, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, desc.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), register, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, desc.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetIndexByName<P0>(&self, name: P0) -> windows_core::Result<u32>
     where
@@ -32865,7 +32865,7 @@ impl IDebugRegisters2 {
         }
     }
     pub unsafe fn GetDescription(&self, register: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, desc: Option<*mut DEBUG_REGISTER_DESCRIPTION>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), register, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, desc.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), register, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, desc.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetIndexByName<P0>(&self, name: P0) -> windows_core::Result<u32>
     where
@@ -32910,7 +32910,7 @@ impl IDebugRegisters2 {
         }
     }
     pub unsafe fn GetDescriptionWide(&self, register: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, desc: Option<*mut DEBUG_REGISTER_DESCRIPTION>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDescriptionWide)(windows_core::Interface::as_raw(self), register, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, desc.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDescriptionWide)(windows_core::Interface::as_raw(self), register, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, desc.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetIndexByNameWide<P0>(&self, name: P0) -> windows_core::Result<u32>
     where
@@ -32928,10 +32928,10 @@ impl IDebugRegisters2 {
         }
     }
     pub unsafe fn GetPseudoDescription(&self, register: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, typemodule: Option<*mut u64>, typeid: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPseudoDescription)(windows_core::Interface::as_raw(self), register, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, typemodule.unwrap_or(core::mem::zeroed()) as _, typeid.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPseudoDescription)(windows_core::Interface::as_raw(self), register, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, typemodule.unwrap_or(core::mem::zeroed()) as _, typeid.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetPseudoDescriptionWide(&self, register: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, typemodule: Option<*mut u64>, typeid: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPseudoDescriptionWide)(windows_core::Interface::as_raw(self), register, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, typemodule.unwrap_or(core::mem::zeroed()) as _, typeid.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPseudoDescriptionWide)(windows_core::Interface::as_raw(self), register, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, typemodule.unwrap_or(core::mem::zeroed()) as _, typeid.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetPseudoIndexByName<P0>(&self, name: P0) -> windows_core::Result<u32>
     where
@@ -33334,10 +33334,10 @@ impl IDebugSymbolGroup {
         unsafe { (windows_core::Interface::vtable(self).RemoveSymbolByIndex)(windows_core::Interface::as_raw(self), index) }
     }
     pub unsafe fn GetSymbolName(&self, index: u32, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolParameters(&self, start: u32, params: &mut [DEBUG_SYMBOL_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_mut_ptr()) }
     }
     pub unsafe fn ExpandSymbol(&self, index: u32, expand: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ExpandSymbol)(windows_core::Interface::as_raw(self), index, expand.into()) }
@@ -33497,10 +33497,10 @@ impl IDebugSymbolGroup2 {
         unsafe { (windows_core::Interface::vtable(self).RemoveSymbolByIndex)(windows_core::Interface::as_raw(self), index) }
     }
     pub unsafe fn GetSymbolName(&self, index: u32, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolParameters(&self, start: u32, params: &mut [DEBUG_SYMBOL_PARAMETERS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), core::mem::transmute(params.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolParameters)(windows_core::Interface::as_raw(self), start, params.len().try_into().unwrap(), params.as_mut_ptr()) }
     }
     pub unsafe fn ExpandSymbol(&self, index: u32, expand: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ExpandSymbol)(windows_core::Interface::as_raw(self), index, expand.into()) }
@@ -33533,7 +33533,7 @@ impl IDebugSymbolGroup2 {
         unsafe { (windows_core::Interface::vtable(self).RemoveSymbolByNameWide)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
     pub unsafe fn GetSymbolNameWide(&self, index: u32, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolNameWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolNameWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn WriteSymbolWide<P1>(&self, index: u32, value: P1) -> windows_core::HRESULT
     where
@@ -33548,10 +33548,10 @@ impl IDebugSymbolGroup2 {
         unsafe { (windows_core::Interface::vtable(self).OutputAsTypeWide)(windows_core::Interface::as_raw(self), index, r#type.param().abi()) }
     }
     pub unsafe fn GetSymbolTypeName(&self, index: u32, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolTypeName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolTypeName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolTypeNameWide(&self, index: u32, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolTypeNameWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolTypeNameWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolSize(&self, index: u32) -> windows_core::Result<u32> {
         unsafe {
@@ -33572,10 +33572,10 @@ impl IDebugSymbolGroup2 {
         }
     }
     pub unsafe fn GetSymbolValueText(&self, index: u32, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolValueText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolValueText)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolValueTextWide(&self, index: u32, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolValueTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolValueTextWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryInformation(&self, index: u32, entry: *mut DEBUG_SYMBOL_ENTRY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryInformation)(windows_core::Interface::as_raw(self), index, entry as _) }
@@ -33849,7 +33849,7 @@ impl IDebugSymbols {
         unsafe { (windows_core::Interface::vtable(self).SetSymbolOptions)(windows_core::Interface::as_raw(self), options) }
     }
     pub unsafe fn GetNameByOffset(&self, offset: u64, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameByOffset)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNameByOffset)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByName<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
@@ -33861,10 +33861,10 @@ impl IDebugSymbols {
         }
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLineByOffset(&self, offset: u64, line: Option<*mut u32>, filebuffer: Option<&mut [u8]>, filesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLineByOffset)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLineByOffset)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByLine<P1>(&self, line: u32, file: P1) -> windows_core::Result<u64>
     where
@@ -33899,13 +33899,13 @@ impl IDebugSymbols {
                 windows_core::Interface::as_raw(self),
                 index,
                 base,
-                core::mem::transmute(imagenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(imagenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 imagenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 imagenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(modulenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(modulenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 modulenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 modulenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(loadedimagenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(loadedimagenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 loadedimagenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 loadedimagenamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -33924,7 +33924,7 @@ impl IDebugSymbols {
         }
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTypeId<P1>(&self, module: u64, name: P1) -> windows_core::Result<u32>
     where
@@ -34011,7 +34011,7 @@ impl IDebugSymbols {
         }
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: Option<&mut [u8]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn EndSymbolMatch(&self, handle: u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndSymbolMatch)(windows_core::Interface::as_raw(self), handle) }
@@ -34023,7 +34023,7 @@ impl IDebugSymbols {
         unsafe { (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.param().abi()) }
     }
     pub unsafe fn GetSymbolPath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSymbolPath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -34038,7 +34038,7 @@ impl IDebugSymbols {
         unsafe { (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetImagePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetImagePath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -34053,10 +34053,10 @@ impl IDebugSymbols {
         unsafe { (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetSourcePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourcePathElement(&self, index: u32, buffer: Option<&mut [u8]>, elementsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElement)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElement)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSourcePath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -34074,13 +34074,13 @@ impl IDebugSymbols {
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceFileLineOffsets<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -34641,7 +34641,7 @@ impl IDebugSymbols2 {
         unsafe { (windows_core::Interface::vtable(self).SetSymbolOptions)(windows_core::Interface::as_raw(self), options) }
     }
     pub unsafe fn GetNameByOffset(&self, offset: u64, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameByOffset)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNameByOffset)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByName<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
@@ -34653,10 +34653,10 @@ impl IDebugSymbols2 {
         }
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLineByOffset(&self, offset: u64, line: Option<*mut u32>, filebuffer: Option<&mut [u8]>, filesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLineByOffset)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLineByOffset)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByLine<P1>(&self, line: u32, file: P1) -> windows_core::Result<u64>
     where
@@ -34691,13 +34691,13 @@ impl IDebugSymbols2 {
                 windows_core::Interface::as_raw(self),
                 index,
                 base,
-                core::mem::transmute(imagenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(imagenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 imagenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 imagenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(modulenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(modulenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 modulenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 modulenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(loadedimagenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(loadedimagenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 loadedimagenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 loadedimagenamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -34716,7 +34716,7 @@ impl IDebugSymbols2 {
         }
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTypeId<P1>(&self, module: u64, name: P1) -> windows_core::Result<u32>
     where
@@ -34803,7 +34803,7 @@ impl IDebugSymbols2 {
         }
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: Option<&mut [u8]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn EndSymbolMatch(&self, handle: u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndSymbolMatch)(windows_core::Interface::as_raw(self), handle) }
@@ -34815,7 +34815,7 @@ impl IDebugSymbols2 {
         unsafe { (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.param().abi()) }
     }
     pub unsafe fn GetSymbolPath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSymbolPath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -34830,7 +34830,7 @@ impl IDebugSymbols2 {
         unsafe { (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetImagePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetImagePath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -34845,10 +34845,10 @@ impl IDebugSymbols2 {
         unsafe { (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetSourcePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourcePathElement(&self, index: u32, buffer: Option<&mut [u8]>, elementsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElement)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElement)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSourcePath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -34866,13 +34866,13 @@ impl IDebugSymbols2 {
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceFileLineOffsets<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleVersionInformation<P2>(&self, index: u32, base: u64, item: P2, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::HRESULT
     where
@@ -34881,13 +34881,13 @@ impl IDebugSymbols2 {
         unsafe { (windows_core::Interface::vtable(self).GetModuleVersionInformation)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, verinfosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleNameString(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetModuleNameString)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetModuleNameString)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetConstantName(&self, module: u64, typeid: u32, value: u64, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetConstantName)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetConstantName)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetFieldName(&self, module: u64, typeid: u32, fieldindex: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFieldName)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetFieldName)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTypeOptions(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -35541,7 +35541,7 @@ impl IDebugSymbols3 {
         unsafe { (windows_core::Interface::vtable(self).SetSymbolOptions)(windows_core::Interface::as_raw(self), options) }
     }
     pub unsafe fn GetNameByOffset(&self, offset: u64, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameByOffset)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNameByOffset)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByName<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
@@ -35553,10 +35553,10 @@ impl IDebugSymbols3 {
         }
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLineByOffset(&self, offset: u64, line: Option<*mut u32>, filebuffer: Option<&mut [u8]>, filesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLineByOffset)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLineByOffset)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByLine<P1>(&self, line: u32, file: P1) -> windows_core::Result<u64>
     where
@@ -35591,13 +35591,13 @@ impl IDebugSymbols3 {
                 windows_core::Interface::as_raw(self),
                 index,
                 base,
-                core::mem::transmute(imagenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(imagenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 imagenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 imagenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(modulenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(modulenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 modulenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 modulenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(loadedimagenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(loadedimagenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 loadedimagenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 loadedimagenamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -35616,7 +35616,7 @@ impl IDebugSymbols3 {
         }
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTypeId<P1>(&self, module: u64, name: P1) -> windows_core::Result<u32>
     where
@@ -35703,7 +35703,7 @@ impl IDebugSymbols3 {
         }
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: Option<&mut [u8]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn EndSymbolMatch(&self, handle: u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndSymbolMatch)(windows_core::Interface::as_raw(self), handle) }
@@ -35715,7 +35715,7 @@ impl IDebugSymbols3 {
         unsafe { (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.param().abi()) }
     }
     pub unsafe fn GetSymbolPath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSymbolPath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -35730,7 +35730,7 @@ impl IDebugSymbols3 {
         unsafe { (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetImagePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetImagePath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -35745,10 +35745,10 @@ impl IDebugSymbols3 {
         unsafe { (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetSourcePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourcePathElement(&self, index: u32, buffer: Option<&mut [u8]>, elementsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElement)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElement)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSourcePath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -35766,13 +35766,13 @@ impl IDebugSymbols3 {
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceFileLineOffsets<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleVersionInformation<P2>(&self, index: u32, base: u64, item: P2, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::HRESULT
     where
@@ -35781,13 +35781,13 @@ impl IDebugSymbols3 {
         unsafe { (windows_core::Interface::vtable(self).GetModuleVersionInformation)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, verinfosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleNameString(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetModuleNameString)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetModuleNameString)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetConstantName(&self, module: u64, typeid: u32, value: u64, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetConstantName)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetConstantName)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetFieldName(&self, module: u64, typeid: u32, fieldindex: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFieldName)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetFieldName)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTypeOptions(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -35805,7 +35805,7 @@ impl IDebugSymbols3 {
         unsafe { (windows_core::Interface::vtable(self).SetTypeOptions)(windows_core::Interface::as_raw(self), options) }
     }
     pub unsafe fn GetNameByOffsetWide(&self, offset: u64, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByNameWide<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
@@ -35817,10 +35817,10 @@ impl IDebugSymbols3 {
         }
     }
     pub unsafe fn GetNearNameByOffsetWide(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLineByOffsetWide(&self, offset: u64, line: Option<*mut u32>, filebuffer: Option<&mut [u16]>, filesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLineByOffsetWide)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLineByOffsetWide)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByLineWide<P1>(&self, line: u32, file: P1) -> windows_core::Result<u64>
     where
@@ -35847,7 +35847,7 @@ impl IDebugSymbols3 {
         }
     }
     pub unsafe fn GetTypeNameWide(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTypeNameWide)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTypeNameWide)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTypeIdWide<P1>(&self, module: u64, name: P1) -> windows_core::Result<u32>
     where
@@ -35898,7 +35898,7 @@ impl IDebugSymbols3 {
         }
     }
     pub unsafe fn GetNextSymbolMatchWide(&self, handle: u64, buffer: Option<&mut [u16]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatchWide)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatchWide)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReloadWide<P0>(&self, module: P0) -> windows_core::HRESULT
     where
@@ -35907,7 +35907,7 @@ impl IDebugSymbols3 {
         unsafe { (windows_core::Interface::vtable(self).ReloadWide)(windows_core::Interface::as_raw(self), module.param().abi()) }
     }
     pub unsafe fn GetSymbolPathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolPathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolPathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSymbolPathWide<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -35922,7 +35922,7 @@ impl IDebugSymbols3 {
         unsafe { (windows_core::Interface::vtable(self).AppendSymbolPathWide)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetImagePathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetImagePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetImagePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetImagePathWide<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -35937,10 +35937,10 @@ impl IDebugSymbols3 {
         unsafe { (windows_core::Interface::vtable(self).AppendImagePathWide)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetSourcePathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourcePathElementWide(&self, index: u32, buffer: Option<&mut [u16]>, elementsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElementWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElementWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSourcePathWide<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -35958,13 +35958,13 @@ impl IDebugSymbols3 {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFileWide)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFileWide)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceFileLineOffsetsWide<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsetsWide)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsetsWide)(windows_core::Interface::as_raw(self), file.param().abi(), buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleVersionInformationWide<P2>(&self, index: u32, base: u64, item: P2, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::HRESULT
     where
@@ -35973,13 +35973,13 @@ impl IDebugSymbols3 {
         unsafe { (windows_core::Interface::vtable(self).GetModuleVersionInformationWide)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, verinfosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleNameStringWide(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetModuleNameStringWide)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetModuleNameStringWide)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetConstantNameWide(&self, module: u64, typeid: u32, value: u64, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetConstantNameWide)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetConstantNameWide)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetFieldNameWide(&self, module: u64, typeid: u32, fieldindex: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFieldNameWide)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetFieldNameWide)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn IsManagedModule(&self, index: u32, base: u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsManagedModule)(windows_core::Interface::as_raw(self), index, base) }
@@ -36071,13 +36071,13 @@ impl IDebugSymbols3 {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entries.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entries.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntriesByNameWide<P0>(&self, symbol: P0, flags: u32, ids: Option<&mut [DEBUG_MODULE_AND_ID]>, entries: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entries.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entries.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryByToken(&self, modulebase: u64, token: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID> {
         unsafe {
@@ -36089,13 +36089,13 @@ impl IDebugSymbols3 {
         unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryInformation)(windows_core::Interface::as_raw(self), id, info as _) }
     }
     pub unsafe fn GetSymbolEntryString(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryString)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryString)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryStringWide(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryStringWide)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryStringWide)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryOffsetRegions(&self, id: *const DEBUG_MODULE_AND_ID, flags: u32, regions: Option<&mut [DEBUG_OFFSET_REGION]>, regionsavail: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryOffsetRegions)(windows_core::Interface::as_raw(self), id, flags, core::mem::transmute(regions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), regions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), regionsavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryOffsetRegions)(windows_core::Interface::as_raw(self), id, flags, regions.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), regions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), regionsavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryBySymbolEntry(&self, fromid: *const DEBUG_MODULE_AND_ID, flags: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID> {
         unsafe {
@@ -36104,28 +36104,28 @@ impl IDebugSymbols3 {
         }
     }
     pub unsafe fn GetSourceEntriesByOffset(&self, offset: u64, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByOffset)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByOffset)(windows_core::Interface::as_raw(self), offset, flags, entries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntriesByLine<P1>(&self, line: u32, file: P1, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, entries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntriesByLineWide<P1>(&self, line: u32, file: P1, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, entries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntryString(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryString)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryString)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntryStringWide(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryStringWide)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryStringWide)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntryOffsetRegions(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: Option<&mut [DEBUG_OFFSET_REGION]>, regionsavail: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryOffsetRegions)(windows_core::Interface::as_raw(self), entry, flags, core::mem::transmute(regions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), regions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), regionsavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryOffsetRegions)(windows_core::Interface::as_raw(self), entry, flags, regions.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), regions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), regionsavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSourceEntryBySourceEntry)(windows_core::Interface::as_raw(self), fromentry, flags, toentry as _) }
@@ -37427,7 +37427,7 @@ impl IDebugSymbols4 {
         unsafe { (windows_core::Interface::vtable(self).SetSymbolOptions)(windows_core::Interface::as_raw(self), options) }
     }
     pub unsafe fn GetNameByOffset(&self, offset: u64, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameByOffset)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNameByOffset)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByName<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
@@ -37439,10 +37439,10 @@ impl IDebugSymbols4 {
         }
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLineByOffset(&self, offset: u64, line: Option<*mut u32>, filebuffer: Option<&mut [u8]>, filesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLineByOffset)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLineByOffset)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByLine<P1>(&self, line: u32, file: P1) -> windows_core::Result<u64>
     where
@@ -37477,13 +37477,13 @@ impl IDebugSymbols4 {
                 windows_core::Interface::as_raw(self),
                 index,
                 base,
-                core::mem::transmute(imagenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(imagenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 imagenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 imagenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(modulenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(modulenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 modulenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 modulenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(loadedimagenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(loadedimagenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 loadedimagenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 loadedimagenamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -37502,7 +37502,7 @@ impl IDebugSymbols4 {
         }
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTypeId<P1>(&self, module: u64, name: P1) -> windows_core::Result<u32>
     where
@@ -37589,7 +37589,7 @@ impl IDebugSymbols4 {
         }
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: Option<&mut [u8]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn EndSymbolMatch(&self, handle: u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndSymbolMatch)(windows_core::Interface::as_raw(self), handle) }
@@ -37601,7 +37601,7 @@ impl IDebugSymbols4 {
         unsafe { (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.param().abi()) }
     }
     pub unsafe fn GetSymbolPath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSymbolPath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -37616,7 +37616,7 @@ impl IDebugSymbols4 {
         unsafe { (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetImagePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetImagePath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -37631,10 +37631,10 @@ impl IDebugSymbols4 {
         unsafe { (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetSourcePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourcePathElement(&self, index: u32, buffer: Option<&mut [u8]>, elementsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElement)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElement)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSourcePath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -37652,13 +37652,13 @@ impl IDebugSymbols4 {
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceFileLineOffsets<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleVersionInformation<P2>(&self, index: u32, base: u64, item: P2, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::HRESULT
     where
@@ -37667,13 +37667,13 @@ impl IDebugSymbols4 {
         unsafe { (windows_core::Interface::vtable(self).GetModuleVersionInformation)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, verinfosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleNameString(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetModuleNameString)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetModuleNameString)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetConstantName(&self, module: u64, typeid: u32, value: u64, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetConstantName)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetConstantName)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetFieldName(&self, module: u64, typeid: u32, fieldindex: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFieldName)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetFieldName)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTypeOptions(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -37691,7 +37691,7 @@ impl IDebugSymbols4 {
         unsafe { (windows_core::Interface::vtable(self).SetTypeOptions)(windows_core::Interface::as_raw(self), options) }
     }
     pub unsafe fn GetNameByOffsetWide(&self, offset: u64, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByNameWide<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
@@ -37703,10 +37703,10 @@ impl IDebugSymbols4 {
         }
     }
     pub unsafe fn GetNearNameByOffsetWide(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLineByOffsetWide(&self, offset: u64, line: Option<*mut u32>, filebuffer: Option<&mut [u16]>, filesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLineByOffsetWide)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLineByOffsetWide)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByLineWide<P1>(&self, line: u32, file: P1) -> windows_core::Result<u64>
     where
@@ -37733,7 +37733,7 @@ impl IDebugSymbols4 {
         }
     }
     pub unsafe fn GetTypeNameWide(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTypeNameWide)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTypeNameWide)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTypeIdWide<P1>(&self, module: u64, name: P1) -> windows_core::Result<u32>
     where
@@ -37784,7 +37784,7 @@ impl IDebugSymbols4 {
         }
     }
     pub unsafe fn GetNextSymbolMatchWide(&self, handle: u64, buffer: Option<&mut [u16]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatchWide)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatchWide)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReloadWide<P0>(&self, module: P0) -> windows_core::HRESULT
     where
@@ -37793,7 +37793,7 @@ impl IDebugSymbols4 {
         unsafe { (windows_core::Interface::vtable(self).ReloadWide)(windows_core::Interface::as_raw(self), module.param().abi()) }
     }
     pub unsafe fn GetSymbolPathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolPathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolPathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSymbolPathWide<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -37808,7 +37808,7 @@ impl IDebugSymbols4 {
         unsafe { (windows_core::Interface::vtable(self).AppendSymbolPathWide)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetImagePathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetImagePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetImagePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetImagePathWide<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -37823,10 +37823,10 @@ impl IDebugSymbols4 {
         unsafe { (windows_core::Interface::vtable(self).AppendImagePathWide)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetSourcePathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourcePathElementWide(&self, index: u32, buffer: Option<&mut [u16]>, elementsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElementWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElementWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSourcePathWide<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -37844,13 +37844,13 @@ impl IDebugSymbols4 {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFileWide)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFileWide)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceFileLineOffsetsWide<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsetsWide)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsetsWide)(windows_core::Interface::as_raw(self), file.param().abi(), buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleVersionInformationWide<P2>(&self, index: u32, base: u64, item: P2, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::HRESULT
     where
@@ -37859,13 +37859,13 @@ impl IDebugSymbols4 {
         unsafe { (windows_core::Interface::vtable(self).GetModuleVersionInformationWide)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, verinfosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleNameStringWide(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetModuleNameStringWide)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetModuleNameStringWide)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetConstantNameWide(&self, module: u64, typeid: u32, value: u64, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetConstantNameWide)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetConstantNameWide)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetFieldNameWide(&self, module: u64, typeid: u32, fieldindex: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFieldNameWide)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetFieldNameWide)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn IsManagedModule(&self, index: u32, base: u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsManagedModule)(windows_core::Interface::as_raw(self), index, base) }
@@ -37957,13 +37957,13 @@ impl IDebugSymbols4 {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entries.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entries.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntriesByNameWide<P0>(&self, symbol: P0, flags: u32, ids: Option<&mut [DEBUG_MODULE_AND_ID]>, entries: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entries.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entries.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryByToken(&self, modulebase: u64, token: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID> {
         unsafe {
@@ -37975,13 +37975,13 @@ impl IDebugSymbols4 {
         unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryInformation)(windows_core::Interface::as_raw(self), id, info as _) }
     }
     pub unsafe fn GetSymbolEntryString(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryString)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryString)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryStringWide(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryStringWide)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryStringWide)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryOffsetRegions(&self, id: *const DEBUG_MODULE_AND_ID, flags: u32, regions: Option<&mut [DEBUG_OFFSET_REGION]>, regionsavail: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryOffsetRegions)(windows_core::Interface::as_raw(self), id, flags, core::mem::transmute(regions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), regions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), regionsavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryOffsetRegions)(windows_core::Interface::as_raw(self), id, flags, regions.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), regions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), regionsavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryBySymbolEntry(&self, fromid: *const DEBUG_MODULE_AND_ID, flags: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID> {
         unsafe {
@@ -37990,28 +37990,28 @@ impl IDebugSymbols4 {
         }
     }
     pub unsafe fn GetSourceEntriesByOffset(&self, offset: u64, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByOffset)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByOffset)(windows_core::Interface::as_raw(self), offset, flags, entries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntriesByLine<P1>(&self, line: u32, file: P1, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, entries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntriesByLineWide<P1>(&self, line: u32, file: P1, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, entries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntryString(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryString)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryString)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntryStringWide(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryStringWide)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryStringWide)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntryOffsetRegions(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: Option<&mut [DEBUG_OFFSET_REGION]>, regionsavail: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryOffsetRegions)(windows_core::Interface::as_raw(self), entry, flags, core::mem::transmute(regions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), regions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), regionsavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryOffsetRegions)(windows_core::Interface::as_raw(self), entry, flags, regions.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), regions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), regionsavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSourceEntryBySourceEntry)(windows_core::Interface::as_raw(self), fromentry, flags, toentry as _) }
@@ -38023,16 +38023,16 @@ impl IDebugSymbols4 {
         unsafe { (windows_core::Interface::vtable(self).SetScopeEx)(windows_core::Interface::as_raw(self), instructionoffset, scopeframe.unwrap_or(core::mem::zeroed()) as _, scopecontext.unwrap_or(core::mem::zeroed()) as _, scopecontextsize) }
     }
     pub unsafe fn GetNameByInlineContext(&self, offset: u64, inlinecontext: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameByInlineContext)(windows_core::Interface::as_raw(self), offset, inlinecontext, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNameByInlineContext)(windows_core::Interface::as_raw(self), offset, inlinecontext, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetNameByInlineContextWide(&self, offset: u64, inlinecontext: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameByInlineContextWide)(windows_core::Interface::as_raw(self), offset, inlinecontext, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNameByInlineContextWide)(windows_core::Interface::as_raw(self), offset, inlinecontext, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLineByInlineContext(&self, offset: u64, inlinecontext: u32, line: Option<*mut u32>, filebuffer: Option<&mut [u8]>, filesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLineByInlineContext)(windows_core::Interface::as_raw(self), offset, inlinecontext, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLineByInlineContext)(windows_core::Interface::as_raw(self), offset, inlinecontext, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLineByInlineContextWide(&self, offset: u64, inlinecontext: u32, line: Option<*mut u32>, filebuffer: Option<&mut [u16]>, filesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLineByInlineContextWide)(windows_core::Interface::as_raw(self), offset, inlinecontext, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLineByInlineContextWide)(windows_core::Interface::as_raw(self), offset, inlinecontext, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputSymbolByInlineContext(&self, outputcontrol: u32, flags: u32, offset: u64, inlinecontext: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OutputSymbolByInlineContext)(windows_core::Interface::as_raw(self), outputcontrol, flags, offset, inlinecontext) }
@@ -39397,7 +39397,7 @@ impl IDebugSymbols5 {
         unsafe { (windows_core::Interface::vtable(self).SetSymbolOptions)(windows_core::Interface::as_raw(self), options) }
     }
     pub unsafe fn GetNameByOffset(&self, offset: u64, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameByOffset)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNameByOffset)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByName<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
@@ -39409,10 +39409,10 @@ impl IDebugSymbols5 {
         }
     }
     pub unsafe fn GetNearNameByOffset(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffset)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLineByOffset(&self, offset: u64, line: Option<*mut u32>, filebuffer: Option<&mut [u8]>, filesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLineByOffset)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLineByOffset)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByLine<P1>(&self, line: u32, file: P1) -> windows_core::Result<u64>
     where
@@ -39447,13 +39447,13 @@ impl IDebugSymbols5 {
                 windows_core::Interface::as_raw(self),
                 index,
                 base,
-                core::mem::transmute(imagenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(imagenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 imagenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 imagenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(modulenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(modulenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 modulenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 modulenamesize.unwrap_or(core::mem::zeroed()) as _,
-                core::mem::transmute(loadedimagenamebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+                core::mem::transmute(loadedimagenamebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())),
                 loadedimagenamebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
                 loadedimagenamesize.unwrap_or(core::mem::zeroed()) as _,
             )
@@ -39472,7 +39472,7 @@ impl IDebugSymbols5 {
         }
     }
     pub unsafe fn GetTypeName(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTypeName)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTypeId<P1>(&self, module: u64, name: P1) -> windows_core::Result<u32>
     where
@@ -39559,7 +39559,7 @@ impl IDebugSymbols5 {
         }
     }
     pub unsafe fn GetNextSymbolMatch(&self, handle: u64, buffer: Option<&mut [u8]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatch)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn EndSymbolMatch(&self, handle: u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndSymbolMatch)(windows_core::Interface::as_raw(self), handle) }
@@ -39571,7 +39571,7 @@ impl IDebugSymbols5 {
         unsafe { (windows_core::Interface::vtable(self).Reload)(windows_core::Interface::as_raw(self), module.param().abi()) }
     }
     pub unsafe fn GetSymbolPath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolPath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSymbolPath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -39586,7 +39586,7 @@ impl IDebugSymbols5 {
         unsafe { (windows_core::Interface::vtable(self).AppendSymbolPath)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetImagePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetImagePath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -39601,10 +39601,10 @@ impl IDebugSymbols5 {
         unsafe { (windows_core::Interface::vtable(self).AppendImagePath)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetSourcePath(&self, buffer: Option<&mut [u8]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePath)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourcePathElement(&self, index: u32, buffer: Option<&mut [u8]>, elementsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElement)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElement)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSourcePath<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -39622,13 +39622,13 @@ impl IDebugSymbols5 {
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFile)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceFileLineOffsets<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsets)(windows_core::Interface::as_raw(self), file.param().abi(), buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleVersionInformation<P2>(&self, index: u32, base: u64, item: P2, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::HRESULT
     where
@@ -39637,13 +39637,13 @@ impl IDebugSymbols5 {
         unsafe { (windows_core::Interface::vtable(self).GetModuleVersionInformation)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, verinfosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleNameString(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetModuleNameString)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetModuleNameString)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetConstantName(&self, module: u64, typeid: u32, value: u64, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetConstantName)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetConstantName)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetFieldName(&self, module: u64, typeid: u32, fieldindex: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFieldName)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetFieldName)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTypeOptions(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -39661,7 +39661,7 @@ impl IDebugSymbols5 {
         unsafe { (windows_core::Interface::vtable(self).SetTypeOptions)(windows_core::Interface::as_raw(self), options) }
     }
     pub unsafe fn GetNameByOffsetWide(&self, offset: u64, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByNameWide<P0>(&self, symbol: P0) -> windows_core::Result<u64>
     where
@@ -39673,10 +39673,10 @@ impl IDebugSymbols5 {
         }
     }
     pub unsafe fn GetNearNameByOffsetWide(&self, offset: u64, delta: i32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNearNameByOffsetWide)(windows_core::Interface::as_raw(self), offset, delta, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLineByOffsetWide(&self, offset: u64, line: Option<*mut u32>, filebuffer: Option<&mut [u16]>, filesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLineByOffsetWide)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLineByOffsetWide)(windows_core::Interface::as_raw(self), offset, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetOffsetByLineWide<P1>(&self, line: u32, file: P1) -> windows_core::Result<u64>
     where
@@ -39703,7 +39703,7 @@ impl IDebugSymbols5 {
         }
     }
     pub unsafe fn GetTypeNameWide(&self, module: u64, typeid: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTypeNameWide)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetTypeNameWide)(windows_core::Interface::as_raw(self), module, typeid, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetTypeIdWide<P1>(&self, module: u64, name: P1) -> windows_core::Result<u32>
     where
@@ -39754,7 +39754,7 @@ impl IDebugSymbols5 {
         }
     }
     pub unsafe fn GetNextSymbolMatchWide(&self, handle: u64, buffer: Option<&mut [u16]>, matchsize: Option<*mut u32>, offset: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatchWide)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNextSymbolMatchWide)(windows_core::Interface::as_raw(self), handle, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), matchsize.unwrap_or(core::mem::zeroed()) as _, offset.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn ReloadWide<P0>(&self, module: P0) -> windows_core::HRESULT
     where
@@ -39763,7 +39763,7 @@ impl IDebugSymbols5 {
         unsafe { (windows_core::Interface::vtable(self).ReloadWide)(windows_core::Interface::as_raw(self), module.param().abi()) }
     }
     pub unsafe fn GetSymbolPathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolPathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolPathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSymbolPathWide<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -39778,7 +39778,7 @@ impl IDebugSymbols5 {
         unsafe { (windows_core::Interface::vtable(self).AppendSymbolPathWide)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetImagePathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetImagePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetImagePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetImagePathWide<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -39793,10 +39793,10 @@ impl IDebugSymbols5 {
         unsafe { (windows_core::Interface::vtable(self).AppendImagePathWide)(windows_core::Interface::as_raw(self), addition.param().abi()) }
     }
     pub unsafe fn GetSourcePathWide(&self, buffer: Option<&mut [u16]>, pathsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePathWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pathsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourcePathElementWide(&self, index: u32, buffer: Option<&mut [u16]>, elementsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElementWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcePathElementWide)(windows_core::Interface::as_raw(self), index, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), elementsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn SetSourcePathWide<P0>(&self, path: P0) -> windows_core::HRESULT
     where
@@ -39814,13 +39814,13 @@ impl IDebugSymbols5 {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FindSourceFileWide)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).FindSourceFileWide)(windows_core::Interface::as_raw(self), startelement, file.param().abi(), flags, foundelement.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), foundsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceFileLineOffsetsWide<P0>(&self, file: P0, buffer: Option<&mut [u64]>, filelines: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsetsWide)(windows_core::Interface::as_raw(self), file.param().abi(), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceFileLineOffsetsWide)(windows_core::Interface::as_raw(self), file.param().abi(), buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filelines.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleVersionInformationWide<P2>(&self, index: u32, base: u64, item: P2, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, verinfosize: Option<*mut u32>) -> windows_core::HRESULT
     where
@@ -39829,13 +39829,13 @@ impl IDebugSymbols5 {
         unsafe { (windows_core::Interface::vtable(self).GetModuleVersionInformationWide)(windows_core::Interface::as_raw(self), index, base, item.param().abi(), buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, verinfosize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetModuleNameStringWide(&self, which: u32, index: u32, base: u64, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetModuleNameStringWide)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetModuleNameStringWide)(windows_core::Interface::as_raw(self), which, index, base, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetConstantNameWide(&self, module: u64, typeid: u32, value: u64, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetConstantNameWide)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetConstantNameWide)(windows_core::Interface::as_raw(self), module, typeid, value, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetFieldNameWide(&self, module: u64, typeid: u32, fieldindex: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFieldNameWide)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetFieldNameWide)(windows_core::Interface::as_raw(self), module, typeid, fieldindex, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn IsManagedModule(&self, index: u32, base: u64) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsManagedModule)(windows_core::Interface::as_raw(self), index, base) }
@@ -39927,13 +39927,13 @@ impl IDebugSymbols5 {
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entries.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByName)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entries.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntriesByNameWide<P0>(&self, symbol: P0, flags: u32, ids: Option<&mut [DEBUG_MODULE_AND_ID]>, entries: Option<*mut u32>) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, core::mem::transmute(ids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entries.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntriesByNameWide)(windows_core::Interface::as_raw(self), symbol.param().abi(), flags, ids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entries.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryByToken(&self, modulebase: u64, token: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID> {
         unsafe {
@@ -39945,13 +39945,13 @@ impl IDebugSymbols5 {
         unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryInformation)(windows_core::Interface::as_raw(self), id, info as _) }
     }
     pub unsafe fn GetSymbolEntryString(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryString)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryString)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryStringWide(&self, id: *const DEBUG_MODULE_AND_ID, which: u32, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryStringWide)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryStringWide)(windows_core::Interface::as_raw(self), id, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryOffsetRegions(&self, id: *const DEBUG_MODULE_AND_ID, flags: u32, regions: Option<&mut [DEBUG_OFFSET_REGION]>, regionsavail: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryOffsetRegions)(windows_core::Interface::as_raw(self), id, flags, core::mem::transmute(regions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), regions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), regionsavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSymbolEntryOffsetRegions)(windows_core::Interface::as_raw(self), id, flags, regions.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), regions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), regionsavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSymbolEntryBySymbolEntry(&self, fromid: *const DEBUG_MODULE_AND_ID, flags: u32) -> windows_core::Result<DEBUG_MODULE_AND_ID> {
         unsafe {
@@ -39960,28 +39960,28 @@ impl IDebugSymbols5 {
         }
     }
     pub unsafe fn GetSourceEntriesByOffset(&self, offset: u64, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByOffset)(windows_core::Interface::as_raw(self), offset, flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByOffset)(windows_core::Interface::as_raw(self), offset, flags, entries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntriesByLine<P1>(&self, line: u32, file: P1, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLine)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, entries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntriesByLineWide<P1>(&self, line: u32, file: P1, flags: u32, entries: Option<&mut [DEBUG_SYMBOL_SOURCE_ENTRY]>, entriesavail: Option<*mut u32>) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, core::mem::transmute(entries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntriesByLineWide)(windows_core::Interface::as_raw(self), line, file.param().abi(), flags, entries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), entries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), entriesavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntryString(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: Option<&mut [u8]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryString)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryString)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntryStringWide(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, which: u32, buffer: Option<&mut [u16]>, stringsize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryStringWide)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryStringWide)(windows_core::Interface::as_raw(self), entry, which, core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), stringsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntryOffsetRegions(&self, entry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, regions: Option<&mut [DEBUG_OFFSET_REGION]>, regionsavail: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryOffsetRegions)(windows_core::Interface::as_raw(self), entry, flags, core::mem::transmute(regions.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), regions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), regionsavail.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourceEntryOffsetRegions)(windows_core::Interface::as_raw(self), entry, flags, regions.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), regions.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), regionsavail.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSourceEntryBySourceEntry(&self, fromentry: *const DEBUG_SYMBOL_SOURCE_ENTRY, flags: u32, toentry: *mut DEBUG_SYMBOL_SOURCE_ENTRY) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSourceEntryBySourceEntry)(windows_core::Interface::as_raw(self), fromentry, flags, toentry as _) }
@@ -39993,16 +39993,16 @@ impl IDebugSymbols5 {
         unsafe { (windows_core::Interface::vtable(self).SetScopeEx)(windows_core::Interface::as_raw(self), instructionoffset, scopeframe.unwrap_or(core::mem::zeroed()) as _, scopecontext.unwrap_or(core::mem::zeroed()) as _, scopecontextsize) }
     }
     pub unsafe fn GetNameByInlineContext(&self, offset: u64, inlinecontext: u32, namebuffer: Option<&mut [u8]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameByInlineContext)(windows_core::Interface::as_raw(self), offset, inlinecontext, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNameByInlineContext)(windows_core::Interface::as_raw(self), offset, inlinecontext, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetNameByInlineContextWide(&self, offset: u64, inlinecontext: u32, namebuffer: Option<&mut [u16]>, namesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNameByInlineContextWide)(windows_core::Interface::as_raw(self), offset, inlinecontext, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetNameByInlineContextWide)(windows_core::Interface::as_raw(self), offset, inlinecontext, core::mem::transmute(namebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), namebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLineByInlineContext(&self, offset: u64, inlinecontext: u32, line: Option<*mut u32>, filebuffer: Option<&mut [u8]>, filesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLineByInlineContext)(windows_core::Interface::as_raw(self), offset, inlinecontext, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLineByInlineContext)(windows_core::Interface::as_raw(self), offset, inlinecontext, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetLineByInlineContextWide(&self, offset: u64, inlinecontext: u32, line: Option<*mut u32>, filebuffer: Option<&mut [u16]>, filesize: Option<*mut u32>, displacement: Option<*mut u64>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLineByInlineContextWide)(windows_core::Interface::as_raw(self), offset, inlinecontext, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLineByInlineContextWide)(windows_core::Interface::as_raw(self), offset, inlinecontext, line.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(filebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), filebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), filesize.unwrap_or(core::mem::zeroed()) as _, displacement.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn OutputSymbolByInlineContext(&self, outputcontrol: u32, flags: u32, offset: u64, inlinecontext: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OutputSymbolByInlineContext)(windows_core::Interface::as_raw(self), outputcontrol, flags, offset, inlinecontext) }
@@ -41538,7 +41538,7 @@ impl IDebugSystemObjects {
         }
     }
     pub unsafe fn GetCurrentProcessExecutableName(&self, buffer: Option<&mut [u8]>, exesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentProcessExecutableName)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), exesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentProcessExecutableName)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), exesize.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -42115,7 +42115,7 @@ impl IDebugSystemObjects2 {
         }
     }
     pub unsafe fn GetCurrentProcessExecutableName(&self, buffer: Option<&mut [u8]>, exesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentProcessExecutableName)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), exesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentProcessExecutableName)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), exesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetCurrentProcessUpTime(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -42779,7 +42779,7 @@ impl IDebugSystemObjects3 {
         }
     }
     pub unsafe fn GetCurrentProcessExecutableName(&self, buffer: Option<&mut [u8]>, exesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentProcessExecutableName)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), exesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentProcessExecutableName)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), exesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetCurrentProcessUpTime(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -42827,7 +42827,7 @@ impl IDebugSystemObjects3 {
         }
     }
     pub unsafe fn GetSystemIdsByIndex(&self, start: u32, ids: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSystemIdsByIndex)(windows_core::Interface::as_raw(self), start, ids.len().try_into().unwrap(), core::mem::transmute(ids.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSystemIdsByIndex)(windows_core::Interface::as_raw(self), start, ids.len().try_into().unwrap(), ids.as_mut_ptr()) }
     }
     pub unsafe fn GetTotalNumberThreadsAndProcesses(&self, totalthreads: *mut u32, totalprocesses: *mut u32, largestprocessthreads: *mut u32, largestsystemthreads: *mut u32, largestsystemprocesses: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTotalNumberThreadsAndProcesses)(windows_core::Interface::as_raw(self), totalthreads as _, totalprocesses as _, largestprocessthreads as _, largestsystemthreads as _, largestsystemprocesses as _) }
@@ -42845,7 +42845,7 @@ impl IDebugSystemObjects3 {
         }
     }
     pub unsafe fn GetCurrentSystemServerName(&self, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentSystemServerName)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentSystemServerName)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -43596,7 +43596,7 @@ impl IDebugSystemObjects4 {
         }
     }
     pub unsafe fn GetCurrentProcessExecutableName(&self, buffer: Option<&mut [u8]>, exesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentProcessExecutableName)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), exesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentProcessExecutableName)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), exesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetCurrentProcessUpTime(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -43644,7 +43644,7 @@ impl IDebugSystemObjects4 {
         }
     }
     pub unsafe fn GetSystemIdsByIndex(&self, start: u32, ids: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSystemIdsByIndex)(windows_core::Interface::as_raw(self), start, ids.len().try_into().unwrap(), core::mem::transmute(ids.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetSystemIdsByIndex)(windows_core::Interface::as_raw(self), start, ids.len().try_into().unwrap(), ids.as_mut_ptr()) }
     }
     pub unsafe fn GetTotalNumberThreadsAndProcesses(&self, totalthreads: *mut u32, totalprocesses: *mut u32, largestprocessthreads: *mut u32, largestsystemthreads: *mut u32, largestsystemprocesses: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetTotalNumberThreadsAndProcesses)(windows_core::Interface::as_raw(self), totalthreads as _, totalprocesses as _, largestprocessthreads as _, largestsystemthreads as _, largestsystemprocesses as _) }
@@ -43662,13 +43662,13 @@ impl IDebugSystemObjects4 {
         }
     }
     pub unsafe fn GetCurrentSystemServerName(&self, buffer: Option<&mut [u8]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentSystemServerName)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentSystemServerName)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetCurrentProcessExecutableNameWide(&self, buffer: Option<&mut [u16]>, exesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentProcessExecutableNameWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), exesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentProcessExecutableNameWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), exesize.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetCurrentSystemServerNameWide(&self, buffer: Option<&mut [u16]>, namesize: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentSystemServerNameWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentSystemServerNameWide)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), namesize.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -44295,7 +44295,7 @@ impl Default for INLINE_FRAME_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INLINE_FRAME_CONTEXT_0 {
     pub FrameId: u8,
     pub FrameType: u8,
@@ -44360,7 +44360,7 @@ pub type PDEBUG_THREAD_BASIC_INFORMATION = *mut DEBUG_THREAD_BASIC_INFORMATION;
 pub type PDEBUG_VALUE = *mut DEBUG_VALUE;
 pub type PPROCESS_NAME_ENTRY = *mut PROCESS_NAME_ENTRY;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_NAME_ENTRY {
     pub ProcessId: u32,
     pub NameOffset: u32,
@@ -44380,7 +44380,7 @@ pub const STACK_FRAME_TYPE_INLINE: u32 = 2;
 pub const STACK_FRAME_TYPE_RA: u32 = 128;
 pub const STACK_FRAME_TYPE_STACK: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STACK_SRC_INFO {
     pub ImagePath: windows_core::PCWSTR,
     pub ModuleName: windows_core::PCWSTR,
@@ -44390,13 +44390,13 @@ pub struct STACK_SRC_INFO {
     pub Column: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STACK_SYM_FRAME_INFO {
     pub StackFrameEx: DEBUG_STACK_FRAME_EX,
     pub SrcInfo: STACK_SRC_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYMBOL_INFO_EX {
     pub SizeOfStruct: u32,
     pub TypeOfInfo: u32,

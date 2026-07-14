@@ -54,7 +54,7 @@ impl core::ops::Not for Direct3DBindings {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Direct3DMultisampleDescription {
     pub Count: i32,
     pub Quality: i32,
@@ -67,7 +67,7 @@ impl windows_core::RuntimeType for Direct3DMultisampleDescription {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.DirectX.Direct3D11.Direct3DMultisampleDescription");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Direct3DSurfaceDescription {
     pub Width: i32,
     pub Height: i32,

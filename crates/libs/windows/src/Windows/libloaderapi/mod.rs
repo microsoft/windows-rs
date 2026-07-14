@@ -127,13 +127,13 @@ pub unsafe fn FreeResource(hresdata: super::minwindef::HGLOBAL) -> windows_core:
 #[inline]
 pub unsafe fn GetModuleFileNameA(hmodule: Option<super::minwindef::HMODULE>, lpfilename: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetModuleFileNameA(hmodule : super::minwindef::HMODULE, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
-    unsafe { GetModuleFileNameA(hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
+    unsafe { GetModuleFileNameA(hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpfilename.as_mut_ptr()), lpfilename.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn GetModuleFileNameW(hmodule: Option<super::minwindef::HMODULE>, lpfilename: &mut [u16]) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetModuleFileNameW(hmodule : super::minwindef::HMODULE, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
-    unsafe { GetModuleFileNameW(hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
+    unsafe { GetModuleFileNameW(hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpfilename.as_mut_ptr()), lpfilename.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -226,13 +226,13 @@ pub unsafe fn LoadResource(hmodule: Option<super::minwindef::HMODULE>, hresinfo:
 #[inline]
 pub unsafe fn LoadStringA(hinstance: Option<super::minwindef::HINSTANCE>, uid: u32, lpbuffer: &mut [u8]) -> i32 {
     windows_core::link!("user32.dll" "system" fn LoadStringA(hinstance : super::minwindef::HINSTANCE, uid : u32, lpbuffer : windows_core::PSTR, cchbuffermax : i32) -> i32);
-    unsafe { LoadStringA(hinstance.unwrap_or(core::mem::zeroed()) as _, uid, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap()) }
+    unsafe { LoadStringA(hinstance.unwrap_or(core::mem::zeroed()) as _, uid, core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn LoadStringW(hinstance: Option<super::minwindef::HINSTANCE>, uid: u32, lpbuffer: &mut [u16]) -> i32 {
     windows_core::link!("user32.dll" "system" fn LoadStringW(hinstance : super::minwindef::HINSTANCE, uid : u32, lpbuffer : windows_core::PWSTR, cchbuffermax : i32) -> i32);
-    unsafe { LoadStringW(hinstance.unwrap_or(core::mem::zeroed()) as _, uid, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap()) }
+    unsafe { LoadStringW(hinstance.unwrap_or(core::mem::zeroed()) as _, uid, core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
@@ -280,7 +280,7 @@ pub type ENUMRESTYPEPROCA = Option<unsafe extern "system" fn(hmodule: super::min
 pub type ENUMRESTYPEPROCW = Option<unsafe extern "system" fn(hmodule: super::minwindef::HMODULE, lptype: windows_core::PCWSTR, lparam: isize) -> windows_core::BOOL>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENUMUILANG {
     pub NumOfEnumUILang: u32,
     pub SizeOfEnumUIBuffer: u32,
@@ -331,14 +331,14 @@ pub type PGET_MODULE_HANDLE_EXW = Option<unsafe extern "system" fn(dwflags: u32,
 pub type PREDIRECTION_DESCRIPTOR = *mut REDIRECTION_DESCRIPTOR;
 pub type PREDIRECTION_FUNCTION_DESCRIPTOR = *mut REDIRECTION_FUNCTION_DESCRIPTOR;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REDIRECTION_DESCRIPTOR {
     pub Version: u32,
     pub FunctionCount: u32,
     pub Redirections: PCREDIRECTION_FUNCTION_DESCRIPTOR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REDIRECTION_FUNCTION_DESCRIPTOR {
     pub DllName: windows_core::PCSTR,
     pub FunctionName: windows_core::PCSTR,

@@ -1,13 +1,13 @@
 #[inline]
 pub unsafe fn GetHostNameW(name: &mut [u16]) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn GetHostNameW(name : windows_core::PWSTR, namelen : i32) -> i32);
-    unsafe { GetHostNameW(core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap()) }
+    unsafe { GetHostNameW(core::mem::transmute(name.as_mut_ptr()), name.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn ProcessSocketNotifications(completionport: super::winnt::HANDLE, registrationinfos: Option<&mut [SOCK_NOTIFY_REGISTRATION]>, timeoutms: u32, completionportentries: Option<&mut [super::minwinbase::OVERLAPPED_ENTRY]>, receivedentrycount: Option<*mut u32>) -> u32 {
     windows_core::link!("ws2_32.dll" "system" fn ProcessSocketNotifications(completionport : super::winnt::HANDLE, registrationcount : u32, registrationinfos : *mut SOCK_NOTIFY_REGISTRATION, timeoutms : u32, completioncount : u32, completionportentries : *mut super::minwinbase::OVERLAPPED_ENTRY, receivedentrycount : *mut u32) -> u32);
-    unsafe { ProcessSocketNotifications(completionport, registrationinfos.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(registrationinfos.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), timeoutms, completionportentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(completionportentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), receivedentrycount.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ProcessSocketNotifications(completionport, registrationinfos.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), registrationinfos.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), timeoutms, completionportentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), completionportentries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), receivedentrycount.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "qos", feature = "ws2"))]
 #[inline]
@@ -19,19 +19,19 @@ pub unsafe fn WSAAccept(s: SOCKET, addr: Option<*mut super::ws2::SOCKADDR>, addr
 #[inline]
 pub unsafe fn WSAAddressToStringA(lpsaaddress: *const super::ws2::SOCKADDR, dwaddresslength: u32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOA>, lpszaddressstring: windows_core::PSTR, lpdwaddressstringlength: *mut u32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAddressToStringA(lpsaaddress : *const super::ws2::SOCKADDR, dwaddresslength : u32, lpprotocolinfo : *const WSAPROTOCOL_INFOA, lpszaddressstring : windows_core::PSTR, lpdwaddressstringlength : *mut u32) -> i32);
-    unsafe { WSAAddressToStringA(lpsaaddress, dwaddresslength, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpszaddressstring), lpdwaddressstringlength as _) }
+    unsafe { WSAAddressToStringA(lpsaaddress, dwaddresslength, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, lpszaddressstring, lpdwaddressstringlength as _) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
 pub unsafe fn WSAAddressToStringW(lpsaaddress: *const super::ws2::SOCKADDR, dwaddresslength: u32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOW>, lpszaddressstring: windows_core::PWSTR, lpdwaddressstringlength: *mut u32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAddressToStringW(lpsaaddress : *const super::ws2::SOCKADDR, dwaddresslength : u32, lpprotocolinfo : *const WSAPROTOCOL_INFOW, lpszaddressstring : windows_core::PWSTR, lpdwaddressstringlength : *mut u32) -> i32);
-    unsafe { WSAAddressToStringW(lpsaaddress, dwaddresslength, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpszaddressstring), lpdwaddressstringlength as _) }
+    unsafe { WSAAddressToStringW(lpsaaddress, dwaddresslength, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, lpszaddressstring, lpdwaddressstringlength as _) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WSAAsyncGetHostByAddr(hwnd: super::windef::HWND, wmsg: u_int, addr: &[u8], r#type: i32, buf: &mut [u8]) -> super::winnt::HANDLE {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetHostByAddr(hwnd : super::windef::HWND, wmsg : u_int, addr : *const i8, len : i32, r#type : i32, buf : *mut i8, buflen : i32) -> super::winnt::HANDLE);
-    unsafe { WSAAsyncGetHostByAddr(hwnd, wmsg, core::mem::transmute(addr.as_ptr()), addr.len().try_into().unwrap(), r#type, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { WSAAsyncGetHostByAddr(hwnd, wmsg, core::mem::transmute(addr.as_ptr()), addr.len().try_into().unwrap(), r#type, core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -40,7 +40,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetHostByName(hwnd : super::windef::HWND, wmsg : u_int, name : windows_core::PCSTR, buf : *mut i8, buflen : i32) -> super::winnt::HANDLE);
-    unsafe { WSAAsyncGetHostByName(hwnd, wmsg, name.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { WSAAsyncGetHostByName(hwnd, wmsg, name.param().abi(), core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -49,13 +49,13 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetProtoByName(hwnd : super::windef::HWND, wmsg : u_int, name : windows_core::PCSTR, buf : *mut i8, buflen : i32) -> super::winnt::HANDLE);
-    unsafe { WSAAsyncGetProtoByName(hwnd, wmsg, name.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { WSAAsyncGetProtoByName(hwnd, wmsg, name.param().abi(), core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WSAAsyncGetProtoByNumber(hwnd: super::windef::HWND, wmsg: u_int, number: i32, buf: &mut [u8]) -> super::winnt::HANDLE {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetProtoByNumber(hwnd : super::windef::HWND, wmsg : u_int, number : i32, buf : *mut i8, buflen : i32) -> super::winnt::HANDLE);
-    unsafe { WSAAsyncGetProtoByNumber(hwnd, wmsg, number, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { WSAAsyncGetProtoByNumber(hwnd, wmsg, number, core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -65,13 +65,13 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetServByName(hwnd : super::windef::HWND, wmsg : u_int, name : windows_core::PCSTR, proto : windows_core::PCSTR, buf : *mut i8, buflen : i32) -> super::winnt::HANDLE);
-    unsafe { WSAAsyncGetServByName(hwnd, wmsg, name.param().abi(), proto.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { WSAAsyncGetServByName(hwnd, wmsg, name.param().abi(), proto.param().abi(), core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WSAAsyncGetServByPort(hwnd: super::windef::HWND, wmsg: u_int, port: i32, proto: *const i8, buf: &mut [u8]) -> super::winnt::HANDLE {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetServByPort(hwnd : super::windef::HWND, wmsg : u_int, port : i32, proto : *const i8, buf : *mut i8, buflen : i32) -> super::winnt::HANDLE);
-    unsafe { WSAAsyncGetServByPort(hwnd, wmsg, port, proto, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { WSAAsyncGetServByPort(hwnd, wmsg, port, proto, core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -225,12 +225,12 @@ pub unsafe fn WSAGetServiceClassInfoW(lpproviderid: *const windows_core::GUID, l
 #[inline]
 pub unsafe fn WSAGetServiceClassNameByClassIdA(lpserviceclassid: *const windows_core::GUID, lpszserviceclassname: windows_core::PSTR, lpdwbufferlength: *mut u32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSAGetServiceClassNameByClassIdA(lpserviceclassid : *const windows_core::GUID, lpszserviceclassname : windows_core::PSTR, lpdwbufferlength : *mut u32) -> i32);
-    unsafe { WSAGetServiceClassNameByClassIdA(lpserviceclassid, core::mem::transmute(lpszserviceclassname), lpdwbufferlength as _) }
+    unsafe { WSAGetServiceClassNameByClassIdA(lpserviceclassid, lpszserviceclassname, lpdwbufferlength as _) }
 }
 #[inline]
 pub unsafe fn WSAGetServiceClassNameByClassIdW(lpserviceclassid: *const windows_core::GUID, lpszserviceclassname: windows_core::PWSTR, lpdwbufferlength: *mut u32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSAGetServiceClassNameByClassIdW(lpserviceclassid : *const windows_core::GUID, lpszserviceclassname : windows_core::PWSTR, lpdwbufferlength : *mut u32) -> i32);
-    unsafe { WSAGetServiceClassNameByClassIdW(lpserviceclassid, core::mem::transmute(lpszserviceclassname), lpdwbufferlength as _) }
+    unsafe { WSAGetServiceClassNameByClassIdW(lpserviceclassid, lpszserviceclassname, lpdwbufferlength as _) }
 }
 #[inline]
 pub unsafe fn WSAHtonl(s: SOCKET, hostlong: u_long, lpnetlong: *mut u_long) -> i32 {
@@ -332,7 +332,7 @@ pub unsafe fn WSAProviderConfigChange(lpnotificationhandle: *mut super::winnt::H
 #[inline]
 pub unsafe fn WSARecv(s: SOCKET, lpbuffers: &[super::ws2::WSABUF], lpnumberofbytesrecvd: Option<*mut u32>, lpflags: *mut u32, lpoverlapped: Option<*mut super::minwinbase::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSARecv(s : SOCKET, lpbuffers : *const super::ws2::WSABUF, dwbuffercount : u32, lpnumberofbytesrecvd : *mut u32, lpflags : *mut u32, lpoverlapped : *mut super::minwinbase::OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
-    unsafe { WSARecv(s, core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len().try_into().unwrap(), lpnumberofbytesrecvd.unwrap_or(core::mem::zeroed()) as _, lpflags as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
+    unsafe { WSARecv(s, lpbuffers.as_ptr(), lpbuffers.len().try_into().unwrap(), lpnumberofbytesrecvd.unwrap_or(core::mem::zeroed()) as _, lpflags as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
@@ -344,7 +344,7 @@ pub unsafe fn WSARecvDisconnect(s: SOCKET, lpinbounddisconnectdata: Option<*cons
 #[inline]
 pub unsafe fn WSARecvFrom(s: SOCKET, lpbuffers: &[super::ws2::WSABUF], lpnumberofbytesrecvd: Option<*mut u32>, lpflags: *mut u32, lpfrom: Option<*mut super::ws2::SOCKADDR>, lpfromlen: Option<*mut i32>, lpoverlapped: Option<*mut super::minwinbase::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSARecvFrom(s : SOCKET, lpbuffers : *const super::ws2::WSABUF, dwbuffercount : u32, lpnumberofbytesrecvd : *mut u32, lpflags : *mut u32, lpfrom : *mut super::ws2::SOCKADDR, lpfromlen : *mut i32, lpoverlapped : *mut super::minwinbase::OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
-    unsafe { WSARecvFrom(s, core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len().try_into().unwrap(), lpnumberofbytesrecvd.unwrap_or(core::mem::zeroed()) as _, lpflags as _, lpfrom.unwrap_or(core::mem::zeroed()) as _, lpfromlen.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
+    unsafe { WSARecvFrom(s, lpbuffers.as_ptr(), lpbuffers.len().try_into().unwrap(), lpnumberofbytesrecvd.unwrap_or(core::mem::zeroed()) as _, lpflags as _, lpfrom.unwrap_or(core::mem::zeroed()) as _, lpfromlen.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
 }
 #[inline]
 pub unsafe fn WSARemoveServiceClass(lpserviceclassid: *const windows_core::GUID) -> i32 {
@@ -361,7 +361,7 @@ pub unsafe fn WSAResetEvent(hevent: super::winnt::HANDLE) -> windows_core::BOOL 
 #[inline]
 pub unsafe fn WSASend(s: SOCKET, lpbuffers: &[super::ws2::WSABUF], lpnumberofbytessent: Option<*mut u32>, dwflags: u32, lpoverlapped: Option<*mut super::minwinbase::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSASend(s : SOCKET, lpbuffers : *const super::ws2::WSABUF, dwbuffercount : u32, lpnumberofbytessent : *mut u32, dwflags : u32, lpoverlapped : *mut super::minwinbase::OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
-    unsafe { WSASend(s, core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len().try_into().unwrap(), lpnumberofbytessent.unwrap_or(core::mem::zeroed()) as _, dwflags, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
+    unsafe { WSASend(s, lpbuffers.as_ptr(), lpbuffers.len().try_into().unwrap(), lpnumberofbytessent.unwrap_or(core::mem::zeroed()) as _, dwflags, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
@@ -379,7 +379,7 @@ pub unsafe fn WSASendMsg(handle: SOCKET, lpmsg: *const super::ws2::WSAMSG, dwfla
 #[inline]
 pub unsafe fn WSASendTo(s: SOCKET, lpbuffers: &[super::ws2::WSABUF], lpnumberofbytessent: Option<*mut u32>, dwflags: u32, lpto: Option<*const super::ws2::SOCKADDR>, itolen: i32, lpoverlapped: Option<*mut super::minwinbase::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSASendTo(s : SOCKET, lpbuffers : *const super::ws2::WSABUF, dwbuffercount : u32, lpnumberofbytessent : *mut u32, dwflags : u32, lpto : *const super::ws2::SOCKADDR, itolen : i32, lpoverlapped : *mut super::minwinbase::OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
-    unsafe { WSASendTo(s, core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len().try_into().unwrap(), lpnumberofbytessent.unwrap_or(core::mem::zeroed()) as _, dwflags, lpto.unwrap_or(core::mem::zeroed()) as _, itolen, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
+    unsafe { WSASendTo(s, lpbuffers.as_ptr(), lpbuffers.len().try_into().unwrap(), lpnumberofbytessent.unwrap_or(core::mem::zeroed()) as _, dwflags, lpto.unwrap_or(core::mem::zeroed()) as _, itolen, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -452,7 +452,7 @@ pub unsafe fn WSAUnhookBlockingHook() -> i32 {
 #[inline]
 pub unsafe fn WSAWaitForMultipleEvents(lphevents: &[super::winnt::HANDLE], fwaitall: bool, dwtimeout: u32, falertable: bool) -> u32 {
     windows_core::link!("ws2_32.dll" "system" fn WSAWaitForMultipleEvents(cevents : u32, lphevents : *const super::winnt::HANDLE, fwaitall : windows_core::BOOL, dwtimeout : u32, falertable : windows_core::BOOL) -> u32);
-    unsafe { WSAWaitForMultipleEvents(lphevents.len().try_into().unwrap(), core::mem::transmute(lphevents.as_ptr()), fwaitall.into(), dwtimeout, falertable.into()) }
+    unsafe { WSAWaitForMultipleEvents(lphevents.len().try_into().unwrap(), lphevents.as_ptr(), fwaitall.into(), dwtimeout, falertable.into()) }
 }
 #[inline]
 pub unsafe fn __WSAFDIsSet(fd: SOCKET, param1: *mut fd_set) -> i32 {
@@ -498,7 +498,7 @@ where
 #[inline]
 pub unsafe fn gethostname(name: &mut [u8]) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn gethostname(name : *mut i8, namelen : i32) -> i32);
-    unsafe { gethostname(core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap()) }
+    unsafe { gethostname(core::mem::transmute(name.as_mut_ptr()), name.len().try_into().unwrap()) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
@@ -569,7 +569,7 @@ where
 #[inline]
 pub unsafe fn inet_ntoa(r#in: super::inaddr::IN_ADDR) -> *mut i8 {
     windows_core::link!("ws2_32.dll" "system" fn inet_ntoa(r#in : super::inaddr::IN_ADDR) -> *mut i8);
-    unsafe { inet_ntoa(core::mem::transmute(r#in)) }
+    unsafe { inet_ntoa(r#in) }
 }
 #[inline]
 pub unsafe fn ioctlsocket(s: SOCKET, cmd: i32, argp: *mut u_long) -> i32 {
@@ -594,13 +594,13 @@ pub unsafe fn ntohs(netshort: u_short) -> u_short {
 #[inline]
 pub unsafe fn recv(s: SOCKET, buf: &mut [u8], flags: i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn recv(s : SOCKET, buf : *mut i8, len : i32, flags : i32) -> i32);
-    unsafe { recv(s, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap(), flags) }
+    unsafe { recv(s, core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap(), flags) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
 pub unsafe fn recvfrom(s: SOCKET, buf: &mut [u8], flags: i32, from: Option<*mut super::ws2::SOCKADDR>, fromlen: Option<*mut i32>) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn recvfrom(s : SOCKET, buf : *mut i8, len : i32, flags : i32, from : *mut super::ws2::SOCKADDR, fromlen : *mut i32) -> i32);
-    unsafe { recvfrom(s, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap(), flags, from.unwrap_or(core::mem::zeroed()) as _, fromlen.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { recvfrom(s, core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap(), flags, from.unwrap_or(core::mem::zeroed()) as _, fromlen.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn select(nfds: i32, readfds: Option<*mut fd_set>, writefds: Option<*mut fd_set>, exceptfds: Option<*mut fd_set>, timeout: Option<*const timeval>) -> i32 {
@@ -635,7 +635,7 @@ pub unsafe fn socket(af: i32, r#type: i32, protocol: i32) -> SOCKET {
 }
 pub const ADDR_ANY: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AFPROTOCOLS {
     pub iAddressFamily: i32,
     pub iProtocol: i32,
@@ -895,7 +895,7 @@ pub type PWSASERVICECLASSINFOW = *mut WSASERVICECLASSINFOW;
 pub type PWSAVERSION = *mut WSAVERSION;
 #[repr(C)]
 #[cfg(all(feature = "qos", feature = "ws2"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS {
     pub SendingFlowspec: super::qos::FLOWSPEC,
     pub ReceivingFlowspec: super::qos::FLOWSPEC,
@@ -955,7 +955,7 @@ pub const SOCK_NOTIFY_REGISTER_EVENT_IN: u32 = 1;
 pub const SOCK_NOTIFY_REGISTER_EVENT_NONE: u32 = 0;
 pub const SOCK_NOTIFY_REGISTER_EVENT_OUT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCK_NOTIFY_REGISTRATION {
     pub socket: SOCKET,
     pub completionKey: *mut core::ffi::c_void,
@@ -1013,7 +1013,7 @@ impl Default for WSACOMPLETION_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSACOMPLETION_0_0 {
     pub hWnd: super::windef::HWND,
     pub uMsg: u32,
@@ -1021,7 +1021,7 @@ pub struct WSACOMPLETION_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSACOMPLETION_0_1 {
     pub lpOverlapped: LPWSAOVERLAPPED,
 }
@@ -1034,7 +1034,7 @@ pub struct WSACOMPLETION_0_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSACOMPLETION_0_3 {
     pub lpOverlapped: LPWSAOVERLAPPED,
     pub hPort: super::winnt::HANDLE,
@@ -1043,7 +1043,7 @@ pub struct WSACOMPLETION_0_3 {
 pub type WSACOMPLETIONTYPE = i32;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSADATA {
     pub wVersion: u16,
     pub wHighVersion: u16,
@@ -1061,7 +1061,7 @@ impl Default for WSADATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSADATA {
     pub wVersion: u16,
     pub wHighVersion: u16,
@@ -1082,7 +1082,7 @@ pub type WSAECOMPARATOR = i32;
 pub type WSAESETSERVICEOP = i32;
 pub type WSANAMESPACE_INFO = WSANAMESPACE_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSANAMESPACE_INFOA {
     pub NSProviderId: windows_core::GUID,
     pub dwNameSpace: u32,
@@ -1094,7 +1094,7 @@ pub struct WSANAMESPACE_INFOA {
 pub type WSANAMESPACE_INFOEX = WSANAMESPACE_INFOEXA;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSANAMESPACE_INFOEXA {
     pub NSProviderId: windows_core::GUID,
     pub dwNameSpace: u32,
@@ -1105,7 +1105,7 @@ pub struct WSANAMESPACE_INFOEXA {
 }
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSANAMESPACE_INFOEXW {
     pub NSProviderId: windows_core::GUID,
     pub dwNameSpace: u32,
@@ -1115,7 +1115,7 @@ pub struct WSANAMESPACE_INFOEXW {
     pub ProviderSpecific: super::wtypesbase::BLOB,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSANAMESPACE_INFOW {
     pub NSProviderId: windows_core::GUID,
     pub dwNameSpace: u32,
@@ -1124,7 +1124,7 @@ pub struct WSANAMESPACE_INFOW {
     pub lpszIdentifier: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSANETWORKEVENTS {
     pub lNetworkEvents: i32,
     pub iErrorCode: [i32; 10],
@@ -1137,7 +1137,7 @@ impl Default for WSANETWORKEVENTS {
 pub const WSANO_ADDRESS: u32 = 11004;
 pub type WSANSCLASSINFO = WSANSCLASSINFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSANSCLASSINFOA {
     pub lpszName: windows_core::PSTR,
     pub dwNameSpace: u32,
@@ -1151,7 +1151,7 @@ impl Default for WSANSCLASSINFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSANSCLASSINFOW {
     pub lpszName: windows_core::PWSTR,
     pub dwNameSpace: u32,
@@ -1165,14 +1165,14 @@ impl Default for WSANSCLASSINFOW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAPOLLFD {
     pub fd: SOCKET,
     pub events: i16,
     pub revents: i16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSAPROTOCOLCHAIN {
     pub ChainLen: i32,
     pub ChainEntries: [u32; 7],
@@ -1184,7 +1184,7 @@ impl Default for WSAPROTOCOLCHAIN {
 }
 pub type WSAPROTOCOL_INFO = WSAPROTOCOL_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSAPROTOCOL_INFOA {
     pub dwServiceFlags1: u32,
     pub dwServiceFlags2: u32,
@@ -1213,7 +1213,7 @@ impl Default for WSAPROTOCOL_INFOA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSAPROTOCOL_INFOW {
     pub dwServiceFlags1: u32,
     pub dwServiceFlags2: u32,
@@ -1248,7 +1248,7 @@ pub type WSAQUERYSET = WSAQUERYSETA;
 pub type WSAQUERYSET2 = WSAQUERYSET2A;
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAQUERYSET2A {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_core::PSTR,
@@ -1267,7 +1267,7 @@ pub struct WSAQUERYSET2A {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAQUERYSET2W {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_core::PWSTR,
@@ -1286,7 +1286,7 @@ pub struct WSAQUERYSET2W {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAQUERYSETA {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_core::PSTR,
@@ -1306,7 +1306,7 @@ pub struct WSAQUERYSETA {
 }
 #[repr(C)]
 #[cfg(all(feature = "guiddef", feature = "ws2", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAQUERYSETW {
     pub dwSize: u32,
     pub lpszServiceInstanceName: windows_core::PWSTR,
@@ -1328,7 +1328,7 @@ pub struct WSAQUERYSETW {
 pub type WSASERVICECLASSINFO = WSASERVICECLASSINFOA;
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSASERVICECLASSINFOA {
     pub lpServiceClassId: super::guiddef::LPGUID,
     pub lpszServiceClassName: windows_core::PSTR,
@@ -1337,7 +1337,7 @@ pub struct WSASERVICECLASSINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSASERVICECLASSINFOW {
     pub lpServiceClassId: super::guiddef::LPGUID,
     pub lpszServiceClassName: windows_core::PWSTR,
@@ -1346,7 +1346,7 @@ pub struct WSASERVICECLASSINFOW {
 }
 pub const WSASYS_STATUS_LEN: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAVERSION {
     pub dwVersion: u32,
     pub ecHow: WSAECOMPARATOR,
@@ -1392,7 +1392,7 @@ pub const XP1_SUPPORT_MULTIPOINT: u32 = 1024;
 pub const XP1_UNI_RECV: u32 = 65536;
 pub const XP1_UNI_SEND: u32 = 32768;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct fd_set {
     pub fd_count: u_int,
     pub fd_array: [SOCKET; 64],
@@ -1403,7 +1403,7 @@ impl Default for fd_set {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct hostent {
     pub h_name: *mut i8,
     pub h_aliases: *mut *mut i8,
@@ -1417,13 +1417,13 @@ impl Default for hostent {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct linger {
     pub l_onoff: u_short,
     pub l_linger: u_short,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct netent {
     pub n_name: *mut i8,
     pub n_aliases: *mut *mut i8,
@@ -1436,7 +1436,7 @@ impl Default for netent {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct protoent {
     pub p_name: *mut i8,
     pub p_aliases: *mut *mut i8,
@@ -1449,7 +1449,7 @@ impl Default for protoent {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct servent {
     pub s_name: *mut i8,
     pub s_aliases: *mut *mut i8,
@@ -1464,7 +1464,7 @@ impl Default for servent {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct servent {
     pub s_name: *mut i8,
     pub s_aliases: *mut *mut i8,
@@ -1478,13 +1478,13 @@ impl Default for servent {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct sockproto {
     pub sp_family: u_short,
     pub sp_protocol: u_short,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct timeval {
     pub tv_sec: i32,
     pub tv_usec: i32,

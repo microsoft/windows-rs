@@ -43,12 +43,12 @@ where
 #[inline]
 pub unsafe fn OREnumKey(handle: ORHKEY, dwindex: u32, lpname: windows_core::PWSTR, lpcname: *mut u32, lpclass: Option<windows_core::PWSTR>, lpcclass: Option<*mut u32>, lpftlastwritetime: Option<*mut super::minwindef::FILETIME>) -> u32 {
     windows_core::link!("offreg.dll" "system" fn OREnumKey(handle : ORHKEY, dwindex : u32, lpname : windows_core::PWSTR, lpcname : *mut u32, lpclass : windows_core::PWSTR, lpcclass : *mut u32, lpftlastwritetime : *mut super::minwindef::FILETIME) -> u32);
-    unsafe { OREnumKey(handle, dwindex, core::mem::transmute(lpname), lpcname as _, lpclass.unwrap_or(core::mem::zeroed()) as _, lpcclass.unwrap_or(core::mem::zeroed()) as _, lpftlastwritetime.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { OREnumKey(handle, dwindex, lpname, lpcname as _, lpclass.unwrap_or(core::mem::zeroed()) as _, lpcclass.unwrap_or(core::mem::zeroed()) as _, lpftlastwritetime.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn OREnumValue(handle: ORHKEY, dwindex: u32, lpvaluename: windows_core::PWSTR, lpcvaluename: *mut u32, lptype: Option<*mut u32>, lpdata: Option<*mut u8>, lpcbdata: Option<*mut u32>) -> u32 {
     windows_core::link!("offreg.dll" "system" fn OREnumValue(handle : ORHKEY, dwindex : u32, lpvaluename : windows_core::PWSTR, lpcvaluename : *mut u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> u32);
-    unsafe { OREnumValue(handle, dwindex, core::mem::transmute(lpvaluename), lpcvaluename as _, lptype.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { OREnumValue(handle, dwindex, lpvaluename, lpcvaluename as _, lptype.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -78,7 +78,7 @@ pub unsafe fn ORGetVirtualFlags(handle: ORHKEY, pdwflags: *mut u32) -> u32 {
 #[inline]
 pub unsafe fn ORMergeHives(hivehandles: &[ORHKEY], phkresult: *mut ORHKEY) -> u32 {
     windows_core::link!("offreg.dll" "system" fn ORMergeHives(hivehandles : *const ORHKEY, hivecount : u32, phkresult : *mut ORHKEY) -> u32);
-    unsafe { ORMergeHives(core::mem::transmute(hivehandles.as_ptr()), hivehandles.len().try_into().unwrap(), phkresult as _) }
+    unsafe { ORMergeHives(hivehandles.as_ptr(), hivehandles.len().try_into().unwrap(), phkresult as _) }
 }
 #[inline]
 pub unsafe fn OROpenHive<P0>(filepath: P0, horkey: *mut ORHKEY) -> u32
@@ -150,7 +150,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("offreg.dll" "system" fn ORSetValue(handle : ORHKEY, lpvaluename : windows_core::PCWSTR, dwtype : u32, lpdata : *const u8, cbdata : u32) -> u32);
-    unsafe { ORSetValue(handle, lpvaluename.param().abi(), dwtype, core::mem::transmute(lpdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ORSetValue(handle, lpvaluename.param().abi(), dwtype, lpdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpdata.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn ORSetVirtualFlags(handle: ORHKEY, dwflags: u32) -> u32 {

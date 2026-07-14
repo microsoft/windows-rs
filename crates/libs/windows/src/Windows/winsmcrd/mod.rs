@@ -84,7 +84,7 @@ pub const SCARD_CLASS_VENDOR_DEFINED: u32 = 7;
 pub const SCARD_CLASS_VENDOR_INFO: u32 = 1;
 pub const SCARD_COLD_RESET: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCARD_IO_REQUEST {
     pub dwProtocol: u32,
     pub cbPciLength: u32,
@@ -124,7 +124,7 @@ pub const SCARD_SPECIFIC: u32 = 6;
 pub const SCARD_SWALLOWED: u32 = 3;
 pub const SCARD_T0_CMD_LENGTH: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCARD_T0_COMMAND {
     pub bCla: u8,
     pub bIns: u8,
@@ -162,7 +162,7 @@ pub const SCARD_T1_EPILOGUE_LENGTH_LRC: u32 = 1;
 pub const SCARD_T1_MAX_IFS: u32 = 254;
 pub const SCARD_T1_PROLOGUE_LENGTH: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCARD_T1_REQUEST {
     pub ioRequest: SCARD_IO_REQUEST,
 }

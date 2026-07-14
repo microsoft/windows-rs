@@ -8,7 +8,7 @@ pub unsafe fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dw
 #[inline]
 pub unsafe fn SslDeserializeCertificateStore(serializedcertificatestore: super::wincrypt::CERT_BLOB, ppcertcontext: *mut super::wincrypt::PCCERT_CONTEXT) -> super::ncrypt::SECURITY_STATUS {
     windows_core::link!("schannel.dll" "system" fn SslDeserializeCertificateStore(serializedcertificatestore : super::wincrypt::CERT_BLOB, ppcertcontext : *mut super::wincrypt::PCCERT_CONTEXT) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { SslDeserializeCertificateStore(core::mem::transmute(serializedcertificatestore), ppcertcontext as _) }
+    unsafe { SslDeserializeCertificateStore(serializedcertificatestore, ppcertcontext as _) }
 }
 #[inline]
 pub unsafe fn SslEmptyCacheA<P0>(psztargetname: P0, dwflags: u32) -> windows_core::BOOL
@@ -41,7 +41,7 @@ pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
 #[inline]
 pub unsafe fn SslGetExtensions(clienthello: &[u8], genericextensions: &mut [SCH_EXTENSION_DATA], bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> super::ncrypt::SECURITY_STATUS {
     windows_core::link!("schannel.dll" "system" fn SslGetExtensions(clienthello : *const u8, clienthellobytesize : u32, genericextensions : *mut SCH_EXTENSION_DATA, genericextensionscount : u8, bytestoread : *mut u32, flags : SchGetExtensionsOptions) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { SslGetExtensions(core::mem::transmute(clienthello.as_ptr()), clienthello.len().try_into().unwrap(), core::mem::transmute(genericextensions.as_ptr()), genericextensions.len().try_into().unwrap(), bytestoread as _, flags) }
+    unsafe { SslGetExtensions(clienthello.as_ptr(), clienthello.len().try_into().unwrap(), genericextensions.as_mut_ptr(), genericextensions.len().try_into().unwrap(), bytestoread as _, flags) }
 }
 #[inline]
 pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
@@ -52,7 +52,7 @@ pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
 #[inline]
 pub unsafe fn SslGetServerIdentity(clienthello: &[u8], serveridentity: *mut super::minwindef::PBYTE, serveridentitysize: *mut u32, flags: u32) -> super::ncrypt::SECURITY_STATUS {
     windows_core::link!("schannel.dll" "system" fn SslGetServerIdentity(clienthello : *const u8, clienthellosize : u32, serveridentity : *mut super::minwindef::PBYTE, serveridentitysize : *mut u32, flags : u32) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { SslGetServerIdentity(core::mem::transmute(clienthello.as_ptr()), clienthello.len().try_into().unwrap(), serveridentity as _, serveridentitysize as _, flags) }
+    unsafe { SslGetServerIdentity(clienthello.as_ptr(), clienthello.len().try_into().unwrap(), serveridentity as _, serveridentitysize as _, flags) }
 }
 pub const DEFAULT_TLS_SSP_NAME_A: windows_core::PCSTR = windows_core::s!("Default TLS SSP");
 pub const DEFAULT_TLS_SSP_NAME_W: windows_core::PCWSTR = windows_core::w!("Default TLS SSP");
@@ -126,7 +126,7 @@ pub type PTLS_EXTENSION_SUBSCRIPTION = *mut TLS_EXTENSION_SUBSCRIPTION;
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
 pub type PX509Certificate = *mut X509Certificate;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PctPublicKey {
     pub Type: u32,
     pub cbKey: u32,
@@ -142,7 +142,7 @@ pub const RCRED_STATUS_NOCRED: u32 = 0;
 pub const RCRED_STATUS_UNKNOWN_ISSUER: u32 = 2;
 pub const SCHANNEL_ALERT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHANNEL_ALERT_TOKEN {
     pub dwTokenType: u32,
     pub dwAlertType: u32,
@@ -150,7 +150,7 @@ pub struct SCHANNEL_ALERT_TOKEN {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCHANNEL_CERT_HASH {
     pub dwLength: u32,
     pub dwFlags: u32,
@@ -165,7 +165,7 @@ impl Default for SCHANNEL_CERT_HASH {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCHANNEL_CERT_HASH_STORE {
     pub dwLength: u32,
     pub dwFlags: u32,
@@ -181,7 +181,7 @@ impl Default for SCHANNEL_CERT_HASH_STORE {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCHANNEL_CLIENT_SIGNATURE {
     pub cbLength: u32,
     pub aiHash: super::wincrypt::ALG_ID,
@@ -197,7 +197,7 @@ impl Default for SCHANNEL_CLIENT_SIGNATURE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCHANNEL_CRED {
     pub dwVersion: u32,
     pub cCreds: u32,
@@ -228,7 +228,7 @@ pub const SCHANNEL_SECRET_PRIVKEY: u32 = 2;
 pub const SCHANNEL_SECRET_TYPE_CAPI: u32 = 1;
 pub const SCHANNEL_SESSION: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCHANNEL_SESSION_TOKEN {
     pub dwTokenType: u32,
     pub dwFlags: u32,
@@ -236,7 +236,7 @@ pub struct SCHANNEL_SESSION_TOKEN {
 pub const SCHANNEL_SHUTDOWN: u32 = 1;
 pub const SCH_ALLOW_NULL_ENCRYPTION: u32 = 33554432;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCH_CRED {
     pub dwVersion: u32,
     pub cCreds: u32,
@@ -272,7 +272,7 @@ pub const SCH_CRED_NO_SERVERNAME_CHECK: u32 = 4;
 pub const SCH_CRED_NO_SYSTEM_MAPPER: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCH_CRED_PUBLIC_CERTCHAIN {
     pub dwType: u32,
     pub cbCertChain: u32,
@@ -285,14 +285,14 @@ pub const SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: u32 = 1024;
 pub const SCH_CRED_REVOCATION_CHECK_END_CERT: u32 = 256;
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCH_CRED_SECRET_CAPI {
     pub dwType: u32,
     pub hProv: super::wincrypt::HCRYPTPROV,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCH_CRED_SECRET_PRIVKEY {
     pub dwType: u32,
     pub pPrivateKey: super::minwindef::PBYTE,
@@ -310,7 +310,7 @@ pub const SCH_CRED_X509_CAPI: u32 = 2;
 pub const SCH_CRED_X509_CERTCHAIN: u32 = 1;
 pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCH_EXTENSION_DATA {
     pub ExtensionType: u16,
     pub pExtData: *const u8,
@@ -332,7 +332,7 @@ pub const SCH_USE_STRONG_CRYPTO: u32 = 4194304;
 pub const SECPKGCONTEXT_CIPHERINFO_V1: u32 = 1;
 pub const SECPKGCONTEXT_CONNECTION_INFO_EX_V1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEND_GENERIC_TLS_EXTENSION {
     pub ExtensionType: u16,
     pub HandshakeType: u16,
@@ -413,7 +413,7 @@ pub const SSL3SP_NAME_W: windows_core::PCWSTR = windows_core::w!("Microsoft SSL 
 pub type SSL_CRACK_CERTIFICATE_FN = Option<unsafe extern "system" fn(pbcertificate: *mut u8, cbcertificate: u32, verifysignature: windows_core::BOOL, ppcertificate: *mut PX509Certificate) -> windows_core::BOOL>;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SSL_CREDENTIAL_CERTIFICATE {
     pub cbPrivateKey: u32,
     pub pPrivateKey: super::minwindef::PBYTE,
@@ -429,7 +429,7 @@ pub const SSL_SESSION_DISABLE_RECONNECTS: u32 = 2;
 pub const SSL_SESSION_ENABLE_RECONNECTS: u32 = 1;
 pub const SSL_SESSION_RECONNECT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SUBSCRIBE_GENERIC_TLS_EXTENSION {
     pub Flags: u32,
     pub SubscriptionsCount: u32,
@@ -442,7 +442,7 @@ impl Default for SUBSCRIBE_GENERIC_TLS_EXTENSION {
 }
 pub type SchGetExtensionsOptions = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_CertInfo {
     pub dwVersion: u32,
     pub cbSubjectName: u32,
@@ -452,21 +452,21 @@ pub struct SecPkgContext_CertInfo {
     pub dwKeySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_CertificateValidationResult {
     pub dwChainErrorStatus: u32,
     pub hrVerifyChainStatus: windows_core::HRESULT,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_Certificates {
     pub cCertificates: u32,
     pub cbCertificateChain: u32,
     pub pbCertificateChain: super::minwindef::PBYTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_CipherInfo {
     pub dwVersion: u32,
     pub dwProtocol: u32,
@@ -490,14 +490,14 @@ impl Default for SecPkgContext_CipherInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_ClientCertPolicyResult {
     pub dwPolicyResult: windows_core::HRESULT,
     pub guidPolicyId: windows_core::GUID,
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_ConnectionInfo {
     pub dwProtocol: u32,
     pub aiCipher: super::wincrypt::ALG_ID,
@@ -508,7 +508,7 @@ pub struct SecPkgContext_ConnectionInfo {
     pub dwExchStrength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_ConnectionInfoEx {
     pub dwVersion: u32,
     pub dwProtocol: u32,
@@ -525,7 +525,7 @@ impl Default for SecPkgContext_ConnectionInfoEx {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_EapKeyBlock {
     pub rgbKeys: [u8; 128],
     pub rgbIVs: [u8; 64],
@@ -537,34 +537,34 @@ impl Default for SecPkgContext_EapKeyBlock {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_EapPrfInfo {
     pub dwVersion: u32,
     pub cbPrfData: u32,
     pub pbPrfData: super::minwindef::PBYTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_EarlyStart {
     pub dwEarlyStartFlags: u32,
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_IssuerListInfoEx {
     pub aIssuers: super::wincrypt::PCERT_NAME_BLOB,
     pub cIssuers: u32,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_KeyingMaterial {
     pub cbKeyingMaterial: u32,
     pub pbKeyingMaterial: super::minwindef::PBYTE,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_KeyingMaterialInfo {
     pub cbLabel: u16,
     pub pszLabel: windows_core::PSTR,
@@ -574,7 +574,7 @@ pub struct SecPkgContext_KeyingMaterialInfo {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_KeyingMaterial_Inproc {
     pub cbLabel: u16,
     pub pszLabel: windows_core::PSTR,
@@ -587,7 +587,7 @@ pub struct SecPkgContext_KeyingMaterial_Inproc {
 pub type SecPkgContext_LocalCredenitalInfo = SecPkgContext_LocalCredentialInfo;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_LocalCredentialInfo {
     pub cbCertificateChain: u32,
     pub pbCertificateChain: super::minwindef::PBYTE,
@@ -596,7 +596,7 @@ pub struct SecPkgContext_LocalCredentialInfo {
     pub dwBits: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_MappedCredAttr {
     pub dwAttribute: u32,
     pub pvBuffer: *mut core::ffi::c_void,
@@ -610,7 +610,7 @@ impl Default for SecPkgContext_MappedCredAttr {
 pub type SecPkgContext_RemoteCredenitalInfo = SecPkgContext_RemoteCredentialInfo;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_RemoteCredentialInfo {
     pub cbCertificateChain: u32,
     pub pbCertificateChain: super::minwindef::PBYTE,
@@ -620,14 +620,14 @@ pub struct SecPkgContext_RemoteCredentialInfo {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_SessionAppData {
     pub dwFlags: u32,
     pub cbAppData: u32,
     pub pbAppData: super::minwindef::PBYTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_SessionInfo {
     pub dwFlags: u32,
     pub cbSessionId: u32,
@@ -640,14 +640,14 @@ impl Default for SecPkgContext_SessionInfo {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_SrtpParameters {
     pub ProtectionProfile: u16,
     pub MasterKeyIdentifierSize: u8,
     pub MasterKeyIdentifier: super::minwindef::PBYTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_SupportedSignatures {
     pub cSignatureAndHashAlgorithms: u16,
     pub pSignatureAndHashAlgorithms: *mut u16,
@@ -659,7 +659,7 @@ impl Default for SecPkgContext_SupportedSignatures {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_TokenBinding {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -668,7 +668,7 @@ pub struct SecPkgContext_TokenBinding {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_UiInfo {
     pub hParentWindow: super::windef::HWND,
 }
@@ -709,7 +709,7 @@ pub const TLS1_ALERT_UNSUPPORTED_EXT: u32 = 110;
 pub const TLS1_ALERT_USER_CANCELED: u32 = 90;
 pub const TLS1_ALERT_WARNING: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TLS_EXTENSION_SUBSCRIPTION {
     pub ExtensionType: u16,
     pub HandshakeType: u16,
@@ -730,7 +730,7 @@ pub const UNISP_NAME_W: windows_core::PCWSTR = windows_core::w!("Microsoft Unifi
 pub const UNISP_RPC_ID: u32 = 14;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct X509Certificate {
     pub Version: u32,
     pub SerialNumber: [u32; 4],
@@ -748,7 +748,7 @@ impl Default for X509Certificate {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HMAPPER(pub u8);
 pub type eTlsHashAlgorithm = i32;
 pub type eTlsSignatureAlgorithm = i32;

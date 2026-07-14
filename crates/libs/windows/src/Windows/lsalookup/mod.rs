@@ -13,7 +13,7 @@ impl Default for LSA_LOOKUP_HANDLE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LSA_OBJECT_ATTRIBUTES {
     pub Length: u32,
     pub RootDirectory: super::winnt::HANDLE,
@@ -30,14 +30,14 @@ impl Default for LSA_OBJECT_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_REFERENCED_DOMAIN_LIST {
     pub Entries: u32,
     pub Domains: PLSA_TRUST_INFORMATION,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -45,7 +45,7 @@ pub struct LSA_STRING {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_TRANSLATED_NAME {
     pub Use: super::winnt::SID_NAME_USE,
     pub Name: LSA_UNICODE_STRING,
@@ -53,7 +53,7 @@ pub struct LSA_TRANSLATED_NAME {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_TRANSLATED_SID2 {
     pub Use: super::winnt::SID_NAME_USE,
     pub Sid: super::winnt::PSID,
@@ -62,13 +62,13 @@ pub struct LSA_TRANSLATED_SID2 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_TRUST_INFORMATION {
     pub Name: LSA_UNICODE_STRING,
     pub Sid: super::winnt::PSID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -98,14 +98,14 @@ pub type PLSA_TRUST_INFORMATION = *mut LSA_TRUST_INFORMATION;
 pub type PLSA_UNICODE_STRING = *mut LSA_UNICODE_STRING;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_ACCOUNT_DOMAIN_INFO {
     pub DomainName: LSA_UNICODE_STRING,
     pub DomainSid: super::winnt::PSID,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_DNS_DOMAIN_INFO {
     pub Name: LSA_UNICODE_STRING,
     pub DnsDomainName: LSA_UNICODE_STRING,

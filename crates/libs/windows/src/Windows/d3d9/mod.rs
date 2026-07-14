@@ -88,7 +88,7 @@ impl Default for D3DADAPTER_IDENTIFIER9 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DADAPTER_IDENTIFIER9 {
     pub Driver: [i8; 512],
     pub Description: [i8; 512],
@@ -116,7 +116,7 @@ pub struct D3DAES_CTR_IV {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAES_CTR_IV {
     pub IV: u64,
     pub Count: u64,
@@ -124,7 +124,7 @@ pub struct D3DAES_CTR_IV {
 pub type D3DAUTHENTICATEDCHANNELTYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub DXVA2DecodeHandle: super::winnt::HANDLE,
@@ -133,7 +133,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURECRYPTOSESSION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREINITIALIZE {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub StartSequenceQuery: u32,
@@ -154,7 +154,7 @@ impl Default for D3DAUTHENTICATEDCHANNEL_CONFIGUREPROTECTION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub ProcessIdentiferType: D3DAUTHENTICATEDCHANNEL_PROCESSIDENTIFIERTYPE,
@@ -163,14 +163,14 @@ pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURESHAREDRESOURCE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGUREUNCOMPRESSEDENCRYPTION {
     pub Parameters: D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT,
     pub EncryptionGuid: windows_core::GUID,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
     pub omac: D3D_OMAC,
     pub ConfigureType: windows_core::GUID,
@@ -179,7 +179,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT {
     pub omac: D3D_OMAC,
     pub ConfigureType: windows_core::GUID,
@@ -213,27 +213,27 @@ impl Default for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCHANNELTYPE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub ChannelType: D3DAUTHENTICATEDCHANNELTYPE,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub DXVA2DecodeHandle: super::winnt::HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DXVA2DecodeHandle: super::winnt::HANDLE,
@@ -242,28 +242,28 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYCRYPTOSESSION_OUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYDEVICEHANDLE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DeviceHandle: super::winnt::HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUIDCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub NumEncryptionGuids: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub EncryptionGuidIndex: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub EncryptionGuidIndex: u32,
@@ -271,7 +271,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYEVICTIONENCRYPTIONGUID_OUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub BusType: D3DBUSTYPE,
@@ -280,7 +280,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYINFOBUSTYPE_OUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub DeviceHandle: super::winnt::HANDLE,
@@ -288,7 +288,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DeviceHandle: super::winnt::HANDLE,
@@ -297,7 +297,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTIDCOUNT_OUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub DeviceHandle: super::winnt::HANDLE,
@@ -318,7 +318,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYOUTPUTID_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub DeviceHandle: super::winnt::HANDLE,
@@ -341,21 +341,21 @@ impl Default for D3DAUTHENTICATEDCHANNEL_QUERYPROTECTION_OUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESSCOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub NumRestrictedSharedResourceProcesses: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_INPUT {
     pub Input: D3DAUTHENTICATEDCHANNEL_QUERY_INPUT,
     pub ProcessIndex: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub ProcessIndex: u32,
@@ -364,21 +364,21 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERYRESTRICTEDSHAREDRESOURCEPROCESS_OUTPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNCOMPRESSEDENCRYPTIONLEVEL_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub EncryptionGuid: windows_core::GUID,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERYUNRESTRICTEDPROTECTEDSHAREDRESOURCECOUNT_OUTPUT {
     pub Output: D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT,
     pub NumUnrestrictedProtectedSharedResources: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
     pub QueryType: windows_core::GUID,
     pub hChannel: super::winnt::HANDLE,
@@ -386,7 +386,7 @@ pub struct D3DAUTHENTICATEDCHANNEL_QUERY_INPUT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DAUTHENTICATEDCHANNEL_QUERY_OUTPUT {
     pub omac: D3D_OMAC,
     pub QueryType: windows_core::GUID,
@@ -449,7 +449,7 @@ pub const D3DBLEND_SRCCOLOR: D3DBLEND = 3;
 pub const D3DBLEND_SRCCOLOR2: D3DBLEND = 16;
 pub const D3DBLEND_ZERO: D3DBLEND = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DBOX {
     pub Left: u32,
     pub Top: u32,
@@ -569,7 +569,7 @@ pub const D3DCLIPPLANE3: u32 = 8;
 pub const D3DCLIPPLANE4: u32 = 16;
 pub const D3DCLIPPLANE5: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DCLIPSTATUS9 {
     pub ClipUnion: u32,
     pub ClipIntersection: u32,
@@ -589,7 +589,7 @@ pub const D3DCOLORWRITEENABLE_BLUE: u32 = 4;
 pub const D3DCOLORWRITEENABLE_GREEN: u32 = 2;
 pub const D3DCOLORWRITEENABLE_RED: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DCOMPOSERECTDESC {
     pub X: u16,
     pub Y: u16,
@@ -597,7 +597,7 @@ pub struct D3DCOMPOSERECTDESC {
     pub Height: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DCOMPOSERECTDESTINATION {
     pub SrcRectIndex: u16,
     pub Reserved: u16,
@@ -623,7 +623,7 @@ pub struct D3DCONTENTPROTECTIONCAPS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
     pub KeyExchangeType: windows_core::GUID,
@@ -766,7 +766,7 @@ pub const D3DDEVCAPS_TLVERTEXSYSTEMMEMORY: u32 = 64;
 pub const D3DDEVCAPS_TLVERTEXVIDEOMEMORY: u32 = 128;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDEVICE_CREATION_PARAMETERS {
     pub AdapterOrdinal: u32,
     pub DeviceType: D3DDEVTYPE,
@@ -812,13 +812,13 @@ pub struct D3DDEVINFO_D3D9STAGETIMINGS {
     pub ComputationProcessingPercent: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDEVINFO_D3DVERTEXSTATS {
     pub NumRenderedTriangles: u32,
     pub NumExtraClippingTriangles: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDEVINFO_RESOURCEMANAGER {
     pub stats: [D3DRESOURCESTATS; 8],
 }
@@ -828,7 +828,7 @@ impl Default for D3DDEVINFO_RESOURCEMANAGER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDEVINFO_VCACHE {
     pub Pattern: u32,
     pub OptMethod: u32,
@@ -842,7 +842,7 @@ pub const D3DDEVTYPE_NULLREF: D3DDEVTYPE = 4;
 pub const D3DDEVTYPE_REF: D3DDEVTYPE = 2;
 pub const D3DDEVTYPE_SW: D3DDEVTYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDISPLAYMODE {
     pub Width: u32,
     pub Height: u32,
@@ -850,7 +850,7 @@ pub struct D3DDISPLAYMODE {
     pub Format: D3DFORMAT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDISPLAYMODEEX {
     pub Size: u32,
     pub Width: u32,
@@ -860,7 +860,7 @@ pub struct D3DDISPLAYMODEEX {
     pub ScanLineOrdering: D3DSCANLINEORDERING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDISPLAYMODEFILTER {
     pub Size: u32,
     pub Format: D3DFORMAT,
@@ -887,7 +887,7 @@ pub const D3DDTCAPS_UDEC3: u32 = 64;
 pub const D3DDTCAPS_USHORT2N: u32 = 16;
 pub const D3DDTCAPS_USHORT4N: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DENCRYPTED_BLOCK_INFO {
     pub NumEncryptedBytesAtBeginning: u32,
     pub NumBytesInSkipPattern: u32,
@@ -1040,7 +1040,7 @@ pub const D3DFVF_XYZB5: u32 = 14;
 pub const D3DFVF_XYZRHW: u32 = 4;
 pub const D3DFVF_XYZW: u32 = 16386;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DGAMMARAMP {
     pub red: [u16; 256],
     pub green: [u16; 256],
@@ -1053,7 +1053,7 @@ impl Default for D3DGAMMARAMP {
 }
 pub const D3DGETDATA_FLUSH: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DINDEXBUFFER_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -1095,7 +1095,7 @@ pub const D3DLINECAPS_FOG: u32 = 16;
 pub const D3DLINECAPS_TEXTURE: u32 = 1;
 pub const D3DLINECAPS_ZTEST: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DLOCKED_BOX {
     pub RowPitch: i32,
     pub SlicePitch: i32,
@@ -1107,7 +1107,7 @@ impl Default for D3DLOCKED_BOX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DLOCKED_RECT {
     pub Pitch: i32,
     pub pBits: *mut core::ffi::c_void,
@@ -1150,7 +1150,7 @@ pub struct D3DMEMORYPRESSURE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DMEMORYPRESSURE {
     pub BytesEvictedFromProcess: u64,
     pub SizeOfInefficientAllocation: u64,
@@ -1181,7 +1181,7 @@ pub const D3DMULTISAMPLE_NONMASKABLE: D3DMULTISAMPLE_TYPE = 1;
 pub type D3DMULTISAMPLE_TYPE = i32;
 pub const D3DOK_NOAUTOGEN: u32 = 141953135;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DOVERLAYCAPS {
     pub Caps: u32,
     pub MaxOverlayDisplayWidth: u32,
@@ -1286,7 +1286,7 @@ pub struct D3DPRESENTSTATS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DPRESENTSTATS {
     pub PresentCount: u32,
     pub PresentRefreshCount: u32,
@@ -1310,7 +1310,7 @@ pub const D3DPRESENT_INTERVAL_TWO: u32 = 2;
 pub const D3DPRESENT_LINEAR_CONTENT: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DPRESENT_PARAMETERS {
     pub BackBufferWidth: u32,
     pub BackBufferHeight: u32,
@@ -1350,7 +1350,7 @@ pub const D3DPSHADECAPS_COLORGOURAUDRGB: u32 = 8;
 pub const D3DPSHADECAPS_FOGGOURAUD: u32 = 524288;
 pub const D3DPSHADECAPS_SPECULARGOURAUDRGB: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DPSHADERCAPS2_0 {
     pub Caps: u32,
     pub DynamicFlowControlDepth: i32,
@@ -1418,19 +1418,19 @@ pub const D3DQUERYTYPE_VCACHE: D3DQUERYTYPE = 4;
 pub const D3DQUERYTYPE_VERTEXSTATS: D3DQUERYTYPE = 6;
 pub const D3DQUERYTYPE_VERTEXTIMINGS: D3DQUERYTYPE = 15;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DRANGE {
     pub Offset: u32,
     pub Size: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DRASTER_STATUS {
     pub InVBlank: windows_core::BOOL,
     pub ScanLine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DRECT {
     pub x1: i32,
     pub y1: i32,
@@ -1438,7 +1438,7 @@ pub struct D3DRECT {
     pub y2: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DRECTPATCH_INFO {
     pub StartVertexOffsetWidth: u32,
     pub StartVertexOffsetHeight: u32,
@@ -1451,7 +1451,7 @@ pub struct D3DRECTPATCH_INFO {
 pub type D3DRENDERSTATETYPE = i32;
 pub const D3DRENDERSTATE_WRAPBIAS: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DRESOURCESTATS {
     pub bThrashing: windows_core::BOOL,
     pub ApproxBytesDownloaded: u32,
@@ -1837,7 +1837,7 @@ pub const D3DSTT_FORCE_DWORD: D3DSAMPLER_TEXTURE_TYPE = 2147483647;
 pub const D3DSTT_UNKNOWN: D3DSAMPLER_TEXTURE_TYPE = 0;
 pub const D3DSTT_VOLUME: D3DSAMPLER_TEXTURE_TYPE = 536870912;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DSURFACE_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -1939,7 +1939,7 @@ pub const D3DTOP_SELECTARG2: D3DTEXTUREOP = 3;
 pub const D3DTOP_SUBTRACT: D3DTEXTUREOP = 10;
 pub type D3DTRANSFORMSTATETYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DTRIPATCH_INFO {
     pub StartVertexOffset: u32,
     pub NumVertices: u32,
@@ -2024,7 +2024,7 @@ pub const D3DVBF_FORCE_DWORD: D3DVERTEXBLENDFLAGS = 2147483647;
 pub const D3DVBF_TWEENING: D3DVERTEXBLENDFLAGS = 255;
 pub type D3DVERTEXBLENDFLAGS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DVERTEXBUFFER_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -2034,7 +2034,7 @@ pub struct D3DVERTEXBUFFER_DESC {
     pub FVF: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DVERTEXELEMENT9 {
     pub Stream: u16,
     pub Offset: u16,
@@ -2058,7 +2058,7 @@ pub struct D3DVIEWPORT9 {
     pub MaxZ: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DVOLUME_DESC {
     pub Format: D3DFORMAT,
     pub Type: D3DRESOURCETYPE,
@@ -2076,7 +2076,7 @@ pub const D3DVS20_MIN_DYNAMICFLOWCONTROLDEPTH: u32 = 0;
 pub const D3DVS20_MIN_NUMTEMPS: u32 = 12;
 pub const D3DVS20_MIN_STATICFLOWCONTROLDEPTH: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DVSHADERCAPS2_0 {
     pub Caps: u32,
     pub DynamicFlowControlDepth: i32,
@@ -2132,7 +2132,7 @@ pub const D3DZB_USEW: D3DZBUFFERTYPE = 2;
 pub const D3D_MAX_SIMULTANEOUS_RENDERTARGETS: u32 = 4;
 pub const D3D_OK: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D_OMAC {
     pub Omac: [u8; 16],
 }

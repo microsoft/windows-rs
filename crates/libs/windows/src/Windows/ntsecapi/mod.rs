@@ -2,13 +2,13 @@
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyBySid(psid: super::winnt::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyBySid(psid : super::winnt::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> bool);
-    unsafe { AuditComputeEffectivePolicyBySid(psid, core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
+    unsafe { AuditComputeEffectivePolicyBySid(psid, psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyByToken(htokenhandle: super::winnt::HANDLE, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyByToken(htokenhandle : super::winnt::HANDLE, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> bool);
-    unsafe { AuditComputeEffectivePolicyByToken(htokenhandle, core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
+    unsafe { AuditComputeEffectivePolicyByToken(htokenhandle, psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
 #[inline]
 pub unsafe fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut windows_core::GUID, pdwcountreturned: *mut u32) -> bool {
@@ -83,7 +83,7 @@ where
 #[inline]
 pub unsafe fn AuditQueryPerUserPolicy(psid: super::winnt::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditQueryPerUserPolicy(psid : super::winnt::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> bool);
-    unsafe { AuditQueryPerUserPolicy(psid, core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
+    unsafe { AuditQueryPerUserPolicy(psid, psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -94,7 +94,7 @@ pub unsafe fn AuditQuerySecurity(securityinformation: super::winnt::SECURITY_INF
 #[inline]
 pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditQuerySystemPolicy(psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> bool);
-    unsafe { AuditQuerySystemPolicy(core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
+    unsafe { AuditQuerySystemPolicy(psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -135,7 +135,7 @@ pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[PCAUDIT_POLICY_INFORMATION]) 
 #[inline]
 pub unsafe fn LsaAddAccountRights(policyhandle: LSA_HANDLE, accountsid: super::winnt::PSID, userrights: &[super::lsalookup::LSA_UNICODE_STRING]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaAddAccountRights(policyhandle : LSA_HANDLE, accountsid : super::winnt::PSID, userrights : *const super::lsalookup::LSA_UNICODE_STRING, countofrights : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { LsaAddAccountRights(policyhandle, accountsid, core::mem::transmute(userrights.as_ptr()), userrights.len().try_into().unwrap()) }
+    unsafe { LsaAddAccountRights(policyhandle, accountsid, userrights.as_ptr(), userrights.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
@@ -285,7 +285,7 @@ pub unsafe fn LsaOpenTrustedDomainByName(policyhandle: LSA_HANDLE, trusteddomain
 #[inline]
 pub unsafe fn LsaQueryCAPs(capids: Option<&[super::winnt::PSID]>, caps: *mut PCENTRAL_ACCESS_POLICY, capcount: *mut u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaQueryCAPs(capids : *const super::winnt::PSID, capidcount : u32, caps : *mut PCENTRAL_ACCESS_POLICY, capcount : *mut u32) -> super::bcrypt::NTSTATUS);
-    unsafe { LsaQueryCAPs(core::mem::transmute(capids.map_or(core::ptr::null(), |slice| slice.as_ptr())), capids.map_or(0, |slice| slice.len().try_into().unwrap()), caps as _, capcount as _) }
+    unsafe { LsaQueryCAPs(capids.map_or(core::ptr::null(), |slice| slice.as_ptr()), capids.map_or(0, |slice| slice.len().try_into().unwrap()), caps as _, capcount as _) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -339,7 +339,7 @@ pub unsafe fn LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIF
 #[inline]
 pub unsafe fn LsaRemoveAccountRights(policyhandle: LSA_HANDLE, accountsid: super::winnt::PSID, allrights: bool, userrights: Option<&[super::lsalookup::LSA_UNICODE_STRING]>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::winnt::PSID, allrights : bool, userrights : *const super::lsalookup::LSA_UNICODE_STRING, countofrights : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { LsaRemoveAccountRights(policyhandle, accountsid, allrights, core::mem::transmute(userrights.map_or(core::ptr::null(), |slice| slice.as_ptr())), userrights.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { LsaRemoveAccountRights(policyhandle, accountsid, allrights, userrights.map_or(core::ptr::null(), |slice| slice.as_ptr()), userrights.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[inline]
@@ -351,7 +351,7 @@ pub unsafe fn LsaRetrievePrivateData(policyhandle: LSA_HANDLE, keyname: *const s
 #[inline]
 pub unsafe fn LsaSetCAPs(capdns: Option<&[super::lsalookup::LSA_UNICODE_STRING]>, flags: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaSetCAPs(capdns : *const super::lsalookup::LSA_UNICODE_STRING, capdncount : u32, flags : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { LsaSetCAPs(core::mem::transmute(capdns.map_or(core::ptr::null(), |slice| slice.as_ptr())), capdns.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+    unsafe { LsaSetCAPs(capdns.map_or(core::ptr::null(), |slice| slice.as_ptr()), capdns.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -424,7 +424,7 @@ pub const AUDIT_GENERIC_EXECUTE: u32 = 131072;
 pub const AUDIT_GENERIC_READ: u32 = 131162;
 pub const AUDIT_GENERIC_WRITE: u32 = 131109;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIT_POLICY_INFORMATION {
     pub AuditSubCategoryGuid: windows_core::GUID,
     pub AuditingInformation: u32,
@@ -530,7 +530,7 @@ pub const Audit_System_SecuritySubsystemExtension: windows_core::GUID = windows_
 pub const Batch: SECURITY_LOGON_TYPE = 4;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CENTRAL_ACCESS_POLICY {
     pub CAPID: super::winnt::PSID,
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
@@ -548,7 +548,7 @@ impl Default for CENTRAL_ACCESS_POLICY {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CENTRAL_ACCESS_POLICY_ENTRY {
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
     pub Description: super::lsalookup::LSA_UNICODE_STRING,
@@ -576,7 +576,7 @@ pub const DOMAIN_LOCKOUT_ADMINS: u32 = 8;
 pub const DOMAIN_NO_LM_OWF_CHANGE: u32 = 64;
 pub const DOMAIN_PASSWORD_COMPLEX: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOMAIN_PASSWORD_INFORMATION {
     pub MinPasswordLength: u16,
     pub PasswordHistoryLength: u16,
@@ -602,7 +602,7 @@ pub const Interactive: SECURITY_LOGON_TYPE = 2;
 pub const InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 0;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KDC_PROXY_CACHE_ENTRY_DATA {
     pub SinceLastUsed: u64,
     pub DomainName: UNICODE_STRING,
@@ -618,7 +618,7 @@ pub const KERBEROS_REVISION: u32 = 6;
 pub const KERBEROS_VERSION: u32 = 5;
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub RealmName: UNICODE_STRING,
@@ -628,7 +628,7 @@ pub struct KERB_ADD_BINDING_CACHE_ENTRY_EX_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub RealmName: UNICODE_STRING,
@@ -637,7 +637,7 @@ pub struct KERB_ADD_BINDING_CACHE_ENTRY_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub UserName: UNICODE_STRING,
@@ -648,7 +648,7 @@ pub struct KERB_ADD_CREDENTIALS_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERB_ADD_CREDENTIALS_REQUEST_EX {
     pub Credentials: KERB_ADD_CREDENTIALS_REQUEST,
     pub PrincipalNameCount: u32,
@@ -662,7 +662,7 @@ impl Default for KERB_ADD_CREDENTIALS_REQUEST_EX {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_AUTH_DATA {
     pub Type: u32,
     pub Length: u32,
@@ -670,7 +670,7 @@ pub struct KERB_AUTH_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_BINDING_CACHE_ENTRY_DATA {
     pub DiscoveryTime: u64,
     pub RealmName: UNICODE_STRING,
@@ -682,13 +682,13 @@ pub struct KERB_BINDING_CACHE_ENTRY_DATA {
     pub KdcName: UNICODE_STRING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CERTIFICATE_HASHINFO {
     pub StoreNameLength: u16,
     pub HashLength: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CERTIFICATE_INFO {
     pub CertInfoSize: u32,
     pub InfoType: u32,
@@ -696,7 +696,7 @@ pub struct KERB_CERTIFICATE_INFO {
 pub type KERB_CERTIFICATE_INFO_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CERTIFICATE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub DomainName: UNICODE_STRING,
@@ -710,7 +710,7 @@ pub const KERB_CERTIFICATE_LOGON_FLAG_CHECK_DUPLICATES: u32 = 1;
 pub const KERB_CERTIFICATE_LOGON_FLAG_USE_CERTIFICATE_INFO: u32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CERTIFICATE_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
@@ -725,20 +725,20 @@ pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_FAIL_IF_NT_AUTH_POLICY_REQUIRED: u32 =
 pub const KERB_CERTIFICATE_S4U_LOGON_FLAG_IDENTIFY: u32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CERTIFICATE_UNLOCK_LOGON {
     pub Logon: KERB_CERTIFICATE_LOGON,
     pub LogonId: super::winnt::LUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CHANGEMACHINEPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub ForcePasswordChange: bool,
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CHANGEPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub DomainName: UNICODE_STRING,
@@ -773,31 +773,31 @@ pub const KERB_CHECKSUM_SHA384: i32 = -140;
 pub const KERB_CHECKSUM_SHA512: i32 = -141;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CLEANUP_MACHINE_PKINIT_CREDS_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::winnt::LUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
     pub _bitfield: u32,
 }
 pub const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::winnt::LUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Version: u32,
@@ -811,14 +811,14 @@ impl Default for KERB_CLOUD_KERBEROS_DEBUG_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CRYPTO_KEY {
     pub KeyType: i32,
     pub Length: u32,
     pub Value: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_CRYPTO_KEY32 {
     pub KeyType: i32,
     pub Length: u32,
@@ -827,7 +827,7 @@ pub struct KERB_CRYPTO_KEY32 {
 pub const KERB_DECRYPT_FLAG_DEFAULT_KEY: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_DECRYPT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::winnt::LUID,
@@ -841,7 +841,7 @@ pub struct KERB_DECRYPT_REQUEST {
     pub EncryptedData: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERB_DECRYPT_RESPONSE {
     pub DecryptedData: [u8; 1],
 }
@@ -893,7 +893,7 @@ pub const KERB_ETYPE_RSA_PUB_SHA1: u32 = 12;
 pub const KERB_ETYPE_RSA_SHA1_CMS: u32 = 11;
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERB_EXTERNAL_NAME {
     pub NameType: i16,
     pub NameCount: u16,
@@ -907,7 +907,7 @@ impl Default for KERB_EXTERNAL_NAME {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_EXTERNAL_TICKET {
     pub ServiceName: PKERB_EXTERNAL_NAME,
     pub TargetName: PKERB_EXTERNAL_NAME,
@@ -928,7 +928,7 @@ pub struct KERB_EXTERNAL_TICKET {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_INTERACTIVE_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub LogonDomainName: UNICODE_STRING,
@@ -937,7 +937,7 @@ pub struct KERB_INTERACTIVE_LOGON {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_INTERACTIVE_PROFILE {
     pub MessageType: KERB_PROFILE_BUFFER_TYPE,
     pub LogonCount: u16,
@@ -958,7 +958,7 @@ pub struct KERB_INTERACTIVE_PROFILE {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_INTERACTIVE_UNLOCK_LOGON {
     pub Logon: KERB_INTERACTIVE_LOGON,
     pub LogonId: super::winnt::LUID,
@@ -968,7 +968,7 @@ pub const KERB_LOGON_FLAG_REDIRECTED: u32 = 2;
 pub type KERB_LOGON_SUBMIT_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_NET_ADDRESS {
     pub Family: u32,
     pub Length: u32,
@@ -976,7 +976,7 @@ pub struct KERB_NET_ADDRESS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERB_NET_ADDRESSES {
     pub Number: u32,
     pub Addresses: [KERB_NET_ADDRESS; 1],
@@ -991,27 +991,27 @@ pub type KERB_PROFILE_BUFFER_TYPE = i32;
 pub type KERB_PROTOCOL_MESSAGE_TYPE = i32;
 pub const KERB_PURGE_ALL_TICKETS: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_PURGE_BINDING_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_PURGE_KDC_PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub LogonId: super::winnt::LUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_PURGE_KDC_PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfPurged: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_PURGE_TKT_CACHE_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::winnt::LUID,
@@ -1020,7 +1020,7 @@ pub struct KERB_PURGE_TKT_CACHE_EX_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_PURGE_TKT_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::winnt::LUID,
@@ -1028,13 +1028,13 @@ pub struct KERB_PURGE_TKT_CACHE_REQUEST {
     pub RealmName: UNICODE_STRING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_QUERY_BINDING_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_QUERY_BINDING_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfEntries: u32,
@@ -1042,14 +1042,14 @@ pub struct KERB_QUERY_BINDING_CACHE_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
     pub DomainName: UNICODE_STRING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
@@ -1059,7 +1059,7 @@ pub struct KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE {
 pub const KERB_QUERY_DOMAIN_EXTENDED_POLICIES_RESPONSE_FLAG_DAC_DISABLED: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
@@ -1067,7 +1067,7 @@ pub struct KERB_QUERY_KDC_PROXY_CACHE_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfEntries: u32,
@@ -1075,7 +1075,7 @@ pub struct KERB_QUERY_KDC_PROXY_CACHE_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
@@ -1083,7 +1083,7 @@ pub struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfCreds: u32,
@@ -1091,7 +1091,7 @@ pub struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
@@ -1105,7 +1105,7 @@ impl Default for KERB_QUERY_TKT_CACHE_EX2_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
@@ -1119,7 +1119,7 @@ impl Default for KERB_QUERY_TKT_CACHE_EX3_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_EX_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
@@ -1133,14 +1133,14 @@ impl Default for KERB_QUERY_TKT_CACHE_EX_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::winnt::LUID,
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KERB_QUERY_TKT_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfTickets: u32,
@@ -1155,13 +1155,13 @@ impl Default for KERB_QUERY_TKT_CACHE_RESPONSE {
 pub const KERB_REFRESH_POLICY_KDC: u32 = 2;
 pub const KERB_REFRESH_POLICY_KERBEROS: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_REFRESH_POLICY_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_REFRESH_POLICY_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
@@ -1170,7 +1170,7 @@ pub const KERB_REFRESH_SCCRED_GETTGT: u32 = 1;
 pub const KERB_REFRESH_SCCRED_RELEASE: u32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_REFRESH_SCCRED_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CredentialBlob: UNICODE_STRING,
@@ -1183,7 +1183,7 @@ pub const KERB_REQUEST_REMOVE_CREDENTIAL: u32 = 4;
 pub const KERB_REQUEST_REPLACE_CREDENTIAL: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub Flags: u32,
@@ -1193,7 +1193,7 @@ pub struct KERB_RETRIEVE_KEY_TAB_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_RETRIEVE_KEY_TAB_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub KeyTabLength: u32,
@@ -1209,7 +1209,7 @@ pub const KERB_RETRIEVE_TICKET_USE_CREDHANDLE: u32 = 4;
 pub const KERB_RETRIEVE_TICKET_WITH_SEC_CRED: u32 = 16;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_RETRIEVE_TKT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::winnt::LUID,
@@ -1221,13 +1221,13 @@ pub struct KERB_RETRIEVE_TKT_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_RETRIEVE_TKT_RESPONSE {
     pub Ticket: KERB_EXTERNAL_TICKET,
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_S4U2PROXY_CACHE_ENTRY_INFO {
     pub ServerName: UNICODE_STRING,
     pub Flags: u32,
@@ -1237,7 +1237,7 @@ pub struct KERB_S4U2PROXY_CACHE_ENTRY_INFO {
 pub const KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_S4U2PROXY_CRED {
     pub UserName: UNICODE_STRING,
     pub DomainName: UNICODE_STRING,
@@ -1250,7 +1250,7 @@ pub struct KERB_S4U2PROXY_CRED {
 pub const KERB_S4U2PROXY_CRED_FLAG_NEGATIVE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_S4U_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
@@ -1261,7 +1261,7 @@ pub const KERB_S4U_LOGON_FLAG_CHECK_LOGONHOURS: u32 = 2;
 pub const KERB_S4U_LOGON_FLAG_IDENTIFY: u32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_SETPASSWORD_EX_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::winnt::LUID,
@@ -1278,7 +1278,7 @@ pub struct KERB_SETPASSWORD_EX_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "sspi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_SETPASSWORD_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::winnt::LUID,
@@ -1292,7 +1292,7 @@ pub const KERB_SETPASS_USE_CREDHANDLE: u32 = 2;
 pub const KERB_SETPASS_USE_LOGONID: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_SMART_CARD_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub Pin: UNICODE_STRING,
@@ -1301,7 +1301,7 @@ pub struct KERB_SMART_CARD_LOGON {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_SMART_CARD_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
     pub CertificateSize: u32,
@@ -1309,14 +1309,14 @@ pub struct KERB_SMART_CARD_PROFILE {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_SMART_CARD_UNLOCK_LOGON {
     pub Logon: KERB_SMART_CARD_LOGON,
     pub LogonId: super::winnt::LUID,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_SUBMIT_TKT_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub LogonId: super::winnt::LUID,
@@ -1327,7 +1327,7 @@ pub struct KERB_SUBMIT_TKT_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO {
     pub ServerName: UNICODE_STRING,
     pub RealmName: UNICODE_STRING,
@@ -1339,7 +1339,7 @@ pub struct KERB_TICKET_CACHE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO_EX {
     pub ClientName: UNICODE_STRING,
     pub ClientRealm: UNICODE_STRING,
@@ -1353,7 +1353,7 @@ pub struct KERB_TICKET_CACHE_INFO_EX {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO_EX2 {
     pub ClientName: UNICODE_STRING,
     pub ClientRealm: UNICODE_STRING,
@@ -1369,7 +1369,7 @@ pub struct KERB_TICKET_CACHE_INFO_EX2 {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_TICKET_CACHE_INFO_EX3 {
     pub ClientName: UNICODE_STRING,
     pub ClientRealm: UNICODE_STRING,
@@ -1403,7 +1403,7 @@ pub const KERB_TICKET_FLAGS_reserved: u32 = 2147483648;
 pub const KERB_TICKET_FLAGS_reserved1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_TICKET_LOGON {
     pub MessageType: KERB_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
@@ -1414,14 +1414,14 @@ pub struct KERB_TICKET_LOGON {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_TICKET_PROFILE {
     pub Profile: KERB_INTERACTIVE_PROFILE,
     pub SessionKey: KERB_CRYPTO_KEY,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_TICKET_UNLOCK_LOGON {
     pub Logon: KERB_TICKET_LOGON,
     pub LogonId: super::winnt::LUID,
@@ -1429,7 +1429,7 @@ pub struct KERB_TICKET_UNLOCK_LOGON {
 pub const KERB_TRANSFER_CRED_CLEANUP_CREDENTIALS: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERB_TRANSFER_CRED_REQUEST {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub OriginLogonId: super::winnt::LUID,
@@ -1540,7 +1540,7 @@ pub const LSASETCAPS_RELOAD_FLAG: u32 = 1;
 pub const LSASETCAPS_VALID_FLAG_MASK: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_AUTH_INFORMATION {
     pub LastUpdateTime: i64,
     pub AuthType: u32,
@@ -1552,20 +1552,20 @@ pub struct LSA_AUTH_INFORMATION {
 pub struct LSA_ENUMERATION_HANDLE(pub u32);
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_ENUMERATION_INFORMATION {
     pub Sid: super::winnt::PSID,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_BINARY_DATA {
     pub Length: u32,
     pub Buffer: super::minwindef::PUCHAR,
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_COLLISION_INFORMATION {
     pub RecordCount: u32,
     pub Entries: *mut PLSA_FOREST_TRUST_COLLISION_RECORD,
@@ -1578,7 +1578,7 @@ impl Default for LSA_FOREST_TRUST_COLLISION_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_COLLISION_RECORD {
     pub Index: u32,
     pub Type: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE,
@@ -1588,7 +1588,7 @@ pub struct LSA_FOREST_TRUST_COLLISION_RECORD {
 pub type LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
     pub Sid: super::winnt::PSID,
     pub DnsName: super::lsalookup::LSA_UNICODE_STRING,
@@ -1596,7 +1596,7 @@ pub struct LSA_FOREST_TRUST_DOMAIN_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_INFORMATION {
     pub RecordCount: u32,
     pub Entries: *mut PLSA_FOREST_TRUST_RECORD,
@@ -1609,7 +1609,7 @@ impl Default for LSA_FOREST_TRUST_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_INFORMATION2 {
     pub RecordCount: u32,
     pub Entries: *mut PLSA_FOREST_TRUST_RECORD2,
@@ -1682,7 +1682,7 @@ impl Default for LSA_FOREST_TRUST_RECORD2_0 {
 pub type LSA_FOREST_TRUST_RECORD_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_FOREST_TRUST_SCANNER_INFO {
     pub DomainSid: super::winnt::PSID,
     pub DnsName: super::lsalookup::LSA_UNICODE_STRING,
@@ -1698,7 +1698,7 @@ impl Default for LSA_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_LAST_INTER_LOGON_INFO {
     pub LastSuccessfulLogon: i64,
     pub LastFailedLogon: i64,
@@ -1722,7 +1722,7 @@ pub const LSA_TLN_DISABLED_CONFLICT: u32 = 4;
 pub const LSA_TLN_DISABLED_NEW: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_TRANSLATED_SID {
     pub Use: super::winnt::SID_NAME_USE,
     pub RelativeId: u32,
@@ -1743,7 +1743,7 @@ pub const MSV1_0_AV_FLAG_FORCE_GUEST: u32 = 1;
 pub const MSV1_0_AV_FLAG_MIC_HANDSHAKE_MESSAGES: u32 = 2;
 pub const MSV1_0_AV_FLAG_UNVERIFIED_TARGET: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_AV_PAIR {
     pub AvId: u16,
     pub AvLen: u16,
@@ -1751,7 +1751,7 @@ pub struct MSV1_0_AV_PAIR {
 pub const MSV1_0_CHALLENGE_LENGTH: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_CHANGEPASSWORD_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub DomainName: UNICODE_STRING,
@@ -1761,7 +1761,7 @@ pub struct MSV1_0_CHANGEPASSWORD_REQUEST {
     pub Impersonating: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_CHANGEPASSWORD_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub PasswordInfoValid: bool,
@@ -1771,7 +1771,7 @@ pub const MSV1_0_CHECK_LOGONHOURS_FOR_S4U: u32 = 262144;
 pub const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: u32 = 2;
 pub const MSV1_0_CLEARTEXT_PASSWORD_SUPPLIED: u32 = 16384;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_CREDENTIAL_KEY {
     pub Data: [u8; 20],
 }
@@ -1799,7 +1799,7 @@ pub const MSV1_0_DISABLE_PERSONAL_FALLBACK: u32 = 4096;
 pub const MSV1_0_DONT_TRY_GUEST_ACCOUNT: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_INTERACTIVE_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub LogonDomainName: UNICODE_STRING,
@@ -1808,7 +1808,7 @@ pub struct MSV1_0_INTERACTIVE_LOGON {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_INTERACTIVE_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
     pub LogonCount: u16,
@@ -1829,7 +1829,7 @@ pub struct MSV1_0_INTERACTIVE_PROFILE {
 }
 pub const MSV1_0_INTERNET_DOMAIN: u32 = 524288;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
     pub Version: u32,
     pub EncryptedCredsSize: u32,
@@ -1843,7 +1843,7 @@ impl Default for MSV1_0_IUM_SUPPLEMENTAL_CREDENTIAL {
 pub const MSV1_0_LANMAN_SESSION_KEY_LENGTH: u32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_LM20_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub LogonDomainName: UNICODE_STRING,
@@ -1862,7 +1862,7 @@ impl Default for MSV1_0_LM20_LOGON {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_LM20_LOGON_PROFILE {
     pub MessageType: MSV1_0_PROFILE_BUFFER_TYPE,
     pub KickOffTime: i64,
@@ -1887,7 +1887,7 @@ pub const MSV1_0_MNS_LOGON: u32 = 16777216;
 pub const MSV1_0_NTLM3_MIN_NT_RESPONSE_LENGTH: u32 = 44;
 pub const MSV1_0_NTLM3_OWF_LENGTH: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_NTLM3_RESPONSE {
     pub Response: [u8; 16],
     pub RespType: u8,
@@ -1910,7 +1910,7 @@ pub const MSV1_0_PACKAGE_NAME: windows_core::PCSTR = windows_core::s!("MICROSOFT
 pub const MSV1_0_PACKAGE_NAMEW: windows_core::PCWSTR = windows_core::w!("MICROSOFT_AUTHENTICATION_PACKAGE_V1_0");
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_PASSTHROUGH_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub DomainName: UNICODE_STRING,
@@ -1921,7 +1921,7 @@ pub struct MSV1_0_PASSTHROUGH_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_PASSTHROUGH_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub Pad: u32,
@@ -1951,7 +1951,7 @@ pub const MSV1_0_RETURN_USER_PARAMETERS: u32 = 8;
 pub const MSV1_0_S4U2SELF: u32 = 131072;
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_S4U_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
@@ -1970,7 +1970,7 @@ pub const MSV1_0_SUBAUTHENTICATION_KEY: windows_core::PCSTR = windows_core::s!("
 pub const MSV1_0_SUBAUTHENTICATION_VALUE: windows_core::PCSTR = windows_core::s!("Auth");
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_SUBAUTH_LOGON {
     pub MessageType: MSV1_0_LOGON_SUBMIT_TYPE,
     pub LogonDomainName: UNICODE_STRING,
@@ -1990,7 +1990,7 @@ impl Default for MSV1_0_SUBAUTH_LOGON {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_SUBAUTH_REQUEST {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub SubAuthPackageId: u32,
@@ -1999,14 +1999,14 @@ pub struct MSV1_0_SUBAUTH_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_SUBAUTH_RESPONSE {
     pub MessageType: MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub SubAuthInfoLength: u32,
     pub SubAuthReturnBuffer: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_SUPPLEMENTAL_CREDENTIAL {
     pub Version: u32,
     pub Flags: u32,
@@ -2019,7 +2019,7 @@ impl Default for MSV1_0_SUPPLEMENTAL_CREDENTIAL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
     pub Version: u32,
     pub Flags: u32,
@@ -2032,7 +2032,7 @@ impl Default for MSV1_0_SUPPLEMENTAL_CREDENTIAL_V2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_SUPPLEMENTAL_CREDENTIAL_V3 {
     pub Version: u32,
     pub Flags: u32,
@@ -2102,13 +2102,13 @@ pub const MsvAvTargetName: MSV1_0_AVID = 9;
 pub const MsvAvTimestamp: MSV1_0_AVID = 7;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEGOTIATE_CALLER_NAME_REQUEST {
     pub MessageType: u32,
     pub LogonId: super::winnt::LUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEGOTIATE_CALLER_NAME_RESPONSE {
     pub MessageType: u32,
     pub CallerName: windows_core::PWSTR,
@@ -2116,7 +2116,7 @@ pub struct NEGOTIATE_CALLER_NAME_RESPONSE {
 pub const NEGOTIATE_MAX_PREFIX: u32 = 32;
 pub type NEGOTIATE_MESSAGES = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NEGOTIATE_PACKAGE_PREFIX {
     pub PackageId: usize,
     pub PackageDataA: *mut core::ffi::c_void,
@@ -2130,7 +2130,7 @@ impl Default for NEGOTIATE_PACKAGE_PREFIX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NEGOTIATE_PACKAGE_PREFIXES {
     pub MessageType: u32,
     pub PrefixCount: u32,
@@ -2298,7 +2298,7 @@ pub type PKERB_TICKET_UNLOCK_LOGON = *mut KERB_TICKET_UNLOCK_LOGON;
 pub type PKERB_TRANSFER_CRED_REQUEST = *mut KERB_TRANSFER_CRED_REQUEST;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PKU2U_CERTIFICATE_S4U_LOGON {
     pub MessageType: PKU2U_LOGON_SUBMIT_TYPE,
     pub Flags: u32,
@@ -2308,13 +2308,13 @@ pub struct PKU2U_CERTIFICATE_S4U_LOGON {
     pub Certificate: super::minwindef::PUCHAR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PKU2U_CERT_BLOB {
     pub CertOffset: u32,
     pub CertLength: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PKU2U_CREDUI_CONTEXT {
     pub Version: u64,
     pub cbHeaderLength: u16,
@@ -2402,13 +2402,13 @@ pub type PNEGOTIATE_PACKAGE_PREFIX = *mut NEGOTIATE_PACKAGE_PREFIX;
 pub type PNEGOTIATE_PACKAGE_PREFIXES = *mut NEGOTIATE_PACKAGE_PREFIXES;
 pub const POLICY_ALL_ACCESS: u32 = 987135;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_AUDIT_CATEGORIES_INFO {
     pub MaximumCategoryCount: u32,
     pub SubCategoriesInfo: PPOLICY_AUDIT_SUBCATEGORIES_INFO,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_AUDIT_EVENTS_INFO {
     pub AuditingMode: bool,
     pub EventAuditingOptions: PPOLICY_AUDIT_EVENT_OPTIONS,
@@ -2424,19 +2424,19 @@ pub const POLICY_AUDIT_EVENT_SUCCESS: u32 = 1;
 pub type POLICY_AUDIT_EVENT_TYPE = i32;
 pub const POLICY_AUDIT_EVENT_UNCHANGED: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_AUDIT_FULL_QUERY_INFO {
     pub ShutDownOnFull: bool,
     pub LogIsFull: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_AUDIT_FULL_SET_INFO {
     pub ShutDownOnFull: bool,
 }
 pub const POLICY_AUDIT_LOG_ADMIN: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_AUDIT_LOG_INFO {
     pub AuditLogPercentFull: u32,
     pub MaximumLogSize: u32,
@@ -2447,7 +2447,7 @@ pub struct POLICY_AUDIT_LOG_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POLICY_AUDIT_SID_ARRAY {
     pub UsersCount: u32,
     pub UserSidArray: *mut super::winnt::PSID,
@@ -2459,7 +2459,7 @@ impl Default for POLICY_AUDIT_SID_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_AUDIT_SUBCATEGORIES_INFO {
     pub MaximumSubCategoryCount: u32,
     pub EventAuditingOptions: PPOLICY_AUDIT_EVENT_OPTIONS,
@@ -2469,20 +2469,20 @@ pub const POLICY_CREATE_PRIVILEGE: u32 = 64;
 pub const POLICY_CREATE_SECRET: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_DEFAULT_QUOTA_INFO {
     pub QuotaLimits: super::winnt::QUOTA_LIMITS,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_DOMAIN_EFS_INFO {
     pub InfoLength: u32,
     pub EfsBlob: super::minwindef::PUCHAR,
 }
 pub type POLICY_DOMAIN_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_DOMAIN_KERBEROS_TICKET_INFO {
     pub AuthenticationOptions: u32,
     pub MaxServiceTicketAge: i64,
@@ -2498,27 +2498,27 @@ pub const POLICY_KERBEROS_VALIDATE_CLIENT: u32 = 128;
 pub const POLICY_LOOKUP_NAMES: u32 = 2048;
 pub type POLICY_LSA_SERVER_ROLE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_LSA_SERVER_ROLE_INFO {
     pub LsaServerRole: POLICY_LSA_SERVER_ROLE,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_MACHINE_ACCT_INFO {
     pub Rid: u32,
     pub Sid: super::winnt::PSID,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_MACHINE_ACCT_INFO2 {
     pub Rid: u32,
     pub Sid: super::winnt::PSID,
     pub ObjectGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_MODIFICATION_INFO {
     pub ModifiedId: i64,
     pub DatabaseCreationTime: i64,
@@ -2527,13 +2527,13 @@ pub const POLICY_NOTIFICATION: u32 = 4096;
 pub type POLICY_NOTIFICATION_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_PD_ACCOUNT_INFO {
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_PRIMARY_DOMAIN_INFO {
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
     pub Sid: super::winnt::PSID,
@@ -2541,7 +2541,7 @@ pub struct POLICY_PRIMARY_DOMAIN_INFO {
 pub const POLICY_READ: u32 = 131078;
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POLICY_REPLICA_SOURCE_INFO {
     pub ReplicaSource: super::lsalookup::LSA_UNICODE_STRING,
     pub ReplicaAccountName: super::lsalookup::LSA_UNICODE_STRING,
@@ -2674,7 +2674,7 @@ pub const SAM_PASSWORD_CHANGE_NOTIFY_ROUTINE: windows_core::PCSTR = windows_core
 pub const SAM_PASSWORD_FILTER_ROUTINE: windows_core::PCSTR = windows_core::s!("PasswordFilter");
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_LOGON_SESSION_DATA {
     pub Size: u32,
     pub LogonId: super::winnt::LUID,
@@ -2703,7 +2703,7 @@ pub struct SECURITY_LOGON_SESSION_DATA {
 pub type SECURITY_LOGON_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_ADT_ACCESS_REASON {
     pub AccessMask: super::winnt::ACCESS_MASK,
     pub AccessReasons: [u32; 32],
@@ -2719,7 +2719,7 @@ impl Default for SE_ADT_ACCESS_REASON {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_ADT_CLAIMS {
     pub Length: u32,
     pub Claims: super::winnt::PCLAIMS_BLOB,
@@ -2727,7 +2727,7 @@ pub struct SE_ADT_CLAIMS {
 pub const SE_ADT_OBJECT_ONLY: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_ADT_OBJECT_TYPE {
     pub ObjectType: windows_core::GUID,
     pub Flags: u16,
@@ -2737,7 +2737,7 @@ pub struct SE_ADT_OBJECT_TYPE {
 pub const SE_ADT_PARAMETERS_SELF_RELATIVE: u32 = 1;
 pub const SE_ADT_PARAMETERS_SEND_TO_LSA: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_ADT_PARAMETER_ARRAY {
     pub CategoryId: u32,
     pub AuditId: u32,
@@ -2754,7 +2754,7 @@ impl Default for SE_ADT_PARAMETER_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_ADT_PARAMETER_ARRAY_ENTRY {
     pub Type: SE_ADT_PARAMETER_TYPE,
     pub Length: u32,
@@ -2767,7 +2767,7 @@ impl Default for SE_ADT_PARAMETER_ARRAY_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_ADT_PARAMETER_ARRAY_EX {
     pub CategoryId: u32,
     pub AuditId: u32,
@@ -2792,7 +2792,7 @@ pub const SE_MAX_AUDIT_PARAMETERS: u32 = 32;
 pub const SE_MAX_GENERIC_AUDIT_PARAMETERS: u32 = 28;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STRING {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -2837,14 +2837,14 @@ pub const SeAdtParmTypeUserAccountControl: SE_ADT_PARAMETER_TYPE = 19;
 pub const Service: SECURITY_LOGON_TYPE = 5;
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_CONTROLLERS_INFO {
     pub Entries: u32,
     pub Names: super::lsalookup::PLSA_UNICODE_STRING,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_DOMAIN_AUTH_INFORMATION {
     pub IncomingAuthInfos: u32,
     pub IncomingAuthenticationInformation: PLSA_AUTH_INFORMATION,
@@ -2855,7 +2855,7 @@ pub struct TRUSTED_DOMAIN_AUTH_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION {
     pub Information: TRUSTED_DOMAIN_INFORMATION_EX,
     pub PosixOffset: TRUSTED_POSIX_OFFSET_INFO,
@@ -2863,7 +2863,7 @@ pub struct TRUSTED_DOMAIN_FULL_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_DOMAIN_FULL_INFORMATION2 {
     pub Information: TRUSTED_DOMAIN_INFORMATION_EX2,
     pub PosixOffset: TRUSTED_POSIX_OFFSET_INFO,
@@ -2873,7 +2873,7 @@ pub struct TRUSTED_DOMAIN_FULL_INFORMATION2 {
 pub type TRUSTED_DOMAIN_INFORMATION_BASIC = super::lsalookup::LSA_TRUST_INFORMATION;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_DOMAIN_INFORMATION_EX {
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
     pub FlatName: super::lsalookup::LSA_UNICODE_STRING,
@@ -2884,7 +2884,7 @@ pub struct TRUSTED_DOMAIN_INFORMATION_EX {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_DOMAIN_INFORMATION_EX2 {
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
     pub FlatName: super::lsalookup::LSA_UNICODE_STRING,
@@ -2897,25 +2897,25 @@ pub struct TRUSTED_DOMAIN_INFORMATION_EX2 {
 }
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_DOMAIN_NAME_INFO {
     pub Name: super::lsalookup::LSA_UNICODE_STRING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
     pub SupportedEncryptionTypes: u32,
 }
 pub type TRUSTED_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(feature = "lsalookup")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_PASSWORD_INFO {
     pub Password: super::lsalookup::LSA_UNICODE_STRING,
     pub OldPassword: super::lsalookup::LSA_UNICODE_STRING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRUSTED_POSIX_OFFSET_INFO {
     pub Offset: u32,
 }
@@ -2962,7 +2962,7 @@ pub const TrustedDomainSupportedEncryptionTypes: TRUSTED_INFORMATION_CLASS = 13;
 pub const TrustedPasswordInformation: TRUSTED_INFORMATION_CLASS = 4;
 pub const TrustedPosixOffsetInformation: TRUSTED_INFORMATION_CLASS = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNICODE_STRING {
     pub Length: u16,
     pub MaximumLength: u16,

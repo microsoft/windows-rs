@@ -10,7 +10,7 @@ pub const BLUETOOTH_GATT_FLAG_SIGNED_WRITE: u32 = 16;
 pub const BLUETOOTH_GATT_FLAG_VALID_MASK: u32 = 127;
 pub const BLUETOOTH_GATT_FLAG_WRITE_WITHOUT_RESPONSE: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BLUETOOTH_GATT_VALUE_CHANGED_EVENT {
     pub ChangedAttributeHandle: u16,
     pub CharacteristicValueDataSize: usize,
@@ -196,7 +196,7 @@ pub const BTH_LE_GATT_CHARACTERISTIC_TYPE_PERIPHERAL_PRIVACY_FLAG: u32 = 10754;
 pub const BTH_LE_GATT_CHARACTERISTIC_TYPE_RECONNECTION_ADDRESS: u32 = 10755;
 pub const BTH_LE_GATT_CHARACTERISTIC_TYPE_SERVICE_CHANGED: u32 = 10757;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_LE_GATT_CHARACTERISTIC_VALUE {
     pub DataSize: u32,
     pub Data: [u8; 1],
@@ -250,19 +250,19 @@ impl Default for BTH_LE_GATT_DESCRIPTOR_VALUE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_0 {
     pub IsReliableWriteEnabled: bool,
     pub IsAuxiliariesWritable: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_1 {
     pub IsSubscribeToNotification: bool,
     pub IsSubscribeToIndication: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_LE_GATT_DESCRIPTOR_VALUE_0_2 {
     pub IsBroadcast: bool,
 }

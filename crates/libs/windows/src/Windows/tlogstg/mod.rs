@@ -398,7 +398,7 @@ pub const TLEF_RELATIVE_INCLUDE_CURRENT: tagTLENUMF = 1;
 pub struct TLENUMF(pub u32);
 #[repr(C)]
 #[cfg(feature = "shtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINDOWDATA {
     pub dwWindowID: u32,
     pub uiCP: u32,

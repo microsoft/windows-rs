@@ -104,7 +104,7 @@ pub unsafe fn SLGetLicenseFileId(hslc: HSLC, pblicenseblob: &[u8]) -> windows_co
     windows_core::link!("slc.dll" "system" fn SLGetLicenseFileId(hslc : HSLC, cblicenseblob : u32, pblicenseblob : *const u8, plicensefileid : *mut SLID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SLGetLicenseFileId(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).map(|| result__)
+        SLGetLicenseFileId(hslc, pblicenseblob.len().try_into().unwrap(), pblicenseblob.as_ptr(), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -133,7 +133,7 @@ where
     windows_core::link!("slc.dll" "system" fn SLGetPKeyId(hslc : HSLC, pwszpkeyalgorithm : windows_core::PCWSTR, pwszpkeystring : windows_core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : *const u8, ppkeyid : *mut SLID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SLGetPKeyId(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
+        SLGetPKeyId(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -237,7 +237,7 @@ pub unsafe fn SLInstallLicense(hslc: HSLC, pblicenseblob: &[u8]) -> windows_core
     windows_core::link!("slc.dll" "system" fn SLInstallLicense(hslc : HSLC, cblicenseblob : u32, pblicenseblob : *const u8, plicensefileid : *mut SLID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SLInstallLicense(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).map(|| result__)
+        SLInstallLicense(hslc, pblicenseblob.len().try_into().unwrap(), pblicenseblob.as_ptr(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -249,7 +249,7 @@ where
     windows_core::link!("slc.dll" "system" fn SLInstallProofOfPurchase(hslc : HSLC, pwszpkeyalgorithm : windows_core::PCWSTR, pwszpkeystring : windows_core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : *const u8, ppkeyid : *mut SLID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
+        SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -293,7 +293,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("slc.dll" "system" fn SLSetGenuineInformation(pqueryid : *const SLID, pwszvaluename : windows_core::PCWSTR, edatatype : SLDATATYPE, cbvalue : u32, pbvalue : *const u8) -> windows_core::HRESULT);
-    unsafe { SLSetGenuineInformation(pqueryid, pwszvaluename.param().abi(), edatatype, pbvalue.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbvalue.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { SLSetGenuineInformation(pqueryid, pwszvaluename.param().abi(), edatatype, pbvalue.map_or(0, |slice| slice.len().try_into().unwrap()), pbvalue.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[inline]
 pub unsafe fn SLUninstallLicense(hslc: HSLC, plicensefileid: *const SLID) -> windows_core::HRESULT {
@@ -338,7 +338,7 @@ pub type SLIDTYPE = i32;
 pub type SLLICENSINGSTATUS = i32;
 pub type SLREFERRALTYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SL_ACTIVATION_INFO_HEADER {
     pub cbSize: u32,
     pub r#type: SL_ACTIVATION_TYPE,
@@ -347,7 +347,7 @@ pub type SL_ACTIVATION_TYPE = i32;
 pub const SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SL_ACTIVATION_TYPE = 1;
 pub const SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SL_AD_ACTIVATION_INFO {
     pub header: SL_ACTIVATION_INFO_HEADER,
     pub pwszProductKey: windows_core::PCWSTR,
@@ -414,7 +414,7 @@ pub const SL_INFO_KEY_SYSTEM_STATE: windows_core::PCWSTR = windows_core::w!("Sys
 pub const SL_INFO_KEY_USE_LICENSE_ACTIVATION_URL: windows_core::PCWSTR = windows_core::w!("EULURL");
 pub const SL_INFO_KEY_VERSION: windows_core::PCWSTR = windows_core::w!("Version");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SL_LICENSING_STATUS {
     pub SkuId: SLID,
     pub eStatus: SLLICENSINGSTATUS,
@@ -429,7 +429,7 @@ pub const SL_LICENSING_STATUS_LICENSED: SLLICENSINGSTATUS = 1;
 pub const SL_LICENSING_STATUS_NOTIFICATION: SLLICENSINGSTATUS = 3;
 pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SL_NONGENUINE_UI_OPTIONS {
     pub cbSize: u32,
     pub pComponentId: *const SLID,
@@ -461,7 +461,7 @@ pub const SL_REFERRALTYPE_OVERRIDE_APPID: SLREFERRALTYPE = 3;
 pub const SL_REFERRALTYPE_OVERRIDE_SKUID: SLREFERRALTYPE = 2;
 pub const SL_REFERRALTYPE_SKUID: SLREFERRALTYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SL_SYSTEM_POLICY_INFORMATION {
     pub Reserved1: [*mut core::ffi::c_void; 2],
     pub Reserved2: [u32; 3],

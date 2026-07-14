@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_EXTENT {
     pub VolumeOffset: u64,
     pub ExtentLength: u64,
@@ -44,7 +44,7 @@ pub type PVOLUME_READ_PLEX_INPUT = *mut VOLUME_READ_PLEX_INPUT;
 pub type PVOLUME_SET_GPT_ATTRIBUTES_INFORMATION = *mut VOLUME_SET_GPT_ATTRIBUTES_INFORMATION;
 pub type PVOLUME_SHRINK_INFO = *mut VOLUME_SHRINK_INFO;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
     pub RequestsPerPeriod: u32,
@@ -63,20 +63,20 @@ impl Default for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     pub RequestSize: u64,
     pub NumOutStandingRequests: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_ALLOCATION_HINT_INPUT {
     pub ClusterSize: u32,
     pub NumberOfClusters: u32,
     pub StartingClusterNumber: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_ALLOCATION_HINT_OUTPUT {
     pub Bitmap: [u32; 1],
 }
@@ -86,7 +86,7 @@ impl Default for VOLUME_ALLOCATION_HINT_OUTPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_CRITICAL_IO {
     pub AccessType: u32,
     pub ExtentsCount: u32,
@@ -98,7 +98,7 @@ impl Default for VOLUME_CRITICAL_IO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_FAILOVER_SET {
     pub NumberOfDisks: u32,
     pub DiskNumbers: [u32; 1],
@@ -109,7 +109,7 @@ impl Default for VOLUME_FAILOVER_SET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
     pub Version: u32,
     pub Reserved1: u32,
@@ -119,7 +119,7 @@ pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
     pub AccessMode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
     pub MaximumRequestsPerPeriod: u32,
     pub MinimumPeriod: u32,
@@ -129,12 +129,12 @@ pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
     pub RequestSize: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_LOGICAL_OFFSET {
     pub LogicalOffset: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_NUMBER {
     pub VolumeNumber: u32,
     pub VolumeManagerName: [u16; 8],
@@ -145,13 +145,13 @@ impl Default for VOLUME_NUMBER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_PHYSICAL_OFFSET {
     pub DiskNumber: u32,
     pub Offset: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VOLUME_PHYSICAL_OFFSETS {
     pub NumberOfPhysicalOffsets: u32,
     pub PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
@@ -162,14 +162,14 @@ impl Default for VOLUME_PHYSICAL_OFFSETS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_READ_PLEX_INPUT {
     pub ByteOffset: i64,
     pub Length: u32,
     pub PlexNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: u64,
     pub RevertOnClose: bool,
@@ -178,7 +178,7 @@ pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub Reserved2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_SHRINK_INFO {
     pub VolumeSize: u64,
 }

@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILTERED_DATA_SOURCES {
     pub pwcsExtension: *const u16,
     pub pwcsMime: *const u16,

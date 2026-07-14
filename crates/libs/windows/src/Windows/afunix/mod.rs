@@ -5,7 +5,7 @@ pub const SIO_AF_UNIX_SETBINDPARENTPATH: i32 = -1744830207;
 pub const SIO_AF_UNIX_SETCONNPARENTPATH: i32 = -1744830206;
 #[repr(C)]
 #[cfg(feature = "ws2")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKADDR_UN {
     pub sun_family: super::ws2::ADDRESS_FAMILY,
     pub sun_path: [i8; 108],

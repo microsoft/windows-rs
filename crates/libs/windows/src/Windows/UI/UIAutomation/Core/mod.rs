@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationAnnotationTypeRegistration {
     pub LocalId: i32,
 }
@@ -11,7 +11,7 @@ impl windows_core::RuntimeType for AutomationAnnotationTypeRegistration {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.UIAutomation.Core.AutomationAnnotationTypeRegistration");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AutomationRemoteOperationOperandId {
     pub Value: i32,
 }

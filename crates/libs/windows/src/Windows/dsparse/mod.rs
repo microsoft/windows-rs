@@ -14,7 +14,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsCrackSpn3W(pszspn : windows_core::PCWSTR, cspn : u32, pchostname : *mut u32, hostname : windows_core::PWSTR, pcinstancename : *mut u32, instancename : windows_core::PWSTR, pportnumber : *mut u16, pcdomainname : *mut u32, domainname : windows_core::PWSTR, pcrealmname : *mut u32, realmname : windows_core::PWSTR) -> u32);
-    unsafe { DsCrackSpn3W(pszspn.param().abi(), cspn, pchostname as _, core::mem::transmute(hostname), pcinstancename as _, core::mem::transmute(instancename), pportnumber as _, pcdomainname as _, core::mem::transmute(domainname), pcrealmname as _, core::mem::transmute(realmname)) }
+    unsafe { DsCrackSpn3W(pszspn.param().abi(), cspn, pchostname as _, hostname, pcinstancename as _, instancename, pportnumber as _, pcdomainname as _, domainname, pcrealmname as _, realmname) }
 }
 #[inline]
 pub unsafe fn DsCrackSpn4W<P0>(pszspn: P0, cspn: u32, pchostname: *mut u32, hostname: windows_core::PWSTR, pcinstancename: *mut u32, instancename: windows_core::PWSTR, pcportname: *mut u32, portname: windows_core::PWSTR, pcdomainname: *mut u32, domainname: windows_core::PWSTR, pcrealmname: *mut u32, realmname: windows_core::PWSTR) -> u32
@@ -22,7 +22,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsCrackSpn4W(pszspn : windows_core::PCWSTR, cspn : u32, pchostname : *mut u32, hostname : windows_core::PWSTR, pcinstancename : *mut u32, instancename : windows_core::PWSTR, pcportname : *mut u32, portname : windows_core::PWSTR, pcdomainname : *mut u32, domainname : windows_core::PWSTR, pcrealmname : *mut u32, realmname : windows_core::PWSTR) -> u32);
-    unsafe { DsCrackSpn4W(pszspn.param().abi(), cspn, pchostname as _, core::mem::transmute(hostname), pcinstancename as _, core::mem::transmute(instancename), pcportname as _, core::mem::transmute(portname), pcdomainname as _, core::mem::transmute(domainname), pcrealmname as _, core::mem::transmute(realmname)) }
+    unsafe { DsCrackSpn4W(pszspn.param().abi(), cspn, pchostname as _, hostname, pcinstancename as _, instancename, pcportname as _, portname, pcdomainname as _, domainname, pcrealmname as _, realmname) }
 }
 #[inline]
 pub unsafe fn DsCrackSpnA<P0>(pszspn: P0, pcserviceclass: Option<*mut u32>, serviceclass: Option<windows_core::PSTR>, pcservicename: Option<*mut u32>, servicename: Option<windows_core::PSTR>, pcinstancename: Option<*mut u32>, instancename: Option<windows_core::PSTR>, pinstanceport: Option<*mut u16>) -> u32
@@ -107,22 +107,22 @@ where
 #[inline]
 pub unsafe fn DsQuoteRdnValueA(psunquotedrdnvalue: &[i8], pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: *mut i8) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsQuoteRdnValueA(cunquotedrdnvaluelength : u32, psunquotedrdnvalue : *const i8, pcquotedrdnvaluelength : *mut u32, psquotedrdnvalue : *mut i8) -> u32);
-    unsafe { DsQuoteRdnValueA(psunquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psunquotedrdnvalue.as_ptr()), pcquotedrdnvaluelength as _, psquotedrdnvalue as _) }
+    unsafe { DsQuoteRdnValueA(psunquotedrdnvalue.len().try_into().unwrap(), psunquotedrdnvalue.as_ptr(), pcquotedrdnvaluelength as _, psquotedrdnvalue as _) }
 }
 #[inline]
 pub unsafe fn DsQuoteRdnValueW(psunquotedrdnvalue: &[u16], pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: *mut u16) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsQuoteRdnValueW(cunquotedrdnvaluelength : u32, psunquotedrdnvalue : *const u16, pcquotedrdnvaluelength : *mut u32, psquotedrdnvalue : *mut u16) -> u32);
-    unsafe { DsQuoteRdnValueW(psunquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psunquotedrdnvalue.as_ptr()), pcquotedrdnvaluelength as _, psquotedrdnvalue as _) }
+    unsafe { DsQuoteRdnValueW(psunquotedrdnvalue.len().try_into().unwrap(), psunquotedrdnvalue.as_ptr(), pcquotedrdnvaluelength as _, psquotedrdnvalue as _) }
 }
 #[inline]
 pub unsafe fn DsUnquoteRdnValueA(psquotedrdnvalue: &[i8], pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: *mut i8) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsUnquoteRdnValueA(cquotedrdnvaluelength : u32, psquotedrdnvalue : *const i8, pcunquotedrdnvaluelength : *mut u32, psunquotedrdnvalue : *mut i8) -> u32);
-    unsafe { DsUnquoteRdnValueA(psquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psquotedrdnvalue.as_ptr()), pcunquotedrdnvaluelength as _, psunquotedrdnvalue as _) }
+    unsafe { DsUnquoteRdnValueA(psquotedrdnvalue.len().try_into().unwrap(), psquotedrdnvalue.as_ptr(), pcunquotedrdnvaluelength as _, psunquotedrdnvalue as _) }
 }
 #[inline]
 pub unsafe fn DsUnquoteRdnValueW(psquotedrdnvalue: &[u16], pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: *mut u16) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsUnquoteRdnValueW(cquotedrdnvaluelength : u32, psquotedrdnvalue : *const u16, pcunquotedrdnvaluelength : *mut u32, psunquotedrdnvalue : *mut u16) -> u32);
-    unsafe { DsUnquoteRdnValueW(psquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psquotedrdnvalue.as_ptr()), pcunquotedrdnvaluelength as _, psunquotedrdnvalue as _) }
+    unsafe { DsUnquoteRdnValueW(psquotedrdnvalue.len().try_into().unwrap(), psquotedrdnvalue.as_ptr(), pcunquotedrdnvaluelength as _, psunquotedrdnvalue as _) }
 }
 pub type DS_MANGLE_FOR = i32;
 pub const DS_MANGLE_OBJECT_RDN_FOR_DELETION: DS_MANGLE_FOR = 1;

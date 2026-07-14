@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICATION_INFO {
     pub dwSize: u32,
     pub atAuthenticationType: AUTH_TYPE,
@@ -200,7 +200,7 @@ impl IEnumSearchScopeRules_Vtbl {
 impl windows_core::RuntimeName for IEnumSearchScopeRules {}
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INCREMENTAL_ACCESS_INFO {
     pub dwSize: u32,
     pub ftLastModifiedTime: super::minwindef::FILETIME,
@@ -353,19 +353,19 @@ windows_core::imp::interface_hierarchy!(IRowsetEvents, windows_core::IUnknown);
 impl IRowsetEvents {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnNewItem(&self, itemid: *const super::propidlbase::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnNewItem)(windows_core::Interface::as_raw(self), core::mem::transmute(itemid), newitemstate) }
+        unsafe { (windows_core::Interface::vtable(self).OnNewItem)(windows_core::Interface::as_raw(self), itemid, newitemstate) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnChangedItem(&self, itemid: *const super::propidlbase::PROPVARIANT, rowsetitemstate: ROWSETEVENT_ITEMSTATE, changeditemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnChangedItem)(windows_core::Interface::as_raw(self), core::mem::transmute(itemid), rowsetitemstate, changeditemstate) }
+        unsafe { (windows_core::Interface::vtable(self).OnChangedItem)(windows_core::Interface::as_raw(self), itemid, rowsetitemstate, changeditemstate) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnDeletedItem(&self, itemid: *const super::propidlbase::PROPVARIANT, deleteditemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnDeletedItem)(windows_core::Interface::as_raw(self), core::mem::transmute(itemid), deleteditemstate) }
+        unsafe { (windows_core::Interface::vtable(self).OnDeletedItem)(windows_core::Interface::as_raw(self), itemid, deleteditemstate) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnRowsetEvent(&self, eventtype: ROWSETEVENT_TYPE, eventdata: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnRowsetEvent)(windows_core::Interface::as_raw(self), eventtype, core::mem::transmute(eventdata)) }
+        unsafe { (windows_core::Interface::vtable(self).OnRowsetEvent)(windows_core::Interface::as_raw(self), eventtype, eventdata) }
     }
 }
 #[repr(C)]
@@ -519,7 +519,7 @@ impl ISearchCatalogManager {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetParameter)(windows_core::Interface::as_raw(self), pszname.param().abi(), core::mem::transmute(pvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetParameter)(windows_core::Interface::as_raw(self), pszname.param().abi(), pvalue) }
     }
     pub unsafe fn GetCatalogStatus(&self, pstatus: *mut CatalogStatus, ppausedreason: *mut CatalogPausedReason) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCatalogStatus)(windows_core::Interface::as_raw(self), pstatus as _, ppausedreason as _) }
@@ -1649,7 +1649,7 @@ impl ISearchManager {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetParameter)(windows_core::Interface::as_raw(self), pszname.param().abi(), core::mem::transmute(pvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetParameter)(windows_core::Interface::as_raw(self), pszname.param().abi(), pvalue) }
     }
     pub unsafe fn ProxyName(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -2414,7 +2414,7 @@ impl ISearchQueryHelper {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn WriteProperties(&self, itemid: ITEMID, dwnumberofcolumns: u32, pcolumns: *const super::wtypes::PROPERTYKEY, pvalues: *const SEARCH_COLUMN_PROPERTIES, pftgathermodifiedtime: *const super::minwindef::FILETIME) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WriteProperties)(windows_core::Interface::as_raw(self), itemid, dwnumberofcolumns, pcolumns, core::mem::transmute(pvalues), pftgathermodifiedtime) }
+        unsafe { (windows_core::Interface::vtable(self).WriteProperties)(windows_core::Interface::as_raw(self), itemid, dwnumberofcolumns, pcolumns, pvalues, pftgathermodifiedtime) }
     }
     pub unsafe fn SetQueryMaxResults(&self, cmaxresults: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetQueryMaxResults)(windows_core::Interface::as_raw(self), cmaxresults) }
@@ -3262,7 +3262,7 @@ impl windows_core::RuntimeName for ISearchViewChangedSink {}
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ITEMID(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ITEM_INFO {
     pub dwSize: u32,
     pub pcwszFromEMail: windows_core::PCWSTR,
@@ -3275,7 +3275,7 @@ windows_core::imp::interface_hierarchy!(IUrlAccessor, windows_core::IUnknown);
 impl IUrlAccessor {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddRequestParameter(&self, pspec: *const super::propidlbase::PROPSPEC, pvar: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddRequestParameter)(windows_core::Interface::as_raw(self), pspec, core::mem::transmute(pvar)) }
+        unsafe { (windows_core::Interface::vtable(self).AddRequestParameter)(windows_core::Interface::as_raw(self), pspec, pvar) }
     }
     pub unsafe fn GetDocFormat(&self, wszdocformat: *mut u16, dwsize: u32, pdwlength: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDocFormat)(windows_core::Interface::as_raw(self), wszdocformat as _, dwsize, pdwlength as _) }
@@ -3727,7 +3727,7 @@ pub const PROXY_ACCESS_DIRECT: PROXY_ACCESS = 1;
 pub const PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = 0;
 pub const PROXY_ACCESS_PROXY: PROXY_ACCESS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXY_INFO {
     pub dwSize: u32,
     pub pcwszUserAgent: windows_core::PCWSTR,
@@ -3778,7 +3778,7 @@ pub const SEARCH_INDEXING_PHASE_PERSISTED: SEARCH_INDEXING_PHASE = 2;
 pub const SEARCH_INDEXING_PHASE_QUERYABLE: SEARCH_INDEXING_PHASE = 1;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEARCH_ITEM_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
     pub Priority: SEARCH_NOTIFICATION_PRIORITY,
@@ -3793,13 +3793,13 @@ impl Default for SEARCH_ITEM_CHANGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEARCH_ITEM_INDEXING_STATUS {
     pub dwDocID: u32,
     pub hrIndexingStatus: windows_core::HRESULT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEARCH_ITEM_PERSISTENT_CHANGE {
     pub Change: SEARCH_KIND_OF_CHANGE,
     pub URL: windows_core::PWSTR,
@@ -3817,7 +3817,7 @@ pub const SEARCH_TERM_NO_EXPANSION: SEARCH_TERM_EXPANSION = 0;
 pub const SEARCH_TERM_PREFIX_ALL: SEARCH_TERM_EXPANSION = 1;
 pub const SEARCH_TERM_STEM_ALL: SEARCH_TERM_EXPANSION = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMEOUT_INFO {
     pub dwSize: u32,
     pub dwConnectTimeout: u32,

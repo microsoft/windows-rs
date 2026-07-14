@@ -58,7 +58,7 @@ pub const GPHintSite: GROUP_POLICY_HINT_TYPE = 2;
 pub const GPHintUnknown: GROUP_POLICY_HINT_TYPE = 0;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPOBROWSEINFO {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -97,10 +97,10 @@ windows_core::imp::define_interface!(IGPEInformation, IGPEInformation_Vtbl, 0x8f
 windows_core::imp::interface_hierarchy!(IGPEInformation, windows_core::IUnknown);
 impl IGPEInformation {
     pub unsafe fn GetName(&self, pszname: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
     }
     pub unsafe fn GetDisplayName(&self, pszname: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
     }
     #[cfg(feature = "minwindef")]
     pub unsafe fn GetRegistryKey(&self, dwsection: u32) -> windows_core::Result<super::minwindef::HKEY> {
@@ -110,10 +110,10 @@ impl IGPEInformation {
         }
     }
     pub unsafe fn GetDSPath(&self, dwsection: u32, pszpath: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDSPath)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetDSPath)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap()) }
     }
     pub unsafe fn GetFileSysPath(&self, dwsection: u32, pszpath: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFileSysPath)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetFileSysPath)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap()) }
     }
     pub unsafe fn GetOptions(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -298,10 +298,10 @@ impl IGroupPolicyObject {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetName(&self, pszname: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
     }
     pub unsafe fn GetDisplayName(&self, pszname: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
     }
     pub unsafe fn SetDisplayName<P0>(&self, pszname: P0) -> windows_core::HRESULT
     where
@@ -310,13 +310,13 @@ impl IGroupPolicyObject {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayName)(windows_core::Interface::as_raw(self), pszname.param().abi()) }
     }
     pub unsafe fn GetPath(&self, pszpath: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPath)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetPath)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap()) }
     }
     pub unsafe fn GetDSPath(&self, dwsection: u32, pszpath: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDSPath)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetDSPath)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap()) }
     }
     pub unsafe fn GetFileSysPath(&self, dwsection: u32, pszpath: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFileSysPath)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetFileSysPath)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap()) }
     }
     #[cfg(feature = "minwindef")]
     pub unsafe fn GetRegistryKey(&self, dwsection: u32) -> windows_core::Result<super::minwindef::HKEY> {
@@ -341,7 +341,7 @@ impl IGroupPolicyObject {
         }
     }
     pub unsafe fn GetMachineName(&self, pszname: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMachineName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetMachineName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
     }
     #[cfg(feature = "prsht")]
     pub unsafe fn GetPropertySheetPages(&self, hpages: *mut *mut super::prsht::HPROPSHEETPAGE, upagecount: *mut u32) -> windows_core::HRESULT {
@@ -559,7 +559,7 @@ windows_core::imp::define_interface!(IRSOPInformation, IRSOPInformation_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IRSOPInformation, windows_core::IUnknown);
 impl IRSOPInformation {
     pub unsafe fn GetNamespace(&self, dwsection: u32, pszname: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNamespace)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetNamespace)(windows_core::Interface::as_raw(self), dwsection, core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
     }
     pub unsafe fn GetFlags(&self) -> windows_core::Result<u32> {
         unsafe {

@@ -1850,7 +1850,7 @@ impl windows_core::RuntimeName for NetworkUsage {
 unsafe impl Send for NetworkUsage {}
 unsafe impl Sync for NetworkUsage {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NetworkUsageStates {
     pub Roaming: TriStates,
     pub Shared: TriStates,

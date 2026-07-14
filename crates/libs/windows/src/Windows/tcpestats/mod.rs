@@ -21,7 +21,7 @@ pub type PTCP_ESTATS_TYPE = *mut TCP_ESTATS_TYPE;
 pub type PTCP_SOFT_ERROR = *mut TCP_SOFT_ERROR;
 pub type TCP_BOOLEAN_OPTIONAL = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
     pub OutboundBandwidth: u64,
     pub InboundBandwidth: u64,
@@ -31,13 +31,13 @@ pub struct TCP_ESTATS_BANDWIDTH_ROD_v0 {
     pub InboundBandwidthPeaked: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_BANDWIDTH_RW_v0 {
     pub EnableCollectionOutbound: TCP_BOOLEAN_OPTIONAL,
     pub EnableCollectionInbound: TCP_BOOLEAN_OPTIONAL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_DATA_ROD_v0 {
     pub DataBytesOut: u64,
     pub DataSegsOut: u64,
@@ -55,12 +55,12 @@ pub struct TCP_ESTATS_DATA_ROD_v0 {
     pub ThruBytesReceived: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_DATA_RW_v0 {
     pub EnableCollection: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_FINE_RTT_ROD_v0 {
     pub RttVar: u32,
     pub MaxRtt: u32,
@@ -68,12 +68,12 @@ pub struct TCP_ESTATS_FINE_RTT_ROD_v0 {
     pub SumRtt: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_FINE_RTT_RW_v0 {
     pub EnableCollection: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_OBS_REC_ROD_v0 {
     pub CurRwinRcvd: u32,
     pub MaxRwinRcvd: u32,
@@ -81,12 +81,12 @@ pub struct TCP_ESTATS_OBS_REC_ROD_v0 {
     pub WinScaleRcvd: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_OBS_REC_RW_v0 {
     pub EnableCollection: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_PATH_ROD_v0 {
     pub FastRetran: u32,
     pub Timeouts: u32,
@@ -130,12 +130,12 @@ pub struct TCP_ESTATS_PATH_ROD_v0 {
     pub SpuriousRtoDetections: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_PATH_RW_v0 {
     pub EnableCollection: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_REC_ROD_v0 {
     pub CurRwinSent: u32,
     pub MaxRwinSent: u32,
@@ -153,12 +153,12 @@ pub struct TCP_ESTATS_REC_ROD_v0 {
     pub WinScaleSent: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_REC_RW_v0 {
     pub EnableCollection: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_SEND_BUFF_ROD_v0 {
     pub CurRetxQueue: usize,
     pub MaxRetxQueue: usize,
@@ -166,12 +166,12 @@ pub struct TCP_ESTATS_SEND_BUFF_ROD_v0 {
     pub MaxAppWQueue: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_SEND_BUFF_RW_v0 {
     pub EnableCollection: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_SND_CONG_ROD_v0 {
     pub SndLimTransRwin: u32,
     pub SndLimTimeRwin: u32,
@@ -193,17 +193,17 @@ pub struct TCP_ESTATS_SND_CONG_ROD_v0 {
     pub MinSsthresh: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_SND_CONG_ROS_v0 {
     pub LimCwnd: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_SND_CONG_RW_v0 {
     pub EnableCollection: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ESTATS_SYN_OPTS_ROS_v0 {
     pub ActiveOpen: bool,
     pub MssRcvd: u32,

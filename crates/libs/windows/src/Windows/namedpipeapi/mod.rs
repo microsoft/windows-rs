@@ -37,13 +37,13 @@ pub unsafe fn DisconnectNamedPipe(hnamedpipe: super::winnt::HANDLE) -> windows_c
 #[inline]
 pub unsafe fn GetNamedPipeClientComputerNameW(pipe: super::winnt::HANDLE, clientcomputername: windows_core::PWSTR, clientcomputernamelength: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetNamedPipeClientComputerNameW(pipe : super::winnt::HANDLE, clientcomputername : windows_core::PWSTR, clientcomputernamelength : u32) -> windows_core::BOOL);
-    unsafe { GetNamedPipeClientComputerNameW(pipe, core::mem::transmute(clientcomputername), clientcomputernamelength) }
+    unsafe { GetNamedPipeClientComputerNameW(pipe, clientcomputername, clientcomputernamelength) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetNamedPipeHandleStateW(hnamedpipe: super::winnt::HANDLE, lpstate: Option<*mut u32>, lpcurinstances: Option<*mut u32>, lpmaxcollectioncount: Option<*mut u32>, lpcollectdatatimeout: Option<*mut u32>, lpusername: Option<&mut [u16]>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetNamedPipeHandleStateW(hnamedpipe : super::winnt::HANDLE, lpstate : *mut u32, lpcurinstances : *mut u32, lpmaxcollectioncount : *mut u32, lpcollectdatatimeout : *mut u32, lpusername : windows_core::PWSTR, nmaxusernamesize : u32) -> windows_core::BOOL);
-    unsafe { GetNamedPipeHandleStateW(hnamedpipe, lpstate.unwrap_or(core::mem::zeroed()) as _, lpcurinstances.unwrap_or(core::mem::zeroed()) as _, lpmaxcollectioncount.unwrap_or(core::mem::zeroed()) as _, lpcollectdatatimeout.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpusername.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpusername.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetNamedPipeHandleStateW(hnamedpipe, lpstate.unwrap_or(core::mem::zeroed()) as _, lpcurinstances.unwrap_or(core::mem::zeroed()) as _, lpmaxcollectioncount.unwrap_or(core::mem::zeroed()) as _, lpcollectdatatimeout.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpusername.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpusername.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

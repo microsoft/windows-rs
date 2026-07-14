@@ -30,7 +30,7 @@ where
     unsafe { NetConfigSet(server.param().abi(), reserved1.param().abi(), component.param().abi(), level, reserved2, buf as _, reserved3) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONFIG_INFO_0 {
     pub cfgi0_key: windows_core::PWSTR,
     pub cfgi0_data: windows_core::PWSTR,

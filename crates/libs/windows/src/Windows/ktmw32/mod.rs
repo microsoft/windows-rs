@@ -95,7 +95,7 @@ pub unsafe fn GetTransactionId(transactionhandle: super::winnt::HANDLE, transact
 #[inline]
 pub unsafe fn GetTransactionInformation(transactionhandle: super::winnt::HANDLE, outcome: *mut u32, isolationlevel: *mut u32, isolationflags: *mut u32, timeout: *mut u32, description: Option<&mut [u16]>) -> windows_core::BOOL {
     windows_core::link!("ktmw32.dll" "system" fn GetTransactionInformation(transactionhandle : super::winnt::HANDLE, outcome : *mut u32, isolationlevel : *mut u32, isolationflags : *mut u32, timeout : *mut u32, bufferlength : u32, description : windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { GetTransactionInformation(transactionhandle, outcome as _, isolationlevel as _, isolationflags as _, timeout as _, description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(description.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { GetTransactionInformation(transactionhandle, outcome as _, isolationlevel as _, isolationflags as _, timeout as _, description.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(description.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()))) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

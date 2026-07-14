@@ -2042,7 +2042,7 @@ impl IInkDisp {
     pub unsafe fn HitTestWithLasso(&self, points: &super::oaidl::VARIANT, intersectpercent: f32, lassopoints: *mut super::oaidl::VARIANT) -> windows_core::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).HitTestWithLasso)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(points), intersectpercent, core::mem::transmute(lassopoints), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).HitTestWithLasso)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(points), intersectpercent, lassopoints, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn NearestPoint(&self, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32) -> windows_core::Result<IInkStrokeDisp> {
@@ -7109,7 +7109,7 @@ impl IInkRecognizerGuide {
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SetGuideData(&self, recoguide: InkRecoGuide) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetGuideData)(windows_core::Interface::as_raw(self), core::mem::transmute(recoguide)) }
+        unsafe { (windows_core::Interface::vtable(self).SetGuideData)(windows_core::Interface::as_raw(self), recoguide) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -7462,7 +7462,7 @@ impl IInkRectangle {
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SetData(&self, rect: super::windef::RECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute(rect)) }
+        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), rect) }
     }
     pub unsafe fn GetRectangle(&self, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetRectangle)(windows_core::Interface::as_raw(self), top as _, left as _, bottom as _, right as _) }
@@ -7695,11 +7695,11 @@ impl IInkRenderer {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PixelToInkSpaceFromPoints)(windows_core::Interface::as_raw(self), hdc, core::mem::transmute(points)) }
+        unsafe { (windows_core::Interface::vtable(self).PixelToInkSpaceFromPoints)(windows_core::Interface::as_raw(self), hdc, points) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InkSpaceToPixelFromPoints)(windows_core::Interface::as_raw(self), hdc, core::mem::transmute(points)) }
+        unsafe { (windows_core::Interface::vtable(self).InkSpaceToPixelFromPoints)(windows_core::Interface::as_raw(self), hdc, points) }
     }
     pub unsafe fn Measure<P0>(&self, strokes: P0) -> windows_core::Result<IInkRectangle>
     where
@@ -9545,7 +9545,7 @@ impl IInkTransform {
     }
     #[cfg(feature = "wingdi")]
     pub unsafe fn SetData(&self, xform: super::wingdi::XFORM) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute(xform)) }
+        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), xform) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -9966,7 +9966,7 @@ pub const IMP_SizeWE: InkMousePointer = 7;
 pub const IMP_UpArrow: InkMousePointer = 8;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INKMETRIC {
     pub iHeight: i32,
     pub iFontAscent: i32,
@@ -10148,7 +10148,7 @@ pub type InkPictureSizeMode = i32;
 pub type InkRasterOperation = i32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InkRecoGuide {
     pub rectWritingBox: super::windef::RECT,
     pub rectDrawnBox: super::windef::RECT,

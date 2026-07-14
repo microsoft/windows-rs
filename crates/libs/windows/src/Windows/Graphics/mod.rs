@@ -15,7 +15,7 @@ pub mod Printing;
 #[cfg(feature = "Graphics_Printing3D")]
 pub mod Printing3D;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -28,7 +28,7 @@ impl windows_core::RuntimeType for DisplayAdapterId {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.DisplayAdapterId");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DisplayId {
     pub Value: u64,
 }
@@ -63,7 +63,7 @@ pub struct IGeometrySource2D_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PointInt32 {
     pub X: i32,
     pub Y: i32,
@@ -76,7 +76,7 @@ impl windows_core::RuntimeType for PointInt32 {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.PointInt32");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RectInt32 {
     pub X: i32,
     pub Y: i32,
@@ -91,7 +91,7 @@ impl windows_core::RuntimeType for RectInt32 {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.RectInt32");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SizeInt32 {
     pub Width: i32,
     pub Height: i32,

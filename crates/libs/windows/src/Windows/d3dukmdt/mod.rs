@@ -69,7 +69,7 @@ impl Default for D3DDDICB_DESTROYALLOCATION2FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDICB_DESTROYALLOCATION2FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -95,7 +95,7 @@ impl Default for D3DDDICB_LOCK2FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDICB_LOCK2FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -121,7 +121,7 @@ impl Default for D3DDDICB_LOCKFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDICB_LOCKFLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -147,7 +147,7 @@ impl Default for D3DDDICB_SIGNALFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDICB_SIGNALFLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -281,7 +281,7 @@ impl Default for D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE_0_0 {
     pub _bitfield: u64,
 }
@@ -314,7 +314,7 @@ pub const D3DDDIPOOL_STAGINGMEM: D3DDDI_POOL = 5;
 pub const D3DDDIPOOL_SYSTEMMEM: D3DDDI_POOL = 1;
 pub const D3DDDIPOOL_VIDEOMEMORY: D3DDDI_POOL = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDIRECT {
     pub left: i32,
     pub top: i32,
@@ -348,7 +348,7 @@ impl Default for D3DDDI_ALLOCATIONINFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_ALLOCATIONINFO_0_0 {
     pub _bitfield: u32,
 }
@@ -400,7 +400,7 @@ impl Default for D3DDDI_ALLOCATIONINFO2_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_ALLOCATIONINFO2_1_0 {
     pub _bitfield: u32,
 }
@@ -440,7 +440,7 @@ impl Default for D3DDDI_ALLOCATIONLIST_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_ALLOCATIONLIST_0_0 {
     pub _bitfield: u32,
 }
@@ -471,7 +471,7 @@ impl Default for D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -526,7 +526,7 @@ impl Default for D3DDDI_CREATECONTEXTFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_CREATECONTEXTFLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -552,7 +552,7 @@ impl Default for D3DDDI_CREATEHWCONTEXTFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_CREATEHWCONTEXTFLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -578,7 +578,7 @@ impl Default for D3DDDI_CREATEHWQUEUEFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_CREATEHWQUEUEFLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -604,17 +604,17 @@ impl Default for D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_DESTROYPAGINGQUEUE {
     pub hPagingQueue: D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_DOORBELLMAPPING {
     pub CpuVa: *mut core::ffi::c_void,
     pub SecondaryCpuVa: *mut core::ffi::c_void,
@@ -657,7 +657,7 @@ impl Default for D3DDDI_DRIVERESCAPE_BUILDTESTCOMMANDBUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hSyncObject: D3DKMT_HANDLE,
@@ -670,13 +670,13 @@ impl Default for D3DDDI_DRIVERESCAPE_CPUEVENTUSAGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_DRIVERESCAPE_TRANSLATEALLOCATIONEHANDLE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hAllocation: D3DKMT_HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_DRIVERESCAPE_TRANSLATERESOURCEHANDLE {
     pub EscapeType: D3DDDI_DRIVERESCAPETYPE,
     pub hResource: D3DKMT_HANDLE,
@@ -710,7 +710,7 @@ impl Default for D3DDDI_ESCAPEFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_ESCAPEFLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -736,7 +736,7 @@ impl Default for D3DDDI_EVICT_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_EVICT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -768,7 +768,7 @@ impl Default for D3DDDI_GAMMA_RAMP_DXGI_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_GAMMA_RAMP_RGB256x3x16 {
     pub Red: [u16; 256],
     pub Green: [u16; 256],
@@ -780,7 +780,7 @@ impl Default for D3DDDI_GAMMA_RAMP_RGB256x3x16 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
     pub hResource: D3DKMT_HANDLE,
     pub PrivateDriverDataSize: u32,
@@ -792,7 +792,7 @@ impl Default for D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_HDR_METADATA_HDR10 {
     pub RedPrimary: [u16; 2],
     pub GreenPrimary: [u16; 2],
@@ -809,7 +809,7 @@ impl Default for D3DDDI_HDR_METADATA_HDR10 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_HDR_METADATA_HDR10PLUS {
     pub Data: [u8; 72],
 }
@@ -827,7 +827,7 @@ pub const D3DDDI_ID_ANY: i32 = -2;
 pub const D3DDDI_ID_NOTAPPLICABLE: u32 = 0;
 pub const D3DDDI_ID_UNINITIALIZED: i32 = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_KERNELOVERLAYINFO {
     pub hAllocation: D3DKMT_HANDLE,
     pub DstRect: D3DDDIRECT,
@@ -878,7 +878,7 @@ impl Default for D3DDDI_MAKERESIDENT_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_MAKERESIDENT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -913,7 +913,7 @@ pub const D3DDDI_MAX_OBJECT_WAITED_ON: u32 = 32;
 pub const D3DDDI_MAX_WRITTEN_PRIMARIES: u32 = 16;
 pub const D3DDDI_MONITORED_FENCE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_MULTISAMPLINGMETHOD {
     pub NumSamples: u32,
     pub NumQualityLevels: u32,
@@ -935,7 +935,7 @@ impl Default for D3DDDI_NATIVEFENCEINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_NATIVEFENCELOGDETAIL {
     pub WaitLogNumberOfEntries: u32,
     pub SignalLogNumberOfEntries: u32,
@@ -949,7 +949,7 @@ impl Default for D3DDDI_NATIVEFENCELOGDETAIL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_NATIVEFENCEMAPPING {
     pub CurrentValueCpuVa: *mut core::ffi::c_void,
     pub CurrentValueGpuVa: D3DGPU_VIRTUAL_ADDRESS,
@@ -988,7 +988,7 @@ impl Default for D3DDDI_OFFER_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_OFFER_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -999,7 +999,7 @@ pub const D3DDDI_OFFER_PRIORITY_LOW: D3DDDI_OFFER_PRIORITY = 1;
 pub const D3DDDI_OFFER_PRIORITY_NONE: D3DDDI_OFFER_PRIORITY = 0;
 pub const D3DDDI_OFFER_PRIORITY_NORMAL: D3DDDI_OFFER_PRIORITY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_OPENALLOCATIONINFO {
     pub hAllocation: D3DKMT_HANDLE,
     pub pPrivateDriverData: *const core::ffi::c_void,
@@ -1011,7 +1011,7 @@ impl Default for D3DDDI_OPENALLOCATIONINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_OPENALLOCATIONINFO2 {
     pub hAllocation: D3DKMT_HANDLE,
     pub pPrivateDriverData: *const core::ffi::c_void,
@@ -1063,7 +1063,7 @@ impl Default for D3DDDI_PATCHLOCATIONLIST_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_PATCHLOCATIONLIST_0_0 {
     pub _bitfield: u32,
 }
@@ -1094,7 +1094,7 @@ impl Default for D3DDDI_QUERYREGISTRY_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_QUERYREGISTRY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -1137,7 +1137,7 @@ pub const D3DDDI_QUERYREGISTRY_STATUS_MAX: D3DDDI_QUERYREGISTRY_STATUS = 3;
 pub const D3DDDI_QUERYREGISTRY_STATUS_SUCCESS: D3DDDI_QUERYREGISTRY_STATUS = 0;
 pub type D3DDDI_QUERYREGISTRY_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_RATIONAL {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -1230,7 +1230,7 @@ impl Default for D3DDDI_RESOURCEFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_RESOURCEFLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -1256,7 +1256,7 @@ impl Default for D3DDDI_RESOURCEFLAGS2_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_RESOURCEFLAGS2_0_0 {
     pub _bitfield: u32,
 }
@@ -1291,13 +1291,13 @@ impl Default for D3DDDI_SEGMENTPREFERENCE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SEGMENTPREFERENCE_0_0 {
     pub _bitfield: u32,
 }
 pub const D3DDDI_SEMAPHORE: D3DDDI_SYNCHRONIZATIONOBJECT_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SURFACEINFO {
     pub Width: u32,
     pub Height: u32,
@@ -1335,18 +1335,18 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_0 {
     pub InitialState: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_1 {
     pub MaxCount: u32,
     pub InitialCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO_0_2 {
     pub Reserved: [u32; 16],
 }
@@ -1390,32 +1390,32 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_0 {
     pub InitialState: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_1 {
     pub MaxCount: u32,
     pub InitialCount: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_2 {
     pub FenceValue: u64,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_3 {
     pub Event: super::winnt::HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
     pub InitialFenceValue: u64,
     pub FenceValueCPUVirtualAddress: *mut core::ffi::c_void,
@@ -1431,7 +1431,7 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_4 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
     pub hAdapter: D3DKMT_HANDLE,
     pub VidPnTargetId: D3DDDI_VIDEO_PRESENT_TARGET_ID,
@@ -1449,7 +1449,7 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_5 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECTINFO2_0_6 {
     pub Reserved: [u64; 8],
 }
@@ -1481,7 +1481,7 @@ impl Default for D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -1524,14 +1524,14 @@ pub const D3DDDI_TESTCOMMANDBUFFEROP_INFINITE_PREEMPTABLE_LOOP: D3DDDI_TESTCOMMA
 pub const D3DDDI_TESTCOMMANDBUFFEROP_INVALID: D3DDDI_TESTCOMMANDBUFFEROP = 0;
 pub const D3DDDI_TESTCOMMANDBUFFEROP_MAX: D3DDDI_TESTCOMMANDBUFFEROP = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_TESTCOMMANDBUFFER_COPY {
     pub SrcAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub DstAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub NumBytes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_TESTCOMMANDBUFFER_FILL {
     pub DstAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub NumBytes: u32,
@@ -1559,7 +1559,7 @@ impl Default for D3DDDI_TRIMRESIDENCYSET_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_TRIMRESIDENCYSET_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -1592,7 +1592,7 @@ impl Default for D3DDDI_UPDATEALLOCPROPERTY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_0_0 {
     pub _bitfield: u32,
 }
@@ -1618,7 +1618,7 @@ impl Default for D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -1650,7 +1650,7 @@ impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_0 {
     pub BaseAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub SizeInBytes: D3DGPU_SIZE_T,
@@ -1687,7 +1687,7 @@ impl Default for D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_UPDATEGPUVIRTUALADDRESS_OPERATION_0_3 {
     pub SourceAddress: D3DGPU_VIRTUAL_ADDRESS,
     pub SizeInBytes: D3DGPU_SIZE_T,
@@ -1729,13 +1729,13 @@ impl Default for D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS_0_0 {
     pub _bitfield: u32,
 }
 pub const D3DGPU_NULL: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DGPU_PHYSICAL_ADDRESS {
     pub SegmentId: u32,
     pub Padding: u32,
@@ -1870,14 +1870,14 @@ pub const DXGKDDI_INTERFACE_VERSION_WIN7: u32 = 8197;
 pub const DXGKDDI_INTERFACE_VERSION_WIN8: u32 = 12302;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_HEAD {
     pub Luid: GPUP_DRIVER_ESCAPE_INPUT,
     pub Type: DXGKVGPU_ESCAPE_TYPE,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_INITIALIZE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub VmGuid: windows_core::GUID,
@@ -1911,20 +1911,20 @@ impl Default for DXGKVGPU_ESCAPE_PAUSE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_PAUSE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_POWERTRANSITIONCOMPLETE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub PowerState: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub Offset: u32,
@@ -1932,19 +1932,19 @@ pub struct DXGKVGPU_ESCAPE_READ_PCI_CONFIG {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_READ_VGPU_TYPE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_RELEASE {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_RESUME {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub DeviceLuid: super::winnt::LUID,
@@ -1961,7 +1961,7 @@ pub const DXGKVGPU_ESCAPE_TYPE_RESUME: DXGKVGPU_ESCAPE_TYPE = 7;
 pub const DXGKVGPU_ESCAPE_TYPE_WRITE_PCI_CONFIG: DXGKVGPU_ESCAPE_TYPE = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGKVGPU_ESCAPE_WRITE_PCI_CONFIG {
     pub Header: DXGKVGPU_ESCAPE_HEAD,
     pub Offset: u32,
@@ -1979,7 +1979,7 @@ impl Default for DXGK_DETAILED_FEATURE_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_DETAILED_FEATURE_ID_0 {
     pub _bitfield: u32,
 }
@@ -2112,7 +2112,7 @@ impl Default for DXGK_ISFEATUREENABLED_RESULT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_ISFEATUREENABLED_RESULT_0_0 {
     pub _bitfield: u16,
 }
@@ -2131,7 +2131,7 @@ impl Default for DXGK_MIRACAST_CHUNK_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_MIRACAST_CHUNK_ID_0 {
     pub _bitfield: u64,
 }
@@ -2168,7 +2168,7 @@ impl Default for DXGK_NATIVE_FENCE_LOG_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_NATIVE_FENCE_LOG_ENTRY {
     pub FenceValue: u64,
     pub hNativeFence: D3DKMT_HANDLE,
@@ -2203,7 +2203,7 @@ impl Default for DXGK_NATIVE_FENCE_LOG_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_NATIVE_FENCE_LOG_HEADER_0_0 {
     pub FirstFreeEntryIndex: u32,
     pub WraparoundCount: u32,
@@ -2247,7 +2247,7 @@ impl Default for DXGK_PTE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_PTE_0_0 {
     pub _bitfield: u64,
 }
@@ -2271,7 +2271,7 @@ pub const DXGK_PTE_PAGE_TABLE_PAGE_4KB: DXGK_PTE_PAGE_SIZE = 0;
 pub const DXGK_PTE_PAGE_TABLE_PAGE_64KB: DXGK_PTE_PAGE_SIZE = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GPUP_DRIVER_ESCAPE_INPUT {
     pub vfLUID: super::winnt::LUID,
 }

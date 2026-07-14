@@ -402,7 +402,7 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-5.dll" "system" fn TryCreatePackageDependency(user : super::winnt::PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        TryCreatePackageDependency(user, packagefamilyname.param().abi(), core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, &mut result__).map(|| result__)
+        TryCreatePackageDependency(user, packagefamilyname.param().abi(), minversion, packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, &mut result__).map(|| result__)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
@@ -415,7 +415,7 @@ where
     windows_core::link!("api-ms-win-appmodel-runtime-l1-1-7.dll" "system" fn TryCreatePackageDependency2(user : super::winnt::PSID, packagefamilyname : windows_core::PCWSTR, minversion : PACKAGE_VERSION, packagedependencyprocessorarchitectures : PackageDependencyProcessorArchitectures, lifetimekind : PackageDependencyLifetimeKind, lifetimeartifact : windows_core::PCWSTR, options : CreatePackageDependencyOptions, lifetimeexpiration : *const super::minwindef::FILETIME, packagedependencyid : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        TryCreatePackageDependency2(user, packagefamilyname.param().abi(), core::mem::transmute(minversion), packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, lifetimeexpiration, &mut result__).map(|| result__)
+        TryCreatePackageDependency2(user, packagefamilyname.param().abi(), minversion, packagedependencyprocessorarchitectures, lifetimekind, lifetimeartifact.param().abi(), options, lifetimeexpiration, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -498,7 +498,7 @@ pub const CreatePackageDependencyOptions_None: CreatePackageDependencyOptions = 
 pub const CreatePackageDependencyOptions_ScopeIsSystem: CreatePackageDependencyOptions = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FindPackageDependencyCriteria {
     pub User: super::winnt::PSID,
     pub ScopeIsSystem: windows_core::BOOL,
@@ -627,7 +627,7 @@ impl Default for PACKAGE_VERSION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PACKAGE_VERSION_0_0 {
     pub Revision: u16,
     pub Build: u16,
@@ -672,7 +672,7 @@ pub const PackagePathType_MachineExternal: PackagePathType = 3;
 pub const PackagePathType_Mutable: PackagePathType = 1;
 pub const PackagePathType_UserExternal: PackagePathType = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct _PACKAGE_INFO_REFERENCE {
     pub reserved: *mut core::ffi::c_void,
 }

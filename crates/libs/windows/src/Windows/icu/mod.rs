@@ -5975,7 +5975,7 @@ pub const UBRK_WORD_NONE_LIMIT: UWordBreak = 100;
 pub const UBRK_WORD_NUMBER: UWordBreak = 100;
 pub const UBRK_WORD_NUMBER_LIMIT: UWordBreak = 200;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UBiDi(pub u8);
 pub type UBiDiClassCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, c: UChar32) -> UCharDirection>;
 pub type UBiDiDirection = i32;
@@ -5987,7 +5987,7 @@ pub type UBiDiOrder = i32;
 pub type UBiDiReorderingMode = i32;
 pub type UBiDiReorderingOption = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UBiDiTransform(pub u8);
 pub type UBidiPairedBracketType = i32;
 pub type UBlockCode = i32;
@@ -5995,7 +5995,7 @@ pub type UBlockCode = i32;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UBool(pub i8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UBreakIterator(pub u8);
 pub type UBreakIteratorType = i32;
 pub const UCAL_ACTUAL_MAXIMUM: UCalendarLimitType = 5;
@@ -6328,7 +6328,7 @@ pub const UCPMAP_RANGE_FIXED_ALL_SURROGATES: UCPMapRangeOption = 2;
 pub const UCPMAP_RANGE_FIXED_LEAD_SURROGATES: UCPMapRangeOption = 1;
 pub const UCPMAP_RANGE_NORMAL: UCPMapRangeOption = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UCPMap(pub u8);
 pub type UCPMapRangeOption = i32;
 pub type UCPMapValueFilter = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, value: u32) -> u32>;
@@ -6412,7 +6412,7 @@ pub type UCalendarType = i32;
 pub type UCalendarWallTimeOption = i32;
 pub type UCalendarWeekdayType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UCaseMap(pub u8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -6461,10 +6461,10 @@ pub type UCharIteratorReserved = Option<unsafe extern "C" fn(iter: *mut UCharIte
 pub type UCharIteratorSetState = Option<unsafe extern "C" fn(iter: *mut UCharIterator, state: u32, perrorcode: *mut UErrorCode)>;
 pub type UCharNameChoice = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UCharsetDetector(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UCharsetMatch(pub u8);
 pub type UColAttribute = i32;
 pub type UColAttributeValue = i32;
@@ -6472,25 +6472,25 @@ pub type UColBoundMode = i32;
 pub type UColReorderCode = i32;
 pub type UColRuleOption = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UCollationElements(pub u8);
 pub type UCollationResult = i32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct UCollationStrength(pub UColAttributeValue);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UCollator(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UConstrainedFieldPosition(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UConverter(pub u8);
 pub type UConverterCallbackReason = i32;
 pub type UConverterFromUCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, args: *mut UConverterFromUnicodeArgs, codeunits: *const UChar, length: i32, codepoint: UChar32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UConverterFromUnicodeArgs {
     pub size: u16,
     pub flush: UBool,
@@ -6508,11 +6508,11 @@ impl Default for UConverterFromUnicodeArgs {
 }
 pub type UConverterPlatform = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UConverterSelector(pub u8);
 pub type UConverterToUCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, args: *mut UConverterToUnicodeArgs, codeunits: *const i8, length: i32, reason: UConverterCallbackReason, perrorcode: *mut UErrorCode)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UConverterToUnicodeArgs {
     pub size: u16,
     pub flush: UBool,
@@ -6755,10 +6755,10 @@ pub type UDateFormatHourCycle = i32;
 pub type UDateFormatStyle = i32;
 pub type UDateFormatSymbolType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UDateFormatSymbols(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UDateIntervalFormat(pub u8);
 pub type UDateRelativeDateTimeFormatterStyle = i32;
 pub type UDateTimePGDisplayWidth = i32;
@@ -6781,7 +6781,7 @@ pub type UDisplayContextType = i32;
 pub type UEastAsianWidth = i32;
 pub type UEnumCharNamesFn = Option<unsafe extern "C" fn(context: *mut core::ffi::c_void, code: UChar32, namechoice: UCharNameChoice, name: *const i8, length: i32) -> UBool>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UEnumeration(pub u8);
 pub type UErrorCode = i32;
 pub const UFIELD_CATEGORY_DATE: UFieldCategory = 1;
@@ -6802,14 +6802,14 @@ pub const UFMT_OBJECT: UFormattableType = 6;
 pub const UFMT_STRING: UFormattableType = 3;
 pub type UFieldCategory = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UFieldPosition {
     pub field: i32,
     pub beginIndex: i32,
     pub endIndex: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UFieldPositionIterator(pub u8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -6821,37 +6821,37 @@ impl Default for UFormattable {
 }
 pub type UFormattableType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UFormattedDateInterval(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UFormattedList(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UFormattedNumber(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UFormattedNumberRange(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UFormattedRelativeDateTime(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UFormattedValue(pub u8);
 pub const UGENDER_FEMALE: UGender = 1;
 pub const UGENDER_MALE: UGender = 0;
 pub const UGENDER_OTHER: UGender = 2;
 pub type UGender = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UGenderInfo(pub u8);
 pub type UGraphemeClusterBreak = i32;
 pub type UHangulSyllableType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UIDNA(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UIDNAInfo {
     pub size: i16,
     pub isTransitionalDifferent: UBool,
@@ -6961,7 +6961,7 @@ pub type ULayoutType = i32;
 pub type ULineBreak = i32;
 pub type ULineBreakTag = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UListFormatter(pub u8);
 pub type UListFormatterField = i32;
 pub type UListFormatterType = i32;
@@ -6969,12 +6969,12 @@ pub type UListFormatterWidth = i32;
 pub type ULocAvailableType = i32;
 pub type ULocDataLocaleType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ULocaleData(pub u8);
 pub type ULocaleDataDelimiterType = i32;
 pub type ULocaleDataExemplarSetType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ULocaleDisplayNames(pub u8);
 pub const UMS_SI: UMeasurementSystem = 0;
 pub const UMS_UK: UMeasurementSystem = 2;
@@ -6992,7 +6992,7 @@ impl Default for UMessageFormat {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UMutableCPTrie(pub u8);
 pub type UNESCAPE_CHAR_AT = Option<unsafe extern "C" fn(offset: i32, context: *mut core::ffi::c_void) -> UChar>;
 pub const UNORM2_COMPOSE: UNormalization2Mode = 0;
@@ -7175,7 +7175,7 @@ pub type UNormalization2Mode = i32;
 pub type UNormalizationCheckResult = i32;
 pub type UNormalizationMode = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNormalizer2(pub u8);
 pub type UNumberCompactStyle = i32;
 pub type UNumberDecimalSeparatorDisplay = i32;
@@ -7197,12 +7197,12 @@ pub type UNumberFormatStyle = i32;
 pub type UNumberFormatSymbol = i32;
 pub type UNumberFormatTextAttribute = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNumberFormatter(pub u8);
 pub type UNumberGroupingStrategy = i32;
 pub type UNumberRangeCollapse = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNumberRangeFormatter(pub u8);
 pub type UNumberRangeIdentityFallback = i32;
 pub type UNumberRangeIdentityResult = i32;
@@ -7210,13 +7210,13 @@ pub type UNumberSignDisplay = i32;
 pub type UNumberTrailingZeroDisplay = i32;
 pub type UNumberUnitWidth = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNumberingSystem(pub u8);
 pub type UNumericType = i32;
 pub const UPLURAL_TYPE_CARDINAL: UPluralType = 0;
 pub const UPLURAL_TYPE_ORDINAL: UPluralType = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UParseError {
     pub line: i32,
     pub offset: i32,
@@ -7229,7 +7229,7 @@ impl Default for UParseError {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UPluralRules(pub u8);
 pub type UPluralType = i32;
 pub type UProperty = i32;
@@ -7261,7 +7261,7 @@ pub type URegexFindProgressCallback = Option<unsafe extern "C" fn(context: *cons
 pub type URegexMatchCallback = Option<unsafe extern "C" fn(context: *const core::ffi::c_void, steps: i32) -> UBool>;
 pub type URegexpFlag = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URegion(pub u8);
 pub type URegionType = i32;
 #[repr(transparent)]
@@ -7273,10 +7273,10 @@ impl Default for URegistryKey {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URegularExpression(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct URelativeDateTimeFormatter(pub u8);
 pub type URelativeDateTimeFormatterField = i32;
 pub type URelativeDateTimeUnit = i32;
@@ -7289,7 +7289,7 @@ impl Default for UReplaceable {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UReplaceableCallbacks {
     pub length: *mut u8,
     pub charAt: *mut u8,
@@ -7305,7 +7305,7 @@ impl Default for UReplaceableCallbacks {
 }
 pub type UResType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UResourceBundle(pub u8);
 pub type URestrictionLevel = i32;
 pub const USCRIPT_ADLAM: UScriptCode = 167;
@@ -7574,7 +7574,7 @@ pub type USearchAttributeValue = i32;
 pub type USentenceBreak = i32;
 pub type USentenceBreakTag = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USerializedSet {
     pub array: *const u16,
     pub bmpLength: i32,
@@ -7587,22 +7587,22 @@ impl Default for USerializedSet {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USet(pub u8);
 pub type USetSpanCondition = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USpoofCheckResult(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USpoofChecker(pub u8);
 pub type USpoofChecks = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UStringPrepProfile(pub u8);
 pub type UStringPrepProfileType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UStringSearch(pub u8);
 pub type UStringTrieResult = i32;
 pub type USystemTimeZoneType = i32;
@@ -7654,7 +7654,7 @@ pub const UTSV_TO_MAX_VALUE: UTimeScaleValue = 5;
 pub const UTSV_TO_MIN_VALUE: UTimeScaleValue = 4;
 pub const UTSV_UNITS_VALUE: UTimeScaleValue = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UText {
     pub magic: u32,
     pub flags: i32,
@@ -7733,7 +7733,7 @@ pub type UTraceFunctionNumber = i32;
 pub type UTraceLevel = i32;
 pub type UTransDirection = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UTransPosition {
     pub contextStart: i32,
     pub contextLimit: i32,

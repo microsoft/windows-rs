@@ -1,12 +1,12 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROPCOMPKEY {
     pub Key: DEVPROPKEY,
     pub Store: DEVPROPSTORE,
     pub LocaleName: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVPROPERTY {
     pub CompKey: DEVPROPCOMPKEY,
     pub Type: DEVPROPTYPE,
@@ -24,7 +24,7 @@ pub type DEVPROPGUID = windows_core::GUID;
 pub struct DEVPROPID(pub u32);
 pub const DEVPROPID_FIRST_USABLE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROPKEY {
     pub fmtid: DEVPROPGUID,
     pub pid: DEVPROPID,

@@ -11,7 +11,7 @@ pub type LPQOS_TCP_TRAFFIC = *mut QOS_TCP_TRAFFIC;
 pub type LPQOS_TRAFFIC_CLASS = *mut QOS_TRAFFIC_CLASS;
 #[repr(C)]
 #[cfg(feature = "qos")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QOS_DIFFSERV {
     pub ObjectHdr: super::qos::QOS_OBJECT_HDR,
     pub DSFieldCount: u32,
@@ -24,7 +24,7 @@ impl Default for QOS_DIFFSERV {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_DIFFSERV_RULE {
     pub InboundDSField: u8,
     pub ConformingOutboundDSField: u8,
@@ -34,14 +34,14 @@ pub struct QOS_DIFFSERV_RULE {
 }
 #[repr(C)]
 #[cfg(feature = "qos")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_DS_CLASS {
     pub ObjectHdr: super::qos::QOS_OBJECT_HDR,
     pub DSField: u32,
 }
 #[repr(C)]
 #[cfg(feature = "qos")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QOS_FRIENDLY_NAME {
     pub ObjectHdr: super::qos::QOS_OBJECT_HDR,
     pub FriendlyName: [u16; 256],
@@ -60,13 +60,13 @@ pub const QOS_OBJECT_TCP_TRAFFIC: u32 = 4004;
 pub const QOS_OBJECT_TRAFFIC_CLASS: u32 = 4002;
 #[repr(C)]
 #[cfg(feature = "qos")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_TCP_TRAFFIC {
     pub ObjectHdr: super::qos::QOS_OBJECT_HDR,
 }
 #[repr(C)]
 #[cfg(feature = "qos")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_TRAFFIC_CLASS {
     pub ObjectHdr: super::qos::QOS_OBJECT_HDR,
     pub TrafficClass: u32,

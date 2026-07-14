@@ -872,10 +872,10 @@ windows_core::imp::define_interface!(INetworkConnectionCostEvents, INetworkConne
 windows_core::imp::interface_hierarchy!(INetworkConnectionCostEvents, windows_core::IUnknown);
 impl INetworkConnectionCostEvents {
     pub unsafe fn ConnectionCostChanged(&self, connectionid: windows_core::GUID, newcost: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ConnectionCostChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid), newcost) }
+        unsafe { (windows_core::Interface::vtable(self).ConnectionCostChanged)(windows_core::Interface::as_raw(self), connectionid, newcost) }
     }
     pub unsafe fn ConnectionDataPlanStatusChanged(&self, connectionid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ConnectionDataPlanStatusChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid)) }
+        unsafe { (windows_core::Interface::vtable(self).ConnectionDataPlanStatusChanged)(windows_core::Interface::as_raw(self), connectionid) }
     }
 }
 #[repr(C)]
@@ -918,10 +918,10 @@ windows_core::imp::define_interface!(INetworkConnectionEvents, INetworkConnectio
 windows_core::imp::interface_hierarchy!(INetworkConnectionEvents, windows_core::IUnknown);
 impl INetworkConnectionEvents {
     pub unsafe fn NetworkConnectionConnectivityChanged(&self, connectionid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).NetworkConnectionConnectivityChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid), newconnectivity) }
+        unsafe { (windows_core::Interface::vtable(self).NetworkConnectionConnectivityChanged)(windows_core::Interface::as_raw(self), connectionid, newconnectivity) }
     }
     pub unsafe fn NetworkConnectionPropertyChanged(&self, connectionid: windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).NetworkConnectionPropertyChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid), flags) }
+        unsafe { (windows_core::Interface::vtable(self).NetworkConnectionPropertyChanged)(windows_core::Interface::as_raw(self), connectionid, flags) }
     }
 }
 #[repr(C)]
@@ -1079,16 +1079,16 @@ windows_core::imp::define_interface!(INetworkEvents, INetworkEvents_Vtbl, 0xdcb0
 windows_core::imp::interface_hierarchy!(INetworkEvents, windows_core::IUnknown);
 impl INetworkEvents {
     pub unsafe fn NetworkAdded(&self, networkid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).NetworkAdded)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid)) }
+        unsafe { (windows_core::Interface::vtable(self).NetworkAdded)(windows_core::Interface::as_raw(self), networkid) }
     }
     pub unsafe fn NetworkDeleted(&self, networkid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).NetworkDeleted)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid)) }
+        unsafe { (windows_core::Interface::vtable(self).NetworkDeleted)(windows_core::Interface::as_raw(self), networkid) }
     }
     pub unsafe fn NetworkConnectivityChanged(&self, networkid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).NetworkConnectivityChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid), newconnectivity) }
+        unsafe { (windows_core::Interface::vtable(self).NetworkConnectivityChanged)(windows_core::Interface::as_raw(self), networkid, newconnectivity) }
     }
     pub unsafe fn NetworkPropertyChanged(&self, networkid: windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).NetworkPropertyChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid), flags) }
+        unsafe { (windows_core::Interface::vtable(self).NetworkPropertyChanged)(windows_core::Interface::as_raw(self), networkid, flags) }
     }
 }
 #[repr(C)]
@@ -1167,7 +1167,7 @@ impl INetworkListManager {
     pub unsafe fn GetNetwork(&self, gdnetworkid: windows_core::GUID) -> windows_core::Result<INetwork> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNetwork)(windows_core::Interface::as_raw(self), core::mem::transmute(gdnetworkid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNetwork)(windows_core::Interface::as_raw(self), gdnetworkid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetNetworkConnections(&self) -> windows_core::Result<IEnumNetworkConnections> {
@@ -1179,7 +1179,7 @@ impl INetworkListManager {
     pub unsafe fn GetNetworkConnection(&self, gdnetworkconnectionid: windows_core::GUID) -> windows_core::Result<INetworkConnection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNetworkConnection)(windows_core::Interface::as_raw(self), core::mem::transmute(gdnetworkconnectionid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetNetworkConnection)(windows_core::Interface::as_raw(self), gdnetworkconnectionid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "wtypes")]
@@ -1427,7 +1427,7 @@ pub const NLM_CONNECTIVITY_IPV6_NOTRAFFIC: NLM_CONNECTIVITY = 2;
 pub const NLM_CONNECTIVITY_IPV6_SUBNET: NLM_CONNECTIVITY = 256;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_DATAPLAN_STATUS {
     pub InterfaceGuid: windows_core::GUID,
     pub UsageData: NLM_USAGE_DATA,
@@ -1470,7 +1470,7 @@ pub const NLM_NETWORK_PROPERTY_CHANGE_ICON: NLM_NETWORK_PROPERTY_CHANGE = 8;
 pub const NLM_NETWORK_PROPERTY_CHANGE_NAME: NLM_NETWORK_PROPERTY_CHANGE = 4;
 pub const NLM_NETWORK_UNIDENTIFIED: NLM_NETWORK_CLASS = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLM_SIMULATED_PROFILE_INFO {
     pub ProfileName: [u16; 256],
     pub cost: NLM_CONNECTION_COST,
@@ -1483,7 +1483,7 @@ impl Default for NLM_SIMULATED_PROFILE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLM_SOCKADDR {
     pub data: [u8; 128],
 }
@@ -1495,7 +1495,7 @@ impl Default for NLM_SOCKADDR {
 pub const NLM_UNKNOWN_DATAPLAN_STATUS: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLM_USAGE_DATA {
     pub UsageInMegabytes: u32,
     pub LastSyncTime: super::minwindef::FILETIME,

@@ -112,7 +112,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetRequestOfflineDomainJoin(pprovisionbindata : *const u8, cbprovisionbindatasize : u32, dwoptions : u32, lpwindowspath : windows_core::PCWSTR) -> u32);
-    unsafe { NetRequestOfflineDomainJoin(core::mem::transmute(pprovisionbindata.as_ptr()), pprovisionbindata.len().try_into().unwrap(), dwoptions, lpwindowspath.param().abi()) }
+    unsafe { NetRequestOfflineDomainJoin(pprovisionbindata.as_ptr(), pprovisionbindata.len().try_into().unwrap(), dwoptions, lpwindowspath.param().abi()) }
 }
 #[inline]
 pub unsafe fn NetRequestProvisioningPackageInstall<P3>(ppackagebindata: &[u8], dwprovisionoptions: u32, lpwindowspath: P3, pvreserved: Option<*const core::ffi::c_void>) -> u32
@@ -120,7 +120,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetRequestProvisioningPackageInstall(ppackagebindata : *const u8, dwpackagebindatasize : u32, dwprovisionoptions : u32, lpwindowspath : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void) -> u32);
-    unsafe { NetRequestProvisioningPackageInstall(core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len().try_into().unwrap(), dwprovisionoptions, lpwindowspath.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetRequestProvisioningPackageInstall(ppackagebindata.as_ptr(), ppackagebindata.len().try_into().unwrap(), dwprovisionoptions, lpwindowspath.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetSetPrimaryComputerName<P0, P1, P2, P3>(server: P0, primaryname: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32
@@ -157,7 +157,7 @@ where
 pub const DSREG_DEVICE_JOIN: DSREG_JOIN_TYPE = 1;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DSREG_JOIN_INFO {
     pub joinType: DSREG_JOIN_TYPE,
     pub pJoinCertificate: super::wincrypt::PCCERT_CONTEXT,
@@ -181,7 +181,7 @@ impl Default for DSREG_JOIN_INFO {
 pub type DSREG_JOIN_TYPE = i32;
 pub const DSREG_UNKNOWN_JOIN: DSREG_JOIN_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSREG_USER_INFO {
     pub pszUserEmail: windows_core::PWSTR,
     pub pszUserKeyId: windows_core::PWSTR,
@@ -211,7 +211,7 @@ pub const NETSETUP_NO_ACCT_REUSE: u32 = 131072;
 pub const NETSETUP_NO_NETLOGON_CACHE: u32 = 8192;
 pub const NETSETUP_PROCESS_OFFLINE_FLAGS: u32 = 17569;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NETSETUP_PROVISIONING_PARAMS {
     pub dwVersion: u32,
     pub lpDomain: windows_core::PCWSTR,

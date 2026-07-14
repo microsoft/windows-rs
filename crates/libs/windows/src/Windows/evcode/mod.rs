@@ -10,7 +10,7 @@ pub const AM_LOADSTATUS_LOCATING: u32 = 3;
 pub const AM_LOADSTATUS_OPEN: u32 = 6;
 pub const AM_LOADSTATUS_OPENING: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AM_WMT_EVENT_DATA {
     pub hrStatus: windows_core::HRESULT,
     pub pData: *mut core::ffi::c_void,

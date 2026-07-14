@@ -681,7 +681,7 @@ impl ICOMAdminCatalog2 {
     pub unsafe fn GetCollectionByQuery2(&self, bstrcollectionname: &windows_core::BSTR, pvarquerystrings: *const super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetCollectionByQuery2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcollectionname), core::mem::transmute(pvarquerystrings), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetCollectionByQuery2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcollectionname), pvarquerystrings, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetApplicationInstanceIDFromProcessID(&self, lprocessid: i32) -> windows_core::Result<windows_core::BSTR> {
@@ -692,25 +692,25 @@ impl ICOMAdminCatalog2 {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ShutdownApplicationInstances(&self, pvarapplicationinstanceid: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ShutdownApplicationInstances)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarapplicationinstanceid)) }
+        unsafe { (windows_core::Interface::vtable(self).ShutdownApplicationInstances)(windows_core::Interface::as_raw(self), pvarapplicationinstanceid) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PauseApplicationInstances(&self, pvarapplicationinstanceid: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PauseApplicationInstances)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarapplicationinstanceid)) }
+        unsafe { (windows_core::Interface::vtable(self).PauseApplicationInstances)(windows_core::Interface::as_raw(self), pvarapplicationinstanceid) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ResumeApplicationInstances(&self, pvarapplicationinstanceid: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ResumeApplicationInstances)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarapplicationinstanceid)) }
+        unsafe { (windows_core::Interface::vtable(self).ResumeApplicationInstances)(windows_core::Interface::as_raw(self), pvarapplicationinstanceid) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RecycleApplicationInstances(&self, pvarapplicationinstanceid: *const super::oaidl::VARIANT, lreasoncode: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RecycleApplicationInstances)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarapplicationinstanceid), lreasoncode) }
+        unsafe { (windows_core::Interface::vtable(self).RecycleApplicationInstances)(windows_core::Interface::as_raw(self), pvarapplicationinstanceid, lreasoncode) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AreApplicationInstancesPaused(&self, pvarapplicationinstanceid: *const super::oaidl::VARIANT) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AreApplicationInstancesPaused)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarapplicationinstanceid), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AreApplicationInstancesPaused)(windows_core::Interface::as_raw(self), pvarapplicationinstanceid, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn DumpApplicationInstance(&self, bstrapplicationinstanceid: &windows_core::BSTR, bstrdirectory: &windows_core::BSTR, lmaximages: i32) -> windows_core::Result<windows_core::BSTR> {
@@ -771,15 +771,15 @@ impl ICOMAdminCatalog2 {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CopyApplications(&self, bstrsourcepartitionidorname: &windows_core::BSTR, pvarapplicationid: *const super::oaidl::VARIANT, bstrdestinationpartitionidorname: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CopyApplications)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsourcepartitionidorname), core::mem::transmute(pvarapplicationid), core::mem::transmute_copy(bstrdestinationpartitionidorname)) }
+        unsafe { (windows_core::Interface::vtable(self).CopyApplications)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsourcepartitionidorname), pvarapplicationid, core::mem::transmute_copy(bstrdestinationpartitionidorname)) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CopyComponents(&self, bstrsourceapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::oaidl::VARIANT, bstrdestinationapplicationidorname: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CopyComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsourceapplicationidorname), core::mem::transmute(pvarclsidorprogid), core::mem::transmute_copy(bstrdestinationapplicationidorname)) }
+        unsafe { (windows_core::Interface::vtable(self).CopyComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsourceapplicationidorname), pvarclsidorprogid, core::mem::transmute_copy(bstrdestinationapplicationidorname)) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn MoveComponents(&self, bstrsourceapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::oaidl::VARIANT, bstrdestinationapplicationidorname: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).MoveComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsourceapplicationidorname), core::mem::transmute(pvarclsidorprogid), core::mem::transmute_copy(bstrdestinationapplicationidorname)) }
+        unsafe { (windows_core::Interface::vtable(self).MoveComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsourceapplicationidorname), pvarclsidorprogid, core::mem::transmute_copy(bstrdestinationapplicationidorname)) }
     }
     pub unsafe fn AliasComponent(&self, bstrsrcapplicationidorname: &windows_core::BSTR, bstrclsidorprogid: &windows_core::BSTR, bstrdestapplicationidorname: &windows_core::BSTR, bstrnewprogid: &windows_core::BSTR, bstrnewclsid: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).AliasComponent)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsrcapplicationidorname), core::mem::transmute_copy(bstrclsidorprogid), core::mem::transmute_copy(bstrdestapplicationidorname), core::mem::transmute_copy(bstrnewprogid), core::mem::transmute_copy(bstrnewclsid)) }
@@ -792,15 +792,15 @@ impl ICOMAdminCatalog2 {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ImportUnconfiguredComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::oaidl::VARIANT, pvarcomponenttype: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ImportUnconfiguredComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), core::mem::transmute(pvarclsidorprogid), pvarcomponenttype.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).ImportUnconfiguredComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), pvarclsidorprogid, pvarcomponenttype.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PromoteUnconfiguredComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::oaidl::VARIANT, pvarcomponenttype: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PromoteUnconfiguredComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), core::mem::transmute(pvarclsidorprogid), pvarcomponenttype.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).PromoteUnconfiguredComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), pvarclsidorprogid, pvarcomponenttype.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ImportComponents(&self, bstrapplicationidorname: &windows_core::BSTR, pvarclsidorprogid: *const super::oaidl::VARIANT, pvarcomponenttype: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ImportComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), core::mem::transmute(pvarclsidorprogid), pvarcomponenttype.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).ImportComponents)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrapplicationidorname), pvarclsidorprogid, pvarcomponenttype.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn Is64BitCatalogServer(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {

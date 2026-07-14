@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DateTime {
     pub UniversalTime: i64,
 }
@@ -1526,7 +1526,7 @@ impl windows_core::RuntimeType for Size {
         windows_core::imp::ConstBuffer::from_slice(b"Windows.Foundation.Size");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TimeSpan {
     pub Duration: i64,
 }

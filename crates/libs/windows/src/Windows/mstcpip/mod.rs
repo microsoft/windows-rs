@@ -1,12 +1,12 @@
 #[inline]
 pub unsafe fn RtlEthernetAddressToStringA(addr: *const DL_EUI48, s: &mut [u8; 18]) -> windows_core::PSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlEthernetAddressToStringA(addr : *const DL_EUI48, s : windows_core::PSTR) -> windows_core::PSTR);
-    unsafe { RtlEthernetAddressToStringA(addr, core::mem::transmute(s.as_ptr())) }
+    unsafe { RtlEthernetAddressToStringA(addr, core::mem::transmute(s.as_mut_ptr())) }
 }
 #[inline]
 pub unsafe fn RtlEthernetAddressToStringW(addr: *const DL_EUI48, s: &mut [u16; 18]) -> windows_core::PWSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlEthernetAddressToStringW(addr : *const DL_EUI48, s : windows_core::PWSTR) -> windows_core::PWSTR);
-    unsafe { RtlEthernetAddressToStringW(addr, core::mem::transmute(s.as_ptr())) }
+    unsafe { RtlEthernetAddressToStringW(addr, core::mem::transmute(s.as_mut_ptr())) }
 }
 #[inline]
 pub unsafe fn RtlEthernetStringToAddressA<P0>(s: P0, terminator: *mut windows_core::PCSTR, addr: *mut DL_EUI48) -> i32
@@ -28,25 +28,25 @@ where
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringA(addr: *const super::inaddr::IN_ADDR, s: &mut [u8; 16]) -> windows_core::PSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringA(addr : *const super::inaddr::IN_ADDR, s : windows_core::PSTR) -> windows_core::PSTR);
-    unsafe { RtlIpv4AddressToStringA(addr, core::mem::transmute(s.as_ptr())) }
+    unsafe { RtlIpv4AddressToStringA(addr, core::mem::transmute(s.as_mut_ptr())) }
 }
 #[cfg(feature = "inaddr")]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringExA(address: *const super::inaddr::IN_ADDR, port: u16, addressstring: windows_core::PSTR, addressstringlength: *mut u32) -> i32 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExA(address : *const super::inaddr::IN_ADDR, port : u16, addressstring : windows_core::PSTR, addressstringlength : *mut u32) -> i32);
-    unsafe { RtlIpv4AddressToStringExA(address, port, core::mem::transmute(addressstring), addressstringlength as _) }
+    unsafe { RtlIpv4AddressToStringExA(address, port, addressstring, addressstringlength as _) }
 }
 #[cfg(feature = "inaddr")]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringExW(address: *const super::inaddr::IN_ADDR, port: u16, addressstring: windows_core::PWSTR, addressstringlength: *mut u32) -> i32 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExW(address : *const super::inaddr::IN_ADDR, port : u16, addressstring : windows_core::PWSTR, addressstringlength : *mut u32) -> i32);
-    unsafe { RtlIpv4AddressToStringExW(address, port, core::mem::transmute(addressstring), addressstringlength as _) }
+    unsafe { RtlIpv4AddressToStringExW(address, port, addressstring, addressstringlength as _) }
 }
 #[cfg(feature = "inaddr")]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringW(addr: *const super::inaddr::IN_ADDR, s: &mut [u16; 16]) -> windows_core::PWSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringW(addr : *const super::inaddr::IN_ADDR, s : windows_core::PWSTR) -> windows_core::PWSTR);
-    unsafe { RtlIpv4AddressToStringW(addr, core::mem::transmute(s.as_ptr())) }
+    unsafe { RtlIpv4AddressToStringW(addr, core::mem::transmute(s.as_mut_ptr())) }
 }
 #[cfg(feature = "inaddr")]
 #[inline]
@@ -88,25 +88,25 @@ where
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringA(addr: *const super::in6addr::IN6_ADDR, s: &mut [u8; 46]) -> windows_core::PSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringA(addr : *const super::in6addr::IN6_ADDR, s : windows_core::PSTR) -> windows_core::PSTR);
-    unsafe { RtlIpv6AddressToStringA(addr, core::mem::transmute(s.as_ptr())) }
+    unsafe { RtlIpv6AddressToStringA(addr, core::mem::transmute(s.as_mut_ptr())) }
 }
 #[cfg(feature = "in6addr")]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringExA(address: *const super::in6addr::IN6_ADDR, scopeid: u32, port: u16, addressstring: windows_core::PSTR, addressstringlength: *mut u32) -> i32 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExA(address : *const super::in6addr::IN6_ADDR, scopeid : u32, port : u16, addressstring : windows_core::PSTR, addressstringlength : *mut u32) -> i32);
-    unsafe { RtlIpv6AddressToStringExA(address, scopeid, port, core::mem::transmute(addressstring), addressstringlength as _) }
+    unsafe { RtlIpv6AddressToStringExA(address, scopeid, port, addressstring, addressstringlength as _) }
 }
 #[cfg(feature = "in6addr")]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringExW(address: *const super::in6addr::IN6_ADDR, scopeid: u32, port: u16, addressstring: windows_core::PWSTR, addressstringlength: *mut u32) -> i32 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExW(address : *const super::in6addr::IN6_ADDR, scopeid : u32, port : u16, addressstring : windows_core::PWSTR, addressstringlength : *mut u32) -> i32);
-    unsafe { RtlIpv6AddressToStringExW(address, scopeid, port, core::mem::transmute(addressstring), addressstringlength as _) }
+    unsafe { RtlIpv6AddressToStringExW(address, scopeid, port, addressstring, addressstringlength as _) }
 }
 #[cfg(feature = "in6addr")]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringW(addr: *const super::in6addr::IN6_ADDR, s: &mut [u16; 46]) -> windows_core::PWSTR {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringW(addr : *const super::in6addr::IN6_ADDR, s : windows_core::PWSTR) -> windows_core::PWSTR);
-    unsafe { RtlIpv6AddressToStringW(addr, core::mem::transmute(s.as_ptr())) }
+    unsafe { RtlIpv6AddressToStringW(addr, core::mem::transmute(s.as_mut_ptr())) }
 }
 #[cfg(feature = "in6addr")]
 #[inline]
@@ -146,7 +146,7 @@ where
 }
 pub const ASSOCIATE_NAMERES_CONTEXT: windows_core::GUID = windows_core::GUID::from_u128(0x59a38b67_d4fe_46e1_ba3c_87ea74ca3049);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSOCIATE_NAMERES_CONTEXT_INPUT {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
     pub Handle: u64,
@@ -161,7 +161,7 @@ pub const CONTROL_CHANNEL_TRIGGER_STATUS_SOFTWARE_SLOT_ALLOCATED: CONTROL_CHANNE
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_SYSTEM_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = 4;
 pub const CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED: CONTROL_CHANNEL_TRIGGER_STATUS = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DL_EUI48(pub u8);
 pub const IN4ADDR_ANY: u32 = 0;
 pub const IN4ADDR_BROADCAST: i32 = -1;
@@ -171,25 +171,25 @@ pub const IN4ADDR_LOOPBACKPREFIX_LENGTH: u32 = 8;
 pub const IN4ADDR_MULTICASTPREFIX_LENGTH: u32 = 4;
 pub const IN4ADDR_NONE: i32 = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INET_PORT_RANGE {
     pub StartPort: u16,
     pub NumberOfPorts: u16,
 }
 pub type INET_PORT_RESERVATION = INET_PORT_RANGE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INET_PORT_RESERVATION_INFORMATION {
     pub OwningPid: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INET_PORT_RESERVATION_INSTANCE {
     pub Reservation: INET_PORT_RESERVATION,
     pub Token: INET_PORT_RESERVATION_TOKEN,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INET_PORT_RESERVATION_TOKEN {
     pub Token: u64,
 }
@@ -209,7 +209,7 @@ pub type PREAL_TIME_NOTIFICATION_SETTING_INPUT = *mut REAL_TIME_NOTIFICATION_SET
 pub type PREAL_TIME_NOTIFICATION_SETTING_INPUT_EX = *mut REAL_TIME_NOTIFICATION_SETTING_INPUT_EX;
 pub type PREAL_TIME_NOTIFICATION_SETTING_OUTPUT = *mut REAL_TIME_NOTIFICATION_SETTING_OUTPUT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRIORITY_STATUS {
     pub Sender: SOCKET_PRIORITY_HINT,
     pub Receiver: SOCKET_PRIORITY_HINT,
@@ -226,7 +226,7 @@ pub type PTCP_INITIAL_RTO_PARAMETERS = *mut TCP_INITIAL_RTO_PARAMETERS;
 pub type PTIMESTAMPING_CONFIG = *mut TIMESTAMPING_CONFIG;
 pub type PTRANSPORT_SETTING_ID = *mut TRANSPORT_SETTING_ID;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RCVALL_IF {
     pub Mode: RCVALL_VALUE,
     pub Interface: u32,
@@ -240,25 +240,25 @@ pub type RCVALL_VALUE = i32;
 pub const REAL_TIME_NOTIFICATION_CAPABILITY: windows_core::GUID = windows_core::GUID::from_u128(0x6b59819a_5cae_492d_a901_2a3c2c50164f);
 pub const REAL_TIME_NOTIFICATION_CAPABILITY_EX: windows_core::GUID = windows_core::GUID::from_u128(0x6843da03_154a_4616_a508_44371295f96b);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
     pub BrokerEventGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_INPUT_EX {
     pub TransportSettingId: TRANSPORT_SETTING_ID,
     pub BrokerEventGuid: windows_core::GUID,
     pub Unmark: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REAL_TIME_NOTIFICATION_SETTING_OUTPUT {
     pub ChannelStatus: CONTROL_CHANNEL_TRIGGER_STATUS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RSS_SCALABILITY_INFO {
     pub RssEnabled: bool,
 }
@@ -306,7 +306,7 @@ pub const SOCKET_INFO_CONNECTION_IMPERSONATED: u32 = 4;
 pub const SOCKET_INFO_CONNECTION_SECURED: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "ws2")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKET_PEER_TARGET_NAME {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: super::ws2::SOCKADDR_STORAGE,
@@ -329,7 +329,7 @@ pub const SOCKET_SECURITY_PROTOCOL_INVALID: SOCKET_SECURITY_PROTOCOL = 3;
 pub const SOCKET_SECURITY_PROTOCOL_IPSEC: SOCKET_SECURITY_PROTOCOL = 1;
 pub const SOCKET_SECURITY_PROTOCOL_IPSEC2: SOCKET_SECURITY_PROTOCOL = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_QUERY_INFO {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub Flags: u32,
@@ -337,7 +337,7 @@ pub struct SOCKET_SECURITY_QUERY_INFO {
     pub PeerMachineAccessTokenHandle: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub Flags: u32,
@@ -350,7 +350,7 @@ pub struct SOCKET_SECURITY_QUERY_INFO_IPSEC2 {
 }
 #[repr(C)]
 #[cfg(feature = "ws2")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: super::ws2::SOCKADDR_STORAGE,
@@ -358,7 +358,7 @@ pub struct SOCKET_SECURITY_QUERY_TEMPLATE {
 }
 #[repr(C)]
 #[cfg(feature = "ws2")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub PeerAddress: super::ws2::SOCKADDR_STORAGE,
@@ -367,13 +367,13 @@ pub struct SOCKET_SECURITY_QUERY_TEMPLATE_IPSEC2 {
     pub FieldMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_SETTINGS {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub SecurityFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKET_SECURITY_SETTINGS_IPSEC {
     pub SecurityProtocol: SOCKET_SECURITY_PROTOCOL,
     pub SecurityFlags: u32,
@@ -420,7 +420,7 @@ pub const TCPSTATE_SYN_RCVD: TCPSTATE = 3;
 pub const TCPSTATE_SYN_SENT: TCPSTATE = 2;
 pub const TCPSTATE_TIME_WAIT: TCPSTATE = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ACK_FREQUENCY_PARAMETERS {
     pub TcpDelayedAckFrequency: u8,
 }
@@ -433,12 +433,12 @@ pub const TCP_ICW_LEVEL_HIGH: TCP_ICW_LEVEL = 1;
 pub const TCP_ICW_LEVEL_MAX: TCP_ICW_LEVEL = 255;
 pub const TCP_ICW_LEVEL_VERY_HIGH: TCP_ICW_LEVEL = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_ICW_PARAMETERS {
     pub Level: TCP_ICW_LEVEL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_INFO_v0 {
     pub State: TCPSTATE,
     pub Mss: u32,
@@ -461,7 +461,7 @@ pub struct TCP_INFO_v0 {
     pub SynRetrans: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_INFO_v1 {
     pub State: TCPSTATE,
     pub Mss: u32,
@@ -493,7 +493,7 @@ pub struct TCP_INFO_v1 {
     pub SndLimBytesSnd: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_INFO_v2 {
     pub State: TCPSTATE,
     pub Mss: u32,
@@ -532,7 +532,7 @@ pub const TCP_INITIAL_RTO_DEFAULT_MAX_SYN_RETRANSMISSIONS: u32 = 0;
 pub const TCP_INITIAL_RTO_DEFAULT_RTT: u32 = 0;
 pub const TCP_INITIAL_RTO_NO_SYN_RETRANSMISSIONS: u8 = 254;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_INITIAL_RTO_PARAMETERS {
     pub Rtt: u16,
     pub MaxSynRetransmissions: u8,
@@ -540,7 +540,7 @@ pub struct TCP_INITIAL_RTO_PARAMETERS {
 pub const TCP_INITIAL_RTO_UNSPECIFIED_MAX_SYN_RETRANSMISSIONS: u8 = 255;
 pub const TCP_INITIAL_RTO_UNSPECIFIED_RTT: u16 = 65535;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIMESTAMPING_CONFIG {
     pub Flags: u32,
     pub TxTimestampsBuffered: u16,
@@ -548,12 +548,12 @@ pub struct TIMESTAMPING_CONFIG {
 pub const TIMESTAMPING_FLAG_RX: u32 = 1;
 pub const TIMESTAMPING_FLAG_TX: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSPORT_SETTING_ID {
     pub Guid: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tcp_keepalive {
     pub onoff: u32,
     pub keepalivetime: u32,

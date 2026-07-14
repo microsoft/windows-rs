@@ -19,7 +19,7 @@ impl Default for BM_REQUEST_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BM_REQUEST_TYPE_0 {
     pub _bitfield: u8,
 }
@@ -195,7 +195,7 @@ pub const USB_CHARGING_POLICY_ICCHPF: u32 = 1;
 pub const USB_CHARGING_POLICY_ICCLPF: u32 = 2;
 pub const USB_CHARGING_POLICY_NO_POWER: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_COMMON_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -268,7 +268,7 @@ impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     pub LowByte: u8,
     pub HiByte: u8,
@@ -285,7 +285,7 @@ impl Default for USB_DEFAULT_PIPE_SETUP_PACKET_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     pub LowByte: u8,
     pub HiByte: u8,
@@ -336,7 +336,7 @@ pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
 }
 pub const USB_DEVICE_CAPABILITY_CONTAINER_ID: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -350,7 +350,7 @@ impl Default for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_DEVICE_CAPABILITY_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -766,7 +766,7 @@ impl Default for USB_FUNCTION_SUSPEND_OPTIONS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_FUNCTION_SUSPEND_OPTIONS_0 {
     pub _bitfield: u8,
 }
@@ -806,7 +806,7 @@ impl Default for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     pub _bitfield: u8,
 }
@@ -881,7 +881,7 @@ impl Default for USB_HUB_STATUS_AND_CHANGE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -894,7 +894,7 @@ pub struct USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
 }
 pub const USB_INTERFACE_ASSOCIATION_DESCRIPTOR_TYPE: u32 = 11;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_INTERFACE_DESCRIPTOR {
     pub bLength: u8,
     pub bDescriptorType: u8,
@@ -1111,12 +1111,12 @@ impl Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
     pub _bitfield: u8,
 }

@@ -627,7 +627,7 @@ where
 #[inline]
 pub unsafe fn PdhReadRawLogRecord(hlog: PDH_HLOG, ftrecord: super::minwindef::FILETIME, prawlogrecord: Option<*mut PDH_RAW_LOG_RECORD>, pdwbufferlength: *mut u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhReadRawLogRecord(hlog : PDH_HLOG, ftrecord : super::minwindef::FILETIME, prawlogrecord : *mut PDH_RAW_LOG_RECORD, pdwbufferlength : *mut u32) -> PDH_STATUS);
-    unsafe { PdhReadRawLogRecord(hlog, core::mem::transmute(ftrecord), prawlogrecord.unwrap_or(core::mem::zeroed()) as _, pdwbufferlength as _) }
+    unsafe { PdhReadRawLogRecord(hlog, ftrecord, prawlogrecord.unwrap_or(core::mem::zeroed()) as _, pdwbufferlength as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -639,13 +639,13 @@ pub unsafe fn PdhRemoveCounter(hcounter: PDH_HCOUNTER) -> PDH_STATUS {
 #[inline]
 pub unsafe fn PdhSelectDataSourceA(hwndowner: super::windef::HWND, dwflags: u32, szdatasource: windows_core::PSTR, pcchbufferlength: *mut u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhSelectDataSourceA(hwndowner : super::windef::HWND, dwflags : u32, szdatasource : windows_core::PSTR, pcchbufferlength : *mut u32) -> PDH_STATUS);
-    unsafe { PdhSelectDataSourceA(hwndowner, dwflags, core::mem::transmute(szdatasource), pcchbufferlength as _) }
+    unsafe { PdhSelectDataSourceA(hwndowner, dwflags, szdatasource, pcchbufferlength as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn PdhSelectDataSourceW(hwndowner: super::windef::HWND, dwflags: u32, szdatasource: windows_core::PWSTR, pcchbufferlength: *mut u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhSelectDataSourceW(hwndowner : super::windef::HWND, dwflags : u32, szdatasource : windows_core::PWSTR, pcchbufferlength : *mut u32) -> PDH_STATUS);
-    unsafe { PdhSelectDataSourceW(hwndowner, dwflags, core::mem::transmute(szdatasource), pcchbufferlength as _) }
+    unsafe { PdhSelectDataSourceW(hwndowner, dwflags, szdatasource, pcchbufferlength as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -852,7 +852,7 @@ impl Default for PDH_COUNTER_INFO_A_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_COUNTER_INFO_A_0_0 {
     pub szMachineName: windows_core::PSTR,
     pub szObjectName: windows_core::PSTR,
@@ -895,7 +895,7 @@ impl Default for PDH_COUNTER_INFO_W_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_COUNTER_INFO_W_0_0 {
     pub szMachineName: windows_core::PWSTR,
     pub szObjectName: windows_core::PWSTR,
@@ -905,7 +905,7 @@ pub struct PDH_COUNTER_INFO_W_0_0 {
     pub szCounterName: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub szMachineName: windows_core::PSTR,
     pub szObjectName: windows_core::PSTR,
@@ -915,7 +915,7 @@ pub struct PDH_COUNTER_PATH_ELEMENTS_A {
     pub szCounterName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_COUNTER_PATH_ELEMENTS_W {
     pub szMachineName: windows_core::PWSTR,
     pub szObjectName: windows_core::PWSTR,
@@ -927,7 +927,7 @@ pub struct PDH_COUNTER_PATH_ELEMENTS_W {
 pub const PDH_CVERSION_WIN40: u32 = 1024;
 pub const PDH_CVERSION_WIN50: u32 = 1280;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
     pub szMachineName: windows_core::PSTR,
     pub ObjectGUID: windows_core::GUID,
@@ -935,7 +935,7 @@ pub struct PDH_DATA_ITEM_PATH_ELEMENTS_A {
     pub szInstanceName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_DATA_ITEM_PATH_ELEMENTS_W {
     pub szMachineName: windows_core::PWSTR,
     pub ObjectGUID: windows_core::GUID,
@@ -1054,7 +1054,7 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_A_0 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -1067,7 +1067,7 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_A_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -1115,7 +1115,7 @@ impl Default for PDH_LOG_SERVICE_QUERY_INFO_W_0 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
     pub PdlAutoNameInterval: u32,
     pub PdlAutoNameUnits: u32,
@@ -1128,7 +1128,7 @@ pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     pub TlNumberOfBuffers: u32,
     pub TlMinimumBuffers: u32,
@@ -1165,7 +1165,7 @@ pub const PDH_PATH_WBEM_INPUT: u32 = 2;
 pub const PDH_PATH_WBEM_RESULT: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_RAW_COUNTER {
     pub CStatus: u32,
     pub TimeStamp: super::minwindef::FILETIME,
@@ -1175,20 +1175,20 @@ pub struct PDH_RAW_COUNTER {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_RAW_COUNTER_ITEM_A {
     pub szName: windows_core::PSTR,
     pub RawValue: PDH_RAW_COUNTER,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_RAW_COUNTER_ITEM_W {
     pub szName: windows_core::PWSTR,
     pub RawValue: PDH_RAW_COUNTER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PDH_RAW_LOG_RECORD {
     pub dwStructureSize: u32,
     pub dwRecordType: u32,
@@ -1219,7 +1219,7 @@ impl Default for PDH_STATISTICS {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct PDH_STATUS(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PDH_TIME_INFO {
     pub StartTime: i64,
     pub EndTime: i64,

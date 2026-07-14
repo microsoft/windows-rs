@@ -131,7 +131,7 @@ pub const DS3D_MINCONEANGLE: u32 = 0;
 pub const DS3D_MINDOPPLERFACTOR: f32 = 0.0;
 pub const DS3D_MINROLLOFFFACTOR: f32 = 0.0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSBCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -173,7 +173,7 @@ pub const DSBPLAY_TERMINATEBY_TIME: u32 = 8;
 pub const DSBPN_OFFSETSTOP: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSBPOSITIONNOTIFY {
     pub dwOffset: u32,
     pub hEventNotify: super::winnt::HANDLE,
@@ -189,7 +189,7 @@ pub const DSBSTATUS_PLAYING: u32 = 1;
 pub const DSBSTATUS_TERMINATED: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSBUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -200,7 +200,7 @@ pub struct DSBUFFERDESC {
 }
 #[repr(C)]
 #[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSBUFFERDESC1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -211,7 +211,7 @@ pub struct DSBUFFERDESC1 {
 pub const DSBVOLUME_MAX: u32 = 0;
 pub const DSBVOLUME_MIN: i32 = -10000;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -250,7 +250,7 @@ pub const DSCAPS_SECONDARY8BIT: u32 = 1024;
 pub const DSCAPS_SECONDARYMONO: u32 = 256;
 pub const DSCAPS_SECONDARYSTEREO: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSCBCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -265,7 +265,7 @@ pub const DSCBSTATUS_CAPTURING: u32 = 1;
 pub const DSCBSTATUS_LOOPING: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSCBUFFERDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -277,7 +277,7 @@ pub struct DSCBUFFERDESC {
 }
 #[repr(C)]
 #[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSCBUFFERDESC1 {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -286,7 +286,7 @@ pub struct DSCBUFFERDESC1 {
     pub lpwfxFormat: super::mmeapi::LPWAVEFORMATEX,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSCCAPS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -297,7 +297,7 @@ pub const DSCCAPS_CERTIFIED: u32 = 64;
 pub const DSCCAPS_EMULDRIVER: u32 = 32;
 pub const DSCCAPS_MULTIPLECAPTURE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSCEFFECTDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -307,14 +307,14 @@ pub struct DSCEFFECTDESC {
     pub dwReserved2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSCFXAec {
     pub fEnable: windows_core::BOOL,
     pub fNoiseFill: windows_core::BOOL,
     pub dwMode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSCFXNoiseSuppress {
     pub fEnable: windows_core::BOOL,
 }
@@ -334,7 +334,7 @@ pub const DSDEVID_DefaultPlayback: windows_core::GUID = windows_core::GUID::from
 pub const DSDEVID_DefaultVoiceCapture: windows_core::GUID = windows_core::GUID::from_u128(0xdef00003_9c6d_47ed_aaf1_4dda8f2b5c03);
 pub const DSDEVID_DefaultVoicePlayback: windows_core::GUID = windows_core::GUID::from_u128(0xdef00002_9c6d_47ed_aaf1_4dda8f2b5c03);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSEFFECTDESC {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -490,7 +490,7 @@ pub const DSFXGARGLE_RATEHZ_MIN: u32 = 1;
 pub const DSFXGARGLE_WAVE_SQUARE: u32 = 1;
 pub const DSFXGARGLE_WAVE_TRIANGLE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSFXGargle {
     pub dwRateHz: u32,
     pub dwWaveShape: u32,
@@ -1725,7 +1725,7 @@ impl IDirectSoundBuffer8 {
         unsafe { (windows_core::Interface::vtable(self).SetFX)(windows_core::Interface::as_raw(self), dweffectscount, pdsfxdesc.unwrap_or(core::mem::zeroed()) as _, pdwresultcodes.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn AcquireResources(&self, dwflags: u32, pdwresultcodes: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AcquireResources)(windows_core::Interface::as_raw(self), dwflags, pdwresultcodes.len().try_into().unwrap(), core::mem::transmute(pdwresultcodes.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).AcquireResources)(windows_core::Interface::as_raw(self), dwflags, pdwresultcodes.len().try_into().unwrap(), pdwresultcodes.as_mut_ptr()) }
     }
     pub unsafe fn GetObjectInPath(&self, rguidobject: *const windows_core::GUID, dwindex: u32, rguidinterface: *const windows_core::GUID, ppobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetObjectInPath)(windows_core::Interface::as_raw(self), rguidobject, dwindex, rguidinterface, ppobject as _) }
@@ -2031,7 +2031,7 @@ impl IDirectSoundCaptureBuffer8 {
         unsafe { (windows_core::Interface::vtable(self).GetObjectInPath)(windows_core::Interface::as_raw(self), rguidobject, dwindex, rguidinterface, ppobject as _) }
     }
     pub unsafe fn GetFXStatus(&self, pdwfxstatus: &mut [u32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFXStatus)(windows_core::Interface::as_raw(self), pdwfxstatus.len().try_into().unwrap(), core::mem::transmute(pdwfxstatus.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetFXStatus)(windows_core::Interface::as_raw(self), pdwfxstatus.len().try_into().unwrap(), pdwfxstatus.as_mut_ptr()) }
     }
 }
 #[repr(C)]
@@ -2778,7 +2778,7 @@ windows_core::imp::interface_hierarchy!(IDirectSoundNotify, windows_core::IUnkno
 impl IDirectSoundNotify {
     #[cfg(feature = "winnt")]
     pub unsafe fn SetNotificationPositions(&self, pcpositionnotifies: &[DSBPOSITIONNOTIFY]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetNotificationPositions)(windows_core::Interface::as_raw(self), pcpositionnotifies.len().try_into().unwrap(), core::mem::transmute(pcpositionnotifies.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetNotificationPositions)(windows_core::Interface::as_raw(self), pcpositionnotifies.len().try_into().unwrap(), pcpositionnotifies.as_ptr()) }
     }
 }
 #[repr(C)]

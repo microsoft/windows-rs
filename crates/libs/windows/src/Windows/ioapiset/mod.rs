@@ -58,7 +58,7 @@ pub unsafe fn GetQueuedCompletionStatus(completionport: super::winnt::HANDLE, lp
 #[inline]
 pub unsafe fn GetQueuedCompletionStatusEx(completionport: super::winnt::HANDLE, lpcompletionportentries: &mut [super::minwinbase::OVERLAPPED_ENTRY], ulnumentriesremoved: *mut u32, dwmilliseconds: u32, falertable: bool) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetQueuedCompletionStatusEx(completionport : super::winnt::HANDLE, lpcompletionportentries : *mut super::minwinbase::OVERLAPPED_ENTRY, ulcount : u32, ulnumentriesremoved : *mut u32, dwmilliseconds : u32, falertable : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { GetQueuedCompletionStatusEx(completionport, core::mem::transmute(lpcompletionportentries.as_ptr()), lpcompletionportentries.len().try_into().unwrap(), ulnumentriesremoved as _, dwmilliseconds, falertable.into()) }
+    unsafe { GetQueuedCompletionStatusEx(completionport, lpcompletionportentries.as_mut_ptr(), lpcompletionportentries.len().try_into().unwrap(), ulnumentriesremoved as _, dwmilliseconds, falertable.into()) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]

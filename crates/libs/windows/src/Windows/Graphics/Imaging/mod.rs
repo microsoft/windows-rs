@@ -14,7 +14,7 @@ impl windows_core::RuntimeType for BitmapAlphaMode {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.BitmapAlphaMode");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapBounds {
     pub X: u32,
     pub Y: u32,
@@ -746,7 +746,7 @@ impl windows_core::RuntimeType for BitmapPixelFormat {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.BitmapPixelFormat");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapPlaneDescription {
     pub StartIndex: i32,
     pub Width: i32,
@@ -928,7 +928,7 @@ impl windows_core::RuntimeType for BitmapRotation {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Graphics.Imaging.BitmapRotation");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BitmapSize {
     pub Width: u32,
     pub Height: u32,

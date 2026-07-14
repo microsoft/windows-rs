@@ -25,7 +25,7 @@ pub unsafe fn CreatePseudoConsole(size: super::wincontypes::COORD, hinput: super
     windows_core::link!("kernel32.dll" "system" fn CreatePseudoConsole(size : super::wincontypes::COORD, hinput : super::winnt::HANDLE, houtput : super::winnt::HANDLE, dwflags : u32, phpc : *mut super::wincontypes::HPCON) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreatePseudoConsole(core::mem::transmute(size), hinput, houtput, dwflags, &mut result__).map(|| result__)
+        CreatePseudoConsole(size, hinput, houtput, dwflags, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -59,13 +59,13 @@ pub unsafe fn GetNumberOfConsoleInputEvents(hconsoleinput: super::winnt::HANDLE,
 #[inline]
 pub unsafe fn PeekConsoleInputA(hconsoleinput: super::winnt::HANDLE, lpbuffer: &mut [super::wincontypes::INPUT_RECORD], lpnumberofeventsread: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn PeekConsoleInputA(hconsoleinput : super::winnt::HANDLE, lpbuffer : *mut super::wincontypes::INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_core::BOOL);
-    unsafe { PeekConsoleInputA(hconsoleinput, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
+    unsafe { PeekConsoleInputA(hconsoleinput, lpbuffer.as_mut_ptr(), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
 }
 #[cfg(all(feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn PeekConsoleInputW(hconsoleinput: super::winnt::HANDLE, lpbuffer: &mut [super::wincontypes::INPUT_RECORD], lpnumberofeventsread: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn PeekConsoleInputW(hconsoleinput : super::winnt::HANDLE, lpbuffer : *mut super::wincontypes::INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_core::BOOL);
-    unsafe { PeekConsoleInputW(hconsoleinput, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
+    unsafe { PeekConsoleInputW(hconsoleinput, lpbuffer.as_mut_ptr(), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -77,13 +77,13 @@ pub unsafe fn ReadConsoleA(hconsoleinput: super::winnt::HANDLE, lpbuffer: *mut c
 #[inline]
 pub unsafe fn ReadConsoleInputA(hconsoleinput: super::winnt::HANDLE, lpbuffer: &mut [super::wincontypes::INPUT_RECORD], lpnumberofeventsread: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn ReadConsoleInputA(hconsoleinput : super::winnt::HANDLE, lpbuffer : *mut super::wincontypes::INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_core::BOOL);
-    unsafe { ReadConsoleInputA(hconsoleinput, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
+    unsafe { ReadConsoleInputA(hconsoleinput, lpbuffer.as_mut_ptr(), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
 }
 #[cfg(all(feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn ReadConsoleInputW(hconsoleinput: super::winnt::HANDLE, lpbuffer: &mut [super::wincontypes::INPUT_RECORD], lpnumberofeventsread: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn ReadConsoleInputW(hconsoleinput : super::winnt::HANDLE, lpbuffer : *mut super::wincontypes::INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_core::BOOL);
-    unsafe { ReadConsoleInputW(hconsoleinput, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
+    unsafe { ReadConsoleInputW(hconsoleinput, lpbuffer.as_mut_ptr(), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -101,7 +101,7 @@ pub unsafe fn ReleasePseudoConsole(hpc: super::wincontypes::HPCON) -> windows_co
 #[inline]
 pub unsafe fn ResizePseudoConsole(hpc: super::wincontypes::HPCON, size: super::wincontypes::COORD) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn ResizePseudoConsole(hpc : super::wincontypes::HPCON, size : super::wincontypes::COORD) -> windows_core::HRESULT);
-    unsafe { ResizePseudoConsole(hpc, core::mem::transmute(size)) }
+    unsafe { ResizePseudoConsole(hpc, size) }
 }
 #[inline]
 pub unsafe fn SetConsoleCtrlHandler(handlerroutine: PHANDLER_ROUTINE, add: bool) -> windows_core::BOOL {
@@ -131,7 +131,7 @@ pub const ALLOC_CONSOLE_MODE_DEFAULT: ALLOC_CONSOLE_MODE = 0;
 pub const ALLOC_CONSOLE_MODE_NEW_WINDOW: ALLOC_CONSOLE_MODE = 1;
 pub const ALLOC_CONSOLE_MODE_NO_WINDOW: ALLOC_CONSOLE_MODE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ALLOC_CONSOLE_OPTIONS {
     pub mode: ALLOC_CONSOLE_MODE,
     pub useShowWindow: windows_core::BOOL,
@@ -143,7 +143,7 @@ pub const ALLOC_CONSOLE_RESULT_NEW_CONSOLE: ALLOC_CONSOLE_RESULT = 1;
 pub const ALLOC_CONSOLE_RESULT_NO_CONSOLE: ALLOC_CONSOLE_RESULT = 0;
 pub const ATTACH_PARENT_PROCESS: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONSOLE_READCONSOLE_CONTROL {
     pub nLength: u32,
     pub nInitialChars: u32,

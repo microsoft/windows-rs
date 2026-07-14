@@ -2,7 +2,7 @@ pub const D3DKARG_FENCESTORAGETYPE_CURRENTVALUE: DXGKARG_FENCESTORAGEVALUETYPE =
 pub const D3DKARG_FENCESTORAGETYPE_MONITOREDVALUE: DXGKARG_FENCESTORAGEVALUETYPE = 1;
 pub type D3DKMDT_2DOFFSET = D3DKMDT_2DREGION;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_2DREGION {
     pub cx: u32,
     pub cy: u32,
@@ -29,7 +29,7 @@ pub const D3DKMDT_CB_YCBCR: D3DKMDT_COLOR_BASIS = 4;
 pub const D3DKMDT_CB_YPBPR: D3DKMDT_COLOR_BASIS = 5;
 pub type D3DKMDT_COLOR_BASIS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_COLOR_COEFF_DYNAMIC_RANGES {
     pub FirstChannel: u32,
     pub SecondChannel: u32,
@@ -55,7 +55,7 @@ pub const D3DKMDT_EPT_VIDPNTARGET: D3DKMDT_ENUMCOFUNCMODALITY_PIVOT_TYPE = 2;
 pub const D3DKMDT_FREQUENCY_NOTSPECIFIED: i32 = -2;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_FREQUENCY_RANGE {
     pub MinVSyncFreq: super::d3dukmdt::D3DDDI_RATIONAL,
     pub MaxVSyncFreq: super::d3dukmdt::D3DDDI_RATIONAL,
@@ -132,7 +132,7 @@ impl Default for D3DKMDT_GDISURFACEFLAGS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_GDISURFACEFLAGS_0_0 {
     pub _bitfield: u32,
 }
@@ -155,7 +155,7 @@ pub const D3DKMDT_GRAPHICS_PREEMPTION_SHADER_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTI
 pub const D3DKMDT_GRAPHICS_PREEMPTION_TRIANGLE_BOUNDARY: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY = 300;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_GRAPHICS_RENDERING_FORMAT {
     pub PrimSurfSize: D3DKMDT_2DREGION,
     pub VisibleRegionSize: D3DKMDT_2DREGION,
@@ -267,7 +267,7 @@ pub type D3DKMDT_MODE_PREFERENCE = i32;
 pub type D3DKMDT_MONITOR_CAPABILITIES_ORIGIN = i32;
 pub type D3DKMDT_MONITOR_CONNECTIVITY_CHECKS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_MONITOR_DESCRIPTOR {
     pub Id: D3DKMDT_MONITOR_DESCRIPTOR_ID,
     pub Type: D3DKMDT_MONITOR_DESCRIPTOR_TYPE,
@@ -352,7 +352,7 @@ pub const D3DKMDT_MTT_EXTRASTANDARD: D3DKMDT_MONITOR_TIMING_TYPE = 3;
 pub const D3DKMDT_MTT_STANDARD: D3DKMDT_MONITOR_TIMING_TYPE = 2;
 pub const D3DKMDT_MTT_UNINITIALIZED: D3DKMDT_MONITOR_TIMING_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_PALETTEDATA {
     pub Red: u8,
     pub Green: u8,
@@ -361,7 +361,7 @@ pub struct D3DKMDT_PALETTEDATA {
 }
 pub type D3DKMDT_PIXEL_VALUE_ACCESS_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_PREEMPTION_CAPS {
     pub GraphicsPreemptionGranularity: D3DKMDT_GRAPHICS_PREEMPTION_GRANULARITY,
     pub ComputePreemptionGranularity: D3DKMDT_COMPUTE_PREEMPTION_GRANULARITY,
@@ -379,7 +379,7 @@ pub const D3DKMDT_ROTATION_SUPPORT_MASK: u32 = 255;
 pub const D3DKMDT_SCALING_SUPPORT_MASK: u32 = 31;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_SHADOWSURFACEDATA {
     pub Width: u32,
     pub Height: u32,
@@ -388,7 +388,7 @@ pub struct D3DKMDT_SHADOWSURFACEDATA {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_SHAREDPRIMARYSURFACEDATA {
     pub Width: u32,
     pub Height: u32,
@@ -397,7 +397,7 @@ pub struct D3DKMDT_SHAREDPRIMARYSURFACEDATA {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_STAGINGSURFACEDATA {
     pub Width: u32,
     pub Height: u32,
@@ -415,7 +415,7 @@ pub const D3DKMDT_TRF_UNINITIALIZED: D3DKMDT_TEXT_RENDERING_FORMAT = 0;
 pub type D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY = i32;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDEO_PRESENT_SOURCE {
     pub Id: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub dwReserved: u32,
@@ -425,7 +425,7 @@ pub struct D3DKMDT_VIDEO_PRESENT_SOURCE {
 pub struct D3DKMDT_VIDEO_PRESENT_SOURCE_MODE_ID(pub u32);
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDEO_PRESENT_TARGET {
     pub Id: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_TARGET_ID,
     pub VideoOutputTechnology: D3DKMDT_VIDEO_OUTPUT_TECHNOLOGY,
@@ -469,13 +469,13 @@ impl Default for D3DKMDT_VIDEO_SIGNAL_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDEO_SIGNAL_INFO_0_0 {
     pub _bitfield: super::d3dukmdt::D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
 }
 pub type D3DKMDT_VIDEO_SIGNAL_STANDARD = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_HW_CAPABILITY {
     pub _bitfield: u32,
 }
@@ -503,7 +503,7 @@ impl Default for D3DKMDT_VIDPN_PRESENT_PATH {
 }
 pub type D3DKMDT_VIDPN_PRESENT_PATH_CONTENT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
     pub CopyProtectionType: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE,
     pub APSTriggerBits: u32,
@@ -516,7 +516,7 @@ impl Default for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
     pub _bitfield: u32,
 }
@@ -527,18 +527,18 @@ pub type D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = i32;
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_INDEX(pub usize);
 pub type D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
     pub _bitfield: u32,
 }
 pub type D3DKMDT_VIDPN_PRESENT_PATH_SCALING = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
     pub Scaling: D3DKMDT_VIDPN_PRESENT_PATH_SCALING,
     pub ScalingSupport: D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT,
@@ -603,12 +603,12 @@ impl Default for D3DKMDT_VIDPN_TARGET_MODE_0 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_TARGET_MODE_0_0 {
     pub _bitfield: D3DKMDT_MODE_PREFERENCE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIRTUALGPUSURFACEDATA {
     pub Size: u64,
     pub Alignment: u32,
@@ -731,7 +731,7 @@ impl Default for D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_WIRE_FORMAT_AND_PREFERENCE_0 {
     pub _bitfield: D3DKMDT_MODE_PREFERENCE,
 }
@@ -789,7 +789,7 @@ pub struct D3DKMT_DRIVERCAPS_EXT_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_MOVE_RECT {
     pub SourcePoint: super::windef::POINT,
     pub DestRect: super::windef::RECT,
@@ -850,7 +850,7 @@ impl Default for D3DKMT_WDDM_1_2_CAPS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_WDDM_1_2_CAPS_0_0 {
     pub _bitfield: u32,
 }
@@ -1057,7 +1057,7 @@ pub type DXGKARG_FENCESTORAGEVALUETYPE = i32;
 pub type DXGKARG_GETNODEMETADATA = DXGK_NODEMETADATA;
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKARG_SETPALETTE {
     pub VidPnSourceId: super::d3dukmdt::D3DDDI_VIDEO_PRESENT_SOURCE_ID,
     pub FirstEntry: u32,
@@ -1228,7 +1228,7 @@ pub const DXGKMDT_OPM_DVI_CHARACTERISTICS_FORCE_ULONG: DXGKDT_OPM_DVI_CHARACTERI
 pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_0: DXGKDT_OPM_DVI_CHARACTERISTICS = 1;
 pub const DXGKMDT_OPM_DVI_CHARACTERISTIC_1_1_OR_ABOVE: DXGKDT_OPM_DVI_CHARACTERISTICS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_ENCRYPTED_PARAMETERS {
     pub abEncryptedParameters: [u8; 256],
 }
@@ -1272,7 +1272,7 @@ pub const DXGKMDT_OPM_HDCP_FLAG_NONE: DXGKMDT_OPM_HDCP_FLAG = 0;
 pub const DXGKMDT_OPM_HDCP_FLAG_REPEATER: DXGKMDT_OPM_HDCP_FLAG = 1;
 pub const DXGKMDT_OPM_HDCP_FORCE_ULONG: DXGKMDT_OPM_HDCP_PROTECTION_LEVEL = 2147483647;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_HDCP_KEY_SELECTION_VECTOR {
     pub abKeySelectionVector: [u8; 5],
 }
@@ -1293,7 +1293,7 @@ pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_INTERLEAVED_ODD_FIRST: DXGKMDT_OPM_INTER
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_OTHER: DXGKMDT_OPM_INTERLEAVE_FORMAT = 0;
 pub const DXGKMDT_OPM_INTERLEAVE_FORMAT_PROGRESSIVE: DXGKMDT_OPM_INTERLEAVE_FORMAT = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_OMAC {
     pub abOMAC: [u8; 16],
 }
@@ -1343,7 +1343,7 @@ pub const DXGKMDT_OPM_PROTECTION_TYPE_OTHER: DXGKMDT_OPM_PROTECTION_TYPE = -2147
 pub const DXGKMDT_OPM_PROTECTION_TYPE_SIZE: u32 = 4;
 pub const DXGKMDT_OPM_PROTECTION_TYPE_TYPE_ENFORCEMENT_HDCP: DXGKMDT_OPM_PROTECTION_TYPE = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXGKMDT_OPM_RANDOM_NUMBER {
     pub abRandomNumber: [u8; 16],
 }
@@ -1617,7 +1617,7 @@ pub type DXGK_DISPLAYMUX_SUPPORT_LEVEL = i32;
 pub type DXGK_DISPLAY_DESCRIPTOR_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "d3dukmdt", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXGK_DISPLAY_INFORMATION {
     pub Width: u32,
     pub Height: u32,

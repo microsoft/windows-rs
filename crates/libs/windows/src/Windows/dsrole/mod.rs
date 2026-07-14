@@ -15,13 +15,13 @@ where
 pub type DSROLE_MACHINE_ROLE = i32;
 pub type DSROLE_OPERATION_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSROLE_OPERATION_STATE_INFO {
     pub OperationState: DSROLE_OPERATION_STATE,
 }
 pub const DSROLE_PRIMARY_DOMAIN_GUID_PRESENT: u32 = 16777216;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSROLE_PRIMARY_DOMAIN_INFO_BASIC {
     pub MachineRole: DSROLE_MACHINE_ROLE,
     pub Flags: u32,
@@ -37,7 +37,7 @@ pub const DSROLE_PRIMARY_DS_RUNNING: u32 = 1;
 pub type DSROLE_SERVER_STATE = i32;
 pub const DSROLE_UPGRADE_IN_PROGRESS: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSROLE_UPGRADE_STATUS_INFO {
     pub OperationState: u32,
     pub PreviousServerState: DSROLE_SERVER_STATE,

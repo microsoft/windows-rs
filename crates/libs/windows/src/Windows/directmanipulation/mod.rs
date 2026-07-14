@@ -264,7 +264,7 @@ impl IDirectManipulationCompositor2_Vtbl {
 }
 impl windows_core::RuntimeName for IDirectManipulationCompositor2 {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDirectManipulationCompositorPartner(pub u8);
 windows_core::imp::define_interface!(IDirectManipulationContent, IDirectManipulationContent_Vtbl, 0xb89962cb_3d89_442b_bb58_5098fa0f9f16);
 windows_core::imp::interface_hierarchy!(IDirectManipulationContent, windows_core::IUnknown);
@@ -300,13 +300,13 @@ impl IDirectManipulationContent {
         unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), id) }
     }
     pub unsafe fn GetOutputTransform(&self, matrix: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputTransform)(windows_core::Interface::as_raw(self), matrix.as_mut_ptr(), matrix.len().try_into().unwrap()) }
     }
     pub unsafe fn GetContentTransform(&self, matrix: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContentTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetContentTransform)(windows_core::Interface::as_raw(self), matrix.as_mut_ptr(), matrix.len().try_into().unwrap()) }
     }
     pub unsafe fn SyncContentTransform(&self, matrix: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SyncContentTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SyncContentTransform)(windows_core::Interface::as_raw(self), matrix.as_ptr(), matrix.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -415,7 +415,7 @@ impl IDirectManipulationContent_Vtbl {
 #[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IDirectManipulationContent {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDirectManipulationContent2(pub u8);
 windows_core::imp::define_interface!(IDirectManipulationDeferContactService, IDirectManipulationDeferContactService_Vtbl, 0x652d5c71_fe60_4a98_be70_e5f21291e7f1);
 windows_core::imp::interface_hierarchy!(IDirectManipulationDeferContactService, windows_core::IUnknown);
@@ -870,19 +870,19 @@ impl IDirectManipulationManager3_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
 impl windows_core::RuntimeName for IDirectManipulationManager3 {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDirectManipulationManagerPartner(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDirectManipulationParametricMotionBehavior(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDirectManipulationParametricMotionCurve(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDirectManipulationParametricRestPointBehavior(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDirectManipulationParametricRestPointList(pub u8);
 windows_core::imp::define_interface!(IDirectManipulationPrimaryContent, IDirectManipulationPrimaryContent_Vtbl, 0xc12851e4_1698_4625_b9b1_7ca3ec18630b);
 windows_core::imp::interface_hierarchy!(IDirectManipulationPrimaryContent, windows_core::IUnknown);
@@ -891,7 +891,7 @@ impl IDirectManipulationPrimaryContent {
         unsafe { (windows_core::Interface::vtable(self).SetSnapInterval)(windows_core::Interface::as_raw(self), motion, interval, offset) }
     }
     pub unsafe fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: Option<&[f32]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSnapPoints)(windows_core::Interface::as_raw(self), motion, core::mem::transmute(points.map_or(core::ptr::null(), |slice| slice.as_ptr())), points.map_or(0, |slice| slice.len().try_into().unwrap())) }
+        unsafe { (windows_core::Interface::vtable(self).SetSnapPoints)(windows_core::Interface::as_raw(self), motion, points.map_or(core::ptr::null(), |slice| slice.as_ptr()), points.map_or(0, |slice| slice.len().try_into().unwrap())) }
     }
     pub unsafe fn SetSnapType(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, r#type: DIRECTMANIPULATION_SNAPPOINT_TYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSnapType)(windows_core::Interface::as_raw(self), motion, r#type) }
@@ -909,7 +909,7 @@ impl IDirectManipulationPrimaryContent {
         unsafe { (windows_core::Interface::vtable(self).SetVerticalAlignment)(windows_core::Interface::as_raw(self), alignment) }
     }
     pub unsafe fn GetInertiaEndTransform(&self, matrix: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetInertiaEndTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetInertiaEndTransform)(windows_core::Interface::as_raw(self), matrix.as_mut_ptr(), matrix.len().try_into().unwrap()) }
     }
     pub unsafe fn GetCenterPoint(&self, centerx: *mut f32, centery: *mut f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCenterPoint)(windows_core::Interface::as_raw(self), centerx as _, centery as _) }
@@ -1015,10 +1015,10 @@ impl IDirectManipulationPrimaryContent_Vtbl {
 }
 impl windows_core::RuntimeName for IDirectManipulationPrimaryContent {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDirectManipulationPrimaryContent2(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDirectManipulationSnapPointsInertiaBehavior(pub u8);
 windows_core::imp::define_interface!(IDirectManipulationUpdateHandler, IDirectManipulationUpdateHandler_Vtbl, 0x790b6337_64f8_4ff5_a269_b32bc2af27a7);
 windows_core::imp::interface_hierarchy!(IDirectManipulationUpdateHandler, windows_core::IUnknown);
@@ -1182,10 +1182,10 @@ impl IDirectManipulationViewport {
         unsafe { (windows_core::Interface::vtable(self).ZoomToRect)(windows_core::Interface::as_raw(self), left, top, right, bottom, animate.into()) }
     }
     pub unsafe fn SetViewportTransform(&self, matrix: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetViewportTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetViewportTransform)(windows_core::Interface::as_raw(self), matrix.as_ptr(), matrix.len().try_into().unwrap()) }
     }
     pub unsafe fn SyncDisplayTransform(&self, matrix: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SyncDisplayTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SyncDisplayTransform)(windows_core::Interface::as_raw(self), matrix.as_ptr(), matrix.len().try_into().unwrap()) }
     }
     pub unsafe fn GetPrimaryContent<T>(&self) -> windows_core::Result<T>
     where
@@ -1630,7 +1630,7 @@ impl IDirectManipulationViewport2_Vtbl {
 #[cfg(feature = "windef")]
 impl windows_core::RuntimeName for IDirectManipulationViewport2 {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDirectManipulationViewport3(pub u8);
 windows_core::imp::define_interface!(IDirectManipulationViewportEventHandler, IDirectManipulationViewportEventHandler_Vtbl, 0x952121da_d69f_45f9_b0f9_f23944321a6d);
 windows_core::imp::interface_hierarchy!(IDirectManipulationViewportEventHandler, windows_core::IUnknown);
@@ -1701,5 +1701,5 @@ impl IDirectManipulationViewportEventHandler_Vtbl {
 }
 impl windows_core::RuntimeName for IDirectManipulationViewportEventHandler {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IDirectManipulationViewportPartner(pub u8);

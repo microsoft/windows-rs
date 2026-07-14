@@ -6,7 +6,7 @@ pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1;
 pub const ENLISTMENT_OBJECT_PATH: windows_core::PCWSTR = windows_core::w!("\\Enlistment\\");
 pub const ENLISTMENT_SUPERIOR: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KCRM_MARSHAL_HEADER {
     pub VersionMajor: u32,
     pub VersionMinor: u32,
@@ -14,7 +14,7 @@ pub struct KCRM_MARSHAL_HEADER {
     pub Unused: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KCRM_PROTOCOL_BLOB {
     pub ProtocolId: CRM_PROTOCOL_ID,
     pub StaticInfoLength: u32,
@@ -23,7 +23,7 @@ pub struct KCRM_PROTOCOL_BLOB {
     pub Unused2: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KCRM_TRANSACTION_BLOB {
     pub UOW: UOW,
     pub TmIdentity: windows_core::GUID,
@@ -79,7 +79,7 @@ pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63;
 pub const TRANSACTION_MANAGER_VOLATILE: u32 = 1;
 pub const TRANSACTION_MAXIMUM_OPTION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION {
     pub TransactionKey: *mut core::ffi::c_void,
     pub TransactionNotification: u32,
@@ -92,14 +92,14 @@ impl Default for TRANSACTION_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     pub MarshalCookie: u32,
     pub UOW: windows_core::GUID,
 }
 pub type TRANSACTION_NOTIFICATION_PROMOTE_ARGUMENT = TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     pub PropagationCookie: u32,
     pub UOW: windows_core::GUID,
@@ -107,18 +107,18 @@ pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     pub BufferLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     pub EnlistmentId: windows_core::GUID,
     pub UOW: UOW,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     pub SavepointId: SAVEPOINT_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     pub TmIdentity: windows_core::GUID,
     pub Flags: u32,

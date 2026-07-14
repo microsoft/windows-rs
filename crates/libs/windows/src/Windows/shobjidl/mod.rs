@@ -346,7 +346,7 @@ windows_core::imp::define_interface!(ICDBurn, ICDBurn_Vtbl, 0x3d73a659_e5d0_4d42
 windows_core::imp::interface_hierarchy!(ICDBurn, windows_core::IUnknown);
 impl ICDBurn {
     pub unsafe fn GetRecorderDriveLetter(&self, pszdrive: windows_core::PWSTR, cch: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRecorderDriveLetter)(windows_core::Interface::as_raw(self), core::mem::transmute(pszdrive), cch) }
+        unsafe { (windows_core::Interface::vtable(self).GetRecorderDriveLetter)(windows_core::Interface::as_raw(self), pszdrive, cch) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn Burn(&self, hwnd: super::windef::HWND) -> windows_core::HRESULT {
@@ -477,7 +477,7 @@ impl ICommDlgBrowser3 {
         unsafe { (windows_core::Interface::vtable(self).OnColumnClicked)(windows_core::Interface::as_raw(self), ppshv.param().abi(), icolumn) }
     }
     pub unsafe fn GetCurrentFilter(&self, pszfilespec: windows_core::PWSTR, cchfilespec: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfilespec), cchfilespec) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentFilter)(windows_core::Interface::as_raw(self), pszfilespec, cchfilespec) }
     }
     #[cfg(feature = "oleidl")]
     pub unsafe fn OnPreViewCreated<P0>(&self, ppshv: P0) -> windows_core::HRESULT
@@ -574,7 +574,7 @@ impl IComputerInfoChangeNotify_Vtbl {
 }
 impl windows_core::RuntimeName for IComputerInfoChangeNotify {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IControlMarkup(pub u8);
 pub const IDD_WIZEXTN_FIRST: u32 = 20480;
 pub const IDD_WIZEXTN_LAST: u32 = 20736;
@@ -1439,7 +1439,7 @@ impl IInsertItem_Vtbl {
 #[cfg(feature = "shtypes")]
 impl windows_core::RuntimeName for IInsertItem {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMarkupCallback(pub u8);
 windows_core::imp::define_interface!(INameSpaceTreeAccessible, INameSpaceTreeAccessible_Vtbl, 0x71f312de_43ed_4190_8477_e9536b82350b);
 windows_core::imp::interface_hierarchy!(INameSpaceTreeAccessible, windows_core::IUnknown);
@@ -1659,11 +1659,11 @@ impl INameSpaceTreeControlCustomDraw {
     }
     #[cfg(all(feature = "commctrl", feature = "minwindef", feature = "shobjidl_core", feature = "windef"))]
     pub unsafe fn ItemPrePaint(&self, hdc: super::windef::HDC, prc: *const super::windef::RECT, pnstccditem: *const NSTCCUSTOMDRAW, pclrtext: *mut super::windef::COLORREF, pclrtextbk: *mut super::windef::COLORREF, plres: *mut super::minwindef::LRESULT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ItemPrePaint)(windows_core::Interface::as_raw(self), hdc, prc, core::mem::transmute(pnstccditem), pclrtext as _, pclrtextbk as _, plres as _) }
+        unsafe { (windows_core::Interface::vtable(self).ItemPrePaint)(windows_core::Interface::as_raw(self), hdc, prc, pnstccditem, pclrtext as _, pclrtextbk as _, plres as _) }
     }
     #[cfg(all(feature = "commctrl", feature = "shobjidl_core", feature = "windef"))]
     pub unsafe fn ItemPostPaint(&self, hdc: super::windef::HDC, prc: *const super::windef::RECT, pnstccditem: *const NSTCCUSTOMDRAW) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ItemPostPaint)(windows_core::Interface::as_raw(self), hdc, prc, core::mem::transmute(pnstccditem)) }
+        unsafe { (windows_core::Interface::vtable(self).ItemPostPaint)(windows_core::Interface::as_raw(self), hdc, prc, pnstccditem) }
     }
 }
 #[repr(C)]
@@ -1960,7 +1960,7 @@ impl INameSpaceTreeControlEvents {
     where
         P0: windows_core::Param<super::shobjidl_core::IShellItem>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnGetToolTip)(windows_core::Interface::as_raw(self), psi.param().abi(), core::mem::transmute(psztip.as_ptr()), psztip.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).OnGetToolTip)(windows_core::Interface::as_raw(self), psi.param().abi(), core::mem::transmute(psztip.as_mut_ptr()), psztip.len().try_into().unwrap()) }
     }
     #[cfg(feature = "shobjidl_core")]
     pub unsafe fn OnBeforeItemDelete<P0>(&self, psi: P0) -> windows_core::HRESULT
@@ -3591,7 +3591,7 @@ windows_core::imp::interface_hierarchy!(IWizardExtension, windows_core::IUnknown
 impl IWizardExtension {
     #[cfg(feature = "prsht")]
     pub unsafe fn AddPages(&self, apages: &mut [super::prsht::HPROPSHEETPAGE], pnpagesadded: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPages)(windows_core::Interface::as_raw(self), core::mem::transmute(apages.as_ptr()), apages.len().try_into().unwrap(), pnpagesadded as _) }
+        unsafe { (windows_core::Interface::vtable(self).AddPages)(windows_core::Interface::as_raw(self), apages.as_mut_ptr(), apages.len().try_into().unwrap(), pnpagesadded as _) }
     }
     #[cfg(feature = "prsht")]
     pub unsafe fn GetFirstPage(&self) -> windows_core::Result<super::prsht::HPROPSHEETPAGE> {
@@ -3784,7 +3784,7 @@ pub type LPVIEWSETTINGS = *mut i8;
 pub const MergedCategorizer: windows_core::GUID = windows_core::GUID::from_u128(0x8e827c11_33e7_4bc1_b242_8cd9a1c2b304);
 #[repr(C)]
 #[cfg(all(feature = "commctrl", feature = "shobjidl_core"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct NSTCCUSTOMDRAW {
     pub psi: core::mem::ManuallyDrop<Option<super::shobjidl_core::IShellItem>>,
     pub uItemState: u32,

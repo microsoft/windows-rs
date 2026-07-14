@@ -157,29 +157,29 @@ pub type PREPL_INFO_1001 = *mut REPL_INFO_1001;
 pub type PREPL_INFO_1002 = *mut REPL_INFO_1002;
 pub type PREPL_INFO_1003 = *mut REPL_INFO_1003;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPL_EDIR_INFO_0 {
     pub rped0_dirname: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPL_EDIR_INFO_1 {
     pub rped1_dirname: windows_core::PWSTR,
     pub rped1_integrity: u32,
     pub rped1_extent: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPL_EDIR_INFO_1000 {
     pub rped1000_integrity: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPL_EDIR_INFO_1001 {
     pub rped1001_extent: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPL_EDIR_INFO_2 {
     pub rped2_dirname: windows_core::PWSTR,
     pub rped2_integrity: u32,
@@ -193,12 +193,12 @@ pub const REPL_EXTENT_FILE: u32 = 1;
 pub const REPL_EXTENT_TREE: u32 = 2;
 pub const REPL_GUARDTIME_INFOLEVEL: u32 = 1002;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPL_IDIR_INFO_0 {
     pub rpid0_dirname: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPL_IDIR_INFO_1 {
     pub rpid1_dirname: windows_core::PWSTR,
     pub rpid1_state: u32,
@@ -208,7 +208,7 @@ pub struct REPL_IDIR_INFO_1 {
     pub rpid1_locktime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPL_INFO_0 {
     pub rp0_role: u32,
     pub rp0_exportpath: windows_core::PWSTR,
@@ -222,22 +222,22 @@ pub struct REPL_INFO_0 {
     pub rp0_random: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPL_INFO_1000 {
     pub rp1000_interval: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPL_INFO_1001 {
     pub rp1001_pulse: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPL_INFO_1002 {
     pub rp1002_guardtime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPL_INFO_1003 {
     pub rp1003_random: u32,
 }

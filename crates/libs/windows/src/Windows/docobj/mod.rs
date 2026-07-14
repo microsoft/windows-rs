@@ -142,7 +142,7 @@ impl IOleCommandTarget {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Exec(&self, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::oaidl::VARIANT, pvaout: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Exec)(windows_core::Interface::as_raw(self), pguidcmdgroup, ncmdid, ncmdexecopt, core::mem::transmute(pvain), core::mem::transmute(pvaout)) }
+        unsafe { (windows_core::Interface::vtable(self).Exec)(windows_core::Interface::as_raw(self), pguidcmdgroup, ncmdid, ncmdexecopt, pvain, pvaout) }
     }
 }
 #[repr(C)]
@@ -579,7 +579,7 @@ impl IPrint {
     where
         P4: windows_core::Param<IContinueCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Print)(windows_core::Interface::as_raw(self), grfflags, pptd as _, pppageset as _, core::mem::transmute(pstgmoptions), pcallback.param().abi(), nfirstpage, pcpagesprinted as _, pnlastpage as _) }
+        unsafe { (windows_core::Interface::vtable(self).Print)(windows_core::Interface::as_raw(self), grfflags, pptd as _, pppageset as _, pstgmoptions, pcallback.param().abi(), nfirstpage, pcpagesprinted as _, pnlastpage as _) }
     }
 }
 #[repr(C)]
@@ -854,7 +854,7 @@ pub const MSOCMDTEXTF_NAME: u32 = 1;
 pub const MSOCMDTEXTF_NONE: u32 = 0;
 pub const MSOCMDTEXTF_STATUS: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OLECMD {
     pub cmdID: u32,
     pub cmdf: u32,
@@ -1051,7 +1051,7 @@ pub const OLECMDID_WINDOWSTATECHANGED: OLECMDID = 65;
 pub type OLECMDID_WINDOWSTATE_FLAG = i32;
 pub const OLECMDID_ZOOM: OLECMDID = 19;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OLECMDTEXT {
     pub cmdtextf: u32,
     pub cwActual: u32,
@@ -1074,13 +1074,13 @@ pub const PAGEACTION_UI_MODAL: PAGEACTION_UI = 1;
 pub const PAGEACTION_UI_MODELESS: PAGEACTION_UI = 2;
 pub const PAGEACTION_UI_SILENT: PAGEACTION_UI = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PAGERANGE {
     pub nFromPage: i32,
     pub nToPage: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PAGESET {
     pub cbStruct: u32,
     pub fOddPages: windows_core::BOOL,

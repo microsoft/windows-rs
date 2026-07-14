@@ -53,7 +53,7 @@ impl ICertAdmin {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetCertificateExtension(&self, strconfig: &windows_core::BSTR, requestid: i32, strextensionname: &windows_core::BSTR, r#type: i32, flags: i32, pvarvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCertificateExtension)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), requestid, core::mem::transmute_copy(strextensionname), r#type, flags, core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetCertificateExtension)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), requestid, core::mem::transmute_copy(strextensionname), r#type, flags, pvarvalue) }
     }
     pub unsafe fn DenyRequest(&self, strconfig: &windows_core::BSTR, requestid: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DenyRequest)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), requestid) }
@@ -250,7 +250,7 @@ impl ICertAdmin2 {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetCAProperty(&self, strconfig: &windows_core::BSTR, propid: i32, propindex: i32, proptype: i32, pvarpropertyvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCAProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), propid, propindex, proptype, core::mem::transmute(pvarpropertyvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetCAProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), propid, propindex, proptype, pvarpropertyvalue) }
     }
     pub unsafe fn GetCAPropertyFlags(&self, strconfig: &windows_core::BSTR, propid: i32) -> windows_core::Result<i32> {
         unsafe {
@@ -279,7 +279,7 @@ impl ICertAdmin2 {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetConfigEntry(&self, strconfig: &windows_core::BSTR, strnodepath: &windows_core::BSTR, strentryname: &windows_core::BSTR, pvarentry: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetConfigEntry)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), core::mem::transmute_copy(strnodepath), core::mem::transmute_copy(strentryname), core::mem::transmute(pvarentry)) }
+        unsafe { (windows_core::Interface::vtable(self).SetConfigEntry)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), core::mem::transmute_copy(strnodepath), core::mem::transmute_copy(strentryname), pvarentry) }
     }
     pub unsafe fn ImportKey(&self, strconfig: &windows_core::BSTR, requestid: i32, strcerthash: &windows_core::BSTR, flags: i32, strkey: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ImportKey)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), requestid, core::mem::transmute_copy(strcerthash), flags, core::mem::transmute_copy(strkey)) }
@@ -528,7 +528,7 @@ impl IOCSPAdmin {
     pub unsafe fn GetSigningCertificates(&self, bstrservername: &windows_core::BSTR, pcacertvar: *const super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSigningCertificates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrservername), core::mem::transmute(pcacertvar), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).GetSigningCertificates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrservername), pcacertvar, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
@@ -1521,7 +1521,7 @@ impl IOCSPPropertyCollection {
     pub unsafe fn CreateProperty(&self, bstrpropname: &windows_core::BSTR, pvarpropvalue: *const super::oaidl::VARIANT) -> windows_core::Result<IOCSPProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropname), core::mem::transmute(pvarpropvalue), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropname), pvarpropvalue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn DeleteProperty(&self, bstrpropname: &windows_core::BSTR) -> windows_core::HRESULT {
@@ -1529,7 +1529,7 @@ impl IOCSPPropertyCollection {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn InitializeFromProperties(&self, pvarproperties: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InitializeFromProperties)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarproperties)) }
+        unsafe { (windows_core::Interface::vtable(self).InitializeFromProperties)(windows_core::Interface::as_raw(self), pvarproperties) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAllProperties(&self) -> windows_core::Result<super::oaidl::VARIANT> {

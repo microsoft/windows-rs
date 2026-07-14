@@ -99,11 +99,11 @@ impl IPortableDevicePropVariantCollection {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAt(&self, dwindex: u32, pvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), dwindex, pvalue) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Add(&self, pvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute(pvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), pvalue) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn GetType(&self) -> windows_core::Result<super::wtypes::VARTYPE> {
@@ -233,11 +233,11 @@ impl IPortableDeviceValues {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetAt(&self, index: u32, pkey: *mut super::wtypes::PROPERTYKEY, pvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, pkey as _, core::mem::transmute(pvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).GetAt)(windows_core::Interface::as_raw(self), index, pkey as _, pvalue) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, key: *const super::wtypes::PROPERTYKEY, pvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), key, core::mem::transmute(pvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), key, pvalue) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self, key: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::propidlbase::PROPVARIANT> {

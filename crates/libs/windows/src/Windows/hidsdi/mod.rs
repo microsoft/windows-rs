@@ -116,7 +116,7 @@ pub unsafe fn HidD_SetOutputReport(hiddeviceobject: super::winnt::HANDLE, report
     unsafe { HidD_SetOutputReport(hiddeviceobject, reportbuffer, reportbufferlength) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDD_ATTRIBUTES {
     pub Size: u32,
     pub VendorID: u16,
@@ -125,7 +125,7 @@ pub struct HIDD_ATTRIBUTES {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIDD_CONFIGURATION {
     pub cookie: *mut core::ffi::c_void,
     pub size: u32,

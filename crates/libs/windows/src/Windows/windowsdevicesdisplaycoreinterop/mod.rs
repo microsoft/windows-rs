@@ -15,7 +15,7 @@ impl IDisplayDeviceInterop {
     pub unsafe fn OpenSharedHandle(&self, nthandle: super::winnt::HANDLE, riid: windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OpenSharedHandle)(windows_core::Interface::as_raw(self), nthandle, core::mem::transmute(riid), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).OpenSharedHandle)(windows_core::Interface::as_raw(self), nthandle, riid, &mut result__).map(|| result__)
         }
     }
 }

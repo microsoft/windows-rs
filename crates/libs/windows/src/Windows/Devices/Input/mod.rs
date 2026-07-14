@@ -342,7 +342,7 @@ impl windows_core::RuntimeName for MouseCapabilities {
 unsafe impl Send for MouseCapabilities {}
 unsafe impl Sync for MouseCapabilities {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MouseDelta {
     pub X: i32,
     pub Y: i32,

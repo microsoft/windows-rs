@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundDownloadProgress {
     pub BytesReceived: u64,
     pub TotalBytesToReceive: u64,
@@ -457,7 +457,7 @@ impl windows_core::RuntimeName for BackgroundTransferError {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferError";
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundTransferFileRange {
     pub Offset: u64,
     pub Length: u64,
@@ -586,7 +586,7 @@ impl windows_core::RuntimeType for BackgroundTransferStatus {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Networking.BackgroundTransfer.BackgroundTransferStatus");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BackgroundUploadProgress {
     pub BytesReceived: u64,
     pub BytesSent: u64,

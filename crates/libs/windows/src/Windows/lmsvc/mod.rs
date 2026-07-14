@@ -35,7 +35,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetServiceInstall(servername : windows_core::PCWSTR, service : windows_core::PCWSTR, argc : u32, argv : *const windows_core::PCWSTR, bufptr : *mut super::minwindef::LPBYTE) -> u32);
-    unsafe { NetServiceInstall(servername.param().abi(), service.param().abi(), argv.len().try_into().unwrap(), core::mem::transmute(argv.as_ptr()), bufptr as _) }
+    unsafe { NetServiceInstall(servername.param().abi(), service.param().abi(), argv.len().try_into().unwrap(), argv.as_ptr(), bufptr as _) }
 }
 pub const LM20_SERVICE_ACTIVE: u32 = 0;
 pub const LM20_SERVICE_CONTINUE_PENDING: u32 = 4;
@@ -64,12 +64,12 @@ pub const SERVICE_CTRL_REDIR_PRINT: u32 = 2;
 pub const SERVICE_CTRL_UNINSTALL: u32 = 3;
 pub const SERVICE_DOS_ENCRYPTION: windows_core::PCWSTR = windows_core::w!("ENCRYPT");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_INFO_0 {
     pub svci0_name: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_INFO_1 {
     pub svci1_name: windows_core::PWSTR,
     pub svci1_status: u32,
@@ -77,7 +77,7 @@ pub struct SERVICE_INFO_1 {
     pub svci1_pid: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SERVICE_INFO_2 {
     pub svci2_name: windows_core::PWSTR,
     pub svci2_status: u32,

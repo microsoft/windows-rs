@@ -2,7 +2,7 @@ pub const L2_NOTIFICATION_CODE_GROUP_SIZE: u32 = 4096;
 pub const L2_NOTIFICATION_CODE_PUBLIC_BEGIN: u32 = 0;
 pub const L2_NOTIFICATION_CODE_V2_BEGIN: u32 = 4096;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct L2_NOTIFICATION_DATA {
     pub NotificationSource: u32,
     pub NotificationCode: u32,

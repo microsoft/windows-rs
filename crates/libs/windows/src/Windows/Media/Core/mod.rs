@@ -5593,7 +5593,7 @@ impl windows_core::RuntimeName for MseStreamSource {
 unsafe impl Send for MseStreamSource {}
 unsafe impl Sync for MseStreamSource {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MseTimeRange {
     pub Start: windows_time::TimeSpan,
     pub End: windows_time::TimeSpan,

@@ -761,7 +761,7 @@ pub const ILR_VERTICAL_BOTTOM: u32 = 32;
 pub const ILR_VERTICAL_CENTER: u32 = 16;
 pub const ILR_VERTICAL_TOP: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGELISTSTATS {
     pub cbSize: u32,
     pub cAlloc: i32,

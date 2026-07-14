@@ -49,7 +49,7 @@ pub const CI_PROVIDER_ALL: u32 = 4294967295;
 pub const CI_PROVIDER_INDEXING_SERVICE: u32 = 2;
 pub const CI_PROVIDER_MSSEARCH: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CI_STATE {
     pub cbStruct: u32,
     pub cWordList: u32,

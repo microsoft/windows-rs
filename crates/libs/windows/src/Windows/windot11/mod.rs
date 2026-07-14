@@ -5,7 +5,7 @@ pub const DISCOVERY_FILTER_BITMASK_GO: u32 = 2;
 pub type DOT11_AC_PARAM = i32;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ADDITIONAL_IE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uBeaconIEsOffset: u32,
@@ -15,14 +15,14 @@ pub struct DOT11_ADDITIONAL_IE {
 }
 pub const DOT11_ADDITIONAL_IE_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_AKM_CIPHER_PAIR {
     pub akm: RSNA_AKM_SUITE,
     pub cipher: RSNA_CIPHER_SUITE,
 }
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ANQP_QUERY_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Status: DOT11_ANQP_QUERY_RESULT,
@@ -33,7 +33,7 @@ pub const DOT11_ANQP_QUERY_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 pub type DOT11_ANQP_QUERY_RESULT = i32;
 #[repr(C)]
 #[cfg(feature = "wlan")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_AP_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
     pub OperationalRateSet: DOT11_RATE_SET,
@@ -42,7 +42,7 @@ pub struct DOT11_AP_JOIN_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub MacAddr: DOT11_MAC_ADDRESS,
@@ -80,7 +80,7 @@ impl Default for DOT11_ASSOCIATION_COMPLETION_PARAMETERS {
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
 pub const DOT11_ASSOCIATION_COMPLETION_PARAMETERS_REVISION_2: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_INFO_EX {
     pub PeerMacAddress: DOT11_MAC_ADDRESS,
     pub BSSID: DOT11_MAC_ADDRESS,
@@ -103,7 +103,7 @@ impl Default for DOT11_ASSOCIATION_INFO_EX {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_INFO_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -119,7 +119,7 @@ impl Default for DOT11_ASSOCIATION_INFO_LIST {
 pub const DOT11_ASSOCIATION_INFO_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_PARAMS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub BSSID: DOT11_MAC_ADDRESS,
@@ -135,7 +135,7 @@ impl Default for DOT11_ASSOCIATION_PARAMS {
 pub const DOT11_ASSOCIATION_PARAMS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ASSOCIATION_START_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub MacAddr: DOT11_MAC_ADDRESS,
@@ -185,7 +185,7 @@ pub const DOT11_ASSOC_STATUS_SYSTEM_ERROR: u32 = 10;
 pub const DOT11_ASSOC_STATUS_UNREACHABLE: u32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AUTH_ALGORITHM_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -202,7 +202,7 @@ pub const DOT11_AUTH_ALGORITHM_LIST_REVISION_1: u32 = 1;
 pub const DOT11_AUTH_ALGO_MICHAEL: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AUTH_CIPHER_PAIR_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -218,7 +218,7 @@ impl Default for DOT11_AUTH_CIPHER_PAIR_LIST {
 pub const DOT11_AUTH_CIPHER_PAIR_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AVAILABLE_CHANNEL_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -234,7 +234,7 @@ impl Default for DOT11_AVAILABLE_CHANNEL_LIST {
 pub const DOT11_AVAILABLE_CHANNEL_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_AVAILABLE_FREQUENCY_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -250,7 +250,7 @@ impl Default for DOT11_AVAILABLE_FREQUENCY_LIST {
 pub const DOT11_AVAILABLE_FREQUENCY_LIST_REVISION_1: u32 = 1;
 pub type DOT11_BAND = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BSSID_CANDIDATE {
     pub BSSID: DOT11_MAC_ADDRESS,
     pub uFlags: u32,
@@ -262,7 +262,7 @@ impl Default for DOT11_BSSID_CANDIDATE {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BSSID_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -278,7 +278,7 @@ impl Default for DOT11_BSSID_LIST {
 pub const DOT11_BSSID_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "wlan")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BSS_DESCRIPTION {
     pub uReserved: u32,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
@@ -332,7 +332,7 @@ impl Default for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
     pub uHopPattern: u32,
     pub uHopSet: u32,
@@ -340,7 +340,7 @@ pub struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_BYTE_ARRAY {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfBytes: u32,
@@ -355,7 +355,7 @@ impl Default for DOT11_BYTE_ARRAY {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CAN_SUSTAIN_AP_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub ulReason: u32,
@@ -379,14 +379,14 @@ pub const DOT11_CCA_MODE_ED_ONLY: u32 = 1;
 pub const DOT11_CCA_MODE_ED_and_CS: u32 = 4;
 pub const DOT11_CCA_MODE_HRCS_AND_ED: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CHANNEL_HINT {
     pub Dot11PhyType: DOT11_PHY_TYPE,
     pub uChannelNumber: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CIPHER_ALGORITHM_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -402,7 +402,7 @@ impl Default for DOT11_CIPHER_ALGORITHM_LIST {
 pub const DOT11_CIPHER_ALGORITHM_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CIPHER_DEFAULT_KEY_VALUE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uKeyIndex: u32,
@@ -422,7 +422,7 @@ impl Default for DOT11_CIPHER_DEFAULT_KEY_VALUE {
 pub const DOT11_CIPHER_DEFAULT_KEY_VALUE_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "wlan")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CIPHER_KEY_MAPPING_KEY_VALUE {
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
     pub AlgorithmId: super::wlan::DOT11_CIPHER_ALGORITHM,
@@ -443,7 +443,7 @@ pub const DOT11_CONF_ALGO_TKIP: u32 = 2;
 pub const DOT11_CONF_ALGO_WEP_RC4: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uStatus: DOT11_ASSOC_STATUS,
@@ -451,7 +451,7 @@ pub struct DOT11_CONNECTION_COMPLETION_PARAMETERS {
 pub const DOT11_CONNECTION_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_CONNECTION_START_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub BSSType: super::wlan::DOT11_BSS_TYPE,
@@ -473,7 +473,7 @@ pub const DOT11_CONNECTION_STATUS_IHV_START: i32 = -2147483648;
 pub const DOT11_CONNECTION_STATUS_PHY_POWER_DOWN: u32 = 3;
 pub const DOT11_CONNECTION_STATUS_SUCCESS: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_COUNTERS_ENTRY {
     pub uTransmittedFragmentCount: u32,
     pub uMulticastTransmittedFrameCount: u32,
@@ -492,7 +492,7 @@ pub struct DOT11_COUNTERS_ENTRY {
 pub type DOT11_COUNTRY_OR_REGION_STRING = [u8; 3];
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_COUNTRY_OR_REGION_STRING_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -507,19 +507,19 @@ impl Default for DOT11_COUNTRY_OR_REGION_STRING_LIST {
 }
 pub const DOT11_COUNTRY_OR_REGION_STRING_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CURRENT_OFFLOAD_CAPABILITY {
     pub uReserved: u32,
     pub uFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CURRENT_OPERATION_MODE {
     pub uReserved: u32,
     pub uCurrentOpMode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
     pub bDot11CFPollable: bool,
@@ -529,7 +529,7 @@ pub struct DOT11_CURRENT_OPTIONAL_CAPABILITY {
 }
 pub const DOT11_DATA_RATE_INDEX_MASK: u32 = 127;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_DATA_RATE_MAPPING_ENTRY {
     pub ucDataRateIndex: u8,
     pub ucDataRateFlag: u8,
@@ -537,7 +537,7 @@ pub struct DOT11_DATA_RATE_MAPPING_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DATA_RATE_MAPPING_TABLE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uDataRateMappingLength: u32,
@@ -553,7 +553,7 @@ pub const DOT11_DATA_RATE_MAPPING_TABLE_REVISION_1: u32 = 1;
 pub const DOT11_DATA_RATE_NON_STANDARD: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DEFAULT_WEP_OFFLOAD {
     pub uReserved: u32,
     pub hOffloadContext: super::winnt::HANDLE,
@@ -578,7 +578,7 @@ impl Default for DOT11_DEFAULT_WEP_OFFLOAD {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DEFAULT_WEP_UPLOAD {
     pub uReserved: u32,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
@@ -603,7 +603,7 @@ pub const DOT11_DIR_INBOUND: DOT11_DIRECTION = 1;
 pub const DOT11_DIR_OUTBOUND: DOT11_DIRECTION = 2;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DISASSOCIATE_PEER_REQUEST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
@@ -618,7 +618,7 @@ impl Default for DOT11_DISASSOCIATE_PEER_REQUEST {
 pub const DOT11_DISASSOCIATE_PEER_REQUEST_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DISASSOCIATION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub MacAddr: DOT11_MAC_ADDRESS,
@@ -642,13 +642,13 @@ pub const DOT11_DISASSOC_REASON_PEER_UNREACHABLE: u32 = 2;
 pub const DOT11_DISASSOC_REASON_PHY_DISABLED: u32 = 4;
 pub const DOT11_DISASSOC_REASON_RADIO_OFF: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_DIVERSITY_SELECTION_RX {
     pub uAntennaListIndex: u32,
     pub bDiversitySelectionRX: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_DIVERSITY_SELECTION_RX_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -666,14 +666,14 @@ pub const DOT11_DS_UNCHANGED: DOT11_DS_INFO = 1;
 pub const DOT11_DS_UNKNOWN: DOT11_DS_INFO = 2;
 pub const DOT11_ENCAP_802_1H: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ENCAP_ENTRY {
     pub usEtherType: u16,
     pub usEncapType: u16,
 }
 pub const DOT11_ENCAP_RFC_1042: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ERP_PHY_ATTRIBUTES {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
     pub bERPPBCCOptionImplemented: bool,
@@ -688,7 +688,7 @@ pub const DOT11_EXEMPT_ON_KEY_MAPPING_KEY_UNAVAILABLE: u32 = 2;
 pub const DOT11_EXEMPT_UNICAST: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_EXTAP_ATTRIBUTES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uScanSSIDListSize: u32,
@@ -714,7 +714,7 @@ pub type DOT11_EXTAP_SEND_CONTEXT = DOT11_EXTSTA_SEND_CONTEXT;
 pub const DOT11_EXTAP_SEND_CONTEXT_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_EXTSTA_ATTRIBUTES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uScanSSIDListSize: u32,
@@ -760,7 +760,7 @@ pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_OID_SUPPORTED: u32 = 1;
 pub const DOT11_EXTSTA_ATTRIBUTES_SAFEMODE_RESERVED: u32 = 12;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_EXTSTA_CAPABILITY {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uScanSSIDListSize: u32,
@@ -777,7 +777,7 @@ pub struct DOT11_EXTSTA_CAPABILITY {
 pub const DOT11_EXTSTA_CAPABILITY_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_EXTSTA_RECV_CONTEXT {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uReceiveFlags: u32,
@@ -799,7 +799,7 @@ impl Default for DOT11_EXTSTA_RECV_CONTEXT {
 pub const DOT11_EXTSTA_RECV_CONTEXT_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_EXTSTA_SEND_CONTEXT {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub usExemptionActionType: u16,
@@ -824,7 +824,7 @@ pub const DOT11_FLAGS_80211G_NON_ERP_PRESENT: u32 = 64;
 pub const DOT11_FLAGS_80211G_USE_PROTECTION: u32 = 32;
 pub const DOT11_FLAGS_PS_ON: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_FRAGMENT_DESCRIPTOR {
     pub uOffset: u32,
     pub uLength: u32,
@@ -834,7 +834,7 @@ pub const DOT11_FREQUENCY_BANDS_MIDDLE: u32 = 2;
 pub const DOT11_FREQUENCY_BANDS_UPPER: u32 = 4;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
@@ -852,7 +852,7 @@ impl Default for DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS {
 pub const DOT11_GO_NEGOTIATION_CONFIRMATION_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
@@ -870,7 +870,7 @@ impl Default for DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS {
 pub const DOT11_GO_NEGOTIATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
@@ -889,13 +889,13 @@ pub const DOT11_GO_NEGOTIATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32
 pub type DOT11_HESSID = [u8; 6];
 pub const DOT11_HESSID_LENGTH: u32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_HOPPING_PATTERN_ENTRY {
     pub uHoppingPatternIndex: u32,
     pub uRandomTableFieldNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_HOPPING_PATTERN_ENTRY_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -908,7 +908,7 @@ impl Default for DOT11_HOPPING_PATTERN_ENTRY_LIST {
 }
 pub type DOT11_HOP_ALGO_ADOPTED = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_HRDSSS_PHY_ATTRIBUTES {
     pub bShortPreambleOptionImplemented: bool,
     pub bPBCCOptionImplemented: bool,
@@ -928,7 +928,7 @@ pub const DOT11_HW_WEP_SUPPORTED_RX: u32 = 2;
 pub const DOT11_HW_WEP_SUPPORTED_TX: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_IBSS_PARAMS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub bJoinOnly: bool,
@@ -938,7 +938,7 @@ pub struct DOT11_IBSS_PARAMS {
 pub const DOT11_IBSS_PARAMS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
@@ -967,7 +967,7 @@ impl Default for DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS {
 pub const DOT11_INCOMING_ASSOC_COMPLETION_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_DECISION {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
@@ -986,7 +986,7 @@ pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_1: u32 = 1;
 pub const DOT11_INCOMING_ASSOC_DECISION_REVISION_2: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_DECISION_V2 {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
@@ -1004,7 +1004,7 @@ impl Default for DOT11_INCOMING_ASSOC_DECISION_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
@@ -1021,7 +1021,7 @@ impl Default for DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS {
 pub const DOT11_INCOMING_ASSOC_REQUEST_RECEIVED_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INCOMING_ASSOC_STARTED_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
@@ -1036,7 +1036,7 @@ pub const DOT11_INCOMING_ASSOC_STARTED_PARAMETERS_REVISION_1: u32 = 1;
 pub const DOT11_INVALID_CHANNEL_NUMBER: u32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
@@ -1055,7 +1055,7 @@ impl Default for DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS {
 pub const DOT11_INVITATION_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
@@ -1072,14 +1072,14 @@ impl Default for DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS {
 }
 pub const DOT11_INVITATION_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_IV48_COUNTER {
     pub uIV32Counter: u32,
     pub usIV16Counter: u16,
 }
 #[repr(C)]
 #[cfg(feature = "wlan")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_JOIN_REQUEST {
     pub uJoinFailureTimeout: u32,
     pub OperationalRateSet: DOT11_RATE_SET,
@@ -1087,7 +1087,7 @@ pub struct DOT11_JOIN_REQUEST {
     pub dot11BSSDescription: DOT11_BSS_DESCRIPTION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_BIP {
     pub ucIPN: [u8; 6],
     pub ulBIPKeyLength: u32,
@@ -1099,7 +1099,7 @@ impl Default for DOT11_KEY_ALGO_BIP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_BIP_GMAC_256 {
     pub ucIPN: [u8; 6],
     pub ulBIPGmac256KeyLength: u32,
@@ -1111,7 +1111,7 @@ impl Default for DOT11_KEY_ALGO_BIP_GMAC_256 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_CCMP {
     pub ucIV48Counter: [u8; 6],
     pub ulCCMPKeyLength: u32,
@@ -1123,7 +1123,7 @@ impl Default for DOT11_KEY_ALGO_CCMP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_GCMP {
     pub ucIV48Counter: [u8; 6],
     pub ulGCMPKeyLength: u32,
@@ -1135,7 +1135,7 @@ impl Default for DOT11_KEY_ALGO_GCMP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_GCMP_256 {
     pub ucIV48Counter: [u8; 6],
     pub ulGCMP256KeyLength: u32,
@@ -1147,7 +1147,7 @@ impl Default for DOT11_KEY_ALGO_GCMP_256 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_KEY_ALGO_TKIP_MIC {
     pub ucIV48Counter: [u8; 6],
     pub ulTKIPKeyLength: u32,
@@ -1161,7 +1161,7 @@ impl Default for DOT11_KEY_ALGO_TKIP_MIC {
 }
 pub type DOT11_KEY_DIRECTION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_LINK_QUALITY_ENTRY {
     pub PeerMacAddr: DOT11_MAC_ADDRESS,
     pub ucLinkQuality: u8,
@@ -1173,7 +1173,7 @@ impl Default for DOT11_LINK_QUALITY_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_LINK_QUALITY_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uLinkQualityListSize: u32,
@@ -1183,7 +1183,7 @@ pub const DOT11_LINK_QUALITY_PARAMETERS_REVISION_1: u32 = 1;
 pub type DOT11_MAC_ADDRESS = [u8; 6];
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MAC_ADDRESS_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -1199,7 +1199,7 @@ impl Default for DOT11_MAC_ADDRESS_LIST {
 pub const DOT11_MAC_ADDRESS_LIST_REVISION_1: u32 = 1;
 pub const DOT11_MAC_AUTO_CONFIG_ENABLED_FLAG: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MAC_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullReceivedFrameCount: u64,
@@ -1217,7 +1217,7 @@ pub struct DOT11_MAC_FRAME_STATISTICS {
     pub ullDecryptFailureCount: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MAC_INFO {
     pub uReserved: u32,
     pub uNdisPortNumber: u32,
@@ -1230,7 +1230,7 @@ impl Default for DOT11_MAC_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MAC_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uOpmodeMask: u32,
@@ -1238,7 +1238,7 @@ pub struct DOT11_MAC_PARAMETERS {
 pub const DOT11_MAC_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub dot11ManufacturingCallbackType: DOT11_MANUFACTURING_CALLBACK_TYPE,
@@ -1254,14 +1254,14 @@ impl Default for DOT11_MANUFACTURING_CALLBACK_PARAMETERS {
 pub const DOT11_MANUFACTURING_CALLBACK_REVISION_1: u32 = 1;
 pub type DOT11_MANUFACTURING_CALLBACK_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_QUERY_ADC {
     pub Dot11Band: DOT11_BAND,
     pub uChannel: u32,
     pub ADCPowerLevel: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     pub bEnabled: bool,
     pub Dot11Band: DOT11_BAND,
@@ -1269,7 +1269,7 @@ pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_RX {
     pub PowerLevel: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     pub bEnable: bool,
     pub bOpenLoop: bool,
@@ -1279,7 +1279,7 @@ pub struct DOT11_MANUFACTURING_FUNCTIONAL_TEST_TX {
     pub ADCPowerLevel: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
     pub uTestID: u32,
@@ -1295,7 +1295,7 @@ impl Default for DOT11_MANUFACTURING_SELF_TEST_QUERY_RESULTS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_SELF_TEST_SET_PARAMS {
     pub SelfTestType: DOT11_MANUFACTURING_SELF_TEST_TYPE,
     pub uTestID: u32,
@@ -1314,7 +1314,7 @@ pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_BT_COEXISTENCE: DOT11_MANUFACTURING
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 1;
 pub const DOT11_MANUFACTURING_SELF_TEST_TYPE_RF_INTERFACE: DOT11_MANUFACTURING_SELF_TEST_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST {
     pub dot11ManufacturingTestType: DOT11_MANUFACTURING_TEST_TYPE,
     pub uBufferLength: u32,
@@ -1326,7 +1326,7 @@ impl Default for DOT11_MANUFACTURING_TEST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_QUERY_DATA {
     pub uKey: u32,
     pub uOffset: u32,
@@ -1341,7 +1341,7 @@ impl Default for DOT11_MANUFACTURING_TEST_QUERY_DATA {
 }
 pub const DOT11_MANUFACTURING_TEST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_SET_DATA {
     pub uKey: u32,
     pub uOffset: u32,
@@ -1354,7 +1354,7 @@ impl Default for DOT11_MANUFACTURING_TEST_SET_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MANUFACTURING_TEST_SLEEP {
     pub uSleepTime: u32,
     pub pvContext: *mut core::ffi::c_void,
@@ -1372,7 +1372,7 @@ pub const DOT11_MAX_NUM_OF_FRAGMENTS: u32 = 16;
 pub const DOT11_MAX_PDU_SIZE: u32 = 2346;
 pub const DOT11_MAX_REQUESTED_SERVICE_INFORMATION_LENGTH: u32 = 255;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_MD_CAPABILITY_ENTRY_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -1387,7 +1387,7 @@ pub const DOT11_MIN_PDU_SIZE: u32 = 256;
 pub const DOT11_MIN_SIZEOF_OFFLOAD_NETWORK_LIST_INFO_REVISION_1: u32 = 24;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MPDU_MAX_LENGTH_INDICATION {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uPhyId: u32,
@@ -1395,7 +1395,7 @@ pub struct DOT11_MPDU_MAX_LENGTH_INDICATION {
 }
 pub const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     pub uMultiDomainCapabilityIndex: u32,
     pub uFirstChannelNumber: u32,
@@ -1403,7 +1403,7 @@ pub struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
     pub lMaximumTransmitPowerLevel: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_NIC_SPECIFIC_EXTENSION {
     pub uBufferLength: u32,
     pub uTotalBufferLength: u32,
@@ -1418,12 +1418,12 @@ pub const DOT11_NLO_FLAG_SCAN_AT_SYSTEM_RESUME: u32 = 4;
 pub const DOT11_NLO_FLAG_SCAN_ON_AOAC_PLATFORM: u32 = 2;
 pub const DOT11_NLO_FLAG_STOP_NLO_INDICATION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OFDM_PHY_ATTRIBUTES {
     pub uFrequencyBandsSupported: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_CAPABILITY {
     pub uReserved: u32,
     pub uFlags: u32,
@@ -1435,7 +1435,7 @@ pub struct DOT11_OFFLOAD_CAPABILITY {
 }
 #[repr(C)]
 #[cfg(feature = "wlan")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK {
     pub Ssid: super::wlan::DOT11_SSID,
     pub UnicastCipher: super::wlan::DOT11_CIPHER_ALGORITHM,
@@ -1450,7 +1450,7 @@ impl Default for DOT11_OFFLOAD_NETWORK {
 }
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK_LIST_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub ulFlags: u32,
@@ -1469,7 +1469,7 @@ impl Default for DOT11_OFFLOAD_NETWORK_LIST_INFO {
 pub const DOT11_OFFLOAD_NETWORK_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Status: super::types::NDIS_STATUS,
@@ -1478,7 +1478,7 @@ pub const DOT11_OFFLOAD_NETWORK_STATUS_PARAMETERS_REVISION_1: u32 = 1;
 pub type DOT11_OFFLOAD_TYPE = i32;
 pub const DOT11_OPERATION_MODE_AP: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OPERATION_MODE_CAPABILITY {
     pub uReserved: u32,
     pub uMajorVersion: u32,
@@ -1497,7 +1497,7 @@ pub const DOT11_OPERATION_MODE_WFD_CLIENT: u32 = 64;
 pub const DOT11_OPERATION_MODE_WFD_DEVICE: u32 = 16;
 pub const DOT11_OPERATION_MODE_WFD_GROUP_OWNER: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_OPTIONAL_CAPABILITY {
     pub uReserved: u32,
     pub bDot11PCF: bool,
@@ -1522,7 +1522,7 @@ pub const DOT11_PACKET_TYPE_PROMISCUOUS_MGMT: u32 = 1024;
 pub const DOT11_PACKET_TYPE_RESERVED: i32 = -32768;
 #[repr(C)]
 #[cfg(feature = "wlan")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PEER_INFO {
     pub MacAddress: DOT11_MAC_ADDRESS,
     pub usCapabilityInformation: u16,
@@ -1546,7 +1546,7 @@ impl Default for DOT11_PEER_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PEER_INFO_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -1561,7 +1561,7 @@ impl Default for DOT11_PEER_INFO_LIST {
 }
 pub const DOT11_PEER_INFO_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PEER_STATISTICS {
     pub ullDecryptSuccessCount: u64,
     pub ullDecryptFailureCount: u64,
@@ -1571,7 +1571,7 @@ pub struct DOT11_PEER_STATISTICS {
     pub ullRxPacketFailureCount: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PER_MSDU_COUNTERS {
     pub uTransmittedFragmentCount: u32,
     pub uRetryCount: u32,
@@ -1621,7 +1621,7 @@ impl Default for DOT11_PHY_ATTRIBUTES_0 {
 pub const DOT11_PHY_ATTRIBUTES_REVISION_1: u32 = 1;
 pub const DOT11_PHY_AUTO_CONFIG_ENABLED_FLAG: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PHY_FRAME_STATISTICS {
     pub ullTransmittedFrameCount: u64,
     pub ullMulticastTransmittedFrameCount: u64,
@@ -1673,7 +1673,7 @@ pub const DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_REVISION_1: u32 = 1;
 pub const DOT11_PHY_ID_ANY: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PHY_ID_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -1689,7 +1689,7 @@ impl Default for DOT11_PHY_ID_LIST {
 pub const DOT11_PHY_ID_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PHY_STATE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uPhyId: u32,
@@ -1699,7 +1699,7 @@ pub struct DOT11_PHY_STATE_PARAMETERS {
 pub const DOT11_PHY_STATE_PARAMETERS_REVISION_1: u32 = 1;
 pub type DOT11_PHY_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PHY_TYPE_INFO {
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub bUseParameters: bool,
@@ -1717,7 +1717,7 @@ impl Default for DOT11_PHY_TYPE_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PHY_TYPE_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -1733,7 +1733,7 @@ impl Default for DOT11_PHY_TYPE_LIST {
 pub const DOT11_PHY_TYPE_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uCandidateListSize: u32,
@@ -1742,7 +1742,7 @@ pub struct DOT11_PMKID_CANDIDATE_LIST_PARAMETERS {
 pub const DOT11_PMKID_CANDIDATE_LIST_PARAMETERS_REVISION_1: u32 = 1;
 pub const DOT11_PMKID_CANDIDATE_PREAUTH_ENABLED: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PMKID_ENTRY {
     pub BSSID: DOT11_MAC_ADDRESS,
     pub PMKID: DOT11_PMKID_VALUE,
@@ -1755,7 +1755,7 @@ impl Default for DOT11_PMKID_ENTRY {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PMKID_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -1772,7 +1772,7 @@ pub const DOT11_PMKID_LIST_REVISION_1: u32 = 1;
 pub type DOT11_PMKID_VALUE = [u8; 16];
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PORT_STATE_NOTIFICATION {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerMac: DOT11_MAC_ADDRESS,
@@ -1787,14 +1787,14 @@ impl Default for DOT11_PORT_STATE_NOTIFICATION {
 pub const DOT11_PORT_STATE_NOTIFICATION_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_POWER_MGMT_AUTO_MODE_ENABLED_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub bEnabled: bool,
 }
 pub const DOT11_POWER_MGMT_AUTO_MODE_ENABLED_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_POWER_MGMT_MODE {
     pub dot11PowerMode: DOT11_POWER_MODE,
     pub uPowerSaveLevel: u32,
@@ -1804,7 +1804,7 @@ pub struct DOT11_POWER_MGMT_MODE {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_POWER_MGMT_MODE_STATUS_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PowerSaveMode: DOT11_POWER_MODE,
@@ -1823,7 +1823,7 @@ pub const DOT11_POWER_SAVING_NO_POWER_SAVING: u32 = 0;
 pub const DOT11_PRIORITY_CONTENTION: u32 = 0;
 pub const DOT11_PRIORITY_CONTENTION_FREE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_PRIVACY_EXEMPTION {
     pub usEtherType: u16,
     pub usExemptionActionType: u16,
@@ -1831,7 +1831,7 @@ pub struct DOT11_PRIVACY_EXEMPTION {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PRIVACY_EXEMPTION_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -1847,7 +1847,7 @@ impl Default for DOT11_PRIVACY_EXEMPTION_LIST {
 pub const DOT11_PRIVACY_EXEMPTION_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
@@ -1866,7 +1866,7 @@ impl Default for DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS {
 pub const DOT11_PROVISION_DISCOVERY_REQUEST_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
@@ -1884,7 +1884,7 @@ impl Default for DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS {
 pub const DOT11_PROVISION_DISCOVERY_RESPONSE_SEND_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_QOS_PARAMS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub ucEnabledQoSProtocolFlags: u8,
@@ -1893,14 +1893,14 @@ pub const DOT11_QOS_PARAMS_REVISION_1: u32 = 1;
 pub const DOT11_QOS_PROTOCOL_FLAG_11E: u32 = 2;
 pub const DOT11_QOS_PROTOCOL_FLAG_WMM: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_QOS_TX_DURATION {
     pub uNominalMSDUSize: u32,
     pub uMinPHYRate: u32,
     pub uDuration: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_QOS_TX_MEDIUM_TIME {
     pub dot11PeerAddress: DOT11_MAC_ADDRESS,
     pub ucQoSPriority: u8,
@@ -1912,7 +1912,7 @@ impl Default for DOT11_QOS_TX_MEDIUM_TIME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RATE_SET {
     pub uRateSetLength: u32,
     pub ucRateSet: [u8; 126],
@@ -1925,7 +1925,7 @@ impl Default for DOT11_RATE_SET {
 pub const DOT11_RATE_SET_MAX_LENGTH: u32 = 126;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
@@ -1942,7 +1942,7 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
 pub const DOT11_RECEIVED_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
@@ -1960,7 +1960,7 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS {
 pub const DOT11_RECEIVED_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
@@ -1978,7 +1978,7 @@ impl Default for DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 pub const DOT11_RECEIVED_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
@@ -1997,7 +1997,7 @@ impl Default for DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS {
 pub const DOT11_RECEIVED_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
@@ -2015,7 +2015,7 @@ impl Default for DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS {
 pub const DOT11_RECEIVED_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
@@ -2034,7 +2034,7 @@ impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub TransmitterDeviceAddress: DOT11_MAC_ADDRESS,
@@ -2052,7 +2052,7 @@ impl Default for DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
 pub const DOT11_RECEIVED_PROVISION_DISCOVERY_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECV_EXTENSION_INFO {
     pub uVersion: u32,
     pub pvReserved: *mut core::ffi::c_void,
@@ -2086,7 +2086,7 @@ impl Default for DOT11_RECV_EXTENSION_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RECV_EXTENSION_INFO_V2 {
     pub uVersion: u32,
     pub pvReserved: *mut core::ffi::c_void,
@@ -2120,7 +2120,7 @@ pub const DOT11_RECV_FLAG_RAW_PACKET: u32 = 1;
 pub const DOT11_RECV_FLAG_RAW_PACKET_FCS_FAILURE: u32 = 2;
 pub const DOT11_RECV_FLAG_RAW_PACKET_TIMESTAMP: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_RECV_SENSITIVITY {
     pub ucDataRate: u8,
     pub lRSSIMin: i32,
@@ -2151,7 +2151,7 @@ impl Default for DOT11_RECV_SENSITIVITY_LIST_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_REG_DOMAINS_SUPPORT_VALUE {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -2170,13 +2170,13 @@ pub const DOT11_REG_DOMAIN_MKK: u32 = 64;
 pub const DOT11_REG_DOMAIN_OTHER: u32 = 0;
 pub const DOT11_REG_DOMAIN_SPAIN: u32 = 49;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_REG_DOMAIN_VALUE {
     pub uRegDomainsSupportIndex: u32,
     pub uRegDomainsSupportValue: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_RESET_REQUEST {
     pub dot11ResetType: DOT11_RESET_TYPE,
     pub dot11MacAddress: DOT11_MAC_ADDRESS,
@@ -2190,7 +2190,7 @@ impl Default for DOT11_RESET_REQUEST {
 pub type DOT11_RESET_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_ROAMING_COMPLETION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uStatus: DOT11_ASSOC_STATUS,
@@ -2203,7 +2203,7 @@ pub const DOT11_ROAMING_REASON_IHV_END: i32 = -1;
 pub const DOT11_ROAMING_REASON_IHV_START: i32 = -2147483648;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_ROAMING_START_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub AdhocBSSID: DOT11_MAC_ADDRESS,
@@ -2218,7 +2218,7 @@ impl Default for DOT11_ROAMING_START_PARAMETERS {
 }
 pub const DOT11_ROAMING_START_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_RSSI_RANGE {
     pub dot11PhyType: DOT11_PHY_TYPE,
     pub uRSSIMin: u32,
@@ -2226,7 +2226,7 @@ pub struct DOT11_RSSI_RANGE {
 }
 #[repr(C)]
 #[cfg(feature = "wlan")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SCAN_REQUEST {
     pub dot11BSSType: super::wlan::DOT11_BSS_TYPE,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
@@ -2250,7 +2250,7 @@ impl Default for DOT11_SCAN_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "wlan")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SCAN_REQUEST_V2 {
     pub dot11BSSType: super::wlan::DOT11_BSS_TYPE,
     pub dot11BSSID: DOT11_MAC_ADDRESS,
@@ -2276,7 +2276,7 @@ impl Default for DOT11_SCAN_REQUEST_V2 {
 pub type DOT11_SCAN_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
@@ -2299,7 +2299,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS {
 pub const DOT11_SEND_GO_NEGOTIATION_CONFIRMATION_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
@@ -2321,7 +2321,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS {
 pub const DOT11_SEND_GO_NEGOTIATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub PeerDeviceAddress: DOT11_MAC_ADDRESS,
@@ -2347,7 +2347,7 @@ impl Default for DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS {
 pub const DOT11_SEND_GO_NEGOTIATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub DialogToken: DOT11_DIALOG_TOKEN,
@@ -2373,7 +2373,7 @@ impl Default for DOT11_SEND_INVITATION_REQUEST_PARAMETERS {
 pub const DOT11_SEND_INVITATION_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
@@ -2398,7 +2398,7 @@ impl Default for DOT11_SEND_INVITATION_RESPONSE_PARAMETERS {
 pub const DOT11_SEND_INVITATION_RESPONSE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub DialogToken: DOT11_DIALOG_TOKEN,
@@ -2419,7 +2419,7 @@ impl Default for DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS {
 pub const DOT11_SEND_PROVISION_DISCOVERY_REQUEST_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SEND_PROVISION_DISCOVERY_RESPONSE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub ReceiverDeviceAddress: DOT11_MAC_ADDRESS,
@@ -2441,7 +2441,7 @@ pub const DOT11_SERVICE_CLASS_STRICTLY_ORDERED: u32 = 1;
 pub const DOT11_SIZEOF_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: u32 = 12;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "wlan"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SSID_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -2457,7 +2457,7 @@ impl Default for DOT11_SSID_LIST {
 pub const DOT11_SSID_LIST_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "wlan")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_START_REQUEST {
     pub uStartFailureTimeout: u32,
     pub OperationalRateSet: DOT11_RATE_SET,
@@ -2466,7 +2466,7 @@ pub struct DOT11_START_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_STATISTICS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub ullFourWayHandshakeFailures: u64,
@@ -2494,7 +2494,7 @@ pub const DOT11_STATUS_GENERATE_AUTH_FAILED: u32 = 16384;
 pub const DOT11_STATUS_ICV_VERIFIED: u32 = 2048;
 #[repr(C)]
 #[cfg(feature = "types")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_STATUS_INDICATION {
     pub uStatusType: u32,
     pub ndisStatus: super::types::NDIS_STATUS,
@@ -2518,7 +2518,7 @@ pub const DOT11_STATUS_WEP_KEY_UNAVAILABLE: u32 = 1024;
 pub const DOT11_STATUS_XMIT_MSDU_TIMER_EXPIRED: u32 = 64;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_STOP_AP_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub ulReason: u32,
@@ -2530,13 +2530,13 @@ pub const DOT11_STOP_AP_REASON_FREQUENCY_NOT_AVAILABLE: u32 = 1;
 pub const DOT11_STOP_AP_REASON_IHV_END: u32 = 4294967295;
 pub const DOT11_STOP_AP_REASON_IHV_START: u32 = 4278190080;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_ANTENNA {
     pub uAntennaListIndex: u32,
     pub bSupportedAntenna: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_ANTENNA_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -2548,7 +2548,7 @@ impl Default for DOT11_SUPPORTED_ANTENNA_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_DATA_RATES_VALUE {
     pub ucSupportedTxDataRatesValue: [u8; 8],
     pub ucSupportedRxDataRatesValue: [u8; 8],
@@ -2560,7 +2560,7 @@ impl Default for DOT11_SUPPORTED_DATA_RATES_VALUE {
 }
 pub type DOT11_SUPPORTED_DATA_RATES_VALUE_V1 = DOT11_SUPPORTED_DATA_RATES_VALUE_V2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     pub ucSupportedTxDataRatesValue: [u8; 255],
     pub ucSupportedRxDataRatesValue: [u8; 255],
@@ -2571,12 +2571,12 @@ impl Default for DOT11_SUPPORTED_DATA_RATES_VALUE_V2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_DSSS_CHANNEL {
     pub uChannel: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -2588,12 +2588,12 @@ impl Default for DOT11_SUPPORTED_DSSS_CHANNEL_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_OFDM_FREQUENCY {
     pub uCenterFrequency: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -2605,7 +2605,7 @@ impl Default for DOT11_SUPPORTED_OFDM_FREQUENCY_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_PHY_TYPES {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -2617,7 +2617,7 @@ impl Default for DOT11_SUPPORTED_PHY_TYPES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_SUPPORTED_POWER_LEVELS {
     pub uNumOfSupportedPowerLevels: u32,
     pub uTxPowerLevelValues: [u32; 8],
@@ -2630,7 +2630,7 @@ impl Default for DOT11_SUPPORTED_POWER_LEVELS {
 pub type DOT11_TEMP_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_TKIPMIC_FAILURE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub bDefaultKeyFailure: bool,
@@ -2645,7 +2645,7 @@ impl Default for DOT11_TKIPMIC_FAILURE_PARAMETERS {
 }
 pub const DOT11_TKIPMIC_FAILURE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_UPDATE_IE {
     pub dot11UpdateIEOp: DOT11_UPDATE_IE_OP,
     pub uBufferLength: u32,
@@ -2659,7 +2659,7 @@ impl Default for DOT11_UPDATE_IE {
 pub type DOT11_UPDATE_IE_OP = i32;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_VWIFI_ATTRIBUTES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uTotalNumOfEntries: u32,
@@ -2674,7 +2674,7 @@ impl Default for DOT11_VWIFI_ATTRIBUTES {
 pub const DOT11_VWIFI_ATTRIBUTES_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumInfrastructure: u32,
@@ -2686,7 +2686,7 @@ pub const DOT11_VWIFI_COMBINATION_REVISION_2: u32 = 2;
 pub const DOT11_VWIFI_COMBINATION_REVISION_3: u32 = 3;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION_V2 {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumInfrastructure: u32,
@@ -2696,7 +2696,7 @@ pub struct DOT11_VWIFI_COMBINATION_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_VWIFI_COMBINATION_V3 {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumInfrastructure: u32,
@@ -2707,7 +2707,7 @@ pub struct DOT11_VWIFI_COMBINATION_V3 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WEP_OFFLOAD {
     pub uReserved: u32,
     pub hOffloadContext: super::winnt::HANDLE,
@@ -2733,7 +2733,7 @@ impl Default for DOT11_WEP_OFFLOAD {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WEP_UPLOAD {
     pub uReserved: u32,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
@@ -2750,7 +2750,7 @@ impl Default for DOT11_WEP_UPLOAD {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_ADDITIONAL_IE {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uBeaconIEsOffset: u32,
@@ -2762,7 +2762,7 @@ pub struct DOT11_WFD_ADDITIONAL_IE {
 }
 pub const DOT11_WFD_ADDITIONAL_IE_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     pub AdvertisementID: u32,
     pub ConfigMethods: u16,
@@ -2775,7 +2775,7 @@ impl Default for DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ADVERTISED_SERVICE_LIST {
     pub ServiceCount: u16,
     pub AdvertisedService: [DOT11_WFD_ADVERTISED_SERVICE_DESCRIPTOR; 1],
@@ -2786,7 +2786,7 @@ impl Default for DOT11_WFD_ADVERTISED_SERVICE_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ADVERTISEMENT_ID {
     pub AdvertisementID: u32,
     pub ServiceAddress: DOT11_MAC_ADDRESS,
@@ -2800,7 +2800,7 @@ pub const DOT11_WFD_APS2_SERVICE_TYPE_MAX_LENGTH: u32 = 21;
 pub const DOT11_WFD_ASP2_INSTANCE_NAME_MAX_LENGTH: u32 = 63;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_ATTRIBUTES {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumConcurrentGORole: u32,
@@ -2826,7 +2826,7 @@ impl Default for DOT11_WFD_ATTRIBUTES {
 }
 pub const DOT11_WFD_ATTRIBUTES_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_CHANNEL {
     pub CountryRegionString: DOT11_COUNTRY_OR_REGION_STRING,
     pub OperatingClass: u8,
@@ -2838,7 +2838,7 @@ impl Default for DOT11_WFD_CHANNEL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_CONFIGURATION_TIMEOUT {
     pub GOTimeout: u8,
     pub ClientTimeout: u8,
@@ -2847,7 +2847,7 @@ pub const DOT11_WFD_DEVICE_AUTO_AVAILABILITY: u32 = 16;
 pub const DOT11_WFD_DEVICE_CAPABILITY_CONCURRENT_OPERATION: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_CAPABILITY_CONFIG {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub bServiceDiscoveryEnabled: bool,
@@ -2896,7 +2896,7 @@ impl Default for DOT11_WFD_DEVICE_ENTRY {
 pub const DOT11_WFD_DEVICE_HIGH_AVAILABILITY: u32 = 24;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_INFO {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub DeviceAddress: DOT11_MAC_ADDRESS,
@@ -2913,7 +2913,7 @@ impl Default for DOT11_WFD_DEVICE_INFO {
 pub const DOT11_WFD_DEVICE_INFO_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub ChannelNumber: u8,
@@ -2921,7 +2921,7 @@ pub struct DOT11_WFD_DEVICE_LISTEN_CHANNEL {
 pub const DOT11_WFD_DEVICE_LISTEN_CHANNEL_REVISION_1: u32 = 1;
 pub const DOT11_WFD_DEVICE_NOT_DISCOVERABLE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DEVICE_TYPE {
     pub CategoryID: u16,
     pub SubCategoryID: u16,
@@ -2935,7 +2935,7 @@ impl Default for DOT11_WFD_DEVICE_TYPE {
 pub const DOT11_WFD_DISCOVER_COMPLETE_MAX_LIST_SIZE: u32 = 128;
 #[repr(C)]
 #[cfg(all(feature = "objectheader", feature = "types"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub Status: super::types::NDIS_STATUS,
@@ -2947,7 +2947,7 @@ pub struct DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS {
 pub const DOT11_WFD_DISCOVER_COMPLETE_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "wlan")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_DEVICE_FILTER {
     pub DeviceID: DOT11_MAC_ADDRESS,
     pub ucBitmask: u8,
@@ -2961,7 +2961,7 @@ impl Default for DOT11_WFD_DISCOVER_DEVICE_FILTER {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_DISCOVER_REQUEST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub DiscoverType: DOT11_WFD_DISCOVER_TYPE,
@@ -2976,7 +2976,7 @@ pub struct DOT11_WFD_DISCOVER_REQUEST {
 pub const DOT11_WFD_DISCOVER_REQUEST_REVISION_1: u32 = 1;
 pub type DOT11_WFD_DISCOVER_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_GO_INTENT {
     pub _bitfield: u8,
 }
@@ -2995,7 +2995,7 @@ pub const DOT11_WFD_GROUP_CAPABILITY_PERSISTENT_RECONNECT_SUPPORTED: u32 = 32;
 pub const DOT11_WFD_GROUP_CAPABILITY_RESERVED_7: u32 = 128;
 #[repr(C)]
 #[cfg(feature = "wlan")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_ID {
     pub DeviceAddress: DOT11_MAC_ADDRESS,
     pub SSID: super::wlan::DOT11_SSID,
@@ -3008,7 +3008,7 @@ impl Default for DOT11_WFD_GROUP_ID {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub GOOperatingChannel: DOT11_WFD_CHANNEL,
@@ -3019,7 +3019,7 @@ pub struct DOT11_WFD_GROUP_JOIN_PARAMETERS {
 pub const DOT11_WFD_GROUP_JOIN_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub bPersistentGroupEnabled: bool,
@@ -3033,7 +3033,7 @@ pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_1: u32 = 1;
 pub const DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_REVISION_2: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub bPersistentGroupEnabled: bool,
@@ -3046,14 +3046,14 @@ pub struct DOT11_WFD_GROUP_OWNER_CAPABILITY_CONFIG_V2 {
 }
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_GROUP_START_PARAMETERS {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub AdvertisedOperatingChannel: DOT11_WFD_CHANNEL,
 }
 pub const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_INVITATION_FLAGS {
     pub _bitfield: u8,
 }
@@ -3068,7 +3068,7 @@ pub const DOT11_WFD_MINOR_REASON_SUCCESS: u32 = 0;
 pub type DOT11_WFD_SCAN_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "objectheader")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
     pub Header: super::objectheader::NDIS_OBJECT_HEADER,
     pub uNumOfEntries: u32,
@@ -3084,7 +3084,7 @@ impl Default for DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST {
 pub const DOT11_WFD_SECONDARY_DEVICE_TYPE_LIST_REVISION_1: u32 = 1;
 pub type DOT11_WFD_SERVICE_HASH = [u8; 6];
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SERVICE_HASH_LIST {
     pub ServiceHashCount: u16,
     pub ServiceHash: [DOT11_WFD_SERVICE_HASH; 1],
@@ -3097,7 +3097,7 @@ impl Default for DOT11_WFD_SERVICE_HASH_LIST {
 pub const DOT11_WFD_SERVICE_INFORMATION_MAX_LENGTH: u32 = 65535;
 pub const DOT11_WFD_SERVICE_NAME_MAX_LENGTH: u32 = 255;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SESSION_ID {
     pub SessionID: u32,
     pub SessionAddress: DOT11_MAC_ADDRESS,
@@ -3108,7 +3108,7 @@ impl Default for DOT11_WFD_SESSION_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WFD_SESSION_INFO {
     pub uSessionInfoLength: u16,
     pub ucSessionInfo: [u8; 144],
@@ -3136,7 +3136,7 @@ pub const DOT11_WFD_STATUS_FAILED_UNKNOWN_WFD_GROUP: u32 = 8;
 pub const DOT11_WFD_STATUS_SUCCESS: u32 = 0;
 pub const DOT11_WFD_STATUS_SUCCESS_ACCEPTED_BY_USER: u32 = 12;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WME_AC_PARAMETERS {
     pub ucAccessCategoryIndex: u8,
     pub ucAIFSN: u8,
@@ -3145,7 +3145,7 @@ pub struct DOT11_WME_AC_PARAMETERS {
     pub usTXOPLimit: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WME_AC_PARAMETERS_LIST {
     pub uNumOfEntries: u32,
     pub uTotalNumOfEntries: u32,
@@ -3158,7 +3158,7 @@ impl Default for DOT11_WME_AC_PARAMETERS_LIST {
 }
 pub const DOT11_WME_PACKET: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WME_UPDATE_IE {
     pub uParamElemMinBeaconIntervals: u32,
     pub uWMEInfoElemOffset: u32,
@@ -3174,7 +3174,7 @@ impl Default for DOT11_WME_UPDATE_IE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WPA_TSC {
     pub uReserved: u32,
     pub dot11OffloadType: DOT11_OFFLOAD_TYPE,
@@ -3190,7 +3190,7 @@ pub const DOT11_WPS_CONFIG_METHOD_NULL: DOT11_WPS_CONFIG_METHOD = 0;
 pub const DOT11_WPS_CONFIG_METHOD_PUSHBUTTON: DOT11_WPS_CONFIG_METHOD = 128;
 pub const DOT11_WPS_CONFIG_METHOD_WFDS_DEFAULT: DOT11_WPS_CONFIG_METHOD = 4096;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DOT11_WPS_DEVICE_NAME {
     pub uDeviceNameLength: u32,
     pub ucDeviceName: [u8; 32],
@@ -3800,7 +3800,7 @@ pub type PDOT11_WPS_DEVICE_NAME = *mut DOT11_WPS_DEVICE_NAME;
 pub type PDOT11_WPS_DEVICE_PASSWORD_ID = *mut DOT11_WPS_DEVICE_PASSWORD_ID;
 pub type PWFDSVC_CONNECTION_CAPABILITY = *mut WFDSVC_CONNECTION_CAPABILITY;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RSNA_AKM_CIPHER_PAIR {
     pub akm: RSNA_AKM_SUITE,
     pub cipher: RSNA_CIPHER_SUITE,
@@ -3809,7 +3809,7 @@ pub type RSNA_AKM_SUITE = i32;
 pub type RSNA_CIPHER_SUITE = i32;
 pub const RSNA_OUI_PREFIX: u32 = 11276032;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WFDSVC_CONNECTION_CAPABILITY {
     pub bNew: bool,
     pub bClient: bool,

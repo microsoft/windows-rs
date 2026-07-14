@@ -128,7 +128,7 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
@@ -155,7 +155,7 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION0_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
@@ -199,7 +199,7 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
@@ -226,7 +226,7 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION1_1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION1_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootArray: *mut IKEEXT_CERT_ROOT_CONFIG0,
@@ -270,7 +270,7 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
     pub inboundRootArraySize: u32,
     pub inboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
@@ -283,7 +283,7 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
     pub inboundEnterpriseStoreArraySize: u32,
     pub inboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
@@ -296,7 +296,7 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_0_2 {
     pub inboundRootStoreArraySize: u32,
     pub inboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
@@ -323,7 +323,7 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
     pub outboundRootArraySize: u32,
     pub outboundRootCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
@@ -336,7 +336,7 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
     pub outboundEnterpriseStoreArraySize: u32,
     pub outboundEnterpriseStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
@@ -349,7 +349,7 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
     pub outboundRootStoreArraySize: u32,
     pub outboundTrustedRootStoreCriteria: *mut IKEEXT_CERTIFICATE_CRITERIA0,
@@ -362,7 +362,7 @@ impl Default for IKEEXT_CERTIFICATE_AUTHENTICATION2_1_2 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL0 {
     pub subjectName: super::fwptypes::FWP_BYTE_BLOB,
     pub certHash: super::fwptypes::FWP_BYTE_BLOB,
@@ -370,7 +370,7 @@ pub struct IKEEXT_CERTIFICATE_CREDENTIAL0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_CREDENTIAL1 {
     pub subjectName: super::fwptypes::FWP_BYTE_BLOB,
     pub certHash: super::fwptypes::FWP_BYTE_BLOB,
@@ -379,7 +379,7 @@ pub struct IKEEXT_CERTIFICATE_CREDENTIAL1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CERTIFICATE_CRITERIA0 {
     pub certData: super::fwptypes::FWP_BYTE_BLOB,
     pub certHash: super::fwptypes::FWP_BYTE_BLOB,
@@ -419,7 +419,7 @@ pub const IKEEXT_CERT_CRITERIA_OU: IKEEXT_CERT_CRITERIA_NAME_TYPE = 4;
 pub const IKEEXT_CERT_CRITERIA_RFC822: IKEEXT_CERT_CRITERIA_NAME_TYPE = 2;
 pub const IKEEXT_CERT_CRITERIA_UPN: IKEEXT_CERT_CRITERIA_NAME_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CERT_EKUS0 {
     pub numEku: u32,
     pub eku: *mut windows_core::PSTR,
@@ -439,14 +439,14 @@ pub const IKEEXT_CERT_FLAG_SELECT_NAP_CERTIFICATE: u32 = 64;
 pub const IKEEXT_CERT_FLAG_USE_NAP_CERTIFICATE: u32 = 4;
 pub const IKEEXT_CERT_FLAG_VERIFY_NAP_CERTIFICATE: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERT_NAME0 {
     pub nameType: IKEEXT_CERT_CRITERIA_NAME_TYPE,
     pub certName: windows_core::PWSTR,
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CERT_ROOT_CONFIG0 {
     pub certData: super::fwptypes::FWP_BYTE_BLOB,
     pub flags: u32,
@@ -458,7 +458,7 @@ pub const IKEEXT_CIPHER_AES_256: IKEEXT_CIPHER_TYPE = 4;
 pub const IKEEXT_CIPHER_AES_GCM_128_16ICV: IKEEXT_CIPHER_TYPE = 5;
 pub const IKEEXT_CIPHER_AES_GCM_256_16ICV: IKEEXT_CIPHER_TYPE = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_CIPHER_ALGORITHM0 {
     pub algoIdentifier: IKEEXT_CIPHER_TYPE,
     pub keyLen: u32,
@@ -468,7 +468,7 @@ pub const IKEEXT_CIPHER_DES: IKEEXT_CIPHER_TYPE = 0;
 pub type IKEEXT_CIPHER_TYPE = i32;
 pub const IKEEXT_CIPHER_TYPE_MAX: IKEEXT_CIPHER_TYPE = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_COMMON_STATISTICS0 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0,
@@ -477,7 +477,7 @@ pub struct IKEEXT_COMMON_STATISTICS0 {
     pub currentQueuedWorkitems: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_COMMON_STATISTICS1 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1,
@@ -489,7 +489,7 @@ pub struct IKEEXT_COMMON_STATISTICS1 {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct IKEEXT_COOKIE(pub u64);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_COOKIE_PAIR0 {
     pub initiator: IKEEXT_COOKIE,
     pub responder: IKEEXT_COOKIE,
@@ -580,7 +580,7 @@ impl Default for IKEEXT_CREDENTIAL2_0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CREDENTIALS0 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR0,
@@ -593,7 +593,7 @@ impl Default for IKEEXT_CREDENTIALS0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CREDENTIALS1 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR1,
@@ -606,7 +606,7 @@ impl Default for IKEEXT_CREDENTIALS1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_CREDENTIALS2 {
     pub numCredentials: u32,
     pub credentials: *mut IKEEXT_CREDENTIAL_PAIR2,
@@ -668,7 +668,7 @@ pub const IKEEXT_DH_GROUP_MAX: IKEEXT_DH_GROUP = 7;
 pub const IKEEXT_DH_GROUP_NONE: IKEEXT_DH_GROUP = 0;
 pub const IKEEXT_EAP: IKEEXT_AUTHENTICATION_METHOD_TYPE = 11;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_EAP_AUTHENTICATION0 {
     pub flags: u32,
 }
@@ -676,7 +676,7 @@ pub const IKEEXT_EAP_FLAG_LOCAL_AUTH_ONLY: u32 = 1;
 pub const IKEEXT_EAP_FLAG_REMOTE_AUTH_ONLY: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_EM_POLICY0 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD0,
@@ -690,7 +690,7 @@ impl Default for IKEEXT_EM_POLICY0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_EM_POLICY1 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD1,
@@ -704,7 +704,7 @@ impl Default for IKEEXT_EM_POLICY1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_EM_POLICY2 {
     pub numAuthenticationMethods: u32,
     pub authenticationMethods: *mut IKEEXT_AUTHENTICATION_METHOD2,
@@ -729,7 +729,7 @@ pub const IKEEXT_IMPERSONATION_MAX: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 2
 pub const IKEEXT_IMPERSONATION_NONE: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 0;
 pub const IKEEXT_IMPERSONATION_SOCKET_PRINCIPAL: IKEEXT_AUTHENTICATION_IMPERSONATION_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_INTEGRITY_ALGORITHM0 {
     pub algoIdentifier: IKEEXT_INTEGRITY_TYPE,
 }
@@ -742,7 +742,7 @@ pub const IKEEXT_INTEGRITY_TYPE_MAX: IKEEXT_INTEGRITY_TYPE = 4;
 pub const IKEEXT_IPV6_CGA: IKEEXT_AUTHENTICATION_METHOD_TYPE = 6;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     pub keyContainerName: *mut u16,
     pub cspName: *mut u16,
@@ -757,19 +757,19 @@ impl Default for IKEEXT_IPV6_CGA_AUTHENTICATION0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS0 {
     pub totalSocketReceiveFailures: u32,
     pub totalSocketSendFailures: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_COMMON_STATISTICS1 {
     pub totalSocketReceiveFailures: u32,
     pub totalSocketSendFailures: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
     pub currentActiveMainModes: u32,
     pub totalMainModesStarted: u32,
@@ -791,7 +791,7 @@ pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0 {
     pub totalImpersonationMainModes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
     pub currentActiveMainModes: u32,
     pub totalMainModesStarted: u32,
@@ -814,12 +814,12 @@ pub struct IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1 {
 }
 pub const IKEEXT_KERBEROS: IKEEXT_AUTHENTICATION_METHOD_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION0 {
     pub flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_KERBEROS_AUTHENTICATION1 {
     pub flags: u32,
     pub proxyServer: *mut u16,
@@ -833,7 +833,7 @@ pub const IKEEXT_KERB_AUTH_DISABLE_INITIATOR_TOKEN_GENERATION: u32 = 1;
 pub const IKEEXT_KERB_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 2;
 pub const IKEEXT_KERB_AUTH_FORCE_PROXY_ON_INITIATOR: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_KEYMODULE_STATISTICS0 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS0,
@@ -848,7 +848,7 @@ impl Default for IKEEXT_KEYMODULE_STATISTICS0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_KEYMODULE_STATISTICS1 {
     pub v4Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1,
     pub v6Statistics: IKEEXT_IP_VERSION_SPECIFIC_KEYMODULE_STATISTICS1,
@@ -876,7 +876,7 @@ pub const IKEEXT_MM_SA_STATE_NONE: IKEEXT_MM_SA_STATE = 0;
 pub const IKEEXT_MM_SA_STATE_SA_SENT: IKEEXT_MM_SA_STATE = 1;
 pub const IKEEXT_MM_SA_STATE_SSPI_SENT: IKEEXT_MM_SA_STATE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_NAME_CREDENTIAL0 {
     pub principalName: *mut u16,
 }
@@ -887,14 +887,14 @@ impl Default for IKEEXT_NAME_CREDENTIAL0 {
 }
 pub const IKEEXT_NTLM_V2: IKEEXT_AUTHENTICATION_METHOD_TYPE = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_NTLM_V2_AUTHENTICATION0 {
     pub flags: u32,
 }
 pub const IKEEXT_NTLM_V2_AUTH_DONT_ACCEPT_EXPLICIT_CREDENTIALS: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_POLICY0 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -913,7 +913,7 @@ impl Default for IKEEXT_POLICY0 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_POLICY1 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -933,7 +933,7 @@ impl Default for IKEEXT_POLICY1 {
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IKEEXT_POLICY2 {
     pub softExpirationTime: u32,
     pub numAuthenticationMethods: u32,
@@ -964,19 +964,19 @@ pub const IKEEXT_POLICY_SUPPORT_LOW_POWER_MODE: u32 = 256;
 pub const IKEEXT_PRESHARED_KEY: IKEEXT_AUTHENTICATION_METHOD_TYPE = 0;
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION0 {
     pub presharedKey: super::fwptypes::FWP_BYTE_BLOB,
 }
 #[repr(C)]
 #[cfg(feature = "fwptypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_PRESHARED_KEY_AUTHENTICATION1 {
     pub presharedKey: super::fwptypes::FWP_BYTE_BLOB,
     pub flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_PROPOSAL0 {
     pub cipherAlgorithm: IKEEXT_CIPHER_ALGORITHM0,
     pub integrityAlgorithm: IKEEXT_INTEGRITY_ALGORITHM0,
@@ -994,7 +994,7 @@ pub const IKEEXT_QM_SA_STATE_MAX: IKEEXT_QM_SA_STATE = 4;
 pub const IKEEXT_QM_SA_STATE_NONE: IKEEXT_QM_SA_STATE = 0;
 pub const IKEEXT_RESERVED: IKEEXT_AUTHENTICATION_METHOD_TYPE = 12;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_RESERVED_AUTHENTICATION0 {
     pub flags: u32,
 }
@@ -1122,14 +1122,14 @@ pub const IKEEXT_SSL: IKEEXT_AUTHENTICATION_METHOD_TYPE = 4;
 pub const IKEEXT_SSL_ECDSA_P256: IKEEXT_AUTHENTICATION_METHOD_TYPE = 9;
 pub const IKEEXT_SSL_ECDSA_P384: IKEEXT_AUTHENTICATION_METHOD_TYPE = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_STATISTICS0 {
     pub ikeStatistics: IKEEXT_KEYMODULE_STATISTICS0,
     pub authipStatistics: IKEEXT_KEYMODULE_STATISTICS0,
     pub commonStatistics: IKEEXT_COMMON_STATISTICS0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IKEEXT_STATISTICS1 {
     pub ikeStatistics: IKEEXT_KEYMODULE_STATISTICS1,
     pub authipStatistics: IKEEXT_KEYMODULE_STATISTICS1,

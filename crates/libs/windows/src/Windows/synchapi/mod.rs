@@ -371,13 +371,13 @@ pub unsafe fn TryEnterCriticalSection(lpcriticalsection: super::minwinbase::LPCR
 #[inline]
 pub unsafe fn WaitForMultipleObjects(lphandles: &[super::winnt::HANDLE], bwaitall: bool, dwmilliseconds: u32) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn WaitForMultipleObjects(ncount : u32, lphandles : *const super::winnt::HANDLE, bwaitall : windows_core::BOOL, dwmilliseconds : u32) -> u32);
-    unsafe { WaitForMultipleObjects(lphandles.len().try_into().unwrap(), core::mem::transmute(lphandles.as_ptr()), bwaitall.into(), dwmilliseconds) }
+    unsafe { WaitForMultipleObjects(lphandles.len().try_into().unwrap(), lphandles.as_ptr(), bwaitall.into(), dwmilliseconds) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn WaitForMultipleObjectsEx(lphandles: &[super::winnt::HANDLE], bwaitall: bool, dwmilliseconds: u32, balertable: bool) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn WaitForMultipleObjectsEx(ncount : u32, lphandles : *const super::winnt::HANDLE, bwaitall : windows_core::BOOL, dwmilliseconds : u32, balertable : windows_core::BOOL) -> u32);
-    unsafe { WaitForMultipleObjectsEx(lphandles.len().try_into().unwrap(), core::mem::transmute(lphandles.as_ptr()), bwaitall.into(), dwmilliseconds, balertable.into()) }
+    unsafe { WaitForMultipleObjectsEx(lphandles.len().try_into().unwrap(), lphandles.as_ptr(), bwaitall.into(), dwmilliseconds, balertable.into()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

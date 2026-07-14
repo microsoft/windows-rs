@@ -594,11 +594,11 @@ impl IXAudio2Voice {
         }
     }
     pub unsafe fn SetChannelVolumes(&self, pvolumes: &[f32], operationset: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetChannelVolumes)(windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), core::mem::transmute(pvolumes.as_ptr()), operationset) }
+        unsafe { (windows_core::Interface::vtable(self).SetChannelVolumes)(windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), pvolumes.as_ptr(), operationset) }
     }
     pub unsafe fn GetChannelVolumes(&self, pvolumes: &mut [f32]) {
         unsafe {
-            (windows_core::Interface::vtable(self).GetChannelVolumes)(windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), core::mem::transmute(pvolumes.as_ptr()));
+            (windows_core::Interface::vtable(self).GetChannelVolumes)(windows_core::Interface::as_raw(self), pvolumes.len().try_into().unwrap(), pvolumes.as_mut_ptr());
         }
     }
     pub unsafe fn SetOutputMatrix<P0>(&self, pdestinationvoice: P0, sourcechannels: u32, destinationchannels: u32, plevelmatrix: *const f32, operationset: u32) -> windows_core::HRESULT

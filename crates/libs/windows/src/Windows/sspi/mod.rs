@@ -369,13 +369,13 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("sspicli.dll" "system" fn SecAllocateAndSetCallTarget(lpipaddress : *const u8, cchipaddress : u32, targetname : windows_core::PCWSTR, freecallcontext : *mut i32) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { SecAllocateAndSetCallTarget(core::mem::transmute(lpipaddress.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpipaddress.map_or(0, |slice| slice.len().try_into().unwrap()), targetname.param().abi(), freecallcontext as _) }
+    unsafe { SecAllocateAndSetCallTarget(lpipaddress.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpipaddress.map_or(0, |slice| slice.len().try_into().unwrap()), targetname.param().abi(), freecallcontext as _) }
 }
 #[cfg(feature = "ncrypt")]
 #[inline]
 pub unsafe fn SecAllocateAndSetIPAddress(lpipaddress: &[u8], freecallcontext: *mut i32) -> super::ncrypt::SECURITY_STATUS {
     windows_core::link!("sspicli.dll" "system" fn SecAllocateAndSetIPAddress(lpipaddress : *const u8, cchipaddress : u32, freecallcontext : *mut i32) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { SecAllocateAndSetIPAddress(core::mem::transmute(lpipaddress.as_ptr()), lpipaddress.len().try_into().unwrap(), freecallcontext as _) }
+    unsafe { SecAllocateAndSetIPAddress(lpipaddress.as_ptr(), lpipaddress.len().try_into().unwrap(), freecallcontext as _) }
 }
 #[inline]
 pub unsafe fn SecFreeCallContext() {
@@ -915,7 +915,7 @@ pub const SECBUFFER_TOKEN_BINDING: u32 = 21;
 pub const SECBUFFER_TRAFFIC_SECRETS: u32 = 28;
 pub const SECBUFFER_VERSION: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_APP_MODE_INFO {
     pub UserFunction: u32,
     pub Argument1: usize,
@@ -1032,7 +1032,7 @@ pub struct SECURITY_INTEGER(pub i64);
 pub const SECURITY_NATIVE_DREP: u32 = 16;
 pub const SECURITY_NETWORK_DREP: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_PACKAGE_OPTIONS {
     pub Size: u32,
     pub Type: u32,
@@ -1048,7 +1048,7 @@ impl Default for SECURITY_PACKAGE_OPTIONS {
 pub type SECURITY_PCSTR = *const SEC_CHAR;
 pub type SECURITY_PSTR = *mut SEC_CHAR;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_STRING {
     pub Length: u16,
     pub MaximumLength: u16,
@@ -1065,7 +1065,7 @@ pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_3: u32 = 3;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_4: u32 = 4;
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION_5: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_APPLICATION_PROTOCOLS {
     pub ProtocolListsSize: u32,
     pub ProtocolLists: [SEC_APPLICATION_PROTOCOL_LIST; 1],
@@ -1076,7 +1076,7 @@ impl Default for SEC_APPLICATION_PROTOCOLS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_APPLICATION_PROTOCOL_LIST {
     pub ProtoNegoExt: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT,
     pub ProtocolListSize: u16,
@@ -1090,7 +1090,7 @@ impl Default for SEC_APPLICATION_PROTOCOL_LIST {
 pub type SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = i32;
 pub type SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_APP_SESSION_STATE {
     pub AppSessionStateSize: u16,
     pub AppSessionState: [u8; 1],
@@ -1101,7 +1101,7 @@ impl Default for SEC_APP_SESSION_STATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_CERTIFICATE_REQUEST_CONTEXT {
     pub cbCertificateRequestContext: u8,
     pub rgCertificateRequestContext: [u8; 1],
@@ -1112,7 +1112,7 @@ impl Default for SEC_CERTIFICATE_REQUEST_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_CHANNEL_BINDINGS {
     pub dwInitiatorAddrType: u32,
     pub cbInitiatorLength: u32,
@@ -1125,7 +1125,7 @@ pub struct SEC_CHANNEL_BINDINGS {
 }
 pub const SEC_CHANNEL_BINDINGS_AUDIT_BINDINGS: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_CHANNEL_BINDINGS_EX {
     pub magicNumber: u32,
     pub flags: u32,
@@ -1142,7 +1142,7 @@ pub struct SEC_CHANNEL_BINDINGS_EX {
 }
 pub const SEC_CHANNEL_BINDINGS_EX_MAGIC: u32 = 1480933955;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_CHANNEL_BINDINGS_RESULT {
     pub flags: u32,
 }
@@ -1161,19 +1161,19 @@ pub const SEC_CHANNEL_BINDINGS_VALID_FLAGS: u32 = 1;
 pub struct SEC_CHAR(pub i8);
 pub const SEC_DELETED_HANDLE: i32 = -2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_DTLS_MTU {
     pub PathMTU: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_FLAGS {
     pub Flags: u64,
 }
 #[cfg(feature = "ncrypt")]
 pub type SEC_GET_KEY_FN = Option<unsafe extern "system" fn(arg: *mut core::ffi::c_void, principal: *mut core::ffi::c_void, keyver: u32, key: *mut *mut core::ffi::c_void, status: *mut super::ncrypt::SECURITY_STATUS)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_NEGOTIATION_INFO {
     pub Size: u32,
     pub NameLength: u32,
@@ -1186,7 +1186,7 @@ impl Default for SEC_NEGOTIATION_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_PRESHAREDKEY {
     pub KeySize: u16,
     pub Key: [u8; 1],
@@ -1197,7 +1197,7 @@ impl Default for SEC_PRESHAREDKEY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_PRESHAREDKEY_IDENTITY {
     pub KeyIdentitySize: u16,
     pub KeyIdentity: [u8; 1],
@@ -1208,7 +1208,7 @@ impl Default for SEC_PRESHAREDKEY_IDENTITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_SESSION_TICKET {
     pub SessionTicketSize: u16,
     pub SessionTicket: [u8; 1],
@@ -1219,7 +1219,7 @@ impl Default for SEC_SESSION_TICKET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_SRTP_MASTER_KEY_IDENTIFIER {
     pub MasterKeyIdentifierSize: u8,
     pub MasterKeyIdentifier: [u8; 1],
@@ -1230,7 +1230,7 @@ impl Default for SEC_SRTP_MASTER_KEY_IDENTIFIER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_SRTP_PROTECTION_PROFILES {
     pub ProfilesSize: u16,
     pub ProfilesList: [u16; 1],
@@ -1241,7 +1241,7 @@ impl Default for SEC_SRTP_PROTECTION_PROFILES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_TOKEN_BINDING {
     pub MajorVersion: u8,
     pub MinorVersion: u8,
@@ -1254,7 +1254,7 @@ impl Default for SEC_TOKEN_BINDING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_TRAFFIC_SECRETS {
     pub SymmetricAlgId: [u16; 64],
     pub ChainingMode: [u16; 64],
@@ -1280,7 +1280,7 @@ pub const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_FOR_SYSTEM: u32 = 4;
 pub const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_LOGON: u32 = 1;
 pub const SEC_WINNT_AUTH_IDENTITY_ENCRYPT_SAME_PROCESS: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_EX2 {
     pub Version: u32,
     pub cbHeaderLength: u16,
@@ -1296,7 +1296,7 @@ pub struct SEC_WINNT_AUTH_IDENTITY_EX2 {
     pub PackageListLength: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_EXA {
     pub Version: u32,
     pub Length: u32,
@@ -1316,7 +1316,7 @@ impl Default for SEC_WINNT_AUTH_IDENTITY_EXA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_EXW {
     pub Version: u32,
     pub Length: u32,
@@ -1394,7 +1394,7 @@ pub const SecApplicationProtocolNegotiationStatus_None: SEC_APPLICATION_PROTOCOL
 pub const SecApplicationProtocolNegotiationStatus_SelectedClientOnly: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = 2;
 pub const SecApplicationProtocolNegotiationStatus_Success: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecBuffer {
     pub cbBuffer: u32,
     pub BufferType: u32,
@@ -1406,7 +1406,7 @@ impl Default for SecBuffer {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecBufferDesc {
     pub ulVersion: u32,
     pub cBuffers: u32,
@@ -1416,7 +1416,7 @@ pub type SecDelegationType = i32;
 pub const SecDirectory: SecDelegationType = 3;
 pub const SecFull: SecDelegationType = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecHandle {
     pub dwLower: usize,
     pub dwUpper: usize,
@@ -1426,7 +1426,7 @@ pub const SecPkgAttrLastClientTokenMaybe: SECPKG_ATTR_LCT_STATUS = 2;
 pub const SecPkgAttrLastClientTokenNo: SECPKG_ATTR_LCT_STATUS = 1;
 pub const SecPkgAttrLastClientTokenYes: SECPKG_ATTR_LCT_STATUS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_AccessToken {
     pub AccessToken: *mut core::ffi::c_void,
 }
@@ -1436,7 +1436,7 @@ impl Default for SecPkgContext_AccessToken {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_ApplicationProtocol {
     pub ProtoNegoStatus: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS,
     pub ProtoNegoExt: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT,
@@ -1449,7 +1449,7 @@ impl Default for SecPkgContext_ApplicationProtocol {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_AuthorityA {
     pub sAuthorityName: *mut SEC_CHAR,
 }
@@ -1459,7 +1459,7 @@ impl Default for SecPkgContext_AuthorityA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_AuthorityW {
     pub sAuthorityName: *mut SEC_WCHAR,
 }
@@ -1469,7 +1469,7 @@ impl Default for SecPkgContext_AuthorityW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_AuthzID {
     pub AuthzIDLength: u32,
     pub AuthzID: *mut i8,
@@ -1480,7 +1480,7 @@ impl Default for SecPkgContext_AuthzID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_Bindings {
     pub BindingsLength: u32,
     pub Bindings: *mut SEC_CHANNEL_BINDINGS,
@@ -1491,7 +1491,7 @@ impl Default for SecPkgContext_Bindings {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_ClientSpecifiedTarget {
     pub sTargetName: *mut SEC_WCHAR,
 }
@@ -1501,13 +1501,13 @@ impl Default for SecPkgContext_ClientSpecifiedTarget {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_CredInfo {
     pub CredClass: SECPKG_CRED_CLASS,
     pub IsPromptingNeeded: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_CredentialNameA {
     pub CredentialType: u32,
     pub sCredentialName: *mut SEC_CHAR,
@@ -1518,7 +1518,7 @@ impl Default for SecPkgContext_CredentialNameA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_CredentialNameW {
     pub CredentialType: u32,
     pub sCredentialName: *mut SEC_WCHAR,
@@ -1530,7 +1530,7 @@ impl Default for SecPkgContext_CredentialNameW {
 }
 pub type SecPkgContext_DatagramSizes = SecPkgContext_StreamSizes;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_DceInfo {
     pub AuthzSvc: u32,
     pub pPac: *mut core::ffi::c_void,
@@ -1541,12 +1541,12 @@ impl Default for SecPkgContext_DceInfo {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_Flags {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_KeyInfoA {
     pub sSignatureAlgorithmName: *mut SEC_CHAR,
     pub sEncryptAlgorithmName: *mut SEC_CHAR,
@@ -1560,7 +1560,7 @@ impl Default for SecPkgContext_KeyInfoA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_KeyInfoW {
     pub sSignatureAlgorithmName: *mut SEC_WCHAR,
     pub sEncryptAlgorithmName: *mut SEC_WCHAR,
@@ -1574,23 +1574,23 @@ impl Default for SecPkgContext_KeyInfoW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_LastClientTokenStatus {
     pub LastClientTokenStatus: SECPKG_ATTR_LCT_STATUS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_Lifespan {
     pub tsStart: TimeStamp,
     pub tsExpiry: TimeStamp,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_LogoffTime {
     pub tsLogoffTime: TimeStamp,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_NamesA {
     pub sUserName: *mut SEC_CHAR,
 }
@@ -1600,7 +1600,7 @@ impl Default for SecPkgContext_NamesA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_NamesW {
     pub sUserName: *mut SEC_WCHAR,
 }
@@ -1610,7 +1610,7 @@ impl Default for SecPkgContext_NamesW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_NativeNamesA {
     pub sClientName: *mut SEC_CHAR,
     pub sServerName: *mut SEC_CHAR,
@@ -1621,7 +1621,7 @@ impl Default for SecPkgContext_NativeNamesA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_NativeNamesW {
     pub sClientName: *mut SEC_WCHAR,
     pub sServerName: *mut SEC_WCHAR,
@@ -1632,7 +1632,7 @@ impl Default for SecPkgContext_NativeNamesW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_NegoKeys {
     pub KeyType: u32,
     pub KeyLength: u16,
@@ -1647,17 +1647,17 @@ impl Default for SecPkgContext_NegoKeys {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_NegoPackageInfo {
     pub PackageMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_NegoStatus {
     pub LastStatus: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_NegotiatedTlsExtensions {
     pub ExtensionsCount: u32,
     pub Extensions: *mut u16,
@@ -1668,34 +1668,34 @@ impl Default for SecPkgContext_NegotiatedTlsExtensions {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_NegotiationInfoA {
     pub PackageInfo: PSecPkgInfoA,
     pub NegotiationState: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_NegotiationInfoW {
     pub PackageInfo: PSecPkgInfoW,
     pub NegotiationState: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_PackageInfoA {
     pub PackageInfo: PSecPkgInfoA,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_PackageInfoW {
     pub PackageInfo: PSecPkgInfoW,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_PasswordExpiry {
     pub tsPasswordExpires: TimeStamp,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_ProtoInfoA {
     pub sProtocolName: *mut SEC_CHAR,
     pub majorVersion: u32,
@@ -1707,7 +1707,7 @@ impl Default for SecPkgContext_ProtoInfoA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_ProtoInfoW {
     pub sProtocolName: *mut SEC_WCHAR,
     pub majorVersion: u32,
@@ -1719,7 +1719,7 @@ impl Default for SecPkgContext_ProtoInfoW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_SessionKey {
     pub SessionKeyLength: u32,
     pub SessionKey: *mut u8,
@@ -1730,7 +1730,7 @@ impl Default for SecPkgContext_SessionKey {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_Sizes {
     pub cbMaxToken: u32,
     pub cbMaxSignature: u32,
@@ -1738,7 +1738,7 @@ pub struct SecPkgContext_Sizes {
     pub cbSecurityTrailer: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_StreamSizes {
     pub cbHeader: u32,
     pub cbTrailer: u32,
@@ -1747,7 +1747,7 @@ pub struct SecPkgContext_StreamSizes {
     pub cbBlockSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_SubjectAttributes {
     pub AttributeInfo: *mut core::ffi::c_void,
 }
@@ -1757,7 +1757,7 @@ impl Default for SecPkgContext_SubjectAttributes {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_Target {
     pub TargetLength: u32,
     pub Target: *mut i8,
@@ -1768,7 +1768,7 @@ impl Default for SecPkgContext_Target {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_TargetInformation {
     pub MarshalledTargetInfoLength: u32,
     pub MarshalledTargetInfo: *mut u8,
@@ -1779,7 +1779,7 @@ impl Default for SecPkgContext_TargetInformation {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgContext_UserFlags {
     pub UserFlags: u32,
 }
@@ -1789,7 +1789,7 @@ pub const SecPkgCredClass_None: SECPKG_CRED_CLASS = 0;
 pub const SecPkgCredClass_PersistedGeneric: SECPKG_CRED_CLASS = 20;
 pub const SecPkgCredClass_PersistedSpecific: SECPKG_CRED_CLASS = 30;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgCredentials_Cert {
     pub EncodedCertSize: u32,
     pub EncodedCert: *mut u8,
@@ -1800,7 +1800,7 @@ impl Default for SecPkgCredentials_Cert {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCredentials_KdcNetworkSettingsW {
     pub Version: u32,
     pub Flags: u32,
@@ -1811,7 +1811,7 @@ pub struct SecPkgCredentials_KdcNetworkSettingsW {
     pub DcDiscoveryFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCredentials_KdcProxySettingsW {
     pub Version: u32,
     pub Flags: u32,
@@ -1821,7 +1821,7 @@ pub struct SecPkgCredentials_KdcProxySettingsW {
     pub ClientTlsCredLength: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgCredentials_NamesA {
     pub sUserName: *mut SEC_CHAR,
 }
@@ -1831,7 +1831,7 @@ impl Default for SecPkgCredentials_NamesA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgCredentials_NamesW {
     pub sUserName: *mut SEC_WCHAR,
 }
@@ -1841,7 +1841,7 @@ impl Default for SecPkgCredentials_NamesW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgCredentials_SSIProviderA {
     pub sProviderName: *mut SEC_CHAR,
     pub ProviderInfoLength: u32,
@@ -1853,7 +1853,7 @@ impl Default for SecPkgCredentials_SSIProviderA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgCredentials_SSIProviderW {
     pub sProviderName: *mut SEC_WCHAR,
     pub ProviderInfoLength: u32,
@@ -1865,7 +1865,7 @@ impl Default for SecPkgCredentials_SSIProviderW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgInfoA {
     pub fCapabilities: u32,
     pub wVersion: u16,
@@ -1880,7 +1880,7 @@ impl Default for SecPkgInfoA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgInfoW {
     pub fCapabilities: u32,
     pub wVersion: u16,

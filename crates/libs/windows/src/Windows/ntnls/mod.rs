@@ -1,6 +1,6 @@
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CPTABLEINFO {
     pub CodePage: u16,
     pub MaximumCharacterSize: u16,
@@ -24,7 +24,7 @@ impl Default for CPTABLEINFO {
 pub const MAXIMUM_LEADBYTES: u32 = 12;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLSTABLEINFO {
     pub OemTableInfo: CPTABLEINFO,
     pub AnsiTableInfo: CPTABLEINFO,
@@ -39,7 +39,7 @@ pub type PNLSTABLEINFO = *mut NLSTABLEINFO;
 pub type PRTL_NLS_STATE = *mut RTL_NLS_STATE;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_NLS_STATE {
     pub DefaultAcpTableInfo: CPTABLEINFO,
     pub DefaultOemTableInfo: CPTABLEINFO,

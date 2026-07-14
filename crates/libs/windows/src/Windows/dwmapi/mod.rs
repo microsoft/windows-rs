@@ -70,7 +70,7 @@ pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut Mi
 #[inline]
 pub unsafe fn DwmGetTransportAttributes(pfisremoting: &mut [windows_core::BOOL; 1], pfisconnected: &mut [windows_core::BOOL; 1], pdwgeneration: &mut [u32; 1]) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmGetTransportAttributes(pfisremoting : *mut windows_core::BOOL, pfisconnected : *mut windows_core::BOOL, pdwgeneration : *mut u32) -> windows_core::HRESULT);
-    unsafe { DwmGetTransportAttributes(core::mem::transmute(pfisremoting.as_ptr()), core::mem::transmute(pfisconnected.as_ptr()), core::mem::transmute(pdwgeneration.as_ptr())) }
+    unsafe { DwmGetTransportAttributes(pfisremoting.as_mut_ptr(), pfisconnected.as_mut_ptr(), pdwgeneration.as_mut_ptr()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -170,7 +170,7 @@ pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) ->
 #[inline]
 pub unsafe fn DwmTetherContact(dwpointerid: u32, fenable: bool, pttether: super::windef::POINT) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u32, fenable : windows_core::BOOL, pttether : super::windef::POINT) -> windows_core::HRESULT);
-    unsafe { DwmTetherContact(dwpointerid, fenable.into(), core::mem::transmute(pttether)) }
+    unsafe { DwmTetherContact(dwpointerid, fenable.into(), pttether) }
 }
 #[cfg(feature = "windef")]
 #[inline]

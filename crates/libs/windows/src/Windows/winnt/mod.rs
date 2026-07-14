@@ -2,25 +2,25 @@
 #[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: &[RUNTIME_FUNCTION], baseaddress: u64) -> bool {
     windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : *const RUNTIME_FUNCTION, entrycount : u32, baseaddress : u64) -> bool);
-    unsafe { RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress) }
+    unsafe { RtlAddFunctionTable(functiontable.as_ptr(), functiontable.len().try_into().unwrap(), baseaddress) }
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: &[ARM64_RUNTIME_FUNCTION], baseaddress: usize) -> bool {
     windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : *const ARM64_RUNTIME_FUNCTION, entrycount : u32, baseaddress : usize) -> bool);
-    unsafe { RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress) }
+    unsafe { RtlAddFunctionTable(functiontable.as_ptr(), functiontable.len().try_into().unwrap(), baseaddress) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[RUNTIME_FUNCTION], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const RUNTIME_FUNCTION, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
-    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
+    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, functiontable.as_ptr(), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[ARM64_RUNTIME_FUNCTION], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const ARM64_RUNTIME_FUNCTION, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
-    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
+    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, functiontable.as_ptr(), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[inline]
@@ -49,7 +49,7 @@ pub unsafe fn RtlCaptureContext2(contextrecord: *mut ARM64_NT_CONTEXT) {
 #[inline]
 pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut core::ffi::c_void], backtracehash: Option<*mut u32>) -> u16 {
     windows_core::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : *mut u32) -> u16);
-    unsafe { RtlCaptureStackBackTrace(framestoskip, backtrace.len().try_into().unwrap(), core::mem::transmute(backtrace.as_ptr()), backtracehash.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RtlCaptureStackBackTrace(framestoskip, backtrace.len().try_into().unwrap(), backtrace.as_mut_ptr(), backtracehash.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RtlCompareMemory(source1: *const core::ffi::c_void, source2: *const core::ffi::c_void, length: usize) -> usize {
@@ -59,7 +59,7 @@ pub unsafe fn RtlCompareMemory(source1: *const core::ffi::c_void, source2: *cons
 #[inline]
 pub unsafe fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize: *mut u32, puldeviceformbuffersize: *mut u32, devicefamily: windows_core::PWSTR, deviceform: windows_core::PWSTR) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize : *mut u32, puldeviceformbuffersize : *mut u32, devicefamily : windows_core::PWSTR, deviceform : windows_core::PWSTR) -> u32);
-    unsafe { RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize as _, puldeviceformbuffersize as _, core::mem::transmute(devicefamily), core::mem::transmute(deviceform)) }
+    unsafe { RtlConvertDeviceFamilyInfoToString(puldevicefamilybuffersize as _, puldeviceformbuffersize as _, devicefamily, deviceform) }
 }
 #[inline]
 pub unsafe fn RtlCrc32(buffer: *const core::ffi::c_void, size: usize, initialcrc: u32) -> u32 {
@@ -121,7 +121,7 @@ pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const core::ffi::c_void, nvbuf
 #[inline]
 pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const core::ffi::c_void, nvranges: &[NV_MEMORY_RANGE], flags: u32) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlFlushNonVolatileMemoryRanges(nvtoken : *const core::ffi::c_void, nvranges : *const NV_MEMORY_RANGE, numranges : usize, flags : u32) -> u32);
-    unsafe { RtlFlushNonVolatileMemoryRanges(nvtoken, core::mem::transmute(nvranges.as_ptr()), nvranges.len().try_into().unwrap(), flags) }
+    unsafe { RtlFlushNonVolatileMemoryRanges(nvtoken, nvranges.as_ptr(), nvranges.len().try_into().unwrap(), flags) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -366,7 +366,7 @@ pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: u32, condition: 
     unsafe { VerSetConditionMask(conditionmask, typemask, condition) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -374,7 +374,7 @@ pub struct ACCESS_ALLOWED_ACE {
 }
 pub const ACCESS_ALLOWED_ACE_TYPE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -382,7 +382,7 @@ pub struct ACCESS_ALLOWED_CALLBACK_ACE {
 }
 pub const ACCESS_ALLOWED_CALLBACK_ACE_TYPE: u32 = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -394,7 +394,7 @@ pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
 pub const ACCESS_ALLOWED_CALLBACK_OBJECT_ACE_TYPE: u32 = 11;
 pub const ACCESS_ALLOWED_COMPOUND_ACE_TYPE: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_ALLOWED_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -405,7 +405,7 @@ pub struct ACCESS_ALLOWED_OBJECT_ACE {
 }
 pub const ACCESS_ALLOWED_OBJECT_ACE_TYPE: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_DENIED_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -413,7 +413,7 @@ pub struct ACCESS_DENIED_ACE {
 }
 pub const ACCESS_DENIED_ACE_TYPE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_DENIED_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -421,7 +421,7 @@ pub struct ACCESS_DENIED_CALLBACK_ACE {
 }
 pub const ACCESS_DENIED_CALLBACK_ACE_TYPE: u32 = 10;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -432,7 +432,7 @@ pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
 }
 pub const ACCESS_DENIED_CALLBACK_OBJECT_ACE_TYPE: u32 = 12;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_DENIED_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -466,7 +466,7 @@ pub const ACCESS_PROPERTY_SET_GUID: u32 = 1;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct ACCESS_REASON(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACCESS_REASONS {
     pub Data: [ACCESS_REASON; 32],
 }
@@ -482,7 +482,7 @@ pub type ACCESS_REASON_TYPE = i32;
 pub const ACCESS_REASON_TYPE_MASK: u32 = 16711680;
 pub const ACCESS_SYSTEM_SECURITY: u32 = 16777216;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACE_HEADER {
     pub AceType: u8,
     pub AceFlags: u8,
@@ -491,7 +491,7 @@ pub struct ACE_HEADER {
 pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: u32 = 2;
 pub const ACE_OBJECT_TYPE_PRESENT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACL {
     pub AclRevision: u8,
     pub Sbz1: u8,
@@ -507,12 +507,12 @@ pub const ACL_REVISION3: u32 = 3;
 pub const ACL_REVISION4: u32 = 4;
 pub const ACL_REVISION_DS: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACL_REVISION_INFORMATION {
     pub AclRevision: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACL_SIZE_INFORMATION {
     pub AceCount: u32,
     pub AclBytesInUse: u32,
@@ -533,7 +533,7 @@ pub const ACTCTX_RUN_LEVEL_NUMBERS: ACTCTX_REQUESTED_RUN_LEVEL = 4;
 pub const ACTCTX_RUN_LEVEL_REQUIRE_ADMIN: ACTCTX_REQUESTED_RUN_LEVEL = 3;
 pub const ACTCTX_RUN_LEVEL_UNSPECIFIED: ACTCTX_REQUESTED_RUN_LEVEL = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     pub ulFlags: u32,
     pub ulEncodedAssemblyIdentityLength: u32,
@@ -556,7 +556,7 @@ pub struct ACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION {
     pub ulFileCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     pub ElementCount: u32,
     pub Elements: [COMPATIBILITY_CONTEXT_ELEMENT; 0],
@@ -567,7 +567,7 @@ impl Default for ACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATION_CONTEXT_DETAILED_INFORMATION {
     pub dwFlags: u32,
     pub ulFormatVersion: u32,
@@ -588,13 +588,13 @@ pub const ACTIVATION_CONTEXT_PATH_TYPE_NONE: u32 = 1;
 pub const ACTIVATION_CONTEXT_PATH_TYPE_URL: u32 = 3;
 pub const ACTIVATION_CONTEXT_PATH_TYPE_WIN32_FILE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATION_CONTEXT_QUERY_INDEX {
     pub ulAssemblyIndex: u32,
     pub ulFileIndexInAssembly: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION {
     pub ulFlags: u32,
     pub RunLevel: ACTCTX_REQUESTED_RUN_LEVEL,
@@ -613,7 +613,7 @@ pub const ACTIVATION_CONTEXT_SECTION_GLOBAL_OBJECT_RENAME_TABLE: u32 = 8;
 pub const ACTIVATION_CONTEXT_SECTION_WINDOW_CLASS_REDIRECTION: u32 = 3;
 pub const ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES: u32 = 12;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ADMINISTRATOR_POWER_POLICY {
     pub MinSleep: SYSTEM_POWER_STATE,
     pub MaxSleep: SYSTEM_POWER_STATE,
@@ -632,7 +632,7 @@ pub const ALTITUDE_PROVISIONING: POWER_SETTING_ALTITUDE = 3;
 pub const ALTITUDE_RUNTIME_OVERRIDE: POWER_SETTING_ALTITUDE = 2;
 pub const ALTITUDE_USER: POWER_SETTING_ALTITUDE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ANON_OBJECT_HEADER {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -643,7 +643,7 @@ pub struct ANON_OBJECT_HEADER {
     pub SizeOfData: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ANON_OBJECT_HEADER_BIGOBJ {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -660,7 +660,7 @@ pub struct ANON_OBJECT_HEADER_BIGOBJ {
     pub NumberOfSymbols: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ANON_OBJECT_HEADER_V2 {
     pub Sig1: u16,
     pub Sig2: u16,
@@ -677,7 +677,7 @@ pub const ANSI_NULL: i8 = 0;
 pub const ANYSIZE_ARRAY: u32 = 1;
 pub type APC_CALLBACK_FUNCTION = Option<unsafe extern "system" fn(param0: u32, param1: *mut core::ffi::c_void, param2: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPLICATIONLAUNCH_SETTING_VALUE {
     pub ActivationTime: i64,
     pub Flags: u32,
@@ -863,7 +863,7 @@ impl Default for ARM64_NT_CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -935,7 +935,7 @@ impl Default for ARM64_NT_CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -984,7 +984,7 @@ impl Default for ARM64_NT_NEON128 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_NT_NEON128_0 {
     pub Low: u64,
     pub High: i64,
@@ -1034,7 +1034,7 @@ impl Default for ARM64_RUNTIME_FUNCTION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_RUNTIME_FUNCTION_0_0 {
     pub _bitfield: u32,
 }
@@ -1045,7 +1045,7 @@ pub const ARM64_SVCR_SM: u32 = 1;
 #[cfg(target_arch = "aarch64")]
 pub const ARM64_SVCR_ZA: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ARM64_TPIDR2_BLOCK {
     pub ZaSaveBuffer: *mut core::ffi::c_void,
     pub NumZaSaveSlices: u16,
@@ -1068,7 +1068,7 @@ pub const ARM64_TPIDR_EL0: u32 = 24194;
 pub const ARM64_TPIDR_EL1: u32 = 18052;
 pub const ARM_CACHE_ALIGNMENT_SIZE: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
     pub ulFlags: u32,
     pub ulFilenameLength: u32,
@@ -1077,7 +1077,7 @@ pub struct ASSEMBLY_FILE_DETAILED_INFORMATION {
     pub lpFilePath: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATTRIBUTES_AND_SID {
     pub Attributes: u32,
     pub SidStart: u32,
@@ -1119,7 +1119,7 @@ pub const BACKUP_SECURITY_INFORMATION: u32 = 65536;
 pub const BATTERY_DISCHARGE_FLAGS_ENABLE: u32 = 2147483648;
 pub const BATTERY_DISCHARGE_FLAGS_EVENTCODE_MASK: u32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BATTERY_REPORTING_SCALE {
     pub Granularity: u32,
     pub Capacity: u32,
@@ -1128,7 +1128,7 @@ pub const BatteryDeviceState: POWER_INFORMATION_LEVEL = 86;
 pub const BlackBoxRecorderDirectAccessBuffer: POWER_INFORMATION_LEVEL = 97;
 pub const BootLoad: SERVICE_LOAD_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CACHE_DESCRIPTOR {
     pub Level: u8,
     pub Associativity: u8,
@@ -1175,7 +1175,7 @@ pub struct CCHAR(pub i8);
 pub const CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID: u32 = 4;
 pub const CFG_CALL_TARGET_CONVERT_XFG_TO_CFG: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CFG_CALL_TARGET_INFO {
     pub Offset: usize,
     pub Flags: usize,
@@ -1216,7 +1216,7 @@ pub const CLAIM_SECURITY_ATTRIBUTE_CUSTOM_FLAGS: u32 = 4294901760;
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: u32 = 16;
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub Name: windows_core::PWSTR,
@@ -1224,7 +1224,7 @@ pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
 pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: u32 = 32;
 pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,
@@ -1308,7 +1308,7 @@ impl Default for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
 pub const CLAIM_SECURITY_ATTRIBUTE_VALID_FLAGS: u32 = 63;
 pub const CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_POWER_DATA {
     pub PD_Size: u32,
     pub PD_MostRecentPowerState: DEVICE_POWER_STATE,
@@ -1335,7 +1335,7 @@ pub const CM_SERVICE_VERIFIER_BOOT_LOAD: u32 = 64;
 pub const CM_SERVICE_VIRTUAL_DISK_BOOT_LOAD: u32 = 2;
 pub const CM_SERVICE_WINPE_BOOT_LOAD: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODE_INTEGRITY_REPORT_GENERATION_HEADER {
     pub Version: u16,
     pub Reserved: u16,
@@ -1344,7 +1344,7 @@ pub struct CODE_INTEGRITY_REPORT_GENERATION_HEADER {
 }
 pub const CODE_INTEGRITY_REPORT_GENERATION_VERSION_CURRENT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODE_INTEGRITY_REPORT_RECORD_HEADER {
     pub Version: u16,
     pub Reserved: u16,
@@ -1353,7 +1353,7 @@ pub struct CODE_INTEGRITY_REPORT_RECORD_HEADER {
 }
 pub const CODE_INTEGRITY_REPORT_RECORD_VERSION_CURRENT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODE_INTEGRITY_RUNTIME_REPORT {
     pub Header: RUNTIME_REPORT_HEADER,
     pub CurrentGeneration: u64,
@@ -1368,14 +1368,14 @@ pub const COMIMAGE_FLAGS_STRONGNAMESIGNED: ReplacesCorHdrNumericDefines = 8;
 pub const COMIMAGE_FLAGS_TRACKDEBUGDATA: ReplacesCorHdrNumericDefines = 65536;
 pub type COMPARTMENT_ID = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPATIBILITY_CONTEXT_ELEMENT {
     pub Id: windows_core::GUID,
     pub Type: ACTCTX_COMPATIBILITY_ELEMENT_TYPE,
     pub MaxVersionTested: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPONENT_FILTER {
     pub ComponentFlags: u32,
 }
@@ -1396,7 +1396,7 @@ pub const COMPRESSION_FORMAT_ZLIB: u32 = 8;
 pub const CONTAINER_INHERIT_ACE: u32 = 2;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTEXT {
     pub ContextFlags: u32,
     pub Dr0: u32,
@@ -1502,7 +1502,7 @@ impl Default for CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CONTEXT_0_0 {
     pub Header: [M128A; 2],
     pub Legacy: [M128A; 8],
@@ -1613,7 +1613,7 @@ pub const CORE_PARKING_POLICY_CHANGE_MULTISTEP: u32 = 3;
 pub const CORE_PARKING_POLICY_CHANGE_ROCKET: u32 = 2;
 pub const CORE_PARKING_POLICY_CHANGE_SINGLE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CORRELATION_VECTOR {
     pub Version: i8,
     pub Vector: [i8; 129],
@@ -1641,7 +1641,7 @@ pub const CTMF_INCLUDE_APPCONTAINER: u32 = 1;
 pub const CTMF_INCLUDE_LPAC: u32 = 2;
 pub const CTMF_VALID_FLAGS: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
     pub Size: u32,
     pub TriggerId: windows_core::PCWSTR,
@@ -1948,7 +1948,7 @@ impl Default for DRIVER_INFO_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_INFO_ENTRY_0_0 {
     pub _bitfield: u16,
 }
@@ -1979,7 +1979,7 @@ impl Default for DRIVER_RUNTIME_REPORT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_RUNTIME_REPORT_0_0 {
     pub _bitfield: u16,
 }
@@ -2029,7 +2029,7 @@ pub const EMARCH_ENC_I17_SIGN_INST_WORD_X: u32 = 3;
 pub const EMARCH_ENC_I17_SIGN_SIZE_X: u32 = 1;
 pub const EMARCH_ENC_I17_SIGN_VAL_POS_X: u32 = 63;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCLAVE_CREATE_INFO_SGX {
     pub Secs: [u8; 4096],
 }
@@ -2039,7 +2039,7 @@ impl Default for ENCLAVE_CREATE_INFO_SGX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCLAVE_CREATE_INFO_VBS {
     pub Flags: u32,
     pub OwnerID: [u8; 32],
@@ -2050,7 +2050,7 @@ impl Default for ENCLAVE_CREATE_INFO_VBS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCLAVE_CREATE_INFO_VBS_BASIC {
     pub Flags: u32,
     pub OwnerID: [u8; 32],
@@ -2061,7 +2061,7 @@ impl Default for ENCLAVE_CREATE_INFO_VBS_BASIC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ENCLAVE_INIT_INFO_SGX {
     pub SigStruct: [u8; 1808],
     pub Reserved1: [u8; 240],
@@ -2074,7 +2074,7 @@ impl Default for ENCLAVE_INIT_INFO_SGX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCLAVE_INIT_INFO_VBS {
     pub Length: u32,
     pub ThreadCount: u32,
@@ -2106,7 +2106,7 @@ impl Default for ENCLAVE_INIT_INFO_VBS_BASIC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENCLAVE_LOAD_DATA_VBS_BASIC {
     pub PageType: u32,
 }
@@ -2124,14 +2124,14 @@ pub const ENERGY_SAVER_STANDARD: ENERGY_SAVER_STATUS = 1;
 pub type ENERGY_SAVER_STATUS = i32;
 pub const ENLISTMENT_ALL_ACCESS: u32 = 983071;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENLISTMENT_BASIC_INFORMATION {
     pub EnlistmentId: windows_core::GUID,
     pub TransactionId: windows_core::GUID,
     pub ResourceManagerId: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENLISTMENT_CRM_INFORMATION {
     pub CrmTransactionManagerId: windows_core::GUID,
     pub CrmResourceManagerId: windows_core::GUID,
@@ -2156,7 +2156,7 @@ pub const ES_DISPLAY_REQUIRED: u32 = 2;
 pub const ES_SYSTEM_REQUIRED: u32 = 1;
 pub const ES_USER_PRESENT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENTLOGRECORD {
     pub Length: u32,
     pub Reserved: u32,
@@ -2191,7 +2191,7 @@ pub const EVENTLOG_START_PAIRED_EVENT: u32 = 1;
 pub const EVENTLOG_SUCCESS: u32 = 0;
 pub const EVENTLOG_WARNING_TYPE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENTSFORLOGFILE {
     pub ulSize: u32,
     pub szLogicalLogFile: [u16; 256],
@@ -2212,14 +2212,14 @@ pub const EXCEPTION_MAXIMUM_PARAMETERS: u32 = 15;
 pub const EXCEPTION_NESTED_CALL: u32 = 16;
 pub const EXCEPTION_NONCONTINUABLE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXCEPTION_POINTERS {
     pub ExceptionRecord: PEXCEPTION_RECORD,
     pub ContextRecord: PCONTEXT,
 }
 pub const EXCEPTION_READ_FAULT: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_RECORD {
     pub ExceptionCode: u32,
     pub ExceptionFlags: u32,
@@ -2234,7 +2234,7 @@ impl Default for EXCEPTION_RECORD {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_RECORD32 {
     pub ExceptionCode: u32,
     pub ExceptionFlags: u32,
@@ -2249,7 +2249,7 @@ impl Default for EXCEPTION_RECORD32 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXCEPTION_RECORD64 {
     pub ExceptionCode: u32,
     pub ExceptionFlags: u32,
@@ -2433,7 +2433,7 @@ pub const FILE_ATTRIBUTE_UNPINNED: u32 = 1048576;
 pub const FILE_ATTRIBUTE_VIRTUAL: u32 = 65536;
 pub const FILE_CASE_PRESERVED_NAMES: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_CASE_SENSITIVE_INFORMATION {
     pub Flags: u32,
 }
@@ -2448,7 +2448,7 @@ pub const FILE_GENERIC_EXECUTE: u32 = 1179808;
 pub const FILE_GENERIC_READ: u32 = 1179785;
 pub const FILE_GENERIC_WRITE: u32 = 1179926;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_128 {
     pub Identifier: [u8; 16],
 }
@@ -2544,7 +2544,7 @@ impl Default for FILE_NOTIFY_FULL_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_NOTIFY_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: u32,
@@ -2578,7 +2578,7 @@ pub const FILE_SHARE_DELETE: u32 = 4;
 pub const FILE_SHARE_READ: u32 = 1;
 pub const FILE_SHARE_WRITE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STAT_BASIC_INFORMATION {
     pub FileId: i64,
     pub CreationTime: i64,
@@ -2597,7 +2597,7 @@ pub struct FILE_STAT_BASIC_INFORMATION {
     pub FileId128: FILE_ID_128,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STAT_INFORMATION {
     pub FileId: i64,
     pub CreationTime: i64,
@@ -2612,7 +2612,7 @@ pub struct FILE_STAT_INFORMATION {
     pub EffectiveAccess: ACCESS_MASK,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STAT_LX_INFORMATION {
     pub FileId: i64,
     pub CreationTime: i64,
@@ -2663,14 +2663,14 @@ pub const FILL_NV_MEMORY_FLAG_NO_DRAIN: u32 = 256;
 pub const FILL_NV_MEMORY_FLAG_PERSIST: u32 = 3;
 pub type FIRMWARE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FLOAT128 {
     pub LowPart: i64,
     pub HighPart: i64,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -2700,7 +2700,7 @@ pub const FLUSH_NV_MEMORY_DEFAULT_TOKEN: i32 = -1;
 pub const FLUSH_NV_MEMORY_IN_FLAG_NO_DRAIN: u32 = 1;
 pub const FOREST_USER_RID_MAX: u32 = 499;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FPO_DATA {
     pub ulOffStart: u32,
     pub cbProcSize: u32,
@@ -2726,7 +2726,7 @@ pub const FirmwareTypeUnknown: FIRMWARE_TYPE = 0;
 pub const GENERIC_ALL: u32 = 268435456;
 pub const GENERIC_EXECUTE: u32 = 536870912;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GENERIC_MAPPING {
     pub GenericRead: ACCESS_MASK,
     pub GenericWrite: ACCESS_MASK,
@@ -2741,7 +2741,7 @@ pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "system" fn(contro
 pub type GET_RUNTIME_FUNCTION_CALLBACK = Option<unsafe extern "system" fn(controlpc: u64, context: *const core::ffi::c_void) -> PARM64_RUNTIME_FUNCTION>;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_AFFINITY {
     pub Mask: super::basetsd::KAFFINITY,
     pub Group: u16,
@@ -2754,7 +2754,7 @@ impl Default for GROUP_AFFINITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_AFFINITY32 {
     pub Mask: u32,
     pub Group: u16,
@@ -2766,7 +2766,7 @@ impl Default for GROUP_AFFINITY32 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_AFFINITY64 {
     pub Mask: u64,
     pub Group: u16,
@@ -2779,7 +2779,7 @@ impl Default for GROUP_AFFINITY64 {
 }
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_RELATIONSHIP {
     pub MaximumGroupCount: u16,
     pub ActiveGroupCount: u16,
@@ -3071,7 +3071,7 @@ impl Default for HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HARDWARE_COUNTER_DATA {
     pub Type: HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
@@ -3090,7 +3090,7 @@ pub const HEAP_GROWABLE: u32 = 2;
 pub type HEAP_INFORMATION_CLASS = i32;
 pub const HEAP_MAXIMUM_TAG: u32 = 4095;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HEAP_MEMORY_USAGE_ENTRY {
     pub HeapHandle: *mut core::ffi::c_void,
     pub TotalCommittedBytes: usize,
@@ -3102,7 +3102,7 @@ impl Default for HEAP_MEMORY_USAGE_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HEAP_MEMORY_USAGE_INFORMATION {
     pub Version: u16,
     pub EntryCount: usize,
@@ -3117,7 +3117,7 @@ pub const HEAP_MEMORY_USAGE_INFO_CURRENT_VERSION: u32 = 1;
 pub const HEAP_NO_SERIALIZE: u32 = 1;
 pub const HEAP_OPTIMIZE_RESOURCES_CURRENT_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAP_OPTIMIZE_RESOURCES_INFORMATION {
     pub Version: u32,
     pub Flags: u32,
@@ -3128,7 +3128,7 @@ pub const HEAP_TAG_SHIFT: u32 = 18;
 pub const HEAP_TAIL_CHECKING_ENABLED: u32 = 32;
 pub const HEAP_ZERO_MEMORY: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIBERFILE_BUCKET {
     pub MaxPhysicalMemory: u64,
     pub PhysicalMemoryPercent: [u32; 3],
@@ -3166,7 +3166,7 @@ pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
     pub PrologEndAddress: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -3176,13 +3176,13 @@ pub struct IMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY {
 }
 pub type IMAGE_AMD64_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARCHITECTURE_ENTRY {
     pub FixupInstRVA: u32,
     pub NewInst: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARCHITECTURE_HEADER {
     pub _bitfield: u32,
     pub FirstEntryRVA: u32,
@@ -3192,7 +3192,7 @@ pub const IMAGE_ARCHIVE_HYBRIDMAP_MEMBER: windows_core::PCSTR = windows_core::s!
 pub const IMAGE_ARCHIVE_LINKER_MEMBER: windows_core::PCSTR = windows_core::s!("/               ");
 pub const IMAGE_ARCHIVE_LONGNAMES_MEMBER: windows_core::PCSTR = windows_core::s!("//              ");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ARCHIVE_MEMBER_HEADER {
     pub Name: [u8; 16],
     pub Date: [u8; 12],
@@ -3223,7 +3223,7 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     pub _bitfield: u32,
 }
@@ -3239,7 +3239,7 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE_0 {
     pub _bitfield: u32,
 }
@@ -3255,7 +3255,7 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED_0 {
     pub _bitfield: u32,
 }
@@ -3282,7 +3282,7 @@ impl Default for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -3325,7 +3325,7 @@ impl Default for IMAGE_AUX_SYMBOL_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_0_0_0 {
     pub Linenumber: u16,
     pub Size: u16,
@@ -3348,7 +3348,7 @@ pub struct IMAGE_AUX_SYMBOL_0_1_0 {
     pub PointerToNextFunction: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_0_1_1 {
     pub Dimension: [u16; 4],
 }
@@ -3358,7 +3358,7 @@ impl Default for IMAGE_AUX_SYMBOL_0_1_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_1 {
     pub Name: [u8; 18],
 }
@@ -3417,7 +3417,7 @@ impl Default for IMAGE_AUX_SYMBOL_EX_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_AUX_SYMBOL_EX_1 {
     pub Name: [u8; 20],
 }
@@ -3482,7 +3482,7 @@ impl Default for IMAGE_AUX_SYMBOL_TOKEN_DEF {
 pub type IMAGE_AUX_SYMBOL_TYPE = i32;
 pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_BASE_RELOCATION {
     pub VirtualAddress: u32,
     pub SizeOfBlock: u32,
@@ -3501,27 +3501,27 @@ pub struct IMAGE_BDD_INFO {
     pub BDDSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_BOUND_FORWARDER_REF {
     pub TimeDateStamp: u32,
     pub OffsetModuleName: u16,
     pub Reserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_BOUND_IMPORT_DESCRIPTOR {
     pub TimeDateStamp: u32,
     pub OffsetModuleName: u16,
     pub NumberOfModuleForwarderRefs: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     pub FuncStart: u32,
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_COFF_SYMBOLS_HEADER {
     pub NumberOfSymbols: u32,
     pub LvaToFirstSymbol: u32,
@@ -3576,13 +3576,13 @@ pub const IMAGE_COR_MIH_BASICBLOCK: ReplacesCorHdrNumericDefines = 8;
 pub const IMAGE_COR_MIH_EHRVA: ReplacesCorHdrNumericDefines = 2;
 pub const IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DATA_DIRECTORY {
     pub VirtualAddress: u32,
     pub Size: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DEBUG_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -3594,7 +3594,7 @@ pub struct IMAGE_DEBUG_DIRECTORY {
     pub PointerToRawData: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_DEBUG_MISC {
     pub DataType: u32,
     pub Length: u32,
@@ -3657,7 +3657,7 @@ impl Default for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
@@ -3770,7 +3770,7 @@ pub const IMAGE_DYNAMIC_RELOCATION_IMPORT_CONTROL_TRANSFER: u32 = 3;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub const IMAGE_DYNAMIC_RELOCATION_IMPORT_CONTROL_TRANSFER: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DYNAMIC_RELOCATION_TABLE {
     pub Version: u32,
     pub Size: u32,
@@ -3784,7 +3784,7 @@ pub type IMAGE_ENCLAVE_CONFIG = IMAGE_ENCLAVE_CONFIG32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type IMAGE_ENCLAVE_CONFIG = IMAGE_ENCLAVE_CONFIG64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ENCLAVE_CONFIG32 {
     pub Size: u32,
     pub MinimumRequiredConfigSize: u32,
@@ -3829,7 +3829,7 @@ impl Default for IMAGE_ENCLAVE_CONFIG64 {
 }
 pub const IMAGE_ENCLAVE_FLAG_PRIMARY_IMAGE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ENCLAVE_IMPORT {
     pub MatchType: u32,
     pub MinimumSecurityVersion: u32,
@@ -3866,7 +3866,7 @@ pub struct IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER {
     pub BranchDescriptorCount: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_EXPORT_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -3888,7 +3888,7 @@ pub const IMAGE_FILE_DEBUG_STRIPPED: u32 = 512;
 pub const IMAGE_FILE_DLL: u32 = 8192;
 pub const IMAGE_FILE_EXECUTABLE_IMAGE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FILE_HEADER {
     pub Machine: u16,
     pub NumberOfSections: u16,
@@ -3923,7 +3923,7 @@ impl Default for IMAGE_FILE_MACHINES_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FILE_MACHINES_0_0 {
     pub _bitfield: u32,
 }
@@ -3965,7 +3965,7 @@ pub const IMAGE_FILE_REMOVABLE_RUN_FROM_SWAP: u32 = 1024;
 pub const IMAGE_FILE_SYSTEM: u32 = 4096;
 pub const IMAGE_FILE_UP_SYSTEM_ONLY: u32 = 16384;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_FUNCTION_ENTRY {
     pub StartingAddress: u32,
     pub EndingAddress: u32,
@@ -4036,7 +4036,7 @@ pub const IMAGE_GUARD_SECURITY_COOKIE_UNUSED: u32 = 2048;
 pub const IMAGE_GUARD_XFG_ENABLED: u32 = 8388608;
 pub type IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_CC_RETURN = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_ENTRY_V2 {
     pub Common: IMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON,
     pub IntArgs: u32,
@@ -4051,7 +4051,7 @@ impl Default for IMAGE_HOTSWAP_ARM64_ENDPOINT_INFO_ENTRY_V2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON {
     pub Size: u32,
     pub Rva: u32,
@@ -4059,13 +4059,13 @@ pub struct IMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON {
     pub NameOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_COMMON {
     pub Version: u32,
     pub Size: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_V2 {
     pub Common: IMAGE_HOTSWAP_ENDPOINT_INFO_HEADER_COMMON,
     pub Count: u32,
@@ -4074,7 +4074,7 @@ pub const IMAGE_HOTSWAP_ENDPOINT_INFO_V2: u32 = 2;
 pub const IMAGE_HOTSWAP_ENDPOINT_TABLE_SECTION: windows_core::PCSTR = windows_core::s!(".shsept");
 pub type IMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_HOTSWAP_X64_ENDPOINT_INFO_ENTRY_V2 {
     pub Common: IMAGE_HOTSWAP_ENDPOINT_INFO_ENTRY_COMMON,
     pub ArgRegs: [IMAGE_HOTSWAP_X64_ENDPOINT_INFO_CC_REG; 4],
@@ -4089,7 +4089,7 @@ impl Default for IMAGE_HOTSWAP_X64_ENDPOINT_INFO_ENTRY_V2 {
 }
 pub const IMAGE_HOT_PATCH_ABSOLUTE: u32 = 180224;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_BASE {
     pub SequenceNumber: u32,
     pub Flags: u32,
@@ -4116,7 +4116,7 @@ pub const IMAGE_HOT_PATCH_CHUNK_TYPE: u32 = 1032192;
 pub const IMAGE_HOT_PATCH_DYNAMIC_VALUE: u32 = 491520;
 pub const IMAGE_HOT_PATCH_FUNCTION: u32 = 114688;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_HASHES {
     pub SHA256: [u8; 32],
     pub SHA1: [u8; 20],
@@ -4128,7 +4128,7 @@ impl Default for IMAGE_HOT_PATCH_HASHES {
 }
 pub const IMAGE_HOT_PATCH_INDIRECT: u32 = 376832;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_INFO {
     pub Version: u32,
     pub Size: u32,
@@ -4143,12 +4143,12 @@ pub struct IMAGE_HOT_PATCH_INFO {
 pub const IMAGE_HOT_PATCH_INFO_FLAG_HOTSWAP: u32 = 2;
 pub const IMAGE_HOT_PATCH_INFO_FLAG_PATCHORDERCRITICAL: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_MACHINE {
     pub Anonymous: IMAGE_HOT_PATCH_MACHINE_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_HOT_PATCH_MACHINE_0 {
     pub _bitfield: u32,
 }
@@ -4157,7 +4157,7 @@ pub const IMAGE_HOT_PATCH_NO_CALL_TARGET: u32 = 409600;
 pub const IMAGE_HOT_PATCH_REL32: u32 = 245760;
 pub type IMAGE_IA64_RUNTIME_FUNCTION_ENTRY = _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_IMPORT_BY_NAME {
     pub Hint: u16,
     pub Name: [i8; 1],
@@ -4234,7 +4234,7 @@ impl Default for IMAGE_LINENUMBER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_LOAD_CONFIG_CODE_INTEGRITY {
     pub Flags: u16,
     pub Catalog: u16,
@@ -4246,7 +4246,7 @@ pub type IMAGE_LOAD_CONFIG_DIRECTORY = IMAGE_LOAD_CONFIG_DIRECTORY32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type IMAGE_LOAD_CONFIG_DIRECTORY = IMAGE_LOAD_CONFIG_DIRECTORY64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_LOAD_CONFIG_DIRECTORY32 {
     pub Size: u32,
     pub TimeDateStamp: u32,
@@ -4358,7 +4358,7 @@ pub type IMAGE_NT_HEADERS = IMAGE_NT_HEADERS32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type IMAGE_NT_HEADERS = IMAGE_NT_HEADERS64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_NT_HEADERS32 {
     pub Signature: u32,
     pub FileHeader: IMAGE_FILE_HEADER,
@@ -4384,7 +4384,7 @@ pub type IMAGE_OPTIONAL_HEADER = IMAGE_OPTIONAL_HEADER32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type IMAGE_OPTIONAL_HEADER = IMAGE_OPTIONAL_HEADER64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_OPTIONAL_HEADER32 {
     pub Magic: u16,
     pub MajorLinkerVersion: u8,
@@ -4555,7 +4555,7 @@ impl Default for IMAGE_POLICY_METADATA {
 pub const IMAGE_POLICY_METADATA_VERSION: u32 = 1;
 pub const IMAGE_POLICY_SECTION_NAME: windows_core::PCSTR = windows_core::s!(".tPolicy");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER {
     pub PrologueByteCount: u8,
 }
@@ -4843,7 +4843,7 @@ pub const IMAGE_REL_THUMB_BRANCH20: u32 = 18;
 pub const IMAGE_REL_THUMB_BRANCH24: u32 = 20;
 pub const IMAGE_REL_THUMB_MOV32: u32 = 17;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DATA_ENTRY {
     pub OffsetToData: u32,
     pub Size: u32,
@@ -4852,7 +4852,7 @@ pub struct IMAGE_RESOURCE_DATA_ENTRY {
 }
 pub const IMAGE_RESOURCE_DATA_IS_DIRECTORY: u32 = 2147483648;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY {
     pub Characteristics: u32,
     pub TimeDateStamp: u32,
@@ -4885,7 +4885,7 @@ impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     pub _bitfield: u32,
 }
@@ -4901,12 +4901,12 @@ impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY_STRING {
     pub Length: u16,
     pub NameString: [i8; 1],
@@ -4917,7 +4917,7 @@ impl Default for IMAGE_RESOURCE_DIRECTORY_STRING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIR_STRING_U {
     pub Length: u16,
     pub NameString: [u16; 1],
@@ -4929,14 +4929,14 @@ impl Default for IMAGE_RESOURCE_DIR_STRING_U {
 }
 pub const IMAGE_RESOURCE_NAME_IS_STRING: u32 = 2147483648;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ROM_HEADERS {
     pub FileHeader: IMAGE_FILE_HEADER,
     pub OptionalHeader: IMAGE_ROM_OPTIONAL_HEADER,
 }
 pub const IMAGE_ROM_OPTIONAL_HDR_MAGIC: u32 = 263;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_ROM_OPTIONAL_HEADER {
     pub Magic: u16,
     pub MajorLinkerVersion: u8,
@@ -5032,7 +5032,7 @@ impl Default for IMAGE_SECTION_HEADER_0 {
 }
 pub const IMAGE_SEPARATE_DEBUG_FLAGS_MASK: u32 = 32768;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMAGE_SEPARATE_DEBUG_HEADER {
     pub Signature: u16,
     pub Flags: u16,
@@ -5281,7 +5281,7 @@ impl Default for IMAGE_TLS_DIRECTORY32_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_TLS_DIRECTORY32_0_0 {
     pub _bitfield: u32,
 }
@@ -5312,7 +5312,7 @@ impl Default for IMAGE_TLS_DIRECTORY64_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_TLS_DIRECTORY64_0_0 {
     pub _bitfield: u32,
 }
@@ -5433,7 +5433,7 @@ pub const INITIAL_MXCSR: u32 = 8064;
 pub const IO_COMPLETION_ALL_ACCESS: u32 = 2031619;
 pub const IO_COMPLETION_MODIFY_STATE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_COUNTERS {
     pub ReadOperationCount: u64,
     pub WriteOperationCount: u64,
@@ -5543,7 +5543,7 @@ pub const ImagePolicyIdSvn: IMAGE_POLICY_ID = 8;
 pub const ImagePolicyIdTrustletIdOverridable: IMAGE_POLICY_ID = 13;
 pub type JOBOBJECTINFOCLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     pub CompletionKey: *mut core::ffi::c_void,
     pub CompletionPort: HANDLE,
@@ -5554,7 +5554,7 @@ impl Default for JOBOBJECT_ASSOCIATE_COMPLETION_PORT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     pub TotalUserTime: i64,
     pub TotalKernelTime: i64,
@@ -5566,13 +5566,13 @@ pub struct JOBOBJECT_BASIC_ACCOUNTING_INFORMATION {
     pub TotalTerminatedProcesses: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION {
     pub BasicInfo: JOBOBJECT_BASIC_ACCOUNTING_INFORMATION,
     pub IoInfo: IO_COUNTERS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_BASIC_LIMIT_INFORMATION {
     pub PerProcessUserTimeLimit: i64,
     pub PerJobUserTimeLimit: i64,
@@ -5585,7 +5585,7 @@ pub struct JOBOBJECT_BASIC_LIMIT_INFORMATION {
     pub SchedulingClass: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct JOBOBJECT_BASIC_PROCESS_ID_LIST {
     pub NumberOfAssignedProcesses: u32,
     pub NumberOfProcessIdsInList: u32,
@@ -5597,7 +5597,7 @@ impl Default for JOBOBJECT_BASIC_PROCESS_ID_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_BASIC_UI_RESTRICTIONS {
     pub UIRestrictionsClass: u32,
 }
@@ -5625,18 +5625,18 @@ impl Default for JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_CPU_RATE_CONTROL_INFORMATION_0_0 {
     pub MinRate: u16,
     pub MaxRate: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_END_OF_JOB_TIME_INFORMATION {
     pub EndOfJobTimeAction: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_EXTENDED_LIMIT_INFORMATION {
     pub BasicLimitInformation: JOBOBJECT_BASIC_LIMIT_INFORMATION,
     pub IoInfo: IO_COUNTERS,
@@ -5650,14 +5650,14 @@ pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_ENABLE: JOBOBJECT_IO_ATTRIBUTION_CONT
 pub type JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = i32;
 pub const JOBOBJECT_IO_ATTRIBUTION_CONTROL_VALID_FLAGS: JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_INFORMATION {
     pub ControlFlags: u32,
     pub ReadStats: JOBOBJECT_IO_ATTRIBUTION_STATS,
     pub WriteStats: JOBOBJECT_IO_ATTRIBUTION_STATS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_IO_ATTRIBUTION_STATS {
     pub IoCount: usize,
     pub TotalNonOverlappedQueueTime: u64,
@@ -5665,7 +5665,7 @@ pub struct JOBOBJECT_IO_ATTRIBUTION_STATS {
     pub TotalSize: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -5677,7 +5677,7 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE {
 }
 pub type JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V1 = JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -5694,7 +5694,7 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 {
     pub CriticalReservationTimePercent: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     pub MaxIops: i64,
     pub MaxBandwidth: i64,
@@ -5717,12 +5717,12 @@ pub struct JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 {
     pub LimitExcessNotifyTimePercent: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_JOBSET_INFORMATION {
     pub MemberLevel: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_LIMIT_VIOLATION_INFORMATION {
     pub LimitFlags: u32,
     pub ViolationLimitFlags: u32,
@@ -5797,20 +5797,20 @@ impl Default for JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_NETWORK_ACCOUNTING_INFORMATION {
     pub DataBytesIn: u64,
     pub DataBytesOut: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_NET_RATE_CONTROL_INFORMATION {
     pub MaxBandwidth: u64,
     pub ControlFlags: JOB_OBJECT_NET_RATE_CONTROL_FLAGS,
     pub DscpTag: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION {
     pub IoReadBytesLimit: u64,
     pub IoWriteBytesLimit: u64,
@@ -5877,7 +5877,7 @@ impl Default for JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2_2 {
 pub type JOBOBJECT_RATE_CONTROL_TOLERANCE = i32;
 pub type JOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOBOBJECT_SECURITY_LIMIT_INFORMATION {
     pub SecurityLimitFlags: u32,
     pub JobToken: HANDLE,
@@ -5974,7 +5974,7 @@ pub const JOB_OBJECT_UILIMIT_WRITECLIPBOARD: u32 = 4;
 pub const JOB_OBJECT_UI_VALID_FLAGS: u32 = 1023;
 pub const JOB_OBJECT_VALID_COMPLETION_FILTER: u32 = 16382;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct JOB_SET_ARRAY {
     pub JobHandle: HANDLE,
     pub MemberLevel: u32,
@@ -6058,7 +6058,7 @@ impl Default for KERNEL_CET_CONTEXT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERNEL_CET_CONTEXT_0_0 {
     pub _bitfield: u16,
 }
@@ -6077,7 +6077,7 @@ pub const KEY_WOW64_RES: u32 = 768;
 pub const KEY_WRITE: u32 = 131078;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Dummy: u32,
 }
@@ -6114,7 +6114,7 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm0: PM128A,
     pub Xmm1: PM128A,
@@ -6151,7 +6151,7 @@ impl Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub Rax: super::basetsd::PDWORD64,
     pub Rcx: super::basetsd::PDWORD64,
@@ -6175,7 +6175,7 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
 pub type KNONVOLATILE_CONTEXT_POINTERS = KNONVOLATILE_CONTEXT_POINTERS_ARM64;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     pub X19: super::basetsd::PDWORD64,
     pub X20: super::basetsd::PDWORD64,
@@ -6202,7 +6202,7 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct KSPIN_LOCK(pub usize);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KTMOBJECT_CURSOR {
     pub LastQuery: windows_core::GUID,
     pub ObjectIdCount: u32,
@@ -6393,7 +6393,7 @@ impl Default for LDT_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
@@ -6401,12 +6401,12 @@ pub struct LDT_ENTRY_0_0 {
     pub BaseHi: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LIST_ENTRY {
     pub Flink: *mut Self,
     pub Blink: *mut Self,
@@ -6417,13 +6417,13 @@ impl Default for LIST_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_ENTRY32 {
     pub Flink: u32,
     pub Blink: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LIST_ENTRY64 {
     pub Flink: u64,
     pub Blink: u64,
@@ -6469,13 +6469,13 @@ pub const LT_DONT_CARE: LATENCY_TIME = 0;
 pub const LT_LOWEST_LATENCY: LATENCY_TIME = 1;
 pub const LUA_TOKEN: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LUID {
     pub LowPart: u32,
     pub HighPart: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LUID_AND_ATTRIBUTES {
     pub Luid: LUID,
     pub Attributes: u32,
@@ -6491,7 +6491,7 @@ pub const LastSleepTime: POWER_INFORMATION_LEVEL = 15;
 pub const LastWakeTime: POWER_INFORMATION_LEVEL = 14;
 pub const LogicalProcessorIdling: POWER_INFORMATION_LEVEL = 56;
 #[repr(C, align(16))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct M128A {
     pub Low: u64,
     pub High: i64,
@@ -6522,7 +6522,7 @@ pub const MAXLONG: u32 = 2147483647;
 pub const MAXLONGLONG: u64 = 9223372036854775807;
 pub const MAXSHORT: u32 = 32767;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAXVERSIONTESTED_INFO {
     pub MaxVersionTested: u64,
 }
@@ -6538,7 +6538,7 @@ pub const MEMORY_ALLOCATION_ALIGNMENT: u32 = 8;
 pub const MEMORY_ALLOCATION_ALIGNMENT: u32 = 16;
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -6556,7 +6556,7 @@ impl Default for MEMORY_BASIC_INFORMATION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut core::ffi::c_void,
     pub AllocationBase: *mut core::ffi::c_void,
@@ -6574,7 +6574,7 @@ impl Default for MEMORY_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION32 {
     pub BaseAddress: u32,
     pub AllocationBase: u32,
@@ -6585,7 +6585,7 @@ pub struct MEMORY_BASIC_INFORMATION32 {
     pub Type: u32,
 }
 #[repr(C, align(16))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_BASIC_INFORMATION64 {
     pub BaseAddress: u64,
     pub AllocationBase: u64,
@@ -6601,14 +6601,14 @@ pub const MEMORY_CURRENT_PARTITION_HANDLE: HANDLE = HANDLE(-1 as _);
 pub const MEMORY_EXISTING_VAD_PARTITION_HANDLE: HANDLE = HANDLE(-3 as _);
 pub const MEMORY_PARTITION_ALL_ACCESS: u32 = 2031619;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {
     pub Type: MEM_DEDICATED_ATTRIBUTE_TYPE,
     pub Reserved: u32,
     pub Value: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_INFORMATION {
     pub NextEntryOffset: u32,
     pub SizeOfInformation: u32,
@@ -6630,7 +6630,7 @@ pub const MEMORY_SYSTEM_PARTITION_HANDLE: HANDLE = HANDLE(-2 as _);
 pub const MEM_4MB_PAGES: u32 = 2147483648;
 pub const MEM_64K_PAGES: u32 = 541065216;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEM_ADDRESS_REQUIREMENTS {
     pub LowestStartingAddress: *mut core::ffi::c_void,
     pub HighestEndingAddress: *mut core::ffi::c_void,
@@ -6659,7 +6659,7 @@ impl Default for MEM_EXTENDED_PARAMETER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
 }
@@ -6709,14 +6709,14 @@ pub const MEM_TOP_DOWN: u32 = 1048576;
 pub const MEM_UNMAP_WITH_TRANSIENT_BOOST: u32 = 1;
 pub const MEM_WRITE_WATCH: u32 = 2097152;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MESSAGE_RESOURCE_BLOCK {
     pub LowId: u32,
     pub HighId: u32,
     pub OffsetToEntries: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MESSAGE_RESOURCE_DATA {
     pub NumberOfBlocks: u32,
     pub Blocks: [MESSAGE_RESOURCE_BLOCK; 1],
@@ -6727,7 +6727,7 @@ impl Default for MESSAGE_RESOURCE_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MESSAGE_RESOURCE_ENTRY {
     pub Length: u16,
     pub Flags: u16,
@@ -6849,7 +6849,7 @@ pub const NATIVE_TYPE_MAX_CB: ReplacesCorHdrNumericDefines = 1;
 pub type NEON128 = ARM64_NT_NEON128;
 pub const NETWORK_APP_INSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_APP_INSTANCE_EA {
     pub AppInstanceID: windows_core::GUID,
     pub CsvFlags: u32,
@@ -6872,7 +6872,7 @@ pub struct NON_PAGED_DEBUG_INFO {
 }
 pub const NON_PAGED_DEBUG_SIGNATURE: u32 = 18766;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFY_USER_POWER_SETTING {
     pub Guid: windows_core::GUID,
 }
@@ -6994,7 +6994,7 @@ impl Default for NUMA_NODE_RELATIONSHIP_0 {
 }
 pub const NUM_DISCHARGE_POLICIES: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NV_MEMORY_RANGE {
     pub BaseAddress: *mut core::ffi::c_void,
     pub Length: usize,
@@ -7015,14 +7015,14 @@ pub const NormalError: SERVICE_ERROR_TYPE = 1;
 pub const NotifyUserModeLegacyPowerEvent: POWER_INFORMATION_LEVEL = 47;
 pub const NotifyUserPowerSetting: POWER_INFORMATION_LEVEL = 26;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECTID {
     pub Lineage: windows_core::GUID,
     pub Uniquifier: u32,
 }
 pub const OBJECT_INHERIT_ACE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OBJECT_TYPE_LIST {
     pub Level: u16,
     pub Sbz: u16,
@@ -7035,7 +7035,7 @@ impl Default for OBJECT_TYPE_LIST {
 }
 pub type OSVERSIONINFO = OSVERSIONINFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OSVERSIONINFOA {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -7051,7 +7051,7 @@ impl Default for OSVERSIONINFOA {
 }
 pub type OSVERSIONINFOEX = OSVERSIONINFOEXA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OSVERSIONINFOEXA {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -7071,7 +7071,7 @@ impl Default for OSVERSIONINFOEXA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OSVERSIONINFOEXW {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -7091,7 +7091,7 @@ impl Default for OSVERSIONINFOEXW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OSVERSIONINFOW {
     pub dwOSVersionInfoSize: u32,
     pub dwMajorVersion: u32,
@@ -7135,7 +7135,7 @@ impl Default for PACCESS_TOKEN {
 }
 pub type PACE_HEADER = *mut ACE_HEADER;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PACKEDEVENTINFO {
     pub ulSize: u32,
     pub ulNumEventsForLogFile: u32,
@@ -7303,7 +7303,7 @@ pub type PENERGY_SAVER_STATUS = *mut ENERGY_SAVER_STATUS;
 pub type PENLISTMENT_BASIC_INFORMATION = *mut ENLISTMENT_BASIC_INFORMATION;
 pub type PENLISTMENT_CRM_INFORMATION = *mut ENLISTMENT_CRM_INFORMATION;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERFORMANCE_DATA {
     pub Size: u16,
     pub Version: u8,
@@ -7720,7 +7720,7 @@ pub const POWER_ACTION_LIGHTEST_FIRST: u32 = 268435456;
 pub const POWER_ACTION_LOCK_CONSOLE: u32 = 536870912;
 pub const POWER_ACTION_OVERRIDE_APPS: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_ACTION_POLICY {
     pub Action: POWER_ACTION,
     pub Flags: u32,
@@ -7739,7 +7739,7 @@ pub const POWER_DISCONNECTED_STANDBY_MODE_AGGRESSIVE: u32 = 1;
 pub const POWER_DISCONNECTED_STANDBY_MODE_NORMAL: u32 = 0;
 pub const POWER_FORCE_TRIGGER_RESET: u32 = 2147483648;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_IDLE_RESILIENCY {
     pub CoalescingTimeout: u32,
     pub IdleResiliencyPeriod: u32,
@@ -7778,13 +7778,13 @@ impl Default for POWER_LIMIT_ATTRIBUTES_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_LIMIT_ATTRIBUTES_0_0 {
     pub _bitfield: u32,
 }
 pub type POWER_LIMIT_TYPES = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_LIMIT_VALUE {
     pub Type: POWER_LIMIT_TYPES,
     pub DomainId: u32,
@@ -7793,7 +7793,7 @@ pub struct POWER_LIMIT_VALUE {
 }
 pub const POWER_LIMIT_VALUE_NO_CONTROL: i32 = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_MONITOR_INVOCATION {
     pub Console: bool,
     pub RequestReason: POWER_MONITOR_REQUEST_REASON,
@@ -7801,7 +7801,7 @@ pub struct POWER_MONITOR_INVOCATION {
 pub type POWER_MONITOR_REQUEST_REASON = i32;
 pub type POWER_MONITOR_REQUEST_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_PLATFORM_INFORMATION {
     pub AoAc: bool,
 }
@@ -7817,30 +7817,30 @@ pub const POWER_REQUEST_CONTEXT_SIMPLE_STRING: u32 = 1;
 pub const POWER_REQUEST_CONTEXT_VERSION: u32 = 0;
 pub type POWER_REQUEST_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES {
     pub IsAllowed: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_CONNECT {
     pub Connected: bool,
     pub Console: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_RIT_STATE {
     pub Active: bool,
     pub LastInputTime: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_TIMEOUTS {
     pub InputTimeout: u32,
     pub DisplayTimeout: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SESSION_WINLOGON {
     pub SessionId: u32,
     pub Console: bool,
@@ -7853,7 +7853,7 @@ pub const POWER_USER_NOTIFY_BUTTON: u32 = 8;
 pub const POWER_USER_NOTIFY_FORCED_SHUTDOWN: u32 = 32;
 pub const POWER_USER_NOTIFY_SHUTDOWN: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_USER_PRESENCE {
     pub UserPresence: POWER_USER_PRESENCE_TYPE,
 }
@@ -7888,14 +7888,14 @@ pub const PPM_FIRMWARE_XPSS: u32 = 128;
 pub const PPM_IDLESTATES_DATA_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xba138e10_e250_4ad7_8616_cf1a7ad410e7);
 pub const PPM_IDLESTATE_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x4838fe4f_f71c_4e51_9ecc_8430a7ac4c6c);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_IDLESTATE_EVENT {
     pub NewState: u32,
     pub OldState: u32,
     pub Processors: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_ACCOUNTING {
     pub StateCount: u32,
     pub TotalTransitions: u32,
@@ -7909,7 +7909,7 @@ impl Default for PPM_IDLE_ACCOUNTING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_ACCOUNTING_EX {
     pub StateCount: u32,
     pub TotalTransitions: u32,
@@ -7931,7 +7931,7 @@ pub const PPM_IDLE_IMPLEMENTATION_MICROPEP: u32 = 3;
 pub const PPM_IDLE_IMPLEMENTATION_NONE: u32 = 0;
 pub const PPM_IDLE_IMPLEMENTATION_PEP: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_ACCOUNTING {
     pub IdleTransitions: u32,
     pub FailedTransitions: u32,
@@ -7945,7 +7945,7 @@ impl Default for PPM_IDLE_STATE_ACCOUNTING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_ACCOUNTING_EX {
     pub TotalTime: u64,
     pub IdleTransitions: u32,
@@ -7962,7 +7962,7 @@ impl Default for PPM_IDLE_STATE_ACCOUNTING_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_IDLE_STATE_BUCKET_EX {
     pub TotalTimeUs: u64,
     pub MinTimeUs: u32,
@@ -7979,7 +7979,7 @@ pub const PPM_PERFSTATES_DATA_GUID: windows_core::GUID = windows_core::GUID::fro
 pub const PPM_PERFSTATE_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xa5b32ddd_7f39_4abc_b892_900e43b59ebb);
 pub const PPM_PERFSTATE_DOMAIN_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x995e6b7f_d653_497a_b978_36a30c29bf01);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_PERFSTATE_DOMAIN_EVENT {
     pub State: u32,
     pub Latency: u32,
@@ -7987,7 +7987,7 @@ pub struct PPM_PERFSTATE_DOMAIN_EVENT {
     pub Processors: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_PERFSTATE_EVENT {
     pub State: u32,
     pub Status: u32,
@@ -7996,7 +7996,7 @@ pub struct PPM_PERFSTATE_EVENT {
     pub Processor: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_THERMALCHANGE_EVENT {
     pub ThermalConstraint: u32,
     pub Processors: u64,
@@ -8004,13 +8004,13 @@ pub struct PPM_THERMALCHANGE_EVENT {
 pub const PPM_THERMALCONSTRAINT_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xa852c2c8_1a4c_423b_8c2c_f30d82931a88);
 pub const PPM_THERMAL_POLICY_CHANGE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x48f377b8_6880_4c7b_8bdc_380176c6654d);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_THERMAL_POLICY_EVENT {
     pub Mode: u8,
     pub Processors: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_WMI_IDLE_STATE {
     pub Latency: u32,
     pub Power: u32,
@@ -8025,7 +8025,7 @@ pub struct PPM_WMI_IDLE_STATE {
     pub Reserved1: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_IDLE_STATES {
     pub Type: u32,
     pub Count: u32,
@@ -8040,7 +8040,7 @@ impl Default for PPM_WMI_IDLE_STATES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_IDLE_STATES_EX {
     pub Type: u32,
     pub Count: u32,
@@ -8055,14 +8055,14 @@ impl Default for PPM_WMI_IDLE_STATES_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_WMI_LEGACY_PERFSTATE {
     pub Frequency: u32,
     pub Flags: u32,
     pub PercentFrequency: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PPM_WMI_PERF_STATE {
     pub Frequency: u32,
     pub Power: u32,
@@ -8080,7 +8080,7 @@ pub struct PPM_WMI_PERF_STATE {
     pub Reserved3: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_PERF_STATES {
     pub Count: u32,
     pub MaxFrequency: u32,
@@ -8110,7 +8110,7 @@ impl Default for PPM_WMI_PERF_STATES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PPM_WMI_PERF_STATES_EX {
     pub Count: u32,
     pub MaxFrequency: u32,
@@ -8223,7 +8223,7 @@ pub type PRESOURCEMANAGER_BASIC_INFORMATION = *mut RESOURCEMANAGER_BASIC_INFORMA
 pub type PRESOURCEMANAGER_COMPLETION_INFORMATION = *mut RESOURCEMANAGER_COMPLETION_INFORMATION;
 pub type PRESUME_PERFORMANCE = *mut RESUME_PERFORMANCE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PRIVILEGE_SET {
     pub PrivilegeCount: u32,
     pub Control: u32,
@@ -8263,7 +8263,7 @@ pub const PROCESSOR_DUTY_CYCLING_DISABLED: u32 = 0;
 pub const PROCESSOR_DUTY_CYCLING_ENABLED: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_GROUP_INFO {
     pub MaximumProcessorCount: u8,
     pub ActiveProcessorCount: u8,
@@ -8280,7 +8280,7 @@ pub const PROCESSOR_HITACHI_SH3: u32 = 10003;
 pub const PROCESSOR_HITACHI_SH3E: u32 = 10004;
 pub const PROCESSOR_HITACHI_SH4: u32 = 10005;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_IDLESTATE_INFO {
     pub TimeCheck: u32,
     pub DemotePercent: u8,
@@ -8317,7 +8317,7 @@ impl Default for PROCESSOR_IDLESTATE_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_IDLESTATE_POLICY_0_0 {
     pub _bitfield: u16,
 }
@@ -8329,7 +8329,7 @@ pub const PROCESSOR_INTEL_PENTIUM: u32 = 586;
 pub const PROCESSOR_MIPS_R4000: u32 = 4000;
 pub const PROCESSOR_MOTOROLA_821: u32 = 821;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_NUMBER {
     pub Group: u16,
     pub Number: u8,
@@ -8378,7 +8378,7 @@ impl Default for PROCESSOR_PERFSTATE_POLICY_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     pub _bitfield: u8,
 }
@@ -8399,7 +8399,7 @@ pub const PROCESSOR_PERF_MAXIMUM_ACTIVITY_WINDOW: u32 = 1270000000;
 pub const PROCESSOR_PERF_MINIMUM_ACTIVITY_WINDOW: u32 = 0;
 pub const PROCESSOR_PERF_PERFORMANCE_PREFERENCE: u32 = 255;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_POWER_POLICY {
     pub Revision: u32,
     pub DynamicThrottle: u8,
@@ -8414,7 +8414,7 @@ impl Default for PROCESSOR_POWER_POLICY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_POWER_POLICY_INFO {
     pub TimeCheck: u32,
     pub DemoteLimit: u32,
@@ -8435,7 +8435,7 @@ pub const PROCESSOR_PPC_604: u32 = 604;
 pub const PROCESSOR_PPC_620: u32 = 620;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSOR_RELATIONSHIP {
     pub Flags: u8,
     pub EfficiencyClass: u8,
@@ -8461,13 +8461,13 @@ pub const PROCESS_CREATE_PROCESS: u32 = 128;
 pub const PROCESS_CREATE_THREAD: u32 = 2;
 pub const PROCESS_DUP_HANDLE: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     pub TargetAddress: usize,
     pub Flags: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     pub NumberOfTargets: u16,
     pub Reserved: u16,
@@ -8475,14 +8475,14 @@ pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     pub Targets: PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     pub BaseAddress: usize,
     pub Size: usize,
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     pub NumberOfRanges: u16,
     pub Reserved: u16,
@@ -8511,7 +8511,7 @@ impl Default for PROCESS_MITIGATION_ASLR_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8537,7 +8537,7 @@ impl Default for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8563,7 +8563,7 @@ impl Default for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8589,7 +8589,7 @@ impl Default for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8616,7 +8616,7 @@ impl Default for PROCESS_MITIGATION_DEP_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8642,7 +8642,7 @@ impl Default for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8668,7 +8668,7 @@ impl Default for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8694,7 +8694,7 @@ impl Default for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8720,7 +8720,7 @@ impl Default for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8746,7 +8746,7 @@ impl Default for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8773,7 +8773,7 @@ impl Default for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8799,7 +8799,7 @@ impl Default for PROCESS_MITIGATION_SEHOP_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8825,7 +8825,7 @@ impl Default for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8851,7 +8851,7 @@ impl Default for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8877,7 +8877,7 @@ impl Default for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8903,7 +8903,7 @@ impl Default for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8929,7 +8929,7 @@ impl Default for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
     pub _bitfield: u32,
 }
@@ -8955,12 +8955,12 @@ impl Default for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_NETWORK_COUNTERS {
     pub BytesIn: u64,
     pub BytesOut: u64,
@@ -9522,7 +9522,7 @@ pub const ProcessorSetIdle: POWER_INFORMATION_LEVEL = 55;
 pub const ProcessorStateHandler: POWER_INFORMATION_LEVEL = 7;
 pub const ProcessorStateHandler2: POWER_INFORMATION_LEVEL = 13;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUOTA_LIMITS {
     pub PagedPoolLimit: usize,
     pub NonPagedPoolLimit: usize,
@@ -9570,7 +9570,7 @@ impl Default for RATE_QUOTA_LIMIT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RATE_QUOTA_LIMIT_0 {
     pub _bitfield: u32,
 }
@@ -9578,7 +9578,7 @@ pub const READ_CONTROL: u32 = 131072;
 pub const READ_THREAD_PROFILING_FLAG_DISPATCHING: u32 = 1;
 pub const READ_THREAD_PROFILING_FLAG_HARDWARE_COUNTERS: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REARRANGE_FILE_DATA {
     pub SourceStartingOffset: u64,
     pub TargetOffset: u64,
@@ -9588,7 +9588,7 @@ pub struct REARRANGE_FILE_DATA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REARRANGE_FILE_DATA32 {
     pub SourceStartingOffset: u64,
     pub TargetOffset: u64,
@@ -9650,7 +9650,7 @@ pub const REG_SZ: u32 = 1;
 pub const REG_UNLOAD_LEGAL_FLAGS: u32 = 1;
 pub const REG_WHOLE_HIVE_VOLATILE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPARSE_GUID_DATA_BUFFER {
     pub ReparseTag: u32,
     pub ReparseDataLength: u16,
@@ -9659,7 +9659,7 @@ pub struct REPARSE_GUID_DATA_BUFFER {
     pub GenericReparseBuffer: REPARSE_GUID_DATA_BUFFER_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REPARSE_GUID_DATA_BUFFER_0 {
     pub DataBuffer: [u8; 1],
 }
@@ -9671,7 +9671,7 @@ impl Default for REPARSE_GUID_DATA_BUFFER_0 {
 pub const REPARSE_GUID_DATA_BUFFER_HEADER_SIZE: u32 = 24;
 pub const RESOURCEMANAGER_ALL_ACCESS: u32 = 2031743;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCEMANAGER_BASIC_INFORMATION {
     pub ResourceManagerId: windows_core::GUID,
     pub DescriptionLength: u32,
@@ -9684,7 +9684,7 @@ impl Default for RESOURCEMANAGER_BASIC_INFORMATION {
 }
 pub const RESOURCEMANAGER_COMPLETE_PROPAGATION: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCEMANAGER_COMPLETION_INFORMATION {
     pub IoCompletionPortHandle: HANDLE,
     pub CompletionKey: usize,
@@ -9700,14 +9700,14 @@ pub const RESOURCEMANAGER_RECOVER: u32 = 4;
 pub const RESOURCEMANAGER_REGISTER_PROTOCOL: u32 = 32;
 pub const RESOURCEMANAGER_SET_INFORMATION: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESUME_PERFORMANCE {
     pub PostTimeMs: u32,
     pub TotalResumeTimeMs: u64,
     pub ResumeCompleteTimestamp: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_BARRIER {
     pub Reserved1: u32,
     pub Reserved2: u32,
@@ -9721,7 +9721,7 @@ impl Default for RTL_BARRIER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_CONDITION_VARIABLE {
     pub Ptr: *mut core::ffi::c_void,
 }
@@ -9740,7 +9740,7 @@ pub const RTL_CORRELATION_VECTOR_VERSION_1: i8 = 1;
 pub const RTL_CORRELATION_VECTOR_VERSION_2: i8 = 2;
 pub const RTL_CORRELATION_VECTOR_VERSION_CURRENT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_CRITICAL_SECTION {
     pub DebugInfo: PRTL_CRITICAL_SECTION_DEBUG,
     pub LockCount: i32,
@@ -9751,7 +9751,7 @@ pub struct RTL_CRITICAL_SECTION {
 }
 pub const RTL_CRITICAL_SECTION_ALL_FLAG_BITS: u32 = 4278190080;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_CRITICAL_SECTION_DEBUG {
     pub Type: u16,
     pub CreatorBackTraceIndex: u16,
@@ -9799,7 +9799,7 @@ pub const RTL_RUN_ONCE_CHECK_ONLY: u32 = 1;
 pub const RTL_RUN_ONCE_CTX_RESERVED_BITS: u32 = 2;
 pub const RTL_RUN_ONCE_INIT_FAILED: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RTL_SRWLOCK {
     pub Ptr: *mut core::ffi::c_void,
 }
@@ -9846,7 +9846,7 @@ pub type RUNTIME_FUNCTION = ARM64_RUNTIME_FUNCTION;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const RUNTIME_FUNCTION_INDIRECT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RUNTIME_REPORT_DIGEST_HEADER {
     pub ReportType: u16,
     pub Reserved: u16,
@@ -9859,7 +9859,7 @@ impl Default for RUNTIME_REPORT_DIGEST_HEADER {
 }
 pub const RUNTIME_REPORT_DIGEST_MAX_SIZE: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RUNTIME_REPORT_HEADER {
     pub ReportType: u16,
     pub Reserved: u16,
@@ -9867,7 +9867,7 @@ pub struct RUNTIME_REPORT_HEADER {
 }
 pub const RUNTIME_REPORT_NONCE_SIZE: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RUNTIME_REPORT_PACKAGE_HEADER {
     pub Magic: u32,
     pub PackageVersion: u16,
@@ -9913,7 +9913,7 @@ pub type SCOPE_TABLE = SCOPE_TABLE_AMD64;
 #[cfg(target_arch = "aarch64")]
 pub type SCOPE_TABLE = SCOPE_TABLE_ARM64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCOPE_TABLE_AMD64 {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_AMD64_0; 1],
@@ -9924,7 +9924,7 @@ impl Default for SCOPE_TABLE_AMD64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCOPE_TABLE_AMD64_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -9932,7 +9932,7 @@ pub struct SCOPE_TABLE_AMD64_0 {
     pub JumpTarget: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCOPE_TABLE_ARM {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_ARM_0; 1],
@@ -9943,7 +9943,7 @@ impl Default for SCOPE_TABLE_ARM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCOPE_TABLE_ARM64 {
     pub Count: u32,
     pub ScopeRecord: [SCOPE_TABLE_ARM64_0; 1],
@@ -9954,7 +9954,7 @@ impl Default for SCOPE_TABLE_ARM64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCOPE_TABLE_ARM64_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -9962,7 +9962,7 @@ pub struct SCOPE_TABLE_ARM64_0 {
     pub JumpTarget: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCOPE_TABLE_ARM_0 {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -9970,7 +9970,7 @@ pub struct SCOPE_TABLE_ARM_0 {
     pub JumpTarget: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRUB_DATA_INPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -9994,7 +9994,7 @@ pub const SCRUB_DATA_INPUT_FLAG_SKIP_DATA: u32 = 16;
 pub const SCRUB_DATA_INPUT_FLAG_SKIP_IN_SYNC: u32 = 2;
 pub const SCRUB_DATA_INPUT_FLAG_SKIP_NON_INTEGRITY_DATA: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRUB_DATA_OUTPUT {
     pub Size: u32,
     pub Flags: u32,
@@ -10033,13 +10033,13 @@ pub const SCRUB_DATA_OUTPUT_FLAG_NON_USER_DATA_RANGE: u32 = 65536;
 pub const SCRUB_DATA_OUTPUT_FLAG_PARITY_EXTENT_DATA_RETURNED: u32 = 131072;
 pub const SCRUB_DATA_OUTPUT_FLAG_RESUME_CONTEXT_LENGTH_SPECIFIED: u32 = 262144;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRUB_PARITY_EXTENT {
     pub Offset: i64,
     pub Length: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRUB_PARITY_EXTENT_DATA {
     pub Size: u16,
     pub Flags: u16,
@@ -10080,7 +10080,7 @@ pub const SECURITY_BUILTIN_DOMAIN_RID: u32 = 32;
 pub const SECURITY_BUILTIN_PACKAGE_ANY_PACKAGE: u32 = 1;
 pub const SECURITY_BUILTIN_PACKAGE_ANY_RESTRICTED_PACKAGE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_CAPABILITIES {
     pub AppContainerSid: PSID,
     pub Capabilities: PSID_AND_ATTRIBUTES,
@@ -10123,7 +10123,7 @@ pub const SECURITY_CRED_TYPE_THIS_ORG_CERT_RID: u32 = 1;
 pub const SECURITY_DASHOST_ID_BASE_RID: u32 = 92;
 pub const SECURITY_DASHOST_ID_RID_COUNT: u32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_DESCRIPTOR {
     pub Revision: u8,
     pub Sbz1: u8,
@@ -10137,7 +10137,7 @@ pub struct SECURITY_DESCRIPTOR {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SECURITY_DESCRIPTOR_CONTROL(pub u16);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_DESCRIPTOR_RELATIVE {
     pub Revision: u8,
     pub Sbz1: u8,
@@ -10194,7 +10194,7 @@ pub const SECURITY_NT_NON_UNIQUE: u32 = 21;
 pub const SECURITY_NT_NON_UNIQUE_SUB_AUTH_COUNT: u32 = 3;
 pub const SECURITY_NULL_RID: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_OBJECT_AI_PARAMS {
     pub Size: u32,
     pub ConstraintMask: u32,
@@ -10219,7 +10219,7 @@ pub const SECURITY_PROCESS_PROTECTION_TYPE_NONE_RID: u32 = 0;
 pub const SECURITY_PROCESS_TRUST_AUTHORITY_RID_COUNT: u32 = 2;
 pub const SECURITY_PROXY_RID: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_QUALITY_OF_SERVICE {
     pub Length: u32,
     pub ImpersonationLevel: SECURITY_IMPERSONATION_LEVEL,
@@ -10293,7 +10293,7 @@ pub const SEF_SACL_AUTO_INHERIT: u32 = 2;
 pub const SEMAPHORE_ALL_ACCESS: u32 = 2031619;
 pub const SEMAPHORE_MODIFY_STATE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVERSILO_BASIC_INFORMATION {
     pub ServiceSessionId: u32,
     pub State: SERVERSILO_STATE,
@@ -10310,7 +10310,7 @@ impl Default for SERVERSILO_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SERVERSILO_DIAGNOSTIC_INFORMATION {
     pub ReportId: windows_core::GUID,
     pub ExitStatus: u32,
@@ -10358,7 +10358,7 @@ pub const SESSION_ALL_ACCESS: u32 = 983043;
 pub const SESSION_MODIFY_ACCESS: u32 = 2;
 pub const SESSION_QUERY_ACCESS: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SET_POWER_SETTING_VALUE {
     pub Version: u32,
     pub Guid: windows_core::GUID,
@@ -10375,7 +10375,7 @@ pub const SE_ACCESS_CHECK_FLAG_NO_LEARNING_MODE_LOGGING: u32 = 8;
 pub const SE_ACCESS_CHECK_VALID_FLAGS: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_ACCESS_REPLY {
     pub Size: u32,
     pub ResultListCount: u32,
@@ -10391,7 +10391,7 @@ impl Default for SE_ACCESS_REPLY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_ACCESS_REQUEST {
     pub Size: u32,
     pub SeSecurityDescriptor: PSE_SECURITY_DESCRIPTOR,
@@ -10430,7 +10430,7 @@ pub const SE_GROUP_USE_FOR_DENY_ONLY: u32 = 16;
 pub const SE_GROUP_VALID_ATTRIBUTES: i32 = -536870785;
 pub type SE_IMAGE_SIGNATURE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_IMPERSONATION_STATE {
     pub Token: PACCESS_TOKEN,
     pub CopyOnOpen: bool,
@@ -10453,7 +10453,7 @@ pub const SE_SACL_DEFAULTED: u32 = 32;
 pub const SE_SACL_PRESENT: u32 = 16;
 pub const SE_SACL_PROTECTED: u32 = 8192;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_SECURITY_DESCRIPTOR {
     pub Size: u32,
     pub Flags: u32,
@@ -10532,7 +10532,7 @@ impl Default for SE_TOKEN_USER_1 {
 }
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHARED_COMPUTE_UNIT_RELATIONSHIP {
     pub Type: u32,
     pub ComputeUnitCount: u32,
@@ -10547,13 +10547,13 @@ impl Default for SHARED_COMPUTE_UNIT_RELATIONSHIP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARED_VIRTUAL_DISK_SUPPORT {
     pub SharedVirtualDiskSupport: SharedVirtualDiskSupportType,
     pub HandleState: SharedVirtualDiskHandleState,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHUFFLE_FILE_DATA {
     pub StartingOffset: i64,
     pub Length: i64,
@@ -10561,7 +10561,7 @@ pub struct SHUFFLE_FILE_DATA {
 }
 pub const SHUFFLE_FILE_FLAG_SKIP_INITIALIZING_NEW_CLUSTERS: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID {
     pub Revision: u8,
     pub SubAuthorityCount: u8,
@@ -10574,14 +10574,14 @@ impl Default for SID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SID_AND_ATTRIBUTES {
     pub Sid: PSID,
     pub Attributes: u32,
 }
 pub type SID_AND_ATTRIBUTES_ARRAY = [SID_AND_ATTRIBUTES; 1];
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID_AND_ATTRIBUTES_HASH {
     pub SidCount: u32,
     pub SidAttr: PSID_AND_ATTRIBUTES,
@@ -10597,7 +10597,7 @@ impl Default for SID_AND_ATTRIBUTES_HASH {
 pub struct SID_HASH_ENTRY(pub usize);
 pub const SID_HASH_SIZE: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SID_IDENTIFIER_AUTHORITY {
     pub Value: [u8; 6],
 }
@@ -10611,7 +10611,7 @@ pub type SID_NAME_USE = i32;
 pub const SID_RECOMMENDED_SUB_AUTHORITIES: u32 = 1;
 pub const SID_REVISION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SILOOBJECT_BASIC_INFORMATION {
     pub SiloId: u32,
     pub SiloParentId: u32,
@@ -10625,7 +10625,7 @@ impl Default for SILOOBJECT_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SINGLE_LIST_ENTRY {
     pub Next: *mut Self,
 }
@@ -10641,7 +10641,7 @@ pub const SIZE_OF_80387_REGISTERS: u32 = 80;
 pub type SLIST_ENTRY = SINGLE_LIST_ENTRY;
 #[repr(C, align(16))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SLIST_ENTRY {
     pub Next: *mut Self,
 }
@@ -10666,7 +10666,7 @@ impl Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Next: SLIST_ENTRY,
     pub Depth: u16,
@@ -10687,14 +10687,14 @@ impl Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
@@ -10714,14 +10714,14 @@ impl Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
@@ -11053,14 +11053,14 @@ pub const SUBLANG_YORUBA_NIGERIA: u32 = 1;
 pub const SUBLANG_ZULU_SOUTH_AFRICA: u32 = 1;
 pub const SUCCESSFUL_ACCESS_ACE_FLAG: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SUPPORTED_OS_INFO {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
 pub const SYNCHRONIZE: u32 = 1048576;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ACCESS_FILTER_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11070,7 +11070,7 @@ pub const SYSTEM_ACCESS_FILTER_ACE_TYPE: u32 = 21;
 pub const SYSTEM_ACCESS_FILTER_NOCONSTRAINT_MASK: u32 = 4294967295;
 pub const SYSTEM_ACCESS_FILTER_VALID_MASK: u32 = 16777215;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11078,7 +11078,7 @@ pub struct SYSTEM_ALARM_ACE {
 }
 pub const SYSTEM_ALARM_ACE_TYPE: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11086,7 +11086,7 @@ pub struct SYSTEM_ALARM_CALLBACK_ACE {
 }
 pub const SYSTEM_ALARM_CALLBACK_ACE_TYPE: u32 = 14;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11097,7 +11097,7 @@ pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
 }
 pub const SYSTEM_ALARM_CALLBACK_OBJECT_ACE_TYPE: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_ALARM_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11108,7 +11108,7 @@ pub struct SYSTEM_ALARM_OBJECT_ACE {
 }
 pub const SYSTEM_ALARM_OBJECT_ACE_TYPE: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11116,7 +11116,7 @@ pub struct SYSTEM_AUDIT_ACE {
 }
 pub const SYSTEM_AUDIT_ACE_TYPE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11124,7 +11124,7 @@ pub struct SYSTEM_AUDIT_CALLBACK_ACE {
 }
 pub const SYSTEM_AUDIT_CALLBACK_ACE_TYPE: u32 = 13;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11135,7 +11135,7 @@ pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
 }
 pub const SYSTEM_AUDIT_CALLBACK_OBJECT_ACE_TYPE: u32 = 15;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_AUDIT_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11146,7 +11146,7 @@ pub struct SYSTEM_AUDIT_OBJECT_ACE {
 }
 pub const SYSTEM_AUDIT_OBJECT_ACE_TYPE: u32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_BATTERY_STATE {
     pub AcOnLine: bool,
     pub BatteryPresent: bool,
@@ -11223,7 +11223,7 @@ impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     pub _bitfield: u8,
 }
@@ -11268,12 +11268,12 @@ impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_0 {
     pub Flags: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_LOGICAL_PROCESSOR_INFORMATION_0_1 {
     pub NodeNumber: u32,
 }
@@ -11308,7 +11308,7 @@ impl Default for SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_MANDATORY_LABEL_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11320,12 +11320,12 @@ pub const SYSTEM_MANDATORY_LABEL_NO_READ_UP: u32 = 2;
 pub const SYSTEM_MANDATORY_LABEL_NO_WRITE_UP: u32 = 1;
 pub const SYSTEM_MANDATORY_LABEL_VALID_MASK: u32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_POOL_ZEROING_INFORMATION {
     pub PoolZeroingSupportPresent: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_CAPABILITIES {
     pub PowerButtonPresent: bool,
     pub SleepButtonPresent: bool,
@@ -11368,7 +11368,7 @@ impl Default for SYSTEM_POWER_CAPABILITIES {
 }
 pub type SYSTEM_POWER_CONDITION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_LEVEL {
     pub Enable: bool,
     pub Spare: [u8; 3],
@@ -11382,7 +11382,7 @@ impl Default for SYSTEM_POWER_LEVEL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SYSTEM_POWER_POLICY {
     pub Revision: u32,
     pub PowerButton: POWER_ACTION_POLICY,
@@ -11419,7 +11419,7 @@ impl Default for SYSTEM_POWER_POLICY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_POWER_SOURCE_STATE {
     pub BatteryState: SYSTEM_BATTERY_STATE,
     pub InstantaneousPeakPower: u32,
@@ -11434,12 +11434,12 @@ pub struct SYSTEM_POWER_SOURCE_STATE {
 }
 pub type SYSTEM_POWER_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION {
     pub CycleTime: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11449,7 +11449,7 @@ pub const SYSTEM_PROCESS_TRUST_LABEL_ACE_TYPE: u32 = 20;
 pub const SYSTEM_PROCESS_TRUST_LABEL_VALID_MASK: u32 = 16777215;
 pub const SYSTEM_PROCESS_TRUST_NOCONSTRAINT_MASK: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11457,7 +11457,7 @@ pub struct SYSTEM_RESOURCE_ATTRIBUTE_ACE {
 }
 pub const SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE: u32 = 18;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
     pub Header: ACE_HEADER,
     pub Mask: ACCESS_MASK,
@@ -11465,7 +11465,7 @@ pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
 }
 pub const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: u32 = 19;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     pub _bitfield: u32,
 }
@@ -11541,7 +11541,7 @@ pub const TAPE_ABSOLUTE_BLOCK: u32 = 1;
 pub const TAPE_ABSOLUTE_POSITION: u32 = 0;
 pub const TAPE_CHECK_FOR_DRIVE_PROBLEM: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_CREATE_PARTITION {
     pub Method: u32,
     pub Count: u32,
@@ -11605,7 +11605,7 @@ pub const TAPE_DRIVE_WRITE_PROTECT: u32 = 4096;
 pub const TAPE_DRIVE_WRITE_SETMARKS: u32 = 2164260864;
 pub const TAPE_DRIVE_WRITE_SHORT_FMKS: u32 = 2214592512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_ERASE {
     pub Type: u32,
     pub Immediate: bool,
@@ -11616,7 +11616,7 @@ pub const TAPE_FILEMARKS: u32 = 1;
 pub const TAPE_FIXED_PARTITIONS: u32 = 0;
 pub const TAPE_FORMAT: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_GET_DRIVE_PARAMETERS {
     pub ECC: bool,
     pub Compression: bool,
@@ -11631,7 +11631,7 @@ pub struct TAPE_GET_DRIVE_PARAMETERS {
     pub EOTWarningZoneSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_GET_MEDIA_PARAMETERS {
     pub Capacity: i64,
     pub Remaining: i64,
@@ -11640,7 +11640,7 @@ pub struct TAPE_GET_MEDIA_PARAMETERS {
     pub WriteProtected: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_GET_POSITION {
     pub Type: u32,
     pub Partition: u32,
@@ -11653,7 +11653,7 @@ pub const TAPE_LOGICAL_BLOCK: u32 = 2;
 pub const TAPE_LOGICAL_POSITION: u32 = 1;
 pub const TAPE_LONG_FILEMARKS: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_PREPARE {
     pub Operation: u32,
     pub Immediate: bool,
@@ -11668,7 +11668,7 @@ pub const TAPE_REWIND: u32 = 0;
 pub const TAPE_SELECT_PARTITIONS: u32 = 1;
 pub const TAPE_SETMARKS: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_SET_DRIVE_PARAMETERS {
     pub ECC: bool,
     pub Compression: bool,
@@ -11677,12 +11677,12 @@ pub struct TAPE_SET_DRIVE_PARAMETERS {
     pub EOTWarningZoneSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_SET_MEDIA_PARAMETERS {
     pub BlockSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_SET_POSITION {
     pub Method: u32,
     pub Partition: u32,
@@ -11700,7 +11700,7 @@ pub const TAPE_TENSION: u32 = 2;
 pub const TAPE_UNLOAD: u32 = 1;
 pub const TAPE_UNLOCK: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TAPE_WMI_OPERATIONS {
     pub Method: u32,
     pub DataBufferSize: u32,
@@ -11712,7 +11712,7 @@ impl Default for TAPE_WMI_OPERATIONS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TAPE_WRITE_MARKS {
     pub Type: u32,
     pub Count: u32,
@@ -11751,7 +11751,7 @@ pub const TIME_ZONE_ID_STANDARD: u32 = 1;
 pub const TIME_ZONE_ID_UNKNOWN: u32 = 0;
 pub const TLS_MINIMUM_AVAILABLE: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_ACCESS_INFORMATION {
     pub SidHash: PSID_AND_ATTRIBUTES_HASH,
     pub RestrictedSidHash: PSID_AND_ATTRIBUTES_HASH,
@@ -11776,13 +11776,13 @@ pub const TOKEN_ADJUST_SESSIONID: u32 = 256;
 pub const TOKEN_ALL_ACCESS: u32 = 983551;
 pub const TOKEN_ALL_ACCESS_P: u32 = 983295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_APPCONTAINER_INFORMATION {
     pub TokenAppContainer: PSID,
 }
 pub const TOKEN_ASSIGN_PRIMARY: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_AUDIT_POLICY {
     pub PerUserPolicy: [u8; 31],
 }
@@ -11792,13 +11792,13 @@ impl Default for TOKEN_AUDIT_POLICY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_BNO_ISOLATION_INFORMATION {
     pub IsolationPrefix: windows_core::PWSTR,
     pub IsolationEnabled: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_CONTROL {
     pub TokenId: LUID,
     pub AuthenticationId: LUID,
@@ -11806,25 +11806,25 @@ pub struct TOKEN_CONTROL {
     pub TokenSource: TOKEN_SOURCE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_DEFAULT_DACL {
     pub DefaultDacl: PACL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_DEVICE_CLAIMS {
     pub DeviceClaims: PCLAIMS_BLOB,
 }
 pub const TOKEN_DUPLICATE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_ELEVATION {
     pub TokenIsElevated: u32,
 }
 pub type TOKEN_ELEVATION_TYPE = i32;
 pub const TOKEN_EXECUTE: u32 = 131072;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_GROUPS {
     pub GroupCount: u32,
     pub Groups: [SID_AND_ATTRIBUTES; 1],
@@ -11835,7 +11835,7 @@ impl Default for TOKEN_GROUPS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_GROUPS_AND_PRIVILEGES {
     pub SidCount: u32,
     pub SidLength: u32,
@@ -11851,12 +11851,12 @@ pub struct TOKEN_GROUPS_AND_PRIVILEGES {
 pub const TOKEN_IMPERSONATE: u32 = 4;
 pub type TOKEN_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_LINKED_TOKEN {
     pub LinkedToken: HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_LOGGING_INFORMATION {
     pub TokenType: TOKEN_TYPE,
     pub TokenElevation: TOKEN_ELEVATION,
@@ -11873,12 +11873,12 @@ pub struct TOKEN_LOGGING_INFORMATION {
     pub Groups: PSID_AND_ATTRIBUTES,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_MANDATORY_LABEL {
     pub Label: SID_AND_ATTRIBUTES,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_MANDATORY_POLICY {
     pub Policy: u32,
 }
@@ -11887,22 +11887,22 @@ pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: u32 = 1;
 pub const TOKEN_MANDATORY_POLICY_OFF: u32 = 0;
 pub const TOKEN_MANDATORY_POLICY_VALID_MASK: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_ORIGIN {
     pub OriginatingLogonSession: LUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_OWNER {
     pub Owner: PSID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_PRIMARY_GROUP {
     pub PrimaryGroup: PSID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_PRIVILEGES {
     pub PrivilegeCount: u32,
     pub Privileges: [LUID_AND_ATTRIBUTES; 1],
@@ -11916,12 +11916,12 @@ pub const TOKEN_QUERY: u32 = 8;
 pub const TOKEN_QUERY_SOURCE: u32 = 16;
 pub const TOKEN_READ: u32 = 131080;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_SID_INFORMATION {
     pub Sid: PSID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TOKEN_SOURCE {
     pub SourceName: [i8; 8],
     pub SourceIdentifier: LUID,
@@ -11933,7 +11933,7 @@ impl Default for TOKEN_SOURCE {
 }
 pub const TOKEN_SOURCE_LENGTH: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_STATISTICS {
     pub TokenId: LUID,
     pub AuthenticationId: LUID,
@@ -11950,12 +11950,12 @@ pub const TOKEN_TRUST_ALLOWED_MASK: u32 = 131102;
 pub const TOKEN_TRUST_CONSTRAINT_MASK: u32 = 131096;
 pub type TOKEN_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_USER {
     pub User: SID_AND_ATTRIBUTES,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOKEN_USER_CLAIMS {
     pub UserClaims: PCLAIMS_BLOB,
 }
@@ -11992,12 +11992,12 @@ impl Default for TP_CALLBACK_ENVIRON_V3_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_CALLBACK_ENVIRON_V3_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_CALLBACK_INSTANCE(pub u8);
 pub type TP_CALLBACK_PRIORITY = i32;
 pub const TP_CALLBACK_PRIORITY_COUNT: TP_CALLBACK_PRIORITY = 3;
@@ -12006,43 +12006,43 @@ pub const TP_CALLBACK_PRIORITY_INVALID: TP_CALLBACK_PRIORITY = 3;
 pub const TP_CALLBACK_PRIORITY_LOW: TP_CALLBACK_PRIORITY = 2;
 pub const TP_CALLBACK_PRIORITY_NORMAL: TP_CALLBACK_PRIORITY = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_CLEANUP_GROUP(pub u8);
 pub type TP_CLEANUP_GROUP_CANCEL_CALLBACK = Option<unsafe extern "system" fn(objectcontext: *mut core::ffi::c_void, cleanupcontext: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_IO(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_POOL(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_POOL_STACK_INFORMATION {
     pub StackReserve: usize,
     pub StackCommit: usize,
 }
 pub type TP_SIMPLE_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_TIMER(pub u8);
 pub type TP_TIMER_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, timer: *mut TP_TIMER)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct TP_VERSION(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_WAIT(pub u8);
 pub type TP_WAIT_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, wait: *mut TP_WAIT, waitresult: TP_WAIT_RESULT)>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct TP_WAIT_RESULT(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_WORK(pub u8);
 pub type TP_WORK_CALLBACK = Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut core::ffi::c_void, work: *mut TP_WORK)>;
 pub const TRANSACTIONMANAGER_ALL_ACCESS: u32 = 983103;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_BASIC_INFORMATION {
     pub TmIdentity: windows_core::GUID,
     pub VirtualClock: i64,
@@ -12054,7 +12054,7 @@ pub const TRANSACTIONMANAGER_GENERIC_READ: u32 = 131073;
 pub const TRANSACTIONMANAGER_GENERIC_WRITE: u32 = 131102;
 pub type TRANSACTIONMANAGER_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     pub LogPathLength: u32,
     pub LogPath: [u16; 1],
@@ -12065,19 +12065,19 @@ impl Default for TRANSACTIONMANAGER_LOGPATH_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_LOG_INFORMATION {
     pub LogIdentity: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_OLDEST_INFORMATION {
     pub OldestTransactionGuid: windows_core::GUID,
 }
 pub const TRANSACTIONMANAGER_QUERY_INFORMATION: u32 = 1;
 pub const TRANSACTIONMANAGER_RECOVER: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTIONMANAGER_RECOVERY_INFORMATION {
     pub LastRecoveredLsn: u64,
 }
@@ -12085,21 +12085,21 @@ pub const TRANSACTIONMANAGER_RENAME: u32 = 8;
 pub const TRANSACTIONMANAGER_SET_INFORMATION: u32 = 2;
 pub const TRANSACTION_ALL_ACCESS: u32 = 2031679;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_BASIC_INFORMATION {
     pub TransactionId: windows_core::GUID,
     pub State: u32,
     pub Outcome: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_BIND_INFORMATION {
     pub TmHandle: HANDLE,
 }
 pub const TRANSACTION_COMMIT: u32 = 8;
 pub const TRANSACTION_ENLIST: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_ENLISTMENTS_INFORMATION {
     pub NumberOfEnlistments: u32,
     pub EnlistmentPair: [TRANSACTION_ENLISTMENT_PAIR; 1],
@@ -12110,7 +12110,7 @@ impl Default for TRANSACTION_ENLISTMENTS_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_ENLISTMENT_PAIR {
     pub EnlistmentId: windows_core::GUID,
     pub ResourceManagerId: windows_core::GUID,
@@ -12121,13 +12121,13 @@ pub const TRANSACTION_GENERIC_WRITE: u32 = 1179710;
 pub type TRANSACTION_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(feature = "ktmtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_LIST_ENTRY {
     pub UOW: super::ktmtypes::UOW,
 }
 #[repr(C)]
 #[cfg(feature = "ktmtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_LIST_INFORMATION {
     pub NumberOfTransactions: u32,
     pub TransactionInformation: [TRANSACTION_LIST_ENTRY; 1],
@@ -12141,7 +12141,7 @@ impl Default for TRANSACTION_LIST_INFORMATION {
 pub type TRANSACTION_OUTCOME = i32;
 pub const TRANSACTION_PROPAGATE: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSACTION_PROPERTIES_INFORMATION {
     pub IsolationLevel: u32,
     pub IsolationFlags: u32,
@@ -12162,7 +12162,7 @@ pub const TRANSACTION_ROLLBACK: u32 = 16;
 pub const TRANSACTION_SET_INFORMATION: u32 = 2;
 pub type TRANSACTION_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
     pub SuperiorEnlistmentPair: TRANSACTION_ENLISTMENT_PAIR,
 }
@@ -12276,7 +12276,7 @@ pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLAS
 pub struct UCSCHAR(pub u32);
 pub const UCSCHAR_INVALID_CHARACTER: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UMS_CREATE_THREAD_ATTRIBUTES {
     pub UmsVersion: u32,
     pub UmsContext: *mut core::ffi::c_void,
@@ -12300,7 +12300,7 @@ pub const UNSPECIFIED_COMPARTMENT_ID: COMPARTMENT_ID = 0;
 pub const UNWIND_CHAIN_LIMIT: u32 = 32;
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNWIND_HISTORY_TABLE {
     pub Count: u32,
     pub LocalHint: u8,
@@ -12319,7 +12319,7 @@ impl Default for UNWIND_HISTORY_TABLE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: PRUNTIME_FUNCTION,
@@ -12415,7 +12415,7 @@ pub type WAITORTIMERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: *mut
 pub type WELL_KNOWN_SID_TYPE = i32;
 pub type WORKERCALLBACKFUNC = Option<unsafe extern "system" fn(param0: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WOW64_CONTEXT {
     pub ContextFlags: u32,
     pub Dr0: u32,
@@ -12475,7 +12475,7 @@ impl Default for WOW64_DESCRIPTOR_TABLE_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WOW64_FLOATING_SAVE_AREA {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -12516,7 +12516,7 @@ impl Default for WOW64_LDT_ENTRY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WOW64_LDT_ENTRY_0_0 {
     pub BaseMid: u8,
     pub Flags1: u8,
@@ -12524,7 +12524,7 @@ pub struct WOW64_LDT_ENTRY_0_0 {
     pub BaseHi: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WOW64_LDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
@@ -12720,13 +12720,13 @@ pub const X86_CACHE_ALIGNMENT_SIZE: u32 = 64;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type XMM_SAVE_AREA32 = XSAVE_FORMAT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSAVE_AREA {
     pub LegacyState: XSAVE_FORMAT,
     pub Header: XSAVE_AREA_HEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_AREA_HEADER {
     pub Mask: u64,
     pub CompactionMask: u64,
@@ -12738,7 +12738,7 @@ impl Default for XSAVE_AREA_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_ARM64_SME_TPIDR2_HEADER {
     pub Reserved: [u32; 8],
 }
@@ -12771,12 +12771,12 @@ impl Default for XSAVE_ARM64_SME_ZA_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSAVE_ARM64_SME_ZA_HEADER_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_ARM64_SME_ZT_HEADER {
     pub RegisterCount: u32,
     pub Reserved: [u32; 7],
@@ -12812,19 +12812,19 @@ impl Default for XSAVE_ARM64_SVE_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSAVE_ARM64_SVE_HEADER_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSAVE_CET_U_FORMAT {
     pub Ia32CetUMsr: u64,
     pub Ia32Pl3SspMsr: u64,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -12851,7 +12851,7 @@ impl Default for XSAVE_FORMAT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -12927,7 +12927,7 @@ impl Default for XSTATE_CONFIGURATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSTATE_CONFIGURATION_0_0 {
     pub _bitfield: u32,
 }
@@ -12943,7 +12943,7 @@ impl Default for XSTATE_CONFIGURATION_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_CONFIGURATION_1_0 {
     pub Amd64Spare1: [u32; 3],
 }
@@ -12979,13 +12979,13 @@ impl Default for XSTATE_CONFIGURATION_1_1_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSTATE_CONFIGURATION_1_1_0_0 {
     pub _bitfield: u16,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -13004,7 +13004,7 @@ impl Default for XSTATE_CONTEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -13025,7 +13025,7 @@ pub const XSTATE_CONTROLFLAG_XFD_MASK: u32 = 4;
 pub const XSTATE_CONTROLFLAG_XSAVEC_MASK: u32 = 2;
 pub const XSTATE_CONTROLFLAG_XSAVEOPT_MASK: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSTATE_FEATURE {
     pub Offset: u32,
     pub Size: u32,
@@ -13082,10 +13082,10 @@ pub const XSTATE_PASID: u32 = 10;
 pub const XSTATE_XFD_BIT: u32 = 2;
 pub const XSTATE_XFD_MASK: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ACTIVATION_CONTEXT(pub u8);
 #[repr(C, align(1))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _ENUM_FLAG_INTEGER_FOR_SIZE(pub u8);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type _IMAGE_RUNTIME_FUNCTION_ENTRY = RUNTIME_FUNCTION;
@@ -13121,10 +13121,10 @@ pub type _PIMAGE_RUNTIME_FUNCTION_ENTRY = *mut RUNTIME_FUNCTION;
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 pub type _PIMAGE_RUNTIME_FUNCTION_ENTRY = *mut _IMAGE_RUNTIME_FUNCTION_ENTRY;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _TEB(pub u8);
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _UNWIND_HISTORY_TABLE(pub u8);
 pub type __C_ASSERT__ = [i8; 1];

@@ -848,7 +848,7 @@ impl core::ops::Not for TextBoxFeatures {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextBoxId {
     pub Value: u32,
 }
@@ -1488,7 +1488,7 @@ impl windows_core::RuntimeName for TextInputService {
 unsafe impl Send for TextInputService {}
 unsafe impl Sync for TextInputService {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextInputServiceSubscription {
     pub requiredEnabledFeatures: TextBoxFeatures,
     pub requiredDisabledFeatures: TextBoxFeatures,
@@ -1501,7 +1501,7 @@ impl windows_core::RuntimeType for TextInputServiceSubscription {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Text.TextInputServiceSubscription");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TextStyle {
     pub mask: TextStyleAttributes,
     pub textColor: super::super::super::Color,

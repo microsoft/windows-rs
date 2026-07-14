@@ -19,10 +19,10 @@ impl IGameExplorer {
         unsafe { (windows_core::Interface::vtable(self).AddGame)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgdfbinarypath), core::mem::transmute_copy(bstrgameinstalldirectory), installscope, pguidinstanceid as _) }
     }
     pub unsafe fn RemoveGame(&self, guidinstanceid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RemoveGame)(windows_core::Interface::as_raw(self), core::mem::transmute(guidinstanceid)) }
+        unsafe { (windows_core::Interface::vtable(self).RemoveGame)(windows_core::Interface::as_raw(self), guidinstanceid) }
     }
     pub unsafe fn UpdateGame(&self, guidinstanceid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdateGame)(windows_core::Interface::as_raw(self), core::mem::transmute(guidinstanceid)) }
+        unsafe { (windows_core::Interface::vtable(self).UpdateGame)(windows_core::Interface::as_raw(self), guidinstanceid) }
     }
     pub unsafe fn VerifyAccess(&self, bstrgdfbinarypath: &windows_core::BSTR) -> windows_core::Result<windows_core::BOOL> {
         unsafe {

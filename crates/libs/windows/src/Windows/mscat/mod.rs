@@ -39,7 +39,7 @@ pub unsafe fn CryptCATAdminCalcHashFromFileHandle2(hcatadmin: super::wintrust::H
 #[inline]
 pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: super::wintrust::HCATADMIN, pbhash: &[u8], dwflags: Option<u32>, phprevcatinfo: Option<*mut HCATINFO>) -> HCATINFO {
     windows_core::link!("wintrust.dll" "system" fn CryptCATAdminEnumCatalogFromHash(hcatadmin : super::wintrust::HCATADMIN, pbhash : *const u8, cbhash : u32, dwflags : u32, phprevcatinfo : *mut HCATINFO) -> HCATINFO);
-    unsafe { CryptCATAdminEnumCatalogFromHash(hcatadmin, core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), dwflags.unwrap_or(core::mem::zeroed()) as _, phprevcatinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptCATAdminEnumCatalogFromHash(hcatadmin, pbhash.as_ptr(), pbhash.len().try_into().unwrap(), dwflags.unwrap_or(core::mem::zeroed()) as _, phprevcatinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CryptCATAdminPauseServiceForBackup(dwflags: u32, fresume: bool) -> windows_core::BOOL {
@@ -246,7 +246,7 @@ where
     unsafe { IsCatalogFile(hfile, pwszfilename.param().abi()) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CATALOG_INFO {
     pub cbStruct: u32,
     pub wszCatalogFile: [u16; 260],
@@ -257,7 +257,7 @@ impl Default for CATALOG_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTCATATTRIBUTE {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_core::PWSTR,
@@ -273,7 +273,7 @@ impl Default for CRYPTCATATTRIBUTE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCATCDF {
     pub cbStruct: u32,
     pub hFile: super::winnt::HANDLE,
@@ -285,7 +285,7 @@ pub struct CRYPTCATCDF {
 }
 #[repr(C)]
 #[cfg(all(feature = "mssip", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CRYPTCATMEMBER {
     pub cbStruct: u32,
     pub pwszReferenceTag: windows_core::PWSTR,
@@ -307,7 +307,7 @@ impl Default for CRYPTCATMEMBER {
 }
 #[repr(C)]
 #[cfg(all(feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTCATSTORE {
     pub cbStruct: u32,
     pub dwPublicVersion: u32,

@@ -481,25 +481,25 @@ pub const ACCESS_FAIL_SHIFT: u32 = 4;
 pub const ACCESS_FAIL_WRITE: u32 = 512;
 pub const ACCESS_GROUP: u32 = 32768;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_INFO_0 {
     pub acc0_resource_name: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_INFO_1 {
     pub acc1_resource_name: windows_core::PWSTR,
     pub acc1_attr: u32,
     pub acc1_count: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_INFO_1002 {
     pub acc1002_attr: u32,
 }
 pub const ACCESS_LETTERS: windows_core::PCSTR = windows_core::s!("RWCXDAP         ");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ACCESS_LIST {
     pub acl_ugname: windows_core::PWSTR,
     pub acl_access: u32,
@@ -541,28 +541,28 @@ pub const GROUP_ATTRIBUTES_PARMNUM: u32 = 3;
 pub const GROUP_COMMENT_INFOLEVEL: u32 = 1002;
 pub const GROUP_COMMENT_PARMNUM: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_INFO_0 {
     pub grpi0_name: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_INFO_1 {
     pub grpi1_name: windows_core::PWSTR,
     pub grpi1_comment: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_INFO_1002 {
     pub grpi1002_comment: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_INFO_1005 {
     pub grpi1005_attributes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_INFO_2 {
     pub grpi2_name: windows_core::PWSTR,
     pub grpi2_comment: windows_core::PWSTR,
@@ -571,7 +571,7 @@ pub struct GROUP_INFO_2 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_INFO_3 {
     pub grpi3_name: windows_core::PWSTR,
     pub grpi3_comment: windows_core::PWSTR,
@@ -585,12 +585,12 @@ pub const GROUP_SPECIALGRP_GUESTS: windows_core::PCWSTR = windows_core::w!("GUES
 pub const GROUP_SPECIALGRP_LOCAL: windows_core::PCWSTR = windows_core::w!("LOCAL");
 pub const GROUP_SPECIALGRP_USERS: windows_core::PCWSTR = windows_core::w!("USERS");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_USERS_INFO_0 {
     pub grui0_name: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_USERS_INFO_1 {
     pub grui1_name: windows_core::PWSTR,
     pub grui1_attributes: u32,
@@ -599,30 +599,30 @@ pub const GroupManagedServiceAccount: MSA_INFO_ACCOUNT_TYPE = 2;
 pub const LG_INCLUDE_INDIRECT: u32 = 1;
 pub const LOCALGROUP_COMMENT_PARMNUM: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCALGROUP_INFO_0 {
     pub lgrpi0_name: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCALGROUP_INFO_1 {
     pub lgrpi1_name: windows_core::PWSTR,
     pub lgrpi1_comment: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCALGROUP_INFO_1002 {
     pub lgrpi1002_comment: windows_core::PWSTR,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_0 {
     pub lgrmi0_sid: super::winnt::PSID,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_1 {
     pub lgrmi1_sid: super::winnt::PSID,
     pub lgrmi1_sidusage: super::winnt::SID_NAME_USE,
@@ -630,20 +630,20 @@ pub struct LOCALGROUP_MEMBERS_INFO_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_2 {
     pub lgrmi2_sid: super::winnt::PSID,
     pub lgrmi2_sidusage: super::winnt::SID_NAME_USE,
     pub lgrmi2_domainandname: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCALGROUP_MEMBERS_INFO_3 {
     pub lgrmi3_domainandname: windows_core::PWSTR,
 }
 pub const LOCALGROUP_NAME_PARMNUM: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LOCALGROUP_USERS_INFO_0 {
     pub lgrui0_name: windows_core::PWSTR,
 }
@@ -746,12 +746,12 @@ pub const MODALS_PRIMARY_PARMNUM: u32 = 7;
 pub const MODALS_ROLE_INFOLEVEL: u32 = 1006;
 pub const MODALS_ROLE_PARMNUM: u32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSA_INFO_0 {
     pub State: MSA_INFO_STATE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSA_INFO_1 {
     pub State: MSA_INFO_STATE,
     pub AccountType: MSA_INFO_ACCOUNT_TYPE,
@@ -791,13 +791,13 @@ pub const NETLOGON_FULL_SYNC_REPLICATION: u32 = 4;
 pub const NETLOGON_HAS_IP: u32 = 16;
 pub const NETLOGON_HAS_TIMESERV: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETLOGON_INFO_1 {
     pub netlog1_flags: u32,
     pub netlog1_pdc_connection_status: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETLOGON_INFO_2 {
     pub netlog2_flags: u32,
     pub netlog2_pdc_connection_status: u32,
@@ -805,7 +805,7 @@ pub struct NETLOGON_INFO_2 {
     pub netlog2_tc_connection_status: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETLOGON_INFO_3 {
     pub netlog3_flags: u32,
     pub netlog3_logon_attempts: u32,
@@ -816,7 +816,7 @@ pub struct NETLOGON_INFO_3 {
     pub netlog3_reserved5: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETLOGON_INFO_4 {
     pub netlog4_trusted_dc_name: windows_core::PWSTR,
     pub netlog4_trusted_domain_name: windows_core::PWSTR,
@@ -826,7 +826,7 @@ pub const NETLOGON_REPLICATION_IN_PROGRESS: u32 = 2;
 pub const NETLOGON_REPLICATION_NEEDED: u32 = 1;
 pub const NETLOGON_VERIFY_STATUS_RETURNED: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_DISPLAY_GROUP {
     pub grpi3_name: windows_core::PWSTR,
     pub grpi3_comment: windows_core::PWSTR,
@@ -835,7 +835,7 @@ pub struct NET_DISPLAY_GROUP {
     pub grpi3_next_index: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_DISPLAY_MACHINE {
     pub usri2_name: windows_core::PWSTR,
     pub usri2_comment: windows_core::PWSTR,
@@ -844,7 +844,7 @@ pub struct NET_DISPLAY_MACHINE {
     pub usri2_next_index: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_DISPLAY_USER {
     pub usri1_name: windows_core::PWSTR,
     pub usri1_comment: windows_core::PWSTR,
@@ -855,7 +855,7 @@ pub struct NET_DISPLAY_USER {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_VALIDATE_AUTHENTICATION_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub PasswordMatched: bool,
@@ -865,14 +865,14 @@ pub const NET_VALIDATE_BAD_PASSWORD_TIME: u32 = 2;
 pub const NET_VALIDATE_LOCKOUT_TIME: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_VALIDATE_OUTPUT_ARG {
     pub ChangedPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub ValidationStatus: u32,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub ClearPassword: windows_core::PWSTR,
@@ -882,7 +882,7 @@ pub struct NET_VALIDATE_PASSWORD_CHANGE_INPUT_ARG {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_VALIDATE_PASSWORD_HASH {
     pub Length: u32,
     pub Hash: super::minwindef::LPBYTE,
@@ -892,7 +892,7 @@ pub const NET_VALIDATE_PASSWORD_HISTORY_LENGTH: u32 = 16;
 pub const NET_VALIDATE_PASSWORD_LAST_SET: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
     pub InputPersistedFields: NET_VALIDATE_PERSISTED_FIELDS,
     pub ClearPassword: windows_core::PWSTR,
@@ -904,7 +904,7 @@ pub struct NET_VALIDATE_PASSWORD_RESET_INPUT_ARG {
 pub type NET_VALIDATE_PASSWORD_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_VALIDATE_PERSISTED_FIELDS {
     pub PresentFields: u32,
     pub PasswordLastSet: super::minwindef::FILETIME,
@@ -1081,12 +1081,12 @@ pub const USER_HOME_DIR_DRIVE_PARMNUM: u32 = 53;
 pub const USER_HOME_DIR_INFOLEVEL: u32 = 1006;
 pub const USER_HOME_DIR_PARMNUM: u32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_0 {
     pub usri0_name: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1 {
     pub usri1_name: windows_core::PWSTR,
     pub usri1_password: windows_core::PWSTR,
@@ -1098,7 +1098,7 @@ pub struct USER_INFO_1 {
     pub usri1_script_path: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_10 {
     pub usri10_name: windows_core::PWSTR,
     pub usri10_comment: windows_core::PWSTR,
@@ -1106,110 +1106,110 @@ pub struct USER_INFO_10 {
     pub usri10_full_name: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1003 {
     pub usri1003_password: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1005 {
     pub usri1005_priv: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1006 {
     pub usri1006_home_dir: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1007 {
     pub usri1007_comment: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1008 {
     pub usri1008_flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1009 {
     pub usri1009_script_path: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1010 {
     pub usri1010_auth_flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1011 {
     pub usri1011_full_name: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1012 {
     pub usri1012_usr_comment: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1013 {
     pub usri1013_parms: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1014 {
     pub usri1014_workstations: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1017 {
     pub usri1017_acct_expires: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1018 {
     pub usri1018_max_storage: u32,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1020 {
     pub usri1020_units_per_week: u32,
     pub usri1020_logon_hours: super::minwindef::LPBYTE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1023 {
     pub usri1023_logon_server: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1024 {
     pub usri1024_country_code: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1025 {
     pub usri1025_code_page: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1051 {
     pub usri1051_primary_group_id: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1052 {
     pub usri1052_profile: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_1053 {
     pub usri1053_home_dir_drive: windows_core::PWSTR,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_11 {
     pub usri11_name: windows_core::PWSTR,
     pub usri11_comment: windows_core::PWSTR,
@@ -1234,7 +1234,7 @@ pub struct USER_INFO_11 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_2 {
     pub usri2_name: windows_core::PWSTR,
     pub usri2_password: windows_core::PWSTR,
@@ -1262,7 +1262,7 @@ pub struct USER_INFO_2 {
     pub usri2_code_page: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_20 {
     pub usri20_name: windows_core::PWSTR,
     pub usri20_full_name: windows_core::PWSTR,
@@ -1271,7 +1271,7 @@ pub struct USER_INFO_20 {
     pub usri20_user_id: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_INFO_21 {
     pub usri21_password: [u8; 16],
 }
@@ -1282,7 +1282,7 @@ impl Default for USER_INFO_21 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_INFO_22 {
     pub usri22_name: windows_core::PWSTR,
     pub usri22_password: [u8; 16],
@@ -1317,7 +1317,7 @@ impl Default for USER_INFO_22 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_23 {
     pub usri23_name: windows_core::PWSTR,
     pub usri23_full_name: windows_core::PWSTR,
@@ -1327,7 +1327,7 @@ pub struct USER_INFO_23 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_24 {
     pub usri24_internet_identity: windows_core::BOOL,
     pub usri24_flags: u32,
@@ -1337,7 +1337,7 @@ pub struct USER_INFO_24 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_3 {
     pub usri3_name: windows_core::PWSTR,
     pub usri3_password: windows_core::PWSTR,
@@ -1371,7 +1371,7 @@ pub struct USER_INFO_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_INFO_4 {
     pub usri4_name: windows_core::PWSTR,
     pub usri4_password: windows_core::PWSTR,
@@ -1415,7 +1415,7 @@ pub const USER_MAXSTORAGE_UNLIMITED: i32 = -1;
 pub const USER_MAX_STORAGE_INFOLEVEL: u32 = 1018;
 pub const USER_MAX_STORAGE_PARMNUM: u32 = 18;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_0 {
     pub usrmod0_min_passwd_len: u32,
     pub usrmod0_max_passwd_age: u32,
@@ -1424,55 +1424,55 @@ pub struct USER_MODALS_INFO_0 {
     pub usrmod0_password_hist_len: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_1 {
     pub usrmod1_role: u32,
     pub usrmod1_primary: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_1001 {
     pub usrmod1001_min_passwd_len: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_1002 {
     pub usrmod1002_max_passwd_age: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_1003 {
     pub usrmod1003_min_passwd_age: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_1004 {
     pub usrmod1004_force_logoff: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_1005 {
     pub usrmod1005_password_hist_len: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_1006 {
     pub usrmod1006_role: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_1007 {
     pub usrmod1007_primary: windows_core::PWSTR,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_2 {
     pub usrmod2_domain_name: windows_core::PWSTR,
     pub usrmod2_domain_id: super::winnt::PSID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USER_MODALS_INFO_3 {
     pub usrmod3_lockout_duration: u32,
     pub usrmod3_lockout_observation_window: u32,

@@ -290,7 +290,7 @@ windows_core::imp::interface_hierarchy!(ITfLangBarItemBalloon, windows_core::IUn
 impl ITfLangBarItemBalloon {
     #[cfg(feature = "windef")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnClick)(windows_core::Interface::as_raw(self), click, core::mem::transmute(pt), prcarea) }
+        unsafe { (windows_core::Interface::vtable(self).OnClick)(windows_core::Interface::as_raw(self), click, pt, prcarea) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn GetPreferredSize(&self, pszdefault: *const super::windef::SIZE) -> windows_core::Result<super::windef::SIZE> {
@@ -383,7 +383,7 @@ windows_core::imp::interface_hierarchy!(ITfLangBarItemBitmap, windows_core::IUnk
 impl ITfLangBarItemBitmap {
     #[cfg(feature = "windef")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnClick)(windows_core::Interface::as_raw(self), click, core::mem::transmute(pt), prcarea) }
+        unsafe { (windows_core::Interface::vtable(self).OnClick)(windows_core::Interface::as_raw(self), click, pt, prcarea) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn GetPreferredSize(&self, pszdefault: *const super::windef::SIZE) -> windows_core::Result<super::windef::SIZE> {
@@ -471,7 +471,7 @@ windows_core::imp::interface_hierarchy!(ITfLangBarItemBitmapButton, windows_core
 impl ITfLangBarItemBitmapButton {
     #[cfg(feature = "windef")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnClick)(windows_core::Interface::as_raw(self), click, core::mem::transmute(pt), prcarea) }
+        unsafe { (windows_core::Interface::vtable(self).OnClick)(windows_core::Interface::as_raw(self), click, pt, prcarea) }
     }
     pub unsafe fn InitMenu<P0>(&self, pmenu: P0) -> windows_core::HRESULT
     where
@@ -607,7 +607,7 @@ windows_core::imp::interface_hierarchy!(ITfLangBarItemButton, windows_core::IUnk
 impl ITfLangBarItemButton {
     #[cfg(feature = "windef")]
     pub unsafe fn OnClick(&self, click: TfLBIClick, pt: super::windef::POINT, prcarea: *const super::windef::RECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnClick)(windows_core::Interface::as_raw(self), click, core::mem::transmute(pt), prcarea) }
+        unsafe { (windows_core::Interface::vtable(self).OnClick)(windows_core::Interface::as_raw(self), click, pt, prcarea) }
     }
     pub unsafe fn InitMenu<P0>(&self, pmenu: P0) -> windows_core::HRESULT
     where
@@ -1398,7 +1398,7 @@ pub const TF_FLOATINGLANGBAR_WNDTITLEA: windows_core::PCSTR = windows_core::s!("
 pub const TF_FLOATINGLANGBAR_WNDTITLEW: windows_core::PCWSTR = windows_core::w!("TF_FloatingLangBar_WndTitle");
 pub const TF_INVALIDMENUITEM: i32 = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TF_LANGBARITEMINFO {
     pub clsidService: windows_core::GUID,
     pub guidItem: windows_core::GUID,
@@ -1412,7 +1412,7 @@ impl Default for TF_LANGBARITEMINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TF_LBBALLOONINFO {
     pub style: TfLBBalloonStyle,
     pub bstrText: core::mem::ManuallyDrop<windows_core::BSTR>,

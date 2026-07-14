@@ -80,7 +80,7 @@ pub const BTH_ADDR_NULL: u64 = 0;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct BTH_COD(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_DEVICE_INFO {
     pub flags: u32,
     pub address: BTH_ADDR,
@@ -178,14 +178,14 @@ pub const BTH_ERROR_UNSUPPORTED_FEATURE_OR_PARAMETER: u32 = 17;
 pub const BTH_ERROR_UNSUPPORTED_LMP_PARM_VALUE: u32 = 32;
 pub const BTH_ERROR_UNSUPPORTED_REMOTE_FEATURE: u32 = 26;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_HCI_EVENT_INFO {
     pub bthAddress: BTH_ADDR,
     pub connectionType: u8,
     pub connected: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_L2CAP_EVENT_INFO {
     pub bthAddress: BTH_ADDR,
     pub psm: u16,
@@ -252,7 +252,7 @@ pub const BTH_MFG_WIDCOMM: u32 = 17;
 pub const BTH_MFG_ZEEVO: u32 = 18;
 pub const BTH_MINORVERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BTH_RADIO_IN_RANGE {
     pub deviceInfo: BTH_DEVICE_INFO,
     pub previousDeviceFlags: u32,

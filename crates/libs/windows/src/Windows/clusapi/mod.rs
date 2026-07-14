@@ -252,7 +252,7 @@ where
 #[inline]
 pub unsafe fn ClusterEnum(henum: *const _HCLUSENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn ClusterEnum(henum : *const _HCLUSENUM, dwindex : u32, lpdwtype : *mut u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterEnum(henum, dwindex, lpdwtype as _, core::mem::transmute(lpszname), lpcchname as _) }
+    unsafe { ClusterEnum(henum, dwindex, lpdwtype as _, lpszname, lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterEnumEx(hclusterenum: *const _HCLUSENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32 {
@@ -295,7 +295,7 @@ where
 #[inline]
 pub unsafe fn ClusterGroupEnum(hgroupenum: *const _HGROUPENUM, dwindex: u32, lpdwtype: *mut u32, lpszresourcename: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn ClusterGroupEnum(hgroupenum : *const _HGROUPENUM, dwindex : u32, lpdwtype : *mut u32, lpszresourcename : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterGroupEnum(hgroupenum, dwindex, lpdwtype as _, core::mem::transmute(lpszresourcename), lpcchname as _) }
+    unsafe { ClusterGroupEnum(hgroupenum, dwindex, lpdwtype as _, lpszresourcename, lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterGroupEnumEx(hgroupenumex: *const _HGROUPENUMEX, dwindex: u32, pitem: *mut CLUSTER_GROUP_ENUM_ITEM, cbitem: *mut u32) -> u32 {
@@ -347,7 +347,7 @@ where
 #[inline]
 pub unsafe fn ClusterGroupSetEnum(hgroupsetenum: *const _HGROUPSETENUM, dwindex: u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn ClusterGroupSetEnum(hgroupsetenum : *const _HGROUPSETENUM, dwindex : u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterGroupSetEnum(hgroupsetenum, dwindex, core::mem::transmute(lpszname), lpcchname as _) }
+    unsafe { ClusterGroupSetEnum(hgroupsetenum, dwindex, lpszname, lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterGroupSetGetEnumCount(hgroupsetenum: *mut _HGROUPSETENUM) -> u32 {
@@ -380,7 +380,7 @@ where
 #[inline]
 pub unsafe fn ClusterNetInterfaceEnum(hnetinterfaceenum: *const _HNETINTERFACEENUM, dwindex: u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn ClusterNetInterfaceEnum(hnetinterfaceenum : *const _HNETINTERFACEENUM, dwindex : u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterNetInterfaceEnum(hnetinterfaceenum, dwindex, core::mem::transmute(lpszname), lpcchname as _) }
+    unsafe { ClusterNetInterfaceEnum(hnetinterfaceenum, dwindex, lpszname, lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterNetInterfaceOpenEnum<P1, P2>(hcluster: *const _HCLUSTER, lpsznodename: P1, lpsznetworkname: P2) -> HNETINTERFACEENUM
@@ -412,7 +412,7 @@ where
 #[inline]
 pub unsafe fn ClusterNetworkEnum(hnetworkenum: *const _HNETWORKENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn ClusterNetworkEnum(hnetworkenum : *const _HNETWORKENUM, dwindex : u32, lpdwtype : *mut u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterNetworkEnum(hnetworkenum, dwindex, lpdwtype as _, core::mem::transmute(lpszname), lpcchname as _) }
+    unsafe { ClusterNetworkEnum(hnetworkenum, dwindex, lpdwtype as _, lpszname, lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterNetworkGetEnumCount(hnetworkenum: *const _HNETWORKENUM) -> u32 {
@@ -450,7 +450,7 @@ where
 #[inline]
 pub unsafe fn ClusterNodeEnum(hnodeenum: *const _HNODEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn ClusterNodeEnum(hnodeenum : *const _HNODEENUM, dwindex : u32, lpdwtype : *mut u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterNodeEnum(hnodeenum, dwindex, lpdwtype as _, core::mem::transmute(lpszname), lpcchname as _) }
+    unsafe { ClusterNodeEnum(hnodeenum, dwindex, lpdwtype as _, lpszname, lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterNodeEnumEx(hnodeenum: *const _HNODEENUMEX, dwindex: u32, pitem: *mut CLUSTER_ENUM_ITEM, cbitem: *mut u32) -> u32 {
@@ -629,13 +629,13 @@ where
 #[inline]
 pub unsafe fn ClusterRegEnumKey(hkey: super::minwindef::HKEY, dwindex: u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32, lpftlastwritetime: Option<*mut super::minwindef::FILETIME>) -> i32 {
     windows_core::link!("clusapi.dll" "system" fn ClusterRegEnumKey(hkey : super::minwindef::HKEY, dwindex : u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32, lpftlastwritetime : *mut super::minwindef::FILETIME) -> i32);
-    unsafe { ClusterRegEnumKey(hkey, dwindex, core::mem::transmute(lpszname), lpcchname as _, lpftlastwritetime.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ClusterRegEnumKey(hkey, dwindex, lpszname, lpcchname as _, lpftlastwritetime.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ClusterRegEnumValue(hkey: super::minwindef::HKEY, dwindex: u32, lpszvaluename: windows_core::PWSTR, lpcchvaluename: *mut u32, lpdwtype: Option<*mut u32>, lpdata: Option<*mut u8>, lpcbdata: Option<*mut u32>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn ClusterRegEnumValue(hkey : super::minwindef::HKEY, dwindex : u32, lpszvaluename : windows_core::PWSTR, lpcchvaluename : *mut u32, lpdwtype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> u32);
-    unsafe { ClusterRegEnumValue(hkey, dwindex, core::mem::transmute(lpszvaluename), lpcchvaluename as _, lpdwtype.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ClusterRegEnumValue(hkey, dwindex, lpszvaluename, lpcchvaluename as _, lpdwtype.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ClusterRegGetBatchNotification(hbatchnotify: *const _HREGBATCHPORT, phbatchnotification: *mut HREGBATCHNOTIFICATION) -> i32 {
@@ -793,7 +793,7 @@ where
 #[inline]
 pub unsafe fn ClusterResourceEnum(hresenum: *const _HRESENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn ClusterResourceEnum(hresenum : *const _HRESENUM, dwindex : u32, lpdwtype : *mut u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterResourceEnum(hresenum, dwindex, lpdwtype as _, core::mem::transmute(lpszname), lpcchname as _) }
+    unsafe { ClusterResourceEnum(hresenum, dwindex, lpdwtype as _, lpszname, lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterResourceEnumEx(hresourceenumex: *const _HRESENUMEX, dwindex: u32, pitem: *mut CLUSTER_RESOURCE_ENUM_ITEM, cbitem: *mut u32) -> u32 {
@@ -866,7 +866,7 @@ where
 #[inline]
 pub unsafe fn ClusterResourceTypeEnum(hrestypeenum: *const _HRESTYPEENUM, dwindex: u32, lpdwtype: *mut u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn ClusterResourceTypeEnum(hrestypeenum : *const _HRESTYPEENUM, dwindex : u32, lpdwtype : *mut u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { ClusterResourceTypeEnum(hrestypeenum, dwindex, lpdwtype as _, core::mem::transmute(lpszname), lpcchname as _) }
+    unsafe { ClusterResourceTypeEnum(hrestypeenum, dwindex, lpdwtype as _, lpszname, lpcchname as _) }
 }
 #[inline]
 pub unsafe fn ClusterResourceTypeGetEnumCount(hrestypeenum: *const _HRESTYPEENUM) -> u32 {
@@ -895,7 +895,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn ClusterSharedVolumeSetSnapshotState(guidsnapshotset : windows_core::GUID, lpszvolumename : windows_core::PCWSTR, state : CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE) -> u32);
-    unsafe { ClusterSharedVolumeSetSnapshotState(core::mem::transmute(guidsnapshotset), lpszvolumename.param().abi(), state) }
+    unsafe { ClusterSharedVolumeSetSnapshotState(guidsnapshotset, lpszvolumename.param().abi(), state) }
 }
 #[inline]
 pub unsafe fn ClusterUpgradeFunctionalLevel(hcluster: *const _HCLUSTER, perform: bool, pfnprogresscallback: PCLUSTER_UPGRADE_PROGRESS_CALLBACK, pvcallbackarg: Option<*const core::ffi::c_void>) -> u32 {
@@ -1158,7 +1158,7 @@ pub unsafe fn GetClusterGroupState(hgroup: *const _HGROUP, lpsznodename: Option<
 #[inline]
 pub unsafe fn GetClusterInformation(hcluster: *const _HCLUSTER, lpszclustername: windows_core::PWSTR, lpcchclustername: *mut u32, lpclusterinfo: Option<*mut CLUSTERVERSIONINFO>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn GetClusterInformation(hcluster : *const _HCLUSTER, lpszclustername : windows_core::PWSTR, lpcchclustername : *mut u32, lpclusterinfo : *mut CLUSTERVERSIONINFO) -> u32);
-    unsafe { GetClusterInformation(hcluster, core::mem::transmute(lpszclustername), lpcchclustername as _, lpclusterinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { GetClusterInformation(hcluster, lpszclustername, lpcchclustername as _, lpclusterinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 #[inline]
@@ -1173,7 +1173,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn GetClusterNetInterface(hcluster : *const _HCLUSTER, lpsznodename : windows_core::PCWSTR, lpsznetworkname : windows_core::PCWSTR, lpszinterfacename : windows_core::PWSTR, lpcchinterfacename : *mut u32) -> u32);
-    unsafe { GetClusterNetInterface(hcluster, lpsznodename.param().abi(), lpsznetworkname.param().abi(), core::mem::transmute(lpszinterfacename), lpcchinterfacename as _) }
+    unsafe { GetClusterNetInterface(hcluster, lpsznodename.param().abi(), lpsznetworkname.param().abi(), lpszinterfacename, lpcchinterfacename as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 #[inline]
@@ -1189,7 +1189,7 @@ pub unsafe fn GetClusterNetInterfaceState(hnetinterface: *const _HNETINTERFACE) 
 #[inline]
 pub unsafe fn GetClusterNetworkId(hnetwork: *const _HNETWORK, lpsznetworkid: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn GetClusterNetworkId(hnetwork : *const _HNETWORK, lpsznetworkid : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { GetClusterNetworkId(hnetwork, core::mem::transmute(lpsznetworkid), lpcchname as _) }
+    unsafe { GetClusterNetworkId(hnetwork, lpsznetworkid, lpcchname as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 #[inline]
@@ -1205,7 +1205,7 @@ pub unsafe fn GetClusterNetworkState(hnetwork: *const _HNETWORK) -> CLUSTER_NETW
 #[inline]
 pub unsafe fn GetClusterNodeId(hnode: Option<*const _HNODE>, lpsznodeid: windows_core::PWSTR, lpcchname: *mut u32) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn GetClusterNodeId(hnode : *const _HNODE, lpsznodeid : windows_core::PWSTR, lpcchname : *mut u32) -> u32);
-    unsafe { GetClusterNodeId(hnode.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpsznodeid), lpcchname as _) }
+    unsafe { GetClusterNodeId(hnode.unwrap_or(core::mem::zeroed()) as _, lpsznodeid, lpcchname as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt", feature = "winreg"))]
 #[inline]
@@ -1221,7 +1221,7 @@ pub unsafe fn GetClusterNodeState(hnode: *const _HNODE) -> CLUSTER_NODE_STATE {
 #[inline]
 pub unsafe fn GetClusterNotify(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, lpdwfiltertype: *mut u32, lpszname: windows_core::PWSTR, lpcchname: *mut u32, dwmilliseconds: u32) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn GetClusterNotify(hchange : *const _HCHANGE, lpdwnotifykey : *mut usize, lpdwfiltertype : *mut u32, lpszname : windows_core::PWSTR, lpcchname : *mut u32, dwmilliseconds : u32) -> u32);
-    unsafe { GetClusterNotify(hchange, lpdwnotifykey as _, lpdwfiltertype as _, core::mem::transmute(lpszname), lpcchname as _, dwmilliseconds) }
+    unsafe { GetClusterNotify(hchange, lpdwnotifykey as _, lpdwfiltertype as _, lpszname, lpcchname as _, dwmilliseconds) }
 }
 #[inline]
 pub unsafe fn GetClusterNotifyV2(hchange: *const _HCHANGE, lpdwnotifykey: *mut usize, pfilterandtype: Option<*mut NOTIFY_FILTER_AND_TYPE>, buffer: Option<*mut u8>, lpbbuffersize: Option<*mut u32>, lpszobjectid: Option<windows_core::PWSTR>, lpcchobjectid: Option<*mut u32>, lpszparentid: Option<windows_core::PWSTR>, lpcchparentid: Option<*mut u32>, lpszname: Option<windows_core::PWSTR>, lpcchname: Option<*mut u32>, lpsztype: Option<windows_core::PWSTR>, lpcchtype: Option<*mut u32>, dwmilliseconds: Option<u32>) -> u32 {
@@ -1248,7 +1248,7 @@ pub unsafe fn GetClusterNotifyV2(hchange: *const _HCHANGE, lpdwnotifykey: *mut u
 #[inline]
 pub unsafe fn GetClusterQuorumResource(hcluster: *const _HCLUSTER, lpszresourcename: windows_core::PWSTR, lpcchresourcename: *mut u32, lpszdevicename: windows_core::PWSTR, lpcchdevicename: *mut u32, lpdwmaxquorumlogsize: *mut u32) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn GetClusterQuorumResource(hcluster : *const _HCLUSTER, lpszresourcename : windows_core::PWSTR, lpcchresourcename : *mut u32, lpszdevicename : windows_core::PWSTR, lpcchdevicename : *mut u32, lpdwmaxquorumlogsize : *mut u32) -> u32);
-    unsafe { GetClusterQuorumResource(hcluster, core::mem::transmute(lpszresourcename), lpcchresourcename as _, core::mem::transmute(lpszdevicename), lpcchdevicename as _, lpdwmaxquorumlogsize as _) }
+    unsafe { GetClusterQuorumResource(hcluster, lpszresourcename, lpcchresourcename as _, lpszdevicename, lpcchdevicename as _, lpdwmaxquorumlogsize as _) }
 }
 #[inline]
 pub unsafe fn GetClusterResourceDependencyExpression(hresource: *const _HRESOURCE, lpszdependencyexpression: Option<windows_core::PWSTR>, lpcchdependencyexpression: *mut u32) -> u32 {
@@ -1264,7 +1264,7 @@ pub unsafe fn GetClusterResourceKey(hresource: *const _HRESOURCE, samdesired: su
 #[inline]
 pub unsafe fn GetClusterResourceNetworkName(hresource: *const _HRESOURCE, lpbuffer: windows_core::PWSTR, nsize: *mut u32) -> windows_core::BOOL {
     windows_core::link!("clusapi.dll" "system" fn GetClusterResourceNetworkName(hresource : *const _HRESOURCE, lpbuffer : windows_core::PWSTR, nsize : *mut u32) -> windows_core::BOOL);
-    unsafe { GetClusterResourceNetworkName(hresource, core::mem::transmute(lpbuffer), nsize as _) }
+    unsafe { GetClusterResourceNetworkName(hresource, lpbuffer, nsize as _) }
 }
 #[inline]
 pub unsafe fn GetClusterResourceState(hresource: *const _HRESOURCE, lpsznodename: Option<windows_core::PWSTR>, lpcchnodename: Option<*mut u32>, lpszgroupname: Option<windows_core::PWSTR>, lpcchgroupname: Option<*mut u32>) -> CLUSTER_RESOURCE_STATE {
@@ -1318,7 +1318,7 @@ pub unsafe fn MoveClusterGroup(hgroup: *const _HGROUP, hdestinationnode: Option<
 #[inline]
 pub unsafe fn MoveClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: Option<*const _HNODE>, dwmoveflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn MoveClusterGroupEx(hgroup : *const _HGROUP, hdestinationnode : *const _HNODE, dwmoveflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { MoveClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MoveClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn MoveClusterGroupEx2<P5>(hgroup: *const _HGROUP, hdestinationnode: Option<*const _HNODE>, dwmoveflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> u32
@@ -1326,7 +1326,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn MoveClusterGroupEx2(hgroup : *const _HGROUP, hdestinationnode : *const _HNODE, dwmoveflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { MoveClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { MoveClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OfflineClusterGroup(hgroup: *const _HGROUP) -> u32 {
@@ -1336,7 +1336,7 @@ pub unsafe fn OfflineClusterGroup(hgroup: *const _HGROUP) -> u32 {
 #[inline]
 pub unsafe fn OfflineClusterGroupEx(hgroup: *const _HGROUP, dwofflineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn OfflineClusterGroupEx(hgroup : *const _HGROUP, dwofflineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OfflineClusterGroupEx(hgroup, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OfflineClusterGroupEx(hgroup, dwofflineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OfflineClusterGroupEx2<P4>(hgroup: *mut _HGROUP, dwofflineflags: u32, lpinbuffer: *mut u8, cbinbuffersize: u32, lpszreason: P4) -> u32
@@ -1354,7 +1354,7 @@ pub unsafe fn OfflineClusterResource(hresource: *const _HRESOURCE) -> u32 {
 #[inline]
 pub unsafe fn OfflineClusterResourceEx(hresource: *const _HRESOURCE, dwofflineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn OfflineClusterResourceEx(hresource : *const _HRESOURCE, dwofflineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OfflineClusterResourceEx(hresource, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OfflineClusterResourceEx(hresource, dwofflineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OfflineClusterResourceEx2<P4>(hresource: *const _HRESOURCE, dwofflineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> u32
@@ -1362,7 +1362,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn OfflineClusterResourceEx2(hresource : *const _HRESOURCE, dwofflineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { OfflineClusterResourceEx2(hresource, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OfflineClusterResourceEx2(hresource, dwofflineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OnlineClusterGroup(hgroup: *const _HGROUP, hdestinationnode: Option<*const _HNODE>) -> u32 {
@@ -1372,7 +1372,7 @@ pub unsafe fn OnlineClusterGroup(hgroup: *const _HGROUP, hdestinationnode: Optio
 #[inline]
 pub unsafe fn OnlineClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: Option<*const _HNODE>, dwonlineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroupEx(hgroup : *const _HGROUP, hdestinationnode : *const _HNODE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OnlineClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OnlineClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OnlineClusterGroupEx2<P5>(hgroup: *const _HGROUP, hdestinationnode: Option<*const _HNODE>, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> u32
@@ -1380,7 +1380,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroupEx2(hgroup : *const _HGROUP, hdestinationnode : *const _HNODE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { OnlineClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OnlineClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OnlineClusterResource(hresource: *const _HRESOURCE) -> u32 {
@@ -1390,7 +1390,7 @@ pub unsafe fn OnlineClusterResource(hresource: *const _HRESOURCE) -> u32 {
 #[inline]
 pub unsafe fn OnlineClusterResourceEx(hresource: *const _HRESOURCE, dwonlineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterResourceEx(hresource : *const _HRESOURCE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OnlineClusterResourceEx(hresource, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OnlineClusterResourceEx(hresource, dwonlineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OnlineClusterResourceEx2<P4>(hresource: *const _HRESOURCE, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> u32
@@ -1398,7 +1398,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterResourceEx2(hresource : *const _HRESOURCE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { OnlineClusterResourceEx2(hresource, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OnlineClusterResourceEx2(hresource, dwonlineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OpenCluster<P0>(lpszclustername: P0) -> HCLUSTER
@@ -1537,7 +1537,7 @@ pub unsafe fn RegisterClusterNotify(hchange: *const _HCHANGE, dwfiltertype: u32,
 #[inline]
 pub unsafe fn RegisterClusterNotifyV2(hchange: *const _HCHANGE, filter: NOTIFY_FILTER_AND_TYPE, hobject: super::winnt::HANDLE, dwnotifykey: usize) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn RegisterClusterNotifyV2(hchange : *const _HCHANGE, filter : NOTIFY_FILTER_AND_TYPE, hobject : super::winnt::HANDLE, dwnotifykey : usize) -> u32);
-    unsafe { RegisterClusterNotifyV2(hchange, core::mem::transmute(filter), hobject, dwnotifykey) }
+    unsafe { RegisterClusterNotifyV2(hchange, filter, hobject, dwnotifykey) }
 }
 #[inline]
 pub unsafe fn RegisterClusterResourceTypeNotifyV2<P3>(hchange: *mut _HCHANGE, hcluster: *mut _HCLUSTER, flags: i64, restypename: P3, dwnotifykey: usize) -> u32
@@ -1704,7 +1704,7 @@ where
 #[inline]
 pub unsafe fn SetClusterGroupNodeList(hgroup: *const _HGROUP, nodelist: Option<&[HNODE]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn SetClusterGroupNodeList(hgroup : *const _HGROUP, nodecount : u32, nodelist : *const HNODE) -> u32);
-    unsafe { SetClusterGroupNodeList(hgroup, nodelist.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(nodelist.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { SetClusterGroupNodeList(hgroup, nodelist.map_or(0, |slice| slice.len().try_into().unwrap()), nodelist.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[inline]
 pub unsafe fn SetClusterGroupNodeListEx<P3>(hgroup: *mut _HGROUP, nodecount: u32, nodelist: *mut HNODE, lpszreason: P3) -> u32
@@ -1768,7 +1768,7 @@ where
 #[inline]
 pub unsafe fn SetClusterNetworkPriorityOrder(hcluster: *const _HCLUSTER, networklist: &[HNETWORK]) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn SetClusterNetworkPriorityOrder(hcluster : *const _HCLUSTER, networkcount : u32, networklist : *const HNETWORK) -> u32);
-    unsafe { SetClusterNetworkPriorityOrder(hcluster, networklist.len().try_into().unwrap(), core::mem::transmute(networklist.as_ptr())) }
+    unsafe { SetClusterNetworkPriorityOrder(hcluster, networklist.len().try_into().unwrap(), networklist.as_ptr()) }
 }
 #[inline]
 pub unsafe fn SetClusterQuorumResource<P1>(hresource: *const _HRESOURCE, lpszdevicename: P1, dwmaxquologsize: u32) -> u32
@@ -2193,7 +2193,7 @@ pub const CLUSCTL_GROUP_GET_ID: CLUSCTL_GROUP_CODES = 50331705;
 pub const CLUSCTL_GROUP_GET_LAST_MOVE_TIME: CLUSCTL_GROUP_CODES = 50332377;
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     pub GetTickCount64: u64,
     pub GetSystemTime: super::minwinbase::SYSTEMTIME,
@@ -2367,7 +2367,7 @@ pub const CLUSCTL_RESOURCE_SET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = 2097
 pub const CLUSCTL_RESOURCE_SET_SHARED_VOLUME_BACKUP_MODE: CLUSCTL_RESOURCE_CODES = 20972186;
 pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON: CLUSCTL_RESOURCE_CODES = 22020174;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -2443,7 +2443,7 @@ pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_ADD_VOLUME_
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_FILTER_BY_POOL: u32 = 2;
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_INCLUDE_NON_SHARED_DISKS: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INPUT {
     pub dwFlags: u32,
     pub guidPoolFilter: windows_core::GUID,
@@ -2754,7 +2754,7 @@ impl Default for CLUSPROP_SYNTAX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSPROP_SYNTAX_0 {
     pub wFormat: u16,
     pub wType: u16,
@@ -3186,7 +3186,7 @@ pub const CLUSTERSET_OBJECT_TYPE_MEMBER: CLUSTERSET_OBJECT_TYPE = 1;
 pub const CLUSTERSET_OBJECT_TYPE_NONE: CLUSTERSET_OBJECT_TYPE = 0;
 pub const CLUSTERSET_OBJECT_TYPE_WORKLOAD: CLUSTERSET_OBJECT_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTERVERSIONINFO {
     pub dwVersionInfoSize: u32,
     pub MajorVersion: u16,
@@ -3205,7 +3205,7 @@ impl Default for CLUSTERVERSIONINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTERVERSIONINFO_NT4 {
     pub dwVersionInfoSize: u32,
     pub MajorVersion: u16,
@@ -3221,7 +3221,7 @@ impl Default for CLUSTERVERSIONINFO_NT4 {
 }
 pub const CLUSTER_ADD_EVICT_DELAY: windows_core::PCWSTR = windows_core::w!("AddEvictDelay");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
     pub dwVersion: u32,
     pub dwUpdateDomains: u32,
@@ -3230,7 +3230,7 @@ pub struct CLUSTER_AVAILABILITY_SET_CONFIG {
 }
 pub const CLUSTER_AVAILABILITY_SET_CONFIG_V1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: u32,
@@ -3389,7 +3389,7 @@ pub const CLUSTER_CLOUD_TYPE_UNKNOWN: CLUSTER_CLOUD_TYPE = -1;
 pub const CLUSTER_CONFIGURED: u32 = 2;
 pub type CLUSTER_CONTROL_OBJECT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_CREATE_GROUP_INFO {
     pub dwVersion: u32,
     pub groupType: CLUSGROUP_TYPE,
@@ -3408,7 +3408,7 @@ pub const CLUSTER_ENUM_CAPACITY_NODE: CLUSTER_ENUM = 268435456;
 pub const CLUSTER_ENUM_GROUP: CLUSTER_ENUM = 8;
 pub const CLUSTER_ENUM_INTERNAL_NETWORK: CLUSTER_ENUM = -2147483648;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_ENUM_ITEM {
     pub dwVersion: u32,
     pub dwType: u32,
@@ -3433,7 +3433,7 @@ pub type CLUSTER_GROUP_ENUM = i32;
 pub const CLUSTER_GROUP_ENUM_ALL: CLUSTER_GROUP_ENUM = 3;
 pub const CLUSTER_GROUP_ENUM_CONTAINS: CLUSTER_GROUP_ENUM = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_GROUP_ENUM_ITEM {
     pub dwVersion: u32,
     pub cbId: u32,
@@ -3464,13 +3464,13 @@ pub const CLUSTER_HANG_RECOVERY_ACTION_KEYNAME: windows_core::PCWSTR = windows_c
 pub const CLUSTER_HANG_TIMEOUT_KEYNAME: windows_core::PCWSTR = windows_core::w!("ClusSvcHangTimeout");
 pub const CLUSTER_INSTALLED: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_IP_ENTRY {
     pub lpszIpAddress: windows_core::PCWSTR,
     pub dwPrefixLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_MEMBERSHIP_INFO {
     pub HasQuorum: windows_core::BOOL,
     pub UpnodesSize: u32,
@@ -3535,7 +3535,7 @@ pub const CLUSTER_QUORUM_MAINTAINED: CLUSTER_QUORUM_VALUE = 0;
 pub type CLUSTER_QUORUM_TYPE = i32;
 pub type CLUSTER_QUORUM_VALUE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_READ_BATCH_COMMAND {
     pub Command: CLUSTER_REG_COMMAND,
     pub dwOptions: u32,
@@ -3559,7 +3559,7 @@ pub type CLUSTER_RESOURCE_ENUM = i32;
 pub const CLUSTER_RESOURCE_ENUM_ALL: CLUSTER_RESOURCE_ENUM = 7;
 pub const CLUSTER_RESOURCE_ENUM_DEPENDS: CLUSTER_RESOURCE_ENUM = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_RESOURCE_ENUM_ITEM {
     pub dwVersion: u32,
     pub cbId: u32,
@@ -3612,7 +3612,7 @@ pub type CLUSTER_SETUP_PHASE_TYPE = i32;
 pub const CLUSTER_SET_ACCESS_TYPE_ALLOWED: u32 = 0;
 pub const CLUSTER_SET_ACCESS_TYPE_DENIED: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUSTER_SET_PASSWORD_STATUS {
     pub NodeId: u32,
     pub SetAttempted: bool,
@@ -3643,7 +3643,7 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     pub NewVolumeName: [u16; 260],
     pub NewVolumeGuid: [u16; 50],
@@ -3654,7 +3654,7 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_GUID_NAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     pub NewVolumeName: [u16; 260],
 }
@@ -3691,7 +3691,7 @@ impl Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
 pub type CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = i32;
 pub type CLUSTER_SHARED_VOLUME_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_STATE_INFO {
     pub szVolumeName: [u16; 260],
     pub szNodeName: [u16; 260],
@@ -3703,7 +3703,7 @@ impl Default for CLUSTER_SHARED_VOLUME_STATE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     pub szVolumeName: [u16; 260],
     pub szNodeName: [u16; 260],
@@ -3721,7 +3721,7 @@ pub const CLUSTER_SHARED_VOLUME_VSS_WRITER_OPERATION_TIMEOUT: windows_core::PCWS
 pub type CLUSTER_STORAGENODE_STATE = i32;
 pub type CLUSTER_UPGRADE_PHASE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_VALIDATE_CSV_FILENAME {
     pub szFileName: [u16; 0],
 }
@@ -3731,7 +3731,7 @@ impl Default for CLUSTER_VALIDATE_CSV_FILENAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_VALIDATE_DIRECTORY {
     pub szPath: [u16; 0],
 }
@@ -3741,7 +3741,7 @@ impl Default for CLUSTER_VALIDATE_DIRECTORY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_VALIDATE_NETNAME {
     pub szNetworkName: [u16; 0],
 }
@@ -3751,7 +3751,7 @@ impl Default for CLUSTER_VALIDATE_NETNAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUSTER_VALIDATE_PATH {
     pub szPath: [u16; 0],
 }
@@ -3802,7 +3802,7 @@ pub const CLUS_CHAR_SUPPORTS_UNMONITORED_STATE: CLUS_CHARACTERISTICS = 65536;
 pub const CLUS_CHAR_UNKNOWN: CLUS_CHARACTERISTICS = 0;
 pub const CLUS_CHAR_VETO_DRAIN: CLUS_CHARACTERISTICS = 262144;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CHKDSK_INFO {
     pub PartitionNumber: u32,
     pub ChkdskState: u32,
@@ -3815,7 +3815,7 @@ impl Default for CLUS_CHKDSK_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     pub FileServerName: [u16; 16],
 }
@@ -3825,7 +3825,7 @@ impl Default for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_INPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     pub FileServerName: [u16; 260],
 }
@@ -3835,7 +3835,7 @@ impl Default for CLUS_CREATE_INFRASTRUCTURE_FILESERVER_OUTPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CSV_MAINTENANCE_MODE_INFO {
     pub InMaintenance: windows_core::BOOL,
     pub VolumeName: [u16; 260],
@@ -3846,7 +3846,7 @@ impl Default for CLUS_CSV_MAINTENANCE_MODE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CSV_VOLUME_INFO {
     pub VolumeOffset: u64,
     pub PartitionNumber: u32,
@@ -3861,7 +3861,7 @@ impl Default for CLUS_CSV_VOLUME_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_CSV_VOLUME_NAME {
     pub VolumeOffset: i64,
     pub szVolumeName: [u16; 260],
@@ -3873,19 +3873,19 @@ impl Default for CLUS_CSV_VOLUME_NAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_DISK_NUMBER_INFO {
     pub DiskNumber: u32,
     pub BytesPerSector: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_DNN_LEADER_STATUS {
     pub IsOnline: windows_core::BOOL,
     pub IsFileServerPresent: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_DNN_SODAFS_CLONE_STATUS {
     pub NodeId: u32,
     pub Status: CLUSTER_RESOURCE_STATE,
@@ -3893,7 +3893,7 @@ pub struct CLUS_DNN_SODAFS_CLONE_STATUS {
 pub type CLUS_FLAGS = i32;
 pub const CLUS_FLAG_CORE: CLUS_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_FORCE_QUORUM_INFO {
     pub dwSize: u32,
     pub dwNodeBitMask: u32,
@@ -3906,7 +3906,7 @@ impl Default for CLUS_FORCE_QUORUM_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_FTSET_INFO {
     pub dwRootSignature: u32,
     pub dwFtType: u32,
@@ -3921,12 +3921,12 @@ pub const CLUS_GRP_MOVE_LOCKED: u32 = 1;
 pub const CLUS_HYBRID_QUORUM: u32 = 1024;
 pub const CLUS_LEGACY_QUORUM: u32 = 4194304;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_MAINTENANCE_MODE_INFO {
     pub InMaintenance: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_MAINTENANCE_MODE_INFOEX {
     pub InMaintenance: windows_core::BOOL,
     pub MaintainenceModeType: MAINTENANCE_MODE_TYPE_ENUM,
@@ -3948,7 +3948,7 @@ pub const CLUS_NAME_RES_TYPE_TARGET_RESID: windows_core::PCWSTR = windows_core::
 pub const CLUS_NAME_RES_TYPE_TARGET_VOLUMES: windows_core::PCWSTR = windows_core::w!("TargetVolumes");
 pub const CLUS_NAME_RES_TYPE_UNIT_LOG_SIZE_CHANGE: windows_core::PCWSTR = windows_core::w!("UnitOfLogSizeChangeInBytes");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_NETNAME_IP_INFO_ENTRY {
     pub NodeId: u32,
     pub AddressSize: u32,
@@ -3960,7 +3960,7 @@ impl Default for CLUS_NETNAME_IP_INFO_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_NETNAME_IP_INFO_FOR_MULTICHANNEL {
     pub szName: [u16; 64],
     pub NumEntries: u32,
@@ -3989,7 +3989,7 @@ pub const CLUS_OBJECT_RESOURCE: CLUSTER_CONTROL_OBJECT = 1;
 pub const CLUS_OBJECT_RESOURCE_TYPE: CLUSTER_CONTROL_OBJECT = 2;
 pub const CLUS_OBJECT_USER: CLUSTER_CONTROL_OBJECT = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_PARTITION_INFO {
     pub dwFlags: u32,
     pub szDeviceName: [u16; 260],
@@ -4005,7 +4005,7 @@ impl Default for CLUS_PARTITION_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_PARTITION_INFO_EX {
     pub dwFlags: u32,
     pub szDeviceName: [u16; 260],
@@ -4026,7 +4026,7 @@ impl Default for CLUS_PARTITION_INFO_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_PARTITION_INFO_EX2 {
     pub GptPartitionId: windows_core::GUID,
     pub szPartitionName: [u16; 260],
@@ -4038,7 +4038,7 @@ impl Default for CLUS_PARTITION_INFO_EX2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_PROVIDER_STATE_CHANGE_INFO {
     pub dwSize: u32,
     pub resourceState: CLUSTER_RESOURCE_STATE,
@@ -4160,7 +4160,7 @@ pub const CLUS_RESTYPE_NAME_WINS: windows_core::PCWSTR = windows_core::w!("WINS 
 pub const CLUS_RES_NAME_SCALEOUT_MASTER: windows_core::PCWSTR = windows_core::w!("Scaleout Master");
 pub const CLUS_RES_NAME_SCALEOUT_WORKER: windows_core::PCWSTR = windows_core::w!("Scaleout Worker");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_RLUA_PWD_INFO {
     pub Flags: u32,
     pub Password: [u16; 16],
@@ -4173,7 +4173,7 @@ impl Default for CLUS_RLUA_PWD_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_RLUA_PWD_INFOEX {
     pub Flags: u32,
     pub Password: [u16; 128],
@@ -4207,7 +4207,7 @@ impl Default for CLUS_SCSI_ADDRESS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_SCSI_ADDRESS_0_0 {
     pub PortNumber: u8,
     pub PathId: u8,
@@ -4215,7 +4215,7 @@ pub struct CLUS_SCSI_ADDRESS_0_0 {
     pub Lun: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_SET_MAINTENANCE_MODE_INPUT {
     pub InMaintenance: windows_core::BOOL,
     pub ExtraParameterSize: u32,
@@ -4227,7 +4227,7 @@ impl Default for CLUS_SET_MAINTENANCE_MODE_INPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLUS_SHARED_VOLUME_BACKUP_MODE {
     pub BackupState: CLUSTER_SHARED_VOLUME_BACKUP_STATE,
     pub DelayTimerInSecs: u32,
@@ -4239,31 +4239,31 @@ impl Default for CLUS_SHARED_VOLUME_BACKUP_MODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_STARTING_PARAMS {
     pub dwSize: u32,
     pub bForm: windows_core::BOOL,
     pub bFirst: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_STORAGE_GET_AVAILABLE_DRIVELETTERS {
     pub AvailDrivelettersMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_STORAGE_REMAP_DRIVELETTER {
     pub CurrentDriveLetterMask: u32,
     pub TargetDriveLetterMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_STORAGE_SET_DRIVELETTER {
     pub PartitionNumber: u32,
     pub DriveLetterMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLUS_VS_TOKEN_INFO {
     pub ProcessID: u32,
     pub DesiredAccess: u32,
@@ -4271,7 +4271,7 @@ pub struct CLUS_VS_TOKEN_INFO {
 }
 pub const CREATEDC_PRESENT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CREATE_CLUSTER_CONFIG {
     pub dwVersion: u32,
     pub lpszClusterName: windows_core::PCWSTR,
@@ -4293,7 +4293,7 @@ impl Default for CREATE_CLUSTER_CONFIG {
 }
 pub const CREATE_CLUSTER_MAJOR_VERSION_MASK: u32 = 4294967040;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_CLUSTER_NAME_ACCOUNT {
     pub dwVersion: u32,
     pub lpszClusterName: windows_core::PCWSTR,
@@ -4461,7 +4461,7 @@ pub const ENABLE_CLUSTER_SHARED_VOLUMES: windows_core::PCWSTR = windows_core::w!
 pub const FE_22H2_UPGRADE_VERSION: u32 = 5;
 pub const FE_UPGRADE_VERSION: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILESHARE_CHANGE {
     pub Change: FILESHARE_CHANGE_ENUM,
     pub ShareName: [u16; 84],
@@ -4475,7 +4475,7 @@ pub const FILESHARE_CHANGE_ADD: FILESHARE_CHANGE_ENUM = 1;
 pub const FILESHARE_CHANGE_DEL: FILESHARE_CHANGE_ENUM = 2;
 pub type FILESHARE_CHANGE_ENUM = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILESHARE_CHANGE_LIST {
     pub NumEntries: u32,
     pub ChangeEntry: [FILESHARE_CHANGE; 0],
@@ -4496,13 +4496,13 @@ pub const GROUPSET_READY_SETTING_DELAY: u32 = 1;
 pub const GROUPSET_READY_SETTING_ONLINE: u32 = 2;
 pub const GROUPSET_READY_SETTING_OS_HEARTBEAT: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_FAILURE_INFO {
     pub dwFailoverAttemptsRemaining: u32,
     pub dwFailoverPeriodRemaining: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_FAILURE_INFO_BUFFER {
     pub dwVersion: u32,
     pub Info: GROUP_FAILURE_INFO,
@@ -4566,7 +4566,7 @@ pub const NINETEEN_H2_UPGRADE_VERSION: u32 = 2;
 pub const NI_UPGRADE_VERSION: u32 = 2;
 pub type NODE_CLUSTER_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFY_FILTER_AND_TYPE {
     pub dwObjectType: u32,
     pub FilterFlags: i64,
@@ -4593,7 +4593,7 @@ pub const NodeFailbackStatusFailed: CLUSTER_NODE_FAILBACK_STATUS = 3;
 pub const NodeFailbackStatusInProgress: CLUSTER_NODE_FAILBACK_STATUS = 1;
 pub const NodeFailbackStatusNotInitiated: CLUSTER_NODE_FAILBACK_STATUS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NodeSriovInfo {
     pub VFTotal: u32,
     pub VFUsed: u32,
@@ -5033,7 +5033,7 @@ pub const PriorityHigh: CLUSTER_GROUP_PRIORITY = 3000;
 pub const PriorityLow: CLUSTER_GROUP_PRIORITY = 1000;
 pub const PriorityMedium: CLUSTER_GROUP_PRIORITY = 2000;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REPAIR_CLUSTER_NAME_ACCOUNT_CONFIG {
     pub dwVersion: u32,
     pub dwFlags: u32,
@@ -5042,20 +5042,20 @@ pub struct REPAIR_CLUSTER_NAME_ACCOUNT_CONFIG {
     pub pszDomain: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCE_FAILURE_INFO {
     pub dwRestartAttemptsRemaining: u32,
     pub dwRestartPeriodRemaining: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCE_FAILURE_INFO_BUFFER {
     pub dwVersion: u32,
     pub Info: RESOURCE_FAILURE_INFO,
 }
 pub const RESOURCE_FAILURE_INFO_VERSION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RESOURCE_TERMINAL_FAILURE_INFO_BUFFER {
     pub isTerminalFailure: windows_core::BOOL,
     pub restartPeriodRemaining: u32,
@@ -5075,7 +5075,7 @@ pub type SR_DISK_REPLICATION_ELIGIBLE = i32;
 pub type SR_REPLICATED_DISK_TYPE = i32;
 pub const SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     pub ReplicationGroupName: [u16; 260],
     pub Description: [u16; 260],
@@ -5097,7 +5097,7 @@ impl Default for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     pub Result: u32,
     pub ErrorString: [u16; 260],
@@ -5108,13 +5108,13 @@ impl Default for SR_RESOURCE_TYPE_ADD_REPLICATION_GROUP_RESULT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_DISK_INFO {
     pub Reason: SR_DISK_REPLICATION_ELIGIBLE,
     pub DiskGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     pub Count: u16,
     pub DiskInfo: [SR_RESOURCE_TYPE_DISK_INFO; 1],
@@ -5125,19 +5125,19 @@ impl Default for SR_RESOURCE_TYPE_ELIGIBLE_DISKS_RESULT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_LOGDISKS {
     pub DataDiskGuid: windows_core::GUID,
     pub IncludeOfflineDisks: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_SOURCE_DATADISKS {
     pub DataDiskGuid: windows_core::GUID,
     pub IncludeAvailableStoargeDisks: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     pub SourceDataDiskGuid: windows_core::GUID,
     pub TargetReplicationGroupGuid: windows_core::GUID,
@@ -5145,7 +5145,7 @@ pub struct SR_RESOURCE_TYPE_QUERY_ELIGIBLE_TARGET_DATADISKS {
     pub IncludeOfflineDisks: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISK {
     pub Type: SR_REPLICATED_DISK_TYPE,
     pub ClusterDiskResourceGuid: windows_core::GUID,
@@ -5158,7 +5158,7 @@ impl Default for SR_RESOURCE_TYPE_REPLICATED_DISK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     pub Count: u16,
     pub ReplicatedDisks: [SR_RESOURCE_TYPE_REPLICATED_DISK; 1],
@@ -5169,7 +5169,7 @@ impl Default for SR_RESOURCE_TYPE_REPLICATED_DISKS_RESULT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     pub Count: u32,
     pub PartitionArray: [SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO; 1],
@@ -5180,7 +5180,7 @@ impl Default for SR_RESOURCE_TYPE_REPLICATED_PARTITION_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SR_RESOURCE_TYPE_REPLICATED_PARTITION_INFO {
     pub PartitionOffset: u64,
     pub Capabilities: u32,
@@ -5227,94 +5227,94 @@ pub const WS2016_TP4_UPGRADE_VERSION: u32 = 6;
 pub const WS2016_TP5_UPGRADE_VERSION: u32 = 7;
 pub const ZN_UPGRADE_VERSION: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HCHANGE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HCLUSENUM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HCLUSENUMEX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HCLUSTER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HGROUP(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HGROUPENUM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HGROUPENUMEX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HGROUPSET(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HGROUPSETENUM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HKEYVALUEBATCH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HKEYVALUEBATCHNOTIFICATION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HKEYVALUEREADBATCH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HKEYVALUEREADBATCHREPLY(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HKEYVALUESTORE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HNETINTERFACE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HNETINTERFACEENUM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HNETWORK(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HNETWORKENUM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HNODE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HNODEENUM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HNODEENUMEX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HREGBATCH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HREGBATCHNOTIFICATION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HREGBATCHPORT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HREGREADBATCH(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HREGREADBATCHREPLY(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HRESENUM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HRESENUMEX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HRESOURCE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HRESTYPEENUM(pub u8);
 pub const eResourceStateChangeReasonFailedMove: CLUSTER_RESOURCE_STATE_CHANGE_REASON = 3;
 pub const eResourceStateChangeReasonFailover: CLUSTER_RESOURCE_STATE_CHANGE_REASON = 2;

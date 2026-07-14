@@ -1,11 +1,11 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BD_CLASS_SUPPORT_BITMAP {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_BD_READ {
     pub Header: FEATURE_HEADER,
     pub Reserved: [u8; 4],
@@ -28,7 +28,7 @@ impl Default for FEATURE_BD_READ {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_BD_R_PSEUDO_OVERWRITE {
     pub Header: FEATURE_HEADER,
     pub Reserved: [u8; 4],
@@ -39,7 +39,7 @@ impl Default for FEATURE_BD_R_PSEUDO_OVERWRITE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_BD_WRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -59,7 +59,7 @@ impl Default for FEATURE_BD_WRITE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_CD_RW_MEDIA_WRITE_SUPPORT {
     pub Header: FEATURE_HEADER,
     pub Reserved1: u8,
@@ -72,12 +72,12 @@ impl Default for FEATURE_CD_RW_MEDIA_WRITE_SUPPORT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_CD_RW_MEDIA_WRITE_SUPPORT_0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_DATA_AACS {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
@@ -86,7 +86,7 @@ pub struct FEATURE_DATA_AACS {
     pub AACSVersion: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_CDRW_CAV_WRITE {
     pub Header: FEATURE_HEADER,
     pub Reserved1: [u8; 4],
@@ -97,7 +97,7 @@ impl Default for FEATURE_DATA_CDRW_CAV_WRITE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_CD_AUDIO_ANALOG_PLAY {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -110,7 +110,7 @@ impl Default for FEATURE_DATA_CD_AUDIO_ANALOG_PLAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_CD_MASTERING {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -122,7 +122,7 @@ impl Default for FEATURE_DATA_CD_MASTERING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_CD_READ {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -134,7 +134,7 @@ impl Default for FEATURE_DATA_CD_READ {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_CD_TRACK_AT_ONCE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -147,7 +147,7 @@ impl Default for FEATURE_DATA_CD_TRACK_AT_ONCE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_CORE {
     pub Header: FEATURE_HEADER,
     pub PhysicalInterface: [u8; 4],
@@ -160,12 +160,12 @@ impl Default for FEATURE_DATA_CORE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_DATA_DDCD_READ {
     pub Header: FEATURE_HEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DDCD_RW_WRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -177,7 +177,7 @@ impl Default for FEATURE_DATA_DDCD_RW_WRITE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DDCD_R_WRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -189,7 +189,7 @@ impl Default for FEATURE_DATA_DDCD_R_WRITE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DEFECT_MANAGEMENT {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -201,7 +201,7 @@ impl Default for FEATURE_DATA_DEFECT_MANAGEMENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DISC_CONTROL_BLOCKS {
     pub Header: FEATURE_HEADER,
     pub Data: [FEATURE_DATA_DISC_CONTROL_BLOCKS_EX; 0],
@@ -212,7 +212,7 @@ impl Default for FEATURE_DATA_DISC_CONTROL_BLOCKS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DISC_CONTROL_BLOCKS_EX {
     pub ContentDescriptor: [u8; 4],
 }
@@ -222,7 +222,7 @@ impl Default for FEATURE_DATA_DISC_CONTROL_BLOCKS_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DVD_CPRM {
     pub Header: FEATURE_HEADER,
     pub Reserved0: [u8; 3],
@@ -234,7 +234,7 @@ impl Default for FEATURE_DATA_DVD_CPRM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DVD_CSS {
     pub Header: FEATURE_HEADER,
     pub Reserved1: [u8; 3],
@@ -246,7 +246,7 @@ impl Default for FEATURE_DATA_DVD_CSS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DVD_PLUS_R {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -258,7 +258,7 @@ impl Default for FEATURE_DATA_DVD_PLUS_R {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DVD_PLUS_RW {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
@@ -271,7 +271,7 @@ impl Default for FEATURE_DATA_DVD_PLUS_RW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
@@ -284,7 +284,7 @@ impl Default for FEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DVD_PLUS_R_DUAL_LAYER {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -296,7 +296,7 @@ impl Default for FEATURE_DATA_DVD_PLUS_R_DUAL_LAYER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_DATA_DVD_READ {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
@@ -305,7 +305,7 @@ pub struct FEATURE_DATA_DVD_READ {
     pub Reserved4: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DVD_RECORDABLE_WRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -317,7 +317,7 @@ impl Default for FEATURE_DATA_DVD_RECORDABLE_WRITE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -329,7 +329,7 @@ impl Default for FEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_EMBEDDED_CHANGER {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
@@ -342,7 +342,7 @@ impl Default for FEATURE_DATA_EMBEDDED_CHANGER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_FIRMWARE_DATE {
     pub Header: FEATURE_HEADER,
     pub Year: [u8; 4],
@@ -359,7 +359,7 @@ impl Default for FEATURE_DATA_FIRMWARE_DATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_FORMATTABLE {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
@@ -373,7 +373,7 @@ impl Default for FEATURE_DATA_FORMATTABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_DATA_HDDVD_READ {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
@@ -382,7 +382,7 @@ pub struct FEATURE_DATA_HDDVD_READ {
     pub Reserved3: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_DATA_HDDVD_WRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield1: u8,
@@ -391,7 +391,7 @@ pub struct FEATURE_DATA_HDDVD_WRITE {
     pub Reserved3: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE {
     pub Header: FEATURE_HEADER,
     pub DataTypeSupported: [u8; 2],
@@ -405,7 +405,7 @@ impl Default for FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_LAYER_JUMP_RECORDING {
     pub Header: FEATURE_HEADER,
     pub Reserved0: [u8; 3],
@@ -418,7 +418,7 @@ impl Default for FEATURE_DATA_LAYER_JUMP_RECORDING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_LOGICAL_UNIT_SERIAL_NUMBER {
     pub Header: FEATURE_HEADER,
     pub SerialNumber: [u8; 0],
@@ -429,7 +429,7 @@ impl Default for FEATURE_DATA_LOGICAL_UNIT_SERIAL_NUMBER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_MICROCODE_UPDATE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -441,7 +441,7 @@ impl Default for FEATURE_DATA_MICROCODE_UPDATE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_MORPHING {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -453,7 +453,7 @@ impl Default for FEATURE_DATA_MORPHING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_MRW {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -465,17 +465,17 @@ impl Default for FEATURE_DATA_MRW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_DATA_MULTI_READ {
     pub Header: FEATURE_HEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_DATA_POWER_MANAGEMENT {
     pub Header: FEATURE_HEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_PROFILE_LIST {
     pub Header: FEATURE_HEADER,
     pub Profiles: [FEATURE_DATA_PROFILE_LIST_EX; 0],
@@ -486,7 +486,7 @@ impl Default for FEATURE_DATA_PROFILE_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_PROFILE_LIST_EX {
     pub ProfileNumber: [u8; 2],
     pub _bitfield: u8,
@@ -498,7 +498,7 @@ impl Default for FEATURE_DATA_PROFILE_LIST_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_RANDOM_READABLE {
     pub Header: FEATURE_HEADER,
     pub LogicalBlockSize: [u8; 4],
@@ -512,7 +512,7 @@ impl Default for FEATURE_DATA_RANDOM_READABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_RANDOM_WRITABLE {
     pub Header: FEATURE_HEADER,
     pub LastLBA: [u8; 4],
@@ -527,7 +527,7 @@ impl Default for FEATURE_DATA_RANDOM_WRITABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_REAL_TIME_STREAMING {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -539,7 +539,7 @@ impl Default for FEATURE_DATA_REAL_TIME_STREAMING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_REMOVABLE_MEDIUM {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -551,7 +551,7 @@ impl Default for FEATURE_DATA_REMOVABLE_MEDIUM {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_RESERVED {
     pub Header: FEATURE_HEADER,
     pub Data: [u8; 0],
@@ -562,17 +562,17 @@ impl Default for FEATURE_DATA_RESERVED {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_DATA_RESTRICTED_OVERWRITE {
     pub Header: FEATURE_HEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_DATA_SECTOR_ERASABLE {
     pub Header: FEATURE_HEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_SMART {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -584,7 +584,7 @@ impl Default for FEATURE_DATA_SMART {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_TIMEOUT {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -597,7 +597,7 @@ impl Default for FEATURE_DATA_TIMEOUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_VENDOR_SPECIFIC {
     pub Header: FEATURE_HEADER,
     pub VendorSpecificData: [u8; 0],
@@ -608,7 +608,7 @@ impl Default for FEATURE_DATA_VENDOR_SPECIFIC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_WRITE_ONCE {
     pub Header: FEATURE_HEADER,
     pub LogicalBlockSize: [u8; 4],
@@ -622,7 +622,7 @@ impl Default for FEATURE_DATA_WRITE_ONCE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_WRITE_PROTECT {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -634,7 +634,7 @@ impl Default for FEATURE_DATA_WRITE_PROTECT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_ENHANCED_DEFECT_REPORTING {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -647,7 +647,7 @@ impl Default for FEATURE_ENHANCED_DEFECT_REPORTING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_HEADER {
     pub FeatureCode: [u8; 2],
     pub _bitfield: u8,
@@ -659,7 +659,7 @@ impl Default for FEATURE_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_HYBRID_DISC {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
@@ -671,19 +671,19 @@ impl Default for FEATURE_HYBRID_DISC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_MEDIA_SERIAL_NUMBER {
     pub Header: FEATURE_HEADER,
 }
 pub type FEATURE_NUMBER = i32;
 pub type FEATURE_PROFILE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_TSR {
     pub Header: FEATURE_HEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_VCPS {
     pub Header: FEATURE_HEADER,
     pub Reserved: [u8; 4],
@@ -748,7 +748,7 @@ pub const FeatureVCPS: FEATURE_NUMBER = 272;
 pub const FeatureWriteOnce: FEATURE_NUMBER = 37;
 pub const FeatureWriteProtect: FEATURE_NUMBER = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_CONFIGURATION_HEADER {
     pub DataLength: [u8; 4],
     pub Reserved: [u8; 2],
@@ -761,7 +761,7 @@ impl Default for GET_CONFIGURATION_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_CONFIGURATION_IOCTL_INPUT {
     pub Feature: FEATURE_NUMBER,
     pub RequestType: u32,
@@ -774,7 +774,7 @@ impl Default for GET_CONFIGURATION_IOCTL_INPUT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GET_CONFIGURATION_IOCTL_INPUT32 {
     pub Feature: FEATURE_NUMBER,
     pub RequestType: u32,

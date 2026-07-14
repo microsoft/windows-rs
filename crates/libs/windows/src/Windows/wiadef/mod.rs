@@ -142,7 +142,7 @@ pub const WIA_AUTO_CROP_SINGLE: u32 = 1;
 pub const WIA_AUTO_DESKEW_OFF: u32 = 1;
 pub const WIA_AUTO_DESKEW_ON: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_BARCODES {
     pub Tag: u32,
     pub Version: u32,
@@ -180,7 +180,7 @@ pub const WIA_BARCODE_HIGH_CAPACITY_COLOR: u32 = 26;
 pub const WIA_BARCODE_HORIZONTAL_SEARCH: u32 = 0;
 pub const WIA_BARCODE_HORIZONTAL_VERTICAL_SEARCH: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_BARCODE_INFO {
     pub Size: u32,
     pub Type: u32,
@@ -928,7 +928,7 @@ pub const WIA_MAJOR_EVENT_PICTURE_DELETED: u32 = 4;
 pub const WIA_MAJOR_EVENT_PICTURE_TAKEN: u32 = 3;
 pub const WIA_MAX_CTX_SIZE: u32 = 16777216;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_MICR {
     pub Tag: u32,
     pub Version: u32,
@@ -944,7 +944,7 @@ impl Default for WIA_MICR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_MICR_INFO {
     pub Size: u32,
     pub Page: u32,
@@ -1035,7 +1035,7 @@ pub const WIA_PAGE_USLEGAL: u32 = 3;
 pub const WIA_PAGE_USLETTER: u32 = 1;
 pub const WIA_PAGE_USSTATEMENT: u32 = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_PATCH_CODES {
     pub Tag: u32,
     pub Version: u32,
@@ -1063,7 +1063,7 @@ pub const WIA_PATCH_CODE_8: u32 = 8;
 pub const WIA_PATCH_CODE_9: u32 = 9;
 pub const WIA_PATCH_CODE_CUSTOM_BASE: u32 = 32768;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIA_PATCH_CODE_INFO {
     pub Type: u32,
 }
@@ -1157,7 +1157,7 @@ pub const WIA_RANGE_NOM: u32 = 1;
 pub const WIA_RANGE_NUM_ELEMS: u32 = 4;
 pub const WIA_RANGE_STEP: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIA_RAW_HEADER {
     pub Tag: u32,
     pub Version: u32,

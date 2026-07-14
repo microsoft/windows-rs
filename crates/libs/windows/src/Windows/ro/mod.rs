@@ -98,7 +98,7 @@ where
     P2: windows_core::Param<IRoMetaDataLocator>,
 {
     windows_core::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoGetParameterizedTypeInstanceIID(nameelementcount : u32, nameelements : *const windows_core::PCWSTR, metadatalocator : *mut core::ffi::c_void, iid : *mut windows_core::GUID, pextra : *mut ROPARAMIIDHANDLE) -> windows_core::HRESULT);
-    unsafe { RoGetParameterizedTypeInstanceIID(nameelements.len().try_into().unwrap(), core::mem::transmute(nameelements.as_ptr()), metadatalocator.param().abi(), iid as _, pextra as _) }
+    unsafe { RoGetParameterizedTypeInstanceIID(nameelements.len().try_into().unwrap(), nameelements.as_ptr(), metadatalocator.param().abi(), iid as _, pextra as _) }
 }
 #[inline]
 pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> windows_core::HRESULT {
@@ -337,10 +337,10 @@ impl IRoMetaDataLocator {
 windows_core::imp::define_interface!(IRoSimpleMetaDataBuilder, IRoSimpleMetaDataBuilder_Vtbl);
 impl IRoSimpleMetaDataBuilder {
     pub unsafe fn SetWinRtInterface(&self, iid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWinRtInterface)(windows_core::Interface::as_raw(self), core::mem::transmute(iid)) }
+        unsafe { (windows_core::Interface::vtable(self).SetWinRtInterface)(windows_core::Interface::as_raw(self), iid) }
     }
     pub unsafe fn SetDelegate(&self, iid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetDelegate)(windows_core::Interface::as_raw(self), core::mem::transmute(iid)) }
+        unsafe { (windows_core::Interface::vtable(self).SetDelegate)(windows_core::Interface::as_raw(self), iid) }
     }
     pub unsafe fn SetInterfaceGroupSimpleDefault<P0, P1>(&self, name: P0, defaultinterfacename: P1, defaultinterfaceiid: Option<*const windows_core::GUID>) -> windows_core::HRESULT
     where
@@ -353,7 +353,7 @@ impl IRoSimpleMetaDataBuilder {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetInterfaceGroupParameterizedDefault)(windows_core::Interface::as_raw(self), name.param().abi(), defaultinterfacenameelements.len().try_into().unwrap(), core::mem::transmute(defaultinterfacenameelements.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetInterfaceGroupParameterizedDefault)(windows_core::Interface::as_raw(self), name.param().abi(), defaultinterfacenameelements.len().try_into().unwrap(), defaultinterfacenameelements.as_ptr()) }
     }
     pub unsafe fn SetRuntimeClassSimpleDefault<P0, P1>(&self, name: P0, defaultinterfacename: P1, defaultinterfaceiid: Option<*const windows_core::GUID>) -> windows_core::HRESULT
     where
@@ -366,13 +366,13 @@ impl IRoSimpleMetaDataBuilder {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRuntimeClassParameterizedDefault)(windows_core::Interface::as_raw(self), name.param().abi(), defaultinterfacenameelements.len().try_into().unwrap(), core::mem::transmute(defaultinterfacenameelements.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetRuntimeClassParameterizedDefault)(windows_core::Interface::as_raw(self), name.param().abi(), defaultinterfacenameelements.len().try_into().unwrap(), defaultinterfacenameelements.as_ptr()) }
     }
     pub unsafe fn SetStruct<P0>(&self, name: P0, fieldtypenames: &[windows_core::PCWSTR]) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetStruct)(windows_core::Interface::as_raw(self), name.param().abi(), fieldtypenames.len().try_into().unwrap(), core::mem::transmute(fieldtypenames.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetStruct)(windows_core::Interface::as_raw(self), name.param().abi(), fieldtypenames.len().try_into().unwrap(), fieldtypenames.as_ptr()) }
     }
     pub unsafe fn SetEnum<P0, P1>(&self, name: P0, basetype: P1) -> windows_core::HRESULT
     where
@@ -382,10 +382,10 @@ impl IRoSimpleMetaDataBuilder {
         unsafe { (windows_core::Interface::vtable(self).SetEnum)(windows_core::Interface::as_raw(self), name.param().abi(), basetype.param().abi()) }
     }
     pub unsafe fn SetParameterizedInterface(&self, piid: windows_core::GUID, numargs: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetParameterizedInterface)(windows_core::Interface::as_raw(self), core::mem::transmute(piid), numargs) }
+        unsafe { (windows_core::Interface::vtable(self).SetParameterizedInterface)(windows_core::Interface::as_raw(self), piid, numargs) }
     }
     pub unsafe fn SetParameterizedDelegate(&self, piid: windows_core::GUID, numargs: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetParameterizedDelegate)(windows_core::Interface::as_raw(self), core::mem::transmute(piid), numargs) }
+        unsafe { (windows_core::Interface::vtable(self).SetParameterizedDelegate)(windows_core::Interface::as_raw(self), piid, numargs) }
     }
 }
 #[repr(C)]
@@ -539,5 +539,5 @@ pub const SuppressExceptions: RoErrorReportingFlags = 1;
 pub const SuppressSetErrorInfo: RoErrorReportingFlags = 8;
 pub const UseSetErrorInfo: RoErrorReportingFlags = 4;
 #[repr(C, align(1))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _RO_REGISTRATION_COOKIE(pub u8);

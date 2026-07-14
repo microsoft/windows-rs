@@ -95,7 +95,7 @@ pub type RasCustomEntryDlgFn = Option<unsafe extern "system" fn(hinstdll: super:
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tagRASDIALDLG {
     pub dwSize: u32,
     pub hwndOwner: super::windef::HWND,
@@ -125,7 +125,7 @@ pub struct tagRASDIALDLG {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASENTRYDLGA {
     pub dwSize: u32,
     pub hwndOwner: super::windef::HWND,
@@ -169,7 +169,7 @@ impl Default for tagRASENTRYDLGA {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASENTRYDLGW {
     pub dwSize: u32,
     pub hwndOwner: super::windef::HWND,
@@ -211,7 +211,7 @@ impl Default for tagRASENTRYDLGW {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASNOUSERA {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -226,7 +226,7 @@ impl Default for tagRASNOUSERA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct tagRASNOUSERW {
     pub dwSize: u32,
     pub dwFlags: u32,

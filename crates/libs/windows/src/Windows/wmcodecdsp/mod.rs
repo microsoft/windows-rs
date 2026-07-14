@@ -1029,7 +1029,7 @@ impl ITocParser {
     pub unsafe fn GetTocByType(&self, enumtocpostype: TOC_POS_TYPE, guidtoctype: windows_core::GUID) -> windows_core::Result<ITocCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetTocByType)(windows_core::Interface::as_raw(self), enumtocpostype, core::mem::transmute(guidtoctype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetTocByType)(windows_core::Interface::as_raw(self), enumtocpostype, guidtoctype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn AddToc<P1>(&self, enumtocpostype: TOC_POS_TYPE, ptoc: P1) -> windows_core::Result<u32>
@@ -1045,7 +1045,7 @@ impl ITocParser {
         unsafe { (windows_core::Interface::vtable(self).RemoveTocByIndex)(windows_core::Interface::as_raw(self), enumtocpostype, dwtocindex) }
     }
     pub unsafe fn RemoveTocByType(&self, enumtocpostype: TOC_POS_TYPE, guidtoctype: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RemoveTocByType)(windows_core::Interface::as_raw(self), enumtocpostype, core::mem::transmute(guidtoctype)) }
+        unsafe { (windows_core::Interface::vtable(self).RemoveTocByType)(windows_core::Interface::as_raw(self), enumtocpostype, guidtoctype) }
     }
     pub unsafe fn Commit(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self)) }
@@ -1169,7 +1169,7 @@ windows_core::imp::define_interface!(IValidateBinding, IValidateBinding_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IValidateBinding, windows_core::IUnknown);
 impl IValidateBinding {
     pub unsafe fn GetIdentifier(&self, guidlicensorid: windows_core::GUID, pbephemeron: *const u8, cbephemeron: u32, ppbblobvalidationid: *mut *mut u8, pcbblobsize: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), core::mem::transmute(guidlicensorid), pbephemeron, cbephemeron, ppbblobvalidationid as _, pcbblobsize as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIdentifier)(windows_core::Interface::as_raw(self), guidlicensorid, pbephemeron, cbephemeron, ppbblobvalidationid as _, pcbblobsize as _) }
     }
 }
 #[repr(C)]
@@ -1336,7 +1336,7 @@ windows_core::imp::interface_hierarchy!(IWMCodecPrivateData, windows_core::IUnkn
 impl IWMCodecPrivateData {
     #[cfg(feature = "mediaobj")]
     pub unsafe fn SetPartialOutputType(&self, pmt: *const super::mediaobj::DMO_MEDIA_TYPE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetPartialOutputType)(windows_core::Interface::as_raw(self), core::mem::transmute(pmt)) }
+        unsafe { (windows_core::Interface::vtable(self).SetPartialOutputType)(windows_core::Interface::as_raw(self), pmt) }
     }
     pub unsafe fn GetPrivateData(&self, pbdata: *mut u8, pcbdata: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), pbdata as _, pcbdata as _) }
@@ -1392,7 +1392,7 @@ impl IWMCodecProps {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetFormatProp)(windows_core::Interface::as_raw(self), core::mem::transmute(pmt), pszname.param().abi(), ptype as _, pvalue as _, pdwsize as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetFormatProp)(windows_core::Interface::as_raw(self), pmt, pszname.param().abi(), ptype as _, pvalue as _, pdwsize as _) }
     }
     pub unsafe fn GetCodecProp<P1>(&self, dwformat: u32, pszname: P1, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::HRESULT
     where
@@ -1448,11 +1448,11 @@ windows_core::imp::interface_hierarchy!(IWMCodecStrings, windows_core::IUnknown)
 impl IWMCodecStrings {
     #[cfg(feature = "mediaobj")]
     pub unsafe fn GetName(&self, pmt: *const super::mediaobj::DMO_MEDIA_TYPE, szname: Option<&mut [u16]>, pcchlength: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pmt), szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcchlength as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), pmt, szname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pcchlength as _) }
     }
     #[cfg(feature = "mediaobj")]
     pub unsafe fn GetDescription(&self, pmt: *const super::mediaobj::DMO_MEDIA_TYPE, szdescription: Option<&mut [u16]>, pcchlength: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pmt), szdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcchlength as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pmt, szdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(szdescription.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pcchlength as _) }
     }
 }
 #[repr(C)]
@@ -1868,7 +1868,7 @@ windows_core::imp::define_interface!(IWMValidate, IWMValidate_Vtbl, 0xcee3def2_3
 windows_core::imp::interface_hierarchy!(IWMValidate, windows_core::IUnknown);
 impl IWMValidate {
     pub unsafe fn SetIdentifier(&self, guidvalidationid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetIdentifier)(windows_core::Interface::as_raw(self), core::mem::transmute(guidvalidationid)) }
+        unsafe { (windows_core::Interface::vtable(self).SetIdentifier)(windows_core::Interface::as_raw(self), guidvalidationid) }
     }
 }
 #[repr(C)]
@@ -2163,7 +2163,7 @@ pub const SYSFXUI_DONOTSHOW_ROOMCORRECTION: u32 = 2;
 pub const SYSFXUI_DONOTSHOW_SPEAKERFILLING: u32 = 64;
 pub const SYSFXUI_DONOTSHOW_VIRTUALSURROUND: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOC_DESCRIPTOR {
     pub guidID: windows_core::GUID,
     pub wStreamNumber: u16,
@@ -2171,7 +2171,7 @@ pub struct TOC_DESCRIPTOR {
     pub wLanguageIndex: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TOC_ENTRY_DESCRIPTOR {
     pub qwStartTime: u64,
     pub qwEndTime: u64,

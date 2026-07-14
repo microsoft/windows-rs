@@ -510,7 +510,7 @@ impl IBinaryConverter {
     pub unsafe fn VariantByteArrayToString(&self, pvarbytearray: *const super::oaidl::VARIANT, encoding: EncodingType) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VariantByteArrayToString)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarbytearray), encoding, &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).VariantByteArrayToString)(windows_core::Interface::as_raw(self), pvarbytearray, encoding, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
@@ -611,14 +611,14 @@ impl IBinaryConverter2 {
     pub unsafe fn StringArrayToVariantArray(&self, pvarstringarray: *const super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).StringArrayToVariantArray)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarstringarray), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).StringArrayToVariantArray)(windows_core::Interface::as_raw(self), pvarstringarray, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn VariantArrayToStringArray(&self, pvarvariantarray: *const super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).VariantArrayToStringArray)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarvariantarray), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).VariantArrayToStringArray)(windows_core::Interface::as_raw(self), pvarvariantarray, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }

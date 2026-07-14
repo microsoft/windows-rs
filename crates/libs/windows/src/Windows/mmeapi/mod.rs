@@ -73,13 +73,13 @@ pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic:
 #[inline]
 pub unsafe fn midiInGetErrorTextA(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u8]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInGetErrorTextA(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
-    unsafe { midiInGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
+    unsafe { midiInGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_mut_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiInGetErrorTextW(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u16]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiInGetErrorTextW(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PWSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
-    unsafe { midiInGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
+    unsafe { midiInGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_mut_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
@@ -168,13 +168,13 @@ pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmo
 #[inline]
 pub unsafe fn midiOutGetErrorTextA(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u8]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutGetErrorTextA(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
-    unsafe { midiOutGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
+    unsafe { midiOutGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_mut_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn midiOutGetErrorTextW(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u16]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiOutGetErrorTextW(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PWSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
-    unsafe { midiOutGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
+    unsafe { midiOutGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_mut_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
@@ -251,7 +251,7 @@ pub unsafe fn midiStreamClose(hms: HMIDISTRM) -> super::mmsyscom::MMRESULT {
 #[inline]
 pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: &mut [u32], dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn midiStreamOpen(phms : *mut HMIDISTRM, pudeviceid : *mut u32, cmidi : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> super::mmsyscom::MMRESULT);
-    unsafe { midiStreamOpen(phms as _, core::mem::transmute(pudeviceid.as_ptr()), pudeviceid.len().try_into().unwrap(), dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
+    unsafe { midiStreamOpen(phms as _, pudeviceid.as_mut_ptr(), pudeviceid.len().try_into().unwrap(), dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
@@ -399,13 +399,13 @@ pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic:
 #[inline]
 pub unsafe fn waveInGetErrorTextA(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u8]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInGetErrorTextA(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
-    unsafe { waveInGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
+    unsafe { waveInGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_mut_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveInGetErrorTextW(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u16]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveInGetErrorTextW(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PWSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
-    unsafe { waveInGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
+    unsafe { waveInGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_mut_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
@@ -494,13 +494,13 @@ pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwo
 #[inline]
 pub unsafe fn waveOutGetErrorTextA(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u8]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutGetErrorTextA(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
-    unsafe { waveOutGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
+    unsafe { waveOutGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_mut_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]
 pub unsafe fn waveOutGetErrorTextW(mmrerror: super::mmsyscom::MMRESULT, psztext: &mut [u16]) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn waveOutGetErrorTextW(mmrerror : super::mmsyscom::MMRESULT, psztext : windows_core::PWSTR, cchtext : u32) -> super::mmsyscom::MMRESULT);
-    unsafe { waveOutGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
+    unsafe { waveOutGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_mut_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[cfg(feature = "mmsyscom")]
 #[inline]

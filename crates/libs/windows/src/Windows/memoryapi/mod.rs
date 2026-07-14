@@ -17,14 +17,14 @@ pub unsafe fn AllocateUserPhysicalPages(hprocess: super::winnt::HANDLE, numberof
 #[inline]
 pub unsafe fn AllocateUserPhysicalPages2(objecthandle: super::winnt::HANDLE, numberofpages: *mut u32, pagearray: *mut u32, extendedparameters: Option<&mut [super::winnt::MEM_EXTENDED_PARAMETER]>) -> windows_core::BOOL {
     windows_core::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn AllocateUserPhysicalPages2(objecthandle : super::winnt::HANDLE, numberofpages : *mut u32, pagearray : *mut u32, extendedparameters : *mut super::winnt::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_core::BOOL);
-    unsafe { AllocateUserPhysicalPages2(objecthandle, numberofpages as _, pagearray as _, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { AllocateUserPhysicalPages2(objecthandle, numberofpages as _, pagearray as _, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AllocateUserPhysicalPages2(objecthandle: super::winnt::HANDLE, numberofpages: *mut u64, pagearray: *mut u64, extendedparameters: Option<&mut [super::winnt::MEM_EXTENDED_PARAMETER]>) -> windows_core::BOOL {
     windows_core::link!("api-ms-win-core-memory-l1-1-8.dll" "system" fn AllocateUserPhysicalPages2(objecthandle : super::winnt::HANDLE, numberofpages : *mut u64, pagearray : *mut u64, extendedparameters : *mut super::winnt::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_core::BOOL);
-    unsafe { AllocateUserPhysicalPages2(objecthandle, numberofpages as _, pagearray as _, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { AllocateUserPhysicalPages2(objecthandle, numberofpages as _, pagearray as _, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
@@ -47,7 +47,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn CreateFileMapping2(file : super::winnt::HANDLE, securityattributes : *const super::minwinbase::SECURITY_ATTRIBUTES, desiredaccess : u32, pageprotection : u32, allocationattributes : u32, maximumsize : u64, name : windows_core::PCWSTR, extendedparameters : *mut super::winnt::MEM_EXTENDED_PARAMETER, parametercount : u32) -> super::winnt::HANDLE);
-    unsafe { CreateFileMapping2(file, securityattributes.unwrap_or(core::mem::zeroed()) as _, desiredaccess, pageprotection, allocationattributes, maximumsize, name.param().abi(), core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { CreateFileMapping2(file, securityattributes.unwrap_or(core::mem::zeroed()) as _, desiredaccess, pageprotection, allocationattributes, maximumsize, name.param().abi(), extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
@@ -85,7 +85,7 @@ pub unsafe fn CreateMemoryResourceNotification(notificationtype: MEMORY_RESOURCE
 #[inline]
 pub unsafe fn DiscardVirtualMemory(virtualaddress: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn DiscardVirtualMemory(virtualaddress : *mut core::ffi::c_void, size : usize) -> u32);
-    unsafe { DiscardVirtualMemory(core::mem::transmute(virtualaddress.as_ptr()), virtualaddress.len().try_into().unwrap()) }
+    unsafe { DiscardVirtualMemory(core::mem::transmute(virtualaddress.as_mut_ptr()), virtualaddress.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn FlushViewOfFile(lpbaseaddress: *const core::ffi::c_void, dwnumberofbytestoflush: usize) -> windows_core::BOOL {
@@ -167,13 +167,13 @@ pub unsafe fn GetWriteWatch(dwflags: u32, lpbaseaddress: *const core::ffi::c_voi
 #[inline]
 pub unsafe fn MapUserPhysicalPages(virtualaddress: *const core::ffi::c_void, pagearray: Option<&[u32]>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn MapUserPhysicalPages(virtualaddress : *const core::ffi::c_void, numberofpages : usize, pagearray : *const u32) -> windows_core::BOOL);
-    unsafe { MapUserPhysicalPages(virtualaddress, pagearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pagearray.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { MapUserPhysicalPages(virtualaddress, pagearray.map_or(0, |slice| slice.len().try_into().unwrap()), pagearray.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn MapUserPhysicalPages(virtualaddress: *const core::ffi::c_void, pagearray: Option<&[u64]>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn MapUserPhysicalPages(virtualaddress : *const core::ffi::c_void, numberofpages : usize, pagearray : *const u64) -> windows_core::BOOL);
-    unsafe { MapUserPhysicalPages(virtualaddress, pagearray.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pagearray.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { MapUserPhysicalPages(virtualaddress, pagearray.map_or(0, |slice| slice.len().try_into().unwrap()), pagearray.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -185,13 +185,13 @@ pub unsafe fn MapViewOfFile(hfilemappingobject: super::winnt::HANDLE, dwdesireda
 #[inline]
 pub unsafe fn MapViewOfFile3(filemapping: super::winnt::HANDLE, process: Option<super::winnt::HANDLE>, baseaddress: Option<*const core::ffi::c_void>, offset: u64, viewsize: usize, allocationtype: u32, pageprotection: u32, extendedparameters: Option<&mut [super::winnt::MEM_EXTENDED_PARAMETER]>) -> *mut core::ffi::c_void {
     windows_core::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn MapViewOfFile3(filemapping : super::winnt::HANDLE, process : super::winnt::HANDLE, baseaddress : *const core::ffi::c_void, offset : u64, viewsize : usize, allocationtype : u32, pageprotection : u32, extendedparameters : *mut super::winnt::MEM_EXTENDED_PARAMETER, parametercount : u32) -> *mut core::ffi::c_void);
-    unsafe { MapViewOfFile3(filemapping, process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, offset, viewsize, allocationtype, pageprotection, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MapViewOfFile3(filemapping, process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, offset, viewsize, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn MapViewOfFile3FromApp(filemapping: super::winnt::HANDLE, process: Option<super::winnt::HANDLE>, baseaddress: Option<*const core::ffi::c_void>, offset: u64, viewsize: usize, allocationtype: u32, pageprotection: u32, extendedparameters: Option<&mut [super::winnt::MEM_EXTENDED_PARAMETER]>) -> *mut core::ffi::c_void {
     windows_core::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn MapViewOfFile3FromApp(filemapping : super::winnt::HANDLE, process : super::winnt::HANDLE, baseaddress : *const core::ffi::c_void, offset : u64, viewsize : usize, allocationtype : u32, pageprotection : u32, extendedparameters : *mut super::winnt::MEM_EXTENDED_PARAMETER, parametercount : u32) -> *mut core::ffi::c_void);
-    unsafe { MapViewOfFile3FromApp(filemapping, process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, offset, viewsize, allocationtype, pageprotection, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MapViewOfFile3FromApp(filemapping, process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, offset, viewsize, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -214,7 +214,7 @@ pub unsafe fn MapViewOfFileNuma2(filemappinghandle: super::winnt::HANDLE, proces
 #[inline]
 pub unsafe fn OfferVirtualMemory(virtualaddress: &mut [u8], priority: OFFER_PRIORITY) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn OfferVirtualMemory(virtualaddress : *mut core::ffi::c_void, size : usize, priority : OFFER_PRIORITY) -> u32);
-    unsafe { OfferVirtualMemory(core::mem::transmute(virtualaddress.as_ptr()), virtualaddress.len().try_into().unwrap(), priority) }
+    unsafe { OfferVirtualMemory(core::mem::transmute(virtualaddress.as_mut_ptr()), virtualaddress.len().try_into().unwrap(), priority) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -244,7 +244,7 @@ where
 #[inline]
 pub unsafe fn PrefetchVirtualMemory(hprocess: super::winnt::HANDLE, virtualaddresses: &[WIN32_MEMORY_RANGE_ENTRY], flags: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn PrefetchVirtualMemory(hprocess : super::winnt::HANDLE, numberofentries : usize, virtualaddresses : *const WIN32_MEMORY_RANGE_ENTRY, flags : u32) -> windows_core::BOOL);
-    unsafe { PrefetchVirtualMemory(hprocess, virtualaddresses.len().try_into().unwrap(), core::mem::transmute(virtualaddresses.as_ptr()), flags) }
+    unsafe { PrefetchVirtualMemory(hprocess, virtualaddresses.len().try_into().unwrap(), virtualaddresses.as_ptr(), flags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -289,13 +289,13 @@ pub unsafe fn ResetWriteWatch(lpbaseaddress: *const core::ffi::c_void, dwregions
 #[inline]
 pub unsafe fn SetProcessValidCallTargets(hprocess: super::winnt::HANDLE, virtualaddress: *const core::ffi::c_void, regionsize: usize, offsetinformation: &mut [super::winnt::CFG_CALL_TARGET_INFO]) -> windows_core::BOOL {
     windows_core::link!("api-ms-win-core-memory-l1-1-3.dll" "system" fn SetProcessValidCallTargets(hprocess : super::winnt::HANDLE, virtualaddress : *const core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : *mut super::winnt::CFG_CALL_TARGET_INFO) -> windows_core::BOOL);
-    unsafe { SetProcessValidCallTargets(hprocess, virtualaddress, regionsize, offsetinformation.len().try_into().unwrap(), core::mem::transmute(offsetinformation.as_ptr())) }
+    unsafe { SetProcessValidCallTargets(hprocess, virtualaddress, regionsize, offsetinformation.len().try_into().unwrap(), offsetinformation.as_mut_ptr()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessValidCallTargetsForMappedView(process: super::winnt::HANDLE, virtualaddress: *const core::ffi::c_void, regionsize: usize, offsetinformation: &mut [super::winnt::CFG_CALL_TARGET_INFO], section: super::winnt::HANDLE, expectedfileoffset: u64) -> windows_core::BOOL {
     windows_core::link!("api-ms-win-core-memory-l1-1-7.dll" "system" fn SetProcessValidCallTargetsForMappedView(process : super::winnt::HANDLE, virtualaddress : *const core::ffi::c_void, regionsize : usize, numberofoffsets : u32, offsetinformation : *mut super::winnt::CFG_CALL_TARGET_INFO, section : super::winnt::HANDLE, expectedfileoffset : u64) -> windows_core::BOOL);
-    unsafe { SetProcessValidCallTargetsForMappedView(process, virtualaddress, regionsize, offsetinformation.len().try_into().unwrap(), core::mem::transmute(offsetinformation.as_ptr()), section, expectedfileoffset) }
+    unsafe { SetProcessValidCallTargetsForMappedView(process, virtualaddress, regionsize, offsetinformation.len().try_into().unwrap(), offsetinformation.as_mut_ptr(), section, expectedfileoffset) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -344,13 +344,13 @@ pub unsafe fn VirtualAlloc(lpaddress: Option<*const core::ffi::c_void>, dwsize: 
 #[inline]
 pub unsafe fn VirtualAlloc2(process: Option<super::winnt::HANDLE>, baseaddress: Option<*const core::ffi::c_void>, size: usize, allocationtype: u32, pageprotection: u32, extendedparameters: Option<&mut [super::winnt::MEM_EXTENDED_PARAMETER]>) -> *mut core::ffi::c_void {
     windows_core::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn VirtualAlloc2(process : super::winnt::HANDLE, baseaddress : *const core::ffi::c_void, size : usize, allocationtype : u32, pageprotection : u32, extendedparameters : *mut super::winnt::MEM_EXTENDED_PARAMETER, parametercount : u32) -> *mut core::ffi::c_void);
-    unsafe { VirtualAlloc2(process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, size, allocationtype, pageprotection, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { VirtualAlloc2(process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, size, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn VirtualAlloc2FromApp(process: Option<super::winnt::HANDLE>, baseaddress: Option<*const core::ffi::c_void>, size: usize, allocationtype: u32, pageprotection: u32, extendedparameters: Option<&mut [super::winnt::MEM_EXTENDED_PARAMETER]>) -> *mut core::ffi::c_void {
     windows_core::link!("api-ms-win-core-memory-l1-1-6.dll" "system" fn VirtualAlloc2FromApp(process : super::winnt::HANDLE, baseaddress : *const core::ffi::c_void, size : usize, allocationtype : u32, pageprotection : u32, extendedparameters : *mut super::winnt::MEM_EXTENDED_PARAMETER, parametercount : u32) -> *mut core::ffi::c_void);
-    unsafe { VirtualAlloc2FromApp(process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, size, allocationtype, pageprotection, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { VirtualAlloc2FromApp(process.unwrap_or(core::mem::zeroed()) as _, baseaddress.unwrap_or(core::mem::zeroed()) as _, size, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -451,25 +451,25 @@ pub const MemoryPartitionDedicatedMemoryInfo: WIN32_MEMORY_PARTITION_INFORMATION
 pub const MemoryPartitionInfo: WIN32_MEMORY_PARTITION_INFORMATION_CLASS = 0;
 pub const MemoryRegionInfo: WIN32_MEMORY_INFORMATION_CLASS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMA_NODE_MEMORY_PERFORMANCE_BANDWIDTH {
     pub Condition: NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION,
     pub Bandwidth: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMA_NODE_MEMORY_PERFORMANCE_LATENCY {
     pub Condition: NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION,
     pub Latency: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION {
     pub Flags: NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION_0,
     pub MinTransferSizeInBytes: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION_0 {
     pub _bitfield: u8,
 }
@@ -482,7 +482,7 @@ pub const VmOfferPriorityNormal: OFFER_PRIORITY = 4;
 pub const VmOfferPriorityVeryLow: OFFER_PRIORITY = 1;
 pub type WIN32_MEMORY_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN32_MEMORY_PARTITION_INFORMATION {
     pub Flags: u32,
     pub NumaNode: u32,
@@ -509,7 +509,7 @@ impl Default for WIN32_MEMORY_PARTITION_INFORMATION {
 }
 pub type WIN32_MEMORY_PARTITION_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WIN32_MEMORY_RANGE_ENTRY {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: usize,
@@ -545,7 +545,7 @@ impl Default for WIN32_MEMORY_REGION_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN32_MEMORY_REGION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }

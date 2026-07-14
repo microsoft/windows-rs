@@ -242,25 +242,25 @@ pub unsafe fn D3D10StateBlockMaskUnion(pa: *const D3D10_STATE_BLOCK_MASK, pb: *c
     unsafe { D3D10StateBlockMaskUnion(pa, pb, presult as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D10_BUFFER_DESC {
     pub Base: D3D10_BUFFER_DESC,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D10_TEXTURE1D_DESC {
     pub Base: D3D10_TEXTURE1D_DESC,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D10_TEXTURE2D_DESC {
     pub Base: D3D10_TEXTURE2D_DESC,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CD3D10_TEXTURE3D_DESC {
     pub Base: D3D10_TEXTURE3D_DESC,
 }
@@ -306,7 +306,7 @@ pub const D3D10_BIND_VERTEX_BUFFER: D3D10_BIND_FLAG = 1;
 pub type D3D10_BLEND = i32;
 pub const D3D10_BLEND_BLEND_FACTOR: D3D10_BLEND = 14;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_BLEND_DESC {
     pub AlphaToCoverageEnable: windows_core::BOOL,
     pub BlendEnable: [windows_core::BOOL; 8],
@@ -324,7 +324,7 @@ impl Default for D3D10_BLEND_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_BLEND_DESC1 {
     pub AlphaToCoverageEnable: windows_core::BOOL,
     pub IndependentBlendEnable: windows_core::BOOL,
@@ -358,7 +358,7 @@ pub const D3D10_BLEND_SRC_ALPHA_SAT: D3D10_BLEND = 11;
 pub const D3D10_BLEND_SRC_COLOR: D3D10_BLEND = 3;
 pub const D3D10_BLEND_ZERO: D3D10_BLEND = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_BOX {
     pub left: u32,
     pub top: u32,
@@ -368,7 +368,7 @@ pub struct D3D10_BOX {
     pub back: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_BUFFER_DESC {
     pub ByteWidth: u32,
     pub Usage: D3D10_USAGE,
@@ -504,7 +504,7 @@ pub const D3D10_COMPARISON_NEVER: D3D10_COMPARISON_FUNC = 1;
 pub const D3D10_COMPARISON_NOT_EQUAL: D3D10_COMPARISON_FUNC = 6;
 pub type D3D10_COUNTER = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_COUNTER_DESC {
     pub Counter: D3D10_COUNTER,
     pub MiscFlags: u32,
@@ -517,7 +517,7 @@ pub const D3D10_COUNTER_GS_COMPUTATION_LIMITED: D3D10_COUNTER = 13;
 pub const D3D10_COUNTER_GS_MEMORY_LIMITED: D3D10_COUNTER = 12;
 pub const D3D10_COUNTER_HOST_ADAPTER_BANDWIDTH_UTILIZATION: D3D10_COUNTER = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_COUNTER_INFO {
     pub LastDeviceDependentCounter: D3D10_COUNTER,
     pub NumSimultaneousCounters: u32,
@@ -587,7 +587,7 @@ pub const D3D10_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0;
 pub const D3D10_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0;
 pub const D3D10_DEFAULT_VIEWPORT_WIDTH: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_DEPTH_STENCILOP_DESC {
     pub StencilFailOp: D3D10_STENCIL_OP,
     pub StencilDepthFailOp: D3D10_STENCIL_OP,
@@ -595,7 +595,7 @@ pub struct D3D10_DEPTH_STENCILOP_DESC {
     pub StencilFunc: D3D10_COMPARISON_FUNC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_DEPTH_STENCIL_DESC {
     pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D10_DEPTH_WRITE_MASK,
@@ -682,7 +682,7 @@ pub const D3D10_DSV_DIMENSION_UNKNOWN: D3D10_DSV_DIMENSION = 0;
 pub const D3D10_EFFECT_COMPILE_ALLOW_SLOW_OPS: u32 = 2;
 pub const D3D10_EFFECT_COMPILE_CHILD_EFFECT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_EFFECT_DESC {
     pub IsChildEffect: windows_core::BOOL,
     pub ConstantBuffers: u32,
@@ -692,7 +692,7 @@ pub struct D3D10_EFFECT_DESC {
     pub Techniques: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_EFFECT_SHADER_DESC {
     pub pInputSignature: *const u8,
     pub IsInline: windows_core::BOOL,
@@ -710,7 +710,7 @@ impl Default for D3D10_EFFECT_SHADER_DESC {
 pub const D3D10_EFFECT_SINGLE_THREADED: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_EFFECT_TYPE_DESC {
     pub TypeName: windows_core::PCSTR,
     pub Class: D3D10_SHADER_VARIABLE_CLASS,
@@ -725,7 +725,7 @@ pub struct D3D10_EFFECT_TYPE_DESC {
 }
 pub const D3D10_EFFECT_VARIABLE_ANNOTATION: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_EFFECT_VARIABLE_DESC {
     pub Name: windows_core::PCSTR,
     pub Semantic: windows_core::PCSTR,
@@ -840,13 +840,13 @@ pub const D3D10_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 16;
 pub struct D3D10_INCLUDE_TYPE(pub super::d3dcommon::D3D_INCLUDE_TYPE);
 pub const D3D10_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_INFO_QUEUE_FILTER {
     pub AllowList: D3D10_INFO_QUEUE_FILTER_DESC,
     pub DenyList: D3D10_INFO_QUEUE_FILTER_DESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut D3D10_MESSAGE_CATEGORY,
@@ -863,7 +863,7 @@ impl Default for D3D10_INFO_QUEUE_FILTER_DESC {
 pub type D3D10_INPUT_CLASSIFICATION = i32;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_INPUT_ELEMENT_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -881,7 +881,7 @@ pub const D3D10_LINEAR_GAMMA: f32 = 1.0;
 pub const D3D10_MAG_FILTER_SHIFT: u32 = 2;
 pub type D3D10_MAP = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_MAPPED_TEXTURE2D {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: u32,
@@ -892,7 +892,7 @@ impl Default for D3D10_MAPPED_TEXTURE2D {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_MAPPED_TEXTURE3D {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: u32,
@@ -917,7 +917,7 @@ pub const D3D10_MAX_MULTISAMPLE_SAMPLE_COUNT: u32 = 32;
 pub const D3D10_MAX_POSITION_VALUE: f32 = 34028236000000000000000000000000000.0;
 pub const D3D10_MAX_TEXTURE_DIMENSION_2_TO_EXP: u32 = 17;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_MESSAGE {
     pub Category: D3D10_MESSAGE_CATEGORY,
     pub Severity: D3D10_MESSAGE_SEVERITY,
@@ -1487,7 +1487,7 @@ impl Default for D3D10_PASS_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_PASS_SHADER_DESC {
     pub pShaderVariable: core::mem::ManuallyDrop<Option<ID3D10EffectShaderVariable>>,
     pub ShaderIndex: u32,
@@ -1520,7 +1520,7 @@ pub const D3D10_PS_OUTPUT_REGISTER_COUNT: u32 = 8;
 pub const D3D10_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5;
 pub type D3D10_QUERY = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_QUERY_DATA_PIPELINE_STATISTICS {
     pub IAVertices: u64,
     pub IAPrimitives: u64,
@@ -1532,19 +1532,19 @@ pub struct D3D10_QUERY_DATA_PIPELINE_STATISTICS {
     pub PSInvocations: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_QUERY_DATA_SO_STATISTICS {
     pub NumPrimitivesWritten: u64,
     pub PrimitivesStorageNeeded: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_QUERY_DATA_TIMESTAMP_DISJOINT {
     pub Frequency: u64,
     pub Disjoint: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_QUERY_DESC {
     pub Query: D3D10_QUERY,
     pub MiscFlags: u32,
@@ -1582,7 +1582,7 @@ pub type D3D10_RECT = super::windef::RECT;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3D10_REGISTER_COMPONENT_TYPE(pub super::d3dcommon::D3D_REGISTER_COMPONENT_TYPE);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_RENDER_TARGET_BLEND_DESC1 {
     pub BlendEnable: windows_core::BOOL,
     pub SrcBlend: D3D10_BLEND,
@@ -1700,7 +1700,7 @@ pub const D3D10_SDK_VERSION: u32 = 29;
 pub const D3D10_SHADER_AVOID_FLOW_CONTROL: u32 = 512;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_BUFFER_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: D3D10_CBUFFER_TYPE,
@@ -1714,7 +1714,7 @@ pub struct D3D10_SHADER_BUFFER_DESC {
 pub struct D3D10_SHADER_CBUFFER_FLAGS(pub super::d3dcommon::D3D_SHADER_CBUFFER_FLAGS);
 pub const D3D10_SHADER_DEBUG: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_FILE_INFO {
     pub FileName: u32,
     pub FileNameLen: u32,
@@ -1722,7 +1722,7 @@ pub struct D3D10_SHADER_DEBUG_FILE_INFO {
     pub FileLen: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_INFO {
     pub Size: u32,
     pub Creator: u32,
@@ -1747,7 +1747,7 @@ pub struct D3D10_SHADER_DEBUG_INFO {
     pub StringOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_INPUT_INFO {
     pub Var: u32,
     pub InitialRegisterSet: D3D10_SHADER_DEBUG_REGTYPE,
@@ -1822,7 +1822,7 @@ pub const D3D10_SHADER_DEBUG_REG_UNUSED: D3D10_SHADER_DEBUG_REGTYPE = 10;
 pub type D3D10_SHADER_DEBUG_SCOPETYPE = i32;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_SCOPEVAR_INFO {
     pub TokenId: u32,
     pub VarType: D3D10_SHADER_DEBUG_VARTYPE,
@@ -1843,7 +1843,7 @@ pub const D3D10_SHADER_DEBUG_SCOPE_FORLOOP: D3D10_SHADER_DEBUG_SCOPETYPE = 2;
 pub const D3D10_SHADER_DEBUG_SCOPE_FUNC_PARAMS: D3D10_SHADER_DEBUG_SCOPETYPE = 4;
 pub const D3D10_SHADER_DEBUG_SCOPE_GLOBAL: D3D10_SHADER_DEBUG_SCOPETYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_SCOPE_INFO {
     pub ScopeType: D3D10_SHADER_DEBUG_SCOPETYPE,
     pub Name: u32,
@@ -1855,7 +1855,7 @@ pub const D3D10_SHADER_DEBUG_SCOPE_NAMESPACE: D3D10_SHADER_DEBUG_SCOPETYPE = 6;
 pub const D3D10_SHADER_DEBUG_SCOPE_STATEBLOCK: D3D10_SHADER_DEBUG_SCOPETYPE = 5;
 pub const D3D10_SHADER_DEBUG_SCOPE_STRUCT: D3D10_SHADER_DEBUG_SCOPETYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_TOKEN_INFO {
     pub File: u32,
     pub Line: u32,
@@ -1868,7 +1868,7 @@ pub const D3D10_SHADER_DEBUG_VAR_FORCE_DWORD: D3D10_SHADER_DEBUG_VARTYPE = 21474
 pub const D3D10_SHADER_DEBUG_VAR_FUNCTION: D3D10_SHADER_DEBUG_VARTYPE = 1;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DEBUG_VAR_INFO {
     pub TokenId: u32,
     pub Type: D3D10_SHADER_VARIABLE_TYPE,
@@ -1880,7 +1880,7 @@ pub struct D3D10_SHADER_DEBUG_VAR_INFO {
 pub const D3D10_SHADER_DEBUG_VAR_VARIABLE: D3D10_SHADER_DEBUG_VARTYPE = 0;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_DESC {
     pub Version: u32,
     pub Creator: windows_core::PCSTR,
@@ -1921,7 +1921,7 @@ pub const D3D10_SHADER_FORCE_VS_SOFTWARE_NO_OPT: u32 = 64;
 pub const D3D10_SHADER_IEEE_STRICTNESS: u32 = 8192;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_INPUT_BIND_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: D3D10_SHADER_INPUT_TYPE,
@@ -2027,7 +2027,7 @@ pub const D3D10_SHADER_SKIP_OPTIMIZATION: u32 = 4;
 pub const D3D10_SHADER_SKIP_VALIDATION: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SHADER_TYPE_DESC {
     pub Class: D3D10_SHADER_VARIABLE_CLASS,
     pub Type: D3D10_SHADER_VARIABLE_TYPE,
@@ -2042,7 +2042,7 @@ pub struct D3D10_SHADER_TYPE_DESC {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3D10_SHADER_VARIABLE_CLASS(pub super::d3dcommon::D3D_SHADER_VARIABLE_CLASS);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SHADER_VARIABLE_DESC {
     pub Name: windows_core::PCSTR,
     pub StartOffset: u32,
@@ -2068,7 +2068,7 @@ pub const D3D10_SHIFT_INSTRUCTION_PAD_VALUE: u32 = 0;
 pub const D3D10_SHIFT_INSTRUCTION_SHIFT_VALUE_BIT_COUNT: u32 = 5;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SIGNATURE_PARAMETER_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -2084,7 +2084,7 @@ pub const D3D10_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 256;
 pub const D3D10_SO_BUFFER_SLOT_COUNT: u32 = 4;
 pub const D3D10_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_SO_DECLARATION_ENTRY {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -2120,7 +2120,7 @@ pub const D3D10_STANDARD_VECTOR_SIZE: u32 = 4;
 pub const D3D10_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 16;
 pub const D3D10_STANDARD_VERTEX_TOTAL_COMPONENT_COUNT: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_STATE_BLOCK_MASK {
     pub VS: u8,
     pub VSSamplers: [u8; 2],
@@ -2163,7 +2163,7 @@ pub const D3D10_STENCIL_OP_REPLACE: D3D10_STENCIL_OP = 3;
 pub const D3D10_STENCIL_OP_ZERO: D3D10_STENCIL_OP = 2;
 pub const D3D10_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D10_SUBRESOURCE_DATA {
     pub pSysMem: *const core::ffi::c_void,
     pub SysMemPitch: u32,
@@ -2176,28 +2176,28 @@ impl Default for D3D10_SUBRESOURCE_DATA {
 }
 pub const D3D10_SUBTEXEL_FRACTIONAL_BIT_COUNT: u32 = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TECHNIQUE_DESC {
     pub Name: windows_core::PCSTR,
     pub Passes: u32,
     pub Annotations: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX1D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX1D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX1D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -2205,70 +2205,70 @@ pub struct D3D10_TEX1D_ARRAY_SRV {
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX1D_DSV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX1D_RTV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX1D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_ARRAY_DSV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_ARRAY_RTV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_ARRAY_SRV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_DSV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_RTV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2DMS_SRV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2D_ARRAY_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -2276,36 +2276,36 @@ pub struct D3D10_TEX2D_ARRAY_SRV {
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2D_DSV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2D_RTV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX2D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX3D_RTV {
     pub MipSlice: u32,
     pub FirstWSlice: u32,
     pub WSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEX3D_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEXCUBE_ARRAY_SRV1 {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -2313,7 +2313,7 @@ pub struct D3D10_TEXCUBE_ARRAY_SRV1 {
     pub NumCubes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEXCUBE_SRV {
     pub MostDetailedMip: u32,
     pub MipLevels: u32,
@@ -2321,7 +2321,7 @@ pub struct D3D10_TEXCUBE_SRV {
 pub const D3D10_TEXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 18;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEXTURE1D_DESC {
     pub Width: u32,
     pub MipLevels: u32,
@@ -2334,7 +2334,7 @@ pub struct D3D10_TEXTURE1D_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEXTURE2D_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -2349,7 +2349,7 @@ pub struct D3D10_TEXTURE2D_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D10_TEXTURE3D_DESC {
     pub Width: u32,
     pub Height: u32,
@@ -3038,7 +3038,7 @@ impl ID3D10Device {
         P0: windows_core::Param<ID3D10BlendState>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).OMSetBlendState)(windows_core::Interface::as_raw(self), pblendstate.param().abi(), core::mem::transmute(blendfactor.as_ptr()), samplemask);
+            (windows_core::Interface::vtable(self).OMSetBlendState)(windows_core::Interface::as_raw(self), pblendstate.param().abi(), blendfactor.as_ptr(), samplemask);
         }
     }
     pub unsafe fn OMSetDepthStencilState<P0>(&self, pdepthstencilstate: P0, stencilref: u32)
@@ -3069,13 +3069,13 @@ impl ID3D10Device {
     }
     pub unsafe fn RSSetViewports(&self, pviewports: Option<&[D3D10_VIEWPORT]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).RSSetViewports)(windows_core::Interface::as_raw(self), pviewports.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pviewports.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).RSSetViewports)(windows_core::Interface::as_raw(self), pviewports.map_or(0, |slice| slice.len().try_into().unwrap()), pviewports.map_or(core::ptr::null(), |slice| slice.as_ptr()));
         }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn RSSetScissorRects(&self, prects: Option<&[D3D10_RECT]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).RSSetScissorRects)(windows_core::Interface::as_raw(self), prects.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prects.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).RSSetScissorRects)(windows_core::Interface::as_raw(self), prects.map_or(0, |slice| slice.len().try_into().unwrap()), prects.map_or(core::ptr::null(), |slice| slice.as_ptr()));
         }
     }
     pub unsafe fn CopySubresourceRegion<P0, P5>(&self, pdstresource: P0, dstsubresource: u32, dstx: u32, dsty: u32, dstz: u32, psrcresource: P5, srcsubresource: u32, psrcbox: Option<*const D3D10_BOX>)
@@ -3109,7 +3109,7 @@ impl ID3D10Device {
         P0: windows_core::Param<ID3D10RenderTargetView>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), prendertargetview.param().abi(), core::mem::transmute(colorrgba.as_ptr()));
+            (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), prendertargetview.param().abi(), colorrgba.as_ptr());
         }
     }
     pub unsafe fn ClearDepthStencilView<P0>(&self, pdepthstencilview: P0, clearflags: u32, depth: f32, stencil: u8)
@@ -3140,12 +3140,12 @@ impl ID3D10Device {
     }
     pub unsafe fn VSGetConstantBuffers(&self, startslot: u32, ppconstantbuffers: Option<&mut [Option<ID3D10Buffer>]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).VSGetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).VSGetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())));
         }
     }
     pub unsafe fn PSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: Option<&mut [Option<ID3D10ShaderResourceView>]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).PSGetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).PSGetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())));
         }
     }
     pub unsafe fn PSGetShader(&self) -> windows_core::Result<ID3D10PixelShader> {
@@ -3157,7 +3157,7 @@ impl ID3D10Device {
     }
     pub unsafe fn PSGetSamplers(&self, startslot: u32, ppsamplers: Option<&mut [Option<ID3D10SamplerState>]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).PSGetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).PSGetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())));
         }
     }
     pub unsafe fn VSGetShader(&self) -> windows_core::Result<ID3D10VertexShader> {
@@ -3169,7 +3169,7 @@ impl ID3D10Device {
     }
     pub unsafe fn PSGetConstantBuffers(&self, startslot: u32, ppconstantbuffers: Option<&mut [Option<ID3D10Buffer>]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).PSGetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).PSGetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())));
         }
     }
     pub unsafe fn IAGetInputLayout(&self) -> windows_core::Result<ID3D10InputLayout> {
@@ -3192,7 +3192,7 @@ impl ID3D10Device {
     }
     pub unsafe fn GSGetConstantBuffers(&self, startslot: u32, ppconstantbuffers: Option<&mut [Option<ID3D10Buffer>]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).GSGetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).GSGetConstantBuffers)(windows_core::Interface::as_raw(self), startslot, ppconstantbuffers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppconstantbuffers.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())));
         }
     }
     pub unsafe fn GSGetShader(&self) -> windows_core::Result<ID3D10GeometryShader> {
@@ -3212,12 +3212,12 @@ impl ID3D10Device {
     }
     pub unsafe fn VSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: Option<&mut [Option<ID3D10ShaderResourceView>]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).VSGetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).VSGetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())));
         }
     }
     pub unsafe fn VSGetSamplers(&self, startslot: u32, ppsamplers: Option<&mut [Option<ID3D10SamplerState>]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).VSGetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).VSGetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())));
         }
     }
     pub unsafe fn GetPredication(&self, pppredicate: Option<*mut Option<ID3D10Predicate>>, ppredicatevalue: Option<*mut windows_core::BOOL>) {
@@ -3227,22 +3227,22 @@ impl ID3D10Device {
     }
     pub unsafe fn GSGetShaderResources(&self, startslot: u32, ppshaderresourceviews: Option<&mut [Option<ID3D10ShaderResourceView>]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).GSGetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).GSGetShaderResources)(windows_core::Interface::as_raw(self), startslot, ppshaderresourceviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppshaderresourceviews.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())));
         }
     }
     pub unsafe fn GSGetSamplers(&self, startslot: u32, ppsamplers: Option<&mut [Option<ID3D10SamplerState>]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).GSGetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).GSGetSamplers)(windows_core::Interface::as_raw(self), startslot, ppsamplers.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppsamplers.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())));
         }
     }
     pub unsafe fn OMGetRenderTargets(&self, pprendertargetviews: Option<&mut [Option<ID3D10RenderTargetView>]>, ppdepthstencilview: Option<*mut Option<ID3D10DepthStencilView>>) {
         unsafe {
-            (windows_core::Interface::vtable(self).OMGetRenderTargets)(windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pprendertargetviews.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ppdepthstencilview.unwrap_or(core::mem::zeroed()) as _);
+            (windows_core::Interface::vtable(self).OMGetRenderTargets)(windows_core::Interface::as_raw(self), pprendertargetviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pprendertargetviews.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), ppdepthstencilview.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     pub unsafe fn OMGetBlendState(&self, ppblendstate: Option<*mut Option<ID3D10BlendState>>, blendfactor: Option<&mut [f32; 4]>, psamplemask: Option<*mut u32>) {
         unsafe {
-            (windows_core::Interface::vtable(self).OMGetBlendState)(windows_core::Interface::as_raw(self), ppblendstate.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(blendfactor.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psamplemask.unwrap_or(core::mem::zeroed()) as _);
+            (windows_core::Interface::vtable(self).OMGetBlendState)(windows_core::Interface::as_raw(self), ppblendstate.unwrap_or(core::mem::zeroed()) as _, blendfactor.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), psamplemask.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     pub unsafe fn OMGetDepthStencilState(&self, ppdepthstencilstate: Option<*mut Option<ID3D10DepthStencilState>>, pstencilref: Option<*mut u32>) {
@@ -3351,7 +3351,7 @@ impl ID3D10Device {
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn CreateInputLayout(&self, pinputelementdescs: &[D3D10_INPUT_ELEMENT_DESC], pshaderbytecodewithinputsignature: &[u8], ppinputlayout: Option<*mut Option<ID3D10InputLayout>>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateInputLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputelementdescs.as_ptr()), pinputelementdescs.len().try_into().unwrap(), core::mem::transmute(pshaderbytecodewithinputsignature.as_ptr()), pshaderbytecodewithinputsignature.len().try_into().unwrap(), ppinputlayout.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateInputLayout)(windows_core::Interface::as_raw(self), pinputelementdescs.as_ptr(), pinputelementdescs.len().try_into().unwrap(), core::mem::transmute(pshaderbytecodewithinputsignature.as_ptr()), pshaderbytecodewithinputsignature.len().try_into().unwrap(), ppinputlayout.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn CreateVertexShader(&self, pshaderbytecode: &[u8], ppvertexshader: Option<*mut Option<ID3D10VertexShader>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreateVertexShader)(windows_core::Interface::as_raw(self), core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len().try_into().unwrap(), ppvertexshader.unwrap_or(core::mem::zeroed()) as _) }
@@ -3360,7 +3360,7 @@ impl ID3D10Device {
         unsafe { (windows_core::Interface::vtable(self).CreateGeometryShader)(windows_core::Interface::as_raw(self), core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len().try_into().unwrap(), ppgeometryshader.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn CreateGeometryShaderWithStreamOutput(&self, pshaderbytecode: &[u8], psodeclaration: Option<&[D3D10_SO_DECLARATION_ENTRY]>, outputstreamstride: u32, ppgeometryshader: Option<*mut Option<ID3D10GeometryShader>>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateGeometryShaderWithStreamOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len().try_into().unwrap(), core::mem::transmute(psodeclaration.map_or(core::ptr::null(), |slice| slice.as_ptr())), psodeclaration.map_or(0, |slice| slice.len().try_into().unwrap()), outputstreamstride, ppgeometryshader.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateGeometryShaderWithStreamOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len().try_into().unwrap(), psodeclaration.map_or(core::ptr::null(), |slice| slice.as_ptr()), psodeclaration.map_or(0, |slice| slice.len().try_into().unwrap()), outputstreamstride, ppgeometryshader.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn CreatePixelShader(&self, pshaderbytecode: &[u8], pppixelshader: Option<*mut Option<ID3D10PixelShader>>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CreatePixelShader)(windows_core::Interface::as_raw(self), core::mem::transmute(pshaderbytecode.as_ptr()), pshaderbytecode.len().try_into().unwrap(), pppixelshader.unwrap_or(core::mem::zeroed()) as _) }
@@ -5007,7 +5007,7 @@ impl ID3D10EffectDepthStencilViewVariable {
         unsafe { (windows_core::Interface::vtable(self).SetDepthStencilArray)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), offset, ppresources.len().try_into().unwrap()) }
     }
     pub unsafe fn GetDepthStencilArray(&self, ppresources: &mut [Option<ID3D10DepthStencilView>], offset: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDepthStencilArray)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), offset, ppresources.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetDepthStencilArray)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_mut_ptr()), offset, ppresources.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -5555,7 +5555,7 @@ impl ID3D10EffectRenderTargetViewVariable {
         unsafe { (windows_core::Interface::vtable(self).SetRenderTargetArray)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), offset, ppresources.len().try_into().unwrap()) }
     }
     pub unsafe fn GetRenderTargetArray(&self, ppresources: &mut [Option<ID3D10RenderTargetView>], offset: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRenderTargetArray)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), offset, ppresources.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetRenderTargetArray)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_mut_ptr()), offset, ppresources.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -5714,10 +5714,10 @@ impl ID3D10EffectScalarVariable {
         }
     }
     pub unsafe fn SetFloatArray(&self, pdata: &[f32], offset: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetFloatArray)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), offset, pdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetFloatArray)(windows_core::Interface::as_raw(self), pdata.as_ptr(), offset, pdata.len().try_into().unwrap()) }
     }
     pub unsafe fn GetFloatArray(&self, pdata: &mut [f32], offset: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFloatArray)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), offset, pdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetFloatArray)(windows_core::Interface::as_raw(self), pdata.as_mut_ptr(), offset, pdata.len().try_into().unwrap()) }
     }
     pub unsafe fn SetInt(&self, value: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetInt)(windows_core::Interface::as_raw(self), value) }
@@ -5729,10 +5729,10 @@ impl ID3D10EffectScalarVariable {
         }
     }
     pub unsafe fn SetIntArray(&self, pdata: &[i32], offset: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetIntArray)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), offset, pdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetIntArray)(windows_core::Interface::as_raw(self), pdata.as_ptr(), offset, pdata.len().try_into().unwrap()) }
     }
     pub unsafe fn GetIntArray(&self, pdata: &mut [i32], offset: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIntArray)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), offset, pdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetIntArray)(windows_core::Interface::as_raw(self), pdata.as_mut_ptr(), offset, pdata.len().try_into().unwrap()) }
     }
     pub unsafe fn SetBool(&self, value: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBool)(windows_core::Interface::as_raw(self), value.into()) }
@@ -5744,10 +5744,10 @@ impl ID3D10EffectScalarVariable {
         }
     }
     pub unsafe fn SetBoolArray(&self, pdata: &[windows_core::BOOL], offset: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBoolArray)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), offset, pdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBoolArray)(windows_core::Interface::as_raw(self), pdata.as_ptr(), offset, pdata.len().try_into().unwrap()) }
     }
     pub unsafe fn GetBoolArray(&self, pdata: &mut [windows_core::BOOL], offset: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBoolArray)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), offset, pdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetBoolArray)(windows_core::Interface::as_raw(self), pdata.as_mut_ptr(), offset, pdata.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -5938,7 +5938,7 @@ impl ID3D10EffectShaderResourceVariable {
         unsafe { (windows_core::Interface::vtable(self).SetResourceArray)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), offset, ppresources.len().try_into().unwrap()) }
     }
     pub unsafe fn GetResourceArray(&self, ppresources: &mut [Option<ID3D10ShaderResourceView>], offset: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetResourceArray)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_ptr()), offset, ppresources.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetResourceArray)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources.as_mut_ptr()), offset, ppresources.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -6181,7 +6181,7 @@ impl ID3D10EffectStringVariable {
         }
     }
     pub unsafe fn GetStringArray(&self, ppstrings: &mut [windows_core::PCSTR], offset: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStringArray)(windows_core::Interface::as_raw(self), core::mem::transmute(ppstrings.as_ptr()), offset, ppstrings.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetStringArray)(windows_core::Interface::as_raw(self), ppstrings.as_mut_ptr(), offset, ppstrings.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]

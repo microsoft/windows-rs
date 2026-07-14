@@ -2,7 +2,7 @@
 pub type BASEBROWSERDATA = BASEBROWSERDATALH;
 #[repr(C)]
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct BASEBROWSERDATALH {
     pub _hwnd: super::windef::HWND,
     pub _ptl: core::mem::ManuallyDrop<Option<ITravelLog>>,
@@ -34,7 +34,7 @@ pub struct BASEBROWSERDATALH {
 }
 #[repr(C)]
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct BASEBROWSERDATAXP {
     pub _hwnd: super::windef::HWND,
     pub _ptl: core::mem::ManuallyDrop<Option<ITravelLog>>,
@@ -153,7 +153,7 @@ impl CIE4ConnectionPoint_Vtbl {
 impl windows_core::RuntimeName for CIE4ConnectionPoint {}
 #[repr(C)]
 #[cfg(feature = "shobjidl_core")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOLDERSETDATA {
     pub _fs: super::shobjidl_core::FOLDERSETTINGS,
     pub _vidRestore: super::shobjidl_core::SHELLVIEWID,
@@ -190,7 +190,7 @@ impl IBrowserService {
     where
         P0: windows_core::Param<super::shobjidl_core::IShellView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
     }
     #[cfg(feature = "oleidl")]
     pub unsafe fn GetOleObject(&self) -> windows_core::Result<super::oleidl::IOleObject> {
@@ -216,7 +216,7 @@ impl IBrowserService {
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn IEGetDisplayName(&self, pidl: *const super::shtypes::ITEMIDLIST, pwszname: windows_core::PWSTR, uflags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).IEGetDisplayName)(windows_core::Interface::as_raw(self), pidl, core::mem::transmute(pwszname), uflags) }
+        unsafe { (windows_core::Interface::vtable(self).IEGetDisplayName)(windows_core::Interface::as_raw(self), pidl, pwszname, uflags) }
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn IEParseDisplayName<P1>(&self, uicp: u32, pwszpath: P1) -> windows_core::Result<super::shtypes::LPITEMIDLIST>
@@ -317,7 +317,7 @@ impl IBrowserService {
     pub unsafe fn GetSetCodePage(&self, pvarin: *const super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetSetCodePage)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarin), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).GetSetCodePage)(windows_core::Interface::as_raw(self), pvarin, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "wtypes", feature = "wtypesbase"))]
@@ -327,7 +327,7 @@ impl IBrowserService {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).OnHttpEquiv)(windows_core::Interface::as_raw(self), psv.param().abi(), fdone.into(), core::mem::transmute(pvarargin), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).OnHttpEquiv)(windows_core::Interface::as_raw(self), psv.param().abi(), fdone.into(), pvarargin, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(feature = "windef")]
@@ -1015,7 +1015,7 @@ impl IBrowserService2 {
     }
     #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "windef", feature = "winuser"))]
     pub unsafe fn _SetFocus(&self, ptbi: *const TOOLBARITEM, hwnd: super::windef::HWND, lpmsg: *const super::winuser::MSG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self)._SetFocus)(windows_core::Interface::as_raw(self), core::mem::transmute(ptbi), hwnd, lpmsg) }
+        unsafe { (windows_core::Interface::vtable(self)._SetFocus)(windows_core::Interface::as_raw(self), ptbi, hwnd, lpmsg) }
     }
     #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
     pub unsafe fn v_MayTranslateAccelerator(&self, pmsg: *const super::winuser::MSG) -> windows_core::HRESULT {
@@ -1889,7 +1889,7 @@ impl IExpDispSupport {
     }
     #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnInvoke(&self, dispidmember: super::oaidl::DISPID, iid: *const windows_core::GUID, lcid: super::winnt::LCID, wflags: u16, pdispparams: *const super::oaidl::DISPPARAMS, pvarresult: *mut super::oaidl::VARIANT, pexcepinfo: *mut super::oaidl::EXCEPINFO, puargerr: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnInvoke)(windows_core::Interface::as_raw(self), dispidmember, iid, lcid, wflags, pdispparams, core::mem::transmute(pvarresult), core::mem::transmute(pexcepinfo), puargerr as _) }
+        unsafe { (windows_core::Interface::vtable(self).OnInvoke)(windows_core::Interface::as_raw(self), dispidmember, iid, lcid, wflags, pdispparams, pvarresult, pexcepinfo, puargerr as _) }
     }
 }
 #[repr(C)]
@@ -1971,7 +1971,7 @@ impl IExpDispSupportXP {
     }
     #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnInvoke(&self, dispidmember: super::oaidl::DISPID, iid: *const windows_core::GUID, lcid: super::winnt::LCID, wflags: u16, pdispparams: *const super::oaidl::DISPPARAMS, pvarresult: *mut super::oaidl::VARIANT, pexcepinfo: *mut super::oaidl::EXCEPINFO, puargerr: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnInvoke)(windows_core::Interface::as_raw(self), dispidmember, iid, lcid, wflags, pdispparams, core::mem::transmute(pvarresult), core::mem::transmute(pexcepinfo), puargerr as _) }
+        unsafe { (windows_core::Interface::vtable(self).OnInvoke)(windows_core::Interface::as_raw(self), dispidmember, iid, lcid, wflags, pdispparams, pvarresult, pexcepinfo, puargerr as _) }
     }
 }
 #[repr(C)]
@@ -2274,7 +2274,7 @@ impl ITravelLog {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetToolTipText)(windows_core::Interface::as_raw(self), punk.param().abi(), ioffset, idstemplate, core::mem::transmute(pwztext), cchtext) }
+        unsafe { (windows_core::Interface::vtable(self).GetToolTipText)(windows_core::Interface::as_raw(self), punk.param().abi(), ioffset, idstemplate, pwztext, cchtext) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn InsertMenuEntries<P0>(&self, punk: P0, hmenu: super::windef::HMENU, npos: i32, idfirst: i32, idlast: i32, dwflags: u32) -> windows_core::HRESULT
@@ -2489,7 +2489,7 @@ pub const TLOG_CURRENT: u32 = 0;
 pub const TLOG_FORE: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "oleidl", feature = "shobjidl_core", feature = "windef"))]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TOOLBARITEM {
     pub ptbar: core::mem::ManuallyDrop<Option<super::shobjidl_core::IDockingWindow>>,
     pub rcBorderTool: super::oleidl::BORDERWIDTHS,

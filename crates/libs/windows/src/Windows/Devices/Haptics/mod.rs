@@ -16,7 +16,7 @@ impl windows_core::RuntimeType for HapticDeviceType {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Devices.Haptics.HapticDeviceType");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HapticsControllerOverrideToken {
     pub Value: i64,
 }

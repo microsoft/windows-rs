@@ -70,7 +70,7 @@ pub const D3D12_APPLICATION_SPECIFIC_DRIVER_BLOB_UNKNOWN: D3D12_APPLICATION_SPEC
 pub const D3D12_APPLICATION_SPECIFIC_DRIVER_BLOB_USED: D3D12_APPLICATION_SPECIFIC_DRIVER_BLOB_STATUS = 2;
 pub const D3D12_ARRAY_AXIS_ADDRESS_RANGE_BIT_COUNT: u32 = 9;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct D3D12_AUTO_BREADCRUMB_NODE {
     pub pCommandListDebugNameA: *const i8,
     pub pCommandListDebugNameW: *const u16,
@@ -89,7 +89,7 @@ impl Default for D3D12_AUTO_BREADCRUMB_NODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct D3D12_AUTO_BREADCRUMB_NODE1 {
     pub pCommandListDebugNameA: *const i8,
     pub pCommandListDebugNameW: *const u16,
@@ -259,7 +259,7 @@ pub const D3D12_BARRIER_LAYOUT_VIDEO_ENCODE_WRITE: D3D12_BARRIER_LAYOUT = 17;
 pub const D3D12_BARRIER_LAYOUT_VIDEO_PROCESS_READ: D3D12_BARRIER_LAYOUT = 14;
 pub const D3D12_BARRIER_LAYOUT_VIDEO_PROCESS_WRITE: D3D12_BARRIER_LAYOUT = 15;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BARRIER_SUBRESOURCE_RANGE {
     pub IndexOrFirstMipLevel: u32,
     pub NumMipLevels: u32,
@@ -303,7 +303,7 @@ pub type D3D12_BLEND = i32;
 pub const D3D12_BLEND_ALPHA_FACTOR: D3D12_BLEND = 20;
 pub const D3D12_BLEND_BLEND_FACTOR: D3D12_BLEND = 14;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_BLEND_DESC {
     pub AlphaToCoverageEnable: windows_core::BOOL,
     pub IndependentBlendEnable: windows_core::BOOL,
@@ -338,7 +338,7 @@ pub const D3D12_BLEND_SRC_ALPHA_SAT: D3D12_BLEND = 11;
 pub const D3D12_BLEND_SRC_COLOR: D3D12_BLEND = 3;
 pub const D3D12_BLEND_ZERO: D3D12_BLEND = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BOX {
     pub left: u32,
     pub top: u32,
@@ -348,7 +348,7 @@ pub struct D3D12_BOX {
     pub back: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_BROADCASTING_LAUNCH_OVERRIDES {
     pub pLocalRootArgumentsTableIndex: *const u32,
     pub pProgramEntry: *const windows_core::BOOL,
@@ -365,7 +365,7 @@ impl Default for D3D12_BROADCASTING_LAUNCH_OVERRIDES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BUFFER_BARRIER {
     pub SyncBefore: D3D12_BARRIER_SYNC,
     pub SyncAfter: D3D12_BARRIER_SYNC,
@@ -376,13 +376,13 @@ pub struct D3D12_BUFFER_BARRIER {
     pub Size: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BUFFER_RTV {
     pub FirstElement: u64,
     pub NumElements: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BUFFER_SRV {
     pub FirstElement: u64,
     pub NumElements: u32,
@@ -393,7 +393,7 @@ pub type D3D12_BUFFER_SRV_FLAGS = u32;
 pub const D3D12_BUFFER_SRV_FLAG_NONE: D3D12_BUFFER_SRV_FLAGS = 0;
 pub const D3D12_BUFFER_SRV_FLAG_RAW: D3D12_BUFFER_SRV_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BUFFER_UAV {
     pub FirstElement: u64,
     pub NumElements: u32,
@@ -451,13 +451,13 @@ impl Default for D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_TOOLS_VISUALIZATION_HEADER {
     pub Type: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE,
     pub NumDescs: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_CACHED_PIPELINE_STATE {
     pub pCachedBlob: *const core::ffi::c_void,
     pub CachedBlobSizeInBytes: usize,
@@ -504,7 +504,7 @@ impl Default for D3D12_CLEAR_VALUE_0 {
 pub const D3D12_CLIP_OR_CULL_DISTANCE_COUNT: u32 = 8;
 pub const D3D12_CLIP_OR_CULL_DISTANCE_ELEMENT_COUNT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_COALESCING_LAUNCH_OVERRIDES {
     pub pLocalRootArgumentsTableIndex: *const u32,
     pub pProgramEntry: *const windows_core::BOOL,
@@ -547,7 +547,7 @@ pub const D3D12_COMMAND_LIST_TYPE_VIDEO_PROCESS: D3D12_COMMAND_LIST_TYPE = 5;
 pub type D3D12_COMMAND_POOL_FLAGS = u32;
 pub const D3D12_COMMAND_POOL_FLAG_NONE: D3D12_COMMAND_POOL_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COMMAND_QUEUE_DESC {
     pub Type: D3D12_COMMAND_LIST_TYPE,
     pub Priority: i32,
@@ -564,7 +564,7 @@ pub const D3D12_COMMAND_QUEUE_PRIORITY_NORMAL: D3D12_COMMAND_QUEUE_PRIORITY = 0;
 pub type D3D12_COMMAND_RECORDER_FLAGS = u32;
 pub const D3D12_COMMAND_RECORDER_FLAG_NONE: D3D12_COMMAND_RECORDER_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_COMMAND_SIGNATURE_DESC {
     pub ByteStride: u32,
     pub NumArgumentDescs: u32,
@@ -612,7 +612,7 @@ pub const D3D12_COMMONSHADER_TEXCOORD_RANGE_REDUCTION_MIN: i32 = -10;
 pub const D3D12_COMMONSHADER_TEXEL_OFFSET_MAX_NEGATIVE: i32 = -8;
 pub const D3D12_COMMONSHADER_TEXEL_OFFSET_MAX_POSITIVE: u32 = 7;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_COMMON_COMPUTE_NODE_OVERRIDES {
     pub pLocalRootArgumentsTableIndex: *const u32,
     pub pProgramEntry: *const windows_core::BOOL,
@@ -637,7 +637,7 @@ pub const D3D12_COMPARISON_FUNC_NEVER: D3D12_COMPARISON_FUNC = 1;
 pub const D3D12_COMPARISON_FUNC_NONE: D3D12_COMPARISON_FUNC = 0;
 pub const D3D12_COMPARISON_FUNC_NOT_EQUAL: D3D12_COMPARISON_FUNC = 6;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_COMPUTE_PIPELINE_STATE_DESC {
     pub pRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
     pub CS: D3D12_SHADER_BYTECODE,
@@ -655,13 +655,13 @@ pub const D3D12_CONSERVATIVE_RASTERIZATION_TIER_3: D3D12_CONSERVATIVE_RASTERIZAT
 pub const D3D12_CONSERVATIVE_RASTERIZATION_TIER_NOT_SUPPORTED: D3D12_CONSERVATIVE_RASTERIZATION_TIER = 0;
 pub const D3D12_CONSTANT_BUFFER_DATA_PLACEMENT_ALIGNMENT: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_CONSTANT_BUFFER_VIEW_DESC {
     pub BufferLocation: D3D12_GPU_VIRTUAL_ADDRESS,
     pub SizeInBytes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_CPU_DESCRIPTOR_HANDLE {
     pub ptr: usize,
 }
@@ -740,7 +740,7 @@ pub const D3D12_CULL_MODE_BACK: D3D12_CULL_MODE = 3;
 pub const D3D12_CULL_MODE_FRONT: D3D12_CULL_MODE = 2;
 pub const D3D12_CULL_MODE_NONE: D3D12_CULL_MODE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEBUG_COMMAND_LIST_GPU_BASED_VALIDATION_SETTINGS {
     pub ShaderPatchMode: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE,
 }
@@ -752,7 +752,7 @@ pub type D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_MODE = i32;
 pub const D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_MODE_DEFAULT: D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_MODE = 1;
 pub const D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_WHEN_HASH_BYPASSED: D3D12_DEBUG_DEVICE_BYTECODE_VALIDATION_MODE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEBUG_DEVICE_GPU_BASED_VALIDATION_SETTINGS {
     pub MaxMessagesPerCommandList: u32,
     pub DefaultShaderPatchMode: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE,
@@ -804,7 +804,7 @@ pub const D3D12_DEFAULT_VIEWPORT_TOPLEFTX: u32 = 0;
 pub const D3D12_DEFAULT_VIEWPORT_TOPLEFTY: u32 = 0;
 pub const D3D12_DEFAULT_VIEWPORT_WIDTH: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEPTH_STENCILOP_DESC {
     pub StencilFailOp: D3D12_STENCIL_OP,
     pub StencilDepthFailOp: D3D12_STENCIL_OP,
@@ -812,7 +812,7 @@ pub struct D3D12_DEPTH_STENCILOP_DESC {
     pub StencilFunc: D3D12_COMPARISON_FUNC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEPTH_STENCILOP_DESC1 {
     pub StencilFailOp: D3D12_STENCIL_OP,
     pub StencilDepthFailOp: D3D12_STENCIL_OP,
@@ -822,7 +822,7 @@ pub struct D3D12_DEPTH_STENCILOP_DESC1 {
     pub StencilWriteMask: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_DESC {
     pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D12_DEPTH_WRITE_MASK,
@@ -834,7 +834,7 @@ pub struct D3D12_DEPTH_STENCIL_DESC {
     pub BackFace: D3D12_DEPTH_STENCILOP_DESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_DESC1 {
     pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D12_DEPTH_WRITE_MASK,
@@ -847,7 +847,7 @@ pub struct D3D12_DEPTH_STENCIL_DESC1 {
     pub DepthBoundsTestEnable: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_DESC2 {
     pub DepthEnable: windows_core::BOOL,
     pub DepthWriteMask: D3D12_DEPTH_WRITE_MASK,
@@ -859,7 +859,7 @@ pub struct D3D12_DEPTH_STENCIL_DESC2 {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEPTH_STENCIL_FORMAT {
     pub DepthStencilFormat: super::dxgi::DXGI_FORMAT,
 }
@@ -905,7 +905,7 @@ pub type D3D12_DEPTH_WRITE_MASK = i32;
 pub const D3D12_DEPTH_WRITE_MASK_ALL: D3D12_DEPTH_WRITE_MASK = 1;
 pub const D3D12_DEPTH_WRITE_MASK_ZERO: D3D12_DEPTH_WRITE_MASK = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DESCRIPTOR_HEAP_DESC {
     pub Type: D3D12_DESCRIPTOR_HEAP_TYPE,
     pub NumDescriptors: u32,
@@ -922,7 +922,7 @@ pub const D3D12_DESCRIPTOR_HEAP_TYPE_NUM_TYPES: D3D12_DESCRIPTOR_HEAP_TYPE = 4;
 pub const D3D12_DESCRIPTOR_HEAP_TYPE_RTV: D3D12_DESCRIPTOR_HEAP_TYPE = 2;
 pub const D3D12_DESCRIPTOR_HEAP_TYPE_SAMPLER: D3D12_DESCRIPTOR_HEAP_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DESCRIPTOR_RANGE {
     pub RangeType: D3D12_DESCRIPTOR_RANGE_TYPE,
     pub NumDescriptors: u32,
@@ -931,7 +931,7 @@ pub struct D3D12_DESCRIPTOR_RANGE {
     pub OffsetInDescriptorsFromTableStart: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DESCRIPTOR_RANGE1 {
     pub RangeType: D3D12_DESCRIPTOR_RANGE_TYPE,
     pub NumDescriptors: u32,
@@ -954,7 +954,7 @@ pub const D3D12_DESCRIPTOR_RANGE_TYPE_SAMPLER: D3D12_DESCRIPTOR_RANGE_TYPE = 3;
 pub const D3D12_DESCRIPTOR_RANGE_TYPE_SRV: D3D12_DESCRIPTOR_RANGE_TYPE = 0;
 pub const D3D12_DESCRIPTOR_RANGE_TYPE_UAV: D3D12_DESCRIPTOR_RANGE_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEVICE_CONFIGURATION_DESC {
     pub Flags: D3D12_DEVICE_FLAGS,
     pub GpuBasedValidationFlags: u32,
@@ -980,7 +980,7 @@ pub const D3D12_DEVICE_FLAG_NONE: D3D12_DEVICE_FLAGS = 0;
 pub const D3D12_DEVICE_FLAG_SHADER_INSTRUMENTATION_ENABLED: D3D12_DEVICE_FLAGS = 256;
 pub const D3D12_DEVICE_FLAG_SYNCHRONIZED_COMMAND_QUEUE_VALIDATION_DISABLED: D3D12_DEVICE_FLAGS = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA {
     pub Flags: D3D12_DRED_FLAGS,
     pub pHeadAutoBreadcrumbNode: *mut D3D12_AUTO_BREADCRUMB_NODE,
@@ -991,21 +991,21 @@ impl Default for D3D12_DEVICE_REMOVED_EXTENDED_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA1 {
     pub DeviceRemovedReason: windows_core::HRESULT,
     pub AutoBreadcrumbsOutput: D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT,
     pub PageFaultOutput: D3D12_DRED_PAGE_FAULT_OUTPUT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA2 {
     pub DeviceRemovedReason: windows_core::HRESULT,
     pub AutoBreadcrumbsOutput: D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1,
     pub PageFaultOutput: D3D12_DRED_PAGE_FAULT_OUTPUT1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA3 {
     pub DeviceRemovedReason: windows_core::HRESULT,
     pub AutoBreadcrumbsOutput: D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1,
@@ -1014,7 +1014,7 @@ pub struct D3D12_DEVICE_REMOVED_EXTENDED_DATA3 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_DISCARD_REGION {
     pub NumRects: u32,
     pub pRects: *const D3D12_RECT,
@@ -1028,7 +1028,7 @@ impl Default for D3D12_DISCARD_REGION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DISPATCH_ARGUMENTS {
     pub ThreadGroupCountX: u32,
     pub ThreadGroupCountY: u32,
@@ -1059,7 +1059,7 @@ impl Default for D3D12_DISPATCH_GRAPH_DESC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DISPATCH_MESH_ARGUMENTS {
     pub ThreadGroupCountX: u32,
     pub ThreadGroupCountY: u32,
@@ -1071,7 +1071,7 @@ pub const D3D12_DISPATCH_MODE_MULTI_NODE_GPU_INPUT: D3D12_DISPATCH_MODE = 3;
 pub const D3D12_DISPATCH_MODE_NODE_CPU_INPUT: D3D12_DISPATCH_MODE = 0;
 pub const D3D12_DISPATCH_MODE_NODE_GPU_INPUT: D3D12_DISPATCH_MODE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DISPATCH_RAYS_DESC {
     pub RayGenerationShaderRecord: D3D12_GPU_VIRTUAL_ADDRESS_RANGE,
     pub MissShaderTable: D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE,
@@ -1082,7 +1082,7 @@ pub struct D3D12_DISPATCH_RAYS_DESC {
     pub Depth: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DRAW_ARGUMENTS {
     pub VertexCountPerInstance: u32,
     pub InstanceCount: u32,
@@ -1090,7 +1090,7 @@ pub struct D3D12_DRAW_ARGUMENTS {
     pub StartInstanceLocation: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_DRAW_INDEXED_ARGUMENTS {
     pub IndexCountPerInstance: u32,
     pub InstanceCount: u32,
@@ -1099,7 +1099,7 @@ pub struct D3D12_DRAW_INDEXED_ARGUMENTS {
     pub StartInstanceLocation: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_DRED_ALLOCATION_NODE {
     pub ObjectNameA: *const i8,
     pub ObjectNameW: *const u16,
@@ -1112,7 +1112,7 @@ impl Default for D3D12_DRED_ALLOCATION_NODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct D3D12_DRED_ALLOCATION_NODE1 {
     pub ObjectNameA: *const i8,
     pub ObjectNameW: *const u16,
@@ -1156,7 +1156,7 @@ pub const D3D12_DRED_ALLOCATION_TYPE_VIDEO_MOTION_ESTIMATOR: D3D12_DRED_ALLOCATI
 pub const D3D12_DRED_ALLOCATION_TYPE_VIDEO_MOTION_VECTOR_HEAP: D3D12_DRED_ALLOCATION_TYPE = 46;
 pub const D3D12_DRED_ALLOCATION_TYPE_VIDEO_PROCESSOR: D3D12_DRED_ALLOCATION_TYPE = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {
     pub pHeadAutoBreadcrumbNode: *const D3D12_AUTO_BREADCRUMB_NODE,
 }
@@ -1166,7 +1166,7 @@ impl Default for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {
     pub pHeadAutoBreadcrumbNode: *const D3D12_AUTO_BREADCRUMB_NODE1,
 }
@@ -1176,7 +1176,7 @@ impl Default for D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_DRED_BREADCRUMB_CONTEXT {
     pub BreadcrumbIndex: u32,
     pub pContextString: *const u16,
@@ -1202,7 +1202,7 @@ pub const D3D12_DRED_FLAG_NONE: D3D12_DRED_FLAGS = 0;
 pub type D3D12_DRED_PAGE_FAULT_FLAGS = u32;
 pub const D3D12_DRED_PAGE_FAULT_FLAGS_NONE: D3D12_DRED_PAGE_FAULT_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT {
     pub PageFaultVA: D3D12_GPU_VIRTUAL_ADDRESS,
     pub pHeadExistingAllocationNode: *const D3D12_DRED_ALLOCATION_NODE,
@@ -1214,7 +1214,7 @@ impl Default for D3D12_DRED_PAGE_FAULT_OUTPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT1 {
     pub PageFaultVA: D3D12_GPU_VIRTUAL_ADDRESS,
     pub pHeadExistingAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
@@ -1226,7 +1226,7 @@ impl Default for D3D12_DRED_PAGE_FAULT_OUTPUT1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_DRED_PAGE_FAULT_OUTPUT2 {
     pub PageFaultVA: D3D12_GPU_VIRTUAL_ADDRESS,
     pub pHeadExistingAllocationNode: *const D3D12_DRED_ALLOCATION_NODE1,
@@ -1288,7 +1288,7 @@ pub const D3D12_DS_OUTPUT_REGISTER_COMPONENTS: u32 = 4;
 pub const D3D12_DS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
 pub const D3D12_DS_OUTPUT_REGISTER_COUNT: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_DXIL_LIBRARY_DESC {
     pub DXILLibrary: D3D12_SHADER_BYTECODE,
     pub NumExports: u32,
@@ -1300,7 +1300,7 @@ impl Default for D3D12_DXIL_LIBRARY_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_DXIL_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
     pub SubobjectToAssociate: windows_core::PCWSTR,
     pub NumExports: u32,
@@ -1318,7 +1318,7 @@ pub type D3D12_EXECUTE_INDIRECT_TIER = i32;
 pub const D3D12_EXECUTE_INDIRECT_TIER_1_0: D3D12_EXECUTE_INDIRECT_TIER = 10;
 pub const D3D12_EXECUTE_INDIRECT_TIER_1_1: D3D12_EXECUTE_INDIRECT_TIER = 11;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct D3D12_EXISTING_COLLECTION_DESC {
     pub pExistingCollection: core::mem::ManuallyDrop<Option<ID3D12StateObject>>,
     pub NumExports: u32,
@@ -1330,7 +1330,7 @@ impl Default for D3D12_EXISTING_COLLECTION_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_EXPORT_DESC {
     pub Name: windows_core::PCWSTR,
     pub ExportToRename: windows_core::PCWSTR,
@@ -1369,12 +1369,12 @@ pub const D3D12_FEATURE_D3D12_OPTIONS8: D3D12_FEATURE = 36;
 pub const D3D12_FEATURE_D3D12_OPTIONS9: D3D12_FEATURE = 37;
 pub const D3D12_FEATURE_D3D12_TIGHT_ALIGNMENT: D3D12_FEATURE = 54;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_APPLICATION_SPECIFIC_DRIVER_STATE {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_ARCHITECTURE {
     pub NodeIndex: u32,
     pub TileBasedRenderer: windows_core::BOOL,
@@ -1382,7 +1382,7 @@ pub struct D3D12_FEATURE_DATA_ARCHITECTURE {
     pub CacheCoherentUMA: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_ARCHITECTURE1 {
     pub NodeIndex: u32,
     pub TileBasedRenderer: windows_core::BOOL,
@@ -1391,25 +1391,25 @@ pub struct D3D12_FEATURE_DATA_ARCHITECTURE1 {
     pub IsolatedMMU: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_BYTECODE_BYPASS_HASH_SUPPORTED {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_COMMAND_QUEUE_PRIORITY {
     pub CommandListType: D3D12_COMMAND_LIST_TYPE,
     pub Priority: u32,
     pub PriorityForTypeIsSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_CROSS_NODE {
     pub SharingTier: D3D12_CROSS_NODE_SHARING_TIER,
     pub AtomicShaderInstructions: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS {
     pub DoublePrecisionFloatShaderOps: windows_core::BOOL,
     pub OutputMergerLogicOp: windows_core::BOOL,
@@ -1428,7 +1428,7 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS {
     pub ResourceHeapTier: D3D12_RESOURCE_HEAP_TIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
     pub WaveOps: windows_core::BOOL,
     pub WaveLaneCountMin: u32,
@@ -1438,25 +1438,25 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS1 {
     pub Int64ShaderOps: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS10 {
     pub VariableRateShadingSumCombinerSupported: windows_core::BOOL,
     pub MeshShaderPerPrimitiveShadingRateSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS11 {
     pub AtomicInt64OnDescriptorHeapResourceSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS12 {
     pub MSPrimitivesPipelineStatisticIncludesCulledPrimitives: D3D12_TRI_STATE,
     pub EnhancedBarriersSupported: windows_core::BOOL,
     pub RelaxedFormatCastingSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS13 {
     pub UnrestrictedBufferTextureCopyPitchSupported: windows_core::BOOL,
     pub UnrestrictedVertexElementAlignmentSupported: windows_core::BOOL,
@@ -1466,37 +1466,37 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS13 {
     pub AlphaBlendFactorSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS14 {
     pub AdvancedTextureOpsSupported: windows_core::BOOL,
     pub WriteableMSAATexturesSupported: windows_core::BOOL,
     pub IndependentFrontAndBackStencilRefMaskSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS15 {
     pub TriangleFanSupported: windows_core::BOOL,
     pub DynamicIndexBufferStripCutSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS16 {
     pub DynamicDepthBiasSupported: windows_core::BOOL,
     pub GPUUploadHeapSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS17 {
     pub NonNormalizedCoordinateSamplersSupported: windows_core::BOOL,
     pub ManualWriteTrackingResourceSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS18 {
     pub RenderPassesValid: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS19 {
     pub MismatchingOutputDimensionsSupported: windows_core::BOOL,
     pub SupportedSampleCountsWithNoOutputs: u32,
@@ -1510,19 +1510,19 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS19 {
     pub ComputeOnlyCustomHeapSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS2 {
     pub DepthBoundsTestSupported: windows_core::BOOL,
     pub ProgrammableSamplePositionsTier: D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS20 {
     pub ComputeOnlyWriteWatchSupported: windows_core::BOOL,
     pub RecreateAtTier: D3D12_RECREATE_AT_TIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS21 {
     pub WorkGraphsTier: D3D12_WORK_GRAPHS_TIER,
     pub ExecuteIndirectTier: D3D12_EXECUTE_INDIRECT_TIER,
@@ -1530,7 +1530,7 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS21 {
     pub ExtendedCommandInfoSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS3 {
     pub CopyQueueTimestampQueriesSupported: windows_core::BOOL,
     pub CastingFullyTypedFormatSupported: windows_core::BOOL,
@@ -1539,21 +1539,21 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS3 {
     pub BarycentricsSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS4 {
     pub MSAA64KBAlignedTextureSupported: windows_core::BOOL,
     pub SharedResourceCompatibilityTier: D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER,
     pub Native16BitShaderOpsSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS5 {
     pub SRVOnlyTiledResourceTier3: windows_core::BOOL,
     pub RenderPassesTier: D3D12_RENDER_PASS_TIER,
     pub RaytracingTier: D3D12_RAYTRACING_TIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS6 {
     pub AdditionalShadingRatesSupported: windows_core::BOOL,
     pub PerPrimitiveShadingRateSupportedWithViewportIndexing: windows_core::BOOL,
@@ -1562,18 +1562,18 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS6 {
     pub BackgroundProcessingSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS7 {
     pub MeshShaderTier: D3D12_MESH_SHADER_TIER,
     pub SamplerFeedbackTier: D3D12_SAMPLER_FEEDBACK_TIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS8 {
     pub UnalignedBlockTexturesSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS9 {
     pub MeshShaderPipelineStatsSupported: windows_core::BOOL,
     pub MeshShaderSupportsFullRangeRenderTargetArrayIndex: windows_core::BOOL,
@@ -1583,19 +1583,19 @@ pub struct D3D12_FEATURE_DATA_D3D12_OPTIONS9 {
     pub WaveMMATier: D3D12_WAVE_MMA_TIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_DISPLAYABLE {
     pub DisplayableTexture: windows_core::BOOL,
     pub SharedResourceCompatibilityTier: D3D12_SHARED_RESOURCE_COMPATIBILITY_TIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_EXISTING_HEAPS {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_FEATURE_LEVELS {
     pub NumFeatureLevels: u32,
     pub pFeatureLevelsRequested: *const super::d3dcommon::D3D_FEATURE_LEVEL,
@@ -1609,33 +1609,33 @@ impl Default for D3D12_FEATURE_DATA_FEATURE_LEVELS {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_FORMAT_INFO {
     pub Format: super::dxgi::DXGI_FORMAT,
     pub PlaneCount: u8,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_FORMAT_SUPPORT {
     pub Format: super::dxgi::DXGI_FORMAT,
     pub Support1: D3D12_FORMAT_SUPPORT1,
     pub Support2: D3D12_FORMAT_SUPPORT2,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_GPU_VIRTUAL_ADDRESS_SUPPORT {
     pub MaxGPUVirtualAddressBitsPerResource: u32,
     pub MaxGPUVirtualAddressBitsPerProcess: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_HARDWARE_COPY {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
     pub Format: super::dxgi::DXGI_FORMAT,
     pub SampleCount: u32,
@@ -1644,7 +1644,7 @@ pub struct D3D12_FEATURE_DATA_MULTISAMPLE_QUALITY_LEVELS {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PLACED_RESOURCE_SUPPORT_INFO {
     pub Format: super::dxgi::DXGI_FORMAT,
     pub Dimension: D3D12_RESOURCE_DIMENSION,
@@ -1652,18 +1652,18 @@ pub struct D3D12_FEATURE_DATA_PLACED_RESOURCE_SUPPORT_INFO {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PREDICATION {
     pub Supported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_SUPPORT {
     pub NodeIndex: u32,
     pub Support: D3D12_PROTECTED_RESOURCE_SESSION_SUPPORT_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPES {
     pub NodeIndex: u32,
     pub Count: u32,
@@ -1675,13 +1675,13 @@ impl Default for D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_PROTECTED_RESOURCE_SESSION_TYPE_COUNT {
     pub NodeIndex: u32,
     pub Count: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_QUERY_META_COMMAND {
     pub CommandId: windows_core::GUID,
     pub NodeMask: u32,
@@ -1696,12 +1696,12 @@ impl Default for D3D12_FEATURE_DATA_QUERY_META_COMMAND {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_ROOT_SIGNATURE {
     pub HighestVersion: D3D_ROOT_SIGNATURE_VERSION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_SERIALIZATION {
     pub NodeIndex: u32,
     pub HeapSerializationTier: D3D12_HEAP_SERIALIZATION_TIER,
@@ -1721,28 +1721,28 @@ impl Default for D3D12_FEATURE_DATA_SHADERCACHE_ABI_SUPPORT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_SHADER_CACHE {
     pub SupportFlags: D3D12_SHADER_CACHE_SUPPORT_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_SHADER_MODEL {
     pub HighestShaderModel: D3D_SHADER_MODEL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_TIGHT_ALIGNMENT {
     pub SupportTier: D3D12_TIGHT_ALIGNMENT_TIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ARCHITECTURE {
     pub IOCoherent: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
     pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
     pub MemoryPoolL0Size: u64,
@@ -1750,7 +1750,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
     pub VideoDecoderHeapDesc: D3D12_VIDEO_DECODER_HEAP_DESC,
     pub Protected: windows_core::BOOL,
@@ -1759,7 +1759,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODER_HEAP_SIZE1 {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -1772,7 +1772,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_CONVERSION_SUPPORT {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -1786,7 +1786,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_FORMATS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -1794,7 +1794,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_FORMAT_COUNT {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     pub NodeIndex: u32,
     pub DecodeProfile: windows_core::GUID,
@@ -1806,7 +1806,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_HISTOGRAM {
     pub CounterBitDepth: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     pub NodeIndex: u32,
     pub ProfileCount: u32,
@@ -1818,13 +1818,13 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROFILE_COUNT {
     pub NodeIndex: u32,
     pub ProfileCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -1832,7 +1832,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_PROTECTED_RESOURCES {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     pub NodeIndex: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -1846,7 +1846,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_DECODE_SUPPORT {
     pub DecodeTier: D3D12_VIDEO_DECODE_TIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_CODEC {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -2009,7 +2009,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_MOTION_SEARCH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -2027,7 +2027,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_OUTPUT_RESOLUTION_RATIOS_COUNT {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -2091,7 +2091,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     pub NodeIndex: u32,
     pub Codec: D3D12_VIDEO_ENCODER_CODEC,
@@ -2099,18 +2099,18 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RATE_CONTROL_MODE {
     pub IsSupported: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_DIRTY_REGIONS {
     pub DirtyRegionsSupportFlags: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_SUPPORT_FLAGS,
     pub MapSourcePreferenceRanking: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_FRAME_ANALYSIS {
     pub SupportFlags: D3D12_VIDEO_ENCODER_RATE_CONTROL_FRAME_ANALYSIS_SUPPORT_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     pub MaxSubregionsNumber: u32,
     pub MaxIntraRefreshFrameDuration: u32,
@@ -2118,7 +2118,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS {
     pub QPMapRegionPixelsSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS1 {
     pub MaxSubregionsNumber: u32,
     pub MaxIntraRefreshFrameDuration: u32,
@@ -2130,7 +2130,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_LIMITS1 {
     pub FrameAnalysis: D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_FRAME_ANALYSIS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_MOTION_SEARCH {
     pub MaxMotionHints: u32,
     pub MinDeviation: u32,
@@ -2140,7 +2140,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_MOTION_SEARCH {
     pub SupportFlags: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_ENCODER_RESOLUTION_SUPPORT_QPMAP {
     pub MapSourcePreferenceRanking: u32,
 }
@@ -2298,7 +2298,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_ENCODER_SUPPORT2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     pub NodeIndex: u32,
     pub CommandCount: u32,
@@ -2310,13 +2310,13 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMANDS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_COUNT {
     pub NodeIndex: u32,
     pub CommandCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
     pub CommandId: windows_core::GUID,
     pub Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
@@ -2329,7 +2329,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
     pub CommandId: windows_core::GUID,
     pub Stage: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_STAGE,
@@ -2337,7 +2337,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_PARAMETER_COUNT {
     pub ParameterPacking: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     pub NodeIndex: u32,
     pub CommandId: windows_core::GUID,
@@ -2352,7 +2352,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SIZE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     pub NodeIndex: u32,
     pub CommandId: windows_core::GUID,
@@ -2367,7 +2367,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_EXTENSION_COMMAND_SUPPORT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
     pub NodeIndex: u32,
     pub VideoDecodeSupport: windows_core::BOOL,
@@ -2376,7 +2376,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_FEATURE_AREA_SUPPORT {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     pub NodeIndex: u32,
     pub InputFormat: super::dxgi::DXGI_FORMAT,
@@ -2385,14 +2385,14 @@ pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR {
     pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
     pub NodeIndex: u32,
     pub InputFormat: super::dxgi::DXGI_FORMAT,
@@ -2407,7 +2407,7 @@ pub struct D3D12_FEATURE_DATA_VIDEO_MOTION_ESTIMATOR_SIZE {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
     pub NodeMask: u32,
     pub pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
@@ -2424,7 +2424,7 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     pub NodeMask: u32,
     pub pOutputStreamDesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC,
@@ -2441,20 +2441,20 @@ impl Default for D3D12_FEATURE_DATA_VIDEO_PROCESSOR_SIZE1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_MAX_INPUT_STREAMS {
     pub NodeIndex: u32,
     pub MaxInputStreams: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_PROTECTED_RESOURCES {
     pub NodeIndex: u32,
     pub SupportFlags: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FEATURE_DATA_VIDEO_PROCESS_REFERENCE_INFO {
     pub NodeIndex: u32,
     pub DeinterlaceMode: D3D12_VIDEO_PROCESS_DEINTERLACE_FLAGS,
@@ -2682,7 +2682,7 @@ pub const D3D12_FTOU_INSTRUCTION_MAX_INPUT: f32 = 4294967300.0;
 pub const D3D12_FTOU_INSTRUCTION_MIN_INPUT: f32 = 0.0;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_FUNCTION_DESC {
     pub Version: u32,
     pub Creator: windows_core::PCSTR,
@@ -2719,7 +2719,7 @@ pub struct D3D12_FUNCTION_DESC {
     pub Has10Level9PixelShader: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_GENERIC_PROGRAM_DESC {
     pub ProgramName: windows_core::PCWSTR,
     pub NumExports: u32,
@@ -2733,7 +2733,7 @@ impl Default for D3D12_GENERIC_PROGRAM_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_GLOBAL_BARRIER {
     pub SyncBefore: D3D12_BARRIER_SYNC,
     pub SyncAfter: D3D12_BARRIER_SYNC,
@@ -2741,12 +2741,12 @@ pub struct D3D12_GLOBAL_BARRIER {
     pub AccessAfter: D3D12_BARRIER_ACCESS,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_GLOBAL_ROOT_SIGNATURE {
     pub pGlobalRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_GLOBAL_SERIALIZED_ROOT_SIGNATURE {
     pub Desc: D3D12_SERIALIZED_ROOT_SIGNATURE_DESC,
 }
@@ -2765,7 +2765,7 @@ pub const D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_NONE: D3D12_GPU_BASED_VAL
 pub const D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_STATE_TRACKING_ONLY: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE = 1;
 pub const D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE_UNGUARDED_VALIDATION: D3D12_GPU_BASED_VALIDATION_SHADER_PATCH_MODE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_GPU_DESCRIPTOR_HANDLE {
     pub ptr: u64,
 }
@@ -2773,19 +2773,19 @@ pub struct D3D12_GPU_DESCRIPTOR_HANDLE {
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS(pub u64);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE {
     pub StartAddress: D3D12_GPU_VIRTUAL_ADDRESS,
     pub StrideInBytes: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS_RANGE {
     pub StartAddress: D3D12_GPU_VIRTUAL_ADDRESS,
     pub SizeInBytes: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_GPU_VIRTUAL_ADDRESS_RANGE_AND_STRIDE {
     pub StartAddress: D3D12_GPU_VIRTUAL_ADDRESS,
     pub SizeInBytes: u64,
@@ -2865,7 +2865,7 @@ pub const D3D12_GS_OUTPUT_REGISTER_COMPONENTS: u32 = 4;
 pub const D3D12_GS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
 pub const D3D12_GS_OUTPUT_REGISTER_COUNT: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_HEAP_DESC {
     pub SizeInBytes: u64,
     pub Properties: D3D12_HEAP_PROPERTIES,
@@ -2891,7 +2891,7 @@ pub const D3D12_HEAP_FLAG_SHARED: D3D12_HEAP_FLAGS = 1;
 pub const D3D12_HEAP_FLAG_SHARED_CROSS_ADAPTER: D3D12_HEAP_FLAGS = 32;
 pub const D3D12_HEAP_FLAG_TOOLS_USE_MANUAL_WRITE_TRACKING: D3D12_HEAP_FLAGS = 8192;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_HEAP_PROPERTIES {
     pub Type: D3D12_HEAP_TYPE,
     pub CPUPageProperty: D3D12_CPU_PAGE_PROPERTY,
@@ -2909,7 +2909,7 @@ pub const D3D12_HEAP_TYPE_GPU_UPLOAD: D3D12_HEAP_TYPE = 5;
 pub const D3D12_HEAP_TYPE_READBACK: D3D12_HEAP_TYPE = 3;
 pub const D3D12_HEAP_TYPE_UPLOAD: D3D12_HEAP_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_HIT_GROUP_DESC {
     pub HitGroupExport: windows_core::PCWSTR,
     pub Type: D3D12_HIT_GROUP_TYPE,
@@ -2973,7 +2973,7 @@ pub const D3D12_IA_VERTEX_INPUT_RESOURCE_SLOT_COUNT: u32 = 32;
 pub const D3D12_IA_VERTEX_INPUT_STRUCTURE_ELEMENTS_COMPONENTS: u32 = 128;
 pub const D3D12_IA_VERTEX_INPUT_STRUCTURE_ELEMENT_COUNT: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_IB_STRIP_CUT_VALUE {
     pub IndexBufferStripCutValue: D3D12_INDEX_BUFFER_STRIP_CUT_VALUE,
 }
@@ -2983,7 +2983,7 @@ pub const D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_0xFFFFFFFF: D3D12_INDEX_BUFFER_STRI
 pub const D3D12_INDEX_BUFFER_STRIP_CUT_VALUE_DISABLED: D3D12_INDEX_BUFFER_STRIP_CUT_VALUE = 0;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INDEX_BUFFER_VIEW {
     pub BufferLocation: D3D12_GPU_VIRTUAL_ADDRESS,
     pub SizeInBytes: u32,
@@ -3016,34 +3016,34 @@ impl Default for D3D12_INDIRECT_ARGUMENT_DESC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_0 {
     pub Slot: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_1 {
     pub RootParameterIndex: u32,
     pub DestOffsetIn32BitValues: u32,
     pub Num32BitValuesToSet: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_2 {
     pub RootParameterIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_3 {
     pub RootParameterIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_4 {
     pub RootParameterIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INDIRECT_ARGUMENT_DESC_0_5 {
     pub RootParameterIndex: u32,
     pub DestOffsetIn32BitValues: u32,
@@ -3063,13 +3063,13 @@ pub const D3D12_INDIRECT_ARGUMENT_TYPE_UNORDERED_ACCESS_VIEW: D3D12_INDIRECT_ARG
 pub const D3D12_INDIRECT_ARGUMENT_TYPE_VERTEX_BUFFER_VIEW: D3D12_INDIRECT_ARGUMENT_TYPE = 3;
 pub const D3D12_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT: u32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INFO_QUEUE_FILTER {
     pub AllowList: D3D12_INFO_QUEUE_FILTER_DESC,
     pub DenyList: D3D12_INFO_QUEUE_FILTER_DESC,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_INFO_QUEUE_FILTER_DESC {
     pub NumCategories: u32,
     pub pCategoryList: *mut D3D12_MESSAGE_CATEGORY,
@@ -3088,7 +3088,7 @@ pub const D3D12_INPUT_CLASSIFICATION_PER_INSTANCE_DATA: D3D12_INPUT_CLASSIFICATI
 pub const D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA: D3D12_INPUT_CLASSIFICATION = 0;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_INPUT_ELEMENT_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -3100,7 +3100,7 @@ pub struct D3D12_INPUT_ELEMENT_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_INPUT_LAYOUT_DESC {
     pub pInputElementDescs: *const D3D12_INPUT_ELEMENT_DESC,
     pub NumElements: u32,
@@ -3116,7 +3116,7 @@ pub const D3D12_INTEGER_DIVIDE_BY_ZERO_REMAINDER: u32 = 4294967295;
 pub const D3D12_KEEP_RENDER_TARGETS_AND_DEPTH_STENCIL: u32 = 4294967295;
 pub const D3D12_KEEP_UNORDERED_ACCESS_VIEWS: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_LIBRARY_DESC {
     pub Creator: windows_core::PCSTR,
     pub Flags: u32,
@@ -3132,12 +3132,12 @@ pub const D3D12_LINE_RASTERIZATION_MODE_ALPHA_ANTIALIASED: D3D12_LINE_RASTERIZAT
 pub const D3D12_LINE_RASTERIZATION_MODE_QUADRILATERAL_NARROW: D3D12_LINE_RASTERIZATION_MODE = 3;
 pub const D3D12_LINE_RASTERIZATION_MODE_QUADRILATERAL_WIDE: D3D12_LINE_RASTERIZATION_MODE = 2;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_LOCAL_ROOT_SIGNATURE {
     pub pLocalRootSignature: core::mem::ManuallyDrop<Option<ID3D12RootSignature>>,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_LOCAL_SERIALIZED_ROOT_SIGNATURE {
     pub Desc: D3D12_SERIALIZED_ROOT_SIGNATURE_DESC,
 }
@@ -3233,7 +3233,7 @@ pub const D3D12_MEASUREMENTS_ACTION_COMMIT_RESULTS_HIGH_PRIORITY: D3D12_MEASUREM
 pub const D3D12_MEASUREMENTS_ACTION_DISCARD_PREVIOUS: D3D12_MEASUREMENTS_ACTION = 3;
 pub const D3D12_MEASUREMENTS_ACTION_KEEP_ALL: D3D12_MEASUREMENTS_ACTION = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_MEMCPY_DEST {
     pub pData: *mut core::ffi::c_void,
     pub RowPitch: usize,
@@ -3252,7 +3252,7 @@ pub type D3D12_MESH_SHADER_TIER = i32;
 pub const D3D12_MESH_SHADER_TIER_1: D3D12_MESH_SHADER_TIER = 10;
 pub const D3D12_MESH_SHADER_TIER_NOT_SUPPORTED: D3D12_MESH_SHADER_TIER = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_MESSAGE {
     pub Category: D3D12_MESSAGE_CATEGORY,
     pub Severity: D3D12_MESSAGE_SEVERITY,
@@ -4281,7 +4281,7 @@ pub const D3D12_MESSAGE_SEVERITY_INFO: D3D12_MESSAGE_SEVERITY = 3;
 pub const D3D12_MESSAGE_SEVERITY_MESSAGE: D3D12_MESSAGE_SEVERITY = 4;
 pub const D3D12_MESSAGE_SEVERITY_WARNING: D3D12_MESSAGE_SEVERITY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_META_COMMAND_DESC {
     pub Id: windows_core::GUID,
     pub Name: windows_core::PCWSTR,
@@ -4289,7 +4289,7 @@ pub struct D3D12_META_COMMAND_DESC {
     pub ExecutionDirtyState: D3D12_GRAPHICS_STATES,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_META_COMMAND_PARAMETER_DESC {
     pub Name: windows_core::PCWSTR,
     pub Type: D3D12_META_COMMAND_PARAMETER_TYPE,
@@ -4320,7 +4320,7 @@ pub const D3D12_MIP_LOD_BIAS_MAX: f32 = 15.99;
 pub const D3D12_MIP_LOD_FRACTIONAL_BIT_COUNT: u32 = 8;
 pub const D3D12_MIP_LOD_RANGE_BIT_COUNT: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_MIP_REGION {
     pub Width: u32,
     pub Height: u32,
@@ -4335,7 +4335,7 @@ pub const D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_NONE: D3D12_MULTISAMPLE_QUALITY_
 pub const D3D12_MULTISAMPLE_QUALITY_LEVELS_FLAG_TILED_RESOURCE: D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS = 1;
 pub type D3D12_MULTISAMPLE_QUALITY_LEVEL_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_MULTI_NODE_CPU_INPUT {
     pub NumNodeInputs: u32,
     pub pNodeInputs: *const D3D12_NODE_CPU_INPUT,
@@ -4347,7 +4347,7 @@ impl Default for D3D12_MULTI_NODE_CPU_INPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_MULTI_NODE_GPU_INPUT {
     pub NumNodeInputs: u32,
     pub NodeInputs: D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE,
@@ -4374,7 +4374,7 @@ impl Default for D3D12_NODE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_NODE_CPU_INPUT {
     pub EntrypointIndex: u32,
     pub NumRecords: u32,
@@ -4387,25 +4387,25 @@ impl Default for D3D12_NODE_CPU_INPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_NODE_GPU_INPUT {
     pub EntrypointIndex: u32,
     pub NumRecords: u32,
     pub Records: D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_NODE_ID {
     pub Name: windows_core::PCWSTR,
     pub ArrayIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_NODE_MASK {
     pub NodeMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_NODE_OUTPUT_OVERRIDES {
     pub OutputIndex: u32,
     pub pNewName: *const D3D12_NODE_ID,
@@ -4430,7 +4430,7 @@ pub const D3D12_NONSAMPLE_FETCH_OUT_OF_RANGE_ACCESS_RESULT: u32 = 0;
 pub const D3D12_OS_RESERVED_REGISTER_SPACE_VALUES_END: u32 = 4294967295;
 pub const D3D12_OS_RESERVED_REGISTER_SPACE_VALUES_START: u32 = 4294967288;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PACKED_MIP_INFO {
     pub NumStandardMips: u8,
     pub NumPackedMips: u8,
@@ -4440,7 +4440,7 @@ pub struct D3D12_PACKED_MIP_INFO {
 pub const D3D12_PACKED_TILE: u32 = 4294967295;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PARAMETER_DESC {
     pub Name: windows_core::PCSTR,
     pub SemanticName: windows_core::PCSTR,
@@ -4461,7 +4461,7 @@ pub const D3D12_PIPELINE_STATE_FLAG_DYNAMIC_INDEX_BUFFER_STRIP_CUT: D3D12_PIPELI
 pub const D3D12_PIPELINE_STATE_FLAG_NONE: D3D12_PIPELINE_STATE_FLAGS = 0;
 pub const D3D12_PIPELINE_STATE_FLAG_TOOL_DEBUG: D3D12_PIPELINE_STATE_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_PIPELINE_STATE_STREAM_DESC {
     pub SizeInBytes: usize,
     pub pPipelineStateSubobjectStream: *mut core::ffi::c_void,
@@ -4505,7 +4505,7 @@ pub const D3D12_PIPELINE_STATE_SUBOBJECT_TYPE_VS: D3D12_PIPELINE_STATE_SUBOBJECT
 pub const D3D12_PIXEL_ADDRESS_RANGE_BIT_COUNT: u32 = 15;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PLACED_SUBRESOURCE_FOOTPRINT {
     pub Offset: u64,
     pub Footprint: D3D12_SUBRESOURCE_FOOTPRINT,
@@ -4524,7 +4524,7 @@ pub struct D3D12_PRIMITIVE(pub super::d3dcommon::D3D_PRIMITIVE);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3D12_PRIMITIVE_TOPOLOGY(pub super::d3dcommon::D3D_PRIMITIVE_TOPOLOGY);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PRIMITIVE_TOPOLOGY_DESC {
     pub PrimitiveTopology: D3D12_PRIMITIVE_TOPOLOGY_TYPE,
 }
@@ -4539,7 +4539,7 @@ pub const D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER_1: D3D12_PROGRAMMABLE_SAMPLE_
 pub const D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER_2: D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER = 2;
 pub const D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER_NOT_SUPPORTED: D3D12_PROGRAMMABLE_SAMPLE_POSITIONS_TIER = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_PROGRAM_IDENTIFIER {
     pub OpaqueData: [u64; 4],
 }
@@ -4554,13 +4554,13 @@ pub const D3D12_PROGRAM_TYPE_RAYTRACING_PIPELINE: D3D12_PROGRAM_TYPE = 4;
 pub const D3D12_PROGRAM_TYPE_WORK_GRAPH: D3D12_PROGRAM_TYPE = 5;
 pub const D3D12_PROTECTED_RESOURCES_SESSION_HARDWARE_PROTECTED: windows_core::GUID = windows_core::GUID::from_u128(0x62b0084e_c70e_4daa_a109_30ff8d5a0482);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PROTECTED_RESOURCE_SESSION_DESC {
     pub NodeMask: u32,
     pub Flags: D3D12_PROTECTED_RESOURCE_SESSION_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_PROTECTED_RESOURCE_SESSION_DESC1 {
     pub NodeMask: u32,
     pub Flags: D3D12_PROTECTED_RESOURCE_SESSION_FLAGS,
@@ -4598,7 +4598,7 @@ pub const D3D12_PS_OUTPUT_REGISTER_COMPONENT_BIT_COUNT: u32 = 32;
 pub const D3D12_PS_OUTPUT_REGISTER_COUNT: u32 = 8;
 pub const D3D12_PS_PIXEL_CENTER_FRACTIONAL_COMPONENT: f32 = 0.5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_QUERY_DATA_PIPELINE_STATISTICS {
     pub IAVertices: u64,
     pub IAPrimitives: u64,
@@ -4613,7 +4613,7 @@ pub struct D3D12_QUERY_DATA_PIPELINE_STATISTICS {
     pub CSInvocations: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_QUERY_DATA_PIPELINE_STATISTICS1 {
     pub IAVertices: u64,
     pub IAPrimitives: u64,
@@ -4631,14 +4631,14 @@ pub struct D3D12_QUERY_DATA_PIPELINE_STATISTICS1 {
     pub MSPrimitives: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_QUERY_DATA_SO_STATISTICS {
     pub NumPrimitivesWritten: u64,
     pub PrimitivesStorageNeeded: u64,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     pub Status: u64,
     pub NumMacroblocksAffected: u64,
@@ -4646,7 +4646,7 @@ pub struct D3D12_QUERY_DATA_VIDEO_DECODE_STATISTICS {
     pub BitRate: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_QUERY_HEAP_DESC {
     pub Type: D3D12_QUERY_HEAP_TYPE,
     pub Count: u32,
@@ -4672,13 +4672,13 @@ pub const D3D12_QUERY_TYPE_SO_STATISTICS_STREAM3: D3D12_QUERY_TYPE = 7;
 pub const D3D12_QUERY_TYPE_TIMESTAMP: D3D12_QUERY_TYPE = 2;
 pub const D3D12_QUERY_TYPE_VIDEO_DECODE_STATISTICS: D3D12_QUERY_TYPE = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RANGE {
     pub Begin: usize,
     pub End: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RANGE_UINT64 {
     pub Begin: u64,
     pub End: u64,
@@ -4758,18 +4758,18 @@ pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE_SERIALIZE: D3D12_RAY
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE_VISUALIZATION_DECODE_FOR_TOOLS: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE = 2;
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_COMPACTED_SIZE_DESC {
     pub CompactedSizeInBytes: u64,
 }
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_CURRENT_SIZE: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_CURRENT_SIZE_DESC {
     pub CurrentSizeInBytes: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC {
     pub DestBuffer: D3D12_GPU_VIRTUAL_ADDRESS,
     pub InfoType: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE,
@@ -4799,20 +4799,20 @@ impl Default for D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_SERIALIZ
 }
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VISUALIZATION: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TOOLS_VISUALIZATION_DESC {
     pub DecodedSizeInBytes: u64,
 }
 pub type D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO {
     pub ResultDataMaxSizeInBytes: u64,
     pub ScratchDataSizeInBytes: u64,
     pub UpdateScratchDataSizeInBytes: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_ACCELERATION_STRUCTURE_SRV {
     pub Location: D3D12_GPU_VIRTUAL_ADDRESS,
 }
@@ -4821,7 +4821,7 @@ pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE_BOTTOM_LEVEL: D3D12_RAYTR
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE_OPACITY_MICROMAP_ARRAY: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE = 2;
 pub const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE_TOP_LEVEL: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_GEOMETRY_AABBS_DESC {
     pub AABBCount: u64,
     pub AABBs: D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE,
@@ -4860,7 +4860,7 @@ pub const D3D12_RAYTRACING_GEOMETRY_FLAG_NO_DUPLICATE_ANYHIT_INVOCATION: D3D12_R
 pub const D3D12_RAYTRACING_GEOMETRY_FLAG_OPAQUE: D3D12_RAYTRACING_GEOMETRY_FLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_GEOMETRY_OMM_LINKAGE_DESC {
     pub OpacityMicromapIndexBuffer: D3D12_GPU_VIRTUAL_ADDRESS_AND_STRIDE,
     pub OpacityMicromapIndexFormat: super::dxgi::DXGI_FORMAT,
@@ -4869,7 +4869,7 @@ pub struct D3D12_RAYTRACING_GEOMETRY_OMM_LINKAGE_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_GEOMETRY_OMM_TRIANGLES_DESC {
     pub pTriangles: *const D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC,
     pub pOmmLinkage: *const D3D12_RAYTRACING_GEOMETRY_OMM_LINKAGE_DESC,
@@ -4882,7 +4882,7 @@ impl Default for D3D12_RAYTRACING_GEOMETRY_OMM_TRIANGLES_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_GEOMETRY_TRIANGLES_DESC {
     pub Transform3x4: D3D12_GPU_VIRTUAL_ADDRESS,
     pub IndexFormat: super::dxgi::DXGI_FORMAT,
@@ -4927,7 +4927,7 @@ pub const D3D12_RAYTRACING_MAX_RAY_GENERATION_SHADER_THREADS: u32 = 1073741824;
 pub const D3D12_RAYTRACING_MAX_SHADER_RECORD_STRIDE: u32 = 4096;
 pub const D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_BYTE_ALIGNMENT: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_DESC {
     pub NumOmmHistogramEntries: u32,
     pub pOmmHistogram: *const D3D12_RAYTRACING_OPACITY_MICROMAP_HISTOGRAM_ENTRY,
@@ -4941,25 +4941,25 @@ impl Default for D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_DESC {
 }
 pub const D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_POSTBUILD_INFO_CURRENT_SIZE: D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_POSTBUILD_INFO_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_POSTBUILD_INFO_CURRENT_SIZE_DESC {
     pub CurrentSizeInBytes: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_POSTBUILD_INFO_DESC {
     pub DestBuffer: D3D12_GPU_VIRTUAL_ADDRESS,
     pub InfoType: D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_POSTBUILD_INFO_TYPE,
 }
 pub const D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_POSTBUILD_INFO_TOOLS_VISUALIZATION: D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_POSTBUILD_INFO_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_POSTBUILD_INFO_TOOLS_VISUALIZATION_DESC {
     pub DecodedSizeInBytes: u64,
 }
 pub type D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_POSTBUILD_INFO_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_OPACITY_MICROMAP_DESC {
     pub ByteOffset: u32,
     pub _bitfield: u32,
@@ -4968,7 +4968,7 @@ pub type D3D12_RAYTRACING_OPACITY_MICROMAP_FORMAT = i32;
 pub const D3D12_RAYTRACING_OPACITY_MICROMAP_FORMAT_OC1_2_STATE: D3D12_RAYTRACING_OPACITY_MICROMAP_FORMAT = 1;
 pub const D3D12_RAYTRACING_OPACITY_MICROMAP_FORMAT_OC1_4_STATE: D3D12_RAYTRACING_OPACITY_MICROMAP_FORMAT = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_OPACITY_MICROMAP_HISTOGRAM_ENTRY {
     pub Count: u32,
     pub SubdivisionLevel: u32,
@@ -4986,12 +4986,12 @@ pub const D3D12_RAYTRACING_OPACITY_MICROMAP_STATE_TRANSPARENT: D3D12_RAYTRACING_
 pub const D3D12_RAYTRACING_OPACITY_MICROMAP_STATE_UNKNOWN_OPAQUE: D3D12_RAYTRACING_OPACITY_MICROMAP_STATE = 3;
 pub const D3D12_RAYTRACING_OPACITY_MICROMAP_STATE_UNKNOWN_TRANSPARENT: D3D12_RAYTRACING_OPACITY_MICROMAP_STATE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_PIPELINE_CONFIG {
     pub MaxTraceRecursionDepth: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_PIPELINE_CONFIG1 {
     pub MaxTraceRecursionDepth: u32,
     pub Flags: D3D12_RAYTRACING_PIPELINE_FLAGS,
@@ -5002,7 +5002,7 @@ pub const D3D12_RAYTRACING_PIPELINE_FLAG_NONE: D3D12_RAYTRACING_PIPELINE_FLAGS =
 pub const D3D12_RAYTRACING_PIPELINE_FLAG_SKIP_PROCEDURAL_PRIMITIVES: D3D12_RAYTRACING_PIPELINE_FLAGS = 512;
 pub const D3D12_RAYTRACING_PIPELINE_FLAG_SKIP_TRIANGLES: D3D12_RAYTRACING_PIPELINE_FLAGS = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_SERIALIZED_BLOCK {
     pub Type: D3D12_RAYTRACING_SERIALIZED_BLOCK_TYPE,
     pub NumBlockPointersAfterHeader: u64,
@@ -5010,7 +5010,7 @@ pub struct D3D12_RAYTRACING_SERIALIZED_BLOCK {
 pub type D3D12_RAYTRACING_SERIALIZED_BLOCK_TYPE = i32;
 pub const D3D12_RAYTRACING_SERIALIZED_BLOCK_TYPE_OPACITY_MICROMAPS: D3D12_RAYTRACING_SERIALIZED_BLOCK_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RAYTRACING_SHADER_CONFIG {
     pub MaxPayloadSizeInBytes: u32,
     pub MaxAttributeSizeInBytes: u32,
@@ -5080,7 +5080,7 @@ impl Default for D3D12_RENDER_PASS_BEGINNING_ACCESS_CLEAR_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RENDER_PASS_BEGINNING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
     pub AdditionalWidth: u32,
     pub AdditionalHeight: u32,
@@ -5151,14 +5151,14 @@ impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_PRESERVE_LOCAL_PARAMETERS {
     pub AdditionalWidth: u32,
     pub AdditionalHeight: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "dxgi", feature = "windef"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
     pub pSrcResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub pDstResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
@@ -5176,7 +5176,7 @@ impl Default for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_SUBRESOURCE_PARAMETERS {
     pub SrcSubresource: u32,
     pub DstSubresource: u32,
@@ -5223,7 +5223,7 @@ pub const D3D12_RENDER_PASS_TIER_0: D3D12_RENDER_PASS_TIER = 0;
 pub const D3D12_RENDER_PASS_TIER_1: D3D12_RENDER_PASS_TIER = 1;
 pub const D3D12_RENDER_PASS_TIER_2: D3D12_RENDER_PASS_TIER = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RENDER_TARGET_BLEND_DESC {
     pub BlendEnable: windows_core::BOOL,
     pub LogicOpEnable: windows_core::BOOL,
@@ -5313,32 +5313,32 @@ pub const D3D12_RESOLVE_MODE_ENCODE_SAMPLER_FEEDBACK: D3D12_RESOLVE_MODE = 4;
 pub const D3D12_RESOLVE_MODE_MAX: D3D12_RESOLVE_MODE = 2;
 pub const D3D12_RESOLVE_MODE_MIN: D3D12_RESOLVE_MODE = 1;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT {
     pub pMotionVectorHeap: core::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
     pub PixelWidth: u32,
     pub PixelHeight: u32,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT {
     pub pMotionVectorTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub MotionVectorCoordinate: D3D12_RESOURCE_COORDINATE,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_ALIASING_BARRIER {
     pub pResourceBefore: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub pResourceAfter: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_ALLOCATION_INFO {
     pub SizeInBytes: u64,
     pub Alignment: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_ALLOCATION_INFO1 {
     pub Offset: u64,
     pub Alignment: u64,
@@ -5390,7 +5390,7 @@ pub const D3D12_RESOURCE_BINDING_TIER_1: D3D12_RESOURCE_BINDING_TIER = 1;
 pub const D3D12_RESOURCE_BINDING_TIER_2: D3D12_RESOURCE_BINDING_TIER = 2;
 pub const D3D12_RESOURCE_BINDING_TIER_3: D3D12_RESOURCE_BINDING_TIER = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_COORDINATE {
     pub X: u64,
     pub Y: u32,
@@ -5399,7 +5399,7 @@ pub struct D3D12_RESOURCE_COORDINATE {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_DESC {
     pub Dimension: D3D12_RESOURCE_DIMENSION,
     pub Alignment: u64,
@@ -5414,7 +5414,7 @@ pub struct D3D12_RESOURCE_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_DESC1 {
     pub Dimension: D3D12_RESOURCE_DIMENSION,
     pub Alignment: u64,
@@ -5487,7 +5487,7 @@ pub const D3D12_RESOURCE_STATE_VIDEO_ENCODE_WRITE: D3D12_RESOURCE_STATES = 83886
 pub const D3D12_RESOURCE_STATE_VIDEO_PROCESS_READ: D3D12_RESOURCE_STATES = 262144;
 pub const D3D12_RESOURCE_STATE_VIDEO_PROCESS_WRITE: D3D12_RESOURCE_STATES = 524288;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_TRANSITION_BARRIER {
     pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Subresource: u32,
@@ -5495,7 +5495,7 @@ pub struct D3D12_RESOURCE_TRANSITION_BARRIER {
     pub StateAfter: D3D12_RESOURCE_STATES,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_RESOURCE_UAV_BARRIER {
     pub pResource: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
 }
@@ -5505,20 +5505,20 @@ pub const D3D12_RLDO_IGNORE_INTERNAL: D3D12_RLDO_FLAGS = 4;
 pub const D3D12_RLDO_NONE: D3D12_RLDO_FLAGS = 0;
 pub const D3D12_RLDO_SUMMARY: D3D12_RLDO_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_ROOT_CONSTANTS {
     pub ShaderRegister: u32,
     pub RegisterSpace: u32,
     pub Num32BitValues: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_ROOT_DESCRIPTOR {
     pub ShaderRegister: u32,
     pub RegisterSpace: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_ROOT_DESCRIPTOR1 {
     pub ShaderRegister: u32,
     pub RegisterSpace: u32,
@@ -5530,7 +5530,7 @@ pub const D3D12_ROOT_DESCRIPTOR_FLAG_DATA_STATIC_WHILE_SET_AT_EXECUTE: D3D12_ROO
 pub const D3D12_ROOT_DESCRIPTOR_FLAG_DATA_VOLATILE: D3D12_ROOT_DESCRIPTOR_FLAGS = 2;
 pub const D3D12_ROOT_DESCRIPTOR_FLAG_NONE: D3D12_ROOT_DESCRIPTOR_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_ROOT_DESCRIPTOR_TABLE {
     pub NumDescriptorRanges: u32,
     pub pDescriptorRanges: *const D3D12_DESCRIPTOR_RANGE,
@@ -5541,7 +5541,7 @@ impl Default for D3D12_ROOT_DESCRIPTOR_TABLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_ROOT_DESCRIPTOR_TABLE1 {
     pub NumDescriptorRanges: u32,
     pub pDescriptorRanges: *const D3D12_DESCRIPTOR_RANGE1,
@@ -5606,7 +5606,7 @@ pub const D3D12_ROOT_PARAMETER_TYPE_DESCRIPTOR_TABLE: D3D12_ROOT_PARAMETER_TYPE 
 pub const D3D12_ROOT_PARAMETER_TYPE_SRV: D3D12_ROOT_PARAMETER_TYPE = 3;
 pub const D3D12_ROOT_PARAMETER_TYPE_UAV: D3D12_ROOT_PARAMETER_TYPE = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_ROOT_SIGNATURE_DESC {
     pub NumParameters: u32,
     pub pParameters: *const D3D12_ROOT_PARAMETER,
@@ -5620,7 +5620,7 @@ impl Default for D3D12_ROOT_SIGNATURE_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_ROOT_SIGNATURE_DESC1 {
     pub NumParameters: u32,
     pub pParameters: *const D3D12_ROOT_PARAMETER1,
@@ -5634,7 +5634,7 @@ impl Default for D3D12_ROOT_SIGNATURE_DESC1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_ROOT_SIGNATURE_DESC2 {
     pub NumParameters: u32,
     pub pParameters: *const D3D12_ROOT_PARAMETER1,
@@ -5674,7 +5674,7 @@ pub const D3D12_RTV_DIMENSION_TEXTURE3D: D3D12_RTV_DIMENSION = 8;
 pub const D3D12_RTV_DIMENSION_UNKNOWN: D3D12_RTV_DIMENSION = 0;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_RT_FORMAT_ARRAY {
     pub RTFormats: [super::dxgi::DXGI_FORMAT; 8],
     pub NumRenderTargets: u32,
@@ -5744,12 +5744,12 @@ pub const D3D12_SAMPLER_FLAG_NONE: D3D12_SAMPLER_FLAGS = 0;
 pub const D3D12_SAMPLER_FLAG_NON_NORMALIZED_COORDINATES: D3D12_SAMPLER_FLAGS = 2;
 pub const D3D12_SAMPLER_FLAG_UINT_BORDER_COLOR: D3D12_SAMPLER_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SAMPLE_MASK {
     pub SampleMask: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SAMPLE_POSITION {
     pub X: i8,
     pub Y: i8,
@@ -5757,7 +5757,7 @@ pub struct D3D12_SAMPLE_POSITION {
 pub const D3D12_SDK_VERSION: u32 = 617;
 pub const D3D12_SERIALIZED_DATA_APPLICATION_SPECIFIC_DRIVER_STATE: D3D12_SERIALIZED_DATA_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER {
     pub DriverOpaqueGUID: windows_core::GUID,
     pub DriverOpaqueVersioningData: [u8; 16],
@@ -5770,7 +5770,7 @@ impl Default for D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER {
 pub const D3D12_SERIALIZED_DATA_RAYTRACING_ACCELERATION_STRUCTURE: D3D12_SERIALIZED_DATA_TYPE = 0;
 pub type D3D12_SERIALIZED_DATA_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER {
     pub DriverMatchingIdentifier: D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER,
     pub SerializedSizeInBytesIncludingHeader: u64,
@@ -5807,7 +5807,7 @@ pub const D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER_POSTAMBLE_TY
 pub const D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER_POSTAMBLE_TYPE_BOTTOM_LEVEL_POINTERS: D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER_POSTAMBLE_TYPE = 0;
 pub const D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER_POSTAMBLE_TYPE_NONE: D3D12_SERIALIZED_RAYTRACING_ACCELERATION_STRUCTURE_HEADER_POSTAMBLE_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_SERIALIZED_ROOT_SIGNATURE_DESC {
     pub pSerializedBlob: *const core::ffi::c_void,
     pub SerializedBlobSizeInBytes: usize,
@@ -5818,7 +5818,7 @@ impl Default for D3D12_SERIALIZED_ROOT_SIGNATURE_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SET_GENERIC_PIPELINE_DESC {
     pub ProgramIdentifier: D3D12_PROGRAM_IDENTIFIER,
 }
@@ -5846,12 +5846,12 @@ impl Default for D3D12_SET_PROGRAM_DESC_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SET_RAYTRACING_PIPELINE_DESC {
     pub ProgramIdentifier: D3D12_PROGRAM_IDENTIFIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SET_WORK_GRAPH_DESC {
     pub ProgramIdentifier: D3D12_PROGRAM_IDENTIFIER,
     pub Flags: D3D12_SET_WORK_GRAPH_FLAGS,
@@ -5863,7 +5863,7 @@ pub const D3D12_SET_WORK_GRAPH_FLAG_INITIALIZE: D3D12_SET_WORK_GRAPH_FLAGS = 1;
 pub const D3D12_SET_WORK_GRAPH_FLAG_NONE: D3D12_SET_WORK_GRAPH_FLAGS = 0;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_BUFFER_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: super::d3dcommon::D3D_CBUFFER_TYPE,
@@ -5872,7 +5872,7 @@ pub struct D3D12_SHADER_BUFFER_DESC {
     pub uFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_SHADER_BYTECODE {
     pub pShaderBytecode: *const core::ffi::c_void,
     pub BytecodeLength: usize,
@@ -5899,7 +5899,7 @@ pub type D3D12_SHADER_CACHE_MODE = i32;
 pub const D3D12_SHADER_CACHE_MODE_DISK: D3D12_SHADER_CACHE_MODE = 1;
 pub const D3D12_SHADER_CACHE_MODE_MEMORY: D3D12_SHADER_CACHE_MODE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_CACHE_SESSION_DESC {
     pub Identifier: windows_core::GUID,
     pub Mode: D3D12_SHADER_CACHE_MODE,
@@ -5930,7 +5930,7 @@ pub const D3D12_SHADER_COMPONENT_MAPPING_MASK: u32 = 7;
 pub const D3D12_SHADER_COMPONENT_MAPPING_SHIFT: u32 = 3;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_DESC {
     pub Version: u32,
     pub Creator: windows_core::PCSTR,
@@ -5974,7 +5974,7 @@ pub struct D3D12_SHADER_DESC {
 pub const D3D12_SHADER_IDENTIFIER_SIZE_IN_BYTES: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_INPUT_BIND_DESC {
     pub Name: windows_core::PCSTR,
     pub Type: super::d3dcommon::D3D_SHADER_INPUT_TYPE,
@@ -6061,7 +6061,7 @@ impl Default for D3D12_SHADER_RESOURCE_VIEW_DESC_0 {
 }
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SHADER_TYPE_DESC {
     pub Class: super::d3dcommon::D3D_SHADER_VARIABLE_CLASS,
     pub Type: super::d3dcommon::D3D_SHADER_VARIABLE_TYPE,
@@ -6073,7 +6073,7 @@ pub struct D3D12_SHADER_TYPE_DESC {
     pub Name: windows_core::PCSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_SHADER_VARIABLE_DESC {
     pub Name: windows_core::PCSTR,
     pub StartOffset: u32,
@@ -6141,7 +6141,7 @@ pub const D3D12_SHVER_RESERVED0: D3D12_SHADER_VERSION_TYPE = 65520;
 pub const D3D12_SHVER_VERTEX_SHADER: D3D12_SHADER_VERSION_TYPE = 1;
 #[repr(C)]
 #[cfg(feature = "d3dcommon")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SIGNATURE_PARAMETER_DESC {
     pub SemanticName: windows_core::PCSTR,
     pub SemanticIndex: u32,
@@ -6161,7 +6161,7 @@ pub const D3D12_SO_BUFFER_MAX_WRITE_WINDOW_IN_BYTES: u32 = 512;
 pub const D3D12_SO_BUFFER_SLOT_COUNT: u32 = 4;
 pub const D3D12_SO_DDI_REGISTER_INDEX_DENOTING_GAP: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SO_DECLARATION_ENTRY {
     pub Stream: u32,
     pub SemanticName: windows_core::PCSTR,
@@ -6208,12 +6208,12 @@ pub const D3D12_STANDARD_VECTOR_SIZE: u32 = 4;
 pub const D3D12_STANDARD_VERTEX_ELEMENT_COUNT: u32 = 32;
 pub const D3D12_STANDARD_VERTEX_TOTAL_COMPONENT_COUNT: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_STATE_OBJECT_CONFIG {
     pub Flags: D3D12_STATE_OBJECT_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_STATE_OBJECT_DESC {
     pub Type: D3D12_STATE_OBJECT_TYPE,
     pub NumSubobjects: u32,
@@ -6234,7 +6234,7 @@ pub const D3D12_STATE_OBJECT_TYPE_COLLECTION: D3D12_STATE_OBJECT_TYPE = 0;
 pub const D3D12_STATE_OBJECT_TYPE_EXECUTABLE: D3D12_STATE_OBJECT_TYPE = 4;
 pub const D3D12_STATE_OBJECT_TYPE_RAYTRACING_PIPELINE: D3D12_STATE_OBJECT_TYPE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_STATE_SUBOBJECT {
     pub Type: D3D12_STATE_SUBOBJECT_TYPE,
     pub pDesc: *const core::ffi::c_void,
@@ -6329,14 +6329,14 @@ pub const D3D12_STENCIL_OP_KEEP: D3D12_STENCIL_OP = 1;
 pub const D3D12_STENCIL_OP_REPLACE: D3D12_STENCIL_OP = 3;
 pub const D3D12_STENCIL_OP_ZERO: D3D12_STENCIL_OP = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_STREAM_OUTPUT_BUFFER_VIEW {
     pub BufferLocation: D3D12_GPU_VIRTUAL_ADDRESS,
     pub SizeInBytes: u64,
     pub BufferFilledSizeLocation: D3D12_GPU_VIRTUAL_ADDRESS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_STREAM_OUTPUT_DESC {
     pub pSODeclaration: *const D3D12_SO_DECLARATION_ENTRY,
     pub NumEntries: u32,
@@ -6350,7 +6350,7 @@ impl Default for D3D12_STREAM_OUTPUT_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
     pub pSubobjectToAssociate: *const D3D12_STATE_SUBOBJECT,
     pub NumExports: u32,
@@ -6363,7 +6363,7 @@ impl Default for D3D12_SUBOBJECT_TO_EXPORTS_ASSOCIATION {
 }
 pub const D3D12_SUBPIXEL_FRACTIONAL_BIT_COUNT: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_SUBRESOURCE_DATA {
     pub pData: *const core::ffi::c_void,
     pub RowPitch: isize,
@@ -6376,7 +6376,7 @@ impl Default for D3D12_SUBRESOURCE_DATA {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SUBRESOURCE_FOOTPRINT {
     pub Format: super::dxgi::DXGI_FORMAT,
     pub Width: u32,
@@ -6385,20 +6385,20 @@ pub struct D3D12_SUBRESOURCE_FOOTPRINT {
     pub RowPitch: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SUBRESOURCE_INFO {
     pub Offset: u64,
     pub RowPitch: u32,
     pub DepthPitch: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SUBRESOURCE_RANGE_UINT64 {
     pub Subresource: u32,
     pub Range: D3D12_RANGE_UINT64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_SUBRESOURCE_TILING {
     pub WidthInTiles: u32,
     pub HeightInTiles: u16,
@@ -6428,14 +6428,14 @@ pub struct D3D12_TESSELLATOR_OUTPUT_PRIMITIVE(pub super::d3dcommon::D3D_TESSELLA
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct D3D12_TESSELLATOR_PARTITIONING(pub super::d3dcommon::D3D_TESSELLATOR_PARTITIONING);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX1D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX1D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
@@ -6451,19 +6451,19 @@ pub struct D3D12_TEX1D_ARRAY_SRV {
     pub ResourceMinLODClamp: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX1D_ARRAY_UAV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX1D_DSV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX1D_RTV {
     pub MipSlice: u32,
 }
@@ -6475,63 +6475,63 @@ pub struct D3D12_TEX1D_SRV {
     pub ResourceMinLODClamp: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX1D_UAV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2DMS_ARRAY_DSV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2DMS_ARRAY_RTV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2DMS_ARRAY_SRV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2DMS_ARRAY_UAV {
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2DMS_DSV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2DMS_RTV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2DMS_SRV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2DMS_UAV {
     pub UnusedField_NothingToDefine: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2D_ARRAY_DSV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
     pub ArraySize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2D_ARRAY_RTV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
@@ -6549,7 +6549,7 @@ pub struct D3D12_TEX2D_ARRAY_SRV {
     pub ResourceMinLODClamp: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2D_ARRAY_UAV {
     pub MipSlice: u32,
     pub FirstArraySlice: u32,
@@ -6557,12 +6557,12 @@ pub struct D3D12_TEX2D_ARRAY_UAV {
     pub PlaneSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2D_DSV {
     pub MipSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2D_RTV {
     pub MipSlice: u32,
     pub PlaneSlice: u32,
@@ -6576,13 +6576,13 @@ pub struct D3D12_TEX2D_SRV {
     pub ResourceMinLODClamp: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX2D_UAV {
     pub MipSlice: u32,
     pub PlaneSlice: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX3D_RTV {
     pub MipSlice: u32,
     pub FirstWSlice: u32,
@@ -6596,7 +6596,7 @@ pub struct D3D12_TEX3D_SRV {
     pub ResourceMinLODClamp: f32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEX3D_UAV {
     pub MipSlice: u32,
     pub FirstWSlice: u32,
@@ -6626,7 +6626,7 @@ pub const D3D12_TEXTURE_ADDRESS_MODE_MIRROR: D3D12_TEXTURE_ADDRESS_MODE = 2;
 pub const D3D12_TEXTURE_ADDRESS_MODE_MIRROR_ONCE: D3D12_TEXTURE_ADDRESS_MODE = 5;
 pub const D3D12_TEXTURE_ADDRESS_MODE_WRAP: D3D12_TEXTURE_ADDRESS_MODE = 1;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TEXTURE_BARRIER {
     pub SyncBefore: D3D12_BARRIER_SYNC,
     pub SyncAfter: D3D12_BARRIER_SYNC,
@@ -6684,7 +6684,7 @@ pub const D3D12_TEXTURE_LAYOUT_64KB_UNDEFINED_SWIZZLE: D3D12_TEXTURE_LAYOUT = 2;
 pub const D3D12_TEXTURE_LAYOUT_ROW_MAJOR: D3D12_TEXTURE_LAYOUT = 1;
 pub const D3D12_TEXTURE_LAYOUT_UNKNOWN: D3D12_TEXTURE_LAYOUT = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_THREAD_LAUNCH_OVERRIDES {
     pub pLocalRootArgumentsTableIndex: *const u32,
     pub pProgramEntry: *const windows_core::BOOL,
@@ -6710,7 +6710,7 @@ pub const D3D12_TILED_RESOURCES_TIER_3: D3D12_TILED_RESOURCES_TIER = 3;
 pub const D3D12_TILED_RESOURCES_TIER_4: D3D12_TILED_RESOURCES_TIER = 4;
 pub const D3D12_TILED_RESOURCES_TIER_NOT_SUPPORTED: D3D12_TILED_RESOURCES_TIER = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TILED_RESOURCE_COORDINATE {
     pub X: u32,
     pub Y: u32,
@@ -6732,7 +6732,7 @@ pub const D3D12_TILE_RANGE_FLAG_NULL: D3D12_TILE_RANGE_FLAGS = 1;
 pub const D3D12_TILE_RANGE_FLAG_REUSE_SINGLE_TILE: D3D12_TILE_RANGE_FLAGS = 4;
 pub const D3D12_TILE_RANGE_FLAG_SKIP: D3D12_TILE_RANGE_FLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TILE_REGION_SIZE {
     pub NumTiles: u32,
     pub UseBox: windows_core::BOOL,
@@ -6741,7 +6741,7 @@ pub struct D3D12_TILE_REGION_SIZE {
     pub Depth: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_TILE_SHAPE {
     pub WidthInTexels: u32,
     pub HeightInTexels: u32,
@@ -6861,21 +6861,21 @@ impl Default for D3D12_VERSION_NUMBER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VERTEX_BUFFER_VIEW {
     pub BufferLocation: D3D12_GPU_VIRTUAL_ADDRESS,
     pub SizeInBytes: u32,
     pub StrideInBytes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODER_DESC {
     pub NodeMask: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODER_HEAP_DESC {
     pub NodeMask: u32,
     pub Configuration: D3D12_VIDEO_DECODE_CONFIGURATION,
@@ -6892,14 +6892,14 @@ pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_INVERSE_QUANTIZATION_MATRIX: D3D12_VI
 pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_PICTURE_PARAMETERS: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = 0;
 pub const D3D12_VIDEO_DECODE_ARGUMENT_TYPE_SLICE_CONTROL: D3D12_VIDEO_DECODE_ARGUMENT_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_COMPRESSED_BITSTREAM {
     pub pBuffer: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Offset: u64,
     pub Size: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONFIGURATION {
     pub DecodeProfile: windows_core::GUID,
     pub BitstreamEncryption: D3D12_BITSTREAM_ENCRYPTION_TYPE,
@@ -6913,7 +6913,7 @@ pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_POST_PROCESSING_SUPPORTED: D3D12
 pub const D3D12_VIDEO_DECODE_CONFIGURATION_FLAG_REFERENCE_ONLY_ALLOCATIONS_REQUIRED: D3D12_VIDEO_DECODE_CONFIGURATION_FLAGS = 4;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
     pub Enable: windows_core::BOOL,
     pub pReferenceTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
@@ -6923,7 +6923,7 @@ pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_CONVERSION_ARGUMENTS1 {
     pub Enable: windows_core::BOOL,
     pub pReferenceTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
@@ -6937,7 +6937,7 @@ pub type D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS = u32;
 pub const D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_NONE: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS = 0;
 pub const D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_DECODE_CONVERSION_SUPPORT_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_FRAME_ARGUMENT {
     pub Type: D3D12_VIDEO_DECODE_ARGUMENT_TYPE,
     pub Size: u32,
@@ -6966,7 +6966,7 @@ pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_U: D3D12_VIDEO_DECODE_HISTOGRAM
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_V: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 2;
 pub const D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT_Y: D3D12_VIDEO_DECODE_HISTOGRAM_COMPONENT = 0;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS {
     pub NumFrameArguments: u32,
     pub FrameArguments: [D3D12_VIDEO_DECODE_FRAME_ARGUMENT; 10],
@@ -6984,14 +6984,14 @@ pub const D3D12_VIDEO_DECODE_MAX_HISTOGRAM_COMPONENTS: u32 = 4;
 pub const D3D12_VIDEO_DECODE_MIN_BITSTREAM_OFFSET_ALIGNMENT: u32 = 256;
 pub const D3D12_VIDEO_DECODE_MIN_HISTOGRAM_OFFSET_ALIGNMENT: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_HISTOGRAM {
     pub Offset: u64,
     pub pBuffer: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
     pub pOutputTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub OutputSubresource: u32,
@@ -6999,7 +6999,7 @@ pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1 {
     pub pOutputTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub OutputSubresource: u32,
@@ -7050,7 +7050,7 @@ pub const D3D12_VIDEO_DECODE_PROFILE_VP8: windows_core::GUID = windows_core::GUI
 pub const D3D12_VIDEO_DECODE_PROFILE_VP9: windows_core::GUID = windows_core::GUID::from_u128(0x463707f8_a1d0_4585_876d_83aa6d60b89e);
 pub const D3D12_VIDEO_DECODE_PROFILE_VP9_10BIT_PROFILE2: windows_core::GUID = windows_core::GUID::from_u128(0xa4c749ef_6ecf_48aa_8448_50a7a1165ff7);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_DECODE_REFERENCE_FRAMES {
     pub NumTexture2Ds: u32,
     pub ppTexture2Ds: *mut Option<ID3D12Resource>,
@@ -7078,7 +7078,7 @@ pub const D3D12_VIDEO_DECODE_TIER_2: D3D12_VIDEO_DECODE_TIER = 2;
 pub const D3D12_VIDEO_DECODE_TIER_3: D3D12_VIDEO_DECODE_TIER = 3;
 pub const D3D12_VIDEO_DECODE_TIER_NOT_SUPPORTED: D3D12_VIDEO_DECODE_TIER = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
     pub CdefBits: u64,
     pub CdefDampingMinus3: u64,
@@ -7093,13 +7093,13 @@ impl Default for D3D12_VIDEO_ENCODER_AV1_CDEF_CONFIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION {
     pub FeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
     pub OrderHintBitsMinus1: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_CODEC_CONFIGURATION_SUPPORT {
     pub SupportedFeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
     pub RequiredFeatureFlags: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS,
@@ -7149,7 +7149,7 @@ pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_SKIP_MODE_PRESENT: D3D12_VIDEO_EN
 pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_SUPER_RESOLUTION: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 512;
 pub const D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAG_WARPED_MOTION: D3D12_VIDEO_ENCODER_AV1_FEATURE_FLAGS = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_FRAME_SUBREGION_LAYOUT_CONFIG_SUPPORT {
     pub Use128SuperBlocks: windows_core::BOOL,
     pub TilesConfiguration: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES,
@@ -7225,7 +7225,7 @@ pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_7_1: D3D12_VIDEO_ENCODER_AV1_LEVELS = 2
 pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_7_2: D3D12_VIDEO_ENCODER_AV1_LEVELS = 22;
 pub const D3D12_VIDEO_ENCODER_AV1_LEVELS_7_3: D3D12_VIDEO_ENCODER_AV1_LEVELS = 23;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
     pub Level: D3D12_VIDEO_ENCODER_AV1_LEVELS,
     pub Tier: D3D12_VIDEO_ENCODER_AV1_TIER,
@@ -7233,7 +7233,7 @@ pub struct D3D12_VIDEO_ENCODER_AV1_LEVEL_TIER_CONSTRAINTS {
 pub const D3D12_VIDEO_ENCODER_AV1_MAX_TILE_COLS: u32 = 64;
 pub const D3D12_VIDEO_ENCODER_AV1_MAX_TILE_ROWS: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_CODEC_DATA {
     pub Flags: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS,
     pub FrameType: D3D12_VIDEO_ENCODER_AV1_FRAME_TYPE,
@@ -7283,7 +7283,7 @@ pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_NONE: D3D12_VIDEO_ENCODER
 pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_REDUCED_TX_SET: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 4096;
 pub const D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAG_USE_SUPER_RESOLUTION: D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_FLAGS = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_TILES {
     pub RowCount: u64,
     pub ColCount: u64,
@@ -7297,7 +7297,7 @@ impl Default for D3D12_VIDEO_ENCODER_AV1_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_POST_ENCODE_VALUES {
     pub CompoundPredictionType: u64,
     pub LoopFilter: D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG,
@@ -7330,7 +7330,7 @@ pub const D3D12_VIDEO_ENCODER_AV1_PROFILE_HIGH: D3D12_VIDEO_ENCODER_AV1_PROFILE 
 pub const D3D12_VIDEO_ENCODER_AV1_PROFILE_MAIN: D3D12_VIDEO_ENCODER_AV1_PROFILE = 0;
 pub const D3D12_VIDEO_ENCODER_AV1_PROFILE_PROFESSIONAL: D3D12_VIDEO_ENCODER_AV1_PROFILE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
     pub ReconstructedPictureResourceIndex: u32,
     pub TemporalLayerIndexPlus1: u32,
@@ -7341,7 +7341,7 @@ pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_DESCRIPTOR {
     pub PictureIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_REFERENCE_PICTURE_WARPED_MOTION_INFO {
     pub TransformationType: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION,
     pub TransformationMatrix: [i32; 8],
@@ -7364,7 +7364,7 @@ pub const D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_IDENTIT
 pub const D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_ROTZOOM: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION = 2;
 pub const D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_TRANSLATION: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_RESTORATION_CONFIG {
     pub FrameRestorationType: [D3D12_VIDEO_ENCODER_AV1_RESTORATION_TYPE; 3],
     pub LoopRestorationPixelSize: [D3D12_VIDEO_ENCODER_AV1_RESTORATION_TILESIZE; 3],
@@ -7398,7 +7398,7 @@ pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_4x4: D3D12_VIDEO_ENCOD
 pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_64x64: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE = 4;
 pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE_8x8: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_BLOCK_SIZE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
     pub UpdateMap: u64,
     pub TemporalUpdate: u64,
@@ -7412,7 +7412,7 @@ impl Default for D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_CONFIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MAP {
     pub SegmentsMapByteSize: u32,
     pub pSegmentsMap: *mut u8,
@@ -7444,7 +7444,7 @@ pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_DISABLED: D3D12_VIDEO_E
 pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_NONE: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = 0;
 pub const D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAG_REF_FRAME: D3D12_VIDEO_ENCODER_AV1_SEGMENTATION_MODE_FLAGS = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
     pub EnabledFeatures: u64,
     pub FeatureValue: [i64; 8],
@@ -7455,7 +7455,7 @@ impl Default for D3D12_VIDEO_ENCODER_AV1_SEGMENT_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_AV1_SEQUENCE_STRUCTURE {
     pub IntraDistance: u32,
     pub InterFramePeriod: u32,
@@ -7477,7 +7477,7 @@ pub const D3D12_VIDEO_ENCODER_AV1_TX_MODE_SELECT: D3D12_VIDEO_ENCODER_AV1_TX_MOD
 pub type D3D12_VIDEO_ENCODER_CODEC = i32;
 pub const D3D12_VIDEO_ENCODER_CODEC_AV1: D3D12_VIDEO_ENCODER_CODEC = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
     pub LoopFilterLevel: [u64; 2],
     pub LoopFilterLevelU: u64,
@@ -7495,14 +7495,14 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_CONFIG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_LOOP_FILTER_DELTA_CONFIG {
     pub DeltaLFPresent: u64,
     pub DeltaLFMulti: u64,
     pub DeltaLFRes: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
     pub PredictionMode: D3D12_VIDEO_ENCODER_AV1_COMP_PREDICTION_TYPE,
     pub MaxUniqueReferencesPerFrame: u32,
@@ -7510,7 +7510,7 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_PICTURE_CONTROL_SUPPORT {
     pub SupportedReferenceWarpedMotionFlags: D3D12_VIDEO_ENCODER_AV1_REFERENCE_WARPED_MOTION_TRANSFORMATION_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
     pub BaseQIndex: u64,
     pub YDCDeltaQ: i64,
@@ -7524,7 +7524,7 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_CONFIG {
     pub QMV: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_AV1_QUANTIZATION_DELTA_CONFIG {
     pub DeltaQPresent: u64,
     pub DeltaQRes: u64,
@@ -7553,7 +7553,7 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264 {
     pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_FLAGS,
     pub DirectModeConfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_DIRECT_MODES,
@@ -7587,7 +7587,7 @@ pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FL
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_6_DISABLE_CHROMA_BLOCK_EDGES_AND_USE_LUMA_TWO_STAGE_DEBLOCKING: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 64;
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC {
     pub ConfigurationFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_FLAGS,
     pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
@@ -7651,7 +7651,7 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264 {
     pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS,
     pub DisableDeblockingFilterSupportedModes: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_H264_SLICES_DEBLOCKING_MODE_FLAGS,
@@ -7667,7 +7667,7 @@ pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_INTRA_SLICE_
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_NONE: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 0;
 pub const D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAG_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE_SUPPORT: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_H264_FLAGS = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
     pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
@@ -7678,7 +7678,7 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC {
     pub max_transform_hierarchy_depth_intra: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC1 {
     pub SupportFlags: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_SUPPORT_HEVC_FLAGS,
     pub MinLumaCodingUnitSize: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION_HEVC_CUSIZE,
@@ -7765,7 +7765,7 @@ impl Default for D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     pub MaxL0ReferencesForP: u32,
     pub MaxL0ReferencesForB: u32,
@@ -7774,7 +7774,7 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_H264 {
     pub MaxDPBCapacity: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     pub MaxL0ReferencesForP: u32,
     pub MaxL0ReferencesForB: u32,
@@ -7783,7 +7783,7 @@ pub struct D3D12_VIDEO_ENCODER_CODEC_PICTURE_CONTROL_SUPPORT_HEVC {
     pub MaxDPBCapacity: u32,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM {
     pub pBuffer: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub FrameStartOffset: u64,
@@ -7841,7 +7841,7 @@ impl Default for D3D12_VIDEO_ENCODER_DESC {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_DIRTY_RECT_INFO {
     pub FullFrameIdentical: windows_core::BOOL,
     pub MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
@@ -7892,7 +7892,7 @@ impl Default for D3D12_VIDEO_ENCODER_DIRTY_REGIONS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_DIRTY_REGIONS_CONFIGURATION {
     pub Enabled: windows_core::BOOL,
     pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
@@ -7950,7 +7950,7 @@ impl Default for D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS {
     pub Bitstream: D3D12_VIDEO_ENCODER_COMPRESSED_BITSTREAM,
     pub ReconstructedPicture: D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE,
@@ -7981,7 +7981,7 @@ pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_NO_ERROR: D3D12_VIDEO_ENCODER_EN
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_RECONFIGURATION_REQUEST_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 8;
 pub const D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAG_SUBREGION_LAYOUT_CONFIGURATION_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_ENCODE_ERROR_FLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
     pub pBuffer: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Offset: u64,
@@ -7989,14 +7989,14 @@ pub struct D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER {
 pub type D3D12_VIDEO_ENCODER_FLAGS = u32;
 pub const D3D12_VIDEO_ENCODER_FLAG_NONE: D3D12_VIDEO_ENCODER_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_ANALYSIS {
     pub pDownscaledFrame: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Subresource: u64,
     pub DownscaledReferences: D3D12_VIDEO_ENCODE_REFERENCE_FRAMES,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_ANALYSIS_CONFIGURATION {
     pub Enabled: windows_core::BOOL,
     pub Pow2DownscaleFactor: u32,
@@ -8012,7 +8012,7 @@ pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_NON
 pub const D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAG_QUARTER_PIXEL: D3D12_VIDEO_ENCODER_FRAME_INPUT_MOTION_UNIT_PRECISION_SUPPORT_FLAGS = 4;
 pub type D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE_CONFIG {
     pub MotionSearchMode: D3D12_VIDEO_ENCODER_FRAME_MOTION_SEARCH_MODE,
     pub SearchDeviationLimit: u32,
@@ -8087,7 +8087,7 @@ pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_GRID_PARTITION
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_PARTITIONING_ROWS_PER_SUBREGION: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 3;
 pub const D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE_UNIFORM_PARTITIONING_SUBREGIONS_PER_FRAME: D3D12_VIDEO_ENCODER_FRAME_SUBREGION_LAYOUT_MODE = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_FRAME_SUBREGION_METADATA {
     pub bSize: u64,
     pub bStartOffset: u64,
@@ -8174,7 +8174,7 @@ impl Default for D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_DIRTY_REGIONS {
     pub FullFrameIdentical: windows_core::BOOL,
     pub MapValuesType: D3D12_VIDEO_ENCODER_DIRTY_REGIONS_MAP_VALUES_MODE,
@@ -8199,7 +8199,7 @@ impl Default for D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_MOTION_VECTORS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_INPUT_MAP_DATA_QUANTIZATION_MATRIX {
     pub pQuantizationMap: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
 }
@@ -8230,7 +8230,7 @@ pub const D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE_DIRTY_REGIONS: D3D12_VIDEO_ENCODER_
 pub const D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE_MOTION_VECTORS: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE = 2;
 pub const D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE_QUANTIZATION_MATRIX: D3D12_VIDEO_ENCODER_INPUT_MAP_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_INTRA_REFRESH {
     pub Mode: D3D12_VIDEO_ENCODER_INTRA_REFRESH_MODE,
     pub IntraRefreshDuration: u32,
@@ -8297,7 +8297,7 @@ impl Default for D3D12_VIDEO_ENCODER_LEVEL_SETTING_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_LEVEL_TIER_CONSTRAINTS_HEVC {
     pub Level: D3D12_VIDEO_ENCODER_LEVELS_HEVC,
     pub Tier: D3D12_VIDEO_ENCODER_TIER_HEVC,
@@ -8309,7 +8309,7 @@ pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_HALF_PIXEL: D3D12
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_MAXIMUM: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = 0;
 pub const D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE_QUARTER_PIXEL: D3D12_VIDEO_ENCODER_MOTION_ESTIMATION_PRECISION_MODE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_MOTION_SEARCH_CONFIGURATION {
     pub Enabled: windows_core::BOOL,
     pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
@@ -8323,7 +8323,7 @@ pub const D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_NONE: D3D12_VIDEO_ENCOD
 pub const D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_ENCODER_MOTION_SEARCH_SUPPORT_FLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_MOVEREGION_INFO {
     pub NumMoveRegions: u32,
     pub pMoveRegions: *mut D3D12_VIDEO_ENCODER_MOVE_RECT,
@@ -8343,7 +8343,7 @@ pub const D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAG_MULTIPLE_HINTS: D3D12_VIDEO_E
 pub const D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAG_NONE: D3D12_VIDEO_ENCODER_MOVEREGION_INFO_FLAGS = 0;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_MOVE_RECT {
     pub SourcePoint: super::windef::POINT,
     pub DestRect: super::windef::RECT,
@@ -8356,7 +8356,7 @@ pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_RC_BIT_ALLOCATION_MA
 pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_SATD_MAP: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = 2;
 pub const D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAG_SUBREGIONS_PSNR: D3D12_VIDEO_ENCODER_OPTIONAL_METADATA_ENABLE_FLAGS = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     pub EncodeErrorFlags: u64,
     pub EncodeStats: D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS,
@@ -8364,7 +8364,7 @@ pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA {
     pub WrittenSubregionsCount: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_OUTPUT_METADATA_STATISTICS {
     pub AverageQP: u64,
     pub IntraCodingUnitsCount: u64,
@@ -8421,7 +8421,7 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA1_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264 {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS,
     pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_H264,
@@ -8456,14 +8456,14 @@ pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_NONE: D3D12_V
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_REQUEST_INTRA_CONSTRAINED_SLICES: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = 1;
 pub const D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAG_REQUEST_NUM_REF_IDX_ACTIVE_OVERRIDE_FLAG_SLICE: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_FLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_LIST_MODIFICATION_OPERATION {
     pub modification_of_pic_nums_idc: u8,
     pub abs_diff_pic_num_minus1: u32,
     pub long_term_pic_num: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE_MARKING_OPERATION {
     pub memory_management_control_operation: u8,
     pub difference_of_pic_nums_minus1: u32,
@@ -8472,7 +8472,7 @@ pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_H264_REFERENCE_PICTURE
     pub max_long_term_frame_idx_plus1: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
     pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
@@ -8498,7 +8498,7 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC1 {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
     pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
@@ -8531,7 +8531,7 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC2 {
     pub Flags: D3D12_VIDEO_ENCODER_PICTURE_CONTROL_CODEC_DATA_HEVC_FLAGS,
     pub FrameType: D3D12_VIDEO_ENCODER_FRAME_TYPE_HEVC,
@@ -8661,13 +8661,13 @@ impl Default for D3D12_VIDEO_ENCODER_PICTURE_CONTROL_SUBREGIONS_LAYOUT_DATA_SLIC
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC {
     pub Width: u32,
     pub Height: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_RATIO_DESC {
     pub WidthRatio: u32,
     pub HeightRatio: u32,
@@ -8710,13 +8710,13 @@ pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN12_444: D3D12_VIDEO_ENCODER_PROFI
 pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN16_444: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 8;
 pub const D3D12_VIDEO_ENCODER_PROFILE_HEVC_MAIN_444: D3D12_VIDEO_ENCODER_PROFILE_HEVC = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_QPMAP_CONFIGURATION {
     pub Enabled: windows_core::BOOL,
     pub MapSource: D3D12_VIDEO_ENCODER_INPUT_MAP_SOURCE,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_QUANTIZATION_OPAQUE_MAP {
     pub pOpaqueQuantizationMap: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
 }
@@ -8736,12 +8736,12 @@ impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_ABSOLUTE_QP_MAP {
     pub QualityVsSpeed: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -8752,7 +8752,7 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR {
     pub InitialVBVFullness: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CBR1 {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -8793,14 +8793,14 @@ impl Default for D3D12_VIDEO_ENCODER_RATE_CONTROL_CONFIGURATION_PARAMS_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP {
     pub ConstantQP_FullIntracodedFrame: u32,
     pub ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
     pub ConstantQP_InterPredictedFrame_BiDirectionalRef: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_CQP1 {
     pub ConstantQP_FullIntracodedFrame: u32,
     pub ConstantQP_InterPredictedFrame_PrevRefOnly: u32,
@@ -8834,7 +8834,7 @@ pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_CQP: D3D12_VIDEO_ENCODER_RATE_CO
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_QVBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = 4;
 pub const D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE_VBR: D3D12_VIDEO_ENCODER_RATE_CONTROL_MODE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -8845,7 +8845,7 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR {
     pub ConstantQualityTarget: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -8859,7 +8859,7 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_QVBR1 {
     pub QualityVsSpeed: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -8871,7 +8871,7 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR {
     pub InitialVBVFullness: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
     pub InitialQP: u32,
     pub MinQP: u32,
@@ -8884,13 +8884,13 @@ pub struct D3D12_VIDEO_ENCODER_RATE_CONTROL_VBR1 {
     pub QualityVsSpeed: u32,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RECONSTRUCTED_PICTURE {
     pub pReconstructedPicture: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub ReconstructedPictureSubresource: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     pub ReconstructedPictureResourceIndex: u32,
     pub IsLongTermReference: windows_core::BOOL,
@@ -8900,7 +8900,7 @@ pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_H264 {
     pub TemporalLayerIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_REFERENCE_PICTURE_DESCRIPTOR_HEVC {
     pub ReconstructedPictureResourceIndex: u32,
     pub IsRefUsedByCurrentPic: windows_core::BOOL,
@@ -8927,7 +8927,7 @@ impl Default for D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS 
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS {
     pub pOpaqueLayoutBuffer: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
 }
@@ -8976,12 +8976,12 @@ impl Default for D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS {
     pub ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1 {
     pub ResolvedLayoutMetadata: D3D12_VIDEO_ENCODER_ENCODE_OPERATION_METADATA_BUFFER,
     pub pOutputQPMap: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
@@ -9046,7 +9046,7 @@ impl Default for D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     pub GOPLength: u32,
     pub PPicturePeriod: u32,
@@ -9055,14 +9055,14 @@ pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_H264 {
     pub log2_max_pic_order_cnt_lsb_minus4: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_SEQUENCE_GOP_STRUCTURE_HEVC {
     pub GOPLength: u32,
     pub PPicturePeriod: u32,
     pub log2_max_pic_order_cnt_lsb_minus4: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM {
     pub BufferMode: D3D12_VIDEO_ENCODER_SUBREGION_COMPRESSED_BITSTREAM_BUFFER_MODE,
     pub ExpectedSubregionCount: u32,
@@ -9127,7 +9127,7 @@ pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_RESOLUTION_NOT_SUPPORTED_IN_LIST: 
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_SUBREGION_LAYOUT_DATA_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 4096;
 pub const D3D12_VIDEO_ENCODER_VALIDATION_FLAG_SUBREGION_LAYOUT_MODE_NOT_SUPPORTED: D3D12_VIDEO_ENCODER_VALIDATION_FLAGS = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     pub NumTexture2Ds: u32,
     pub ppTexture2Ds: *mut Option<ID3D12Resource>,
@@ -9139,13 +9139,13 @@ impl Default for D3D12_VIDEO_ENCODE_REFERENCE_FRAMES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_DESC {
     pub NodeMask: u32,
     pub CommandId: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_INFO {
     pub CommandId: windows_core::GUID,
     pub Name: windows_core::PCWSTR,
@@ -9156,7 +9156,7 @@ pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_NONE: D3D12_VIDEO_EXTENSI
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_READ: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = 1;
 pub const D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAG_WRITE: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_FLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_INFO {
     pub Name: windows_core::PCWSTR,
     pub Type: D3D12_VIDEO_EXTENSION_COMMAND_PARAMETER_TYPE,
@@ -9188,7 +9188,7 @@ pub const D3D12_VIDEO_FIELD_TYPE_INTERLACED_TOP_FIELD_FIRST: D3D12_VIDEO_FIELD_T
 pub const D3D12_VIDEO_FIELD_TYPE_NONE: D3D12_VIDEO_FIELD_TYPE = 0;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_FORMAT {
     pub Format: super::dxgi::DXGI_FORMAT,
     pub ColorSpace: super::dxgi::DXGI_COLOR_SPACE_TYPE,
@@ -9204,7 +9204,7 @@ pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_SEPARATE: D3D12_VIDEO_FRAME_STEREO_FOR
 pub const D3D12_VIDEO_FRAME_STEREO_FORMAT_VERTICAL: D3D12_VIDEO_FRAME_STEREO_FORMAT = 3;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     pub NodeMask: u32,
     pub InputFormat: super::dxgi::DXGI_FORMAT,
@@ -9213,7 +9213,7 @@ pub struct D3D12_VIDEO_MOTION_ESTIMATOR_DESC {
     pub SizeRange: D3D12_VIDEO_SIZE_RANGE,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     pub pInputTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub InputSubresourceIndex: u32,
@@ -9222,7 +9222,7 @@ pub struct D3D12_VIDEO_MOTION_ESTIMATOR_INPUT {
     pub pHintMotionVectorHeap: core::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT {
     pub pMotionVectorHeap: core::mem::ManuallyDrop<Option<ID3D12VideoMotionVectorHeap>>,
 }
@@ -9240,7 +9240,7 @@ pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_FLAG_QUARTER_PEL: D3D12_
 pub const D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION_QUARTER_PEL: D3D12_VIDEO_MOTION_ESTIMATOR_VECTOR_PRECISION = 0;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC {
     pub NodeMask: u32,
     pub InputFormat: super::dxgi::DXGI_FORMAT,
@@ -9311,7 +9311,7 @@ pub struct D3D12_VIDEO_PROCESS_FILTER_RANGE {
 pub const D3D12_VIDEO_PROCESS_FILTER_SATURATION: D3D12_VIDEO_PROCESS_FILTER = 3;
 pub const D3D12_VIDEO_PROCESS_FILTER_STEREO_ADJUSTMENT: D3D12_VIDEO_PROCESS_FILTER = 7;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM {
     pub pTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Subresource: u32,
@@ -9379,7 +9379,7 @@ pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_DISCONTINUITY: D3D12_VIDEO
 pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_FRAME_REPEAT: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = 2;
 pub const D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAG_NONE: D3D12_VIDEO_PROCESS_INPUT_STREAM_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_INPUT_STREAM_RATE {
     pub OutputIndex: u32,
     pub InputFrameOrField: u32,
@@ -9402,14 +9402,14 @@ pub const D3D12_VIDEO_PROCESS_ORIENTATION_DEFAULT: D3D12_VIDEO_PROCESS_ORIENTATI
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_FLIP_HORIZONTAL: D3D12_VIDEO_PROCESS_ORIENTATION = 1;
 pub const D3D12_VIDEO_PROCESS_ORIENTATION_FLIP_VERTICAL: D3D12_VIDEO_PROCESS_ORIENTATION = 5;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM {
     pub pTexture2D: core::mem::ManuallyDrop<Option<ID3D12Resource>>,
     pub Subresource: u32,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS {
     pub OutputStream: [D3D12_VIDEO_PROCESS_OUTPUT_STREAM; 2],
     pub TargetRectangle: D3D12_RECT,
@@ -9439,7 +9439,7 @@ impl Default for D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_REFERENCE_SET {
     pub NumPastFrames: u32,
     pub ppPastFrames: *mut Option<ID3D12Resource>,
@@ -9459,7 +9459,7 @@ pub const D3D12_VIDEO_PROCESS_SUPPORT_FLAG_NONE: D3D12_VIDEO_PROCESS_SUPPORT_FLA
 pub const D3D12_VIDEO_PROCESS_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_PROCESS_SUPPORT_FLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_PROCESS_TRANSFORM {
     pub SourceRectangle: D3D12_RECT,
     pub DestinationRectangle: D3D12_RECT,
@@ -9470,14 +9470,14 @@ pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_NONE: D3D12_VIDEO_PROTECTE
 pub const D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAG_SUPPORTED: D3D12_VIDEO_PROTECTED_RESOURCE_SUPPORT_FLAGS = 1;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_SAMPLE {
     pub Width: u32,
     pub Height: u32,
     pub Format: D3D12_VIDEO_FORMAT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_SCALE_SUPPORT {
     pub OutputSizeRange: D3D12_VIDEO_SIZE_RANGE,
     pub Flags: D3D12_VIDEO_SCALE_SUPPORT_FLAGS,
@@ -9488,7 +9488,7 @@ pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_EVEN_DIMENSIONS_ONLY: D3D12_VIDEO_SCALE
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_NONE: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = 0;
 pub const D3D12_VIDEO_SCALE_SUPPORT_FLAG_POW2_ONLY: D3D12_VIDEO_SCALE_SUPPORT_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIDEO_SIZE_RANGE {
     pub MaxWidth: u32,
     pub MaxHeight: u32,
@@ -9510,13 +9510,13 @@ pub const D3D12_VIEWPORT_AND_SCISSORRECT_OBJECT_COUNT_PER_PIPELINE: u32 = 16;
 pub const D3D12_VIEWPORT_BOUNDS_MAX: u32 = 32767;
 pub const D3D12_VIEWPORT_BOUNDS_MIN: i32 = -32768;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_VIEW_INSTANCE_LOCATION {
     pub ViewportArrayIndex: u32,
     pub RenderTargetArrayIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_VIEW_INSTANCING_DESC {
     pub ViewInstanceCount: u32,
     pub pViewInstanceLocations: *const D3D12_VIEW_INSTANCE_LOCATION,
@@ -9555,7 +9555,7 @@ pub type D3D12_WORK_GRAPHS_TIER = i32;
 pub const D3D12_WORK_GRAPHS_TIER_1_0: D3D12_WORK_GRAPHS_TIER = 10;
 pub const D3D12_WORK_GRAPHS_TIER_NOT_SUPPORTED: D3D12_WORK_GRAPHS_TIER = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D12_WORK_GRAPH_DESC {
     pub ProgramName: windows_core::PCWSTR,
     pub Flags: D3D12_WORK_GRAPH_FLAGS,
@@ -9573,7 +9573,7 @@ pub type D3D12_WORK_GRAPH_FLAGS = u32;
 pub const D3D12_WORK_GRAPH_FLAG_INCLUDE_ALL_AVAILABLE_NODES: D3D12_WORK_GRAPH_FLAGS = 1;
 pub const D3D12_WORK_GRAPH_FLAG_NONE: D3D12_WORK_GRAPH_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_WORK_GRAPH_MEMORY_REQUIREMENTS {
     pub MinSizeInBytes: u64,
     pub MaxSizeInBytes: u64,
@@ -9584,7 +9584,7 @@ pub const D3D12_WRITEBUFFERIMMEDIATE_MODE_DEFAULT: D3D12_WRITEBUFFERIMMEDIATE_MO
 pub const D3D12_WRITEBUFFERIMMEDIATE_MODE_MARKER_IN: D3D12_WRITEBUFFERIMMEDIATE_MODE = 1;
 pub const D3D12_WRITEBUFFERIMMEDIATE_MODE_MARKER_OUT: D3D12_WRITEBUFFERIMMEDIATE_MODE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3D12_WRITEBUFFERIMMEDIATE_PARAMETER {
     pub Dest: D3D12_GPU_VIRTUAL_ADDRESS,
     pub Value: u32,
@@ -10890,14 +10890,14 @@ impl ID3D12Device {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateGraphicsPipelineState)(windows_core::Interface::as_raw(self), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateGraphicsPipelineState)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateComputePipelineState)(windows_core::Interface::as_raw(self), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateComputePipelineState)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn CreateCommandList<P2, P3, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P2, pinitialstate: P3) -> windows_core::Result<T>
     where
@@ -10930,7 +10930,7 @@ impl ID3D12Device {
     }
     pub unsafe fn CreateConstantBufferView(&self, pdesc: Option<*const D3D12_CONSTANT_BUFFER_VIEW_DESC>, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateConstantBufferView)(windows_core::Interface::as_raw(self), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateConstantBufferView)(windows_core::Interface::as_raw(self), pdesc.unwrap_or(core::mem::zeroed()) as _, destdescriptor);
         }
     }
     #[cfg(feature = "dxgi")]
@@ -10939,7 +10939,7 @@ impl ID3D12Device {
         P0: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateShaderResourceView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateShaderResourceView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, destdescriptor);
         }
     }
     #[cfg(feature = "dxgi")]
@@ -10949,7 +10949,7 @@ impl ID3D12Device {
         P1: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateUnorderedAccessView)(windows_core::Interface::as_raw(self), presource.param().abi(), pcounterresource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateUnorderedAccessView)(windows_core::Interface::as_raw(self), presource.param().abi(), pcounterresource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, destdescriptor);
         }
     }
     #[cfg(feature = "dxgi")]
@@ -10958,7 +10958,7 @@ impl ID3D12Device {
         P0: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateRenderTargetView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateRenderTargetView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, destdescriptor);
         }
     }
     #[cfg(feature = "dxgi")]
@@ -10967,12 +10967,12 @@ impl ID3D12Device {
         P0: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateDepthStencilView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateDepthStencilView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, destdescriptor);
         }
     }
     pub unsafe fn CreateSampler(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateSampler)(windows_core::Interface::as_raw(self), pdesc, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateSampler)(windows_core::Interface::as_raw(self), pdesc, destdescriptor);
         }
     }
     pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: Option<*const u32>, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: Option<*const u32>, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
@@ -10982,14 +10982,14 @@ impl ID3D12Device {
     }
     pub unsafe fn CopyDescriptorsSimple(&self, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
         unsafe {
-            (windows_core::Interface::vtable(self).CopyDescriptorsSimple)(windows_core::Interface::as_raw(self), numdescriptors, core::mem::transmute(destdescriptorrangestart), core::mem::transmute(srcdescriptorrangestart), descriptorheapstype);
+            (windows_core::Interface::vtable(self).CopyDescriptorsSimple)(windows_core::Interface::as_raw(self), numdescriptors, destdescriptorrangestart, srcdescriptorrangestart, descriptorheapstype);
         }
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn GetResourceAllocationInfo(&self, visiblemask: u32, presourcedescs: &[D3D12_RESOURCE_DESC]) -> D3D12_RESOURCE_ALLOCATION_INFO {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetResourceAllocationInfo)(windows_core::Interface::as_raw(self), &mut result__, visiblemask, presourcedescs.len().try_into().unwrap(), core::mem::transmute(presourcedescs.as_ptr()));
+            (windows_core::Interface::vtable(self).GetResourceAllocationInfo)(windows_core::Interface::as_raw(self), &mut result__, visiblemask, presourcedescs.len().try_into().unwrap(), presourcedescs.as_ptr());
             result__
         }
     }
@@ -11696,7 +11696,7 @@ windows_core::imp::interface_hierarchy!(ID3D12Device11, windows_core::IUnknown, 
 impl ID3D12Device11 {
     pub unsafe fn CreateSampler2(&self, pdesc: *const D3D12_SAMPLER_DESC2, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateSampler2)(windows_core::Interface::as_raw(self), pdesc, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateSampler2)(windows_core::Interface::as_raw(self), pdesc, destdescriptor);
         }
     }
 }
@@ -12469,7 +12469,7 @@ impl ID3D12Device8 {
         P1: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateSamplerFeedbackUnorderedAccessView)(windows_core::Interface::as_raw(self), ptargetedresource.param().abi(), pfeedbackresource.param().abi(), core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateSamplerFeedbackUnorderedAccessView)(windows_core::Interface::as_raw(self), ptargetedresource.param().abi(), pfeedbackresource.param().abi(), destdescriptor);
         }
     }
     #[cfg(feature = "dxgi")]
@@ -12682,7 +12682,7 @@ impl ID3D12DeviceConfiguration {
         }
     }
     pub unsafe fn GetEnabledExperimentalFeatures(&self, pguids: &mut [windows_core::GUID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEnabledExperimentalFeatures)(windows_core::Interface::as_raw(self), core::mem::transmute(pguids.as_ptr()), pguids.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetEnabledExperimentalFeatures)(windows_core::Interface::as_raw(self), pguids.as_mut_ptr(), pguids.len().try_into().unwrap()) }
     }
     #[cfg(feature = "d3dcommon")]
     pub unsafe fn SerializeVersionedRootSignature(&self, pdesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppresult: *mut Option<super::d3dcommon::ID3D10Blob>, pperror: *mut Option<super::d3dcommon::ID3D10Blob>) -> windows_core::HRESULT {
@@ -13849,7 +13849,7 @@ impl ID3D12GraphicsCommandList {
     #[cfg(feature = "dxgi")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: Option<*const D3D12_BOX>) {
         unsafe {
-            (windows_core::Interface::vtable(self).CopyTextureRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(pdst), dstx, dsty, dstz, core::mem::transmute(psrc), psrcbox.unwrap_or(core::mem::zeroed()) as _);
+            (windows_core::Interface::vtable(self).CopyTextureRegion)(windows_core::Interface::as_raw(self), pdst, dstx, dsty, dstz, psrc, psrcbox.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     pub unsafe fn CopyResource<P0, P1>(&self, pdstresource: P0, psrcresource: P1)
@@ -13888,18 +13888,18 @@ impl ID3D12GraphicsCommandList {
     }
     pub unsafe fn RSSetViewports(&self, pviewports: &[D3D12_VIEWPORT]) {
         unsafe {
-            (windows_core::Interface::vtable(self).RSSetViewports)(windows_core::Interface::as_raw(self), pviewports.len().try_into().unwrap(), core::mem::transmute(pviewports.as_ptr()));
+            (windows_core::Interface::vtable(self).RSSetViewports)(windows_core::Interface::as_raw(self), pviewports.len().try_into().unwrap(), pviewports.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn RSSetScissorRects(&self, prects: &[D3D12_RECT]) {
         unsafe {
-            (windows_core::Interface::vtable(self).RSSetScissorRects)(windows_core::Interface::as_raw(self), prects.len().try_into().unwrap(), core::mem::transmute(prects.as_ptr()));
+            (windows_core::Interface::vtable(self).RSSetScissorRects)(windows_core::Interface::as_raw(self), prects.len().try_into().unwrap(), prects.as_ptr());
         }
     }
     pub unsafe fn OMSetBlendFactor(&self, blendfactor: Option<&[f32; 4]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).OMSetBlendFactor)(windows_core::Interface::as_raw(self), core::mem::transmute(blendfactor.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).OMSetBlendFactor)(windows_core::Interface::as_raw(self), blendfactor.map_or(core::ptr::null(), |slice| slice.as_ptr()));
         }
     }
     pub unsafe fn OMSetStencilRef(&self, stencilref: u32) {
@@ -13917,7 +13917,7 @@ impl ID3D12GraphicsCommandList {
     }
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[D3D12_RESOURCE_BARRIER]) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr()));
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), pbarriers.as_ptr());
         }
     }
     pub unsafe fn ExecuteBundle<P0>(&self, pcommandlist: P0)
@@ -13951,12 +13951,12 @@ impl ID3D12GraphicsCommandList {
     }
     pub unsafe fn SetComputeRootDescriptorTable(&self, rootparameterindex: u32, basedescriptor: D3D12_GPU_DESCRIPTOR_HANDLE) {
         unsafe {
-            (windows_core::Interface::vtable(self).SetComputeRootDescriptorTable)(windows_core::Interface::as_raw(self), rootparameterindex, core::mem::transmute(basedescriptor));
+            (windows_core::Interface::vtable(self).SetComputeRootDescriptorTable)(windows_core::Interface::as_raw(self), rootparameterindex, basedescriptor);
         }
     }
     pub unsafe fn SetGraphicsRootDescriptorTable(&self, rootparameterindex: u32, basedescriptor: D3D12_GPU_DESCRIPTOR_HANDLE) {
         unsafe {
-            (windows_core::Interface::vtable(self).SetGraphicsRootDescriptorTable)(windows_core::Interface::as_raw(self), rootparameterindex, core::mem::transmute(basedescriptor));
+            (windows_core::Interface::vtable(self).SetGraphicsRootDescriptorTable)(windows_core::Interface::as_raw(self), rootparameterindex, basedescriptor);
         }
     }
     pub unsafe fn SetComputeRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
@@ -14017,12 +14017,12 @@ impl ID3D12GraphicsCommandList {
     }
     pub unsafe fn IASetVertexBuffers(&self, startslot: u32, pviews: Option<&[D3D12_VERTEX_BUFFER_VIEW]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).IASetVertexBuffers)(windows_core::Interface::as_raw(self), startslot, pviews.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pviews.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).IASetVertexBuffers)(windows_core::Interface::as_raw(self), startslot, pviews.map_or(0, |slice| slice.len().try_into().unwrap()), pviews.map_or(core::ptr::null(), |slice| slice.as_ptr()));
         }
     }
     pub unsafe fn SOSetTargets(&self, startslot: u32, pviews: Option<&[D3D12_STREAM_OUTPUT_BUFFER_VIEW]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).SOSetTargets)(windows_core::Interface::as_raw(self), startslot, pviews.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pviews.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).SOSetTargets)(windows_core::Interface::as_raw(self), startslot, pviews.map_or(0, |slice| slice.len().try_into().unwrap()), pviews.map_or(core::ptr::null(), |slice| slice.as_ptr()));
         }
     }
     pub unsafe fn OMSetRenderTargets(&self, numrendertargetdescriptors: u32, prendertargetdescriptors: Option<*const D3D12_CPU_DESCRIPTOR_HANDLE>, rtssinglehandletodescriptorrange: bool, pdepthstencildescriptor: Option<*const D3D12_CPU_DESCRIPTOR_HANDLE>) {
@@ -14033,13 +14033,13 @@ impl ID3D12GraphicsCommandList {
     #[cfg(feature = "windef")]
     pub unsafe fn ClearDepthStencilView(&self, depthstencilview: D3D12_CPU_DESCRIPTOR_HANDLE, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, prects: &[D3D12_RECT]) {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearDepthStencilView)(windows_core::Interface::as_raw(self), core::mem::transmute(depthstencilview), clearflags, depth, stencil, prects.len().try_into().unwrap(), core::mem::transmute(prects.as_ptr()));
+            (windows_core::Interface::vtable(self).ClearDepthStencilView)(windows_core::Interface::as_raw(self), depthstencilview, clearflags, depth, stencil, prects.len().try_into().unwrap(), prects.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: &[f32; 4], prects: &[D3D12_RECT]) {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), core::mem::transmute(rendertargetview), core::mem::transmute(colorrgba.as_ptr()), prects.len().try_into().unwrap(), core::mem::transmute(prects.as_ptr()));
+            (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), rendertargetview, colorrgba.as_ptr(), prects.len().try_into().unwrap(), prects.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
@@ -14048,7 +14048,7 @@ impl ID3D12GraphicsCommandList {
         P2: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewUint)(windows_core::Interface::as_raw(self), core::mem::transmute(viewgpuhandleincurrentheap), core::mem::transmute(viewcpuhandle), presource.param().abi(), core::mem::transmute(values.as_ptr()), prects.len().try_into().unwrap(), core::mem::transmute(prects.as_ptr()));
+            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewUint)(windows_core::Interface::as_raw(self), viewgpuhandleincurrentheap, viewcpuhandle, presource.param().abi(), values.as_ptr(), prects.len().try_into().unwrap(), prects.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
@@ -14057,7 +14057,7 @@ impl ID3D12GraphicsCommandList {
         P2: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewFloat)(windows_core::Interface::as_raw(self), core::mem::transmute(viewgpuhandleincurrentheap), core::mem::transmute(viewcpuhandle), presource.param().abi(), core::mem::transmute(values.as_ptr()), prects.len().try_into().unwrap(), core::mem::transmute(prects.as_ptr()));
+            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewFloat)(windows_core::Interface::as_raw(self), viewgpuhandleincurrentheap, viewcpuhandle, presource.param().abi(), values.as_ptr(), prects.len().try_into().unwrap(), prects.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
@@ -14940,7 +14940,7 @@ impl ID3D12GraphicsCommandList4 {
     #[cfg(all(feature = "dxgi", feature = "windef"))]
     pub unsafe fn BeginRenderPass(&self, prendertargets: Option<&[D3D12_RENDER_PASS_RENDER_TARGET_DESC]>, pdepthstencil: Option<*const D3D12_RENDER_PASS_DEPTH_STENCIL_DESC>, flags: D3D12_RENDER_PASS_FLAGS) {
         unsafe {
-            (windows_core::Interface::vtable(self).BeginRenderPass)(windows_core::Interface::as_raw(self), prendertargets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prendertargets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pdepthstencil.unwrap_or(core::mem::zeroed()) as _, flags);
+            (windows_core::Interface::vtable(self).BeginRenderPass)(windows_core::Interface::as_raw(self), prendertargets.map_or(0, |slice| slice.len().try_into().unwrap()), prendertargets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pdepthstencil.unwrap_or(core::mem::zeroed()) as _, flags);
         }
     }
     pub unsafe fn EndRenderPass(&self) {
@@ -14967,12 +14967,12 @@ impl ID3D12GraphicsCommandList4 {
     #[cfg(feature = "dxgi")]
     pub unsafe fn BuildRaytracingAccelerationStructure(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_DESC, ppostbuildinfodescs: Option<&[D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).BuildRaytracingAccelerationStructure)(windows_core::Interface::as_raw(self), pdesc, ppostbuildinfodescs.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppostbuildinfodescs.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).BuildRaytracingAccelerationStructure)(windows_core::Interface::as_raw(self), pdesc, ppostbuildinfodescs.map_or(0, |slice| slice.len().try_into().unwrap()), ppostbuildinfodescs.map_or(core::ptr::null(), |slice| slice.as_ptr()));
         }
     }
     pub unsafe fn EmitRaytracingAccelerationStructurePostbuildInfo(&self, pdesc: *const D3D12_RAYTRACING_ACCELERATION_STRUCTURE_POSTBUILD_INFO_DESC, psourceaccelerationstructuredata: &[D3D12_GPU_VIRTUAL_ADDRESS]) {
         unsafe {
-            (windows_core::Interface::vtable(self).EmitRaytracingAccelerationStructurePostbuildInfo)(windows_core::Interface::as_raw(self), pdesc, psourceaccelerationstructuredata.len().try_into().unwrap(), core::mem::transmute(psourceaccelerationstructuredata.as_ptr()));
+            (windows_core::Interface::vtable(self).EmitRaytracingAccelerationStructurePostbuildInfo)(windows_core::Interface::as_raw(self), pdesc, psourceaccelerationstructuredata.len().try_into().unwrap(), psourceaccelerationstructuredata.as_ptr());
         }
     }
     pub unsafe fn CopyRaytracingAccelerationStructure(&self, destaccelerationstructuredata: D3D12_GPU_VIRTUAL_ADDRESS, sourceaccelerationstructuredata: D3D12_GPU_VIRTUAL_ADDRESS, mode: D3D12_RAYTRACING_ACCELERATION_STRUCTURE_COPY_MODE) {
@@ -15217,7 +15217,7 @@ windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList7, windows_core
 impl ID3D12GraphicsCommandList7 {
     pub unsafe fn Barrier(&self, pbarriergroups: &[D3D12_BARRIER_GROUP]) {
         unsafe {
-            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr()));
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), pbarriergroups.as_ptr());
         }
     }
 }
@@ -16316,7 +16316,7 @@ impl ID3D12PipelineLibrary {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).LoadGraphicsPipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).LoadGraphicsPipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn LoadComputePipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> windows_core::Result<T>
     where
@@ -16324,13 +16324,13 @@ impl ID3D12PipelineLibrary {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).LoadComputePipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).LoadComputePipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn GetSerializedSize(&self) -> usize {
         unsafe { (windows_core::Interface::vtable(self).GetSerializedSize)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Serialize(&self, pdata: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_mut_ptr()), pdata.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -18233,7 +18233,7 @@ impl core::ops::Deref for ID3D12Tools1 {
 windows_core::imp::interface_hierarchy!(ID3D12Tools1, windows_core::IUnknown, ID3D12Tools);
 impl ID3D12Tools1 {
     pub unsafe fn ReserveGPUVARangesAtCreate(&self, pranges: &[D3D12_GPU_VIRTUAL_ADDRESS_RANGE]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReserveGPUVARangesAtCreate)(windows_core::Interface::as_raw(self), core::mem::transmute(pranges.as_ptr()), pranges.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).ReserveGPUVARangesAtCreate)(windows_core::Interface::as_raw(self), pranges.as_ptr(), pranges.len().try_into().unwrap()) }
     }
     pub unsafe fn ClearReservedGPUVARangesList(&self) {
         unsafe {
@@ -18405,7 +18405,7 @@ impl ID3D12VideoDecodeCommandList {
     }
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[D3D12_RESOURCE_BARRIER]) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr()));
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), pbarriers.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
@@ -18471,7 +18471,7 @@ impl ID3D12VideoDecodeCommandList {
         P0: windows_core::Param<ID3D12VideoDecoder>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).DecodeFrame)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+            (windows_core::Interface::vtable(self).DecodeFrame)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), poutputarguments, pinputarguments);
         }
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
@@ -18648,7 +18648,7 @@ impl ID3D12VideoDecodeCommandList1 {
         P0: windows_core::Param<ID3D12VideoDecoder>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).DecodeFrame1)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+            (windows_core::Interface::vtable(self).DecodeFrame1)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), poutputarguments, pinputarguments);
         }
     }
 }
@@ -18775,7 +18775,7 @@ windows_core::imp::interface_hierarchy!(ID3D12VideoDecodeCommandList3, windows_c
 impl ID3D12VideoDecodeCommandList3 {
     pub unsafe fn Barrier(&self, pbarriergroups: &[D3D12_BARRIER_GROUP]) {
         unsafe {
-            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr()));
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), pbarriergroups.as_ptr());
         }
     }
 }
@@ -19005,7 +19005,7 @@ impl ID3D12VideoDevice {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessor)(windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len().try_into().unwrap(), core::mem::transmute(pinputstreamdescs.as_ptr()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessor)(windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len().try_into().unwrap(), pinputstreamdescs.as_ptr(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -19177,7 +19177,7 @@ impl ID3D12VideoDevice2 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessor1)(windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len().try_into().unwrap(), core::mem::transmute(pinputstreamdescs.as_ptr()), pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateVideoProcessor1)(windows_core::Interface::as_raw(self), nodemask, poutputstreamdesc, pinputstreamdescs.len().try_into().unwrap(), pinputstreamdescs.as_ptr(), pprotectedresourcesession.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn CreateVideoExtensionCommand<P3, T>(&self, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: P3) -> windows_core::Result<T>
     where
@@ -19402,7 +19402,7 @@ impl ID3D12VideoEncodeCommandList {
     }
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[D3D12_RESOURCE_BARRIER]) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr()));
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), pbarriers.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
@@ -19467,12 +19467,12 @@ impl ID3D12VideoEncodeCommandList {
         P0: windows_core::Param<ID3D12VideoMotionEstimator>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).EstimateMotion)(windows_core::Interface::as_raw(self), pmotionestimator.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+            (windows_core::Interface::vtable(self).EstimateMotion)(windows_core::Interface::as_raw(self), pmotionestimator.param().abi(), poutputarguments, pinputarguments);
         }
     }
     pub unsafe fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResolveMotionVectorHeap)(windows_core::Interface::as_raw(self), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+            (windows_core::Interface::vtable(self).ResolveMotionVectorHeap)(windows_core::Interface::as_raw(self), poutputarguments, pinputarguments);
         }
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
@@ -19738,13 +19738,13 @@ impl ID3D12VideoEncodeCommandList2 {
         P1: windows_core::Param<ID3D12VideoEncoderHeap>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).EncodeFrame)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+            (windows_core::Interface::vtable(self).EncodeFrame)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), pinputarguments, poutputarguments);
         }
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+            (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata)(windows_core::Interface::as_raw(self), pinputarguments, poutputarguments);
         }
     }
 }
@@ -19804,7 +19804,7 @@ windows_core::imp::interface_hierarchy!(ID3D12VideoEncodeCommandList3, windows_c
 impl ID3D12VideoEncodeCommandList3 {
     pub unsafe fn Barrier(&self, pbarriergroups: &[D3D12_BARRIER_GROUP]) {
         unsafe {
-            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr()));
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), pbarriergroups.as_ptr());
         }
     }
 }
@@ -19851,19 +19851,19 @@ impl ID3D12VideoEncodeCommandList4 {
         P1: windows_core::Param<ID3D12VideoEncoderHeap1>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).EncodeFrame1)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+            (windows_core::Interface::vtable(self).EncodeFrame1)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), pinputarguments, poutputarguments);
         }
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn ResolveEncoderOutputMetadata1(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata1)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+            (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata1)(windows_core::Interface::as_raw(self), pinputarguments, poutputarguments);
         }
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn ResolveInputParamLayout(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResolveInputParamLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+            (windows_core::Interface::vtable(self).ResolveInputParamLayout)(windows_core::Interface::as_raw(self), pinputarguments, poutputarguments);
         }
     }
 }
@@ -19943,10 +19943,10 @@ impl ID3D12VideoEncoder {
         unsafe { (windows_core::Interface::vtable(self).GetCodec)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCodecProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(dstprofile)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCodecProfile)(windows_core::Interface::as_raw(self), dstprofile) }
     }
     pub unsafe fn GetCodecConfiguration(&self, dstcodecconfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCodecConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute(dstcodecconfig)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCodecConfiguration)(windows_core::Interface::as_raw(self), dstcodecconfig) }
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn GetInputFormat(&self) -> super::dxgi::DXGI_FORMAT {
@@ -20062,16 +20062,16 @@ impl ID3D12VideoEncoderHeap {
         unsafe { (windows_core::Interface::vtable(self).GetCodec)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCodecProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(dstprofile)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCodecProfile)(windows_core::Interface::as_raw(self), dstprofile) }
     }
     pub unsafe fn GetCodecLevel(&self, dstlevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCodecLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(dstlevel)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCodecLevel)(windows_core::Interface::as_raw(self), dstlevel) }
     }
     pub unsafe fn GetResolutionListCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetResolutionListCount)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetResolutionList(&self, presolutionlist: &mut [D3D12_VIDEO_ENCODER_PICTURE_RESOLUTION_DESC]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetResolutionList)(windows_core::Interface::as_raw(self), presolutionlist.len().try_into().unwrap(), core::mem::transmute(presolutionlist.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetResolutionList)(windows_core::Interface::as_raw(self), presolutionlist.len().try_into().unwrap(), presolutionlist.as_mut_ptr()) }
     }
 }
 #[repr(C)]
@@ -20408,7 +20408,7 @@ impl ID3D12VideoProcessCommandList {
     }
     pub unsafe fn ResourceBarrier(&self, pbarriers: &[D3D12_RESOURCE_BARRIER]) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), core::mem::transmute(pbarriers.as_ptr()));
+            (windows_core::Interface::vtable(self).ResourceBarrier)(windows_core::Interface::as_raw(self), pbarriers.len().try_into().unwrap(), pbarriers.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
@@ -20474,7 +20474,7 @@ impl ID3D12VideoProcessCommandList {
         P0: windows_core::Param<ID3D12VideoProcessor>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ProcessFrames)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), core::mem::transmute(poutputarguments), pinputarguments.len().try_into().unwrap(), core::mem::transmute(pinputarguments.as_ptr()));
+            (windows_core::Interface::vtable(self).ProcessFrames)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), poutputarguments, pinputarguments.len().try_into().unwrap(), pinputarguments.as_ptr());
         }
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
@@ -20651,7 +20651,7 @@ impl ID3D12VideoProcessCommandList1 {
         P0: windows_core::Param<ID3D12VideoProcessor>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ProcessFrames1)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), core::mem::transmute(poutputarguments), pinputarguments.len().try_into().unwrap(), core::mem::transmute(pinputarguments.as_ptr()));
+            (windows_core::Interface::vtable(self).ProcessFrames1)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), poutputarguments, pinputarguments.len().try_into().unwrap(), pinputarguments.as_ptr());
         }
     }
 }
@@ -20778,7 +20778,7 @@ windows_core::imp::interface_hierarchy!(ID3D12VideoProcessCommandList3, windows_
 impl ID3D12VideoProcessCommandList3 {
     pub unsafe fn Barrier(&self, pbarriergroups: &[D3D12_BARRIER_GROUP]) {
         unsafe {
-            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), core::mem::transmute(pbarriergroups.as_ptr()));
+            (windows_core::Interface::vtable(self).Barrier)(windows_core::Interface::as_raw(self), pbarriergroups.len().try_into().unwrap(), pbarriergroups.as_ptr());
         }
     }
 }
@@ -20826,7 +20826,7 @@ impl ID3D12VideoProcessor {
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn GetInputStreamDescs(&self, pinputstreamdescs: &mut [D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetInputStreamDescs)(windows_core::Interface::as_raw(self), pinputstreamdescs.len().try_into().unwrap(), core::mem::transmute(pinputstreamdescs.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetInputStreamDescs)(windows_core::Interface::as_raw(self), pinputstreamdescs.len().try_into().unwrap(), pinputstreamdescs.as_mut_ptr()) }
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn GetOutputStreamDesc(&self) -> D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC {
@@ -21046,7 +21046,7 @@ impl ID3D12WorkGraphProperties {
         }
     }
     pub unsafe fn GetNodeIndex(&self, workgraphindex: u32, nodeid: D3D12_NODE_ID) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).GetNodeIndex)(windows_core::Interface::as_raw(self), workgraphindex, core::mem::transmute(nodeid)) }
+        unsafe { (windows_core::Interface::vtable(self).GetNodeIndex)(windows_core::Interface::as_raw(self), workgraphindex, nodeid) }
     }
     pub unsafe fn GetNodeLocalRootArgumentsTableIndex(&self, workgraphindex: u32, nodeindex: u32) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetNodeLocalRootArgumentsTableIndex)(windows_core::Interface::as_raw(self), workgraphindex, nodeindex) }
@@ -21062,7 +21062,7 @@ impl ID3D12WorkGraphProperties {
         }
     }
     pub unsafe fn GetEntrypointIndex(&self, workgraphindex: u32, nodeid: D3D12_NODE_ID) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).GetEntrypointIndex)(windows_core::Interface::as_raw(self), workgraphindex, core::mem::transmute(nodeid)) }
+        unsafe { (windows_core::Interface::vtable(self).GetEntrypointIndex)(windows_core::Interface::as_raw(self), workgraphindex, nodeid) }
     }
     pub unsafe fn GetEntrypointRecordSizeInBytes(&self, workgraphindex: u32, entrypointindex: u32) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetEntrypointRecordSizeInBytes)(windows_core::Interface::as_raw(self), workgraphindex, entrypointindex) }

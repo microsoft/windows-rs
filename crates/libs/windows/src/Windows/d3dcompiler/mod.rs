@@ -40,7 +40,7 @@ pub unsafe fn D3DCompressShaders(pshaderdata: &[D3D_SHADER_DATA], uflags: u32) -
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DCompressShaders(unumshaders : u32, pshaderdata : *const D3D_SHADER_DATA, uflags : u32, ppcompresseddata : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        D3DCompressShaders(pshaderdata.len().try_into().unwrap(), core::mem::transmute(pshaderdata.as_ptr()), uflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        D3DCompressShaders(pshaderdata.len().try_into().unwrap(), pshaderdata.as_ptr(), uflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "d3dcommon")]
@@ -157,7 +157,7 @@ pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const core::ffi::c_void, srcd
 #[inline]
 pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, poffsets: Option<&mut [usize]>, ptotalinsts: Option<*mut usize>) -> windows_core::HRESULT {
     windows_core::link!("d3dcompiler_47.dll" "system" fn D3DGetTraceInstructionOffsets(psrcdata : *const core::ffi::c_void, srcdatasize : usize, flags : u32, startinstindex : usize, numinsts : usize, poffsets : *mut usize, ptotalinsts : *mut usize) -> windows_core::HRESULT);
-    unsafe { D3DGetTraceInstructionOffsets(psrcdata, srcdatasize, flags, startinstindex, poffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poffsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ptotalinsts.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { D3DGetTraceInstructionOffsets(psrcdata, srcdatasize, flags, startinstindex, poffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), poffsets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), ptotalinsts.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "d3d11")]
 #[inline]
@@ -305,7 +305,7 @@ pub const D3D_DISASM_INSTRUCTION_ONLY: u32 = 64;
 pub const D3D_DISASM_PRINT_HEX_LITERALS: u32 = 128;
 pub const D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3D_SHADER_DATA {
     pub pBytecode: *const core::ffi::c_void,
     pub BytecodeLength: usize,

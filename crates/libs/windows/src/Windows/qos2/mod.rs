@@ -102,7 +102,7 @@ pub const QOSUseNonConformantMarkings: QOS_SHAPING = 2;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct QOS_FLOWID(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_FLOWRATE_OUTGOING {
     pub Bandwidth: u64,
     pub ShapingBehavior: QOS_SHAPING,
@@ -110,7 +110,7 @@ pub struct QOS_FLOWRATE_OUTGOING {
 }
 pub type QOS_FLOWRATE_REASON = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_FLOW_FUNDAMENTALS {
     pub BottleneckBandwidthSet: windows_core::BOOL,
     pub BottleneckBandwidth: u64,
@@ -123,7 +123,7 @@ pub const QOS_NON_ADAPTIVE_FLOW: u32 = 2;
 pub type QOS_NOTIFY_FLOW = i32;
 pub const QOS_OUTGOING_DEFAULT_MINIMUM_BANDWIDTH: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_PACKET_PRIORITY {
     pub ConformantDSCPValue: u32,
     pub NonConformantDSCPValue: u32,
@@ -136,7 +136,7 @@ pub type QOS_SET_FLOW = i32;
 pub type QOS_SHAPING = i32;
 pub type QOS_TRAFFIC_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOS_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,

@@ -59,7 +59,7 @@ pub unsafe fn KsCreateTopologyNode2(parenthandle: super::winnt::HANDLE, nodecrea
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GUID_NULL(pub u8);
 pub const IOCTL_KS_DISABLE_EVENT: u32 = 3080203;
 pub const IOCTL_KS_ENABLE_EVENT: u32 = 3080199;
@@ -142,7 +142,7 @@ pub const KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY: u32 = 2;
 pub const KSALLOCATOR_REQUIREMENTF_SYSTEM_MEMORY_CUSTOM_ALLOCATION: u32 = 16;
 pub const KSALL_NODES: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSATTRIBUTE {
     pub Size: u32,
     pub Flags: u32,
@@ -150,69 +150,69 @@ pub struct KSATTRIBUTE {
 }
 pub const KSATTRIBUTE_REQUIRED: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_BRIDGE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_CAPTURE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_CLOCK(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_COMMUNICATIONSTRANSFORM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_DATACOMPRESSOR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_DATADECOMPRESSOR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_DATATRANSFORM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_FILESYSTEM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_INTERFACETRANSFORM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_MEDIUMTRANSFORM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_MIXER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_NETWORK_CAMERA(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_PROXY(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_QUALITY(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_RENDER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_SENSOR_CAMERA(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_SENSOR_GROUP(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_SPLITTER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCATEGORY_VIDEO_CAMERA(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCLOCK_CREATE {
     pub CreateFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCOMPONENTID {
     pub Manufacturer: windows_core::GUID,
     pub Product: windows_core::GUID,
@@ -222,7 +222,7 @@ pub struct KSCOMPONENTID {
     pub Revision: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSCORRELATED_TIME {
     pub Time: i64,
     pub SystemTime: i64,
@@ -232,20 +232,20 @@ pub const KSDATAFORMAT_ATTRIBUTES: u32 = 2;
 pub const KSDATAFORMAT_BIT_ATTRIBUTES: u32 = 1;
 pub const KSDATAFORMAT_BIT_TEMPORAL_COMPRESSION: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_FILEHANDLE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_FILENAME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SPECIFIER_NONE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_NONE(pub u8);
 pub const KSDATAFORMAT_TEMPORAL_COMPRESSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_TYPE_STREAM(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -259,7 +259,7 @@ impl Default for KSDATARANGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATARANGE_0 {
     pub FormatSize: u32,
     pub Flags: u32,
@@ -275,7 +275,7 @@ pub const KSDATARANGE_BIT_REQUIRED_ATTRIBUTES: u32 = 2;
 pub const KSDATARANGE_REQUIRED_ATTRIBUTES: u32 = 4;
 pub type KSDEGRADE = KSIDENTIFIER;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDEGRADESETID_Standard(pub u8);
 pub type KSDEGRADE_STANDARD = i32;
 pub const KSDEGRADE_STANDARD_COMPUTATION: KSDEGRADE_STANDARD = 2;
@@ -286,7 +286,7 @@ pub type KSDEVICE_THERMAL_STATE = i32;
 pub const KSDEVICE_THERMAL_STATE_HIGH: KSDEVICE_THERMAL_STATE = 1;
 pub const KSDEVICE_THERMAL_STATE_LOW: KSDEVICE_THERMAL_STATE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSERROR {
     pub Context: *mut core::ffi::c_void,
     pub Status: u32,
@@ -326,7 +326,7 @@ impl Default for KSEVENTDATA_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSEVENTDATA_0_0 {
     pub Event: super::winnt::HANDLE,
     pub Reserved: [usize; 2],
@@ -339,7 +339,7 @@ impl Default for KSEVENTDATA_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTDATA_0_1 {
     pub Semaphore: super::winnt::HANDLE,
     pub Reserved: u32,
@@ -347,7 +347,7 @@ pub struct KSEVENTDATA_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSEVENTDATA_0_2 {
     pub Unused: *mut core::ffi::c_void,
     pub Alignment: [isize; 2],
@@ -361,22 +361,22 @@ impl Default for KSEVENTDATA_0_2 {
 pub const KSEVENTF_EVENT_HANDLE: u32 = 1;
 pub const KSEVENTF_SEMAPHORE_HANDLE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_Clock(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_Connection(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_Device(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_PinCapsChange(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_StreamAllocator(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSEVENTSETID_VolumeLimit(pub u8);
 pub const KSEVENT_CLOCK_INTERVAL_MARK: KSEVENT_CLOCK_POSITION = 0;
 pub type KSEVENT_CLOCK_POSITION = i32;
@@ -461,7 +461,7 @@ impl Default for KSE_PIN {
 }
 pub const KSFILTER_NODE: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSFRAMETIME {
     pub Duration: i64,
     pub FrameFlags: u32,
@@ -490,7 +490,7 @@ impl Default for KSIDENTIFIER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSIDENTIFIER_0_0 {
     pub Set: windows_core::GUID,
     pub Id: u32,
@@ -498,10 +498,10 @@ pub struct KSIDENTIFIER_0_0 {
 }
 pub const KSINSTANCE_INDETERMINATE: u32 = 4294967295;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSINTERFACESETID_FileIo(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSINTERFACESETID_Standard(pub u8);
 pub type KSINTERFACE_FILEIO = i32;
 pub const KSINTERFACE_FILEIO_STREAMING: KSINTERFACE_FILEIO = 0;
@@ -510,37 +510,37 @@ pub const KSINTERFACE_STANDARD_CONTROL: KSINTERFACE_STANDARD = 2;
 pub const KSINTERFACE_STANDARD_LOOPED_STREAMING: KSINTERFACE_STANDARD = 1;
 pub const KSINTERFACE_STANDARD_STREAMING: KSINTERFACE_STANDARD = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSINTERVAL {
     pub TimeBase: i64,
     pub Interval: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMEDIUMSETID_Standard(pub u8);
 pub const KSMEDIUM_STANDARD_DEVIO: u32 = 0;
 pub const KSMEDIUM_TYPE_ANYINSTANCE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMEMORY_TYPE_DEVICE_UNKNOWN(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMEMORY_TYPE_KERNEL_NONPAGED(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMEMORY_TYPE_KERNEL_PAGED(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMEMORY_TYPE_SYSTEM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMEMORY_TYPE_USER(pub u8);
 pub type KSMETHOD = KSIDENTIFIER;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHODSETID_StreamAllocator(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMETHODSETID_StreamIo(pub u8);
 pub type KSMETHOD_STREAMALLOCATOR = i32;
 pub const KSMETHOD_STREAMALLOCATOR_ALLOC: KSMETHOD_STREAMALLOCATOR = 0;
@@ -558,37 +558,37 @@ pub const KSMETHOD_TYPE_SOURCE: u32 = 4;
 pub const KSMETHOD_TYPE_TOPOLOGY: u32 = 268435456;
 pub const KSMETHOD_TYPE_WRITE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMFT_CATEGORY_AUDIO_DECODER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMFT_CATEGORY_AUDIO_EFFECT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMFT_CATEGORY_AUDIO_ENCODER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMFT_CATEGORY_DEMULTIPLEXER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMFT_CATEGORY_MULTIPLEXER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMFT_CATEGORY_OTHER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMFT_CATEGORY_VIDEO_DECODER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMFT_CATEGORY_VIDEO_EFFECT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMFT_CATEGORY_VIDEO_ENCODER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMFT_CATEGORY_VIDEO_PROCESSOR(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSMULTIPLE_ITEM {
     pub Size: u32,
     pub Count: u32,
@@ -606,28 +606,28 @@ impl Default for KSM_NODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNAME_Allocator(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNAME_Clock(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNAME_Filter(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNAME_Pin(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNAME_TopologyNode(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSNODE_CREATE {
     pub CreateFlags: u32,
     pub Node: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPIN_CINSTANCES {
     pub PossibleCount: u32,
     pub CurrentCount: u32,
@@ -660,7 +660,7 @@ pub const KSPIN_DATAFLOW_OUT: KSPIN_DATAFLOW = 2;
 pub type KSPIN_INTERFACE = KSIDENTIFIER;
 pub type KSPIN_MDL_CACHING_EVENT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSPIN_MDL_CACHING_NOTIFICATION {
     pub Event: KSPIN_MDL_CACHING_EVENT,
     pub Buffer: *mut core::ffi::c_void,
@@ -671,7 +671,7 @@ impl Default for KSPIN_MDL_CACHING_NOTIFICATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPIN_MDL_CACHING_NOTIFICATION32 {
     pub Event: KSPIN_MDL_CACHING_EVENT,
     pub Buffer: u32,
@@ -682,7 +682,7 @@ pub const KSPIN_MDL_CACHING_NOTIFY_CLEANALL_WAIT: KSPIN_MDL_CACHING_EVENT = 1;
 pub const KSPIN_MDL_CACHING_NOTIFY_CLEANUP: KSPIN_MDL_CACHING_EVENT = 0;
 pub type KSPIN_MEDIUM = KSIDENTIFIER;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSPIN_PHYSICALCONNECTION {
     pub Size: u32,
     pub Pin: u32,
@@ -695,7 +695,7 @@ impl Default for KSPIN_PHYSICALCONNECTION {
 }
 pub type KSPPROPERTY_ALLOCATOR_MDLCACHING = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPRIORITY {
     pub PriorityClass: u32,
     pub PrioritySubClass: u32,
@@ -718,13 +718,13 @@ impl Default for KSPROPERTY_BOUNDS_LONG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BOUNDS_LONG_0 {
     pub SignedMinimum: i32,
     pub SignedMaximum: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BOUNDS_LONG_1 {
     pub UnsignedMinimum: u32,
     pub UnsignedMaximum: u32,
@@ -744,14 +744,14 @@ impl Default for KSPROPERTY_BOUNDS_LONGLONG {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BOUNDS_LONGLONG_0 {
     pub SignedMinimum: i64,
     pub SignedMaximum: i64,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_BOUNDS_LONGLONG_1 {
     pub UnsignedMinimum: super::winnt::DWORDLONG,
     pub UnsignedMaximum: super::winnt::DWORDLONG,
@@ -789,7 +789,7 @@ impl Default for KSPROPERTY_DESCRIPTION {
 pub type KSPROPERTY_GENERAL = i32;
 pub const KSPROPERTY_GENERAL_COMPONENTID: KSPROPERTY_GENERAL = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_MEDIAAVAILABLE {
     pub Earliest: i64,
     pub Latest: i64,
@@ -806,7 +806,7 @@ pub const KSPROPERTY_MEDIASEEKING_PREROLL: KSPROPERTY_MEDIASEEKING = 8;
 pub const KSPROPERTY_MEDIASEEKING_STOPPOSITION: KSPROPERTY_MEDIASEEKING = 4;
 pub const KSPROPERTY_MEDIASEEKING_TIMEFORMAT: KSPROPERTY_MEDIASEEKING = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_MEMBERSHEADER {
     pub MembersFlags: u32,
     pub MembersSize: u32,
@@ -841,7 +841,7 @@ pub const KSPROPERTY_PIN_PHYSICALCONNECTION: KSPROPERTY_PIN = 10;
 pub const KSPROPERTY_PIN_PROPOSEDATAFORMAT: KSPROPERTY_PIN = 14;
 pub const KSPROPERTY_PIN_PROPOSEDATAFORMAT2: KSPROPERTY_PIN = 15;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPERTY_POSITIONS {
     pub Current: i64,
     pub Stop: i64,
@@ -930,43 +930,43 @@ pub const KSPROPERTY_TYPE_TOPOLOGY: u32 = 268435456;
 pub const KSPROPERTY_TYPE_UNSERIALIZERAW: u32 = 16384;
 pub const KSPROPERTY_TYPE_UNSERIALIZESET: u32 = 4096;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Clock(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Connection(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_General(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_MediaSeeking(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_MemoryTransport(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Pin(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_PinMDLCacheClearProp(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Quality(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Stream(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_StreamAllocator(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_StreamInterface(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPSETID_Topology(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSPROPTYPESETID_General(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1017,7 +1017,7 @@ impl Default for KSP_TIMEFORMAT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSQUALITY {
     pub Context: *mut core::ffi::c_void,
     pub Proportion: u32,
@@ -1030,7 +1030,7 @@ impl Default for KSQUALITY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSQUALITY_MANAGER {
     pub QualityManager: super::winnt::HANDLE,
     pub Context: *mut core::ffi::c_void,
@@ -1118,7 +1118,7 @@ pub type KSRESET = i32;
 pub const KSRESET_BEGIN: KSRESET = 0;
 pub const KSRESET_END: KSRESET = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSRESOLUTION {
     pub Granularity: i64,
     pub Error: i64,
@@ -1154,7 +1154,7 @@ impl Default for KSSTREAMALLOCATOR_STATUS_EX {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSSTREAM_HEADER {
     pub Size: u32,
     pub TypeSpecificFlags: u32,
@@ -1173,7 +1173,7 @@ impl Default for KSSTREAM_HEADER {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSSTREAM_HEADER {
     pub Size: u32,
     pub TypeSpecificFlags: u32,
@@ -1211,7 +1211,7 @@ pub const KSSTREAM_HEADER_OPTIONSF_TYPECHANGED: u32 = 8;
 pub const KSSTREAM_HEADER_OPTIONSF_VRAM_DATA_TRANSFER: u32 = 2048;
 pub const KSSTREAM_HEADER_TRACK_COMPLETION_NUMBERS: u32 = 131072;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSSTREAM_METADATA_INFO {
     pub BufferSize: u32,
     pub UsedSize: u32,
@@ -1262,7 +1262,7 @@ impl Default for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
     pub _bitfield: u16,
 }
@@ -1274,29 +1274,29 @@ pub const KSSTRING_Filter: windows_core::PCWSTR = windows_core::w!("{9B365890-16
 pub const KSSTRING_Pin: windows_core::PCWSTR = windows_core::w!("{146F1A80-4791-11D0-A5D6-28DB04C10000}");
 pub const KSSTRING_TopologyNode: windows_core::PCWSTR = windows_core::w!("{0621061A-EE75-11D0-B915-00A0C9223196}");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTIME {
     pub Time: i64,
     pub Numerator: u32,
     pub Denominator: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTIME_FORMAT_BYTE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTIME_FORMAT_FIELD(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTIME_FORMAT_FRAME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTIME_FORMAT_MEDIA_TIME(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTIME_FORMAT_SAMPLE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSTOPOLOGY {
     pub CategoriesCount: u32,
     pub Categories: *const windows_core::GUID,
@@ -1313,7 +1313,7 @@ impl Default for KSTOPOLOGY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSTOPOLOGY_CONNECTION {
     pub FromNode: u32,
     pub FromNodePin: u32,
@@ -1321,7 +1321,7 @@ pub struct KSTOPOLOGY_CONNECTION {
     pub ToNodePin: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_COMPRESSION {
     pub RatioNumerator: u32,
     pub RatioDenominator: u32,
@@ -1358,14 +1358,14 @@ impl Default for KS_FRAMING_ITEM_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_FRAMING_RANGE {
     pub MinFrameSize: u32,
     pub MaxFrameSize: u32,
     pub Stepping: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_FRAMING_RANGE_WEIGHTED {
     pub Range: KS_FRAMING_RANGE,
     pub InPlaceWeight: u32,
@@ -1399,7 +1399,7 @@ impl Default for MF_MDL_SHARED_PAYLOAD_KEY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_MDL_SHARED_PAYLOAD_KEY_0 {
     pub pHandle: u32,
     pub fHandle: u32,

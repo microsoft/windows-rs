@@ -86,7 +86,7 @@ pub type CLFS_LOG_ID = windows_core::GUID;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CLFS_LOG_INFORMATION_CLASS(pub CLS_LOG_INFORMATION_CLASS);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLFS_LOG_NAME_INFORMATION {
     pub NameLengthInBytes: u16,
     pub Name: [u16; 1],
@@ -100,13 +100,13 @@ pub type CLFS_LSN = CLS_LSN;
 pub const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1;
 pub const CLFS_MARSHALLING_FLAG_NONE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_NODE_ID {
     pub cType: u32,
     pub cbNode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_PHYSICAL_LSN_INFORMATION {
     pub StreamIdentifier: u8,
     pub VirtualLsn: CLFS_LSN,
@@ -119,20 +119,20 @@ pub type CLFS_SCAN_CONTEXT = CLS_SCAN_CONTEXT;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CLFS_SCAN_MODE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_STREAM_ID_INFORMATION {
     pub StreamIdentifier: u8,
 }
 pub type CLFS_WRITE_ENTRY = CLS_WRITE_ENTRY;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLS_ARCHIVE_DESCRIPTOR {
     pub coffLow: u64,
     pub coffHigh: u64,
     pub infoContainer: CLS_CONTAINER_INFORMATION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLS_CONTAINER_INFORMATION {
     pub FileAttributes: u32,
     pub CreationTime: u64,
@@ -156,7 +156,7 @@ impl Default for CLS_CONTAINER_INFORMATION {
 pub struct CLS_CONTAINER_STATE(pub u32);
 pub type CLS_CONTEXT_MODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLS_INFORMATION {
     pub TotalAvailable: i64,
     pub CurrentAvailable: i64,
@@ -178,7 +178,7 @@ pub struct CLS_INFORMATION {
 }
 pub type CLS_IOSTATS_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLS_IO_STATISTICS {
     pub hdrIoStats: CLS_IO_STATISTICS_HEADER,
     pub cFlush: u64,
@@ -187,7 +187,7 @@ pub struct CLS_IO_STATISTICS {
     pub cbMetaFlush: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLS_IO_STATISTICS_HEADER {
     pub ubMajorVersion: u8,
     pub ubMinorVersion: u8,
@@ -197,7 +197,7 @@ pub struct CLS_IO_STATISTICS_HEADER {
 }
 pub type CLS_LOG_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLS_LSN {
     pub Internal: u64,
 }
@@ -207,7 +207,7 @@ pub struct CLS_RECORD_TYPE(pub u8);
 #[repr(C, align(8))]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
     pub hLog: super::winnt::HANDLE,
@@ -220,7 +220,7 @@ pub struct CLS_SCAN_CONTEXT {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
     pub hLog: super::winnt::HANDLE,
@@ -231,7 +231,7 @@ pub struct CLS_SCAN_CONTEXT {
     pub pinfoContainer: PCLS_CONTAINER_INFORMATION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLS_WRITE_ENTRY {
     pub Buffer: *mut core::ffi::c_void,
     pub ByteLength: u32,

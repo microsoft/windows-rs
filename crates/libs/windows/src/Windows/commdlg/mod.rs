@@ -45,7 +45,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("comdlg32.dll" "system" fn GetFileTitleA(param0 : windows_core::PCSTR, buf : windows_core::PSTR, cchsize : u16) -> i16);
-    unsafe { GetFileTitleA(param0.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { GetFileTitleA(param0.param().abi(), core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn GetFileTitleW<P0>(param0: P0, buf: &mut [u16]) -> i16
@@ -53,7 +53,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("comdlg32.dll" "system" fn GetFileTitleW(param0 : windows_core::PCWSTR, buf : windows_core::PWSTR, cchsize : u16) -> i16);
-    unsafe { GetFileTitleW(param0.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { GetFileTitleW(param0.param().abi(), core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
@@ -101,13 +101,13 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> windows_core::BOOL {
 #[inline]
 pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> windows_core::HRESULT {
     windows_core::link!("comdlg32.dll" "system" fn PrintDlgExA(ppd : *mut PRINTDLGEXA) -> windows_core::HRESULT);
-    unsafe { PrintDlgExA(core::mem::transmute(ppd)) }
+    unsafe { PrintDlgExA(ppd) }
 }
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> windows_core::HRESULT {
     windows_core::link!("comdlg32.dll" "system" fn PrintDlgExW(ppd : *mut PRINTDLGEXW) -> windows_core::HRESULT);
-    unsafe { PrintDlgExW(core::mem::transmute(ppd)) }
+    unsafe { PrintDlgExW(ppd) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[inline]
@@ -382,7 +382,7 @@ pub struct DEVNAMES {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVNAMES {
     pub wDriverOffset: u16,
     pub wDeviceOffset: u16,
@@ -728,7 +728,7 @@ pub struct OFNOTIFYA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFNOTIFYA {
     pub hdr: super::winuser::NMHDR,
     pub lpOFN: LPOPENFILENAMEA,
@@ -756,7 +756,7 @@ impl Default for OFNOTIFYEXA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFNOTIFYEXA {
     pub hdr: super::winuser::NMHDR,
     pub lpOFN: LPOPENFILENAMEA,
@@ -790,7 +790,7 @@ impl Default for OFNOTIFYEXW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OFNOTIFYEXW {
     pub hdr: super::winuser::NMHDR,
     pub lpOFN: LPOPENFILENAMEW,
@@ -816,7 +816,7 @@ pub struct OFNOTIFYW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winuser"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OFNOTIFYW {
     pub hdr: super::winuser::NMHDR,
     pub lpOFN: LPOPENFILENAMEW,
@@ -1328,7 +1328,7 @@ impl Default for PRINTDLGEXA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PRINTDLGEXA {
     pub lStructSize: u32,
     pub hwndOwner: super::windef::HWND,
@@ -1395,7 +1395,7 @@ impl Default for PRINTDLGEXW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PRINTDLGEXW {
     pub lStructSize: u32,
     pub hwndOwner: super::windef::HWND,
@@ -1486,7 +1486,7 @@ pub struct PRINTPAGERANGE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PRINTPAGERANGE {
     pub nFromPage: u32,
     pub nToPage: u32,

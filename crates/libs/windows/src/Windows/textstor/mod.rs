@@ -323,7 +323,7 @@ impl ITextStoreACP {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(paattrvals), pcfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, paattrvals, pcfetched as _) }
     }
     pub unsafe fn GetEndACP(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -811,7 +811,7 @@ impl ITextStoreACP2 {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(paattrvals), pcfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, paattrvals, pcfetched as _) }
     }
     pub unsafe fn GetEndACP(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -1327,10 +1327,10 @@ impl ITextStoreAnchor {
         unsafe { (windows_core::Interface::vtable(self).QueryInsert)(windows_core::Interface::as_raw(self), pateststart.param().abi(), patestend.param().abi(), cch, core::mem::transmute(pparesultstart), core::mem::transmute(pparesultend)) }
     }
     pub unsafe fn GetSelection(&self, ulindex: u32, ulcount: u32, pselection: *mut TS_SELECTION_ANCHOR, pcfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), ulindex, ulcount, core::mem::transmute(pselection), pcfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), ulindex, ulcount, pselection, pcfetched as _) }
     }
     pub unsafe fn SetSelection(&self, ulcount: u32, pselection: *const TS_SELECTION_ANCHOR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(pselection)) }
+        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), ulcount, pselection) }
     }
     pub unsafe fn GetText<P1, P2>(&self, dwflags: u32, pastart: P1, paend: P2, pchtext: *mut u16, cchreq: u32, pcch: *mut u32, fupdateanchor: bool) -> windows_core::HRESULT
     where
@@ -1398,7 +1398,7 @@ impl ITextStoreAnchor {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RetrieveRequestedAttrs(&self, ulcount: u32, paattrvals: *mut TS_ATTRVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(paattrvals), pcfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).RetrieveRequestedAttrs)(windows_core::Interface::as_raw(self), ulcount, paattrvals, pcfetched as _) }
     }
     pub unsafe fn GetStart(&self) -> windows_core::Result<IAnchor> {
         unsafe {
@@ -2012,7 +2012,7 @@ pub const TS_RT_HIDDEN: TsRunType = 1;
 pub const TS_RT_OPAQUE: TsRunType = 2;
 pub const TS_RT_PLAIN: TsRunType = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TS_RUNINFO {
     pub uCount: u32,
     pub r#type: TsRunType,
@@ -2031,20 +2031,20 @@ pub const TS_SD_TKBAUTOCORRECTENABLE: u32 = 8;
 pub const TS_SD_TKBPREDICTIONENABLE: u32 = 16;
 pub const TS_SD_UIINTEGRATIONENABLE: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TS_SELECTIONSTYLE {
     pub ase: TsActiveSelEnd,
     pub fInterimChar: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TS_SELECTION_ACP {
     pub acpStart: i32,
     pub acpEnd: i32,
     pub style: TS_SELECTIONSTYLE,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct TS_SELECTION_ANCHOR {
     pub paStart: core::mem::ManuallyDrop<Option<IAnchor>>,
     pub paEnd: core::mem::ManuallyDrop<Option<IAnchor>>,
@@ -2063,7 +2063,7 @@ pub const TS_SS_TKBPREDICTIONENABLE: u32 = 32;
 pub const TS_SS_TRANSITORY: u32 = 4;
 pub const TS_SS_UWPCONTROL: u32 = 64;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TS_STATUS {
     pub dwDynamicFlags: u32,
     pub dwStaticFlags: u32,
@@ -2072,7 +2072,7 @@ pub const TS_ST_CORRECTION: u32 = 1;
 pub const TS_S_ASYNC: u32 = 262912;
 pub const TS_TC_CORRECTION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TS_TEXTCHANGE {
     pub acpStart: i32,
     pub acpOldEnd: i32,

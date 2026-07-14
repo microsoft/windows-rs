@@ -566,7 +566,7 @@ impl IMFSourceReader {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetCurrentPosition(&self, guidtimeformat: *const windows_core::GUID, varposition: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCurrentPosition)(windows_core::Interface::as_raw(self), guidtimeformat, core::mem::transmute(varposition)) }
+        unsafe { (windows_core::Interface::vtable(self).SetCurrentPosition)(windows_core::Interface::as_raw(self), guidtimeformat, varposition) }
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn ReadSample(&self, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: Option<*mut u32>, pdwstreamflags: Option<*mut u32>, plltimestamp: Option<*mut i64>, ppsample: Option<*mut Option<super::mfobjects::IMFSample>>) -> windows_core::HRESULT {
@@ -979,7 +979,7 @@ pub const MF_SINK_WRITER_ALL_STREAMS: i32 = -2;
 pub const MF_SINK_WRITER_INVALID_STREAM_INDEX: i32 = -1;
 pub const MF_SINK_WRITER_MEDIASINK: i32 = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MF_SINK_WRITER_STATISTICS {
     pub cb: u32,
     pub llLastTimestampReceived: i64,

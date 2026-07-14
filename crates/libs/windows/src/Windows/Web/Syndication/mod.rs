@@ -1075,7 +1075,7 @@ pub struct ISyndicationTextFactory_Vtbl {
     pub CreateSyndicationTextEx: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, SyndicationTextType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RetrievalProgress {
     pub BytesRetrieved: u32,
     pub TotalBytesToRetrieve: u32,
@@ -2945,7 +2945,7 @@ impl windows_core::RuntimeType for SyndicationTextType {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.Web.Syndication.SyndicationTextType");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TransferProgress {
     pub BytesSent: u32,
     pub TotalBytesToSend: u32,

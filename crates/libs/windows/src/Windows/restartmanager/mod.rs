@@ -21,7 +21,7 @@ pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
 #[inline]
 pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: Option<&mut [u8]>, cbfilterbufneeded: *mut u32) -> u32 {
     windows_core::link!("rstrtmgr.dll" "system" fn RmGetFilterList(dwsessionhandle : u32, pbfilterbuf : *mut u8, cbfilterbuf : u32, cbfilterbufneeded : *mut u32) -> u32);
-    unsafe { RmGetFilterList(dwsessionhandle, core::mem::transmute(pbfilterbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbfilterbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cbfilterbufneeded as _) }
+    unsafe { RmGetFilterList(dwsessionhandle, pbfilterbuf.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbfilterbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cbfilterbufneeded as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -38,7 +38,7 @@ pub unsafe fn RmJoinSession(psessionhandle: *mut u32, strsessionkey: *const u16)
 #[inline]
 pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: Option<&[windows_core::PCWSTR]>, rgapplications: Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: Option<&[windows_core::PCWSTR]>) -> u32 {
     windows_core::link!("rstrtmgr.dll" "system" fn RmRegisterResources(dwsessionhandle : u32, nfiles : u32, rgsfilenames : *const windows_core::PCWSTR, napplications : u32, rgapplications : *const RM_UNIQUE_PROCESS, nservices : u32, rgsservicenames : *const windows_core::PCWSTR) -> u32);
-    unsafe { RmRegisterResources(dwsessionhandle, rgsfilenames.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgsfilenames.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgapplications.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgapplications.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgsservicenames.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgsservicenames.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { RmRegisterResources(dwsessionhandle, rgsfilenames.map_or(0, |slice| slice.len().try_into().unwrap()), rgsfilenames.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgapplications.map_or(0, |slice| slice.len().try_into().unwrap()), rgapplications.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgsservicenames.map_or(0, |slice| slice.len().try_into().unwrap()), rgsservicenames.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -111,7 +111,7 @@ pub const RM_INVALID_PROCESS: i32 = -1;
 pub const RM_INVALID_TS_SESSION: i32 = -1;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RM_PROCESS_INFO {
     pub Process: RM_UNIQUE_PROCESS,
     pub strAppName: [u16; 256],
@@ -131,7 +131,7 @@ pub type RM_REBOOT_REASON = i32;
 pub type RM_SHUTDOWN_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RM_UNIQUE_PROCESS {
     pub dwProcessId: u32,
     pub ProcessStartTime: super::minwindef::FILETIME,

@@ -375,7 +375,7 @@ pub unsafe fn RtlCompareUnicodeString(string1: *const super::ntsecapi::UNICODE_S
 #[inline]
 pub unsafe fn RtlCompareUnicodeStrings(string1: &[u16], string2: &[u16], caseinsensitive: bool) -> i32 {
     windows_core::link!("ntdll.dll" "system" fn RtlCompareUnicodeStrings(string1 : *const u16, string1length : usize, string2 : *const u16, string2length : usize, caseinsensitive : bool) -> i32);
-    unsafe { RtlCompareUnicodeStrings(core::mem::transmute(string1.as_ptr()), string1.len().try_into().unwrap(), core::mem::transmute(string2.as_ptr()), string2.len().try_into().unwrap(), caseinsensitive) }
+    unsafe { RtlCompareUnicodeStrings(string1.as_ptr(), string1.len().try_into().unwrap(), string2.as_ptr(), string2.len().try_into().unwrap(), caseinsensitive) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -459,7 +459,7 @@ pub unsafe fn RtlFindClearBitsAndSet(bitmapheader: *const RTL_BITMAP, numbertofi
 #[inline]
 pub unsafe fn RtlFindClearRuns(bitmapheader: *const RTL_BITMAP, runarray: &mut [RTL_BITMAP_RUN], locatelongestruns: bool) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlFindClearRuns(bitmapheader : *const RTL_BITMAP, runarray : *mut RTL_BITMAP_RUN, sizeofrunarray : u32, locatelongestruns : bool) -> u32);
-    unsafe { RtlFindClearRuns(bitmapheader, core::mem::transmute(runarray.as_ptr()), runarray.len().try_into().unwrap(), locatelongestruns) }
+    unsafe { RtlFindClearRuns(bitmapheader, runarray.as_mut_ptr(), runarray.len().try_into().unwrap(), locatelongestruns) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -699,7 +699,7 @@ pub unsafe fn RtlUTF8StringToUnicodeString(destinationstring: *mut super::ntseca
 #[inline]
 pub unsafe fn RtlUTF8ToUnicodeN(unicodestringdestination: windows_core::PWSTR, unicodestringmaxbytecount: u32, unicodestringactualbytecount: *mut u32, utf8stringsource: &[u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUTF8ToUnicodeN(unicodestringdestination : windows_core::PWSTR, unicodestringmaxbytecount : u32, unicodestringactualbytecount : *mut u32, utf8stringsource : *const i8, utf8stringbytecount : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlUTF8ToUnicodeN(core::mem::transmute(unicodestringdestination), unicodestringmaxbytecount, unicodestringactualbytecount as _, core::mem::transmute(utf8stringsource.as_ptr()), utf8stringsource.len().try_into().unwrap()) }
+    unsafe { RtlUTF8ToUnicodeN(unicodestringdestination, unicodestringmaxbytecount, unicodestringactualbytecount as _, core::mem::transmute(utf8stringsource.as_ptr()), utf8stringsource.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi"))]
 #[inline]
@@ -717,7 +717,7 @@ pub unsafe fn RtlUnicodeStringToUTF8String(destinationstring: super::ntdef::PUTF
 #[inline]
 pub unsafe fn RtlUnicodeToUTF8N(utf8stringdestination: &mut [u8], utf8stringactualbytecount: *mut u32, unicodestringsource: *const u16, unicodestringbytecount: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToUTF8N(utf8stringdestination : *mut i8, utf8stringmaxbytecount : u32, utf8stringactualbytecount : *mut u32, unicodestringsource : *const u16, unicodestringbytecount : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlUnicodeToUTF8N(core::mem::transmute(utf8stringdestination.as_ptr()), utf8stringdestination.len().try_into().unwrap(), utf8stringactualbytecount as _, unicodestringsource, unicodestringbytecount) }
+    unsafe { RtlUnicodeToUTF8N(core::mem::transmute(utf8stringdestination.as_mut_ptr()), utf8stringdestination.len().try_into().unwrap(), utf8stringactualbytecount as _, unicodestringsource, unicodestringbytecount) }
 }
 #[inline]
 pub unsafe fn RtlUpcaseUnicodeChar(sourcecharacter: u16) -> u16 {
@@ -930,7 +930,7 @@ pub unsafe fn ZwMapViewOfSection(sectionhandle: super::winnt::HANDLE, processhan
 #[inline]
 pub unsafe fn ZwMapViewOfSectionEx(sectionhandle: super::winnt::HANDLE, processhandle: super::winnt::HANDLE, baseaddress: *mut *mut core::ffi::c_void, sectionoffset: Option<*mut i64>, viewsize: *mut usize, allocationtype: u32, pageprotection: u32, extendedparameters: Option<&mut [super::winnt::MEM_EXTENDED_PARAMETER]>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwMapViewOfSectionEx(sectionhandle : super::winnt::HANDLE, processhandle : super::winnt::HANDLE, baseaddress : *mut *mut core::ffi::c_void, sectionoffset : *mut i64, viewsize : *mut usize, allocationtype : u32, pageprotection : u32, extendedparameters : *mut super::winnt::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { ZwMapViewOfSectionEx(sectionhandle, processhandle, baseaddress as _, sectionoffset.unwrap_or(core::mem::zeroed()) as _, viewsize as _, allocationtype, pageprotection, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ZwMapViewOfSectionEx(sectionhandle, processhandle, baseaddress as _, sectionoffset.unwrap_or(core::mem::zeroed()) as _, viewsize as _, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "bcrypt", feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
@@ -1360,7 +1360,7 @@ impl Default for AMD_L1_CACHE_INFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMD_L1_CACHE_INFO_0 {
     pub LineSize: u8,
     pub LinesPerTag: u8,
@@ -1382,7 +1382,7 @@ impl Default for AMD_L2_CACHE_INFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMD_L2_CACHE_INFO_0 {
     pub LineSize: u8,
     pub _bitfield: u8,
@@ -1403,7 +1403,7 @@ impl Default for AMD_L3_CACHE_INFO {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AMD_L3_CACHE_INFO_0 {
     pub LineSize: u8,
     pub _bitfield1: u8,
@@ -1425,13 +1425,13 @@ impl Default for ARM64_IDCODE {
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_IDCODE_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_IDCODE_1 {
     pub _bitfield: u64,
 }
@@ -1443,7 +1443,7 @@ pub const AddressSizeFault: FAULT_INFORMATION_ARM64_TYPE = 1;
 pub const AllLoggerHandlesClass: TRACE_INFORMATION_CLASS = 6;
 pub const AssignSecurityDescriptor: SECURITY_OPERATION_CODE = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BOOTDISK_INFORMATION {
     pub BootPartitionOffset: i64,
     pub SystemPartitionOffset: i64,
@@ -1451,7 +1451,7 @@ pub struct BOOTDISK_INFORMATION {
     pub SystemDeviceSignature: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BOOTDISK_INFORMATION_EX {
     pub BootPartitionOffset: i64,
     pub SystemPartitionOffset: i64,
@@ -1527,7 +1527,7 @@ impl Default for BUS_SPECIFIC_RESET_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUS_SPECIFIC_RESET_FLAGS_0 {
     pub _bitfield: u64,
 }
@@ -1586,7 +1586,7 @@ impl Default for CLFS_MGMT_CLIENT_REGISTRATION {
 pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "clfs")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_MGMT_NOTIFICATION {
     pub Notification: CLFS_MGMT_NOTIFICATION_TYPE,
     pub Lsn: super::clfs::CLFS_LSN,
@@ -1628,44 +1628,44 @@ impl Default for CLFS_MGMT_POLICY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_0 {
     pub Containers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_1 {
     pub Containers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_2 {
     pub SizeInBytes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_3 {
     pub AbsoluteGrowthInContainers: u32,
     pub RelativeGrowthPercentage: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_4 {
     pub MinimumAvailablePercentage: u32,
     pub MinimumAvailableContainers: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_5 {
     pub Percentage: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_6 {
     pub Enabled: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_7 {
     pub PrefixLengthInBytes: u16,
     pub PrefixString: [u16; 1],
@@ -1676,12 +1676,12 @@ impl Default for CLFS_MGMT_POLICY_0_7 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_8 {
     pub NextContainerSuffix: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CLFS_MGMT_POLICY_0_9 {
     pub ExtensionLengthInBytes: u16,
     pub ExtensionString: [u16; 1],
@@ -1705,7 +1705,7 @@ pub const CLOCK_LEVEL: u32 = 13;
 pub const CMCI_LEVEL: u32 = 5;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_COMPONENT_INFORMATION {
     pub Flags: DEVICE_FLAGS,
     pub Version: u32,
@@ -1713,7 +1713,7 @@ pub struct CM_COMPONENT_INFORMATION {
     pub AffinityMask: super::basetsd::KAFFINITY,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_DISK_GEOMETRY_DEVICE_DATA {
     pub BytesPerSector: u32,
     pub NumberOfCylinders: u32,
@@ -1755,7 +1755,7 @@ pub struct CM_EISA_SLOT_INFORMATION {
     pub CompressedId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_FLOPPY_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -1805,7 +1805,7 @@ pub struct CM_INT13_DRIVE_PARAMETER {
     pub NumberDrives: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_KEYBOARD_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -1823,7 +1823,7 @@ pub struct CM_MCA_POS_DATA {
     pub PosData4: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_MONITOR_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -1940,7 +1940,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub Class: u8,
     pub Type: u8,
@@ -1952,7 +1952,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_2 {
     pub Level: u32,
     pub Vector: u32,
@@ -1990,7 +1990,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
     pub Reserved: u16,
     pub MessageCount: u16,
@@ -2000,7 +2000,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_3_0_1 {
     pub Level: u32,
     pub Vector: u32,
@@ -2017,7 +2017,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
     pub Channel: u32,
     pub Port: u32,
@@ -2026,7 +2026,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     pub Channel: u32,
     pub RequestLine: u32,
@@ -2038,7 +2038,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     pub Data: [u32; 3],
 }
@@ -2052,7 +2052,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     pub Start: u32,
     pub Length: u32,
@@ -2061,7 +2061,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     pub DataSize: u32,
     pub Reserved1: u32,
@@ -2154,7 +2154,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_12 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_13 {
     pub Class: u8,
     pub Type: u8,
@@ -2231,7 +2231,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_4 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
     pub Channel: u32,
     pub Port: u32,
@@ -2240,7 +2240,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_5 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
     pub Channel: u32,
     pub RequestLine: u32,
@@ -2252,7 +2252,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_6 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
     pub Data: [u32; 3],
 }
@@ -2266,7 +2266,7 @@ impl Default for CM_PARTIAL_RESOURCE_DESCRIPTOR_0_7 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
     pub Start: u32,
     pub Length: u32,
@@ -2275,7 +2275,7 @@ pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_8 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_PARTIAL_RESOURCE_DESCRIPTOR_0_9 {
     pub DataSize: u32,
     pub Reserved1: u32,
@@ -2401,20 +2401,20 @@ pub const CM_RESOURCE_PORT_WINDOW_DECODE: u32 = 128;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct CM_RESOURCE_TYPE(pub i32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_ROM_BLOCK {
     pub Address: u32,
     pub Size: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_SCSI_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
     pub HostIdentifier: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_SERIAL_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -2422,7 +2422,7 @@ pub struct CM_SERIAL_DEVICE_DATA {
 }
 pub type CM_SHARE_DISPOSITION = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_SONIC_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -2435,7 +2435,7 @@ impl Default for CM_SONIC_DEVICE_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CM_VIDEO_DEVICE_DATA {
     pub Version: u16,
     pub Revision: u16,
@@ -2476,7 +2476,7 @@ impl Default for COUNTED_REASON_CONTEXT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COUNTED_REASON_CONTEXT_0_0 {
     pub ResourceFileName: super::ntsecapi::UNICODE_STRING,
     pub ResourceReasonId: u16,
@@ -2629,18 +2629,18 @@ impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
     pub _bitfield: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
     pub _bitfield: u64,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_CAPABILITIES {
     pub Size: u16,
     pub Version: u16,
@@ -2663,7 +2663,7 @@ impl Default for DEVICE_CAPABILITIES {
 pub type DEVICE_CHANGE_COMPLETE_CALLBACK = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_DESCRIPTION {
     pub Version: u32,
     pub Master: bool,
@@ -2693,7 +2693,7 @@ pub const DEVICE_DESCRIPTION_VERSION3: u32 = 3;
 pub type DEVICE_DIRECTORY_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_FAULT_CONFIGURATION {
     pub FaultHandler: PIOMMU_DEVICE_FAULT_HANDLER,
     pub FaultContext: *mut core::ffi::c_void,
@@ -2705,14 +2705,14 @@ impl Default for DEVICE_FAULT_CONFIGURATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_FLAGS {
     pub _bitfield: u32,
 }
 pub type DEVICE_INSTALL_STATE = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_INTERFACE_CHANGE_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
@@ -2832,7 +2832,7 @@ pub type DEVICE_QUERY_BUS_SPECIFIC_RESET_HANDLER = Option<unsafe extern "system"
 pub type DEVICE_REGISTRY_PROPERTY = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVICE_RELATIONS {
     pub Count: u32,
     pub Objects: [PDEVICE_OBJECT; 1],
@@ -2887,7 +2887,7 @@ impl Default for DEVICE_RESET_STATUS_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_RESET_STATUS_FLAGS_0 {
     pub _bitfield: u64,
 }
@@ -2899,7 +2899,7 @@ pub type DEVICE_WAKE_DEPTH = i32;
 pub const DEVICE_WITH_IRP_EXTENSION: PDEVICE_OBJECT = -1 as _;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DEVOBJ_EXTENSION {
     pub Type: super::ntdef::CSHORT,
     pub Size: u16,
@@ -2984,7 +2984,7 @@ impl Default for DISPATCHER_HEADER_0_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_1 {
     pub Type: u8,
     pub Signalling: u8,
@@ -3026,7 +3026,7 @@ impl Default for DISPATCHER_HEADER_0_2_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_2_0_0 {
     pub _bitfield: u8,
 }
@@ -3048,7 +3048,7 @@ impl Default for DISPATCHER_HEADER_0_2_1 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_2_1_0 {
     pub _bitfield: u8,
 }
@@ -3087,7 +3087,7 @@ impl Default for DISPATCHER_HEADER_0_3_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_3_0_0 {
     pub _bitfield: u8,
 }
@@ -3126,7 +3126,7 @@ impl Default for DISPATCHER_HEADER_0_4_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_4_0_0 {
     pub _bitfield: u8,
 }
@@ -3165,7 +3165,7 @@ impl Default for DISPATCHER_HEADER_0_5_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_5_0_0 {
     pub _bitfield: u8,
 }
@@ -3186,7 +3186,7 @@ impl Default for DISPATCHER_HEADER_0_5_1 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_6 {
     pub MutantType: u8,
     pub MutantSize: u8,
@@ -3247,7 +3247,7 @@ impl Default for DISPATCHER_HEADER_0_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_1 {
     pub Type: u8,
     pub Signalling: u8,
@@ -3289,7 +3289,7 @@ impl Default for DISPATCHER_HEADER_0_2_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_2_0_0 {
     pub _bitfield: u8,
 }
@@ -3311,7 +3311,7 @@ impl Default for DISPATCHER_HEADER_0_2_1 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_2_1_0 {
     pub _bitfield: u8,
 }
@@ -3350,7 +3350,7 @@ impl Default for DISPATCHER_HEADER_0_3_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_3_0_0 {
     pub _bitfield: u8,
 }
@@ -3389,7 +3389,7 @@ impl Default for DISPATCHER_HEADER_0_4_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_4_0_0 {
     pub _bitfield: u8,
 }
@@ -3428,7 +3428,7 @@ impl Default for DISPATCHER_HEADER_0_5_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_5_0_0 {
     pub _bitfield: u8,
 }
@@ -3450,14 +3450,14 @@ impl Default for DISPATCHER_HEADER_0_5_1 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_5_1_0 {
     pub _bitfield: bool,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_6 {
     pub MutantType: u8,
     pub MutantSize: u8,
@@ -3472,7 +3472,7 @@ pub const DMAV3_TRANFER_WIDTH_64: u32 = 3;
 pub const DMAV3_TRANFER_WIDTH_8: u32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_ADAPTER {
     pub Version: u16,
     pub Size: u16,
@@ -3493,7 +3493,7 @@ impl Default for DMA_ADAPTER_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_ADAPTER_INFO_0 {
     pub Version: u32,
     pub V1: DMA_ADAPTER_INFO_V1,
@@ -3525,7 +3525,7 @@ impl Default for DMA_ADAPTER_INFO_1_0 {
 }
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DMA_ADAPTER_INFO_CRASHDUMP {
     pub DeviceDescription: DEVICE_DESCRIPTION,
     pub DeviceIdSize: usize,
@@ -3538,7 +3538,7 @@ impl Default for DMA_ADAPTER_INFO_CRASHDUMP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_ADAPTER_INFO_V1 {
     pub ReadDmaCounterAvailable: u32,
     pub ScatterGatherLimit: u32,
@@ -3578,14 +3578,14 @@ impl Default for DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_0 {
     pub MinimumAddress: super::usb::PHYSICAL_ADDRESS,
     pub MaximumAddress: super::usb::PHYSICAL_ADDRESS,
 }
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
     pub Offset: u64,
     pub Length: u32,
@@ -3593,18 +3593,18 @@ pub struct DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_0_1 {
 pub type DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_ACCESS_TYPE = i32;
 pub type DMA_COMMON_BUFFER_EXTENDED_CONFIGURATION_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_COMMON_BUFFER_VECTOR(pub u8);
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type DMA_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(dmaadapter: *const DMA_ADAPTER, deviceobject: *const DEVICE_OBJECT, completioncontext: *const core::ffi::c_void, status: DMA_COMPLETION_STATUS)>;
 pub type DMA_COMPLETION_STATUS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_CONFIGURATION_BYTE0 {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_CONFIGURATION_BYTE1 {
     pub _bitfield: u8,
 }
@@ -3622,7 +3622,7 @@ impl Default for DMA_FEATURE_QUERY_STATUS {
 pub type DMA_FEATURE_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE {
     pub Version: u32,
     pub CreateDomain: PIOMMU_DOMAIN_CREATE,
@@ -3675,7 +3675,7 @@ pub const DMA_IOMMU_INTERFACE_EX_VERSION_MAX: u32 = 3;
 pub const DMA_IOMMU_INTERFACE_EX_VERSION_MIN: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE_V1 {
     pub CreateDomain: PIOMMU_DOMAIN_CREATE,
     pub DeleteDomain: PIOMMU_DOMAIN_DELETE,
@@ -3693,7 +3693,7 @@ pub struct DMA_IOMMU_INTERFACE_V1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE_V2 {
     pub CreateDomainEx: PIOMMU_DOMAIN_CREATE_EX,
     pub DeleteDomain: PIOMMU_DOMAIN_DELETE,
@@ -3720,7 +3720,7 @@ pub struct DMA_IOMMU_INTERFACE_V2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_IOMMU_INTERFACE_V3 {
     pub CreateDomainEx: PIOMMU_DOMAIN_CREATE_EX,
     pub DeleteDomain: PIOMMU_DOMAIN_DELETE,
@@ -3827,14 +3827,14 @@ impl Default for DMA_TRANSFER_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_TRANSFER_INFO_V1 {
     pub MapRegisterCount: u32,
     pub ScatterGatherElementCount: u32,
     pub ScatterGatherListSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_TRANSFER_INFO_V2 {
     pub MapRegisterCount: u32,
     pub ScatterGatherElementCount: u32,
@@ -3875,7 +3875,7 @@ impl Default for DOMAIN_CONFIGURATION_0 {
 pub type DOMAIN_CONFIGURATION_ARCH = i32;
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOMAIN_CONFIGURATION_ARM64 {
     pub Ttbr0: super::usb::PHYSICAL_ADDRESS,
     pub Ttbr1: super::usb::PHYSICAL_ADDRESS,
@@ -3888,7 +3888,7 @@ pub struct DOMAIN_CONFIGURATION_ARM64 {
 }
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOMAIN_CONFIGURATION_X64 {
     pub FirstLevelPageTableRoot: super::usb::PHYSICAL_ADDRESS,
     pub TranslationEnabled: bool,
@@ -3908,7 +3908,7 @@ pub const DO_VERIFY_VOLUME: u32 = 2;
 pub const DPC_NORMAL: u32 = 0;
 pub const DPC_THREADED: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DPC_WATCHDOG_GLOBAL_TRIAGE_BLOCK {
     pub Signature: u32,
     pub Revision: u16,
@@ -3934,7 +3934,7 @@ pub type DRIVER_DISPATCH_PAGED = Option<unsafe extern "system" fn(deviceobject: 
 pub type DRIVER_DISPATCH_RAISED = DRIVER_DISPATCH;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_EXTENSION {
     pub DriverObject: *mut DRIVER_OBJECT,
     pub AddDevice: PDRIVER_ADD_DEVICE,
@@ -3955,7 +3955,7 @@ pub type DRIVER_LIST_CONTROL = Option<unsafe extern "system" fn(deviceobject: *c
 pub type DRIVER_NOTIFICATION_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(notificationstructure: *const core::ffi::c_void, context: *mut core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_OBJECT {
     pub Type: super::ntdef::CSHORT,
     pub Size: super::ntdef::CSHORT,
@@ -3985,7 +3985,7 @@ pub type DRIVER_PROXY_ENDPOINT_FUNCTION = Option<unsafe extern "system" fn()>;
 pub struct DRIVER_PROXY_ENDPOINT_FUNCTION_ID(pub u32);
 pub const DRIVER_PROXY_ENDPOINT_FUNCTION_ID_INVALID: i32 = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_PROXY_ENDPOINT_INFORMATION {
     pub Id: DRIVER_PROXY_ENDPOINT_FUNCTION_ID,
     pub EndpointFunction: PDRIVER_PROXY_ENDPOINT_FUNCTION,
@@ -4003,7 +4003,7 @@ impl Default for DRIVER_PROXY_EXTENSION_CREATION_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_PROXY_EXTENSION_CREATION_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -4019,7 +4019,7 @@ impl Default for DRIVER_PROXY_FEATURE_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_PROXY_FEATURE_FLAGS_0 {
     pub _bitfield: u32,
 }
@@ -4030,7 +4030,7 @@ pub type DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE = i32;
 pub type DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE = Option<unsafe extern "system" fn(workercontext: *const core::ffi::c_void, waitstatus: super::bcrypt::NTSTATUS) -> bool>;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "ntdef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRIVER_PROXY_HOTSWAP_WORKER_ROUTINE_START_CONTEXT {
     pub WorkerRoutine: PDRIVER_PROXY_HOTSWAP_WORKER_ROUTINE,
     pub Context: *mut core::ffi::c_void,
@@ -4162,7 +4162,7 @@ pub const EFLAG_SIGN: u32 = 32768;
 #[cfg(target_arch = "x86")]
 pub const EFLAG_ZERO: u32 = 16384;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_DMA_CONFIGURATION {
     pub ConfigurationByte0: DMA_CONFIGURATION_BYTE0,
     pub ConfigurationByte1: DMA_CONFIGURATION_BYTE1,
@@ -4182,13 +4182,13 @@ pub const EISA_INVALID_CONFIGURATION: u32 = 130;
 pub const EISA_INVALID_FUNCTION: u32 = 129;
 pub const EISA_INVALID_SLOT: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_IRQ_CONFIGURATION {
     pub ConfigurationByte: EISA_IRQ_DESCRIPTOR,
     pub Reserved: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_IRQ_DESCRIPTOR {
     pub _bitfield: u8,
 }
@@ -4202,7 +4202,7 @@ pub struct EISA_MEMORY_CONFIGURATION {
     pub MemorySize: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_MEMORY_TYPE {
     pub _bitfield: u8,
 }
@@ -4215,7 +4215,7 @@ pub struct EISA_PORT_CONFIGURATION {
     pub PortAddress: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_PORT_DESCRIPTOR {
     pub _bitfield: u8,
 }
@@ -4321,7 +4321,7 @@ pub const ERROR_LOG_MESSAGE_LIMIT_SIZE: u32 = 344;
 #[cfg(feature = "evntprov")]
 pub type ETWENABLECALLBACK = Option<unsafe extern "system" fn(sourceid: *const windows_core::GUID, controlcode: u32, level: u8, matchanykeyword: u64, matchallkeyword: u64, filterdata: *const super::evntprov::EVENT_FILTER_DESCRIPTOR, callbackcontext: *mut core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ETW_TRACE_SESSION_SETTINGS {
     pub Version: u32,
     pub BufferSize: u32,
@@ -4354,13 +4354,13 @@ pub const EXCEPTION_SE_FAULT: u32 = 23;
 pub const EXCEPTION_STACK_FAULT: u32 = 12;
 pub const EXCEPTION_VIRTUALIZATION_FAULT: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXTENDED_CREATE_DUAL_OPLOCK_KEYS {
     pub ParentOplockKey: windows_core::GUID,
     pub TargetOplockKey: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTENDED_CREATE_INFORMATION {
     pub ExtendedCreateFlags: i64,
     pub EaBuffer: *mut core::ffi::c_void,
@@ -4374,7 +4374,7 @@ impl Default for EXTENDED_CREATE_INFORMATION {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTENDED_CREATE_INFORMATION_32 {
     pub ExtendedCreateFlags: i64,
     pub EaBuffer: *mut core::ffi::c_void,
@@ -4389,7 +4389,7 @@ impl Default for EXTENDED_CREATE_INFORMATION_32 {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTENDED_CREATE_INFORMATION_32 {
     pub ExtendedCreateFlags: i64,
     pub EaBuffer: *mut core::ffi::c_void,
@@ -4405,7 +4405,7 @@ impl Default for EXTENDED_CREATE_INFORMATION_32 {
 pub type EXT_CALLBACK = Option<unsafe extern "system" fn(timer: *const _EX_TIMER, context: *const core::ffi::c_void)>;
 pub type EXT_DELETE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXT_DELETE_PARAMETERS {
     pub Version: u32,
     pub Reserved: u32,
@@ -4418,7 +4418,7 @@ impl Default for EXT_DELETE_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXT_SET_PARAMETERS {
     pub Version: u32,
     pub Reserved: u32,
@@ -4439,7 +4439,7 @@ pub const EX_MAXIMUM_LOOKASIDE_DEPTH_BASE: u32 = 256;
 pub const EX_MAXIMUM_LOOKASIDE_DEPTH_LIMIT: u32 = 1024;
 pub type EX_POOL_PRIORITY = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EX_RCU_FREE_POOL_CONTEXT {
     pub Placeholder: [usize; 6],
 }
@@ -4504,7 +4504,7 @@ pub type FAST_IO_DETACH_DEVICE = Option<unsafe extern "system" fn(sourcedevice: 
 pub type FAST_IO_DEVICE_CONTROL = Option<unsafe extern "system" fn(fileobject: *const FILE_OBJECT, wait: bool, inputbuffer: *const core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut core::ffi::c_void, outputbufferlength: u32, iocontrolcode: u32, iostatus: *mut super::winternl::IO_STATUS_BLOCK, deviceobject: *const DEVICE_OBJECT) -> bool>;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAST_IO_DISPATCH {
     pub SizeOfFastIoDispatch: u32,
     pub FastIoCheckIfPossible: PFAST_IO_CHECK_IF_POSSIBLE,
@@ -4623,7 +4623,7 @@ impl Default for FAULT_INFORMATION_0 {
 pub type FAULT_INFORMATION_ARCH = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAULT_INFORMATION_ARM64 {
     pub DomainHandle: *mut core::ffi::c_void,
     pub FaultAddress: *mut core::ffi::c_void,
@@ -4640,13 +4640,13 @@ impl Default for FAULT_INFORMATION_ARM64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAULT_INFORMATION_ARM64_FLAGS {
     pub _bitfield: u32,
 }
 pub type FAULT_INFORMATION_ARM64_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FAULT_INFORMATION_X64 {
     pub DomainHandle: *mut core::ffi::c_void,
     pub FaultAddress: *mut core::ffi::c_void,
@@ -4661,7 +4661,7 @@ impl Default for FAULT_INFORMATION_X64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAULT_INFORMATION_X64_FLAGS {
     pub _bitfield: u32,
 }
@@ -4678,7 +4678,7 @@ pub const FILE_ATTRIBUTE_VALID_KERNEL_SET_FLAGS: u32 = 5910951;
 pub const FILE_ATTRIBUTE_VALID_SET_FLAGS: u32 = 1716647;
 pub const FILE_AUTOGENERATED_DEVICE_NAME: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_BASIC_INFORMATION {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -4699,13 +4699,13 @@ pub const FILE_DEVICE_SECURE_OPEN: u32 = 256;
 pub const FILE_DISALLOW_EXCLUSIVE: u32 = 131072;
 pub const FILE_FLOPPY_DISKETTE: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_FS_DEVICE_INFORMATION {
     pub DeviceType: u32,
     pub Characteristics: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FULL_EA_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u8,
@@ -4720,7 +4720,7 @@ impl Default for FILE_FULL_EA_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_IOSTATUSBLOCK_RANGE_INFORMATION {
     pub IoStatusBlockRange: super::minwindef::PUCHAR,
     pub Length: u32,
@@ -4740,23 +4740,23 @@ impl Default for FILE_IO_COMPLETION_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_IO_COMPLETION_NOTIFICATION_INFORMATION {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_IO_PRIORITY_HINT_INFORMATION {
     pub PriorityHint: IO_PRIORITY_HINT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_IO_PRIORITY_HINT_INFORMATION_EX {
     pub PriorityHint: IO_PRIORITY_HINT,
     pub BoostOutstanding: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_IS_REMOTE_DEVICE_INFORMATION {
     pub IsRemote: bool,
 }
@@ -4784,7 +4784,7 @@ impl Default for FILE_MEMORY_PARTITION_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_MEMORY_PARTITION_INFORMATION_0_0 {
     pub NoCrossPartitionAccess: u8,
     pub Spare: [u8; 3],
@@ -4795,7 +4795,7 @@ impl Default for FILE_MEMORY_PARTITION_INFORMATION_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_NETWORK_OPEN_INFORMATION {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -4806,7 +4806,7 @@ pub struct FILE_NETWORK_OPEN_INFORMATION {
     pub FileAttributes: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_NUMA_NODE_INFORMATION {
     pub NodeNumber: u16,
 }
@@ -4854,12 +4854,12 @@ impl Default for FILE_OBJECT {
 pub const FILE_OCTA_ALIGNMENT: u32 = 15;
 pub const FILE_PORTABLE_DEVICE: u32 = 262144;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_POSITION_INFORMATION {
     pub CurrentByteOffset: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PROCESS_IDS_USING_FILE_INFORMATION {
     pub NumberOfProcessIdsInList: u32,
     pub ProcessIdList: [usize; 1],
@@ -4881,7 +4881,7 @@ pub const FILE_REMOTE_DEVICE_VSMB: u32 = 524288;
 pub const FILE_REMOVABLE_MEDIA: u32 = 1;
 pub const FILE_SESSION_AWARE: u32 = 262144;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_SFIO_RESERVE_INFORMATION {
     pub RequestsPerPeriod: u32,
     pub Period: u32,
@@ -4891,7 +4891,7 @@ pub struct FILE_SFIO_RESERVE_INFORMATION {
     pub NumOutstandingRequests: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_SFIO_VOLUME_INFORMATION {
     pub MaximumRequestsPerPeriod: u32,
     pub MinimumPeriod: u32,
@@ -4900,7 +4900,7 @@ pub struct FILE_SFIO_VOLUME_INFORMATION {
 pub const FILE_SHARE_VALID_FLAGS: u32 = 7;
 pub const FILE_SKIP_SET_USER_EVENT_ON_FAST_IO: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STANDARD_INFORMATION {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
@@ -4909,7 +4909,7 @@ pub struct FILE_STANDARD_INFORMATION {
     pub Directory: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STANDARD_INFORMATION_EX {
     pub AllocationSize: i64,
     pub EndOfFile: i64,
@@ -4998,7 +4998,7 @@ pub type FREE_FUNCTION_EX = Option<unsafe extern "system" fn(buffer: *const core
 pub type FS_INFORMATION_CLASS = i32;
 #[repr(C)]
 #[cfg(feature = "bcrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FUNCTION_LEVEL_DEVICE_RESET_PARAMETERS {
     pub Size: u32,
     pub DeviceResetCompletion: PDEVICE_RESET_COMPLETION,
@@ -5529,7 +5529,7 @@ pub const HASH_STRING_ALGORITHM_INVALID: u32 = 4294967295;
 pub const HASH_STRING_ALGORITHM_X65599: u32 = 1;
 pub const HIGH_PRIORITY: u32 = 31;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HWPROFILE_CHANGE_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
@@ -5545,7 +5545,7 @@ pub const HyperCriticalWorkQueue: WORK_QUEUE_TYPE = 2;
 pub const INITIAL_PRIVILEGE_COUNT: u32 = 3;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INITIAL_PRIVILEGE_SET {
     pub PrivilegeCount: u32,
     pub Control: u32,
@@ -5558,7 +5558,7 @@ impl Default for INITIAL_PRIVILEGE_SET {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INPUT_MAPPING_ELEMENT {
     pub InputMappingId: u32,
 }
@@ -5577,7 +5577,7 @@ impl Default for INTEL_CACHE_INFO_EAX {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTEL_CACHE_INFO_EAX_0 {
     pub _bitfield: INTEL_CACHE_TYPE,
 }
@@ -5596,7 +5596,7 @@ impl Default for INTEL_CACHE_INFO_EBX {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTEL_CACHE_INFO_EBX_0 {
     pub _bitfield: u32,
 }
@@ -5656,13 +5656,13 @@ impl Default for IOMMU_DEVICE_CREATION_CONFIGURATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DEVICE_CREATION_CONFIGURATION_ACPI {
     pub InputMappingBase: u32,
     pub MappingsCount: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DEVICE_CREATION_CONFIGURATION_PASID {
     pub ConfigType: IOMMU_PASID_CONFIGURATION_TYPE,
     pub SuppressPasidFaults: bool,
@@ -5676,10 +5676,10 @@ pub type IOMMU_DEVICE_QUERY_DOMAIN_TYPES = Option<unsafe extern "system" fn(dmad
 #[cfg(feature = "bcrypt")]
 pub type IOMMU_DEVICE_QUERY_INFORMATION = Option<unsafe extern "system" fn(dmadevice: *const IOMMU_DMA_DEVICE, size: u32, byteswritten: *mut u32, buffer: *mut IOMMU_DMA_DEVICE_INFORMATION) -> super::bcrypt::NTSTATUS>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_DEVICE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_DEVICE_INFORMATION {
     pub DefaultPasidEnabled: bool,
     pub PasidTaggedDmaEnabled: bool,
@@ -5687,7 +5687,7 @@ pub struct IOMMU_DMA_DEVICE_INFORMATION {
 }
 pub const IOMMU_DMA_DEVICE_INFORMATION_SIZE_MIN: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_DOMAIN(pub u8);
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -5701,7 +5701,7 @@ impl Default for IOMMU_DMA_DOMAIN_CREATION_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
     pub _bitfield: u64,
 }
@@ -5710,13 +5710,13 @@ pub type IOMMU_DMA_DOMAIN_TYPE = i32;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct IOMMU_DMA_LOGICAL_ADDRESS(pub u64);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_LOGICAL_ADDRESS_TOKEN {
     pub LogicalAddressBase: IOMMU_DMA_LOGICAL_ADDRESS,
     pub Size: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_LOGICAL_ADDRESS_TOKEN_MAPPED_SEGMENT {
     pub OwningToken: PIOMMU_DMA_LOGICAL_ADDRESS_TOKEN,
     pub Offset: usize,
@@ -5744,16 +5744,16 @@ impl Default for IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_LOGICAL_ALLOCATOR_CONFIG_0_0 {
     pub AddressWidth: u32,
 }
 pub type IOMMU_DMA_LOGICAL_ALLOCATOR_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_PASID_DEVICE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IOMMU_DMA_RESERVED_REGION {
     pub RegionNext: *mut Self,
     pub Base: IOMMU_DMA_LOGICAL_ADDRESS,
@@ -5815,7 +5815,7 @@ impl Default for IOMMU_INTERFACE_STATE_CHANGE_FIELDS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
     pub _bitfield: u32,
 }
@@ -5856,20 +5856,20 @@ impl Default for IOMMU_MAP_PHYSICAL_ADDRESS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_0 {
     pub Mdl: super::usb::PMDL,
 }
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_1 {
     pub Base: super::usb::PHYSICAL_ADDRESS,
     pub Size: usize,
 }
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_MAP_PHYSICAL_ADDRESS_0_2 {
     pub PageFrame: PPFN_NUMBER,
     pub NumberOfPages: usize,
@@ -5931,7 +5931,7 @@ impl Default for IO_ATTRIBUTION_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_ATTRIBUTION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
@@ -5945,7 +5945,7 @@ pub const IO_CHECK_SHARE_ACCESS_FORCE_CHECK: u32 = 32;
 pub const IO_CHECK_SHARE_ACCESS_FORCE_USING_SCB: u32 = 64;
 pub const IO_CHECK_SHARE_ACCESS_UPDATE_SHARE_ACCESS: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_COMPLETION_CONTEXT {
     pub Port: *mut core::ffi::c_void,
     pub Key: *mut core::ffi::c_void,
@@ -5961,7 +5961,7 @@ pub type IO_COMPLETION_ROUTINE = Option<unsafe extern "system" fn(deviceobject: 
 pub type IO_COMPLETION_ROUTINE_RESULT = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
     pub PhysicalDeviceObject: PDEVICE_OBJECT,
     pub InterruptObject: *mut PKINTERRUPT,
@@ -5985,7 +5985,7 @@ impl Default for IO_CONNECT_INTERRUPT_FULLY_SPECIFIED_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_CONNECT_INTERRUPT_LINE_BASED_PARAMETERS {
     pub PhysicalDeviceObject: PDEVICE_OBJECT,
     pub InterruptObject: *mut PKINTERRUPT,
@@ -6065,7 +6065,7 @@ pub type IO_CONTAINER_INFORMATION_CLASS = i32;
 pub type IO_CONTAINER_NOTIFICATION_CLASS = i32;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_CSQ {
     pub Type: u32,
     pub CsqInsertIrp: PIO_CSQ_INSERT_IRP,
@@ -6092,7 +6092,7 @@ pub type IO_CSQ_INSERT_IRP = Option<unsafe extern "system" fn(csq: *const IO_CSQ
 pub type IO_CSQ_INSERT_IRP_EX = Option<unsafe extern "system" fn(csq: *const IO_CSQ, irp: *const IRP, insertcontext: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS>;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_CSQ_IRP_CONTEXT {
     pub Type: u32,
     pub Irp: super::usb::PIRP,
@@ -6136,7 +6136,7 @@ pub const IO_DISK_INCREMENT: u32 = 1;
 pub type IO_DPC_ROUTINE = Option<unsafe extern "system" fn(dpc: *const KDPC, deviceobject: *const DEVICE_OBJECT, irp: *mut IRP, context: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "bcrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_ERROR_LOG_MESSAGE {
     pub Type: u16,
     pub Size: u16,
@@ -6151,7 +6151,7 @@ pub const IO_ERROR_LOG_MESSAGE_LENGTH: u32 = 256;
 pub const IO_ERROR_LOG_MESSAGE_LENGTH: u32 = 344;
 #[repr(C)]
 #[cfg(feature = "bcrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_ERROR_LOG_PACKET {
     pub MajorFunctionCode: u8,
     pub RetryCount: u8,
@@ -6176,7 +6176,7 @@ impl Default for IO_ERROR_LOG_PACKET {
 pub const IO_FORCE_ACCESS_CHECK: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_INTERRUPT_MESSAGE_INFO {
     pub UnifiedIrql: super::ntdef::KIRQL,
     pub MessageCount: u32,
@@ -6190,7 +6190,7 @@ impl Default for IO_INTERRUPT_MESSAGE_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "ntdef", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_INTERRUPT_MESSAGE_INFO_ENTRY {
     pub MessageAddress: super::usb::PHYSICAL_ADDRESS,
     pub TargetProcessorSet: super::basetsd::KAFFINITY,
@@ -6204,7 +6204,7 @@ pub struct IO_INTERRUPT_MESSAGE_INFO_ENTRY {
 pub const IO_KEYBOARD_INCREMENT: u32 = 6;
 pub const IO_MAILSLOT_INCREMENT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_MINI_COMPLETION_PACKET_USER(pub u8);
 pub type IO_MINI_PACKET_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(minipacket: *const IO_MINI_COMPLETION_PACKET_USER, context: *const core::ffi::c_void)>;
 pub const IO_MOUSE_INCREMENT: u32 = 6;
@@ -6248,7 +6248,7 @@ impl Default for IO_REMOVE_LOCK_COMMON_BLOCK {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_REMOVE_LOCK_DBG_BLOCK {
     pub Signature: i32,
     pub HighWatermark: u32,
@@ -6342,7 +6342,7 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
     pub Length: u32,
     pub Alignment: u32,
@@ -6351,7 +6351,7 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_1 {
     pub Length: u32,
     pub Alignment: u32,
@@ -6360,7 +6360,7 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_10 {
     pub Length48: u32,
     pub Alignment48: u32,
@@ -6369,7 +6369,7 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_10 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_11 {
     pub Length64: u32,
     pub Alignment64: u32,
@@ -6378,7 +6378,7 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_11 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
     pub Class: u8,
     pub Type: u8,
@@ -6389,7 +6389,7 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_12 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
     pub MinimumVector: u32,
     pub MaximumVector: u32,
@@ -6399,14 +6399,14 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_3 {
     pub MinimumChannel: u32,
     pub MaximumChannel: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_4 {
     pub RequestLine: u32,
     pub Reserved: u32,
@@ -6415,7 +6415,7 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_4 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
     pub Length: u32,
     pub Alignment: u32,
@@ -6424,7 +6424,7 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_5 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_6 {
     pub Data: [u32; 3],
 }
@@ -6436,7 +6436,7 @@ impl Default for IO_RESOURCE_DESCRIPTOR_0_6 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
     pub Length: u32,
     pub MinBusNumber: u32,
@@ -6445,7 +6445,7 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_7 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
     pub Priority: u32,
     pub Reserved1: u32,
@@ -6453,7 +6453,7 @@ pub struct IO_RESOURCE_DESCRIPTOR_0_8 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "usb"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_RESOURCE_DESCRIPTOR_0_9 {
     pub Length40: u32,
     pub Alignment40: u32,
@@ -6496,7 +6496,7 @@ impl Default for IO_RESOURCE_REQUIREMENTS_LIST {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SECURITY_CONTEXT {
     pub SecurityQos: super::winnt::PSECURITY_QUALITY_OF_SERVICE,
     pub AccessState: PACCESS_STATE,
@@ -6505,7 +6505,7 @@ pub struct IO_SECURITY_CONTEXT {
 }
 pub const IO_SERIAL_INCREMENT: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SESSION_CONNECT_INFO {
     pub SessionId: u32,
     pub LocalSession: bool,
@@ -6520,7 +6520,7 @@ pub const IO_SESSION_STATE_CONNECT_EVENT: u32 = 4;
 pub const IO_SESSION_STATE_CREATION_EVENT: u32 = 1;
 pub const IO_SESSION_STATE_DISCONNECT_EVENT: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_SESSION_STATE_INFORMATION {
     pub SessionId: u32,
     pub SessionState: IO_SESSION_STATE,
@@ -6529,7 +6529,7 @@ pub struct IO_SESSION_STATE_INFORMATION {
 pub const IO_SESSION_STATE_LOGOFF_EVENT: u32 = 32;
 pub const IO_SESSION_STATE_LOGON_EVENT: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_SESSION_STATE_NOTIFICATION {
     pub Size: u32,
     pub Flags: u32,
@@ -6627,7 +6627,7 @@ impl Default for IO_STACK_LOCATION_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_0 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: u32,
@@ -6638,7 +6638,7 @@ pub struct IO_STACK_LOCATION_0_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_1 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: u32,
@@ -6649,7 +6649,7 @@ pub struct IO_STACK_LOCATION_0_1 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_10 {
     pub Length: u32,
     pub EaList: *mut core::ffi::c_void,
@@ -6666,14 +6666,14 @@ impl Default for IO_STACK_LOCATION_0_10 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_11 {
     pub Length: u32,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_12 {
     pub Length: u32,
     pub FsInformationClass: FS_INFORMATION_CLASS,
@@ -6681,7 +6681,7 @@ pub struct IO_STACK_LOCATION_0_12 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_13 {
     pub Length: u32,
     pub FsInformationClass: FS_INFORMATION_CLASS,
@@ -6689,7 +6689,7 @@ pub struct IO_STACK_LOCATION_0_13 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_14 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -6715,7 +6715,7 @@ pub struct IO_STACK_LOCATION_0_15 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_16 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -6732,7 +6732,7 @@ impl Default for IO_STACK_LOCATION_0_16 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_17 {
     pub SecurityInformation: super::winnt::SECURITY_INFORMATION,
     pub Length: u32,
@@ -6740,7 +6740,7 @@ pub struct IO_STACK_LOCATION_0_17 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_18 {
     pub SecurityInformation: super::winnt::SECURITY_INFORMATION,
     pub SecurityDescriptor: super::winnt::PSECURITY_DESCRIPTOR,
@@ -6748,7 +6748,7 @@ pub struct IO_STACK_LOCATION_0_18 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_19 {
     pub Vpb: PVPB,
     pub DeviceObject: PDEVICE_OBJECT,
@@ -6757,7 +6757,7 @@ pub struct IO_STACK_LOCATION_0_19 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_2 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: u32,
@@ -6768,7 +6768,7 @@ pub struct IO_STACK_LOCATION_0_2 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_20 {
     pub Vpb: PVPB,
     pub DeviceObject: PDEVICE_OBJECT,
@@ -6776,7 +6776,7 @@ pub struct IO_STACK_LOCATION_0_20 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_21 {
     pub Srb: *mut _SCSI_REQUEST_BLOCK,
 }
@@ -6790,7 +6790,7 @@ impl Default for IO_STACK_LOCATION_0_21 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_22 {
     pub Length: u32,
     pub StartSid: super::winnt::PSID,
@@ -6800,21 +6800,21 @@ pub struct IO_STACK_LOCATION_0_22 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_23 {
     pub Length: u32,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_24 {
     pub Type: DEVICE_RELATION_TYPE,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_25 {
     pub InterfaceType: *const windows_core::GUID,
     pub Size: u16,
@@ -6832,21 +6832,21 @@ impl Default for IO_STACK_LOCATION_0_25 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_26 {
     pub Capabilities: PDEVICE_CAPABILITIES,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_27 {
     pub IoResourceRequirementList: PIO_RESOURCE_REQUIREMENTS_LIST,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_28 {
     pub WhichSpace: u32,
     pub Buffer: *mut core::ffi::c_void,
@@ -6863,7 +6863,7 @@ impl Default for IO_STACK_LOCATION_0_28 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_29 {
     pub Lock: bool,
 }
@@ -6879,14 +6879,14 @@ pub struct IO_STACK_LOCATION_0_3 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_30 {
     pub IdType: BUS_QUERY_ID_TYPE,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_31 {
     pub DeviceTextType: DEVICE_TEXT_TYPE,
     pub LocaleId: super::winnt::LCID,
@@ -6894,7 +6894,7 @@ pub struct IO_STACK_LOCATION_0_31 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_32 {
     pub InPath: bool,
     pub Reserved: [bool; 3],
@@ -6910,14 +6910,14 @@ impl Default for IO_STACK_LOCATION_0_32 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_33 {
     pub PowerState: super::winnt::SYSTEM_POWER_STATE,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_34 {
     pub PowerSequence: PPOWER_SEQUENCE,
 }
@@ -6956,7 +6956,7 @@ impl Default for IO_STACK_LOCATION_0_35_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_36 {
     pub AllocatedResources: PCM_RESOURCE_LIST,
     pub AllocatedResourcesTranslated: PCM_RESOURCE_LIST,
@@ -6964,7 +6964,7 @@ pub struct IO_STACK_LOCATION_0_36 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_37 {
     pub ProviderId: usize,
     pub DataPath: *mut core::ffi::c_void,
@@ -6981,7 +6981,7 @@ impl Default for IO_STACK_LOCATION_0_37 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_38 {
     pub Argument1: *mut core::ffi::c_void,
     pub Argument2: *mut core::ffi::c_void,
@@ -7007,7 +7007,7 @@ pub struct IO_STACK_LOCATION_0_4 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_5 {
     pub Length: u32,
     pub FileName: super::ntsecapi::PUNICODE_STRING,
@@ -7017,7 +7017,7 @@ pub struct IO_STACK_LOCATION_0_5 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_6 {
     pub Length: u32,
     pub CompletionFilter: u32,
@@ -7025,7 +7025,7 @@ pub struct IO_STACK_LOCATION_0_6 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_7 {
     pub Length: u32,
     pub CompletionFilter: u32,
@@ -7034,7 +7034,7 @@ pub struct IO_STACK_LOCATION_0_7 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_8 {
     pub Length: u32,
     pub FileInformationClass: super::winternl::FILE_INFORMATION_CLASS,
@@ -7075,7 +7075,7 @@ impl Default for IO_STACK_LOCATION_0_9_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_9_0_0 {
     pub ReplaceIfExists: bool,
     pub AdvanceOnly: bool,
@@ -7157,7 +7157,7 @@ impl Default for IO_STACK_LOCATION_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_0 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: u32,
@@ -7168,7 +7168,7 @@ pub struct IO_STACK_LOCATION_0_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_1 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: u32,
@@ -7179,7 +7179,7 @@ pub struct IO_STACK_LOCATION_0_1 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_10 {
     pub Length: u32,
     pub EaList: *mut core::ffi::c_void,
@@ -7196,14 +7196,14 @@ impl Default for IO_STACK_LOCATION_0_10 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_11 {
     pub Length: u32,
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_12 {
     pub Length: u32,
     pub FsInformationClass: FS_INFORMATION_CLASS,
@@ -7211,7 +7211,7 @@ pub struct IO_STACK_LOCATION_0_12 {
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_13 {
     pub Length: u32,
     pub FsInformationClass: FS_INFORMATION_CLASS,
@@ -7219,7 +7219,7 @@ pub struct IO_STACK_LOCATION_0_13 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_14 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -7236,7 +7236,7 @@ impl Default for IO_STACK_LOCATION_0_14 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_15 {
     pub Length: super::winnt::PLARGE_INTEGER,
     pub Key: u32,
@@ -7245,7 +7245,7 @@ pub struct IO_STACK_LOCATION_0_15 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_16 {
     pub OutputBufferLength: u32,
     pub InputBufferLength: u32,
@@ -7262,7 +7262,7 @@ impl Default for IO_STACK_LOCATION_0_16 {
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_17 {
     pub SecurityInformation: super::winnt::SECURITY_INFORMATION,
     pub Length: u32,
@@ -7270,7 +7270,7 @@ pub struct IO_STACK_LOCATION_0_17 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_18 {
     pub SecurityInformation: super::winnt::SECURITY_INFORMATION,
     pub SecurityDescriptor: super::winnt::PSECURITY_DESCRIPTOR,
@@ -7278,7 +7278,7 @@ pub struct IO_STACK_LOCATION_0_18 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_19 {
     pub Vpb: PVPB,
     pub DeviceObject: PDEVICE_OBJECT,
@@ -7287,7 +7287,7 @@ pub struct IO_STACK_LOCATION_0_19 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_2 {
     pub SecurityContext: PIO_SECURITY_CONTEXT,
     pub Options: u32,
@@ -7298,7 +7298,7 @@ pub struct IO_STACK_LOCATION_0_2 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_20 {
     pub Vpb: PVPB,
     pub DeviceObject: PDEVICE_OBJECT,
@@ -7306,7 +7306,7 @@ pub struct IO_STACK_LOCATION_0_20 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_21 {
     pub Srb: *mut _SCSI_REQUEST_BLOCK,
 }
@@ -7320,7 +7320,7 @@ impl Default for IO_STACK_LOCATION_0_21 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_22 {
     pub Length: u32,
     pub StartSid: super::winnt::PSID,
@@ -7330,21 +7330,21 @@ pub struct IO_STACK_LOCATION_0_22 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_23 {
     pub Length: u32,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_24 {
     pub Type: DEVICE_RELATION_TYPE,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_25 {
     pub InterfaceType: *const windows_core::GUID,
     pub Size: u16,
@@ -7362,21 +7362,21 @@ impl Default for IO_STACK_LOCATION_0_25 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_26 {
     pub Capabilities: PDEVICE_CAPABILITIES,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_27 {
     pub IoResourceRequirementList: PIO_RESOURCE_REQUIREMENTS_LIST,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_28 {
     pub WhichSpace: u32,
     pub Buffer: *mut core::ffi::c_void,
@@ -7393,14 +7393,14 @@ impl Default for IO_STACK_LOCATION_0_28 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_29 {
     pub Lock: bool,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_3 {
     pub Length: u32,
     pub Key: u32,
@@ -7410,14 +7410,14 @@ pub struct IO_STACK_LOCATION_0_3 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_30 {
     pub IdType: BUS_QUERY_ID_TYPE,
 }
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_31 {
     pub DeviceTextType: DEVICE_TEXT_TYPE,
     pub LocaleId: super::winnt::LCID,
@@ -7425,7 +7425,7 @@ pub struct IO_STACK_LOCATION_0_31 {
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_32 {
     pub InPath: bool,
     pub Reserved: [bool; 3],
@@ -7441,14 +7441,14 @@ impl Default for IO_STACK_LOCATION_0_32 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_33 {
     pub PowerState: super::winnt::SYSTEM_POWER_STATE,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_34 {
     pub PowerSequence: PPOWER_SEQUENCE,
 }
@@ -7487,7 +7487,7 @@ impl Default for IO_STACK_LOCATION_0_35_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_36 {
     pub AllocatedResources: PCM_RESOURCE_LIST,
     pub AllocatedResourcesTranslated: PCM_RESOURCE_LIST,
@@ -7495,7 +7495,7 @@ pub struct IO_STACK_LOCATION_0_36 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_37 {
     pub ProviderId: usize,
     pub DataPath: *mut core::ffi::c_void,
@@ -7512,7 +7512,7 @@ impl Default for IO_STACK_LOCATION_0_37 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_38 {
     pub Argument1: *mut core::ffi::c_void,
     pub Argument2: *mut core::ffi::c_void,
@@ -7529,7 +7529,7 @@ impl Default for IO_STACK_LOCATION_0_38 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_4 {
     pub Length: u32,
     pub Key: u32,
@@ -7539,7 +7539,7 @@ pub struct IO_STACK_LOCATION_0_4 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_5 {
     pub Length: u32,
     pub FileName: super::ntsecapi::PUNICODE_STRING,
@@ -7549,7 +7549,7 @@ pub struct IO_STACK_LOCATION_0_5 {
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_6 {
     pub Length: u32,
     pub CompletionFilter: u32,
@@ -7557,7 +7557,7 @@ pub struct IO_STACK_LOCATION_0_6 {
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_7 {
     pub Length: u32,
     pub CompletionFilter: u32,
@@ -7566,7 +7566,7 @@ pub struct IO_STACK_LOCATION_0_7 {
 #[repr(C, align(8))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_8 {
     pub Length: u32,
     pub FileInformationClass: super::winternl::FILE_INFORMATION_CLASS,
@@ -7607,14 +7607,14 @@ impl Default for IO_STACK_LOCATION_0_9_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STACK_LOCATION_0_9_0_0 {
     pub ReplaceIfExists: bool,
     pub AdvanceOnly: bool,
 }
 #[repr(C)]
 #[cfg(feature = "bcrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STATUS_BLOCK32 {
     pub Status: super::bcrypt::NTSTATUS,
     pub Information: u32,
@@ -7856,7 +7856,7 @@ impl Default for IRP_3_0_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IRP_3_0_0_0 {
     pub DriverContext: [*mut core::ffi::c_void; 4],
 }
@@ -8074,7 +8074,7 @@ impl Default for IRP_3_0_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IRP_3_0_0_0 {
     pub DriverContext: [*mut core::ffi::c_void; 4],
 }
@@ -8302,7 +8302,7 @@ pub const Isa: INTERFACE_TYPE = 1;
 #[cfg(target_arch = "x86")]
 pub const KADDRESS_BASE: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KADDRESS_RANGE {
     pub Address: *mut core::ffi::c_void,
     pub Size: usize,
@@ -8313,7 +8313,7 @@ impl Default for KADDRESS_RANGE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KADDRESS_RANGE_DESCRIPTOR {
     pub AddressRanges: *const KADDRESS_RANGE,
     pub AddressRangeCount: usize,
@@ -8325,7 +8325,7 @@ impl Default for KADDRESS_RANGE_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KAPC {
     pub Type: u8,
     pub AllFlags: u8,
@@ -8363,7 +8363,7 @@ pub const KAPC_OFFSET_TO_SYSTEMARGUMENT2: u32 = 40;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const KAPC_OFFSET_TO_SYSTEMARGUMENT2: u32 = 72;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_ADD_PAGES {
     pub Context: *mut core::ffi::c_void,
     pub Flags: u32,
@@ -8380,7 +8380,7 @@ pub type KBUGCHECK_BUFFER_DUMP_STATE = i32;
 pub type KBUGCHECK_CALLBACK_REASON = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_CALLBACK_RECORD {
     pub Entry: super::winnt::LIST_ENTRY,
     pub CallbackRoutine: PKBUGCHECK_CALLBACK_ROUTINE,
@@ -8398,7 +8398,7 @@ impl Default for KBUGCHECK_CALLBACK_RECORD {
 }
 pub type KBUGCHECK_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(buffer: *mut core::ffi::c_void, length: u32)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_DUMP_IO {
     pub Offset: u64,
     pub Buffer: *mut core::ffi::c_void,
@@ -8413,7 +8413,7 @@ impl Default for KBUGCHECK_DUMP_IO {
 pub type KBUGCHECK_DUMP_IO_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KBUGCHECK_REASON_CALLBACK_RECORD {
     pub Entry: super::winnt::LIST_ENTRY,
     pub CallbackRoutine: PKBUGCHECK_REASON_CALLBACK_ROUTINE,
@@ -8425,7 +8425,7 @@ pub struct KBUGCHECK_REASON_CALLBACK_RECORD {
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type KBUGCHECK_REASON_CALLBACK_ROUTINE = Option<unsafe extern "system" fn(reason: KBUGCHECK_CALLBACK_REASON, record: *const KBUGCHECK_REASON_CALLBACK_RECORD, reasonspecificdata: *mut core::ffi::c_void, reasonspecificdatalength: u32)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_REMOVE_PAGES {
     pub Context: *mut core::ffi::c_void,
     pub Flags: u32,
@@ -8439,7 +8439,7 @@ impl Default for KBUGCHECK_REMOVE_PAGES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_SECONDARY_DUMP_DATA {
     pub InBuffer: *mut core::ffi::c_void,
     pub InBufferLength: u32,
@@ -8454,7 +8454,7 @@ impl Default for KBUGCHECK_SECONDARY_DUMP_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KBUGCHECK_SECONDARY_DUMP_DATA_EX {
     pub InBuffer: *mut core::ffi::c_void,
     pub InBufferLength: u32,
@@ -8478,7 +8478,7 @@ impl Default for KBUGCHECK_SECONDARY_DUMP_DATA_EX {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KBUGCHECK_TRIAGE_DUMP_DATA {
     pub DataArray: PKTRIAGE_DUMP_DATA_ARRAY,
     pub Flags: u32,
@@ -8537,14 +8537,14 @@ impl Default for KDEVICE_QUEUE_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KDEVICE_QUEUE_0_0 {
     pub _bitfield: i64,
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KDEVICE_QUEUE {
     pub Type: super::ntdef::CSHORT,
     pub Size: super::ntdef::CSHORT,
@@ -8554,7 +8554,7 @@ pub struct KDEVICE_QUEUE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KDEVICE_QUEUE_ENTRY {
     pub DeviceListEntry: super::winnt::LIST_ENTRY,
     pub SortKey: u32,
@@ -8594,7 +8594,7 @@ impl Default for KDPC_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KDPC_0_0 {
     pub Type: u8,
     pub Importance: u8,
@@ -8602,7 +8602,7 @@ pub struct KDPC_0_0 {
 }
 pub type KDPC_IMPORTANCE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KDPC_WATCHDOG_INFORMATION {
     pub DpcTimeLimit: u32,
     pub DpcTimeCount: u32,
@@ -8613,10 +8613,10 @@ pub struct KDPC_WATCHDOG_INFORMATION {
 pub type KD_OPTION = i32;
 pub const KD_OPTION_SET_BLOCK_ENABLE: KD_OPTION = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KENLISTMENT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KERNEL_SOFT_RESTART_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
@@ -8636,7 +8636,7 @@ impl Default for KEVENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_BASIC_INFORMATION {
     pub LastWriteTime: i64,
     pub TitleIndex: u32,
@@ -8649,12 +8649,12 @@ impl Default for KEY_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_CONTROL_FLAGS_INFORMATION {
     pub ControlFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_FULL_INFORMATION {
     pub LastWriteTime: i64,
     pub TitleIndex: u32,
@@ -8675,7 +8675,7 @@ impl Default for KEY_FULL_INFORMATION {
 }
 pub type KEY_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_NODE_INFORMATION {
     pub LastWriteTime: i64,
     pub TitleIndex: u32,
@@ -8690,17 +8690,17 @@ impl Default for KEY_NODE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_SET_VIRTUALIZATION_INFORMATION {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_TRUST_INFORMATION {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_VALUE_BASIC_INFORMATION {
     pub TitleIndex: u32,
     pub Type: u32,
@@ -8713,7 +8713,7 @@ impl Default for KEY_VALUE_BASIC_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_VALUE_FULL_INFORMATION {
     pub TitleIndex: u32,
     pub Type: u32,
@@ -8729,12 +8729,12 @@ impl Default for KEY_VALUE_FULL_INFORMATION {
 }
 pub type KEY_VALUE_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_VALUE_LAYER_INFORMATION {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_VALUE_PARTIAL_INFORMATION {
     pub TitleIndex: u32,
     pub Type: u32,
@@ -8747,7 +8747,7 @@ impl Default for KEY_VALUE_PARTIAL_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {
     pub Type: u32,
     pub DataLength: u32,
@@ -8759,12 +8759,12 @@ impl Default for KEY_VALUE_PARTIAL_INFORMATION_ALIGN64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_WOW64_FLAGS_INFORMATION {
     pub UserFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_WRITE_TIME_INFORMATION {
     pub LastWriteTime: i64,
 }
@@ -8772,7 +8772,7 @@ pub const KE_MAX_TRIAGE_DUMP_DATA_MEMORY_SIZE: u32 = 33554432;
 pub const KE_PROCESSOR_CHANGE_ADD_EXISTING: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
     pub State: KE_PROCESSOR_CHANGE_NOTIFY_STATE,
     pub NtNumber: u32,
@@ -8782,7 +8782,7 @@ pub struct KE_PROCESSOR_CHANGE_NOTIFY_CONTEXT {
 pub type KE_PROCESSOR_CHANGE_NOTIFY_STATE = i32;
 pub const KE_SRCU_FLAG_READ_AT_DISPATCH: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KE_SRCU_LOCK {
     pub Placeholder: [usize; 2],
 }
@@ -8793,7 +8793,7 @@ impl Default for KE_SRCU_LOCK {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KFLOATING_SAVE {
     pub ControlWord: u32,
     pub StatusWord: u32,
@@ -8806,7 +8806,7 @@ pub struct KFLOATING_SAVE {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KFLOATING_SAVE {
     pub Dummy: u32,
 }
@@ -8829,7 +8829,7 @@ pub type KINTERRUPT_POLARITY = i32;
 pub type KIPI_BROADCAST_WORKER = Option<unsafe extern "system" fn(argument: usize) -> usize>;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KLOCK_QUEUE_HANDLE {
     pub LockQueue: KSPIN_LOCK_QUEUE,
     pub OldIrql: super::ntdef::KIRQL,
@@ -8866,7 +8866,7 @@ impl Default for KMUTANT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KMUTANT_0_0 {
     pub _bitfield: u8,
 }
@@ -8876,7 +8876,7 @@ pub type KMUTEX = KMUTANT;
 pub type KPROCESSOR_MODE = super::winnt::CCHAR;
 pub type KPROFILE_SOURCE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KRESOURCEMANAGER(pub u8);
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -8894,7 +8894,7 @@ impl Default for KSEMAPHORE {
 pub type KSERVICE_ROUTINE = Option<unsafe extern "system" fn(interrupt: *const _KINTERRUPT, servicecontext: *const core::ffi::c_void) -> bool>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSPIN_LOCK_QUEUE {
     pub Next: *mut Self,
     pub Lock: super::winnt::PKSPIN_LOCK,
@@ -8914,7 +8914,7 @@ pub type KSPIN_LOCK_QUEUE_NUMBER = i32;
 pub type KSTART_ROUTINE = Option<unsafe extern "system" fn(startcontext: *const core::ffi::c_void)>;
 pub type KSYNCHRONIZE_ROUTINE = Option<unsafe extern "system" fn(synchronizecontext: *const core::ffi::c_void) -> bool>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSYSTEM_TIME {
     pub LowPart: u32,
     pub High1Time: i32,
@@ -8961,14 +8961,14 @@ impl Default for KTIMER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KTM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KTRANSACTION(pub u8);
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KTRIAGE_DUMP_DATA_ARRAY {
     pub List: super::winnt::LIST_ENTRY,
     pub NumBlocksUsed: u32,
@@ -9059,7 +9059,7 @@ impl Default for KWAIT_BLOCK_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KWAIT_CHAIN {
     pub Head: *mut core::ffi::c_void,
 }
@@ -9105,14 +9105,14 @@ pub const KeyValuePartialInformation: KEY_VALUE_INFORMATION_CLASS = 2;
 pub const KeyValuePartialInformationAlign64: KEY_VALUE_INFORMATION_CLASS = 4;
 pub const KeyVirtualizationInformation: KEY_INFORMATION_CLASS = 6;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LEGACY_BUS_INFORMATION {
     pub BusTypeGuid: windows_core::GUID,
     pub LegacyBusType: INTERFACE_TYPE,
     pub BusNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LINK_SHARE_ACCESS {
     pub OpenCount: u32,
     pub Deleters: u32,
@@ -9270,7 +9270,7 @@ pub const LowPoolPriority: EX_POOL_PRIORITY = 0;
 pub const LowPoolPrioritySpecialPoolOverrun: EX_POOL_PRIORITY = 8;
 pub const LowPoolPrioritySpecialPoolUnderrun: EX_POOL_PRIORITY = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAILSLOT_CREATE_PARAMETERS {
     pub MailslotQuota: u32,
     pub MaximumMessageSize: u32,
@@ -9283,7 +9283,7 @@ pub const MAXIMUM_PRIORITY: u32 = 32;
 pub const MAX_EVENT_COUNTERS: u32 = 31;
 #[repr(C)]
 #[cfg(feature = "ntdef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MDL {
     pub Next: *mut Self,
     pub Size: super::ntdef::CSHORT,
@@ -9322,7 +9322,7 @@ pub type MEMORY_CACHING_TYPE = i32;
 pub type MEMORY_CACHING_TYPE_ORIG = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_OPEN_INFORMATION {
     pub DedicatedMemoryTypeId: u64,
     pub HandleAttributes: u32,
@@ -9357,7 +9357,7 @@ pub type MM_PAGE_PRIORITY = i32;
 pub const MM_PERMANENT_ADDRESS_IS_IO_SPACE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_PHYSICAL_ADDRESS_LIST {
     pub PhysicalAddress: super::usb::PHYSICAL_ADDRESS,
     pub NumberOfBytes: usize,
@@ -9406,7 +9406,7 @@ pub const MmUSWCCached: MEMORY_CACHING_TYPE = 5;
 pub const MmWriteCombined: MEMORY_CACHING_TYPE = 2;
 pub const ModifyAccess: IO_ACCESS_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NAMED_PIPE_CREATE_PARAMETERS {
     pub NamedPipeType: u32,
     pub ReadMode: u32,
@@ -9463,7 +9463,7 @@ impl Default for NPEM_CAPABILITY_STANDARD {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NPEM_CAPABILITY_STANDARD_0 {
     pub _bitfield: u32,
 }
@@ -9524,14 +9524,14 @@ pub const NormalWorkQueue: WORK_QUEUE_TYPE = 3;
 pub const NuBus: INTERFACE_TYPE = 7;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECT_HANDLE_INFORMATION {
     pub HandleAttributes: u32,
     pub GrantedAccess: super::winnt::ACCESS_MASK,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OBJECT_NAME_INFORMATION {
     pub Name: super::ntsecapi::UNICODE_STRING,
 }
@@ -9540,7 +9540,7 @@ pub const OBJECT_TYPE_CREATE: u32 = 1;
 pub const OBJ_NAME_PATH_SEPARATOR: u32 = 92;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OB_CALLBACK_REGISTRATION {
     pub Version: u16,
     pub OperationRegistrationCount: u16,
@@ -9578,13 +9578,13 @@ impl Default for OB_OPERATION_REGISTRATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OB_POST_CREATE_HANDLE_INFORMATION {
     pub GrantedAccess: super::winnt::ACCESS_MASK,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OB_POST_DUPLICATE_HANDLE_INFORMATION {
     pub GrantedAccess: super::winnt::ACCESS_MASK,
 }
@@ -9621,7 +9621,7 @@ impl Default for OB_POST_OPERATION_INFORMATION_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OB_POST_OPERATION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
@@ -9642,14 +9642,14 @@ pub type OB_PREOP_CALLBACK_STATUS = i32;
 pub const OB_PREOP_SUCCESS: OB_PREOP_CALLBACK_STATUS = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OB_PRE_CREATE_HANDLE_INFORMATION {
     pub DesiredAccess: super::winnt::ACCESS_MASK,
     pub OriginalDesiredAccess: super::winnt::ACCESS_MASK,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OB_PRE_DUPLICATE_HANDLE_INFORMATION {
     pub DesiredAccess: super::winnt::ACCESS_MASK,
     pub OriginalDesiredAccess: super::winnt::ACCESS_MASK,
@@ -9694,7 +9694,7 @@ impl Default for OB_PRE_OPERATION_INFORMATION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OB_PRE_OPERATION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
@@ -9745,7 +9745,7 @@ impl Default for OWNER_ENTRY_COUNTS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OWNER_ENTRY_COUNTS_0 {
     pub _bitfield: u32,
 }
@@ -9883,7 +9883,7 @@ impl Default for PCI_ATS_INTERFACE {
 pub const PCI_ATS_INTERFACE_VERSION: u32 = 1;
 pub const PCI_BRIDGE_TYPE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_CAPABILITIES_HEADER {
     pub CapabilityID: u8,
     pub Next: u8,
@@ -9975,7 +9975,7 @@ impl Default for PCI_COMMON_HEADER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_COMMON_HEADER_0_0 {
     pub BaseAddresses: [u32; 6],
     pub CIS: u32,
@@ -9996,7 +9996,7 @@ impl Default for PCI_COMMON_HEADER_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_COMMON_HEADER_0_1 {
     pub BaseAddresses: [u32; 2],
     pub PrimaryBus: u8,
@@ -10027,7 +10027,7 @@ impl Default for PCI_COMMON_HEADER_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCI_COMMON_HEADER_0_2 {
     pub SocketRegistersBaseAddress: u32,
     pub CapabilitiesPtr: u8,
@@ -10048,13 +10048,13 @@ impl Default for PCI_COMMON_HEADER_0_2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_COMMON_HEADER_0_2_0 {
     pub Base: u32,
     pub Limit: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_DEVICE_PRESENCE_PARAMETERS {
     pub Size: u32,
     pub Flags: u32,
@@ -10162,7 +10162,7 @@ impl Default for PCI_EXPRESS_ACS_CAPABILITY_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0 {
     pub _bitfield: u16,
 }
@@ -10178,7 +10178,7 @@ impl Default for PCI_EXPRESS_ACS_CONTROL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ACS_CONTROL_0 {
     pub _bitfield: u16,
 }
@@ -10195,7 +10195,7 @@ impl Default for PCI_EXPRESS_AER_CAPABILITIES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_AER_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
@@ -10222,20 +10222,20 @@ impl Default for PCI_EXPRESS_AER_CAPABILITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ARI_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub Capability: PCI_EXPRESS_ARI_CAPABILITY_REGISTER,
     pub Control: PCI_EXPRESS_ARI_CONTROL_REGISTER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
     pub _bitfield: u16,
 }
 pub const PCI_EXPRESS_ARI_CAP_ID: u32 = 14;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ARI_CONTROL_REGISTER {
     pub _bitfield: u16,
 }
@@ -10252,7 +10252,7 @@ impl Default for PCI_EXPRESS_ATS_CAPABILITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
     pub _bitfield: u16,
 }
@@ -10269,7 +10269,7 @@ impl Default for PCI_EXPRESS_ATS_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ATS_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
@@ -10308,7 +10308,7 @@ impl Default for PCI_EXPRESS_CORRECTABLE_ERROR_MASK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
 }
@@ -10324,7 +10324,7 @@ impl Default for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
@@ -10354,7 +10354,7 @@ impl Default for PCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER_0 {
     pub _bitfield: u32,
 }
@@ -10370,7 +10370,7 @@ impl Default for PCI_EXPRESS_DEVICE_CONTROL_3_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_DEVICE_CONTROL_3_REGISTER_0 {
     pub _bitfield: u32,
 }
@@ -10379,7 +10379,7 @@ pub const PCI_EXPRESS_DOE_CAP_ID: u32 = 46;
 pub const PCI_EXPRESS_DPA_CAP_ID: u32 = 22;
 pub const PCI_EXPRESS_DPC_CAP_ID: u32 = 29;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
     pub CapabilityID: u16,
     pub _bitfield: u16,
@@ -10398,7 +10398,7 @@ impl Default for PCI_EXPRESS_ERROR_SOURCE_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ERROR_SOURCE_ID_0 {
     pub _bitfield1: u16,
     pub _bitfield2: u16,
@@ -10459,7 +10459,7 @@ impl Default for PCI_EXPRESS_PASID_CAPABILITY_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
     pub _bitfield: u16,
 }
@@ -10476,7 +10476,7 @@ impl Default for PCI_EXPRESS_PASID_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PASID_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
@@ -10508,7 +10508,7 @@ impl Default for PCI_EXPRESS_PRI_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PRI_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
@@ -10524,7 +10524,7 @@ impl Default for PCI_EXPRESS_PRI_STATUS_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PRI_STATUS_REGISTER_0 {
     pub _bitfield: u16,
 }
@@ -10552,7 +10552,7 @@ impl Default for PCI_EXPRESS_PTM_CAPABILITY_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
@@ -10569,7 +10569,7 @@ impl Default for PCI_EXPRESS_PTM_CONTROL_REGISTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
 }
@@ -10612,7 +10612,7 @@ impl Default for PCI_EXPRESS_ROOT_ERROR_COMMAND {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_ERROR_COMMAND_0 {
     pub _bitfield: u32,
 }
@@ -10628,7 +10628,7 @@ impl Default for PCI_EXPRESS_ROOT_ERROR_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
@@ -10662,7 +10662,7 @@ impl Default for PCI_EXPRESS_SEC_AER_CAPABILITIES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SEC_AER_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
@@ -10678,7 +10678,7 @@ impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
 }
@@ -10694,7 +10694,7 @@ impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 {
     pub _bitfield: u32,
 }
@@ -10710,12 +10710,12 @@ impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SERIAL_NUMBER_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub LowSerialNumber: u32,
@@ -10760,7 +10760,7 @@ impl Default for PCI_EXPRESS_SRIOV_CAPS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_CAPS_0 {
     pub _bitfield: u32,
 }
@@ -10776,7 +10776,7 @@ impl Default for PCI_EXPRESS_SRIOV_CONTROL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_CONTROL_0 {
     pub _bitfield: u16,
 }
@@ -10792,7 +10792,7 @@ impl Default for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 {
     pub _bitfield: u32,
 }
@@ -10808,7 +10808,7 @@ impl Default for PCI_EXPRESS_SRIOV_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -10825,7 +10825,7 @@ impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
 }
@@ -10841,7 +10841,7 @@ impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 {
     pub _bitfield: u32,
 }
@@ -10857,13 +10857,13 @@ impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
 pub const PCI_EXPRESS_VC_AND_MFVC_CAP_ID: u32 = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub VsecId: u16,
@@ -10930,23 +10930,23 @@ pub const PCI_MSIX_TABLE_CONFIG_MINIMUM_SIZE: u32 = 28;
 pub const PCI_MSIX_TABLE_CONFIG_MINIMUM_SIZE: u32 = 56;
 pub const PCI_MULTIFUNCTION: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_PMC {
     pub _bitfield: u8,
     pub Support: PCI_PMC_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_PMCSR {
     pub _bitfield: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_PMCSR_BSE {
     pub _bitfield: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_PMC_0 {
     pub _bitfield: u8,
 }
@@ -11069,7 +11069,7 @@ impl Default for PCI_SEGMENT_BUS_NUMBER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_SEGMENT_BUS_NUMBER_0_0 {
     pub _bitfield: u32,
 }
@@ -11103,7 +11103,7 @@ impl Default for PCI_SLOT_NUMBER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
 }
@@ -11267,7 +11267,7 @@ impl Default for PCI_X_CAPABILITY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_X_CAPABILITY_0_0 {
     pub _bitfield: u16,
 }
@@ -11283,7 +11283,7 @@ impl Default for PCI_X_CAPABILITY_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_X_CAPABILITY_1_0 {
     pub _bitfield: u32,
 }
@@ -11373,7 +11373,7 @@ impl Default for PCW_CALLBACK_INFORMATION {
 }
 pub type PCW_CALLBACK_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCW_COUNTER_DESCRIPTOR {
     pub Id: u16,
     pub StructIndex: u16,
@@ -11382,14 +11382,14 @@ pub struct PCW_COUNTER_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCW_COUNTER_INFORMATION {
     pub CounterMask: u64,
     pub InstanceMask: super::winternl::PCUNICODE_STRING,
 }
 pub const PCW_CURRENT_VERSION: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PCW_DATA {
     pub Data: *const core::ffi::c_void,
     pub Size: u32,
@@ -11401,7 +11401,7 @@ impl Default for PCW_DATA {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCW_MASK_INFORMATION {
     pub CounterMask: u64,
     pub InstanceMask: super::winternl::PCUNICODE_STRING,
@@ -12117,7 +12117,7 @@ pub type PLOG_FILE_OBJECT = *mut FILE_OBJECT;
 #[cfg(feature = "winnt")]
 pub type PLOOKASIDE_LIST_EX = *mut LOOKASIDE_LIST_EX;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PLUGPLAY_NOTIFICATION_HEADER {
     pub Version: u16,
     pub Size: u16,
@@ -12167,7 +12167,7 @@ pub type PNPEM_CONTROL_STANDARD_CONTROL_BIT = *mut NPEM_CONTROL_STANDARD_CONTROL
 pub const PNPISABus: INTERFACE_TYPE = 14;
 pub const PNPNOTIFY_DEVICE_INTERFACE_INCLUDE_EXISTING_INTERFACES: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PNP_BUS_INFORMATION {
     pub BusTypeGuid: windows_core::GUID,
     pub LegacyBusType: INTERFACE_TYPE,
@@ -12229,7 +12229,7 @@ pub const PNP_REPLACE_HARDWARE_PAGE_COPY: u32 = 8;
 pub const PNP_REPLACE_HARDWARE_QUIESCE: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PNP_REPLACE_MEMORY_LIST {
     pub AllocatedCount: u32,
     pub Count: u32,
@@ -12244,7 +12244,7 @@ impl Default for PNP_REPLACE_MEMORY_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PNP_REPLACE_MEMORY_LIST_0 {
     pub Address: super::usb::PHYSICAL_ADDRESS,
     pub Length: u64,
@@ -12268,7 +12268,7 @@ pub struct PNP_REPLACE_PARAMETERS {
 pub const PNP_REPLACE_PARAMETERS_VERSION: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PNP_REPLACE_PROCESSOR_LIST {
     pub Affinity: super::basetsd::PKAFFINITY,
     pub GroupCount: u32,
@@ -12284,7 +12284,7 @@ impl Default for PNP_REPLACE_PROCESSOR_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "basetsd")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PNP_REPLACE_PROCESSOR_LIST_V1 {
     pub AffinityMask: super::basetsd::KAFFINITY,
     pub AllocatedCount: u32,
@@ -12367,7 +12367,7 @@ impl Default for POOL_CREATE_EXTENDED_PARAMETER_0 {
 pub type POOL_CREATE_EXTENDED_PARAMETER_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POOL_CREATE_EXTENDED_PARAMS {
     pub Version: u32,
     pub ParameterCount: u32,
@@ -12395,7 +12395,7 @@ impl Default for POOL_EXTENDED_PARAMETER {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POOL_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
 }
@@ -12422,7 +12422,7 @@ pub type POOL_EXTENDED_PARAMETER_TYPE = i32;
 pub const POOL_EXTENDED_PARAMETER_TYPE_BITS: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct POOL_EXTENDED_PARAMS_SECURE_POOL {
     pub SecurePoolHandle: super::winnt::HANDLE,
     pub Buffer: *mut core::ffi::c_void,
@@ -12478,7 +12478,7 @@ pub const POWER_LEVEL: u32 = 30;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const POWER_LEVEL: u32 = 14;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_SEQUENCE {
     pub SequenceD1: u32,
     pub SequenceD2: u32,
@@ -12528,7 +12528,7 @@ pub const PO_FX_COMPONENT_FLAG_F0_ON_DX: u32 = 1;
 pub const PO_FX_COMPONENT_FLAG_NO_DEBOUNCE: u32 = 2;
 pub type PO_FX_COMPONENT_IDLE_CONDITION_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_IDLE_STATE {
     pub TransitionLatency: u64,
     pub ResidencyRequirement: u64,
@@ -12579,21 +12579,21 @@ impl Default for PO_FX_COMPONENT_PERF_SET_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_PERF_SET_0_0 {
     pub Count: u32,
     pub States: PPO_FX_PERF_STATE,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_PERF_SET_0_1 {
     pub Minimum: u64,
     pub Maximum: u64,
 }
 pub type PO_FX_COMPONENT_PERF_STATE_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, component: u32, succeeded: bool, requestcontext: *const core::ffi::c_void)>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_V1 {
     pub Id: windows_core::GUID,
     pub IdleStateCount: u32,
@@ -12602,7 +12602,7 @@ pub struct PO_FX_COMPONENT_V1 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PO_FX_COMPONENT_V2 {
     pub Id: windows_core::GUID,
     pub Flags: u64,
@@ -12626,7 +12626,7 @@ pub type PO_FX_DEVICE_POWER_NOT_REQUIRED_CALLBACK = Option<unsafe extern "system
 pub type PO_FX_DEVICE_POWER_REQUIRED_CALLBACK = Option<unsafe extern "system" fn(context: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "bcrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_DEVICE_V1 {
     pub Version: u32,
     pub ComponentCount: u32,
@@ -12647,7 +12647,7 @@ impl Default for PO_FX_DEVICE_V1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_DEVICE_V2 {
     pub Version: u32,
     pub Flags: u64,
@@ -12669,7 +12669,7 @@ impl Default for PO_FX_DEVICE_V2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "minwindef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_DEVICE_V3 {
     pub Version: u32,
     pub Flags: u64,
@@ -12705,7 +12705,7 @@ pub const PO_FX_FLAG_PERF_PEP_OPTIONAL: u32 = 1;
 pub const PO_FX_FLAG_PERF_QUERY_ON_ALL_IDLE_STATES: u32 = 4;
 pub const PO_FX_FLAG_PERF_QUERY_ON_F0: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PO_FX_PERF_STATE {
     pub Value: u64,
     pub Context: *mut core::ffi::c_void,
@@ -13328,7 +13328,7 @@ pub const REFTAG_WSKNAMERES: u32 = 1315664727;
 pub const REFTAG_WSKPROV: u32 = 1349219159;
 pub const REFTAG_WSKTDI: u32 = 1416328023;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ObjectContext: *mut core::ffi::c_void,
@@ -13341,7 +13341,7 @@ impl Default for REG_CALLBACK_CONTEXT_CLEANUP_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_CREATE_KEY_INFORMATION {
     pub CompleteName: super::ntsecapi::PUNICODE_STRING,
     pub RootObject: *mut core::ffi::c_void,
@@ -13367,7 +13367,7 @@ impl Default for REG_CREATE_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_CREATE_KEY_INFORMATION_V1 {
     pub CompleteName: super::ntsecapi::PUNICODE_STRING,
     pub RootObject: *mut core::ffi::c_void,
@@ -13396,7 +13396,7 @@ impl Default for REG_CREATE_KEY_INFORMATION_V1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_DELETE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub CallContext: *mut core::ffi::c_void,
@@ -13410,7 +13410,7 @@ impl Default for REG_DELETE_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_DELETE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueName: super::ntsecapi::PUNICODE_STRING,
@@ -13426,7 +13426,7 @@ impl Default for REG_DELETE_VALUE_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_ENUMERATE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Index: u32,
@@ -13446,7 +13446,7 @@ impl Default for REG_ENUMERATE_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_ENUMERATE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Index: u32,
@@ -13466,7 +13466,7 @@ impl Default for REG_ENUMERATE_VALUE_KEY_INFORMATION {
 }
 pub type REG_FLUSH_KEY_INFORMATION = REG_DELETE_KEY_INFORMATION;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_KEY_HANDLE_CLOSE_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub CallContext: *mut core::ffi::c_void,
@@ -13480,7 +13480,7 @@ impl Default for REG_KEY_HANDLE_CLOSE_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_LOAD_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeyName: super::ntsecapi::PUNICODE_STRING,
@@ -13502,7 +13502,7 @@ impl Default for REG_LOAD_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_LOAD_KEY_INFORMATION_V2 {
     pub Object: *mut core::ffi::c_void,
     pub KeyName: super::ntsecapi::PUNICODE_STRING,
@@ -13530,7 +13530,7 @@ pub type REG_OPEN_KEY_INFORMATION = REG_CREATE_KEY_INFORMATION;
 pub type REG_OPEN_KEY_INFORMATION_V1 = REG_CREATE_KEY_INFORMATION_V1;
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_POST_CREATE_KEY_INFORMATION {
     pub CompleteName: super::ntsecapi::PUNICODE_STRING,
     pub Object: *mut core::ffi::c_void,
@@ -13546,7 +13546,7 @@ impl Default for REG_POST_CREATE_KEY_INFORMATION {
 pub type REG_POST_OPEN_KEY_INFORMATION = REG_POST_CREATE_KEY_INFORMATION;
 #[repr(C)]
 #[cfg(feature = "bcrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_POST_OPERATION_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub Status: super::bcrypt::NTSTATUS,
@@ -13564,7 +13564,7 @@ impl Default for REG_POST_OPERATION_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REG_PRE_CREATE_KEY_INFORMATION {
     pub CompleteName: super::ntsecapi::PUNICODE_STRING,
 }
@@ -13572,7 +13572,7 @@ pub struct REG_PRE_CREATE_KEY_INFORMATION {
 pub type REG_PRE_OPEN_KEY_INFORMATION = REG_PRE_CREATE_KEY_INFORMATION;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_QUERY_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeyInformationClass: KEY_INFORMATION_CLASS,
@@ -13591,7 +13591,7 @@ impl Default for REG_QUERY_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_QUERY_KEY_NAME {
     pub Object: *mut core::ffi::c_void,
     pub ObjectNameInfo: POBJECT_NAME_INFORMATION,
@@ -13609,7 +13609,7 @@ impl Default for REG_QUERY_KEY_NAME {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_QUERY_KEY_SECURITY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub SecurityInformation: super::winnt::PSECURITY_INFORMATION,
@@ -13627,7 +13627,7 @@ impl Default for REG_QUERY_KEY_SECURITY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueEntries: super::winternl::PKEY_VALUE_ENTRY,
@@ -13647,7 +13647,7 @@ impl Default for REG_QUERY_MULTIPLE_VALUE_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_QUERY_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueName: super::ntsecapi::PUNICODE_STRING,
@@ -13667,7 +13667,7 @@ impl Default for REG_QUERY_VALUE_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_RENAME_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub NewName: super::ntsecapi::PUNICODE_STRING,
@@ -13683,7 +13683,7 @@ impl Default for REG_RENAME_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_REPLACE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub OldFileName: super::ntsecapi::PUNICODE_STRING,
@@ -13700,7 +13700,7 @@ impl Default for REG_REPLACE_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_RESTORE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub FileHandle: super::winnt::HANDLE,
@@ -13717,7 +13717,7 @@ impl Default for REG_RESTORE_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_SAVE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub FileHandle: super::winnt::HANDLE,
@@ -13734,7 +13734,7 @@ impl Default for REG_SAVE_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_SAVE_MERGED_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub FileHandle: super::winnt::HANDLE,
@@ -13752,7 +13752,7 @@ impl Default for REG_SAVE_MERGED_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winternl")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_SET_INFORMATION_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub KeySetInformationClass: super::winternl::KEY_SET_INFORMATION_CLASS,
@@ -13770,7 +13770,7 @@ impl Default for REG_SET_INFORMATION_KEY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_SET_KEY_SECURITY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub SecurityInformation: super::winnt::PSECURITY_INFORMATION,
@@ -13787,7 +13787,7 @@ impl Default for REG_SET_KEY_SECURITY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_SET_VALUE_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub ValueName: super::ntsecapi::PUNICODE_STRING,
@@ -13806,7 +13806,7 @@ impl Default for REG_SET_VALUE_KEY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REG_UNLOAD_KEY_INFORMATION {
     pub Object: *mut core::ffi::c_void,
     pub UserEvent: *mut core::ffi::c_void,
@@ -13824,7 +13824,7 @@ pub type REQUEST_POWER_COMPLETE = Option<unsafe extern "system" fn(deviceobject:
 pub type RESET_DOE_INSTANCES = Option<unsafe extern "system" fn(interfacecontext: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCE_HASH_ENTRY {
     pub ListEntry: super::winnt::LIST_ENTRY,
     pub Address: *mut core::ffi::c_void,
@@ -13840,7 +13840,7 @@ impl Default for RESOURCE_HASH_ENTRY {
 pub const RESOURCE_HASH_TABLE_SIZE: u32 = 64;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESOURCE_PERFORMANCE_DATA {
     pub ActiveResourceCount: u32,
     pub TotalResourceCount: u32,
@@ -13866,13 +13866,13 @@ pub const ROOT_CMD_ENABLE_NONFATAL_ERROR_REPORTING: u32 = 2;
 pub const ROOT_CMD_ERROR_REPORTING_ENABLE_MASK: u32 = 7;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_BITMAP {
     pub SizeOfBitMap: u32,
     pub Buffer: super::minwindef::PULONG,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_BITMAP_RUN {
     pub StartingIndex: u32,
     pub NumberOfBits: u32,
@@ -13993,7 +13993,7 @@ pub const ResourceOwnedExclusive: u32 = 128;
 pub const ResourceReleaseByOtherThread: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCATTER_GATHER_ELEMENT {
     pub Address: super::usb::PHYSICAL_ADDRESS,
     pub Length: u32,
@@ -14001,7 +14001,7 @@ pub struct SCATTER_GATHER_ELEMENT {
 }
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCATTER_GATHER_LIST {
     pub NumberOfElements: u32,
     pub Reserved: usize,
@@ -14022,7 +14022,7 @@ pub struct SDEV_IDENTIFIER_INTERFACE {
 pub const SDEV_IDENTIFIER_INTERFACE_VERSION: u32 = 1;
 pub type SECTION_INHERIT = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECTION_OBJECT_POINTERS {
     pub DataSectionObject: *mut core::ffi::c_void,
     pub SharedCacheMap: *mut core::ffi::c_void,
@@ -14051,7 +14051,7 @@ pub const SECURE_SECTION_ALLOW_PARTIAL_MDL: u32 = 1;
 pub type SECURITY_OPERATION_CODE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECURITY_SUBJECT_CONTEXT {
     pub ClientToken: super::winnt::PACCESS_TOKEN,
     pub ImpersonationLevel: super::winnt::SECURITY_IMPERSONATION_LEVEL,
@@ -14123,7 +14123,7 @@ pub const SE_TIME_ZONE_PRIVILEGE: u32 = 34;
 pub const SE_TRUSTED_CREDMAN_ACCESS_PRIVILEGE: u32 = 31;
 pub const SE_UNDOCK_PRIVILEGE: u32 = 25;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHARE_ACCESS {
     pub OpenCount: u32,
     pub Readers: u32,
@@ -14208,7 +14208,7 @@ impl Default for SYSTEM_POWER_STATE_CONTEXT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_POWER_STATE_CONTEXT_0_0 {
     pub _bitfield: u32,
 }
@@ -14233,7 +14233,7 @@ pub const SystemMemoryPartitionOpenDedicatedMemory: PARTITION_INFORMATION_CLASS 
 pub const SystemPowerState: POWER_STATE_TYPE = 0;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TARGET_DEVICE_CUSTOM_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
@@ -14250,7 +14250,7 @@ impl Default for TARGET_DEVICE_CUSTOM_NOTIFICATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TARGET_DEVICE_REMOVAL_NOTIFICATION {
     pub Version: u16,
     pub Size: u16,
@@ -14264,7 +14264,7 @@ pub const TIMER_PROCESSOR_INDEX_BITS: u32 = 5;
 pub const TIMER_TOLERABLE_DELAY_BITS: u32 = 6;
 #[repr(C)]
 #[cfg(feature = "ntdef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TIME_FIELDS {
     pub Year: super::ntdef::CSHORT,
     pub Month: super::ntdef::CSHORT,
@@ -14313,7 +14313,7 @@ impl Default for VIRTUAL_CHANNEL_CAPABILITIES1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_CHANNEL_CAPABILITIES1_0 {
     pub _bitfield: u32,
 }
@@ -14329,7 +14329,7 @@ impl Default for VIRTUAL_CHANNEL_CAPABILITIES2 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_CHANNEL_CAPABILITIES2_0 {
     pub _bitfield: u32,
 }
@@ -14345,7 +14345,7 @@ impl Default for VIRTUAL_CHANNEL_CONTROL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_CHANNEL_CONTROL_0 {
     pub _bitfield: u16,
 }
@@ -14361,7 +14361,7 @@ impl Default for VIRTUAL_CHANNEL_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_CHANNEL_STATUS_0 {
     pub _bitfield: u16,
 }
@@ -14390,7 +14390,7 @@ impl Default for VIRTUAL_RESOURCE_CAPABILITY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_RESOURCE_CAPABILITY_0 {
     pub _bitfield: u32,
 }
@@ -14406,7 +14406,7 @@ impl Default for VIRTUAL_RESOURCE_CONTROL {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_RESOURCE_CONTROL_0 {
     pub _bitfield: u32,
 }
@@ -14422,14 +14422,14 @@ impl Default for VIRTUAL_RESOURCE_STATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_RESOURCE_STATUS_0 {
     pub _bitfield: u16,
 }
 pub const VMEBus: INTERFACE_TYPE = 6;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VPB {
     pub Type: super::ntdef::CSHORT,
     pub Size: super::ntdef::CSHORT,
@@ -14491,7 +14491,7 @@ impl Default for WAIT_CONTEXT_BLOCK_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "bcrypt", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WAIT_CONTEXT_BLOCK_0_0 {
     pub DmaWaitEntry: super::winnt::LIST_ENTRY,
     pub NumberOfChannels: u32,
@@ -14510,7 +14510,7 @@ pub type WMI_NOTIFICATION_CALLBACK = *mut FWMI_NOTIFICATION_CALLBACK;
 pub type WORKER_THREAD_ROUTINE = Option<unsafe extern "system" fn(parameter: *const core::ffi::c_void)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WORK_QUEUE_ITEM {
     pub List: super::winnt::LIST_ENTRY,
     pub WorkerRoutine: PWORKER_THREAD_ROUTINE,
@@ -14598,7 +14598,7 @@ impl Default for XSTATE_SAVE_0 {
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_SAVE_0_0 {
     pub Reserved1: i64,
     pub Reserved2: u32,
@@ -14618,7 +14618,7 @@ impl Default for XSTATE_SAVE_0_0 {
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_SAVE {
     pub Prev: *mut Self,
     pub Thread: *mut _KTHREAD,
@@ -14635,7 +14635,7 @@ impl Default for XSTATE_SAVE {
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSTATE_SAVE {
     pub Prev: *mut Self,
     pub Thread: *mut _KTHREAD,
@@ -14651,82 +14651,82 @@ impl Default for XSTATE_SAVE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _AFFINITY_TOKEN(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _CALLBACK_OBJECT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DEVICE_OBJECT_POWER_EXTENSION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DISK_PARTITION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DRIVER_PROXY_EXTENSION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DRIVE_LAYOUT_INFORMATION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _DRIVE_LAYOUT_INFORMATION_EX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _EPROCESS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _EX_RUNDOWN_REF_CACHE_AWARE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _EX_TIMER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _IOP_FILE_OBJECT_EXTENSION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _IORING_OBJECT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _IO_REMOVE_LOCK_TRACKING_BLOCK(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _IO_TIMER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _IO_WORKITEM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _KAFFINITY_EX(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _KE_SRCU(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _KINTERRUPT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _KPROCESS(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _KTHREAD(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _OBJECT_TYPE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _PCW_BUFFER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _PCW_INSTANCE(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _PCW_REGISTRATION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _SCSI_REQUEST_BLOCK(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _SET_PARTITION_INFORMATION_EX(pub u8);
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

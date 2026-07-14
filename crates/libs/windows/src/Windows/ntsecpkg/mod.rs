@@ -10,7 +10,7 @@ pub type KSEC_DEREFERENCE_LIST_ENTRY = Option<unsafe extern "system" fn(entry: *
 pub type KSEC_INSERT_LIST_ENTRY = Option<unsafe extern "system" fn(list: *const core::ffi::c_void, entry: *const KSEC_LIST_ENTRY)>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KSEC_LIST_ENTRY {
     pub List: super::winnt::LIST_ENTRY,
     pub RefCount: i32,
@@ -345,7 +345,7 @@ pub type LSA_SET_APP_MODE_INFO = Option<unsafe extern "system" fn(userfunction: 
 pub type LSA_SET_SECPKG_FAILURE_REASON = Option<unsafe extern "system" fn(reason: SECPKG_FAILURE_REASON) -> super::bcrypt::NTSTATUS>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_TOKEN_INFORMATION_NULL {
     pub ExpirationTime: i64,
     pub Groups: super::winnt::PTOKEN_GROUPS,
@@ -353,7 +353,7 @@ pub struct LSA_TOKEN_INFORMATION_NULL {
 pub type LSA_TOKEN_INFORMATION_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_TOKEN_INFORMATION_V1 {
     pub ExpirationTime: i64,
     pub User: super::winnt::TOKEN_USER,
@@ -367,7 +367,7 @@ pub struct LSA_TOKEN_INFORMATION_V1 {
 pub type LSA_TOKEN_INFORMATION_V2 = LSA_TOKEN_INFORMATION_V1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LSA_TOKEN_INFORMATION_V3 {
     pub ExpirationTime: i64,
     pub User: super::winnt::TOKEN_USER,
@@ -699,20 +699,20 @@ pub const SAM_CREDENTIAL_UPDATE_NOTIFY_ROUTINE: windows_core::PCSTR = windows_co
 pub const SAM_CREDENTIAL_UPDATE_REGISTER_MAPPED_ENTRYPOINTS_ROUTINE: windows_core::PCSTR = windows_core::s!("RegisterMappedEntrypoints");
 pub const SAM_CREDENTIAL_UPDATE_REGISTER_ROUTINE: windows_core::PCSTR = windows_core::s!("CredentialUpdateRegister");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_ELEMENT {
     pub Original: windows_core::PSTR,
     pub Mapped: windows_core::PSTR,
     pub Continuable: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_LIST {
     pub Count: u32,
     pub Elements: PSAM_REGISTER_MAPPING_ELEMENT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SAM_REGISTER_MAPPING_TABLE {
     pub Count: u32,
     pub Lists: PSAM_REGISTER_MAPPING_LIST,
@@ -724,7 +724,7 @@ pub const SECPKG_ANSI_ATTRIBUTE: u32 = 0;
 pub const SECPKG_ATTR_SASL_CONTEXT: u32 = 65536;
 pub const SECPKG_ATTR_THUNK_ALL: u32 = 65536;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_BYTE_VECTOR {
     pub ByteArrayOffset: u32,
     pub ByteArrayLength: u16,
@@ -736,7 +736,7 @@ pub const SECPKG_CALL_BUFFER_MARSHAL: u32 = 65536;
 pub const SECPKG_CALL_CLEANUP: u32 = 32;
 pub const SECPKG_CALL_CLOUDAP_CONNECT: u32 = 262144;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_CALL_INFO {
     pub ProcessId: u32,
     pub ThreadId: u32,
@@ -758,7 +758,7 @@ pub const SECPKG_CALL_NETWORK_ONLY: u32 = 1024;
 pub type SECPKG_CALL_PACKAGE_MESSAGE_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
     pub MessageType: u32,
     pub Flags: u32,
@@ -768,7 +768,7 @@ pub struct SECPKG_CALL_PACKAGE_PIN_DC_REQUEST {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST {
     pub MessageType: u32,
     pub OriginLogonId: super::winnt::LUID,
@@ -779,7 +779,7 @@ pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_CLEANUP_CREDENTIALS: u3
 pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_OPTIMISTIC_LOGON: u32 = 1;
 pub const SECPKG_CALL_PACKAGE_TRANSFER_CRED_REQUEST_FLAG_TO_SSO_SESSION: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CALL_PACKAGE_UNPIN_ALL_DCS_REQUEST {
     pub MessageType: u32,
     pub Flags: u32,
@@ -796,7 +796,7 @@ pub const SECPKG_CALL_WOWCLIENT: u32 = 64;
 pub const SECPKG_CALL_WOWX86: u32 = 64;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CLIENT_INFO {
     pub LogonId: super::winnt::LUID,
     pub ProcessID: u32,
@@ -810,7 +810,7 @@ pub struct SECPKG_CLIENT_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CLIENT_INFO_EX {
     pub LogonId: super::winnt::LUID,
     pub ProcessID: u32,
@@ -827,7 +827,7 @@ pub struct SECPKG_CLIENT_INFO_EX {
 pub const SECPKG_CLIENT_PROCESS_TERMINATED: u32 = 1;
 pub const SECPKG_CLIENT_THREAD_TERMINATED: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_CONTEXT_THUNKS {
     pub InfoLevelCount: u32,
     pub Levels: [u32; 1],
@@ -839,7 +839,7 @@ impl Default for SECPKG_CONTEXT_THUNKS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_CREDENTIAL {
     pub Version: u64,
     pub cbHeaderLength: u16,
@@ -872,7 +872,7 @@ pub struct SECPKG_DLL_FUNCTIONS {
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 pub type SECPKG_EVENT_DOMAIN_CHANGE = SECPKG_PARAMETERS;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_EVENT_NOTIFY {
     pub EventClass: u32,
     pub Reserved: u32,
@@ -887,14 +887,14 @@ impl Default for SECPKG_EVENT_NOTIFY {
 }
 #[repr(C)]
 #[cfg(feature = "sspi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_EVENT_PACKAGE_CHANGE {
     pub ChangeType: u32,
     pub PackageId: LSA_SEC_HANDLE,
     pub PackageName: super::sspi::SECURITY_STRING,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_EVENT_ROLE_CHANGE {
     pub PreviousRole: u32,
     pub NewRole: u32,
@@ -931,7 +931,7 @@ impl Default for SECPKG_EXTENDED_INFORMATION_0 {
 }
 pub type SECPKG_EXTENDED_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_EXTRA_OIDS {
     pub OidCount: u32,
     pub Oids: [SECPKG_SERIALIZED_OID; 1],
@@ -943,7 +943,7 @@ impl Default for SECPKG_EXTRA_OIDS {
 }
 #[repr(C)]
 #[cfg(feature = "bcrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_FAILURE_REASON {
     pub Status: super::bcrypt::NTSTATUS,
     pub Reason: SECPKG_FAILURE_SPECIAL_REASON,
@@ -998,7 +998,7 @@ pub struct SECPKG_FUNCTION_TABLE {
     pub ExtractTargetInfo: SpExtractTargetInfoFn,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_GSS_INFO {
     pub EncodedIdLength: u32,
     pub EncodedId: [u8; 4],
@@ -1058,13 +1058,13 @@ pub const SECPKG_MAX_OID_LENGTH: u32 = 32;
 pub const SECPKG_MSVAV_FLAGS_VALID: u32 = 1;
 pub const SECPKG_MSVAV_TIMESTAMP_VALID: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_MUTUAL_AUTH_LEVEL {
     pub MutualAuthLevel: u32,
 }
 pub type SECPKG_NAME_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_NEGO2_INFO {
     pub AuthScheme: [u8; 16],
     pub PackageFlags: u32,
@@ -1076,7 +1076,7 @@ impl Default for SECPKG_NEGO2_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_NTLM_TARGETINFO {
     pub Flags: u32,
     pub MsvAvNbComputerName: windows_core::PWSTR,
@@ -1093,7 +1093,7 @@ pub const SECPKG_PACKAGE_CHANGE_SELECT: u32 = 2;
 pub const SECPKG_PACKAGE_CHANGE_UNLOAD: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_PARAMETERS {
     pub Version: u32,
     pub MachineState: u32,
@@ -1105,7 +1105,7 @@ pub struct SECPKG_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_POST_LOGON_USER_INFO {
     pub Flags: u32,
     pub LogonId: super::winnt::LUID,
@@ -1113,7 +1113,7 @@ pub struct SECPKG_POST_LOGON_USER_INFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_PRIMARY_CRED {
     pub LogonId: super::winnt::LUID,
     pub DownlevelName: super::ntsecapi::UNICODE_STRING,
@@ -1132,7 +1132,7 @@ pub struct SECPKG_PRIMARY_CRED {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_PRIMARY_CRED_EX {
     pub LogonId: super::winnt::LUID,
     pub DownlevelName: super::ntsecapi::UNICODE_STRING,
@@ -1167,7 +1167,7 @@ pub struct SECPKG_REDIRECTED_LOGON_BUFFER {
     pub GetRedirectedLogonSid: PLSA_REDIRECTED_LOGON_GET_SID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_SERIALIZED_OID {
     pub OidLength: u32,
     pub OidAttributes: u32,
@@ -1180,7 +1180,7 @@ impl Default for SECPKG_SERIALIZED_OID {
 }
 pub type SECPKG_SESSIONINFO_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_SHORT_VECTOR {
     pub ShortArrayOffset: u32,
     pub ShortArrayCount: u16,
@@ -1194,7 +1194,7 @@ pub const SECPKG_STATE_STRONG_ENCRYPTION_PERMITTED: u32 = 2;
 pub const SECPKG_STATE_WORKSTATION: u32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_SUPPLEMENTAL_CRED {
     pub PackageName: super::ntsecapi::UNICODE_STRING,
     pub CredentialSize: u32,
@@ -1202,7 +1202,7 @@ pub struct SECPKG_SUPPLEMENTAL_CRED {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_SUPPLEMENTAL_CRED_ARRAY {
     pub CredentialCount: u32,
     pub Credentials: [SECPKG_SUPPLEMENTAL_CRED; 1],
@@ -1214,7 +1214,7 @@ impl Default for SECPKG_SUPPLEMENTAL_CRED_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_SUPPLIED_CREDENTIAL {
     pub cbHeaderLength: u16,
     pub cbStructureLength: u16,
@@ -1225,7 +1225,7 @@ pub struct SECPKG_SUPPLIED_CREDENTIAL {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_SURROGATE_LOGON {
     pub Version: u32,
     pub SurrogateLogonID: super::winnt::LUID,
@@ -1233,7 +1233,7 @@ pub struct SECPKG_SURROGATE_LOGON {
     pub Entries: PSECPKG_SURROGATE_LOGON_ENTRY,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SECPKG_SURROGATE_LOGON_ENTRY {
     pub Type: windows_core::GUID,
     pub Data: *mut core::ffi::c_void,
@@ -1246,7 +1246,7 @@ impl Default for SECPKG_SURROGATE_LOGON_ENTRY {
 pub const SECPKG_SURROGATE_LOGON_VERSION_1: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_TARGETINFO {
     pub DomainSid: super::winnt::PSID,
     pub ComputerName: windows_core::PCWSTR,
@@ -1275,13 +1275,13 @@ pub struct SECPKG_USER_FUNCTION_TABLE {
 }
 #[repr(C)]
 #[cfg(feature = "sspi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECPKG_WOW_CLIENT_DLL {
     pub WowClientDllPath: super::sspi::SECURITY_STRING,
 }
 #[repr(C)]
 #[cfg(all(feature = "sspi", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_USER_DATA {
     pub UserName: super::sspi::SECURITY_STRING,
     pub LogonDomainName: super::sspi::SECURITY_STRING,
@@ -1293,7 +1293,7 @@ pub type SEC_ATTRS = super::minwinbase::LPSECURITY_ATTRIBUTES;
 #[cfg(feature = "minwinbase")]
 pub type SEC_THREAD_START = super::minwinbase::LPTHREAD_START_ROUTINE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY32 {
     pub User: u32,
     pub UserLength: u32,
@@ -1304,7 +1304,7 @@ pub struct SEC_WINNT_AUTH_IDENTITY32 {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEC_WINNT_AUTH_IDENTITY_EX32 {
     pub Version: u32,
     pub Length: u32,
@@ -1330,7 +1330,7 @@ pub const SecPkgCallPackagePinDcMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1024
 pub const SecPkgCallPackageTransferCredMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1026;
 pub const SecPkgCallPackageUnpinAllDcsMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1025;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgContext_SaslContext {
     pub SaslContext: *mut core::ffi::c_void,
 }

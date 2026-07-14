@@ -30,7 +30,7 @@ pub unsafe fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelformat:
 #[inline]
 pub unsafe fn WICMapGuidToShortName(guid: *const windows_core::GUID, wzname: Option<&mut [u16]>, pcchactual: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("windowscodecs.dll" "system" fn WICMapGuidToShortName(guid : *const windows_core::GUID, cchname : u32, wzname : *mut u16, pcchactual : *mut u32) -> windows_core::HRESULT);
-    unsafe { WICMapGuidToShortName(guid, wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(wzname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcchactual as _) }
+    unsafe { WICMapGuidToShortName(guid, wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
 }
 #[inline]
 pub unsafe fn WICMapSchemaToName<P1>(guidmetadataformat: *const windows_core::GUID, pwzschema: P1, wzname: Option<&mut [u16]>, pcchactual: *mut u32) -> windows_core::HRESULT
@@ -38,7 +38,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("windowscodecs.dll" "system" fn WICMapSchemaToName(guidmetadataformat : *const windows_core::GUID, pwzschema : windows_core::PCWSTR, cchname : u32, wzname : *mut u16, pcchactual : *mut u32) -> windows_core::HRESULT);
-    unsafe { WICMapSchemaToName(guidmetadataformat, pwzschema.param().abi(), wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(wzname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcchactual as _) }
+    unsafe { WICMapSchemaToName(guidmetadataformat, pwzschema.param().abi(), wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
 }
 #[inline]
 pub unsafe fn WICMapShortNameToGuid<P0>(wzname: P0) -> windows_core::Result<windows_core::GUID>
@@ -3409,7 +3409,7 @@ windows_core::imp::interface_hierarchy!(IWICEnumMetadataItem, windows_core::IUnk
 impl IWICEnumMetadataItem {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, celt: u32, rgeltschema: *mut super::propidlbase::PROPVARIANT, rgeltid: *mut super::propidlbase::PROPVARIANT, rgeltvalue: Option<*mut super::propidlbase::PROPVARIANT>, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgeltschema), core::mem::transmute(rgeltid), rgeltvalue.unwrap_or(core::mem::zeroed()) as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgeltschema, rgeltid, rgeltvalue.unwrap_or(core::mem::zeroed()) as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -4716,7 +4716,7 @@ impl IWICMetadataQueryReader {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetMetadataByName)(windows_core::Interface::as_raw(self), wzname.param().abi(), core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).GetMetadataByName)(windows_core::Interface::as_raw(self), wzname.param().abi(), pvarvalue) }
     }
     #[cfg(feature = "objidlbase")]
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<super::objidlbase::IEnumString> {
@@ -4815,7 +4815,7 @@ impl IWICMetadataQueryWriter {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMetadataByName)(windows_core::Interface::as_raw(self), wzname.param().abi(), core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetMetadataByName)(windows_core::Interface::as_raw(self), wzname.param().abi(), pvarvalue) }
     }
     pub unsafe fn RemoveMetadataByName<P0>(&self, wzname: P0) -> windows_core::HRESULT
     where
@@ -5698,7 +5698,7 @@ pub const WICBitmapPaletteTypeFixedHalftone8: WICBitmapPaletteType = 3;
 pub const WICBitmapPaletteTypeFixedWebPalette: WICBitmapPaletteType = 7;
 pub const WICBitmapPaletteTypeMedianCut: WICBitmapPaletteType = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICBitmapPattern {
     pub Position: u64,
     pub Length: u32,
@@ -5712,7 +5712,7 @@ impl Default for WICBitmapPattern {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WICBitmapPlane {
     pub Format: WICPixelFormatGUID,
     pub pbBuffer: *mut u8,
@@ -5725,7 +5725,7 @@ impl Default for WICBitmapPlane {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICBitmapPlaneDescription {
     pub Format: WICPixelFormatGUID,
     pub Width: u32,
@@ -5778,7 +5778,7 @@ pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = 0;
 pub type WICDdsDimension = i32;
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICDdsFormatInfo {
     pub DxgiFormat: super::dxgi::DXGI_FORMAT,
     pub BytesPerBlock: u32,
@@ -5787,7 +5787,7 @@ pub struct WICDdsFormatInfo {
 }
 #[repr(C)]
 #[cfg(feature = "dxgi")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICDdsParameters {
     pub Width: u32,
     pub Height: u32,
@@ -5887,7 +5887,7 @@ pub type WICJpegCommentProperties = i32;
 pub const WICJpegCommentProperties_FORCE_DWORD: WICJpegCommentProperties = 2147483647;
 pub const WICJpegCommentText: WICJpegCommentProperties = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICJpegFrameHeader {
     pub Width: u32,
     pub Height: u32,
@@ -5906,7 +5906,7 @@ pub type WICJpegLuminanceProperties = i32;
 pub const WICJpegLuminanceProperties_FORCE_DWORD: WICJpegLuminanceProperties = 2147483647;
 pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICJpegScanHeader {
     pub cComponents: u32,
     pub RestartInterval: u32,
@@ -6028,7 +6028,7 @@ pub const WICRAWRENDERMODE_FORCE_DWORD: WICRawRenderMode = 2147483647;
 pub const WICRAWROTATIONCAPABILITIES_FORCE_DWORD: WICRawRotationCapabilities = 2147483647;
 pub type WICRawCapabilities = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICRawCapabilitiesInfo {
     pub cbSize: u32,
     pub CodecMajorVersion: u32,
@@ -6094,7 +6094,7 @@ pub struct WICRawToneCurvePoint {
     pub Output: f64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WICRect {
     pub X: i32,
     pub Y: i32,

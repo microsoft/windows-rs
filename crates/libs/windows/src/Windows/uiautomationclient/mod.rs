@@ -10,7 +10,7 @@ pub type ConnectionRecoveryBehaviorOptions = i32;
 pub const ConnectionRecoveryBehaviorOptions_Disabled: ConnectionRecoveryBehaviorOptions = 0;
 pub const ConnectionRecoveryBehaviorOptions_Enabled: ConnectionRecoveryBehaviorOptions = 1;
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct ExtendedProperty {
     pub PropertyName: core::mem::ManuallyDrop<windows_core::BSTR>,
     pub PropertyValue: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -51,7 +51,7 @@ impl IUIAutomation {
     pub unsafe fn ElementFromPoint(&self, pt: super::windef::POINT) -> windows_core::Result<IUIAutomationElement> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ElementFromPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ElementFromPoint)(windows_core::Interface::as_raw(self), pt, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFocusedElement(&self) -> windows_core::Result<IUIAutomationElement> {
@@ -85,7 +85,7 @@ impl IUIAutomation {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ElementFromPointBuildCache)(windows_core::Interface::as_raw(self), pt, cacherequest.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetFocusedElementBuildCache<P0>(&self, cacherequest: P0) -> windows_core::Result<IUIAutomationElement>
@@ -320,7 +320,7 @@ impl IUIAutomation {
     pub unsafe fn RectToVariant(&self, rc: super::windef::RECT) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RectToVariant)(windows_core::Interface::as_raw(self), core::mem::transmute(rc), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).RectToVariant)(windows_core::Interface::as_raw(self), rc, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
@@ -2366,7 +2366,7 @@ impl IUIAutomationChangesEventHandler {
     where
         P0: windows_core::Param<IUIAutomationElement>,
     {
-        unsafe { (windows_core::Interface::vtable(self).HandleChangesEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), core::mem::transmute(uiachanges), changescount) }
+        unsafe { (windows_core::Interface::vtable(self).HandleChangesEvent)(windows_core::Interface::as_raw(self), sender.param().abi(), uiachanges, changescount) }
     }
 }
 #[repr(C)]
@@ -10227,7 +10227,7 @@ impl IUIAutomationTextPattern {
     pub unsafe fn RangeFromPoint(&self, pt: super::windef::POINT) -> windows_core::Result<IUIAutomationTextRange> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RangeFromPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(pt), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RangeFromPoint)(windows_core::Interface::as_raw(self), pt, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn RangeFromChild<P0>(&self, child: P0) -> windows_core::Result<IUIAutomationTextRange>

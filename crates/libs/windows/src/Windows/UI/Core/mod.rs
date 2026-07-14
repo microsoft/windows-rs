@@ -1208,7 +1208,7 @@ impl core::ops::Not for CoreInputDeviceTypes {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CorePhysicalKeyStatus {
     pub RepeatCount: u32,
     pub ScanCode: u32,

@@ -7,7 +7,7 @@ pub type DEVPROPGUID = windows_core::GUID;
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DEVPROPID(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVPROPKEY {
     pub fmtid: DEVPROPGUID,
     pub pid: DEVPROPID,
@@ -17,7 +17,7 @@ pub const PKEY_Test_Sample: PROPERTYKEY = PROPERTYKEY {
     pid: 100,
 };
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROPERTYKEY {
     pub fmtid: windows_core::GUID,
     pub pid: u32,

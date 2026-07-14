@@ -39,46 +39,46 @@ pub unsafe fn EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32
 #[inline]
 pub unsafe fn GetDeviceDriverBaseNameA(imagebase: *const core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "system" "K32GetDeviceDriverBaseNameA" fn GetDeviceDriverBaseNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
-    unsafe { GetDeviceDriverBaseNameA(imagebase, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
+    unsafe { GetDeviceDriverBaseNameA(imagebase, core::mem::transmute(lpfilename.as_mut_ptr()), lpfilename.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn GetDeviceDriverBaseNameW(imagebase: *const core::ffi::c_void, lpbasename: &mut [u16]) -> u32 {
     windows_core::link!("kernel32.dll" "system" "K32GetDeviceDriverBaseNameW" fn GetDeviceDriverBaseNameW(imagebase : *const core::ffi::c_void, lpbasename : windows_core::PWSTR, nsize : u32) -> u32);
-    unsafe { GetDeviceDriverBaseNameW(imagebase, core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap()) }
+    unsafe { GetDeviceDriverBaseNameW(imagebase, core::mem::transmute(lpbasename.as_mut_ptr()), lpbasename.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn GetDeviceDriverFileNameA(imagebase: *const core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "system" "K32GetDeviceDriverFileNameA" fn GetDeviceDriverFileNameA(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
-    unsafe { GetDeviceDriverFileNameA(imagebase, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
+    unsafe { GetDeviceDriverFileNameA(imagebase, core::mem::transmute(lpfilename.as_mut_ptr()), lpfilename.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn GetDeviceDriverFileNameW(imagebase: *const core::ffi::c_void, lpfilename: &mut [u16]) -> u32 {
     windows_core::link!("kernel32.dll" "system" "K32GetDeviceDriverFileNameW" fn GetDeviceDriverFileNameW(imagebase : *const core::ffi::c_void, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
-    unsafe { GetDeviceDriverFileNameW(imagebase, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
+    unsafe { GetDeviceDriverFileNameW(imagebase, core::mem::transmute(lpfilename.as_mut_ptr()), lpfilename.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetMappedFileNameA(hprocess: super::winnt::HANDLE, lpv: *const core::ffi::c_void, lpfilename: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "system" "K32GetMappedFileNameA" fn GetMappedFileNameA(hprocess : super::winnt::HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_core::PSTR, nsize : u32) -> u32);
-    unsafe { GetMappedFileNameA(hprocess, lpv, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
+    unsafe { GetMappedFileNameA(hprocess, lpv, core::mem::transmute(lpfilename.as_mut_ptr()), lpfilename.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetMappedFileNameW(hprocess: super::winnt::HANDLE, lpv: *const core::ffi::c_void, lpfilename: &mut [u16]) -> u32 {
     windows_core::link!("kernel32.dll" "system" "K32GetMappedFileNameW" fn GetMappedFileNameW(hprocess : super::winnt::HANDLE, lpv : *const core::ffi::c_void, lpfilename : windows_core::PWSTR, nsize : u32) -> u32);
-    unsafe { GetMappedFileNameW(hprocess, lpv, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
+    unsafe { GetMappedFileNameW(hprocess, lpv, core::mem::transmute(lpfilename.as_mut_ptr()), lpfilename.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetModuleBaseNameA(hprocess: super::winnt::HANDLE, hmodule: Option<super::minwindef::HMODULE>, lpbasename: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "system" "K32GetModuleBaseNameA" fn GetModuleBaseNameA(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpbasename : windows_core::PSTR, nsize : u32) -> u32);
-    unsafe { GetModuleBaseNameA(hprocess, hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap()) }
+    unsafe { GetModuleBaseNameA(hprocess, hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpbasename.as_mut_ptr()), lpbasename.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
 pub unsafe fn GetModuleBaseNameW(hprocess: super::winnt::HANDLE, hmodule: Option<super::minwindef::HMODULE>, lpbasename: &mut [u16]) -> u32 {
     windows_core::link!("kernel32.dll" "system" "K32GetModuleBaseNameW" fn GetModuleBaseNameW(hprocess : super::winnt::HANDLE, hmodule : super::minwindef::HMODULE, lpbasename : windows_core::PWSTR, nsize : u32) -> u32);
-    unsafe { GetModuleBaseNameW(hprocess, hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpbasename.as_ptr()), lpbasename.len().try_into().unwrap()) }
+    unsafe { GetModuleBaseNameW(hprocess, hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpbasename.as_mut_ptr()), lpbasename.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
@@ -113,13 +113,13 @@ pub unsafe fn GetPerformanceInfo(pperformanceinformation: *mut PERFORMANCE_INFOR
 #[inline]
 pub unsafe fn GetProcessImageFileNameA(hprocess: super::winnt::HANDLE, lpimagefilename: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "system" "K32GetProcessImageFileNameA" fn GetProcessImageFileNameA(hprocess : super::winnt::HANDLE, lpimagefilename : windows_core::PSTR, nsize : u32) -> u32);
-    unsafe { GetProcessImageFileNameA(hprocess, core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap()) }
+    unsafe { GetProcessImageFileNameA(hprocess, core::mem::transmute(lpimagefilename.as_mut_ptr()), lpimagefilename.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetProcessImageFileNameW(hprocess: super::winnt::HANDLE, lpimagefilename: &mut [u16]) -> u32 {
     windows_core::link!("kernel32.dll" "system" "K32GetProcessImageFileNameW" fn GetProcessImageFileNameW(hprocess : super::winnt::HANDLE, lpimagefilename : windows_core::PWSTR, nsize : u32) -> u32);
-    unsafe { GetProcessImageFileNameW(hprocess, core::mem::transmute(lpimagefilename.as_ptr()), lpimagefilename.len().try_into().unwrap()) }
+    unsafe { GetProcessImageFileNameW(hprocess, core::mem::transmute(lpimagefilename.as_mut_ptr()), lpimagefilename.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -158,7 +158,7 @@ pub unsafe fn QueryWorkingSetEx(hprocess: super::winnt::HANDLE, pv: *mut core::f
     unsafe { QueryWorkingSetEx(hprocess, pv as _, cb) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ENUM_PAGE_FILE_INFORMATION {
     pub cb: u32,
     pub Reserved: u32,
@@ -172,7 +172,7 @@ pub const LIST_MODULES_ALL: u32 = 3;
 pub const LIST_MODULES_DEFAULT: u32 = 0;
 pub type LPMODULEINFO = *mut MODULEINFO;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODULEINFO {
     pub lpBaseOfDll: *mut core::ffi::c_void,
     pub SizeOfImage: u32,
@@ -188,7 +188,7 @@ pub type PENUM_PAGE_FILE_CALLBACKW = Option<unsafe extern "system" fn(pcontext: 
 pub type PENUM_PAGE_FILE_INFORMATION = *mut ENUM_PAGE_FILE_INFORMATION;
 pub type PERFORMACE_INFORMATION = PERFORMANCE_INFORMATION;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PERFORMANCE_INFORMATION {
     pub cb: u32,
     pub CommitTotal: usize,
@@ -217,7 +217,7 @@ pub type PPSAPI_WORKING_SET_INFORMATION = *mut PSAPI_WORKING_SET_INFORMATION;
 pub type PPSAPI_WS_WATCH_INFORMATION = *mut PSAPI_WS_WATCH_INFORMATION;
 pub type PPSAPI_WS_WATCH_INFORMATION_EX = *mut PSAPI_WS_WATCH_INFORMATION_EX;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -231,7 +231,7 @@ pub struct PROCESS_MEMORY_COUNTERS {
     pub PeakPagefileUsage: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS_EX {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -246,7 +246,7 @@ pub struct PROCESS_MEMORY_COUNTERS_EX {
     pub PrivateUsage: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MEMORY_COUNTERS_EX2 {
     pub cb: u32,
     pub PageFaultCount: u32,
@@ -275,7 +275,7 @@ impl Default for PSAPI_WORKING_SET_BLOCK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSAPI_WORKING_SET_BLOCK_0 {
     pub _bitfield: usize,
 }
@@ -302,12 +302,12 @@ impl Default for PSAPI_WORKING_SET_EX_BLOCK_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     pub _bitfield: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     pub _bitfield: usize,
 }
@@ -334,7 +334,7 @@ impl Default for PSAPI_WORKING_SET_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PSAPI_WS_WATCH_INFORMATION {
     pub FaultingPc: *mut core::ffi::c_void,
     pub FaultingVa: *mut core::ffi::c_void,
@@ -345,7 +345,7 @@ impl Default for PSAPI_WS_WATCH_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PSAPI_WS_WATCH_INFORMATION_EX {
     pub BasicInfo: PSAPI_WS_WATCH_INFORMATION,
     pub FaultingThreadId: usize,

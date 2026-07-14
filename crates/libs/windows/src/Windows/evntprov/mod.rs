@@ -31,12 +31,12 @@ pub unsafe fn EventUnregister(reghandle: REGHANDLE) -> u32 {
 #[inline]
 pub unsafe fn EventWrite(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn EventWrite(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-    unsafe { EventWrite(reghandle, eventdescriptor, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { EventWrite(reghandle, eventdescriptor, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), userdata.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[inline]
 pub unsafe fn EventWriteEx(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, filter: u64, flags: u32, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn EventWriteEx(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, filter : u64, flags : u32, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-    unsafe { EventWriteEx(reghandle, eventdescriptor, filter, flags, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { EventWriteEx(reghandle, eventdescriptor, filter, flags, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), userdata.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[inline]
 pub unsafe fn EventWriteString<P3>(reghandle: REGHANDLE, level: u8, keyword: u64, string: P3) -> u32
@@ -49,7 +49,7 @@ where
 #[inline]
 pub unsafe fn EventWriteTransfer(reghandle: REGHANDLE, eventdescriptor: *const EVENT_DESCRIPTOR, activityid: Option<*const windows_core::GUID>, relatedactivityid: Option<*const windows_core::GUID>, userdata: Option<&[EVENT_DATA_DESCRIPTOR]>) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn EventWriteTransfer(reghandle : REGHANDLE, eventdescriptor : *const EVENT_DESCRIPTOR, activityid : *const windows_core::GUID, relatedactivityid : *const windows_core::GUID, userdatacount : u32, userdata : *const EVENT_DATA_DESCRIPTOR) -> u32);
-    unsafe { EventWriteTransfer(reghandle, eventdescriptor, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(userdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { EventWriteTransfer(reghandle, eventdescriptor, activityid.unwrap_or(core::mem::zeroed()) as _, relatedactivityid.unwrap_or(core::mem::zeroed()) as _, userdata.map_or(0, |slice| slice.len().try_into().unwrap()), userdata.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 pub const EVENT_ACTIVITY_CTRL_CREATE_ID: u32 = 3;
 pub const EVENT_ACTIVITY_CTRL_CREATE_SET_ID: u32 = 5;
@@ -80,7 +80,7 @@ impl Default for EVENT_DATA_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_DATA_DESCRIPTOR_0_0 {
     pub Type: u8,
     pub Reserved1: u8,
@@ -92,7 +92,7 @@ pub const EVENT_DATA_DESCRIPTOR_TYPE_PROVIDER_METADATA: u32 = 2;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_RESERVED1: u32 = 4;
 pub const EVENT_DATA_DESCRIPTOR_TYPE_TIMESTAMP_OVERRIDE: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_DESCRIPTOR {
     pub Id: u16,
     pub Version: u8,
@@ -103,14 +103,14 @@ pub struct EVENT_DESCRIPTOR {
     pub Keyword: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_FILTER_DESCRIPTOR {
     pub Ptr: u64,
     pub Size: u32,
     pub Type: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_FILTER_EVENT_ID {
     pub FilterIn: bool,
     pub Reserved: u8,
@@ -123,7 +123,7 @@ impl Default for EVENT_FILTER_EVENT_ID {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_FILTER_EVENT_NAME {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,
@@ -138,7 +138,7 @@ impl Default for EVENT_FILTER_EVENT_NAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_FILTER_HEADER {
     pub Id: u16,
     pub Version: u8,
@@ -153,7 +153,7 @@ impl Default for EVENT_FILTER_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_FILTER_LEVEL_KW {
     pub MatchAnyKeyword: u64,
     pub MatchAllKeyword: u64,

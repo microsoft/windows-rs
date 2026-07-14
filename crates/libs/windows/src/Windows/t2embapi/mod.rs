@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn TTCharToUnicode(hdc: super::windef::HDC, puccharcodes: &[u8], pusshortcodes: &mut [u16], ulflags: u32) -> i32 {
     windows_core::link!("t2embed.dll" "system" fn TTCharToUnicode(hdc : super::windef::HDC, puccharcodes : *const u8, ulcharcodesize : u32, pusshortcodes : *mut u16, ulshortcodesize : u32, ulflags : u32) -> i32);
-    unsafe { TTCharToUnicode(hdc, core::mem::transmute(puccharcodes.as_ptr()), puccharcodes.len().try_into().unwrap(), core::mem::transmute(pusshortcodes.as_ptr()), pusshortcodes.len().try_into().unwrap(), ulflags) }
+    unsafe { TTCharToUnicode(hdc, puccharcodes.as_ptr(), puccharcodes.len().try_into().unwrap(), pusshortcodes.as_mut_ptr(), pusshortcodes.len().try_into().unwrap(), ulflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -14,13 +14,13 @@ pub unsafe fn TTDeleteEmbeddedFont(hfontreference: super::winnt::HANDLE, ulflags
 #[inline]
 pub unsafe fn TTEmbedFont(hdc: super::windef::HDC, ulflags: u32, ulcharset: u32, pulprivstatus: *mut u32, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const core::ffi::c_void, puscharcodeset: &[u16], uslanguage: u16, pttembedinfo: Option<*const TTEMBEDINFO>) -> i32 {
     windows_core::link!("t2embed.dll" "system" fn TTEmbedFont(hdc : super::windef::HDC, ulflags : u32, ulcharset : u32, pulprivstatus : *mut u32, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const core::ffi::c_void, puscharcodeset : *const u16, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
-    unsafe { TTEmbedFont(hdc, ulflags, ulcharset, pulprivstatus as _, pulstatus as _, lpfnwritetostream, lpvwritestream, core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len().try_into().unwrap(), uslanguage, pttembedinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { TTEmbedFont(hdc, ulflags, ulcharset, pulprivstatus as _, pulstatus as _, lpfnwritetostream, lpvwritestream, puscharcodeset.as_ptr(), puscharcodeset.len().try_into().unwrap(), uslanguage, pttembedinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn TTEmbedFontEx(hdc: super::windef::HDC, ulflags: u32, ulcharset: u32, pulprivstatus: *mut u32, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const core::ffi::c_void, pulcharcodeset: &[u32], uslanguage: u16, pttembedinfo: Option<*const TTEMBEDINFO>) -> i32 {
     windows_core::link!("t2embed.dll" "system" fn TTEmbedFontEx(hdc : super::windef::HDC, ulflags : u32, ulcharset : u32, pulprivstatus : *mut u32, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const core::ffi::c_void, pulcharcodeset : *const u32, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
-    unsafe { TTEmbedFontEx(hdc, ulflags, ulcharset, pulprivstatus as _, pulstatus as _, lpfnwritetostream, lpvwritestream, core::mem::transmute(pulcharcodeset.as_ptr()), pulcharcodeset.len().try_into().unwrap(), uslanguage, pttembedinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { TTEmbedFontEx(hdc, ulflags, ulcharset, pulprivstatus as _, pulstatus as _, lpfnwritetostream, lpvwritestream, pulcharcodeset.as_ptr(), pulcharcodeset.len().try_into().unwrap(), uslanguage, pttembedinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -29,7 +29,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("t2embed.dll" "system" fn TTEmbedFontFromFileA(hdc : super::windef::HDC, szfontfilename : windows_core::PCSTR, usttcindex : u16, ulflags : u32, ulcharset : u32, pulprivstatus : *mut u32, pulstatus : *mut u32, lpfnwritetostream : WRITEEMBEDPROC, lpvwritestream : *const core::ffi::c_void, puscharcodeset : *const u16, uscharcodecount : u16, uslanguage : u16, pttembedinfo : *const TTEMBEDINFO) -> i32);
-    unsafe { TTEmbedFontFromFileA(hdc, szfontfilename.param().abi(), usttcindex, ulflags, ulcharset, pulprivstatus as _, pulstatus as _, lpfnwritetostream, lpvwritestream, core::mem::transmute(puscharcodeset.as_ptr()), puscharcodeset.len().try_into().unwrap(), uslanguage, pttembedinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { TTEmbedFontFromFileA(hdc, szfontfilename.param().abi(), usttcindex, ulflags, ulcharset, pulprivstatus as _, pulstatus as _, lpfnwritetostream, lpvwritestream, puscharcodeset.as_ptr(), puscharcodeset.len().try_into().unwrap(), uslanguage, pttembedinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn TTEnableEmbeddingForFacename<P0>(lpszfacename: P0, benable: bool) -> i32
@@ -54,7 +54,7 @@ pub unsafe fn TTGetEmbeddingType(hdc: super::windef::HDC, pulembedtype: *mut u32
 #[inline]
 pub unsafe fn TTGetNewFontName(phfontreference: *const super::winnt::HANDLE, wzwinfamilyname: &mut [u16], szmacfamilyname: &mut [u8]) -> i32 {
     windows_core::link!("t2embed.dll" "system" fn TTGetNewFontName(phfontreference : *const super::winnt::HANDLE, wzwinfamilyname : windows_core::PWSTR, cchmaxwinname : i32, szmacfamilyname : windows_core::PSTR, cchmaxmacname : i32) -> i32);
-    unsafe { TTGetNewFontName(phfontreference, core::mem::transmute(wzwinfamilyname.as_ptr()), wzwinfamilyname.len().try_into().unwrap(), core::mem::transmute(szmacfamilyname.as_ptr()), szmacfamilyname.len().try_into().unwrap()) }
+    unsafe { TTGetNewFontName(phfontreference, core::mem::transmute(wzwinfamilyname.as_mut_ptr()), wzwinfamilyname.len().try_into().unwrap(), core::mem::transmute(szmacfamilyname.as_mut_ptr()), szmacfamilyname.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -165,7 +165,7 @@ pub const LICENSE_PREVIEWPRINT: u32 = 4;
 pub type READEMBEDPROC = Option<unsafe extern "C" fn(param0: *mut core::ffi::c_void, param1: *mut core::ffi::c_void, param2: u32) -> u32>;
 pub const TTDELETE_DONTREMOVEFONT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTEMBEDINFO {
     pub usStructSize: u16,
     pub usRootStrSize: u16,
@@ -187,7 +187,7 @@ pub const TTEMBED_VARIATIONSIMULATED: u32 = 1;
 pub const TTEMBED_WEBOBJECT: u32 = 128;
 pub const TTEMBED_XORENCRYPTDATA: u32 = 268435456;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTLOADINFO {
     pub usStructSize: u16,
     pub usRefStrSize: u16,
@@ -204,7 +204,7 @@ pub const TTLOAD_FONT_IN_SYSSTARTUP: u32 = 2;
 pub const TTLOAD_FONT_SUBSETTED: u32 = 1;
 pub const TTLOAD_PRIVATE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTVALIDATIONTESTSPARAMS {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,
@@ -220,7 +220,7 @@ impl Default for TTVALIDATIONTESTSPARAMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TTVALIDATIONTESTSPARAMSEX {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,

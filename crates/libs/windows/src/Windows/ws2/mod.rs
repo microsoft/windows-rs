@@ -59,12 +59,12 @@ where
 #[inline]
 pub unsafe fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: socklen_t, pnodebuffer: Option<&mut [u16]>, pservicebuffer: Option<&mut [u16]>, flags: i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn GetNameInfoW(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : *mut u16, nodebuffersize : u32, pservicebuffer : *mut u16, servicebuffersize : u32, flags : i32) -> i32);
-    unsafe { GetNameInfoW(psockaddr, sockaddrlength, core::mem::transmute(pnodebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pnodebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pservicebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pservicebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+    unsafe { GetNameInfoW(psockaddr, sockaddrlength, pnodebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pnodebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pservicebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pservicebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
 }
 #[inline]
 pub unsafe fn InetNtopW(family: i32, paddr: *const core::ffi::c_void, pstringbuf: &mut [u16]) -> windows_core::PCWSTR {
     windows_core::link!("ws2_32.dll" "system" fn InetNtopW(family : i32, paddr : *const core::ffi::c_void, pstringbuf : windows_core::PWSTR, stringbufsize : usize) -> windows_core::PCWSTR);
-    unsafe { InetNtopW(family, paddr, core::mem::transmute(pstringbuf.as_ptr()), pstringbuf.len().try_into().unwrap()) }
+    unsafe { InetNtopW(family, paddr, core::mem::transmute(pstringbuf.as_mut_ptr()), pstringbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn InetPtonW<P1>(family: i32, pszaddrstring: P1, paddrbuf: *mut core::ffi::c_void) -> i32
@@ -111,12 +111,12 @@ where
 #[inline]
 pub unsafe fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: socklen_t, pnodebuffer: Option<&mut [i8]>, pservicebuffer: Option<&mut [i8]>, flags: i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn getnameinfo(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : *mut i8, nodebuffersize : u32, pservicebuffer : *mut i8, servicebuffersize : u32, flags : i32) -> i32);
-    unsafe { getnameinfo(psockaddr, sockaddrlength, core::mem::transmute(pnodebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pnodebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pservicebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pservicebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+    unsafe { getnameinfo(psockaddr, sockaddrlength, pnodebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pnodebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pservicebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pservicebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
 }
 #[inline]
 pub unsafe fn inet_ntop(family: i32, paddr: *const core::ffi::c_void, pstringbuf: &mut [u8]) -> windows_core::PCSTR {
     windows_core::link!("ws2_32.dll" "system" fn inet_ntop(family : i32, paddr : *const core::ffi::c_void, pstringbuf : windows_core::PSTR, stringbufsize : usize) -> windows_core::PCSTR);
-    unsafe { inet_ntop(family, paddr, core::mem::transmute(pstringbuf.as_ptr()), pstringbuf.len().try_into().unwrap()) }
+    unsafe { inet_ntop(family, paddr, core::mem::transmute(pstringbuf.as_mut_ptr()), pstringbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn inet_pton<P1>(family: i32, pszaddrstring: P1, paddrbuf: *mut core::ffi::c_void) -> i32
@@ -131,7 +131,7 @@ where
 pub struct ADDRESS_FAMILY(pub u16);
 pub type ADDRINFO = ADDRINFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOA {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -151,7 +151,7 @@ impl Default for ADDRINFOA {
 pub type ADDRINFOEX = ADDRINFOEXA;
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX2A {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -175,7 +175,7 @@ impl Default for ADDRINFOEX2A {
 }
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX2W {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -199,7 +199,7 @@ impl Default for ADDRINFOEX2W {
 }
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX3 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -224,7 +224,7 @@ impl Default for ADDRINFOEX3 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX4 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -250,7 +250,7 @@ impl Default for ADDRINFOEX4 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX5 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -277,7 +277,7 @@ impl Default for ADDRINFOEX5 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX6 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -307,7 +307,7 @@ impl Default for ADDRINFOEX6 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEX7 {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -338,7 +338,7 @@ impl Default for ADDRINFOEX7 {
 }
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEXA {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -360,7 +360,7 @@ impl Default for ADDRINFOEXA {
 }
 #[repr(C)]
 #[cfg(feature = "guiddef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOEXW {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -388,7 +388,7 @@ pub const ADDRINFOEX_VERSION_6: u32 = 6;
 pub const ADDRINFOEX_VERSION_7: u32 = 7;
 pub type ADDRINFOT = ADDRINFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ADDRINFOW {
     pub ai_flags: i32,
     pub ai_family: i32,
@@ -552,7 +552,7 @@ impl Default for BTH_PING_REQ {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BTH_PING_RSP {
     pub dataLen: u8,
     pub data: [u8; 44],
@@ -608,7 +608,7 @@ pub const BT_PORT_MAX: u32 = 65535;
 pub const BT_PORT_MIN: u32 = 1;
 pub type CMSGHDR = WSACMSGHDR;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSADDR_INFO {
     pub LocalAddr: SOCKET_ADDRESS,
     pub RemoteAddr: SOCKET_ADDRESS,
@@ -628,7 +628,7 @@ pub const EAI_SERVICE: u32 = 10109;
 pub const EAI_SOCKTYPE: u32 = 10044;
 pub const GAI_STRERROR_BUFFER_SIZE: u32 = 1024;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GROUP_FILTER {
     pub gf_interface: u32,
     pub gf_group: SOCKADDR_STORAGE,
@@ -642,13 +642,13 @@ impl Default for GROUP_FILTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_REQ {
     pub gr_interface: u32,
     pub gr_group: SOCKADDR_STORAGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GROUP_SOURCE_REQ {
     pub gsr_interface: u32,
     pub gsr_group: SOCKADDR_STORAGE,
@@ -728,7 +728,7 @@ impl Default for INTERFACE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INTERFACE_INFO_EX {
     pub iiFlags: u32,
     pub iiAddress: SOCKET_ADDRESS,
@@ -776,7 +776,7 @@ impl Default for IN_PKTINFO_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IN_RECVERR {
     pub protocol: IPPROTO,
     pub info: u32,
@@ -1242,18 +1242,18 @@ impl Default for RFCOMM_COMMAND_0 {
 pub const RFCOMM_MAX_MTU: u32 = 1011;
 pub const RFCOMM_MIN_MTU: u32 = 23;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RFCOMM_MSC_DATA {
     pub Signals: u8,
     pub Break: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RFCOMM_RLS_DATA {
     pub LineStatus: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RFCOMM_RPN_DATA {
     pub Baud: u8,
     pub Data: u8,
@@ -1328,7 +1328,7 @@ impl Default for SCOPE_ID_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCOPE_ID_0_0 {
     pub _bitfield: u32,
 }
@@ -1380,7 +1380,7 @@ pub const SIO_SET_MULTICAST_FILTER: i32 = -2147191683;
 pub const SIO_SET_QOS: i32 = -2013265909;
 pub const SIO_TRANSLATE_HANDLE: i32 = -939524083;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKADDR {
     pub sa_family: ADDRESS_FAMILY,
     pub sa_data: [i8; 14],
@@ -1400,7 +1400,7 @@ pub struct SOCKADDR_BTH {
     pub port: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKADDR_DL {
     pub sdl_family: ADDRESS_FAMILY,
     pub sdl_data: [u8; 8],
@@ -1459,7 +1459,7 @@ impl Default for SOCKADDR_IN6_LH_0 {
 }
 #[repr(C)]
 #[cfg(feature = "in6addr")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKADDR_IN6_PAIR {
     pub SourceAddress: PSOCKADDR_IN6,
     pub DestinationAddress: PSOCKADDR_IN6,
@@ -1496,7 +1496,7 @@ impl Default for SOCKADDR_INET {
 }
 pub type SOCKADDR_STORAGE = SOCKADDR_STORAGE_LH;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKADDR_STORAGE_LH {
     pub ss_family: ADDRESS_FAMILY,
     pub __ss_pad1: [i8; 6],
@@ -1509,7 +1509,7 @@ impl Default for SOCKADDR_STORAGE_LH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKADDR_STORAGE_XP {
     pub ss_family: i16,
     pub __ss_pad1: [i8; 6],
@@ -1522,13 +1522,13 @@ impl Default for SOCKADDR_STORAGE_XP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_ADDRESS {
     pub lpSockaddr: LPSOCKADDR,
     pub iSockaddrLength: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOCKET_ADDRESS_LIST {
     pub iAddressCount: i32,
     pub Address: [SOCKET_ADDRESS; 1],
@@ -1540,7 +1540,7 @@ impl Default for SOCKET_ADDRESS_LIST {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOCKET_PROCESSOR_AFFINITY {
     pub Processor: super::winnt::PROCESSOR_NUMBER,
     pub NumaNodeId: u16,
@@ -1633,7 +1633,7 @@ pub const UDP_NOCHECKSUM: u32 = 1;
 pub const UDP_RECV_MAX_COALESCED_SIZE: u32 = 3;
 pub const UDP_SEND_MSG_SIZE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSABUF {
     pub len: u32,
     pub buf: *mut i8,
@@ -1644,14 +1644,14 @@ impl Default for WSABUF {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSACMSGHDR {
     pub cmsg_len: usize,
     pub cmsg_level: i32,
     pub cmsg_type: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSAMSG {
     pub name: LPSOCKADDR,
     pub namelen: i32,

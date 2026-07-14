@@ -29,7 +29,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cldapi.dll" "system" fn CfCreatePlaceholders(basedirectorypath : windows_core::PCWSTR, placeholderarray : *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount : u32, createflags : CF_CREATE_FLAGS, entriesprocessed : *mut u32) -> windows_core::HRESULT);
-    unsafe { CfCreatePlaceholders(basedirectorypath.param().abi(), core::mem::transmute(placeholderarray.as_ptr()), placeholderarray.len().try_into().unwrap(), createflags, entriesprocessed.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CfCreatePlaceholders(basedirectorypath.param().abi(), placeholderarray.as_mut_ptr(), placeholderarray.len().try_into().unwrap(), createflags, entriesprocessed.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
@@ -40,7 +40,7 @@ pub unsafe fn CfDehydratePlaceholder(filehandle: super::winnt::HANDLE, startingo
 #[inline]
 pub unsafe fn CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfDisconnectSyncRoot(connectionkey : CF_CONNECTION_KEY) -> windows_core::HRESULT);
-    unsafe { CfDisconnectSyncRoot(core::mem::transmute(connectionkey)) }
+    unsafe { CfDisconnectSyncRoot(connectionkey) }
 }
 #[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[inline]
@@ -69,7 +69,7 @@ pub unsafe fn CfGetPlaceholderRangeInfo(filehandle: super::winnt::HANDLE, infocl
 #[inline]
 pub unsafe fn CfGetPlaceholderRangeInfoForHydration(connectionkey: CF_CONNECTION_KEY, transferkey: CF_TRANSFER_KEY, fileid: i64, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, rangelength: i64, infobuffer: *mut core::ffi::c_void, infobuffersize: u32, infobufferwritten: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfGetPlaceholderRangeInfoForHydration(connectionkey : CF_CONNECTION_KEY, transferkey : CF_TRANSFER_KEY, fileid : i64, infoclass : CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset : i64, rangelength : i64, infobuffer : *mut core::ffi::c_void, infobuffersize : u32, infobufferwritten : *mut u32) -> windows_core::HRESULT);
-    unsafe { CfGetPlaceholderRangeInfoForHydration(core::mem::transmute(connectionkey), transferkey, fileid, infoclass, startingoffset, rangelength, infobuffer as _, infobuffersize, infobufferwritten.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CfGetPlaceholderRangeInfoForHydration(connectionkey, transferkey, fileid, infoclass, startingoffset, rangelength, infobuffer as _, infobuffersize, infobufferwritten.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE {
@@ -148,7 +148,7 @@ pub unsafe fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY) -> win
     windows_core::link!("cldapi.dll" "system" fn CfQuerySyncProviderStatus(connectionkey : CF_CONNECTION_KEY, providerstatus : *mut CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CfQuerySyncProviderStatus(core::mem::transmute(connectionkey), &mut result__).map(|| result__)
+        CfQuerySyncProviderStatus(connectionkey, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "winnt")]
@@ -184,12 +184,12 @@ pub unsafe fn CfReleaseTransferKey(filehandle: super::winnt::HANDLE) -> CF_TRANS
 #[inline]
 pub unsafe fn CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: CF_TRANSFER_KEY, providerprogresstotal: i64, providerprogresscompleted: i64) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfReportProviderProgress(connectionkey : CF_CONNECTION_KEY, transferkey : CF_TRANSFER_KEY, providerprogresstotal : i64, providerprogresscompleted : i64) -> windows_core::HRESULT);
-    unsafe { CfReportProviderProgress(core::mem::transmute(connectionkey), transferkey, providerprogresstotal, providerprogresscompleted) }
+    unsafe { CfReportProviderProgress(connectionkey, transferkey, providerprogresstotal, providerprogresscompleted) }
 }
 #[inline]
 pub unsafe fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: CF_TRANSFER_KEY, requestkey: CF_REQUEST_KEY, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfReportProviderProgress2(connectionkey : CF_CONNECTION_KEY, transferkey : CF_TRANSFER_KEY, requestkey : CF_REQUEST_KEY, providerprogresstotal : i64, providerprogresscompleted : i64, targetsessionid : u32) -> windows_core::HRESULT);
-    unsafe { CfReportProviderProgress2(core::mem::transmute(connectionkey), transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid) }
+    unsafe { CfReportProviderProgress2(connectionkey, transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid) }
 }
 #[inline]
 pub unsafe fn CfReportSyncStatus<P0>(syncrootpath: P0, syncstatus: Option<*const CF_SYNC_STATUS>) -> windows_core::HRESULT
@@ -235,12 +235,12 @@ where
 #[inline]
 pub unsafe fn CfUpdatePlaceholder(filehandle: super::winnt::HANDLE, fsmetadata: Option<*const CF_FS_METADATA>, fileidentity: Option<*const core::ffi::c_void>, fileidentitylength: u32, dehydraterangearray: Option<&[CF_FILE_RANGE]>, updateflags: CF_UPDATE_FLAGS, updateusn: Option<*mut super::winnt::USN>, overlapped: Option<*mut super::minwinbase::OVERLAPPED>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfUpdatePlaceholder(filehandle : super::winnt::HANDLE, fsmetadata : *const CF_FS_METADATA, fileidentity : *const core::ffi::c_void, fileidentitylength : u32, dehydraterangearray : *const CF_FILE_RANGE, dehydraterangecount : u32, updateflags : CF_UPDATE_FLAGS, updateusn : *mut super::winnt::USN, overlapped : *mut super::minwinbase::OVERLAPPED) -> windows_core::HRESULT);
-    unsafe { CfUpdatePlaceholder(filehandle, fsmetadata.unwrap_or(core::mem::zeroed()) as _, fileidentity.unwrap_or(core::mem::zeroed()) as _, fileidentitylength, core::mem::transmute(dehydraterangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), dehydraterangearray.map_or(0, |slice| slice.len().try_into().unwrap()), updateflags, updateusn.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CfUpdatePlaceholder(filehandle, fsmetadata.unwrap_or(core::mem::zeroed()) as _, fileidentity.unwrap_or(core::mem::zeroed()) as _, fileidentitylength, dehydraterangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), dehydraterangearray.map_or(0, |slice| slice.len().try_into().unwrap()), updateflags, updateusn.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfUpdateSyncProviderStatus(connectionkey : CF_CONNECTION_KEY, providerstatus : CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT);
-    unsafe { CfUpdateSyncProviderStatus(core::mem::transmute(connectionkey), providerstatus) }
+    unsafe { CfUpdateSyncProviderStatus(connectionkey, providerstatus) }
 }
 #[cfg(feature = "winnt")]
 pub type CF_CALLBACK = Option<unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS)>;
@@ -278,7 +278,7 @@ pub type CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS = u32;
 pub const CF_CALLBACK_FETCH_PLACEHOLDERS_FLAG_NONE: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_CALLBACK_INFO {
     pub StructSize: u32,
     pub ConnectionKey: CF_CONNECTION_KEY,
@@ -364,13 +364,13 @@ impl Default for CF_CALLBACK_PARAMETERS_0_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_0_0_0 {
     pub FileOffset: i64,
     pub Length: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_1 {
     pub Flags: CF_CALLBACK_FETCH_DATA_FLAGS,
     pub RequiredFileOffset: i64,
@@ -381,59 +381,59 @@ pub struct CF_CALLBACK_PARAMETERS_0_1 {
     pub LastDehydrationReason: CF_CALLBACK_DEHYDRATION_REASON,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_10 {
     pub Flags: CF_CALLBACK_RENAME_FLAGS,
     pub TargetPath: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_11 {
     pub Flags: CF_CALLBACK_RENAME_COMPLETION_FLAGS,
     pub SourcePath: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_2 {
     pub Flags: CF_CALLBACK_VALIDATE_DATA_FLAGS,
     pub RequiredFileOffset: i64,
     pub RequiredLength: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_3 {
     pub Flags: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS,
     pub Pattern: windows_core::PCWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_4 {
     pub Flags: CF_CALLBACK_OPEN_COMPLETION_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_5 {
     pub Flags: CF_CALLBACK_CLOSE_COMPLETION_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_6 {
     pub Flags: CF_CALLBACK_DEHYDRATE_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_7 {
     pub Flags: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_8 {
     pub Flags: CF_CALLBACK_DELETE_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CALLBACK_PARAMETERS_0_9 {
     pub Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS,
 }
@@ -470,7 +470,7 @@ pub type CF_CALLBACK_VALIDATE_DATA_FLAGS = u32;
 pub const CF_CALLBACK_VALIDATE_DATA_FLAG_EXPLICIT_HYDRATION: CF_CALLBACK_VALIDATE_DATA_FLAGS = 2;
 pub const CF_CALLBACK_VALIDATE_DATA_FLAG_NONE: CF_CALLBACK_VALIDATE_DATA_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_CONNECTION_KEY {
     pub Internal: i64,
 }
@@ -494,14 +494,14 @@ pub const CF_DEHYDRATE_FLAG_BACKGROUND: CF_DEHYDRATE_FLAGS = 1;
 pub const CF_DEHYDRATE_FLAG_NONE: CF_DEHYDRATE_FLAGS = 0;
 pub const CF_EOF: i32 = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_FILE_RANGE {
     pub StartingOffset: i64,
     pub Length: i64,
 }
 #[repr(C)]
 #[cfg(feature = "winbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_FS_METADATA {
     pub BasicInfo: super::winbase::FILE_BASIC_INFO,
     pub FileSize: i64,
@@ -512,7 +512,7 @@ pub const CF_HARDLINK_POLICY_NONE: CF_HARDLINK_POLICY = 0;
 pub type CF_HYDRATE_FLAGS = u32;
 pub const CF_HYDRATE_FLAG_NONE: CF_HYDRATE_FLAGS = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_HYDRATION_POLICY {
     pub Primary: CF_HYDRATION_POLICY_PRIMARY_USHORT,
     pub Modifier: CF_HYDRATION_POLICY_MODIFIER_USHORT,
@@ -525,7 +525,7 @@ pub const CF_HYDRATION_POLICY_MODIFIER_AUTO_DEHYDRATION_ALLOWED: CF_HYDRATION_PO
 pub const CF_HYDRATION_POLICY_MODIFIER_NONE: CF_HYDRATION_POLICY_MODIFIER = 0;
 pub const CF_HYDRATION_POLICY_MODIFIER_STREAMING_ALLOWED: CF_HYDRATION_POLICY_MODIFIER = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_HYDRATION_POLICY_MODIFIER_USHORT {
     pub us: u16,
 }
@@ -533,7 +533,7 @@ pub const CF_HYDRATION_POLICY_MODIFIER_VALIDATION_REQUIRED: CF_HYDRATION_POLICY_
 pub const CF_HYDRATION_POLICY_PARTIAL: CF_HYDRATION_POLICY_PRIMARY = 0;
 pub type CF_HYDRATION_POLICY_PRIMARY = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_HYDRATION_POLICY_PRIMARY_USHORT {
     pub us: u16,
 }
@@ -576,7 +576,7 @@ pub type CF_OPERATION_ACK_RENAME_FLAGS = u32;
 pub const CF_OPERATION_ACK_RENAME_FLAG_NONE: CF_OPERATION_ACK_RENAME_FLAGS = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_INFO {
     pub StructSize: u32,
     pub Type: CF_OPERATION_TYPE,
@@ -626,7 +626,7 @@ impl Default for CF_OPERATION_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
     pub CompletionStatus: super::bcrypt::NTSTATUS,
@@ -642,7 +642,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
     pub Buffer: *mut core::ffi::c_void,
@@ -658,7 +658,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Flags: CF_OPERATION_ACK_DATA_FLAGS,
     pub CompletionStatus: super::bcrypt::NTSTATUS,
@@ -667,7 +667,7 @@ pub struct CF_OPERATION_PARAMETERS_0_2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
     pub FsMetadata: *const CF_FS_METADATA,
@@ -682,7 +682,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS,
     pub CompletionStatus: super::bcrypt::NTSTATUS,
@@ -699,7 +699,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_4 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
     pub CompletionStatus: super::bcrypt::NTSTATUS,
@@ -714,14 +714,14 @@ impl Default for CF_OPERATION_PARAMETERS_0_5 {
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
     pub CompletionStatus: super::bcrypt::NTSTATUS,
 }
 #[repr(C)]
 #[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
     pub CompletionStatus: super::bcrypt::NTSTATUS,
@@ -753,7 +753,7 @@ pub const CF_PIN_STATE_PINNED: CF_PIN_STATE = 1;
 pub const CF_PIN_STATE_UNPINNED: CF_PIN_STATE = 2;
 pub const CF_PIN_STATE_UNSPECIFIED: CF_PIN_STATE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_BASIC_INFO {
     pub PinState: CF_PIN_STATE,
     pub InSyncState: CF_IN_SYNC_STATE,
@@ -775,7 +775,7 @@ pub const CF_PLACEHOLDER_CREATE_FLAG_NONE: CF_PLACEHOLDER_CREATE_FLAGS = 0;
 pub const CF_PLACEHOLDER_CREATE_FLAG_SUPERSEDE: CF_PLACEHOLDER_CREATE_FLAGS = 4;
 #[repr(C)]
 #[cfg(all(feature = "winbase", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_CREATE_INFO {
     pub RelativeFileName: windows_core::PCWSTR,
     pub FsMetadata: CF_FS_METADATA,
@@ -805,7 +805,7 @@ pub const CF_PLACEHOLDER_RANGE_INFO_MODIFIED: CF_PLACEHOLDER_RANGE_INFO_CLASS = 
 pub const CF_PLACEHOLDER_RANGE_INFO_ONDISK: CF_PLACEHOLDER_RANGE_INFO_CLASS = 1;
 pub const CF_PLACEHOLDER_RANGE_INFO_VALIDATED: CF_PLACEHOLDER_RANGE_INFO_CLASS = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_PLACEHOLDER_STANDARD_INFO {
     pub OnDiskDataSize: i64,
     pub ValidatedDataSize: i64,
@@ -833,14 +833,14 @@ pub const CF_PLACEHOLDER_STATE_PARTIALLY_ON_DISK: CF_PLACEHOLDER_STATE = 32;
 pub const CF_PLACEHOLDER_STATE_PLACEHOLDER: CF_PLACEHOLDER_STATE = 1;
 pub const CF_PLACEHOLDER_STATE_SYNC_ROOT: CF_PLACEHOLDER_STATE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PLATFORM_INFO {
     pub BuildNumber: u32,
     pub RevisionNumber: u32,
     pub IntegrationNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_POPULATION_POLICY {
     pub Primary: CF_POPULATION_POLICY_PRIMARY_USHORT,
     pub Modifier: CF_POPULATION_POLICY_MODIFIER_USHORT,
@@ -850,19 +850,19 @@ pub const CF_POPULATION_POLICY_FULL: CF_POPULATION_POLICY_PRIMARY = 2;
 pub type CF_POPULATION_POLICY_MODIFIER = u32;
 pub const CF_POPULATION_POLICY_MODIFIER_NONE: CF_POPULATION_POLICY_MODIFIER = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_POPULATION_POLICY_MODIFIER_USHORT {
     pub us: u16,
 }
 pub const CF_POPULATION_POLICY_PARTIAL: CF_POPULATION_POLICY_PRIMARY = 0;
 pub type CF_POPULATION_POLICY_PRIMARY = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_POPULATION_POLICY_PRIMARY_USHORT {
     pub us: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_PROCESS_INFO {
     pub StructSize: u32,
     pub ProcessId: u32,
@@ -902,7 +902,7 @@ pub const CF_SET_PIN_FLAG_RECURSE: CF_SET_PIN_FLAGS = 1;
 pub const CF_SET_PIN_FLAG_RECURSE_ONLY: CF_SET_PIN_FLAGS = 2;
 pub const CF_SET_PIN_FLAG_RECURSE_STOP_ON_ERROR: CF_SET_PIN_FLAGS = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SYNC_POLICIES {
     pub StructSize: u32,
     pub Hydration: CF_HYDRATION_POLICY,
@@ -913,7 +913,7 @@ pub struct CF_SYNC_POLICIES {
 }
 pub type CF_SYNC_PROVIDER_STATUS = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_SYNC_REGISTRATION {
     pub StructSize: u32,
     pub ProviderName: windows_core::PCWSTR,
@@ -930,7 +930,7 @@ impl Default for CF_SYNC_REGISTRATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SYNC_ROOT_BASIC_INFO {
     pub SyncRootFileId: i64,
 }
@@ -939,7 +939,7 @@ pub type CF_SYNC_ROOT_INFO_CLASS = i32;
 pub const CF_SYNC_ROOT_INFO_PROVIDER: CF_SYNC_ROOT_INFO_CLASS = 2;
 pub const CF_SYNC_ROOT_INFO_STANDARD: CF_SYNC_ROOT_INFO_CLASS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_SYNC_ROOT_PROVIDER_INFO {
     pub ProviderStatus: CF_SYNC_PROVIDER_STATUS,
     pub ProviderName: [u16; 256],
@@ -951,7 +951,7 @@ impl Default for CF_SYNC_ROOT_PROVIDER_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CF_SYNC_ROOT_STANDARD_INFO {
     pub SyncRootFileId: i64,
     pub HydrationPolicy: CF_HYDRATION_POLICY,
@@ -970,7 +970,7 @@ impl Default for CF_SYNC_ROOT_STANDARD_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CF_SYNC_STATUS {
     pub StructSize: u32,
     pub Code: u32,

@@ -51,12 +51,12 @@ pub const MSGNAME_FORWARDED_FROM: u32 = 16;
 pub const MSGNAME_FORWARDED_TO: u32 = 4;
 pub const MSGNAME_NOT_FORWARDED: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSG_INFO_0 {
     pub msgi0_name: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSG_INFO_1 {
     pub msgi1_name: windows_core::PWSTR,
     pub msgi1_forward_flag: u32,

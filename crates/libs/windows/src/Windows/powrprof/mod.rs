@@ -302,37 +302,37 @@ pub unsafe fn PowerWriteDCDefaultIndex(rootsystempowerkey: Option<super::minwind
 #[inline]
 pub unsafe fn PowerWriteDescription(rootpowerkey: Option<super::minwindef::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteDescription(rootpowerkey : super::minwindef::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWriteDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
+    unsafe { PowerWriteDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn PowerWriteFriendlyName(rootpowerkey: Option<super::minwindef::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteFriendlyName(rootpowerkey : super::minwindef::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWriteFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
+    unsafe { PowerWriteFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn PowerWriteIconResourceSpecifier(rootpowerkey: Option<super::minwindef::HKEY>, schemeguid: *const windows_core::GUID, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteIconResourceSpecifier(rootpowerkey : super::minwindef::HKEY, schemeguid : *const windows_core::GUID, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWriteIconResourceSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
+    unsafe { PowerWriteIconResourceSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, schemeguid, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn PowerWritePossibleDescription(rootpowerkey: Option<super::minwindef::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: u32, buffer: &[u8]) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerWritePossibleDescription(rootpowerkey : super::minwindef::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWritePossibleDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
+    unsafe { PowerWritePossibleDescription(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn PowerWritePossibleFriendlyName(rootpowerkey: Option<super::minwindef::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, possiblesettingindex: u32, buffer: &[u8]) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerWritePossibleFriendlyName(rootpowerkey : super::minwindef::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWritePossibleFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
+    unsafe { PowerWritePossibleFriendlyName(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, possiblesettingindex, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn PowerWritePossibleValue(rootpowerkey: Option<super::minwindef::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, r#type: u32, possiblesettingindex: u32, buffer: &[u8]) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerWritePossibleValue(rootpowerkey : super::minwindef::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, r#type : u32, possiblesettingindex : u32, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWritePossibleValue(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, r#type, possiblesettingindex, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
+    unsafe { PowerWritePossibleValue(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, r#type, possiblesettingindex, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn PowerWriteSettingAttributes(subgroupguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, attributes: u32) -> u32 {
@@ -361,7 +361,7 @@ pub unsafe fn PowerWriteValueMin(rootpowerkey: Option<super::minwindef::HKEY>, s
 #[inline]
 pub unsafe fn PowerWriteValueUnitsSpecifier(rootpowerkey: Option<super::minwindef::HKEY>, subgroupofpowersettingsguid: Option<*const windows_core::GUID>, powersettingguid: Option<*const windows_core::GUID>, buffer: &[u8]) -> u32 {
     windows_core::link!("powrprof.dll" "system" fn PowerWriteValueUnitsSpecifier(rootpowerkey : super::minwindef::HKEY, subgroupofpowersettingsguid : *const windows_core::GUID, powersettingguid : *const windows_core::GUID, buffer : *const u8, buffersize : u32) -> u32);
-    unsafe { PowerWriteValueUnitsSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
+    unsafe { PowerWriteValueUnitsSpecifier(rootpowerkey.unwrap_or(core::mem::zeroed()) as _, subgroupofpowersettingsguid.unwrap_or(core::mem::zeroed()) as _, powersettingguid.unwrap_or(core::mem::zeroed()) as _, buffer.as_ptr(), buffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -478,7 +478,7 @@ pub const EnableVideoDimDisplay: u32 = 16;
 pub const EnableWakeOnRing: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLOBAL_MACHINE_POWER_POLICY {
     pub Revision: u32,
     pub LidOpenWakeAc: super::winnt::SYSTEM_POWER_STATE,
@@ -487,14 +487,14 @@ pub struct GLOBAL_MACHINE_POWER_POLICY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct GLOBAL_POWER_POLICY {
     pub user: GLOBAL_USER_POWER_POLICY,
     pub mach: GLOBAL_MACHINE_POWER_POLICY,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GLOBAL_USER_POWER_POLICY {
     pub Revision: u32,
     pub PowerButtonAc: super::winnt::POWER_ACTION_POLICY,
@@ -514,7 +514,7 @@ impl Default for GLOBAL_USER_POWER_POLICY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MACHINE_POWER_POLICY {
     pub Revision: u32,
     pub MinSleepAc: super::winnt::SYSTEM_POWER_STATE,
@@ -539,7 +539,7 @@ impl Default for MACHINE_POWER_POLICY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MACHINE_PROCESSOR_POWER_POLICY {
     pub Revision: u32,
     pub ProcessorPolicyAc: super::winnt::PROCESSOR_POWER_POLICY,
@@ -573,7 +573,7 @@ pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2;
 pub type POWER_DATA_ACCESSOR = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POWER_POLICY {
     pub user: USER_POWER_POLICY,
     pub mach: MACHINE_POWER_POLICY,
@@ -591,7 +591,7 @@ pub type PWRSCHEMESENUMPROC_V1 = Option<unsafe extern "system" fn(index: u32, na
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 pub type PWRSCHEMESENUMPROC_V2 = Option<unsafe extern "system" fn(index: u32, namesize: u32, name: windows_core::PCWSTR, descriptionsize: u32, description: windows_core::PCWSTR, policy: *const POWER_POLICY, context: super::minwindef::LPARAM) -> bool>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THERMAL_EVENT {
     pub Version: u32,
     pub Size: u32,
@@ -603,7 +603,7 @@ pub struct THERMAL_EVENT {
 pub const THERMAL_EVENT_VERSION: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USER_POWER_POLICY {
     pub Revision: u32,
     pub IdleAc: super::winnt::POWER_ACTION_POLICY,

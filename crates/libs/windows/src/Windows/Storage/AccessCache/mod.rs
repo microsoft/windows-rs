@@ -49,7 +49,7 @@ impl core::ops::Not for AccessCacheOptions {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct AccessListEntry {
     pub Token: windows_core::HSTRING,
     pub Metadata: windows_core::HSTRING,

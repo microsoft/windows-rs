@@ -3577,13 +3577,13 @@ windows_core::imp::define_interface!(IDiscRecorder2Ex, IDiscRecorder2Ex_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IDiscRecorder2Ex, windows_core::IUnknown);
 impl IDiscRecorder2Ex {
     pub unsafe fn SendCommandNoData(&self, cdb: *const u8, cdbsize: u32, sensebuffer: &mut [u8; 18], timeout: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SendCommandNoData)(windows_core::Interface::as_raw(self), cdb, cdbsize, core::mem::transmute(sensebuffer.as_ptr()), timeout) }
+        unsafe { (windows_core::Interface::vtable(self).SendCommandNoData)(windows_core::Interface::as_raw(self), cdb, cdbsize, sensebuffer.as_mut_ptr(), timeout) }
     }
     pub unsafe fn SendCommandSendDataToDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: &mut [u8; 18], timeout: u32, buffer: *const u8, buffersize: ULONG_IMAPI2_NONZERO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SendCommandSendDataToDevice)(windows_core::Interface::as_raw(self), cdb, cdbsize, core::mem::transmute(sensebuffer.as_ptr()), timeout, buffer, buffersize) }
+        unsafe { (windows_core::Interface::vtable(self).SendCommandSendDataToDevice)(windows_core::Interface::as_raw(self), cdb, cdbsize, sensebuffer.as_mut_ptr(), timeout, buffer, buffersize) }
     }
     pub unsafe fn SendCommandGetDataFromDevice(&self, cdb: *const u8, cdbsize: u32, sensebuffer: &mut [u8; 18], timeout: u32, buffer: *mut u8, buffersize: ULONG_IMAPI2_NONZERO, bufferfetched: *mut ULONG_IMAPI2_NOT_NEGATIVE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SendCommandGetDataFromDevice)(windows_core::Interface::as_raw(self), cdb, cdbsize, core::mem::transmute(sensebuffer.as_ptr()), timeout, buffer as _, buffersize, bufferfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).SendCommandGetDataFromDevice)(windows_core::Interface::as_raw(self), cdb, cdbsize, sensebuffer.as_mut_ptr(), timeout, buffer as _, buffersize, bufferfetched as _) }
     }
     pub unsafe fn ReadDvdStructure(&self, format: u32, address: u32, layer: u32, agid: u32, data: *mut *mut u8, count: *mut ULONG_IMAPI2_DVD_STRUCTURE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReadDvdStructure)(windows_core::Interface::as_raw(self), format, address, layer, agid, data as _, count as _) }

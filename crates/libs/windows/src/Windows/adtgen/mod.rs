@@ -31,7 +31,7 @@ impl Default for AUDIT_HANDLE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIT_IP_ADDRESS {
     pub pIpAddress: [u8; 128],
 }
@@ -42,7 +42,7 @@ impl Default for AUDIT_IP_ADDRESS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIT_OBJECT_TYPE {
     pub ObjectType: windows_core::GUID,
     pub Flags: u16,
@@ -51,7 +51,7 @@ pub struct AUDIT_OBJECT_TYPE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIT_OBJECT_TYPES {
     pub Count: u16,
     pub Flags: u16,
@@ -113,7 +113,7 @@ impl Default for AUDIT_PARAM_1 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUDIT_PARAMS {
     pub Length: u32,
     pub Flags: u32,
@@ -132,7 +132,7 @@ pub const AUDIT_TYPE_WMI: u32 = 2;
 pub const AUTHZP_WPD_EVENT: u32 = 16;
 pub const AUTHZ_ALLOW_MULTIPLE_SOURCE_INSTANCES: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_AUDIT_EVENT_TYPE_LEGACY {
     pub CategoryId: u16,
     pub AuditId: u16,

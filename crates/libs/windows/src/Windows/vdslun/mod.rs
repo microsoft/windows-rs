@@ -40,7 +40,7 @@ pub const VDS_IA_MAC: VDS_INTERCONNECT_ADDRESS_TYPE = 4;
 pub const VDS_IA_SCSI: VDS_INTERCONNECT_ADDRESS_TYPE = 5;
 pub const VDS_IA_UNKNOWN: VDS_INTERCONNECT_ADDRESS_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_INTERCONNECT {
     pub m_addressType: VDS_INTERCONNECT_ADDRESS_TYPE,
     pub m_cbPort: u32,
@@ -55,7 +55,7 @@ impl Default for VDS_INTERCONNECT {
 }
 pub type VDS_INTERCONNECT_ADDRESS_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_LUN_INFORMATION {
     pub m_version: u32,
     pub m_DeviceType: u8,
@@ -78,7 +78,7 @@ impl Default for VDS_LUN_INFORMATION {
 }
 pub type VDS_STORAGE_BUS_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     pub m_version: u32,
     pub m_cIdentifiers: u32,
@@ -90,7 +90,7 @@ impl Default for VDS_STORAGE_DEVICE_ID_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VDS_STORAGE_IDENTIFIER {
     pub m_CodeSet: VDS_STORAGE_IDENTIFIER_CODE_SET,
     pub m_Type: VDS_STORAGE_IDENTIFIER_TYPE,

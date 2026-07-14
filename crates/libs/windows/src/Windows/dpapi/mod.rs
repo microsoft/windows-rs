@@ -45,7 +45,7 @@ pub const CRYPTPROTECT_LOCAL_MACHINE: u32 = 4;
 pub const CRYPTPROTECT_NO_RECOVERY: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRYPTPROTECT_PROMPTSTRUCT {
     pub cbSize: u32,
     pub dwPromptFlags: u32,

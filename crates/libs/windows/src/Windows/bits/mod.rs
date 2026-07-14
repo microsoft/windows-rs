@@ -134,7 +134,7 @@ pub type BG_AUTH_TARGET = i32;
 pub const BG_AUTH_TARGET_PROXY: BG_AUTH_TARGET = 2;
 pub const BG_AUTH_TARGET_SERVER: BG_AUTH_TARGET = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_BASIC_CREDENTIALS {
     pub UserName: windows_core::PWSTR,
     pub Password: windows_core::PWSTR,
@@ -294,20 +294,20 @@ pub const BG_E_VALIDATION_FAILED: u32 = 2149580883;
 pub const BG_E_VOLUME_CHANGED: u32 = 2149580814;
 pub const BG_E_WATCHDOG_TIMEOUT: u32 = 2149580905;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_FILE_INFO {
     pub RemoteName: windows_core::PWSTR,
     pub LocalName: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_FILE_PROGRESS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,
     pub Completed: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_FILE_RANGE {
     pub InitialOffset: u64,
     pub Length: u64,
@@ -327,7 +327,7 @@ pub const BG_JOB_PRIORITY_HIGH: BG_JOB_PRIORITY = 1;
 pub const BG_JOB_PRIORITY_LOW: BG_JOB_PRIORITY = 3;
 pub const BG_JOB_PRIORITY_NORMAL: BG_JOB_PRIORITY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_JOB_PROGRESS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,
@@ -340,7 +340,7 @@ pub const BG_JOB_PROXY_USAGE_NO_PROXY: BG_JOB_PROXY_USAGE = 1;
 pub const BG_JOB_PROXY_USAGE_OVERRIDE: BG_JOB_PROXY_USAGE = 2;
 pub const BG_JOB_PROXY_USAGE_PRECONFIG: BG_JOB_PROXY_USAGE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_JOB_REPLY_PROGRESS {
     pub BytesTotal: u64,
     pub BytesTransferred: u64,
@@ -357,7 +357,7 @@ pub const BG_JOB_STATE_TRANSFERRING: BG_JOB_STATE = 2;
 pub const BG_JOB_STATE_TRANSIENT_ERROR: BG_JOB_STATE = 5;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BG_JOB_TIMES {
     pub CreationTime: super::minwindef::FILETIME,
     pub ModificationTime: super::minwindef::FILETIME,
@@ -1014,7 +1014,7 @@ impl core::ops::Deref for IBackgroundCopyFile5 {
 windows_core::imp::interface_hierarchy!(IBackgroundCopyFile5, windows_core::IUnknown, IBackgroundCopyFile, IBackgroundCopyFile2, IBackgroundCopyFile3, IBackgroundCopyFile4);
 impl IBackgroundCopyFile5 {
     pub unsafe fn SetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID, propertyvalue: BITS_FILE_PROPERTY_VALUE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), propertyid, core::mem::transmute(propertyvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), propertyid, propertyvalue) }
     }
     pub unsafe fn GetProperty(&self, propertyid: BITS_FILE_PROPERTY_ID) -> windows_core::Result<BITS_FILE_PROPERTY_VALUE> {
         unsafe {
@@ -2082,7 +2082,7 @@ impl core::ops::Deref for IBackgroundCopyJob5 {
 windows_core::imp::interface_hierarchy!(IBackgroundCopyJob5, windows_core::IUnknown, IBackgroundCopyJob, IBackgroundCopyJob2, IBackgroundCopyJob3, IBackgroundCopyJob4);
 impl IBackgroundCopyJob5 {
     pub unsafe fn SetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID, propertyvalue: BITS_JOB_PROPERTY_VALUE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), propertyid, core::mem::transmute(propertyvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), propertyid, propertyvalue) }
     }
     pub unsafe fn GetProperty(&self, propertyid: BITS_JOB_PROPERTY_ID) -> windows_core::Result<BITS_JOB_PROPERTY_VALUE> {
         unsafe {

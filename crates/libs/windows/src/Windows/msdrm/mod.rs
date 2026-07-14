@@ -15,7 +15,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msdrm.dll" "system" fn DRMAcquireIssuanceLicenseTemplate(hclient : super::msdrmdefs::DRMHSESSION, uflags : u32, pvreserved : *mut core::ffi::c_void, ctemplates : u32, pwsztemplateids : *const windows_core::PCWSTR, wszurl : windows_core::PCWSTR, pvcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DRMAcquireIssuanceLicenseTemplate(hclient, uflags, pvreserved as _, pwsztemplateids.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pwsztemplateids.map_or(core::ptr::null(), |slice| slice.as_ptr())), wszurl.param().abi(), pvcontext as _) }
+    unsafe { DRMAcquireIssuanceLicenseTemplate(hclient, uflags, pvreserved as _, pwsztemplateids.map_or(0, |slice| slice.len().try_into().unwrap()), pwsztemplateids.map_or(core::ptr::null(), |slice| slice.as_ptr()), wszurl.param().abi(), pvcontext as _) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
@@ -57,7 +57,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msdrm.dll" "system" fn DRMAttest(henablingprincipal : super::msdrmdefs::DRMHANDLE, wszdata : windows_core::PCWSTR, etype : super::msdrmdefs::DRMATTESTTYPE, pcattestedblob : *mut u32, wszattestedblob : windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { DRMAttest(henablingprincipal, wszdata.param().abi(), etype, pcattestedblob as _, core::mem::transmute(wszattestedblob)) }
+    unsafe { DRMAttest(henablingprincipal, wszdata.param().abi(), etype, pcattestedblob as _, wszattestedblob) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
@@ -104,7 +104,7 @@ pub unsafe fn DRMCloseSession(hsession: super::msdrmdefs::DRMHSESSION) -> window
 #[inline]
 pub unsafe fn DRMConstructCertificateChain(rgwszcertificates: &[windows_core::PCWSTR], pcchain: *mut u32, wszchain: Option<windows_core::PWSTR>) -> windows_core::HRESULT {
     windows_core::link!("msdrm.dll" "system" fn DRMConstructCertificateChain(ccertificates : u32, rgwszcertificates : *const windows_core::PCWSTR, pcchain : *mut u32, wszchain : windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { DRMConstructCertificateChain(rgwszcertificates.len().try_into().unwrap(), core::mem::transmute(rgwszcertificates.as_ptr()), pcchain as _, wszchain.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DRMConstructCertificateChain(rgwszcertificates.len().try_into().unwrap(), rgwszcertificates.as_ptr(), pcchain as _, wszchain.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]
@@ -485,7 +485,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msdrm.dll" "system" fn DRMGetSignedIssuanceLicenseEx(henv : super::msdrmdefs::DRMENVHANDLE, hissuancelicense : super::msdrmdefs::DRMPUBHANDLE, uflags : u32, pbsymkey : *const u8, cbsymkey : u32, wszsymkeytype : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void, henablingprincipal : super::msdrmdefs::DRMHANDLE, hboundlicenseclc : super::msdrmdefs::DRMHANDLE, pfncallback : super::msdrmdefs::DRMCALLBACK, pvcontext : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { DRMGetSignedIssuanceLicenseEx(henv, hissuancelicense, uflags, core::mem::transmute(pbsymkey.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsymkey.map_or(0, |slice| slice.len().try_into().unwrap()), wszsymkeytype.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _, henablingprincipal, hboundlicenseclc, pfncallback, pvcontext) }
+    unsafe { DRMGetSignedIssuanceLicenseEx(henv, hissuancelicense, uflags, pbsymkey.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbsymkey.map_or(0, |slice| slice.len().try_into().unwrap()), wszsymkeytype.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _, henablingprincipal, hboundlicenseclc, pfncallback, pvcontext) }
 }
 #[cfg(all(feature = "minwinbase", feature = "msdrmdefs"))]
 #[inline]

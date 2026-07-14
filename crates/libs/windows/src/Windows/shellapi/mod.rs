@@ -6,7 +6,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn AssocCreateForClasses(rgclasses : *const ASSOCIATIONELEMENT, cclasses : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { AssocCreateForClasses(core::mem::transmute(rgclasses.as_ptr()), rgclasses.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { AssocCreateForClasses(rgclasses.as_ptr(), rgclasses.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CommandLineToArgvW<P0>(lpcmdline: P0, pnumargs: *mut i32) -> *mut windows_core::PWSTR
@@ -19,12 +19,12 @@ where
 #[inline]
 pub unsafe fn DoEnvironmentSubstA(pszsrc: &mut [u8]) -> u32 {
     windows_core::link!("shell32.dll" "system" fn DoEnvironmentSubstA(pszsrc : windows_core::PSTR, cchsrc : u32) -> u32);
-    unsafe { DoEnvironmentSubstA(core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap()) }
+    unsafe { DoEnvironmentSubstA(core::mem::transmute(pszsrc.as_mut_ptr()), pszsrc.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn DoEnvironmentSubstW(pszsrc: &mut [u16]) -> u32 {
     windows_core::link!("shell32.dll" "system" fn DoEnvironmentSubstW(pszsrc : windows_core::PWSTR, cchsrc : u32) -> u32);
-    unsafe { DoEnvironmentSubstW(core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap()) }
+    unsafe { DoEnvironmentSubstW(core::mem::transmute(pszsrc.as_mut_ptr()), pszsrc.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -40,12 +40,12 @@ pub unsafe fn DragFinish(hdrop: HDROP) {
 #[inline]
 pub unsafe fn DragQueryFileA(hdrop: HDROP, ifile: u32, lpszfile: Option<&mut [u8]>) -> u32 {
     windows_core::link!("shell32.dll" "system" fn DragQueryFileA(hdrop : HDROP, ifile : u32, lpszfile : windows_core::PSTR, cch : u32) -> u32);
-    unsafe { DragQueryFileA(hdrop, ifile, core::mem::transmute(lpszfile.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfile.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { DragQueryFileA(hdrop, ifile, core::mem::transmute(lpszfile.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszfile.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn DragQueryFileW(hdrop: HDROP, ifile: u32, lpszfile: Option<&mut [u16]>) -> u32 {
     windows_core::link!("shell32.dll" "system" fn DragQueryFileW(hdrop : HDROP, ifile : u32, lpszfile : windows_core::PWSTR, cch : u32) -> u32);
-    unsafe { DragQueryFileW(hdrop, ifile, core::mem::transmute(lpszfile.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfile.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { DragQueryFileW(hdrop, ifile, core::mem::transmute(lpszfile.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszfile.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -63,25 +63,25 @@ pub unsafe fn DuplicateIcon(hinst: Option<super::minwindef::HINSTANCE>, hicon: s
 #[inline]
 pub unsafe fn ExtractAssociatedIconA(hinst: Option<super::minwindef::HINSTANCE>, psziconpath: &mut [u8; 128], piicon: *mut u16) -> super::windef::HICON {
     windows_core::link!("shell32.dll" "system" fn ExtractAssociatedIconA(hinst : super::minwindef::HINSTANCE, psziconpath : windows_core::PSTR, piicon : *mut u16) -> super::windef::HICON);
-    unsafe { ExtractAssociatedIconA(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_ptr()), piicon as _) }
+    unsafe { ExtractAssociatedIconA(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), piicon as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn ExtractAssociatedIconExA(hinst: Option<super::minwindef::HINSTANCE>, psziconpath: &mut [u8; 128], piiconindex: *mut u16, piiconid: *mut u16) -> super::windef::HICON {
     windows_core::link!("shell32.dll" "system" fn ExtractAssociatedIconExA(hinst : super::minwindef::HINSTANCE, psziconpath : windows_core::PSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::windef::HICON);
-    unsafe { ExtractAssociatedIconExA(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_ptr()), piiconindex as _, piiconid as _) }
+    unsafe { ExtractAssociatedIconExA(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), piiconindex as _, piiconid as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn ExtractAssociatedIconExW(hinst: Option<super::minwindef::HINSTANCE>, psziconpath: &mut [u16; 128], piiconindex: *mut u16, piiconid: *mut u16) -> super::windef::HICON {
     windows_core::link!("shell32.dll" "system" fn ExtractAssociatedIconExW(hinst : super::minwindef::HINSTANCE, psziconpath : windows_core::PWSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::windef::HICON);
-    unsafe { ExtractAssociatedIconExW(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_ptr()), piiconindex as _, piiconid as _) }
+    unsafe { ExtractAssociatedIconExW(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), piiconindex as _, piiconid as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn ExtractAssociatedIconW(hinst: Option<super::minwindef::HINSTANCE>, psziconpath: &mut [u16; 128], piicon: *mut u16) -> super::windef::HICON {
     windows_core::link!("shell32.dll" "system" fn ExtractAssociatedIconW(hinst : super::minwindef::HINSTANCE, psziconpath : windows_core::PWSTR, piicon : *mut u16) -> super::windef::HICON);
-    unsafe { ExtractAssociatedIconW(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_ptr()), piicon as _) }
+    unsafe { ExtractAssociatedIconW(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), piicon as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
@@ -127,7 +127,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn FindExecutableA(lpfile : windows_core::PCSTR, lpdirectory : windows_core::PCSTR, lpresult : windows_core::PSTR) -> super::minwindef::HINSTANCE);
-    unsafe { FindExecutableA(lpfile.param().abi(), lpdirectory.param().abi(), core::mem::transmute(lpresult)) }
+    unsafe { FindExecutableA(lpfile.param().abi(), lpdirectory.param().abi(), lpresult) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -137,7 +137,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn FindExecutableW(lpfile : windows_core::PCWSTR, lpdirectory : windows_core::PCWSTR, lpresult : windows_core::PWSTR) -> super::minwindef::HINSTANCE);
-    unsafe { FindExecutableW(lpfile.param().abi(), lpdirectory.param().abi(), core::mem::transmute(lpresult)) }
+    unsafe { FindExecutableW(lpfile.param().abi(), lpdirectory.param().abi(), lpresult) }
 }
 #[inline]
 pub unsafe fn InitNetworkAddressControl() -> windows_core::BOOL {
@@ -194,7 +194,7 @@ where
 #[inline]
 pub unsafe fn SHEnumerateUnreadMailAccountsW(hkeyuser: Option<super::minwindef::HKEY>, dwindex: u32, pszmailaddress: &mut [u16]) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHEnumerateUnreadMailAccountsW(hkeyuser : super::minwindef::HKEY, dwindex : u32, pszmailaddress : windows_core::PWSTR, cchmailaddress : i32) -> windows_core::HRESULT);
-    unsafe { SHEnumerateUnreadMailAccountsW(hkeyuser.unwrap_or(core::mem::zeroed()) as _, dwindex, core::mem::transmute(pszmailaddress.as_ptr()), pszmailaddress.len().try_into().unwrap()) }
+    unsafe { SHEnumerateUnreadMailAccountsW(hkeyuser.unwrap_or(core::mem::zeroed()) as _, dwindex, core::mem::transmute(pszmailaddress.as_mut_ptr()), pszmailaddress.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SHEvaluateSystemCommandTemplate<P0>(pszcmdtemplate: P0, ppszapplication: *mut windows_core::PWSTR, ppszcommandline: *mut windows_core::PWSTR, ppszparameters: *mut windows_core::PWSTR) -> windows_core::HRESULT
@@ -282,7 +282,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetLocalizedName(pszpath : windows_core::PCWSTR, pszresmodule : windows_core::PWSTR, cch : u32, pidsres : *mut i32) -> windows_core::HRESULT);
-    unsafe { SHGetLocalizedName(pszpath.param().abi(), core::mem::transmute(pszresmodule.as_ptr()), pszresmodule.len().try_into().unwrap(), pidsres as _) }
+    unsafe { SHGetLocalizedName(pszpath.param().abi(), core::mem::transmute(pszresmodule.as_mut_ptr()), pszresmodule.len().try_into().unwrap(), pidsres as _) }
 }
 #[inline]
 pub unsafe fn SHGetNewLinkInfoA<P0, P1>(pszlinkto: P0, pszdir: P1, pszname: windows_core::PSTR, pfmustcopy: *mut windows_core::BOOL, uflags: u32) -> windows_core::BOOL
@@ -291,7 +291,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetNewLinkInfoA(pszlinkto : windows_core::PCSTR, pszdir : windows_core::PCSTR, pszname : windows_core::PSTR, pfmustcopy : *mut windows_core::BOOL, uflags : u32) -> windows_core::BOOL);
-    unsafe { SHGetNewLinkInfoA(pszlinkto.param().abi(), pszdir.param().abi(), core::mem::transmute(pszname), pfmustcopy as _, uflags) }
+    unsafe { SHGetNewLinkInfoA(pszlinkto.param().abi(), pszdir.param().abi(), pszname, pfmustcopy as _, uflags) }
 }
 #[inline]
 pub unsafe fn SHGetNewLinkInfoW<P0, P1>(pszlinkto: P0, pszdir: P1, pszname: windows_core::PWSTR, pfmustcopy: *mut windows_core::BOOL, uflags: u32) -> windows_core::BOOL
@@ -300,7 +300,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetNewLinkInfoW(pszlinkto : windows_core::PCWSTR, pszdir : windows_core::PCWSTR, pszname : windows_core::PWSTR, pfmustcopy : *mut windows_core::BOOL, uflags : u32) -> windows_core::BOOL);
-    unsafe { SHGetNewLinkInfoW(pszlinkto.param().abi(), pszdir.param().abi(), core::mem::transmute(pszname), pfmustcopy as _, uflags) }
+    unsafe { SHGetNewLinkInfoW(pszlinkto.param().abi(), pszdir.param().abi(), pszname, pfmustcopy as _, uflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -325,7 +325,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetUnreadMailCountW(hkeyuser : super::minwindef::HKEY, pszmailaddress : windows_core::PCWSTR, pdwcount : *mut u32, pfiletime : *mut super::minwindef::FILETIME, pszshellexecutecommand : windows_core::PWSTR, cchshellexecutecommand : i32) -> windows_core::HRESULT);
-    unsafe { SHGetUnreadMailCountW(hkeyuser.unwrap_or(core::mem::zeroed()) as _, pszmailaddress.param().abi(), pdwcount.unwrap_or(core::mem::zeroed()) as _, pfiletime.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszshellexecutecommand.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszshellexecutecommand.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SHGetUnreadMailCountW(hkeyuser.unwrap_or(core::mem::zeroed()) as _, pszmailaddress.param().abi(), pdwcount.unwrap_or(core::mem::zeroed()) as _, pfiletime.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszshellexecutecommand.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszshellexecutecommand.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -552,7 +552,7 @@ pub struct APPBARDATA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct APPBARDATA {
     pub cbSize: u32,
     pub hWnd: super::windef::HWND,
@@ -586,7 +586,7 @@ pub struct ASSOCIATIONELEMENT {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ASSOCIATIONELEMENT {
     pub ac: ASSOCCLASS,
     pub hkClass: super::minwindef::HKEY,
@@ -608,7 +608,7 @@ pub struct DRAGINFOA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAGINFOA {
     pub uSize: u32,
     pub pt: super::windef::POINT,
@@ -630,7 +630,7 @@ pub struct DRAGINFOW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRAGINFOW {
     pub uSize: u32,
     pub pt: super::windef::POINT,
@@ -697,7 +697,7 @@ pub const NCM_GETADDRESS: u32 = 1025;
 pub const NCM_GETALLOWTYPE: u32 = 1027;
 pub const NCM_SETALLOWTYPE: u32 = 1026;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NC_ADDRESS {
     pub pAddrInfo: *mut NET_ADDRESS_INFO_,
     pub PortNumber: u16,
@@ -709,7 +709,7 @@ impl Default for NC_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NET_ADDRESS_INFO_(pub u8);
 pub const NIF_GUID: u32 = 32;
 pub const NIF_ICON: u32 = 2;
@@ -967,7 +967,7 @@ pub struct NOTIFYICONIDENTIFIER {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NOTIFYICONIDENTIFIER {
     pub cbSize: u32,
     pub hWnd: super::windef::HWND,
@@ -992,7 +992,7 @@ pub struct OPEN_PRINTER_PROPS_INFOA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_PRINTER_PROPS_INFOA {
     pub dwSize: u32,
     pub pszSheetName: windows_core::PSTR,
@@ -1012,7 +1012,7 @@ pub struct OPEN_PRINTER_PROPS_INFOW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_PRINTER_PROPS_INFOW {
     pub dwSize: u32,
     pub pszSheetName: windows_core::PWSTR,
@@ -1117,7 +1117,7 @@ pub struct SHCREATEPROCESSINFOW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "processthreadsapi", feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHCREATEPROCESSINFOW {
     pub cbSize: u32,
     pub fMask: u32,
@@ -1333,7 +1333,7 @@ impl Default for SHFILEINFOA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFILEINFOA {
     pub hIcon: super::windef::HICON,
     pub iIcon: i32,
@@ -1369,7 +1369,7 @@ impl Default for SHFILEINFOW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFILEINFOW {
     pub hIcon: super::windef::HICON,
     pub iIcon: i32,
@@ -1410,7 +1410,7 @@ impl Default for SHFILEOPSTRUCTA {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFILEOPSTRUCTA {
     pub hwnd: super::windef::HWND,
     pub wFunc: u32,
@@ -1452,7 +1452,7 @@ impl Default for SHFILEOPSTRUCTW {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHFILEOPSTRUCTW {
     pub hwnd: super::windef::HWND,
     pub wFunc: u32,
@@ -1520,7 +1520,7 @@ pub struct SHNAMEMAPPINGA {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHNAMEMAPPINGA {
     pub pszOldPath: windows_core::PSTR,
     pub pszNewPath: windows_core::PSTR,
@@ -1538,7 +1538,7 @@ pub struct SHNAMEMAPPINGW {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHNAMEMAPPINGW {
     pub pszOldPath: windows_core::PWSTR,
     pub pszNewPath: windows_core::PWSTR,
@@ -1555,7 +1555,7 @@ pub struct SHQUERYRBINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHQUERYRBINFO {
     pub cbSize: u32,
     pub i64Size: i64,
@@ -1583,7 +1583,7 @@ impl Default for SHSTOCKICONINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHSTOCKICONINFO {
     pub cbSize: u32,
     pub hIcon: super::windef::HICON,

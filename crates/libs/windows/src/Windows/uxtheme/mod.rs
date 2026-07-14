@@ -163,7 +163,7 @@ pub unsafe fn GetBufferedPaintTargetRect(hbufferedpaint: HPAINTBUFFER) -> window
 #[inline]
 pub unsafe fn GetCurrentThemeName(pszthemefilename: &mut [u16], pszcolorbuff: Option<&mut [u16]>, pszsizebuff: Option<&mut [u16]>) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetCurrentThemeName(pszthemefilename : windows_core::PWSTR, cchmaxnamechars : i32, pszcolorbuff : windows_core::PWSTR, cchmaxcolorchars : i32, pszsizebuff : windows_core::PWSTR, cchmaxsizechars : i32) -> windows_core::HRESULT);
-    unsafe { GetCurrentThemeName(core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len().try_into().unwrap(), core::mem::transmute(pszcolorbuff.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszcolorbuff.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszsizebuff.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszsizebuff.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetCurrentThemeName(core::mem::transmute(pszthemefilename.as_mut_ptr()), pszthemefilename.len().try_into().unwrap(), core::mem::transmute(pszcolorbuff.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszcolorbuff.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pszsizebuff.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszsizebuff.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 #[inline]
@@ -243,7 +243,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeDocumentationProperty(pszthemename : windows_core::PCWSTR, pszpropertyname : windows_core::PCWSTR, pszvaluebuff : windows_core::PWSTR, cchmaxvalchars : i32) -> windows_core::HRESULT);
-    unsafe { GetThemeDocumentationProperty(pszthemename.param().abi(), pszpropertyname.param().abi(), core::mem::transmute(pszvaluebuff.as_ptr()), pszvaluebuff.len().try_into().unwrap()) }
+    unsafe { GetThemeDocumentationProperty(pszthemename.param().abi(), pszpropertyname.param().abi(), core::mem::transmute(pszvaluebuff.as_mut_ptr()), pszvaluebuff.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 #[inline]
@@ -258,7 +258,7 @@ pub unsafe fn GetThemeEnumValue(htheme: super::shobjidl_core::HTHEME, ipartid: i
 #[inline]
 pub unsafe fn GetThemeFilename(htheme: super::shobjidl_core::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, pszthemefilename: &mut [u16]) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeFilename(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszthemefilename : windows_core::PWSTR, cchmaxbuffchars : i32) -> windows_core::HRESULT);
-    unsafe { GetThemeFilename(htheme, ipartid, istateid, ipropid, core::mem::transmute(pszthemefilename.as_ptr()), pszthemefilename.len().try_into().unwrap()) }
+    unsafe { GetThemeFilename(htheme, ipartid, istateid, ipropid, core::mem::transmute(pszthemefilename.as_mut_ptr()), pszthemefilename.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "wingdi", feature = "winnt"))]
 #[inline]
@@ -345,7 +345,7 @@ pub unsafe fn GetThemeStream(htheme: super::shobjidl_core::HTHEME, ipartid: i32,
 #[inline]
 pub unsafe fn GetThemeString(htheme: super::shobjidl_core::HTHEME, ipartid: i32, istateid: i32, ipropid: i32, pszbuff: &mut [u16]) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeString(htheme : super::shobjidl_core::HTHEME, ipartid : i32, istateid : i32, ipropid : i32, pszbuff : windows_core::PWSTR, cchmaxbuffchars : i32) -> windows_core::HRESULT);
-    unsafe { GetThemeString(htheme, ipartid, istateid, ipropid, core::mem::transmute(pszbuff.as_ptr()), pszbuff.len().try_into().unwrap()) }
+    unsafe { GetThemeString(htheme, ipartid, istateid, ipropid, core::mem::transmute(pszbuff.as_mut_ptr()), pszbuff.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "winnt"))]
 #[inline]
@@ -390,7 +390,7 @@ pub unsafe fn GetThemeSysSize(htheme: Option<super::shobjidl_core::HTHEME>, isiz
 #[inline]
 pub unsafe fn GetThemeSysString(htheme: super::shobjidl_core::HTHEME, istringid: i32, pszstringbuff: &mut [u16]) -> windows_core::HRESULT {
     windows_core::link!("uxtheme.dll" "system" fn GetThemeSysString(htheme : super::shobjidl_core::HTHEME, istringid : i32, pszstringbuff : windows_core::PWSTR, cchmaxstringchars : i32) -> windows_core::HRESULT);
-    unsafe { GetThemeSysString(htheme, istringid, core::mem::transmute(pszstringbuff.as_ptr()), pszstringbuff.len().try_into().unwrap()) }
+    unsafe { GetThemeSysString(htheme, istringid, core::mem::transmute(pszstringbuff.as_mut_ptr()), pszstringbuff.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "windef", feature = "winnt"))]
 #[inline]
@@ -434,7 +434,7 @@ pub unsafe fn HitTestThemeBackground(htheme: super::shobjidl_core::HTHEME, hdc: 
     windows_core::link!("uxtheme.dll" "system" fn HitTestThemeBackground(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, dwoptions : u32, prect : *const super::windef::RECT, hrgn : super::minwindef::HRGN, pttest : super::windef::POINT, pwhittestcode : *mut u16) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        HitTestThemeBackground(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, dwoptions, prect, hrgn.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pttest), &mut result__).map(|| result__)
+        HitTestThemeBackground(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, dwoptions, prect, hrgn.unwrap_or(core::mem::zeroed()) as _, pttest, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -537,7 +537,7 @@ pub const BPPF_ERASE: u32 = 1;
 pub const BPPF_NOCLIP: u32 = 2;
 pub const BPPF_NONCLIENT: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BP_ANIMATIONPARAMS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -548,7 +548,7 @@ pub type BP_ANIMATIONSTYLE = i32;
 pub type BP_BUFFERFORMAT = i32;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BP_PAINTPARAMS {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -563,7 +563,7 @@ impl Default for BP_PAINTPARAMS {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DTBGOPTS {
     pub dwSize: u32,
     pub dwFlags: u32,
@@ -644,7 +644,7 @@ pub const HTTB_RESIZINGBORDER_TOP: u32 = 32;
 pub const HTTB_SIZINGTEMPLATE: u32 = 256;
 pub const HTTB_SYSTEMSIZINGMARGINS: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct INTLIST {
     pub iValueCount: i32,
     pub iValues: [i32; 402],
@@ -655,7 +655,7 @@ impl Default for INTLIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MARGINS {
     pub cxLeftWidth: i32,
     pub cxRightWidth: i32,
@@ -730,13 +730,13 @@ pub struct TA_CUBIC_BEZIER {
 pub type TA_PROPERTY = i32;
 pub type TA_PROPERTY_FLAG = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TA_TIMINGFUNCTION {
     pub eTimingFunctionType: TA_TIMINGFUNCTION_TYPE,
 }
 pub type TA_TIMINGFUNCTION_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TA_TRANSFORM {
     pub eTransformType: TA_TRANSFORM_TYPE,
     pub dwTimingFunctionId: u32,
@@ -786,7 +786,7 @@ pub const TTFT_UNDEFINED: TA_TIMINGFUNCTION_TYPE = 0;
 pub type WINDOWTHEMEATTRIBUTETYPE = i32;
 pub const WTA_NONCLIENT: WINDOWTHEMEATTRIBUTETYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WTA_OPTIONS {
     pub dwFlags: u32,
     pub dwMask: u32,

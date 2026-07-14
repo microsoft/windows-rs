@@ -10,7 +10,7 @@ impl IWPCGamesSettings {
     pub unsafe fn IsBlocked(&self, guidappid: windows_core::GUID) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsBlocked)(windows_core::Interface::as_raw(self), core::mem::transmute(guidappid), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsBlocked)(windows_core::Interface::as_raw(self), guidappid, &mut result__).map(|| result__)
         }
     }
 }

@@ -13,7 +13,7 @@ pub const AMDDS_YUVFLP: u32 = 128;
 pub const AMDDS_YUVOFF: u32 = 32;
 pub const AMDDS_YUVOVR: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AM_FRAMESTEP_STEP {
     pub dwFramesToStep: u32,
 }
@@ -24,7 +24,7 @@ pub const AM_PROPERTY_FRAMESTEP_CANSTEPMULTIPLE: AM_PROPERTY_FRAMESTEP = 4;
 pub const AM_PROPERTY_FRAMESTEP_STEP: AM_PROPERTY_FRAMESTEP = 1;
 #[repr(C)]
 #[cfg(all(feature = "mediaobj", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ANALOGVIDEOINFO {
     pub rcSource: super::windef::RECT,
     pub rcTarget: super::windef::RECT,
@@ -1006,7 +1006,7 @@ impl windows_core::RuntimeName for IQualProp {}
 pub const MAX_SIZE_MPEG1_SEQUENCE_INFO: u32 = 140;
 #[repr(C)]
 #[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MPEG1VIDEOINFO {
     pub hdr: VIDEOINFOHEADER,
     pub dwStartTimeCode: u32,
@@ -1022,7 +1022,7 @@ impl Default for MPEG1VIDEOINFO {
 pub const SIZE_PREHEADER: u32 = 48;
 #[repr(C)]
 #[cfg(feature = "wingdi")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRUECOLORINFO {
     pub dwBitMasks: [u32; 3],
     pub bmiColors: [super::wingdi::RGBQUAD; 256],
@@ -1067,7 +1067,7 @@ impl Default for VIDEOINFO_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "mediaobj", feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIDEOINFOHEADER {
     pub rcSource: super::windef::RECT,
     pub rcTarget: super::windef::RECT,

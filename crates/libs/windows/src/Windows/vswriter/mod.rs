@@ -370,7 +370,7 @@ impl IVssComponent {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddDifferencedFilesByLastModifyTime)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive.into(), core::mem::transmute(ftlastmodifytime)) }
+        unsafe { (windows_core::Interface::vtable(self).AddDifferencedFilesByLastModifyTime)(windows_core::Interface::as_raw(self), wszpath.param().abi(), wszfilespec.param().abi(), brecursive.into(), ftlastmodifytime) }
     }
     pub unsafe fn AddDifferencedFilesByLastModifyLSN<P0, P1>(&self, wszpath: P0, wszfilespec: P1, brecursive: bool, bstrlsnstring: &windows_core::BSTR) -> windows_core::HRESULT
     where
@@ -1161,7 +1161,7 @@ impl IVssCreateExpressWriterMetadata {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddComponentDependency)(windows_core::Interface::as_raw(self), wszforlogicalpath.param().abi(), wszforcomponentname.param().abi(), core::mem::transmute(onwriterid), wszonlogicalpath.param().abi(), wszoncomponentname.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).AddComponentDependency)(windows_core::Interface::as_raw(self), wszforlogicalpath.param().abi(), wszforcomponentname.param().abi(), onwriterid, wszonlogicalpath.param().abi(), wszoncomponentname.param().abi()) }
     }
     pub unsafe fn SetBackupSchema(&self, dwschemamask: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBackupSchema)(windows_core::Interface::as_raw(self), dwschemamask) }
@@ -1342,7 +1342,7 @@ impl IVssCreateWriterMetadata {
         P3: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddComponentDependency)(windows_core::Interface::as_raw(self), wszforlogicalpath.param().abi(), wszforcomponentname.param().abi(), core::mem::transmute(onwriterid), wszonlogicalpath.param().abi(), wszoncomponentname.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).AddComponentDependency)(windows_core::Interface::as_raw(self), wszforlogicalpath.param().abi(), wszforcomponentname.param().abi(), onwriterid, wszonlogicalpath.param().abi(), wszoncomponentname.param().abi()) }
     }
     pub unsafe fn SetBackupSchema(&self, dwschemamask: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBackupSchema)(windows_core::Interface::as_raw(self), dwschemamask) }
@@ -1591,7 +1591,7 @@ impl IVssExpressWriter {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), writername.param().abi(), usagetype, versionmajor, versionminor, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateMetadata)(windows_core::Interface::as_raw(self), writerid, writername.param().abi(), usagetype, versionmajor, versionminor, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn LoadMetadata<P0>(&self, metadata: P0, reserved: u32) -> windows_core::HRESULT
@@ -1605,7 +1605,7 @@ impl IVssExpressWriter {
     }
     #[cfg(feature = "vss")]
     pub unsafe fn Unregister(&self, writerid: super::vss::VSS_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Unregister)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid)) }
+        unsafe { (windows_core::Interface::vtable(self).Unregister)(windows_core::Interface::as_raw(self), writerid) }
     }
 }
 #[repr(C)]
@@ -1993,7 +1993,7 @@ impl IVssWriterImpl {
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(writerid), wszwritername.param().abi(), wszwriterinstancename.param().abi(), dwmajorversion, dwminorversion, ut, st, nlevel, dwtimeout, aws, biothrottlingonly) }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), writerid, wszwritername.param().abi(), wszwriterinstancename.param().abi(), dwmajorversion, dwminorversion, ut, st, nlevel, dwtimeout, aws, biothrottlingonly) }
     }
     pub unsafe fn Subscribe(&self, dwsubscribetimeout: u32, dweventflags: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Subscribe)(windows_core::Interface::as_raw(self), dwsubscribetimeout, dweventflags) }
@@ -2064,7 +2064,7 @@ impl IVssWriterImpl {
     }
     #[cfg(feature = "vss")]
     pub unsafe fn InstallAlternateWriter(&self, idwriter: super::vss::VSS_ID, clsid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InstallAlternateWriter)(windows_core::Interface::as_raw(self), core::mem::transmute(idwriter), core::mem::transmute(clsid)) }
+        unsafe { (windows_core::Interface::vtable(self).InstallAlternateWriter)(windows_core::Interface::as_raw(self), idwriter, clsid) }
     }
     #[cfg(feature = "vsbackup")]
     pub unsafe fn GetIdentityInformation(&self) -> Option<super::vsbackup::IVssExamineWriterMetadata> {

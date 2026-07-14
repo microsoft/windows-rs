@@ -1,6 +1,6 @@
 #[repr(C)]
 #[cfg(feature = "ntddndis")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARP_SEND_REPLY {
     pub DestAddress: super::ntddndis::IPAddr,
     pub SrcAddress: super::ntddndis::IPAddr,
@@ -15,7 +15,7 @@ pub struct ICMPV6_ECHO_REPLY_LH {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ntddndis"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICMP_ECHO_REPLY {
     pub Address: super::ntddndis::IPAddr,
     pub Status: u32,
@@ -34,7 +34,7 @@ impl Default for ICMP_ECHO_REPLY {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "ntddndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ICMP_ECHO_REPLY32 {
     pub Address: super::ntddndis::IPAddr,
     pub Status: u32,
@@ -65,7 +65,7 @@ impl Default for IPV6_ADDRESS_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_INDEX_MAP {
     pub Index: u32,
     pub Name: [u16; 128],
@@ -76,7 +76,7 @@ impl Default for IP_ADAPTER_INDEX_MAP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_ADAPTER_ORDER_MAP {
     pub NumAdapters: u32,
     pub AdapterOrder: [u32; 1],
@@ -115,7 +115,7 @@ pub const IP_HOP_LIMIT_EXCEEDED: u32 = 11013;
 pub const IP_HW_ERROR: u32 = 11008;
 pub const IP_ICMP_ERROR: u32 = 11044;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_INTERFACE_INFO {
     pub NumAdapters: i32,
     pub Adapter: [IP_ADAPTER_INDEX_MAP; 1],
@@ -128,7 +128,7 @@ impl Default for IP_INTERFACE_INFO {
 pub const IP_INTERFACE_METRIC_CHANGE: u32 = 11030;
 pub const IP_INTERFACE_WOL_CAPABILITY_CHANGE: u32 = 11033;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_MCAST_COUNTER_INFO {
     pub InMcastOctets: u64,
     pub OutMcastOctets: u64,
@@ -142,7 +142,7 @@ pub const IP_NEGOTIATING_IPSEC: u32 = 11032;
 pub const IP_NO_RESOURCES: u32 = 11006;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IP_OPTION_INFORMATION {
     pub Ttl: u8,
     pub Tos: u8,
@@ -152,7 +152,7 @@ pub struct IP_OPTION_INFORMATION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_OPTION_INFORMATION32 {
     pub Ttl: u8,
     pub Tos: u8,
@@ -196,7 +196,7 @@ pub const IP_TTL_EXPIRED_TRANSIT: u32 = 11013;
 pub const IP_UNBIND_ADAPTER: u32 = 11027;
 #[repr(C)]
 #[cfg(feature = "ntddndis")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IP_UNIDIRECTIONAL_ADAPTER_ADDRESS {
     pub NumAdapters: u32,
     pub Address: [super::ntddndis::IPAddr; 1],
@@ -236,7 +236,7 @@ pub type PIP_OPTION_INFORMATION32 = *mut IP_OPTION_INFORMATION32;
 pub type PIP_UNIDIRECTIONAL_ADAPTER_ADDRESS = *mut IP_UNIDIRECTIONAL_ADAPTER_ADDRESS;
 pub type PTCP_RESERVE_PORT_RANGE = *mut TCP_RESERVE_PORT_RANGE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TCP_RESERVE_PORT_RANGE {
     pub UpperRange: u16,
     pub LowerRange: u16,

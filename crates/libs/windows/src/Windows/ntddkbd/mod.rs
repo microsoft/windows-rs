@@ -2,7 +2,7 @@ pub const DD_KEYBOARD_DEVICE_NAME: windows_core::PCSTR = windows_core::s!("\\Dev
 pub const DD_KEYBOARD_DEVICE_NAME_U: windows_core::PCWSTR = windows_core::w!("\\Device\\KeyboardClass");
 pub const GUID_DEVINTERFACE_KEYBOARD: windows_core::GUID = windows_core::GUID::from_u128(0x884b96c3_56ef_11d1_bc8c_00a0c91405dd);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct INDICATOR_LIST {
     pub MakeCode: u16,
     pub IndicatorFlags: u16,
@@ -18,7 +18,7 @@ pub const IOCTL_KEYBOARD_SET_IME_STATUS: u32 = 724996;
 pub const IOCTL_KEYBOARD_SET_INDICATORS: u32 = 720904;
 pub const IOCTL_KEYBOARD_SET_TYPEMATIC: u32 = 720900;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBOARD_ATTRIBUTES {
     pub KeyboardIdentifier: KEYBOARD_ID,
     pub KeyboardMode: u16,
@@ -32,7 +32,7 @@ pub struct KEYBOARD_ATTRIBUTES {
 pub const KEYBOARD_CAPS_LOCK_ON: u32 = 4;
 pub const KEYBOARD_ERROR_VALUE_BASE: u32 = 10000;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
     pub Version: u8,
     pub FormFactor: u8,
@@ -44,26 +44,26 @@ pub struct KEYBOARD_EXTENDED_ATTRIBUTES {
 }
 pub const KEYBOARD_EXTENDED_ATTRIBUTES_STRUCT_VERSION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBOARD_ID {
     pub Type: u8,
     pub Subtype: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBOARD_IME_STATUS {
     pub UnitId: u16,
     pub ImeOpen: u32,
     pub ImeConvMode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBOARD_INDICATOR_PARAMETERS {
     pub UnitId: u16,
     pub LedFlags: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct KEYBOARD_INDICATOR_TRANSLATION {
     pub NumberOfIndicatorKeys: u16,
     pub IndicatorList: [INDICATOR_LIST; 1],
@@ -74,7 +74,7 @@ impl Default for KEYBOARD_INDICATOR_TRANSLATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBOARD_INPUT_DATA {
     pub UnitId: u16,
     pub MakeCode: u16,
@@ -88,14 +88,14 @@ pub const KEYBOARD_NUM_LOCK_ON: u32 = 2;
 pub const KEYBOARD_SCROLL_LOCK_ON: u32 = 1;
 pub const KEYBOARD_SHADOW: u32 = 16384;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBOARD_TYPEMATIC_PARAMETERS {
     pub UnitId: u16,
     pub Rate: u16,
     pub Delay: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEYBOARD_UNIT_ID_PARAMETER {
     pub UnitId: u16,
 }

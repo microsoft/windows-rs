@@ -70,7 +70,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("version.dll" "system" fn VerFindFileA(uflags : u32, szfilename : windows_core::PCSTR, szwindir : windows_core::PCSTR, szappdir : windows_core::PCSTR, szcurdir : windows_core::PSTR, pucurdirlen : *mut u32, szdestdir : windows_core::PSTR, pudestdirlen : *mut u32) -> u32);
-    unsafe { VerFindFileA(uflags, szfilename.param().abi(), szwindir.param().abi(), szappdir.param().abi(), core::mem::transmute(szcurdir), pucurdirlen as _, core::mem::transmute(szdestdir), pudestdirlen as _) }
+    unsafe { VerFindFileA(uflags, szfilename.param().abi(), szwindir.param().abi(), szappdir.param().abi(), szcurdir, pucurdirlen as _, szdestdir, pudestdirlen as _) }
 }
 #[inline]
 pub unsafe fn VerFindFileW<P1, P2, P3>(uflags: u32, szfilename: P1, szwindir: P2, szappdir: P3, szcurdir: windows_core::PWSTR, pucurdirlen: *mut u32, szdestdir: windows_core::PWSTR, pudestdirlen: *mut u32) -> u32
@@ -80,7 +80,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("version.dll" "system" fn VerFindFileW(uflags : u32, szfilename : windows_core::PCWSTR, szwindir : windows_core::PCWSTR, szappdir : windows_core::PCWSTR, szcurdir : windows_core::PWSTR, pucurdirlen : *mut u32, szdestdir : windows_core::PWSTR, pudestdirlen : *mut u32) -> u32);
-    unsafe { VerFindFileW(uflags, szfilename.param().abi(), szwindir.param().abi(), szappdir.param().abi(), core::mem::transmute(szcurdir), pucurdirlen as _, core::mem::transmute(szdestdir), pudestdirlen as _) }
+    unsafe { VerFindFileW(uflags, szfilename.param().abi(), szwindir.param().abi(), szappdir.param().abi(), szcurdir, pucurdirlen as _, szdestdir, pudestdirlen as _) }
 }
 #[inline]
 pub unsafe fn VerInstallFileA<P1, P2, P3, P4, P5>(uflags: u32, szsrcfilename: P1, szdestfilename: P2, szsrcdir: P3, szdestdir: P4, szcurdir: P5, sztmpfile: windows_core::PSTR, putmpfilelen: *mut u32) -> u32
@@ -92,7 +92,7 @@ where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("version.dll" "system" fn VerInstallFileA(uflags : u32, szsrcfilename : windows_core::PCSTR, szdestfilename : windows_core::PCSTR, szsrcdir : windows_core::PCSTR, szdestdir : windows_core::PCSTR, szcurdir : windows_core::PCSTR, sztmpfile : windows_core::PSTR, putmpfilelen : *mut u32) -> u32);
-    unsafe { VerInstallFileA(uflags, szsrcfilename.param().abi(), szdestfilename.param().abi(), szsrcdir.param().abi(), szdestdir.param().abi(), szcurdir.param().abi(), core::mem::transmute(sztmpfile), putmpfilelen as _) }
+    unsafe { VerInstallFileA(uflags, szsrcfilename.param().abi(), szdestfilename.param().abi(), szsrcdir.param().abi(), szdestdir.param().abi(), szcurdir.param().abi(), sztmpfile, putmpfilelen as _) }
 }
 #[inline]
 pub unsafe fn VerInstallFileW<P1, P2, P3, P4, P5>(uflags: u32, szsrcfilename: P1, szdestfilename: P2, szsrcdir: P3, szdestdir: P4, szcurdir: P5, sztmpfile: windows_core::PWSTR, putmpfilelen: *mut u32) -> u32
@@ -104,17 +104,17 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("version.dll" "system" fn VerInstallFileW(uflags : u32, szsrcfilename : windows_core::PCWSTR, szdestfilename : windows_core::PCWSTR, szsrcdir : windows_core::PCWSTR, szdestdir : windows_core::PCWSTR, szcurdir : windows_core::PCWSTR, sztmpfile : windows_core::PWSTR, putmpfilelen : *mut u32) -> u32);
-    unsafe { VerInstallFileW(uflags, szsrcfilename.param().abi(), szdestfilename.param().abi(), szsrcdir.param().abi(), szdestdir.param().abi(), szcurdir.param().abi(), core::mem::transmute(sztmpfile), putmpfilelen as _) }
+    unsafe { VerInstallFileW(uflags, szsrcfilename.param().abi(), szdestfilename.param().abi(), szsrcdir.param().abi(), szdestdir.param().abi(), szcurdir.param().abi(), sztmpfile, putmpfilelen as _) }
 }
 #[inline]
 pub unsafe fn VerLanguageNameA(wlang: u32, szlang: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn VerLanguageNameA(wlang : u32, szlang : windows_core::PSTR, cchlang : u32) -> u32);
-    unsafe { VerLanguageNameA(wlang, core::mem::transmute(szlang.as_ptr()), szlang.len().try_into().unwrap()) }
+    unsafe { VerLanguageNameA(wlang, core::mem::transmute(szlang.as_mut_ptr()), szlang.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn VerLanguageNameW(wlang: u32, szlang: &mut [u16]) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn VerLanguageNameW(wlang : u32, szlang : windows_core::PWSTR, cchlang : u32) -> u32);
-    unsafe { VerLanguageNameW(wlang, core::mem::transmute(szlang.as_ptr()), szlang.len().try_into().unwrap()) }
+    unsafe { VerLanguageNameW(wlang, core::mem::transmute(szlang.as_mut_ptr()), szlang.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn VerQueryValueA<P1>(pblock: *const core::ffi::c_void, lpsubblock: P1, lplpbuffer: *mut *mut core::ffi::c_void, pulen: *mut u32) -> windows_core::BOOL

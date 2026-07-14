@@ -315,13 +315,13 @@ pub const JPEG_RGB: u32 = 3;
 pub const JPEG_Y: u32 = 1;
 pub const JPEG_YCbCr: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEEE_FLOAT(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_PCM(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_WAVEFORMATEX(pub u8);
 pub type LPADPCMCOEFSET = *mut ADPCMCOEFSET;
 #[cfg(feature = "mmeapi")]
@@ -2660,10 +2660,10 @@ pub struct YAMAHA_ADPCMWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct s_RIFFWAVE_inst(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct tag_s_RIFFWAVE_inst {
     pub bUnshiftedNote: u8,
     pub chFineTune: i8,

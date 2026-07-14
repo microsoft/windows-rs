@@ -87,7 +87,7 @@ pub unsafe fn MagSetWindowFilterList(hwnd: super::windef::HWND, dwfiltermode: u3
 #[inline]
 pub unsafe fn MagSetWindowSource(hwnd: super::windef::HWND, rect: super::windef::RECT) -> windows_core::BOOL {
     windows_core::link!("magnification.dll" "system" fn MagSetWindowSource(hwnd : super::windef::HWND, rect : super::windef::RECT) -> windows_core::BOOL);
-    unsafe { MagSetWindowSource(hwnd, core::mem::transmute(rect)) }
+    unsafe { MagSetWindowSource(hwnd, rect) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -117,7 +117,7 @@ impl Default for MAGCOLOREFFECT {
 }
 #[repr(C)]
 #[cfg(feature = "wincodec")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MAGIMAGEHEADER {
     pub width: u32,
     pub height: u32,

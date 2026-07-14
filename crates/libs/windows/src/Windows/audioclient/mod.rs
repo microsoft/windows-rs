@@ -4,7 +4,7 @@ pub type AMBISONICS_NORMALIZATION = i32;
 pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = 1;
 pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AMBISONICS_PARAMS {
     pub u32Size: u32,
     pub u32Version: u32,
@@ -79,7 +79,7 @@ pub type AUDIO_DUCKING_OPTIONS = u32;
 pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = 0;
 pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIO_EFFECT {
     pub id: windows_core::GUID,
     pub canSetState: windows_core::BOOL,
@@ -89,13 +89,13 @@ pub type AUDIO_EFFECT_STATE = i32;
 pub const AUDIO_EFFECT_STATE_OFF: AUDIO_EFFECT_STATE = 0;
 pub const AUDIO_EFFECT_STATE_ON: AUDIO_EFFECT_STATE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioClient3ActivationParams {
     pub tracingContextId: windows_core::GUID,
 }
 #[repr(C)]
 #[cfg(feature = "audiosessiontypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AudioClientProperties {
     pub cbSize: u32,
     pub bIsOffload: windows_core::BOOL,
@@ -907,7 +907,7 @@ impl IAudioEffectsManager {
         unsafe { (windows_core::Interface::vtable(self).GetAudioEffects)(windows_core::Interface::as_raw(self), effects as _, numeffects as _) }
     }
     pub unsafe fn SetAudioEffectState(&self, effectid: windows_core::GUID, state: AUDIO_EFFECT_STATE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAudioEffectState)(windows_core::Interface::as_raw(self), core::mem::transmute(effectid), state) }
+        unsafe { (windows_core::Interface::vtable(self).SetAudioEffectState)(windows_core::Interface::as_raw(self), effectid, state) }
     }
 }
 #[repr(C)]
@@ -1038,10 +1038,10 @@ impl IAudioStreamVolume {
         }
     }
     pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_ptr()) }
     }
     pub unsafe fn GetAllVolumes(&self, pfvolumes: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_mut_ptr()) }
     }
 }
 #[repr(C)]
@@ -1176,10 +1176,10 @@ impl IChannelAudioVolume {
         }
     }
     pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32], eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr()), eventcontext) }
+        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_ptr(), eventcontext) }
     }
     pub unsafe fn GetAllVolumes(&self, pfvolumes: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_mut_ptr()) }
     }
 }
 #[repr(C)]

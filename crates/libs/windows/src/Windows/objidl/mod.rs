@@ -15,7 +15,7 @@ impl AsyncIAdviseSink {
     #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn Begin_OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
         unsafe {
-            (windows_core::Interface::vtable(self).Begin_OnDataChange)(windows_core::Interface::as_raw(self), pformatetc, core::mem::transmute(pstgmed));
+            (windows_core::Interface::vtable(self).Begin_OnDataChange)(windows_core::Interface::as_raw(self), pformatetc, pstgmed);
         }
     }
     pub unsafe fn Finish_OnDataChange(&self) {
@@ -247,7 +247,7 @@ pub type BIND_FLAGS = i32;
 pub const BIND_JUSTTESTEXISTENCE: BIND_FLAGS = 2;
 pub const BIND_MAYBOTHERUSER: BIND_FLAGS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BIND_OPTS {
     pub cbStruct: u32,
     pub grfFlags: u32,
@@ -256,7 +256,7 @@ pub struct BIND_OPTS {
 }
 #[repr(C)]
 #[cfg(all(feature = "objidlbase", feature = "winnt", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BIND_OPTS2 {
     pub Base: BIND_OPTS,
     pub dwTrackFlags: u32,
@@ -272,7 +272,7 @@ impl Default for BIND_OPTS2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BIND_OPTS3 {
     pub Base: BIND_OPTS2,
     pub hwnd: super::windef::HWND,
@@ -287,7 +287,7 @@ pub type DATADIR = i32;
 pub const DATADIR_GET: DATADIR = 1;
 pub const DATADIR_SET: DATADIR = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DVTARGETDEVICE {
     pub tdSize: u32,
     pub tdDriverNameOffset: u16,
@@ -322,7 +322,7 @@ impl Default for FLAG_STGMEDIUM {
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FORMATETC {
     pub cfFormat: super::wtypes::CLIPFORMAT,
     pub ptd: *mut DVTARGETDEVICE,
@@ -370,7 +370,7 @@ impl IAdviseSink {
     #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn OnDataChange(&self, pformatetc: *const FORMATETC, pstgmed: *const STGMEDIUM) {
         unsafe {
-            (windows_core::Interface::vtable(self).OnDataChange)(windows_core::Interface::as_raw(self), pformatetc, core::mem::transmute(pstgmed));
+            (windows_core::Interface::vtable(self).OnDataChange)(windows_core::Interface::as_raw(self), pformatetc, pstgmed);
         }
     }
     pub unsafe fn OnViewChange(&self, dwaspect: u32, lindex: i32) {
@@ -934,7 +934,7 @@ impl IDataObject {
     }
     #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetDataHere(&self, pformatetc: *const FORMATETC, pmedium: *mut STGMEDIUM) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDataHere)(windows_core::Interface::as_raw(self), pformatetc, core::mem::transmute(pmedium)) }
+        unsafe { (windows_core::Interface::vtable(self).GetDataHere)(windows_core::Interface::as_raw(self), pformatetc, pmedium) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn QueryGetData(&self, pformatetc: *const FORMATETC) -> windows_core::HRESULT {
@@ -946,7 +946,7 @@ impl IDataObject {
     }
     #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn SetData(&self, pformatetc: *const FORMATETC, pmedium: *const STGMEDIUM, frelease: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), pformatetc, core::mem::transmute(pmedium), frelease.into()) }
+        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), pformatetc, pmedium, frelease.into()) }
     }
     pub unsafe fn EnumFormatEtc(&self, dwdirection: u32) -> windows_core::Result<IEnumFORMATETC> {
         unsafe {
@@ -1219,7 +1219,7 @@ windows_core::imp::interface_hierarchy!(IEnumFORMATETC, windows_core::IUnknown);
 impl IEnumFORMATETC {
     #[cfg(feature = "wtypes")]
     pub unsafe fn Next(&self, rgelt: &mut [FORMATETC], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1304,7 +1304,7 @@ windows_core::imp::define_interface!(IEnumMoniker, IEnumMoniker_Vtbl, 0x00000102
 windows_core::imp::interface_hierarchy!(IEnumMoniker, windows_core::IUnknown);
 impl IEnumMoniker {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IMoniker>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1384,7 +1384,7 @@ windows_core::imp::interface_hierarchy!(IEnumSTATDATA, windows_core::IUnknown);
 impl IEnumSTATDATA {
     #[cfg(feature = "wtypes")]
     pub unsafe fn Next(&self, rgelt: &mut [STATDATA], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1470,7 +1470,7 @@ windows_core::imp::interface_hierarchy!(IEnumSTATSTG, windows_core::IUnknown);
 impl IEnumSTATSTG {
     #[cfg(all(feature = "minwindef", feature = "objidlbase"))]
     pub unsafe fn Next(&self, rgelt: &mut [super::objidlbase::STATSTG], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1745,7 +1745,7 @@ windows_core::imp::interface_hierarchy!(ILayoutStorage, windows_core::IUnknown);
 impl ILayoutStorage {
     #[cfg(feature = "wtypesbase")]
     pub unsafe fn LayoutScript(&self, pstoragelayout: &[StorageLayout], glfinterleavedflag: Option<u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LayoutScript)(windows_core::Interface::as_raw(self), core::mem::transmute(pstoragelayout.as_ptr()), pstoragelayout.len().try_into().unwrap(), glfinterleavedflag.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).LayoutScript)(windows_core::Interface::as_raw(self), pstoragelayout.as_ptr(), pstoragelayout.len().try_into().unwrap(), glfinterleavedflag.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn BeginMonitor(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BeginMonitor)(windows_core::Interface::as_raw(self)) }
@@ -2536,7 +2536,7 @@ impl IMoniker_Vtbl {
 #[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 impl windows_core::RuntimeName for IMoniker {}
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct INTERFACEINFO {
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub iid: windows_core::GUID,
@@ -3405,7 +3405,7 @@ impl IStorage {
     where
         P3: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), rgiidexclude.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgiidexclude.map_or(core::ptr::null(), |slice| slice.as_ptr())), snbexclude.unwrap_or(core::mem::zeroed()) as _, pstgdest.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), rgiidexclude.map_or(0, |slice| slice.len().try_into().unwrap()), rgiidexclude.map_or(core::ptr::null(), |slice| slice.as_ptr()), snbexclude.unwrap_or(core::mem::zeroed()) as _, pstgdest.param().abi()) }
     }
     #[cfg(feature = "wtypesbase")]
     pub unsafe fn MoveElementTo<P1>(&self, pwcsname: *const super::wtypesbase::OLECHAR, pstgdest: P1, pwcsnewname: *const super::wtypesbase::OLECHAR, grfflags: u32) -> windows_core::HRESULT
@@ -3924,7 +3924,7 @@ pub const PENDINGTYPE_NESTED: PENDINGTYPE = 2;
 pub const PENDINGTYPE_TOPLEVEL: PENDINGTYPE = 1;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemSNB {
     pub ulCntStr: u32,
     pub ulCntChar: u32,
@@ -3938,7 +3938,7 @@ impl Default for RemSNB {
 }
 #[repr(C)]
 #[cfg(feature = "rpc")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RemSTGMEDIUM {
     pub tymed: u32,
     pub dwHandleType: u32,
@@ -3960,7 +3960,7 @@ pub const SERVERCALL_RETRYLATER: SERVERCALL = 2;
 pub type SNB = *mut windows_core::PWSTR;
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct STATDATA {
     pub formatetc: FORMATETC,
     pub advf: u32,
@@ -3973,7 +3973,7 @@ pub const ServerApplication: ApplicationType = 0;
 pub type ShutdownType = i32;
 #[repr(C)]
 #[cfg(feature = "wtypesbase")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct StorageLayout {
     pub LayoutType: u32,
     pub pwcsElementName: *mut super::wtypesbase::OLECHAR,
@@ -4038,14 +4038,14 @@ impl Default for uSTGMEDIUM_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct userFLAG_STGMEDIUM {
     pub ContextFlags: i32,
     pub fPassOwnership: i32,
     pub Stgmed: userSTGMEDIUM,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct userSTGMEDIUM {
     pub pUnkForRelease: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
 }

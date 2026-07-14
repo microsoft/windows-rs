@@ -9389,7 +9389,7 @@ impl windows_core::RuntimeName for ReceiptPrinterCapabilities {
 unsafe impl Send for ReceiptPrinterCapabilities {}
 unsafe impl Sync for ReceiptPrinterCapabilities {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SizeUInt32 {
     pub Width: u32,
     pub Height: u32,

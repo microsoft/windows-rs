@@ -1,6 +1,6 @@
 pub const COLORMGMTDLGORD: u32 = 1551;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CRGB {
     pub bRed: u8,
     pub bGreen: u8,

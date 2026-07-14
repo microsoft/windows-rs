@@ -110,7 +110,7 @@ pub unsafe fn FwpmConnectionGetSecurityInfo0(enginehandle: super::winnt::HANDLE,
 #[inline]
 pub unsafe fn FwpmConnectionPolicyAdd0(enginehandle: super::winnt::HANDLE, connectionpolicy: *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT3, ipversion: super::fwptypes::FWP_IP_VERSION, weight: u64, filterconditions: &[super::fwpmtypes::FWPM_FILTER_CONDITION0], sd: Option<super::winnt::PSECURITY_DESCRIPTOR>) -> u32 {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmConnectionPolicyAdd0(enginehandle : super::winnt::HANDLE, connectionpolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT3, ipversion : super::fwptypes::FWP_IP_VERSION, weight : u64, numfilterconditions : u32, filterconditions : *const super::fwpmtypes::FWPM_FILTER_CONDITION0, sd : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-    unsafe { FwpmConnectionPolicyAdd0(enginehandle, connectionpolicy, ipversion, weight, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), sd.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FwpmConnectionPolicyAdd0(enginehandle, connectionpolicy, ipversion, weight, filterconditions.len().try_into().unwrap(), filterconditions.as_ptr(), sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -280,25 +280,25 @@ where
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd0(enginehandle: super::winnt::HANDLE, flags: u32, mainmodepolicy: Option<*const super::fwpmtypes::FWPM_PROVIDER_CONTEXT0>, tunnelpolicy: *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT0, filterconditions: &[super::fwpmtypes::FWPM_FILTER_CONDITION0], sd: Option<super::winnt::PSECURITY_DESCRIPTOR>) -> u32 {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd0(enginehandle : super::winnt::HANDLE, flags : u32, mainmodepolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT0, tunnelpolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT0, numfilterconditions : u32, filterconditions : *const super::fwpmtypes::FWPM_FILTER_CONDITION0, sd : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-    unsafe { FwpmIPsecTunnelAdd0(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), sd.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FwpmIPsecTunnelAdd0(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), filterconditions.as_ptr(), sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd1(enginehandle: super::winnt::HANDLE, flags: u32, mainmodepolicy: Option<*const super::fwpmtypes::FWPM_PROVIDER_CONTEXT1>, tunnelpolicy: *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT1, filterconditions: &[super::fwpmtypes::FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: Option<super::winnt::PSECURITY_DESCRIPTOR>) -> u32 {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd1(enginehandle : super::winnt::HANDLE, flags : u32, mainmodepolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT1, tunnelpolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT1, numfilterconditions : u32, filterconditions : *const super::fwpmtypes::FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-    unsafe { FwpmIPsecTunnelAdd1(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), keymodkey.unwrap_or(core::mem::zeroed()) as _, sd.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FwpmIPsecTunnelAdd1(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), filterconditions.as_ptr(), keymodkey.unwrap_or(core::mem::zeroed()) as _, sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd2(enginehandle: super::winnt::HANDLE, flags: u32, mainmodepolicy: Option<*const super::fwpmtypes::FWPM_PROVIDER_CONTEXT2>, tunnelpolicy: *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT2, filterconditions: &[super::fwpmtypes::FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: Option<super::winnt::PSECURITY_DESCRIPTOR>) -> u32 {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd2(enginehandle : super::winnt::HANDLE, flags : u32, mainmodepolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT2, tunnelpolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT2, numfilterconditions : u32, filterconditions : *const super::fwpmtypes::FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-    unsafe { FwpmIPsecTunnelAdd2(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), keymodkey.unwrap_or(core::mem::zeroed()) as _, sd.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FwpmIPsecTunnelAdd2(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), filterconditions.as_ptr(), keymodkey.unwrap_or(core::mem::zeroed()) as _, sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "fwpmtypes", feature = "fwptypes", feature = "iketypes", feature = "ipsectypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn FwpmIPsecTunnelAdd3(enginehandle: super::winnt::HANDLE, flags: u32, mainmodepolicy: Option<*const super::fwpmtypes::FWPM_PROVIDER_CONTEXT3>, tunnelpolicy: *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT3, filterconditions: &[super::fwpmtypes::FWPM_FILTER_CONDITION0], keymodkey: Option<*const windows_core::GUID>, sd: Option<super::winnt::PSECURITY_DESCRIPTOR>) -> u32 {
     windows_core::link!("fwpuclnt.dll" "system" fn FwpmIPsecTunnelAdd3(enginehandle : super::winnt::HANDLE, flags : u32, mainmodepolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT3, tunnelpolicy : *const super::fwpmtypes::FWPM_PROVIDER_CONTEXT3, numfilterconditions : u32, filterconditions : *const super::fwpmtypes::FWPM_FILTER_CONDITION0, keymodkey : *const windows_core::GUID, sd : super::winnt::PSECURITY_DESCRIPTOR) -> u32);
-    unsafe { FwpmIPsecTunnelAdd3(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), core::mem::transmute(filterconditions.as_ptr()), keymodkey.unwrap_or(core::mem::zeroed()) as _, sd.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FwpmIPsecTunnelAdd3(enginehandle, flags, mainmodepolicy.unwrap_or(core::mem::zeroed()) as _, tunnelpolicy, filterconditions.len().try_into().unwrap(), filterconditions.as_ptr(), keymodkey.unwrap_or(core::mem::zeroed()) as _, sd.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

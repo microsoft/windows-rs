@@ -9,7 +9,7 @@ pub unsafe fn HttpFilterProc(pfc: *mut HTTP_FILTER_CONTEXT, notificationtype: u3
     unsafe { HttpFilterProc(pfc as _, notificationtype, pvnotification as _) }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_ACCESS_DENIED {
     pub pszURL: *const i8,
     pub pszPhysicalPath: *const i8,
@@ -21,7 +21,7 @@ impl Default for HTTP_FILTER_ACCESS_DENIED {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_AUTHENT {
     pub pszUser: *mut i8,
     pub cbUserBuff: u32,
@@ -34,7 +34,7 @@ impl Default for HTTP_FILTER_AUTHENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_AUTH_COMPLETE_INFO {
     pub GetHeader: *mut u8,
     pub SetHeader: *mut u8,
@@ -50,7 +50,7 @@ impl Default for HTTP_FILTER_AUTH_COMPLETE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_CONTEXT {
     pub cbSize: u32,
     pub Revision: u32,
@@ -70,7 +70,7 @@ impl Default for HTTP_FILTER_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_LOG {
     pub pszClientHostName: *const i8,
     pub pszClientUserName: *const i8,
@@ -90,7 +90,7 @@ impl Default for HTTP_FILTER_LOG {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_PREPROC_HEADERS {
     pub GetHeader: *mut u8,
     pub SetHeader: *mut u8,
@@ -104,7 +104,7 @@ impl Default for HTTP_FILTER_PREPROC_HEADERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_RAW_DATA {
     pub pvInData: *mut core::ffi::c_void,
     pub cbInData: u32,
@@ -119,7 +119,7 @@ impl Default for HTTP_FILTER_RAW_DATA {
 pub const HTTP_FILTER_REVISION: u32 = 655360;
 pub type HTTP_FILTER_SEND_RESPONSE = HTTP_FILTER_PREPROC_HEADERS;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP {
     pub pszURL: *const i8,
     pub pszPhysicalPath: *mut i8,
@@ -131,7 +131,7 @@ impl Default for HTTP_FILTER_URL_MAP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_URL_MAP_EX {
     pub pszURL: *const i8,
     pub pszPhysicalPath: *mut i8,
@@ -147,7 +147,7 @@ impl Default for HTTP_FILTER_URL_MAP_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HTTP_FILTER_VERSION {
     pub dwServerFilterVersion: u32,
     pub dwFilterVersion: u32,

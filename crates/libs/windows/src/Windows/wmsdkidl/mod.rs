@@ -99,14 +99,14 @@ pub unsafe fn WMIsContentProtected(pwszfilename: *const u16) -> windows_core::Re
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_COPY_OPL {
     pub wMinimumCopyLevel: u16,
     pub oplIdIncludes: DRM_OPL_OUTPUT_IDS,
     pub oplIdExcludes: DRM_OPL_OUTPUT_IDS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     pub wCompressedDigitalVideo: u16,
     pub wUncompressedDigitalVideo: u16,
@@ -115,7 +115,7 @@ pub struct DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS {
     pub wUncompressedDigitalAudio: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRM_OPL_OUTPUT_IDS {
     pub cIds: u16,
     pub rgIds: *mut windows_core::GUID,
@@ -127,20 +127,20 @@ impl Default for DRM_OPL_OUTPUT_IDS {
 }
 pub const DRM_OPL_TYPES: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_OUTPUT_PROTECTION {
     pub guidId: windows_core::GUID,
     pub bConfigData: u8,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRM_PLAY_OPL {
     pub minOPL: DRM_MINIMUM_OUTPUT_PROTECTION_LEVELS,
     pub oplIdReserved: DRM_OPL_OUTPUT_IDS,
     pub vopi: DRM_VIDEO_OUTPUT_PROTECTION_IDS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRM_VAL16 {
     pub val: [u8; 16],
 }
@@ -151,7 +151,7 @@ impl Default for DRM_VAL16 {
 }
 pub type DRM_VIDEO_OUTPUT_PROTECTION = DRM_OUTPUT_PROTECTION;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DRM_VIDEO_OUTPUT_PROTECTION_IDS {
     pub cEntries: u16,
     pub rgVop: *mut DRM_VIDEO_OUTPUT_PROTECTION,
@@ -1553,11 +1553,11 @@ impl IWMDeviceRegistration {
     pub unsafe fn RegisterDevice(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: DRM_VAL16) -> windows_core::Result<IWMRegisteredDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterDevice)(windows_core::Interface::as_raw(self), dwregistertype, pbcertificate, cbcertificate, core::mem::transmute(serialnumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RegisterDevice)(windows_core::Interface::as_raw(self), dwregistertype, pbcertificate, cbcertificate, serialnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn UnregisterDevice(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: DRM_VAL16) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnregisterDevice)(windows_core::Interface::as_raw(self), dwregistertype, pbcertificate, cbcertificate, core::mem::transmute(serialnumber)) }
+        unsafe { (windows_core::Interface::vtable(self).UnregisterDevice)(windows_core::Interface::as_raw(self), dwregistertype, pbcertificate, cbcertificate, serialnumber) }
     }
     pub unsafe fn GetRegistrationStats(&self, dwregistertype: u32) -> windows_core::Result<u32> {
         unsafe {
@@ -1580,7 +1580,7 @@ impl IWMDeviceRegistration {
     pub unsafe fn GetRegisteredDeviceByID(&self, dwregistertype: u32, pbcertificate: *const u8, cbcertificate: u32, serialnumber: DRM_VAL16) -> windows_core::Result<IWMRegisteredDevice> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetRegisteredDeviceByID)(windows_core::Interface::as_raw(self), dwregistertype, pbcertificate, cbcertificate, core::mem::transmute(serialnumber), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetRegisteredDeviceByID)(windows_core::Interface::as_raw(self), dwregistertype, pbcertificate, cbcertificate, serialnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1975,7 +1975,7 @@ impl IWMHeaderInfo3 {
         unsafe { (windows_core::Interface::vtable(self).GetAttributeIndices)(windows_core::Interface::as_raw(self), wstreamnum, pwszname.param().abi(), pwlangindex, pwindices as _, pwcount as _) }
     }
     pub unsafe fn GetAttributeByIndexEx(&self, wstreamnum: u16, windex: u16, pwszname: windows_core::PWSTR, pwnamelen: *mut u16, ptype: *mut WMT_ATTR_DATATYPE, pwlangindex: *mut u16, pvalue: *mut u8, pdwdatalength: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAttributeByIndexEx)(windows_core::Interface::as_raw(self), wstreamnum, windex, core::mem::transmute(pwszname), pwnamelen as _, ptype as _, pwlangindex as _, pvalue as _, pdwdatalength as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetAttributeByIndexEx)(windows_core::Interface::as_raw(self), wstreamnum, windex, pwszname, pwnamelen as _, ptype as _, pwlangindex as _, pvalue as _, pdwdatalength as _) }
     }
     pub unsafe fn ModifyAttribute(&self, wstreamnum: u16, windex: u16, r#type: WMT_ATTR_DATATYPE, wlangindex: u16, pvalue: *const u8, dwlength: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ModifyAttribute)(windows_core::Interface::as_raw(self), wstreamnum, windex, r#type, wlangindex, pvalue, dwlength) }
@@ -2544,10 +2544,10 @@ impl IWMMediaProps {
         }
     }
     pub unsafe fn GetMediaType(&self, ptype: *mut WM_MEDIA_TYPE, pcbtype: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(ptype), pcbtype as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetMediaType)(windows_core::Interface::as_raw(self), ptype, pcbtype as _) }
     }
     pub unsafe fn SetMediaType(&self, ptype: *const WM_MEDIA_TYPE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(ptype)) }
+        unsafe { (windows_core::Interface::vtable(self).SetMediaType)(windows_core::Interface::as_raw(self), ptype) }
     }
 }
 #[repr(C)]
@@ -4007,7 +4007,7 @@ impl IWMPropertyVault {
         unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pszname.param().abi(), ptype, pvalue, dwsize) }
     }
     pub unsafe fn GetPropertyByIndex(&self, dwindex: u32, pszname: windows_core::PWSTR, pdwnamelen: *mut u32, ptype: *mut WMT_ATTR_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyByIndex)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pszname), pdwnamelen as _, ptype as _, pvalue as _, pdwsize as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyByIndex)(windows_core::Interface::as_raw(self), dwindex, pszname, pdwnamelen as _, ptype as _, pvalue as _, pdwsize as _) }
     }
     pub unsafe fn CopyPropertiesFrom<P0>(&self, piwmpropertyvault: P0) -> windows_core::HRESULT
     where
@@ -4339,7 +4339,7 @@ impl IWMReaderAccelerator {
         unsafe { (windows_core::Interface::vtable(self).GetCodecInterface)(windows_core::Interface::as_raw(self), dwoutputnum, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn Notify(&self, dwoutputnum: u32, psubtype: *const WM_MEDIA_TYPE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), dwoutputnum, core::mem::transmute(psubtype)) }
+        unsafe { (windows_core::Interface::vtable(self).Notify)(windows_core::Interface::as_raw(self), dwoutputnum, psubtype) }
     }
 }
 #[repr(C)]
@@ -5419,7 +5419,7 @@ impl IWMReaderCallbackAdvanced {
         unsafe { (windows_core::Interface::vtable(self).OnStreamSelection)(windows_core::Interface::as_raw(self), wstreamcount, pstreamnumbers, pselections, pvcontext) }
     }
     pub unsafe fn OnOutputPropsChanged(&self, dwoutputnum: u32, pmediatype: *const WM_MEDIA_TYPE, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnOutputPropsChanged)(windows_core::Interface::as_raw(self), dwoutputnum, core::mem::transmute(pmediatype), pvcontext) }
+        unsafe { (windows_core::Interface::vtable(self).OnOutputPropsChanged)(windows_core::Interface::as_raw(self), dwoutputnum, pmediatype, pvcontext) }
     }
     #[cfg(feature = "wmsbuffer")]
     pub unsafe fn AllocateForStream(&self, wstreamnum: u16, cbbuffer: u32, ppbuffer: *mut Option<super::wmsbuffer::INSSBuffer>, pvcontext: *const core::ffi::c_void) -> windows_core::HRESULT {
@@ -5676,7 +5676,7 @@ impl IWMReaderNetworkConfig {
         unsafe { (windows_core::Interface::vtable(self).AddLoggingUrl)(windows_core::Interface::as_raw(self), pwszurl.param().abi()) }
     }
     pub unsafe fn GetLoggingUrl(&self, dwindex: u32, pwszurl: windows_core::PWSTR, pcchurl: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLoggingUrl)(windows_core::Interface::as_raw(self), dwindex, core::mem::transmute(pwszurl), pcchurl as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLoggingUrl)(windows_core::Interface::as_raw(self), dwindex, pwszurl, pcchurl as _) }
     }
     pub unsafe fn GetLoggingUrlCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -7132,7 +7132,7 @@ impl IWMStreamConfig2 {
         unsafe { (windows_core::Interface::vtable(self).SetTransportType)(windows_core::Interface::as_raw(self), ntransporttype) }
     }
     pub unsafe fn AddDataUnitExtension(&self, guidextensionsystemid: windows_core::GUID, cbextensiondatasize: u16, pbextensionsysteminfo: *const u8, cbextensionsysteminfo: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddDataUnitExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(guidextensionsystemid), cbextensiondatasize, pbextensionsysteminfo, cbextensionsysteminfo) }
+        unsafe { (windows_core::Interface::vtable(self).AddDataUnitExtension)(windows_core::Interface::as_raw(self), guidextensionsystemid, cbextensiondatasize, pbextensionsysteminfo, cbextensionsysteminfo) }
     }
     pub unsafe fn GetDataUnitExtensionCount(&self) -> windows_core::Result<u16> {
         unsafe {
@@ -8856,7 +8856,7 @@ impl IWMWriterFileSink3 {
     }
     #[cfg(feature = "wmsbuffer")]
     pub unsafe fn OnDataUnitEx(&self, pfilesinkdataunit: *const WMT_FILESINK_DATA_UNIT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnDataUnitEx)(windows_core::Interface::as_raw(self), core::mem::transmute(pfilesinkdataunit)) }
+        unsafe { (windows_core::Interface::vtable(self).OnDataUnitEx)(windows_core::Interface::as_raw(self), pfilesinkdataunit) }
     }
     pub unsafe fn SetUnbufferedIO(&self, funbufferedio: bool, frestrictmemusage: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetUnbufferedIO)(windows_core::Interface::as_raw(self), funbufferedio.into(), frestrictmemusage.into()) }
@@ -9674,7 +9674,7 @@ pub type LPCWSTR_WMSDK_TYPE_SAFE = windows_core::PCWSTR;
 pub const WEBSTREAM_SAMPLE_TYPE_FILE: i32 = 1;
 pub const WEBSTREAM_SAMPLE_TYPE_RENDER: i32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMDRM_IMPORT_INIT_STRUCT {
     pub dwVersion: u32,
     pub cbEncryptedSessionKeyMessage: u32,
@@ -9690,7 +9690,7 @@ impl Default for WMDRM_IMPORT_INIT_STRUCT {
 pub const WMDRM_IMPORT_INIT_STRUCT_DEFINED: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMMPEG2VIDEOINFO {
     pub hdr: WMVIDEOINFOHEADER2,
     pub dwStartTimeCode: u32,
@@ -9707,7 +9707,7 @@ impl Default for WMMPEG2VIDEOINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMSCRIPTFORMAT {
     pub scriptType: windows_core::GUID,
 }
@@ -9722,7 +9722,7 @@ pub const WMT_BUFFERING_START: WMT_STATUS = 2;
 pub const WMT_BUFFERING_STOP: WMT_STATUS = 3;
 #[repr(C)]
 #[cfg(feature = "wmsbuffer")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct WMT_BUFFER_SEGMENT {
     pub pBuffer: core::mem::ManuallyDrop<Option<super::wmsbuffer::INSSBuffer>>,
     pub cbOffset: u32,
@@ -9740,7 +9740,7 @@ pub const WMT_CODECINFO_UNKNOWN: WMT_CODEC_INFO_TYPE = -1;
 pub const WMT_CODECINFO_VIDEO: WMT_CODEC_INFO_TYPE = 1;
 pub type WMT_CODEC_INFO_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_COLORSPACEINFO_EXTENSION_DATA {
     pub ucColorPrimaries: u8,
     pub ucColorTransferChar: u8,
@@ -9766,7 +9766,7 @@ pub const WMT_ERROR: WMT_STATUS = 0;
 pub const WMT_ERROR_WITHURL: WMT_STATUS = 30;
 #[repr(C)]
 #[cfg(feature = "wmsbuffer")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WMT_FILESINK_DATA_UNIT {
     pub packetHeaderBuffer: WMT_BUFFER_SEGMENT,
     pub cPayloads: u32,
@@ -9828,7 +9828,7 @@ pub const WMT_ON: WMT_STREAM_SELECTION = 2;
 pub const WMT_OPENED: WMT_STATUS = 1;
 #[repr(C)]
 #[cfg(feature = "wmsbuffer")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct WMT_PAYLOAD_FRAGMENT {
     pub dwPayloadIndex: u32,
     pub segmentData: WMT_BUFFER_SEGMENT,
@@ -9911,7 +9911,7 @@ pub const WMT_VIDEOIMAGE_INTEGER_DENOMINATOR: u32 = 65536;
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER: u32 = 491406834;
 pub const WMT_VIDEOIMAGE_MAGIC_NUMBER_2: u32 = 491406835;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_VIDEOIMAGE_SAMPLE {
     pub dwMagic: u32,
     pub cbStruct: u32,
@@ -9992,7 +9992,7 @@ pub const WMT_VIDEOIMAGE_TRANSITION_SPLIT: u32 = 29;
 pub const WMT_VIDEOIMAGE_TRANSITION_STAR: u32 = 30;
 pub const WMT_VIDEOIMAGE_TRANSITION_WHEEL: u32 = 31;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_WATERMARK_ENTRY {
     pub wmetType: WMT_WATERMARK_ENTRY_TYPE,
     pub clsid: windows_core::GUID,
@@ -10001,7 +10001,7 @@ pub struct WMT_WATERMARK_ENTRY {
 }
 pub type WMT_WATERMARK_ENTRY_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMT_WEBSTREAM_FORMAT {
     pub cbSize: u16,
     pub cbSampleHeaderFixedData: u16,
@@ -10009,7 +10009,7 @@ pub struct WMT_WEBSTREAM_FORMAT {
     pub wReserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WMT_WEBSTREAM_SAMPLE_HEADER {
     pub cbLength: u16,
     pub wPart: u16,
@@ -10026,7 +10026,7 @@ pub const WMT_WMETYPE_AUDIO: WMT_WATERMARK_ENTRY_TYPE = 1;
 pub const WMT_WMETYPE_VIDEO: WMT_WATERMARK_ENTRY_TYPE = 2;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMVIDEOINFOHEADER {
     pub rcSource: super::windef::RECT,
     pub rcTarget: super::windef::RECT,
@@ -10037,7 +10037,7 @@ pub struct WMVIDEOINFOHEADER {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "wingdi"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WMVIDEOINFOHEADER2 {
     pub rcSource: super::windef::RECT,
     pub rcTarget: super::windef::RECT,
@@ -10053,7 +10053,7 @@ pub struct WMVIDEOINFOHEADER2 {
     pub bmiHeader: super::wingdi::BITMAPINFOHEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_ADDRESS_ACCESSENTRY {
     pub dwIPAddress: u32,
     pub dwMask: u32,
@@ -10063,13 +10063,13 @@ pub const WM_AETYPE_EXCLUDE: WM_AETYPE = 101;
 pub const WM_AETYPE_INCLUDE: WM_AETYPE = 105;
 pub const WM_BACKUP_OVERWRITE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_CLIENT_PROPERTIES {
     pub dwIPAddress: u32,
     pub dwPort: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_CLIENT_PROPERTIES_EX {
     pub cbSize: u32,
     pub pwszIPAddress: windows_core::PCWSTR,
@@ -10108,7 +10108,7 @@ pub struct WM_LEAKY_BUCKET_PAIR {
 pub const WM_MAX_STREAMS: u32 = 63;
 pub const WM_MAX_VIDEO_STREAMS: u32 = 63;
 #[repr(C)]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WM_MEDIA_TYPE {
     pub majortype: windows_core::GUID,
     pub subtype: windows_core::GUID,
@@ -10143,14 +10143,14 @@ pub const WM_PLAYBACK_DRC_HIGH: i32 = 0;
 pub const WM_PLAYBACK_DRC_LOW: i32 = 2;
 pub const WM_PLAYBACK_DRC_MEDIUM: i32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_PORT_NUMBER_RANGE {
     pub wPortBegin: u16,
     pub wPortEnd: u16,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WM_READER_CLIENTINFO {
     pub cbSize: u32,
     pub wszLang: *mut u16,
@@ -10169,7 +10169,7 @@ impl Default for WM_READER_CLIENTINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_READER_STATISTICS {
     pub cbSize: u32,
     pub dwBandwidth: u32,
@@ -10230,7 +10230,7 @@ pub struct WM_USER_WEB_URL {
     pub pwszURL: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_WRITER_STATISTICS {
     pub qwSampleCount: u64,
     pub qwByteCount: u64,
@@ -10244,7 +10244,7 @@ pub struct WM_WRITER_STATISTICS {
     pub dwExpectedSampleRate: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WM_WRITER_STATISTICS_EX {
     pub dwBitratePlusOverhead: u32,
     pub dwCurrentSampleDropRateInQueue: u32,

@@ -284,7 +284,7 @@ impl Default for USB_COMPOSITE_DEVICE_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_COMPOSITE_FUNCTION_INFO {
     pub FunctionNumber: u8,
     pub BaseInterfaceNumber: u8,
@@ -845,7 +845,7 @@ pub struct USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION {
     pub TimeTrackingHandle: super::winnt::HANDLE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct USB_TOPOLOGY_ADDRESS {
     pub PciBusNumber: u32,
     pub PciDeviceNumber: u32,

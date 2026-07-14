@@ -111,7 +111,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : *const super::shtypes::ITEMIDLIST, psf : *mut core::ffi::c_void, cidl : u32, ppidl : *const super::shtypes::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateShellItemArray(pidlparent.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), ppidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        SHCreateShellItemArray(pidlparent.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), ppidl.map_or(0, |slice| slice.len().try_into().unwrap()), ppidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "objidl")]
@@ -131,7 +131,7 @@ pub unsafe fn SHCreateShellItemArrayFromIDLists(rgpidl: &[super::shtypes::LPCITE
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromIDLists(cidl : u32, rgpidl : *const super::shtypes::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateShellItemArrayFromIDLists(rgpidl.len().try_into().unwrap(), core::mem::transmute(rgpidl.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        SHCreateShellItemArrayFromIDLists(rgpidl.len().try_into().unwrap(), rgpidl.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -235,7 +235,7 @@ where
     P0: windows_core::Param<IShellItem>,
 {
     windows_core::link!("shell32.dll" "system" fn SHSetTemporaryPropertyForItem(psi : *mut core::ffi::c_void, propkey : *const super::wtypes::PROPERTYKEY, propvar : *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe { SHSetTemporaryPropertyForItem(psi.param().abi(), propkey, core::mem::transmute(propvar)) }
+    unsafe { SHSetTemporaryPropertyForItem(psi.param().abi(), propkey, propvar) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -364,14 +364,14 @@ pub const ApplicationDesignModeSettings: windows_core::GUID = windows_core::GUID
 pub const ApplicationDestinations: windows_core::GUID = windows_core::GUID::from_u128(0x86c14003_4d6b_4ef3_a7b4_0506663b2e68);
 pub const ApplicationDocumentLists: windows_core::GUID = windows_core::GUID::from_u128(0x86bec222_30f2_47e0_9f25_60d11cd75c28);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BANDSITEINFO {
     pub dwMask: u32,
     pub dwState: u32,
     pub dwStyle: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BANNER_NOTIFICATION {
     pub event: BANNER_NOTIFICATION_EVENT,
     pub providerIdentity: windows_core::PCWSTR,
@@ -427,7 +427,7 @@ pub const BSSF_UNDELETEABLE: u32 = 4096;
 pub const BSSF_VISIBLE: u32 = 1;
 pub type CATEGORYINFO_FLAGS = u32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CATEGORY_INFO {
     pub cif: CATEGORYINFO_FLAGS,
     pub wszName: [u16; 260],
@@ -503,7 +503,7 @@ pub const CMIC_MASK_SHIFT_DOWN: u32 = 268435456;
 pub const CMIC_MASK_UNICODE: u32 = 16384;
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMINVOKECOMMANDINFO {
     pub cbSize: u32,
     pub fMask: u32,
@@ -517,7 +517,7 @@ pub struct CMINVOKECOMMANDINFO {
 }
 #[repr(C)]
 #[cfg(all(feature = "windef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMINVOKECOMMANDINFOEX {
     pub cbSize: u32,
     pub fMask: u32,
@@ -537,7 +537,7 @@ pub struct CMINVOKECOMMANDINFOEX {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub cbSize: u32,
     pub fMask: u32,
@@ -557,7 +557,7 @@ pub struct CMINVOKECOMMANDINFOEX_REMOTE {
     pub lpVerbWInt: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CM_COLUMNINFO {
     pub cbSize: u32,
     pub dwMask: u32,
@@ -656,7 +656,7 @@ impl Default for DELEGATEITEMID {
 pub struct DEPRECATED_HRESULT(pub windows_core::HRESULT);
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DESKBANDINFO {
     pub dwMask: u32,
     pub ptMinSize: super::windef::POINTL,
@@ -766,7 +766,7 @@ pub type EXPLORER_BROWSER_OPTIONS = u32;
 pub type EXPPS = u32;
 pub const EXPPS_FILETYPES: EXPPS = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EXTRASEARCH {
     pub guidSearch: windows_core::GUID,
     pub wszFriendlyName: [u16; 80],
@@ -840,7 +840,7 @@ pub const FOFX_SHOWELEVATIONPROMPT: u32 = 262144;
 pub type FOLDERFLAGS = u32;
 pub type FOLDERLOGICALVIEWMODE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FOLDERSETTINGS {
     pub ViewMode: u32,
     pub fFlags: u32,
@@ -1643,7 +1643,7 @@ windows_core::imp::interface_hierarchy!(IApplicationDesignModeSettings, windows_
 impl IApplicationDesignModeSettings {
     #[cfg(feature = "windef")]
     pub unsafe fn SetNativeDisplaySize(&self, nativedisplaysizepixels: super::windef::SIZE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetNativeDisplaySize)(windows_core::Interface::as_raw(self), core::mem::transmute(nativedisplaysizepixels)) }
+        unsafe { (windows_core::Interface::vtable(self).SetNativeDisplaySize)(windows_core::Interface::as_raw(self), nativedisplaysizepixels) }
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn SetScaleFactor(&self, scalefactor: super::shtypes::DEVICE_SCALE_FACTOR) -> windows_core::HRESULT {
@@ -1663,7 +1663,7 @@ impl IApplicationDesignModeSettings {
     pub unsafe fn IsApplicationViewStateSupported(&self, viewstate: APPLICATION_VIEW_STATE, nativedisplaysizepixels: super::windef::SIZE, scalefactor: super::shtypes::DEVICE_SCALE_FACTOR) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsApplicationViewStateSupported)(windows_core::Interface::as_raw(self), viewstate, core::mem::transmute(nativedisplaysizepixels), scalefactor, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsApplicationViewStateSupported)(windows_core::Interface::as_raw(self), viewstate, nativedisplaysizepixels, scalefactor, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn TriggerEdgeGesture(&self, edgegesturekind: EDGE_GESTURE_KIND) -> windows_core::HRESULT {
@@ -1801,7 +1801,7 @@ impl IApplicationDesignModeSettings2 {
     pub unsafe fn GetApplicationViewOrientation(&self, applicationsizepixels: super::windef::SIZE) -> windows_core::Result<APPLICATION_VIEW_ORIENTATION> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetApplicationViewOrientation)(windows_core::Interface::as_raw(self), core::mem::transmute(applicationsizepixels), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetApplicationViewOrientation)(windows_core::Interface::as_raw(self), applicationsizepixels, &mut result__).map(|| result__)
         }
     }
 }
@@ -2497,7 +2497,7 @@ impl IBandSite {
     }
     #[cfg(feature = "oleidl")]
     pub unsafe fn QueryBand(&self, dwbandid: u32, ppstb: *mut Option<IDeskBand>, pdwstate: Option<*mut u32>, pszname: Option<&mut [u16]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryBand)(windows_core::Interface::as_raw(self), dwbandid, core::mem::transmute(ppstb), pdwstate.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+        unsafe { (windows_core::Interface::vtable(self).QueryBand)(windows_core::Interface::as_raw(self), dwbandid, core::mem::transmute(ppstb), pdwstate.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
     }
     pub unsafe fn SetBandState(&self, dwbandid: u32, dwmask: u32, dwstate: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBandState)(windows_core::Interface::as_raw(self), dwbandid, dwmask, dwstate) }
@@ -2696,7 +2696,7 @@ windows_core::imp::define_interface!(ICategorizer, ICategorizer_Vtbl, 0xa3b14589
 windows_core::imp::interface_hierarchy!(ICategorizer, windows_core::IUnknown);
 impl ICategorizer {
     pub unsafe fn GetDescription(&self, pszdesc: windows_core::PWSTR, cch: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pszdesc), cch) }
+        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pszdesc, cch) }
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn GetCategory(&self, cidl: u32, apidl: *const super::shtypes::LPCITEMIDLIST) -> windows_core::Result<u32> {
@@ -2804,7 +2804,7 @@ impl ICategoryProvider {
         }
     }
     pub unsafe fn GetCategoryName(&self, pguid: *const windows_core::GUID, pszname: windows_core::PWSTR, cch: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCategoryName)(windows_core::Interface::as_raw(self), pguid, core::mem::transmute(pszname), cch) }
+        unsafe { (windows_core::Interface::vtable(self).GetCategoryName)(windows_core::Interface::as_raw(self), pguid, pszname, cch) }
     }
     pub unsafe fn CreateCategory<T>(&self, pguid: *const windows_core::GUID) -> windows_core::Result<T>
     where
@@ -3126,7 +3126,7 @@ impl ICommDlgBrowser2 {
     where
         P0: windows_core::Param<IShellView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetDefaultMenuText)(windows_core::Interface::as_raw(self), ppshv.param().abi(), core::mem::transmute(psztext), cchmax) }
+        unsafe { (windows_core::Interface::vtable(self).GetDefaultMenuText)(windows_core::Interface::as_raw(self), ppshv.param().abi(), psztext, cchmax) }
     }
     pub unsafe fn GetViewFlags(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -3443,7 +3443,7 @@ impl IContextMenuSite {
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DoContextMenuPopup)(windows_core::Interface::as_raw(self), punkcontextmenu.param().abi(), fflags, core::mem::transmute(pt)) }
+        unsafe { (windows_core::Interface::vtable(self).DoContextMenuPopup)(windows_core::Interface::as_raw(self), punkcontextmenu.param().abi(), fflags, pt) }
     }
 }
 #[repr(C)]
@@ -5051,7 +5051,7 @@ windows_core::imp::define_interface!(IEnumAssocHandlers, IEnumAssocHandlers_Vtbl
 windows_core::imp::interface_hierarchy!(IEnumAssocHandlers, windows_core::IUnknown);
 impl IEnumAssocHandlers {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IAssocHandler>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -5082,7 +5082,7 @@ windows_core::imp::define_interface!(IEnumExplorerCommand, IEnumExplorerCommand_
 windows_core::imp::interface_hierarchy!(IEnumExplorerCommand, windows_core::IUnknown);
 impl IEnumExplorerCommand {
     pub unsafe fn Next(&self, puicommand: &mut [Option<IExplorerCommand>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), puicommand.len().try_into().unwrap(), core::mem::transmute(puicommand.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), puicommand.len().try_into().unwrap(), core::mem::transmute(puicommand.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5241,7 +5241,7 @@ windows_core::imp::interface_hierarchy!(IEnumFullIDList, windows_core::IUnknown)
 impl IEnumFullIDList {
     #[cfg(feature = "shtypes")]
     pub unsafe fn Next(&self, rgelt: &mut [super::shtypes::LPITEMIDLIST], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5327,7 +5327,7 @@ windows_core::imp::interface_hierarchy!(IEnumIDList, windows_core::IUnknown);
 impl IEnumIDList {
     #[cfg(feature = "shtypes")]
     pub unsafe fn Next(&self, rgelt: &mut [super::shtypes::LPITEMIDLIST], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5412,7 +5412,7 @@ windows_core::imp::define_interface!(IEnumObjects, IEnumObjects_Vtbl, 0x2c1c7e2e
 windows_core::imp::interface_hierarchy!(IEnumObjects, windows_core::IUnknown);
 impl IEnumObjects {
     pub unsafe fn Next(&self, riid: *const windows_core::GUID, rgelt: &mut [*mut core::ffi::c_void], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), riid, core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), riid, rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5570,7 +5570,7 @@ windows_core::imp::define_interface!(IEnumShellItems, IEnumShellItems_Vtbl, 0x70
 windows_core::imp::interface_hierarchy!(IEnumShellItems, windows_core::IUnknown);
 impl IEnumShellItems {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IShellItem>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5659,7 +5659,7 @@ impl IExecuteCommand {
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SetPosition(&self, pt: super::windef::POINT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), core::mem::transmute(pt)) }
+        unsafe { (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), pt) }
     }
     pub unsafe fn SetShowWindow(&self, nshow: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetShowWindow)(windows_core::Interface::as_raw(self), nshow) }
@@ -5856,7 +5856,7 @@ impl IExplorerBrowser {
     }
     #[cfg(all(feature = "windef", feature = "winnt", feature = "winuser"))]
     pub unsafe fn SetRect(&self, phdwp: Option<*mut super::winuser::HDWP>, rcbrowser: super::windef::RECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRect)(windows_core::Interface::as_raw(self), phdwp.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(rcbrowser)) }
+        unsafe { (windows_core::Interface::vtable(self).SetRect)(windows_core::Interface::as_raw(self), phdwp.unwrap_or(core::mem::zeroed()) as _, rcbrowser) }
     }
     pub unsafe fn SetPropertyBag<P0>(&self, pszpropertybag: P0) -> windows_core::HRESULT
     where
@@ -6537,7 +6537,7 @@ windows_core::imp::interface_hierarchy!(IExtractImage, windows_core::IUnknown);
 impl IExtractImage {
     #[cfg(feature = "windef")]
     pub unsafe fn GetLocation(&self, pszpathbuffer: windows_core::PWSTR, cch: u32, pdwpriority: *mut u32, prgsize: *const super::windef::SIZE, dwrecclrdepth: u32, pdwflags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLocation)(windows_core::Interface::as_raw(self), core::mem::transmute(pszpathbuffer), cch, pdwpriority as _, prgsize, dwrecclrdepth, pdwflags as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLocation)(windows_core::Interface::as_raw(self), pszpathbuffer, cch, pdwpriority as _, prgsize, dwrecclrdepth, pdwflags as _) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn Extract(&self) -> windows_core::Result<super::windef::HBITMAP> {
@@ -9228,7 +9228,7 @@ impl IFolderView2 {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetViewProperty(&self, pidl: *const super::shtypes::ITEMIDLIST, propkey: *const super::wtypes::PROPERTYKEY, propvar: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetViewProperty)(windows_core::Interface::as_raw(self), pidl, propkey, core::mem::transmute(propvar)) }
+        unsafe { (windows_core::Interface::vtable(self).SetViewProperty)(windows_core::Interface::as_raw(self), pidl, propkey, propvar) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "shtypes", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetViewProperty(&self, pidl: *const super::shtypes::ITEMIDLIST, propkey: *const super::wtypes::PROPERTYKEY) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
@@ -11057,7 +11057,7 @@ impl IKnownFolderManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), rfid, hwnd.unwrap_or(core::mem::zeroed()) as _, flags, psztargetpath.param().abi(), pexclusion.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pexclusion.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), rfid, hwnd.unwrap_or(core::mem::zeroed()) as _, flags, psztargetpath.param().abi(), pexclusion.map_or(0, |slice| slice.len().try_into().unwrap()), pexclusion.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).map(|| result__)
         }
     }
 }
@@ -12321,7 +12321,7 @@ impl INetworkFolderInternal {
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn GetProvider(&self, itemidcount: u32, itemids: *const super::shtypes::LPCITEMIDLIST, providermaxlength: u32, provider: windows_core::PWSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), itemidcount, itemids, providermaxlength, core::mem::transmute(provider)) }
+        unsafe { (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), itemidcount, itemids, providermaxlength, provider) }
     }
 }
 #[repr(C)]
@@ -12873,7 +12873,7 @@ impl IOpenControlPanel {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetPath)(windows_core::Interface::as_raw(self), pszname.param().abi(), core::mem::transmute(pszpath), cchpath) }
+        unsafe { (windows_core::Interface::vtable(self).GetPath)(windows_core::Interface::as_raw(self), pszname.param().abi(), pszpath, cchpath) }
     }
     pub unsafe fn GetCurrentView(&self) -> windows_core::Result<CPVIEW> {
         unsafe {
@@ -14355,15 +14355,15 @@ impl IPropertyUI {
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn GetCannonicalName(&self, fmtid: *const windows_core::GUID, pid: super::wtypes::PROPID, pwsztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCannonicalName)(windows_core::Interface::as_raw(self), fmtid, pid, core::mem::transmute(pwsztext), cchtext) }
+        unsafe { (windows_core::Interface::vtable(self).GetCannonicalName)(windows_core::Interface::as_raw(self), fmtid, pid, pwsztext, cchtext) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn GetDisplayName(&self, fmtid: *const windows_core::GUID, pid: super::wtypes::PROPID, flags: PROPERTYUI_NAME_FLAGS, pwsztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), fmtid, pid, flags, core::mem::transmute(pwsztext), cchtext) }
+        unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), fmtid, pid, flags, pwsztext, cchtext) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn GetPropertyDescription(&self, fmtid: *const windows_core::GUID, pid: super::wtypes::PROPID, pwsztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyDescription)(windows_core::Interface::as_raw(self), fmtid, pid, core::mem::transmute(pwsztext), cchtext) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyDescription)(windows_core::Interface::as_raw(self), fmtid, pid, pwsztext, cchtext) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn GetDefaultWidth(&self, fmtid: *const windows_core::GUID, pid: super::wtypes::PROPID) -> windows_core::Result<u32> {
@@ -14381,11 +14381,11 @@ impl IPropertyUI {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FormatForDisplay(&self, fmtid: *const windows_core::GUID, pid: super::wtypes::PROPID, ppropvar: *const super::propidlbase::PROPVARIANT, puiff: PROPERTYUI_FORMAT_FLAGS, pwsztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FormatForDisplay)(windows_core::Interface::as_raw(self), fmtid, pid, core::mem::transmute(ppropvar), puiff, core::mem::transmute(pwsztext), cchtext) }
+        unsafe { (windows_core::Interface::vtable(self).FormatForDisplay)(windows_core::Interface::as_raw(self), fmtid, pid, ppropvar, puiff, pwsztext, cchtext) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn GetHelpInfo(&self, fmtid: *const windows_core::GUID, pid: super::wtypes::PROPID, pwszhelpfile: windows_core::PWSTR, cch: u32, puhelpid: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetHelpInfo)(windows_core::Interface::as_raw(self), fmtid, pid, core::mem::transmute(pwszhelpfile), cch, puhelpid as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetHelpInfo)(windows_core::Interface::as_raw(self), fmtid, pid, pwszhelpfile, cch, puhelpid as _) }
     }
 }
 #[repr(C)]
@@ -14849,7 +14849,7 @@ impl ISearchFolderItemFactory {
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn SetFolderTypeID(&self, ftid: super::shtypes::FOLDERTYPEID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetFolderTypeID)(windows_core::Interface::as_raw(self), core::mem::transmute(ftid)) }
+        unsafe { (windows_core::Interface::vtable(self).SetFolderTypeID)(windows_core::Interface::as_raw(self), ftid) }
     }
     pub unsafe fn SetFolderLogicalViewMode(&self, flvm: FOLDERLOGICALVIEWMODE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetFolderLogicalViewMode)(windows_core::Interface::as_raw(self), flvm) }
@@ -15926,7 +15926,7 @@ impl IShellIconOverlayIdentifier {
         unsafe { (windows_core::Interface::vtable(self).IsMemberOf)(windows_core::Interface::as_raw(self), pwszpath.param().abi(), dwattrib) }
     }
     pub unsafe fn GetOverlayInfo(&self, pwsziconfile: windows_core::PWSTR, cchmax: i32, pindex: *mut i32, pdwflags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOverlayInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pwsziconfile), cchmax, pindex as _, pdwflags as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetOverlayInfo)(windows_core::Interface::as_raw(self), pwsziconfile, cchmax, pindex as _, pdwflags as _) }
     }
     pub unsafe fn GetPriority(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -16688,7 +16688,7 @@ impl IShellItemImageFactory {
     pub unsafe fn GetImage(&self, size: super::windef::SIZE, flags: SIIGBF) -> windows_core::Result<super::windef::HBITMAP> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetImage)(windows_core::Interface::as_raw(self), core::mem::transmute(size), flags, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetImage)(windows_core::Interface::as_raw(self), size, flags, &mut result__).map(|| result__)
         }
     }
 }
@@ -17255,7 +17255,7 @@ windows_core::imp::interface_hierarchy!(IShellLinkA, windows_core::IUnknown);
 impl IShellLinkA {
     #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
     pub unsafe fn GetPath(&self, pszfile: windows_core::PSTR, cch: i32, pfd: *mut super::minwinbase::WIN32_FIND_DATAA, fflags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPath)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfile), cch, pfd as _, fflags) }
+        unsafe { (windows_core::Interface::vtable(self).GetPath)(windows_core::Interface::as_raw(self), pszfile, cch, pfd as _, fflags) }
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn GetIDList(&self) -> windows_core::Result<super::shtypes::LPITEMIDLIST> {
@@ -17269,7 +17269,7 @@ impl IShellLinkA {
         unsafe { (windows_core::Interface::vtable(self).SetIDList)(windows_core::Interface::as_raw(self), pidl) }
     }
     pub unsafe fn GetDescription(&self, pszname: windows_core::PSTR, cch: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname), cch) }
+        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pszname, cch) }
     }
     pub unsafe fn SetDescription<P0>(&self, pszname: P0) -> windows_core::HRESULT
     where
@@ -17278,7 +17278,7 @@ impl IShellLinkA {
         unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), pszname.param().abi()) }
     }
     pub unsafe fn GetWorkingDirectory(&self, pszdir: windows_core::PSTR, cch: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetWorkingDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute(pszdir), cch) }
+        unsafe { (windows_core::Interface::vtable(self).GetWorkingDirectory)(windows_core::Interface::as_raw(self), pszdir, cch) }
     }
     pub unsafe fn SetWorkingDirectory<P0>(&self, pszdir: P0) -> windows_core::HRESULT
     where
@@ -17287,7 +17287,7 @@ impl IShellLinkA {
         unsafe { (windows_core::Interface::vtable(self).SetWorkingDirectory)(windows_core::Interface::as_raw(self), pszdir.param().abi()) }
     }
     pub unsafe fn GetArguments(&self, pszargs: windows_core::PSTR, cch: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetArguments)(windows_core::Interface::as_raw(self), core::mem::transmute(pszargs), cch) }
+        unsafe { (windows_core::Interface::vtable(self).GetArguments)(windows_core::Interface::as_raw(self), pszargs, cch) }
     }
     pub unsafe fn SetArguments<P0>(&self, pszargs: P0) -> windows_core::HRESULT
     where
@@ -17314,7 +17314,7 @@ impl IShellLinkA {
         unsafe { (windows_core::Interface::vtable(self).SetShowCmd)(windows_core::Interface::as_raw(self), ishowcmd) }
     }
     pub unsafe fn GetIconLocation(&self, psziconpath: windows_core::PSTR, cch: i32, piicon: *mut i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), core::mem::transmute(psziconpath), cch, piicon as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), psziconpath, cch, piicon as _) }
     }
     pub unsafe fn SetIconLocation<P0>(&self, psziconpath: P0, iicon: i32) -> windows_core::HRESULT
     where
@@ -17648,7 +17648,7 @@ windows_core::imp::interface_hierarchy!(IShellLinkW, windows_core::IUnknown);
 impl IShellLinkW {
     #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
     pub unsafe fn GetPath(&self, pszfile: windows_core::PWSTR, cch: i32, pfd: *mut super::minwinbase::WIN32_FIND_DATAW, fflags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPath)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfile), cch, pfd as _, fflags) }
+        unsafe { (windows_core::Interface::vtable(self).GetPath)(windows_core::Interface::as_raw(self), pszfile, cch, pfd as _, fflags) }
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn GetIDList(&self) -> windows_core::Result<super::shtypes::LPITEMIDLIST> {
@@ -17662,7 +17662,7 @@ impl IShellLinkW {
         unsafe { (windows_core::Interface::vtable(self).SetIDList)(windows_core::Interface::as_raw(self), pidl) }
     }
     pub unsafe fn GetDescription(&self, pszname: windows_core::PWSTR, cch: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname), cch) }
+        unsafe { (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), pszname, cch) }
     }
     pub unsafe fn SetDescription<P0>(&self, pszname: P0) -> windows_core::HRESULT
     where
@@ -17671,7 +17671,7 @@ impl IShellLinkW {
         unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), pszname.param().abi()) }
     }
     pub unsafe fn GetWorkingDirectory(&self, pszdir: windows_core::PWSTR, cch: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetWorkingDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute(pszdir), cch) }
+        unsafe { (windows_core::Interface::vtable(self).GetWorkingDirectory)(windows_core::Interface::as_raw(self), pszdir, cch) }
     }
     pub unsafe fn SetWorkingDirectory<P0>(&self, pszdir: P0) -> windows_core::HRESULT
     where
@@ -17680,7 +17680,7 @@ impl IShellLinkW {
         unsafe { (windows_core::Interface::vtable(self).SetWorkingDirectory)(windows_core::Interface::as_raw(self), pszdir.param().abi()) }
     }
     pub unsafe fn GetArguments(&self, pszargs: windows_core::PWSTR, cch: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetArguments)(windows_core::Interface::as_raw(self), core::mem::transmute(pszargs), cch) }
+        unsafe { (windows_core::Interface::vtable(self).GetArguments)(windows_core::Interface::as_raw(self), pszargs, cch) }
     }
     pub unsafe fn SetArguments<P0>(&self, pszargs: P0) -> windows_core::HRESULT
     where
@@ -17707,7 +17707,7 @@ impl IShellLinkW {
         unsafe { (windows_core::Interface::vtable(self).SetShowCmd)(windows_core::Interface::as_raw(self), ishowcmd) }
     }
     pub unsafe fn GetIconLocation(&self, psziconpath: windows_core::PWSTR, cch: i32, piicon: *mut i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), core::mem::transmute(psziconpath), cch, piicon as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), psziconpath, cch, piicon as _) }
     }
     pub unsafe fn SetIconLocation<P0>(&self, psziconpath: P0, iicon: i32) -> windows_core::HRESULT
     where
@@ -17986,7 +17986,7 @@ impl IShellMenu {
     }
     #[cfg(all(feature = "shtypes", feature = "windef"))]
     pub unsafe fn GetState(&self, psmd: *mut SMDATA) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), core::mem::transmute(psmd)) }
+        unsafe { (windows_core::Interface::vtable(self).GetState)(windows_core::Interface::as_raw(self), psmd) }
     }
     pub unsafe fn SetMenuToolbar<P0>(&self, punk: P0, dwflags: u32) -> windows_core::HRESULT
     where
@@ -18120,7 +18120,7 @@ windows_core::imp::interface_hierarchy!(IShellMenuCallback, windows_core::IUnkno
 impl IShellMenuCallback {
     #[cfg(all(feature = "minwindef", feature = "shtypes", feature = "windef"))]
     pub unsafe fn CallbackSM(&self, psmd: *mut SMDATA, umsg: u32, wparam: super::minwindef::WPARAM, lparam: super::minwindef::LPARAM) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CallbackSM)(windows_core::Interface::as_raw(self), core::mem::transmute(psmd), umsg, wparam, lparam) }
+        unsafe { (windows_core::Interface::vtable(self).CallbackSM)(windows_core::Interface::as_raw(self), psmd, umsg, wparam, lparam) }
     }
 }
 #[repr(C)]
@@ -18526,7 +18526,7 @@ impl IShellView2 {
     }
     #[cfg(feature = "windef")]
     pub unsafe fn CreateViewWindow2(&self, lpparams: *const SV2CVW2_PARAMS) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateViewWindow2)(windows_core::Interface::as_raw(self), core::mem::transmute(lpparams)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateViewWindow2)(windows_core::Interface::as_raw(self), lpparams) }
     }
     #[cfg(feature = "shtypes")]
     pub unsafe fn HandleRename(&self, pidlnew: *const super::shtypes::ITEMIDLIST) -> windows_core::HRESULT {
@@ -19302,7 +19302,7 @@ impl ITransferAdviseSink {
         P0: windows_core::Param<IShellItem>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FileFailure)(windows_core::Interface::as_raw(self), psi.param().abi(), pszitem.param().abi(), hrerror, core::mem::transmute(pszrename), cchrename) }
+        unsafe { (windows_core::Interface::vtable(self).FileFailure)(windows_core::Interface::as_raw(self), psi.param().abi(), pszitem.param().abi(), hrerror, pszrename, cchrename) }
     }
     pub unsafe fn SubStreamFailure<P0, P1>(&self, psi: P0, pszstreamname: P1, hrerror: windows_core::HRESULT) -> windows_core::HRESULT
     where
@@ -20105,7 +20105,7 @@ pub const KF_REDIRECT_WITH_UI: KF_REDIRECT_FLAGS = 32;
 pub type KNOWNDESTCATEGORY = i32;
 #[repr(C)]
 #[cfg(feature = "shtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KNOWNFOLDER_DEFINITION {
     pub category: KF_CATEGORY,
     pub pszName: windows_core::PWSTR,
@@ -20325,7 +20325,7 @@ pub const PDOPS_RUNNING: PDOPSTATUS = 1;
 pub const PDOPS_STOPPED: PDOPSTATUS = 4;
 #[repr(C)]
 #[cfg(feature = "shtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERSIST_FOLDER_TARGET_INFO {
     pub pidlTargetFolder: super::shtypes::LPITEMIDLIST,
     pub szTargetParsingName: [u16; 260],
@@ -20348,7 +20348,7 @@ pub type PFOLDERSETTINGS = *mut FOLDERSETTINGS;
 pub type PLACEHOLDER_STATES = u32;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PREVIEWHANDLERFRAMEINFO {
     pub haccel: super::windef::HACCEL,
     pub cAccelEntries: u32,
@@ -20474,7 +20474,7 @@ pub const SHCONTF_SHAREABLE: SHCONTF = 1024;
 pub const SHCONTF_STORAGE: SHCONTF = 2048;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SHDRAGIMAGE {
     pub sizeDragImage: super::windef::SIZE,
     pub ptOffset: super::windef::POINT,
@@ -20483,7 +20483,7 @@ pub struct SHDRAGIMAGE {
 }
 pub type SHELLVIEWID = windows_core::GUID;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SHELL_ITEM_RESOURCE {
     pub guidType: windows_core::GUID,
     pub szName: [u16; 260],
@@ -20564,7 +20564,7 @@ pub const SMAE_USER: u32 = 4;
 pub const SMAE_VALID: u32 = 7;
 #[repr(C)]
 #[cfg(feature = "shtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMCSHCHANGENOTIFYSTRUCT {
     pub lEvent: i32,
     pub pidl1: super::shtypes::LPCITEMIDLIST,
@@ -20598,7 +20598,7 @@ pub const SMC_SFSELECTITEM: u32 = 10;
 pub const SMC_SHCHANGENOTIFY: u32 = 46;
 #[repr(C)]
 #[cfg(all(feature = "shtypes", feature = "windef"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SMDATA {
     pub dwMask: u32,
     pub dwFlags: u32,
@@ -20639,7 +20639,7 @@ pub const SMIM_FLAGS: tagSMINFOMASK = 2;
 pub const SMIM_ICON: tagSMINFOMASK = 4;
 pub const SMIM_TYPE: tagSMINFOMASK = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SMINFO {
     pub dwMask: u32,
     pub dwType: u32,
@@ -20664,7 +20664,7 @@ pub const SMSET_DONTOWN: u32 = 1;
 pub const SMSET_TOP: u32 = 268435456;
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SORTCOLUMN {
     pub propkey: super::wtypes::PROPERTYKEY,
     pub direction: SORTDIRECTION,
@@ -20778,7 +20778,7 @@ pub const STS_TRANSFERRING: SYNC_TRANSFER_STATUS = 4;
 pub const STS_USER_REQUESTED_REFRESH: SYNC_TRANSFER_STATUS = 64;
 #[repr(C)]
 #[cfg(all(feature = "oleidl", feature = "windef"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SV2CVW2_PARAMS {
     pub cbSize: u32,
     pub psvPrev: core::mem::ManuallyDrop<Option<IShellView>>,
@@ -20853,7 +20853,7 @@ pub const THB_ICON: THUMBBUTTONMASK = 2;
 pub const THB_TOOLTIP: THUMBBUTTONMASK = 4;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct THUMBBUTTON {
     pub dwMask: THUMBBUTTONMASK,
     pub iId: u32,

@@ -610,7 +610,7 @@ impl IntoIterator for &ResourceContextLanguagesVectorView {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ResourceLayoutInfo {
     pub MajorVersion: u32,
     pub MinorVersion: u32,

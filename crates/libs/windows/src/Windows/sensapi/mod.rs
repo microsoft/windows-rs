@@ -25,7 +25,7 @@ pub const NETWORK_ALIVE_INTERNET: u32 = 8;
 pub const NETWORK_ALIVE_LAN: u32 = 1;
 pub const NETWORK_ALIVE_WAN: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QOCINFO {
     pub dwSize: u32,
     pub dwFlags: u32,

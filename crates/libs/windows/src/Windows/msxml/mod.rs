@@ -12645,7 +12645,7 @@ windows_core::imp::define_interface!(IXMLError, IXMLError_Vtbl, 0x948c5ad3_c58d_
 windows_core::imp::interface_hierarchy!(IXMLError, windows_core::IUnknown);
 impl IXMLError {
     pub unsafe fn GetErrorInfo(&self, perrorreturn: *mut XML_ERROR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(perrorreturn)) }
+        unsafe { (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), perrorreturn) }
     }
 }
 #[repr(C)]
@@ -14480,7 +14480,7 @@ pub const XHR_AUTH_ALL: XHR_AUTH = 0;
 pub const XHR_AUTH_NONE: XHR_AUTH = 1;
 pub const XHR_AUTH_PROXY: XHR_AUTH = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XHR_CERT {
     pub cbCert: u32,
     pub pbCert: *mut u8,
@@ -14504,7 +14504,7 @@ pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = 128;
 pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = 256;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XHR_COOKIE {
     pub pwszUrl: *mut u16,
     pub pwszName: *mut u16,
@@ -14602,7 +14602,7 @@ pub const XMLHTTP60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a
 pub const XMLHTTPRequest: windows_core::GUID = windows_core::GUID::from_u128(0xed8c108e_4349_11d2_91a4_00c04f7969e8);
 pub const XMLSchemaCache60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a07_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct XML_ERROR {
     pub _nLine: u32,
     pub _pchBuf: core::mem::ManuallyDrop<windows_core::BSTR>,
@@ -14615,7 +14615,7 @@ pub struct XML_ERROR {
 }
 pub const XSLTemplate60: windows_core::GUID = windows_core::GUID::from_u128(0x88d96a08_f192_11d4_a65f_0040963251e5);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct __msxml6_ReferenceRemainingTypes__ {
     pub __tagDomNodeType__: DOMNodeType,
     pub __domNodeType__: DOMNodeType,

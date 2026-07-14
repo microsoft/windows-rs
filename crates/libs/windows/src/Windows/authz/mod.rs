@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn AuthzAccessCheck(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: Option<AUTHZ_AUDIT_EVENT_HANDLE>, psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: Option<&[super::winnt::PSECURITY_DESCRIPTOR]>, preply: *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults: Option<*mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE>) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzAccessCheck(flags : u32, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : *const AUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray : *const super::winnt::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount : u32, preply : *mut AUTHZ_ACCESS_REPLY, phaccesscheckresults : *mut AUTHZ_ACCESS_CHECK_RESULTS_HANDLE) -> windows_core::BOOL);
-    unsafe { AuthzAccessCheck(flags, hauthzclientcontext, prequest, hauditevent.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor, core::mem::transmute(optionalsecuritydescriptorarray.map_or(core::ptr::null(), |slice| slice.as_ptr())), optionalsecuritydescriptorarray.map_or(0, |slice| slice.len().try_into().unwrap()), preply as _, phaccesscheckresults.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AuthzAccessCheck(flags, hauthzclientcontext, prequest, hauditevent.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor, optionalsecuritydescriptorarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), optionalsecuritydescriptorarray.map_or(0, |slice| slice.len().try_into().unwrap()), preply as _, phaccesscheckresults.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -66,19 +66,19 @@ pub unsafe fn AuthzInitializeCompoundContext(usercontext: AUTHZ_CLIENT_CONTEXT_H
 #[inline]
 pub unsafe fn AuthzInitializeContextFromAuthzContext(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime: Option<*const i64>, identifier: super::winnt::LUID, dynamicgroupargs: *const core::ffi::c_void, phnewauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromAuthzContext(flags : u32, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, pexpirationtime : *const i64, identifier : super::winnt::LUID, dynamicgroupargs : *const core::ffi::c_void, phnewauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
-    unsafe { AuthzInitializeContextFromAuthzContext(flags, hauthzclientcontext, pexpirationtime.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(identifier), dynamicgroupargs, phnewauthzclientcontext as _) }
+    unsafe { AuthzInitializeContextFromAuthzContext(flags, hauthzclientcontext, pexpirationtime.unwrap_or(core::mem::zeroed()) as _, identifier, dynamicgroupargs, phnewauthzclientcontext as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuthzInitializeContextFromSid(flags: u32, usersid: super::winnt::PSID, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: Option<*const i64>, identifier: super::winnt::LUID, dynamicgroupargs: Option<*const core::ffi::c_void>, phauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromSid(flags : u32, usersid : super::winnt::PSID, hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime : *const i64, identifier : super::winnt::LUID, dynamicgroupargs : *const core::ffi::c_void, phauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
-    unsafe { AuthzInitializeContextFromSid(flags, usersid, hauthzresourcemanager, pexpirationtime.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(identifier), dynamicgroupargs.unwrap_or(core::mem::zeroed()) as _, phauthzclientcontext as _) }
+    unsafe { AuthzInitializeContextFromSid(flags, usersid, hauthzresourcemanager, pexpirationtime.unwrap_or(core::mem::zeroed()) as _, identifier, dynamicgroupargs.unwrap_or(core::mem::zeroed()) as _, phauthzclientcontext as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuthzInitializeContextFromToken(flags: u32, tokenhandle: super::winnt::HANDLE, hauthzresourcemanager: AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime: Option<*const i64>, identifier: super::winnt::LUID, dynamicgroupargs: Option<*const core::ffi::c_void>, phauthzclientcontext: *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzInitializeContextFromToken(flags : u32, tokenhandle : super::winnt::HANDLE, hauthzresourcemanager : AUTHZ_RESOURCE_MANAGER_HANDLE, pexpirationtime : *const i64, identifier : super::winnt::LUID, dynamicgroupargs : *const core::ffi::c_void, phauthzclientcontext : *mut AUTHZ_CLIENT_CONTEXT_HANDLE) -> windows_core::BOOL);
-    unsafe { AuthzInitializeContextFromToken(flags, tokenhandle, hauthzresourcemanager, pexpirationtime.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(identifier), dynamicgroupargs.unwrap_or(core::mem::zeroed()) as _, phauthzclientcontext as _) }
+    unsafe { AuthzInitializeContextFromToken(flags, tokenhandle, hauthzresourcemanager, pexpirationtime.unwrap_or(core::mem::zeroed()) as _, identifier, dynamicgroupargs.unwrap_or(core::mem::zeroed()) as _, phauthzclientcontext as _) }
 }
 #[inline]
 pub unsafe fn AuthzInitializeObjectAccessAuditEvent<P2, P3, P4, P5>(flags: u32, hauditeventtype: AUTHZ_AUDIT_EVENT_TYPE_HANDLE, szoperationtype: P2, szobjecttype: P3, szobjectname: P4, szadditionalinfo: P5, phauditevent: *mut AUTHZ_AUDIT_EVENT_HANDLE, dwadditionalparametercount: u32) -> windows_core::BOOL
@@ -150,7 +150,7 @@ pub unsafe fn AuthzModifySids(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, 
 #[inline]
 pub unsafe fn AuthzOpenObjectAudit(flags: u32, hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, prequest: *const AUTHZ_ACCESS_REQUEST, hauditevent: AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor: super::winnt::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray: Option<&[super::winnt::PSECURITY_DESCRIPTOR]>, preply: *const AUTHZ_ACCESS_REPLY) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzOpenObjectAudit(flags : u32, hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, prequest : *const AUTHZ_ACCESS_REQUEST, hauditevent : AUTHZ_AUDIT_EVENT_HANDLE, psecuritydescriptor : super::winnt::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorarray : *const super::winnt::PSECURITY_DESCRIPTOR, optionalsecuritydescriptorcount : u32, preply : *const AUTHZ_ACCESS_REPLY) -> windows_core::BOOL);
-    unsafe { AuthzOpenObjectAudit(flags, hauthzclientcontext, prequest, hauditevent, psecuritydescriptor, core::mem::transmute(optionalsecuritydescriptorarray.map_or(core::ptr::null(), |slice| slice.as_ptr())), optionalsecuritydescriptorarray.map_or(0, |slice| slice.len().try_into().unwrap()), preply) }
+    unsafe { AuthzOpenObjectAudit(flags, hauthzclientcontext, prequest, hauditevent, psecuritydescriptor, optionalsecuritydescriptorarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), optionalsecuritydescriptorarray.map_or(0, |slice| slice.len().try_into().unwrap()), preply) }
 }
 #[cfg(feature = "minwinbase")]
 #[inline]
@@ -182,7 +182,7 @@ pub unsafe fn AuthzReportSecurityEventFromParams(dwflags: u32, heventprovider: A
 #[inline]
 pub unsafe fn AuthzSetAppContainerInformation(hauthzclientcontext: AUTHZ_CLIENT_CONTEXT_HANDLE, pappcontainersid: super::winnt::PSID, pcapabilitysids: Option<&[super::winnt::SID_AND_ATTRIBUTES]>) -> windows_core::BOOL {
     windows_core::link!("authz.dll" "system" fn AuthzSetAppContainerInformation(hauthzclientcontext : AUTHZ_CLIENT_CONTEXT_HANDLE, pappcontainersid : super::winnt::PSID, capabilitycount : u32, pcapabilitysids : *const super::winnt::SID_AND_ATTRIBUTES) -> windows_core::BOOL);
-    unsafe { AuthzSetAppContainerInformation(hauthzclientcontext, pappcontainersid, pcapabilitysids.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcapabilitysids.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { AuthzSetAppContainerInformation(hauthzclientcontext, pappcontainersid, pcapabilitysids.map_or(0, |slice| slice.len().try_into().unwrap()), pcapabilitysids.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[inline]
 pub unsafe fn AuthzUninstallSecurityEventSource<P1>(dwflags: u32, szeventsourcename: P1) -> windows_core::BOOL
@@ -213,7 +213,7 @@ impl Default for AUTHZ_ACCESS_CHECK_RESULTS_HANDLE {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_ACCESS_REPLY {
     pub ResultListLength: u32,
     pub GrantedAccessMask: super::winnt::PACCESS_MASK,
@@ -222,7 +222,7 @@ pub struct AUTHZ_ACCESS_REPLY {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_ACCESS_REQUEST {
     pub DesiredAccess: super::winnt::ACCESS_MASK,
     pub PrincipalSelfSid: super::winnt::PSID,
@@ -291,7 +291,7 @@ pub const AUTHZ_NO_ALLOC_STRINGS: u32 = 4;
 pub const AUTHZ_NO_FAILURE_AUDIT: u32 = 2;
 pub const AUTHZ_NO_SUCCESS_AUDIT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_REGISTRATION_OBJECT_TYPE_NAME_OFFSET {
     pub szObjectTypeName: windows_core::PWSTR,
     pub dwOffset: u32,
@@ -309,7 +309,7 @@ pub const AUTHZ_RM_FLAG_INITIALIZE_UNDER_IMPERSONATION: u32 = 2;
 pub const AUTHZ_RM_FLAG_NO_AUDIT: u32 = 1;
 pub const AUTHZ_RM_FLAG_NO_CENTRAL_ACCESS_POLICIES: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_RPC_INIT_INFO_CLIENT {
     pub version: u16,
     pub ObjectUuid: windows_core::PWSTR,
@@ -350,14 +350,14 @@ impl Default for AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_0 {
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1;
 pub const AUTHZ_SECURITY_ATTRIBUTES_INFORMATION_VERSION_V1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
     pub pName: windows_core::PWSTR,
 }
 pub const AUTHZ_SECURITY_ATTRIBUTE_NON_INHERITABLE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct AUTHZ_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut core::ffi::c_void,
     pub ValueLength: u32,

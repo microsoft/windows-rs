@@ -29,7 +29,7 @@ where
     windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceHost2(pszlocalid : windows_core::PCWSTR, pcontext : *mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdevicehost : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WSDCreateDeviceHost2(pszlocalid.param().abi(), pcontext.param().abi(), core::mem::transmute(pconfigparams.map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        WSDCreateDeviceHost2(pszlocalid.param().abi(), pcontext.param().abi(), pconfigparams.map_or(core::ptr::null(), |slice| slice.as_ptr()), pconfigparams.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -67,7 +67,7 @@ where
     windows_core::link!("wsdapi.dll" "system" fn WSDCreateDeviceProxy2(pszdeviceid : windows_core::PCWSTR, pszlocalid : windows_core::PCWSTR, pcontext : *mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppdeviceproxy : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WSDCreateDeviceProxy2(pszdeviceid.param().abi(), pszlocalid.param().abi(), pcontext.param().abi(), core::mem::transmute(pconfigparams.map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        WSDCreateDeviceProxy2(pszdeviceid.param().abi(), pszlocalid.param().abi(), pcontext.param().abi(), pconfigparams.map_or(core::ptr::null(), |slice| slice.as_ptr()), pconfigparams.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -103,7 +103,7 @@ where
     windows_core::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryProvider2(pcontext : *mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, ppprovider : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WSDCreateDiscoveryProvider2(pcontext.param().abi(), core::mem::transmute(pconfigparams.map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        WSDCreateDiscoveryProvider2(pcontext.param().abi(), pconfigparams.map_or(core::ptr::null(), |slice| slice.as_ptr()), pconfigparams.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -125,7 +125,7 @@ where
     windows_core::link!("wsdapi.dll" "system" fn WSDCreateDiscoveryPublisher2(pcontext : *mut core::ffi::c_void, pconfigparams : *const WSD_CONFIG_PARAM, dwconfigparamcount : u32, pppublisher : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WSDCreateDiscoveryPublisher2(pcontext.param().abi(), core::mem::transmute(pconfigparams.map_or(core::ptr::null(), |slice| slice.as_ptr())), pconfigparams.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        WSDCreateDiscoveryPublisher2(pcontext.param().abi(), pconfigparams.map_or(core::ptr::null(), |slice| slice.as_ptr()), pconfigparams.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -310,7 +310,7 @@ windows_core::imp::define_interface!(IWSDAddress, IWSDAddress_Vtbl, 0xb9574c6c_1
 windows_core::imp::interface_hierarchy!(IWSDAddress, windows_core::IUnknown);
 impl IWSDAddress {
     pub unsafe fn Serialize(&self, pszbuffer: &mut [u16], fsafe: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.into()) }
+        unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pszbuffer.as_mut_ptr()), pszbuffer.len().try_into().unwrap(), fsafe.into()) }
     }
     pub unsafe fn Deserialize<P0>(&self, pszbuffer: P0) -> windows_core::HRESULT
     where
@@ -417,7 +417,7 @@ impl IWSDAsyncResult {
         unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetEvent(&self, pevent: *mut WSD_EVENT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(pevent)) }
+        unsafe { (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), pevent) }
     }
     pub unsafe fn GetEndpointProxy(&self) -> windows_core::Result<IWSDEndpointProxy> {
         unsafe {
@@ -1579,7 +1579,7 @@ impl core::ops::Deref for IWSDInboundAttachment {
 windows_core::imp::interface_hierarchy!(IWSDInboundAttachment, windows_core::IUnknown, IWSDAttachment);
 impl IWSDInboundAttachment {
     pub unsafe fn Read(&self, pbuffer: &mut [u8], pdwnumberofbytesread: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), pdwnumberofbytesread as _) }
+        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pbuffer.as_mut_ptr(), pbuffer.len().try_into().unwrap(), pdwnumberofbytesread as _) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
@@ -1784,7 +1784,7 @@ impl IWSDOutboundAttachment {
     pub unsafe fn Write(&self, pbuffer: &[u8]) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pbuffer.as_ptr(), pbuffer.len().try_into().unwrap(), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
@@ -2210,7 +2210,7 @@ impl IWSDServiceProxyEventing {
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), punknown.param().abi(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, ppexpires as _, ppany as _) }
+        unsafe { (windows_core::Interface::vtable(self).SubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), punknown.param().abi(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, ppexpires as _, ppany as _) }
     }
     pub unsafe fn BeginSubscribeToMultipleOperations<P2, P5, P6>(&self, poperations: &[WSD_OPERATION], punknown: P2, pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P5, pasynccallback: P6) -> windows_core::Result<IWSDAsyncResult>
     where
@@ -2220,17 +2220,17 @@ impl IWSDServiceProxyEventing {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginSubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), punknown.param().abi(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginSubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), punknown.param().abi(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EndSubscribeToMultipleOperations<P2>(&self, poperations: &[WSD_OPERATION], presult: P2, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IWSDAsyncResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndSubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.param().abi(), ppexpires as _, ppany as _) }
+        unsafe { (windows_core::Interface::vtable(self).EndSubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), presult.param().abi(), ppexpires as _, ppany as _) }
     }
     pub unsafe fn UnsubscribeToMultipleOperations(&self, poperations: &[WSD_OPERATION], pany: *const WSDXML_ELEMENT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), pany) }
+        unsafe { (windows_core::Interface::vtable(self).UnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), pany) }
     }
     pub unsafe fn BeginUnsubscribeToMultipleOperations<P3, P4>(&self, poperations: &[WSD_OPERATION], pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P3, pasynccallback: P4) -> windows_core::Result<IWSDAsyncResult>
     where
@@ -2239,17 +2239,17 @@ impl IWSDServiceProxyEventing {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginUnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginUnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EndUnsubscribeToMultipleOperations<P2>(&self, poperations: &[WSD_OPERATION], presult: P2) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IWSDAsyncResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndUnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).EndUnsubscribeToMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), presult.param().abi()) }
     }
     pub unsafe fn RenewMultipleOperations(&self, poperations: &[WSD_OPERATION], pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RenewMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, ppexpires as _, ppany as _) }
+        unsafe { (windows_core::Interface::vtable(self).RenewMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, ppexpires as _, ppany as _) }
     }
     pub unsafe fn BeginRenewMultipleOperations<P4, P5>(&self, poperations: &[WSD_OPERATION], pexpires: Option<*const WSD_EVENTING_EXPIRES>, pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P4, pasynccallback: P5) -> windows_core::Result<IWSDAsyncResult>
     where
@@ -2258,17 +2258,17 @@ impl IWSDServiceProxyEventing {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginRenewMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginRenewMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), pexpires.unwrap_or(core::mem::zeroed()) as _, pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EndRenewMultipleOperations<P2>(&self, poperations: &[WSD_OPERATION], presult: P2, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IWSDAsyncResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndRenewMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.param().abi(), ppexpires as _, ppany as _) }
+        unsafe { (windows_core::Interface::vtable(self).EndRenewMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), presult.param().abi(), ppexpires as _, ppany as _) }
     }
     pub unsafe fn GetStatusForMultipleOperations(&self, poperations: &[WSD_OPERATION], pany: Option<*const WSDXML_ELEMENT>, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), pany.unwrap_or(core::mem::zeroed()) as _, ppexpires as _, ppany as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), pany.unwrap_or(core::mem::zeroed()) as _, ppexpires as _, ppany as _) }
     }
     pub unsafe fn BeginGetStatusForMultipleOperations<P3, P4>(&self, poperations: &[WSD_OPERATION], pany: Option<*const WSDXML_ELEMENT>, pasyncstate: P3, pasynccallback: P4) -> windows_core::Result<IWSDAsyncResult>
     where
@@ -2277,14 +2277,14 @@ impl IWSDServiceProxyEventing {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BeginGetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BeginGetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), pany.unwrap_or(core::mem::zeroed()) as _, pasyncstate.param().abi(), pasynccallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn EndGetStatusForMultipleOperations<P2>(&self, poperations: &[WSD_OPERATION], presult: P2, ppexpires: *mut *mut WSD_EVENTING_EXPIRES, ppany: *mut *mut WSDXML_ELEMENT) -> windows_core::HRESULT
     where
         P2: windows_core::Param<IWSDAsyncResult>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EndGetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), core::mem::transmute(poperations.as_ptr()), poperations.len().try_into().unwrap(), presult.param().abi(), ppexpires as _, ppany as _) }
+        unsafe { (windows_core::Interface::vtable(self).EndGetStatusForMultipleOperations)(windows_core::Interface::as_raw(self), poperations.as_ptr(), poperations.len().try_into().unwrap(), presult.param().abi(), ppexpires as _, ppany as _) }
     }
 }
 #[repr(C)]
@@ -2917,10 +2917,10 @@ impl IWSDXMLContext {
         }
     }
     pub unsafe fn SetNamespaces(&self, pnamespaces: &[PCWSDXML_NAMESPACE], blayernumber: u8) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetNamespaces)(windows_core::Interface::as_raw(self), core::mem::transmute(pnamespaces.as_ptr()), pnamespaces.len().try_into().unwrap(), blayernumber) }
+        unsafe { (windows_core::Interface::vtable(self).SetNamespaces)(windows_core::Interface::as_raw(self), pnamespaces.as_ptr(), pnamespaces.len().try_into().unwrap(), blayernumber) }
     }
     pub unsafe fn SetTypes(&self, ptypes: &[PCWSDXML_TYPE], blayernumber: u8) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTypes)(windows_core::Interface::as_raw(self), core::mem::transmute(ptypes.as_ptr()), ptypes.len().try_into().unwrap(), blayernumber) }
+        unsafe { (windows_core::Interface::vtable(self).SetTypes)(windows_core::Interface::as_raw(self), ptypes.as_ptr(), ptypes.len().try_into().unwrap(), blayernumber) }
     }
 }
 #[repr(C)]
@@ -3904,7 +3904,7 @@ pub type PWSD_SECURITY_HTTP_AUTH_SCHEMES = *mut u32;
 pub type PWSD_SECURITY_SIGNATURE_VALIDATION = *mut WSD_SECURITY_SIGNATURE_VALIDATION;
 pub type PWSD_SOAP_MESSAGE_HANDLER = Option<unsafe extern "system" fn(thisunknown: windows_core::Ref<windows_core::IUnknown>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REQUESTBODY_GetStatus {
     pub Any: *mut WSDXML_ELEMENT,
 }
@@ -3914,7 +3914,7 @@ impl Default for REQUESTBODY_GetStatus {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REQUESTBODY_Renew {
     pub Expires: *mut WSD_EVENTING_EXPIRES,
     pub Any: *mut WSDXML_ELEMENT,
@@ -3925,7 +3925,7 @@ impl Default for REQUESTBODY_Renew {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REQUESTBODY_Subscribe {
     pub EndTo: *mut WSD_ENDPOINT_REFERENCE,
     pub Delivery: *mut WSD_EVENTING_DELIVERY_MODE,
@@ -3939,7 +3939,7 @@ impl Default for REQUESTBODY_Subscribe {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REQUESTBODY_Unsubscribe {
     pub any: *mut WSDXML_ELEMENT,
 }
@@ -3949,7 +3949,7 @@ impl Default for REQUESTBODY_Unsubscribe {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESPONSEBODY_GetMetadata {
     pub Metadata: *mut WSD_METADATA_SECTION_LIST,
 }
@@ -3959,7 +3959,7 @@ impl Default for RESPONSEBODY_GetMetadata {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESPONSEBODY_GetStatus {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
@@ -3970,7 +3970,7 @@ impl Default for RESPONSEBODY_GetStatus {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESPONSEBODY_Renew {
     pub expires: *mut WSD_EVENTING_EXPIRES,
     pub any: *mut WSDXML_ELEMENT,
@@ -3981,7 +3981,7 @@ impl Default for RESPONSEBODY_Renew {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESPONSEBODY_Subscribe {
     pub SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
     pub expires: *mut WSD_EVENTING_EXPIRES,
@@ -3993,7 +3993,7 @@ impl Default for RESPONSEBODY_Subscribe {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RESPONSEBODY_SubscriptionEnd {
     pub SubscriptionManager: *mut WSD_ENDPOINT_REFERENCE,
     pub Status: *const u16,
@@ -4145,7 +4145,7 @@ pub const WSDISCO_Types: u32 = 131079;
 pub const WSDISCO_XAddrs: u32 = 131088;
 pub type WSDUdpMessageType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSDUdpRetransmitParams {
     pub ulSendDelay: u32,
     pub ulRepeat: u32,
@@ -4154,7 +4154,7 @@ pub struct WSDUdpRetransmitParams {
     pub ulRepeatUpperDelay: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_ATTRIBUTE {
     pub Element: *mut WSDXML_ELEMENT,
     pub Next: *mut Self,
@@ -4167,7 +4167,7 @@ impl Default for WSDXML_ATTRIBUTE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_ELEMENT {
     pub Node: WSDXML_NODE,
     pub Name: *mut WSDXML_NAME,
@@ -4181,7 +4181,7 @@ impl Default for WSDXML_ELEMENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_ELEMENT_LIST {
     pub Next: *mut Self,
     pub Element: *mut WSDXML_ELEMENT,
@@ -4192,7 +4192,7 @@ impl Default for WSDXML_ELEMENT_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_NAME {
     pub Space: *mut WSDXML_NAMESPACE,
     pub LocalName: *mut u16,
@@ -4203,7 +4203,7 @@ impl Default for WSDXML_NAME {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_NAMESPACE {
     pub Uri: *const u16,
     pub PreferredPrefix: *const u16,
@@ -4217,7 +4217,7 @@ impl Default for WSDXML_NAMESPACE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_NODE {
     pub Type: i32,
     pub Parent: *mut WSDXML_ELEMENT,
@@ -4229,7 +4229,7 @@ impl Default for WSDXML_NODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_PREFIX_MAPPING {
     pub Refs: u32,
     pub Next: *mut Self,
@@ -4242,7 +4242,7 @@ impl Default for WSDXML_PREFIX_MAPPING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_TEXT {
     pub Node: WSDXML_NODE,
     pub Text: *mut u16,
@@ -4253,7 +4253,7 @@ impl Default for WSDXML_TEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSDXML_TYPE {
     pub Uri: *const u16,
     pub Table: *const u8,
@@ -4264,7 +4264,7 @@ impl Default for WSDXML_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_APP_SEQUENCE {
     pub InstanceId: u64,
     pub SequenceId: *const u16,
@@ -4277,7 +4277,7 @@ impl Default for WSD_APP_SEQUENCE {
 }
 pub const WSD_Actions: u32 = 327682;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_BYE {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Any: *mut WSDXML_ELEMENT,
@@ -4288,7 +4288,7 @@ impl Default for WSD_BYE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_CONFIG_ADDRESSES {
     pub addresses: *mut Option<IWSDAddress>,
     pub dwAddressCount: u32,
@@ -4303,7 +4303,7 @@ pub const WSD_CONFIG_HOSTING_ADDRESSES: WSD_CONFIG_PARAM_TYPE = 9;
 pub const WSD_CONFIG_MAX_INBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 1;
 pub const WSD_CONFIG_MAX_OUTBOUND_MESSAGE_SIZE: WSD_CONFIG_PARAM_TYPE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_CONFIG_PARAM {
     pub configParamType: WSD_CONFIG_PARAM_TYPE,
     pub pConfigData: *mut core::ffi::c_void,
@@ -4316,7 +4316,7 @@ impl Default for WSD_CONFIG_PARAM {
 }
 pub type WSD_CONFIG_PARAM_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSD_DATETIME {
     pub isPositive: windows_core::BOOL,
     pub year: u32,
@@ -4335,7 +4335,7 @@ pub const WSD_DEFAULT_EVENTING_ADDRESS: windows_core::PCWSTR = windows_core::w!(
 pub const WSD_DEFAULT_HOSTING_ADDRESS: windows_core::PCWSTR = windows_core::w!("http://*:5357/");
 pub const WSD_DEFAULT_SECURE_HOSTING_ADDRESS: windows_core::PCWSTR = windows_core::w!("https://*:5358/");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WSD_DURATION {
     pub isPositive: windows_core::BOOL,
     pub year: u32,
@@ -4349,7 +4349,7 @@ pub struct WSD_DURATION {
 pub const WSD_Data: u32 = 327701;
 pub const WSD_Device: u32 = 327680;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_ENDPOINT_REFERENCE {
     pub Address: *const u16,
     pub ReferenceProperties: WSD_REFERENCE_PROPERTIES,
@@ -4364,7 +4364,7 @@ impl Default for WSD_ENDPOINT_REFERENCE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_ENDPOINT_REFERENCE_LIST {
     pub Next: *mut Self,
     pub Element: *mut WSD_ENDPOINT_REFERENCE,
@@ -4391,7 +4391,7 @@ impl Default for WSD_EVENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_EVENTING_DELIVERY_MODE {
     pub Mode: *const u16,
     pub Push: *mut WSD_EVENTING_DELIVERY_MODE_PUSH,
@@ -4403,7 +4403,7 @@ impl Default for WSD_EVENTING_DELIVERY_MODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_EVENTING_DELIVERY_MODE_PUSH {
     pub NotifyTo: *mut WSD_ENDPOINT_REFERENCE,
 }
@@ -4413,7 +4413,7 @@ impl Default for WSD_EVENTING_DELIVERY_MODE_PUSH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_EVENTING_EXPIRES {
     pub Duration: *mut WSD_DURATION,
     pub DateTime: *mut WSD_DATETIME,
@@ -4424,7 +4424,7 @@ impl Default for WSD_EVENTING_EXPIRES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_EVENTING_FILTER {
     pub Dialect: *const u16,
     pub FilterAction: *mut WSD_EVENTING_FILTER_ACTION,
@@ -4436,7 +4436,7 @@ impl Default for WSD_EVENTING_FILTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_EVENTING_FILTER_ACTION {
     pub Actions: *mut WSD_URI_LIST,
 }
@@ -4462,7 +4462,7 @@ impl Default for WSD_HANDLER_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_HEADER_RELATESTO {
     pub RelationshipType: *mut WSDXML_NAME,
     pub MessageID: *const u16,
@@ -4473,7 +4473,7 @@ impl Default for WSD_HEADER_RELATESTO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_HELLO {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -4488,7 +4488,7 @@ impl Default for WSD_HELLO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_HOST_METADATA {
     pub Host: *mut WSD_SERVICE_METADATA,
     pub Hosted: *mut WSD_SERVICE_METADATA_LIST,
@@ -4501,7 +4501,7 @@ impl Default for WSD_HOST_METADATA {
 pub const WSD_Host: u32 = 327697;
 pub const WSD_Hosted: u32 = 327698;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_LOCALIZED_STRING {
     pub lang: *const u16,
     pub String: *const u16,
@@ -4512,7 +4512,7 @@ impl Default for WSD_LOCALIZED_STRING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_LOCALIZED_STRING_LIST {
     pub Next: *mut Self,
     pub Element: *mut WSD_LOCALIZED_STRING,
@@ -4523,7 +4523,7 @@ impl Default for WSD_LOCALIZED_STRING_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_METADATA_SECTION {
     pub Dialect: *const u16,
     pub Identifier: *const u16,
@@ -4538,7 +4538,7 @@ impl Default for WSD_METADATA_SECTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_METADATA_SECTION_LIST {
     pub Next: *mut Self,
     pub Element: *mut WSD_METADATA_SECTION,
@@ -4554,7 +4554,7 @@ pub const WSD_ModelName: u32 = 327687;
 pub const WSD_ModelNumber: u32 = 327688;
 pub const WSD_ModelUrl: u32 = 327689;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_NAME_LIST {
     pub Next: *mut Self,
     pub Element: *mut WSDXML_NAME,
@@ -4577,7 +4577,7 @@ impl Default for WSD_OPERATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_PORT_TYPE {
     pub EncodedName: u32,
     pub OperationCount: u32,
@@ -4590,7 +4590,7 @@ impl Default for WSD_PORT_TYPE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_PROBE {
     pub Types: *mut WSD_NAME_LIST,
     pub Scopes: *mut WSD_SCOPES,
@@ -4602,7 +4602,7 @@ impl Default for WSD_PROBE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_PROBE_MATCH {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -4617,7 +4617,7 @@ impl Default for WSD_PROBE_MATCH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_PROBE_MATCHES {
     pub ProbeMatch: *mut WSD_PROBE_MATCH_LIST,
     pub Any: *mut WSDXML_ELEMENT,
@@ -4628,7 +4628,7 @@ impl Default for WSD_PROBE_MATCHES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_PROBE_MATCH_LIST {
     pub Next: *mut Self,
     pub Element: *mut WSD_PROBE_MATCH,
@@ -4646,7 +4646,7 @@ pub const WSD_PT_NONE: WSD_PROTOCOL_TYPE = 0;
 pub const WSD_PT_UDP: WSD_PROTOCOL_TYPE = 1;
 pub const WSD_PresentationUrl: u32 = 327690;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_REFERENCE_PARAMETERS {
     pub Any: *mut WSDXML_ELEMENT,
 }
@@ -4656,7 +4656,7 @@ impl Default for WSD_REFERENCE_PARAMETERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_REFERENCE_PROPERTIES {
     pub Any: *mut WSDXML_ELEMENT,
 }
@@ -4666,7 +4666,7 @@ impl Default for WSD_REFERENCE_PROPERTIES {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_RELATIONSHIP_METADATA {
     pub Type: *const u16,
     pub Data: *mut WSD_HOST_METADATA,
@@ -4678,7 +4678,7 @@ impl Default for WSD_RELATIONSHIP_METADATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_RESOLVE {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Any: *mut WSDXML_ELEMENT,
@@ -4689,7 +4689,7 @@ impl Default for WSD_RESOLVE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_RESOLVE_MATCH {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE,
     pub Types: *mut WSD_NAME_LIST,
@@ -4704,7 +4704,7 @@ impl Default for WSD_RESOLVE_MATCH {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_RESOLVE_MATCHES {
     pub ResolveMatch: *mut WSD_RESOLVE_MATCH,
     pub Any: *mut WSDXML_ELEMENT,
@@ -4716,7 +4716,7 @@ impl Default for WSD_RESOLVE_MATCHES {
 }
 pub const WSD_Relationship: u32 = 327699;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SCOPES {
     pub MatchBy: *const u16,
     pub Scopes: *mut WSD_URI_LIST,
@@ -4728,7 +4728,7 @@ impl Default for WSD_SCOPES {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SECURITY_CERT_VALIDATION {
     pub certMatchArray: *mut super::wincrypt::PCCERT_CONTEXT,
     pub dwCertMatchArrayCount: u32,
@@ -4747,7 +4747,7 @@ impl Default for WSD_SECURITY_CERT_VALIDATION {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SECURITY_CERT_VALIDATION_V1 {
     pub certMatchArray: *mut super::wincrypt::PCCERT_CONTEXT,
     pub dwCertMatchArrayCount: u32,
@@ -4772,7 +4772,7 @@ pub const WSD_SECURITY_REQUIRE_CLIENT_CERT_OR_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM
 pub const WSD_SECURITY_REQUIRE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 11;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "wincrypt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SECURITY_SIGNATURE_VALIDATION {
     pub signingCertArray: *mut super::wincrypt::PCCERT_CONTEXT,
     pub dwSigningCertArrayCount: u32,
@@ -4791,7 +4791,7 @@ pub const WSD_SECURITY_SSL_NEGOTIATE_CLIENT_CERT: WSD_CONFIG_PARAM_TYPE = 6;
 pub const WSD_SECURITY_SSL_SERVER_CERT_VALIDATION: WSD_CONFIG_PARAM_TYPE = 4;
 pub const WSD_SECURITY_USE_HTTP_CLIENT_AUTH: WSD_CONFIG_PARAM_TYPE = 13;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SERVICE_METADATA {
     pub EndpointReference: *mut WSD_ENDPOINT_REFERENCE_LIST,
     pub Types: *mut WSD_NAME_LIST,
@@ -4804,7 +4804,7 @@ impl Default for WSD_SERVICE_METADATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SERVICE_METADATA_LIST {
     pub Next: *mut Self,
     pub Element: *mut WSD_SERVICE_METADATA,
@@ -4815,7 +4815,7 @@ impl Default for WSD_SERVICE_METADATA_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SOAP_FAULT {
     pub Code: *mut WSD_SOAP_FAULT_CODE,
     pub Reason: *mut WSD_SOAP_FAULT_REASON,
@@ -4829,7 +4829,7 @@ impl Default for WSD_SOAP_FAULT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SOAP_FAULT_CODE {
     pub Value: *mut WSDXML_NAME,
     pub Subcode: *mut WSD_SOAP_FAULT_SUBCODE,
@@ -4840,7 +4840,7 @@ impl Default for WSD_SOAP_FAULT_CODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SOAP_FAULT_REASON {
     pub Text: *mut WSD_LOCALIZED_STRING_LIST,
 }
@@ -4850,7 +4850,7 @@ impl Default for WSD_SOAP_FAULT_REASON {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SOAP_FAULT_SUBCODE {
     pub Value: *mut WSDXML_NAME,
     pub Subcode: *mut Self,
@@ -4861,7 +4861,7 @@ impl Default for WSD_SOAP_FAULT_SUBCODE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SOAP_HEADER {
     pub To: *const u16,
     pub Action: *const u16,
@@ -4879,7 +4879,7 @@ impl Default for WSD_SOAP_HEADER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_SOAP_MESSAGE {
     pub Header: WSD_SOAP_HEADER,
     pub Body: *mut core::ffi::c_void,
@@ -4893,7 +4893,7 @@ impl Default for WSD_SOAP_MESSAGE {
 pub type WSD_STUB_FUNCTION = Option<unsafe extern "system" fn(server: windows_core::Ref<windows_core::IUnknown>, session: windows_core::Ref<IWSDServiceMessaging>, event: *mut WSD_EVENT) -> windows_core::HRESULT>;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
     pub hr: windows_core::HRESULT,
     pub eventHandle: super::winnt::HANDLE,
@@ -4909,7 +4909,7 @@ impl Default for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
 pub const WSD_SerialNumber: u32 = 327694;
 pub const WSD_ServiceId: u32 = 327696;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_THIS_DEVICE_METADATA {
     pub FriendlyName: *mut WSD_LOCALIZED_STRING_LIST,
     pub FirmwareVersion: *const u16,
@@ -4922,7 +4922,7 @@ impl Default for WSD_THIS_DEVICE_METADATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_THIS_MODEL_METADATA {
     pub Manufacturer: *mut WSD_LOCALIZED_STRING_LIST,
     pub ManufacturerUrl: *const u16,
@@ -4942,7 +4942,7 @@ pub const WSD_ThisModel: u32 = 327684;
 pub const WSD_Type: u32 = 327700;
 pub const WSD_Types: u32 = 327695;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_UNKNOWN_LOOKUP {
     pub Any: *mut WSDXML_ELEMENT,
 }
@@ -4952,7 +4952,7 @@ impl Default for WSD_UNKNOWN_LOOKUP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSD_URI_LIST {
     pub Next: *mut Self,
     pub Element: *const u16,

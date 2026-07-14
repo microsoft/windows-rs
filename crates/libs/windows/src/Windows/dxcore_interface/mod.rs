@@ -8,13 +8,13 @@ pub const DXCORE_HARDWARE_TYPE_ATTRIBUTE_GPU: windows_core::GUID = windows_core:
 pub const DXCORE_HARDWARE_TYPE_ATTRIBUTE_MEDIA_ACCELERATOR: windows_core::GUID = windows_core::GUID::from_u128(0x66bdb96a_050b_44c7_a4fd_d144ce0ab443);
 pub const DXCORE_HARDWARE_TYPE_ATTRIBUTE_NPU: windows_core::GUID = windows_core::GUID::from_u128(0xd46140c4_add7_451b_9e56_06fe8c3b58ed);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterEngineIndex {
     pub physicalAdapterIndex: u32,
     pub engineIndex: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterMemoryBudget {
     pub budget: u64,
     pub currentUsage: u64,
@@ -22,7 +22,7 @@ pub struct DXCoreAdapterMemoryBudget {
     pub currentReservation: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     pub nodeIndex: u32,
     pub segmentGroup: DXCoreSegmentGroup,
@@ -36,7 +36,7 @@ impl DXCoreAdapterPreference {
     pub const HighPerformance: Self = Self(2);
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXCoreAdapterProcessSetQueryInput {
     pub arraySize: u32,
     pub processIds: *mut u32,
@@ -47,7 +47,7 @@ impl Default for DXCoreAdapterProcessSetQueryInput {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreAdapterProcessSetQueryOutput {
     pub processesWritten: u32,
     pub processesTotal: u32,
@@ -93,7 +93,7 @@ impl DXCoreAdapterState {
     pub const SingleAdapterHybridMode: Self = Self(11);
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DXCoreEngineNamePropertyInput {
     pub adapterEngineIndex: DXCoreAdapterEngineIndex,
     pub engineNameLength: u32,
@@ -105,31 +105,31 @@ impl Default for DXCoreEngineNamePropertyInput {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreEngineNamePropertyOutput {
     pub engineNameLength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreEngineQueryInput {
     pub adapterEngineIndex: DXCoreAdapterEngineIndex,
     pub processId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreEngineQueryOutput {
     pub runningTime: u64,
     pub processQuerySucceeded: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreFrequencyQueryOutput {
     pub frequency: u64,
     pub maxFrequency: u64,
     pub maxOverclockedFrequency: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreHardwareID {
     pub vendorID: u32,
     pub deviceID: u32,
@@ -137,7 +137,7 @@ pub struct DXCoreHardwareID {
     pub revision: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreHardwareIDParts {
     pub vendorID: u32,
     pub deviceID: u32,
@@ -189,7 +189,7 @@ impl core::ops::Not for DXCoreHardwareTypeFilterFlags {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreMemoryQueryInput {
     pub physicalAdapterIndex: u32,
     pub memoryType: DXCoreMemoryType,
@@ -202,7 +202,7 @@ impl DXCoreMemoryType {
     pub const Shared: Self = Self(1);
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreMemoryUsage {
     pub committed: u64,
     pub resident: u64,
@@ -217,14 +217,14 @@ impl DXCoreNotificationType {
     pub const AdapterHardwareContentProtectionTeardown: Self = Self(3);
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreProcessMemoryQueryInput {
     pub physicalAdapterIndex: u32,
     pub memoryType: DXCoreMemoryType,
     pub processId: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DXCoreProcessMemoryQueryOutput {
     pub memoryUsage: DXCoreMemoryUsage,
     pub processQuerySucceeded: bool,
@@ -494,7 +494,7 @@ impl IDXCoreAdapterFactory {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateAdapterList)(windows_core::Interface::as_raw(self), filterattributes.len().try_into().unwrap(), core::mem::transmute(filterattributes.as_ptr()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateAdapterList)(windows_core::Interface::as_raw(self), filterattributes.len().try_into().unwrap(), filterattributes.as_ptr(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn GetAdapterByLuid<T>(&self, adapterluid: *const super::winnt::LUID) -> windows_core::Result<T>
@@ -663,7 +663,7 @@ impl IDXCoreAdapterList {
         unsafe { (windows_core::Interface::vtable(self).GetFactory)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn Sort(&self, preferences: &[DXCoreAdapterPreference]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), preferences.len().try_into().unwrap(), core::mem::transmute(preferences.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), preferences.len().try_into().unwrap(), preferences.as_ptr()) }
     }
     pub unsafe fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool {
         unsafe { (windows_core::Interface::vtable(self).IsAdapterPreferenceSupported)(windows_core::Interface::as_raw(self), preference) }

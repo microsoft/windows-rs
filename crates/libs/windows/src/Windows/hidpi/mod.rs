@@ -20,7 +20,7 @@ pub unsafe fn HidP_GetCaps(preparseddata: *const _HIDP_PREPARSED_DATA, capabilit
 #[inline]
 pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_GetData(reporttype, datalist as _, datalength as _, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetData(reporttype, datalist as _, datalength as _, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -62,13 +62,13 @@ pub unsafe fn HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super:
 #[inline]
 pub unsafe fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::hidusage::USAGE, linkcollection: Option<u16>, usage: super::hidusage::USAGE, usagevalue: &mut [u8], preparseddata: *const _HIDP_PREPARSED_DATA, report: &[u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : super::hidusage::USAGE, linkcollection : u16, usage : super::hidusage::USAGE, usagevalue : *mut i8, usagevaluebytelength : u16, preparseddata : *const _HIDP_PREPARSED_DATA, report : *const i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_GetUsageValueArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(usagevalue.as_ptr()), usagevalue.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetUsageValueArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(usagevalue.as_mut_ptr()), usagevalue.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "hidusage"))]
 #[inline]
 pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: super::hidusage::USAGE, linkcollection: Option<u16>, usagelist: *mut u16, usagelength: *mut u32, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : super::hidusage::USAGE, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_GetUsages(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usagelist as _, usagelength as _, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetUsages(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usagelist as _, usagelength as _, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "hidusage"))]
 #[inline]
@@ -86,7 +86,7 @@ pub unsafe fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HI
 #[inline]
 pub unsafe fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_InitializeReportForID(reporttype : HIDP_REPORT_TYPE, reportid : u8, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_InitializeReportForID(reporttype, reportid, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_InitializeReportForID(reporttype, reportid, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: *const _HIDP_PREPARSED_DATA) -> u32 {
@@ -103,7 +103,7 @@ pub unsafe fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: O
 #[inline]
 pub unsafe fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::hidusage::USAGE, linkcollection: Option<u16>, usage: super::hidusage::USAGE, buttondata: &[HIDP_BUTTON_ARRAY_DATA], preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : super::hidusage::USAGE, linkcollection : u16, usage : super::hidusage::USAGE, buttondata : *const HIDP_BUTTON_ARRAY_DATA, buttondatalength : u16, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_SetButtonArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(buttondata.as_ptr()), buttondata.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetButtonArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, buttondata.as_ptr(), buttondata.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -115,19 +115,19 @@ pub unsafe fn HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DAT
 #[inline]
 pub unsafe fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super::hidusage::USAGE, linkcollection: Option<u16>, usage: super::hidusage::USAGE, usagevalue: i32, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : super::hidusage::USAGE, linkcollection : u16, usage : super::hidusage::USAGE, usagevalue : i32, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_SetScaledUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetScaledUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "hidusage"))]
 #[inline]
 pub unsafe fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super::hidusage::USAGE, linkcollection: Option<u16>, usage: super::hidusage::USAGE, usagevalue: u32, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : super::hidusage::USAGE, linkcollection : u16, usage : super::hidusage::USAGE, usagevalue : u32, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_SetUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "hidusage"))]
 #[inline]
 pub unsafe fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::hidusage::USAGE, linkcollection: Option<u16>, usage: super::hidusage::USAGE, usagevalue: &[u8], preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : super::hidusage::USAGE, linkcollection : u16, usage : super::hidusage::USAGE, usagevalue : *const i8, usagevaluebytelength : u16, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_SetUsageValueArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(usagevalue.as_ptr()), usagevalue.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetUsageValueArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(usagevalue.as_ptr()), usagevalue.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "hidusage"))]
 #[inline]
@@ -139,7 +139,7 @@ pub unsafe fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: super::hid
 #[inline]
 pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: Option<*const core::ffi::c_void>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist : *const u16, usagelistlength : u32, keyaction : HIDP_KEYBOARD_DIRECTION, modifierstate : *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure : PHIDP_INSERT_SCANCODES, insertcodescontext : *const core::ffi::c_void) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_TranslateUsagesToI8042ScanCodes(core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len().try_into().unwrap(), keyaction, modifierstate as _, insertcodesprocedure, insertcodescontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { HidP_TranslateUsagesToI8042ScanCodes(changedusagelist.as_ptr(), changedusagelist.len().try_into().unwrap(), keyaction, modifierstate as _, insertcodesprocedure, insertcodescontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "bcrypt", feature = "hidusage"))]
 #[inline]
@@ -155,7 +155,7 @@ pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusa
 }
 pub const FACILITY_HID_ERROR_CODE: u32 = 17;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_BUTTON_ARRAY_DATA {
     pub ArrayIndex: u16,
     pub On: bool,
@@ -201,7 +201,7 @@ impl Default for HIDP_BUTTON_CAPS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_BUTTON_CAPS_0_0 {
     pub UsageMin: super::hidusage::USAGE,
     pub UsageMax: super::hidusage::USAGE,
@@ -214,7 +214,7 @@ pub struct HIDP_BUTTON_CAPS_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_BUTTON_CAPS_0_1 {
     pub Usage: super::hidusage::USAGE,
     pub Reserved1: super::hidusage::USAGE,
@@ -227,7 +227,7 @@ pub struct HIDP_BUTTON_CAPS_0_1 {
 }
 #[repr(C)]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIDP_CAPS {
     pub Usage: super::hidusage::USAGE,
     pub UsagePage: super::hidusage::USAGE,
@@ -277,7 +277,7 @@ impl Default for HIDP_DATA_0 {
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIDP_EXTENDED_ATTRIBUTES {
     pub NumGlobalUnknowns: u8,
     pub Reserved: [u8; 3],
@@ -328,14 +328,14 @@ impl Default for HIDP_KEYBOARD_MODIFIER_STATE_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIDP_LINK_COLLECTION_NODE {
     pub LinkUsage: super::hidusage::USAGE,
     pub LinkUsagePage: super::hidusage::USAGE,
@@ -399,7 +399,7 @@ pub const HIDP_STATUS_SUCCESS: u32 = 1114112;
 pub const HIDP_STATUS_USAGE_NOT_FOUND: i32 = -1072627708;
 pub const HIDP_STATUS_VALUE_OUT_OF_RANGE: i32 = -1072627707;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HIDP_UNKNOWN_TOKEN {
     pub Token: u8,
     pub Reserved: [u8; 3],
@@ -459,7 +459,7 @@ impl Default for HIDP_VALUE_CAPS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_VALUE_CAPS_0_0 {
     pub UsageMin: super::hidusage::USAGE,
     pub UsageMax: super::hidusage::USAGE,
@@ -472,7 +472,7 @@ pub struct HIDP_VALUE_CAPS_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIDP_VALUE_CAPS_0_1 {
     pub Usage: super::hidusage::USAGE,
     pub Reserved1: super::hidusage::USAGE,
@@ -511,11 +511,11 @@ pub type PHIDP_VALUE_CAPS = *mut HIDP_VALUE_CAPS;
 pub type PUSAGE_AND_PAGE = *mut USAGE_AND_PAGE;
 #[repr(C)]
 #[cfg(feature = "hidusage")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USAGE_AND_PAGE {
     pub Usage: super::hidusage::USAGE,
     pub UsagePage: super::hidusage::USAGE,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _HIDP_PREPARSED_DATA(pub u8);

@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn NetStatisticsGet(servername: super::winnt::LPTSTR, service: super::winnt::LPTSTR, level: u32, options: u32, buffer: *mut super::minwindef::LPBYTE) -> u32 {
     windows_core::link!("netapi32.dll" "system" fn NetStatisticsGet(servername : super::winnt::LPTSTR, service : super::winnt::LPTSTR, level : u32, options : u32, buffer : *mut super::minwindef::LPBYTE) -> u32);
-    unsafe { NetStatisticsGet(core::mem::transmute(servername), core::mem::transmute(service), level, options, buffer as _) }
+    unsafe { NetStatisticsGet(servername, service, level, options, buffer as _) }
 }
 pub type LPSTAT_SERVER_0 = *mut STAT_SERVER_0;
 pub type LPSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;
@@ -12,7 +12,7 @@ pub const STATSOPT_CLR: u32 = 1;
 pub const STATS_NO_VALUE: i32 = -1;
 pub const STATS_OVERFLOW: i32 = -2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STAT_SERVER_0 {
     pub sts0_start: u32,
     pub sts0_fopens: u32,
@@ -33,7 +33,7 @@ pub struct STAT_SERVER_0 {
     pub sts0_bigbufneed: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STAT_WORKSTATION_0 {
     pub StatisticsStartTime: i64,
     pub BytesReceived: i64,

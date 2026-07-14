@@ -51,7 +51,7 @@ pub const DRIVERSIGN_BLOCKING: u32 = 2;
 pub const DRIVERSIGN_NONE: u32 = 0;
 pub const DRIVERSIGN_WARNING: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DSKTLSYSTEMTIME {
     pub wYear: u16,
     pub wMonth: u16,

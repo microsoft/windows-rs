@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn NCryptCreateClaim(hsubjectkey: Option<NCRYPT_KEY_HANDLE>, hauthoritykey: Option<NCRYPT_KEY_HANDLE>, dwclaimtype: u32, pparameterlist: Option<*const NCryptBufferDesc>, pbclaimblob: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptCreateClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : u32, pparameterlist : *const NCryptBufferDesc, pbclaimblob : *mut u8, cbclaimblob : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptCreateClaim(hsubjectkey.unwrap_or(core::mem::zeroed()) as _, hauthoritykey.unwrap_or(core::mem::zeroed()) as _, dwclaimtype, pparameterlist.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbclaimblob.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbclaimblob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptCreateClaim(hsubjectkey.unwrap_or(core::mem::zeroed()) as _, hauthoritykey.unwrap_or(core::mem::zeroed()) as _, dwclaimtype, pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbclaimblob.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbclaimblob.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptCreatePersistedKey<P2, P3>(hprovider: NCRYPT_PROV_HANDLE, phkey: *mut NCRYPT_KEY_HANDLE, pszalgid: P2, pszkeyname: P3, dwlegacykeyspec: u32, dwflags: u32) -> SECURITY_STATUS
@@ -16,12 +16,12 @@ where
 #[inline]
 pub unsafe fn NCryptDecapsulate(hkey: NCRYPT_KEY_HANDLE, pbciphertext: &[u8], pbsecretkey: Option<&mut [u8]>, pcbsecretkey: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptDecapsulate(hkey : NCRYPT_KEY_HANDLE, pbciphertext : *const u8, cbciphertext : u32, pbsecretkey : *mut u8, cbsecretkey : u32, pcbsecretkey : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptDecapsulate(hkey, core::mem::transmute(pbciphertext.as_ptr()), pbciphertext.len().try_into().unwrap(), core::mem::transmute(pbsecretkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsecretkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsecretkey as _, dwflags) }
+    unsafe { NCryptDecapsulate(hkey, pbciphertext.as_ptr(), pbciphertext.len().try_into().unwrap(), pbsecretkey.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbsecretkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsecretkey as _, dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptDecrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptDecrypt(hkey : NCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptDecrypt(hkey, core::mem::transmute(pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptDecrypt(hkey, pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptDeleteKey(hkey: NCRYPT_KEY_HANDLE, dwflags: u32) -> SECURITY_STATUS {
@@ -35,17 +35,17 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ncrypt.dll" "system" fn NCryptDeriveKey(hsharedsecret : NCRYPT_SECRET_HANDLE, pwszkdf : windows_core::PCWSTR, pparameterlist : *const NCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptDeriveKey(hsharedsecret, pwszkdf.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbderivedkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbderivedkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptDeriveKey(hsharedsecret, pwszkdf.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbderivedkey.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbderivedkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptEncapsulate(hkey: NCRYPT_KEY_HANDLE, pbsecretkey: Option<&mut [u8]>, pcbsecretkey: *mut u32, pbciphertext: Option<&mut [u8]>, pcbciphertext: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptEncapsulate(hkey : NCRYPT_KEY_HANDLE, pbsecretkey : *mut u8, cbsecretkey : u32, pcbsecretkey : *mut u32, pbciphertext : *mut u8, cbciphertext : u32, pcbciphertext : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptEncapsulate(hkey, core::mem::transmute(pbsecretkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsecretkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsecretkey as _, core::mem::transmute(pbciphertext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbciphertext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbciphertext as _, dwflags) }
+    unsafe { NCryptEncapsulate(hkey, pbsecretkey.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbsecretkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsecretkey as _, pbciphertext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbciphertext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbciphertext as _, dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptEncrypt(hkey: NCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptEncrypt(hkey : NCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, ppaddinginfo : *const core::ffi::c_void, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptEncrypt(hkey, core::mem::transmute(pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptEncrypt(hkey, pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbinput.map_or(0, |slice| slice.len().try_into().unwrap()), ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptEnumAlgorithms(hprovider: NCRYPT_PROV_HANDLE, dwalgoperations: u32, pdwalgcount: *mut u32, ppalglist: *mut *mut NCryptAlgorithmName, dwflags: u32) -> SECURITY_STATUS {
@@ -72,7 +72,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ncrypt.dll" "system" fn NCryptExportKey(hkey : NCRYPT_KEY_HANDLE, hexportkey : NCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, pparameterlist : *const NCryptBufferDesc, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptExportKey(hkey, hexportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptExportKey(hkey, hexportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptFinalizeKey(hkey: NCRYPT_KEY_HANDLE, dwflags: u32) -> SECURITY_STATUS {
@@ -95,7 +95,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ncrypt.dll" "system" fn NCryptGetProperty(hobject : NCRYPT_HANDLE, pszproperty : windows_core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptGetProperty(hobject, pszproperty.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptGetProperty(hobject, pszproperty.param().abi(), pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -104,7 +104,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ncrypt.dll" "system" fn NCryptImportKey(hprovider : NCRYPT_PROV_HANDLE, himportkey : NCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, pparameterlist : *const NCryptBufferDesc, phkey : *mut NCRYPT_KEY_HANDLE, pbdata : *const u8, cbdata : u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptImportKey(hprovider, himportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, phkey as _, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), dwflags) }
+    unsafe { NCryptImportKey(hprovider, himportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, phkey as _, pbdata.as_ptr(), pbdata.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptIsAlgSupported<P1>(hprovider: NCRYPT_PROV_HANDLE, pszalgid: P1, dwflags: u32) -> SECURITY_STATUS
@@ -123,7 +123,7 @@ pub unsafe fn NCryptIsKeyHandle(hkey: NCRYPT_KEY_HANDLE) -> windows_core::BOOL {
 #[inline]
 pub unsafe fn NCryptKeyDerivation(hkey: NCRYPT_KEY_HANDLE, pparameterlist: Option<*const NCryptBufferDesc>, pbderivedkey: &mut [u8], pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptKeyDerivation(hkey : NCRYPT_KEY_HANDLE, pparameterlist : *const NCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptKeyDerivation(hkey, pparameterlist.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbderivedkey.as_ptr()), pbderivedkey.len().try_into().unwrap(), pcbresult as _, dwflags) }
+    unsafe { NCryptKeyDerivation(hkey, pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbderivedkey.as_mut_ptr(), pbderivedkey.len().try_into().unwrap(), pcbresult as _, dwflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -158,12 +158,12 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ncrypt.dll" "system" fn NCryptSetProperty(hobject : NCRYPT_HANDLE, pszproperty : windows_core::PCWSTR, pbinput : *const u8, cbinput : u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptSetProperty(hobject, pszproperty.param().abi(), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), dwflags) }
+    unsafe { NCryptSetProperty(hobject, pszproperty.param().abi(), pbinput.as_ptr(), pbinput.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptSignHash(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Option<*const core::ffi::c_void>, pbhashvalue: &[u8], pbsignature: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptSignHash(hkey : NCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhashvalue : *const u8, cbhashvalue : u32, pbsignature : *mut u8, cbsignature : u32, pcbresult : *mut u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptSignHash(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsignature.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { NCryptSignHash(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pbhashvalue.as_ptr(), pbhashvalue.len().try_into().unwrap(), pbsignature.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbsignature.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
 #[cfg(feature = "wincrypt")]
 #[inline]
@@ -175,12 +175,12 @@ pub unsafe fn NCryptTranslateHandle(phprovider: Option<*mut NCRYPT_PROV_HANDLE>,
 #[inline]
 pub unsafe fn NCryptVerifyClaim(hsubjectkey: NCRYPT_KEY_HANDLE, hauthoritykey: Option<NCRYPT_KEY_HANDLE>, dwclaimtype: u32, pparameterlist: Option<*const NCryptBufferDesc>, pbclaimblob: &[u8], poutput: *mut NCryptBufferDesc, dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptVerifyClaim(hsubjectkey : NCRYPT_KEY_HANDLE, hauthoritykey : NCRYPT_KEY_HANDLE, dwclaimtype : u32, pparameterlist : *const NCryptBufferDesc, pbclaimblob : *const u8, cbclaimblob : u32, poutput : *mut NCryptBufferDesc, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptVerifyClaim(hsubjectkey, hauthoritykey.unwrap_or(core::mem::zeroed()) as _, dwclaimtype, pparameterlist.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbclaimblob.as_ptr()), pbclaimblob.len().try_into().unwrap(), poutput as _, dwflags) }
+    unsafe { NCryptVerifyClaim(hsubjectkey, hauthoritykey.unwrap_or(core::mem::zeroed()) as _, dwclaimtype, pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbclaimblob.as_ptr(), pbclaimblob.len().try_into().unwrap(), poutput as _, dwflags) }
 }
 #[inline]
 pub unsafe fn NCryptVerifySignature(hkey: NCRYPT_KEY_HANDLE, ppaddinginfo: Option<*const core::ffi::c_void>, pbhashvalue: &[u8], pbsignature: &[u8], dwflags: u32) -> SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptVerifySignature(hkey : NCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhashvalue : *const u8, cbhashvalue : u32, pbsignature : *const u8, cbsignature : u32, dwflags : u32) -> SECURITY_STATUS);
-    unsafe { NCryptVerifySignature(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbhashvalue.as_ptr()), pbhashvalue.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), dwflags) }
+    unsafe { NCryptVerifySignature(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pbhashvalue.as_ptr(), pbhashvalue.len().try_into().unwrap(), pbsignature.as_ptr(), pbsignature.len().try_into().unwrap(), dwflags) }
 }
 pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_1: u32 = 1;
 pub const IFX_RSA_KEYGEN_VUL_AFFECTED_LEVEL_2: u32 = 2;
@@ -277,7 +277,7 @@ pub const NCRYPT_CIPHER_OPERATION: u32 = 1;
 pub const NCRYPT_CIPHER_OTHER_PADDING_FLAG: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_CIPHER_PADDING_INFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -303,12 +303,12 @@ pub const NCRYPT_ECDH_ALGORITHM_GROUP: windows_core::PCWSTR = windows_core::w!("
 pub const NCRYPT_ECDSA_ALGORITHM_GROUP: windows_core::PCWSTR = windows_core::w!("ECDSA");
 pub const NCRYPT_EPHEMERAL_NAME_PROPERTY: windows_core::PCWSTR = windows_core::w!("Ephemeral Name");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_EXPORTED_ISOLATED_KEY_ENVELOPE {
     pub Header: NCRYPT_EXPORTED_ISOLATED_KEY_HEADER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
     pub Version: u32,
     pub KeyUsage: u32,
@@ -341,7 +341,7 @@ pub const NCRYPT_IMPL_SOFTWARE_FLAG: u32 = 2;
 pub const NCRYPT_IMPL_TYPE_PROPERTY: windows_core::PCWSTR = windows_core::w!("Impl Type");
 pub const NCRYPT_IMPL_VIRTUAL_ISOLATION_FLAG: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_ISOLATED_KEY_ATTESTED_ATTRIBUTES {
     pub Version: u32,
     pub Flags: u32,
@@ -357,7 +357,7 @@ pub const NCRYPT_KDF_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("KDFKeyBl
 pub const NCRYPT_KDF_KEY_BLOB_MAGIC: u32 = 826688587;
 pub const NCRYPT_KDF_SECRET_VALUE: windows_core::PCWSTR = windows_core::w!("KDFKeySecret");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_KEY_ACCESS_POLICY_BLOB {
     pub dwVersion: u32,
     pub dwPolicyFlags: u32,
@@ -369,7 +369,7 @@ pub const NCRYPT_KEY_ACCESS_POLICY_VERSION: u32 = 1;
 pub const NCRYPT_KEY_ATTEST_MAGIC: u32 = 1146110283;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub magic: u32,
     pub pbKeyBlob: super::minwindef::PUCHAR,
@@ -378,7 +378,7 @@ pub struct NCRYPT_KEY_ATTEST_PADDING_INFO {
     pub cbKeyAuth: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_KEY_BLOB_HEADER {
     pub cbSize: u32,
     pub dwMagic: u32,
@@ -439,7 +439,7 @@ pub const NCRYPT_PCP_HMAC_AUTH_POLICYINFO: windows_core::PCWSTR = windows_core::
 pub const NCRYPT_PCP_HMAC_AUTH_POLICYREF: windows_core::PCWSTR = windows_core::w!("PCP_HMAC_AUTH_POLICYREF");
 pub const NCRYPT_PCP_HMAC_AUTH_SIGNATURE: windows_core::PCWSTR = windows_core::w!("PCP_HMAC_AUTH_SIGNATURE");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NCRYPT_PCP_HMAC_AUTH_SIGNATURE_INFO {
     pub dwVersion: u32,
     pub iExpiration: i32,
@@ -474,7 +474,7 @@ pub const NCRYPT_PCP_PROVIDERHANDLE_PROPERTY: windows_core::PCWSTR = windows_cor
 pub const NCRYPT_PCP_PROVIDER_VERSION_PROPERTY: windows_core::PCWSTR = windows_core::w!("PCP_PROVIDER_VERSION");
 pub const NCRYPT_PCP_PSS_SALT_SIZE_PROPERTY: windows_core::PCWSTR = windows_core::w!("PSS Salt Size");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_PCP_RAW_POLICYDIGEST_INFO {
     pub dwVersion: u32,
     pub cbDigest: u32,
@@ -499,7 +499,7 @@ pub const NCRYPT_PCP_TPM12_IDBINDING_DYNAMIC_PROPERTY: windows_core::PCWSTR = wi
 pub const NCRYPT_PCP_TPM12_IDBINDING_PROPERTY: windows_core::PCWSTR = windows_core::w!("PCP_TPM12_IDBINDING");
 pub const NCRYPT_PCP_TPM2BNAME_PROPERTY: windows_core::PCWSTR = windows_core::w!("PCP_TPM2BNAME");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_PCP_TPM_FW_VERSION_INFO {
     pub major1: u16,
     pub major2: u16,
@@ -512,7 +512,7 @@ pub const NCRYPT_PCP_TPM_IFX_RSA_KEYGEN_VULNERABILITY_PROPERTY: windows_core::PC
 pub const NCRYPT_PCP_TPM_MANUFACTURER_ID_PROPERTY: windows_core::PCWSTR = windows_core::w!("PCP_TPM_MANUFACTURER_ID");
 pub const NCRYPT_PCP_TPM_VERSION_PROPERTY: windows_core::PCWSTR = windows_core::w!("PCP_TPM_VERSION");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_PCP_TPM_WEB_AUTHN_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -543,7 +543,7 @@ pub const NCRYPT_PKCS7_ENVELOPE_BLOB: windows_core::PCWSTR = windows_core::w!("P
 pub const NCRYPT_PKCS8_PRIVATE_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("PKCS8_PRIVATEKEY");
 pub const NCRYPT_PLATFORM_ATTEST_MAGIC: u32 = 1146110288;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_PLATFORM_ATTEST_PADDING_INFO {
     pub magic: u32,
     pub pcrMask: u32,
@@ -558,7 +558,7 @@ pub const NCRYPT_PLUTON_RSA_EKCERT_PROPERTY: windows_core::PCWSTR = windows_core
 pub const NCRYPT_PLUTON_RSA_EKPUB_PROPERTY: windows_core::PCWSTR = windows_core::w!("PLUTON_RSA_EKPUB");
 pub const NCRYPT_PLUTON_SESSION_ID_PROPERTY: windows_core::PCWSTR = windows_core::w!("PLUTON_SESSION_ID");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_PQ_BLOB {
     pub dwMagic: u32,
     pub cbBCryptType: u32,
@@ -602,7 +602,7 @@ pub const NCRYPT_SILENT_FLAG: u32 = 64;
 pub const NCRYPT_SLHDSA_ALGORITHM_GROUP: windows_core::PCWSTR = windows_core::w!("SLHDSA");
 pub const NCRYPT_SMARTCARD_GUID_PROPERTY: windows_core::PCWSTR = windows_core::w!("SmartCardGuid");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_SUPPORTED_LENGTHS {
     pub dwMinLength: u32,
     pub dwMaxLength: u32,
@@ -612,7 +612,7 @@ pub struct NCRYPT_SUPPORTED_LENGTHS {
 pub const NCRYPT_TPM12_PROVIDER: u32 = 65536;
 pub const NCRYPT_TPM_LOADABLE_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("PcpTpmProtectedKeyBlob");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_TPM_LOADABLE_KEY_BLOB_HEADER {
     pub magic: u32,
     pub cbHeader: u32,
@@ -624,7 +624,7 @@ pub const NCRYPT_TPM_LOADABLE_KEY_BLOB_MAGIC: u32 = 1297371211;
 pub const NCRYPT_TPM_PAD_PSS_IGNORE_SALT: u32 = 32;
 pub const NCRYPT_TPM_PERSISTENT_KEY_BLOB: windows_core::PCWSTR = windows_core::w!("PcpTpmPersistentKeyBlob");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_TPM_PERSISTENT_KEY_BLOB_HEADER {
     pub magic: u32,
     pub cbHeader: u32,
@@ -632,7 +632,7 @@ pub struct NCRYPT_TPM_PERSISTENT_KEY_BLOB_HEADER {
 }
 pub const NCRYPT_TPM_PERSISTENT_KEY_BLOB_MAGIC: u32 = 1297371211;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_TPM_PLATFORM_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -651,7 +651,7 @@ pub const NCRYPT_UI_APPCONTAINER_ACCESS_MEDIUM_FLAG: u32 = 8;
 pub const NCRYPT_UI_FINGERPRINT_PROTECTION_FLAG: u32 = 4;
 pub const NCRYPT_UI_FORCE_HIGH_PROTECTION_FLAG: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_UI_POLICY {
     pub dwVersion: u32,
     pub dwFlags: u32,
@@ -674,7 +674,7 @@ pub const NCRYPT_USE_VBS_PER_BOOT_KEY_FLAG: u32 = 262144;
 pub const NCRYPT_USE_VIRTUAL_ISOLATION_FLAG: u32 = 131072;
 pub const NCRYPT_USE_VIRTUAL_ISOLATION_PROPERTY: windows_core::PCWSTR = windows_core::w!("Virtual Iso");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_VBS_IDENTITY_ATTESTATION_HEADER {
     pub Magic: u32,
     pub Version: u32,
@@ -688,7 +688,7 @@ pub struct NCRYPT_VBS_IDENTITY_ATTESTATION_HEADER {
 pub const NCRYPT_VBS_IDENTITY_ATTESTATION_HEADER_CURRENT_VERSION: u32 = 0;
 pub const NCRYPT_VBS_IDENTITY_ATTESTATION_HEADER_V0: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING {
     pub Version: u32,
     pub ulPaddingScheme: u32,
@@ -698,7 +698,7 @@ pub struct NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING {
 pub const NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING_CURRENT_VERSION: u32 = 0;
 pub const NCRYPT_VBS_IDENTITY_ATTESTATION_PADDING_V0: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS {
     pub ulKeyFlags: u32,
     pub pszSignatureHashAlg: windows_core::PCWSTR,
@@ -707,7 +707,7 @@ pub struct NCRYPT_VBS_IDENTITY_KEY_ATTESTATION_CLAIM_DETAILS {
     pub ulPaddingSalt: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_VBS_KEY_ATTESTATION_STATEMENT {
     pub Magic: u32,
     pub Version: u32,
@@ -723,7 +723,7 @@ pub const NCRYPT_VBS_KEY_FLAG_IMPORT_ONLY: u32 = 2;
 pub const NCRYPT_VBS_KEY_FLAG_PER_BOOT_KEY: u32 = 4;
 pub const NCRYPT_VBS_RETURN_CLAIM_DETAILS_FLAG: u32 = 1048576;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_VBS_ROOT_ATTESTATION_HEADER {
     pub Magic: u32,
     pub Version: u32,
@@ -735,7 +735,7 @@ pub struct NCRYPT_VBS_ROOT_ATTESTATION_HEADER {
 pub const NCRYPT_VBS_ROOT_ATTESTATION_HEADER_CURRENT_VERSION: u32 = 0;
 pub const NCRYPT_VBS_ROOT_ATTESTATION_HEADER_V0: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCRYPT_VBS_ROOT_KEY_ATTESTATION_CLAIM_DETAILS {
     pub ulKeyFlags: u32,
     pub ullTrustletId: u64,
@@ -747,7 +747,7 @@ pub const NCRYPT_VERSION_PROPERTY: windows_core::PCWSTR = windows_core::w!("Vers
 pub const NCRYPT_WINDOW_HANDLE_PROPERTY: windows_core::PCWSTR = windows_core::w!("HWND Handle");
 pub const NCRYPT_WRITE_KEY_TO_LEGACY_STORE_FLAG: u32 = 512;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCryptAlgorithmName {
     pub pszName: windows_core::PWSTR,
     pub dwClass: u32,
@@ -759,7 +759,7 @@ pub type NCryptBuffer = super::bcrypt::BCryptBuffer;
 #[cfg(feature = "bcrypt")]
 pub type NCryptBufferDesc = super::bcrypt::BCryptBufferDesc;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCryptKeyName {
     pub pszName: windows_core::PWSTR,
     pub pszAlgid: windows_core::PWSTR,
@@ -767,7 +767,7 @@ pub struct NCryptKeyName {
     pub dwFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NCryptProviderName {
     pub pszName: windows_core::PWSTR,
     pub pszComment: windows_core::PWSTR,

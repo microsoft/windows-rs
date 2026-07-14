@@ -30,24 +30,24 @@ pub const EVENT_ENABLE_PROPERTY_SOURCE_CONTAINER_TRACKING: u32 = 2048;
 pub const EVENT_ENABLE_PROPERTY_STACK_TRACE: u32 = 4;
 pub const EVENT_ENABLE_PROPERTY_TS_ID: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_EVENT_KEY {
     pub Key: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_INSTANCE {
     pub InstanceId: u32,
     pub ParentInstanceId: u32,
     pub ParentGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_PEBS_INDEX {
     pub PebsIndex: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     pub Counter: [u64; 1],
 }
@@ -57,30 +57,30 @@ impl Default for EVENT_EXTENDED_ITEM_PMC_COUNTERS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_PROCESS_START_KEY {
     pub ProcessStartKey: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_RELATED_ACTIVITYID {
     pub RelatedActivityId: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_KEY32 {
     pub MatchId: u64,
     pub StackKey: u32,
     pub Padding: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_KEY64 {
     pub MatchId: u64,
     pub StackKey: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     pub MatchId: u64,
     pub Address: [u32; 1],
@@ -91,7 +91,7 @@ impl Default for EVENT_EXTENDED_ITEM_STACK_TRACE32 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     pub MatchId: u64,
     pub Address: [u64; 1],
@@ -102,7 +102,7 @@ impl Default for EVENT_EXTENDED_ITEM_STACK_TRACE64 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_EXTENDED_ITEM_TS_ID {
     pub SessionId: u32,
 }
@@ -143,13 +143,13 @@ impl Default for EVENT_HEADER_0 {
 }
 #[repr(C)]
 #[cfg(feature = "evntprov")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_HEADER_0_0 {
     pub KernelTime: u32,
     pub UserTime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_HEADER_EXTENDED_DATA_ITEM {
     pub Reserved1: u16,
     pub ExtType: u16,
@@ -158,7 +158,7 @@ pub struct EVENT_HEADER_EXTENDED_DATA_ITEM {
     pub DataPtr: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     pub _bitfield: u16,
 }

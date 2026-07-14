@@ -132,7 +132,7 @@ impl ISpatialAudioClient {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).ActivateSpatialAudioStream)(windows_core::Interface::as_raw(self), core::mem::transmute(activationparams), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).ActivateSpatialAudioStream)(windows_core::Interface::as_raw(self), activationparams, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -707,7 +707,7 @@ pub const SPTLAUDCLNT_E_STATIC_OBJECT_NOT_AVAILABLE: i32 = -2004287221;
 pub const SPTLAUDCLNT_E_STREAM_NOT_AVAILABLE: i32 = -2004287225;
 pub const SPTLAUDCLNT_E_STREAM_NOT_STOPPED: i32 = -2004287222;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SpatialAudioClientActivationParams {
     pub tracingContextId: windows_core::GUID,
     pub appId: windows_core::GUID,

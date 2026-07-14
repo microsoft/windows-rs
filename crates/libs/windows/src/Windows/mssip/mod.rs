@@ -90,7 +90,7 @@ pub const MSSIP_FLAGS_MULTI_HASH: u32 = 262144;
 pub const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: u32 = 65536;
 pub const MSSIP_FLAGS_USE_CATALOG: u32 = 131072;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MS_ADDINFO_BLOB {
     pub cbStruct: u32,
     pub cbMemObject: u32,
@@ -105,7 +105,7 @@ impl Default for MS_ADDINFO_BLOB {
 }
 #[repr(C)]
 #[cfg(all(feature = "mscat", feature = "wincrypt", feature = "winnt"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MS_ADDINFO_CATALOGMEMBER {
     pub cbStruct: u32,
     pub pStore: *mut super::mscat::CRYPTCATSTORE,
@@ -119,7 +119,7 @@ impl Default for MS_ADDINFO_CATALOGMEMBER {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MS_ADDINFO_DETACHEDSIG {
     pub cbStruct: u32,
     pub hSignatureFile: super::winnt::HANDLE,
@@ -134,7 +134,7 @@ impl Default for MS_ADDINFO_DETACHEDSIG {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MS_ADDINFO_FLAT {
     pub cbStruct: u32,
     pub pIndirectData: *mut SIP_INDIRECT_DATA,
@@ -159,7 +159,7 @@ pub type PSIP_CAP_SET_V3 = *mut SIP_CAP_SET_V3;
 #[cfg(feature = "wincrypt")]
 pub type PSIP_INDIRECT_DATA = *mut SIP_INDIRECT_DATA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SIP_ADD_NEWPROVIDER {
     pub cbStruct: u32,
     pub pgSubject: *mut windows_core::GUID,
@@ -183,7 +183,7 @@ pub const SIP_CAP_FLAG_SEALING: u32 = 1;
 pub type SIP_CAP_SET = SIP_CAP_SET_V3;
 pub const SIP_CAP_SET_CUR_VER: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIP_CAP_SET_V2 {
     pub cbSize: u32,
     pub dwVersion: u32,
@@ -230,7 +230,7 @@ pub struct SIP_DISPATCH_INFO {
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIP_INDIRECT_DATA {
     pub Data: super::wincrypt::CRYPT_ATTRIBUTE_TYPE_VALUE,
     pub DigestAlgorithm: super::wincrypt::CRYPT_ALGORITHM_IDENTIFIER,

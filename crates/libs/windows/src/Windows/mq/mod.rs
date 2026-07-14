@@ -4,7 +4,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mqrt.dll" "system" fn MQADsPathToFormatName(lpwcsadspath : windows_core::PCWSTR, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> windows_core::HRESULT);
-    unsafe { MQADsPathToFormatName(lpwcsadspath.param().abi(), core::mem::transmute(lpwcsformatname), lpdwformatnamelength as _) }
+    unsafe { MQADsPathToFormatName(lpwcsadspath.param().abi(), lpwcsformatname, lpdwformatnamelength as _) }
 }
 #[cfg(feature = "transact")]
 #[inline]
@@ -125,12 +125,12 @@ pub unsafe fn MQGetSecurityContextEx(lpcertbuffer: Option<*const core::ffi::c_vo
 #[inline]
 pub unsafe fn MQHandleToFormatName(hqueue: QUEUEHANDLE, lpwcsformatname: windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQHandleToFormatName(hqueue : QUEUEHANDLE, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> windows_core::HRESULT);
-    unsafe { MQHandleToFormatName(hqueue, core::mem::transmute(lpwcsformatname), lpdwformatnamelength as _) }
+    unsafe { MQHandleToFormatName(hqueue, lpwcsformatname, lpdwformatnamelength as _) }
 }
 #[inline]
 pub unsafe fn MQInstanceToFormatName(pguid: *const windows_core::GUID, lpwcsformatname: windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQInstanceToFormatName(pguid : *const windows_core::GUID, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> windows_core::HRESULT);
-    unsafe { MQInstanceToFormatName(pguid, core::mem::transmute(lpwcsformatname), lpdwformatnamelength as _) }
+    unsafe { MQInstanceToFormatName(pguid, lpwcsformatname, lpdwformatnamelength as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -154,7 +154,7 @@ pub unsafe fn MQLocateEnd(henum: super::winnt::HANDLE) -> windows_core::HRESULT 
 #[inline]
 pub unsafe fn MQLocateNext(henum: super::winnt::HANDLE, pcprops: *mut u32, apropvar: *mut MQPROPVARIANT) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQLocateNext(henum : super::winnt::HANDLE, pcprops : *mut u32, apropvar : *mut MQPROPVARIANT) -> windows_core::HRESULT);
-    unsafe { MQLocateNext(henum, pcprops as _, core::mem::transmute(apropvar)) }
+    unsafe { MQLocateNext(henum, pcprops as _, apropvar) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -209,7 +209,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mqrt.dll" "system" fn MQPathNameToFormatName(lpwcspathname : windows_core::PCWSTR, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> windows_core::HRESULT);
-    unsafe { MQPathNameToFormatName(lpwcspathname.param().abi(), core::mem::transmute(lpwcsformatname), lpdwformatnamelength as _) }
+    unsafe { MQPathNameToFormatName(lpwcspathname.param().abi(), lpwcsformatname, lpdwformatnamelength as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -302,7 +302,7 @@ pub const MQCERT_REGISTER_ALWAYS: u32 = 1;
 pub const MQCERT_REGISTER_IF_NOT_EXIST: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQCOLUMNSET {
     pub cCol: u32,
     pub aCol: *mut super::wtypes::PROPID,
@@ -333,7 +333,7 @@ pub const MQCONN_UNKNOWN_FAILURE: MQConnectionState = -2147483648;
 pub type MQConnectionState = i32;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQMGMTPROPS {
     pub cProp: u32,
     pub aPropID: *mut MGMTPROPID,
@@ -348,7 +348,7 @@ impl Default for MQMGMTPROPS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQMSGPROPS {
     pub cProp: u32,
     pub aPropID: *mut MSGPROPID,
@@ -427,7 +427,7 @@ pub const MQMSG_SEND_ROUTE_TO_REPORT_QUEUE: u32 = 1;
 pub const MQMSG_TRACE_NONE: u32 = 0;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQPRIVATEPROPS {
     pub cProp: u32,
     pub aPropID: *mut QMPROPID,
@@ -463,7 +463,7 @@ impl Default for MQPROPERTYRESTRICTION {
 pub type MQPROPVARIANT = tagMQPROPVARIANT;
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQQMPROPS {
     pub cProp: u32,
     pub aPropID: *mut QMPROPID,
@@ -478,7 +478,7 @@ impl Default for MQQMPROPS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQQUEUEPROPS {
     pub cProp: u32,
     pub aPropID: *mut QUEUEPROPID,
@@ -493,7 +493,7 @@ impl Default for MQQUEUEPROPS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQRESTRICTION {
     pub cRes: u32,
     pub paPropRes: *mut MQPROPERTYRESTRICTION,
@@ -522,14 +522,14 @@ pub const MQSEC_TAKE_QUEUE_OWNERSHIP: u32 = 524288;
 pub const MQSEC_WRITE_MESSAGE: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MQSORTKEY {
     pub propColumn: super::wtypes::PROPID,
     pub dwOrder: u32,
 }
 #[repr(C)]
 #[cfg(feature = "wtypes")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MQSORTSET {
     pub cCol: u32,
     pub aCol: *mut MQSORTKEY,
@@ -885,7 +885,7 @@ pub const QUEUE_ACTION_EOD_RESEND: windows_core::PCWSTR = windows_core::w!("EOD_
 pub const QUEUE_ACTION_PAUSE: windows_core::PCWSTR = windows_core::w!("PAUSE");
 pub const QUEUE_ACTION_RESUME: windows_core::PCWSTR = windows_core::w!("RESUME");
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SEQUENCE_INFO {
     pub SeqID: i64,
     pub SeqNo: u32,

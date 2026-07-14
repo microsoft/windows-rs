@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct APP_LOCAL_DEVICE_ID {
     pub value: [u8; 32],
 }
@@ -227,19 +227,19 @@ pub type LPSIZEL = *mut SIZE;
 pub type NPPOINT = *mut POINT;
 pub type NPRECT = *mut RECT;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINT {
     pub x: i32,
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINTL {
     pub x: i32,
     pub y: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POINTS {
     pub x: i16,
     pub y: i16,
@@ -252,7 +252,7 @@ pub type PRECTL = *mut RECTL;
 pub type PSIZE = *mut SIZE;
 pub type PSIZEL = *mut SIZE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECT {
     pub left: i32,
     pub top: i32,
@@ -260,7 +260,7 @@ pub struct RECT {
     pub bottom: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECTL {
     pub left: i32,
     pub top: i32,
@@ -268,7 +268,7 @@ pub struct RECTL {
     pub bottom: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SIZE {
     pub cx: i32,
     pub cy: i32,

@@ -4416,7 +4416,7 @@ impl ITraceDataCollector {
         }
     }
     pub unsafe fn SetGuid(&self, guid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetGuid)(windows_core::Interface::as_raw(self), core::mem::transmute(guid)) }
+        unsafe { (windows_core::Interface::vtable(self).SetGuid)(windows_core::Interface::as_raw(self), guid) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn IsKernelTrace(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
@@ -5078,7 +5078,7 @@ impl ITraceDataProvider {
         }
     }
     pub unsafe fn SetGuid(&self, guid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetGuid)(windows_core::Interface::as_raw(self), core::mem::transmute(guid)) }
+        unsafe { (windows_core::Interface::vtable(self).SetGuid)(windows_core::Interface::as_raw(self), guid) }
     }
     pub unsafe fn Level(&self) -> windows_core::Result<IValueMap> {
         unsafe {

@@ -7,7 +7,7 @@ pub const BDACOMP_INCLUDE_COMPONENTS_IN_TR: BDA_Comp_Flags = 4;
 pub const BDACOMP_INCLUDE_LOCATOR_IN_TR: BDA_Comp_Flags = 2;
 pub const BDACOMP_NOT_DEFINED: BDA_Comp_Flags = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDANODE_DESCRIPTOR {
     pub ulBdaNodeType: u32,
     pub guidFunction: windows_core::GUID,
@@ -31,7 +31,7 @@ pub const BDA_BCC_RATE_MAX: BinaryConvolutionCodeRate = 15;
 pub const BDA_BCC_RATE_NOT_DEFINED: BinaryConvolutionCodeRate = 0;
 pub const BDA_BCC_RATE_NOT_SET: BinaryConvolutionCodeRate = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_BUFFER {
     pub lResult: PBDARESULT,
     pub ulBufferSize: u32,
@@ -43,24 +43,24 @@ impl Default for BDA_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_CAS_CHECK_ENTITLEMENTTOKEN {
     pub lResult: PBDARESULT,
     pub ulDescrambleStatus: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_CAS_CLOSEMMIDATA {
     pub ulDialogNumber: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_CAS_CLOSE_MMIDIALOG {
     pub lResult: PBDARESULT,
     pub SessionResult: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_CAS_OPENMMIDATA {
     pub ulDialogNumber: u32,
     pub ulDialogRequest: u32,
@@ -74,7 +74,7 @@ impl Default for BDA_CAS_OPENMMIDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_CAS_REQUESTTUNERDATA {
     pub ucRequestPriority: u8,
     pub ucRequestReason: u8,
@@ -82,7 +82,7 @@ pub struct BDA_CAS_REQUESTTUNERDATA {
     pub ulEstimatedTime: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_CA_MODULE_UI {
     pub ulFormat: u32,
     pub ulbcDesc: u32,
@@ -109,7 +109,7 @@ pub const BDA_DISCOVERY_REQUIRED: BDA_DISCOVERY_STATE = 1;
 pub type BDA_DISCOVERY_STATE = i32;
 pub const BDA_DISCOVERY_UNSPECIFIED: BDA_DISCOVERY_STATE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_DISEQC_RESPONSE {
     pub ulRequestId: u32,
     pub ulPacketLength: u32,
@@ -121,7 +121,7 @@ impl Default for BDA_DISEQC_RESPONSE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_DISEQC_SEND {
     pub ulRequestId: u32,
     pub ulPacketLength: u32,
@@ -133,7 +133,7 @@ impl Default for BDA_DISEQC_SEND {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_DRM_DRMSTATUS {
     pub lResult: PBDARESULT,
     pub DRMuuid: windows_core::GUID,
@@ -146,7 +146,7 @@ impl Default for BDA_DRM_DRMSTATUS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_DVBT2_L1_SIGNALLING_DATA {
     pub L1Pre_TYPE: u8,
     pub L1Pre_BWT_S1_S2: u8,
@@ -169,7 +169,7 @@ impl Default for BDA_DVBT2_L1_SIGNALLING_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_ETHERNET_ADDRESS {
     pub rgbAddress: [u8; 6],
 }
@@ -179,7 +179,7 @@ impl Default for BDA_ETHERNET_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_ETHERNET_ADDRESS_LIST {
     pub ulcAddresses: u32,
     pub rgAddressl: [BDA_ETHERNET_ADDRESS; 1],
@@ -226,7 +226,7 @@ pub const BDA_FREQUENCY_NOT_SET: BDA_Frequency = -1;
 pub type BDA_Frequency = i32;
 pub type BDA_Frequency_Multiplier = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_GDDS_DATA {
     pub lResult: PBDARESULT,
     pub ulDataLength: u32,
@@ -239,7 +239,7 @@ impl Default for BDA_GDDS_DATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_GDDS_DATATYPE {
     pub lResult: PBDARESULT,
     pub uuidDataType: windows_core::GUID,
@@ -261,7 +261,7 @@ pub const BDA_HALPHA_MAX: HierarchyAlpha = 4;
 pub const BDA_HALPHA_NOT_DEFINED: HierarchyAlpha = 0;
 pub const BDA_HALPHA_NOT_SET: HierarchyAlpha = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_IPv4_ADDRESS {
     pub rgbAddress: [u8; 4],
 }
@@ -271,7 +271,7 @@ impl Default for BDA_IPv4_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_IPv4_ADDRESS_LIST {
     pub ulcAddresses: u32,
     pub rgAddressl: [BDA_IPv4_ADDRESS; 1],
@@ -282,7 +282,7 @@ impl Default for BDA_IPv4_ADDRESS_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_IPv6_ADDRESS {
     pub rgbAddress: [u8; 6],
 }
@@ -292,7 +292,7 @@ impl Default for BDA_IPv6_ADDRESS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_IPv6_ADDRESS_LIST {
     pub ulcAddresses: u32,
     pub rgAddressl: [BDA_IPv6_ADDRESS; 1],
@@ -303,7 +303,7 @@ impl Default for BDA_IPv6_ADDRESS_LIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_ISDBCAS_EMG_REQ {
     pub bCLA: u8,
     pub bINS: u8,
@@ -403,7 +403,7 @@ pub struct BDA_MUX_PIDLISTITEM {
 }
 pub const BDA_NO_MULTICAST: BDA_MULTICAST_MODE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_PID_MAP {
     pub MediaSampleContent: MEDIA_SAMPLE_CONTENT,
     pub ulcPIDs: u32,
@@ -415,7 +415,7 @@ impl Default for BDA_PID_MAP {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_PID_UNMAP {
     pub ulcPIDs: u32,
     pub aulPIDs: [u32; 1],
@@ -439,7 +439,7 @@ pub const BDA_POLARISATION_MAX: Polarisation = 5;
 pub const BDA_POLARISATION_NOT_DEFINED: Polarisation = 0;
 pub const BDA_POLARISATION_NOT_SET: Polarisation = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_PROGRAM_PID_LIST {
     pub ulProgramNumber: u32,
     pub ulcPIDs: u32,
@@ -454,7 +454,7 @@ pub const BDA_PROMISCUOUS_MULTICAST: BDA_MULTICAST_MODE = 0;
 pub const BDA_RANGE_NOT_DEFINED: BDA_Range = 0;
 pub const BDA_RANGE_NOT_SET: BDA_Range = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_RATING_PINRESET {
     pub bPinLength: u8,
     pub argbNewPin: [u8; 1],
@@ -472,7 +472,7 @@ pub const BDA_ROLL_OFF_NOT_DEFINED: RollOff = 0;
 pub const BDA_ROLL_OFF_NOT_SET: RollOff = -1;
 pub type BDA_Range = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_SCAN_CAPABILTIES {
     pub lResult: PBDARESULT,
     pub ul64AnalogStandardsSupported: u64,
@@ -508,14 +508,14 @@ pub const BDA_SCAN_MOD_OQPSK: ScanModulationTypes = 2097152;
 pub const BDA_SCAN_MOD_QPSK: ScanModulationTypes = 524288;
 pub const BDA_SCAN_MOD_RF: ScanModulationTypes = 134217728;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_SCAN_START {
     pub lResult: PBDARESULT,
     pub LowerFrequency: u32,
     pub HigerFrequency: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_SCAN_STATE {
     pub lResult: PBDARESULT,
     pub ulSignalLock: u32,
@@ -526,7 +526,7 @@ pub const BDA_SIGNAL_ACTIVE: BDA_SIGNAL_STATE = 2;
 pub const BDA_SIGNAL_INACTIVE: BDA_SIGNAL_STATE = 1;
 pub type BDA_SIGNAL_STATE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_SIGNAL_TIMEOUTS {
     pub ulCarrierTimeoutMs: u32,
     pub ulScanningTimeoutMs: u32,
@@ -540,7 +540,7 @@ pub const BDA_SPECTRAL_INVERSION_NORMAL: SpectralInversion = 2;
 pub const BDA_SPECTRAL_INVERSION_NOT_DEFINED: SpectralInversion = 0;
 pub const BDA_SPECTRAL_INVERSION_NOT_SET: SpectralInversion = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_STRING {
     pub lResult: PBDARESULT,
     pub ulStringSize: u32,
@@ -552,7 +552,7 @@ impl Default for BDA_STRING {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_TABLE_SECTION {
     pub ulPrimarySectionId: u32,
     pub ulSecondarySectionId: u32,
@@ -565,7 +565,7 @@ impl Default for BDA_TABLE_SECTION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_TEMPLATE_CONNECTION {
     pub FromNodeType: u32,
     pub FromNodePinType: u32,
@@ -573,7 +573,7 @@ pub struct BDA_TEMPLATE_CONNECTION {
     pub ToNodePinType: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_TEMPLATE_PIN_JOINT {
     pub uliTemplateConnection: u32,
     pub ulcInstancesMax: u32,
@@ -593,7 +593,7 @@ impl Default for BDA_TS_SELECTORINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_TS_SELECTORINFO_ISDBS_EXT {
     pub bTMCC: [u8; 48],
 }
@@ -603,7 +603,7 @@ impl Default for BDA_TS_SELECTORINFO_ISDBS_EXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_TUNER_DIAGNOSTICS {
     pub lResult: PBDARESULT,
     pub ulSignalLevel: u32,
@@ -611,7 +611,7 @@ pub struct BDA_TUNER_DIAGNOSTICS {
     pub ulSignalNoiseRatio: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_TUNER_TUNERSTATE {
     pub lResult: PBDARESULT,
     pub ulTuneLength: u32,
@@ -625,19 +625,19 @@ impl Default for BDA_TUNER_TUNERSTATE {
 pub const BDA_UNDEFINED_CHANNEL: BDA_Channel = -1;
 pub const BDA_UNITIALIZED_MPEG2STREAMTYPE: MPEG2StreamType = -1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_USERACTIVITY_INTERVAL {
     pub lResult: PBDARESULT,
     pub ulActivityInterval: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_WMDRMTUNER_PIDPROTECTION {
     pub lResult: PBDARESULT,
     pub uuidKeyID: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     pub lResult: PBDARESULT,
     pub ulDescrambleStatus: u32,
@@ -650,7 +650,7 @@ impl Default for BDA_WMDRMTUNER_PURCHASEENTITLEMENT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_WMDRM_KEYINFOLIST {
     pub lResult: PBDARESULT,
     pub ulKeyuuidBufferLen: u32,
@@ -662,7 +662,7 @@ impl Default for BDA_WMDRM_KEYINFOLIST {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BDA_WMDRM_RENEWLICENSE {
     pub lResult: PBDARESULT,
     pub ulDescrambleStatus: u32,
@@ -675,7 +675,7 @@ impl Default for BDA_WMDRM_RENEWLICENSE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BDA_WMDRM_STATUS {
     pub lResult: PBDARESULT,
     pub ulMaxCaptureTokenSize: u32,
@@ -766,7 +766,7 @@ pub const ISO_IEC_USER_PRIVATE: MPEG2StreamType = 128;
 pub const ITU_T_H264: MPEG2StreamType = 27;
 pub const ITU_T_REC_H_222_1: MPEG2StreamType = 9;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KS_BDA_FRAME_INFO {
     pub ExtendedHeaderSize: u32,
     pub dwFrameFlags: u32,
@@ -789,7 +789,7 @@ pub const METADATA_IN_SECTION: MPEG2StreamType = 22;
 pub const MIN_DIMENSION: u32 = 1;
 pub type MPEG2StreamType = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MPEG2_TRANSPORT_STRIDE {
     pub dwOffset: u32,
     pub dwPacketLength: u32,
@@ -851,7 +851,7 @@ pub type PBDA_WMDRM_RENEWLICENSE = *mut BDA_WMDRM_RENEWLICENSE;
 pub type PBDA_WMDRM_STATUS = *mut BDA_WMDRM_STATUS;
 pub const PID_ELEMENTARY_STREAM: MUX_PID_TYPE = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PID_MAP {
     pub ulPID: u32,
     pub MediaSampleContent: MEDIA_SAMPLE_CONTENT,

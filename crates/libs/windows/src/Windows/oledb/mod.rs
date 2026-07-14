@@ -88,7 +88,7 @@ impl Default for DBBINDEXT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBBINDEXT {
     pub pExtension: *mut u8,
     pub ulExtension: DBCOUNTITEM,
@@ -134,7 +134,7 @@ impl Default for DBBINDING {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "oaidl")]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DBBINDING {
     pub iOrdinal: DBORDINAL,
     pub obValue: DBBYTEOFFSET,
@@ -488,7 +488,7 @@ impl Default for DBCONSTRAINTDESC {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut DBID,
     pub ConstraintType: DBCONSTRAINTTYPE,
@@ -548,7 +548,7 @@ pub struct DBCOUNTITEM(pub u32);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DBCOUNTITEM(pub u64);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBDATE {
     pub year: i16,
     pub month: u16,
@@ -585,7 +585,7 @@ pub struct DBFAILUREINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBFAILUREINFO {
     pub hRow: HROW,
     pub iColumn: DBORDINAL,
@@ -693,7 +693,7 @@ impl Default for DBIMPLICITSESSION {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct DBIMPLICITSESSION {
     pub pUnkOuter: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
     pub piid: *mut windows_core::GUID,
@@ -720,7 +720,7 @@ impl Default for DBINDEXCOLUMNDESC {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBINDEXCOLUMNDESC {
     pub pColumnID: *mut DBID,
     pub eIndexColOrder: DBINDEX_COL_ORDER,
@@ -775,7 +775,7 @@ pub struct DBLITERALINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBLITERALINFO {
     pub pwszLiteralValue: windows_core::PWSTR,
     pub pwszInvalidChars: windows_core::PWSTR,
@@ -849,7 +849,7 @@ pub struct DBOBJECT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBOBJECT {
     pub dwFlags: u32,
     pub iid: windows_core::GUID,
@@ -875,7 +875,7 @@ pub struct DBPARAMBINDINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPARAMBINDINFO {
     pub pwszDataSourceType: windows_core::PWSTR,
     pub pwszName: windows_core::PWSTR,
@@ -912,7 +912,7 @@ pub struct DBPARAMINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "oaidl")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct DBPARAMINFO {
     pub dwFlags: DBPARAMFLAGS,
     pub iOrdinal: DBORDINAL,
@@ -946,7 +946,7 @@ impl Default for DBPARAMS {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBPARAMS {
     pub pData: *mut core::ffi::c_void,
     pub cParamSets: DB_UPARAMS,
@@ -1088,7 +1088,7 @@ impl Default for DBPROPIDSET {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBPROPIDSET {
     pub rgPropertyIDs: *mut DBPROPID,
     pub cPropertyIDs: u32,
@@ -1160,7 +1160,7 @@ pub struct DBPROPINFOSET {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: PDBPROPINFO,
     pub cPropertyInfos: u32,
@@ -1192,7 +1192,7 @@ impl Default for DBPROPSET {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
     pub cProperties: u32,
@@ -1804,7 +1804,7 @@ pub const DBSTAT_HISTOGRAM: DBTABLESTATISTICSTYPE26 = 1;
 pub const DBSTAT_TUPLE_CARDINALITY: DBTABLESTATISTICSTYPE26 = 4;
 pub type DBTABLESTATISTICSTYPE26 = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBTIME {
     pub hour: u16,
     pub minute: u16,
@@ -1824,7 +1824,7 @@ pub struct DBTIMESTAMP {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DBTIMESTAMP {
     pub year: i16,
     pub month: u16,
@@ -1913,7 +1913,7 @@ impl Default for DBVECTOR {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DBVECTOR {
     pub size: DBLENGTH,
     pub ptr: *mut core::ffi::c_void,
@@ -1989,7 +1989,7 @@ pub const DB_NULL_HACCESSOR: u32 = 0;
 pub const DB_NULL_HCHAPTER: u32 = 0;
 pub const DB_NULL_HROW: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DB_NUMERIC {
     pub precision: u8,
     pub scale: u8,
@@ -2030,7 +2030,7 @@ pub struct DB_URESERVE(pub u32);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DB_URESERVE(pub u64);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DB_VARNUMERIC {
     pub precision: u8,
     pub scale: SBYTE,
@@ -2056,7 +2056,7 @@ pub struct ERRORINFO {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "oaidl")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ERRORINFO {
     pub hrError: windows_core::HRESULT,
     pub dwMinor: u32,
@@ -2084,7 +2084,7 @@ impl IAccessor {
     }
     #[cfg(feature = "oaidl")]
     pub unsafe fn CreateAccessor(&self, dwaccessorflags: DBACCESSORFLAGS, cbindings: DBCOUNTITEM, rgbindings: *const DBBINDING, cbrowsize: DBLENGTH, phaccessor: *mut HACCESSOR, rgstatus: Option<*mut DBBINDSTATUS>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateAccessor)(windows_core::Interface::as_raw(self), dwaccessorflags, cbindings, core::mem::transmute(rgbindings), cbrowsize, phaccessor as _, rgstatus.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateAccessor)(windows_core::Interface::as_raw(self), dwaccessorflags, cbindings, rgbindings, cbrowsize, phaccessor as _, rgstatus.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "oaidl")]
     pub unsafe fn GetBindings(&self, haccessor: HACCESSOR, pdwaccessorflags: *mut DBACCESSORFLAGS, pcbindings: Option<*mut DBCOUNTITEM>, prgbindings: *mut *mut DBBINDING) -> windows_core::HRESULT {
@@ -2200,7 +2200,7 @@ windows_core::imp::interface_hierarchy!(IAlterTable, windows_core::IUnknown);
 impl IAlterTable {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AlterColumn(&self, ptableid: *const DBID, pcolumnid: *const DBID, dwcolumndescflags: DBCOLUMNDESCFLAGS, pcolumndesc: *const DBCOLUMNDESC) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AlterColumn)(windows_core::Interface::as_raw(self), ptableid, pcolumnid, dwcolumndescflags, core::mem::transmute(pcolumndesc)) }
+        unsafe { (windows_core::Interface::vtable(self).AlterColumn)(windows_core::Interface::as_raw(self), ptableid, pcolumnid, dwcolumndescflags, pcolumndesc) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AlterTable(&self, ptableid: *const DBID, pnewtableid: *const DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
@@ -2407,7 +2407,7 @@ windows_core::imp::interface_hierarchy!(IColumnsInfo2, windows_core::IUnknown, I
 impl IColumnsInfo2 {
     #[cfg(all(feature = "oaidl", feature = "wtypesbase"))]
     pub unsafe fn GetRestrictedColumnInfo(&self, rgcolumnidmasks: &[DBID], dwflags: u32, pccolumns: *mut DBORDINAL, prgcolumnids: *mut *mut DBID, prgcolumninfo: *mut *mut DBCOLUMNINFO, ppstringsbuffer: *mut *mut super::wtypesbase::OLECHAR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRestrictedColumnInfo)(windows_core::Interface::as_raw(self), DBORDINAL(rgcolumnidmasks.len().try_into().unwrap()), core::mem::transmute(rgcolumnidmasks.as_ptr()), dwflags, pccolumns as _, prgcolumnids as _, prgcolumninfo as _, ppstringsbuffer as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRestrictedColumnInfo)(windows_core::Interface::as_raw(self), DBORDINAL(rgcolumnidmasks.len().try_into().unwrap()), rgcolumnidmasks.as_ptr(), dwflags, pccolumns as _, prgcolumnids as _, prgcolumninfo as _, ppstringsbuffer as _) }
     }
 }
 #[repr(C)]
@@ -2453,7 +2453,7 @@ impl IColumnsRowset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetColumnsRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), DBORDINAL(rgoptcolumns.len().try_into().unwrap()), core::mem::transmute(rgoptcolumns.as_ptr()), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetColumnsRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), DBORDINAL(rgoptcolumns.len().try_into().unwrap()), rgoptcolumns.as_ptr(), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -2691,11 +2691,11 @@ windows_core::imp::interface_hierarchy!(ICommandProperties, windows_core::IUnkno
 impl ICommandProperties {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertysets as _, prgpropertysets as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: &[DBPROPSET]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.len().try_into().unwrap(), rgpropertysets.as_ptr()) }
     }
 }
 #[repr(C)]
@@ -3223,18 +3223,18 @@ impl IDBDataSourceAdmin {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), punkouter.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn DestroyDataSource(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DestroyDataSource)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetCreationProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::wtypesbase::OLECHAR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCreationProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCreationProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ModifyDataSource(&self, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ModifyDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe { (windows_core::Interface::vtable(self).ModifyDataSource)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
 }
 #[repr(C)]
@@ -3314,7 +3314,7 @@ impl IDBInfo {
     }
     #[cfg(feature = "wtypesbase")]
     pub unsafe fn GetLiteralInfo(&self, rgliterals: Option<&[DBLITERAL]>, pcliteralinfo: *mut u32, prgliteralinfo: *mut *mut DBLITERALINFO, ppcharbuffer: *mut *mut super::wtypesbase::OLECHAR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLiteralInfo)(windows_core::Interface::as_raw(self), rgliterals.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgliterals.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcliteralinfo as _, prgliteralinfo as _, ppcharbuffer as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetLiteralInfo)(windows_core::Interface::as_raw(self), rgliterals.map_or(0, |slice| slice.len().try_into().unwrap()), rgliterals.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcliteralinfo as _, prgliteralinfo as _, ppcharbuffer as _) }
     }
 }
 #[repr(C)]
@@ -3416,15 +3416,15 @@ windows_core::imp::interface_hierarchy!(IDBProperties, windows_core::IUnknown);
 impl IDBProperties {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertysets as _, prgpropertysets as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPropertyInfo(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertyinfosets: *mut u32, prgpropertyinfosets: *mut *mut DBPROPINFOSET, ppdescbuffer: *mut *mut super::wtypesbase::OLECHAR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertyinfosets as _, prgpropertyinfosets as _, ppdescbuffer as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
 }
 #[repr(C)]
@@ -3494,7 +3494,7 @@ impl IDBSchemaRowset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rguidschema, rgrestrictions.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgrestrictions.map_or(core::ptr::null(), |slice| slice.as_ptr())), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), rguidschema, rgrestrictions.map_or(0, |slice| slice.len().try_into().unwrap()), rgrestrictions.map_or(core::ptr::null(), |slice| slice.as_ptr()), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn GetSchemas(&self, pcschemas: *mut u32, prgschemas: *mut *mut windows_core::GUID, prgrestrictionsupport: *mut *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSchemas)(windows_core::Interface::as_raw(self), pcschemas as _, prgschemas as _, prgrestrictionsupport as _) }
@@ -3930,7 +3930,7 @@ windows_core::imp::interface_hierarchy!(IIndexDefinition, windows_core::IUnknown
 impl IIndexDefinition {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CreateIndex(&self, ptableid: *const DBID, pindexid: Option<*const DBID>, rgindexcolumndescs: &[DBINDEXCOLUMNDESC], rgpropertysets: &mut [DBPROPSET], ppindexid: *mut *mut DBID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateIndex)(windows_core::Interface::as_raw(self), ptableid, pindexid.unwrap_or(core::mem::zeroed()) as _, DBORDINAL(rgindexcolumndescs.len().try_into().unwrap()), core::mem::transmute(rgindexcolumndescs.as_ptr()), rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), ppindexid as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateIndex)(windows_core::Interface::as_raw(self), ptableid, pindexid.unwrap_or(core::mem::zeroed()) as _, DBORDINAL(rgindexcolumndescs.len().try_into().unwrap()), rgindexcolumndescs.as_ptr(), rgpropertysets.len().try_into().unwrap(), rgpropertysets.as_mut_ptr(), ppindexid as _) }
     }
     pub unsafe fn DropIndex(&self, ptableid: *const DBID, pindexid: Option<*const DBID>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DropIndex)(windows_core::Interface::as_raw(self), ptableid, pindexid.unwrap_or(core::mem::zeroed()) as _) }
@@ -4348,7 +4348,7 @@ impl IOpenRowset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -4513,7 +4513,7 @@ windows_core::imp::interface_hierarchy!(IRow, windows_core::IUnknown);
 impl IRow {
     #[cfg(feature = "winnt")]
     pub unsafe fn GetColumns(&self, rgcolumns: &mut [DBCOLUMNACCESS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetColumns)(windows_core::Interface::as_raw(self), DBORDINAL(rgcolumns.len().try_into().unwrap()), core::mem::transmute(rgcolumns.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetColumns)(windows_core::Interface::as_raw(self), DBORDINAL(rgcolumns.len().try_into().unwrap()), rgcolumns.as_mut_ptr()) }
     }
     pub unsafe fn GetSourceRowset<T>(&self, phrow: Option<*mut HROW>) -> windows_core::Result<T>
     where
@@ -4587,7 +4587,7 @@ windows_core::imp::interface_hierarchy!(IRowChange, windows_core::IUnknown);
 impl IRowChange {
     #[cfg(feature = "winnt")]
     pub unsafe fn SetColumns(&self, rgcolumns: &[DBCOLUMNACCESS]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetColumns)(windows_core::Interface::as_raw(self), DBORDINAL(rgcolumns.len().try_into().unwrap()), core::mem::transmute(rgcolumns.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetColumns)(windows_core::Interface::as_raw(self), DBORDINAL(rgcolumns.len().try_into().unwrap()), rgcolumns.as_ptr()) }
     }
 }
 #[repr(C)]
@@ -4754,7 +4754,7 @@ impl IRowSchemaChange {
     }
     #[cfg(all(feature = "oaidl", feature = "winnt"))]
     pub unsafe fn AddColumns(&self, ccolumns: DBORDINAL, rgnewcolumninfo: *const DBCOLUMNINFO, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddColumns)(windows_core::Interface::as_raw(self), ccolumns, core::mem::transmute(rgnewcolumninfo), rgcolumns as _) }
+        unsafe { (windows_core::Interface::vtable(self).AddColumns)(windows_core::Interface::as_raw(self), ccolumns, rgnewcolumninfo, rgcolumns as _) }
     }
 }
 #[repr(C)]
@@ -4881,7 +4881,7 @@ windows_core::imp::define_interface!(IRowsetBookmark, IRowsetBookmark_Vtbl, 0x0c
 windows_core::imp::interface_hierarchy!(IRowsetBookmark, windows_core::IUnknown);
 impl IRowsetBookmark {
     pub unsafe fn PositionOnBookmark(&self, hchapter: HCHAPTER, pbookmark: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PositionOnBookmark)(windows_core::Interface::as_raw(self), hchapter, DBBKMARK(pbookmark.len().try_into().unwrap()), core::mem::transmute(pbookmark.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).PositionOnBookmark)(windows_core::Interface::as_raw(self), hchapter, DBBKMARK(pbookmark.len().try_into().unwrap()), pbookmark.as_ptr()) }
     }
 }
 #[repr(C)]
@@ -5076,7 +5076,7 @@ impl IRowsetCurrentIndex_Vtbl {
 #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
 impl windows_core::RuntimeName for IRowsetCurrentIndex {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IRowsetExactScroll(pub u8);
 windows_core::imp::define_interface!(IRowsetFind, IRowsetFind_Vtbl, 0x0c733a9d_2a1c_11ce_ade5_00aa0044773d);
 windows_core::imp::interface_hierarchy!(IRowsetFind, windows_core::IUnknown);
@@ -5210,7 +5210,7 @@ windows_core::imp::interface_hierarchy!(IRowsetInfo, windows_core::IUnknown);
 impl IRowsetInfo {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertysets as _, prgpropertysets as _) }
     }
     pub unsafe fn GetReferencedRowset<T>(&self, iordinal: DBORDINAL) -> windows_core::Result<T>
     where
@@ -5377,13 +5377,13 @@ impl IRowsetNotify {
     where
         P0: windows_core::Param<IRowset>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnFieldChange)(windows_core::Interface::as_raw(self), prowset.param().abi(), hrow, DBORDINAL(rgcolumns.len().try_into().unwrap()), core::mem::transmute(rgcolumns.as_ptr()), ereason, ephase, fcantdeny.into()) }
+        unsafe { (windows_core::Interface::vtable(self).OnFieldChange)(windows_core::Interface::as_raw(self), prowset.param().abi(), hrow, DBORDINAL(rgcolumns.len().try_into().unwrap()), rgcolumns.as_ptr(), ereason, ephase, fcantdeny.into()) }
     }
     pub unsafe fn OnRowChange<P0>(&self, prowset: P0, rghrows: &[HROW], ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: bool) -> windows_core::HRESULT
     where
         P0: windows_core::Param<IRowset>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnRowChange)(windows_core::Interface::as_raw(self), prowset.param().abi(), DBCOUNTITEM(rghrows.len().try_into().unwrap()), core::mem::transmute(rghrows.as_ptr()), ereason, ephase, fcantdeny.into()) }
+        unsafe { (windows_core::Interface::vtable(self).OnRowChange)(windows_core::Interface::as_raw(self), prowset.param().abi(), DBCOUNTITEM(rghrows.len().try_into().unwrap()), rghrows.as_ptr(), ereason, ephase, fcantdeny.into()) }
     }
     pub unsafe fn OnRowsetChange<P0>(&self, prowset: P0, ereason: DBREASON, ephase: DBEVENTPHASE, fcantdeny: bool) -> windows_core::HRESULT
     where
@@ -5795,7 +5795,7 @@ impl IScopedOperations {
         P0: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
     {
-        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, &T::IID, rgpropertysets.len().try_into().unwrap(), core::mem::transmute(rgpropertysets.as_ptr()), result__ as *mut _ as *mut _).ok() }
+        unsafe { (windows_core::Interface::vtable(self).OpenRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, pindexid.unwrap_or(core::mem::zeroed()) as _, &T::IID, rgpropertysets.len().try_into().unwrap(), rgpropertysets.as_mut_ptr(), result__ as *mut _ as *mut _).ok() }
     }
 }
 #[repr(C)]
@@ -5881,7 +5881,7 @@ impl ISecurityInfo {
     pub unsafe fn GetPermissions(&self, objecttype: windows_core::GUID) -> windows_core::Result<super::winnt::ACCESS_MASK> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPermissions)(windows_core::Interface::as_raw(self), core::mem::transmute(objecttype), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetPermissions)(windows_core::Interface::as_raw(self), objecttype, &mut result__).map(|| result__)
         }
     }
 }
@@ -5956,11 +5956,11 @@ windows_core::imp::interface_hierarchy!(ISessionProperties, windows_core::IUnkno
 impl ISessionProperties {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetProperties(&self, rgpropertyidsets: Option<&[DBPROPIDSET]>, pcpropertysets: *mut u32, prgpropertysets: *mut *mut DBPROPSET) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcpropertysets as _, prgpropertysets as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), rgpropertyidsets.map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertyidsets.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcpropertysets as _, prgpropertysets as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetProperties(&self, rgpropertysets: Option<&mut [DBPROPSET]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe { (windows_core::Interface::vtable(self).SetProperties)(windows_core::Interface::as_raw(self), rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
 }
 #[repr(C)]
@@ -6018,7 +6018,7 @@ impl ISourcesRowset {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).GetSourcesRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, rgproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgproperties.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSourcesRowset)(windows_core::Interface::as_raw(self), punkouter.param().abi(), &T::IID, rgproperties.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgproperties.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
 }
 #[repr(C)]
@@ -6105,21 +6105,7 @@ impl ITableDefinition {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe {
-            (windows_core::Interface::vtable(self).CreateTable)(
-                windows_core::Interface::as_raw(self),
-                punkouter.param().abi(),
-                ptableid.unwrap_or(core::mem::zeroed()) as _,
-                rgcolumndescs.map_or(DBORDINAL(0), |slice| DBORDINAL(slice.len().try_into().unwrap())),
-                core::mem::transmute(rgcolumndescs.map_or(core::ptr::null(), |slice| slice.as_ptr())),
-                &T::IID,
-                rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-                core::mem::transmute(rgpropertysets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
-                pptableid as _,
-                &mut result__,
-            )
-            .and_then(|| windows_core::Type::from_abi(result__))
-        }
+        unsafe { (windows_core::Interface::vtable(self).CreateTable)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid.unwrap_or(core::mem::zeroed()) as _, rgcolumndescs.map_or(DBORDINAL(0), |slice| DBORDINAL(slice.len().try_into().unwrap())), rgcolumndescs.map_or(core::ptr::null(), |slice| slice.as_ptr()), &T::IID, rgpropertysets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), rgpropertysets.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pptableid as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn DropTable(&self, ptableid: *const DBID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DropTable)(windows_core::Interface::as_raw(self), ptableid) }
@@ -6128,7 +6114,7 @@ impl ITableDefinition {
     pub unsafe fn AddColumn(&self, ptableid: *const DBID, pcolumndesc: *const DBCOLUMNDESC) -> windows_core::Result<*mut DBID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddColumn)(windows_core::Interface::as_raw(self), ptableid, core::mem::transmute(pcolumndesc), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AddColumn)(windows_core::Interface::as_raw(self), ptableid, pcolumndesc, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn DropColumn(&self, ptableid: *const DBID, pcolumnid: *const DBID) -> windows_core::HRESULT {
@@ -6224,7 +6210,7 @@ impl ITableDefinitionWithConstraints {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateTableWithConstraints)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid, ccolumndescs, core::mem::transmute(rgcolumndescs), cconstraintdescs, rgconstraintdescs, &T::IID, cpropertysets, rgpropertysets as _, pptableid as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateTableWithConstraints)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid, ccolumndescs, rgcolumndescs, cconstraintdescs, rgconstraintdescs, &T::IID, cpropertysets, rgpropertysets as _, pptableid as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn DropConstraint(&self, ptableid: *const DBID, pconstraintid: *const DBID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DropConstraint)(windows_core::Interface::as_raw(self), ptableid, pconstraintid) }
@@ -6753,7 +6739,7 @@ impl IViewFilter {
         unsafe { (windows_core::Interface::vtable(self).GetFilterBindings)(windows_core::Interface::as_raw(self), pcbindings as _, prgbindings as _) }
     }
     pub unsafe fn SetFilter(&self, haccessor: HACCESSOR, compareops: &[DBCOMPAREOP], pcriteriadata: *const core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetFilter)(windows_core::Interface::as_raw(self), haccessor, DBCOUNTITEM(compareops.len().try_into().unwrap()), core::mem::transmute(compareops.as_ptr()), pcriteriadata) }
+        unsafe { (windows_core::Interface::vtable(self).SetFilter)(windows_core::Interface::as_raw(self), haccessor, DBCOUNTITEM(compareops.len().try_into().unwrap()), compareops.as_ptr(), pcriteriadata) }
     }
 }
 #[repr(C)]
@@ -6927,7 +6913,7 @@ impl Default for MDAXISINFO {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MDAXISINFO {
     pub cbSize: DBLENGTH,
     pub iAxis: DBCOUNTITEM,
@@ -7161,7 +7147,7 @@ impl Default for RMTPACK {
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
-#[derive(Clone, Debug, PartialEq)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct RMTPACK {
     pub pISeqStream: core::mem::ManuallyDrop<Option<super::objidlbase::ISequentialStream>>,
     pub cbData: u32,
@@ -7203,7 +7189,7 @@ impl Default for SEC_OBJECT {
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SEC_OBJECT {
     pub cObjects: u32,
     pub prgObjects: *mut SEC_OBJECT_ELEMENT,

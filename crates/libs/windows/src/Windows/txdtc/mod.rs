@@ -1364,7 +1364,7 @@ impl IRMHelper {
         unsafe { (windows_core::Interface::vtable(self).RMCount)(windows_core::Interface::as_raw(self), dwctotalnumberofrms) }
     }
     pub unsafe fn RMInfo(&self, pxa_switch: *const xa_switch_t, fcdeclcallingconv: bool, pszopenstring: *const i8, pszclosestring: *const i8, guidrmrecovery: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RMInfo)(windows_core::Interface::as_raw(self), pxa_switch, fcdeclcallingconv.into(), pszopenstring, pszclosestring, core::mem::transmute(guidrmrecovery)) }
+        unsafe { (windows_core::Interface::vtable(self).RMInfo)(windows_core::Interface::as_raw(self), pxa_switch, fcdeclcallingconv.into(), pszopenstring, pszclosestring, guidrmrecovery) }
     }
 }
 #[repr(C)]
@@ -2277,7 +2277,7 @@ windows_core::imp::define_interface!(IXAConfig, IXAConfig_Vtbl, 0xc8a6e3a1_9a8c_
 windows_core::imp::interface_hierarchy!(IXAConfig, windows_core::IUnknown);
 impl IXAConfig {
     pub unsafe fn Initialize(&self, clsidhelperdll: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(clsidhelperdll)) }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), clsidhelperdll) }
     }
     pub unsafe fn Terminate(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self)) }
@@ -2448,7 +2448,7 @@ impl IXATransLookup2_Vtbl {
 #[cfg(feature = "transact")]
 impl windows_core::RuntimeName for IXATransLookup2 {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROXY_CONFIG_PARAMS {
     pub wcThreadsMax: u16,
 }
@@ -2476,7 +2476,7 @@ pub const XACT_E_TOOMANY_ENLISTMENTS: XACT_DTC_CONSTANTS = -2147167999;
 pub const XACT_OK_NONOTIFY: XACT_DTC_CONSTANTS = 315649;
 pub const XACT_S_NONOTIFY: XACT_DTC_CONSTANTS = 315648;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XID {
     pub formatID: i32,
     pub gtrid_length: i32,
@@ -2490,7 +2490,7 @@ impl Default for XID {
 }
 pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = 65535;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct xa_switch_t {
     pub name: [i8; 32],
     pub flags: i32,

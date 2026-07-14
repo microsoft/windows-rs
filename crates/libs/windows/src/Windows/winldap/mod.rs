@@ -11,12 +11,12 @@ pub unsafe fn LdapMapErrorToWin32(ldaperror: u32) -> u32 {
 #[inline]
 pub unsafe fn LdapUTF8ToUnicode(lpsrcstr: &[u8], lpdeststr: &mut [u16]) -> i32 {
     windows_core::link!("wldap32.dll" "C" fn LdapUTF8ToUnicode(lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32) -> i32);
-    unsafe { LdapUTF8ToUnicode(core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_ptr()), lpdeststr.len().try_into().unwrap()) }
+    unsafe { LdapUTF8ToUnicode(core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_mut_ptr()), lpdeststr.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn LdapUnicodeToUTF8(lpsrcstr: &[u16], lpdeststr: &mut [u8]) -> i32 {
     windows_core::link!("wldap32.dll" "C" fn LdapUnicodeToUTF8(lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PSTR, cchdest : i32) -> i32);
-    unsafe { LdapUnicodeToUTF8(core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_ptr()), lpdeststr.len().try_into().unwrap()) }
+    unsafe { LdapUnicodeToUTF8(core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_mut_ptr()), lpdeststr.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -685,12 +685,12 @@ pub unsafe fn ldap_err2stringW(err: u32) -> super::winnt::PWCHAR {
 #[inline]
 pub unsafe fn ldap_escape_filter_element(sourcefilterelement: &[u8], destfilterelement: Option<&mut [u8]>) -> u32 {
     windows_core::link!("wldap32.dll" "C" fn ldap_escape_filter_element(sourcefilterelement : *const i8, sourcelength : u32, destfilterelement : *mut i8, destlength : u32) -> u32);
-    unsafe { ldap_escape_filter_element(core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), core::mem::transmute(destfilterelement.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), destfilterelement.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ldap_escape_filter_element(core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), core::mem::transmute(destfilterelement.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), destfilterelement.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn ldap_escape_filter_elementA(sourcefilterelement: &[u8], destfilterelement: Option<&mut [u8]>) -> u32 {
     windows_core::link!("wldap32.dll" "C" fn ldap_escape_filter_elementA(sourcefilterelement : *const i8, sourcelength : u32, destfilterelement : *mut i8, destlength : u32) -> u32);
-    unsafe { ldap_escape_filter_elementA(core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), core::mem::transmute(destfilterelement.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), destfilterelement.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ldap_escape_filter_elementA(core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), core::mem::transmute(destfilterelement.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), destfilterelement.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn ldap_escape_filter_elementW(sourcefilterelement: &[u8], destfilterelement: Option<*mut u16>, destlength: u32) -> u32 {
@@ -1855,7 +1855,7 @@ pub unsafe fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32 {
 pub type BERVAL = LDAP_BERVAL;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BerElement {
     pub opaque: super::winnt::PCHAR,
 }
@@ -1871,7 +1871,7 @@ pub const LBER_USE_DER: u32 = 1;
 pub const LBER_USE_INDEFINITE_LEN: u32 = 2;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAP {
     pub ld_sb: LDAP_0,
     pub ld_host: super::winnt::PCHAR,
@@ -1899,7 +1899,7 @@ impl Default for LDAP {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAP_0 {
     pub sb_sd: usize,
     pub Reserved1: [u8; 41],
@@ -1913,7 +1913,7 @@ impl Default for LDAP_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: *mut i8,
@@ -1926,14 +1926,14 @@ impl Default for LDAPAPIFeatureInfoA {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_info_version: i32,
     pub ldapaif_name: super::winnt::PWCHAR,
     pub ldapaif_version: i32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPAPIInfoA {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -1949,7 +1949,7 @@ impl Default for LDAPAPIInfoA {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPAPIInfoW {
     pub ldapai_info_version: i32,
     pub ldapai_api_version: i32,
@@ -1966,7 +1966,7 @@ impl Default for LDAPAPIInfoW {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPControlA {
     pub ldctl_oid: super::winnt::PCHAR,
     pub ldctl_value: LDAP_BERVAL,
@@ -1974,7 +1974,7 @@ pub struct LDAPControlA {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPControlW {
     pub ldctl_oid: super::winnt::PWCHAR,
     pub ldctl_value: LDAP_BERVAL,
@@ -1982,7 +1982,7 @@ pub struct LDAPControlW {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPMessage {
     pub lm_msgid: u32,
     pub lm_msgtype: u32,
@@ -2061,7 +2061,7 @@ impl Default for LDAPModW_0 {
 pub type LDAPSearch = ldapsearch;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPSortKeyA {
     pub sk_attrtype: super::winnt::PCHAR,
     pub sk_matchruleoid: super::winnt::PCHAR,
@@ -2069,7 +2069,7 @@ pub struct LDAPSortKeyA {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAPSortKeyW {
     pub sk_attrtype: super::winnt::PWCHAR,
     pub sk_matchruleoid: super::winnt::PWCHAR,
@@ -2077,7 +2077,7 @@ pub struct LDAPSortKeyW {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LDAPVLVInfo {
     pub ldvlv_version: i32,
     pub ldvlv_before_count: u32,
@@ -2120,7 +2120,7 @@ pub const LDAP_AUTH_SSPI: u32 = 1158;
 pub const LDAP_AUTH_UNKNOWN: LDAP_RETCODE = 86;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAP_BERVAL {
     pub bv_len: u32,
     pub bv_val: super::winnt::PCHAR,
@@ -2313,7 +2313,7 @@ pub const LDAP_SUCCESS: LDAP_RETCODE = 0;
 pub const LDAP_TIMELIMIT_EXCEEDED: LDAP_RETCODE = 3;
 pub const LDAP_TIMEOUT: LDAP_RETCODE = 85;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAP_TIMEVAL {
     pub tv_sec: i32,
     pub tv_usec: i32,
@@ -2335,7 +2335,7 @@ pub const LDAP_VERSION1: u32 = 1;
 pub const LDAP_VERSION2: u32 = 2;
 pub const LDAP_VERSION3: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LDAP_VERSION_INFO {
     pub lv_size: u32,
     pub lv_major: u32,
@@ -2381,5 +2381,5 @@ pub type QUERYFORCONNECTION = Option<unsafe extern "C" fn(primaryconnection: *mu
 #[cfg(all(feature = "minwindef", feature = "wincrypt", feature = "winnt"))]
 pub type VERIFYSERVERCERT = Option<unsafe extern "C" fn(connection: *mut LDAP, pservercert: *mut super::wincrypt::PCCERT_CONTEXT) -> bool>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ldapsearch(pub u8);

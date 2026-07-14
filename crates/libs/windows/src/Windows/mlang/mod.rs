@@ -4,7 +4,7 @@ pub const CMultiLanguage: windows_core::GUID = windows_core::GUID::from_u128(0x2
 pub const CPIOD_FORCE_PROMPT: u32 = 2147483648;
 pub const CPIOD_PEEK: u32 = 1073741824;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DetectEncodingInfo {
     pub nLangID: u32,
     pub nCodePage: u32,
@@ -238,7 +238,7 @@ impl IMLangCodePages {
         }
     }
     pub unsafe fn GetStrCodePages(&self, pszsrc: &[u16], dwprioritycodepages: u32, pdwcodepages: Option<*mut u32>, pcchcodepages: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStrCodePages)(windows_core::Interface::as_raw(self), core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), dwprioritycodepages, pdwcodepages.unwrap_or(core::mem::zeroed()) as _, pcchcodepages.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStrCodePages)(windows_core::Interface::as_raw(self), pszsrc.as_ptr(), pszsrc.len().try_into().unwrap(), dwprioritycodepages, pdwcodepages.unwrap_or(core::mem::zeroed()) as _, pcchcodepages.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn CodePageToCodePages(&self, ucodepage: u32) -> windows_core::Result<u32> {
         unsafe {
@@ -700,11 +700,11 @@ impl IMLangLineBreakConsole {
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn BreakLineW(&self, locale: super::winnt::LCID, pszsrc: &[u16], cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BreakLineW)(windows_core::Interface::as_raw(self), locale, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).BreakLineW)(windows_core::Interface::as_raw(self), locale, pszsrc.as_ptr(), pszsrc.len().try_into().unwrap(), cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn BreakLineA(&self, locale: super::winnt::LCID, ucodepage: u32, pszsrc: &[i8], cmaxcolumns: i32, pcchline: Option<*mut i32>, pcchskip: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BreakLineA)(windows_core::Interface::as_raw(self), locale, ucodepage, core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap(), cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).BreakLineA)(windows_core::Interface::as_raw(self), locale, ucodepage, pszsrc.as_ptr(), pszsrc.len().try_into().unwrap(), cmaxcolumns, pcchline.unwrap_or(core::mem::zeroed()) as _, pcchskip.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -856,7 +856,7 @@ impl IMLangStringAStr {
         unsafe { (windows_core::Interface::vtable(self).SetStrBufA)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, ucodepage, psrcbuf.param().abi(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetAStr(&self, lsrcpos: i32, lsrclen: i32, ucodepagein: u32, pucodepageout: Option<*const u32>, pszdest: Option<&mut [u8]>, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, ucodepagein, pucodepageout.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetAStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, ucodepagein, pucodepageout.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetStrBufA(&self, lsrcpos: i32, lsrcmaxlen: i32, pudestcodepage: Option<*mut u32>, ppdestbuf: *mut Option<IMLangStringBufA>, pldestlen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStrBufA)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, pudestcodepage.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppdestbuf), pldestlen.unwrap_or(core::mem::zeroed()) as _) }
@@ -1158,7 +1158,7 @@ impl IMLangStringWStr {
         unsafe { (windows_core::Interface::vtable(self).SetStrBufW)(windows_core::Interface::as_raw(self), ldestpos, ldestlen, psrcbuf.param().abi(), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetWStr(&self, lsrcpos: i32, lsrclen: i32, pszdest: Option<&mut [u16]>, pcchactual: Option<*mut i32>, plactuallen: Option<*mut i32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetWStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetWStr)(windows_core::Interface::as_raw(self), lsrcpos, lsrclen, core::mem::transmute(pszdest.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszdest.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchactual.unwrap_or(core::mem::zeroed()) as _, plactuallen.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetStrBufW(&self, lsrcpos: i32, lsrcmaxlen: i32, ppdestbuf: *mut Option<IMLangStringBufW>, pldestlen: Option<*mut i32>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetStrBufW)(windows_core::Interface::as_raw(self), lsrcpos, lsrcmaxlen, core::mem::transmute(ppdestbuf), pldestlen.unwrap_or(core::mem::zeroed()) as _) }
@@ -1650,7 +1650,7 @@ impl IMultiLanguage2 {
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn GetCodePageDescription(&self, uicodepage: u32, lcid: super::winnt::LCID, lpwidecharstr: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCodePageDescription)(windows_core::Interface::as_raw(self), uicodepage, lcid, core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetCodePageDescription)(windows_core::Interface::as_raw(self), uicodepage, lcid, core::mem::transmute(lpwidecharstr.as_mut_ptr()), lpwidecharstr.len().try_into().unwrap()) }
     }
     pub unsafe fn IsCodePageInstallable(&self, uicodepage: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).IsCodePageInstallable)(windows_core::Interface::as_raw(self), uicodepage) }
@@ -2037,7 +2037,7 @@ impl IMultiLanguage3 {
     where
         P7: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DetectOutboundCodePage)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap(), core::mem::transmute(puipreferredcodepages.map_or(core::ptr::null(), |slice| slice.as_ptr())), puipreferredcodepages.map_or(0, |slice| slice.len().try_into().unwrap()), puidetectedcodepages as _, pndetectedcodepages as _, lpspecialchar.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).DetectOutboundCodePage)(windows_core::Interface::as_raw(self), dwflags, core::mem::transmute(lpwidecharstr.as_ptr()), lpwidecharstr.len().try_into().unwrap(), puipreferredcodepages.map_or(core::ptr::null(), |slice| slice.as_ptr()), puipreferredcodepages.map_or(0, |slice| slice.len().try_into().unwrap()), puidetectedcodepages as _, pndetectedcodepages as _, lpspecialchar.param().abi()) }
     }
     #[cfg(feature = "objidlbase")]
     pub unsafe fn DetectOutboundCodePageInIStream<P1, P6>(&self, dwflags: u32, pstrin: P1, puipreferredcodepages: Option<&[u32]>, puidetectedcodepages: *mut u32, pndetectedcodepages: *mut u32, lpspecialchar: P6) -> windows_core::HRESULT
@@ -2045,7 +2045,7 @@ impl IMultiLanguage3 {
         P1: windows_core::Param<super::objidlbase::IStream>,
         P6: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DetectOutboundCodePageInIStream)(windows_core::Interface::as_raw(self), dwflags, pstrin.param().abi(), core::mem::transmute(puipreferredcodepages.map_or(core::ptr::null(), |slice| slice.as_ptr())), puipreferredcodepages.map_or(0, |slice| slice.len().try_into().unwrap()), puidetectedcodepages as _, pndetectedcodepages as _, lpspecialchar.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).DetectOutboundCodePageInIStream)(windows_core::Interface::as_raw(self), dwflags, pstrin.param().abi(), puipreferredcodepages.map_or(core::ptr::null(), |slice| slice.as_ptr()), puipreferredcodepages.map_or(0, |slice| slice.len().try_into().unwrap()), puidetectedcodepages as _, pndetectedcodepages as _, lpspecialchar.param().abi()) }
     }
 }
 #[repr(C)]
@@ -2111,7 +2111,7 @@ pub const MIMECONTF_SAVABLE_MAILNEWS: MIMECONTF = 256;
 pub const MIMECONTF_VALID: MIMECONTF = 131072;
 pub const MIMECONTF_VALID_NLS: MIMECONTF = 262144;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIMECPINFO {
     pub dwFlags: u32,
     pub uiCodePage: u32,
@@ -2130,7 +2130,7 @@ impl Default for MIMECPINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIMECSETINFO {
     pub uiCodePage: u32,
     pub uiInternetEncoding: u32,
@@ -2176,7 +2176,7 @@ pub type PSCRIPTFONTINFO = *mut SCRIPTFONTINFO;
 pub type PSCRIPTINFO = *mut SCRIPTINFO;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RFC1766INFO {
     pub lcid: super::winnt::LCID,
     pub wszRfc1766: [u16; 6],
@@ -2196,7 +2196,7 @@ pub const SCRIPTCONTF_SCRIPT_SYSTEM: SCRIPTFONTCONTF = 262144;
 pub const SCRIPTCONTF_SCRIPT_USER: SCRIPTFONTCONTF = 65536;
 pub type SCRIPTFONTCONTF = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRIPTFONTINFO {
     pub scripts: SCRIPT_IDS,
     pub wszFont: [u16; 32],
@@ -2207,7 +2207,7 @@ impl Default for SCRIPTFONTINFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SCRIPTINFO {
     pub ScriptId: SCRIPT_ID,
     pub uiCodePage: u32,
@@ -2227,7 +2227,7 @@ pub struct SCRIPT_ID(pub u8);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct SCRIPT_IDS(pub i64);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNICODERANGE {
     pub wcFrom: u16,
     pub wcTo: u16,

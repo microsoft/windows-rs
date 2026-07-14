@@ -1,5 +1,5 @@
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -538,7 +538,7 @@ impl windows_core::RuntimeName for HolographicFrame {
 unsafe impl Send for HolographicFrame {}
 unsafe impl Sync for HolographicFrame {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HolographicFrameId {
     pub Value: u64,
 }

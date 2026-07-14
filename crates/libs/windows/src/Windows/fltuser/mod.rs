@@ -83,7 +83,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("fltlib.dll" "system" fn FilterGetDosName(lpvolumename : windows_core::PCWSTR, lpdosname : windows_core::PWSTR, dwdosnamebuffersize : u32) -> windows_core::HRESULT);
-    unsafe { FilterGetDosName(lpvolumename.param().abi(), core::mem::transmute(lpdosname.as_ptr()), lpdosname.len().try_into().unwrap()) }
+    unsafe { FilterGetDosName(lpvolumename.param().abi(), core::mem::transmute(lpdosname.as_mut_ptr()), lpdosname.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "fltuserstructures", feature = "winnt"))]
 #[inline]

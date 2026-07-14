@@ -35,9 +35,7 @@ impl Struct {
         if config.bindgen.style.derive_std_traits() {
             derive.extend(["Default", "Debug", "PartialEq"]);
 
-            if config.bindgen.style.is_minimal()
-                && fields.iter().all(|(_, ty)| ty.is_eq(config.reader))
-            {
+            if fields.iter().all(|(_, ty)| ty.is_eq(config.reader)) {
                 derive.extend(["Eq"]);
             }
         }

@@ -1702,7 +1702,7 @@ impl windows_core::RuntimeName for MediaProcessingTriggerDetails {
 unsafe impl Send for MediaProcessingTriggerDetails {}
 unsafe impl Sync for MediaProcessingTriggerDetails {}
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MediaTimeRange {
     pub Start: windows_time::TimeSpan,
     pub End: windows_time::TimeSpan,

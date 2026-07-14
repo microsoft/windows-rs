@@ -27,7 +27,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("urlmon.dll" "system" fn CoInternetCombineUrl(pwzbaseurl : windows_core::PCWSTR, pwzrelativeurl : windows_core::PCWSTR, dwcombineflags : u32, pszresult : windows_core::PWSTR, cchresult : u32, pcchresult : *mut u32, dwreserved : u32) -> windows_core::HRESULT);
-    unsafe { CoInternetCombineUrl(pwzbaseurl.param().abi(), pwzrelativeurl.param().abi(), dwcombineflags, core::mem::transmute(pszresult.as_ptr()), pszresult.len().try_into().unwrap(), pcchresult.unwrap_or(core::mem::zeroed()) as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CoInternetCombineUrl(pwzbaseurl.param().abi(), pwzrelativeurl.param().abi(), dwcombineflags, core::mem::transmute(pszresult.as_mut_ptr()), pszresult.len().try_into().unwrap(), pcchresult.unwrap_or(core::mem::zeroed()) as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CoInternetCombineUrlEx<P0, P1>(pbaseuri: P0, pwzrelativeurl: P1, dwcombineflags: u32, ppcombineduri: *mut Option<IUri>, dwreserved: Option<usize>) -> windows_core::HRESULT
@@ -133,7 +133,7 @@ where
     P0: windows_core::Param<IUri>,
 {
     windows_core::link!("urlmon.dll" "system" fn CoInternetParseIUri(piuri : *mut core::ffi::c_void, parseaction : PARSEACTION, dwflags : u32, pwzresult : windows_core::PWSTR, cchresult : u32, pcchresult : *mut u32, dwreserved : usize) -> windows_core::HRESULT);
-    unsafe { CoInternetParseIUri(piuri.param().abi(), parseaction, dwflags, core::mem::transmute(pwzresult.as_ptr()), pwzresult.len().try_into().unwrap(), pcchresult as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CoInternetParseIUri(piuri.param().abi(), parseaction, dwflags, core::mem::transmute(pwzresult.as_mut_ptr()), pwzresult.len().try_into().unwrap(), pcchresult as _, dwreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CoInternetParseUrl<P0>(pwzurl: P0, parseaction: PARSEACTION, dwflags: u32, pszresult: &mut [u16], pcchresult: *mut u32, dwreserved: u32) -> windows_core::HRESULT
@@ -141,7 +141,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("urlmon.dll" "system" fn CoInternetParseUrl(pwzurl : windows_core::PCWSTR, parseaction : PARSEACTION, dwflags : u32, pszresult : windows_core::PWSTR, cchresult : u32, pcchresult : *mut u32, dwreserved : u32) -> windows_core::HRESULT);
-    unsafe { CoInternetParseUrl(pwzurl.param().abi(), parseaction, dwflags, core::mem::transmute(pszresult.as_ptr()), pszresult.len().try_into().unwrap(), pcchresult as _, dwreserved) }
+    unsafe { CoInternetParseUrl(pwzurl.param().abi(), parseaction, dwflags, core::mem::transmute(pszresult.as_mut_ptr()), pszresult.len().try_into().unwrap(), pcchresult as _, dwreserved) }
 }
 #[inline]
 pub unsafe fn CoInternetQueryInfo<P0>(pwzurl: P0, queryoptions: QUERYOPTION, dwqueryflags: u32, pvbuffer: *mut core::ffi::c_void, cbbuffer: u32, pcbbuffer: Option<*mut u32>, dwreserved: u32) -> windows_core::HRESULT
@@ -159,7 +159,7 @@ pub unsafe fn CoInternetSetFeatureEnabled(featureentry: INTERNETFEATURELIST, dwf
 #[inline]
 pub unsafe fn CompareSecurityIds(pbsecurityid1: &[u8], pbsecurityid2: &[u8], dwreserved: u32) -> windows_core::HRESULT {
     windows_core::link!("urlmon.dll" "system" fn CompareSecurityIds(pbsecurityid1 : *const u8, dwlen1 : u32, pbsecurityid2 : *const u8, dwlen2 : u32, dwreserved : u32) -> windows_core::HRESULT);
-    unsafe { CompareSecurityIds(core::mem::transmute(pbsecurityid1.as_ptr()), pbsecurityid1.len().try_into().unwrap(), core::mem::transmute(pbsecurityid2.as_ptr()), pbsecurityid2.len().try_into().unwrap(), dwreserved) }
+    unsafe { CompareSecurityIds(pbsecurityid1.as_ptr(), pbsecurityid1.len().try_into().unwrap(), pbsecurityid2.as_ptr(), pbsecurityid2.len().try_into().unwrap(), dwreserved) }
 }
 #[inline]
 pub unsafe fn CompatFlagsFromClsid(pclsid: *const windows_core::GUID, pdwcompatflags: *mut u32, pdwmiscstatusflags: *mut u32) -> windows_core::HRESULT {
@@ -170,7 +170,7 @@ pub unsafe fn CompatFlagsFromClsid(pclsid: *const windows_core::GUID, pdwcompatf
 #[inline]
 pub unsafe fn CopyBindInfo(pcbisrc: *const BINDINFO, pbidest: *mut BINDINFO) -> windows_core::HRESULT {
     windows_core::link!("urlmon.dll" "system" fn CopyBindInfo(pcbisrc : *const BINDINFO, pbidest : *mut BINDINFO) -> windows_core::HRESULT);
-    unsafe { CopyBindInfo(core::mem::transmute(pcbisrc), core::mem::transmute(pbidest)) }
+    unsafe { CopyBindInfo(pcbisrc, pbidest) }
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 #[inline]
@@ -178,7 +178,7 @@ pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::objidl::STGMEDIUM) -> win
     windows_core::link!("urlmon.dll" "system" fn CopyStgMedium(pcstgmedsrc : *const super::objidl::STGMEDIUM, pstgmeddest : *mut super::objidl::STGMEDIUM) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CopyStgMedium(core::mem::transmute(pcstgmedsrc), &mut result__).map(|| core::mem::transmute(result__))
+        CopyStgMedium(pcstgmedsrc, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "objidl")]
@@ -211,7 +211,7 @@ pub unsafe fn CreateFormatEnumerator(rgfmtetc: &[super::objidl::FORMATETC]) -> w
     windows_core::link!("urlmon.dll" "system" fn CreateFormatEnumerator(cfmtetc : u32, rgfmtetc : *const super::objidl::FORMATETC, ppenumfmtetc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreateFormatEnumerator(rgfmtetc.len().try_into().unwrap(), core::mem::transmute(rgfmtetc.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CreateFormatEnumerator(rgfmtetc.len().try_into().unwrap(), rgfmtetc.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -497,7 +497,7 @@ where
 #[inline]
 pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: windows_core::PSTR, cbsize: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("urlmon.dll" "system" fn ObtainUserAgentString(dwoption : u32, pszuaout : windows_core::PSTR, cbsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { ObtainUserAgentString(dwoption, core::mem::transmute(pszuaout), cbsize as _) }
+    unsafe { ObtainUserAgentString(dwoption, pszuaout, cbsize as _) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
@@ -538,7 +538,7 @@ pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const windows_core::PC
 #[inline]
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut BINDINFO) {
     windows_core::link!("urlmon.dll" "system" fn ReleaseBindInfo(pbindinfo : *mut BINDINFO));
-    unsafe { ReleaseBindInfo(core::mem::transmute(pbindinfo)) }
+    unsafe { ReleaseBindInfo(pbindinfo) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
@@ -582,7 +582,7 @@ where
     P5: windows_core::Param<IBindStatusCallback>,
 {
     windows_core::link!("urlmon.dll" "system" fn URLDownloadToCacheFileA(param0 : *mut core::ffi::c_void, param1 : windows_core::PCSTR, param2 : windows_core::PSTR, cchfilename : u32, param4 : u32, param5 : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { URLDownloadToCacheFileA(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2.as_ptr()), param2.len().try_into().unwrap(), param4, param5.param().abi()) }
+    unsafe { URLDownloadToCacheFileA(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2.as_mut_ptr()), param2.len().try_into().unwrap(), param4, param5.param().abi()) }
 }
 #[inline]
 pub unsafe fn URLDownloadToCacheFileW<P0, P1, P5>(param0: P0, param1: P1, param2: &mut [u16], param4: u32, param5: P5) -> windows_core::HRESULT
@@ -592,7 +592,7 @@ where
     P5: windows_core::Param<IBindStatusCallback>,
 {
     windows_core::link!("urlmon.dll" "system" fn URLDownloadToCacheFileW(param0 : *mut core::ffi::c_void, param1 : windows_core::PCWSTR, param2 : windows_core::PWSTR, cchfilename : u32, param4 : u32, param5 : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { URLDownloadToCacheFileW(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2.as_ptr()), param2.len().try_into().unwrap(), param4, param5.param().abi()) }
+    unsafe { URLDownloadToCacheFileW(param0.param().abi(), param1.param().abi(), core::mem::transmute(param2.as_mut_ptr()), param2.len().try_into().unwrap(), param4, param5.param().abi()) }
 }
 #[inline]
 pub unsafe fn URLDownloadToFileA<P0, P1, P2, P4>(param0: P0, param1: P1, param2: P2, param3: u32, param4: P4) -> windows_core::HRESULT
@@ -699,7 +699,7 @@ pub const AUTHENTICATEF_BASIC: AUTHENTICATEF = 2;
 pub const AUTHENTICATEF_HTTP: AUTHENTICATEF = 4;
 pub const AUTHENTICATEF_PROXY: AUTHENTICATEF = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUTHENTICATEINFO {
     pub dwFlags: u32,
     pub dwReserved: u32,
@@ -960,7 +960,7 @@ pub const CIP_TRUST_VERIFICATION_COMPONENT_MISSING: CIP_STATUS = 5;
 pub const CIP_UNSAFE_TO_ABORT: CIP_STATUS = 7;
 pub const CLASSIDPROP: MONIKERPROPERTY = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CODEBASEHOLD {
     pub cbSize: u32,
     pub szDistUnit: windows_core::PWSTR,
@@ -970,7 +970,7 @@ pub struct CODEBASEHOLD {
     pub dwStyle: u32,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct CONFIRMSAFETY {
     pub clsid: windows_core::GUID,
     pub pUnk: core::mem::ManuallyDrop<Option<windows_core::IUnknown>>,
@@ -978,7 +978,7 @@ pub struct CONFIRMSAFETY {
 }
 pub const CONFIRMSAFETYACTION_LOADOBJECT: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DATAINFO {
     pub ulTotalSize: u32,
     pub ulavrPacketSize: u32,
@@ -1037,7 +1037,7 @@ pub const GET_FEATURE_FROM_THREAD_RESTRICTED: u32 = 128;
 pub const GET_FEATURE_FROM_THREAD_TRUSTED: u32 = 32;
 #[repr(C)]
 #[cfg(feature = "minwinbase")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HIT_LOGGING_INFO {
     pub dwStructSize: u32,
     pub lpszLoggedUrlName: windows_core::PSTR,
@@ -1391,11 +1391,11 @@ impl IBindStatusCallback {
     }
     #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBindInfo)(windows_core::Interface::as_raw(self), grfbindf as _, core::mem::transmute(pbindinfo)) }
+        unsafe { (windows_core::Interface::vtable(self).GetBindInfo)(windows_core::Interface::as_raw(self), grfbindf as _, pbindinfo) }
     }
     #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn OnDataAvailable(&self, grfbscf: u32, dwsize: u32, pformatetc: *const super::objidl::FORMATETC, pstgmed: *const super::objidl::STGMEDIUM) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnDataAvailable)(windows_core::Interface::as_raw(self), grfbscf, dwsize, pformatetc, core::mem::transmute(pstgmed)) }
+        unsafe { (windows_core::Interface::vtable(self).OnDataAvailable)(windows_core::Interface::as_raw(self), grfbscf, dwsize, pformatetc, pstgmed) }
     }
     pub unsafe fn OnObjectAvailable<P1>(&self, riid: *const windows_core::GUID, punk: P1) -> windows_core::HRESULT
     where
@@ -1520,7 +1520,7 @@ windows_core::imp::interface_hierarchy!(IBindStatusCallbackEx, windows_core::IUn
 impl IBindStatusCallbackEx {
     #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBindInfoEx)(windows_core::Interface::as_raw(self), grfbindf as _, core::mem::transmute(pbindinfo), grfbindf2 as _, pdwreserved as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetBindInfoEx)(windows_core::Interface::as_raw(self), grfbindf as _, pbindinfo, grfbindf2 as _, pdwreserved as _) }
     }
 }
 #[repr(C)]
@@ -1832,7 +1832,7 @@ impl IEncodingFilterFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindBestFilter)(windows_core::Interface::as_raw(self), pwzcodein.param().abi(), pwzcodeout.param().abi(), core::mem::transmute(info), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindBestFilter)(windows_core::Interface::as_raw(self), pwzcodein.param().abi(), pwzcodeout.param().abi(), info, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetDefaultFilter<P0, P1>(&self, pwzcodein: P0, pwzcodeout: P1) -> windows_core::Result<IDataFilter>
@@ -2149,7 +2149,7 @@ windows_core::imp::interface_hierarchy!(IInternetBindInfo, windows_core::IUnknow
 impl IInternetBindInfo {
     #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBindInfo)(windows_core::Interface::as_raw(self), grfbindf as _, core::mem::transmute(pbindinfo)) }
+        unsafe { (windows_core::Interface::vtable(self).GetBindInfo)(windows_core::Interface::as_raw(self), grfbindf as _, pbindinfo) }
     }
     pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut windows_core::PWSTR, cel: u32, pcelfetched: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBindString)(windows_core::Interface::as_raw(self), ulstringtype, ppwzstr as _, cel, pcelfetched as _) }
@@ -2208,7 +2208,7 @@ windows_core::imp::interface_hierarchy!(IInternetBindInfoEx, windows_core::IUnkn
 impl IInternetBindInfoEx {
     #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBindInfoEx)(windows_core::Interface::as_raw(self), grfbindf as _, core::mem::transmute(pbindinfo), grfbindf2 as _, pdwreserved as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetBindInfoEx)(windows_core::Interface::as_raw(self), grfbindf as _, pbindinfo, grfbindf2 as _, pdwreserved as _) }
     }
 }
 #[repr(C)]
@@ -2248,10 +2248,10 @@ impl IInternetHostSecurityManager {
         unsafe { (windows_core::Interface::vtable(self).GetSecurityId)(windows_core::Interface::as_raw(self), pbsecurityid as _, pcbsecurityid as _, dwreserved) }
     }
     pub unsafe fn ProcessUrlAction(&self, dwaction: u32, ppolicy: &mut [u8], pcontext: Option<&[u8]>, dwflags: u32, dwreserved: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ProcessUrlAction)(windows_core::Interface::as_raw(self), dwaction, core::mem::transmute(ppolicy.as_ptr()), ppolicy.len().try_into().unwrap(), core::mem::transmute(pcontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcontext.map_or(0, |slice| slice.len().try_into().unwrap()), dwflags, dwreserved) }
+        unsafe { (windows_core::Interface::vtable(self).ProcessUrlAction)(windows_core::Interface::as_raw(self), dwaction, ppolicy.as_mut_ptr(), ppolicy.len().try_into().unwrap(), pcontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcontext.map_or(0, |slice| slice.len().try_into().unwrap()), dwflags, dwreserved) }
     }
     pub unsafe fn QueryCustomPolicy(&self, guidkey: *const windows_core::GUID, pppolicy: *mut *mut u8, pcbpolicy: *mut u32, pcontext: &[u8], dwreserved: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryCustomPolicy)(windows_core::Interface::as_raw(self), guidkey, pppolicy as _, pcbpolicy as _, core::mem::transmute(pcontext.as_ptr()), pcontext.len().try_into().unwrap(), dwreserved) }
+        unsafe { (windows_core::Interface::vtable(self).QueryCustomPolicy)(windows_core::Interface::as_raw(self), guidkey, pppolicy as _, pcbpolicy as _, pcontext.as_ptr(), pcontext.len().try_into().unwrap(), dwreserved) }
     }
 }
 #[repr(C)]
@@ -2498,14 +2498,14 @@ impl IInternetProtocolInfo {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ParseUrl)(windows_core::Interface::as_raw(self), pwzurl.param().abi(), parseaction, dwparseflags, core::mem::transmute(pwzresult), cchresult, pcchresult as _, dwreserved) }
+        unsafe { (windows_core::Interface::vtable(self).ParseUrl)(windows_core::Interface::as_raw(self), pwzurl.param().abi(), parseaction, dwparseflags, pwzresult, cchresult, pcchresult as _, dwreserved) }
     }
     pub unsafe fn CombineUrl<P0, P1>(&self, pwzbaseurl: P0, pwzrelativeurl: P1, dwcombineflags: u32, pwzresult: windows_core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CombineUrl)(windows_core::Interface::as_raw(self), pwzbaseurl.param().abi(), pwzrelativeurl.param().abi(), dwcombineflags, core::mem::transmute(pwzresult), cchresult, pcchresult as _, dwreserved) }
+        unsafe { (windows_core::Interface::vtable(self).CombineUrl)(windows_core::Interface::as_raw(self), pwzbaseurl.param().abi(), pwzrelativeurl.param().abi(), dwcombineflags, pwzresult, cchresult, pcchresult as _, dwreserved) }
     }
     pub unsafe fn CompareUrl<P0, P1>(&self, pwzurl1: P0, pwzurl2: P1, dwcompareflags: u32) -> windows_core::HRESULT
     where
@@ -3371,13 +3371,13 @@ impl IInternetZoneManager {
         unsafe { (windows_core::Interface::vtable(self).GetZoneCustomPolicy)(windows_core::Interface::as_raw(self), dwzone, guidkey, pppolicy as _, pcbpolicy as _, urlzonereg) }
     }
     pub unsafe fn SetZoneCustomPolicy(&self, dwzone: u32, guidkey: *const windows_core::GUID, ppolicy: &[u8], urlzonereg: URLZONEREG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetZoneCustomPolicy)(windows_core::Interface::as_raw(self), dwzone, guidkey, core::mem::transmute(ppolicy.as_ptr()), ppolicy.len().try_into().unwrap(), urlzonereg) }
+        unsafe { (windows_core::Interface::vtable(self).SetZoneCustomPolicy)(windows_core::Interface::as_raw(self), dwzone, guidkey, ppolicy.as_ptr(), ppolicy.len().try_into().unwrap(), urlzonereg) }
     }
     pub unsafe fn GetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: URLZONEREG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetZoneActionPolicy)(windows_core::Interface::as_raw(self), dwzone, dwaction, core::mem::transmute(ppolicy.as_ptr()), ppolicy.len().try_into().unwrap(), urlzonereg) }
+        unsafe { (windows_core::Interface::vtable(self).GetZoneActionPolicy)(windows_core::Interface::as_raw(self), dwzone, dwaction, ppolicy.as_mut_ptr(), ppolicy.len().try_into().unwrap(), urlzonereg) }
     }
     pub unsafe fn SetZoneActionPolicy(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetZoneActionPolicy)(windows_core::Interface::as_raw(self), dwzone, dwaction, core::mem::transmute(ppolicy.as_ptr()), ppolicy.len().try_into().unwrap(), urlzonereg) }
+        unsafe { (windows_core::Interface::vtable(self).SetZoneActionPolicy)(windows_core::Interface::as_raw(self), dwzone, dwaction, ppolicy.as_ptr(), ppolicy.len().try_into().unwrap(), urlzonereg) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn PromptAction<P2, P3>(&self, dwaction: u32, hwndparent: super::windef::HWND, pwszurl: P2, pwsztext: P3, dwpromptflags: u32) -> windows_core::HRESULT
@@ -3558,10 +3558,10 @@ impl core::ops::Deref for IInternetZoneManagerEx {
 windows_core::imp::interface_hierarchy!(IInternetZoneManagerEx, windows_core::IUnknown, IInternetZoneManager);
 impl IInternetZoneManagerEx {
     pub unsafe fn GetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: &mut [u8], urlzonereg: URLZONEREG, dwflags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetZoneActionPolicyEx)(windows_core::Interface::as_raw(self), dwzone, dwaction, core::mem::transmute(ppolicy.as_ptr()), ppolicy.len().try_into().unwrap(), urlzonereg, dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).GetZoneActionPolicyEx)(windows_core::Interface::as_raw(self), dwzone, dwaction, ppolicy.as_mut_ptr(), ppolicy.len().try_into().unwrap(), urlzonereg, dwflags) }
     }
     pub unsafe fn SetZoneActionPolicyEx(&self, dwzone: u32, dwaction: u32, ppolicy: &[u8], urlzonereg: URLZONEREG, dwflags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetZoneActionPolicyEx)(windows_core::Interface::as_raw(self), dwzone, dwaction, core::mem::transmute(ppolicy.as_ptr()), ppolicy.len().try_into().unwrap(), urlzonereg, dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).SetZoneActionPolicyEx)(windows_core::Interface::as_raw(self), dwzone, dwaction, ppolicy.as_ptr(), ppolicy.len().try_into().unwrap(), urlzonereg, dwflags) }
     }
 }
 #[repr(C)]
@@ -5529,7 +5529,7 @@ pub const PI_USE_WORKERTHREAD: PI_FLAGS = 8;
 pub const POPUPLEVELPROP: MONIKERPROPERTY = 4;
 pub type PREMSECURITY_ATTRIBUTES = *mut REMSECURITY_ATTRIBUTES;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROTOCOLDATA {
     pub grfFlags: u32,
     pub dwState: u32,
@@ -5542,7 +5542,7 @@ impl Default for PROTOCOLDATA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct PROTOCOLFILTERDATA {
     pub cbSize: u32,
     pub pProtocolSink: core::mem::ManuallyDrop<Option<IInternetProtocolSink>>,
@@ -5552,7 +5552,7 @@ pub struct PROTOCOLFILTERDATA {
 }
 pub const PROTOCOLFLAG_NO_PICS_CHECK: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROTOCOL_ARGUMENT {
     pub szMethod: windows_core::PCWSTR,
     pub szTargetUrl: windows_core::PCWSTR,
@@ -5603,14 +5603,14 @@ pub const QUERY_USES_CACHE: QUERYOPTION = 12;
 pub const QUERY_USES_HISTORYFOLDER: QUERYOPTION = 15;
 pub const QUERY_USES_NETWORK: QUERYOPTION = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REMSECURITY_ATTRIBUTES {
     pub nLength: u32,
     pub lpSecurityDescriptor: u32,
     pub bInheritHandle: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct RemBINDINFO {
     pub cbSize: u32,
     pub szExtraInfo: windows_core::PWSTR,
@@ -5627,7 +5627,7 @@ pub struct RemBINDINFO {
     pub dwReserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RemFORMATETC {
     pub cfFormat: u32,
     pub ptd: u32,
@@ -5646,7 +5646,7 @@ pub const SET_FEATURE_ON_THREAD_LOCALMACHINE: u32 = 8;
 pub const SET_FEATURE_ON_THREAD_RESTRICTED: u32 = 128;
 pub const SET_FEATURE_ON_THREAD_TRUSTED: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SOFTDISTINFO {
     pub cbSize: u32,
     pub dwFlags: u32,
@@ -5676,7 +5676,7 @@ pub type SZM_FLAGS = i32;
 pub const S_ASYNCHRONOUS: u32 = 262632;
 #[repr(C)]
 #[cfg(feature = "objidl")]
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct StartParam {
     pub iid: windows_core::GUID,
     pub pIBindCtx: core::mem::ManuallyDrop<Option<super::objidl::IBindCtx>>,
@@ -5988,7 +5988,7 @@ pub const ZAFLAGS_UNC_AS_INTRANET: ZAFLAGS = 128;
 pub const ZAFLAGS_USE_LOCKED_ZONES: ZAFLAGS = 65536;
 pub const ZAFLAGS_VERIFY_TEMPLATE_SETTINGS: ZAFLAGS = 131072;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct ZONEATTRIBUTES {
     pub cbSize: u32,
     pub szDisplayName: [u16; 260],

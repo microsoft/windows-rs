@@ -43,10 +43,10 @@ impl IMF2DBuffer {
         }
     }
     pub unsafe fn ContiguousCopyTo(&self, pbdestbuffer: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ContiguousCopyTo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdestbuffer.as_ptr()), pbdestbuffer.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).ContiguousCopyTo)(windows_core::Interface::as_raw(self), pbdestbuffer.as_mut_ptr(), pbdestbuffer.len().try_into().unwrap()) }
     }
     pub unsafe fn ContiguousCopyFrom(&self, pbsrcbuffer: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ContiguousCopyFrom)(windows_core::Interface::as_raw(self), core::mem::transmute(pbsrcbuffer.as_ptr()), pbsrcbuffer.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).ContiguousCopyFrom)(windows_core::Interface::as_raw(self), pbsrcbuffer.as_ptr(), pbsrcbuffer.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -470,7 +470,7 @@ windows_core::imp::interface_hierarchy!(IMFAttributes, windows_core::IUnknown);
 impl IMFAttributes {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetItem(&self, guidkey: *const windows_core::GUID, pvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), guidkey, core::mem::transmute(pvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), guidkey, pvalue) }
     }
     pub unsafe fn GetItemType(&self, guidkey: *const windows_core::GUID) -> windows_core::Result<MF_ATTRIBUTE_TYPE> {
         unsafe {
@@ -482,7 +482,7 @@ impl IMFAttributes {
     pub unsafe fn CompareItem(&self, guidkey: *const windows_core::GUID, value: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CompareItem)(windows_core::Interface::as_raw(self), guidkey, core::mem::transmute(value), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CompareItem)(windows_core::Interface::as_raw(self), guidkey, value, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Compare<P0>(&self, ptheirs: P0, matchtype: MF_ATTRIBUTES_MATCH_TYPE) -> windows_core::Result<windows_core::BOOL>
@@ -525,7 +525,7 @@ impl IMFAttributes {
         }
     }
     pub unsafe fn GetString(&self, guidkey: *const windows_core::GUID, pwszvalue: windows_core::PWSTR, cchbufsize: u32, pcchlength: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), guidkey, core::mem::transmute(pwszvalue), cchbufsize, pcchlength as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetString)(windows_core::Interface::as_raw(self), guidkey, pwszvalue, cchbufsize, pcchlength as _) }
     }
     pub unsafe fn GetAllocatedString(&self, guidkey: *const windows_core::GUID, ppwszvalue: *mut windows_core::PWSTR, pcchlength: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetAllocatedString)(windows_core::Interface::as_raw(self), guidkey, ppwszvalue as _, pcchlength as _) }
@@ -551,7 +551,7 @@ impl IMFAttributes {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetItem(&self, guidkey: *const windows_core::GUID, value: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), guidkey, core::mem::transmute(value)) }
+        unsafe { (windows_core::Interface::vtable(self).SetItem)(windows_core::Interface::as_raw(self), guidkey, value) }
     }
     pub unsafe fn DeleteItem(&self, guidkey: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DeleteItem)(windows_core::Interface::as_raw(self), guidkey) }
@@ -600,7 +600,7 @@ impl IMFAttributes {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetItemByIndex(&self, unindex: u32, pguidkey: *mut windows_core::GUID, pvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetItemByIndex)(windows_core::Interface::as_raw(self), unindex, pguidkey as _, core::mem::transmute(pvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).GetItemByIndex)(windows_core::Interface::as_raw(self), unindex, pguidkey as _, pvalue) }
     }
     pub unsafe fn CopyAllItems<P0>(&self, pdest: P0) -> windows_core::HRESULT
     where
@@ -1057,7 +1057,7 @@ impl IMFByteStream {
         P2: windows_core::Param<IMFAsyncCallback>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginRead)(windows_core::Interface::as_raw(self), core::mem::transmute(pb.as_ptr()), pb.len().try_into().unwrap(), pcallback.param().abi(), punkstate.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).BeginRead)(windows_core::Interface::as_raw(self), pb.as_mut_ptr(), pb.len().try_into().unwrap(), pcallback.param().abi(), punkstate.param().abi()) }
     }
     pub unsafe fn EndRead<P0>(&self, presult: P0) -> windows_core::Result<u32>
     where
@@ -1079,7 +1079,7 @@ impl IMFByteStream {
         P2: windows_core::Param<IMFAsyncCallback>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginWrite)(windows_core::Interface::as_raw(self), core::mem::transmute(pb.as_ptr()), pb.len().try_into().unwrap(), pcallback.param().abi(), punkstate.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).BeginWrite)(windows_core::Interface::as_raw(self), pb.as_ptr(), pb.len().try_into().unwrap(), pcallback.param().abi(), punkstate.param().abi()) }
     }
     pub unsafe fn EndWrite<P0>(&self, presult: P0) -> windows_core::Result<u32>
     where
@@ -2053,7 +2053,7 @@ impl IMFMediaEventGenerator {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn QueueEvent(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueueEvent)(windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, core::mem::transmute(pvvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).QueueEvent)(windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue) }
     }
 }
 #[repr(C)]
@@ -2161,7 +2161,7 @@ impl IMFMediaEventQueue {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn QueueEventParamVar(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueueEventParamVar)(windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, core::mem::transmute(pvvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).QueueEventParamVar)(windows_core::Interface::as_raw(self), met, guidextendedtype, hrstatus, pvvalue) }
     }
     pub unsafe fn QueueEventParamUnk<P3>(&self, met: MediaEventType, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, punk: P3) -> windows_core::HRESULT
     where
@@ -2303,10 +2303,10 @@ impl IMFMediaType {
         }
     }
     pub unsafe fn GetRepresentation(&self, guidrepresentation: windows_core::GUID, ppvrepresentation: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRepresentation)(windows_core::Interface::as_raw(self), core::mem::transmute(guidrepresentation), ppvrepresentation as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRepresentation)(windows_core::Interface::as_raw(self), guidrepresentation, ppvrepresentation as _) }
     }
     pub unsafe fn FreeRepresentation(&self, guidrepresentation: windows_core::GUID, pvrepresentation: *const core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FreeRepresentation)(windows_core::Interface::as_raw(self), core::mem::transmute(guidrepresentation), pvrepresentation) }
+        unsafe { (windows_core::Interface::vtable(self).FreeRepresentation)(windows_core::Interface::as_raw(self), guidrepresentation, pvrepresentation) }
     }
 }
 #[repr(C)]
@@ -3240,7 +3240,7 @@ impl IMFVideoMediaType {
         unsafe { (windows_core::Interface::vtable(self).GetVideoFormat)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetVideoRepresentation(&self, guidrepresentation: windows_core::GUID, ppvrepresentation: *mut *mut core::ffi::c_void, lstride: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetVideoRepresentation)(windows_core::Interface::as_raw(self), core::mem::transmute(guidrepresentation), ppvrepresentation as _, lstride) }
+        unsafe { (windows_core::Interface::vtable(self).GetVideoRepresentation)(windows_core::Interface::as_raw(self), guidrepresentation, ppvrepresentation as _, lstride) }
     }
 }
 #[repr(C)]
@@ -3412,7 +3412,7 @@ pub const MF2DBuffer_LockFlags_Read: MF2DBuffer_LockFlags = 1;
 pub const MF2DBuffer_LockFlags_ReadWrite: MF2DBuffer_LockFlags = 3;
 pub const MF2DBuffer_LockFlags_Write: MF2DBuffer_LockFlags = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFARGB {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
@@ -3434,7 +3434,7 @@ pub const MFASYNC_LOCALIZE_REMOTE_CALLBACK: u32 = 16;
 pub const MFASYNC_REPLY_CALLBACK: u32 = 8;
 pub const MFASYNC_SIGNAL_CALLBACK: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFAYUVSample {
     pub bCrValue: u8,
     pub bCbValue: u8,
@@ -3463,7 +3463,7 @@ pub const MFNominalRange_Normal: MFNominalRange = 1;
 pub const MFNominalRange_Unknown: MFNominalRange = 0;
 pub const MFNominalRange_Wide: MFNominalRange = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFOffset {
     pub fract: u16,
     pub value: i16,
@@ -3480,7 +3480,7 @@ impl Default for MFPaletteEntry {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFRatio {
     pub Numerator: u32,
     pub Denominator: u32,
@@ -3497,7 +3497,7 @@ pub const MFStdVideoFormat_NTSC: MFStandardVideoFormat = 1;
 pub const MFStdVideoFormat_PAL: MFStandardVideoFormat = 2;
 pub const MFStdVideoFormat_reserved: MFStandardVideoFormat = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFT_REGISTER_TYPE_INFO {
     pub guidMajorType: windows_core::GUID,
     pub guidSubtype: windows_core::GUID,
@@ -3520,7 +3520,7 @@ impl Default for MFVIDEOFORMAT {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoArea {
     pub OffsetX: MFOffset,
     pub OffsetY: MFOffset,
@@ -3539,7 +3539,7 @@ pub const MFVideoChromaSubsampling_Unknown: MFVideoChromaSubsampling = 0;
 pub const MFVideoChromaSubsampling_Vertically_AlignedChromaPlanes: MFVideoChromaSubsampling = 1;
 pub const MFVideoChromaSubsampling_Vertically_Cosited: MFVideoChromaSubsampling = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoCompressedInfo {
     pub AvgBitrate: i64,
     pub AvgBitErrorRate: i64,
@@ -3568,7 +3568,7 @@ pub const MFVideoFlags_ForceQWORD: MFVideoFlags = 2147483647;
 pub const MFVideoFlags_RenderTargetSurface: MFVideoFlags = 4194304;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MFVideoInfo {
     pub dwWidth: u32,
     pub dwHeight: u32,

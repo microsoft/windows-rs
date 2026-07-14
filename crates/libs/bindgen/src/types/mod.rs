@@ -746,6 +746,10 @@ impl Type {
                     .def
                     .fields()
                     .all(|field| field.field_type(None, reader).is_eq(reader)),
+                Self::CppStruct(ty) => ty
+                    .def
+                    .fields()
+                    .all(|field| field.field_type(Some(ty), reader).is_eq(reader)),
                 Self::ArrayFixed(ty, _) => ty.is_eq(reader),
                 _ => true,
             }

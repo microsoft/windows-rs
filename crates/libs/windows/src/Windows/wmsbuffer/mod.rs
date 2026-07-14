@@ -178,10 +178,10 @@ impl core::ops::Deref for INSSBuffer3 {
 windows_core::imp::interface_hierarchy!(INSSBuffer3, windows_core::IUnknown, INSSBuffer, INSSBuffer2);
 impl INSSBuffer3 {
     pub unsafe fn SetProperty(&self, guidbufferproperty: windows_core::GUID, pvbufferproperty: *const core::ffi::c_void, dwbufferpropertysize: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(guidbufferproperty), pvbufferproperty, dwbufferpropertysize) }
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), guidbufferproperty, pvbufferproperty, dwbufferpropertysize) }
     }
     pub unsafe fn GetProperty(&self, guidbufferproperty: windows_core::GUID, pvbufferproperty: *mut core::ffi::c_void, pdwbufferpropertysize: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute(guidbufferproperty), pvbufferproperty as _, pdwbufferpropertysize as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), guidbufferproperty, pvbufferproperty as _, pdwbufferpropertysize as _) }
     }
 }
 #[repr(C)]

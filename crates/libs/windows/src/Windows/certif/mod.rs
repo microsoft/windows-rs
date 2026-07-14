@@ -292,7 +292,7 @@ impl ICertServerPolicy {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetCertificateProperty(&self, strpropertyname: &windows_core::BSTR, propertytype: i32, pvarpropertyvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCertificateProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), propertytype, core::mem::transmute(pvarpropertyvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetCertificateProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpropertyname), propertytype, pvarpropertyvalue) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: i32) -> windows_core::Result<super::oaidl::VARIANT> {
@@ -309,7 +309,7 @@ impl ICertServerPolicy {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetCertificateExtension(&self, strextensionname: &windows_core::BSTR, r#type: i32, extflags: i32, pvarvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetCertificateExtension)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strextensionname), r#type, extflags, core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetCertificateExtension)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strextensionname), r#type, extflags, pvarvalue) }
     }
     pub unsafe fn EnumerateExtensionsSetup(&self, flags: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EnumerateExtensionsSetup)(windows_core::Interface::as_raw(self), flags) }

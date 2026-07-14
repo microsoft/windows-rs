@@ -33,7 +33,7 @@ pub unsafe fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICA
 #[inline]
 pub unsafe fn WinBioAsyncOpenSession(factor: WINBIO_BIOMETRIC_TYPE, pooltype: WINBIO_POOL_TYPE, flags: WINBIO_SESSION_FLAGS, unitarray: Option<&[WINBIO_UNIT_ID]>, databaseid: Option<*const windows_core::GUID>, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: Option<super::windef::HWND>, messagecode: Option<u32>, callbackroutine: PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata: Option<*const core::ffi::c_void>, asynchronousopen: bool, sessionhandle: Option<*mut WINBIO_SESSION_HANDLE>) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioAsyncOpenSession(factor : WINBIO_BIOMETRIC_TYPE, pooltype : WINBIO_POOL_TYPE, flags : WINBIO_SESSION_FLAGS, unitarray : *const WINBIO_UNIT_ID, unitcount : usize, databaseid : *const windows_core::GUID, notificationmethod : WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow : super::windef::HWND, messagecode : u32, callbackroutine : PWINBIO_ASYNC_COMPLETION_CALLBACK, userdata : *const core::ffi::c_void, asynchronousopen : windows_core::BOOL, sessionhandle : *mut WINBIO_SESSION_HANDLE) -> windows_core::HRESULT);
-    unsafe { WinBioAsyncOpenSession(factor, pooltype, flags, core::mem::transmute(unitarray.map_or(core::ptr::null(), |slice| slice.as_ptr())), unitarray.map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, notificationmethod, targetwindow.unwrap_or(core::mem::zeroed()) as _, messagecode.unwrap_or(core::mem::zeroed()) as _, callbackroutine, userdata.unwrap_or(core::mem::zeroed()) as _, asynchronousopen.into(), sessionhandle.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WinBioAsyncOpenSession(factor, pooltype, flags, unitarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), unitarray.map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, notificationmethod, targetwindow.unwrap_or(core::mem::zeroed()) as _, messagecode.unwrap_or(core::mem::zeroed()) as _, callbackroutine, userdata.unwrap_or(core::mem::zeroed()) as _, asynchronousopen.into(), sessionhandle.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WinBioCancel(sessionhandle: WINBIO_SESSION_HANDLE) -> windows_core::HRESULT {
@@ -63,12 +63,12 @@ pub unsafe fn WinBioCloseSession(sessionhandle: WINBIO_SESSION_HANDLE) -> window
 #[inline]
 pub unsafe fn WinBioControlUnit(sessionhandle: WINBIO_SESSION_HANDLE, unitid: WINBIO_UNIT_ID, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: &[u8], receivebuffer: &mut [u8], receivedatasize: *mut usize, operationstatus: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioControlUnit(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, component : WINBIO_COMPONENT, controlcode : u32, sendbuffer : *const u8, sendbuffersize : usize, receivebuffer : *mut u8, receivebuffersize : usize, receivedatasize : *mut usize, operationstatus : *mut u32) -> windows_core::HRESULT);
-    unsafe { WinBioControlUnit(sessionhandle, unitid, component, controlcode, core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len().try_into().unwrap(), core::mem::transmute(receivebuffer.as_ptr()), receivebuffer.len().try_into().unwrap(), receivedatasize as _, operationstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WinBioControlUnit(sessionhandle, unitid, component, controlcode, sendbuffer.as_ptr(), sendbuffer.len().try_into().unwrap(), receivebuffer.as_mut_ptr(), receivebuffer.len().try_into().unwrap(), receivedatasize as _, operationstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WinBioControlUnitPrivileged(sessionhandle: WINBIO_SESSION_HANDLE, unitid: WINBIO_UNIT_ID, component: WINBIO_COMPONENT, controlcode: u32, sendbuffer: &[u8], receivebuffer: &mut [u8], receivedatasize: *mut usize, operationstatus: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioControlUnitPrivileged(sessionhandle : WINBIO_SESSION_HANDLE, unitid : WINBIO_UNIT_ID, component : WINBIO_COMPONENT, controlcode : u32, sendbuffer : *const u8, sendbuffersize : usize, receivebuffer : *mut u8, receivebuffersize : usize, receivedatasize : *mut usize, operationstatus : *mut u32) -> windows_core::HRESULT);
-    unsafe { WinBioControlUnitPrivileged(sessionhandle, unitid, component, controlcode, core::mem::transmute(sendbuffer.as_ptr()), sendbuffer.len().try_into().unwrap(), core::mem::transmute(receivebuffer.as_ptr()), receivebuffer.len().try_into().unwrap(), receivedatasize as _, operationstatus.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WinBioControlUnitPrivileged(sessionhandle, unitid, component, controlcode, sendbuffer.as_ptr(), sendbuffer.len().try_into().unwrap(), receivebuffer.as_mut_ptr(), receivebuffer.len().try_into().unwrap(), receivedatasize as _, operationstatus.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WinBioDeleteTemplate(sessionhandle: WINBIO_SESSION_HANDLE, unitid: WINBIO_UNIT_ID, identity: *const WINBIO_IDENTITY, subfactor: WINBIO_BIOMETRIC_SUBTYPE) -> windows_core::HRESULT {
@@ -135,7 +135,7 @@ pub unsafe fn WinBioGetCredentialState(identity: WINBIO_IDENTITY, r#type: WINBIO
     windows_core::link!("winbio.dll" "system" fn WinBioGetCredentialState(identity : WINBIO_IDENTITY, r#type : WINBIO_CREDENTIAL_TYPE, credentialstate : *mut WINBIO_CREDENTIAL_STATE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WinBioGetCredentialState(core::mem::transmute(identity), r#type, &mut result__).map(|| result__)
+        WinBioGetCredentialState(identity, r#type, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -224,7 +224,7 @@ pub unsafe fn WinBioOpenSession(factor: WINBIO_BIOMETRIC_TYPE, pooltype: WINBIO_
     windows_core::link!("winbio.dll" "system" fn WinBioOpenSession(factor : WINBIO_BIOMETRIC_TYPE, pooltype : WINBIO_POOL_TYPE, flags : WINBIO_SESSION_FLAGS, unitarray : *const WINBIO_UNIT_ID, unitcount : usize, databaseid : *const windows_core::GUID, sessionhandle : *mut WINBIO_SESSION_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WinBioOpenSession(factor, pooltype, flags, core::mem::transmute(unitarray.map_or(core::ptr::null(), |slice| slice.as_ptr())), unitarray.map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        WinBioOpenSession(factor, pooltype, flags, unitarray.map_or(core::ptr::null(), |slice| slice.as_ptr()), unitarray.map_or(0, |slice| slice.len().try_into().unwrap()), databaseid.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -250,12 +250,12 @@ pub unsafe fn WinBioRemoveAllDomainCredentials() -> windows_core::HRESULT {
 #[inline]
 pub unsafe fn WinBioRemoveCredential(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioRemoveCredential(identity : WINBIO_IDENTITY, r#type : WINBIO_CREDENTIAL_TYPE) -> windows_core::HRESULT);
-    unsafe { WinBioRemoveCredential(core::mem::transmute(identity), r#type) }
+    unsafe { WinBioRemoveCredential(identity, r#type) }
 }
 #[inline]
 pub unsafe fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: &[u8], format: WINBIO_CREDENTIAL_FORMAT) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioSetCredential(r#type : WINBIO_CREDENTIAL_TYPE, credential : *const u8, credentialsize : usize, format : WINBIO_CREDENTIAL_FORMAT) -> windows_core::HRESULT);
-    unsafe { WinBioSetCredential(r#type, core::mem::transmute(credential.as_ptr()), credential.len().try_into().unwrap(), format) }
+    unsafe { WinBioSetCredential(r#type, credential.as_ptr(), credential.len().try_into().unwrap(), format) }
 }
 #[inline]
 pub unsafe fn WinBioSetProperty(sessionhandle: WINBIO_SESSION_HANDLE, propertytype: WINBIO_PROPERTY_TYPE, propertyid: WINBIO_PROPERTY_ID, unitid: Option<WINBIO_UNIT_ID>, identity: Option<*const WINBIO_IDENTITY>, subfactor: Option<WINBIO_BIOMETRIC_SUBTYPE>, propertybuffer: *const core::ffi::c_void, propertybuffersize: usize) -> windows_core::HRESULT {
@@ -451,7 +451,7 @@ pub const WINBIO_ANSI_385_FACE_TYPE_UNKNOWN: WINBIO_BIOMETRIC_SUBTYPE = WINBIO_B
 pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 0;
 pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ANTI_SPOOF_POLICY {
     pub Action: WINBIO_ANTI_SPOOF_POLICY_ACTION,
     pub Source: WINBIO_POLICY_SOURCE,
@@ -517,7 +517,7 @@ impl Default for WINBIO_ASYNC_RESULT_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_0 {
     pub Match: bool,
     pub RejectDetail: WINBIO_REJECT_DETAIL,
@@ -550,7 +550,7 @@ impl Default for WINBIO_ASYNC_RESULT_0_10 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub Component: WINBIO_COMPONENT,
     pub ControlCode: u32,
@@ -563,7 +563,7 @@ pub struct WINBIO_ASYNC_RESULT_0_11 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub BspCount: usize,
     pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
@@ -576,7 +576,7 @@ impl Default for WINBIO_ASYNC_RESULT_0_12 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_13 {
     pub UnitCount: usize,
     pub UnitSchemaArray: *mut WINBIO_UNIT_SCHEMA,
@@ -589,7 +589,7 @@ impl Default for WINBIO_ASYNC_RESULT_0_13 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
     pub StorageCount: usize,
     pub StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
@@ -602,7 +602,7 @@ impl Default for WINBIO_ASYNC_RESULT_0_14 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_15 {
     pub Match: bool,
     pub RejectDetail: WINBIO_REJECT_DETAIL,
@@ -625,13 +625,13 @@ impl Default for WINBIO_ASYNC_RESULT_0_16 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_17 {
     pub SelectorValue: u64,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub ChangeType: WINBIO_PRESENCE_CHANGE,
     pub PresenceCount: usize,
@@ -658,19 +658,19 @@ impl Default for WINBIO_ASYNC_RESULT_0_19 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_2 {
     pub SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_20 {
     pub ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_3 {
     pub RejectDetail: WINBIO_REJECT_DETAIL,
 }
@@ -703,7 +703,7 @@ impl Default for WINBIO_ASYNC_RESULT_0_5 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "windef"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_ASYNC_RESULT_0_6 {
     pub Sample: PWINBIO_BIR,
     pub SampleSize: usize,
@@ -757,7 +757,7 @@ impl Default for WINBIO_ASYNC_RESULT_0_9 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_BDB_ANSI_381_HEADER {
     pub RecordLength: u64,
     pub FormatIdentifier: u32,
@@ -776,7 +776,7 @@ pub struct WINBIO_BDB_ANSI_381_HEADER {
     pub Reserved: u16,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_BDB_ANSI_381_RECORD {
     pub BlockLength: u32,
     pub HorizontalLineLength: u16,
@@ -798,7 +798,7 @@ pub struct WINBIO_BIOMETRIC_SUBTYPE(pub u8);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WINBIO_BIOMETRIC_TYPE(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_BIR {
     pub HeaderBlock: WINBIO_BIR_DATA,
     pub StandardDataBlock: WINBIO_BIR_DATA,
@@ -808,7 +808,7 @@ pub struct WINBIO_BIR {
 pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8;
 pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_BIR_DATA {
     pub Size: u32,
     pub Offset: u32,
@@ -834,7 +834,7 @@ pub const WINBIO_BIR_FIELD_QUALITY: u16 = 4096;
 pub const WINBIO_BIR_FIELD_SUBHEAD_COUNT: u16 = 1;
 pub const WINBIO_BIR_FIELD_VALIDITY_PERIOD: u16 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_BIR_HEADER {
     pub ValidFields: u16,
     pub HeaderVersion: WINBIO_BIR_VERSION,
@@ -850,7 +850,7 @@ pub struct WINBIO_BIR_HEADER {
     pub ProductId: WINBIO_REGISTERED_FORMAT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_BIR_HEADER_0 {
     pub BeginDate: i64,
     pub EndDate: i64,
@@ -865,7 +865,7 @@ pub struct WINBIO_BIR_QUALITY(pub i8);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WINBIO_BIR_VERSION(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_BSP_SCHEMA {
     pub BiometricFactor: WINBIO_BIOMETRIC_TYPE,
     pub BspId: WINBIO_UUID,
@@ -900,7 +900,7 @@ pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = WINBIO_COMPONENT(2);
 pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = WINBIO_COMPONENT(1);
 pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = WINBIO_COMPONENT(3);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_CONNECTED_SENSOR {
     pub biometricType: WINBIO_BIOMETRIC_TYPE,
     pub isEnhancedSignInSecurityCapable: windows_core::BOOL,
@@ -975,7 +975,7 @@ impl Default for WINBIO_EVENT_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EVENT_0_0 {
     pub UnitId: WINBIO_UNIT_ID,
     pub RejectDetail: WINBIO_REJECT_DETAIL,
@@ -994,7 +994,7 @@ impl Default for WINBIO_EVENT_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EVENT_0_2 {
     pub ErrorCode: windows_core::HRESULT,
 }
@@ -1031,24 +1031,24 @@ impl Default for WINBIO_EXTENDED_ENGINE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     pub Capabilities: WINBIO_CAPABILITIES,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_0_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     pub Null: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     pub Capabilities: WINBIO_CAPABILITIES,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_1_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     pub GeneralSamples: u32,
     pub Center: u32,
@@ -1058,29 +1058,29 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     pub RightEdge: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     pub Capabilities: WINBIO_CAPABILITIES,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_2_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     pub Null: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     pub Capabilities: WINBIO_CAPABILITIES,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_3_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     pub Null: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     pub Size: usize,
     pub SubFactor: WINBIO_BIOMETRIC_SUBTYPE,
@@ -1120,7 +1120,7 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     pub BoundingBox: super::windef::RECT,
     pub Distance: i32,
@@ -1128,7 +1128,7 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     pub AdapterId: WINBIO_UUID,
     pub Data: [u32; 78],
@@ -1141,7 +1141,7 @@ impl Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     pub GeneralSamples: u32,
     pub Center: u32,
@@ -1174,7 +1174,7 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     pub Reserved: u32,
 }
@@ -1210,7 +1210,7 @@ impl Default for WINBIO_EXTENDED_SENSOR_INFO_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     pub FrameSize: super::windef::RECT,
     pub FrameOffset: super::windef::POINT,
@@ -1219,7 +1219,7 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     pub ColorSensorId: [u16; 260],
     pub InfraredSensorId: [u16; 260],
@@ -1233,13 +1233,13 @@ impl Default for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     pub Reserved: u32,
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     pub FrameSize: super::windef::RECT,
     pub FrameOffset: super::windef::POINT,
@@ -1247,7 +1247,7 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO_0_2 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     pub Reserved: u32,
 }
@@ -1278,27 +1278,27 @@ impl Default for WINBIO_EXTENDED_STORAGE_INFO_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     pub Capabilities: WINBIO_CAPABILITIES,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     pub Capabilities: WINBIO_CAPABILITIES,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     pub Capabilities: WINBIO_CAPABILITIES,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     pub Capabilities: WINBIO_CAPABILITIES,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_EXTENDED_UNIT_STATUS {
     pub Availability: WINBIO_SENSOR_STATUS,
     pub ReasonCode: u32,
@@ -1417,7 +1417,7 @@ pub const WINBIO_FLAG_DEFAULT: WINBIO_SESSION_FLAGS = WINBIO_SESSION_FLAGS(0);
 pub const WINBIO_FLAG_MAINTENANCE: u32 = 2;
 pub const WINBIO_FLAG_RAW: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_FP_BU_STATE {
     pub SensorAttached: windows_core::BOOL,
     pub CreationResult: windows_core::HRESULT,
@@ -1441,7 +1441,7 @@ pub const WINBIO_FRAMEWORK_CHANGE_UNIT: WINBIO_FRAMEWORK_CHANGE_TYPE = WINBIO_FR
 pub const WINBIO_FRAMEWORK_CHANGE_UNIT_STATUS: WINBIO_FRAMEWORK_CHANGE_TYPE = WINBIO_FRAMEWORK_CHANGE_TYPE(2);
 pub type WINBIO_FRAMEWORK_HANDLE = WINBIO_SESSION_HANDLE;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_GESTURE_METADATA {
     pub Size: usize,
     pub BiometricType: WINBIO_BIOMETRIC_TYPE,
@@ -1474,7 +1474,7 @@ impl Default for WINBIO_IDENTITY_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_IDENTITY_0_0 {
     pub Size: u32,
     pub Data: [u8; 68],
@@ -1624,7 +1624,7 @@ impl Default for WINBIO_PRESENCE {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PRESENCE_0 {
     pub Size: u32,
     pub Data: [u8; 32],
@@ -1659,7 +1659,7 @@ impl Default for WINBIO_PRESENCE_PROPERTIES {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_PRESENCE_PROPERTIES_0 {
     pub BoundingBox: super::windef::RECT,
     pub Distance: i32,
@@ -1667,7 +1667,7 @@ pub struct WINBIO_PRESENCE_PROPERTIES_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_PRESENCE_PROPERTIES_0_0 {
     pub AdapterId: WINBIO_UUID,
     pub Data: [u32; 78],
@@ -1680,7 +1680,7 @@ impl Default for WINBIO_PRESENCE_PROPERTIES_0_0 {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_PRESENCE_PROPERTIES_1 {
     pub EyeBoundingBox_1: super::windef::RECT,
     pub EyeBoundingBox_2: super::windef::RECT,
@@ -1738,7 +1738,7 @@ pub const WINBIO_PURPOSE_ENROLL_FOR_VERIFICATION: WINBIO_BIR_PURPOSE = WINBIO_BI
 pub const WINBIO_PURPOSE_IDENTIFY: WINBIO_BIR_PURPOSE = WINBIO_BIR_PURPOSE(2);
 pub const WINBIO_PURPOSE_VERIFY: WINBIO_BIR_PURPOSE = WINBIO_BIR_PURPOSE(1);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_REGISTERED_FORMAT {
     pub Owner: u16,
     pub Type: u16,
@@ -1766,7 +1766,7 @@ pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64;
 pub struct WINBIO_SCP_VERSION(pub u16);
 pub const WINBIO_SCP_VERSION_1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
     pub Type: u32,
     pub Size: u32,
@@ -1775,7 +1775,7 @@ pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
 }
 pub const WINBIO_SECURE_BUFFER_TYPE_V1: u32 = 3116236801;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_SECURE_CONNECTION_DATA {
     pub Size: u32,
     pub Version: WINBIO_SCP_VERSION,
@@ -1785,7 +1785,7 @@ pub struct WINBIO_SECURE_CONNECTION_DATA {
     pub IntermediateCA2Size: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_SECURE_CONNECTION_PARAMS {
     pub PayloadSize: u32,
     pub Version: WINBIO_SCP_VERSION,
@@ -1832,7 +1832,7 @@ pub const WINBIO_SETTING_TYPE_ESS_ENABLED: WINBIO_SETTING_TYPE = WINBIO_SETTING_
 pub const WINBIO_SETTING_TYPE_PERIPHERALS_WITH_ESS: WINBIO_SETTING_TYPE = WINBIO_SETTING_TYPE(0);
 pub const WINBIO_STANDARD_TYPE_MASK: WINBIO_BIOMETRIC_TYPE = WINBIO_BIOMETRIC_TYPE(16777215);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_STORAGE_SCHEMA {
     pub BiometricFactor: WINBIO_BIOMETRIC_TYPE,
     pub DatabaseId: WINBIO_UUID,
@@ -1881,7 +1881,7 @@ pub const WINBIO_TYPE_VOICE: WINBIO_BIOMETRIC_TYPE = WINBIO_BIOMETRIC_TYPE(4);
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WINBIO_UNIT_ID(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WINBIO_UNIT_SCHEMA {
     pub UnitId: WINBIO_UNIT_ID,
     pub PoolType: WINBIO_POOL_TYPE,
@@ -1907,7 +1907,7 @@ pub const WINBIO_UNIT_SECURITY_LEVEL_NORMAL: WINBIO_UNIT_SECURITY_LEVEL = WINBIO
 pub const WINBIO_UNIT_SECURITY_LEVEL_VBS: WINBIO_UNIT_SECURITY_LEVEL = WINBIO_UNIT_SECURITY_LEVEL(1);
 pub type WINBIO_UUID = windows_core::GUID;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WINBIO_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,

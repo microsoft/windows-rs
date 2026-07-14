@@ -7,19 +7,7 @@ pub unsafe fn WebSocketAbortHandle(hwebsocket: WEB_SOCKET_HANDLE) {
 #[inline]
 pub unsafe fn WebSocketBeginClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, pszsubprotocols: Option<&[windows_core::PCSTR]>, pszextensions: Option<&[windows_core::PCSTR]>, pinitialheaders: Option<&[WEB_SOCKET_HTTP_HEADER]>, padditionalheaders: *mut PWEB_SOCKET_HTTP_HEADER, puladditionalheadercount: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("websocket.dll" "system" fn WebSocketBeginClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocols : *const windows_core::PCSTR, ulsubprotocolcount : u32, pszextensions : *const windows_core::PCSTR, ulextensioncount : u32, pinitialheaders : *const WEB_SOCKET_HTTP_HEADER, ulinitialheadercount : u32, padditionalheaders : *mut PWEB_SOCKET_HTTP_HEADER, puladditionalheadercount : *mut u32) -> windows_core::HRESULT);
-    unsafe {
-        WebSocketBeginClientHandshake(
-            hwebsocket,
-            core::mem::transmute(pszsubprotocols.map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            pszsubprotocols.map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(pszextensions.map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            pszextensions.map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(pinitialheaders.map_or(core::ptr::null(), |slice| slice.as_ptr())),
-            pinitialheaders.map_or(0, |slice| slice.len().try_into().unwrap()),
-            padditionalheaders as _,
-            puladditionalheadercount as _,
-        )
-    }
+    unsafe { WebSocketBeginClientHandshake(hwebsocket, pszsubprotocols.map_or(core::ptr::null(), |slice| slice.as_ptr()), pszsubprotocols.map_or(0, |slice| slice.len().try_into().unwrap()), pszextensions.map_or(core::ptr::null(), |slice| slice.as_ptr()), pszextensions.map_or(0, |slice| slice.len().try_into().unwrap()), pinitialheaders.map_or(core::ptr::null(), |slice| slice.as_ptr()), pinitialheaders.map_or(0, |slice| slice.len().try_into().unwrap()), padditionalheaders as _, puladditionalheadercount as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -28,7 +16,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("websocket.dll" "system" fn WebSocketBeginServerHandshake(hwebsocket : WEB_SOCKET_HANDLE, pszsubprotocolselected : windows_core::PCSTR, pszextensionselected : *const windows_core::PCSTR, ulextensionselectedcount : u32, prequestheaders : *const WEB_SOCKET_HTTP_HEADER, ulrequestheadercount : u32, presponseheaders : *mut PWEB_SOCKET_HTTP_HEADER, pulresponseheadercount : *mut u32) -> windows_core::HRESULT);
-    unsafe { WebSocketBeginServerHandshake(hwebsocket, pszsubprotocolselected.param().abi(), core::mem::transmute(pszextensionselected.map_or(core::ptr::null(), |slice| slice.as_ptr())), pszextensionselected.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(prequestheaders.as_ptr()), prequestheaders.len().try_into().unwrap(), presponseheaders as _, pulresponseheadercount as _) }
+    unsafe { WebSocketBeginServerHandshake(hwebsocket, pszsubprotocolselected.param().abi(), pszextensionselected.map_or(core::ptr::null(), |slice| slice.as_ptr()), pszextensionselected.map_or(0, |slice| slice.len().try_into().unwrap()), prequestheaders.as_ptr(), prequestheaders.len().try_into().unwrap(), presponseheaders as _, pulresponseheadercount as _) }
 }
 #[inline]
 pub unsafe fn WebSocketCompleteAction(hwebsocket: WEB_SOCKET_HANDLE, pvactioncontext: *const core::ffi::c_void, ulbytestransferred: u32) {
@@ -40,7 +28,7 @@ pub unsafe fn WebSocketCreateClientHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -
     windows_core::link!("websocket.dll" "system" fn WebSocketCreateClientHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WebSocketCreateClientHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), &mut result__).map(|| result__)
+        WebSocketCreateClientHandle(pproperties.as_ptr(), pproperties.len().try_into().unwrap(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -48,7 +36,7 @@ pub unsafe fn WebSocketCreateServerHandle(pproperties: &[WEB_SOCKET_PROPERTY]) -
     windows_core::link!("websocket.dll" "system" fn WebSocketCreateServerHandle(pproperties : *const WEB_SOCKET_PROPERTY, ulpropertycount : u32, phwebsocket : *mut WEB_SOCKET_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WebSocketCreateServerHandle(core::mem::transmute(pproperties.as_ptr()), pproperties.len().try_into().unwrap(), &mut result__).map(|| result__)
+        WebSocketCreateServerHandle(pproperties.as_ptr(), pproperties.len().try_into().unwrap(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -60,7 +48,7 @@ pub unsafe fn WebSocketDeleteHandle(hwebsocket: WEB_SOCKET_HANDLE) {
 #[inline]
 pub unsafe fn WebSocketEndClientHandshake(hwebsocket: WEB_SOCKET_HANDLE, presponseheaders: &[WEB_SOCKET_HTTP_HEADER], pulselectedextensions: Option<*mut u32>, pulselectedextensioncount: Option<*mut u32>, pulselectedsubprotocol: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("websocket.dll" "system" fn WebSocketEndClientHandshake(hwebsocket : WEB_SOCKET_HANDLE, presponseheaders : *const WEB_SOCKET_HTTP_HEADER, ulreponseheadercount : u32, pulselectedextensions : *mut u32, pulselectedextensioncount : *mut u32, pulselectedsubprotocol : *mut u32) -> windows_core::HRESULT);
-    unsafe { WebSocketEndClientHandshake(hwebsocket, core::mem::transmute(presponseheaders.as_ptr()), presponseheaders.len().try_into().unwrap(), pulselectedextensions.unwrap_or(core::mem::zeroed()) as _, pulselectedextensioncount.unwrap_or(core::mem::zeroed()) as _, pulselectedsubprotocol.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WebSocketEndClientHandshake(hwebsocket, presponseheaders.as_ptr(), presponseheaders.len().try_into().unwrap(), pulselectedextensions.unwrap_or(core::mem::zeroed()) as _, pulselectedextensioncount.unwrap_or(core::mem::zeroed()) as _, pulselectedsubprotocol.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WebSocketEndServerHandshake(hwebsocket: WEB_SOCKET_HANDLE) -> windows_core::HRESULT {
@@ -118,14 +106,14 @@ impl Default for WEB_SOCKET_BUFFER {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEB_SOCKET_BUFFER_0 {
     pub pbBuffer: super::minwindef::PBYTE,
     pub ulBufferLength: u32,
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEB_SOCKET_BUFFER_1 {
     pub pbReason: super::minwindef::PBYTE,
     pub ulReasonLength: u32,
@@ -148,7 +136,7 @@ impl Default for WEB_SOCKET_HANDLE {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WEB_SOCKET_HTTP_HEADER {
     pub pcName: super::winnt::PCHAR,
     pub ulNameLength: u32,
@@ -166,7 +154,7 @@ pub const WEB_SOCKET_NO_ACTION: WEB_SOCKET_ACTION = 0;
 pub const WEB_SOCKET_PING_PONG_BUFFER_TYPE: WEB_SOCKET_BUFFER_TYPE = -2147483643;
 pub const WEB_SOCKET_POLICY_VIOLATION_CLOSE_STATUS: WEB_SOCKET_CLOSE_STATUS = 1008;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WEB_SOCKET_PROPERTY {
     pub Type: WEB_SOCKET_PROPERTY_TYPE,
     pub pvValue: *mut core::ffi::c_void,

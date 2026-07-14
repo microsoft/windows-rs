@@ -41,7 +41,7 @@ pub unsafe fn ConvertInterfaceIndexToLuid(interfaceindex: super::ifdef::NET_IFIN
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToAlias(interfaceluid: *const super::ifdef::NET_LUID, interfacealias: &mut [u16]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToAlias(interfaceluid : *const super::ifdef::NET_LUID, interfacealias : windows_core::PWSTR, length : usize) -> super::bcrypt::NTSTATUS);
-    unsafe { ConvertInterfaceLuidToAlias(interfaceluid, core::mem::transmute(interfacealias.as_ptr()), interfacealias.len().try_into().unwrap()) }
+    unsafe { ConvertInterfaceLuidToAlias(interfaceluid, core::mem::transmute(interfacealias.as_mut_ptr()), interfacealias.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "ifdef"))]
 #[inline]
@@ -59,13 +59,13 @@ pub unsafe fn ConvertInterfaceLuidToIndex(interfaceluid: *const super::ifdef::NE
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToNameA(interfaceluid: *const super::ifdef::NET_LUID, interfacename: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameA(interfaceluid : *const super::ifdef::NET_LUID, interfacename : windows_core::PSTR, length : usize) -> super::bcrypt::NTSTATUS);
-    unsafe { ConvertInterfaceLuidToNameA(interfaceluid, core::mem::transmute(interfacename.as_ptr()), interfacename.len().try_into().unwrap()) }
+    unsafe { ConvertInterfaceLuidToNameA(interfaceluid, core::mem::transmute(interfacename.as_mut_ptr()), interfacename.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "ifdef"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::ifdef::NET_LUID, interfacename: &mut [u16]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameW(interfaceluid : *const super::ifdef::NET_LUID, interfacename : windows_core::PWSTR, length : usize) -> super::bcrypt::NTSTATUS);
-    unsafe { ConvertInterfaceLuidToNameW(interfaceluid, core::mem::transmute(interfacename.as_ptr()), interfacename.len().try_into().unwrap()) }
+    unsafe { ConvertInterfaceLuidToNameW(interfaceluid, core::mem::transmute(interfacename.as_mut_ptr()), interfacename.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "ifdef"))]
 #[inline]
@@ -283,7 +283,7 @@ pub unsafe fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut PMIB_IF_TABLE
 #[inline]
 pub unsafe fn GetInterfaceDnsSettings(interface: windows_core::GUID, settings: *mut DNS_INTERFACE_SETTINGS) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetInterfaceDnsSettings(interface : windows_core::GUID, settings : *mut DNS_INTERFACE_SETTINGS) -> super::bcrypt::NTSTATUS);
-    unsafe { GetInterfaceDnsSettings(core::mem::transmute(interface), settings as _) }
+    unsafe { GetInterfaceDnsSettings(interface, settings as _) }
 }
 #[cfg(all(feature = "bcrypt", feature = "ifdef"))]
 #[inline]
@@ -379,7 +379,7 @@ pub unsafe fn GetNetworkConnectivityHintForInterface(interfaceindex: super::ifde
 #[inline]
 pub unsafe fn GetNetworkInformation(networkguid: *const super::ifdef::NET_IF_NETWORK_GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: &mut [u16]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetNetworkInformation(networkguid : *const super::ifdef::NET_IF_NETWORK_GUID, compartmentid : *mut u32, siteid : *mut u32, networkname : *mut u16, length : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { GetNetworkInformation(networkguid, compartmentid as _, siteid as _, core::mem::transmute(networkname.as_ptr()), networkname.len().try_into().unwrap()) }
+    unsafe { GetNetworkInformation(networkguid, compartmentid as _, siteid as _, networkname.as_mut_ptr(), networkname.len().try_into().unwrap()) }
 }
 #[cfg(feature = "ifdef")]
 #[inline]
@@ -499,7 +499,7 @@ pub unsafe fn SetFlVirtualInterface(row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) ->
 #[inline]
 pub unsafe fn SetInterfaceDnsSettings(interface: windows_core::GUID, settings: *const DNS_INTERFACE_SETTINGS) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn SetInterfaceDnsSettings(interface : windows_core::GUID, settings : *const DNS_INTERFACE_SETTINGS) -> super::bcrypt::NTSTATUS);
-    unsafe { SetInterfaceDnsSettings(core::mem::transmute(interface), settings) }
+    unsafe { SetInterfaceDnsSettings(interface, settings) }
 }
 #[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
@@ -573,7 +573,7 @@ pub const DNS_DOH_POLICY_DISABLE: u32 = 8;
 pub const DNS_DOH_POLICY_NOT_CONFIGURED: u32 = 4;
 pub const DNS_DOH_POLICY_REQUIRED: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_DOH_SERVER_SETTINGS {
     pub Template: windows_core::PWSTR,
     pub Flags: u64,
@@ -586,7 +586,7 @@ pub const DNS_DOH_SERVER_SETTINGS_MAKE_DDR_NON_BLOCKING: u32 = 32;
 pub const DNS_DOT_AUTO_UPGRADE_SERVER: u32 = 4;
 pub const DNS_DOT_POLICY_BLOCK: u32 = 256;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_DOT_SERVER_SETTINGS {
     pub Hostname: windows_core::PWSTR,
     pub Flags: u64,
@@ -606,7 +606,7 @@ pub const DNS_ENCRYPTION_POLICY_DISABLE: u32 = 8;
 pub const DNS_ENCRYPTION_POLICY_NOT_CONFIGURED: u32 = 4;
 pub const DNS_ENCRYPTION_POLICY_REQUIRED: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -620,7 +620,7 @@ pub struct DNS_INTERFACE_SETTINGS {
     pub ProfileNameServer: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS3 {
     pub Version: u32,
     pub Flags: u64,
@@ -645,7 +645,7 @@ impl Default for DNS_INTERFACE_SETTINGS3 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS4 {
     pub Version: u32,
     pub Flags: u64,
@@ -671,7 +671,7 @@ impl Default for DNS_INTERFACE_SETTINGS4 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_INTERFACE_SETTINGS_EX {
     pub SettingsV1: DNS_INTERFACE_SETTINGS,
     pub DisableUnconstrainedQueries: u32,
@@ -708,7 +708,7 @@ impl Default for DNS_SERVER_PROPERTY_TYPES {
 }
 pub const DNS_SERVER_PROPERTY_VERSION1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_SETTINGS {
     pub Version: u32,
     pub Flags: u64,
@@ -717,7 +717,7 @@ pub struct DNS_SETTINGS {
     pub SearchList: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_SETTINGS2 {
     pub Version: u32,
     pub Flags: u64,
@@ -843,14 +843,14 @@ impl Default for MIB_FL_VIRTUAL_INTERFACE_TABLE {
 }
 #[repr(C)]
 #[cfg(feature = "ifdef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IFSTACK_ROW {
     pub HigherLayerInterfaceIndex: super::ifdef::NET_IFINDEX,
     pub LowerLayerInterfaceIndex: super::ifdef::NET_IFINDEX,
 }
 #[repr(C)]
 #[cfg(feature = "ifdef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_IFSTACK_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_IFSTACK_ROW; 1],
@@ -916,7 +916,7 @@ impl Default for MIB_IF_ROW2 {
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IF_ROW2_0 {
     pub _bitfield: bool,
 }
@@ -937,14 +937,14 @@ pub type MIB_IF_TABLE_LEVEL = i32;
 pub const MIB_INVALID_TEREDO_PORT_NUMBER: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "ifdef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_INVERTEDIFSTACK_ROW {
     pub LowerLayerInterfaceIndex: super::ifdef::NET_IFINDEX,
     pub HigherLayerInterfaceIndex: super::ifdef::NET_IFINDEX,
 }
 #[repr(C)]
 #[cfg(feature = "ifdef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MIB_INVERTEDIFSTACK_TABLE {
     pub NumEntries: u32,
     pub Table: [MIB_INVERTEDIFSTACK_ROW; 1],
@@ -1087,7 +1087,7 @@ impl Default for MIB_IPNET_ROW2_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IPNET_ROW2_0_0 {
     pub _bitfield: bool,
 }
@@ -1168,7 +1168,7 @@ impl Default for MIB_IPPATH_TABLE {
 }
 #[repr(C)]
 #[cfg(feature = "nldef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES {
     pub InboundBandwidthInformation: super::nldef::NL_BANDWIDTH_INFORMATION,
     pub OutboundBandwidthInformation: super::nldef::NL_BANDWIDTH_INFORMATION,

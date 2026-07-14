@@ -1,7 +1,7 @@
 pub type LPVIDEOPARAMETERS = *mut VIDEOPARAMETERS;
 pub type PVIDEOPARAMETERS = *mut VIDEOPARAMETERS;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct VIDEOPARAMETERS {
     pub Guid: windows_core::GUID,
     pub dwOffset: u32,

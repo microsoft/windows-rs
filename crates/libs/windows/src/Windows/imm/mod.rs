@@ -178,18 +178,18 @@ pub unsafe fn ImmGetDefaultIMEWnd(param0: super::windef::HWND) -> super::windef:
 #[inline]
 pub unsafe fn ImmGetDescriptionA(param0: super::minwindef::HKL, lpszdescription: Option<&mut [u8]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetDescriptionA(param0 : super::minwindef::HKL, lpszdescription : windows_core::PSTR, ubuflen : u32) -> u32);
-    unsafe { ImmGetDescriptionA(param0, core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ImmGetDescriptionA(param0, core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmGetDescriptionW(param0: super::minwindef::HKL, lpszdescription: Option<&mut [u16]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::minwindef::HKL, lpszdescription : windows_core::PWSTR, ubuflen : u32) -> u32);
-    unsafe { ImmGetDescriptionW(param0, core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ImmGetDescriptionW(param0, core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn ImmGetGuideLineA(param0: HIMC, dwindex: u32, lpbuf: Option<&mut [u8]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : HIMC, dwindex : u32, lpbuf : windows_core::PSTR, dwbuflen : u32) -> u32);
-    unsafe { ImmGetGuideLineA(param0, dwindex, core::mem::transmute(lpbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ImmGetGuideLineA(param0, dwindex, core::mem::transmute(lpbuf.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn ImmGetGuideLineW(param0: HIMC, dwindex: u32, lpbuf: Option<windows_core::PWSTR>, dwbuflen: u32) -> u32 {
@@ -200,13 +200,13 @@ pub unsafe fn ImmGetGuideLineW(param0: HIMC, dwindex: u32, lpbuf: Option<windows
 #[inline]
 pub unsafe fn ImmGetIMEFileNameA(param0: super::minwindef::HKL, lpszfilename: Option<&mut [u8]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::minwindef::HKL, lpszfilename : windows_core::PSTR, ubuflen : u32) -> u32);
-    unsafe { ImmGetIMEFileNameA(param0, core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ImmGetIMEFileNameA(param0, core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmGetIMEFileNameW(param0: super::minwindef::HKL, lpszfilename: Option<&mut [u16]>) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::minwindef::HKL, lpszfilename : windows_core::PWSTR, ubuflen : u32) -> u32);
-    unsafe { ImmGetIMEFileNameW(param0, core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ImmGetIMEFileNameW(param0, core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -235,13 +235,13 @@ pub unsafe fn ImmGetProperty(param0: super::minwindef::HKL, param1: u32) -> u32 
 #[inline]
 pub unsafe fn ImmGetRegisterWordStyleA(param0: super::minwindef::HKL, lpstylebuf: &mut [STYLEBUFA]) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::minwindef::HKL, nitem : u32, lpstylebuf : *mut STYLEBUFA) -> u32);
-    unsafe { ImmGetRegisterWordStyleA(param0, lpstylebuf.len().try_into().unwrap(), core::mem::transmute(lpstylebuf.as_ptr())) }
+    unsafe { ImmGetRegisterWordStyleA(param0, lpstylebuf.len().try_into().unwrap(), lpstylebuf.as_mut_ptr()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn ImmGetRegisterWordStyleW(param0: super::minwindef::HKL, lpstylebuf: &mut [STYLEBUFW]) -> u32 {
     windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::minwindef::HKL, nitem : u32, lpstylebuf : *mut STYLEBUFW) -> u32);
-    unsafe { ImmGetRegisterWordStyleW(param0, lpstylebuf.len().try_into().unwrap(), core::mem::transmute(lpstylebuf.as_ptr())) }
+    unsafe { ImmGetRegisterWordStyleW(param0, lpstylebuf.len().try_into().unwrap(), lpstylebuf.as_mut_ptr()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -408,7 +408,7 @@ pub const ATTR_TARGET_CONVERTED: u32 = 1;
 pub const ATTR_TARGET_NOTCONVERTED: u32 = 3;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CANDIDATEFORM {
     pub dwIndex: u32,
     pub dwStyle: u32,
@@ -416,7 +416,7 @@ pub struct CANDIDATEFORM {
     pub rcArea: super::windef::RECT,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CANDIDATELIST {
     pub dwSize: u32,
     pub dwStyle: u32,
@@ -439,7 +439,7 @@ pub const CFS_POINT: u32 = 2;
 pub const CFS_RECT: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COMPOSITIONFORM {
     pub dwStyle: u32,
     pub ptCurrentPos: super::windef::POINT,
@@ -539,7 +539,7 @@ pub const IMC_SETCOMPOSITIONWINDOW: u32 = 12;
 pub const IMC_SETSTATUSWINDOWPOS: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMECHARPOSITION {
     pub dwSize: u32,
     pub dwCharPos: u32,
@@ -551,7 +551,7 @@ pub struct IMECHARPOSITION {
 pub type IMEMENUITEMINFO = IMEMENUITEMINFOA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEMENUITEMINFOA {
     pub cbSize: u32,
     pub fType: u32,
@@ -571,7 +571,7 @@ impl Default for IMEMENUITEMINFOA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct IMEMENUITEMINFOW {
     pub cbSize: u32,
     pub fType: u32,
@@ -771,7 +771,7 @@ pub type PSTYLEBUF = PSTYLEBUFA;
 pub type PSTYLEBUFA = *mut STYLEBUFA;
 pub type PSTYLEBUFW = *mut STYLEBUFW;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RECONVERTSTRING {
     pub dwSize: u32,
     pub dwVersion: u32,
@@ -784,7 +784,7 @@ pub struct RECONVERTSTRING {
 }
 pub type REGISTERWORD = REGISTERWORDA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGISTERWORDA {
     pub lpReading: windows_core::PSTR,
     pub lpWord: windows_core::PSTR,
@@ -792,7 +792,7 @@ pub struct REGISTERWORDA {
 pub type REGISTERWORDENUMPROCA = Option<unsafe extern "system" fn(lpszreading: windows_core::PCSTR, param1: u32, lpszstring: windows_core::PCSTR, param3: *mut core::ffi::c_void) -> i32>;
 pub type REGISTERWORDENUMPROCW = Option<unsafe extern "system" fn(lpszreading: windows_core::PCWSTR, param1: u32, lpszstring: windows_core::PCWSTR, param3: *mut core::ffi::c_void) -> i32>;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REGISTERWORDW {
     pub lpReading: windows_core::PWSTR,
     pub lpWord: windows_core::PWSTR,
@@ -811,7 +811,7 @@ pub const SOFTKEYBOARD_TYPE_C1: u32 = 2;
 pub const SOFTKEYBOARD_TYPE_T1: u32 = 1;
 pub type STYLEBUF = STYLEBUFA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STYLEBUFA {
     pub dwStyle: u32,
     pub szDescription: [i8; 32],
@@ -822,7 +822,7 @@ impl Default for STYLEBUFA {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STYLEBUFW {
     pub dwStyle: u32,
     pub szDescription: [u16; 32],

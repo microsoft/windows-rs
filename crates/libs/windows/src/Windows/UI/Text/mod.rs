@@ -173,7 +173,7 @@ impl windows_core::RuntimeType for FontStyle {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Text.FontStyle");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FontWeight {
     pub Weight: u16,
 }

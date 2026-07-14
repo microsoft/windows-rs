@@ -1,22 +1,22 @@
 #[inline]
 pub unsafe fn GetSystemWow64Directory2A(lpbuffer: Option<&mut [u8]>, imagefilemachinetype: u16) -> u32 {
     windows_core::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow64Directory2A(lpbuffer : windows_core::PSTR, usize : u32, imagefilemachinetype : u16) -> u32);
-    unsafe { GetSystemWow64Directory2A(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), imagefilemachinetype) }
+    unsafe { GetSystemWow64Directory2A(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), imagefilemachinetype) }
 }
 #[inline]
 pub unsafe fn GetSystemWow64Directory2W(lpbuffer: Option<&mut [u16]>, imagefilemachinetype: u16) -> u32 {
     windows_core::link!("api-ms-win-core-wow64-l1-1-1.dll" "system" fn GetSystemWow64Directory2W(lpbuffer : windows_core::PWSTR, usize : u32, imagefilemachinetype : u16) -> u32);
-    unsafe { GetSystemWow64Directory2W(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), imagefilemachinetype) }
+    unsafe { GetSystemWow64Directory2W(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), imagefilemachinetype) }
 }
 #[inline]
 pub unsafe fn GetSystemWow64DirectoryA(lpbuffer: Option<&mut [u8]>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryA(lpbuffer : windows_core::PSTR, usize : u32) -> u32);
-    unsafe { GetSystemWow64DirectoryA(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetSystemWow64DirectoryA(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetSystemWow64DirectoryW(lpbuffer: Option<&mut [u16]>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetSystemWow64DirectoryW(lpbuffer : windows_core::PWSTR, usize : u32) -> u32);
-    unsafe { GetSystemWow64DirectoryW(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetSystemWow64DirectoryW(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: u16) -> windows_core::Result<windows_core::BOOL> {

@@ -20,7 +20,7 @@ pub unsafe fn TransmitFile(hsocket: super::winsock2::SOCKET, hfile: super::winnt
 #[inline]
 pub unsafe fn WSARecvEx(s: super::winsock2::SOCKET, buf: &mut [u8], flags: *mut i32) -> i32 {
     windows_core::link!("mswsock.dll" "system" fn WSARecvEx(s : super::winsock2::SOCKET, buf : *mut i8, len : i32, flags : *mut i32) -> i32);
-    unsafe { WSARecvEx(s, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap(), flags as _) }
+    unsafe { WSARecvEx(s, core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap(), flags as _) }
 }
 pub const DE_REUSE_SOCKET: u32 = 2;
 #[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2"))]
@@ -89,7 +89,7 @@ impl Default for NLA_BLOB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLA_BLOB_0 {
     pub r#type: NLA_BLOB_DATA_TYPE,
     pub dwSize: u32,
@@ -110,7 +110,7 @@ impl Default for NLA_BLOB_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLA_BLOB_1_0 {
     pub dwType: u32,
     pub dwSpeed: u32,
@@ -122,7 +122,7 @@ impl Default for NLA_BLOB_1_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLA_BLOB_1_1 {
     pub information: [i8; 1],
 }
@@ -132,18 +132,18 @@ impl Default for NLA_BLOB_1_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLA_BLOB_1_2 {
     pub r#type: NLA_CONNECTIVITY_TYPE,
     pub internet: NLA_INTERNET,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NLA_BLOB_1_3 {
     pub remote: NLA_BLOB_1_3_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct NLA_BLOB_1_3_0 {
     pub speed: u32,
     pub r#type: u32,
@@ -232,14 +232,14 @@ impl Default for RIO_NOTIFICATION_COMPLETION_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RIO_NOTIFICATION_COMPLETION_0_0 {
     pub EventHandle: super::winnt::HANDLE,
     pub NotifyReset: windows_core::BOOL,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct RIO_NOTIFICATION_COMPLETION_0_1 {
     pub IocpHandle: super::winnt::HANDLE,
     pub CompletionKey: *mut core::ffi::c_void,
@@ -293,7 +293,7 @@ pub const TP_USE_DEFAULT_WORKER: u32 = 0;
 pub const TP_USE_KERNEL_APC: u32 = 32;
 pub const TP_USE_SYSTEM_THREAD: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct TRANSMIT_FILE_BUFFERS {
     pub Head: *mut core::ffi::c_void,
     pub HeadLength: u32,
@@ -334,14 +334,14 @@ impl Default for TRANSMIT_PACKETS_ELEMENT_0 {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TRANSMIT_PACKETS_ELEMENT_0_0 {
     pub nFileOffset: i64,
     pub hFile: super::winnt::HANDLE,
 }
 #[repr(C)]
 #[cfg(feature = "winsock2")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct WSAPOLLDATA {
     pub result: i32,
     pub fds: u32,

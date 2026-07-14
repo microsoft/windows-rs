@@ -50,13 +50,13 @@ where
 #[inline]
 pub unsafe fn WNetAddConnection4A(hwndowner: Option<super::windef::HWND>, lpnetresource: *const NETRESOURCEA, pauthbuffer: *const core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: &[u8]) -> u32 {
     windows_core::link!("mpr.dll" "system" fn WNetAddConnection4A(hwndowner : super::windef::HWND, lpnetresource : *const NETRESOURCEA, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32) -> u32);
-    unsafe { WNetAddConnection4A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.as_ptr()), lpuseoptions.len().try_into().unwrap()) }
+    unsafe { WNetAddConnection4A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions.as_ptr(), lpuseoptions.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn WNetAddConnection4W(hwndowner: Option<super::windef::HWND>, lpnetresource: *const NETRESOURCEW, pauthbuffer: *const core::ffi::c_void, cbauthbuffer: u32, dwflags: u32, lpuseoptions: &[u8]) -> u32 {
     windows_core::link!("mpr.dll" "system" fn WNetAddConnection4W(hwndowner : super::windef::HWND, lpnetresource : *const NETRESOURCEW, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32) -> u32);
-    unsafe { WNetAddConnection4W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.as_ptr()), lpuseoptions.len().try_into().unwrap()) }
+    unsafe { WNetAddConnection4W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer, cbauthbuffer, dwflags, lpuseoptions.as_ptr(), lpuseoptions.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn WNetAddConnectionA<P0, P1, P2>(lpremotename: P0, lppassword: P1, lplocalname: P2) -> u32
@@ -183,12 +183,12 @@ where
 #[inline]
 pub unsafe fn WNetGetLastErrorA(lperror: *mut u32, lperrorbuf: &mut [u8], lpnamebuf: &mut [u8]) -> u32 {
     windows_core::link!("mpr.dll" "system" fn WNetGetLastErrorA(lperror : *mut u32, lperrorbuf : windows_core::PSTR, nerrorbufsize : u32, lpnamebuf : windows_core::PSTR, nnamebufsize : u32) -> u32);
-    unsafe { WNetGetLastErrorA(lperror as _, core::mem::transmute(lperrorbuf.as_ptr()), lperrorbuf.len().try_into().unwrap(), core::mem::transmute(lpnamebuf.as_ptr()), lpnamebuf.len().try_into().unwrap()) }
+    unsafe { WNetGetLastErrorA(lperror as _, core::mem::transmute(lperrorbuf.as_mut_ptr()), lperrorbuf.len().try_into().unwrap(), core::mem::transmute(lpnamebuf.as_mut_ptr()), lpnamebuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn WNetGetLastErrorW(lperror: *mut u32, lperrorbuf: &mut [u16], lpnamebuf: &mut [u16]) -> u32 {
     windows_core::link!("mpr.dll" "system" fn WNetGetLastErrorW(lperror : *mut u32, lperrorbuf : windows_core::PWSTR, nerrorbufsize : u32, lpnamebuf : windows_core::PWSTR, nnamebufsize : u32) -> u32);
-    unsafe { WNetGetLastErrorW(lperror as _, core::mem::transmute(lperrorbuf.as_ptr()), lperrorbuf.len().try_into().unwrap(), core::mem::transmute(lpnamebuf.as_ptr()), lpnamebuf.len().try_into().unwrap()) }
+    unsafe { WNetGetLastErrorW(lperror as _, core::mem::transmute(lperrorbuf.as_mut_ptr()), lperrorbuf.len().try_into().unwrap(), core::mem::transmute(lpnamebuf.as_mut_ptr()), lpnamebuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn WNetGetNetworkInformationA<P0>(lpprovider: P0, lpnetinfostruct: *mut NETINFOSTRUCT) -> u32
@@ -209,12 +209,12 @@ where
 #[inline]
 pub unsafe fn WNetGetProviderNameA(dwnettype: u32, lpprovidername: windows_core::PSTR, lpbuffersize: *mut u32) -> u32 {
     windows_core::link!("mpr.dll" "system" fn WNetGetProviderNameA(dwnettype : u32, lpprovidername : windows_core::PSTR, lpbuffersize : *mut u32) -> u32);
-    unsafe { WNetGetProviderNameA(dwnettype, core::mem::transmute(lpprovidername), lpbuffersize as _) }
+    unsafe { WNetGetProviderNameA(dwnettype, lpprovidername, lpbuffersize as _) }
 }
 #[inline]
 pub unsafe fn WNetGetProviderNameW(dwnettype: u32, lpprovidername: windows_core::PWSTR, lpbuffersize: *mut u32) -> u32 {
     windows_core::link!("mpr.dll" "system" fn WNetGetProviderNameW(dwnettype : u32, lpprovidername : windows_core::PWSTR, lpbuffersize : *mut u32) -> u32);
-    unsafe { WNetGetProviderNameW(dwnettype, core::mem::transmute(lpprovidername), lpbuffersize as _) }
+    unsafe { WNetGetProviderNameW(dwnettype, lpprovidername, lpbuffersize as _) }
 }
 #[inline]
 pub unsafe fn WNetGetResourceInformationA(lpnetresource: *const NETRESOURCEA, lpbuffer: *mut core::ffi::c_void, lpcbbuffer: *mut u32, lplpsystem: *mut windows_core::PSTR) -> u32 {
@@ -258,7 +258,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("mpr.dll" "system" fn WNetGetUserA(lpname : windows_core::PCSTR, lpusername : windows_core::PSTR, lpnlength : *mut u32) -> u32);
-    unsafe { WNetGetUserA(lpname.param().abi(), core::mem::transmute(lpusername), lpnlength as _) }
+    unsafe { WNetGetUserA(lpname.param().abi(), lpusername, lpnlength as _) }
 }
 #[inline]
 pub unsafe fn WNetGetUserW<P0>(lpname: P0, lpusername: windows_core::PWSTR, lpnlength: *mut u32) -> u32
@@ -266,7 +266,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mpr.dll" "system" fn WNetGetUserW(lpname : windows_core::PCWSTR, lpusername : windows_core::PWSTR, lpnlength : *mut u32) -> u32);
-    unsafe { WNetGetUserW(lpname.param().abi(), core::mem::transmute(lpusername), lpnlength as _) }
+    unsafe { WNetGetUserW(lpname.param().abi(), lpusername, lpnlength as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -284,13 +284,13 @@ pub unsafe fn WNetOpenEnumW(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresour
 #[inline]
 pub unsafe fn WNetUseConnection4A(hwndowner: Option<super::windef::HWND>, lpnetresource: *const NETRESOURCEA, pauthbuffer: Option<*const core::ffi::c_void>, cbauthbuffer: u32, dwflags: u32, lpuseoptions: Option<&[u8]>, lpaccessname: Option<windows_core::PSTR>, lpbuffersize: Option<*mut u32>, lpresult: Option<*mut u32>) -> u32 {
     windows_core::link!("mpr.dll" "system" fn WNetUseConnection4A(hwndowner : super::windef::HWND, lpnetresource : *const NETRESOURCEA, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : windows_core::PSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
-    unsafe { WNetUseConnection4A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.map_or(0, |slice| slice.len().try_into().unwrap()), lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WNetUseConnection4A(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, lpuseoptions.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpuseoptions.map_or(0, |slice| slice.len().try_into().unwrap()), lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn WNetUseConnection4W(hwndowner: Option<super::windef::HWND>, lpnetresource: *const NETRESOURCEW, pauthbuffer: Option<*const core::ffi::c_void>, cbauthbuffer: u32, dwflags: u32, lpuseoptions: Option<&[u8]>, lpaccessname: Option<windows_core::PWSTR>, lpbuffersize: Option<*mut u32>, lpresult: Option<*mut u32>) -> u32 {
     windows_core::link!("mpr.dll" "system" fn WNetUseConnection4W(hwndowner : super::windef::HWND, lpnetresource : *const NETRESOURCEW, pauthbuffer : *const core::ffi::c_void, cbauthbuffer : u32, dwflags : u32, lpuseoptions : *const u8, cbuseoptions : u32, lpaccessname : windows_core::PWSTR, lpbuffersize : *mut u32, lpresult : *mut u32) -> u32);
-    unsafe { WNetUseConnection4W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, core::mem::transmute(lpuseoptions.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpuseoptions.map_or(0, |slice| slice.len().try_into().unwrap()), lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WNetUseConnection4W(hwndowner.unwrap_or(core::mem::zeroed()) as _, lpnetresource, pauthbuffer.unwrap_or(core::mem::zeroed()) as _, cbauthbuffer, dwflags, lpuseoptions.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpuseoptions.map_or(0, |slice| slice.len().try_into().unwrap()), lpaccessname.unwrap_or(core::mem::zeroed()) as _, lpbuffersize.unwrap_or(core::mem::zeroed()) as _, lpresult.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -322,7 +322,7 @@ pub const CONNDLG_USE_MRU: u32 = 4;
 pub type CONNECTDLGSTRUCT = CONNECTDLGSTRUCTA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONNECTDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::windef::HWND,
@@ -332,7 +332,7 @@ pub struct CONNECTDLGSTRUCTA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CONNECTDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::windef::HWND,
@@ -363,7 +363,7 @@ pub const CONNECT_WRITE_THROUGH_SEMANTICS: u32 = 65536;
 pub type DISCDLGSTRUCT = DISCDLGSTRUCTA;
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISCDLGSTRUCTA {
     pub cbStructure: u32,
     pub hwndOwner: super::windef::HWND,
@@ -373,7 +373,7 @@ pub struct DISCDLGSTRUCTA {
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISCDLGSTRUCTW {
     pub cbStructure: u32,
     pub hwndOwner: super::windef::HWND,
@@ -407,7 +407,7 @@ pub type LPUNIVERSAL_NAME_INFO = LPUNIVERSAL_NAME_INFOA;
 pub type LPUNIVERSAL_NAME_INFOA = *mut UNIVERSAL_NAME_INFOA;
 pub type LPUNIVERSAL_NAME_INFOW = *mut UNIVERSAL_NAME_INFOW;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETCONNECTINFOSTRUCT {
     pub cbStructure: u32,
     pub dwFlags: u32,
@@ -416,7 +416,7 @@ pub struct NETCONNECTINFOSTRUCT {
     pub dwOptDataSize: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETINFOSTRUCT {
     pub cbStructure: u32,
     pub dwProviderVersion: u32,
@@ -433,7 +433,7 @@ pub const NETINFO_PRINTERRED: u32 = 8;
 pub const NETPROPERTY_PERSISTENT: u32 = 1;
 pub type NETRESOURCE = NETRESOURCEA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETRESOURCEA {
     pub dwScope: u32,
     pub dwType: u32,
@@ -445,7 +445,7 @@ pub struct NETRESOURCEA {
     pub lpProvider: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETRESOURCEW {
     pub dwScope: u32,
     pub dwType: u32,
@@ -458,14 +458,14 @@ pub struct NETRESOURCEW {
 }
 pub type REMOTE_NAME_INFO = REMOTE_NAME_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REMOTE_NAME_INFOA {
     pub lpUniversalName: windows_core::PSTR,
     pub lpConnectionName: windows_core::PSTR,
     pub lpRemainingPath: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REMOTE_NAME_INFOW {
     pub lpUniversalName: windows_core::PWSTR,
     pub lpConnectionName: windows_core::PWSTR,
@@ -503,12 +503,12 @@ pub const RESOURCE_RECENT: u32 = 4;
 pub const RESOURCE_REMEMBERED: u32 = 3;
 pub type UNIVERSAL_NAME_INFO = UNIVERSAL_NAME_INFOA;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOA {
     pub lpUniversalName: windows_core::PSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNIVERSAL_NAME_INFOW {
     pub lpUniversalName: windows_core::PWSTR,
 }

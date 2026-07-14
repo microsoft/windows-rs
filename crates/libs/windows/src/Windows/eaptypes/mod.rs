@@ -1,6 +1,6 @@
 pub const CERTIFICATE_HASH_LENGTH: u32 = 20;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAPHOST_IDENTITY_UI_PARAMS {
     pub eapMethodType: EAP_METHOD_TYPE,
     pub dwFlags: u32,
@@ -20,7 +20,7 @@ impl Default for EAPHOST_IDENTITY_UI_PARAMS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAPHOST_INTERACTIVE_UI_PARAMS {
     pub dwSizeofContextData: u32,
     pub pContextData: *mut u8,
@@ -37,7 +37,7 @@ impl Default for EAPHOST_INTERACTIVE_UI_PARAMS {
 pub const EAPHOST_METHOD_API_VERSION: u32 = 1;
 pub const EAPHOST_PEER_API_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_ATTRIBUTE {
     pub eaType: EAP_ATTRIBUTE_TYPE,
     pub dwLength: u32,
@@ -49,7 +49,7 @@ impl Default for EAP_ATTRIBUTE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_ATTRIBUTES {
     pub dwNumberOfAttributes: u32,
     pub pAttribs: *mut EAP_ATTRIBUTE,
@@ -62,7 +62,7 @@ impl Default for EAP_ATTRIBUTES {
 pub type EAP_ATTRIBUTE_TYPE = i32;
 pub const EAP_CERTIFICATE_CREDENTIAL: EapCredentialType = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_ARRAY {
     pub dwVersion: u32,
     pub dwNumberOfFields: u32,
@@ -74,7 +74,7 @@ impl Default for EAP_CONFIG_INPUT_FIELD_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_CONFIG_INPUT_FIELD_DATA {
     pub dwSize: u32,
     pub Type: EAP_CONFIG_INPUT_FIELD_TYPE,
@@ -90,7 +90,7 @@ pub const EAP_CONFIG_INPUT_FIELD_PROPS_NON_PERSIST: u32 = 2;
 pub type EAP_CONFIG_INPUT_FIELD_TYPE = i32;
 pub const EAP_CREDENTIAL_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_CRED_EXPIRY_REQ {
     pub curCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
     pub newCreds: EAP_CONFIG_INPUT_FIELD_ARRAY,
@@ -102,7 +102,7 @@ pub type EAP_CRED_REQ = EAP_CONFIG_INPUT_FIELD_ARRAY;
 pub type EAP_CRED_RESP = EAP_CONFIG_INPUT_FIELD_ARRAY;
 pub const EAP_EMPTY_CREDENTIAL: EapCredentialType = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_ERROR {
     pub dwWinError: u32,
     pub r#type: EAP_METHOD_TYPE,
@@ -155,7 +155,7 @@ impl Default for EAP_INTERACTIVE_UI_DATA {
 pub type EAP_INTERACTIVE_UI_DATA_TYPE = i32;
 pub const EAP_INTERACTIVE_UI_DATA_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_core::PWSTR,
@@ -169,7 +169,7 @@ impl Default for EAP_METHOD_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO,
@@ -180,7 +180,7 @@ impl Default for EAP_METHOD_INFO_ARRAY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_ARRAY_EX {
     pub dwNumberOfMethods: u32,
     pub pEapMethods: *mut EAP_METHOD_INFO_EX,
@@ -191,7 +191,7 @@ impl Default for EAP_METHOD_INFO_ARRAY_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_INFO_EX {
     pub eaptype: EAP_METHOD_TYPE,
     pub pwszAuthorName: windows_core::PWSTR,
@@ -217,7 +217,7 @@ impl Default for EAP_METHOD_PROPERTY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_ARRAY {
     pub dwNumberOfProperties: u32,
     pub pMethodProperty: *mut EAP_METHOD_PROPERTY,
@@ -241,19 +241,19 @@ impl Default for EAP_METHOD_PROPERTY_VALUE {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_BOOL {
     pub length: u32,
     pub value: windows_core::BOOL,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_DWORD {
     pub length: u32,
     pub value: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EAP_METHOD_PROPERTY_VALUE_STRING {
     pub length: u32,
     pub value: *mut u8,
@@ -265,7 +265,7 @@ impl Default for EAP_METHOD_PROPERTY_VALUE_STRING {
 }
 pub type EAP_METHOD_PROPERTY_VALUE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_METHOD_TYPE {
     pub eapType: EAP_TYPE,
     pub dwAuthorId: u32,
@@ -276,7 +276,7 @@ pub const EAP_PEER_FLAG_HEALTH_STATE_CHANGE: u32 = 32768;
 pub struct EAP_SESSIONID(pub u32);
 pub const EAP_SIM_CREDENTIAL: EapCredentialType = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EAP_TYPE {
     pub r#type: u8,
     pub dwVendorId: u32,
@@ -307,7 +307,7 @@ pub type EapAttribute = EAP_ATTRIBUTE;
 pub struct EapAttributeType(pub EAP_ATTRIBUTE_TYPE);
 pub type EapAttributes = EAP_ATTRIBUTES;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct EapCertificateCredential {
     pub certHash: [u8; 20],
     pub password: windows_core::PWSTR,
@@ -357,12 +357,12 @@ impl Default for EapCredentialTypeData {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EapSimCredential {
     pub iccID: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EapUsernamePasswordCredential {
     pub username: windows_core::PWSTR,
     pub password: windows_core::PWSTR,

@@ -77,7 +77,7 @@ pub const VS_FF_PRERELEASE: u32 = 2;
 pub const VS_FF_PRIVATEBUILD: u32 = 8;
 pub const VS_FF_SPECIALBUILD: u32 = 32;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VS_FIXEDFILEINFO {
     pub dwSignature: u32,
     pub dwStrucVersion: u32,

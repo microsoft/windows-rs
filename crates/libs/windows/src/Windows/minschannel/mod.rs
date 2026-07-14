@@ -46,13 +46,13 @@ pub const SECPKG_ATTR_USE_NCRYPT: u32 = 98;
 pub const SESSION_TICKET_INFO_V0: u32 = 0;
 pub const SESSION_TICKET_INFO_VERSION: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCred_CipherStrengths {
     pub dwMinimumCipherStrength: u32,
     pub dwMaximumCipherStrength: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCred_ClientCertPolicy {
     pub dwFlags: u32,
     pub guidPolicyId: windows_core::GUID,
@@ -65,7 +65,7 @@ pub struct SecPkgCred_ClientCertPolicy {
     pub pwszSslCtlIdentifier: windows_core::PWSTR,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgCred_SessionTicketKey {
     pub TicketInfoVersion: u32,
     pub KeyId: [u8; 16],
@@ -78,14 +78,14 @@ impl Default for SecPkgCred_SessionTicketKey {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCred_SessionTicketKeys {
     pub cSessionTicketKeys: u32,
     pub pSessionTicketKeys: PSecPkgCred_SessionTicketKey,
 }
 #[repr(C)]
 #[cfg(feature = "wincrypt")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SecPkgCred_SupportedAlgs {
     pub cSupportedAlgs: u32,
     pub palgSupportedAlgs: *mut super::wincrypt::ALG_ID,
@@ -97,7 +97,7 @@ impl Default for SecPkgCred_SupportedAlgs {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SecPkgCred_SupportedProtocols {
     pub grbitProtocol: u32,
 }

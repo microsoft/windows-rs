@@ -22,7 +22,7 @@ impl ICertManageModule {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetProperty(&self, strconfig: &windows_core::BSTR, strstoragelocation: &windows_core::BSTR, strpropertyname: &windows_core::BSTR, flags: i32, pvarproperty: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), core::mem::transmute_copy(strstoragelocation), core::mem::transmute_copy(strpropertyname), flags, core::mem::transmute(pvarproperty)) }
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), core::mem::transmute_copy(strstoragelocation), core::mem::transmute_copy(strpropertyname), flags, pvarproperty) }
     }
     pub unsafe fn Configure(&self, strconfig: &windows_core::BSTR, strstoragelocation: &windows_core::BSTR, flags: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Configure)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strconfig), core::mem::transmute_copy(strstoragelocation), flags) }

@@ -95,7 +95,7 @@ pub unsafe fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *co
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAPENTRY32 {
     pub dwSize: usize,
     pub hHandle: super::winnt::HANDLE,
@@ -108,7 +108,7 @@ pub struct HEAPENTRY32 {
     pub th32HeapID: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct HEAPLIST32 {
     pub dwSize: usize,
     pub th32ProcessID: u32,
@@ -133,7 +133,7 @@ pub type LPTHREADENTRY32 = *mut THREADENTRY32;
 pub const MAX_MODULE_NAME32: u32 = 255;
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODULEENTRY32 {
     pub dwSize: u32,
     pub th32ModuleID: u32,
@@ -154,7 +154,7 @@ impl Default for MODULEENTRY32 {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MODULEENTRY32W {
     pub dwSize: u32,
     pub th32ModuleID: u32,
@@ -183,7 +183,7 @@ pub type PMODULEENTRY32W = *mut MODULEENTRY32W;
 pub type PPROCESSENTRY32 = *mut PROCESSENTRY32;
 pub type PPROCESSENTRY32W = *mut PROCESSENTRY32W;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -202,7 +202,7 @@ impl Default for PROCESSENTRY32 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PROCESSENTRY32W {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -229,7 +229,7 @@ pub const TH32CS_SNAPMODULE32: u32 = 16;
 pub const TH32CS_SNAPPROCESS: u32 = 2;
 pub const TH32CS_SNAPTHREAD: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct THREADENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,

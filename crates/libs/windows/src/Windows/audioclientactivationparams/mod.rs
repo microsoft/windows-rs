@@ -23,7 +23,7 @@ pub type AUDIOCLIENT_ACTIVATION_TYPE = i32;
 pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = 0;
 pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
     pub TargetProcessId: u32,
     pub ProcessLoopbackMode: PROCESS_LOOPBACK_MODE,

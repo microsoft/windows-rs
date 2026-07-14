@@ -712,7 +712,7 @@ impl core::ops::Not for InjectedInputPenParameters {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InjectedInputPoint {
     pub PositionX: i32,
     pub PositionY: i32,
@@ -725,7 +725,7 @@ impl windows_core::RuntimeType for InjectedInputPoint {
     const NAME: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"Windows.UI.Input.Preview.Injection.InjectedInputPoint");
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InjectedInputPointerInfo {
     pub PointerId: u32,
     pub PointerOptions: InjectedInputPointerOptions,
@@ -799,7 +799,7 @@ impl core::ops::Not for InjectedInputPointerOptions {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Debug, Default, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct InjectedInputRectangle {
     pub Left: i32,
     pub Top: i32,
