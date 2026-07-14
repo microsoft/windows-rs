@@ -20,7 +20,7 @@ pub unsafe fn HidP_GetCaps(preparseddata: *const _HIDP_PREPARSED_DATA, capabilit
 #[inline]
 pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetData(reporttype : HIDP_REPORT_TYPE, datalist : *mut HIDP_DATA, datalength : *mut u32, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_GetData(reporttype, datalist as _, datalength as _, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetData(reporttype, datalist as _, datalength as _, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -62,13 +62,13 @@ pub unsafe fn HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super:
 #[inline]
 pub unsafe fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::hidusage::USAGE, linkcollection: Option<u16>, usage: super::hidusage::USAGE, usagevalue: &mut [u8], preparseddata: *const _HIDP_PREPARSED_DATA, report: &[u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : super::hidusage::USAGE, linkcollection : u16, usage : super::hidusage::USAGE, usagevalue : *mut i8, usagevaluebytelength : u16, preparseddata : *const _HIDP_PREPARSED_DATA, report : *const i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_GetUsageValueArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(usagevalue.as_ptr()), usagevalue.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetUsageValueArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(usagevalue.as_mut_ptr()), usagevalue.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "hidusage"))]
 #[inline]
 pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: super::hidusage::USAGE, linkcollection: Option<u16>, usagelist: *mut u16, usagelength: *mut u32, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_GetUsages(reporttype : HIDP_REPORT_TYPE, usagepage : super::hidusage::USAGE, linkcollection : u16, usagelist : *mut u16, usagelength : *mut u32, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_GetUsages(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usagelist as _, usagelength as _, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_GetUsages(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usagelist as _, usagelength as _, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "hidusage"))]
 #[inline]
@@ -86,7 +86,7 @@ pub unsafe fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HI
 #[inline]
 pub unsafe fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_InitializeReportForID(reporttype : HIDP_REPORT_TYPE, reportid : u8, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_InitializeReportForID(reporttype, reportid, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_InitializeReportForID(reporttype, reportid, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: *const _HIDP_PREPARSED_DATA) -> u32 {
@@ -103,7 +103,7 @@ pub unsafe fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: O
 #[inline]
 pub unsafe fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::hidusage::USAGE, linkcollection: Option<u16>, usage: super::hidusage::USAGE, buttondata: &[HIDP_BUTTON_ARRAY_DATA], preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetButtonArray(reporttype : HIDP_REPORT_TYPE, usagepage : super::hidusage::USAGE, linkcollection : u16, usage : super::hidusage::USAGE, buttondata : *const HIDP_BUTTON_ARRAY_DATA, buttondatalength : u16, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_SetButtonArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(buttondata.as_ptr()), buttondata.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetButtonArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, buttondata.as_ptr(), buttondata.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -115,19 +115,19 @@ pub unsafe fn HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DAT
 #[inline]
 pub unsafe fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super::hidusage::USAGE, linkcollection: Option<u16>, usage: super::hidusage::USAGE, usagevalue: i32, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetScaledUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : super::hidusage::USAGE, linkcollection : u16, usage : super::hidusage::USAGE, usagevalue : i32, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_SetScaledUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetScaledUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "hidusage"))]
 #[inline]
 pub unsafe fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: super::hidusage::USAGE, linkcollection: Option<u16>, usage: super::hidusage::USAGE, usagevalue: u32, preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetUsageValue(reporttype : HIDP_REPORT_TYPE, usagepage : super::hidusage::USAGE, linkcollection : u16, usage : super::hidusage::USAGE, usagevalue : u32, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_SetUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetUsageValue(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, usagevalue, preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "hidusage"))]
 #[inline]
 pub unsafe fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: super::hidusage::USAGE, linkcollection: Option<u16>, usage: super::hidusage::USAGE, usagevalue: &[u8], preparseddata: *const _HIDP_PREPARSED_DATA, report: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_SetUsageValueArray(reporttype : HIDP_REPORT_TYPE, usagepage : super::hidusage::USAGE, linkcollection : u16, usage : super::hidusage::USAGE, usagevalue : *const i8, usagevaluebytelength : u16, preparseddata : *const _HIDP_PREPARSED_DATA, report : *mut i8, reportlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_SetUsageValueArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(usagevalue.as_ptr()), usagevalue.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_ptr()), report.len().try_into().unwrap()) }
+    unsafe { HidP_SetUsageValueArray(reporttype, usagepage, linkcollection.unwrap_or(core::mem::zeroed()) as _, usage, core::mem::transmute(usagevalue.as_ptr()), usagevalue.len().try_into().unwrap(), preparseddata, core::mem::transmute(report.as_mut_ptr()), report.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "hidusage"))]
 #[inline]
@@ -139,7 +139,7 @@ pub unsafe fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: super::hid
 #[inline]
 pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: &[u16], keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: PHIDP_INSERT_SCANCODES, insertcodescontext: Option<*const core::ffi::c_void>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("hid.dll" "system" fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist : *const u16, usagelistlength : u32, keyaction : HIDP_KEYBOARD_DIRECTION, modifierstate : *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure : PHIDP_INSERT_SCANCODES, insertcodescontext : *const core::ffi::c_void) -> super::bcrypt::NTSTATUS);
-    unsafe { HidP_TranslateUsagesToI8042ScanCodes(core::mem::transmute(changedusagelist.as_ptr()), changedusagelist.len().try_into().unwrap(), keyaction, modifierstate as _, insertcodesprocedure, insertcodescontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { HidP_TranslateUsagesToI8042ScanCodes(changedusagelist.as_ptr(), changedusagelist.len().try_into().unwrap(), keyaction, modifierstate as _, insertcodesprocedure, insertcodescontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "bcrypt", feature = "hidusage"))]
 #[inline]

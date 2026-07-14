@@ -304,7 +304,7 @@ windows_core::imp::define_interface!(IEnumOLEVERB, IEnumOLEVERB_Vtbl, 0x00000104
 windows_core::imp::interface_hierarchy!(IEnumOLEVERB, windows_core::IUnknown);
 impl IEnumOLEVERB {
     pub unsafe fn Next(&self, rgelt: &mut [OLEVERB], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }

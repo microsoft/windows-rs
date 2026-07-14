@@ -22,7 +22,7 @@ where
 {
     windows_core::link!("propsys.dll" "system" fn PSCreateDelayedMultiplexPropertyStore(flags : GETPROPERTYSTOREFLAGS, pdpsf : *mut core::ffi::c_void, rgstoreids : *const u32, cstores : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { PSCreateDelayedMultiplexPropertyStore(flags, pdpsf.param().abi(), core::mem::transmute(rgstoreids.as_ptr()), rgstoreids.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { PSCreateDelayedMultiplexPropertyStore(flags, pdpsf.param().abi(), rgstoreids.as_ptr(), rgstoreids.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn PSCreateMemoryPropertyStore<T>() -> windows_core::Result<T>
@@ -96,7 +96,7 @@ where
 #[inline]
 pub unsafe fn PSFormatForDisplay(propkey: *const super::wtypes::PROPERTYKEY, propvar: *const super::propidlbase::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: &mut [u16]) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSFormatForDisplay(propkey : *const super::wtypes::PROPERTYKEY, propvar : *const super::propidlbase::PROPVARIANT, pdfflags : PROPDESC_FORMAT_FLAGS, pwsztext : windows_core::PWSTR, cchtext : u32) -> windows_core::HRESULT);
-    unsafe { PSFormatForDisplay(propkey, core::mem::transmute(propvar), pdfflags, core::mem::transmute(pwsztext.as_ptr()), pwsztext.len().try_into().unwrap()) }
+    unsafe { PSFormatForDisplay(propkey, core::mem::transmute(propvar), pdfflags, core::mem::transmute(pwsztext.as_mut_ptr()), pwsztext.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -409,7 +409,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadStr(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, value : windows_core::PWSTR, charactercount : i32) -> windows_core::HRESULT);
-    unsafe { PSPropertyBag_ReadStr(propbag.param().abi(), propname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()) }
+    unsafe { PSPropertyBag_ReadStr(propbag.param().abi(), propname.param().abi(), core::mem::transmute(value.as_mut_ptr()), value.len().try_into().unwrap()) }
 }
 #[cfg(feature = "oaidl")]
 #[inline]
@@ -661,7 +661,7 @@ where
 #[inline]
 pub unsafe fn PSStringFromPropertyKey(pkey: *const super::wtypes::PROPERTYKEY, psz: &mut [u16]) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSStringFromPropertyKey(pkey : *const super::wtypes::PROPERTYKEY, psz : windows_core::PWSTR, cch : u32) -> windows_core::HRESULT);
-    unsafe { PSStringFromPropertyKey(pkey, core::mem::transmute(psz.as_ptr()), psz.len().try_into().unwrap()) }
+    unsafe { PSStringFromPropertyKey(pkey, core::mem::transmute(psz.as_mut_ptr()), psz.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn PSUnregisterPropertySchema<P0>(pszpath: P0) -> windows_core::HRESULT

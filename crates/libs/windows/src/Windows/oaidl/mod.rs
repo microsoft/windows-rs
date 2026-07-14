@@ -3388,10 +3388,10 @@ impl ITypeMarshal {
         }
     }
     pub unsafe fn Marshal(&self, pvtype: *const core::ffi::c_void, dwdestcontext: u32, pvdestcontext: *const core::ffi::c_void, pbuffer: &mut [u8], pcbwritten: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Marshal)(windows_core::Interface::as_raw(self), pvtype, dwdestcontext, pvdestcontext, pbuffer.len().try_into().unwrap(), core::mem::transmute(pbuffer.as_ptr()), pcbwritten as _) }
+        unsafe { (windows_core::Interface::vtable(self).Marshal)(windows_core::Interface::as_raw(self), pvtype, dwdestcontext, pvdestcontext, pbuffer.len().try_into().unwrap(), pbuffer.as_mut_ptr(), pcbwritten as _) }
     }
     pub unsafe fn Unmarshal(&self, pvtype: *mut core::ffi::c_void, dwflags: u32, pbuffer: &[u8], pcbread: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Unmarshal)(windows_core::Interface::as_raw(self), pvtype as _, dwflags, pbuffer.len().try_into().unwrap(), core::mem::transmute(pbuffer.as_ptr()), pcbread as _) }
+        unsafe { (windows_core::Interface::vtable(self).Unmarshal)(windows_core::Interface::as_raw(self), pvtype as _, dwflags, pbuffer.len().try_into().unwrap(), pbuffer.as_ptr(), pcbread as _) }
     }
     pub unsafe fn Free(&self, pvtype: *const core::ffi::c_void) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Free)(windows_core::Interface::as_raw(self), pvtype) }

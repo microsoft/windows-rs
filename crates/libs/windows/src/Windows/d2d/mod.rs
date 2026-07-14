@@ -2147,7 +2147,7 @@ impl ID2D1ColorContext {
         unsafe { (windows_core::Interface::vtable(self).GetProfileSize)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetProfile(&self, profile: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(profile.as_ptr()), profile.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetProfile)(windows_core::Interface::as_raw(self), profile.as_mut_ptr(), profile.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -3621,7 +3621,7 @@ impl ID2D1DeviceContext {
     pub unsafe fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: Option<&[u8]>) -> windows_core::Result<ID2D1ColorContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateColorContext)(windows_core::Interface::as_raw(self), space, core::mem::transmute(profile.map_or(core::ptr::null(), |slice| slice.as_ptr())), profile.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateColorContext)(windows_core::Interface::as_raw(self), space, profile.map_or(core::ptr::null(), |slice| slice.as_ptr()), profile.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateColorContextFromFilename<P0>(&self, filename: P0) -> windows_core::Result<ID2D1ColorContext>
@@ -3663,7 +3663,7 @@ impl ID2D1DeviceContext {
     pub unsafe fn CreateGradientStopCollection(&self, straightalphagradientstops: &[D2D1_GRADIENT_STOP], preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> windows_core::Result<ID2D1GradientStopCollection1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateGradientStopCollection)(windows_core::Interface::as_raw(self), core::mem::transmute(straightalphagradientstops.as_ptr()), straightalphagradientstops.len().try_into().unwrap(), preinterpolationspace, postinterpolationspace, bufferprecision, extendmode, colorinterpolationmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateGradientStopCollection)(windows_core::Interface::as_raw(self), straightalphagradientstops.as_ptr(), straightalphagradientstops.len().try_into().unwrap(), preinterpolationspace, postinterpolationspace, bufferprecision, extendmode, colorinterpolationmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "dcommon")]
@@ -3842,7 +3842,7 @@ impl ID2D1DeviceContext {
     where
         P0: windows_core::Param<ID2D1Effect>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetEffectInvalidRectangles)(windows_core::Interface::as_raw(self), effect.param().abi(), core::mem::transmute(rectangles.as_ptr()), rectangles.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetEffectInvalidRectangles)(windows_core::Interface::as_raw(self), effect.param().abi(), rectangles.as_mut_ptr(), rectangles.len().try_into().unwrap()) }
     }
     #[cfg(feature = "dcommon")]
     pub unsafe fn GetEffectRequiredInputRectangles<P0>(&self, rendereffect: P0, renderimagerectangle: Option<*const super::dcommon::D2D_RECT_F>, inputdescriptions: *const D2D1_EFFECT_INPUT_DESCRIPTION, requiredinputrects: *mut super::dcommon::D2D_RECT_F, inputcount: u32) -> windows_core::HRESULT
@@ -4471,7 +4471,7 @@ impl ID2D1DeviceContext2 {
     pub unsafe fn CreateGradientMesh(&self, patches: &[D2D1_GRADIENT_MESH_PATCH]) -> windows_core::Result<ID2D1GradientMesh> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateGradientMesh)(windows_core::Interface::as_raw(self), core::mem::transmute(patches.as_ptr()), patches.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateGradientMesh)(windows_core::Interface::as_raw(self), patches.as_ptr(), patches.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "dcommon", feature = "wincodec"))]
@@ -4487,7 +4487,7 @@ impl ID2D1DeviceContext2 {
     pub unsafe fn CreateLookupTable3D(&self, precision: D2D1_BUFFER_PRECISION, extents: &[u32; 3], data: &[u8], strides: &[u32; 2]) -> windows_core::Result<ID2D1LookupTable3D> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateLookupTable3D)(windows_core::Interface::as_raw(self), precision, core::mem::transmute(extents.as_ptr()), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), core::mem::transmute(strides.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateLookupTable3D)(windows_core::Interface::as_raw(self), precision, extents.as_ptr(), data.as_ptr(), data.len().try_into().unwrap(), strides.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "dxgi")]
@@ -4820,7 +4820,7 @@ impl ID2D1DeviceContext4 {
         P5: windows_core::Param<ID2D1SvgGlyphStyle>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).DrawText)(windows_core::Interface::as_raw(self), core::mem::transmute(string.as_ptr()), string.len().try_into().unwrap(), textformat.param().abi(), layoutrect, defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), colorpaletteindex, options, measuringmode);
+            (windows_core::Interface::vtable(self).DrawText)(windows_core::Interface::as_raw(self), string.as_ptr(), string.len().try_into().unwrap(), textformat.param().abi(), layoutrect, defaultfillbrush.param().abi(), svgglyphstyle.param().abi(), colorpaletteindex, options, measuringmode);
         }
     }
     #[cfg(feature = "dwrite")]
@@ -5595,7 +5595,7 @@ impl ID2D1Factory {
     pub unsafe fn CreateStrokeStyle(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES, dashes: Option<&[f32]>) -> windows_core::Result<ID2D1StrokeStyle> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateStrokeStyle)(windows_core::Interface::as_raw(self), strokestyleproperties, core::mem::transmute(dashes.map_or(core::ptr::null(), |slice| slice.as_ptr())), dashes.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateStrokeStyle)(windows_core::Interface::as_raw(self), strokestyleproperties, dashes.map_or(core::ptr::null(), |slice| slice.as_ptr()), dashes.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "dwrite")]
@@ -5905,7 +5905,7 @@ impl ID2D1Factory1 {
     pub unsafe fn CreateStrokeStyle(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: Option<&[f32]>) -> windows_core::Result<ID2D1StrokeStyle1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateStrokeStyle)(windows_core::Interface::as_raw(self), strokestyleproperties, core::mem::transmute(dashes.map_or(core::ptr::null(), |slice| slice.as_ptr())), dashes.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateStrokeStyle)(windows_core::Interface::as_raw(self), strokestyleproperties, dashes.map_or(core::ptr::null(), |slice| slice.as_ptr()), dashes.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreatePathGeometry(&self) -> windows_core::Result<ID2D1PathGeometry1> {
@@ -5939,19 +5939,19 @@ impl ID2D1Factory1 {
     where
         P1: windows_core::Param<super::objidlbase::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterEffectFromStream)(windows_core::Interface::as_raw(self), classid, propertyxml.param().abi(), core::mem::transmute(bindings.map_or(core::ptr::null(), |slice| slice.as_ptr())), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), effectfactory) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterEffectFromStream)(windows_core::Interface::as_raw(self), classid, propertyxml.param().abi(), bindings.map_or(core::ptr::null(), |slice| slice.as_ptr()), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), effectfactory) }
     }
     pub unsafe fn RegisterEffectFromString<P1>(&self, classid: *const windows_core::GUID, propertyxml: P1, bindings: Option<&[D2D1_PROPERTY_BINDING]>, effectfactory: PD2D1_EFFECT_FACTORY) -> windows_core::HRESULT
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).RegisterEffectFromString)(windows_core::Interface::as_raw(self), classid, propertyxml.param().abi(), core::mem::transmute(bindings.map_or(core::ptr::null(), |slice| slice.as_ptr())), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), effectfactory) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterEffectFromString)(windows_core::Interface::as_raw(self), classid, propertyxml.param().abi(), bindings.map_or(core::ptr::null(), |slice| slice.as_ptr()), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), effectfactory) }
     }
     pub unsafe fn UnregisterEffect(&self, classid: *const windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UnregisterEffect)(windows_core::Interface::as_raw(self), classid) }
     }
     pub unsafe fn GetRegisteredEffects(&self, effects: Option<&mut [windows_core::GUID]>, effectsreturned: Option<*mut u32>, effectsregistered: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRegisteredEffects)(windows_core::Interface::as_raw(self), core::mem::transmute(effects.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), effects.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), effectsreturned.unwrap_or(core::mem::zeroed()) as _, effectsregistered.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRegisteredEffects)(windows_core::Interface::as_raw(self), effects.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), effects.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), effectsreturned.unwrap_or(core::mem::zeroed()) as _, effectsregistered.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetEffectProperties(&self, effectid: *const windows_core::GUID) -> windows_core::Result<ID2D1Properties> {
         unsafe {
@@ -7077,7 +7077,7 @@ impl ID2D1GeometryGroup {
     }
     pub unsafe fn GetSourceGeometries(&self, geometries: &mut [Option<ID2D1Geometry>]) {
         unsafe {
-            (windows_core::Interface::vtable(self).GetSourceGeometries)(windows_core::Interface::as_raw(self), core::mem::transmute(geometries.as_ptr()), geometries.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).GetSourceGeometries)(windows_core::Interface::as_raw(self), core::mem::transmute(geometries.as_mut_ptr()), geometries.len().try_into().unwrap());
         }
     }
 }
@@ -7178,7 +7178,7 @@ impl ID2D1GeometrySink {
     }
     pub unsafe fn AddQuadraticBeziers(&self, beziers: &[D2D1_QUADRATIC_BEZIER_SEGMENT]) {
         unsafe {
-            (windows_core::Interface::vtable(self).AddQuadraticBeziers)(windows_core::Interface::as_raw(self), core::mem::transmute(beziers.as_ptr()), beziers.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).AddQuadraticBeziers)(windows_core::Interface::as_raw(self), beziers.as_ptr(), beziers.len().try_into().unwrap());
         }
     }
     #[cfg(feature = "dcommon")]
@@ -7271,7 +7271,7 @@ impl ID2D1GradientMesh {
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn GetPatches(&self, startindex: u32, patches: &mut [D2D1_GRADIENT_MESH_PATCH]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPatches)(windows_core::Interface::as_raw(self), startindex, core::mem::transmute(patches.as_ptr()), patches.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetPatches)(windows_core::Interface::as_raw(self), startindex, patches.as_mut_ptr(), patches.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -7331,7 +7331,7 @@ impl ID2D1GradientStopCollection {
     #[cfg(feature = "dxgi")]
     pub unsafe fn GetGradientStops(&self, gradientstops: &mut [D2D1_GRADIENT_STOP]) {
         unsafe {
-            (windows_core::Interface::vtable(self).GetGradientStops)(windows_core::Interface::as_raw(self), core::mem::transmute(gradientstops.as_ptr()), gradientstops.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).GetGradientStops)(windows_core::Interface::as_raw(self), gradientstops.as_mut_ptr(), gradientstops.len().try_into().unwrap());
         }
     }
     pub unsafe fn GetColorInterpolationGamma(&self) -> D2D1_GAMMA {
@@ -7413,7 +7413,7 @@ impl ID2D1GradientStopCollection1 {
     #[cfg(feature = "dxgi")]
     pub unsafe fn GetGradientStops1(&self, gradientstops: &mut [D2D1_GRADIENT_STOP]) {
         unsafe {
-            (windows_core::Interface::vtable(self).GetGradientStops1)(windows_core::Interface::as_raw(self), core::mem::transmute(gradientstops.as_ptr()), gradientstops.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).GetGradientStops1)(windows_core::Interface::as_raw(self), gradientstops.as_mut_ptr(), gradientstops.len().try_into().unwrap());
         }
     }
     pub unsafe fn GetPreInterpolationSpace(&self) -> D2D1_COLOR_SPACE {
@@ -7942,13 +7942,13 @@ impl ID2D1Ink {
         }
     }
     pub unsafe fn AddSegments(&self, segments: &[D2D1_INK_BEZIER_SEGMENT]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddSegments)(windows_core::Interface::as_raw(self), core::mem::transmute(segments.as_ptr()), segments.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AddSegments)(windows_core::Interface::as_raw(self), segments.as_ptr(), segments.len().try_into().unwrap()) }
     }
     pub unsafe fn RemoveSegmentsAtEnd(&self, segmentscount: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveSegmentsAtEnd)(windows_core::Interface::as_raw(self), segmentscount) }
     }
     pub unsafe fn SetSegments(&self, startsegment: u32, segments: &[D2D1_INK_BEZIER_SEGMENT]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSegments)(windows_core::Interface::as_raw(self), startsegment, core::mem::transmute(segments.as_ptr()), segments.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetSegments)(windows_core::Interface::as_raw(self), startsegment, segments.as_ptr(), segments.len().try_into().unwrap()) }
     }
     pub unsafe fn SetSegmentAtEnd(&self, segment: *const D2D1_INK_BEZIER_SEGMENT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSegmentAtEnd)(windows_core::Interface::as_raw(self), segment) }
@@ -7957,7 +7957,7 @@ impl ID2D1Ink {
         unsafe { (windows_core::Interface::vtable(self).GetSegmentCount)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetSegments(&self, startsegment: u32, segments: &mut [D2D1_INK_BEZIER_SEGMENT]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSegments)(windows_core::Interface::as_raw(self), startsegment, core::mem::transmute(segments.as_ptr()), segments.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetSegments)(windows_core::Interface::as_raw(self), startsegment, segments.as_mut_ptr(), segments.len().try_into().unwrap()) }
     }
     pub unsafe fn StreamAsGeometry<P0, P3>(&self, inkstyle: P0, worldtransform: Option<*const windows_numerics::Matrix3x2>, flatteningtolerance: f32, geometrysink: P3) -> windows_core::HRESULT
     where
@@ -8663,7 +8663,7 @@ impl ID2D1Properties {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyCount)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetPropertyName(&self, index: u32, name: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(name.as_mut_ptr()), name.len().try_into().unwrap()) }
     }
     pub unsafe fn GetPropertyNameLength(&self, index: u32) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyNameLength)(windows_core::Interface::as_raw(self), index) }
@@ -8681,19 +8681,19 @@ impl ID2D1Properties {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, data.as_ptr(), data.len().try_into().unwrap()) }
     }
     pub unsafe fn SetValue(&self, index: u32, r#type: D2D1_PROPERTY_TYPE, data: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), index, r#type, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), index, r#type, data.as_ptr(), data.len().try_into().unwrap()) }
     }
     pub unsafe fn GetValueByName<P0>(&self, name: P0, r#type: D2D1_PROPERTY_TYPE, data: &mut [u8]) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetValueByName)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, data.as_mut_ptr(), data.len().try_into().unwrap()) }
     }
     pub unsafe fn GetValue(&self, index: u32, r#type: D2D1_PROPERTY_TYPE, data: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), index, r#type, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), index, r#type, data.as_mut_ptr(), data.len().try_into().unwrap()) }
     }
     pub unsafe fn GetValueSize(&self, index: u32) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetValueSize)(windows_core::Interface::as_raw(self), index) }
@@ -9074,7 +9074,7 @@ impl ID2D1RenderTarget {
     pub unsafe fn CreateGradientStopCollection(&self, gradientstops: &[D2D1_GRADIENT_STOP], colorinterpolationgamma: D2D1_GAMMA, extendmode: D2D1_EXTEND_MODE) -> windows_core::Result<ID2D1GradientStopCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateGradientStopCollection)(windows_core::Interface::as_raw(self), core::mem::transmute(gradientstops.as_ptr()), gradientstops.len().try_into().unwrap(), colorinterpolationgamma, extendmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateGradientStopCollection)(windows_core::Interface::as_raw(self), gradientstops.as_ptr(), gradientstops.len().try_into().unwrap(), colorinterpolationgamma, extendmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreateLinearGradientBrush<P2>(&self, lineargradientbrushproperties: *const D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES, brushproperties: Option<*const D2D1_BRUSH_PROPERTIES>, gradientstopcollection: P2) -> windows_core::Result<ID2D1LinearGradientBrush>
@@ -9234,7 +9234,7 @@ impl ID2D1RenderTarget {
         P4: windows_core::Param<ID2D1Brush>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).DrawText)(windows_core::Interface::as_raw(self), core::mem::transmute(string.as_ptr()), string.len().try_into().unwrap(), textformat.param().abi(), layoutrect, defaultfillbrush.param().abi(), options, measuringmode);
+            (windows_core::Interface::vtable(self).DrawText)(windows_core::Interface::as_raw(self), string.as_ptr(), string.len().try_into().unwrap(), textformat.param().abi(), layoutrect, defaultfillbrush.param().abi(), options, measuringmode);
         }
     }
     #[cfg(feature = "dwrite")]
@@ -10140,12 +10140,12 @@ impl ID2D1SimplifiedGeometrySink {
     }
     pub unsafe fn AddLines(&self, points: &[windows_numerics::Vector2]) {
         unsafe {
-            (windows_core::Interface::vtable(self).AddLines)(windows_core::Interface::as_raw(self), core::mem::transmute(points.as_ptr()), points.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).AddLines)(windows_core::Interface::as_raw(self), points.as_ptr(), points.len().try_into().unwrap());
         }
     }
     pub unsafe fn AddBeziers(&self, beziers: &[D2D1_BEZIER_SEGMENT]) {
         unsafe {
-            (windows_core::Interface::vtable(self).AddBeziers)(windows_core::Interface::as_raw(self), core::mem::transmute(beziers.as_ptr()), beziers.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).AddBeziers)(windows_core::Interface::as_raw(self), beziers.as_ptr(), beziers.len().try_into().unwrap());
         }
     }
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
@@ -10443,7 +10443,7 @@ impl ID2D1StrokeStyle {
     }
     pub unsafe fn GetDashes(&self, dashes: &mut [f32]) {
         unsafe {
-            (windows_core::Interface::vtable(self).GetDashes)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).GetDashes)(windows_core::Interface::as_raw(self), dashes.as_mut_ptr(), dashes.len().try_into().unwrap());
         }
     }
 }
@@ -10718,19 +10718,19 @@ impl ID2D1SvgDocument {
     pub unsafe fn CreateStrokeDashArray(&self, dashes: Option<&[D2D1_SVG_LENGTH]>) -> windows_core::Result<ID2D1SvgStrokeDashArray> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateStrokeDashArray)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.map_or(core::ptr::null(), |slice| slice.as_ptr())), dashes.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateStrokeDashArray)(windows_core::Interface::as_raw(self), dashes.map_or(core::ptr::null(), |slice| slice.as_ptr()), dashes.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreatePointCollection(&self, points: Option<&[windows_numerics::Vector2]>) -> windows_core::Result<ID2D1SvgPointCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePointCollection)(windows_core::Interface::as_raw(self), core::mem::transmute(points.map_or(core::ptr::null(), |slice| slice.as_ptr())), points.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePointCollection)(windows_core::Interface::as_raw(self), points.map_or(core::ptr::null(), |slice| slice.as_ptr()), points.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn CreatePathData(&self, segmentdata: Option<&[f32]>, commands: Option<&[D2D1_SVG_PATH_COMMAND]>) -> windows_core::Result<ID2D1SvgPathData> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePathData)(windows_core::Interface::as_raw(self), core::mem::transmute(segmentdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), segmentdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(commands.map_or(core::ptr::null(), |slice| slice.as_ptr())), commands.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePathData)(windows_core::Interface::as_raw(self), segmentdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), segmentdata.map_or(0, |slice| slice.len().try_into().unwrap()), commands.map_or(core::ptr::null(), |slice| slice.as_ptr()), commands.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -10922,7 +10922,7 @@ impl ID2D1SvgElement {
         }
     }
     pub unsafe fn GetTagName(&self, name: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTagName)(windows_core::Interface::as_raw(self), core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetTagName)(windows_core::Interface::as_raw(self), core::mem::transmute(name.as_mut_ptr()), name.len().try_into().unwrap()) }
     }
     pub unsafe fn GetTagNameLength(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetTagNameLength)(windows_core::Interface::as_raw(self)) }
@@ -11017,7 +11017,7 @@ impl ID2D1SvgElement {
         unsafe { (windows_core::Interface::vtable(self).GetSpecifiedAttributeCount)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetSpecifiedAttributeName(&self, index: u32, name: &mut [u16], inherited: Option<*mut windows_core::BOOL>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSpecifiedAttributeName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap(), inherited.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSpecifiedAttributeName)(windows_core::Interface::as_raw(self), index, core::mem::transmute(name.as_mut_ptr()), name.len().try_into().unwrap(), inherited.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetSpecifiedAttributeNameLength(&self, index: u32, namelength: *mut u32, inherited: Option<*mut windows_core::BOOL>) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSpecifiedAttributeNameLength)(windows_core::Interface::as_raw(self), index, namelength as _, inherited.unwrap_or(core::mem::zeroed()) as _) }
@@ -11029,10 +11029,10 @@ impl ID2D1SvgElement {
         unsafe { (windows_core::Interface::vtable(self).RemoveAttribute)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
     pub unsafe fn SetTextValue(&self, name: &[u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetTextValue)(windows_core::Interface::as_raw(self), core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetTextValue)(windows_core::Interface::as_raw(self), name.as_ptr(), name.len().try_into().unwrap()) }
     }
     pub unsafe fn GetTextValue(&self, name: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetTextValue)(windows_core::Interface::as_raw(self), core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetTextValue)(windows_core::Interface::as_raw(self), core::mem::transmute(name.as_mut_ptr()), name.len().try_into().unwrap()) }
     }
     pub unsafe fn GetTextValueLength(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetTextValueLength)(windows_core::Interface::as_raw(self)) }
@@ -11048,7 +11048,7 @@ impl ID2D1SvgElement {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetAttributeValue)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetAttributeValue)(windows_core::Interface::as_raw(self), name.param().abi(), r#type, core::mem::transmute(value.as_mut_ptr()), value.len().try_into().unwrap()) }
     }
     pub unsafe fn GetAttributeValueLength<P0>(&self, name: P0, r#type: D2D1_SVG_ATTRIBUTE_STRING_TYPE) -> windows_core::Result<u32>
     where
@@ -11425,14 +11425,14 @@ impl ID2D1SvgGlyphStyle {
     where
         P0: windows_core::Param<ID2D1Brush>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetStroke)(windows_core::Interface::as_raw(self), brush.param().abi(), strokewidth, core::mem::transmute(dashes.map_or(core::ptr::null(), |slice| slice.as_ptr())), dashes.map_or(0, |slice| slice.len().try_into().unwrap()), dashoffset) }
+        unsafe { (windows_core::Interface::vtable(self).SetStroke)(windows_core::Interface::as_raw(self), brush.param().abi(), strokewidth, dashes.map_or(core::ptr::null(), |slice| slice.as_ptr()), dashes.map_or(0, |slice| slice.len().try_into().unwrap()), dashoffset) }
     }
     pub unsafe fn GetStrokeDashesCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetStrokeDashesCount)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetStroke(&self, brush: *mut Option<ID2D1Brush>, strokewidth: Option<*mut f32>, dashes: Option<&mut [f32]>, dashoffset: Option<*mut f32>) {
         unsafe {
-            (windows_core::Interface::vtable(self).GetStroke)(windows_core::Interface::as_raw(self), core::mem::transmute(brush), strokewidth.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(dashes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), dashes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dashoffset.unwrap_or(core::mem::zeroed()) as _);
+            (windows_core::Interface::vtable(self).GetStroke)(windows_core::Interface::as_raw(self), core::mem::transmute(brush), strokewidth.unwrap_or(core::mem::zeroed()) as _, dashes.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), dashes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dashoffset.unwrap_or(core::mem::zeroed()) as _);
         }
     }
 }
@@ -11533,7 +11533,7 @@ impl ID2D1SvgPaint {
         unsafe { (windows_core::Interface::vtable(self).SetId)(windows_core::Interface::as_raw(self), id.param().abi()) }
     }
     pub unsafe fn GetId(&self, id: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetId)(windows_core::Interface::as_raw(self), core::mem::transmute(id.as_ptr()), id.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetId)(windows_core::Interface::as_raw(self), core::mem::transmute(id.as_mut_ptr()), id.len().try_into().unwrap()) }
     }
     pub unsafe fn GetIdLength(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetIdLength)(windows_core::Interface::as_raw(self)) }
@@ -11642,10 +11642,10 @@ impl ID2D1SvgPathData {
         unsafe { (windows_core::Interface::vtable(self).RemoveSegmentDataAtEnd)(windows_core::Interface::as_raw(self), datacount) }
     }
     pub unsafe fn UpdateSegmentData(&self, data: &[f32], startindex: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdateSegmentData)(windows_core::Interface::as_raw(self), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), startindex) }
+        unsafe { (windows_core::Interface::vtable(self).UpdateSegmentData)(windows_core::Interface::as_raw(self), data.as_ptr(), data.len().try_into().unwrap(), startindex) }
     }
     pub unsafe fn GetSegmentData(&self, data: &mut [f32], startindex: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSegmentData)(windows_core::Interface::as_raw(self), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), startindex) }
+        unsafe { (windows_core::Interface::vtable(self).GetSegmentData)(windows_core::Interface::as_raw(self), data.as_mut_ptr(), data.len().try_into().unwrap(), startindex) }
     }
     pub unsafe fn GetSegmentDataCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetSegmentDataCount)(windows_core::Interface::as_raw(self)) }
@@ -11654,10 +11654,10 @@ impl ID2D1SvgPathData {
         unsafe { (windows_core::Interface::vtable(self).RemoveCommandsAtEnd)(windows_core::Interface::as_raw(self), commandscount) }
     }
     pub unsafe fn UpdateCommands(&self, commands: &[D2D1_SVG_PATH_COMMAND], startindex: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdateCommands)(windows_core::Interface::as_raw(self), core::mem::transmute(commands.as_ptr()), commands.len().try_into().unwrap(), startindex) }
+        unsafe { (windows_core::Interface::vtable(self).UpdateCommands)(windows_core::Interface::as_raw(self), commands.as_ptr(), commands.len().try_into().unwrap(), startindex) }
     }
     pub unsafe fn GetCommands(&self, commands: &mut [D2D1_SVG_PATH_COMMAND], startindex: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCommands)(windows_core::Interface::as_raw(self), core::mem::transmute(commands.as_ptr()), commands.len().try_into().unwrap(), startindex) }
+        unsafe { (windows_core::Interface::vtable(self).GetCommands)(windows_core::Interface::as_raw(self), commands.as_mut_ptr(), commands.len().try_into().unwrap(), startindex) }
     }
     pub unsafe fn GetCommandsCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetCommandsCount)(windows_core::Interface::as_raw(self)) }
@@ -11787,10 +11787,10 @@ impl ID2D1SvgPointCollection {
         unsafe { (windows_core::Interface::vtable(self).RemovePointsAtEnd)(windows_core::Interface::as_raw(self), pointscount) }
     }
     pub unsafe fn UpdatePoints(&self, points: &[windows_numerics::Vector2], startindex: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdatePoints)(windows_core::Interface::as_raw(self), core::mem::transmute(points.as_ptr()), points.len().try_into().unwrap(), startindex) }
+        unsafe { (windows_core::Interface::vtable(self).UpdatePoints)(windows_core::Interface::as_raw(self), points.as_ptr(), points.len().try_into().unwrap(), startindex) }
     }
     pub unsafe fn GetPoints(&self, points: &mut [windows_numerics::Vector2], startindex: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPoints)(windows_core::Interface::as_raw(self), core::mem::transmute(points.as_ptr()), points.len().try_into().unwrap(), startindex) }
+        unsafe { (windows_core::Interface::vtable(self).GetPoints)(windows_core::Interface::as_raw(self), points.as_mut_ptr(), points.len().try_into().unwrap(), startindex) }
     }
     pub unsafe fn GetPointsCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetPointsCount)(windows_core::Interface::as_raw(self)) }
@@ -11863,16 +11863,16 @@ impl ID2D1SvgStrokeDashArray {
         unsafe { (windows_core::Interface::vtable(self).RemoveDashesAtEnd)(windows_core::Interface::as_raw(self), dashescount) }
     }
     pub unsafe fn UpdateDashes(&self, dashes: &[D2D1_SVG_LENGTH], startindex: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdateDashes)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap(), startindex) }
+        unsafe { (windows_core::Interface::vtable(self).UpdateDashes)(windows_core::Interface::as_raw(self), dashes.as_ptr(), dashes.len().try_into().unwrap(), startindex) }
     }
     pub unsafe fn UpdateDashes2(&self, dashes: &[f32], startindex: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UpdateDashes2)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap(), startindex) }
+        unsafe { (windows_core::Interface::vtable(self).UpdateDashes2)(windows_core::Interface::as_raw(self), dashes.as_ptr(), dashes.len().try_into().unwrap(), startindex) }
     }
     pub unsafe fn GetDashes(&self, dashes: &mut [D2D1_SVG_LENGTH], startindex: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDashes)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap(), startindex) }
+        unsafe { (windows_core::Interface::vtable(self).GetDashes)(windows_core::Interface::as_raw(self), dashes.as_mut_ptr(), dashes.len().try_into().unwrap(), startindex) }
     }
     pub unsafe fn GetDashes2(&self, dashes: &mut [f32], startindex: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDashes2)(windows_core::Interface::as_raw(self), core::mem::transmute(dashes.as_ptr()), dashes.len().try_into().unwrap(), startindex) }
+        unsafe { (windows_core::Interface::vtable(self).GetDashes2)(windows_core::Interface::as_raw(self), dashes.as_mut_ptr(), dashes.len().try_into().unwrap(), startindex) }
     }
     pub unsafe fn GetDashesCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetDashesCount)(windows_core::Interface::as_raw(self)) }
@@ -11955,7 +11955,7 @@ windows_core::imp::interface_hierarchy!(ID2D1TessellationSink, windows_core::IUn
 impl ID2D1TessellationSink {
     pub unsafe fn AddTriangles(&self, triangles: &[D2D1_TRIANGLE]) {
         unsafe {
-            (windows_core::Interface::vtable(self).AddTriangles)(windows_core::Interface::as_raw(self), core::mem::transmute(triangles.as_ptr()), triangles.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).AddTriangles)(windows_core::Interface::as_raw(self), triangles.as_ptr(), triangles.len().try_into().unwrap());
         }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {

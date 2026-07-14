@@ -161,13 +161,13 @@ pub unsafe fn GetPriorityClass(hprocess: super::winnt::HANDLE) -> u32 {
 #[inline]
 pub unsafe fn GetProcessDefaultCpuSetMasks(process: super::winnt::HANDLE, cpusetmasks: Option<&mut [super::winnt::GROUP_AFFINITY]>, requiredmaskcount: *mut u16) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetProcessDefaultCpuSetMasks(process : super::winnt::HANDLE, cpusetmasks : *mut super::winnt::GROUP_AFFINITY, cpusetmaskcount : u16, requiredmaskcount : *mut u16) -> windows_core::BOOL);
-    unsafe { GetProcessDefaultCpuSetMasks(process, core::mem::transmute(cpusetmasks.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredmaskcount as _) }
+    unsafe { GetProcessDefaultCpuSetMasks(process, cpusetmasks.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredmaskcount as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetProcessDefaultCpuSets(process: super::winnt::HANDLE, cpusetids: Option<&mut [u32]>, requiredidcount: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetProcessDefaultCpuSets(process : super::winnt::HANDLE, cpusetids : *mut u32, cpusetidcount : u32, requiredidcount : *mut u32) -> windows_core::BOOL);
-    unsafe { GetProcessDefaultCpuSets(process, core::mem::transmute(cpusetids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredidcount as _) }
+    unsafe { GetProcessDefaultCpuSets(process, cpusetids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), cpusetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredidcount as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -294,13 +294,13 @@ pub unsafe fn GetThreadPriorityBoost(hthread: super::winnt::HANDLE, pdisableprio
 #[inline]
 pub unsafe fn GetThreadSelectedCpuSetMasks(thread: super::winnt::HANDLE, cpusetmasks: Option<&mut [super::winnt::GROUP_AFFINITY]>, requiredmaskcount: *mut u16) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetThreadSelectedCpuSetMasks(thread : super::winnt::HANDLE, cpusetmasks : *mut super::winnt::GROUP_AFFINITY, cpusetmaskcount : u16, requiredmaskcount : *mut u16) -> windows_core::BOOL);
-    unsafe { GetThreadSelectedCpuSetMasks(thread, core::mem::transmute(cpusetmasks.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredmaskcount as _) }
+    unsafe { GetThreadSelectedCpuSetMasks(thread, cpusetmasks.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), cpusetmasks.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredmaskcount as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn GetThreadSelectedCpuSets(thread: super::winnt::HANDLE, cpusetids: Option<&mut [u32]>, requiredidcount: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetThreadSelectedCpuSets(thread : super::winnt::HANDLE, cpusetids : *mut u32, cpusetidcount : u32, requiredidcount : *mut u32) -> windows_core::BOOL);
-    unsafe { GetThreadSelectedCpuSets(thread, core::mem::transmute(cpusetids.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredidcount as _) }
+    unsafe { GetThreadSelectedCpuSets(thread, cpusetids.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), cpusetids.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), requiredidcount as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
@@ -405,25 +405,25 @@ pub unsafe fn SetProcessAffinityUpdateMode(hprocess: super::winnt::HANDLE, dwfla
 #[inline]
 pub unsafe fn SetProcessDefaultCpuSetMasks(process: super::winnt::HANDLE, cpusetmasks: Option<&[super::winnt::GROUP_AFFINITY]>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDefaultCpuSetMasks(process : super::winnt::HANDLE, cpusetmasks : *const super::winnt::GROUP_AFFINITY, cpusetmaskcount : u16) -> windows_core::BOOL);
-    unsafe { SetProcessDefaultCpuSetMasks(process, core::mem::transmute(cpusetmasks.map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SetProcessDefaultCpuSetMasks(process, cpusetmasks.map_or(core::ptr::null(), |slice| slice.as_ptr()), cpusetmasks.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessDefaultCpuSets(process: super::winnt::HANDLE, cpusetids: Option<&[u32]>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDefaultCpuSets(process : super::winnt::HANDLE, cpusetids : *const u32, cpusetidcount : u32) -> windows_core::BOOL);
-    unsafe { SetProcessDefaultCpuSets(process, core::mem::transmute(cpusetids.map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetids.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SetProcessDefaultCpuSets(process, cpusetids.map_or(core::ptr::null(), |slice| slice.as_ptr()), cpusetids.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessDynamicEHContinuationTargets(process: super::winnt::HANDLE, targets: &mut [super::winnt::PROCESS_DYNAMIC_EH_CONTINUATION_TARGET]) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDynamicEHContinuationTargets(process : super::winnt::HANDLE, numberoftargets : u16, targets : *mut super::winnt::PROCESS_DYNAMIC_EH_CONTINUATION_TARGET) -> windows_core::BOOL);
-    unsafe { SetProcessDynamicEHContinuationTargets(process, targets.len().try_into().unwrap(), core::mem::transmute(targets.as_ptr())) }
+    unsafe { SetProcessDynamicEHContinuationTargets(process, targets.len().try_into().unwrap(), targets.as_mut_ptr()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetProcessDynamicEnforcedCetCompatibleRanges(process: super::winnt::HANDLE, ranges: &mut [super::winnt::PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE]) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetProcessDynamicEnforcedCetCompatibleRanges(process : super::winnt::HANDLE, numberofranges : u16, ranges : *mut super::winnt::PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE) -> windows_core::BOOL);
-    unsafe { SetProcessDynamicEnforcedCetCompatibleRanges(process, ranges.len().try_into().unwrap(), core::mem::transmute(ranges.as_ptr())) }
+    unsafe { SetProcessDynamicEnforcedCetCompatibleRanges(process, ranges.len().try_into().unwrap(), ranges.as_mut_ptr()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -509,13 +509,13 @@ pub unsafe fn SetThreadPriorityBoost(hthread: super::winnt::HANDLE, bdisableprio
 #[inline]
 pub unsafe fn SetThreadSelectedCpuSetMasks(thread: super::winnt::HANDLE, cpusetmasks: Option<&[super::winnt::GROUP_AFFINITY]>) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadSelectedCpuSetMasks(thread : super::winnt::HANDLE, cpusetmasks : *const super::winnt::GROUP_AFFINITY, cpusetmaskcount : u16) -> windows_core::BOOL);
-    unsafe { SetThreadSelectedCpuSetMasks(thread, core::mem::transmute(cpusetmasks.map_or(core::ptr::null(), |slice| slice.as_ptr())), cpusetmasks.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SetThreadSelectedCpuSetMasks(thread, cpusetmasks.map_or(core::ptr::null(), |slice| slice.as_ptr()), cpusetmasks.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SetThreadSelectedCpuSets(thread: super::winnt::HANDLE, cpusetids: &[u32]) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn SetThreadSelectedCpuSets(thread : super::winnt::HANDLE, cpusetids : *const u32, cpusetidcount : u32) -> windows_core::BOOL);
-    unsafe { SetThreadSelectedCpuSets(thread, core::mem::transmute(cpusetids.as_ptr()), cpusetids.len().try_into().unwrap()) }
+    unsafe { SetThreadSelectedCpuSets(thread, cpusetids.as_ptr(), cpusetids.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SetThreadStackGuarantee(stacksizeinbytes: *mut u32) -> windows_core::BOOL {

@@ -23,7 +23,7 @@ pub unsafe fn NCryptGetProtectionDescriptorInfo(hdescriptor: NCRYPT_DESCRIPTOR_H
 #[inline]
 pub unsafe fn NCryptProtectSecret(hdescriptor: NCRYPT_DESCRIPTOR_HANDLE, dwflags: u32, pbdata: &[u8], pmempara: Option<*const super::ncrypt::NCRYPT_ALLOC_PARA>, hwnd: Option<super::windef::HWND>, ppbprotectedblob: *mut *mut u8, pcbprotectedblob: *mut u32) -> super::ncrypt::SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptProtectSecret(hdescriptor : NCRYPT_DESCRIPTOR_HANDLE, dwflags : u32, pbdata : *const u8, cbdata : u32, pmempara : *const super::ncrypt::NCRYPT_ALLOC_PARA, hwnd : super::windef::HWND, ppbprotectedblob : *mut *mut u8, pcbprotectedblob : *mut u32) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { NCryptProtectSecret(hdescriptor, dwflags, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), pmempara.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, ppbprotectedblob as _, pcbprotectedblob as _) }
+    unsafe { NCryptProtectSecret(hdescriptor, dwflags, pbdata.as_ptr(), pbdata.len().try_into().unwrap(), pmempara.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, ppbprotectedblob as _, pcbprotectedblob as _) }
 }
 #[cfg(feature = "ncrypt")]
 #[inline]
@@ -72,13 +72,13 @@ pub unsafe fn NCryptStreamOpenToUnprotectEx(pstreaminfo: *const NCRYPT_PROTECT_S
 #[inline]
 pub unsafe fn NCryptStreamUpdate(hstream: NCRYPT_STREAM_HANDLE, pbdata: &[u8], ffinal: bool) -> super::ncrypt::SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptStreamUpdate(hstream : NCRYPT_STREAM_HANDLE, pbdata : *const u8, cbdata : usize, ffinal : windows_core::BOOL) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { NCryptStreamUpdate(hstream, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), ffinal.into()) }
+    unsafe { NCryptStreamUpdate(hstream, pbdata.as_ptr(), pbdata.len().try_into().unwrap(), ffinal.into()) }
 }
 #[cfg(all(feature = "ncrypt", feature = "windef"))]
 #[inline]
 pub unsafe fn NCryptUnprotectSecret(phdescriptor: Option<*mut NCRYPT_DESCRIPTOR_HANDLE>, dwflags: u32, pbprotectedblob: &[u8], pmempara: Option<*const super::ncrypt::NCRYPT_ALLOC_PARA>, hwnd: Option<super::windef::HWND>, ppbdata: *mut *mut u8, pcbdata: *mut u32) -> super::ncrypt::SECURITY_STATUS {
     windows_core::link!("ncrypt.dll" "system" fn NCryptUnprotectSecret(phdescriptor : *mut NCRYPT_DESCRIPTOR_HANDLE, dwflags : u32, pbprotectedblob : *const u8, cbprotectedblob : u32, pmempara : *const super::ncrypt::NCRYPT_ALLOC_PARA, hwnd : super::windef::HWND, ppbdata : *mut *mut u8, pcbdata : *mut u32) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { NCryptUnprotectSecret(phdescriptor.unwrap_or(core::mem::zeroed()) as _, dwflags, core::mem::transmute(pbprotectedblob.as_ptr()), pbprotectedblob.len().try_into().unwrap(), pmempara.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, ppbdata as _, pcbdata as _) }
+    unsafe { NCryptUnprotectSecret(phdescriptor.unwrap_or(core::mem::zeroed()) as _, dwflags, pbprotectedblob.as_ptr(), pbprotectedblob.len().try_into().unwrap(), pmempara.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, ppbdata as _, pcbdata as _) }
 }
 pub const MS_KEY_PROTECTION_PROVIDER: windows_core::PCWSTR = windows_core::w!("Microsoft Key Protection Provider");
 #[repr(transparent)]

@@ -1,0 +1,23 @@
+//! --filter Test --minimal --flat
+#[win32]
+mod Test {
+    interface Interface {
+        fn OutFixed(&self, #[out] #[len_const(4)] buffer: *mut u32) -> i32;
+        fn OutLen(&self, count: u32, #[out] #[len_param(0)] buffer: *mut u32) -> i32;
+        fn OutOpt(&self, count: u32, #[opt] #[out] #[len_param(0)] buffer: *mut u32) -> i32;
+        fn InLen(&self, count: u32, #[in] #[len_param(0)] buffer: *const u32) -> i32;
+    }
+}
+#[win32]
+mod Windows {
+    mod Win32 {
+        mod Metadata {
+            attribute NativeArrayInfoAttribute {
+                fn();
+                CountParamIndex: i16,
+                CountConst: i32,
+                CountFieldName: String,
+            }
+        }
+    }
+}

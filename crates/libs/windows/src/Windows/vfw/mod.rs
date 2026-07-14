@@ -1,12 +1,12 @@
 #[inline]
 pub unsafe fn AVIBuildFilterA(lpszfilter: &mut [u8], fsaving: bool) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVIBuildFilterA(lpszfilter : windows_core::PSTR, cbfilter : i32, fsaving : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { AVIBuildFilterA(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into()) }
+    unsafe { AVIBuildFilterA(core::mem::transmute(lpszfilter.as_mut_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into()) }
 }
 #[inline]
 pub unsafe fn AVIBuildFilterW(lpszfilter: &mut [u16], fsaving: bool) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVIBuildFilterW(lpszfilter : windows_core::PWSTR, cbfilter : i32, fsaving : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { AVIBuildFilterW(core::mem::transmute(lpszfilter.as_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into()) }
+    unsafe { AVIBuildFilterW(core::mem::transmute(lpszfilter.as_mut_ptr()), lpszfilter.len().try_into().unwrap(), fsaving.into()) }
 }
 #[inline]
 pub unsafe fn AVIClearClipboard() -> windows_core::HRESULT {
@@ -177,7 +177,7 @@ pub unsafe fn AVISaveOptions(hwnd: super::windef::HWND, uiflags: u32, nstreams: 
 #[inline]
 pub unsafe fn AVISaveOptionsFree(plpoptions: &[LPAVICOMPRESSOPTIONS]) -> windows_core::HRESULT {
     windows_core::link!("avifil32.dll" "system" fn AVISaveOptionsFree(nstreams : i32, plpoptions : *const LPAVICOMPRESSOPTIONS) -> windows_core::HRESULT);
-    unsafe { AVISaveOptionsFree(plpoptions.len().try_into().unwrap(), core::mem::transmute(plpoptions.as_ptr())) }
+    unsafe { AVISaveOptionsFree(plpoptions.len().try_into().unwrap(), plpoptions.as_ptr()) }
 }
 #[inline]
 pub unsafe fn AVISaveVA<P0>(szfile: P0, pclsidhandler: Option<*const windows_core::GUID>, lpfncallback: AVISAVECALLBACK, nstreams: i32, ppavi: *const Option<IAVIStream>, plpoptions: *const LPAVICOMPRESSOPTIONS) -> windows_core::HRESULT
@@ -406,7 +406,7 @@ pub unsafe fn DrawDibBegin(hdd: HDRAWDIB, hdc: Option<super::windef::HDC>, dxdst
 #[inline]
 pub unsafe fn DrawDibChangePalette(hdd: HDRAWDIB, istart: i32, lppe: &[super::wingdi::PALETTEENTRY]) -> windows_core::BOOL {
     windows_core::link!("msvfw32.dll" "system" fn DrawDibChangePalette(hdd : HDRAWDIB, istart : i32, ilen : i32, lppe : *const super::wingdi::PALETTEENTRY) -> windows_core::BOOL);
-    unsafe { DrawDibChangePalette(hdd, istart, lppe.len().try_into().unwrap(), core::mem::transmute(lppe.as_ptr())) }
+    unsafe { DrawDibChangePalette(hdd, istart, lppe.len().try_into().unwrap(), lppe.as_ptr()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -753,12 +753,12 @@ where
 #[inline]
 pub unsafe fn capGetDriverDescriptionA(wdriverindex: u32, lpszname: &mut [u8], lpszver: &mut [u8]) -> windows_core::BOOL {
     windows_core::link!("avicap32.dll" "system" fn capGetDriverDescriptionA(wdriverindex : u32, lpszname : windows_core::PSTR, cbname : i32, lpszver : windows_core::PSTR, cbver : i32) -> windows_core::BOOL);
-    unsafe { capGetDriverDescriptionA(wdriverindex, core::mem::transmute(lpszname.as_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_ptr()), lpszver.len().try_into().unwrap()) }
+    unsafe { capGetDriverDescriptionA(wdriverindex, core::mem::transmute(lpszname.as_mut_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_mut_ptr()), lpszver.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn capGetDriverDescriptionW(wdriverindex: u32, lpszname: &mut [u16], lpszver: &mut [u16]) -> windows_core::BOOL {
     windows_core::link!("avicap32.dll" "system" fn capGetDriverDescriptionW(wdriverindex : u32, lpszname : windows_core::PWSTR, cbname : i32, lpszver : windows_core::PWSTR, cbver : i32) -> windows_core::BOOL);
-    unsafe { capGetDriverDescriptionW(wdriverindex, core::mem::transmute(lpszname.as_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_ptr()), lpszver.len().try_into().unwrap()) }
+    unsafe { capGetDriverDescriptionW(wdriverindex, core::mem::transmute(lpszname.as_mut_ptr()), lpszname.len().try_into().unwrap(), core::mem::transmute(lpszver.as_mut_ptr()), lpszver.len().try_into().unwrap()) }
 }
 pub const AVICOMPRESSF_DATARATE: u32 = 2;
 pub const AVICOMPRESSF_INTERLEAVE: u32 = 1;

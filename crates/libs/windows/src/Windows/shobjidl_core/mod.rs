@@ -111,7 +111,7 @@ where
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArray(pidlparent : *const super::shtypes::ITEMIDLIST, psf : *mut core::ffi::c_void, cidl : u32, ppidl : *const super::shtypes::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateShellItemArray(pidlparent.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), ppidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        SHCreateShellItemArray(pidlparent.unwrap_or(core::mem::zeroed()) as _, psf.param().abi(), ppidl.map_or(0, |slice| slice.len().try_into().unwrap()), ppidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "objidl")]
@@ -131,7 +131,7 @@ pub unsafe fn SHCreateShellItemArrayFromIDLists(rgpidl: &[super::shtypes::LPCITE
     windows_core::link!("shell32.dll" "system" fn SHCreateShellItemArrayFromIDLists(cidl : u32, rgpidl : *const super::shtypes::LPCITEMIDLIST, ppsiitemarray : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateShellItemArrayFromIDLists(rgpidl.len().try_into().unwrap(), core::mem::transmute(rgpidl.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        SHCreateShellItemArrayFromIDLists(rgpidl.len().try_into().unwrap(), rgpidl.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -2497,7 +2497,7 @@ impl IBandSite {
     }
     #[cfg(feature = "oleidl")]
     pub unsafe fn QueryBand(&self, dwbandid: u32, ppstb: *mut Option<IDeskBand>, pdwstate: Option<*mut u32>, pszname: Option<&mut [u16]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryBand)(windows_core::Interface::as_raw(self), dwbandid, core::mem::transmute(ppstb), pdwstate.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+        unsafe { (windows_core::Interface::vtable(self).QueryBand)(windows_core::Interface::as_raw(self), dwbandid, core::mem::transmute(ppstb), pdwstate.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
     }
     pub unsafe fn SetBandState(&self, dwbandid: u32, dwmask: u32, dwstate: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetBandState)(windows_core::Interface::as_raw(self), dwbandid, dwmask, dwstate) }
@@ -5051,7 +5051,7 @@ windows_core::imp::define_interface!(IEnumAssocHandlers, IEnumAssocHandlers_Vtbl
 windows_core::imp::interface_hierarchy!(IEnumAssocHandlers, windows_core::IUnknown);
 impl IEnumAssocHandlers {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IAssocHandler>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]
@@ -5082,7 +5082,7 @@ windows_core::imp::define_interface!(IEnumExplorerCommand, IEnumExplorerCommand_
 windows_core::imp::interface_hierarchy!(IEnumExplorerCommand, windows_core::IUnknown);
 impl IEnumExplorerCommand {
     pub unsafe fn Next(&self, puicommand: &mut [Option<IExplorerCommand>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), puicommand.len().try_into().unwrap(), core::mem::transmute(puicommand.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), puicommand.len().try_into().unwrap(), core::mem::transmute(puicommand.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5241,7 +5241,7 @@ windows_core::imp::interface_hierarchy!(IEnumFullIDList, windows_core::IUnknown)
 impl IEnumFullIDList {
     #[cfg(feature = "shtypes")]
     pub unsafe fn Next(&self, rgelt: &mut [super::shtypes::LPITEMIDLIST], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5327,7 +5327,7 @@ windows_core::imp::interface_hierarchy!(IEnumIDList, windows_core::IUnknown);
 impl IEnumIDList {
     #[cfg(feature = "shtypes")]
     pub unsafe fn Next(&self, rgelt: &mut [super::shtypes::LPITEMIDLIST], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5412,7 +5412,7 @@ windows_core::imp::define_interface!(IEnumObjects, IEnumObjects_Vtbl, 0x2c1c7e2e
 windows_core::imp::interface_hierarchy!(IEnumObjects, windows_core::IUnknown);
 impl IEnumObjects {
     pub unsafe fn Next(&self, riid: *const windows_core::GUID, rgelt: &mut [*mut core::ffi::c_void], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), riid, core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), riid, rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -5570,7 +5570,7 @@ windows_core::imp::define_interface!(IEnumShellItems, IEnumShellItems_Vtbl, 0x70
 windows_core::imp::interface_hierarchy!(IEnumShellItems, windows_core::IUnknown);
 impl IEnumShellItems {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IShellItem>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -11057,7 +11057,7 @@ impl IKnownFolderManager {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), rfid, hwnd.unwrap_or(core::mem::zeroed()) as _, flags, psztargetpath.param().abi(), pexclusion.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pexclusion.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), rfid, hwnd.unwrap_or(core::mem::zeroed()) as _, flags, psztargetpath.param().abi(), pexclusion.map_or(0, |slice| slice.len().try_into().unwrap()), pexclusion.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).map(|| result__)
         }
     }
 }

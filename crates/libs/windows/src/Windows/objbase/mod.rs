@@ -50,7 +50,7 @@ where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoGetInstanceFromFile(pserverinfo : *const super::objidlbase::COSERVERINFO, pclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclsctx : u32, grfmode : u32, pwszname : *const super::wtypesbase::OLECHAR, dwcount : u32, presults : *mut super::objidlbase::MULTI_QI) -> windows_core::HRESULT);
-    unsafe { CoGetInstanceFromFile(pserverinfo.unwrap_or(core::mem::zeroed()) as _, pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), dwclsctx, grfmode, pwszname, presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr())) }
+    unsafe { CoGetInstanceFromFile(pserverinfo.unwrap_or(core::mem::zeroed()) as _, pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), dwclsctx, grfmode, pwszname, presults.len().try_into().unwrap(), presults.as_mut_ptr()) }
 }
 #[cfg(all(feature = "objidl", feature = "objidlbase", feature = "wtypesbase"))]
 #[inline]
@@ -60,7 +60,7 @@ where
     P4: windows_core::Param<super::objidl::IStorage>,
 {
     windows_core::link!("ole32.dll" "system" fn CoGetInstanceFromIStorage(pserverinfo : *const super::objidlbase::COSERVERINFO, pclsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclsctx : u32, pstg : *mut core::ffi::c_void, dwcount : u32, presults : *mut super::objidlbase::MULTI_QI) -> windows_core::HRESULT);
-    unsafe { CoGetInstanceFromIStorage(pserverinfo.unwrap_or(core::mem::zeroed()) as _, pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), dwclsctx, pstg.param().abi(), presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr())) }
+    unsafe { CoGetInstanceFromIStorage(pserverinfo.unwrap_or(core::mem::zeroed()) as _, pclsid.unwrap_or(core::mem::zeroed()) as _, punkouter.param().abi(), dwclsctx, pstg.param().abi(), presults.len().try_into().unwrap(), presults.as_mut_ptr()) }
 }
 #[cfg(feature = "objidl")]
 #[inline]

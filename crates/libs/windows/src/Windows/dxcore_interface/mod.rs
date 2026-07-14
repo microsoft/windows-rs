@@ -494,7 +494,7 @@ impl IDXCoreAdapterFactory {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateAdapterList)(windows_core::Interface::as_raw(self), filterattributes.len().try_into().unwrap(), core::mem::transmute(filterattributes.as_ptr()), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateAdapterList)(windows_core::Interface::as_raw(self), filterattributes.len().try_into().unwrap(), filterattributes.as_ptr(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn GetAdapterByLuid<T>(&self, adapterluid: *const super::winnt::LUID) -> windows_core::Result<T>
@@ -663,7 +663,7 @@ impl IDXCoreAdapterList {
         unsafe { (windows_core::Interface::vtable(self).GetFactory)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn Sort(&self, preferences: &[DXCoreAdapterPreference]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), preferences.len().try_into().unwrap(), core::mem::transmute(preferences.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).Sort)(windows_core::Interface::as_raw(self), preferences.len().try_into().unwrap(), preferences.as_ptr()) }
     }
     pub unsafe fn IsAdapterPreferenceSupported(&self, preference: DXCoreAdapterPreference) -> bool {
         unsafe { (windows_core::Interface::vtable(self).IsAdapterPreferenceSupported)(windows_core::Interface::as_raw(self), preference) }

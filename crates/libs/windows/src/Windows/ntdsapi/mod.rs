@@ -178,13 +178,13 @@ where
 #[inline]
 pub unsafe fn DsCrackNamesA(hds: Option<super::winnt::HANDLE>, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, rpnames: &[windows_core::PCSTR], ppresult: *mut PDS_NAME_RESULTA) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsCrackNamesA(hds : super::winnt::HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const windows_core::PCSTR, ppresult : *mut PDS_NAME_RESULTA) -> u32);
-    unsafe { DsCrackNamesA(hds.unwrap_or(core::mem::zeroed()) as _, flags, formatoffered, formatdesired, rpnames.len().try_into().unwrap(), core::mem::transmute(rpnames.as_ptr()), ppresult as _) }
+    unsafe { DsCrackNamesA(hds.unwrap_or(core::mem::zeroed()) as _, flags, formatoffered, formatdesired, rpnames.len().try_into().unwrap(), rpnames.as_ptr(), ppresult as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DsCrackNamesW(hds: Option<super::winnt::HANDLE>, flags: DS_NAME_FLAGS, formatoffered: DS_NAME_FORMAT, formatdesired: DS_NAME_FORMAT, rpnames: &[windows_core::PCWSTR], ppresult: *mut PDS_NAME_RESULTW) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsCrackNamesW(hds : super::winnt::HANDLE, flags : DS_NAME_FLAGS, formatoffered : DS_NAME_FORMAT, formatdesired : DS_NAME_FORMAT, cnames : u32, rpnames : *const windows_core::PCWSTR, ppresult : *mut PDS_NAME_RESULTW) -> u32);
-    unsafe { DsCrackNamesW(hds.unwrap_or(core::mem::zeroed()) as _, flags, formatoffered, formatdesired, rpnames.len().try_into().unwrap(), core::mem::transmute(rpnames.as_ptr()), ppresult as _) }
+    unsafe { DsCrackNamesW(hds.unwrap_or(core::mem::zeroed()) as _, flags, formatoffered, formatdesired, rpnames.len().try_into().unwrap(), rpnames.as_ptr(), ppresult as _) }
 }
 #[inline]
 pub unsafe fn DsFreeDomainControllerInfoA(infolevel: u32, pinfo: &[u8]) {
@@ -225,12 +225,12 @@ pub unsafe fn DsFreeSchemaGuidMapW(pguidmap: *const DS_SCHEMA_GUID_MAPW) {
 #[inline]
 pub unsafe fn DsFreeSpnArrayA(rpszspn: &mut [windows_core::PSTR]) {
     windows_core::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayA(cspn : u32, rpszspn : *mut windows_core::PSTR));
-    unsafe { DsFreeSpnArrayA(rpszspn.len().try_into().unwrap(), core::mem::transmute(rpszspn.as_ptr())) }
+    unsafe { DsFreeSpnArrayA(rpszspn.len().try_into().unwrap(), rpszspn.as_mut_ptr()) }
 }
 #[inline]
 pub unsafe fn DsFreeSpnArrayW(rpszspn: &mut [windows_core::PWSTR]) {
     windows_core::link!("ntdsapi.dll" "system" fn DsFreeSpnArrayW(cspn : u32, rpszspn : *mut windows_core::PWSTR));
-    unsafe { DsFreeSpnArrayW(rpszspn.len().try_into().unwrap(), core::mem::transmute(rpszspn.as_ptr())) }
+    unsafe { DsFreeSpnArrayW(rpszspn.len().try_into().unwrap(), rpszspn.as_mut_ptr()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -412,13 +412,13 @@ where
 #[inline]
 pub unsafe fn DsMapSchemaGuidsA(hds: super::winnt::HANDLE, rguids: &[windows_core::GUID], ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPA) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsA(hds : super::winnt::HANDLE, cguids : u32, rguids : *const windows_core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPA) -> u32);
-    unsafe { DsMapSchemaGuidsA(hds, rguids.len().try_into().unwrap(), core::mem::transmute(rguids.as_ptr()), ppguidmap as _) }
+    unsafe { DsMapSchemaGuidsA(hds, rguids.len().try_into().unwrap(), rguids.as_ptr(), ppguidmap as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn DsMapSchemaGuidsW(hds: super::winnt::HANDLE, rguids: &[windows_core::GUID], ppguidmap: *mut *mut DS_SCHEMA_GUID_MAPW) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsMapSchemaGuidsW(hds : super::winnt::HANDLE, cguids : u32, rguids : *const windows_core::GUID, ppguidmap : *mut *mut DS_SCHEMA_GUID_MAPW) -> u32);
-    unsafe { DsMapSchemaGuidsW(hds, rguids.len().try_into().unwrap(), core::mem::transmute(rguids.as_ptr()), ppguidmap as _) }
+    unsafe { DsMapSchemaGuidsW(hds, rguids.len().try_into().unwrap(), rguids.as_ptr(), ppguidmap as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -427,7 +427,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostA(hds : super::winnt::HANDLE, pszfromsite : windows_core::PCSTR, rgsztosites : *const windows_core::PCSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut PDS_SITE_COST_INFO) -> u32);
-    unsafe { DsQuerySitesByCostA(hds, pszfromsite.param().abi(), core::mem::transmute(rgsztosites.as_ptr()), rgsztosites.len().try_into().unwrap(), dwflags.unwrap_or(core::mem::zeroed()) as _, prgsiteinfo as _) }
+    unsafe { DsQuerySitesByCostA(hds, pszfromsite.param().abi(), rgsztosites.as_ptr(), rgsztosites.len().try_into().unwrap(), dwflags.unwrap_or(core::mem::zeroed()) as _, prgsiteinfo as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -436,7 +436,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsQuerySitesByCostW(hds : super::winnt::HANDLE, pwszfromsite : windows_core::PCWSTR, rgwsztosites : *const windows_core::PCWSTR, ctosites : u32, dwflags : u32, prgsiteinfo : *mut PDS_SITE_COST_INFO) -> u32);
-    unsafe { DsQuerySitesByCostW(hds, pwszfromsite.param().abi(), core::mem::transmute(rgwsztosites.as_ptr()), rgwsztosites.len().try_into().unwrap(), dwflags.unwrap_or(core::mem::zeroed()) as _, prgsiteinfo as _) }
+    unsafe { DsQuerySitesByCostW(hds, pwszfromsite.param().abi(), rgwsztosites.as_ptr(), rgwsztosites.len().try_into().unwrap(), dwflags.unwrap_or(core::mem::zeroed()) as _, prgsiteinfo as _) }
 }
 #[inline]
 pub unsafe fn DsQuerySitesFree(rgsiteinfo: *const DS_SITE_COST_INFO) {
@@ -689,7 +689,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnA(hds : super::winnt::HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_core::PCSTR, cspn : u32, rpszspn : *const windows_core::PCSTR) -> u32);
-    unsafe { DsWriteAccountSpnA(hds, operation, pszaccount.param().abi(), rpszspn.len().try_into().unwrap(), core::mem::transmute(rpszspn.as_ptr())) }
+    unsafe { DsWriteAccountSpnA(hds, operation, pszaccount.param().abi(), rpszspn.len().try_into().unwrap(), rpszspn.as_ptr()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -698,7 +698,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsWriteAccountSpnW(hds : super::winnt::HANDLE, operation : DS_SPN_WRITE_OP, pszaccount : windows_core::PCWSTR, cspn : u32, rpszspn : *const windows_core::PCWSTR) -> u32);
-    unsafe { DsWriteAccountSpnW(hds, operation, pszaccount.param().abi(), rpszspn.len().try_into().unwrap(), core::mem::transmute(rpszspn.as_ptr())) }
+    unsafe { DsWriteAccountSpnW(hds, operation, pszaccount.param().abi(), rpszspn.len().try_into().unwrap(), rpszspn.as_ptr()) }
 }
 pub const ADAM_REPL_AUTHENTICATION_MODE_MUTUAL_AUTH_REQUIRED: u32 = 2;
 pub const ADAM_REPL_AUTHENTICATION_MODE_NEGOTIATE: u32 = 1;

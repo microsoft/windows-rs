@@ -29,7 +29,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("cldapi.dll" "system" fn CfCreatePlaceholders(basedirectorypath : windows_core::PCWSTR, placeholderarray : *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount : u32, createflags : CF_CREATE_FLAGS, entriesprocessed : *mut u32) -> windows_core::HRESULT);
-    unsafe { CfCreatePlaceholders(basedirectorypath.param().abi(), core::mem::transmute(placeholderarray.as_ptr()), placeholderarray.len().try_into().unwrap(), createflags, entriesprocessed.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CfCreatePlaceholders(basedirectorypath.param().abi(), placeholderarray.as_mut_ptr(), placeholderarray.len().try_into().unwrap(), createflags, entriesprocessed.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
@@ -235,7 +235,7 @@ where
 #[inline]
 pub unsafe fn CfUpdatePlaceholder(filehandle: super::winnt::HANDLE, fsmetadata: Option<*const CF_FS_METADATA>, fileidentity: Option<*const core::ffi::c_void>, fileidentitylength: u32, dehydraterangearray: Option<&[CF_FILE_RANGE]>, updateflags: CF_UPDATE_FLAGS, updateusn: Option<*mut super::winnt::USN>, overlapped: Option<*mut super::minwinbase::OVERLAPPED>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfUpdatePlaceholder(filehandle : super::winnt::HANDLE, fsmetadata : *const CF_FS_METADATA, fileidentity : *const core::ffi::c_void, fileidentitylength : u32, dehydraterangearray : *const CF_FILE_RANGE, dehydraterangecount : u32, updateflags : CF_UPDATE_FLAGS, updateusn : *mut super::winnt::USN, overlapped : *mut super::minwinbase::OVERLAPPED) -> windows_core::HRESULT);
-    unsafe { CfUpdatePlaceholder(filehandle, fsmetadata.unwrap_or(core::mem::zeroed()) as _, fileidentity.unwrap_or(core::mem::zeroed()) as _, fileidentitylength, core::mem::transmute(dehydraterangearray.map_or(core::ptr::null(), |slice| slice.as_ptr())), dehydraterangearray.map_or(0, |slice| slice.len().try_into().unwrap()), updateflags, updateusn.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CfUpdatePlaceholder(filehandle, fsmetadata.unwrap_or(core::mem::zeroed()) as _, fileidentity.unwrap_or(core::mem::zeroed()) as _, fileidentitylength, dehydraterangearray.map_or(core::ptr::null(), |slice| slice.as_ptr()), dehydraterangearray.map_or(0, |slice| slice.len().try_into().unwrap()), updateflags, updateusn.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT {

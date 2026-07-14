@@ -943,7 +943,7 @@ pub unsafe fn D3DKMTSetVidPnSourceOwner2(param0: *const D3DKMT_SETVIDPNSOURCEOWN
 #[inline]
 pub unsafe fn D3DKMTShareObjects(hobjects: &[super::d3dukmdt::D3DKMT_HANDLE], pobjectattributes: *const OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS {
     windows_core::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : u32, hobjects : *const super::d3dukmdt::D3DKMT_HANDLE, pobjectattributes : *const OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::winnt::HANDLE) -> super::bcrypt::NTSTATUS);
-    unsafe { D3DKMTShareObjects(hobjects.len().try_into().unwrap(), core::mem::transmute(hobjects.as_ptr()), pobjectattributes, dwdesiredaccess, phsharednthandle as _) }
+    unsafe { D3DKMTShareObjects(hobjects.len().try_into().unwrap(), hobjects.as_ptr(), pobjectattributes, dwdesiredaccess, phsharednthandle as _) }
 }
 #[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
 #[inline]

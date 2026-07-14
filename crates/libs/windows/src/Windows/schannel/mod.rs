@@ -41,7 +41,7 @@ pub unsafe fn SslGenerateRandomBits(prandomdata: *mut u8, crandomdata: i32) {
 #[inline]
 pub unsafe fn SslGetExtensions(clienthello: &[u8], genericextensions: &mut [SCH_EXTENSION_DATA], bytestoread: *mut u32, flags: SchGetExtensionsOptions) -> super::ncrypt::SECURITY_STATUS {
     windows_core::link!("schannel.dll" "system" fn SslGetExtensions(clienthello : *const u8, clienthellobytesize : u32, genericextensions : *mut SCH_EXTENSION_DATA, genericextensionscount : u8, bytestoread : *mut u32, flags : SchGetExtensionsOptions) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { SslGetExtensions(core::mem::transmute(clienthello.as_ptr()), clienthello.len().try_into().unwrap(), core::mem::transmute(genericextensions.as_ptr()), genericextensions.len().try_into().unwrap(), bytestoread as _, flags) }
+    unsafe { SslGetExtensions(clienthello.as_ptr(), clienthello.len().try_into().unwrap(), genericextensions.as_mut_ptr(), genericextensions.len().try_into().unwrap(), bytestoread as _, flags) }
 }
 #[inline]
 pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
@@ -52,7 +52,7 @@ pub unsafe fn SslGetMaximumKeySize(reserved: u32) -> u32 {
 #[inline]
 pub unsafe fn SslGetServerIdentity(clienthello: &[u8], serveridentity: *mut super::minwindef::PBYTE, serveridentitysize: *mut u32, flags: u32) -> super::ncrypt::SECURITY_STATUS {
     windows_core::link!("schannel.dll" "system" fn SslGetServerIdentity(clienthello : *const u8, clienthellosize : u32, serveridentity : *mut super::minwindef::PBYTE, serveridentitysize : *mut u32, flags : u32) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { SslGetServerIdentity(core::mem::transmute(clienthello.as_ptr()), clienthello.len().try_into().unwrap(), serveridentity as _, serveridentitysize as _, flags) }
+    unsafe { SslGetServerIdentity(clienthello.as_ptr(), clienthello.len().try_into().unwrap(), serveridentity as _, serveridentitysize as _, flags) }
 }
 pub const DEFAULT_TLS_SSP_NAME_A: windows_core::PCSTR = windows_core::s!("Default TLS SSP");
 pub const DEFAULT_TLS_SSP_NAME_W: windows_core::PCWSTR = windows_core::w!("Default TLS SSP");

@@ -50,13 +50,13 @@ pub unsafe fn TcEnumerateInterfaces(clienthandle: super::winnt::HANDLE, pbuffers
 #[inline]
 pub unsafe fn TcGetFlowNameA(flowhandle: super::winnt::HANDLE, pflowname: &mut [u8]) -> u32 {
     windows_core::link!("traffic.dll" "system" fn TcGetFlowNameA(flowhandle : super::winnt::HANDLE, strsize : u32, pflowname : windows_core::PSTR) -> u32);
-    unsafe { TcGetFlowNameA(flowhandle, pflowname.len().try_into().unwrap(), core::mem::transmute(pflowname.as_ptr())) }
+    unsafe { TcGetFlowNameA(flowhandle, pflowname.len().try_into().unwrap(), core::mem::transmute(pflowname.as_mut_ptr())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn TcGetFlowNameW(flowhandle: super::winnt::HANDLE, pflowname: &mut [u16]) -> u32 {
     windows_core::link!("traffic.dll" "system" fn TcGetFlowNameW(flowhandle : super::winnt::HANDLE, strsize : u32, pflowname : windows_core::PWSTR) -> u32);
-    unsafe { TcGetFlowNameW(flowhandle, pflowname.len().try_into().unwrap(), core::mem::transmute(pflowname.as_ptr())) }
+    unsafe { TcGetFlowNameW(flowhandle, pflowname.len().try_into().unwrap(), core::mem::transmute(pflowname.as_mut_ptr())) }
 }
 #[cfg(all(feature = "qos", feature = "winnt"))]
 #[inline]

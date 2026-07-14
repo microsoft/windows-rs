@@ -190,7 +190,7 @@ impl IBrowserService {
     where
         P0: windows_core::Param<super::shobjidl_core::IShellView>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetTitle)(windows_core::Interface::as_raw(self), psv.param().abi(), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
     }
     #[cfg(feature = "oleidl")]
     pub unsafe fn GetOleObject(&self) -> windows_core::Result<super::oleidl::IOleObject> {

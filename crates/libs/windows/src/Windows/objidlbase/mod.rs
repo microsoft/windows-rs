@@ -27,7 +27,7 @@ windows_core::imp::define_interface!(AsyncIMultiQI, AsyncIMultiQI_Vtbl, 0x000e00
 windows_core::imp::interface_hierarchy!(AsyncIMultiQI, windows_core::IUnknown);
 impl AsyncIMultiQI {
     pub unsafe fn Begin_QueryMultipleInterfaces(&self, pmqis: &mut [MULTI_QI]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Begin_QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), pmqis.len().try_into().unwrap(), core::mem::transmute(pmqis.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).Begin_QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), pmqis.len().try_into().unwrap(), pmqis.as_mut_ptr()) }
     }
     pub unsafe fn Finish_QueryMultipleInterfaces(&self, pmqis: *mut MULTI_QI) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Finish_QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), core::mem::transmute(pmqis)) }
@@ -1090,7 +1090,7 @@ windows_core::imp::define_interface!(IEnumString, IEnumString_Vtbl, 0x00000101_0
 windows_core::imp::interface_hierarchy!(IEnumString, windows_core::IUnknown);
 impl IEnumString {
     pub unsafe fn Next(&self, rgelt: &mut [windows_core::PWSTR], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1169,7 +1169,7 @@ windows_core::imp::define_interface!(IEnumUnknown, IEnumUnknown_Vtbl, 0x00000100
 windows_core::imp::interface_hierarchy!(IEnumUnknown, windows_core::IUnknown);
 impl IEnumUnknown {
     pub unsafe fn Next(&self, rgelt: &mut [Option<windows_core::IUnknown>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1840,7 +1840,7 @@ windows_core::imp::define_interface!(IMultiQI, IMultiQI_Vtbl, 0x00000020_0000_00
 windows_core::imp::interface_hierarchy!(IMultiQI, windows_core::IUnknown);
 impl IMultiQI {
     pub unsafe fn QueryMultipleInterfaces(&self, pmqis: &mut [MULTI_QI]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), pmqis.len().try_into().unwrap(), core::mem::transmute(pmqis.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), pmqis.len().try_into().unwrap(), pmqis.as_mut_ptr()) }
     }
 }
 #[repr(C)]

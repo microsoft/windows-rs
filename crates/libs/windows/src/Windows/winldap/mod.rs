@@ -11,12 +11,12 @@ pub unsafe fn LdapMapErrorToWin32(ldaperror: u32) -> u32 {
 #[inline]
 pub unsafe fn LdapUTF8ToUnicode(lpsrcstr: &[u8], lpdeststr: &mut [u16]) -> i32 {
     windows_core::link!("wldap32.dll" "C" fn LdapUTF8ToUnicode(lpsrcstr : windows_core::PCSTR, cchsrc : i32, lpdeststr : windows_core::PWSTR, cchdest : i32) -> i32);
-    unsafe { LdapUTF8ToUnicode(core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_ptr()), lpdeststr.len().try_into().unwrap()) }
+    unsafe { LdapUTF8ToUnicode(core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_mut_ptr()), lpdeststr.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn LdapUnicodeToUTF8(lpsrcstr: &[u16], lpdeststr: &mut [u8]) -> i32 {
     windows_core::link!("wldap32.dll" "C" fn LdapUnicodeToUTF8(lpsrcstr : windows_core::PCWSTR, cchsrc : i32, lpdeststr : windows_core::PSTR, cchdest : i32) -> i32);
-    unsafe { LdapUnicodeToUTF8(core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_ptr()), lpdeststr.len().try_into().unwrap()) }
+    unsafe { LdapUnicodeToUTF8(core::mem::transmute(lpsrcstr.as_ptr()), lpsrcstr.len().try_into().unwrap(), core::mem::transmute(lpdeststr.as_mut_ptr()), lpdeststr.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -685,12 +685,12 @@ pub unsafe fn ldap_err2stringW(err: u32) -> super::winnt::PWCHAR {
 #[inline]
 pub unsafe fn ldap_escape_filter_element(sourcefilterelement: &[u8], destfilterelement: Option<&mut [u8]>) -> u32 {
     windows_core::link!("wldap32.dll" "C" fn ldap_escape_filter_element(sourcefilterelement : *const i8, sourcelength : u32, destfilterelement : *mut i8, destlength : u32) -> u32);
-    unsafe { ldap_escape_filter_element(core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), core::mem::transmute(destfilterelement.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), destfilterelement.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ldap_escape_filter_element(core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), core::mem::transmute(destfilterelement.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), destfilterelement.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn ldap_escape_filter_elementA(sourcefilterelement: &[u8], destfilterelement: Option<&mut [u8]>) -> u32 {
     windows_core::link!("wldap32.dll" "C" fn ldap_escape_filter_elementA(sourcefilterelement : *const i8, sourcelength : u32, destfilterelement : *mut i8, destlength : u32) -> u32);
-    unsafe { ldap_escape_filter_elementA(core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), core::mem::transmute(destfilterelement.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), destfilterelement.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ldap_escape_filter_elementA(core::mem::transmute(sourcefilterelement.as_ptr()), sourcefilterelement.len().try_into().unwrap(), core::mem::transmute(destfilterelement.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), destfilterelement.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn ldap_escape_filter_elementW(sourcefilterelement: &[u8], destfilterelement: Option<*mut u16>, destlength: u32) -> u32 {

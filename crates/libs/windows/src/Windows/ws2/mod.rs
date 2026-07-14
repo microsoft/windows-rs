@@ -59,12 +59,12 @@ where
 #[inline]
 pub unsafe fn GetNameInfoW(psockaddr: *const SOCKADDR, sockaddrlength: socklen_t, pnodebuffer: Option<&mut [u16]>, pservicebuffer: Option<&mut [u16]>, flags: i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn GetNameInfoW(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : *mut u16, nodebuffersize : u32, pservicebuffer : *mut u16, servicebuffersize : u32, flags : i32) -> i32);
-    unsafe { GetNameInfoW(psockaddr, sockaddrlength, core::mem::transmute(pnodebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pnodebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pservicebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pservicebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+    unsafe { GetNameInfoW(psockaddr, sockaddrlength, pnodebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pnodebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pservicebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pservicebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
 }
 #[inline]
 pub unsafe fn InetNtopW(family: i32, paddr: *const core::ffi::c_void, pstringbuf: &mut [u16]) -> windows_core::PCWSTR {
     windows_core::link!("ws2_32.dll" "system" fn InetNtopW(family : i32, paddr : *const core::ffi::c_void, pstringbuf : windows_core::PWSTR, stringbufsize : usize) -> windows_core::PCWSTR);
-    unsafe { InetNtopW(family, paddr, core::mem::transmute(pstringbuf.as_ptr()), pstringbuf.len().try_into().unwrap()) }
+    unsafe { InetNtopW(family, paddr, core::mem::transmute(pstringbuf.as_mut_ptr()), pstringbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn InetPtonW<P1>(family: i32, pszaddrstring: P1, paddrbuf: *mut core::ffi::c_void) -> i32
@@ -111,12 +111,12 @@ where
 #[inline]
 pub unsafe fn getnameinfo(psockaddr: *const SOCKADDR, sockaddrlength: socklen_t, pnodebuffer: Option<&mut [i8]>, pservicebuffer: Option<&mut [i8]>, flags: i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn getnameinfo(psockaddr : *const SOCKADDR, sockaddrlength : socklen_t, pnodebuffer : *mut i8, nodebuffersize : u32, pservicebuffer : *mut i8, servicebuffersize : u32, flags : i32) -> i32);
-    unsafe { getnameinfo(psockaddr, sockaddrlength, core::mem::transmute(pnodebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pnodebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pservicebuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pservicebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+    unsafe { getnameinfo(psockaddr, sockaddrlength, pnodebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pnodebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pservicebuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pservicebuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
 }
 #[inline]
 pub unsafe fn inet_ntop(family: i32, paddr: *const core::ffi::c_void, pstringbuf: &mut [u8]) -> windows_core::PCSTR {
     windows_core::link!("ws2_32.dll" "system" fn inet_ntop(family : i32, paddr : *const core::ffi::c_void, pstringbuf : windows_core::PSTR, stringbufsize : usize) -> windows_core::PCSTR);
-    unsafe { inet_ntop(family, paddr, core::mem::transmute(pstringbuf.as_ptr()), pstringbuf.len().try_into().unwrap()) }
+    unsafe { inet_ntop(family, paddr, core::mem::transmute(pstringbuf.as_mut_ptr()), pstringbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn inet_pton<P1>(family: i32, pszaddrstring: P1, paddrbuf: *mut core::ffi::c_void) -> i32

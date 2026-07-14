@@ -2164,12 +2164,12 @@ pub unsafe fn RpcServerInterfaceGroupClose(ifgroup: RPC_INTERFACE_GROUP) -> RPC_
 #[inline]
 pub unsafe fn RpcServerInterfaceGroupCreateA(interfaces: &[RPC_INTERFACE_TEMPLATEA], endpoints: &[RPC_ENDPOINT_TEMPLATEA], idleperiod: u32, idlecallbackfn: *const core::ffi::c_void, idlecallbackcontext: *const core::ffi::c_void, ifgroup: *mut *mut core::ffi::c_void) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupCreateA(interfaces : *const RPC_INTERFACE_TEMPLATEA, numifs : u32, endpoints : *const RPC_ENDPOINT_TEMPLATEA, numendpoints : u32, idleperiod : u32, idlecallbackfn : *const core::ffi::c_void, idlecallbackcontext : *const core::ffi::c_void, ifgroup : *mut *mut core::ffi::c_void) -> RPC_STATUS);
-    unsafe { RpcServerInterfaceGroupCreateA(core::mem::transmute(interfaces.as_ptr()), interfaces.len().try_into().unwrap(), core::mem::transmute(endpoints.as_ptr()), endpoints.len().try_into().unwrap(), idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup as _) }
+    unsafe { RpcServerInterfaceGroupCreateA(interfaces.as_ptr(), interfaces.len().try_into().unwrap(), endpoints.as_ptr(), endpoints.len().try_into().unwrap(), idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup as _) }
 }
 #[inline]
 pub unsafe fn RpcServerInterfaceGroupCreateW(interfaces: &[RPC_INTERFACE_TEMPLATEW], endpoints: &[RPC_ENDPOINT_TEMPLATEW], idleperiod: u32, idlecallbackfn: *const core::ffi::c_void, idlecallbackcontext: *const core::ffi::c_void, ifgroup: *mut *mut core::ffi::c_void) -> RPC_STATUS {
     windows_core::link!("rpcrt4.dll" "system" fn RpcServerInterfaceGroupCreateW(interfaces : *const RPC_INTERFACE_TEMPLATEW, numifs : u32, endpoints : *const RPC_ENDPOINT_TEMPLATEW, numendpoints : u32, idleperiod : u32, idlecallbackfn : *const core::ffi::c_void, idlecallbackcontext : *const core::ffi::c_void, ifgroup : *mut *mut core::ffi::c_void) -> RPC_STATUS);
-    unsafe { RpcServerInterfaceGroupCreateW(core::mem::transmute(interfaces.as_ptr()), interfaces.len().try_into().unwrap(), core::mem::transmute(endpoints.as_ptr()), endpoints.len().try_into().unwrap(), idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup as _) }
+    unsafe { RpcServerInterfaceGroupCreateW(interfaces.as_ptr(), interfaces.len().try_into().unwrap(), endpoints.as_ptr(), endpoints.len().try_into().unwrap(), idleperiod, idlecallbackfn, idlecallbackcontext, ifgroup as _) }
 }
 #[inline]
 pub unsafe fn RpcServerInterfaceGroupDeactivate(ifgroup: RPC_INTERFACE_GROUP, forcedeactivation: u32) -> RPC_STATUS {

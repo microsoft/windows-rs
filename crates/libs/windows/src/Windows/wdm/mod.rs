@@ -375,7 +375,7 @@ pub unsafe fn RtlCompareUnicodeString(string1: *const super::ntsecapi::UNICODE_S
 #[inline]
 pub unsafe fn RtlCompareUnicodeStrings(string1: &[u16], string2: &[u16], caseinsensitive: bool) -> i32 {
     windows_core::link!("ntdll.dll" "system" fn RtlCompareUnicodeStrings(string1 : *const u16, string1length : usize, string2 : *const u16, string2length : usize, caseinsensitive : bool) -> i32);
-    unsafe { RtlCompareUnicodeStrings(core::mem::transmute(string1.as_ptr()), string1.len().try_into().unwrap(), core::mem::transmute(string2.as_ptr()), string2.len().try_into().unwrap(), caseinsensitive) }
+    unsafe { RtlCompareUnicodeStrings(string1.as_ptr(), string1.len().try_into().unwrap(), string2.as_ptr(), string2.len().try_into().unwrap(), caseinsensitive) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -459,7 +459,7 @@ pub unsafe fn RtlFindClearBitsAndSet(bitmapheader: *const RTL_BITMAP, numbertofi
 #[inline]
 pub unsafe fn RtlFindClearRuns(bitmapheader: *const RTL_BITMAP, runarray: &mut [RTL_BITMAP_RUN], locatelongestruns: bool) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlFindClearRuns(bitmapheader : *const RTL_BITMAP, runarray : *mut RTL_BITMAP_RUN, sizeofrunarray : u32, locatelongestruns : bool) -> u32);
-    unsafe { RtlFindClearRuns(bitmapheader, core::mem::transmute(runarray.as_ptr()), runarray.len().try_into().unwrap(), locatelongestruns) }
+    unsafe { RtlFindClearRuns(bitmapheader, runarray.as_mut_ptr(), runarray.len().try_into().unwrap(), locatelongestruns) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -717,7 +717,7 @@ pub unsafe fn RtlUnicodeStringToUTF8String(destinationstring: super::ntdef::PUTF
 #[inline]
 pub unsafe fn RtlUnicodeToUTF8N(utf8stringdestination: &mut [u8], utf8stringactualbytecount: *mut u32, unicodestringsource: *const u16, unicodestringbytecount: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToUTF8N(utf8stringdestination : *mut i8, utf8stringmaxbytecount : u32, utf8stringactualbytecount : *mut u32, unicodestringsource : *const u16, unicodestringbytecount : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlUnicodeToUTF8N(core::mem::transmute(utf8stringdestination.as_ptr()), utf8stringdestination.len().try_into().unwrap(), utf8stringactualbytecount as _, unicodestringsource, unicodestringbytecount) }
+    unsafe { RtlUnicodeToUTF8N(core::mem::transmute(utf8stringdestination.as_mut_ptr()), utf8stringdestination.len().try_into().unwrap(), utf8stringactualbytecount as _, unicodestringsource, unicodestringbytecount) }
 }
 #[inline]
 pub unsafe fn RtlUpcaseUnicodeChar(sourcecharacter: u16) -> u16 {
@@ -930,7 +930,7 @@ pub unsafe fn ZwMapViewOfSection(sectionhandle: super::winnt::HANDLE, processhan
 #[inline]
 pub unsafe fn ZwMapViewOfSectionEx(sectionhandle: super::winnt::HANDLE, processhandle: super::winnt::HANDLE, baseaddress: *mut *mut core::ffi::c_void, sectionoffset: Option<*mut i64>, viewsize: *mut usize, allocationtype: u32, pageprotection: u32, extendedparameters: Option<&mut [super::winnt::MEM_EXTENDED_PARAMETER]>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwMapViewOfSectionEx(sectionhandle : super::winnt::HANDLE, processhandle : super::winnt::HANDLE, baseaddress : *mut *mut core::ffi::c_void, sectionoffset : *mut i64, viewsize : *mut usize, allocationtype : u32, pageprotection : u32, extendedparameters : *mut super::winnt::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { ZwMapViewOfSectionEx(sectionhandle, processhandle, baseaddress as _, sectionoffset.unwrap_or(core::mem::zeroed()) as _, viewsize as _, allocationtype, pageprotection, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ZwMapViewOfSectionEx(sectionhandle, processhandle, baseaddress as _, sectionoffset.unwrap_or(core::mem::zeroed()) as _, viewsize as _, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "bcrypt", feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[inline]

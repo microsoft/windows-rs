@@ -1038,10 +1038,10 @@ impl IAudioStreamVolume {
         }
     }
     pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_ptr()) }
     }
     pub unsafe fn GetAllVolumes(&self, pfvolumes: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_mut_ptr()) }
     }
 }
 #[repr(C)]
@@ -1176,10 +1176,10 @@ impl IChannelAudioVolume {
         }
     }
     pub unsafe fn SetAllVolumes(&self, pfvolumes: &[f32], eventcontext: *const windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr()), eventcontext) }
+        unsafe { (windows_core::Interface::vtable(self).SetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_ptr(), eventcontext) }
     }
     pub unsafe fn GetAllVolumes(&self, pfvolumes: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), core::mem::transmute(pfvolumes.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetAllVolumes)(windows_core::Interface::as_raw(self), pfvolumes.len().try_into().unwrap(), pfvolumes.as_mut_ptr()) }
     }
 }
 #[repr(C)]

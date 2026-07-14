@@ -350,12 +350,12 @@ where
 #[inline]
 pub unsafe fn RasGetErrorStringA(resourceid: u32, lpszstring: &mut [u8]) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetErrorStringA(resourceid : u32, lpszstring : windows_core::PSTR, inbufsize : u32) -> u32);
-    unsafe { RasGetErrorStringA(resourceid, core::mem::transmute(lpszstring.as_ptr()), lpszstring.len().try_into().unwrap()) }
+    unsafe { RasGetErrorStringA(resourceid, core::mem::transmute(lpszstring.as_mut_ptr()), lpszstring.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn RasGetErrorStringW(resourceid: u32, lpszstring: &mut [u16]) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetErrorStringW(resourceid : u32, lpszstring : windows_core::PWSTR, inbufsize : u32) -> u32);
-    unsafe { RasGetErrorStringW(resourceid, core::mem::transmute(lpszstring.as_ptr()), lpszstring.len().try_into().unwrap()) }
+    unsafe { RasGetErrorStringW(resourceid, core::mem::transmute(lpszstring.as_mut_ptr()), lpszstring.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn RasGetLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32, lpstatistics: *mut RAS_STATS) -> u32 {
@@ -508,7 +508,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataA(pszphonebook : windows_core::PCSTR, pszentry : windows_core::PCSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
-    unsafe { RasSetCustomAuthDataA(pszphonebook.param().abi(), pszentry.param().abi(), core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len().try_into().unwrap()) }
+    unsafe { RasSetCustomAuthDataA(pszphonebook.param().abi(), pszentry.param().abi(), pbcustomauthdata.as_ptr(), pbcustomauthdata.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn RasSetCustomAuthDataW<P0, P1>(pszphonebook: P0, pszentry: P1, pbcustomauthdata: &[u8]) -> u32
@@ -517,7 +517,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("rasapi32.dll" "system" fn RasSetCustomAuthDataW(pszphonebook : windows_core::PCWSTR, pszentry : windows_core::PCWSTR, pbcustomauthdata : *const u8, dwsizeofcustomauthdata : u32) -> u32);
-    unsafe { RasSetCustomAuthDataW(pszphonebook.param().abi(), pszentry.param().abi(), core::mem::transmute(pbcustomauthdata.as_ptr()), pbcustomauthdata.len().try_into().unwrap()) }
+    unsafe { RasSetCustomAuthDataW(pszphonebook.param().abi(), pszentry.param().abi(), pbcustomauthdata.as_ptr(), pbcustomauthdata.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

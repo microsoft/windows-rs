@@ -2626,19 +2626,19 @@ windows_core::imp::define_interface!(ISpPhoneticAlphabetConverter, ISpPhoneticAl
 windows_core::imp::interface_hierarchy!(ISpPhoneticAlphabetConverter, windows_core::IUnknown);
 impl ISpPhoneticAlphabetConverter {
     pub unsafe fn GetLangId(&self, plangid: &mut [u16; 1]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLangId)(windows_core::Interface::as_raw(self), core::mem::transmute(plangid.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetLangId)(windows_core::Interface::as_raw(self), plangid.as_mut_ptr()) }
     }
     pub unsafe fn SetLangId(&self, langid: u16) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetLangId)(windows_core::Interface::as_raw(self), langid) }
     }
     pub unsafe fn SAPI2UPS(&self, pszsapiid: *const SPPHONEID, pszupsid: &mut [SPPHONEID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SAPI2UPS)(windows_core::Interface::as_raw(self), pszsapiid, core::mem::transmute(pszupsid.as_ptr()), pszupsid.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SAPI2UPS)(windows_core::Interface::as_raw(self), pszsapiid, pszupsid.as_mut_ptr(), pszupsid.len().try_into().unwrap()) }
     }
     pub unsafe fn UPS2SAPI(&self, pszupsid: *const SPPHONEID, pszsapiid: &mut [SPPHONEID]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UPS2SAPI)(windows_core::Interface::as_raw(self), pszupsid, core::mem::transmute(pszsapiid.as_ptr()), pszsapiid.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).UPS2SAPI)(windows_core::Interface::as_raw(self), pszupsid, pszsapiid.as_mut_ptr(), pszsapiid.len().try_into().unwrap()) }
     }
     pub unsafe fn GetMaxConvertLength(&self, csrclength: u32, bsapi2ups: bool, pcmaxdestlength: &mut [u32; 1]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMaxConvertLength)(windows_core::Interface::as_raw(self), csrclength, bsapi2ups.into(), core::mem::transmute(pcmaxdestlength.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetMaxConvertLength)(windows_core::Interface::as_raw(self), csrclength, bsapi2ups.into(), pcmaxdestlength.as_mut_ptr()) }
     }
 }
 #[repr(C)]
@@ -2776,7 +2776,7 @@ impl ISpPhrase {
         }
     }
     pub unsafe fn GetText(&self, ulstart: u32, ulcount: u32, fusetextreplacements: bool, ppszcomemtext: *mut windows_core::PWSTR, pbdisplayattributes: Option<&mut [u8; 1]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), ulstart, ulcount, fusetextreplacements.into(), ppszcomemtext as _, core::mem::transmute(pbdisplayattributes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), ulstart, ulcount, fusetextreplacements.into(), ppszcomemtext as _, pbdisplayattributes.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())) }
     }
     pub unsafe fn Discard(&self, dwvaluetypes: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Discard)(windows_core::Interface::as_raw(self), dwvaluetypes) }
@@ -3588,7 +3588,7 @@ impl ISpRecoGrammar {
         unsafe { (windows_core::Interface::vtable(self).SetDictationState)(windows_core::Interface::as_raw(self), newstate) }
     }
     pub unsafe fn SetWordSequenceData(&self, ptext: Option<&[u16]>, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetWordSequenceData)(windows_core::Interface::as_raw(self), core::mem::transmute(ptext.map_or(core::ptr::null(), |slice| slice.as_ptr())), ptext.map_or(0, |slice| slice.len().try_into().unwrap()), pinfo) }
+        unsafe { (windows_core::Interface::vtable(self).SetWordSequenceData)(windows_core::Interface::as_raw(self), ptext.map_or(core::ptr::null(), |slice| slice.as_ptr()), ptext.map_or(0, |slice| slice.len().try_into().unwrap()), pinfo) }
     }
     pub unsafe fn SetTextSelection(&self, pinfo: *const SPTEXTSELECTIONINFO) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetTextSelection)(windows_core::Interface::as_raw(self), pinfo) }
@@ -3996,7 +3996,7 @@ impl ISpRecoResult {
         unsafe { (windows_core::Interface::vtable(self).GetResultTimes)(windows_core::Interface::as_raw(self), ptimes as _) }
     }
     pub unsafe fn GetAlternates(&self, ulstartelement: u32, celements: u32, ppphrases: &mut [Option<ISpPhraseAlt>], pcphrasesreturned: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetAlternates)(windows_core::Interface::as_raw(self), ulstartelement, celements, ppphrases.len().try_into().unwrap(), core::mem::transmute(ppphrases.as_ptr()), pcphrasesreturned as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetAlternates)(windows_core::Interface::as_raw(self), ulstartelement, celements, ppphrases.len().try_into().unwrap(), core::mem::transmute(ppphrases.as_mut_ptr()), pcphrasesreturned as _) }
     }
     #[cfg(feature = "objidlbase")]
     pub unsafe fn GetAudio(&self, ulstartelement: u32, celements: u32) -> windows_core::Result<ISpStreamFormat> {

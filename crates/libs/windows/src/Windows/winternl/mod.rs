@@ -20,7 +20,7 @@ pub unsafe fn NtDeviceIoControlFile(filehandle: super::winnt::HANDLE, event: sup
 #[inline]
 pub unsafe fn NtNotifyChangeMultipleKeys(masterkeyhandle: super::winnt::HANDLE, subordinateobjects: Option<&[super::d3dkmthk::OBJECT_ATTRIBUTES]>, event: Option<super::winnt::HANDLE>, apcroutine: PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut IO_STATUS_BLOCK, completionfilter: u32, watchtree: bool, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, asynchronous: bool) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtNotifyChangeMultipleKeys(masterkeyhandle : super::winnt::HANDLE, count : u32, subordinateobjects : *const super::d3dkmthk::OBJECT_ATTRIBUTES, event : super::winnt::HANDLE, apcroutine : PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut IO_STATUS_BLOCK, completionfilter : u32, watchtree : bool, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : bool) -> super::bcrypt::NTSTATUS);
-    unsafe { NtNotifyChangeMultipleKeys(masterkeyhandle, subordinateobjects.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(subordinateobjects.map_or(core::ptr::null(), |slice| slice.as_ptr())), event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, completionfilter, watchtree, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, asynchronous) }
+    unsafe { NtNotifyChangeMultipleKeys(masterkeyhandle, subordinateobjects.map_or(0, |slice| slice.len().try_into().unwrap()), subordinateobjects.map_or(core::ptr::null(), |slice| slice.as_ptr()), event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, completionfilter, watchtree, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, asynchronous) }
 }
 #[cfg(all(feature = "bcrypt", feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
@@ -44,7 +44,7 @@ pub unsafe fn NtQueryInformationThread(threadhandle: super::winnt::HANDLE, threa
 #[inline]
 pub unsafe fn NtQueryMultipleValueKey(keyhandle: super::winnt::HANDLE, valueentries: &mut [KEY_VALUE_ENTRY], valuebuffer: *mut core::ffi::c_void, bufferlength: *mut u32, requiredbufferlength: Option<*mut u32>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtQueryMultipleValueKey(keyhandle : super::winnt::HANDLE, valueentries : *mut KEY_VALUE_ENTRY, entrycount : u32, valuebuffer : *mut core::ffi::c_void, bufferlength : *mut u32, requiredbufferlength : *mut u32) -> super::bcrypt::NTSTATUS);
-    unsafe { NtQueryMultipleValueKey(keyhandle, core::mem::transmute(valueentries.as_ptr()), valueentries.len().try_into().unwrap(), valuebuffer as _, bufferlength as _, requiredbufferlength.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NtQueryMultipleValueKey(keyhandle, valueentries.as_mut_ptr(), valueentries.len().try_into().unwrap(), valuebuffer as _, bufferlength as _, requiredbufferlength.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]

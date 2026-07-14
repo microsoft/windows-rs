@@ -112,7 +112,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetRequestOfflineDomainJoin(pprovisionbindata : *const u8, cbprovisionbindatasize : u32, dwoptions : u32, lpwindowspath : windows_core::PCWSTR) -> u32);
-    unsafe { NetRequestOfflineDomainJoin(core::mem::transmute(pprovisionbindata.as_ptr()), pprovisionbindata.len().try_into().unwrap(), dwoptions, lpwindowspath.param().abi()) }
+    unsafe { NetRequestOfflineDomainJoin(pprovisionbindata.as_ptr(), pprovisionbindata.len().try_into().unwrap(), dwoptions, lpwindowspath.param().abi()) }
 }
 #[inline]
 pub unsafe fn NetRequestProvisioningPackageInstall<P3>(ppackagebindata: &[u8], dwprovisionoptions: u32, lpwindowspath: P3, pvreserved: Option<*const core::ffi::c_void>) -> u32
@@ -120,7 +120,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetRequestProvisioningPackageInstall(ppackagebindata : *const u8, dwpackagebindatasize : u32, dwprovisionoptions : u32, lpwindowspath : windows_core::PCWSTR, pvreserved : *const core::ffi::c_void) -> u32);
-    unsafe { NetRequestProvisioningPackageInstall(core::mem::transmute(ppackagebindata.as_ptr()), ppackagebindata.len().try_into().unwrap(), dwprovisionoptions, lpwindowspath.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { NetRequestProvisioningPackageInstall(ppackagebindata.as_ptr(), ppackagebindata.len().try_into().unwrap(), dwprovisionoptions, lpwindowspath.param().abi(), pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn NetSetPrimaryComputerName<P0, P1, P2, P3>(server: P0, primaryname: P1, domainaccount: P2, domainaccountpassword: P3, reserved: u32) -> u32

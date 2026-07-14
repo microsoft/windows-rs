@@ -30,7 +30,7 @@ pub unsafe fn WICCreateBitmapFromSectionEx(width: u32, height: u32, pixelformat:
 #[inline]
 pub unsafe fn WICMapGuidToShortName(guid: *const windows_core::GUID, wzname: Option<&mut [u16]>, pcchactual: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("windowscodecs.dll" "system" fn WICMapGuidToShortName(guid : *const windows_core::GUID, cchname : u32, wzname : *mut u16, pcchactual : *mut u32) -> windows_core::HRESULT);
-    unsafe { WICMapGuidToShortName(guid, wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(wzname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcchactual as _) }
+    unsafe { WICMapGuidToShortName(guid, wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
 }
 #[inline]
 pub unsafe fn WICMapSchemaToName<P1>(guidmetadataformat: *const windows_core::GUID, pwzschema: P1, wzname: Option<&mut [u16]>, pcchactual: *mut u32) -> windows_core::HRESULT
@@ -38,7 +38,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("windowscodecs.dll" "system" fn WICMapSchemaToName(guidmetadataformat : *const windows_core::GUID, pwzschema : windows_core::PCWSTR, cchname : u32, wzname : *mut u16, pcchactual : *mut u32) -> windows_core::HRESULT);
-    unsafe { WICMapSchemaToName(guidmetadataformat, pwzschema.param().abi(), wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(wzname.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcchactual as _) }
+    unsafe { WICMapSchemaToName(guidmetadataformat, pwzschema.param().abi(), wzname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), wzname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pcchactual as _) }
 }
 #[inline]
 pub unsafe fn WICMapShortNameToGuid<P0>(wzname: P0) -> windows_core::Result<windows_core::GUID>

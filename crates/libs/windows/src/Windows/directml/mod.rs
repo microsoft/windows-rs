@@ -2689,12 +2689,12 @@ windows_core::imp::interface_hierarchy!(IDMLBindingTable, windows_core::IUnknown
 impl IDMLBindingTable {
     pub unsafe fn BindInputs(&self, bindings: Option<&[DML_BINDING_DESC]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).BindInputs)(windows_core::Interface::as_raw(self), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).BindInputs)(windows_core::Interface::as_raw(self), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), bindings.map_or(core::ptr::null(), |slice| slice.as_ptr()));
         }
     }
     pub unsafe fn BindOutputs(&self, bindings: Option<&[DML_BINDING_DESC]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(bindings.map_or(core::ptr::null(), |slice| slice.as_ptr())));
+            (windows_core::Interface::vtable(self).BindOutputs)(windows_core::Interface::as_raw(self), bindings.map_or(0, |slice| slice.len().try_into().unwrap()), bindings.map_or(core::ptr::null(), |slice| slice.as_ptr()));
         }
     }
     pub unsafe fn BindTemporaryResource(&self, binding: Option<*const DML_BINDING_DESC>) {

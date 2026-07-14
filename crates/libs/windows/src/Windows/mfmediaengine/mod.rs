@@ -1239,7 +1239,7 @@ windows_core::imp::interface_hierarchy!(IMFMediaEngineEMENotify, windows_core::I
 impl IMFMediaEngineEMENotify {
     pub unsafe fn Encrypted(&self, pbinitdata: Option<&[u8]>, bstrinitdatatype: &windows_core::BSTR) {
         unsafe {
-            (windows_core::Interface::vtable(self).Encrypted)(windows_core::Interface::as_raw(self), core::mem::transmute(pbinitdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbinitdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute_copy(bstrinitdatatype));
+            (windows_core::Interface::vtable(self).Encrypted)(windows_core::Interface::as_raw(self), pbinitdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbinitdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute_copy(bstrinitdatatype));
         }
     }
     pub unsafe fn WaitingForKey(&self) {
@@ -2041,7 +2041,7 @@ windows_core::imp::interface_hierarchy!(IMFMediaEngineNeedKeyNotify, windows_cor
 impl IMFMediaEngineNeedKeyNotify {
     pub unsafe fn NeedKey(&self, initdata: Option<&[u8]>) {
         unsafe {
-            (windows_core::Interface::vtable(self).NeedKey)(windows_core::Interface::as_raw(self), core::mem::transmute(initdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), initdata.map_or(0, |slice| slice.len().try_into().unwrap()));
+            (windows_core::Interface::vtable(self).NeedKey)(windows_core::Interface::as_raw(self), initdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), initdata.map_or(0, |slice| slice.len().try_into().unwrap()));
         }
     }
 }
@@ -2168,7 +2168,7 @@ impl IMFMediaEngineProtectedContent {
         unsafe { (windows_core::Interface::vtable(self).SetContentProtectionManager)(windows_core::Interface::as_raw(self), pcpm.param().abi()) }
     }
     pub unsafe fn SetApplicationCertificate(&self, pbblob: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetApplicationCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(pbblob.as_ptr()), pbblob.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetApplicationCertificate)(windows_core::Interface::as_raw(self), pbblob.as_ptr(), pbblob.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -2771,7 +2771,7 @@ impl IMFMediaKeySession {
         }
     }
     pub unsafe fn Update(&self, key: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), core::mem::transmute(key.as_ptr()), key.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).Update)(windows_core::Interface::as_raw(self), key.as_ptr(), key.len().try_into().unwrap()) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
@@ -2872,7 +2872,7 @@ impl IMFMediaKeySession2 {
         }
     }
     pub unsafe fn GenerateRequest(&self, initdatatype: &windows_core::BSTR, pbinitdata: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GenerateRequest)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(initdatatype), core::mem::transmute(pbinitdata.as_ptr()), pbinitdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GenerateRequest)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(initdatatype), pbinitdata.as_ptr(), pbinitdata.len().try_into().unwrap()) }
     }
     pub unsafe fn get_Expiration(&self) -> windows_core::Result<f64> {
         unsafe {
@@ -2982,7 +2982,7 @@ windows_core::imp::interface_hierarchy!(IMFMediaKeySessionNotify, windows_core::
 impl IMFMediaKeySessionNotify {
     pub unsafe fn KeyMessage(&self, destinationurl: &windows_core::BSTR, message: &[u8]) {
         unsafe {
-            (windows_core::Interface::vtable(self).KeyMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(destinationurl), core::mem::transmute(message.as_ptr()), message.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).KeyMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(destinationurl), message.as_ptr(), message.len().try_into().unwrap());
         }
     }
     pub unsafe fn KeyAdded(&self) {
@@ -3053,7 +3053,7 @@ impl IMFMediaKeySessionNotify2 {
     #[cfg(feature = "mfidl")]
     pub unsafe fn KeyMessage2(&self, emessagetype: super::mfidl::MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: &windows_core::BSTR, pbmessage: &[u8]) {
         unsafe {
-            (windows_core::Interface::vtable(self).KeyMessage2)(windows_core::Interface::as_raw(self), emessagetype, core::mem::transmute_copy(destinationurl), core::mem::transmute(pbmessage.as_ptr()), pbmessage.len().try_into().unwrap());
+            (windows_core::Interface::vtable(self).KeyMessage2)(windows_core::Interface::as_raw(self), emessagetype, core::mem::transmute_copy(destinationurl), pbmessage.as_ptr(), pbmessage.len().try_into().unwrap());
         }
     }
     pub unsafe fn KeyStatusChange(&self) {
@@ -3212,7 +3212,7 @@ impl IMFMediaKeys {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mimetype), core::mem::transmute(initdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), initdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(customdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), customdata.map_or(0, |slice| slice.len().try_into().unwrap()), notify.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mimetype), initdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), initdata.map_or(0, |slice| slice.len().try_into().unwrap()), customdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), customdata.map_or(0, |slice| slice.len().try_into().unwrap()), notify.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn get_KeySystem(&self) -> windows_core::Result<windows_core::BSTR> {
@@ -3323,7 +3323,7 @@ impl IMFMediaKeys2 {
         }
     }
     pub unsafe fn SetServerCertificate(&self, pbservercertificate: Option<&[u8]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetServerCertificate)(windows_core::Interface::as_raw(self), core::mem::transmute(pbservercertificate.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbservercertificate.map_or(0, |slice| slice.len().try_into().unwrap())) }
+        unsafe { (windows_core::Interface::vtable(self).SetServerCertificate)(windows_core::Interface::as_raw(self), pbservercertificate.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbservercertificate.map_or(0, |slice| slice.len().try_into().unwrap())) }
     }
     pub unsafe fn GetDOMException(&self, systemcode: windows_core::HRESULT) -> windows_core::Result<windows_core::HRESULT> {
         unsafe {
@@ -3805,7 +3805,7 @@ impl IMFSourceBuffer {
         unsafe { (windows_core::Interface::vtable(self).SetAppendWindowEnd)(windows_core::Interface::as_raw(self), time) }
     }
     pub unsafe fn Append(&self, pdata: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).Append)(windows_core::Interface::as_raw(self), pdata.as_ptr(), pdata.len().try_into().unwrap()) }
     }
     #[cfg(all(feature = "mfobjects", feature = "winnt"))]
     pub unsafe fn AppendByteStream<P0>(&self, pstream: P0, pmaxlen: Option<*const super::winnt::DWORDLONG>) -> windows_core::HRESULT
@@ -4788,7 +4788,7 @@ impl IMFTimedTextCueList {
         unsafe { (windows_core::Interface::vtable(self).AddTextCue)(windows_core::Interface::as_raw(self), start, duration, text.param().abi(), cue.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn AddDataCue(&self, start: f64, duration: f64, data: &[u8], cue: Option<*mut Option<IMFTimedTextCue>>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddDataCue)(windows_core::Interface::as_raw(self), start, duration, core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap(), cue.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).AddDataCue)(windows_core::Interface::as_raw(self), start, duration, data.as_ptr(), data.len().try_into().unwrap(), cue.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn RemoveCue<P0>(&self, cue: P0) -> windows_core::HRESULT
     where

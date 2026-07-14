@@ -4,7 +4,7 @@ pub unsafe fn CryptXmlAddObject(hsignatureorobject: HCRYPTXML, dwflags: u32, rgp
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlAddObject(hsignatureorobject : HCRYPTXML, dwflags : u32, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, ppobject : *mut *mut CRYPT_XML_OBJECT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CryptXmlAddObject(hsignatureorobject, dwflags, core::mem::transmute(rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, &mut result__).map(|| result__)
+        CryptXmlAddObject(hsignatureorobject, dwflags, rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -22,7 +22,7 @@ where
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlCreateReference(hcryptxml : HCRYPTXML, dwflags : u32, wszid : windows_core::PCWSTR, wszuri : windows_core::PCWSTR, wsztype : windows_core::PCWSTR, pdigestmethod : *const CRYPT_XML_ALGORITHM, ctransform : u32, rgtransform : *const CRYPT_XML_ALGORITHM, phreference : *mut HCRYPTXML) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CryptXmlCreateReference(hcryptxml, dwflags, wszid.param().abi(), wszuri.param().abi(), wsztype.param().abi(), pdigestmethod, rgtransform.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgtransform.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
+        CryptXmlCreateReference(hcryptxml, dwflags, wszid.param().abi(), wszuri.param().abi(), wsztype.param().abi(), pdigestmethod, rgtransform.map_or(0, |slice| slice.len().try_into().unwrap()), rgtransform.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -33,7 +33,7 @@ pub unsafe fn CryptXmlDigestReference(hreference: HCRYPTXML, dwflags: u32, pdata
 #[inline]
 pub unsafe fn CryptXmlEncode(hcryptxml: HCRYPTXML, dwcharset: CRYPT_XML_CHARSET, rgproperty: Option<&[CRYPT_XML_PROPERTY]>, pvcallbackstate: *mut core::ffi::c_void, pfnwrite: PFN_CRYPT_XML_WRITE_CALLBACK) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlEncode(hcryptxml : HCRYPTXML, dwcharset : CRYPT_XML_CHARSET, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pvcallbackstate : *mut core::ffi::c_void, pfnwrite : PFN_CRYPT_XML_WRITE_CALLBACK) -> windows_core::HRESULT);
-    unsafe { CryptXmlEncode(hcryptxml, dwcharset, core::mem::transmute(rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pvcallbackstate as _, pfnwrite) }
+    unsafe { CryptXmlEncode(hcryptxml, dwcharset, rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pvcallbackstate as _, pfnwrite) }
 }
 #[inline]
 pub unsafe fn CryptXmlEnumAlgorithmInfo(dwgroupid: u32, dwflags: u32, pvarg: Option<*mut core::ffi::c_void>, pfnenumalginfo: PFN_CRYPT_XML_ENUM_ALG_INFO) -> windows_core::HRESULT {
@@ -110,7 +110,7 @@ pub unsafe fn CryptXmlOpenToDecode(pconfig: Option<*const CRYPT_XML_TRANSFORM_CH
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlOpenToDecode(pconfig : *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwflags : u32, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, phcryptxml : *mut HCRYPTXML) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CryptXmlOpenToDecode(pconfig.unwrap_or(core::mem::zeroed()) as _, dwflags, core::mem::transmute(rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, &mut result__).map(|| result__)
+        CryptXmlOpenToDecode(pconfig.unwrap_or(core::mem::zeroed()) as _, dwflags, rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pencoded, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -121,13 +121,13 @@ where
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlOpenToEncode(pconfig : *const CRYPT_XML_TRANSFORM_CHAIN_CONFIG, dwflags : u32, wszid : windows_core::PCWSTR, rgproperty : *const CRYPT_XML_PROPERTY, cproperty : u32, pencoded : *const CRYPT_XML_BLOB, phsignature : *mut HCRYPTXML) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CryptXmlOpenToEncode(pconfig.unwrap_or(core::mem::zeroed()) as _, dwflags, wszid.param().abi(), core::mem::transmute(rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pencoded.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
+        CryptXmlOpenToEncode(pconfig.unwrap_or(core::mem::zeroed()) as _, dwflags, wszid.param().abi(), rgproperty.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgproperty.map_or(0, |slice| slice.len().try_into().unwrap()), pencoded.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
     }
 }
 #[inline]
 pub unsafe fn CryptXmlSetHMACSecret(hsignature: HCRYPTXML, pbsecret: &[u8]) -> windows_core::HRESULT {
     windows_core::link!("cryptxml.dll" "system" fn CryptXmlSetHMACSecret(hsignature : HCRYPTXML, pbsecret : *const u8, cbsecret : u32) -> windows_core::HRESULT);
-    unsafe { CryptXmlSetHMACSecret(hsignature, core::mem::transmute(pbsecret.as_ptr()), pbsecret.len().try_into().unwrap()) }
+    unsafe { CryptXmlSetHMACSecret(hsignature, pbsecret.as_ptr(), pbsecret.len().try_into().unwrap()) }
 }
 #[cfg(feature = "wincrypt")]
 #[inline]

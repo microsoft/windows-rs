@@ -436,7 +436,7 @@ impl IMediaObject {
         unsafe { (windows_core::Interface::vtable(self).ProcessInput)(windows_core::Interface::as_raw(self), dwinputstreamindex, pbuffer.param().abi(), dwflags, rttimestamp, rttimelength) }
     }
     pub unsafe fn ProcessOutput(&self, dwflags: u32, poutputbuffers: &mut [DMO_OUTPUT_DATA_BUFFER], pdwstatus: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, poutputbuffers.len().try_into().unwrap(), core::mem::transmute(poutputbuffers.as_ptr()), pdwstatus as _) }
+        unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, poutputbuffers.len().try_into().unwrap(), poutputbuffers.as_mut_ptr(), pdwstatus as _) }
     }
     pub unsafe fn Lock(&self, block: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Lock)(windows_core::Interface::as_raw(self), block) }
@@ -677,7 +677,7 @@ windows_core::imp::define_interface!(IMediaObjectInPlace, IMediaObjectInPlace_Vt
 windows_core::imp::interface_hierarchy!(IMediaObjectInPlace, windows_core::IUnknown);
 impl IMediaObjectInPlace {
     pub unsafe fn Process(&self, pdata: &mut [u8], reftimestart: REFERENCE_TIME, dwflags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), pdata.len().try_into().unwrap(), core::mem::transmute(pdata.as_ptr()), reftimestart, dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).Process)(windows_core::Interface::as_raw(self), pdata.len().try_into().unwrap(), pdata.as_mut_ptr(), reftimestart, dwflags) }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {

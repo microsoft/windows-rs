@@ -459,7 +459,7 @@ pub unsafe fn WTSVirtualChannelQuery(hchannelhandle: super::winnt::HANDLE, param
 #[inline]
 pub unsafe fn WTSVirtualChannelRead(hchannelhandle: super::winnt::HANDLE, timeout: u32, buffer: &mut [u8], pbytesread: *mut u32) -> windows_core::BOOL {
     windows_core::link!("wtsapi32.dll" "system" fn WTSVirtualChannelRead(hchannelhandle : super::winnt::HANDLE, timeout : u32, buffer : *mut i8, buffersize : u32, pbytesread : *mut u32) -> windows_core::BOOL);
-    unsafe { WTSVirtualChannelRead(hchannelhandle, timeout, core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap(), pbytesread as _) }
+    unsafe { WTSVirtualChannelRead(hchannelhandle, timeout, core::mem::transmute(buffer.as_mut_ptr()), buffer.len().try_into().unwrap(), pbytesread as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

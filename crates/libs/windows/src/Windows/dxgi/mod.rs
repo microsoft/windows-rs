@@ -1502,7 +1502,7 @@ impl IDXGIDevice {
     }
     #[cfg(feature = "winnt")]
     pub unsafe fn CreateSurface(&self, pdesc: *const DXGI_SURFACE_DESC, usage: DXGI_USAGE, psharedresource: Option<*const DXGI_SHARED_RESOURCE>, ppsurface: &mut [Option<IDXGISurface>]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), pdesc, ppsurface.len().try_into().unwrap(), usage, psharedresource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppsurface.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).CreateSurface)(windows_core::Interface::as_raw(self), pdesc, ppsurface.len().try_into().unwrap(), usage, psharedresource.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppsurface.as_mut_ptr())) }
     }
     pub unsafe fn QueryResourceResidency(&self, ppresources: *const Option<windows_core::IUnknown>, presidencystatus: *mut DXGI_RESIDENCY, numresources: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryResourceResidency)(windows_core::Interface::as_raw(self), core::mem::transmute(ppresources), presidencystatus as _, numresources) }
@@ -3806,7 +3806,7 @@ impl IDXGIOutput5 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DuplicateOutput1)(windows_core::Interface::as_raw(self), pdevice.param().abi(), flags, psupportedformats.len().try_into().unwrap(), core::mem::transmute(psupportedformats.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).DuplicateOutput1)(windows_core::Interface::as_raw(self), pdevice.param().abi(), flags, psupportedformats.len().try_into().unwrap(), psupportedformats.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

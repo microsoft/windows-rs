@@ -6,7 +6,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn AssocCreateForClasses(rgclasses : *const ASSOCIATIONELEMENT, cclasses : u32, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { AssocCreateForClasses(core::mem::transmute(rgclasses.as_ptr()), rgclasses.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { AssocCreateForClasses(rgclasses.as_ptr(), rgclasses.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn CommandLineToArgvW<P0>(lpcmdline: P0, pnumargs: *mut i32) -> *mut windows_core::PWSTR
@@ -19,12 +19,12 @@ where
 #[inline]
 pub unsafe fn DoEnvironmentSubstA(pszsrc: &mut [u8]) -> u32 {
     windows_core::link!("shell32.dll" "system" fn DoEnvironmentSubstA(pszsrc : windows_core::PSTR, cchsrc : u32) -> u32);
-    unsafe { DoEnvironmentSubstA(core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap()) }
+    unsafe { DoEnvironmentSubstA(core::mem::transmute(pszsrc.as_mut_ptr()), pszsrc.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn DoEnvironmentSubstW(pszsrc: &mut [u16]) -> u32 {
     windows_core::link!("shell32.dll" "system" fn DoEnvironmentSubstW(pszsrc : windows_core::PWSTR, cchsrc : u32) -> u32);
-    unsafe { DoEnvironmentSubstW(core::mem::transmute(pszsrc.as_ptr()), pszsrc.len().try_into().unwrap()) }
+    unsafe { DoEnvironmentSubstW(core::mem::transmute(pszsrc.as_mut_ptr()), pszsrc.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -40,12 +40,12 @@ pub unsafe fn DragFinish(hdrop: HDROP) {
 #[inline]
 pub unsafe fn DragQueryFileA(hdrop: HDROP, ifile: u32, lpszfile: Option<&mut [u8]>) -> u32 {
     windows_core::link!("shell32.dll" "system" fn DragQueryFileA(hdrop : HDROP, ifile : u32, lpszfile : windows_core::PSTR, cch : u32) -> u32);
-    unsafe { DragQueryFileA(hdrop, ifile, core::mem::transmute(lpszfile.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfile.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { DragQueryFileA(hdrop, ifile, core::mem::transmute(lpszfile.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszfile.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn DragQueryFileW(hdrop: HDROP, ifile: u32, lpszfile: Option<&mut [u16]>) -> u32 {
     windows_core::link!("shell32.dll" "system" fn DragQueryFileW(hdrop : HDROP, ifile : u32, lpszfile : windows_core::PWSTR, cch : u32) -> u32);
-    unsafe { DragQueryFileW(hdrop, ifile, core::mem::transmute(lpszfile.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfile.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { DragQueryFileW(hdrop, ifile, core::mem::transmute(lpszfile.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszfile.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -63,25 +63,25 @@ pub unsafe fn DuplicateIcon(hinst: Option<super::minwindef::HINSTANCE>, hicon: s
 #[inline]
 pub unsafe fn ExtractAssociatedIconA(hinst: Option<super::minwindef::HINSTANCE>, psziconpath: &mut [u8; 128], piicon: *mut u16) -> super::windef::HICON {
     windows_core::link!("shell32.dll" "system" fn ExtractAssociatedIconA(hinst : super::minwindef::HINSTANCE, psziconpath : windows_core::PSTR, piicon : *mut u16) -> super::windef::HICON);
-    unsafe { ExtractAssociatedIconA(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_ptr()), piicon as _) }
+    unsafe { ExtractAssociatedIconA(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), piicon as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn ExtractAssociatedIconExA(hinst: Option<super::minwindef::HINSTANCE>, psziconpath: &mut [u8; 128], piiconindex: *mut u16, piiconid: *mut u16) -> super::windef::HICON {
     windows_core::link!("shell32.dll" "system" fn ExtractAssociatedIconExA(hinst : super::minwindef::HINSTANCE, psziconpath : windows_core::PSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::windef::HICON);
-    unsafe { ExtractAssociatedIconExA(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_ptr()), piiconindex as _, piiconid as _) }
+    unsafe { ExtractAssociatedIconExA(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), piiconindex as _, piiconid as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn ExtractAssociatedIconExW(hinst: Option<super::minwindef::HINSTANCE>, psziconpath: &mut [u16; 128], piiconindex: *mut u16, piiconid: *mut u16) -> super::windef::HICON {
     windows_core::link!("shell32.dll" "system" fn ExtractAssociatedIconExW(hinst : super::minwindef::HINSTANCE, psziconpath : windows_core::PWSTR, piiconindex : *mut u16, piiconid : *mut u16) -> super::windef::HICON);
-    unsafe { ExtractAssociatedIconExW(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_ptr()), piiconindex as _, piiconid as _) }
+    unsafe { ExtractAssociatedIconExW(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), piiconindex as _, piiconid as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
 pub unsafe fn ExtractAssociatedIconW(hinst: Option<super::minwindef::HINSTANCE>, psziconpath: &mut [u16; 128], piicon: *mut u16) -> super::windef::HICON {
     windows_core::link!("shell32.dll" "system" fn ExtractAssociatedIconW(hinst : super::minwindef::HINSTANCE, psziconpath : windows_core::PWSTR, piicon : *mut u16) -> super::windef::HICON);
-    unsafe { ExtractAssociatedIconW(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_ptr()), piicon as _) }
+    unsafe { ExtractAssociatedIconW(hinst.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), piicon as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
@@ -194,7 +194,7 @@ where
 #[inline]
 pub unsafe fn SHEnumerateUnreadMailAccountsW(hkeyuser: Option<super::minwindef::HKEY>, dwindex: u32, pszmailaddress: &mut [u16]) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHEnumerateUnreadMailAccountsW(hkeyuser : super::minwindef::HKEY, dwindex : u32, pszmailaddress : windows_core::PWSTR, cchmailaddress : i32) -> windows_core::HRESULT);
-    unsafe { SHEnumerateUnreadMailAccountsW(hkeyuser.unwrap_or(core::mem::zeroed()) as _, dwindex, core::mem::transmute(pszmailaddress.as_ptr()), pszmailaddress.len().try_into().unwrap()) }
+    unsafe { SHEnumerateUnreadMailAccountsW(hkeyuser.unwrap_or(core::mem::zeroed()) as _, dwindex, core::mem::transmute(pszmailaddress.as_mut_ptr()), pszmailaddress.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SHEvaluateSystemCommandTemplate<P0>(pszcmdtemplate: P0, ppszapplication: *mut windows_core::PWSTR, ppszcommandline: *mut windows_core::PWSTR, ppszparameters: *mut windows_core::PWSTR) -> windows_core::HRESULT
@@ -282,7 +282,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetLocalizedName(pszpath : windows_core::PCWSTR, pszresmodule : windows_core::PWSTR, cch : u32, pidsres : *mut i32) -> windows_core::HRESULT);
-    unsafe { SHGetLocalizedName(pszpath.param().abi(), core::mem::transmute(pszresmodule.as_ptr()), pszresmodule.len().try_into().unwrap(), pidsres as _) }
+    unsafe { SHGetLocalizedName(pszpath.param().abi(), core::mem::transmute(pszresmodule.as_mut_ptr()), pszresmodule.len().try_into().unwrap(), pidsres as _) }
 }
 #[inline]
 pub unsafe fn SHGetNewLinkInfoA<P0, P1>(pszlinkto: P0, pszdir: P1, pszname: windows_core::PSTR, pfmustcopy: *mut windows_core::BOOL, uflags: u32) -> windows_core::BOOL
@@ -325,7 +325,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetUnreadMailCountW(hkeyuser : super::minwindef::HKEY, pszmailaddress : windows_core::PCWSTR, pdwcount : *mut u32, pfiletime : *mut super::minwindef::FILETIME, pszshellexecutecommand : windows_core::PWSTR, cchshellexecutecommand : i32) -> windows_core::HRESULT);
-    unsafe { SHGetUnreadMailCountW(hkeyuser.unwrap_or(core::mem::zeroed()) as _, pszmailaddress.param().abi(), pdwcount.unwrap_or(core::mem::zeroed()) as _, pfiletime.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszshellexecutecommand.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszshellexecutecommand.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SHGetUnreadMailCountW(hkeyuser.unwrap_or(core::mem::zeroed()) as _, pszmailaddress.param().abi(), pdwcount.unwrap_or(core::mem::zeroed()) as _, pfiletime.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszshellexecutecommand.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszshellexecutecommand.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "windef")]
 #[inline]

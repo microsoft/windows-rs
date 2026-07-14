@@ -39,7 +39,7 @@ pub unsafe fn CryptCATAdminCalcHashFromFileHandle2(hcatadmin: super::wintrust::H
 #[inline]
 pub unsafe fn CryptCATAdminEnumCatalogFromHash(hcatadmin: super::wintrust::HCATADMIN, pbhash: &[u8], dwflags: Option<u32>, phprevcatinfo: Option<*mut HCATINFO>) -> HCATINFO {
     windows_core::link!("wintrust.dll" "system" fn CryptCATAdminEnumCatalogFromHash(hcatadmin : super::wintrust::HCATADMIN, pbhash : *const u8, cbhash : u32, dwflags : u32, phprevcatinfo : *mut HCATINFO) -> HCATINFO);
-    unsafe { CryptCATAdminEnumCatalogFromHash(hcatadmin, core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), dwflags.unwrap_or(core::mem::zeroed()) as _, phprevcatinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptCATAdminEnumCatalogFromHash(hcatadmin, pbhash.as_ptr(), pbhash.len().try_into().unwrap(), dwflags.unwrap_or(core::mem::zeroed()) as _, phprevcatinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CryptCATAdminPauseServiceForBackup(dwflags: u32, fresume: bool) -> windows_core::BOOL {

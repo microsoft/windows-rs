@@ -2,25 +2,25 @@
 #[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: &[RUNTIME_FUNCTION], baseaddress: u64) -> bool {
     windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : *const RUNTIME_FUNCTION, entrycount : u32, baseaddress : u64) -> bool);
-    unsafe { RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress) }
+    unsafe { RtlAddFunctionTable(functiontable.as_ptr(), functiontable.len().try_into().unwrap(), baseaddress) }
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: &[ARM64_RUNTIME_FUNCTION], baseaddress: usize) -> bool {
     windows_core::link!("kernel32.dll" "C" fn RtlAddFunctionTable(functiontable : *const ARM64_RUNTIME_FUNCTION, entrycount : u32, baseaddress : usize) -> bool);
-    unsafe { RtlAddFunctionTable(core::mem::transmute(functiontable.as_ptr()), functiontable.len().try_into().unwrap(), baseaddress) }
+    unsafe { RtlAddFunctionTable(functiontable.as_ptr(), functiontable.len().try_into().unwrap(), baseaddress) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[RUNTIME_FUNCTION], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const RUNTIME_FUNCTION, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
-    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
+    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, functiontable.as_ptr(), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
 }
 #[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut core::ffi::c_void, functiontable: &[ARM64_RUNTIME_FUNCTION], entrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const ARM64_RUNTIME_FUNCTION, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
-    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, core::mem::transmute(functiontable.as_ptr()), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
+    unsafe { RtlAddGrowableFunctionTable(dynamictable as _, functiontable.as_ptr(), entrycount, functiontable.len().try_into().unwrap(), rangebase, rangeend) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[inline]
@@ -49,7 +49,7 @@ pub unsafe fn RtlCaptureContext2(contextrecord: *mut ARM64_NT_CONTEXT) {
 #[inline]
 pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, backtrace: &mut [*mut core::ffi::c_void], backtracehash: Option<*mut u32>) -> u16 {
     windows_core::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : *mut u32) -> u16);
-    unsafe { RtlCaptureStackBackTrace(framestoskip, backtrace.len().try_into().unwrap(), core::mem::transmute(backtrace.as_ptr()), backtracehash.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RtlCaptureStackBackTrace(framestoskip, backtrace.len().try_into().unwrap(), backtrace.as_mut_ptr(), backtracehash.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RtlCompareMemory(source1: *const core::ffi::c_void, source2: *const core::ffi::c_void, length: usize) -> usize {
@@ -121,7 +121,7 @@ pub unsafe fn RtlFlushNonVolatileMemory(nvtoken: *const core::ffi::c_void, nvbuf
 #[inline]
 pub unsafe fn RtlFlushNonVolatileMemoryRanges(nvtoken: *const core::ffi::c_void, nvranges: &[NV_MEMORY_RANGE], flags: u32) -> u32 {
     windows_core::link!("ntdll.dll" "system" fn RtlFlushNonVolatileMemoryRanges(nvtoken : *const core::ffi::c_void, nvranges : *const NV_MEMORY_RANGE, numranges : usize, flags : u32) -> u32);
-    unsafe { RtlFlushNonVolatileMemoryRanges(nvtoken, core::mem::transmute(nvranges.as_ptr()), nvranges.len().try_into().unwrap(), flags) }
+    unsafe { RtlFlushNonVolatileMemoryRanges(nvtoken, nvranges.as_ptr(), nvranges.len().try_into().unwrap(), flags) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]

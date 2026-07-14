@@ -8,7 +8,7 @@ where
     windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateVirtualCamera(r#type : MFVirtualCameraType, lifetime : MFVirtualCameraLifetime, access : MFVirtualCameraAccess, friendlyname : windows_core::PCWSTR, sourceid : windows_core::PCWSTR, categories : *const windows_core::GUID, categorycount : u32, virtualcamera : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFCreateVirtualCamera(r#type, lifetime, access, friendlyname.param().abi(), sourceid.param().abi(), core::mem::transmute(categories.map_or(core::ptr::null(), |slice| slice.as_ptr())), categories.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        MFCreateVirtualCamera(r#type, lifetime, access, friendlyname.param().abi(), sourceid.param().abi(), categories.map_or(core::ptr::null(), |slice| slice.as_ptr()), categories.map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[inline]
@@ -94,14 +94,14 @@ impl IMFVirtualCamera {
     }
     #[cfg(feature = "devpropdef")]
     pub unsafe fn AddProperty(&self, pkey: *const super::devpropdef::DEVPROPKEY, r#type: super::devpropdef::DEVPROPTYPE, pbdata: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddProperty)(windows_core::Interface::as_raw(self), pkey, r#type, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AddProperty)(windows_core::Interface::as_raw(self), pkey, r#type, pbdata.as_ptr(), pbdata.len().try_into().unwrap()) }
     }
     pub unsafe fn AddRegistryEntry<P0, P1>(&self, entryname: P0, subkeypath: P1, dwregtype: u32, pbdata: &[u8]) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddRegistryEntry)(windows_core::Interface::as_raw(self), entryname.param().abi(), subkeypath.param().abi(), dwregtype, core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AddRegistryEntry)(windows_core::Interface::as_raw(self), entryname.param().abi(), subkeypath.param().abi(), dwregtype, pbdata.as_ptr(), pbdata.len().try_into().unwrap()) }
     }
     pub unsafe fn Start<P0>(&self, pcallback: P0) -> windows_core::HRESULT
     where

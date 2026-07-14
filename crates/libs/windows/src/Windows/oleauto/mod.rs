@@ -501,7 +501,7 @@ where
 #[inline]
 pub unsafe fn SysAllocStringLen(strin: Option<&[super::wtypesbase::OLECHAR]>) -> windows_core::BSTR {
     windows_core::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : *const super::wtypesbase::OLECHAR, ui : u32) -> windows_core::BSTR);
-    unsafe { SysAllocStringLen(core::mem::transmute(strin.map_or(core::ptr::null(), |slice| slice.as_ptr())), strin.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SysAllocStringLen(strin.map_or(core::ptr::null(), |slice| slice.as_ptr()), strin.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SysFreeString(bstrstring: &windows_core::BSTR) {
@@ -2529,7 +2529,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("oleaut32.dll" "system" fn VarTokenizeFormatString(pstrformat : windows_core::PCWSTR, rgbtok : *mut u8, cbtok : i32, ifirstday : i32, ifirstweek : i32, lcid : super::winnt::LCID, pcbactual : *const i32) -> windows_core::HRESULT);
-    unsafe { VarTokenizeFormatString(pstrformat.param().abi(), core::mem::transmute(rgbtok.as_ptr()), rgbtok.len().try_into().unwrap(), ifirstday, ifirstweek, lcid, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { VarTokenizeFormatString(pstrformat.param().abi(), rgbtok.as_mut_ptr(), rgbtok.len().try_into().unwrap(), ifirstday, ifirstweek, lcid, pcbactual.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "wtypes")]
 #[inline]

@@ -21,7 +21,7 @@ pub unsafe fn RmEndSession(dwsessionhandle: u32) -> u32 {
 #[inline]
 pub unsafe fn RmGetFilterList(dwsessionhandle: u32, pbfilterbuf: Option<&mut [u8]>, cbfilterbufneeded: *mut u32) -> u32 {
     windows_core::link!("rstrtmgr.dll" "system" fn RmGetFilterList(dwsessionhandle : u32, pbfilterbuf : *mut u8, cbfilterbuf : u32, cbfilterbufneeded : *mut u32) -> u32);
-    unsafe { RmGetFilterList(dwsessionhandle, core::mem::transmute(pbfilterbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbfilterbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cbfilterbufneeded as _) }
+    unsafe { RmGetFilterList(dwsessionhandle, pbfilterbuf.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbfilterbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cbfilterbufneeded as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -38,7 +38,7 @@ pub unsafe fn RmJoinSession(psessionhandle: *mut u32, strsessionkey: *const u16)
 #[inline]
 pub unsafe fn RmRegisterResources(dwsessionhandle: u32, rgsfilenames: Option<&[windows_core::PCWSTR]>, rgapplications: Option<&[RM_UNIQUE_PROCESS]>, rgsservicenames: Option<&[windows_core::PCWSTR]>) -> u32 {
     windows_core::link!("rstrtmgr.dll" "system" fn RmRegisterResources(dwsessionhandle : u32, nfiles : u32, rgsfilenames : *const windows_core::PCWSTR, napplications : u32, rgapplications : *const RM_UNIQUE_PROCESS, nservices : u32, rgsservicenames : *const windows_core::PCWSTR) -> u32);
-    unsafe { RmRegisterResources(dwsessionhandle, rgsfilenames.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgsfilenames.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgapplications.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgapplications.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgsservicenames.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgsservicenames.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { RmRegisterResources(dwsessionhandle, rgsfilenames.map_or(0, |slice| slice.len().try_into().unwrap()), rgsfilenames.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgapplications.map_or(0, |slice| slice.len().try_into().unwrap()), rgapplications.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgsservicenames.map_or(0, |slice| slice.len().try_into().unwrap()), rgsservicenames.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]

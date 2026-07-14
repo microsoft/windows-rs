@@ -40,17 +40,17 @@ where
 #[inline]
 pub unsafe fn BCryptCreateHash(halgorithm: BCRYPT_ALG_HANDLE, phhash: *mut BCRYPT_HASH_HANDLE, pbhashobject: Option<&mut [u8]>, pbsecret: Option<&[u8]>, dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptCreateHash(halgorithm : BCRYPT_ALG_HANDLE, phhash : *mut BCRYPT_HASH_HANDLE, pbhashobject : *mut u8, cbhashobject : u32, pbsecret : *const u8, cbsecret : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptCreateHash(halgorithm as _, phhash as _, core::mem::transmute(pbhashobject.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbhashobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbsecret.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsecret.map_or(0, |slice| slice.len().try_into().unwrap()), dwflags) }
+    unsafe { BCryptCreateHash(halgorithm as _, phhash as _, pbhashobject.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbhashobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbsecret.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbsecret.map_or(0, |slice| slice.len().try_into().unwrap()), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptCreateMultiHash(halgorithm: BCRYPT_ALG_HANDLE, phhash: *mut BCRYPT_HASH_HANDLE, nhashes: u32, pbhashobject: Option<&mut [u8]>, pbsecret: Option<&[u8]>, dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptCreateMultiHash(halgorithm : BCRYPT_ALG_HANDLE, phhash : *mut BCRYPT_HASH_HANDLE, nhashes : u32, pbhashobject : *mut u8, cbhashobject : u32, pbsecret : *const u8, cbsecret : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptCreateMultiHash(halgorithm as _, phhash as _, nhashes, core::mem::transmute(pbhashobject.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbhashobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbsecret.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsecret.map_or(0, |slice| slice.len().try_into().unwrap()), dwflags) }
+    unsafe { BCryptCreateMultiHash(halgorithm as _, phhash as _, nhashes, pbhashobject.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbhashobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbsecret.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbsecret.map_or(0, |slice| slice.len().try_into().unwrap()), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptDecapsulate(hkey: BCRYPT_KEY_HANDLE, pbciphertext: &[u8], pbsecretkey: Option<&mut [u8]>, pcbsecretkey: *mut u32, dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptDecapsulate(hkey : BCRYPT_KEY_HANDLE, pbciphertext : *const u8, cbciphertext : u32, pbsecretkey : *mut u8, cbsecretkey : u32, pcbsecretkey : *mut u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptDecapsulate(hkey, core::mem::transmute(pbciphertext.as_ptr()), pbciphertext.len().try_into().unwrap(), core::mem::transmute(pbsecretkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsecretkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsecretkey as _, dwflags) }
+    unsafe { BCryptDecapsulate(hkey, pbciphertext.as_ptr(), pbciphertext.len().try_into().unwrap(), pbsecretkey.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbsecretkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsecretkey as _, dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptDecrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pbiv: Option<&mut [u8]>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> NTSTATUS {
@@ -58,12 +58,12 @@ pub unsafe fn BCryptDecrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppa
     unsafe {
         BCryptDecrypt(
             hkey as _,
-            core::mem::transmute(pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr()),
             pbinput.map_or(0, |slice| slice.len().try_into().unwrap()),
             ppaddinginfo.unwrap_or(core::mem::zeroed()) as _,
-            core::mem::transmute(pbiv.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pbiv.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
             pbiv.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
             pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
             pcbresult as _,
             dwflags,
@@ -84,17 +84,17 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("bcrypt.dll" "system" fn BCryptDeriveKey(hsharedsecret : BCRYPT_SECRET_HANDLE, pwszkdf : windows_core::PCWSTR, pparameterlist : *const BCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptDeriveKey(hsharedsecret, pwszkdf.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbderivedkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbderivedkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { BCryptDeriveKey(hsharedsecret, pwszkdf.param().abi(), pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbderivedkey.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbderivedkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptDeriveKeyCapi(hhash: BCRYPT_HASH_HANDLE, htargetalg: Option<BCRYPT_ALG_HANDLE>, pbderivedkey: &mut [u8], dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptDeriveKeyCapi(hhash : BCRYPT_HASH_HANDLE, htargetalg : BCRYPT_ALG_HANDLE, pbderivedkey : *mut u8, cbderivedkey : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptDeriveKeyCapi(hhash, htargetalg.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbderivedkey.as_ptr()), pbderivedkey.len().try_into().unwrap(), dwflags) }
+    unsafe { BCryptDeriveKeyCapi(hhash, htargetalg.unwrap_or(core::mem::zeroed()) as _, pbderivedkey.as_mut_ptr(), pbderivedkey.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptDeriveKeyPBKDF2(hprf: BCRYPT_ALG_HANDLE, pbpassword: Option<&[u8]>, pbsalt: Option<&[u8]>, citerations: u64, pbderivedkey: &mut [u8], dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptDeriveKeyPBKDF2(hprf : BCRYPT_ALG_HANDLE, pbpassword : *const u8, cbpassword : u32, pbsalt : *const u8, cbsalt : u32, citerations : u64, pbderivedkey : *mut u8, cbderivedkey : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptDeriveKeyPBKDF2(hprf, core::mem::transmute(pbpassword.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbpassword.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbsalt.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsalt.map_or(0, |slice| slice.len().try_into().unwrap()), citerations, core::mem::transmute(pbderivedkey.as_ptr()), pbderivedkey.len().try_into().unwrap(), dwflags) }
+    unsafe { BCryptDeriveKeyPBKDF2(hprf, pbpassword.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbpassword.map_or(0, |slice| slice.len().try_into().unwrap()), pbsalt.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbsalt.map_or(0, |slice| slice.len().try_into().unwrap()), citerations, pbderivedkey.as_mut_ptr(), pbderivedkey.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptDestroyHash(hhash: BCRYPT_HASH_HANDLE) -> NTSTATUS {
@@ -114,17 +114,17 @@ pub unsafe fn BCryptDestroySecret(hsecret: BCRYPT_SECRET_HANDLE) -> NTSTATUS {
 #[inline]
 pub unsafe fn BCryptDuplicateHash(hhash: BCRYPT_HASH_HANDLE, phnewhash: *mut BCRYPT_HASH_HANDLE, pbhashobject: Option<&mut [u8]>, dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptDuplicateHash(hhash : BCRYPT_HASH_HANDLE, phnewhash : *mut BCRYPT_HASH_HANDLE, pbhashobject : *mut u8, cbhashobject : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptDuplicateHash(hhash, phnewhash as _, core::mem::transmute(pbhashobject.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbhashobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwflags) }
+    unsafe { BCryptDuplicateHash(hhash, phnewhash as _, pbhashobject.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbhashobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptDuplicateKey(hkey: BCRYPT_KEY_HANDLE, phnewkey: *mut BCRYPT_KEY_HANDLE, pbkeyobject: Option<&mut [u8]>, dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptDuplicateKey(hkey : BCRYPT_KEY_HANDLE, phnewkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : *mut u8, cbkeyobject : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptDuplicateKey(hkey, phnewkey as _, core::mem::transmute(pbkeyobject.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbkeyobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwflags) }
+    unsafe { BCryptDuplicateKey(hkey, phnewkey as _, pbkeyobject.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbkeyobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptEncapsulate(hkey: BCRYPT_KEY_HANDLE, pbsecretkey: Option<&mut [u8]>, pcbsecretkey: *mut u32, pbciphertext: Option<&mut [u8]>, pcbciphertext: *mut u32, dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptEncapsulate(hkey : BCRYPT_KEY_HANDLE, pbsecretkey : *mut u8, cbsecretkey : u32, pcbsecretkey : *mut u32, pbciphertext : *mut u8, cbciphertext : u32, pcbciphertext : *mut u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptEncapsulate(hkey, core::mem::transmute(pbsecretkey.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsecretkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsecretkey as _, core::mem::transmute(pbciphertext.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbciphertext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbciphertext as _, dwflags) }
+    unsafe { BCryptEncapsulate(hkey, pbsecretkey.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbsecretkey.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbsecretkey as _, pbciphertext.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbciphertext.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbciphertext as _, dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptEncrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppaddinginfo: Option<*const core::ffi::c_void>, pbiv: Option<&mut [u8]>, pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> NTSTATUS {
@@ -132,12 +132,12 @@ pub unsafe fn BCryptEncrypt(hkey: BCRYPT_KEY_HANDLE, pbinput: Option<&[u8]>, ppa
     unsafe {
         BCryptEncrypt(
             hkey as _,
-            core::mem::transmute(pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pbinput.map_or(core::ptr::null(), |slice| slice.as_ptr()),
             pbinput.map_or(0, |slice| slice.len().try_into().unwrap()),
             ppaddinginfo.unwrap_or(core::mem::zeroed()) as _,
-            core::mem::transmute(pbiv.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pbiv.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
             pbiv.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
             pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
             pcbresult as _,
             dwflags,
@@ -190,7 +190,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("bcrypt.dll" "system" fn BCryptExportKey(hkey : BCRYPT_KEY_HANDLE, hexportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptExportKey(hkey, hexportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { BCryptExportKey(hkey, hexportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptFinalizeKeyPair(hkey: BCRYPT_KEY_HANDLE, dwflags: u32) -> NTSTATUS {
@@ -200,7 +200,7 @@ pub unsafe fn BCryptFinalizeKeyPair(hkey: BCRYPT_KEY_HANDLE, dwflags: u32) -> NT
 #[inline]
 pub unsafe fn BCryptFinishHash(hhash: BCRYPT_HASH_HANDLE, pboutput: &mut [u8], dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptFinishHash(hhash : BCRYPT_HASH_HANDLE, pboutput : *mut u8, cboutput : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptFinishHash(hhash as _, core::mem::transmute(pboutput.as_ptr()), pboutput.len().try_into().unwrap(), dwflags) }
+    unsafe { BCryptFinishHash(hhash as _, pboutput.as_mut_ptr(), pboutput.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptFreeBuffer(pvbuffer: *const core::ffi::c_void) {
@@ -210,7 +210,7 @@ pub unsafe fn BCryptFreeBuffer(pvbuffer: *const core::ffi::c_void) {
 #[inline]
 pub unsafe fn BCryptGenRandom(halgorithm: Option<BCRYPT_ALG_HANDLE>, pbbuffer: &mut [u8], dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptGenRandom(halgorithm : BCRYPT_ALG_HANDLE, pbbuffer : *mut u8, cbbuffer : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptGenRandom(halgorithm.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbbuffer.as_ptr()), pbbuffer.len().try_into().unwrap(), dwflags) }
+    unsafe { BCryptGenRandom(halgorithm.unwrap_or(core::mem::zeroed()) as _, pbbuffer.as_mut_ptr(), pbbuffer.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptGenerateKeyPair(halgorithm: BCRYPT_ALG_HANDLE, phkey: *mut BCRYPT_KEY_HANDLE, dwlength: u32, dwflags: u32) -> NTSTATUS {
@@ -220,7 +220,7 @@ pub unsafe fn BCryptGenerateKeyPair(halgorithm: BCRYPT_ALG_HANDLE, phkey: *mut B
 #[inline]
 pub unsafe fn BCryptGenerateSymmetricKey(halgorithm: BCRYPT_ALG_HANDLE, phkey: *mut BCRYPT_KEY_HANDLE, pbkeyobject: Option<&mut [u8]>, pbsecret: &[u8], dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptGenerateSymmetricKey(halgorithm : BCRYPT_ALG_HANDLE, phkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : *mut u8, cbkeyobject : u32, pbsecret : *const u8, cbsecret : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptGenerateSymmetricKey(halgorithm as _, phkey as _, core::mem::transmute(pbkeyobject.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbkeyobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbsecret.as_ptr()), pbsecret.len().try_into().unwrap(), dwflags) }
+    unsafe { BCryptGenerateSymmetricKey(halgorithm as _, phkey as _, pbkeyobject.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbkeyobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbsecret.as_ptr(), pbsecret.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptGetFipsAlgorithmMode(pfenabled: *mut bool) -> NTSTATUS {
@@ -233,17 +233,17 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("bcrypt.dll" "system" fn BCryptGetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_core::PCWSTR, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptGetProperty(hobject, pszproperty.param().abi(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { BCryptGetProperty(hobject, pszproperty.param().abi(), pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptHash(halgorithm: BCRYPT_ALG_HANDLE, pbsecret: Option<&[u8]>, pbinput: &[u8], pboutput: &mut [u8]) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptHash(halgorithm : BCRYPT_ALG_HANDLE, pbsecret : *const u8, cbsecret : u32, pbinput : *const u8, cbinput : u32, pboutput : *mut u8, cboutput : u32) -> NTSTATUS);
-    unsafe { BCryptHash(halgorithm as _, core::mem::transmute(pbsecret.map_or(core::ptr::null(), |slice| slice.as_ptr())), pbsecret.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(pboutput.as_ptr()), pboutput.len().try_into().unwrap()) }
+    unsafe { BCryptHash(halgorithm as _, pbsecret.map_or(core::ptr::null(), |slice| slice.as_ptr()), pbsecret.map_or(0, |slice| slice.len().try_into().unwrap()), pbinput.as_ptr(), pbinput.len().try_into().unwrap(), pboutput.as_mut_ptr(), pboutput.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn BCryptHashData(hhash: BCRYPT_HASH_HANDLE, pbinput: &[u8], dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptHashData(hhash : BCRYPT_HASH_HANDLE, pbinput : *const u8, cbinput : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptHashData(hhash as _, core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), dwflags) }
+    unsafe { BCryptHashData(hhash as _, pbinput.as_ptr(), pbinput.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptImportKey<P2>(halgorithm: BCRYPT_ALG_HANDLE, himportkey: Option<BCRYPT_KEY_HANDLE>, pszblobtype: P2, phkey: *mut BCRYPT_KEY_HANDLE, pbkeyobject: Option<&mut [u8]>, pbinput: &[u8], dwflags: u32) -> NTSTATUS
@@ -251,7 +251,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("bcrypt.dll" "system" fn BCryptImportKey(halgorithm : BCRYPT_ALG_HANDLE, himportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, phkey : *mut BCRYPT_KEY_HANDLE, pbkeyobject : *mut u8, cbkeyobject : u32, pbinput : *const u8, cbinput : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptImportKey(halgorithm, himportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), phkey as _, core::mem::transmute(pbkeyobject.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbkeyobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), dwflags) }
+    unsafe { BCryptImportKey(halgorithm, himportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), phkey as _, pbkeyobject.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pbkeyobject.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pbinput.as_ptr(), pbinput.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptImportKeyPair<P2>(halgorithm: BCRYPT_ALG_HANDLE, himportkey: Option<BCRYPT_KEY_HANDLE>, pszblobtype: P2, phkey: *mut BCRYPT_KEY_HANDLE, pbinput: &[u8], dwflags: u32) -> NTSTATUS
@@ -259,12 +259,12 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("bcrypt.dll" "system" fn BCryptImportKeyPair(halgorithm : BCRYPT_ALG_HANDLE, himportkey : BCRYPT_KEY_HANDLE, pszblobtype : windows_core::PCWSTR, phkey : *mut BCRYPT_KEY_HANDLE, pbinput : *const u8, cbinput : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptImportKeyPair(halgorithm, himportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), phkey as _, core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), dwflags) }
+    unsafe { BCryptImportKeyPair(halgorithm, himportkey.unwrap_or(core::mem::zeroed()) as _, pszblobtype.param().abi(), phkey as _, pbinput.as_ptr(), pbinput.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptKeyDerivation(hkey: BCRYPT_KEY_HANDLE, pparameterlist: Option<*const BCryptBufferDesc>, pbderivedkey: &mut [u8], pcbresult: *mut u32, dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptKeyDerivation(hkey : BCRYPT_KEY_HANDLE, pparameterlist : *const BCryptBufferDesc, pbderivedkey : *mut u8, cbderivedkey : u32, pcbresult : *mut u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptKeyDerivation(hkey, pparameterlist.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbderivedkey.as_ptr()), pbderivedkey.len().try_into().unwrap(), pcbresult as _, dwflags) }
+    unsafe { BCryptKeyDerivation(hkey, pparameterlist.unwrap_or(core::mem::zeroed()) as _, pbderivedkey.as_mut_ptr(), pbderivedkey.len().try_into().unwrap(), pcbresult as _, dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptOpenAlgorithmProvider<P1, P2>(phalgorithm: *mut BCRYPT_ALG_HANDLE, pszalgid: P1, pszimplementation: P2, dwflags: u32) -> NTSTATUS
@@ -355,7 +355,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("bcrypt.dll" "system" fn BCryptSetContextFunctionProperty(dwtable : u32, pszcontext : windows_core::PCWSTR, dwinterface : u32, pszfunction : windows_core::PCWSTR, pszproperty : windows_core::PCWSTR, cbvalue : u32, pbvalue : *const u8) -> NTSTATUS);
-    unsafe { BCryptSetContextFunctionProperty(dwtable, pszcontext.param().abi(), dwinterface, pszfunction.param().abi(), pszproperty.param().abi(), pbvalue.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbvalue.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { BCryptSetContextFunctionProperty(dwtable, pszcontext.param().abi(), dwinterface, pszfunction.param().abi(), pszproperty.param().abi(), pbvalue.map_or(0, |slice| slice.len().try_into().unwrap()), pbvalue.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[inline]
 pub unsafe fn BCryptSetProperty<P1>(hobject: BCRYPT_HANDLE, pszproperty: P1, pbinput: &[u8], dwflags: u32) -> NTSTATUS
@@ -363,12 +363,12 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("bcrypt.dll" "system" fn BCryptSetProperty(hobject : BCRYPT_HANDLE, pszproperty : windows_core::PCWSTR, pbinput : *const u8, cbinput : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptSetProperty(hobject as _, pszproperty.param().abi(), core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), dwflags) }
+    unsafe { BCryptSetProperty(hobject as _, pszproperty.param().abi(), pbinput.as_ptr(), pbinput.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
 pub unsafe fn BCryptSignHash(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Option<*const core::ffi::c_void>, pbinput: &[u8], pboutput: Option<&mut [u8]>, pcbresult: *mut u32, dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptSignHash(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbinput : *const u8, cbinput : u32, pboutput : *mut u8, cboutput : u32, pcbresult : *mut u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptSignHash(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbinput.as_ptr()), pbinput.len().try_into().unwrap(), core::mem::transmute(pboutput.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
+    unsafe { BCryptSignHash(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pbinput.as_ptr(), pbinput.len().try_into().unwrap(), pboutput.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pboutput.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, dwflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -379,7 +379,7 @@ pub unsafe fn BCryptUnregisterConfigChangeNotify(hevent: super::winnt::HANDLE) -
 #[inline]
 pub unsafe fn BCryptVerifySignature(hkey: BCRYPT_KEY_HANDLE, ppaddinginfo: Option<*const core::ffi::c_void>, pbhash: &[u8], pbsignature: &[u8], dwflags: u32) -> NTSTATUS {
     windows_core::link!("bcrypt.dll" "system" fn BCryptVerifySignature(hkey : BCRYPT_KEY_HANDLE, ppaddinginfo : *const core::ffi::c_void, pbhash : *const u8, cbhash : u32, pbsignature : *const u8, cbsignature : u32, dwflags : u32) -> NTSTATUS);
-    unsafe { BCryptVerifySignature(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap(), core::mem::transmute(pbsignature.as_ptr()), pbsignature.len().try_into().unwrap(), dwflags) }
+    unsafe { BCryptVerifySignature(hkey, ppaddinginfo.unwrap_or(core::mem::zeroed()) as _, pbhash.as_ptr(), pbhash.len().try_into().unwrap(), pbsignature.as_ptr(), pbsignature.len().try_into().unwrap(), dwflags) }
 }
 pub const BCRYPTBUFFER_VERSION: u32 = 0;
 pub const BCRYPT_3DES_112_ALGORITHM: windows_core::PCWSTR = windows_core::w!("3DES_112");

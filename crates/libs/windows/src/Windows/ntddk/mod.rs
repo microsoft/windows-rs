@@ -4,7 +4,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn DbgPrompt(prompt : windows_core::PCSTR, response : *mut i8, length : u32) -> u32);
-    unsafe { DbgPrompt(prompt.param().abi(), core::mem::transmute(response.as_ptr()), response.len().try_into().unwrap()) }
+    unsafe { DbgPrompt(prompt.param().abi(), core::mem::transmute(response.as_mut_ptr()), response.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]

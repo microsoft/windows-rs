@@ -311,7 +311,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymAddSourceStream(hprocess : super::winnt::HANDLE, base : u64, streamfile : windows_core::PCSTR, buffer : *const u8, size : usize) -> windows_core::BOOL);
-    unsafe { SymAddSourceStream(hprocess, base, streamfile.param().abi(), core::mem::transmute(buffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SymAddSourceStream(hprocess, base, streamfile.param().abi(), buffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), buffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -320,7 +320,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymAddSourceStreamA(hprocess : super::winnt::HANDLE, base : u64, streamfile : windows_core::PCSTR, buffer : *const u8, size : usize) -> windows_core::BOOL);
-    unsafe { SymAddSourceStreamA(hprocess, base, streamfile.param().abi(), core::mem::transmute(buffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SymAddSourceStreamA(hprocess, base, streamfile.param().abi(), buffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), buffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -329,7 +329,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymAddSourceStreamW(hprocess : super::winnt::HANDLE, base : u64, filespec : windows_core::PCWSTR, buffer : *const u8, size : usize) -> windows_core::BOOL);
-    unsafe { SymAddSourceStreamW(hprocess, base, filespec.param().abi(), core::mem::transmute(buffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), buffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SymAddSourceStreamW(hprocess, base, filespec.param().abi(), buffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), buffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -738,18 +738,18 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetFileLineOffsets64(hprocess : super::winnt::HANDLE, modulename : windows_core::PCSTR, filename : windows_core::PCSTR, buffer : *mut u64, bufferlines : u32) -> u32);
-    unsafe { SymGetFileLineOffsets64(hprocess, modulename.param().abi(), filename.param().abi(), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
+    unsafe { SymGetFileLineOffsets64(hprocess, modulename.param().abi(), filename.param().abi(), buffer.as_mut_ptr(), buffer.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SymGetHomeDirectory(r#type: u32, dir: &mut [u8]) -> super::winnt::PCHAR {
     windows_core::link!("dbghelp.dll" "system" fn SymGetHomeDirectory(r#type : u32, dir : windows_core::PSTR, size : usize) -> super::winnt::PCHAR);
-    unsafe { SymGetHomeDirectory(r#type, core::mem::transmute(dir.as_ptr()), dir.len().try_into().unwrap()) }
+    unsafe { SymGetHomeDirectory(r#type, core::mem::transmute(dir.as_mut_ptr()), dir.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SymGetHomeDirectoryW(r#type: u32, dir: &mut [u16]) -> windows_core::PWSTR {
     windows_core::link!("dbghelp.dll" "system" fn SymGetHomeDirectoryW(r#type : u32, dir : windows_core::PWSTR, size : usize) -> windows_core::PWSTR);
-    unsafe { SymGetHomeDirectoryW(r#type, core::mem::transmute(dir.as_ptr()), dir.len().try_into().unwrap()) }
+    unsafe { SymGetHomeDirectoryW(r#type, core::mem::transmute(dir.as_mut_ptr()), dir.len().try_into().unwrap()) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
@@ -923,13 +923,13 @@ pub unsafe fn SymGetScopeW(hprocess: super::winnt::HANDLE, baseofdll: u64, index
 #[inline]
 pub unsafe fn SymGetSearchPath(hprocess: super::winnt::HANDLE, searchpatha: &mut [u8]) -> windows_core::BOOL {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSearchPath(hprocess : super::winnt::HANDLE, searchpatha : windows_core::PSTR, searchpathlength : u32) -> windows_core::BOOL);
-    unsafe { SymGetSearchPath(hprocess, core::mem::transmute(searchpatha.as_ptr()), searchpatha.len().try_into().unwrap()) }
+    unsafe { SymGetSearchPath(hprocess, core::mem::transmute(searchpatha.as_mut_ptr()), searchpatha.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn SymGetSearchPathW(hprocess: super::winnt::HANDLE, searchpatha: &mut [u16]) -> windows_core::BOOL {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSearchPathW(hprocess : super::winnt::HANDLE, searchpatha : windows_core::PWSTR, searchpathlength : u32) -> windows_core::BOOL);
-    unsafe { SymGetSearchPathW(hprocess, core::mem::transmute(searchpatha.as_ptr()), searchpatha.len().try_into().unwrap()) }
+    unsafe { SymGetSearchPathW(hprocess, core::mem::transmute(searchpatha.as_mut_ptr()), searchpatha.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -939,7 +939,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSourceFile(hprocess : super::winnt::HANDLE, base : u64, params : windows_core::PCSTR, filespec : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> windows_core::BOOL);
-    unsafe { SymGetSourceFile(hprocess, base, params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()) }
+    unsafe { SymGetSourceFile(hprocess, base, params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_mut_ptr()), filepath.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -948,7 +948,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksum(hprocess : super::winnt::HANDLE, base : u64, filespec : windows_core::PCSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> windows_core::BOOL);
-    unsafe { SymGetSourceFileChecksum(hprocess, base, filespec.param().abi(), pchecksumtype as _, core::mem::transmute(pchecksum.as_ptr()), pchecksum.len().try_into().unwrap(), pactualbyteswritten as _) }
+    unsafe { SymGetSourceFileChecksum(hprocess, base, filespec.param().abi(), pchecksumtype as _, pchecksum.as_mut_ptr(), pchecksum.len().try_into().unwrap(), pactualbyteswritten as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -957,7 +957,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksumW(hprocess : super::winnt::HANDLE, base : u64, filespec : windows_core::PCWSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> windows_core::BOOL);
-    unsafe { SymGetSourceFileChecksumW(hprocess, base, filespec.param().abi(), pchecksumtype as _, core::mem::transmute(pchecksum.as_ptr()), pchecksum.len().try_into().unwrap(), pactualbyteswritten as _) }
+    unsafe { SymGetSourceFileChecksumW(hprocess, base, filespec.param().abi(), pchecksumtype as _, pchecksum.as_mut_ptr(), pchecksum.len().try_into().unwrap(), pactualbyteswritten as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -966,7 +966,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSourceFileFromToken(hprocess : super::winnt::HANDLE, token : *const core::ffi::c_void, params : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> windows_core::BOOL);
-    unsafe { SymGetSourceFileFromToken(hprocess, token, params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()) }
+    unsafe { SymGetSourceFileFromToken(hprocess, token, params.param().abi(), core::mem::transmute(filepath.as_mut_ptr()), filepath.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -976,7 +976,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenName(hprocess : super::winnt::HANDLE, token : *const core::ffi::c_void, tokenname : windows_core::PCSTR, params : windows_core::PCSTR, filepath : windows_core::PSTR, size : u32) -> windows_core::BOOL);
-    unsafe { SymGetSourceFileFromTokenByTokenName(hprocess, token, tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()) }
+    unsafe { SymGetSourceFileFromTokenByTokenName(hprocess, token, tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_mut_ptr()), filepath.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -986,7 +986,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenNameW(hprocess : super::winnt::HANDLE, token : *const core::ffi::c_void, tokenname : windows_core::PCWSTR, params : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> windows_core::BOOL);
-    unsafe { SymGetSourceFileFromTokenByTokenNameW(hprocess, token, tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()) }
+    unsafe { SymGetSourceFileFromTokenByTokenNameW(hprocess, token, tokenname.param().abi(), params.param().abi(), core::mem::transmute(filepath.as_mut_ptr()), filepath.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -995,7 +995,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenW(hprocess : super::winnt::HANDLE, token : *const core::ffi::c_void, params : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> windows_core::BOOL);
-    unsafe { SymGetSourceFileFromTokenW(hprocess, token, params.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()) }
+    unsafe { SymGetSourceFileFromTokenW(hprocess, token, params.param().abi(), core::mem::transmute(filepath.as_mut_ptr()), filepath.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1045,7 +1045,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSourceFileW(hprocess : super::winnt::HANDLE, base : u64, params : windows_core::PCWSTR, filespec : windows_core::PCWSTR, filepath : windows_core::PWSTR, size : u32) -> windows_core::BOOL);
-    unsafe { SymGetSourceFileW(hprocess, base, params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_ptr()), filepath.len().try_into().unwrap()) }
+    unsafe { SymGetSourceFileW(hprocess, base, params.param().abi(), filespec.param().abi(), core::mem::transmute(filepath.as_mut_ptr()), filepath.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1055,7 +1055,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSourceVarFromToken(hprocess : super::winnt::HANDLE, token : *const core::ffi::c_void, params : windows_core::PCSTR, varname : windows_core::PCSTR, value : windows_core::PSTR, size : u32) -> windows_core::BOOL);
-    unsafe { SymGetSourceVarFromToken(hprocess, token, params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()) }
+    unsafe { SymGetSourceVarFromToken(hprocess, token, params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_mut_ptr()), value.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1065,7 +1065,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSourceVarFromTokenW(hprocess : super::winnt::HANDLE, token : *const core::ffi::c_void, params : windows_core::PCWSTR, varname : windows_core::PCWSTR, value : windows_core::PWSTR, size : u32) -> windows_core::BOOL);
-    unsafe { SymGetSourceVarFromTokenW(hprocess, token, params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_ptr()), value.len().try_into().unwrap()) }
+    unsafe { SymGetSourceVarFromTokenW(hprocess, token, params.param().abi(), varname.param().abi(), core::mem::transmute(value.as_mut_ptr()), value.len().try_into().unwrap()) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
@@ -1133,7 +1133,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSymbolFile(hprocess : super::winnt::HANDLE, sympath : windows_core::PCSTR, imagefile : windows_core::PCSTR, r#type : u32, symbolfile : windows_core::PSTR, csymbolfile : usize, dbgfile : windows_core::PSTR, cdbgfile : usize) -> windows_core::BOOL);
-    unsafe { SymGetSymbolFile(hprocess.unwrap_or(core::mem::zeroed()) as _, sympath.param().abi(), imagefile.param().abi(), r#type, core::mem::transmute(symbolfile.as_ptr()), symbolfile.len().try_into().unwrap(), core::mem::transmute(dbgfile.as_ptr()), dbgfile.len().try_into().unwrap()) }
+    unsafe { SymGetSymbolFile(hprocess.unwrap_or(core::mem::zeroed()) as _, sympath.param().abi(), imagefile.param().abi(), r#type, core::mem::transmute(symbolfile.as_mut_ptr()), symbolfile.len().try_into().unwrap(), core::mem::transmute(dbgfile.as_mut_ptr()), dbgfile.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1143,7 +1143,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymGetSymbolFileW(hprocess : super::winnt::HANDLE, sympath : windows_core::PCWSTR, imagefile : windows_core::PCWSTR, r#type : u32, symbolfile : windows_core::PWSTR, csymbolfile : usize, dbgfile : windows_core::PWSTR, cdbgfile : usize) -> windows_core::BOOL);
-    unsafe { SymGetSymbolFileW(hprocess.unwrap_or(core::mem::zeroed()) as _, sympath.param().abi(), imagefile.param().abi(), r#type, core::mem::transmute(symbolfile.as_ptr()), symbolfile.len().try_into().unwrap(), core::mem::transmute(dbgfile.as_ptr()), dbgfile.len().try_into().unwrap()) }
+    unsafe { SymGetSymbolFileW(hprocess.unwrap_or(core::mem::zeroed()) as _, sympath.param().abi(), imagefile.param().abi(), r#type, core::mem::transmute(symbolfile.as_mut_ptr()), symbolfile.len().try_into().unwrap(), core::mem::transmute(dbgfile.as_mut_ptr()), dbgfile.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1495,7 +1495,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexString(hprocess : super::winnt::HANDLE, srvpath : windows_core::PCSTR, file : windows_core::PCSTR, index : windows_core::PSTR, size : usize, flags : u32) -> windows_core::BOOL);
-    unsafe { SymSrvGetFileIndexString(hprocess, srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_ptr()), index.len().try_into().unwrap(), flags) }
+    unsafe { SymSrvGetFileIndexString(hprocess, srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_mut_ptr()), index.len().try_into().unwrap(), flags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1505,7 +1505,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexStringW(hprocess : super::winnt::HANDLE, srvpath : windows_core::PCWSTR, file : windows_core::PCWSTR, index : windows_core::PWSTR, size : usize, flags : u32) -> windows_core::BOOL);
-    unsafe { SymSrvGetFileIndexStringW(hprocess, srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_ptr()), index.len().try_into().unwrap(), flags) }
+    unsafe { SymSrvGetFileIndexStringW(hprocess, srvpath.param().abi(), file.param().abi(), core::mem::transmute(index.as_mut_ptr()), index.len().try_into().unwrap(), flags) }
 }
 #[inline]
 pub unsafe fn SymSrvGetFileIndexes<P0>(file: P0, id: *mut windows_core::GUID, val1: *mut u32, val2: Option<*mut u32>, flags: u32) -> windows_core::BOOL
@@ -1609,12 +1609,12 @@ where
 #[inline]
 pub unsafe fn SymUnDName(sym: *const IMAGEHLP_SYMBOL, undecname: &mut [u8]) -> windows_core::BOOL {
     windows_core::link!("dbghelp.dll" "system" fn SymUnDName(sym : *const IMAGEHLP_SYMBOL, undecname : windows_core::PSTR, undecnamelength : u32) -> windows_core::BOOL);
-    unsafe { SymUnDName(sym, core::mem::transmute(undecname.as_ptr()), undecname.len().try_into().unwrap()) }
+    unsafe { SymUnDName(sym, core::mem::transmute(undecname.as_mut_ptr()), undecname.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: &mut [u8]) -> windows_core::BOOL {
     windows_core::link!("dbghelp.dll" "system" fn SymUnDName64(sym : *const IMAGEHLP_SYMBOL64, undecname : windows_core::PSTR, undecnamelength : u32) -> windows_core::BOOL);
-    unsafe { SymUnDName64(sym, core::mem::transmute(undecname.as_ptr()), undecname.len().try_into().unwrap()) }
+    unsafe { SymUnDName64(sym, core::mem::transmute(undecname.as_mut_ptr()), undecname.len().try_into().unwrap()) }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
@@ -1635,7 +1635,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn UnDecorateSymbolName(name : windows_core::PCSTR, outputstring : windows_core::PSTR, maxstringlength : u32, flags : u32) -> u32);
-    unsafe { UnDecorateSymbolName(name.param().abi(), core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), flags) }
+    unsafe { UnDecorateSymbolName(name.param().abi(), core::mem::transmute(outputstring.as_mut_ptr()), outputstring.len().try_into().unwrap(), flags) }
 }
 #[inline]
 pub unsafe fn UnDecorateSymbolNameW<P0>(name: P0, outputstring: &mut [u16], flags: u32) -> u32
@@ -1643,7 +1643,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dbghelp.dll" "system" fn UnDecorateSymbolNameW(name : windows_core::PCWSTR, outputstring : windows_core::PWSTR, maxstringlength : u32, flags : u32) -> u32);
-    unsafe { UnDecorateSymbolNameW(name.param().abi(), core::mem::transmute(outputstring.as_ptr()), outputstring.len().try_into().unwrap(), flags) }
+    unsafe { UnDecorateSymbolNameW(name.param().abi(), core::mem::transmute(outputstring.as_mut_ptr()), outputstring.len().try_into().unwrap(), flags) }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]

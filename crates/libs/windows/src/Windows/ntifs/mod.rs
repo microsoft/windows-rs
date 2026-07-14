@@ -8,7 +8,7 @@ pub unsafe fn NtAccessCheckAndAuditAlarm(subsystemname: *const super::ntsecapi::
 #[inline]
 pub unsafe fn NtAccessCheckByTypeAndAuditAlarm(subsystemname: *const super::ntsecapi::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::ntsecapi::UNICODE_STRING, objectname: *const super::ntsecapi::UNICODE_STRING, securitydescriptor: super::winnt::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::winnt::PSID>, desiredaccess: super::winnt::ACCESS_MASK, audittype: super::winnt::AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<&[super::winnt::OBJECT_TYPE_LIST]>, genericmapping: *const super::winnt::GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut super::winnt::ACCESS_MASK, accessstatus: *mut super::bcrypt::NTSTATUS, generateonclose: *mut bool) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtAccessCheckByTypeAndAuditAlarm(subsystemname : *const super::ntsecapi::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::ntsecapi::UNICODE_STRING, objectname : *const super::ntsecapi::UNICODE_STRING, securitydescriptor : super::winnt::PSECURITY_DESCRIPTOR, principalselfsid : super::winnt::PSID, desiredaccess : super::winnt::ACCESS_MASK, audittype : super::winnt::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::winnt::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::winnt::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::winnt::ACCESS_MASK, accessstatus : *mut super::bcrypt::NTSTATUS, generateonclose : *mut bool) -> super::bcrypt::NTSTATUS);
-    unsafe { NtAccessCheckByTypeAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, core::mem::transmute(objecttypelist.map_or(core::ptr::null(), |slice| slice.as_ptr())), objecttypelist.map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
+    unsafe { NtAccessCheckByTypeAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.map_or(core::ptr::null(), |slice| slice.as_ptr()), objecttypelist.map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
 }
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
@@ -80,7 +80,7 @@ pub unsafe fn NtCreateSection(sectionhandle: *mut super::winnt::HANDLE, desireda
 #[inline]
 pub unsafe fn NtCreateSectionEx(sectionhandle: *mut super::winnt::HANDLE, desiredaccess: super::winnt::ACCESS_MASK, objectattributes: Option<*const super::d3dkmthk::OBJECT_ATTRIBUTES>, maximumsize: Option<*const i64>, sectionpageprotection: u32, allocationattributes: u32, filehandle: Option<super::winnt::HANDLE>, extendedparameters: Option<&mut [super::winnt::MEM_EXTENDED_PARAMETER]>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtCreateSectionEx(sectionhandle : *mut super::winnt::HANDLE, desiredaccess : super::winnt::ACCESS_MASK, objectattributes : *const super::d3dkmthk::OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::winnt::HANDLE, extendedparameters : *mut super::winnt::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { NtCreateSectionEx(sectionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, maximumsize.unwrap_or(core::mem::zeroed()) as _, sectionpageprotection, allocationattributes, filehandle.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { NtCreateSectionEx(sectionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, maximumsize.unwrap_or(core::mem::zeroed()) as _, sectionpageprotection, allocationattributes, filehandle.unwrap_or(core::mem::zeroed()) as _, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi"))]
 #[inline]
@@ -254,7 +254,7 @@ pub unsafe fn NtSetInformationToken(tokenhandle: super::winnt::HANDLE, tokeninfo
 #[inline]
 pub unsafe fn NtSetInformationVirtualMemory(processhandle: super::winnt::HANDLE, vminformationclass: VIRTUAL_MEMORY_INFORMATION_CLASS, virtualaddresses: &[MEMORY_RANGE_ENTRY], vminformation: *const core::ffi::c_void, vminformationlength: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn NtSetInformationVirtualMemory(processhandle : super::winnt::HANDLE, vminformationclass : VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries : usize, virtualaddresses : *const MEMORY_RANGE_ENTRY, vminformation : *const core::ffi::c_void, vminformationlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { NtSetInformationVirtualMemory(processhandle, vminformationclass, virtualaddresses.len().try_into().unwrap(), core::mem::transmute(virtualaddresses.as_ptr()), vminformation, vminformationlength) }
+    unsafe { NtSetInformationVirtualMemory(processhandle, vminformationclass, virtualaddresses.len().try_into().unwrap(), virtualaddresses.as_ptr(), vminformation, vminformationlength) }
 }
 #[cfg(all(feature = "bcrypt", feature = "winnt", feature = "winternl"))]
 #[inline]
@@ -348,7 +348,7 @@ pub unsafe fn RtlAllocateAndInitializeSid(identifierauthority: *const super::win
 #[inline]
 pub unsafe fn RtlAllocateAndInitializeSidEx(identifierauthority: *const super::winnt::SID_IDENTIFIER_AUTHORITY, subauthorities: &[u32], sid: *mut super::winnt::PSID) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSidEx(identifierauthority : *const super::winnt::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, subauthorities : *const u32, sid : *mut super::winnt::PSID) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlAllocateAndInitializeSidEx(identifierauthority, subauthorities.len().try_into().unwrap(), core::mem::transmute(subauthorities.as_ptr()), sid as _) }
+    unsafe { RtlAllocateAndInitializeSidEx(identifierauthority, subauthorities.len().try_into().unwrap(), subauthorities.as_ptr(), sid as _) }
 }
 #[inline]
 pub unsafe fn RtlAllocateHeap(heaphandle: *const core::ffi::c_void, flags: Option<u32>, size: usize) -> *mut core::ffi::c_void {
@@ -376,7 +376,7 @@ pub unsafe fn RtlCompareMemoryUlong(source: *const core::ffi::c_void, length: us
 #[inline]
 pub unsafe fn RtlCompressBuffer(compressionformatandengine: u16, uncompressedbuffer: &[u8], compressedbuffer: &mut [u8], uncompressedchunksize: u32, finalcompressedsize: *mut u32, workspace: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlCompressBuffer(compressionformatandengine : u16, uncompressedbuffer : *const u8, uncompressedbuffersize : u32, compressedbuffer : *mut u8, compressedbuffersize : u32, uncompressedchunksize : u32, finalcompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlCompressBuffer(compressionformatandengine, core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len().try_into().unwrap(), core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), uncompressedchunksize, finalcompressedsize as _, workspace) }
+    unsafe { RtlCompressBuffer(compressionformatandengine, uncompressedbuffer.as_ptr(), uncompressedbuffer.len().try_into().unwrap(), compressedbuffer.as_mut_ptr(), compressedbuffer.len().try_into().unwrap(), uncompressedchunksize, finalcompressedsize as _, workspace) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -439,19 +439,19 @@ pub unsafe fn RtlCustomCPToUnicodeN(customcp: *const super::ntnls::CPTABLEINFO, 
 #[inline]
 pub unsafe fn RtlDecompressBuffer(compressionformat: u16, uncompressedbuffer: &mut [u8], compressedbuffer: &[u8], finaluncompressedsize: *mut u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlDecompressBuffer(compressionformat : u16, uncompressedbuffer : *mut u8, uncompressedbuffersize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, finaluncompressedsize : *mut u32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlDecompressBuffer(compressionformat, core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len().try_into().unwrap(), core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize as _) }
+    unsafe { RtlDecompressBuffer(compressionformat, uncompressedbuffer.as_mut_ptr(), uncompressedbuffer.len().try_into().unwrap(), compressedbuffer.as_ptr(), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize as _) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn RtlDecompressBufferEx(compressionformat: u16, uncompressedbuffer: &mut [u8], compressedbuffer: &[u8], finaluncompressedsize: *mut u32, workspace: Option<*const core::ffi::c_void>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlDecompressBufferEx(compressionformat : u16, uncompressedbuffer : *mut u8, uncompressedbuffersize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, finaluncompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlDecompressBufferEx(compressionformat, core::mem::transmute(uncompressedbuffer.as_ptr()), uncompressedbuffer.len().try_into().unwrap(), core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize as _, workspace.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RtlDecompressBufferEx(compressionformat, uncompressedbuffer.as_mut_ptr(), uncompressedbuffer.len().try_into().unwrap(), compressedbuffer.as_ptr(), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize as _, workspace.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn RtlDecompressFragment(compressionformat: u16, uncompressedfragment: &mut [u8], compressedbuffer: &[u8], fragmentoffset: u32, finaluncompressedsize: *mut u32, workspace: *const core::ffi::c_void) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlDecompressFragment(compressionformat : u16, uncompressedfragment : *mut u8, uncompressedfragmentsize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, fragmentoffset : u32, finaluncompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlDecompressFragment(compressionformat, core::mem::transmute(uncompressedfragment.as_ptr()), uncompressedfragment.len().try_into().unwrap(), core::mem::transmute(compressedbuffer.as_ptr()), compressedbuffer.len().try_into().unwrap(), fragmentoffset, finaluncompressedsize as _, workspace) }
+    unsafe { RtlDecompressFragment(compressionformat, uncompressedfragment.as_mut_ptr(), uncompressedfragment.len().try_into().unwrap(), compressedbuffer.as_ptr(), compressedbuffer.len().try_into().unwrap(), fragmentoffset, finaluncompressedsize as _, workspace) }
 }
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
@@ -585,7 +585,7 @@ where
 #[inline]
 pub unsafe fn RtlInitCodePageTable(tablebase: Option<&[u16; 2]>, codepagetable: *mut super::ntnls::CPTABLEINFO) {
     windows_core::link!("ntdll.dll" "system" fn RtlInitCodePageTable(tablebase : *const u16, codepagetable : *mut super::ntnls::CPTABLEINFO));
-    unsafe { RtlInitCodePageTable(core::mem::transmute(tablebase.map_or(core::ptr::null(), |slice| slice.as_ptr())), codepagetable as _) }
+    unsafe { RtlInitCodePageTable(tablebase.map_or(core::ptr::null(), |slice| slice.as_ptr()), codepagetable as _) }
 }
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi"))]
 #[inline]
@@ -811,19 +811,19 @@ pub unsafe fn RtlUnicodeStringToCountedOemString(destinationstring: super::winte
 #[inline]
 pub unsafe fn RtlUnicodeToCustomCPN(customcp: *const super::ntnls::CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToCustomCPN(customcp : *const super::ntnls::CPTABLEINFO, customcpstring : *mut i8, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap(), bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+    unsafe { RtlUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_mut_ptr()), customcpstring.len().try_into().unwrap(), bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn RtlUnicodeToMultiByteN(multibytestring: &mut [u8], bytesinmultibytestring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToMultiByteN(multibytestring : *mut i8, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlUnicodeToMultiByteN(core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap(), bytesinmultibytestring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+    unsafe { RtlUnicodeToMultiByteN(core::mem::transmute(multibytestring.as_mut_ptr()), multibytestring.len().try_into().unwrap(), bytesinmultibytestring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn RtlUnicodeToOemN(oemstring: &mut [u8], bytesinoemstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToOemN(oemstring : *mut i8, maxbytesinoemstring : u32, bytesinoemstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlUnicodeToOemN(core::mem::transmute(oemstring.as_ptr()), oemstring.len().try_into().unwrap(), bytesinoemstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+    unsafe { RtlUnicodeToOemN(core::mem::transmute(oemstring.as_mut_ptr()), oemstring.len().try_into().unwrap(), bytesinoemstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
 #[inline]
@@ -841,19 +841,19 @@ pub unsafe fn RtlUpcaseUnicodeStringToOemString(destinationstring: super::winter
 #[inline]
 pub unsafe fn RtlUpcaseUnicodeToCustomCPN(customcp: *const super::ntnls::CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToCustomCPN(customcp : *const super::ntnls::CPTABLEINFO, customcpstring : *mut i8, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlUpcaseUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap(), bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+    unsafe { RtlUpcaseUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_mut_ptr()), customcpstring.len().try_into().unwrap(), bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn RtlUpcaseUnicodeToMultiByteN(multibytestring: &mut [u8], bytesinmultibytestring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToMultiByteN(multibytestring : *mut i8, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlUpcaseUnicodeToMultiByteN(core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap(), bytesinmultibytestring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+    unsafe { RtlUpcaseUnicodeToMultiByteN(core::mem::transmute(multibytestring.as_mut_ptr()), multibytestring.len().try_into().unwrap(), bytesinmultibytestring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn RtlUpcaseUnicodeToOemN(oemstring: &mut [u8], bytesinoemstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToOemN(oemstring : *mut i8, maxbytesinoemstring : u32, bytesinoemstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlUpcaseUnicodeToOemN(core::mem::transmute(oemstring.as_ptr()), oemstring.len().try_into().unwrap(), bytesinoemstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+    unsafe { RtlUpcaseUnicodeToOemN(core::mem::transmute(oemstring.as_mut_ptr()), oemstring.len().try_into().unwrap(), bytesinoemstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -889,7 +889,7 @@ pub unsafe fn ZwAllocateVirtualMemory(processhandle: super::winnt::HANDLE, basea
 #[inline]
 pub unsafe fn ZwAllocateVirtualMemoryEx(processhandle: super::winnt::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, allocationtype: u32, pageprotection: u32, extendedparameters: Option<&mut [super::winnt::MEM_EXTENDED_PARAMETER]>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwAllocateVirtualMemoryEx(processhandle : super::winnt::HANDLE, baseaddress : *mut *mut core::ffi::c_void, regionsize : *mut usize, allocationtype : u32, pageprotection : u32, extendedparameters : *mut super::winnt::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { ZwAllocateVirtualMemoryEx(processhandle, baseaddress as _, regionsize as _, allocationtype, pageprotection, core::mem::transmute(extendedparameters.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { ZwAllocateVirtualMemoryEx(processhandle, baseaddress as _, regionsize as _, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "bcrypt", feature = "d3dkmthk", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
@@ -1045,7 +1045,7 @@ pub unsafe fn ZwSetInformationToken(tokenhandle: super::winnt::HANDLE, tokeninfo
 #[inline]
 pub unsafe fn ZwSetInformationVirtualMemory(processhandle: super::winnt::HANDLE, vminformationclass: VIRTUAL_MEMORY_INFORMATION_CLASS, virtualaddresses: &[MEMORY_RANGE_ENTRY], vminformation: *const core::ffi::c_void, vminformationlength: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn ZwSetInformationVirtualMemory(processhandle : super::winnt::HANDLE, vminformationclass : VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries : usize, virtualaddresses : *const MEMORY_RANGE_ENTRY, vminformation : *const core::ffi::c_void, vminformationlength : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { ZwSetInformationVirtualMemory(processhandle, vminformationclass, virtualaddresses.len().try_into().unwrap(), core::mem::transmute(virtualaddresses.as_ptr()), vminformation, vminformationlength) }
+    unsafe { ZwSetInformationVirtualMemory(processhandle, vminformationclass, virtualaddresses.len().try_into().unwrap(), virtualaddresses.as_ptr(), vminformation, vminformationlength) }
 }
 #[cfg(all(feature = "bcrypt", feature = "winnt", feature = "winternl"))]
 #[inline]

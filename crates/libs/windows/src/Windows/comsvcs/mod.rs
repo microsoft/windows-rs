@@ -726,10 +726,10 @@ impl ICOMLBArguments {
         unsafe { (windows_core::Interface::vtable(self).SetCLSID)(windows_core::Interface::as_raw(self), pclsid) }
     }
     pub unsafe fn GetMachineName(&self, szservername: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMachineName)(windows_core::Interface::as_raw(self), szservername.len().try_into().unwrap(), core::mem::transmute(szservername.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).GetMachineName)(windows_core::Interface::as_raw(self), szservername.len().try_into().unwrap(), szservername.as_mut_ptr()) }
     }
     pub unsafe fn SetMachineName(&self, szservername: &[u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMachineName)(windows_core::Interface::as_raw(self), szservername.len().try_into().unwrap(), core::mem::transmute(szservername.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetMachineName)(windows_core::Interface::as_raw(self), szservername.len().try_into().unwrap(), szservername.as_ptr()) }
     }
 }
 #[repr(C)]
@@ -1087,7 +1087,7 @@ impl IComCRMEvents {
         unsafe { (windows_core::Interface::vtable(self).OnCRMCheckpoint)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidapp)) }
     }
     pub unsafe fn OnCRMBegin(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, guidactivity: windows_core::GUID, guidtx: windows_core::GUID, szprogidcompensator: &[u16; 64], szdescription: &[u16; 64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMBegin)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid), core::mem::transmute(guidactivity), core::mem::transmute(guidtx), core::mem::transmute(szprogidcompensator.as_ptr()), core::mem::transmute(szdescription.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMBegin)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid), core::mem::transmute(guidactivity), core::mem::transmute(guidtx), szprogidcompensator.as_ptr(), szdescription.as_ptr()) }
     }
     pub unsafe fn OnCRMPrepare(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnCRMPrepare)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid)) }
@@ -2112,10 +2112,10 @@ windows_core::imp::define_interface!(IComQCEvents, IComQCEvents_Vtbl, 0x683130b2
 windows_core::imp::interface_hierarchy!(IComQCEvents, windows_core::IUnknown);
 impl IComQCEvents {
     pub unsafe fn OnQCRecord(&self, pinfo: *const COMSVCSEVENTINFO, objid: u64, szqueue: &[u16; 60], guidmsgid: *const windows_core::GUID, guidworkflowid: *const windows_core::GUID, msmqhr: windows_core::HRESULT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnQCRecord)(windows_core::Interface::as_raw(self), pinfo, objid, core::mem::transmute(szqueue.as_ptr()), guidmsgid, guidworkflowid, msmqhr) }
+        unsafe { (windows_core::Interface::vtable(self).OnQCRecord)(windows_core::Interface::as_raw(self), pinfo, objid, szqueue.as_ptr(), guidmsgid, guidworkflowid, msmqhr) }
     }
     pub unsafe fn OnQCQueueOpen(&self, pinfo: *const COMSVCSEVENTINFO, szqueue: &[u16; 60], queueid: u64, hr: windows_core::HRESULT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnQCQueueOpen)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(szqueue.as_ptr()), queueid, hr) }
+        unsafe { (windows_core::Interface::vtable(self).OnQCQueueOpen)(windows_core::Interface::as_raw(self), pinfo, szqueue.as_ptr(), queueid, hr) }
     }
     pub unsafe fn OnQCReceive(&self, pinfo: *const COMSVCSEVENTINFO, queueid: u64, guidmsgid: *const windows_core::GUID, guidworkflowid: *const windows_core::GUID, hr: windows_core::HRESULT) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnQCReceive)(windows_core::Interface::as_raw(self), pinfo, queueid, guidmsgid, guidworkflowid, hr) }

@@ -98,7 +98,7 @@ where
     P2: windows_core::Param<IRoMetaDataLocator>,
 {
     windows_core::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoGetParameterizedTypeInstanceIID(nameelementcount : u32, nameelements : *const windows_core::PCWSTR, metadatalocator : *mut core::ffi::c_void, iid : *mut windows_core::GUID, pextra : *mut ROPARAMIIDHANDLE) -> windows_core::HRESULT);
-    unsafe { RoGetParameterizedTypeInstanceIID(nameelements.len().try_into().unwrap(), core::mem::transmute(nameelements.as_ptr()), metadatalocator.param().abi(), iid as _, pextra as _) }
+    unsafe { RoGetParameterizedTypeInstanceIID(nameelements.len().try_into().unwrap(), nameelements.as_ptr(), metadatalocator.param().abi(), iid as _, pextra as _) }
 }
 #[inline]
 pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> windows_core::HRESULT {
@@ -353,7 +353,7 @@ impl IRoSimpleMetaDataBuilder {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetInterfaceGroupParameterizedDefault)(windows_core::Interface::as_raw(self), name.param().abi(), defaultinterfacenameelements.len().try_into().unwrap(), core::mem::transmute(defaultinterfacenameelements.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetInterfaceGroupParameterizedDefault)(windows_core::Interface::as_raw(self), name.param().abi(), defaultinterfacenameelements.len().try_into().unwrap(), defaultinterfacenameelements.as_ptr()) }
     }
     pub unsafe fn SetRuntimeClassSimpleDefault<P0, P1>(&self, name: P0, defaultinterfacename: P1, defaultinterfaceiid: Option<*const windows_core::GUID>) -> windows_core::HRESULT
     where
@@ -366,13 +366,13 @@ impl IRoSimpleMetaDataBuilder {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetRuntimeClassParameterizedDefault)(windows_core::Interface::as_raw(self), name.param().abi(), defaultinterfacenameelements.len().try_into().unwrap(), core::mem::transmute(defaultinterfacenameelements.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetRuntimeClassParameterizedDefault)(windows_core::Interface::as_raw(self), name.param().abi(), defaultinterfacenameelements.len().try_into().unwrap(), defaultinterfacenameelements.as_ptr()) }
     }
     pub unsafe fn SetStruct<P0>(&self, name: P0, fieldtypenames: &[windows_core::PCWSTR]) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetStruct)(windows_core::Interface::as_raw(self), name.param().abi(), fieldtypenames.len().try_into().unwrap(), core::mem::transmute(fieldtypenames.as_ptr())) }
+        unsafe { (windows_core::Interface::vtable(self).SetStruct)(windows_core::Interface::as_raw(self), name.param().abi(), fieldtypenames.len().try_into().unwrap(), fieldtypenames.as_ptr()) }
     }
     pub unsafe fn SetEnum<P0, P1>(&self, name: P0, basetype: P1) -> windows_core::HRESULT
     where

@@ -560,7 +560,7 @@ where
     P0: windows_core::Param<super::mfobjects::IMFAttributes>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFGetAttributesAsBlob(pattributes : *mut core::ffi::c_void, pbuf : *mut u8, cbbufsize : u32) -> windows_core::HRESULT);
-    unsafe { MFGetAttributesAsBlob(pattributes.param().abi(), core::mem::transmute(pbuf.as_ptr()), pbuf.len().try_into().unwrap()) }
+    unsafe { MFGetAttributesAsBlob(pattributes.param().abi(), pbuf.as_mut_ptr(), pbuf.len().try_into().unwrap()) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -597,7 +597,7 @@ where
 #[inline]
 pub unsafe fn MFGetMFTMerit(pmft: &Option<windows_core::IUnknown>, verifier: &[u8], merit: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFGetMFTMerit(pmft : *mut core::ffi::c_void, cbverifier : u32, verifier : *const u8, merit : *mut u32) -> windows_core::HRESULT);
-    unsafe { MFGetMFTMerit(core::mem::transmute_copy(pmft), verifier.len().try_into().unwrap(), core::mem::transmute(verifier.as_ptr()), merit as _) }
+    unsafe { MFGetMFTMerit(core::mem::transmute_copy(pmft), verifier.len().try_into().unwrap(), verifier.as_ptr(), merit as _) }
 }
 #[inline]
 pub unsafe fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32) -> windows_core::Result<u32> {
@@ -685,7 +685,7 @@ where
     P0: windows_core::Param<super::mfobjects::IMFAttributes>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFInitAttributesFromBlob(pattributes : *mut core::ffi::c_void, pbuf : *const u8, cbbufsize : u32) -> windows_core::HRESULT);
-    unsafe { MFInitAttributesFromBlob(pattributes.param().abi(), core::mem::transmute(pbuf.as_ptr()), pbuf.len().try_into().unwrap()) }
+    unsafe { MFInitAttributesFromBlob(pattributes.param().abi(), pbuf.as_ptr(), pbuf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "mfobjects", feature = "strmif"))]
 #[inline]
@@ -924,7 +924,7 @@ where
     P0: windows_core::Param<super::mfobjects::IMFSample>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFSplitSample(psample : *mut core::ffi::c_void, poutputsamples : *mut *mut core::ffi::c_void, dwoutputsamplemaxcount : u32, pdwoutputsamplecount : *mut u32) -> windows_core::HRESULT);
-    unsafe { MFSplitSample(psample.param().abi(), core::mem::transmute(poutputsamples.as_ptr()), poutputsamples.len().try_into().unwrap(), pdwoutputsamplecount as _) }
+    unsafe { MFSplitSample(psample.param().abi(), core::mem::transmute(poutputsamples.as_mut_ptr()), poutputsamples.len().try_into().unwrap(), pdwoutputsamplecount as _) }
 }
 #[inline]
 pub unsafe fn MFStartup(version: u32, dwflags: u32) -> windows_core::HRESULT {
@@ -969,7 +969,7 @@ where
     P8: windows_core::Param<super::mfobjects::IMFAttributes>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFTRegister(clsidmft : windows_core::GUID, guidcategory : windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const super::mfobjects::MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const super::mfobjects::MFT_REGISTER_TYPE_INFO, pattributes : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFTRegister(core::mem::transmute(clsidmft), core::mem::transmute(guidcategory), pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr())), pattributes.param().abi()) }
+    unsafe { MFTRegister(core::mem::transmute(clsidmft), core::mem::transmute(guidcategory), pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), pattributes.param().abi()) }
 }
 #[cfg(all(feature = "mfobjects", feature = "unknwnbase"))]
 #[inline]
@@ -979,7 +979,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFTRegisterLocal(pclassfactory : *mut core::ffi::c_void, guidcategory : *const windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const super::mfobjects::MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const super::mfobjects::MFT_REGISTER_TYPE_INFO) -> windows_core::HRESULT);
-    unsafe { MFTRegisterLocal(pclassfactory.param().abi(), guidcategory, pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { MFTRegisterLocal(pclassfactory.param().abi(), guidcategory, pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -988,7 +988,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFTRegisterLocalByCLSID(clisdmft : *const windows_core::GUID, guidcategory : *const windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const super::mfobjects::MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const super::mfobjects::MFT_REGISTER_TYPE_INFO) -> windows_core::HRESULT);
-    unsafe { MFTRegisterLocalByCLSID(clisdmft, guidcategory, pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { MFTRegisterLocalByCLSID(clisdmft, guidcategory, pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[inline]
 pub unsafe fn MFTUnregister(clsidmft: windows_core::GUID) -> windows_core::HRESULT {
@@ -1044,7 +1044,7 @@ where
 #[inline]
 pub unsafe fn MFValidateMediaTypeSize(formattype: windows_core::GUID, pblock: Option<&[u8]>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFValidateMediaTypeSize(formattype : windows_core::GUID, pblock : *const u8, cbsize : u32) -> windows_core::HRESULT);
-    unsafe { MFValidateMediaTypeSize(core::mem::transmute(formattype), core::mem::transmute(pblock.map_or(core::ptr::null(), |slice| slice.as_ptr())), pblock.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MFValidateMediaTypeSize(core::mem::transmute(formattype), pblock.map_or(core::ptr::null(), |slice| slice.as_ptr()), pblock.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]

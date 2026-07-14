@@ -20,7 +20,7 @@ pub unsafe fn TransmitFile(hsocket: super::winsock2::SOCKET, hfile: super::winnt
 #[inline]
 pub unsafe fn WSARecvEx(s: super::winsock2::SOCKET, buf: &mut [u8], flags: *mut i32) -> i32 {
     windows_core::link!("mswsock.dll" "system" fn WSARecvEx(s : super::winsock2::SOCKET, buf : *mut i8, len : i32, flags : *mut i32) -> i32);
-    unsafe { WSARecvEx(s, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap(), flags as _) }
+    unsafe { WSARecvEx(s, core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap(), flags as _) }
 }
 pub const DE_REUSE_SOCKET: u32 = 2;
 #[cfg(all(feature = "minwinbase", feature = "winnt", feature = "winsock2"))]

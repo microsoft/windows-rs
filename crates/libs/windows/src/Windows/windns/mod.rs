@@ -74,7 +74,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyInfoForHostUrl(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *const u8, dwselectioncontextlength : u32, dwexplicitinterfaceindex : u32, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32);
-    unsafe { DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.param().abi(), core::mem::transmute(pselectioncontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), pselectioncontext.map_or(0, |slice| slice.len().try_into().unwrap()), dwexplicitinterfaceindex, pproxyinfoex as _) }
+    unsafe { DnsConnectionGetProxyInfoForHostUrl(pwszhosturl.param().abi(), pselectioncontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), pselectioncontext.map_or(0, |slice| slice.len().try_into().unwrap()), dwexplicitinterfaceindex, pproxyinfoex as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -84,7 +84,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dnsapi.dll" "C" fn DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl : windows_core::PCWSTR, pselectioncontext : *const u8, dwselectioncontextlength : u32, dwexplicitinterfaceindex : u32, pwszconnectionname : windows_core::PCWSTR, pproxyinfoex : *mut DNS_CONNECTION_PROXY_INFO_EX) -> u32);
-    unsafe { DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl.param().abi(), core::mem::transmute(pselectioncontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), pselectioncontext.map_or(0, |slice| slice.len().try_into().unwrap()), dwexplicitinterfaceindex, pwszconnectionname.param().abi(), pproxyinfoex as _) }
+    unsafe { DnsConnectionGetProxyInfoForHostUrlEx(pwszhosturl.param().abi(), pselectioncontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), pselectioncontext.map_or(0, |slice| slice.len().try_into().unwrap()), dwexplicitinterfaceindex, pwszconnectionname.param().abi(), pproxyinfoex as _) }
 }
 #[inline]
 pub unsafe fn DnsConnectionGetProxyList<P0>(pwszconnectionname: P0, pproxylist: *mut DNS_CONNECTION_PROXY_LIST) -> u32
@@ -368,7 +368,7 @@ pub unsafe fn DnsServiceResolveCancel(pcancelhandle: *const DNS_SERVICE_CANCEL) 
 #[inline]
 pub unsafe fn DnsSetApplicationSettings(pservers: &[DNS_CUSTOM_SERVER], psettings: Option<*const DNS_APPLICATION_SETTINGS>) -> u32 {
     windows_core::link!("dnsapi.dll" "C" fn DnsSetApplicationSettings(cservers : u32, pservers : *const DNS_CUSTOM_SERVER, psettings : *const DNS_APPLICATION_SETTINGS) -> u32);
-    unsafe { DnsSetApplicationSettings(pservers.len().try_into().unwrap(), core::mem::transmute(pservers.as_ptr()), psettings.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { DnsSetApplicationSettings(pservers.len().try_into().unwrap(), pservers.as_ptr(), psettings.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]

@@ -47,7 +47,7 @@ pub unsafe fn EnableTraceEx2(traceid: CONTROLTRACE_ID, providerid: *const window
 #[inline]
 pub unsafe fn EnumerateTraceGuids(guidpropertiesarray: &mut [PTRACE_GUID_PROPERTIES], guidcount: *mut u32) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn EnumerateTraceGuids(guidpropertiesarray : *mut PTRACE_GUID_PROPERTIES, propertyarraycount : u32, guidcount : *mut u32) -> u32);
-    unsafe { EnumerateTraceGuids(core::mem::transmute(guidpropertiesarray.as_ptr()), guidpropertiesarray.len().try_into().unwrap(), guidcount as _) }
+    unsafe { EnumerateTraceGuids(guidpropertiesarray.as_mut_ptr(), guidpropertiesarray.len().try_into().unwrap(), guidcount as _) }
 }
 #[inline]
 pub unsafe fn EnumerateTraceGuidsEx(tracequeryinfoclass: TRACE_QUERY_INFO_CLASS, inbuffer: Option<*const core::ffi::c_void>, inbuffersize: u32, outbuffer: Option<*mut core::ffi::c_void>, outbuffersize: u32, returnlength: *mut u32) -> u32 {
@@ -136,7 +136,7 @@ pub unsafe fn OpenTraceW(logfile: *mut EVENT_TRACE_LOGFILEW) -> PROCESSTRACE_HAN
 #[inline]
 pub unsafe fn ProcessTrace(handlearray: &[PROCESSTRACE_HANDLE], starttime: Option<*const super::minwindef::FILETIME>, endtime: Option<*const super::minwindef::FILETIME>) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn ProcessTrace(handlearray : *const PROCESSTRACE_HANDLE, handlecount : u32, starttime : *const super::minwindef::FILETIME, endtime : *const super::minwindef::FILETIME) -> u32);
-    unsafe { ProcessTrace(core::mem::transmute(handlearray.as_ptr()), handlearray.len().try_into().unwrap(), starttime.unwrap_or(core::mem::zeroed()) as _, endtime.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ProcessTrace(handlearray.as_ptr(), handlearray.len().try_into().unwrap(), starttime.unwrap_or(core::mem::zeroed()) as _, endtime.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ProcessTraceAddBufferToBufferStream(tracehandle: PROCESSTRACE_HANDLE, buffer: *const ETW_BUFFER_HEADER, buffersize: u32) -> u32 {
@@ -157,13 +157,13 @@ pub unsafe fn ProcessTraceBufferIncrementReference(tracehandle: PROCESSTRACE_HAN
 #[inline]
 pub unsafe fn QueryAllTracesA(propertyarray: &mut [PEVENT_TRACE_PROPERTIES], loggercount: *mut u32) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn QueryAllTracesA(propertyarray : *mut PEVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> u32);
-    unsafe { QueryAllTracesA(core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap(), loggercount as _) }
+    unsafe { QueryAllTracesA(propertyarray.as_mut_ptr(), propertyarray.len().try_into().unwrap(), loggercount as _) }
 }
 #[cfg(all(feature = "winnt", feature = "wmistr"))]
 #[inline]
 pub unsafe fn QueryAllTracesW(propertyarray: &mut [PEVENT_TRACE_PROPERTIES], loggercount: *mut u32) -> u32 {
     windows_core::link!("advapi32.dll" "system" fn QueryAllTracesW(propertyarray : *mut PEVENT_TRACE_PROPERTIES, propertyarraycount : u32, loggercount : *mut u32) -> u32);
-    unsafe { QueryAllTracesW(core::mem::transmute(propertyarray.as_ptr()), propertyarray.len().try_into().unwrap(), loggercount as _) }
+    unsafe { QueryAllTracesW(propertyarray.as_mut_ptr(), propertyarray.len().try_into().unwrap(), loggercount as _) }
 }
 #[cfg(all(feature = "winnt", feature = "wmistr"))]
 #[inline]
@@ -196,7 +196,7 @@ where
     P6: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegisterTraceGuidsA(requestaddress : WMIDPREQUEST, requestcontext : *const core::ffi::c_void, controlguid : *const windows_core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : windows_core::PCSTR, mofresourcename : windows_core::PCSTR, registrationhandle : *mut TRACEGUID_HANDLE) -> u32);
-    unsafe { RegisterTraceGuidsA(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, traceguidreg.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
+    unsafe { RegisterTraceGuidsA(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, traceguidreg.map_or(0, |slice| slice.len().try_into().unwrap()), traceguidreg.map_or(core::ptr::null(), |slice| slice.as_ptr()), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "winnt", feature = "wmistr"))]
 #[inline]
@@ -206,7 +206,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("advapi32.dll" "system" fn RegisterTraceGuidsW(requestaddress : WMIDPREQUEST, requestcontext : *const core::ffi::c_void, controlguid : *const windows_core::GUID, guidcount : u32, traceguidreg : *const TRACE_GUID_REGISTRATION, mofimagepath : windows_core::PCWSTR, mofresourcename : windows_core::PCWSTR, registrationhandle : *mut TRACEGUID_HANDLE) -> u32);
-    unsafe { RegisterTraceGuidsW(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, traceguidreg.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(traceguidreg.map_or(core::ptr::null(), |slice| slice.as_ptr())), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
+    unsafe { RegisterTraceGuidsW(requestaddress, requestcontext.unwrap_or(core::mem::zeroed()) as _, controlguid, traceguidreg.map_or(0, |slice| slice.len().try_into().unwrap()), traceguidreg.map_or(core::ptr::null(), |slice| slice.as_ptr()), mofimagepath.param().abi(), mofresourcename.param().abi(), registrationhandle as _) }
 }
 #[inline]
 pub unsafe fn RemoveTraceCallback(pguid: *const windows_core::GUID) -> u32 {
@@ -257,7 +257,7 @@ where
 #[inline]
 pub unsafe fn TraceConfigureLastBranchRecord(traceid: CONTROLTRACE_ID, lbrconfiguration: TRACE_LBR_CONFIGURATION, events: &[CLASSIC_EVENT_ID]) -> u32 {
     windows_core::link!("advapi32.dll" "C" fn TraceConfigureLastBranchRecord(traceid : CONTROLTRACE_ID, lbrconfiguration : TRACE_LBR_CONFIGURATION, events : *const CLASSIC_EVENT_ID, eventcount : u32) -> u32);
-    unsafe { TraceConfigureLastBranchRecord(traceid, lbrconfiguration, core::mem::transmute(events.as_ptr()), events.len().try_into().unwrap()) }
+    unsafe { TraceConfigureLastBranchRecord(traceid, lbrconfiguration, events.as_ptr(), events.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn TraceEvent(tracehandle: TRACELOGGER_HANDLE, eventtrace: *const EVENT_TRACE_HEADER) -> u32 {

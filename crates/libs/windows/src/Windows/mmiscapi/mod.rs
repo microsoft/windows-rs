@@ -122,7 +122,7 @@ pub unsafe fn mmioOpenW(pszfilename: Option<windows_core::PWSTR>, pmmioinfo: Opt
 #[inline]
 pub unsafe fn mmioRead(hmmio: HMMIO, pch: &mut [u8]) -> i32 {
     windows_core::link!("winmm.dll" "system" fn mmioRead(hmmio : HMMIO, pch : *mut i8, cch : i32) -> i32);
-    unsafe { mmioRead(hmmio, core::mem::transmute(pch.as_ptr()), pch.len().try_into().unwrap()) }
+    unsafe { mmioRead(hmmio, core::mem::transmute(pch.as_mut_ptr()), pch.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 #[inline]
@@ -159,7 +159,7 @@ pub unsafe fn mmioSendMessage(hmmio: HMMIO, umsg: u32, lparam1: Option<super::mi
 #[inline]
 pub unsafe fn mmioSetBuffer(hmmio: HMMIO, pchbuffer: Option<&mut [u8]>, fubuffer: u32) -> super::mmsyscom::MMRESULT {
     windows_core::link!("winmm.dll" "system" fn mmioSetBuffer(hmmio : HMMIO, pchbuffer : windows_core::PSTR, cchbuffer : i32, fubuffer : u32) -> super::mmsyscom::MMRESULT);
-    unsafe { mmioSetBuffer(hmmio, core::mem::transmute(pchbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pchbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), fubuffer) }
+    unsafe { mmioSetBuffer(hmmio, core::mem::transmute(pchbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pchbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), fubuffer) }
 }
 #[cfg(all(feature = "minwindef", feature = "mmsyscom"))]
 #[inline]

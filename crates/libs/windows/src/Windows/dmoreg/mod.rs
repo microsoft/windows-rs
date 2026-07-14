@@ -10,7 +10,7 @@ pub unsafe fn DMOEnum(guidcategory: *const windows_core::GUID, dwflags: u32, cin
 #[inline]
 pub unsafe fn DMOGetName(clsiddmo: *const windows_core::GUID, szname: &mut [u16; 80]) -> windows_core::HRESULT {
     windows_core::link!("msdmo.dll" "system" fn DMOGetName(clsiddmo : *const windows_core::GUID, szname : *mut u16) -> windows_core::HRESULT);
-    unsafe { DMOGetName(clsiddmo, core::mem::transmute(szname.as_ptr())) }
+    unsafe { DMOGetName(clsiddmo, szname.as_mut_ptr()) }
 }
 #[inline]
 pub unsafe fn DMOGetTypes(clsiddmo: *const windows_core::GUID, ulinputtypesrequested: u32, pulinputtypessupplied: *mut u32, pinputtypes: *mut DMO_PARTIAL_MEDIATYPE, uloutputtypesrequested: u32, puloutputtypessupplied: *mut u32, poutputtypes: *mut DMO_PARTIAL_MEDIATYPE) -> windows_core::HRESULT {

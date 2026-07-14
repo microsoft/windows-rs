@@ -1318,7 +1318,7 @@ pub unsafe fn MoveClusterGroup(hgroup: *const _HGROUP, hdestinationnode: Option<
 #[inline]
 pub unsafe fn MoveClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: Option<*const _HNODE>, dwmoveflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn MoveClusterGroupEx(hgroup : *const _HGROUP, hdestinationnode : *const _HNODE, dwmoveflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { MoveClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MoveClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn MoveClusterGroupEx2<P5>(hgroup: *const _HGROUP, hdestinationnode: Option<*const _HNODE>, dwmoveflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> u32
@@ -1326,7 +1326,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn MoveClusterGroupEx2(hgroup : *const _HGROUP, hdestinationnode : *const _HNODE, dwmoveflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { MoveClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { MoveClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwmoveflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OfflineClusterGroup(hgroup: *const _HGROUP) -> u32 {
@@ -1336,7 +1336,7 @@ pub unsafe fn OfflineClusterGroup(hgroup: *const _HGROUP) -> u32 {
 #[inline]
 pub unsafe fn OfflineClusterGroupEx(hgroup: *const _HGROUP, dwofflineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn OfflineClusterGroupEx(hgroup : *const _HGROUP, dwofflineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OfflineClusterGroupEx(hgroup, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OfflineClusterGroupEx(hgroup, dwofflineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OfflineClusterGroupEx2<P4>(hgroup: *mut _HGROUP, dwofflineflags: u32, lpinbuffer: *mut u8, cbinbuffersize: u32, lpszreason: P4) -> u32
@@ -1354,7 +1354,7 @@ pub unsafe fn OfflineClusterResource(hresource: *const _HRESOURCE) -> u32 {
 #[inline]
 pub unsafe fn OfflineClusterResourceEx(hresource: *const _HRESOURCE, dwofflineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn OfflineClusterResourceEx(hresource : *const _HRESOURCE, dwofflineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OfflineClusterResourceEx(hresource, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OfflineClusterResourceEx(hresource, dwofflineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OfflineClusterResourceEx2<P4>(hresource: *const _HRESOURCE, dwofflineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> u32
@@ -1362,7 +1362,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn OfflineClusterResourceEx2(hresource : *const _HRESOURCE, dwofflineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { OfflineClusterResourceEx2(hresource, dwofflineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OfflineClusterResourceEx2(hresource, dwofflineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OnlineClusterGroup(hgroup: *const _HGROUP, hdestinationnode: Option<*const _HNODE>) -> u32 {
@@ -1372,7 +1372,7 @@ pub unsafe fn OnlineClusterGroup(hgroup: *const _HGROUP, hdestinationnode: Optio
 #[inline]
 pub unsafe fn OnlineClusterGroupEx(hgroup: *const _HGROUP, hdestinationnode: Option<*const _HNODE>, dwonlineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroupEx(hgroup : *const _HGROUP, hdestinationnode : *const _HNODE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OnlineClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OnlineClusterGroupEx(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OnlineClusterGroupEx2<P5>(hgroup: *const _HGROUP, hdestinationnode: Option<*const _HNODE>, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P5) -> u32
@@ -1380,7 +1380,7 @@ where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterGroupEx2(hgroup : *const _HGROUP, hdestinationnode : *const _HNODE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { OnlineClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OnlineClusterGroupEx2(hgroup, hdestinationnode.unwrap_or(core::mem::zeroed()) as _, dwonlineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OnlineClusterResource(hresource: *const _HRESOURCE) -> u32 {
@@ -1390,7 +1390,7 @@ pub unsafe fn OnlineClusterResource(hresource: *const _HRESOURCE) -> u32 {
 #[inline]
 pub unsafe fn OnlineClusterResourceEx(hresource: *const _HRESOURCE, dwonlineflags: u32, lpinbuffer: Option<&[u8]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterResourceEx(hresource : *const _HRESOURCE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32) -> u32);
-    unsafe { OnlineClusterResourceEx(hresource, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { OnlineClusterResourceEx(hresource, dwonlineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn OnlineClusterResourceEx2<P4>(hresource: *const _HRESOURCE, dwonlineflags: u32, lpinbuffer: Option<&[u8]>, lpszreason: P4) -> u32
@@ -1398,7 +1398,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("clusapi.dll" "system" fn OnlineClusterResourceEx2(hresource : *const _HRESOURCE, dwonlineflags : u32, lpinbuffer : *const u8, cbinbuffersize : u32, lpszreason : windows_core::PCWSTR) -> u32);
-    unsafe { OnlineClusterResourceEx2(hresource, dwonlineflags, core::mem::transmute(lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
+    unsafe { OnlineClusterResourceEx2(hresource, dwonlineflags, lpinbuffer.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpinbuffer.map_or(0, |slice| slice.len().try_into().unwrap()), lpszreason.param().abi()) }
 }
 #[inline]
 pub unsafe fn OpenCluster<P0>(lpszclustername: P0) -> HCLUSTER
@@ -1704,7 +1704,7 @@ where
 #[inline]
 pub unsafe fn SetClusterGroupNodeList(hgroup: *const _HGROUP, nodelist: Option<&[HNODE]>) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn SetClusterGroupNodeList(hgroup : *const _HGROUP, nodecount : u32, nodelist : *const HNODE) -> u32);
-    unsafe { SetClusterGroupNodeList(hgroup, nodelist.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(nodelist.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { SetClusterGroupNodeList(hgroup, nodelist.map_or(0, |slice| slice.len().try_into().unwrap()), nodelist.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[inline]
 pub unsafe fn SetClusterGroupNodeListEx<P3>(hgroup: *mut _HGROUP, nodecount: u32, nodelist: *mut HNODE, lpszreason: P3) -> u32
@@ -1768,7 +1768,7 @@ where
 #[inline]
 pub unsafe fn SetClusterNetworkPriorityOrder(hcluster: *const _HCLUSTER, networklist: &[HNETWORK]) -> u32 {
     windows_core::link!("clusapi.dll" "system" fn SetClusterNetworkPriorityOrder(hcluster : *const _HCLUSTER, networkcount : u32, networklist : *const HNETWORK) -> u32);
-    unsafe { SetClusterNetworkPriorityOrder(hcluster, networklist.len().try_into().unwrap(), core::mem::transmute(networklist.as_ptr())) }
+    unsafe { SetClusterNetworkPriorityOrder(hcluster, networklist.len().try_into().unwrap(), networklist.as_ptr()) }
 }
 #[inline]
 pub unsafe fn SetClusterQuorumResource<P1>(hresource: *const _HRESOURCE, lpszdevicename: P1, dwmaxquologsize: u32) -> u32

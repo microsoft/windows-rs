@@ -22,7 +22,7 @@ pub unsafe fn ADsBuildVarArrayStr(lpppathnames: &[windows_core::PCWSTR]) -> wind
     windows_core::link!("activeds.dll" "system" fn ADsBuildVarArrayStr(lpppathnames : *const windows_core::PCWSTR, dwpathnames : u32, pvar : *mut super::oaidl::VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        ADsBuildVarArrayStr(core::mem::transmute(lpppathnames.as_ptr()), lpppathnames.len().try_into().unwrap(), &mut result__).map(|| core::mem::transmute(result__))
+        ADsBuildVarArrayStr(lpppathnames.as_ptr(), lpppathnames.len().try_into().unwrap(), &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "minwindef")]
@@ -60,7 +60,7 @@ where
 #[inline]
 pub unsafe fn ADsGetLastError(lperror: *mut u32, lperrorbuf: &mut [u16], lpnamebuf: &mut [u16]) -> windows_core::HRESULT {
     windows_core::link!("activeds.dll" "system" fn ADsGetLastError(lperror : *mut u32, lperrorbuf : windows_core::PWSTR, dwerrorbuflen : u32, lpnamebuf : windows_core::PWSTR, dwnamebuflen : u32) -> windows_core::HRESULT);
-    unsafe { ADsGetLastError(lperror as _, core::mem::transmute(lperrorbuf.as_ptr()), lperrorbuf.len().try_into().unwrap(), core::mem::transmute(lpnamebuf.as_ptr()), lpnamebuf.len().try_into().unwrap()) }
+    unsafe { ADsGetLastError(lperror as _, core::mem::transmute(lperrorbuf.as_mut_ptr()), lperrorbuf.len().try_into().unwrap(), core::mem::transmute(lpnamebuf.as_mut_ptr()), lpnamebuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn ADsGetObject<P0, T>(lpszpathname: P0) -> windows_core::Result<T>

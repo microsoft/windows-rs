@@ -5,7 +5,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesA(computername : windows_core::PCSTR, entrycount : u32, socketaddresses : *const super::ws2::SOCKET_ADDRESS, sitenames : *mut *mut windows_core::PSTR) -> u32);
-    unsafe { DsAddressToSiteNamesA(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _) }
+    unsafe { DsAddressToSiteNamesA(computername.param().abi(), socketaddresses.len().try_into().unwrap(), socketaddresses.as_ptr(), sitenames as _) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
@@ -14,7 +14,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExA(computername : windows_core::PCSTR, entrycount : u32, socketaddresses : *const super::ws2::SOCKET_ADDRESS, sitenames : *mut *mut windows_core::PSTR, subnetnames : *mut *mut windows_core::PSTR) -> u32);
-    unsafe { DsAddressToSiteNamesExA(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _, subnetnames as _) }
+    unsafe { DsAddressToSiteNamesExA(computername.param().abi(), socketaddresses.len().try_into().unwrap(), socketaddresses.as_ptr(), sitenames as _, subnetnames as _) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
@@ -23,7 +23,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesExW(computername : windows_core::PCWSTR, entrycount : u32, socketaddresses : *const super::ws2::SOCKET_ADDRESS, sitenames : *mut *mut windows_core::PWSTR, subnetnames : *mut *mut windows_core::PWSTR) -> u32);
-    unsafe { DsAddressToSiteNamesExW(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _, subnetnames as _) }
+    unsafe { DsAddressToSiteNamesExW(computername.param().abi(), socketaddresses.len().try_into().unwrap(), socketaddresses.as_ptr(), sitenames as _, subnetnames as _) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
@@ -32,7 +32,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn DsAddressToSiteNamesW(computername : windows_core::PCWSTR, entrycount : u32, socketaddresses : *const super::ws2::SOCKET_ADDRESS, sitenames : *mut *mut windows_core::PWSTR) -> u32);
-    unsafe { DsAddressToSiteNamesW(computername.param().abi(), socketaddresses.len().try_into().unwrap(), core::mem::transmute(socketaddresses.as_ptr()), sitenames as _) }
+    unsafe { DsAddressToSiteNamesW(computername.param().abi(), socketaddresses.len().try_into().unwrap(), socketaddresses.as_ptr(), sitenames as _) }
 }
 #[inline]
 pub unsafe fn DsDeregisterDnsHostRecordsA<P0, P1, P4>(servername: P0, dnsdomainname: P1, domainguid: Option<*const windows_core::GUID>, dsaguid: Option<*const windows_core::GUID>, dnshostname: P4) -> u32

@@ -85,7 +85,7 @@ pub unsafe fn DCompositionGetTargetStatistics(frameid: COMPOSITION_FRAME_ID, tar
 #[inline]
 pub unsafe fn DCompositionWaitForCompositorClock(handles: Option<&[super::winnt::HANDLE]>, timeoutinms: u32) -> u32 {
     windows_core::link!("dcomp.dll" "system" fn DCompositionWaitForCompositorClock(count : u32, handles : *const super::winnt::HANDLE, timeoutinms : u32) -> u32);
-    unsafe { DCompositionWaitForCompositorClock(handles.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(handles.map_or(core::ptr::null(), |slice| slice.as_ptr())), timeoutinms) }
+    unsafe { DCompositionWaitForCompositorClock(handles.map_or(0, |slice| slice.len().try_into().unwrap()), handles.map_or(core::ptr::null(), |slice| slice.as_ptr()), timeoutinms) }
 }
 pub const COMPOSITIONOBJECT_ALL_ACCESS: u32 = 3;
 pub const COMPOSITIONOBJECT_READ: u32 = 1;
@@ -932,13 +932,13 @@ impl IDCompositionDelegatedInkTrail {
     pub unsafe fn AddTrailPoints(&self, inkpoints: &[DCompositionInkTrailPoint]) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddTrailPoints)(windows_core::Interface::as_raw(self), core::mem::transmute(inkpoints.as_ptr()), inkpoints.len().try_into().unwrap(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AddTrailPoints)(windows_core::Interface::as_raw(self), inkpoints.as_ptr(), inkpoints.len().try_into().unwrap(), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn AddTrailPointsWithPrediction(&self, inkpoints: &[DCompositionInkTrailPoint], predictedinkpoints: &[DCompositionInkTrailPoint]) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddTrailPointsWithPrediction)(windows_core::Interface::as_raw(self), core::mem::transmute(inkpoints.as_ptr()), inkpoints.len().try_into().unwrap(), core::mem::transmute(predictedinkpoints.as_ptr()), predictedinkpoints.len().try_into().unwrap(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AddTrailPointsWithPrediction)(windows_core::Interface::as_raw(self), inkpoints.as_ptr(), inkpoints.len().try_into().unwrap(), predictedinkpoints.as_ptr(), predictedinkpoints.len().try_into().unwrap(), &mut result__).map(|| result__)
         }
     }
     pub unsafe fn RemoveTrailPoints(&self, generationid: u32) -> windows_core::HRESULT {
@@ -5684,7 +5684,7 @@ impl IDCompositionVirtualSurface {
     }
     #[cfg(feature = "windef")]
     pub unsafe fn Trim(&self, rectangles: Option<&[super::windef::RECT]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Trim)(windows_core::Interface::as_raw(self), core::mem::transmute(rectangles.map_or(core::ptr::null(), |slice| slice.as_ptr())), rectangles.map_or(0, |slice| slice.len().try_into().unwrap())) }
+        unsafe { (windows_core::Interface::vtable(self).Trim)(windows_core::Interface::as_raw(self), rectangles.map_or(core::ptr::null(), |slice| slice.as_ptr()), rectangles.map_or(0, |slice| slice.len().try_into().unwrap())) }
     }
 }
 #[repr(C)]

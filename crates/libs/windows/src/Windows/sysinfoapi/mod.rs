@@ -95,12 +95,12 @@ pub unsafe fn GetRuntimeAttestationReport(nonce: Option<*const u8>, packageversi
 #[inline]
 pub unsafe fn GetSystemDirectoryA(lpbuffer: Option<&mut [u8]>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetSystemDirectoryA(lpbuffer : windows_core::PSTR, usize : u32) -> u32);
-    unsafe { GetSystemDirectoryA(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetSystemDirectoryA(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetSystemDirectoryW(lpbuffer: Option<&mut [u16]>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetSystemDirectoryW(lpbuffer : windows_core::PWSTR, usize : u32) -> u32);
-    unsafe { GetSystemDirectoryW(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetSystemDirectoryW(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetSystemFirmwareTable(firmwaretableprovidersignature: u32, firmwaretableid: u32, pfirmwaretablebuffer: Option<*mut core::ffi::c_void>, buffersize: u32) -> u32 {
@@ -160,12 +160,12 @@ pub unsafe fn GetSystemTimePreciseAsFileTime() -> super::minwindef::FILETIME {
 #[inline]
 pub unsafe fn GetSystemWindowsDirectoryA(lpbuffer: Option<&mut [u8]>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetSystemWindowsDirectoryA(lpbuffer : windows_core::PSTR, usize : u32) -> u32);
-    unsafe { GetSystemWindowsDirectoryA(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetSystemWindowsDirectoryA(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetSystemWindowsDirectoryW(lpbuffer: Option<&mut [u16]>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetSystemWindowsDirectoryW(lpbuffer : windows_core::PWSTR, usize : u32) -> u32);
-    unsafe { GetSystemWindowsDirectoryW(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetSystemWindowsDirectoryW(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetTickCount() -> u32 {
@@ -197,12 +197,12 @@ pub unsafe fn GetVersionExW(lpversioninformation: *mut super::winnt::OSVERSIONIN
 #[inline]
 pub unsafe fn GetWindowsDirectoryA(lpbuffer: Option<&mut [u8]>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetWindowsDirectoryA(lpbuffer : windows_core::PSTR, usize : u32) -> u32);
-    unsafe { GetWindowsDirectoryA(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetWindowsDirectoryA(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetWindowsDirectoryW(lpbuffer: Option<&mut [u16]>) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetWindowsDirectoryW(lpbuffer : windows_core::PWSTR, usize : u32) -> u32);
-    unsafe { GetWindowsDirectoryW(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetWindowsDirectoryW(core::mem::transmute(lpbuffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

@@ -11,7 +11,7 @@ where
 #[inline]
 pub unsafe fn AddLogContainerSet(hlog: super::winnt::HANDLE, pcbcontainer: Option<*const u64>, rgwszcontainerpath: &[windows_core::PCWSTR], preserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("clfsw32.dll" "system" fn AddLogContainerSet(hlog : super::winnt::HANDLE, ccontainer : u16, pcbcontainer : *const u64, rgwszcontainerpath : *const windows_core::PCWSTR, preserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { AddLogContainerSet(hlog, rgwszcontainerpath.len().try_into().unwrap(), pcbcontainer.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(rgwszcontainerpath.as_ptr()), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AddLogContainerSet(hlog, rgwszcontainerpath.len().try_into().unwrap(), pcbcontainer.unwrap_or(core::mem::zeroed()) as _, rgwszcontainerpath.as_ptr(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]
@@ -137,7 +137,7 @@ pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: CLFS_LOG_ARCHIVE_CONTEXT
 #[inline]
 pub unsafe fn PrepareLogArchive(hlog: super::winnt::HANDLE, pszbaselogfilename: &mut [u16], plsnlow: Option<*const super::clfs::CLFS_LSN>, plsnhigh: Option<*const super::clfs::CLFS_LSN>, pcactuallength: Option<*mut u32>, poffbaselogfiledata: *mut u64, pcbbaselogfilelength: *mut u64, plsnbase: *mut super::clfs::CLFS_LSN, plsnlast: *mut super::clfs::CLFS_LSN, plsncurrentarchivetail: *mut super::clfs::CLFS_LSN, ppvarchivecontext: *mut *mut core::ffi::c_void) -> windows_core::BOOL {
     windows_core::link!("clfsw32.dll" "system" fn PrepareLogArchive(hlog : super::winnt::HANDLE, pszbaselogfilename : windows_core::PWSTR, clen : u32, plsnlow : *const super::clfs::CLFS_LSN, plsnhigh : *const super::clfs::CLFS_LSN, pcactuallength : *mut u32, poffbaselogfiledata : *mut u64, pcbbaselogfilelength : *mut u64, plsnbase : *mut super::clfs::CLFS_LSN, plsnlast : *mut super::clfs::CLFS_LSN, plsncurrentarchivetail : *mut super::clfs::CLFS_LSN, ppvarchivecontext : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { PrepareLogArchive(hlog, core::mem::transmute(pszbaselogfilename.as_ptr()), pszbaselogfilename.len().try_into().unwrap(), plsnlow.unwrap_or(core::mem::zeroed()) as _, plsnhigh.unwrap_or(core::mem::zeroed()) as _, pcactuallength.unwrap_or(core::mem::zeroed()) as _, poffbaselogfiledata as _, pcbbaselogfilelength as _, plsnbase as _, plsnlast as _, plsncurrentarchivetail as _, ppvarchivecontext as _) }
+    unsafe { PrepareLogArchive(hlog, core::mem::transmute(pszbaselogfilename.as_mut_ptr()), pszbaselogfilename.len().try_into().unwrap(), plsnlow.unwrap_or(core::mem::zeroed()) as _, plsnhigh.unwrap_or(core::mem::zeroed()) as _, pcactuallength.unwrap_or(core::mem::zeroed()) as _, poffbaselogfiledata as _, pcbbaselogfilelength as _, plsnbase as _, plsnlast as _, plsncurrentarchivetail as _, ppvarchivecontext as _) }
 }
 #[inline]
 pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: CLFS_LOG_ARCHIVE_CONTEXT, cboffset: u32, cbbytestoread: u32, pbreadbuffer: *mut u8, pcbbytesread: *mut u32) -> windows_core::BOOL {
@@ -181,7 +181,7 @@ where
 #[inline]
 pub unsafe fn RemoveLogContainerSet(hlog: super::winnt::HANDLE, rgwszcontainerpath: &[windows_core::PCWSTR], fforce: bool, preserved: Option<*mut core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("clfsw32.dll" "system" fn RemoveLogContainerSet(hlog : super::winnt::HANDLE, ccontainer : u16, rgwszcontainerpath : *const windows_core::PCWSTR, fforce : windows_core::BOOL, preserved : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { RemoveLogContainerSet(hlog, rgwszcontainerpath.len().try_into().unwrap(), core::mem::transmute(rgwszcontainerpath.as_ptr()), fforce.into(), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RemoveLogContainerSet(hlog, rgwszcontainerpath.len().try_into().unwrap(), rgwszcontainerpath.as_ptr(), fforce.into(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "clfs", feature = "minwinbase", feature = "winnt"))]
 #[inline]

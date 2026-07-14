@@ -107,22 +107,22 @@ where
 #[inline]
 pub unsafe fn DsQuoteRdnValueA(psunquotedrdnvalue: &[i8], pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: *mut i8) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsQuoteRdnValueA(cunquotedrdnvaluelength : u32, psunquotedrdnvalue : *const i8, pcquotedrdnvaluelength : *mut u32, psquotedrdnvalue : *mut i8) -> u32);
-    unsafe { DsQuoteRdnValueA(psunquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psunquotedrdnvalue.as_ptr()), pcquotedrdnvaluelength as _, psquotedrdnvalue as _) }
+    unsafe { DsQuoteRdnValueA(psunquotedrdnvalue.len().try_into().unwrap(), psunquotedrdnvalue.as_ptr(), pcquotedrdnvaluelength as _, psquotedrdnvalue as _) }
 }
 #[inline]
 pub unsafe fn DsQuoteRdnValueW(psunquotedrdnvalue: &[u16], pcquotedrdnvaluelength: *mut u32, psquotedrdnvalue: *mut u16) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsQuoteRdnValueW(cunquotedrdnvaluelength : u32, psunquotedrdnvalue : *const u16, pcquotedrdnvaluelength : *mut u32, psquotedrdnvalue : *mut u16) -> u32);
-    unsafe { DsQuoteRdnValueW(psunquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psunquotedrdnvalue.as_ptr()), pcquotedrdnvaluelength as _, psquotedrdnvalue as _) }
+    unsafe { DsQuoteRdnValueW(psunquotedrdnvalue.len().try_into().unwrap(), psunquotedrdnvalue.as_ptr(), pcquotedrdnvaluelength as _, psquotedrdnvalue as _) }
 }
 #[inline]
 pub unsafe fn DsUnquoteRdnValueA(psquotedrdnvalue: &[i8], pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: *mut i8) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsUnquoteRdnValueA(cquotedrdnvaluelength : u32, psquotedrdnvalue : *const i8, pcunquotedrdnvaluelength : *mut u32, psunquotedrdnvalue : *mut i8) -> u32);
-    unsafe { DsUnquoteRdnValueA(psquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psquotedrdnvalue.as_ptr()), pcunquotedrdnvaluelength as _, psunquotedrdnvalue as _) }
+    unsafe { DsUnquoteRdnValueA(psquotedrdnvalue.len().try_into().unwrap(), psquotedrdnvalue.as_ptr(), pcunquotedrdnvaluelength as _, psunquotedrdnvalue as _) }
 }
 #[inline]
 pub unsafe fn DsUnquoteRdnValueW(psquotedrdnvalue: &[u16], pcunquotedrdnvaluelength: *mut u32, psunquotedrdnvalue: *mut u16) -> u32 {
     windows_core::link!("ntdsapi.dll" "system" fn DsUnquoteRdnValueW(cquotedrdnvaluelength : u32, psquotedrdnvalue : *const u16, pcunquotedrdnvaluelength : *mut u32, psunquotedrdnvalue : *mut u16) -> u32);
-    unsafe { DsUnquoteRdnValueW(psquotedrdnvalue.len().try_into().unwrap(), core::mem::transmute(psquotedrdnvalue.as_ptr()), pcunquotedrdnvaluelength as _, psunquotedrdnvalue as _) }
+    unsafe { DsUnquoteRdnValueW(psquotedrdnvalue.len().try_into().unwrap(), psquotedrdnvalue.as_ptr(), pcunquotedrdnvaluelength as _, psunquotedrdnvalue as _) }
 }
 pub type DS_MANGLE_FOR = i32;
 pub const DS_MANGLE_OBJECT_RDN_FOR_DELETION: DS_MANGLE_FOR = 1;

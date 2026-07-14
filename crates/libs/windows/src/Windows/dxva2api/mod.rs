@@ -992,7 +992,7 @@ impl IDirectXVideoProcessor {
     where
         P0: windows_core::Param<super::d3d9::IDirect3DSurface9>,
     {
-        unsafe { (windows_core::Interface::vtable(self).VideoProcessBlt)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), pbltparams, core::mem::transmute(psamples.as_ptr()), psamples.len().try_into().unwrap(), phandlecomplete.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).VideoProcessBlt)(windows_core::Interface::as_raw(self), prendertarget.param().abi(), pbltparams, psamples.as_ptr(), psamples.len().try_into().unwrap(), phandlecomplete.unwrap_or(core::mem::zeroed()) as _) }
     }
 }
 #[repr(C)]

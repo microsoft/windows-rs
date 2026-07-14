@@ -17,7 +17,7 @@ where
     P0: windows_core::Param<IAccessible>,
 {
     windows_core::link!("oleacc.dll" "system" fn AccessibleChildren(pacccontainer : *mut core::ffi::c_void, ichildstart : i32, cchildren : i32, rgvarchildren : *mut super::oaidl::VARIANT, pcobtained : *mut i32) -> windows_core::HRESULT);
-    unsafe { AccessibleChildren(pacccontainer.param().abi(), ichildstart, rgvarchildren.len().try_into().unwrap(), core::mem::transmute(rgvarchildren.as_ptr()), pcobtained as _) }
+    unsafe { AccessibleChildren(pacccontainer.param().abi(), ichildstart, rgvarchildren.len().try_into().unwrap(), rgvarchildren.as_mut_ptr(), pcobtained as _) }
 }
 #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -81,22 +81,22 @@ pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
 #[inline]
 pub unsafe fn GetRoleTextA(lrole: u32, lpszrole: Option<&mut [u8]>) -> u32 {
     windows_core::link!("oleacc.dll" "system" fn GetRoleTextA(lrole : u32, lpszrole : windows_core::PSTR, cchrolemax : u32) -> u32);
-    unsafe { GetRoleTextA(lrole, core::mem::transmute(lpszrole.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszrole.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetRoleTextA(lrole, core::mem::transmute(lpszrole.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszrole.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetRoleTextW(lrole: u32, lpszrole: Option<&mut [u16]>) -> u32 {
     windows_core::link!("oleacc.dll" "system" fn GetRoleTextW(lrole : u32, lpszrole : windows_core::PWSTR, cchrolemax : u32) -> u32);
-    unsafe { GetRoleTextW(lrole, core::mem::transmute(lpszrole.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszrole.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetRoleTextW(lrole, core::mem::transmute(lpszrole.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszrole.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetStateTextA(lstatebit: u32, lpszstate: Option<&mut [u8]>) -> u32 {
     windows_core::link!("oleacc.dll" "system" fn GetStateTextA(lstatebit : u32, lpszstate : windows_core::PSTR, cchstate : u32) -> u32);
-    unsafe { GetStateTextA(lstatebit, core::mem::transmute(lpszstate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszstate.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetStateTextA(lstatebit, core::mem::transmute(lpszstate.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszstate.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: Option<&mut [u16]>) -> u32 {
     windows_core::link!("oleacc.dll" "system" fn GetStateTextW(lstatebit : u32, lpszstate : windows_core::PWSTR, cchstate : u32) -> u32);
-    unsafe { GetStateTextW(lstatebit, core::mem::transmute(lpszstate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszstate.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { GetStateTextW(lstatebit, core::mem::transmute(lpszstate.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpszstate.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]

@@ -52,13 +52,13 @@ pub unsafe fn CMConvertIndexToColorName(hprofile: HPROFILE, paindex: *const u32,
 #[inline]
 pub unsafe fn CMCreateDeviceLinkProfile(pahprofiles: &[HPROFILE], padwintents: &[u32], dwflags: u32, lpprofiledata: *mut super::minwindef::LPBYTE) -> windows_core::BOOL {
     windows_core::link!("icm32.dll" "system" fn CMCreateDeviceLinkProfile(pahprofiles : *const HPROFILE, nprofiles : u32, padwintents : *const u32, nintents : u32, dwflags : u32, lpprofiledata : *mut super::minwindef::LPBYTE) -> windows_core::BOOL);
-    unsafe { CMCreateDeviceLinkProfile(core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), core::mem::transmute(padwintents.as_ptr()), padwintents.len().try_into().unwrap(), dwflags, lpprofiledata as _) }
+    unsafe { CMCreateDeviceLinkProfile(pahprofiles.as_ptr(), pahprofiles.len().try_into().unwrap(), padwintents.as_ptr(), padwintents.len().try_into().unwrap(), dwflags, lpprofiledata as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CMCreateMultiProfileTransform(pahprofiles: &[HPROFILE], padwintents: &[u32], dwflags: u32) -> HCMTRANSFORM {
     windows_core::link!("icm32.dll" "system" fn CMCreateMultiProfileTransform(pahprofiles : *const HPROFILE, nprofiles : u32, padwintents : *const u32, nintents : u32, dwflags : u32) -> HCMTRANSFORM);
-    unsafe { CMCreateMultiProfileTransform(core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), core::mem::transmute(padwintents.as_ptr()), padwintents.len().try_into().unwrap(), dwflags) }
+    unsafe { CMCreateMultiProfileTransform(pahprofiles.as_ptr(), pahprofiles.len().try_into().unwrap(), padwintents.as_ptr(), padwintents.len().try_into().unwrap(), dwflags) }
 }
 #[cfg(feature = "wingdi")]
 #[inline]
@@ -246,13 +246,13 @@ pub unsafe fn CreateColorTransformW(plogcolorspace: *const super::wingdi::LOGCOL
 #[inline]
 pub unsafe fn CreateDeviceLinkProfile(hprofile: &[HPROFILE], padwintent: &[u32], dwflags: u32, pprofiledata: *mut super::minwindef::PBYTE, indexpreferredcmm: u32) -> windows_core::BOOL {
     windows_core::link!("mscms.dll" "system" fn CreateDeviceLinkProfile(hprofile : *const HPROFILE, nprofiles : u32, padwintent : *const u32, nintents : u32, dwflags : u32, pprofiledata : *mut super::minwindef::PBYTE, indexpreferredcmm : u32) -> windows_core::BOOL);
-    unsafe { CreateDeviceLinkProfile(core::mem::transmute(hprofile.as_ptr()), hprofile.len().try_into().unwrap(), core::mem::transmute(padwintent.as_ptr()), padwintent.len().try_into().unwrap(), dwflags, pprofiledata as _, indexpreferredcmm) }
+    unsafe { CreateDeviceLinkProfile(hprofile.as_ptr(), hprofile.len().try_into().unwrap(), padwintent.as_ptr(), padwintent.len().try_into().unwrap(), dwflags, pprofiledata as _, indexpreferredcmm) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CreateMultiProfileTransform(pahprofiles: &[HPROFILE], padwintent: &[u32], dwflags: u32, indexpreferredcmm: u32) -> HTRANSFORM {
     windows_core::link!("mscms.dll" "system" fn CreateMultiProfileTransform(pahprofiles : *const HPROFILE, nprofiles : u32, padwintent : *const u32, nintents : u32, dwflags : u32, indexpreferredcmm : u32) -> HTRANSFORM);
-    unsafe { CreateMultiProfileTransform(core::mem::transmute(pahprofiles.as_ptr()), pahprofiles.len().try_into().unwrap(), core::mem::transmute(padwintent.as_ptr()), padwintent.len().try_into().unwrap(), dwflags, indexpreferredcmm) }
+    unsafe { CreateMultiProfileTransform(pahprofiles.as_ptr(), pahprofiles.len().try_into().unwrap(), padwintent.as_ptr(), padwintent.len().try_into().unwrap(), dwflags, indexpreferredcmm) }
 }
 #[cfg(all(feature = "minwindef", feature = "wingdi"))]
 #[inline]
@@ -578,7 +578,7 @@ where
 #[inline]
 pub unsafe fn WcsCheckColors(hcolortransform: HTRANSFORM, ninputchannels: u32, cdtinput: COLORDATATYPE, cbinput: u32, pinputdata: *const core::ffi::c_void, paresult: &mut [u8]) -> windows_core::BOOL {
     windows_core::link!("mscms.dll" "system" fn WcsCheckColors(hcolortransform : HTRANSFORM, ncolors : u32, ninputchannels : u32, cdtinput : COLORDATATYPE, cbinput : u32, pinputdata : *const core::ffi::c_void, paresult : *mut u8) -> windows_core::BOOL);
-    unsafe { WcsCheckColors(hcolortransform, paresult.len().try_into().unwrap(), ninputchannels, cdtinput, cbinput, pinputdata, core::mem::transmute(paresult.as_ptr())) }
+    unsafe { WcsCheckColors(hcolortransform, paresult.len().try_into().unwrap(), ninputchannels, cdtinput, cbinput, pinputdata, paresult.as_mut_ptr()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -598,7 +598,7 @@ where
 #[inline]
 pub unsafe fn WcsEnumColorProfiles(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pbuffer: &mut [u8], pnprofiles: Option<*mut u32>) -> windows_core::BOOL {
     windows_core::link!("mscms.dll" "system" fn WcsEnumColorProfiles(scope : WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord : *const ENUMTYPEW, pbuffer : *mut u8, dwsize : u32, pnprofiles : *mut u32) -> windows_core::BOOL);
-    unsafe { WcsEnumColorProfiles(scope, penumrecord, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap(), pnprofiles.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WcsEnumColorProfiles(scope, penumrecord, pbuffer.as_mut_ptr(), pbuffer.len().try_into().unwrap(), pnprofiles.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WcsEnumColorProfilesSize(scope: WCS_PROFILE_MANAGEMENT_SCOPE, penumrecord: *const ENUMTYPEW, pdwsize: *mut u32) -> windows_core::BOOL {

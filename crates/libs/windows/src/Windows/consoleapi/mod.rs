@@ -59,13 +59,13 @@ pub unsafe fn GetNumberOfConsoleInputEvents(hconsoleinput: super::winnt::HANDLE,
 #[inline]
 pub unsafe fn PeekConsoleInputA(hconsoleinput: super::winnt::HANDLE, lpbuffer: &mut [super::wincontypes::INPUT_RECORD], lpnumberofeventsread: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn PeekConsoleInputA(hconsoleinput : super::winnt::HANDLE, lpbuffer : *mut super::wincontypes::INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_core::BOOL);
-    unsafe { PeekConsoleInputA(hconsoleinput, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
+    unsafe { PeekConsoleInputA(hconsoleinput, lpbuffer.as_mut_ptr(), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
 }
 #[cfg(all(feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn PeekConsoleInputW(hconsoleinput: super::winnt::HANDLE, lpbuffer: &mut [super::wincontypes::INPUT_RECORD], lpnumberofeventsread: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn PeekConsoleInputW(hconsoleinput : super::winnt::HANDLE, lpbuffer : *mut super::wincontypes::INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_core::BOOL);
-    unsafe { PeekConsoleInputW(hconsoleinput, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
+    unsafe { PeekConsoleInputW(hconsoleinput, lpbuffer.as_mut_ptr(), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -77,13 +77,13 @@ pub unsafe fn ReadConsoleA(hconsoleinput: super::winnt::HANDLE, lpbuffer: *mut c
 #[inline]
 pub unsafe fn ReadConsoleInputA(hconsoleinput: super::winnt::HANDLE, lpbuffer: &mut [super::wincontypes::INPUT_RECORD], lpnumberofeventsread: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn ReadConsoleInputA(hconsoleinput : super::winnt::HANDLE, lpbuffer : *mut super::wincontypes::INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_core::BOOL);
-    unsafe { ReadConsoleInputA(hconsoleinput, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
+    unsafe { ReadConsoleInputA(hconsoleinput, lpbuffer.as_mut_ptr(), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
 }
 #[cfg(all(feature = "wincontypes", feature = "winnt"))]
 #[inline]
 pub unsafe fn ReadConsoleInputW(hconsoleinput: super::winnt::HANDLE, lpbuffer: &mut [super::wincontypes::INPUT_RECORD], lpnumberofeventsread: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn ReadConsoleInputW(hconsoleinput : super::winnt::HANDLE, lpbuffer : *mut super::wincontypes::INPUT_RECORD, nlength : u32, lpnumberofeventsread : *mut u32) -> windows_core::BOOL);
-    unsafe { ReadConsoleInputW(hconsoleinput, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
+    unsafe { ReadConsoleInputW(hconsoleinput, lpbuffer.as_mut_ptr(), lpbuffer.len().try_into().unwrap(), lpnumberofeventsread as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

@@ -649,17 +649,32 @@ impl CppMethod {
                                 if param.is_input() {
                                     quote! { #name.map_or(core::ptr::null(), |slice|slice.as_ptr()) }
                                 } else {
-                                    quote! { #name.as_deref().map_or(core::ptr::null(), |slice|slice.as_ptr()) }
+                                    quote! { #name.as_deref().map_or(core::ptr::null_mut(), |slice|slice.as_ptr().cast_mut()) }
                                 }
-                            } else {
+                            } else if param.is_input() {
                                 quote! { #name.as_ptr() }
+                            } else {
+                                quote! { #name.as_mut_ptr() }
                             };
-                            // In minimal mode, when the param type is a raw pointer
-                            // (not PCWSTR/PCSTR wrapper), the element type matches the
-                            // vtable signature — no transmute needed.
-                            if config.bindgen.style.is_minimal()
-                                && matches!(param.ty, Type::PtrConst(..) | Type::PtrMut(..))
-                            {
+                            // The wrapper exposes a typed slice but the ABI slot is a raw
+                            // pointer, so a transmute is only needed when the slice element
+                            // type differs from the ABI pointee (interfaces, non-copyable
+                            // structs, byte buffers, ...). When they already match it is
+                            // redundant, so emit the pointer directly.
+                            let elem = if matches!(
+                                self.param_hints[position],
+                                ParamHint::ArrayRelativeByteLen(_)
+                            ) {
+                                quote! { u8 }
+                            } else {
+                                param.deref().write_default(config)
+                            };
+                            let ptr = if param.is_input() {
+                                quote! { *const #elem }
+                            } else {
+                                quote! { *mut #elem }
+                            };
+                            if ptr.to_string() == param.write_abi(config).to_string() {
                                 quote! { #map, }
                             } else {
                                 quote! { core::mem::transmute(#map), }

@@ -60,7 +60,7 @@ where
 #[inline]
 pub unsafe fn LZRead(hfile: i32, lpbuffer: &mut [u8]) -> i32 {
     windows_core::link!("lz32.dll" "system" fn LZRead(hfile : i32, lpbuffer : *mut i8, cbread : i32) -> i32);
-    unsafe { LZRead(hfile, core::mem::transmute(lpbuffer.as_ptr()), lpbuffer.len().try_into().unwrap()) }
+    unsafe { LZRead(hfile, core::mem::transmute(lpbuffer.as_mut_ptr()), lpbuffer.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {

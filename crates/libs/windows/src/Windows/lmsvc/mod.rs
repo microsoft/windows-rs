@@ -35,7 +35,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("netapi32.dll" "system" fn NetServiceInstall(servername : windows_core::PCWSTR, service : windows_core::PCWSTR, argc : u32, argv : *const windows_core::PCWSTR, bufptr : *mut super::minwindef::LPBYTE) -> u32);
-    unsafe { NetServiceInstall(servername.param().abi(), service.param().abi(), argv.len().try_into().unwrap(), core::mem::transmute(argv.as_ptr()), bufptr as _) }
+    unsafe { NetServiceInstall(servername.param().abi(), service.param().abi(), argv.len().try_into().unwrap(), argv.as_ptr(), bufptr as _) }
 }
 pub const LM20_SERVICE_ACTIVE: u32 = 0;
 pub const LM20_SERVICE_CONTINUE_PENDING: u32 = 4;

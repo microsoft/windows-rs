@@ -303,12 +303,12 @@ pub unsafe fn SCardIsValidContext(hcontext: SCARDCONTEXT) -> i32 {
 #[inline]
 pub unsafe fn SCardListCardsA(hcontext: SCARDCONTEXT, pbatr: Option<*const u8>, rgquidinterfaces: Option<&[windows_core::GUID]>, mszcards: *mut i8, pcchcards: *mut u32) -> i32 {
     windows_core::link!("winscard.dll" "system" fn SCardListCardsA(hcontext : SCARDCONTEXT, pbatr : *const u8, rgquidinterfaces : *const windows_core::GUID, cguidinterfacecount : u32, mszcards : *mut i8, pcchcards : *mut u32) -> i32);
-    unsafe { SCardListCardsA(hcontext, pbatr.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(rgquidinterfaces.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgquidinterfaces.map_or(0, |slice| slice.len().try_into().unwrap()), mszcards as _, pcchcards as _) }
+    unsafe { SCardListCardsA(hcontext, pbatr.unwrap_or(core::mem::zeroed()) as _, rgquidinterfaces.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgquidinterfaces.map_or(0, |slice| slice.len().try_into().unwrap()), mszcards as _, pcchcards as _) }
 }
 #[inline]
 pub unsafe fn SCardListCardsW(hcontext: SCARDCONTEXT, pbatr: Option<*const u8>, rgquidinterfaces: Option<&[windows_core::GUID]>, mszcards: *mut u16, pcchcards: *mut u32) -> i32 {
     windows_core::link!("winscard.dll" "system" fn SCardListCardsW(hcontext : SCARDCONTEXT, pbatr : *const u8, rgquidinterfaces : *const windows_core::GUID, cguidinterfacecount : u32, mszcards : *mut u16, pcchcards : *mut u32) -> i32);
-    unsafe { SCardListCardsW(hcontext, pbatr.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(rgquidinterfaces.map_or(core::ptr::null(), |slice| slice.as_ptr())), rgquidinterfaces.map_or(0, |slice| slice.len().try_into().unwrap()), mszcards as _, pcchcards as _) }
+    unsafe { SCardListCardsW(hcontext, pbatr.unwrap_or(core::mem::zeroed()) as _, rgquidinterfaces.map_or(core::ptr::null(), |slice| slice.as_ptr()), rgquidinterfaces.map_or(0, |slice| slice.len().try_into().unwrap()), mszcards as _, pcchcards as _) }
 }
 #[inline]
 pub unsafe fn SCardListInterfacesA<P1>(hcontext: SCARDCONTEXT, szcard: P1, pguidinterfaces: *mut windows_core::GUID, pcguidinterfaces: *mut u32) -> i32
@@ -450,7 +450,7 @@ where
 #[inline]
 pub unsafe fn SCardSetAttrib(hcard: SCARDHANDLE, dwattrid: u32, pbattr: &[u8]) -> i32 {
     windows_core::link!("winscard.dll" "system" fn SCardSetAttrib(hcard : SCARDHANDLE, dwattrid : u32, pbattr : *const u8, cbattrlen : u32) -> i32);
-    unsafe { SCardSetAttrib(hcard, dwattrid, core::mem::transmute(pbattr.as_ptr()), pbattr.len().try_into().unwrap()) }
+    unsafe { SCardSetAttrib(hcard, dwattrid, pbattr.as_ptr(), pbattr.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SCardSetCardTypeProviderNameA<P1, P3>(hcontext: SCARDCONTEXT, szcardname: P1, dwproviderid: u32, szprovider: P3) -> i32
@@ -495,7 +495,7 @@ where
 #[inline]
 pub unsafe fn SCardTransmit(hcard: SCARDHANDLE, piosendpci: *const super::winsmcrd::SCARD_IO_REQUEST, pbsendbuffer: &[u8], piorecvpci: Option<*mut super::winsmcrd::SCARD_IO_REQUEST>, pbrecvbuffer: *mut u8, pcbrecvlength: *mut u32) -> i32 {
     windows_core::link!("winscard.dll" "system" fn SCardTransmit(hcard : SCARDHANDLE, piosendpci : *const super::winsmcrd::SCARD_IO_REQUEST, pbsendbuffer : *const u8, cbsendlength : u32, piorecvpci : *mut super::winsmcrd::SCARD_IO_REQUEST, pbrecvbuffer : *mut u8, pcbrecvlength : *mut u32) -> i32);
-    unsafe { SCardTransmit(hcard, piosendpci, core::mem::transmute(pbsendbuffer.as_ptr()), pbsendbuffer.len().try_into().unwrap(), piorecvpci.unwrap_or(core::mem::zeroed()) as _, pbrecvbuffer as _, pcbrecvlength as _) }
+    unsafe { SCardTransmit(hcard, piosendpci, pbsendbuffer.as_ptr(), pbsendbuffer.len().try_into().unwrap(), piorecvpci.unwrap_or(core::mem::zeroed()) as _, pbrecvbuffer as _, pcbrecvlength as _) }
 }
 #[cfg(all(feature = "guiddef", feature = "windef"))]
 #[inline]
@@ -515,7 +515,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winscard.dll" "system" fn SCardWriteCacheA(hcontext : SCARDCONTEXT, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCSTR, data : *const u8, datalen : u32) -> i32);
-    unsafe { SCardWriteCacheA(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
+    unsafe { SCardWriteCacheA(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), data.as_ptr(), data.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SCardWriteCacheW<P3>(hcontext: SCARDCONTEXT, cardidentifier: *const windows_core::GUID, freshnesscounter: u32, lookupname: P3, data: &[u8]) -> i32
@@ -523,7 +523,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winscard.dll" "system" fn SCardWriteCacheW(hcontext : SCARDCONTEXT, cardidentifier : *const windows_core::GUID, freshnesscounter : u32, lookupname : windows_core::PCWSTR, data : *const u8, datalen : u32) -> i32);
-    unsafe { SCardWriteCacheW(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), core::mem::transmute(data.as_ptr()), data.len().try_into().unwrap()) }
+    unsafe { SCardWriteCacheW(hcontext, cardidentifier, freshnesscounter, lookupname.param().abi(), data.as_ptr(), data.len().try_into().unwrap()) }
 }
 pub type LPCBYTE = *const u8;
 pub type LPOCNCHKPROC = Option<unsafe extern "system" fn(param0: SCARDCONTEXT, param1: SCARDHANDLE, param2: *const core::ffi::c_void) -> windows_core::BOOL>;

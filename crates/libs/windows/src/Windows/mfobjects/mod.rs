@@ -43,10 +43,10 @@ impl IMF2DBuffer {
         }
     }
     pub unsafe fn ContiguousCopyTo(&self, pbdestbuffer: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ContiguousCopyTo)(windows_core::Interface::as_raw(self), core::mem::transmute(pbdestbuffer.as_ptr()), pbdestbuffer.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).ContiguousCopyTo)(windows_core::Interface::as_raw(self), pbdestbuffer.as_mut_ptr(), pbdestbuffer.len().try_into().unwrap()) }
     }
     pub unsafe fn ContiguousCopyFrom(&self, pbsrcbuffer: &[u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ContiguousCopyFrom)(windows_core::Interface::as_raw(self), core::mem::transmute(pbsrcbuffer.as_ptr()), pbsrcbuffer.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).ContiguousCopyFrom)(windows_core::Interface::as_raw(self), pbsrcbuffer.as_ptr(), pbsrcbuffer.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -1057,7 +1057,7 @@ impl IMFByteStream {
         P2: windows_core::Param<IMFAsyncCallback>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginRead)(windows_core::Interface::as_raw(self), core::mem::transmute(pb.as_ptr()), pb.len().try_into().unwrap(), pcallback.param().abi(), punkstate.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).BeginRead)(windows_core::Interface::as_raw(self), pb.as_mut_ptr(), pb.len().try_into().unwrap(), pcallback.param().abi(), punkstate.param().abi()) }
     }
     pub unsafe fn EndRead<P0>(&self, presult: P0) -> windows_core::Result<u32>
     where
@@ -1079,7 +1079,7 @@ impl IMFByteStream {
         P2: windows_core::Param<IMFAsyncCallback>,
         P3: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).BeginWrite)(windows_core::Interface::as_raw(self), core::mem::transmute(pb.as_ptr()), pb.len().try_into().unwrap(), pcallback.param().abi(), punkstate.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).BeginWrite)(windows_core::Interface::as_raw(self), pb.as_ptr(), pb.len().try_into().unwrap(), pcallback.param().abi(), punkstate.param().abi()) }
     }
     pub unsafe fn EndWrite<P0>(&self, presult: P0) -> windows_core::Result<u32>
     where

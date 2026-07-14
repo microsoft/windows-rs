@@ -1,13 +1,13 @@
 #[inline]
 pub unsafe fn GetHostNameW(name: &mut [u16]) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn GetHostNameW(name : windows_core::PWSTR, namelen : i32) -> i32);
-    unsafe { GetHostNameW(core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap()) }
+    unsafe { GetHostNameW(core::mem::transmute(name.as_mut_ptr()), name.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
 pub unsafe fn ProcessSocketNotifications(completionport: super::winnt::HANDLE, registrationinfos: Option<&mut [SOCK_NOTIFY_REGISTRATION]>, timeoutms: u32, completionportentries: Option<&mut [super::minwinbase::OVERLAPPED_ENTRY]>, receivedentrycount: Option<*mut u32>) -> u32 {
     windows_core::link!("ws2_32.dll" "system" fn ProcessSocketNotifications(completionport : super::winnt::HANDLE, registrationcount : u32, registrationinfos : *mut SOCK_NOTIFY_REGISTRATION, timeoutms : u32, completioncount : u32, completionportentries : *mut super::minwinbase::OVERLAPPED_ENTRY, receivedentrycount : *mut u32) -> u32);
-    unsafe { ProcessSocketNotifications(completionport, registrationinfos.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(registrationinfos.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), timeoutms, completionportentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(completionportentries.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), receivedentrycount.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { ProcessSocketNotifications(completionport, registrationinfos.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), registrationinfos.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), timeoutms, completionportentries.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), completionportentries.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), receivedentrycount.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "qos", feature = "ws2"))]
 #[inline]
@@ -31,7 +31,7 @@ pub unsafe fn WSAAddressToStringW(lpsaaddress: *const super::ws2::SOCKADDR, dwad
 #[inline]
 pub unsafe fn WSAAsyncGetHostByAddr(hwnd: super::windef::HWND, wmsg: u_int, addr: &[u8], r#type: i32, buf: &mut [u8]) -> super::winnt::HANDLE {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetHostByAddr(hwnd : super::windef::HWND, wmsg : u_int, addr : *const i8, len : i32, r#type : i32, buf : *mut i8, buflen : i32) -> super::winnt::HANDLE);
-    unsafe { WSAAsyncGetHostByAddr(hwnd, wmsg, core::mem::transmute(addr.as_ptr()), addr.len().try_into().unwrap(), r#type, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { WSAAsyncGetHostByAddr(hwnd, wmsg, core::mem::transmute(addr.as_ptr()), addr.len().try_into().unwrap(), r#type, core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -40,7 +40,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetHostByName(hwnd : super::windef::HWND, wmsg : u_int, name : windows_core::PCSTR, buf : *mut i8, buflen : i32) -> super::winnt::HANDLE);
-    unsafe { WSAAsyncGetHostByName(hwnd, wmsg, name.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { WSAAsyncGetHostByName(hwnd, wmsg, name.param().abi(), core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -49,13 +49,13 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetProtoByName(hwnd : super::windef::HWND, wmsg : u_int, name : windows_core::PCSTR, buf : *mut i8, buflen : i32) -> super::winnt::HANDLE);
-    unsafe { WSAAsyncGetProtoByName(hwnd, wmsg, name.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { WSAAsyncGetProtoByName(hwnd, wmsg, name.param().abi(), core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WSAAsyncGetProtoByNumber(hwnd: super::windef::HWND, wmsg: u_int, number: i32, buf: &mut [u8]) -> super::winnt::HANDLE {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetProtoByNumber(hwnd : super::windef::HWND, wmsg : u_int, number : i32, buf : *mut i8, buflen : i32) -> super::winnt::HANDLE);
-    unsafe { WSAAsyncGetProtoByNumber(hwnd, wmsg, number, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { WSAAsyncGetProtoByNumber(hwnd, wmsg, number, core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -65,13 +65,13 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetServByName(hwnd : super::windef::HWND, wmsg : u_int, name : windows_core::PCSTR, proto : windows_core::PCSTR, buf : *mut i8, buflen : i32) -> super::winnt::HANDLE);
-    unsafe { WSAAsyncGetServByName(hwnd, wmsg, name.param().abi(), proto.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { WSAAsyncGetServByName(hwnd, wmsg, name.param().abi(), proto.param().abi(), core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn WSAAsyncGetServByPort(hwnd: super::windef::HWND, wmsg: u_int, port: i32, proto: *const i8, buf: &mut [u8]) -> super::winnt::HANDLE {
     windows_core::link!("ws2_32.dll" "system" fn WSAAsyncGetServByPort(hwnd : super::windef::HWND, wmsg : u_int, port : i32, proto : *const i8, buf : *mut i8, buflen : i32) -> super::winnt::HANDLE);
-    unsafe { WSAAsyncGetServByPort(hwnd, wmsg, port, proto, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { WSAAsyncGetServByPort(hwnd, wmsg, port, proto, core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -332,7 +332,7 @@ pub unsafe fn WSAProviderConfigChange(lpnotificationhandle: *mut super::winnt::H
 #[inline]
 pub unsafe fn WSARecv(s: SOCKET, lpbuffers: &[super::ws2::WSABUF], lpnumberofbytesrecvd: Option<*mut u32>, lpflags: *mut u32, lpoverlapped: Option<*mut super::minwinbase::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSARecv(s : SOCKET, lpbuffers : *const super::ws2::WSABUF, dwbuffercount : u32, lpnumberofbytesrecvd : *mut u32, lpflags : *mut u32, lpoverlapped : *mut super::minwinbase::OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
-    unsafe { WSARecv(s, core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len().try_into().unwrap(), lpnumberofbytesrecvd.unwrap_or(core::mem::zeroed()) as _, lpflags as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
+    unsafe { WSARecv(s, lpbuffers.as_ptr(), lpbuffers.len().try_into().unwrap(), lpnumberofbytesrecvd.unwrap_or(core::mem::zeroed()) as _, lpflags as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
@@ -344,7 +344,7 @@ pub unsafe fn WSARecvDisconnect(s: SOCKET, lpinbounddisconnectdata: Option<*cons
 #[inline]
 pub unsafe fn WSARecvFrom(s: SOCKET, lpbuffers: &[super::ws2::WSABUF], lpnumberofbytesrecvd: Option<*mut u32>, lpflags: *mut u32, lpfrom: Option<*mut super::ws2::SOCKADDR>, lpfromlen: Option<*mut i32>, lpoverlapped: Option<*mut super::minwinbase::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSARecvFrom(s : SOCKET, lpbuffers : *const super::ws2::WSABUF, dwbuffercount : u32, lpnumberofbytesrecvd : *mut u32, lpflags : *mut u32, lpfrom : *mut super::ws2::SOCKADDR, lpfromlen : *mut i32, lpoverlapped : *mut super::minwinbase::OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
-    unsafe { WSARecvFrom(s, core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len().try_into().unwrap(), lpnumberofbytesrecvd.unwrap_or(core::mem::zeroed()) as _, lpflags as _, lpfrom.unwrap_or(core::mem::zeroed()) as _, lpfromlen.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
+    unsafe { WSARecvFrom(s, lpbuffers.as_ptr(), lpbuffers.len().try_into().unwrap(), lpnumberofbytesrecvd.unwrap_or(core::mem::zeroed()) as _, lpflags as _, lpfrom.unwrap_or(core::mem::zeroed()) as _, lpfromlen.unwrap_or(core::mem::zeroed()) as _, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
 }
 #[inline]
 pub unsafe fn WSARemoveServiceClass(lpserviceclassid: *const windows_core::GUID) -> i32 {
@@ -361,7 +361,7 @@ pub unsafe fn WSAResetEvent(hevent: super::winnt::HANDLE) -> windows_core::BOOL 
 #[inline]
 pub unsafe fn WSASend(s: SOCKET, lpbuffers: &[super::ws2::WSABUF], lpnumberofbytessent: Option<*mut u32>, dwflags: u32, lpoverlapped: Option<*mut super::minwinbase::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSASend(s : SOCKET, lpbuffers : *const super::ws2::WSABUF, dwbuffercount : u32, lpnumberofbytessent : *mut u32, dwflags : u32, lpoverlapped : *mut super::minwinbase::OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
-    unsafe { WSASend(s, core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len().try_into().unwrap(), lpnumberofbytessent.unwrap_or(core::mem::zeroed()) as _, dwflags, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
+    unsafe { WSASend(s, lpbuffers.as_ptr(), lpbuffers.len().try_into().unwrap(), lpnumberofbytessent.unwrap_or(core::mem::zeroed()) as _, dwflags, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
@@ -379,7 +379,7 @@ pub unsafe fn WSASendMsg(handle: SOCKET, lpmsg: *const super::ws2::WSAMSG, dwfla
 #[inline]
 pub unsafe fn WSASendTo(s: SOCKET, lpbuffers: &[super::ws2::WSABUF], lpnumberofbytessent: Option<*mut u32>, dwflags: u32, lpto: Option<*const super::ws2::SOCKADDR>, itolen: i32, lpoverlapped: Option<*mut super::minwinbase::OVERLAPPED>, lpcompletionroutine: LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSASendTo(s : SOCKET, lpbuffers : *const super::ws2::WSABUF, dwbuffercount : u32, lpnumberofbytessent : *mut u32, dwflags : u32, lpto : *const super::ws2::SOCKADDR, itolen : i32, lpoverlapped : *mut super::minwinbase::OVERLAPPED, lpcompletionroutine : LPWSAOVERLAPPED_COMPLETION_ROUTINE) -> i32);
-    unsafe { WSASendTo(s, core::mem::transmute(lpbuffers.as_ptr()), lpbuffers.len().try_into().unwrap(), lpnumberofbytessent.unwrap_or(core::mem::zeroed()) as _, dwflags, lpto.unwrap_or(core::mem::zeroed()) as _, itolen, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
+    unsafe { WSASendTo(s, lpbuffers.as_ptr(), lpbuffers.len().try_into().unwrap(), lpnumberofbytessent.unwrap_or(core::mem::zeroed()) as _, dwflags, lpto.unwrap_or(core::mem::zeroed()) as _, itolen, lpoverlapped.unwrap_or(core::mem::zeroed()) as _, lpcompletionroutine) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -452,7 +452,7 @@ pub unsafe fn WSAUnhookBlockingHook() -> i32 {
 #[inline]
 pub unsafe fn WSAWaitForMultipleEvents(lphevents: &[super::winnt::HANDLE], fwaitall: bool, dwtimeout: u32, falertable: bool) -> u32 {
     windows_core::link!("ws2_32.dll" "system" fn WSAWaitForMultipleEvents(cevents : u32, lphevents : *const super::winnt::HANDLE, fwaitall : windows_core::BOOL, dwtimeout : u32, falertable : windows_core::BOOL) -> u32);
-    unsafe { WSAWaitForMultipleEvents(lphevents.len().try_into().unwrap(), core::mem::transmute(lphevents.as_ptr()), fwaitall.into(), dwtimeout, falertable.into()) }
+    unsafe { WSAWaitForMultipleEvents(lphevents.len().try_into().unwrap(), lphevents.as_ptr(), fwaitall.into(), dwtimeout, falertable.into()) }
 }
 #[inline]
 pub unsafe fn __WSAFDIsSet(fd: SOCKET, param1: *mut fd_set) -> i32 {
@@ -498,7 +498,7 @@ where
 #[inline]
 pub unsafe fn gethostname(name: &mut [u8]) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn gethostname(name : *mut i8, namelen : i32) -> i32);
-    unsafe { gethostname(core::mem::transmute(name.as_ptr()), name.len().try_into().unwrap()) }
+    unsafe { gethostname(core::mem::transmute(name.as_mut_ptr()), name.len().try_into().unwrap()) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
@@ -594,13 +594,13 @@ pub unsafe fn ntohs(netshort: u_short) -> u_short {
 #[inline]
 pub unsafe fn recv(s: SOCKET, buf: &mut [u8], flags: i32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn recv(s : SOCKET, buf : *mut i8, len : i32, flags : i32) -> i32);
-    unsafe { recv(s, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap(), flags) }
+    unsafe { recv(s, core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap(), flags) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
 pub unsafe fn recvfrom(s: SOCKET, buf: &mut [u8], flags: i32, from: Option<*mut super::ws2::SOCKADDR>, fromlen: Option<*mut i32>) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn recvfrom(s : SOCKET, buf : *mut i8, len : i32, flags : i32, from : *mut super::ws2::SOCKADDR, fromlen : *mut i32) -> i32);
-    unsafe { recvfrom(s, core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap(), flags, from.unwrap_or(core::mem::zeroed()) as _, fromlen.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { recvfrom(s, core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap(), flags, from.unwrap_or(core::mem::zeroed()) as _, fromlen.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn select(nfds: i32, readfds: Option<*mut fd_set>, writefds: Option<*mut fd_set>, exceptfds: Option<*mut fd_set>, timeout: Option<*const timeval>) -> i32 {

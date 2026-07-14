@@ -58,7 +58,7 @@ pub unsafe fn CredFree(buffer: *const core::ffi::c_void) {
 #[inline]
 pub unsafe fn CredGetSessionTypes(maximumpersist: &mut [u32]) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn CredGetSessionTypes(maximumpersistcount : u32, maximumpersist : *mut u32) -> windows_core::BOOL);
-    unsafe { CredGetSessionTypes(maximumpersist.len().try_into().unwrap(), core::mem::transmute(maximumpersist.as_ptr())) }
+    unsafe { CredGetSessionTypes(maximumpersist.len().try_into().unwrap(), maximumpersist.as_mut_ptr()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -203,7 +203,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsA(psztargetname : windows_core::PCSTR, pcontext : super::sspi::PCtxtHandle, dwautherror : u32, username : windows_core::PSTR, uluserbuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, pfsave : *mut windows_core::BOOL, dwflags : u32) -> u32);
-    unsafe { CredUICmdLinePromptForCredentialsA(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUICmdLinePromptForCredentialsA(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_mut_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(feature = "sspi")]
 #[inline]
@@ -212,7 +212,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUICmdLinePromptForCredentialsW(psztargetname : windows_core::PCWSTR, pcontext : super::sspi::PCtxtHandle, dwautherror : u32, username : windows_core::PWSTR, uluserbuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, pfsave : *mut windows_core::BOOL, dwflags : u32) -> u32);
-    unsafe { CredUICmdLinePromptForCredentialsW(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUICmdLinePromptForCredentialsW(psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(username.as_mut_ptr()), username.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), pfsave.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[inline]
 pub unsafe fn CredUIConfirmCredentialsA<P0>(psztargetname: P0, bconfirm: bool) -> u32
@@ -236,7 +236,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIParseUserNameA(username : windows_core::PCSTR, user : *mut i8, userbuffersize : u32, domain : *mut i8, domainbuffersize : u32) -> u32);
-    unsafe { CredUIParseUserNameA(username.param().abi(), core::mem::transmute(user.as_ptr()), user.len().try_into().unwrap(), core::mem::transmute(domain.as_ptr()), domain.len().try_into().unwrap()) }
+    unsafe { CredUIParseUserNameA(username.param().abi(), user.as_mut_ptr(), user.len().try_into().unwrap(), domain.as_mut_ptr(), domain.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn CredUIParseUserNameW<P0>(username: P0, user: &mut [u16], domain: &mut [u16]) -> u32
@@ -244,7 +244,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIParseUserNameW(username : windows_core::PCWSTR, user : *mut u16, userbuffersize : u32, domain : *mut u16, domainbuffersize : u32) -> u32);
-    unsafe { CredUIParseUserNameW(username.param().abi(), core::mem::transmute(user.as_ptr()), user.len().try_into().unwrap(), core::mem::transmute(domain.as_ptr()), domain.len().try_into().unwrap()) }
+    unsafe { CredUIParseUserNameW(username.param().abi(), user.as_mut_ptr(), user.len().try_into().unwrap(), domain.as_mut_ptr(), domain.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "sspi", feature = "windef"))]
 #[inline]
@@ -253,7 +253,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : windows_core::PCSTR, pcontext : super::sspi::PCtxtHandle, dwautherror : u32, pszusername : windows_core::PSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : u32) -> u32);
-    unsafe { CredUIPromptForCredentialsA(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUIPromptForCredentialsA(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_mut_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(all(feature = "sspi", feature = "windef"))]
 #[inline]
@@ -262,7 +262,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : super::sspi::PCtxtHandle, dwautherror : u32, pszusername : windows_core::PWSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : u32) -> u32);
-    unsafe { CredUIPromptForCredentialsW(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
+    unsafe { CredUIPromptForCredentialsW(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_mut_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_mut_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]

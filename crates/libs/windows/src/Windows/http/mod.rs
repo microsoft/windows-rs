@@ -216,7 +216,7 @@ pub unsafe fn HttpSendHttpResponse(requestqueuehandle: super::winnt::HANDLE, req
 #[inline]
 pub unsafe fn HttpSendResponseEntityBody(requestqueuehandle: super::winnt::HANDLE, requestid: HTTP_REQUEST_ID, flags: u32, entitychunks: Option<&[HTTP_DATA_CHUNK]>, bytessent: *mut u32, reserved1: Option<*const core::ffi::c_void>, reserved2: Option<u32>, overlapped: *mut super::minwinbase::OVERLAPPED, logdata: *mut HTTP_LOG_DATA) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpSendResponseEntityBody(requestqueuehandle : super::winnt::HANDLE, requestid : HTTP_REQUEST_ID, flags : u32, entitychunkcount : u16, entitychunks : *const HTTP_DATA_CHUNK, bytessent : *mut u32, reserved1 : *const core::ffi::c_void, reserved2 : u32, overlapped : *mut super::minwinbase::OVERLAPPED, logdata : *mut HTTP_LOG_DATA) -> u32);
-    unsafe { HttpSendResponseEntityBody(requestqueuehandle, requestid, flags, entitychunks.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(entitychunks.map_or(core::ptr::null(), |slice| slice.as_ptr())), bytessent as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, overlapped as _, logdata as _) }
+    unsafe { HttpSendResponseEntityBody(requestqueuehandle, requestid, flags, entitychunks.map_or(0, |slice| slice.len().try_into().unwrap()), entitychunks.map_or(core::ptr::null(), |slice| slice.as_ptr()), bytessent as _, reserved1.unwrap_or(core::mem::zeroed()) as _, reserved2.unwrap_or(core::mem::zeroed()) as _, overlapped as _, logdata as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]

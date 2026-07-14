@@ -104,7 +104,7 @@ pub unsafe fn SLGetLicenseFileId(hslc: HSLC, pblicenseblob: &[u8]) -> windows_co
     windows_core::link!("slc.dll" "system" fn SLGetLicenseFileId(hslc : HSLC, cblicenseblob : u32, pblicenseblob : *const u8, plicensefileid : *mut SLID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SLGetLicenseFileId(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).map(|| result__)
+        SLGetLicenseFileId(hslc, pblicenseblob.len().try_into().unwrap(), pblicenseblob.as_ptr(), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -133,7 +133,7 @@ where
     windows_core::link!("slc.dll" "system" fn SLGetPKeyId(hslc : HSLC, pwszpkeyalgorithm : windows_core::PCWSTR, pwszpkeystring : windows_core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : *const u8, ppkeyid : *mut SLID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SLGetPKeyId(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
+        SLGetPKeyId(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "minwindef")]
@@ -237,7 +237,7 @@ pub unsafe fn SLInstallLicense(hslc: HSLC, pblicenseblob: &[u8]) -> windows_core
     windows_core::link!("slc.dll" "system" fn SLInstallLicense(hslc : HSLC, cblicenseblob : u32, pblicenseblob : *const u8, plicensefileid : *mut SLID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SLInstallLicense(hslc, pblicenseblob.len().try_into().unwrap(), core::mem::transmute(pblicenseblob.as_ptr()), &mut result__).map(|| result__)
+        SLInstallLicense(hslc, pblicenseblob.len().try_into().unwrap(), pblicenseblob.as_ptr(), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -249,7 +249,7 @@ where
     windows_core::link!("slc.dll" "system" fn SLInstallProofOfPurchase(hslc : HSLC, pwszpkeyalgorithm : windows_core::PCWSTR, pwszpkeystring : windows_core::PCWSTR, cbpkeyspecificdata : u32, pbpkeyspecificdata : *const u8, ppkeyid : *mut SLID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).map(|| result__)
+        SLInstallProofOfPurchase(hslc, pwszpkeyalgorithm.param().abi(), pwszpkeystring.param().abi(), pbpkeyspecificdata.map_or(0, |slice| slice.len().try_into().unwrap()), pbpkeyspecificdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -293,7 +293,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("slc.dll" "system" fn SLSetGenuineInformation(pqueryid : *const SLID, pwszvaluename : windows_core::PCWSTR, edatatype : SLDATATYPE, cbvalue : u32, pbvalue : *const u8) -> windows_core::HRESULT);
-    unsafe { SLSetGenuineInformation(pqueryid, pwszvaluename.param().abi(), edatatype, pbvalue.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbvalue.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { SLSetGenuineInformation(pqueryid, pwszvaluename.param().abi(), edatatype, pbvalue.map_or(0, |slice| slice.len().try_into().unwrap()), pbvalue.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 #[inline]
 pub unsafe fn SLUninstallLicense(hslc: HSLC, plicensefileid: *const SLID) -> windows_core::HRESULT {

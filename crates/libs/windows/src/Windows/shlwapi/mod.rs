@@ -143,7 +143,7 @@ pub unsafe fn GetMenuPosFromID(hmenu: super::windef::HMENU, id: u32) -> i32 {
 #[inline]
 pub unsafe fn HashData(pbdata: &[u8], pbhash: &mut [u8]) -> windows_core::HRESULT {
     windows_core::link!("shlwapi.dll" "system" fn HashData(pbdata : *const u8, cbdata : u32, pbhash : *mut u8, cbhash : u32) -> windows_core::HRESULT);
-    unsafe { HashData(core::mem::transmute(pbdata.as_ptr()), pbdata.len().try_into().unwrap(), core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap()) }
+    unsafe { HashData(pbdata.as_ptr(), pbdata.len().try_into().unwrap(), pbhash.as_mut_ptr(), pbhash.len().try_into().unwrap()) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
@@ -390,12 +390,12 @@ where
 #[inline]
 pub unsafe fn PathBuildRootA(pszroot: &mut [u8; 4], idrive: i32) -> windows_core::PSTR {
     windows_core::link!("shlwapi.dll" "system" fn PathBuildRootA(pszroot : windows_core::PSTR, idrive : i32) -> windows_core::PSTR);
-    unsafe { PathBuildRootA(core::mem::transmute(pszroot.as_ptr()), idrive) }
+    unsafe { PathBuildRootA(core::mem::transmute(pszroot.as_mut_ptr()), idrive) }
 }
 #[inline]
 pub unsafe fn PathBuildRootW(pszroot: &mut [u16; 4], idrive: i32) -> windows_core::PWSTR {
     windows_core::link!("shlwapi.dll" "system" fn PathBuildRootW(pszroot : windows_core::PWSTR, idrive : i32) -> windows_core::PWSTR);
-    unsafe { PathBuildRootW(core::mem::transmute(pszroot.as_ptr()), idrive) }
+    unsafe { PathBuildRootW(core::mem::transmute(pszroot.as_mut_ptr()), idrive) }
 }
 #[inline]
 pub unsafe fn PathCanonicalizeA<P1>(pszbuf: windows_core::PSTR, pszpath: P1) -> windows_core::BOOL
@@ -461,7 +461,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathCompactPathExA(pszout : windows_core::PSTR, pszsrc : windows_core::PCSTR, cchmax : u32, dwflags : u32) -> windows_core::BOOL);
-    unsafe { PathCompactPathExA(core::mem::transmute(pszout.as_ptr()), pszsrc.param().abi(), pszout.len().try_into().unwrap(), dwflags) }
+    unsafe { PathCompactPathExA(core::mem::transmute(pszout.as_mut_ptr()), pszsrc.param().abi(), pszout.len().try_into().unwrap(), dwflags) }
 }
 #[inline]
 pub unsafe fn PathCompactPathExW<P1>(pszout: &mut [u16], pszsrc: P1, dwflags: u32) -> windows_core::BOOL
@@ -469,7 +469,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathCompactPathExW(pszout : windows_core::PWSTR, pszsrc : windows_core::PCWSTR, cchmax : u32, dwflags : u32) -> windows_core::BOOL);
-    unsafe { PathCompactPathExW(core::mem::transmute(pszout.as_ptr()), pszsrc.param().abi(), pszout.len().try_into().unwrap(), dwflags) }
+    unsafe { PathCompactPathExW(core::mem::transmute(pszout.as_mut_ptr()), pszsrc.param().abi(), pszout.len().try_into().unwrap(), dwflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -581,7 +581,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathFindSuffixArrayA(pszpath : windows_core::PCSTR, apszsuffix : *const windows_core::PCSTR, iarraysize : i32) -> windows_core::PCSTR);
-    unsafe { PathFindSuffixArrayA(pszpath.param().abi(), core::mem::transmute(apszsuffix.as_ptr()), apszsuffix.len().try_into().unwrap()) }
+    unsafe { PathFindSuffixArrayA(pszpath.param().abi(), apszsuffix.as_ptr(), apszsuffix.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn PathFindSuffixArrayW<P0>(pszpath: P0, apszsuffix: &[windows_core::PCWSTR]) -> windows_core::PCWSTR
@@ -589,7 +589,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathFindSuffixArrayW(pszpath : windows_core::PCWSTR, apszsuffix : *const windows_core::PCWSTR, iarraysize : i32) -> windows_core::PCWSTR);
-    unsafe { PathFindSuffixArrayW(pszpath.param().abi(), core::mem::transmute(apszsuffix.as_ptr()), apszsuffix.len().try_into().unwrap()) }
+    unsafe { PathFindSuffixArrayW(pszpath.param().abi(), apszsuffix.as_ptr(), apszsuffix.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn PathGetArgsA<P0>(pszpath: P0) -> windows_core::PSTR
@@ -1051,7 +1051,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathSearchAndQualifyA(pszpath : windows_core::PCSTR, pszbuf : windows_core::PSTR, cchbuf : u32) -> windows_core::BOOL);
-    unsafe { PathSearchAndQualifyA(pszpath.param().abi(), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { PathSearchAndQualifyA(pszpath.param().abi(), core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn PathSearchAndQualifyW<P0>(pszpath: P0, pszbuf: &mut [u16]) -> windows_core::BOOL
@@ -1059,7 +1059,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathSearchAndQualifyW(pszpath : windows_core::PCWSTR, pszbuf : windows_core::PWSTR, cchbuf : u32) -> windows_core::BOOL);
-    unsafe { PathSearchAndQualifyW(pszpath.param().abi(), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { PathSearchAndQualifyW(pszpath.param().abi(), core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1121,7 +1121,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathUnExpandEnvStringsA(pszpath : windows_core::PCSTR, pszbuf : windows_core::PSTR, cchbuf : u32) -> windows_core::BOOL);
-    unsafe { PathUnExpandEnvStringsA(pszpath.param().abi(), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { PathUnExpandEnvStringsA(pszpath.param().abi(), core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn PathUnExpandEnvStringsW<P0>(pszpath: P0, pszbuf: &mut [u16]) -> windows_core::BOOL
@@ -1129,7 +1129,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn PathUnExpandEnvStringsW(pszpath : windows_core::PCWSTR, pszbuf : windows_core::PWSTR, cchbuf : u32) -> windows_core::BOOL);
-    unsafe { PathUnExpandEnvStringsW(pszpath.param().abi(), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { PathUnExpandEnvStringsW(pszpath.param().abi(), core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn PathUndecorateA(pszpath: windows_core::PSTR) {
@@ -1188,7 +1188,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHAnsiToAnsi(pszsrc : windows_core::PCSTR, pszdst : windows_core::PSTR, cchbuf : i32) -> i32);
-    unsafe { SHAnsiToAnsi(pszsrc.param().abi(), core::mem::transmute(pszdst.as_ptr()), pszdst.len().try_into().unwrap()) }
+    unsafe { SHAnsiToAnsi(pszsrc.param().abi(), core::mem::transmute(pszdst.as_mut_ptr()), pszdst.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SHAnsiToUnicode<P0>(pszsrc: P0, pwszdst: &mut [u16]) -> i32
@@ -1196,7 +1196,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHAnsiToUnicode(pszsrc : windows_core::PCSTR, pwszdst : windows_core::PWSTR, cwchbuf : i32) -> i32);
-    unsafe { SHAnsiToUnicode(pszsrc.param().abi(), core::mem::transmute(pwszdst.as_ptr()), pwszdst.len().try_into().unwrap()) }
+    unsafe { SHAnsiToUnicode(pszsrc.param().abi(), core::mem::transmute(pwszdst.as_mut_ptr()), pwszdst.len().try_into().unwrap()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1226,7 +1226,7 @@ where
 #[inline]
 pub unsafe fn SHCreateMemStream(pinit: Option<&[u8]>) -> Option<super::objidlbase::IStream> {
     windows_core::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const u8, cbinit : u32) -> Option < super::objidlbase::IStream >);
-    unsafe { SHCreateMemStream(core::mem::transmute(pinit.map_or(core::ptr::null(), |slice| slice.as_ptr())), pinit.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { SHCreateMemStream(pinit.map_or(core::ptr::null(), |slice| slice.as_ptr()), pinit.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1372,13 +1372,13 @@ pub unsafe fn SHEnumValueW(hkey: super::minwindef::HKEY, dwindex: u32, pszvaluen
 #[inline]
 pub unsafe fn SHFormatDateTimeA(pft: *const super::minwindef::FILETIME, pdwflags: Option<*mut u32>, pszbuf: &mut [u8]) -> i32 {
     windows_core::link!("shlwapi.dll" "system" fn SHFormatDateTimeA(pft : *const super::minwindef::FILETIME, pdwflags : *mut u32, pszbuf : windows_core::PSTR, cchbuf : u32) -> i32);
-    unsafe { SHFormatDateTimeA(pft, pdwflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { SHFormatDateTimeA(pft, pdwflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
 pub unsafe fn SHFormatDateTimeW(pft: *const super::minwindef::FILETIME, pdwflags: Option<*mut u32>, pszbuf: &mut [u16]) -> i32 {
     windows_core::link!("shlwapi.dll" "system" fn SHFormatDateTimeW(pft : *const super::minwindef::FILETIME, pdwflags : *mut u32, pszbuf : windows_core::PWSTR, cchbuf : u32) -> i32);
-    unsafe { SHFormatDateTimeW(pft, pdwflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { SHFormatDateTimeW(pft, pdwflags.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1389,7 +1389,7 @@ pub unsafe fn SHFreeShared(hdata: super::winnt::HANDLE, dwprocessid: u32) -> win
 #[inline]
 pub unsafe fn SHGetInverseCMAP(pbmap: &mut [u8]) -> windows_core::HRESULT {
     windows_core::link!("shlwapi.dll" "system" fn SHGetInverseCMAP(pbmap : *mut u8, cbmap : u32) -> windows_core::HRESULT);
-    unsafe { SHGetInverseCMAP(core::mem::transmute(pbmap.as_ptr()), pbmap.len().try_into().unwrap()) }
+    unsafe { SHGetInverseCMAP(pbmap.as_mut_ptr(), pbmap.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SHGetThreadRef() -> windows_core::Result<windows_core::IUnknown> {
@@ -1456,7 +1456,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHLoadIndirectString(pszsource : windows_core::PCWSTR, pszoutbuf : windows_core::PWSTR, cchoutbuf : u32, ppvreserved : *const *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { SHLoadIndirectString(pszsource.param().abi(), core::mem::transmute(pszoutbuf.as_ptr()), pszoutbuf.len().try_into().unwrap(), ppvreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SHLoadIndirectString(pszsource.param().abi(), core::mem::transmute(pszoutbuf.as_mut_ptr()), pszoutbuf.len().try_into().unwrap(), ppvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1943,7 +1943,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHUnicodeToAnsi(pwszsrc : windows_core::PCWSTR, pszdst : windows_core::PSTR, cchbuf : i32) -> i32);
-    unsafe { SHUnicodeToAnsi(pwszsrc.param().abi(), core::mem::transmute(pszdst.as_ptr()), pszdst.len().try_into().unwrap()) }
+    unsafe { SHUnicodeToAnsi(pwszsrc.param().abi(), core::mem::transmute(pszdst.as_mut_ptr()), pszdst.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SHUnicodeToUnicode<P0>(pwzsrc: P0, pwzdst: &mut [u16]) -> i32
@@ -1951,7 +1951,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn SHUnicodeToUnicode(pwzsrc : windows_core::PCWSTR, pwzdst : windows_core::PWSTR, cwchbuf : i32) -> i32);
-    unsafe { SHUnicodeToUnicode(pwzsrc.param().abi(), core::mem::transmute(pwzdst.as_ptr()), pwzdst.len().try_into().unwrap()) }
+    unsafe { SHUnicodeToUnicode(pwzsrc.param().abi(), core::mem::transmute(pwzdst.as_mut_ptr()), pwzdst.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn SHUnlockShared(pvdata: *const core::ffi::c_void) -> windows_core::BOOL {
@@ -2000,7 +2000,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn StrCatBuffA(pszdest : windows_core::PSTR, pszsrc : windows_core::PCSTR, cchdestbuffsize : i32) -> windows_core::PSTR);
-    unsafe { StrCatBuffA(core::mem::transmute(pszdest.as_ptr()), pszsrc.param().abi(), pszdest.len().try_into().unwrap()) }
+    unsafe { StrCatBuffA(core::mem::transmute(pszdest.as_mut_ptr()), pszsrc.param().abi(), pszdest.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StrCatBuffW<P1>(pszdest: &mut [u16], pszsrc: P1) -> windows_core::PWSTR
@@ -2008,7 +2008,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn StrCatBuffW(pszdest : windows_core::PWSTR, pszsrc : windows_core::PCWSTR, cchdestbuffsize : i32) -> windows_core::PWSTR);
-    unsafe { StrCatBuffW(core::mem::transmute(pszdest.as_ptr()), pszsrc.param().abi(), pszdest.len().try_into().unwrap()) }
+    unsafe { StrCatBuffW(core::mem::transmute(pszdest.as_mut_ptr()), pszsrc.param().abi(), pszdest.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StrCatChainW<P3>(pszdst: &mut [u16], ichat: u32, pszsrc: P3) -> u32
@@ -2016,7 +2016,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn StrCatChainW(pszdst : windows_core::PWSTR, cchdst : u32, ichat : u32, pszsrc : windows_core::PCWSTR) -> u32);
-    unsafe { StrCatChainW(core::mem::transmute(pszdst.as_ptr()), pszdst.len().try_into().unwrap(), ichat, pszsrc.param().abi()) }
+    unsafe { StrCatChainW(core::mem::transmute(pszdst.as_mut_ptr()), pszdst.len().try_into().unwrap(), ichat, pszsrc.param().abi()) }
 }
 #[inline]
 pub unsafe fn StrCatW<P1>(psz1: windows_core::PWSTR, psz2: P1) -> windows_core::PWSTR
@@ -2215,7 +2215,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn StrCpyNW(pszdst : windows_core::PWSTR, pszsrc : windows_core::PCWSTR, cchmax : i32) -> windows_core::PWSTR);
-    unsafe { StrCpyNW(core::mem::transmute(pszdst.as_ptr()), pszsrc.param().abi(), pszdst.len().try_into().unwrap()) }
+    unsafe { StrCpyNW(core::mem::transmute(pszdst.as_mut_ptr()), pszsrc.param().abi(), pszdst.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StrCpyW<P1>(psz1: windows_core::PWSTR, psz2: P1) -> windows_core::PWSTR
@@ -2244,42 +2244,42 @@ where
 #[inline]
 pub unsafe fn StrFormatByteSize64A(qdw: i64, pszbuf: &mut [u8]) -> windows_core::PSTR {
     windows_core::link!("shlwapi.dll" "system" fn StrFormatByteSize64A(qdw : i64, pszbuf : windows_core::PSTR, cchbuf : u32) -> windows_core::PSTR);
-    unsafe { StrFormatByteSize64A(qdw, core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { StrFormatByteSize64A(qdw, core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StrFormatByteSizeA(dw: u32, pszbuf: &mut [u8]) -> windows_core::PSTR {
     windows_core::link!("shlwapi.dll" "system" fn StrFormatByteSizeA(dw : u32, pszbuf : windows_core::PSTR, cchbuf : u32) -> windows_core::PSTR);
-    unsafe { StrFormatByteSizeA(dw, core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { StrFormatByteSizeA(dw, core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StrFormatByteSizeEx(ull: u64, flags: SFBS_FLAGS, pszbuf: &mut [u16]) -> windows_core::HRESULT {
     windows_core::link!("shlwapi.dll" "system" fn StrFormatByteSizeEx(ull : u64, flags : SFBS_FLAGS, pszbuf : windows_core::PWSTR, cchbuf : u32) -> windows_core::HRESULT);
-    unsafe { StrFormatByteSizeEx(ull, flags, core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { StrFormatByteSizeEx(ull, flags, core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StrFormatByteSizeW(qdw: i64, pszbuf: &mut [u16]) -> windows_core::PWSTR {
     windows_core::link!("shlwapi.dll" "system" fn StrFormatByteSizeW(qdw : i64, pszbuf : windows_core::PWSTR, cchbuf : u32) -> windows_core::PWSTR);
-    unsafe { StrFormatByteSizeW(qdw, core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { StrFormatByteSizeW(qdw, core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StrFormatKBSizeA(qdw: i64, pszbuf: &mut [u8]) -> windows_core::PSTR {
     windows_core::link!("shlwapi.dll" "system" fn StrFormatKBSizeA(qdw : i64, pszbuf : windows_core::PSTR, cchbuf : u32) -> windows_core::PSTR);
-    unsafe { StrFormatKBSizeA(qdw, core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { StrFormatKBSizeA(qdw, core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StrFormatKBSizeW(qdw: i64, pszbuf: &mut [u16]) -> windows_core::PWSTR {
     windows_core::link!("shlwapi.dll" "system" fn StrFormatKBSizeW(qdw : i64, pszbuf : windows_core::PWSTR, cchbuf : u32) -> windows_core::PWSTR);
-    unsafe { StrFormatKBSizeW(qdw, core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { StrFormatKBSizeW(qdw, core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StrFromTimeIntervalA(pszout: &mut [u8], dwtimems: u32, digits: i32) -> i32 {
     windows_core::link!("shlwapi.dll" "system" fn StrFromTimeIntervalA(pszout : windows_core::PSTR, cchmax : u32, dwtimems : u32, digits : i32) -> i32);
-    unsafe { StrFromTimeIntervalA(core::mem::transmute(pszout.as_ptr()), pszout.len().try_into().unwrap(), dwtimems, digits) }
+    unsafe { StrFromTimeIntervalA(core::mem::transmute(pszout.as_mut_ptr()), pszout.len().try_into().unwrap(), dwtimems, digits) }
 }
 #[inline]
 pub unsafe fn StrFromTimeIntervalW(pszout: &mut [u16], dwtimems: u32, digits: i32) -> i32 {
     windows_core::link!("shlwapi.dll" "system" fn StrFromTimeIntervalW(pszout : windows_core::PWSTR, cchmax : u32, dwtimems : u32, digits : i32) -> i32);
-    unsafe { StrFromTimeIntervalW(core::mem::transmute(pszout.as_ptr()), pszout.len().try_into().unwrap(), dwtimems, digits) }
+    unsafe { StrFromTimeIntervalW(core::mem::transmute(pszout.as_mut_ptr()), pszout.len().try_into().unwrap(), dwtimems, digits) }
 }
 #[inline]
 pub unsafe fn StrIsIntlEqualA<P1, P2>(fcasesens: bool, pszstring1: P1, pszstring2: P2, nchar: i32) -> windows_core::BOOL
@@ -2305,7 +2305,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn StrNCatA(psz1 : windows_core::PSTR, psz2 : windows_core::PCSTR, cchmax : i32) -> windows_core::PSTR);
-    unsafe { StrNCatA(core::mem::transmute(psz1.as_ptr()), psz2.param().abi(), psz1.len().try_into().unwrap()) }
+    unsafe { StrNCatA(core::mem::transmute(psz1.as_mut_ptr()), psz2.param().abi(), psz1.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StrNCatW<P1>(psz1: &mut [u16], psz2: P1) -> windows_core::PWSTR
@@ -2313,7 +2313,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn StrNCatW(psz1 : windows_core::PWSTR, psz2 : windows_core::PCWSTR, cchmax : i32) -> windows_core::PWSTR);
-    unsafe { StrNCatW(core::mem::transmute(psz1.as_ptr()), psz2.param().abi(), psz1.len().try_into().unwrap()) }
+    unsafe { StrNCatW(core::mem::transmute(psz1.as_mut_ptr()), psz2.param().abi(), psz1.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StrPBrkA<P0, P1>(psz: P0, pszset: P1) -> windows_core::PSTR
@@ -2399,13 +2399,13 @@ pub unsafe fn StrRetToBSTR(pstr: *mut super::shtypes::STRRET, pidl: Option<*cons
 #[inline]
 pub unsafe fn StrRetToBufA(pstr: *mut super::shtypes::STRRET, pidl: Option<*const super::shtypes::ITEMIDLIST>, pszbuf: &mut [u8]) -> windows_core::HRESULT {
     windows_core::link!("shlwapi.dll" "system" fn StrRetToBufA(pstr : *mut super::shtypes::STRRET, pidl : *const super::shtypes::ITEMIDLIST, pszbuf : windows_core::PSTR, cchbuf : u32) -> windows_core::HRESULT);
-    unsafe { StrRetToBufA(pstr as _, pidl.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { StrRetToBufA(pstr as _, pidl.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
 pub unsafe fn StrRetToBufW(pstr: *mut super::shtypes::STRRET, pidl: Option<*const super::shtypes::ITEMIDLIST>, pszbuf: &mut [u16]) -> windows_core::HRESULT {
     windows_core::link!("shlwapi.dll" "system" fn StrRetToBufW(pstr : *mut super::shtypes::STRRET, pidl : *const super::shtypes::ITEMIDLIST, pszbuf : windows_core::PWSTR, cchbuf : u32) -> windows_core::HRESULT);
-    unsafe { StrRetToBufW(pstr as _, pidl.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()) }
+    unsafe { StrRetToBufW(pstr as _, pidl.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszbuf.as_mut_ptr()), pszbuf.len().try_into().unwrap()) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -2661,7 +2661,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn UrlFixupW(pcszurl : windows_core::PCWSTR, psztranslatedurl : windows_core::PWSTR, cchmax : u32) -> windows_core::HRESULT);
-    unsafe { UrlFixupW(pcszurl.param().abi(), core::mem::transmute(psztranslatedurl.as_ptr()), psztranslatedurl.len().try_into().unwrap()) }
+    unsafe { UrlFixupW(pcszurl.param().abi(), core::mem::transmute(psztranslatedurl.as_mut_ptr()), psztranslatedurl.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn UrlGetLocationA<P0>(pszurl: P0) -> windows_core::PCSTR
@@ -2701,7 +2701,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn UrlHashA(pszurl : windows_core::PCSTR, pbhash : *mut u8, cbhash : u32) -> windows_core::HRESULT);
-    unsafe { UrlHashA(pszurl.param().abi(), core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap()) }
+    unsafe { UrlHashA(pszurl.param().abi(), pbhash.as_mut_ptr(), pbhash.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn UrlHashW<P0>(pszurl: P0, pbhash: &mut [u8]) -> windows_core::HRESULT
@@ -2709,7 +2709,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn UrlHashW(pszurl : windows_core::PCWSTR, pbhash : *mut u8, cbhash : u32) -> windows_core::HRESULT);
-    unsafe { UrlHashW(pszurl.param().abi(), core::mem::transmute(pbhash.as_ptr()), pbhash.len().try_into().unwrap()) }
+    unsafe { UrlHashW(pszurl.param().abi(), pbhash.as_mut_ptr(), pbhash.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn UrlIsA<P0>(pszurl: P0, urlis: URLIS) -> windows_core::BOOL
@@ -2780,7 +2780,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "C" fn wnsprintfA(pszdest : windows_core::PSTR, cchdest : i32, pszfmt : windows_core::PCSTR) -> i32);
-    unsafe { wnsprintfA(core::mem::transmute(pszdest.as_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi()) }
+    unsafe { wnsprintfA(core::mem::transmute(pszdest.as_mut_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi()) }
 }
 #[inline]
 pub unsafe fn wnsprintfW<P2>(pszdest: &mut [u16], pszfmt: P2) -> i32
@@ -2788,7 +2788,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "C" fn wnsprintfW(pszdest : windows_core::PWSTR, cchdest : i32, pszfmt : windows_core::PCWSTR) -> i32);
-    unsafe { wnsprintfW(core::mem::transmute(pszdest.as_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi()) }
+    unsafe { wnsprintfW(core::mem::transmute(pszdest.as_mut_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi()) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -2797,7 +2797,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn wvnsprintfA(pszdest : windows_core::PSTR, cchdest : i32, pszfmt : windows_core::PCSTR, arglist : *const i8) -> i32);
-    unsafe { wvnsprintfA(core::mem::transmute(pszdest.as_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi(), arglist) }
+    unsafe { wvnsprintfA(core::mem::transmute(pszdest.as_mut_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi(), arglist) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
@@ -2807,7 +2807,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn wvnsprintfA(pszdest : windows_core::PSTR, cchdest : i32, pszfmt : windows_core::PCSTR, arglist : super::vadefs::va_list) -> i32);
-    unsafe { wvnsprintfA(core::mem::transmute(pszdest.as_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi(), arglist) }
+    unsafe { wvnsprintfA(core::mem::transmute(pszdest.as_mut_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi(), arglist) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -2816,7 +2816,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn wvnsprintfW(pszdest : windows_core::PWSTR, cchdest : i32, pszfmt : windows_core::PCWSTR, arglist : *const i8) -> i32);
-    unsafe { wvnsprintfW(core::mem::transmute(pszdest.as_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi(), arglist) }
+    unsafe { wvnsprintfW(core::mem::transmute(pszdest.as_mut_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi(), arglist) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
@@ -2826,7 +2826,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shlwapi.dll" "system" fn wvnsprintfW(pszdest : windows_core::PWSTR, cchdest : i32, pszfmt : windows_core::PCWSTR, arglist : super::vadefs::va_list) -> i32);
-    unsafe { wvnsprintfW(core::mem::transmute(pszdest.as_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi(), arglist) }
+    unsafe { wvnsprintfW(core::mem::transmute(pszdest.as_mut_ptr()), pszdest.len().try_into().unwrap(), pszfmt.param().abi(), arglist) }
 }
 pub type ASSOCDATA = i32;
 pub const ASSOCDATA_EDITFLAGS: ASSOCDATA = 5;

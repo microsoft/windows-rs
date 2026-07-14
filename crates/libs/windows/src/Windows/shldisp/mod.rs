@@ -1784,7 +1784,7 @@ windows_core::imp::interface_hierarchy!(IEnumACString, windows_core::IUnknown, s
 #[cfg(feature = "objidlbase")]
 impl IEnumACString {
     pub unsafe fn NextItem(&self, pszurl: Option<&mut [u16]>, pulsortindex: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).NextItem)(windows_core::Interface::as_raw(self), core::mem::transmute(pszurl.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszurl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pulsortindex as _) }
+        unsafe { (windows_core::Interface::vtable(self).NextItem)(windows_core::Interface::as_raw(self), core::mem::transmute(pszurl.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszurl.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pulsortindex as _) }
     }
     pub unsafe fn SetEnumOptions(&self, dwoptions: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetEnumOptions)(windows_core::Interface::as_raw(self), dwoptions) }

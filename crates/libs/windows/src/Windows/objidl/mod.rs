@@ -1219,7 +1219,7 @@ windows_core::imp::interface_hierarchy!(IEnumFORMATETC, windows_core::IUnknown);
 impl IEnumFORMATETC {
     #[cfg(feature = "wtypes")]
     pub unsafe fn Next(&self, rgelt: &mut [FORMATETC], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1304,7 +1304,7 @@ windows_core::imp::define_interface!(IEnumMoniker, IEnumMoniker_Vtbl, 0x00000102
 windows_core::imp::interface_hierarchy!(IEnumMoniker, windows_core::IUnknown);
 impl IEnumMoniker {
     pub unsafe fn Next(&self, rgelt: &mut [Option<IMoniker>], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_mut_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1384,7 +1384,7 @@ windows_core::imp::interface_hierarchy!(IEnumSTATDATA, windows_core::IUnknown);
 impl IEnumSTATDATA {
     #[cfg(feature = "wtypes")]
     pub unsafe fn Next(&self, rgelt: &mut [STATDATA], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1470,7 +1470,7 @@ windows_core::imp::interface_hierarchy!(IEnumSTATSTG, windows_core::IUnknown);
 impl IEnumSTATSTG {
     #[cfg(all(feature = "minwindef", feature = "objidlbase"))]
     pub unsafe fn Next(&self, rgelt: &mut [super::objidlbase::STATSTG], pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), rgelt.as_mut_ptr(), pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -1745,7 +1745,7 @@ windows_core::imp::interface_hierarchy!(ILayoutStorage, windows_core::IUnknown);
 impl ILayoutStorage {
     #[cfg(feature = "wtypesbase")]
     pub unsafe fn LayoutScript(&self, pstoragelayout: &[StorageLayout], glfinterleavedflag: Option<u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).LayoutScript)(windows_core::Interface::as_raw(self), core::mem::transmute(pstoragelayout.as_ptr()), pstoragelayout.len().try_into().unwrap(), glfinterleavedflag.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).LayoutScript)(windows_core::Interface::as_raw(self), pstoragelayout.as_ptr(), pstoragelayout.len().try_into().unwrap(), glfinterleavedflag.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn BeginMonitor(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).BeginMonitor)(windows_core::Interface::as_raw(self)) }
@@ -3405,7 +3405,7 @@ impl IStorage {
     where
         P3: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), rgiidexclude.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgiidexclude.map_or(core::ptr::null(), |slice| slice.as_ptr())), snbexclude.unwrap_or(core::mem::zeroed()) as _, pstgdest.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).CopyTo)(windows_core::Interface::as_raw(self), rgiidexclude.map_or(0, |slice| slice.len().try_into().unwrap()), rgiidexclude.map_or(core::ptr::null(), |slice| slice.as_ptr()), snbexclude.unwrap_or(core::mem::zeroed()) as _, pstgdest.param().abi()) }
     }
     #[cfg(feature = "wtypesbase")]
     pub unsafe fn MoveElementTo<P1>(&self, pwcsname: *const super::wtypesbase::OLECHAR, pstgdest: P1, pwcsnewname: *const super::wtypesbase::OLECHAR, grfflags: u32) -> windows_core::HRESULT

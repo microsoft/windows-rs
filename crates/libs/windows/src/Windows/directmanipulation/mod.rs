@@ -300,13 +300,13 @@ impl IDirectManipulationContent {
         unsafe { (windows_core::Interface::vtable(self).SetTag)(windows_core::Interface::as_raw(self), object.param().abi(), id) }
     }
     pub unsafe fn GetOutputTransform(&self, matrix: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetOutputTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetOutputTransform)(windows_core::Interface::as_raw(self), matrix.as_mut_ptr(), matrix.len().try_into().unwrap()) }
     }
     pub unsafe fn GetContentTransform(&self, matrix: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetContentTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetContentTransform)(windows_core::Interface::as_raw(self), matrix.as_mut_ptr(), matrix.len().try_into().unwrap()) }
     }
     pub unsafe fn SyncContentTransform(&self, matrix: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SyncContentTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SyncContentTransform)(windows_core::Interface::as_raw(self), matrix.as_ptr(), matrix.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -891,7 +891,7 @@ impl IDirectManipulationPrimaryContent {
         unsafe { (windows_core::Interface::vtable(self).SetSnapInterval)(windows_core::Interface::as_raw(self), motion, interval, offset) }
     }
     pub unsafe fn SetSnapPoints(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, points: Option<&[f32]>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSnapPoints)(windows_core::Interface::as_raw(self), motion, core::mem::transmute(points.map_or(core::ptr::null(), |slice| slice.as_ptr())), points.map_or(0, |slice| slice.len().try_into().unwrap())) }
+        unsafe { (windows_core::Interface::vtable(self).SetSnapPoints)(windows_core::Interface::as_raw(self), motion, points.map_or(core::ptr::null(), |slice| slice.as_ptr()), points.map_or(0, |slice| slice.len().try_into().unwrap())) }
     }
     pub unsafe fn SetSnapType(&self, motion: DIRECTMANIPULATION_MOTION_TYPES, r#type: DIRECTMANIPULATION_SNAPPOINT_TYPE) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetSnapType)(windows_core::Interface::as_raw(self), motion, r#type) }
@@ -909,7 +909,7 @@ impl IDirectManipulationPrimaryContent {
         unsafe { (windows_core::Interface::vtable(self).SetVerticalAlignment)(windows_core::Interface::as_raw(self), alignment) }
     }
     pub unsafe fn GetInertiaEndTransform(&self, matrix: &mut [f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetInertiaEndTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetInertiaEndTransform)(windows_core::Interface::as_raw(self), matrix.as_mut_ptr(), matrix.len().try_into().unwrap()) }
     }
     pub unsafe fn GetCenterPoint(&self, centerx: *mut f32, centery: *mut f32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCenterPoint)(windows_core::Interface::as_raw(self), centerx as _, centery as _) }
@@ -1182,10 +1182,10 @@ impl IDirectManipulationViewport {
         unsafe { (windows_core::Interface::vtable(self).ZoomToRect)(windows_core::Interface::as_raw(self), left, top, right, bottom, animate.into()) }
     }
     pub unsafe fn SetViewportTransform(&self, matrix: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetViewportTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SetViewportTransform)(windows_core::Interface::as_raw(self), matrix.as_ptr(), matrix.len().try_into().unwrap()) }
     }
     pub unsafe fn SyncDisplayTransform(&self, matrix: &[f32]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SyncDisplayTransform)(windows_core::Interface::as_raw(self), core::mem::transmute(matrix.as_ptr()), matrix.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).SyncDisplayTransform)(windows_core::Interface::as_raw(self), matrix.as_ptr(), matrix.len().try_into().unwrap()) }
     }
     pub unsafe fn GetPrimaryContent<T>(&self) -> windows_core::Result<T>
     where

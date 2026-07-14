@@ -93,7 +93,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoCreateInstanceEx(clsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclsctx : u32, pserverinfo : *const super::objidlbase::COSERVERINFO, dwcount : u32, presults : *mut super::objidlbase::MULTI_QI) -> windows_core::HRESULT);
-    unsafe { CoCreateInstanceEx(clsid, punkouter.param().abi(), dwclsctx, pserverinfo.unwrap_or(core::mem::zeroed()) as _, presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr())) }
+    unsafe { CoCreateInstanceEx(clsid, punkouter.param().abi(), dwclsctx, pserverinfo.unwrap_or(core::mem::zeroed()) as _, presults.len().try_into().unwrap(), presults.as_mut_ptr()) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]
@@ -102,7 +102,7 @@ where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
     windows_core::link!("ole32.dll" "system" fn CoCreateInstanceFromApp(clsid : *const windows_core::GUID, punkouter : *mut core::ffi::c_void, dwclsctx : u32, reserved : *const core::ffi::c_void, dwcount : u32, presults : *mut super::objidlbase::MULTI_QI) -> windows_core::HRESULT);
-    unsafe { CoCreateInstanceFromApp(clsid, punkouter.param().abi(), dwclsctx, reserved.unwrap_or(core::mem::zeroed()) as _, presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr())) }
+    unsafe { CoCreateInstanceFromApp(clsid, punkouter.param().abi(), dwclsctx, reserved.unwrap_or(core::mem::zeroed()) as _, presults.len().try_into().unwrap(), presults.as_mut_ptr()) }
 }
 #[inline]
 pub unsafe fn CoDecodeProxy(dwclientpid: u32, ui64proxyaddress: u64) -> windows_core::Result<ServerInformation> {
@@ -329,7 +329,7 @@ pub unsafe fn CoInitializeEx(pvreserved: Option<*const core::ffi::c_void>, dwcoi
 #[inline]
 pub unsafe fn CoInitializeSecurity(psecdesc: Option<super::winnt::PSECURITY_DESCRIPTOR>, asauthsvc: Option<&[super::objidlbase::SOLE_AUTHENTICATION_SERVICE]>, preserved1: Option<*const core::ffi::c_void>, dwauthnlevel: u32, dwimplevel: u32, pauthlist: Option<*const core::ffi::c_void>, dwcapabilities: u32, preserved3: Option<*const core::ffi::c_void>) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn CoInitializeSecurity(psecdesc : super::winnt::PSECURITY_DESCRIPTOR, cauthsvc : i32, asauthsvc : *const super::objidlbase::SOLE_AUTHENTICATION_SERVICE, preserved1 : *const core::ffi::c_void, dwauthnlevel : u32, dwimplevel : u32, pauthlist : *const core::ffi::c_void, dwcapabilities : u32, preserved3 : *const core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { CoInitializeSecurity(psecdesc.unwrap_or(core::mem::zeroed()) as _, asauthsvc.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(asauthsvc.map_or(core::ptr::null(), |slice| slice.as_ptr())), preserved1.unwrap_or(core::mem::zeroed()) as _, dwauthnlevel, dwimplevel, pauthlist.unwrap_or(core::mem::zeroed()) as _, dwcapabilities, preserved3.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CoInitializeSecurity(psecdesc.unwrap_or(core::mem::zeroed()) as _, asauthsvc.map_or(0, |slice| slice.len().try_into().unwrap()), asauthsvc.map_or(core::ptr::null(), |slice| slice.as_ptr()), preserved1.unwrap_or(core::mem::zeroed()) as _, dwauthnlevel, dwimplevel, pauthlist.unwrap_or(core::mem::zeroed()) as _, dwcapabilities, preserved3.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CoInvalidateRemoteMachineBindings<P0>(pszmachinename: P0) -> windows_core::HRESULT
@@ -573,7 +573,7 @@ pub unsafe fn CoWaitForMultipleHandles(dwflags: u32, dwtimeout: u32, phandles: &
     windows_core::link!("ole32.dll" "system" fn CoWaitForMultipleHandles(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::winnt::HANDLE, lpdwindex : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoWaitForMultipleHandles(dwflags, dwtimeout, phandles.len().try_into().unwrap(), core::mem::transmute(phandles.as_ptr()), &mut result__).map(|| result__)
+        CoWaitForMultipleHandles(dwflags, dwtimeout, phandles.len().try_into().unwrap(), phandles.as_ptr(), &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "winnt")]
@@ -582,7 +582,7 @@ pub unsafe fn CoWaitForMultipleObjects(dwflags: u32, dwtimeout: u32, phandles: &
     windows_core::link!("ole32.dll" "system" fn CoWaitForMultipleObjects(dwflags : u32, dwtimeout : u32, chandles : u32, phandles : *const super::winnt::HANDLE, lpdwindex : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CoWaitForMultipleObjects(dwflags, dwtimeout, phandles.len().try_into().unwrap(), core::mem::transmute(phandles.as_ptr()), &mut result__).map(|| result__)
+        CoWaitForMultipleObjects(dwflags, dwtimeout, phandles.len().try_into().unwrap(), phandles.as_ptr(), &mut result__).map(|| result__)
     }
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt"))]
@@ -598,7 +598,7 @@ pub unsafe fn CreateStreamOnHGlobal(hglobal: super::minwindef::HGLOBAL, fdeleteo
 #[inline]
 pub unsafe fn FreePropVariantArray(rgvars: &mut [super::propidlbase::PROPVARIANT]) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn FreePropVariantArray(cvariants : u32, rgvars : *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe { FreePropVariantArray(rgvars.len().try_into().unwrap(), core::mem::transmute(rgvars.as_ptr())) }
+    unsafe { FreePropVariantArray(rgvars.len().try_into().unwrap(), rgvars.as_mut_ptr()) }
 }
 #[cfg(all(feature = "minwindef", feature = "objidlbase", feature = "winnt"))]
 #[inline]
@@ -666,7 +666,7 @@ pub unsafe fn StringFromCLSID(rclsid: *const windows_core::GUID) -> windows_core
 #[inline]
 pub unsafe fn StringFromGUID2(rguid: *const windows_core::GUID, lpsz: &mut [u16]) -> i32 {
     windows_core::link!("ole32.dll" "system" fn StringFromGUID2(rguid : *const windows_core::GUID, lpsz : windows_core::PWSTR, cchmax : i32) -> i32);
-    unsafe { StringFromGUID2(rguid, core::mem::transmute(lpsz.as_ptr()), lpsz.len().try_into().unwrap()) }
+    unsafe { StringFromGUID2(rguid, core::mem::transmute(lpsz.as_mut_ptr()), lpsz.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn StringFromIID(rclsid: *const windows_core::GUID) -> windows_core::Result<windows_core::PWSTR> {

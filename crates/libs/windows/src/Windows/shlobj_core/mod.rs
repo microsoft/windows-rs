@@ -16,7 +16,7 @@ where
     windows_core::link!("shell32.dll" "system" fn CDefFolderMenu_Create2(pidlfolder : *const super::shtypes::ITEMIDLIST, hwnd : super::windef::HWND, cidl : u32, apidl : *const super::shtypes::LPCITEMIDLIST, psf : *mut core::ffi::c_void, pfn : LPFNDFMCALLBACK, nkeys : u32, ahkeys : *const super::minwindef::HKEY, ppcm : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CDefFolderMenu_Create2(pidlfolder.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), psf.param().abi(), pfn, ahkeys.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ahkeys.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CDefFolderMenu_Create2(pidlfolder.unwrap_or(core::mem::zeroed()) as _, hwnd.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), apidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), psf.param().abi(), pfn, ahkeys.map_or(0, |slice| slice.len().try_into().unwrap()), ahkeys.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "objidl", feature = "shtypes"))]
@@ -25,7 +25,7 @@ pub unsafe fn CIDLData_CreateFromIDArray(pidlfolder: *const super::shtypes::ITEM
     windows_core::link!("shell32.dll" "system" fn CIDLData_CreateFromIDArray(pidlfolder : *const super::shtypes::ITEMIDLIST, cidl : u32, apidl : *const super::shtypes::LPCITEMIDLIST, ppdtobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CIDLData_CreateFromIDArray(pidlfolder, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        CIDLData_CreateFromIDArray(pidlfolder, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), apidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "windef")]
@@ -86,7 +86,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn GetFileNameFromBrowse(hwnd : super::windef::HWND, pszfilepath : windows_core::PWSTR, cchfilepath : u32, pszworkingdir : windows_core::PCWSTR, pszdefext : windows_core::PCWSTR, pszfilters : windows_core::PCWSTR, psztitle : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { GetFileNameFromBrowse(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszfilepath.as_ptr()), pszfilepath.len().try_into().unwrap(), pszworkingdir.param().abi(), pszdefext.param().abi(), pszfilters.param().abi(), psztitle.param().abi()) }
+    unsafe { GetFileNameFromBrowse(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszfilepath.as_mut_ptr()), pszfilepath.len().try_into().unwrap(), pszworkingdir.param().abi(), pszdefext.param().abi(), pszfilters.param().abi(), psztitle.param().abi()) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -248,7 +248,7 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn PathMakeUniqueName(pszuniquename : windows_core::PWSTR, cchmax : u32, psztemplate : windows_core::PCWSTR, pszlongplate : windows_core::PCWSTR, pszdir : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { PathMakeUniqueName(core::mem::transmute(pszuniquename.as_ptr()), pszuniquename.len().try_into().unwrap(), psztemplate.param().abi(), pszlongplate.param().abi(), pszdir.param().abi()) }
+    unsafe { PathMakeUniqueName(core::mem::transmute(pszuniquename.as_mut_ptr()), pszuniquename.len().try_into().unwrap(), psztemplate.param().abi(), pszlongplate.param().abi(), pszdir.param().abi()) }
 }
 #[inline]
 pub unsafe fn PathResolve(pszpath: windows_core::PWSTR, dirs: Option<*const windows_core::PCWSTR>, fflags: u32) -> i32 {
@@ -269,7 +269,7 @@ where
 #[inline]
 pub unsafe fn PickIconDlg(hwnd: Option<super::windef::HWND>, psziconpath: &mut [u16], piiconindex: Option<*mut i32>) -> i32 {
     windows_core::link!("shell32.dll" "system" fn PickIconDlg(hwnd : super::windef::HWND, psziconpath : windows_core::PWSTR, cchiconpath : u32, piiconindex : *mut i32) -> i32);
-    unsafe { PickIconDlg(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_ptr()), psziconpath.len().try_into().unwrap(), piiconindex.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { PickIconDlg(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(psziconpath.as_mut_ptr()), psziconpath.len().try_into().unwrap(), piiconindex.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -471,7 +471,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateDataObject(pidlfolder : *const super::shtypes::ITEMIDLIST, cidl : u32, apidl : *const super::shtypes::LPCITEMIDLIST, pdtinner : *mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHCreateDataObject(pidlfolder.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), pdtinner.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHCreateDataObject(pidlfolder.unwrap_or(core::mem::zeroed()) as _, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), apidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), pdtinner.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "minwindef", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[inline]
@@ -556,7 +556,7 @@ pub unsafe fn SHCreateStdEnumFmtEtc(afmt: &[super::objidl::FORMATETC]) -> window
     windows_core::link!("shell32.dll" "system" fn SHCreateStdEnumFmtEtc(cfmt : u32, afmt : *const super::objidl::FORMATETC, ppenumformatetc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateStdEnumFmtEtc(afmt.len().try_into().unwrap(), core::mem::transmute(afmt.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        SHCreateStdEnumFmtEtc(afmt.len().try_into().unwrap(), afmt.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "windef")]
@@ -769,7 +769,7 @@ pub unsafe fn SHGetPathFromIDListA(pidl: *const super::shtypes::ITEMIDLIST, pszp
 #[inline]
 pub unsafe fn SHGetPathFromIDListEx(pidl: *const super::shtypes::ITEMIDLIST, pszpath: &mut [u16], uopts: GPFIDL_FLAGS) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHGetPathFromIDListEx(pidl : *const super::shtypes::ITEMIDLIST, pszpath : windows_core::PWSTR, cchpath : u32, uopts : GPFIDL_FLAGS) -> windows_core::BOOL);
-    unsafe { SHGetPathFromIDListEx(pidl, core::mem::transmute(pszpath.as_ptr()), pszpath.len().try_into().unwrap(), uopts) }
+    unsafe { SHGetPathFromIDListEx(pidl, core::mem::transmute(pszpath.as_mut_ptr()), pszpath.len().try_into().unwrap(), uopts) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -881,7 +881,7 @@ where
 #[inline]
 pub unsafe fn SHOpenFolderAndSelectItems(pidlfolder: *const super::shtypes::ITEMIDLIST, apidl: Option<&[super::shtypes::LPCITEMIDLIST]>, dwflags: u32) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHOpenFolderAndSelectItems(pidlfolder : *const super::shtypes::ITEMIDLIST, cidl : u32, apidl : *const super::shtypes::LPCITEMIDLIST, dwflags : u32) -> windows_core::HRESULT);
-    unsafe { SHOpenFolderAndSelectItems(pidlfolder, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apidl.map_or(core::ptr::null(), |slice| slice.as_ptr())), dwflags) }
+    unsafe { SHOpenFolderAndSelectItems(pidlfolder, apidl.map_or(0, |slice| slice.len().try_into().unwrap()), apidl.map_or(core::ptr::null(), |slice| slice.as_ptr()), dwflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1782,7 +1782,7 @@ impl IActiveDesktop {
         unsafe { (windows_core::Interface::vtable(self).ApplyChanges)(windows_core::Interface::as_raw(self), dwflags) }
     }
     pub unsafe fn GetWallpaper(&self, pwszwallpaper: &mut [u16], dwflags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetWallpaper)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszwallpaper.as_ptr()), pwszwallpaper.len().try_into().unwrap(), dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).GetWallpaper)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszwallpaper.as_mut_ptr()), pwszwallpaper.len().try_into().unwrap(), dwflags) }
     }
     pub unsafe fn SetWallpaper<P0>(&self, pwszwallpaper: P0, dwreserved: u32) -> windows_core::HRESULT
     where
@@ -1797,7 +1797,7 @@ impl IActiveDesktop {
         unsafe { (windows_core::Interface::vtable(self).SetWallpaperOptions)(windows_core::Interface::as_raw(self), pwpo, dwreserved) }
     }
     pub unsafe fn GetPattern(&self, pwszpattern: &mut [u16], dwreserved: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPattern)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszpattern.as_ptr()), pwszpattern.len().try_into().unwrap(), dwreserved) }
+        unsafe { (windows_core::Interface::vtable(self).GetPattern)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszpattern.as_mut_ptr()), pwszpattern.len().try_into().unwrap(), dwreserved) }
     }
     pub unsafe fn SetPattern<P0>(&self, pwszpattern: P0, dwreserved: u32) -> windows_core::HRESULT
     where
@@ -2185,7 +2185,7 @@ windows_core::imp::define_interface!(IExtractIconA, IExtractIconA_Vtbl, 0x000214
 windows_core::imp::interface_hierarchy!(IExtractIconA, windows_core::IUnknown);
 impl IExtractIconA {
     pub unsafe fn GetIconLocation(&self, uflags: u32, psziconfile: &mut [u8], piindex: *mut i32, pwflags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), uflags, core::mem::transmute(psziconfile.as_ptr()), psziconfile.len().try_into().unwrap(), piindex as _, pwflags as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), uflags, core::mem::transmute(psziconfile.as_mut_ptr()), psziconfile.len().try_into().unwrap(), piindex as _, pwflags as _) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn Extract<P0>(&self, pszfile: P0, niconindex: u32, phiconlarge: Option<*mut super::windef::HICON>, phiconsmall: Option<*mut super::windef::HICON>, niconsize: u32) -> windows_core::HRESULT
@@ -2241,7 +2241,7 @@ windows_core::imp::define_interface!(IExtractIconW, IExtractIconW_Vtbl, 0x000214
 windows_core::imp::interface_hierarchy!(IExtractIconW, windows_core::IUnknown);
 impl IExtractIconW {
     pub unsafe fn GetIconLocation(&self, uflags: u32, psziconfile: &mut [u16], piindex: *mut i32, pwflags: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), uflags, core::mem::transmute(psziconfile.as_ptr()), psziconfile.len().try_into().unwrap(), piindex as _, pwflags as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetIconLocation)(windows_core::Interface::as_raw(self), uflags, core::mem::transmute(psziconfile.as_mut_ptr()), psziconfile.len().try_into().unwrap(), piindex as _, pwflags as _) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn Extract<P0>(&self, pszfile: P0, niconindex: u32, phiconlarge: Option<*mut super::windef::HICON>, phiconsmall: Option<*mut super::windef::HICON>, niconsize: u32) -> windows_core::HRESULT
@@ -3649,7 +3649,7 @@ windows_core::imp::define_interface!(IURLSearchHook, IURLSearchHook_Vtbl, 0xac60
 windows_core::imp::interface_hierarchy!(IURLSearchHook, windows_core::IUnknown);
 impl IURLSearchHook {
     pub unsafe fn Translate(&self, pwszsearchurl: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Translate)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszsearchurl.as_ptr()), pwszsearchurl.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).Translate)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszsearchurl.as_mut_ptr()), pwszsearchurl.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -3689,7 +3689,7 @@ impl IURLSearchHook2 {
     where
         P2: windows_core::Param<ISearchContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).TranslateWithSearchContext)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszsearchurl.as_ptr()), pwszsearchurl.len().try_into().unwrap(), psearchcontext.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).TranslateWithSearchContext)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszsearchurl.as_mut_ptr()), pwszsearchurl.len().try_into().unwrap(), psearchcontext.param().abi()) }
     }
 }
 #[repr(C)]

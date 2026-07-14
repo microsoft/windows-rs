@@ -2,13 +2,13 @@
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyBySid(psid: super::winnt::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyBySid(psid : super::winnt::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> bool);
-    unsafe { AuditComputeEffectivePolicyBySid(psid, core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
+    unsafe { AuditComputeEffectivePolicyBySid(psid, psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn AuditComputeEffectivePolicyByToken(htokenhandle: super::winnt::HANDLE, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditComputeEffectivePolicyByToken(htokenhandle : super::winnt::HANDLE, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> bool);
-    unsafe { AuditComputeEffectivePolicyByToken(htokenhandle, core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
+    unsafe { AuditComputeEffectivePolicyByToken(htokenhandle, psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
 #[inline]
 pub unsafe fn AuditEnumerateCategories(ppauditcategoriesarray: *mut *mut windows_core::GUID, pdwcountreturned: *mut u32) -> bool {
@@ -83,7 +83,7 @@ where
 #[inline]
 pub unsafe fn AuditQueryPerUserPolicy(psid: super::winnt::PSID, psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditQueryPerUserPolicy(psid : super::winnt::PSID, psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> bool);
-    unsafe { AuditQueryPerUserPolicy(psid, core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
+    unsafe { AuditQueryPerUserPolicy(psid, psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -94,7 +94,7 @@ pub unsafe fn AuditQuerySecurity(securityinformation: super::winnt::SECURITY_INF
 #[inline]
 pub unsafe fn AuditQuerySystemPolicy(psubcategoryguids: &[windows_core::GUID], ppauditpolicy: *mut PAUDIT_POLICY_INFORMATION) -> bool {
     windows_core::link!("advapi32.dll" "system" fn AuditQuerySystemPolicy(psubcategoryguids : *const windows_core::GUID, dwpolicycount : u32, ppauditpolicy : *mut PAUDIT_POLICY_INFORMATION) -> bool);
-    unsafe { AuditQuerySystemPolicy(core::mem::transmute(psubcategoryguids.as_ptr()), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
+    unsafe { AuditQuerySystemPolicy(psubcategoryguids.as_ptr(), psubcategoryguids.len().try_into().unwrap(), ppauditpolicy as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -135,7 +135,7 @@ pub unsafe fn AuditSetSystemPolicy(pauditpolicy: &[PCAUDIT_POLICY_INFORMATION]) 
 #[inline]
 pub unsafe fn LsaAddAccountRights(policyhandle: LSA_HANDLE, accountsid: super::winnt::PSID, userrights: &[super::lsalookup::LSA_UNICODE_STRING]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaAddAccountRights(policyhandle : LSA_HANDLE, accountsid : super::winnt::PSID, userrights : *const super::lsalookup::LSA_UNICODE_STRING, countofrights : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { LsaAddAccountRights(policyhandle, accountsid, core::mem::transmute(userrights.as_ptr()), userrights.len().try_into().unwrap()) }
+    unsafe { LsaAddAccountRights(policyhandle, accountsid, userrights.as_ptr(), userrights.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "winnt"))]
 #[inline]
@@ -285,7 +285,7 @@ pub unsafe fn LsaOpenTrustedDomainByName(policyhandle: LSA_HANDLE, trusteddomain
 #[inline]
 pub unsafe fn LsaQueryCAPs(capids: Option<&[super::winnt::PSID]>, caps: *mut PCENTRAL_ACCESS_POLICY, capcount: *mut u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaQueryCAPs(capids : *const super::winnt::PSID, capidcount : u32, caps : *mut PCENTRAL_ACCESS_POLICY, capcount : *mut u32) -> super::bcrypt::NTSTATUS);
-    unsafe { LsaQueryCAPs(core::mem::transmute(capids.map_or(core::ptr::null(), |slice| slice.as_ptr())), capids.map_or(0, |slice| slice.len().try_into().unwrap()), caps as _, capcount as _) }
+    unsafe { LsaQueryCAPs(capids.map_or(core::ptr::null(), |slice| slice.as_ptr()), capids.map_or(0, |slice| slice.len().try_into().unwrap()), caps as _, capcount as _) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -339,7 +339,7 @@ pub unsafe fn LsaRegisterPolicyChangeNotification(informationclass: POLICY_NOTIF
 #[inline]
 pub unsafe fn LsaRemoveAccountRights(policyhandle: LSA_HANDLE, accountsid: super::winnt::PSID, allrights: bool, userrights: Option<&[super::lsalookup::LSA_UNICODE_STRING]>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::winnt::PSID, allrights : bool, userrights : *const super::lsalookup::LSA_UNICODE_STRING, countofrights : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { LsaRemoveAccountRights(policyhandle, accountsid, allrights, core::mem::transmute(userrights.map_or(core::ptr::null(), |slice| slice.as_ptr())), userrights.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { LsaRemoveAccountRights(policyhandle, accountsid, allrights, userrights.map_or(core::ptr::null(), |slice| slice.as_ptr()), userrights.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
 #[inline]
@@ -351,7 +351,7 @@ pub unsafe fn LsaRetrievePrivateData(policyhandle: LSA_HANDLE, keyname: *const s
 #[inline]
 pub unsafe fn LsaSetCAPs(capdns: Option<&[super::lsalookup::LSA_UNICODE_STRING]>, flags: u32) -> super::bcrypt::NTSTATUS {
     windows_core::link!("advapi32.dll" "system" fn LsaSetCAPs(capdns : *const super::lsalookup::LSA_UNICODE_STRING, capdncount : u32, flags : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { LsaSetCAPs(core::mem::transmute(capdns.map_or(core::ptr::null(), |slice| slice.as_ptr())), capdns.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
+    unsafe { LsaSetCAPs(capdns.map_or(core::ptr::null(), |slice| slice.as_ptr()), capdns.map_or(0, |slice| slice.len().try_into().unwrap()), flags) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]

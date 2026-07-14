@@ -41,7 +41,7 @@ pub unsafe fn ConvertInterfaceIndexToLuid(interfaceindex: super::ifdef::NET_IFIN
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToAlias(interfaceluid: *const super::ifdef::NET_LUID, interfacealias: &mut [u16]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToAlias(interfaceluid : *const super::ifdef::NET_LUID, interfacealias : windows_core::PWSTR, length : usize) -> super::bcrypt::NTSTATUS);
-    unsafe { ConvertInterfaceLuidToAlias(interfaceluid, core::mem::transmute(interfacealias.as_ptr()), interfacealias.len().try_into().unwrap()) }
+    unsafe { ConvertInterfaceLuidToAlias(interfaceluid, core::mem::transmute(interfacealias.as_mut_ptr()), interfacealias.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "ifdef"))]
 #[inline]
@@ -59,13 +59,13 @@ pub unsafe fn ConvertInterfaceLuidToIndex(interfaceluid: *const super::ifdef::NE
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToNameA(interfaceluid: *const super::ifdef::NET_LUID, interfacename: &mut [u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameA(interfaceluid : *const super::ifdef::NET_LUID, interfacename : windows_core::PSTR, length : usize) -> super::bcrypt::NTSTATUS);
-    unsafe { ConvertInterfaceLuidToNameA(interfaceluid, core::mem::transmute(interfacename.as_ptr()), interfacename.len().try_into().unwrap()) }
+    unsafe { ConvertInterfaceLuidToNameA(interfaceluid, core::mem::transmute(interfacename.as_mut_ptr()), interfacename.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "ifdef"))]
 #[inline]
 pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::ifdef::NET_LUID, interfacename: &mut [u16]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameW(interfaceluid : *const super::ifdef::NET_LUID, interfacename : windows_core::PWSTR, length : usize) -> super::bcrypt::NTSTATUS);
-    unsafe { ConvertInterfaceLuidToNameW(interfaceluid, core::mem::transmute(interfacename.as_ptr()), interfacename.len().try_into().unwrap()) }
+    unsafe { ConvertInterfaceLuidToNameW(interfaceluid, core::mem::transmute(interfacename.as_mut_ptr()), interfacename.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "ifdef"))]
 #[inline]
@@ -379,7 +379,7 @@ pub unsafe fn GetNetworkConnectivityHintForInterface(interfaceindex: super::ifde
 #[inline]
 pub unsafe fn GetNetworkInformation(networkguid: *const super::ifdef::NET_IF_NETWORK_GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: &mut [u16]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetNetworkInformation(networkguid : *const super::ifdef::NET_IF_NETWORK_GUID, compartmentid : *mut u32, siteid : *mut u32, networkname : *mut u16, length : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { GetNetworkInformation(networkguid, compartmentid as _, siteid as _, core::mem::transmute(networkname.as_ptr()), networkname.len().try_into().unwrap()) }
+    unsafe { GetNetworkInformation(networkguid, compartmentid as _, siteid as _, networkname.as_mut_ptr(), networkname.len().try_into().unwrap()) }
 }
 #[cfg(feature = "ifdef")]
 #[inline]

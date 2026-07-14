@@ -12,7 +12,7 @@ pub unsafe fn DdeAccessData(hdata: HDDEDATA, pcbdatasize: Option<*mut u32>) -> s
 #[inline]
 pub unsafe fn DdeAddData(hdata: HDDEDATA, psrc: &[u8], cboff: u32) -> HDDEDATA {
     windows_core::link!("user32.dll" "system" fn DdeAddData(hdata : HDDEDATA, psrc : *const u8, cb : u32, cboff : u32) -> HDDEDATA);
-    unsafe { DdeAddData(hdata, core::mem::transmute(psrc.as_ptr()), psrc.len().try_into().unwrap(), cboff) }
+    unsafe { DdeAddData(hdata, psrc.as_ptr(), psrc.len().try_into().unwrap(), cboff) }
 }
 #[inline]
 pub unsafe fn DdeClientTransaction(pdata: Option<*const u8>, cbdata: u32, hconv: HCONV, hszitem: Option<HSZ>, wfmt: u32, wtype: u32, dwtimeout: u32, pdwresult: Option<*mut u32>) -> HDDEDATA {
@@ -39,7 +39,7 @@ pub unsafe fn DdeConnectList(idinst: u32, hszservice: HSZ, hsztopic: HSZ, hconvl
 #[inline]
 pub unsafe fn DdeCreateDataHandle(idinst: u32, psrc: Option<&[u8]>, cboff: u32, hszitem: Option<HSZ>, wfmt: u32, afcmd: u32) -> HDDEDATA {
     windows_core::link!("user32.dll" "system" fn DdeCreateDataHandle(idinst : u32, psrc : *const u8, cb : u32, cboff : u32, hszitem : HSZ, wfmt : u32, afcmd : u32) -> HDDEDATA);
-    unsafe { DdeCreateDataHandle(idinst, core::mem::transmute(psrc.map_or(core::ptr::null(), |slice| slice.as_ptr())), psrc.map_or(0, |slice| slice.len().try_into().unwrap()), cboff, hszitem.unwrap_or(core::mem::zeroed()) as _, wfmt, afcmd) }
+    unsafe { DdeCreateDataHandle(idinst, psrc.map_or(core::ptr::null(), |slice| slice.as_ptr()), psrc.map_or(0, |slice| slice.len().try_into().unwrap()), cboff, hszitem.unwrap_or(core::mem::zeroed()) as _, wfmt, afcmd) }
 }
 #[inline]
 pub unsafe fn DdeCreateStringHandleA<P1>(idinst: u32, psz: P1, icodepage: i32) -> HSZ
@@ -85,7 +85,7 @@ pub unsafe fn DdeFreeStringHandle(idinst: u32, hsz: HSZ) -> windows_core::BOOL {
 #[inline]
 pub unsafe fn DdeGetData(hdata: HDDEDATA, pdst: Option<&mut [u8]>, cboff: u32) -> u32 {
     windows_core::link!("user32.dll" "system" fn DdeGetData(hdata : HDDEDATA, pdst : *mut u8, cbmax : u32, cboff : u32) -> u32);
-    unsafe { DdeGetData(hdata, core::mem::transmute(pdst.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pdst.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cboff) }
+    unsafe { DdeGetData(hdata, pdst.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), pdst.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), cboff) }
 }
 #[inline]
 pub unsafe fn DdeGetLastError(idinst: u32) -> u32 {
@@ -136,12 +136,12 @@ pub unsafe fn DdeQueryNextServer(hconvlist: HCONVLIST, hconvprev: HCONV) -> HCON
 #[inline]
 pub unsafe fn DdeQueryStringA(idinst: u32, hsz: HSZ, psz: Option<&mut [u8]>, icodepage: i32) -> u32 {
     windows_core::link!("user32.dll" "system" fn DdeQueryStringA(idinst : u32, hsz : HSZ, psz : windows_core::PSTR, cchmax : u32, icodepage : i32) -> u32);
-    unsafe { DdeQueryStringA(idinst, hsz, core::mem::transmute(psz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), icodepage) }
+    unsafe { DdeQueryStringA(idinst, hsz, core::mem::transmute(psz.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), icodepage) }
 }
 #[inline]
 pub unsafe fn DdeQueryStringW(idinst: u32, hsz: HSZ, psz: Option<&mut [u16]>, icodepage: i32) -> u32 {
     windows_core::link!("user32.dll" "system" fn DdeQueryStringW(idinst : u32, hsz : HSZ, psz : windows_core::PWSTR, cchmax : u32, icodepage : i32) -> u32);
-    unsafe { DdeQueryStringW(idinst, hsz, core::mem::transmute(psz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), icodepage) }
+    unsafe { DdeQueryStringW(idinst, hsz, core::mem::transmute(psz.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), icodepage) }
 }
 #[inline]
 pub unsafe fn DdeReconnect(hconv: HCONV) -> HCONV {

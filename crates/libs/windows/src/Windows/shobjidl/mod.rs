@@ -1960,7 +1960,7 @@ impl INameSpaceTreeControlEvents {
     where
         P0: windows_core::Param<super::shobjidl_core::IShellItem>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnGetToolTip)(windows_core::Interface::as_raw(self), psi.param().abi(), core::mem::transmute(psztip.as_ptr()), psztip.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).OnGetToolTip)(windows_core::Interface::as_raw(self), psi.param().abi(), core::mem::transmute(psztip.as_mut_ptr()), psztip.len().try_into().unwrap()) }
     }
     #[cfg(feature = "shobjidl_core")]
     pub unsafe fn OnBeforeItemDelete<P0>(&self, psi: P0) -> windows_core::HRESULT
@@ -3591,7 +3591,7 @@ windows_core::imp::interface_hierarchy!(IWizardExtension, windows_core::IUnknown
 impl IWizardExtension {
     #[cfg(feature = "prsht")]
     pub unsafe fn AddPages(&self, apages: &mut [super::prsht::HPROPSHEETPAGE], pnpagesadded: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPages)(windows_core::Interface::as_raw(self), core::mem::transmute(apages.as_ptr()), apages.len().try_into().unwrap(), pnpagesadded as _) }
+        unsafe { (windows_core::Interface::vtable(self).AddPages)(windows_core::Interface::as_raw(self), apages.as_mut_ptr(), apages.len().try_into().unwrap(), pnpagesadded as _) }
     }
     #[cfg(feature = "prsht")]
     pub unsafe fn GetFirstPage(&self) -> windows_core::Result<super::prsht::HPROPSHEETPAGE> {

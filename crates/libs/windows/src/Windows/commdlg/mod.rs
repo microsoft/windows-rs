@@ -45,7 +45,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("comdlg32.dll" "system" fn GetFileTitleA(param0 : windows_core::PCSTR, buf : windows_core::PSTR, cchsize : u16) -> i16);
-    unsafe { GetFileTitleA(param0.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { GetFileTitleA(param0.param().abi(), core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn GetFileTitleW<P0>(param0: P0, buf: &mut [u16]) -> i16
@@ -53,7 +53,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("comdlg32.dll" "system" fn GetFileTitleW(param0 : windows_core::PCWSTR, buf : windows_core::PWSTR, cchsize : u16) -> i16);
-    unsafe { GetFileTitleW(param0.param().abi(), core::mem::transmute(buf.as_ptr()), buf.len().try_into().unwrap()) }
+    unsafe { GetFileTitleW(param0.param().abi(), core::mem::transmute(buf.as_mut_ptr()), buf.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]

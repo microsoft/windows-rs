@@ -468,7 +468,7 @@ impl IWbemHiPerfProvider {
         P0: windows_core::Param<super::wbemcli::IWbemServices>,
         P4: windows_core::Param<super::wbemcli::IWbemContext>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetObjects)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), apobj.len().try_into().unwrap(), core::mem::transmute(apobj.as_ptr()), lflags, pcontext.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).GetObjects)(windows_core::Interface::as_raw(self), pnamespace.param().abi(), apobj.len().try_into().unwrap(), core::mem::transmute(apobj.as_mut_ptr()), lflags, pcontext.param().abi()) }
     }
 }
 #[repr(C)]

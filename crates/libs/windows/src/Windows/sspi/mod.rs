@@ -369,13 +369,13 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("sspicli.dll" "system" fn SecAllocateAndSetCallTarget(lpipaddress : *const u8, cchipaddress : u32, targetname : windows_core::PCWSTR, freecallcontext : *mut i32) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { SecAllocateAndSetCallTarget(core::mem::transmute(lpipaddress.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpipaddress.map_or(0, |slice| slice.len().try_into().unwrap()), targetname.param().abi(), freecallcontext as _) }
+    unsafe { SecAllocateAndSetCallTarget(lpipaddress.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpipaddress.map_or(0, |slice| slice.len().try_into().unwrap()), targetname.param().abi(), freecallcontext as _) }
 }
 #[cfg(feature = "ncrypt")]
 #[inline]
 pub unsafe fn SecAllocateAndSetIPAddress(lpipaddress: &[u8], freecallcontext: *mut i32) -> super::ncrypt::SECURITY_STATUS {
     windows_core::link!("sspicli.dll" "system" fn SecAllocateAndSetIPAddress(lpipaddress : *const u8, cchipaddress : u32, freecallcontext : *mut i32) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { SecAllocateAndSetIPAddress(core::mem::transmute(lpipaddress.as_ptr()), lpipaddress.len().try_into().unwrap(), freecallcontext as _) }
+    unsafe { SecAllocateAndSetIPAddress(lpipaddress.as_ptr(), lpipaddress.len().try_into().unwrap(), freecallcontext as _) }
 }
 #[inline]
 pub unsafe fn SecFreeCallContext() {

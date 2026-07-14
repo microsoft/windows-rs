@@ -79,7 +79,7 @@ where
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHOpenPropSheetW(pszcaption : windows_core::PCWSTR, ahkeys : *const super::minwindef::HKEY, ckeys : u32, pclsiddefault : *const windows_core::GUID, pdtobj : *mut core::ffi::c_void, psb : *mut core::ffi::c_void, pstartpage : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { SHOpenPropSheetW(pszcaption.param().abi(), core::mem::transmute(ahkeys.map_or(core::ptr::null(), |slice| slice.as_ptr())), ahkeys.map_or(0, |slice| slice.len().try_into().unwrap()), pclsiddefault.unwrap_or(core::mem::zeroed()) as _, pdtobj.param().abi(), psb.param().abi(), pstartpage.param().abi()) }
+    unsafe { SHOpenPropSheetW(pszcaption.param().abi(), ahkeys.map_or(core::ptr::null(), |slice| slice.as_ptr()), ahkeys.map_or(0, |slice| slice.len().try_into().unwrap()), pclsiddefault.unwrap_or(core::mem::zeroed()) as _, pdtobj.param().abi(), psb.param().abi(), pstartpage.param().abi()) }
 }
 #[cfg(all(feature = "urlmon", feature = "windef"))]
 #[inline]
@@ -574,7 +574,7 @@ windows_core::imp::define_interface!(ICurrentWorkingDirectory, ICurrentWorkingDi
 windows_core::imp::interface_hierarchy!(ICurrentWorkingDirectory, windows_core::IUnknown);
 impl ICurrentWorkingDirectory {
     pub unsafe fn GetDirectory(&self, pwzpath: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute(pwzpath.as_ptr()), pwzpath.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute(pwzpath.as_mut_ptr()), pwzpath.len().try_into().unwrap()) }
     }
     pub unsafe fn SetDirectory<P0>(&self, pwzpath: P0) -> windows_core::HRESULT
     where
@@ -889,7 +889,7 @@ impl INewShortcutHookA {
         unsafe { (windows_core::Interface::vtable(self).SetReferent)(windows_core::Interface::as_raw(self), pcszreferent.param().abi(), hwnd.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetReferent(&self, pszreferent: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetReferent)(windows_core::Interface::as_raw(self), core::mem::transmute(pszreferent.as_ptr()), pszreferent.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetReferent)(windows_core::Interface::as_raw(self), core::mem::transmute(pszreferent.as_mut_ptr()), pszreferent.len().try_into().unwrap()) }
     }
     pub unsafe fn SetFolder<P0>(&self, pcszfolder: P0) -> windows_core::HRESULT
     where
@@ -898,13 +898,13 @@ impl INewShortcutHookA {
         unsafe { (windows_core::Interface::vtable(self).SetFolder)(windows_core::Interface::as_raw(self), pcszfolder.param().abi()) }
     }
     pub unsafe fn GetFolder(&self, pszfolder: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfolder.as_ptr()), pszfolder.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfolder.as_mut_ptr()), pszfolder.len().try_into().unwrap()) }
     }
     pub unsafe fn GetName(&self, pszname: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
     }
     pub unsafe fn GetExtension(&self, pszextension: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(pszextension.as_ptr()), pszextension.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(pszextension.as_mut_ptr()), pszextension.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]
@@ -996,7 +996,7 @@ impl INewShortcutHookW {
         unsafe { (windows_core::Interface::vtable(self).SetReferent)(windows_core::Interface::as_raw(self), pcszreferent.param().abi(), hwnd.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn GetReferent(&self, pszreferent: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetReferent)(windows_core::Interface::as_raw(self), core::mem::transmute(pszreferent.as_ptr()), pszreferent.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetReferent)(windows_core::Interface::as_raw(self), core::mem::transmute(pszreferent.as_mut_ptr()), pszreferent.len().try_into().unwrap()) }
     }
     pub unsafe fn SetFolder<P0>(&self, pcszfolder: P0) -> windows_core::HRESULT
     where
@@ -1005,13 +1005,13 @@ impl INewShortcutHookW {
         unsafe { (windows_core::Interface::vtable(self).SetFolder)(windows_core::Interface::as_raw(self), pcszfolder.param().abi()) }
     }
     pub unsafe fn GetFolder(&self, pszfolder: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfolder.as_ptr()), pszfolder.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfolder.as_mut_ptr()), pszfolder.len().try_into().unwrap()) }
     }
     pub unsafe fn GetName(&self, pszname: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_ptr()), pszname.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszname.as_mut_ptr()), pszname.len().try_into().unwrap()) }
     }
     pub unsafe fn GetExtension(&self, pszextension: &mut [u16]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(pszextension.as_ptr()), pszextension.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).GetExtension)(windows_core::Interface::as_raw(self), core::mem::transmute(pszextension.as_mut_ptr()), pszextension.len().try_into().unwrap()) }
     }
 }
 #[repr(C)]

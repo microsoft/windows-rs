@@ -297,13 +297,13 @@ pub unsafe fn GetPerTcp6ConnectionEStats(row: *const super::tcpmib::MIB_TCP6ROW,
         GetPerTcp6ConnectionEStats(
             row,
             estatstype,
-            core::mem::transmute(rw.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            rw.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
             rwversion,
             rw.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(ros.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            ros.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
             rosversion,
             ros.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(rod.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            rod.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
             rodversion,
             rod.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         )
@@ -317,13 +317,13 @@ pub unsafe fn GetPerTcpConnectionEStats(row: *const super::tcpmib::MIB_TCPROW_LH
         GetPerTcpConnectionEStats(
             row,
             estatstype,
-            core::mem::transmute(rw.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            rw.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
             rwversion,
             rw.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(ros.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            ros.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
             rosversion,
             ros.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
-            core::mem::transmute(rod.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())),
+            rod.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()),
             rodversion,
             rod.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()),
         )
@@ -520,13 +520,13 @@ pub unsafe fn SetIpTTL(nttl: u32) -> u32 {
 #[inline]
 pub unsafe fn SetPerTcp6ConnectionEStats(row: *const super::tcpmib::MIB_TCP6ROW, estatstype: super::tcpestats::TCP_ESTATS_TYPE, rw: &[u8], rwversion: u32, offset: u32) -> u32 {
     windows_core::link!("iphlpapi.dll" "system" fn SetPerTcp6ConnectionEStats(row : *const super::tcpmib::MIB_TCP6ROW, estatstype : super::tcpestats::TCP_ESTATS_TYPE, rw : *const u8, rwversion : u32, rwsize : u32, offset : u32) -> u32);
-    unsafe { SetPerTcp6ConnectionEStats(row, estatstype, core::mem::transmute(rw.as_ptr()), rwversion, rw.len().try_into().unwrap(), offset) }
+    unsafe { SetPerTcp6ConnectionEStats(row, estatstype, rw.as_ptr(), rwversion, rw.len().try_into().unwrap(), offset) }
 }
 #[cfg(all(feature = "tcpestats", feature = "tcpmib"))]
 #[inline]
 pub unsafe fn SetPerTcpConnectionEStats(row: *const super::tcpmib::MIB_TCPROW_LH, estatstype: super::tcpestats::TCP_ESTATS_TYPE, rw: &[u8], rwversion: u32, offset: u32) -> u32 {
     windows_core::link!("iphlpapi.dll" "system" fn SetPerTcpConnectionEStats(row : *const super::tcpmib::MIB_TCPROW_LH, estatstype : super::tcpestats::TCP_ESTATS_TYPE, rw : *const u8, rwversion : u32, rwsize : u32, offset : u32) -> u32);
-    unsafe { SetPerTcpConnectionEStats(row, estatstype, core::mem::transmute(rw.as_ptr()), rwversion, rw.len().try_into().unwrap(), offset) }
+    unsafe { SetPerTcpConnectionEStats(row, estatstype, rw.as_ptr(), rwversion, rw.len().try_into().unwrap(), offset) }
 }
 #[cfg(feature = "tcpmib")]
 #[inline]

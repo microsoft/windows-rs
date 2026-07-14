@@ -28,7 +28,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wcmapi.dll" "system" fn WcmSetProperty(pinterface : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, property : WCM_PROPERTY, preserved : *const core::ffi::c_void, dwdatasize : u32, pbdata : *const u8) -> u32);
-    unsafe { WcmSetProperty(pinterface.unwrap_or(core::mem::zeroed()) as _, strprofilename.param().abi(), property, preserved.unwrap_or(core::mem::zeroed()) as _, pbdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbdata.map_or(core::ptr::null(), |slice| slice.as_ptr()))) }
+    unsafe { WcmSetProperty(pinterface.unwrap_or(core::mem::zeroed()) as _, strprofilename.param().abi(), property, preserved.unwrap_or(core::mem::zeroed()) as _, pbdata.map_or(0, |slice| slice.len().try_into().unwrap()), pbdata.map_or(core::ptr::null(), |slice| slice.as_ptr())) }
 }
 pub type PWCM_CONNECTION_COST = *mut WCM_CONNECTION_COST;
 pub type PWCM_CONNECTION_COST_DATA = *mut WCM_CONNECTION_COST_DATA;

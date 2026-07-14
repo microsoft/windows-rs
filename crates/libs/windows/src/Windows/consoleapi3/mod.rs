@@ -41,12 +41,12 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleAliasA(source : windows_core::PCSTR, targetbuffer : windows_core::PSTR, targetbufferlength : u32, exename : windows_core::PCSTR) -> u32);
-    unsafe { GetConsoleAliasA(source.param().abi(), core::mem::transmute(targetbuffer.as_ptr()), targetbuffer.len().try_into().unwrap(), exename.param().abi()) }
+    unsafe { GetConsoleAliasA(source.param().abi(), core::mem::transmute(targetbuffer.as_mut_ptr()), targetbuffer.len().try_into().unwrap(), exename.param().abi()) }
 }
 #[inline]
 pub unsafe fn GetConsoleAliasExesA(exenamebuffer: &mut [u8]) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleAliasExesA(exenamebuffer : windows_core::PSTR, exenamebufferlength : u32) -> u32);
-    unsafe { GetConsoleAliasExesA(core::mem::transmute(exenamebuffer.as_ptr()), exenamebuffer.len().try_into().unwrap()) }
+    unsafe { GetConsoleAliasExesA(core::mem::transmute(exenamebuffer.as_mut_ptr()), exenamebuffer.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn GetConsoleAliasExesLengthA() -> u32 {
@@ -61,7 +61,7 @@ pub unsafe fn GetConsoleAliasExesLengthW() -> u32 {
 #[inline]
 pub unsafe fn GetConsoleAliasExesW(exenamebuffer: &mut [u16]) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleAliasExesW(exenamebuffer : windows_core::PWSTR, exenamebufferlength : u32) -> u32);
-    unsafe { GetConsoleAliasExesW(core::mem::transmute(exenamebuffer.as_ptr()), exenamebuffer.len().try_into().unwrap()) }
+    unsafe { GetConsoleAliasExesW(core::mem::transmute(exenamebuffer.as_mut_ptr()), exenamebuffer.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn GetConsoleAliasW<P0, P3>(source: P0, targetbuffer: &mut [u16], exename: P3) -> u32
@@ -70,7 +70,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleAliasW(source : windows_core::PCWSTR, targetbuffer : windows_core::PWSTR, targetbufferlength : u32, exename : windows_core::PCWSTR) -> u32);
-    unsafe { GetConsoleAliasW(source.param().abi(), core::mem::transmute(targetbuffer.as_ptr()), targetbuffer.len().try_into().unwrap(), exename.param().abi()) }
+    unsafe { GetConsoleAliasW(source.param().abi(), core::mem::transmute(targetbuffer.as_mut_ptr()), targetbuffer.len().try_into().unwrap(), exename.param().abi()) }
 }
 #[inline]
 pub unsafe fn GetConsoleAliasesA<P2>(aliasbuffer: &mut [u8], exename: P2) -> u32
@@ -78,7 +78,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleAliasesA(aliasbuffer : windows_core::PSTR, aliasbufferlength : u32, exename : windows_core::PCSTR) -> u32);
-    unsafe { GetConsoleAliasesA(core::mem::transmute(aliasbuffer.as_ptr()), aliasbuffer.len().try_into().unwrap(), exename.param().abi()) }
+    unsafe { GetConsoleAliasesA(core::mem::transmute(aliasbuffer.as_mut_ptr()), aliasbuffer.len().try_into().unwrap(), exename.param().abi()) }
 }
 #[inline]
 pub unsafe fn GetConsoleAliasesLengthA<P0>(exename: P0) -> u32
@@ -102,7 +102,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleAliasesW(aliasbuffer : windows_core::PWSTR, aliasbufferlength : u32, exename : windows_core::PCWSTR) -> u32);
-    unsafe { GetConsoleAliasesW(core::mem::transmute(aliasbuffer.as_ptr()), aliasbuffer.len().try_into().unwrap(), exename.param().abi()) }
+    unsafe { GetConsoleAliasesW(core::mem::transmute(aliasbuffer.as_mut_ptr()), aliasbuffer.len().try_into().unwrap(), exename.param().abi()) }
 }
 #[inline]
 pub unsafe fn GetConsoleCommandHistoryA<P2>(commands: &mut [u8], exename: P2) -> u32
@@ -110,7 +110,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryA(commands : windows_core::PSTR, commandbufferlength : u32, exename : windows_core::PCSTR) -> u32);
-    unsafe { GetConsoleCommandHistoryA(core::mem::transmute(commands.as_ptr()), commands.len().try_into().unwrap(), exename.param().abi()) }
+    unsafe { GetConsoleCommandHistoryA(core::mem::transmute(commands.as_mut_ptr()), commands.len().try_into().unwrap(), exename.param().abi()) }
 }
 #[inline]
 pub unsafe fn GetConsoleCommandHistoryLengthA<P0>(exename: P0) -> u32
@@ -155,7 +155,7 @@ pub unsafe fn GetConsoleHistoryInfo(lpconsolehistoryinfo: *mut CONSOLE_HISTORY_I
 #[inline]
 pub unsafe fn GetConsoleProcessList(lpdwprocesslist: &mut [u32]) -> u32 {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleProcessList(lpdwprocesslist : *mut u32, dwprocesscount : u32) -> u32);
-    unsafe { GetConsoleProcessList(core::mem::transmute(lpdwprocesslist.as_ptr()), lpdwprocesslist.len().try_into().unwrap()) }
+    unsafe { GetConsoleProcessList(lpdwprocesslist.as_mut_ptr(), lpdwprocesslist.len().try_into().unwrap()) }
 }
 #[cfg(feature = "wincontypes")]
 #[inline]

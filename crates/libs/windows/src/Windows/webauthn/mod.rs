@@ -27,7 +27,7 @@ pub unsafe fn WebAuthNCancelCurrentOperation(pcancellationid: *const windows_cor
 #[inline]
 pub unsafe fn WebAuthNDeletePlatformCredential(pbcredentialid: &[u8]) -> windows_core::HRESULT {
     windows_core::link!("webauthn.dll" "system" fn WebAuthNDeletePlatformCredential(cbcredentialid : u32, pbcredentialid : *const u8) -> windows_core::HRESULT);
-    unsafe { WebAuthNDeletePlatformCredential(pbcredentialid.len().try_into().unwrap(), core::mem::transmute(pbcredentialid.as_ptr())) }
+    unsafe { WebAuthNDeletePlatformCredential(pbcredentialid.len().try_into().unwrap(), pbcredentialid.as_ptr()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]

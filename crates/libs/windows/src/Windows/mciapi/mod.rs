@@ -60,12 +60,12 @@ pub unsafe fn mciGetDriverData(wdeviceid: MCIDEVICEID) -> usize {
 #[inline]
 pub unsafe fn mciGetErrorStringA(mcierr: MCIERROR, psztext: &mut [u8]) -> windows_core::BOOL {
     windows_core::link!("winmm.dll" "system" fn mciGetErrorStringA(mcierr : MCIERROR, psztext : windows_core::PSTR, cchtext : u32) -> windows_core::BOOL);
-    unsafe { mciGetErrorStringA(mcierr, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
+    unsafe { mciGetErrorStringA(mcierr, core::mem::transmute(psztext.as_mut_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn mciGetErrorStringW(mcierr: MCIERROR, psztext: &mut [u16]) -> windows_core::BOOL {
     windows_core::link!("winmm.dll" "system" fn mciGetErrorStringW(mcierr : MCIERROR, psztext : windows_core::PWSTR, cchtext : u32) -> windows_core::BOOL);
-    unsafe { mciGetErrorStringW(mcierr, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
+    unsafe { mciGetErrorStringW(mcierr, core::mem::transmute(psztext.as_mut_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn mciGetYieldProc(mciid: MCIDEVICEID, pdwyielddata: *const u32) -> YIELDPROC {
@@ -98,7 +98,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("winmm.dll" "system" fn mciSendStringA(lpstrcommand : windows_core::PCSTR, lpstrreturnstring : windows_core::PSTR, ureturnlength : u32, hwndcallback : super::windef::HWND) -> MCIERROR);
-    unsafe { mciSendStringA(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { mciSendStringA(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -107,7 +107,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winmm.dll" "system" fn mciSendStringW(lpstrcommand : windows_core::PCWSTR, lpstrreturnstring : windows_core::PWSTR, ureturnlength : u32, hwndcallback : super::windef::HWND) -> MCIERROR);
-    unsafe { mciSendStringW(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { mciSendStringW(lpstrcommand.param().abi(), core::mem::transmute(lpstrreturnstring.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpstrreturnstring.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), hwndcallback.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn mciSetDriverData(wdeviceid: MCIDEVICEID, dwdata: usize) -> windows_core::BOOL {

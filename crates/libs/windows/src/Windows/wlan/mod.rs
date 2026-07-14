@@ -97,7 +97,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wlanapi.dll" "system" fn WlanExtractPsdIEDataList(hclienthandle : super::winnt::HANDLE, dwiedatasize : u32, prawiedata : *const u8, strformat : windows_core::PCWSTR, preserved : *const core::ffi::c_void, pppsdiedatalist : *mut PWLAN_RAW_DATA_LIST) -> u32);
-    unsafe { WlanExtractPsdIEDataList(hclienthandle, prawiedata.len().try_into().unwrap(), core::mem::transmute(prawiedata.as_ptr()), strformat.param().abi(), preserved.unwrap_or(core::mem::zeroed()) as _, pppsdiedatalist as _) }
+    unsafe { WlanExtractPsdIEDataList(hclienthandle, prawiedata.len().try_into().unwrap(), prawiedata.as_ptr(), strformat.param().abi(), preserved.unwrap_or(core::mem::zeroed()) as _, pppsdiedatalist as _) }
 }
 #[inline]
 pub unsafe fn WlanFreeMemory(pmemory: *const core::ffi::c_void) {
@@ -222,7 +222,7 @@ pub unsafe fn WlanHostedNetworkSetProperty(hclienthandle: super::winnt::HANDLE, 
 #[inline]
 pub unsafe fn WlanHostedNetworkSetSecondaryKey(hclienthandle: super::winnt::HANDLE, puckeydata: &[u8], bispassphrase: bool, bpersistent: bool, pfailreason: Option<*mut WLAN_HOSTED_NETWORK_REASON>, pvreserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanHostedNetworkSetSecondaryKey(hclienthandle : super::winnt::HANDLE, dwkeylength : u32, puckeydata : *const u8, bispassphrase : windows_core::BOOL, bpersistent : windows_core::BOOL, pfailreason : *mut WLAN_HOSTED_NETWORK_REASON, pvreserved : *const core::ffi::c_void) -> u32);
-    unsafe { WlanHostedNetworkSetSecondaryKey(hclienthandle, puckeydata.len().try_into().unwrap(), core::mem::transmute(puckeydata.as_ptr()), bispassphrase.into(), bpersistent.into(), pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WlanHostedNetworkSetSecondaryKey(hclienthandle, puckeydata.len().try_into().unwrap(), puckeydata.as_ptr(), bispassphrase.into(), bpersistent.into(), pfailreason.unwrap_or(core::mem::zeroed()) as _, pvreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -263,7 +263,7 @@ pub unsafe fn WlanQueryInterface(hclienthandle: super::winnt::HANDLE, pinterface
 #[inline]
 pub unsafe fn WlanReasonCodeToString(dwreasoncode: u32, pstringbuffer: &[u16], preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanReasonCodeToString(dwreasoncode : u32, dwbuffersize : u32, pstringbuffer : *const u16, preserved : *const core::ffi::c_void) -> u32);
-    unsafe { WlanReasonCodeToString(dwreasoncode, pstringbuffer.len().try_into().unwrap(), core::mem::transmute(pstringbuffer.as_ptr()), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WlanReasonCodeToString(dwreasoncode, pstringbuffer.len().try_into().unwrap(), pstringbuffer.as_ptr(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -344,7 +344,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfileCustomUserData(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, dwdatasize : u32, pdata : *const u8, preserved : *const core::ffi::c_void) -> u32);
-    unsafe { WlanSetProfileCustomUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), pdata.len().try_into().unwrap(), core::mem::transmute(pdata.as_ptr()), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WlanSetProfileCustomUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), pdata.len().try_into().unwrap(), pdata.as_ptr(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "eaptypes", feature = "winnt"))]
 #[inline]
@@ -353,7 +353,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfileEapUserData(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, eaptype : super::eaptypes::EAP_METHOD_TYPE, dwflags : u32, dweapuserdatasize : u32, pbeapuserdata : *const u8, preserved : *const core::ffi::c_void) -> u32);
-    unsafe { WlanSetProfileEapUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), core::mem::transmute(eaptype), dwflags, pbeapuserdata.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbeapuserdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WlanSetProfileEapUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), core::mem::transmute(eaptype), dwflags, pbeapuserdata.map_or(0, |slice| slice.len().try_into().unwrap()), pbeapuserdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -369,7 +369,7 @@ where
 #[inline]
 pub unsafe fn WlanSetProfileList(hclienthandle: super::winnt::HANDLE, pinterfaceguid: *const windows_core::GUID, strprofilenames: &[windows_core::PCWSTR], preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfileList(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, dwitems : u32, strprofilenames : *const windows_core::PCWSTR, preserved : *const core::ffi::c_void) -> u32);
-    unsafe { WlanSetProfileList(hclienthandle, pinterfaceguid, strprofilenames.len().try_into().unwrap(), core::mem::transmute(strprofilenames.as_ptr()), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WlanSetProfileList(hclienthandle, pinterfaceguid, strprofilenames.len().try_into().unwrap(), strprofilenames.as_ptr(), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

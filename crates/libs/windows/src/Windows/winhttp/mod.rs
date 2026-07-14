@@ -9,7 +9,7 @@ where
 #[inline]
 pub unsafe fn WinHttpAddRequestHeadersEx(hrequest: HINTERNET, dwmodifiers: u32, ullflags: u64, ullextra: u64, pheaders: &[WINHTTP_EXTENDED_HEADER]) -> u32 {
     windows_core::link!("winhttp.dll" "system" fn WinHttpAddRequestHeadersEx(hrequest : HINTERNET, dwmodifiers : u32, ullflags : u64, ullextra : u64, cheaders : u32, pheaders : *const WINHTTP_EXTENDED_HEADER) -> u32);
-    unsafe { WinHttpAddRequestHeadersEx(hrequest, dwmodifiers, ullflags, ullextra, pheaders.len().try_into().unwrap(), core::mem::transmute(pheaders.as_ptr())) }
+    unsafe { WinHttpAddRequestHeadersEx(hrequest, dwmodifiers, ullflags, ullextra, pheaders.len().try_into().unwrap(), pheaders.as_ptr()) }
 }
 #[inline]
 pub unsafe fn WinHttpCheckPlatform() -> windows_core::BOOL {
@@ -108,7 +108,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("winhttp.dll" "system" fn WinHttpGetProxyForUrlEx2(hresolver : HINTERNET, pcwszurl : windows_core::PCWSTR, pautoproxyoptions : *const WINHTTP_AUTOPROXY_OPTIONS, cbinterfaceselectioncontext : u32, pinterfaceselectioncontext : *const u8, pcontext : usize) -> u32);
-    unsafe { WinHttpGetProxyForUrlEx2(hresolver, pcwszurl.param().abi(), pautoproxyoptions, pinterfaceselectioncontext.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinterfaceselectioncontext.map_or(core::ptr::null(), |slice| slice.as_ptr())), pcontext.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WinHttpGetProxyForUrlEx2(hresolver, pcwszurl.param().abi(), pautoproxyoptions, pinterfaceselectioncontext.map_or(0, |slice| slice.len().try_into().unwrap()), pinterfaceselectioncontext.map_or(core::ptr::null(), |slice| slice.as_ptr()), pcontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WinHttpGetProxyResult(hresolver: HINTERNET, pproxyresult: *mut WINHTTP_PROXY_RESULT) -> u32 {

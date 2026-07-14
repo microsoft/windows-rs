@@ -320,10 +320,10 @@ windows_core::imp::define_interface!(ISpatialAudioMetadataItemsBuffer, ISpatialA
 windows_core::imp::interface_hierarchy!(ISpatialAudioMetadataItemsBuffer, windows_core::IUnknown);
 impl ISpatialAudioMetadataItemsBuffer {
     pub unsafe fn AttachToBuffer(&self, buffer: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AttachToBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AttachToBuffer)(windows_core::Interface::as_raw(self), buffer.as_mut_ptr(), buffer.len().try_into().unwrap()) }
     }
     pub unsafe fn AttachToPopulatedBuffer(&self, buffer: &mut [u8]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AttachToPopulatedBuffer)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer.as_ptr()), buffer.len().try_into().unwrap()) }
+        unsafe { (windows_core::Interface::vtable(self).AttachToPopulatedBuffer)(windows_core::Interface::as_raw(self), buffer.as_mut_ptr(), buffer.len().try_into().unwrap()) }
     }
     pub unsafe fn DetachBuffer(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DetachBuffer)(windows_core::Interface::as_raw(self)) }

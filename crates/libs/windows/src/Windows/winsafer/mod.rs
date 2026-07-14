@@ -28,7 +28,7 @@ pub unsafe fn SaferGetPolicyInformation(dwscopeid: u32, saferpolicyinfoclass: SA
 #[inline]
 pub unsafe fn SaferIdentifyLevel(pcodeproperties: Option<&[SAFER_CODE_PROPERTIES_V2]>, plevelhandle: *mut SAFER_LEVEL_HANDLE, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("advapi32.dll" "system" fn SaferIdentifyLevel(dwnumproperties : u32, pcodeproperties : *const SAFER_CODE_PROPERTIES_V2, plevelhandle : *mut SAFER_LEVEL_HANDLE, lpreserved : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { SaferIdentifyLevel(pcodeproperties.map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcodeproperties.map_or(core::ptr::null(), |slice| slice.as_ptr())), plevelhandle as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { SaferIdentifyLevel(pcodeproperties.map_or(0, |slice| slice.len().try_into().unwrap()), pcodeproperties.map_or(core::ptr::null(), |slice| slice.as_ptr()), plevelhandle as _, lpreserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn SaferRecordEventLogEntry<P1>(hlevel: SAFER_LEVEL_HANDLE, sztargetpath: P1, lpreserved: Option<*const core::ffi::c_void>) -> windows_core::BOOL
