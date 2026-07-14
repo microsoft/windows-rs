@@ -2084,7 +2084,7 @@ impl IAccessor {
     }
     #[cfg(feature = "oaidl")]
     pub unsafe fn CreateAccessor(&self, dwaccessorflags: DBACCESSORFLAGS, cbindings: DBCOUNTITEM, rgbindings: *const DBBINDING, cbrowsize: DBLENGTH, phaccessor: *mut HACCESSOR, rgstatus: Option<*mut DBBINDSTATUS>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CreateAccessor)(windows_core::Interface::as_raw(self), dwaccessorflags, cbindings, core::mem::transmute(rgbindings), cbrowsize, phaccessor as _, rgstatus.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).CreateAccessor)(windows_core::Interface::as_raw(self), dwaccessorflags, cbindings, rgbindings, cbrowsize, phaccessor as _, rgstatus.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "oaidl")]
     pub unsafe fn GetBindings(&self, haccessor: HACCESSOR, pdwaccessorflags: *mut DBACCESSORFLAGS, pcbindings: Option<*mut DBCOUNTITEM>, prgbindings: *mut *mut DBBINDING) -> windows_core::HRESULT {
@@ -2200,7 +2200,7 @@ windows_core::imp::interface_hierarchy!(IAlterTable, windows_core::IUnknown);
 impl IAlterTable {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AlterColumn(&self, ptableid: *const DBID, pcolumnid: *const DBID, dwcolumndescflags: DBCOLUMNDESCFLAGS, pcolumndesc: *const DBCOLUMNDESC) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AlterColumn)(windows_core::Interface::as_raw(self), ptableid, pcolumnid, dwcolumndescflags, core::mem::transmute(pcolumndesc)) }
+        unsafe { (windows_core::Interface::vtable(self).AlterColumn)(windows_core::Interface::as_raw(self), ptableid, pcolumnid, dwcolumndescflags, pcolumndesc) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AlterTable(&self, ptableid: *const DBID, pnewtableid: *const DBID, cpropertysets: u32, rgpropertysets: *mut DBPROPSET) -> windows_core::HRESULT {
@@ -4754,7 +4754,7 @@ impl IRowSchemaChange {
     }
     #[cfg(all(feature = "oaidl", feature = "winnt"))]
     pub unsafe fn AddColumns(&self, ccolumns: DBORDINAL, rgnewcolumninfo: *const DBCOLUMNINFO, rgcolumns: *mut DBCOLUMNACCESS) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddColumns)(windows_core::Interface::as_raw(self), ccolumns, core::mem::transmute(rgnewcolumninfo), rgcolumns as _) }
+        unsafe { (windows_core::Interface::vtable(self).AddColumns)(windows_core::Interface::as_raw(self), ccolumns, rgnewcolumninfo, rgcolumns as _) }
     }
 }
 #[repr(C)]
@@ -5881,7 +5881,7 @@ impl ISecurityInfo {
     pub unsafe fn GetPermissions(&self, objecttype: windows_core::GUID) -> windows_core::Result<super::winnt::ACCESS_MASK> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetPermissions)(windows_core::Interface::as_raw(self), core::mem::transmute(objecttype), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetPermissions)(windows_core::Interface::as_raw(self), objecttype, &mut result__).map(|| result__)
         }
     }
 }
@@ -6114,7 +6114,7 @@ impl ITableDefinition {
     pub unsafe fn AddColumn(&self, ptableid: *const DBID, pcolumndesc: *const DBCOLUMNDESC) -> windows_core::Result<*mut DBID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddColumn)(windows_core::Interface::as_raw(self), ptableid, core::mem::transmute(pcolumndesc), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AddColumn)(windows_core::Interface::as_raw(self), ptableid, pcolumndesc, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn DropColumn(&self, ptableid: *const DBID, pcolumnid: *const DBID) -> windows_core::HRESULT {
@@ -6210,7 +6210,7 @@ impl ITableDefinitionWithConstraints {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateTableWithConstraints)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid, ccolumndescs, core::mem::transmute(rgcolumndescs), cconstraintdescs, rgconstraintdescs, &T::IID, cpropertysets, rgpropertysets as _, pptableid as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateTableWithConstraints)(windows_core::Interface::as_raw(self), punkouter.param().abi(), ptableid, ccolumndescs, rgcolumndescs, cconstraintdescs, rgconstraintdescs, &T::IID, cpropertysets, rgpropertysets as _, pptableid as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn DropConstraint(&self, ptableid: *const DBID, pconstraintid: *const DBID) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DropConstraint)(windows_core::Interface::as_raw(self), ptableid, pconstraintid) }

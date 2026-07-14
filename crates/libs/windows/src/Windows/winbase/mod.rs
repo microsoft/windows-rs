@@ -995,7 +995,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstFileNameTransactedW(lpfilename : windows_core::PCWSTR, dwflags : u32, stringlength : *mut u32, linkname : windows_core::PWSTR, htransaction : super::winnt::HANDLE) -> super::winnt::HANDLE);
-    unsafe { FindFirstFileNameTransactedW(lpfilename.param().abi(), dwflags, stringlength as _, core::mem::transmute(linkname), htransaction.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { FindFirstFileNameTransactedW(lpfilename.param().abi(), dwflags, stringlength as _, linkname, htransaction.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]
@@ -2634,13 +2634,13 @@ where
 #[inline]
 pub unsafe fn QueryFullProcessImageNameA(hprocess: super::winnt::HANDLE, dwflags: u32, lpexename: windows_core::PSTR, lpdwsize: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn QueryFullProcessImageNameA(hprocess : super::winnt::HANDLE, dwflags : u32, lpexename : windows_core::PSTR, lpdwsize : *mut u32) -> windows_core::BOOL);
-    unsafe { QueryFullProcessImageNameA(hprocess, dwflags, core::mem::transmute(lpexename), lpdwsize as _) }
+    unsafe { QueryFullProcessImageNameA(hprocess, dwflags, lpexename, lpdwsize as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn QueryFullProcessImageNameW(hprocess: super::winnt::HANDLE, dwflags: u32, lpexename: windows_core::PWSTR, lpdwsize: *mut u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn QueryFullProcessImageNameW(hprocess : super::winnt::HANDLE, dwflags : u32, lpexename : windows_core::PWSTR, lpdwsize : *mut u32) -> windows_core::BOOL);
-    unsafe { QueryFullProcessImageNameW(hprocess, dwflags, core::mem::transmute(lpexename), lpdwsize as _) }
+    unsafe { QueryFullProcessImageNameW(hprocess, dwflags, lpexename, lpdwsize as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -3387,7 +3387,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn lstrcatA(lpstring1 : windows_core::PSTR, lpstring2 : windows_core::PCSTR) -> windows_core::PSTR);
-    unsafe { lstrcatA(core::mem::transmute(lpstring1), lpstring2.param().abi()) }
+    unsafe { lstrcatA(lpstring1, lpstring2.param().abi()) }
 }
 #[inline]
 pub unsafe fn lstrcatW<P1>(lpstring1: windows_core::PWSTR, lpstring2: P1) -> windows_core::PWSTR
@@ -3395,7 +3395,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn lstrcatW(lpstring1 : windows_core::PWSTR, lpstring2 : windows_core::PCWSTR) -> windows_core::PWSTR);
-    unsafe { lstrcatW(core::mem::transmute(lpstring1), lpstring2.param().abi()) }
+    unsafe { lstrcatW(lpstring1, lpstring2.param().abi()) }
 }
 #[inline]
 pub unsafe fn lstrcmpA<P0, P1>(lpstring1: P0, lpstring2: P1) -> i32
@@ -3439,7 +3439,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn lstrcpyA(lpstring1 : windows_core::PSTR, lpstring2 : windows_core::PCSTR) -> windows_core::PSTR);
-    unsafe { lstrcpyA(core::mem::transmute(lpstring1), lpstring2.param().abi()) }
+    unsafe { lstrcpyA(lpstring1, lpstring2.param().abi()) }
 }
 #[inline]
 pub unsafe fn lstrcpyW<P1>(lpstring1: windows_core::PWSTR, lpstring2: P1) -> windows_core::PWSTR
@@ -3447,7 +3447,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn lstrcpyW(lpstring1 : windows_core::PWSTR, lpstring2 : windows_core::PCWSTR) -> windows_core::PWSTR);
-    unsafe { lstrcpyW(core::mem::transmute(lpstring1), lpstring2.param().abi()) }
+    unsafe { lstrcpyW(lpstring1, lpstring2.param().abi()) }
 }
 #[inline]
 pub unsafe fn lstrcpynA<P1>(lpstring1: &mut [u8], lpstring2: P1) -> windows_core::PSTR

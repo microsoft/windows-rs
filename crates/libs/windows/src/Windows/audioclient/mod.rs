@@ -907,7 +907,7 @@ impl IAudioEffectsManager {
         unsafe { (windows_core::Interface::vtable(self).GetAudioEffects)(windows_core::Interface::as_raw(self), effects as _, numeffects as _) }
     }
     pub unsafe fn SetAudioEffectState(&self, effectid: windows_core::GUID, state: AUDIO_EFFECT_STATE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAudioEffectState)(windows_core::Interface::as_raw(self), core::mem::transmute(effectid), state) }
+        unsafe { (windows_core::Interface::vtable(self).SetAudioEffectState)(windows_core::Interface::as_raw(self), effectid, state) }
     }
 }
 #[repr(C)]

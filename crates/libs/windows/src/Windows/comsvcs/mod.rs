@@ -938,19 +938,19 @@ windows_core::imp::define_interface!(IComApp2Events, IComApp2Events_Vtbl, 0x1290
 windows_core::imp::interface_hierarchy!(IComApp2Events, windows_core::IUnknown);
 impl IComApp2Events {
     pub unsafe fn OnAppActivation2(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID, guidprocess: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAppActivation2)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidapp), core::mem::transmute(guidprocess)) }
+        unsafe { (windows_core::Interface::vtable(self).OnAppActivation2)(windows_core::Interface::as_raw(self), pinfo, guidapp, guidprocess) }
     }
     pub unsafe fn OnAppShutdown2(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAppShutdown2)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidapp)) }
+        unsafe { (windows_core::Interface::vtable(self).OnAppShutdown2)(windows_core::Interface::as_raw(self), pinfo, guidapp) }
     }
     pub unsafe fn OnAppForceShutdown2(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAppForceShutdown2)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidapp)) }
+        unsafe { (windows_core::Interface::vtable(self).OnAppForceShutdown2)(windows_core::Interface::as_raw(self), pinfo, guidapp) }
     }
     pub unsafe fn OnAppPaused2(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID, bpaused: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAppPaused2)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidapp), bpaused.into()) }
+        unsafe { (windows_core::Interface::vtable(self).OnAppPaused2)(windows_core::Interface::as_raw(self), pinfo, guidapp, bpaused.into()) }
     }
     pub unsafe fn OnAppRecycle2(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID, guidprocess: windows_core::GUID, lreason: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAppRecycle2)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidapp), core::mem::transmute(guidprocess), lreason) }
+        unsafe { (windows_core::Interface::vtable(self).OnAppRecycle2)(windows_core::Interface::as_raw(self), pinfo, guidapp, guidprocess, lreason) }
     }
 }
 #[repr(C)]
@@ -1020,13 +1020,13 @@ windows_core::imp::define_interface!(IComAppEvents, IComAppEvents_Vtbl, 0x683130
 windows_core::imp::interface_hierarchy!(IComAppEvents, windows_core::IUnknown);
 impl IComAppEvents {
     pub unsafe fn OnAppActivation(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAppActivation)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidapp)) }
+        unsafe { (windows_core::Interface::vtable(self).OnAppActivation)(windows_core::Interface::as_raw(self), pinfo, guidapp) }
     }
     pub unsafe fn OnAppShutdown(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAppShutdown)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidapp)) }
+        unsafe { (windows_core::Interface::vtable(self).OnAppShutdown)(windows_core::Interface::as_raw(self), pinfo, guidapp) }
     }
     pub unsafe fn OnAppForceShutdown(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnAppForceShutdown)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidapp)) }
+        unsafe { (windows_core::Interface::vtable(self).OnAppForceShutdown)(windows_core::Interface::as_raw(self), pinfo, guidapp) }
     }
 }
 #[repr(C)]
@@ -1078,49 +1078,49 @@ windows_core::imp::define_interface!(IComCRMEvents, IComCRMEvents_Vtbl, 0x683130
 windows_core::imp::interface_hierarchy!(IComCRMEvents, windows_core::IUnknown);
 impl IComCRMEvents {
     pub unsafe fn OnCRMRecoveryStart(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMRecoveryStart)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidapp)) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMRecoveryStart)(windows_core::Interface::as_raw(self), pinfo, guidapp) }
     }
     pub unsafe fn OnCRMRecoveryDone(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMRecoveryDone)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidapp)) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMRecoveryDone)(windows_core::Interface::as_raw(self), pinfo, guidapp) }
     }
     pub unsafe fn OnCRMCheckpoint(&self, pinfo: *const COMSVCSEVENTINFO, guidapp: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMCheckpoint)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidapp)) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMCheckpoint)(windows_core::Interface::as_raw(self), pinfo, guidapp) }
     }
     pub unsafe fn OnCRMBegin(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, guidactivity: windows_core::GUID, guidtx: windows_core::GUID, szprogidcompensator: &[u16; 64], szdescription: &[u16; 64]) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMBegin)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid), core::mem::transmute(guidactivity), core::mem::transmute(guidtx), szprogidcompensator.as_ptr(), szdescription.as_ptr()) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMBegin)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid, guidactivity, guidtx, szprogidcompensator.as_ptr(), szdescription.as_ptr()) }
     }
     pub unsafe fn OnCRMPrepare(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMPrepare)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid)) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMPrepare)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid) }
     }
     pub unsafe fn OnCRMCommit(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMCommit)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid)) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMCommit)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid) }
     }
     pub unsafe fn OnCRMAbort(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMAbort)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid)) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMAbort)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid) }
     }
     pub unsafe fn OnCRMIndoubt(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMIndoubt)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid)) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMIndoubt)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid) }
     }
     pub unsafe fn OnCRMDone(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMDone)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid)) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMDone)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid) }
     }
     pub unsafe fn OnCRMRelease(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMRelease)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid)) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMRelease)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid) }
     }
     pub unsafe fn OnCRMAnalyze(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, dwcrmrecordtype: u32, dwrecordsize: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMAnalyze)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid), dwcrmrecordtype, dwrecordsize) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMAnalyze)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid, dwcrmrecordtype, dwrecordsize) }
     }
     pub unsafe fn OnCRMWrite(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, fvariants: bool, dwrecordsize: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMWrite)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid), fvariants.into(), dwrecordsize) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMWrite)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid, fvariants.into(), dwrecordsize) }
     }
     pub unsafe fn OnCRMForget(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMForget)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid)) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMForget)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid) }
     }
     pub unsafe fn OnCRMForce(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMForce)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid)) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMForce)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid) }
     }
     pub unsafe fn OnCRMDeliver(&self, pinfo: *const COMSVCSEVENTINFO, guidclerkclsid: windows_core::GUID, fvariants: bool, dwrecordsize: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnCRMDeliver)(windows_core::Interface::as_raw(self), pinfo, core::mem::transmute(guidclerkclsid), fvariants.into(), dwrecordsize) }
+        unsafe { (windows_core::Interface::vtable(self).OnCRMDeliver)(windows_core::Interface::as_raw(self), pinfo, guidclerkclsid, fvariants.into(), dwrecordsize) }
     }
 }
 #[repr(C)]
@@ -1442,19 +1442,19 @@ windows_core::imp::define_interface!(IComLTxEvents, IComLTxEvents_Vtbl, 0x605cf8
 windows_core::imp::interface_hierarchy!(IComLTxEvents, windows_core::IUnknown);
 impl IComLTxEvents {
     pub unsafe fn OnLtxTransactionStart(&self, pinfo: *mut COMSVCSEVENTINFO, guidltx: windows_core::GUID, tsid: windows_core::GUID, froot: bool, nisolationlevel: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnLtxTransactionStart)(windows_core::Interface::as_raw(self), pinfo as _, core::mem::transmute(guidltx), core::mem::transmute(tsid), froot.into(), nisolationlevel) }
+        unsafe { (windows_core::Interface::vtable(self).OnLtxTransactionStart)(windows_core::Interface::as_raw(self), pinfo as _, guidltx, tsid, froot.into(), nisolationlevel) }
     }
     pub unsafe fn OnLtxTransactionPrepare(&self, pinfo: *mut COMSVCSEVENTINFO, guidltx: windows_core::GUID, fvote: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnLtxTransactionPrepare)(windows_core::Interface::as_raw(self), pinfo as _, core::mem::transmute(guidltx), fvote.into()) }
+        unsafe { (windows_core::Interface::vtable(self).OnLtxTransactionPrepare)(windows_core::Interface::as_raw(self), pinfo as _, guidltx, fvote.into()) }
     }
     pub unsafe fn OnLtxTransactionAbort(&self, pinfo: *mut COMSVCSEVENTINFO, guidltx: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnLtxTransactionAbort)(windows_core::Interface::as_raw(self), pinfo as _, core::mem::transmute(guidltx)) }
+        unsafe { (windows_core::Interface::vtable(self).OnLtxTransactionAbort)(windows_core::Interface::as_raw(self), pinfo as _, guidltx) }
     }
     pub unsafe fn OnLtxTransactionCommit(&self, pinfo: *mut COMSVCSEVENTINFO, guidltx: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnLtxTransactionCommit)(windows_core::Interface::as_raw(self), pinfo as _, core::mem::transmute(guidltx)) }
+        unsafe { (windows_core::Interface::vtable(self).OnLtxTransactionCommit)(windows_core::Interface::as_raw(self), pinfo as _, guidltx) }
     }
     pub unsafe fn OnLtxTransactionPromote(&self, pinfo: *mut COMSVCSEVENTINFO, guidltx: windows_core::GUID, txnid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnLtxTransactionPromote)(windows_core::Interface::as_raw(self), pinfo as _, core::mem::transmute(guidltx), core::mem::transmute(txnid)) }
+        unsafe { (windows_core::Interface::vtable(self).OnLtxTransactionPromote)(windows_core::Interface::as_raw(self), pinfo as _, guidltx, txnid) }
     }
 }
 #[repr(C)]
@@ -3285,7 +3285,7 @@ windows_core::imp::interface_hierarchy!(IComUserEvent, windows_core::IUnknown);
 impl IComUserEvent {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnUserEvent(&self, pinfo: *mut COMSVCSEVENTINFO, pvarevent: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnUserEvent)(windows_core::Interface::as_raw(self), pinfo as _, core::mem::transmute(pvarevent)) }
+        unsafe { (windows_core::Interface::vtable(self).OnUserEvent)(windows_core::Interface::as_raw(self), pinfo as _, pvarevent) }
     }
 }
 #[repr(C)]
@@ -3722,7 +3722,7 @@ impl ICrmCompensator {
     pub unsafe fn PrepareRecord(&self, crmlogrec: CrmLogRecordRead) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrepareRecord)(windows_core::Interface::as_raw(self), core::mem::transmute(crmlogrec), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).PrepareRecord)(windows_core::Interface::as_raw(self), crmlogrec, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn EndPrepare(&self) -> windows_core::Result<windows_core::BOOL> {
@@ -3738,7 +3738,7 @@ impl ICrmCompensator {
     pub unsafe fn CommitRecord(&self, crmlogrec: CrmLogRecordRead) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CommitRecord)(windows_core::Interface::as_raw(self), core::mem::transmute(crmlogrec), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CommitRecord)(windows_core::Interface::as_raw(self), crmlogrec, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn EndCommit(&self) -> windows_core::HRESULT {
@@ -3751,7 +3751,7 @@ impl ICrmCompensator {
     pub unsafe fn AbortRecord(&self, crmlogrec: CrmLogRecordRead) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AbortRecord)(windows_core::Interface::as_raw(self), core::mem::transmute(crmlogrec), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AbortRecord)(windows_core::Interface::as_raw(self), crmlogrec, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn EndAbort(&self) -> windows_core::HRESULT {
@@ -3918,7 +3918,7 @@ impl ICrmCompensatorVariants {
     pub unsafe fn PrepareRecordVariants(&self, plogrecord: *const super::oaidl::VARIANT) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).PrepareRecordVariants)(windows_core::Interface::as_raw(self), core::mem::transmute(plogrecord), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).PrepareRecordVariants)(windows_core::Interface::as_raw(self), plogrecord, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "wtypes")]
@@ -3936,7 +3936,7 @@ impl ICrmCompensatorVariants {
     pub unsafe fn CommitRecordVariants(&self, plogrecord: *const super::oaidl::VARIANT) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CommitRecordVariants)(windows_core::Interface::as_raw(self), core::mem::transmute(plogrecord), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CommitRecordVariants)(windows_core::Interface::as_raw(self), plogrecord, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn EndCommitVariants(&self) -> windows_core::HRESULT {
@@ -3950,7 +3950,7 @@ impl ICrmCompensatorVariants {
     pub unsafe fn AbortRecordVariants(&self, plogrecord: *const super::oaidl::VARIANT) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AbortRecordVariants)(windows_core::Interface::as_raw(self), core::mem::transmute(plogrecord), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).AbortRecordVariants)(windows_core::Interface::as_raw(self), plogrecord, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn EndAbortVariants(&self) -> windows_core::HRESULT {
@@ -4130,7 +4130,7 @@ impl ICrmFormatLogRecords {
     pub unsafe fn GetColumn(&self, crmlogrec: CrmLogRecordRead) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetColumn)(windows_core::Interface::as_raw(self), core::mem::transmute(crmlogrec), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).GetColumn)(windows_core::Interface::as_raw(self), crmlogrec, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
@@ -4249,7 +4249,7 @@ impl ICrmLogControl {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn WriteLogRecordVariants(&self, plogrecord: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WriteLogRecordVariants)(windows_core::Interface::as_raw(self), core::mem::transmute(plogrecord)) }
+        unsafe { (windows_core::Interface::vtable(self).WriteLogRecordVariants)(windows_core::Interface::as_raw(self), plogrecord) }
     }
     pub unsafe fn ForceLog(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ForceLog)(windows_core::Interface::as_raw(self)) }
@@ -4794,7 +4794,7 @@ impl IDispenserDriver {
         unsafe { (windows_core::Interface::vtable(self).DestroyResource)(windows_core::Interface::as_raw(self), resid) }
     }
     pub unsafe fn DestroyResourceS(&self, resid: constSRESID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DestroyResourceS)(windows_core::Interface::as_raw(self), core::mem::transmute(resid)) }
+        unsafe { (windows_core::Interface::vtable(self).DestroyResourceS)(windows_core::Interface::as_raw(self), resid) }
     }
 }
 #[repr(C)]
@@ -5387,13 +5387,13 @@ impl IHolder {
         unsafe { (windows_core::Interface::vtable(self).TrackResource)(windows_core::Interface::as_raw(self), param0) }
     }
     pub unsafe fn TrackResourceS(&self, param0: constSRESID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).TrackResourceS)(windows_core::Interface::as_raw(self), core::mem::transmute(param0)) }
+        unsafe { (windows_core::Interface::vtable(self).TrackResourceS)(windows_core::Interface::as_raw(self), param0) }
     }
     pub unsafe fn UntrackResource(&self, param0: RESID, param1: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UntrackResource)(windows_core::Interface::as_raw(self), param0, param1.into()) }
     }
     pub unsafe fn UntrackResourceS(&self, param0: constSRESID, param1: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).UntrackResourceS)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1.into()) }
+        unsafe { (windows_core::Interface::vtable(self).UntrackResourceS)(windows_core::Interface::as_raw(self), param0, param1.into()) }
     }
     pub unsafe fn Close(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)) }
@@ -5509,7 +5509,7 @@ impl ILBEvents {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn EngineDefined(&self, bstrpropname: &windows_core::BSTR, varpropvalue: *mut super::oaidl::VARIANT, bstrclsideng: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EngineDefined)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropname), core::mem::transmute(varpropvalue), core::mem::transmute_copy(bstrclsideng)) }
+        unsafe { (windows_core::Interface::vtable(self).EngineDefined)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropname), varpropvalue, core::mem::transmute_copy(bstrclsideng)) }
     }
 }
 #[repr(C)]
@@ -6271,7 +6271,7 @@ impl IMtsEvents {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PostEvent(&self, vevent: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PostEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(vevent)) }
+        unsafe { (windows_core::Interface::vtable(self).PostEvent)(windows_core::Interface::as_raw(self), vevent) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn FireEvents(&self) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
@@ -7361,7 +7361,7 @@ impl ISecurityCallContext {
     pub unsafe fn IsUserInRole(&self, puser: *const super::oaidl::VARIANT, bstrrole: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsUserInRole)(windows_core::Interface::as_raw(self), core::mem::transmute(puser), core::mem::transmute_copy(bstrrole), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsUserInRole)(windows_core::Interface::as_raw(self), puser, core::mem::transmute_copy(bstrrole), &mut result__).map(|| result__)
         }
     }
 }
@@ -9765,7 +9765,7 @@ windows_core::imp::define_interface!(ITransactionProxy, ITransactionProxy_Vtbl, 
 windows_core::imp::interface_hierarchy!(ITransactionProxy, windows_core::IUnknown);
 impl ITransactionProxy {
     pub unsafe fn Commit(&self, guid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), core::mem::transmute(guid)) }
+        unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), guid) }
     }
     pub unsafe fn Abort(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)) }

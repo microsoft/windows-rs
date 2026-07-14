@@ -434,7 +434,7 @@ pub unsafe fn HitTestThemeBackground(htheme: super::shobjidl_core::HTHEME, hdc: 
     windows_core::link!("uxtheme.dll" "system" fn HitTestThemeBackground(htheme : super::shobjidl_core::HTHEME, hdc : super::windef::HDC, ipartid : i32, istateid : i32, dwoptions : u32, prect : *const super::windef::RECT, hrgn : super::minwindef::HRGN, pttest : super::windef::POINT, pwhittestcode : *mut u16) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        HitTestThemeBackground(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, dwoptions, prect, hrgn.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pttest), &mut result__).map(|| result__)
+        HitTestThemeBackground(htheme, hdc.unwrap_or(core::mem::zeroed()) as _, ipartid, istateid, dwoptions, prect, hrgn.unwrap_or(core::mem::zeroed()) as _, pttest, &mut result__).map(|| result__)
     }
 }
 #[inline]

@@ -4,7 +4,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mqrt.dll" "system" fn MQADsPathToFormatName(lpwcsadspath : windows_core::PCWSTR, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> windows_core::HRESULT);
-    unsafe { MQADsPathToFormatName(lpwcsadspath.param().abi(), core::mem::transmute(lpwcsformatname), lpdwformatnamelength as _) }
+    unsafe { MQADsPathToFormatName(lpwcsadspath.param().abi(), lpwcsformatname, lpdwformatnamelength as _) }
 }
 #[cfg(feature = "transact")]
 #[inline]
@@ -125,12 +125,12 @@ pub unsafe fn MQGetSecurityContextEx(lpcertbuffer: Option<*const core::ffi::c_vo
 #[inline]
 pub unsafe fn MQHandleToFormatName(hqueue: QUEUEHANDLE, lpwcsformatname: windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQHandleToFormatName(hqueue : QUEUEHANDLE, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> windows_core::HRESULT);
-    unsafe { MQHandleToFormatName(hqueue, core::mem::transmute(lpwcsformatname), lpdwformatnamelength as _) }
+    unsafe { MQHandleToFormatName(hqueue, lpwcsformatname, lpdwformatnamelength as _) }
 }
 #[inline]
 pub unsafe fn MQInstanceToFormatName(pguid: *const windows_core::GUID, lpwcsformatname: windows_core::PWSTR, lpdwformatnamelength: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQInstanceToFormatName(pguid : *const windows_core::GUID, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> windows_core::HRESULT);
-    unsafe { MQInstanceToFormatName(pguid, core::mem::transmute(lpwcsformatname), lpdwformatnamelength as _) }
+    unsafe { MQInstanceToFormatName(pguid, lpwcsformatname, lpdwformatnamelength as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -154,7 +154,7 @@ pub unsafe fn MQLocateEnd(henum: super::winnt::HANDLE) -> windows_core::HRESULT 
 #[inline]
 pub unsafe fn MQLocateNext(henum: super::winnt::HANDLE, pcprops: *mut u32, apropvar: *mut MQPROPVARIANT) -> windows_core::HRESULT {
     windows_core::link!("mqrt.dll" "system" fn MQLocateNext(henum : super::winnt::HANDLE, pcprops : *mut u32, apropvar : *mut MQPROPVARIANT) -> windows_core::HRESULT);
-    unsafe { MQLocateNext(henum, pcprops as _, core::mem::transmute(apropvar)) }
+    unsafe { MQLocateNext(henum, pcprops as _, apropvar) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -209,7 +209,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mqrt.dll" "system" fn MQPathNameToFormatName(lpwcspathname : windows_core::PCWSTR, lpwcsformatname : windows_core::PWSTR, lpdwformatnamelength : *mut u32) -> windows_core::HRESULT);
-    unsafe { MQPathNameToFormatName(lpwcspathname.param().abi(), core::mem::transmute(lpwcsformatname), lpdwformatnamelength as _) }
+    unsafe { MQPathNameToFormatName(lpwcspathname.param().abi(), lpwcsformatname, lpdwformatnamelength as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

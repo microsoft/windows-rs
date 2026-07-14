@@ -277,7 +277,7 @@ pub unsafe fn WHvQueryGpaRangeDirtyBitmap(partition: super::winhvplatformdefs::W
 #[inline]
 pub unsafe fn WHvReadGpaRange(partition: super::winhvplatformdefs::WHV_PARTITION_HANDLE, vpindex: u32, guestaddress: super::winhvplatformdefs::WHV_GUEST_PHYSICAL_ADDRESS, controls: super::winhvplatformdefs::WHV_ACCESS_GPA_CONTROLS, data: *mut core::ffi::c_void, datasizeinbytes: u32) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvReadGpaRange(partition : super::winhvplatformdefs::WHV_PARTITION_HANDLE, vpindex : u32, guestaddress : super::winhvplatformdefs::WHV_GUEST_PHYSICAL_ADDRESS, controls : super::winhvplatformdefs::WHV_ACCESS_GPA_CONTROLS, data : *mut core::ffi::c_void, datasizeinbytes : u32) -> windows_core::HRESULT);
-    unsafe { WHvReadGpaRange(partition, vpindex, guestaddress, core::mem::transmute(controls), data as _, datasizeinbytes) }
+    unsafe { WHvReadGpaRange(partition, vpindex, guestaddress, controls, data as _, datasizeinbytes) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winhvplatformdefs")]
@@ -403,7 +403,7 @@ pub unsafe fn WHvSetupPartition(partition: super::winhvplatformdefs::WHV_PARTITI
 #[inline]
 pub unsafe fn WHvSignalVirtualProcessorSynicEvent(partition: super::winhvplatformdefs::WHV_PARTITION_HANDLE, synicevent: super::winhvplatformdefs::WHV_SYNIC_EVENT_PARAMETERS, newlysignaled: Option<*mut windows_core::BOOL>) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvSignalVirtualProcessorSynicEvent(partition : super::winhvplatformdefs::WHV_PARTITION_HANDLE, synicevent : super::winhvplatformdefs::WHV_SYNIC_EVENT_PARAMETERS, newlysignaled : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { WHvSignalVirtualProcessorSynicEvent(partition, core::mem::transmute(synicevent), newlysignaled.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WHvSignalVirtualProcessorSynicEvent(partition, synicevent, newlysignaled.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "winhvplatformdefs", feature = "winnt"))]
@@ -469,7 +469,7 @@ pub unsafe fn WHvUpdateTriggerParameters(partition: super::winhvplatformdefs::WH
 #[inline]
 pub unsafe fn WHvWriteGpaRange(partition: super::winhvplatformdefs::WHV_PARTITION_HANDLE, vpindex: u32, guestaddress: super::winhvplatformdefs::WHV_GUEST_PHYSICAL_ADDRESS, controls: super::winhvplatformdefs::WHV_ACCESS_GPA_CONTROLS, data: *const core::ffi::c_void, datasizeinbytes: u32) -> windows_core::HRESULT {
     windows_core::link!("winhvplatform.dll" "system" fn WHvWriteGpaRange(partition : super::winhvplatformdefs::WHV_PARTITION_HANDLE, vpindex : u32, guestaddress : super::winhvplatformdefs::WHV_GUEST_PHYSICAL_ADDRESS, controls : super::winhvplatformdefs::WHV_ACCESS_GPA_CONTROLS, data : *const core::ffi::c_void, datasizeinbytes : u32) -> windows_core::HRESULT);
-    unsafe { WHvWriteGpaRange(partition, vpindex, guestaddress, core::mem::transmute(controls), data, datasizeinbytes) }
+    unsafe { WHvWriteGpaRange(partition, vpindex, guestaddress, controls, data, datasizeinbytes) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winhvplatformdefs")]

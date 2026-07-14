@@ -59,12 +59,12 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("httpapi.dll" "system" fn HttpCreateRequestQueue(version : HTTPAPI_VERSION, name : windows_core::PCWSTR, securityattributes : *mut super::minwinbase::SECURITY_ATTRIBUTES, flags : u32, requestqueuehandle : *mut super::winnt::HANDLE) -> u32);
-    unsafe { HttpCreateRequestQueue(core::mem::transmute(version), name.param().abi(), securityattributes as _, flags, requestqueuehandle as _) }
+    unsafe { HttpCreateRequestQueue(version, name.param().abi(), securityattributes as _, flags, requestqueuehandle as _) }
 }
 #[inline]
 pub unsafe fn HttpCreateServerSession(version: HTTPAPI_VERSION, serversessionid: *mut HTTP_OPAQUE_ID, reserved: Option<u32>) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpCreateServerSession(version : HTTPAPI_VERSION, serversessionid : *mut HTTP_OPAQUE_ID, reserved : u32) -> u32);
-    unsafe { HttpCreateServerSession(core::mem::transmute(version), serversessionid as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { HttpCreateServerSession(version, serversessionid as _, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn HttpCreateUrlGroup(serversessionid: HTTP_SERVER_SESSION_ID, purlgroupid: *mut HTTP_OPAQUE_ID, reserved: Option<u32>) -> u32 {
@@ -114,12 +114,12 @@ where
 #[inline]
 pub unsafe fn HttpGetExtension(version: HTTPAPI_VERSION, extension: u32, buffer: *mut core::ffi::c_void, buffersize: u32) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpGetExtension(version : HTTPAPI_VERSION, extension : u32, buffer : *mut core::ffi::c_void, buffersize : u32) -> u32);
-    unsafe { HttpGetExtension(core::mem::transmute(version), extension, buffer as _, buffersize) }
+    unsafe { HttpGetExtension(version, extension, buffer as _, buffersize) }
 }
 #[inline]
 pub unsafe fn HttpInitialize(version: HTTPAPI_VERSION, flags: u32, preserved: Option<*const core::ffi::c_void>) -> u32 {
     windows_core::link!("httpapi.dll" "system" fn HttpInitialize(version : HTTPAPI_VERSION, flags : u32, preserved : *const core::ffi::c_void) -> u32);
-    unsafe { HttpInitialize(core::mem::transmute(version), flags, preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { HttpInitialize(version, flags, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn HttpIsFeatureSupported(featureid: HTTP_FEATURE_ID) -> windows_core::BOOL {

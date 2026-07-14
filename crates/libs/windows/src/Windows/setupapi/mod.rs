@@ -515,7 +515,7 @@ pub unsafe fn SetupDiDestroyDriverInfoList(deviceinfoset: HDEVINFO, deviceinfoda
 #[inline]
 pub unsafe fn SetupDiDrawMiniIcon(hdc: super::windef::HDC, rc: super::windef::RECT, miniiconindex: i32, flags: u32) -> i32 {
     windows_core::link!("setupapi.dll" "system" fn SetupDiDrawMiniIcon(hdc : super::windef::HDC, rc : super::windef::RECT, miniiconindex : i32, flags : u32) -> i32);
-    unsafe { SetupDiDrawMiniIcon(hdc, core::mem::transmute(rc), miniiconindex, flags) }
+    unsafe { SetupDiDrawMiniIcon(hdc, rc, miniiconindex, flags) }
 }
 #[inline]
 pub unsafe fn SetupDiEnumDeviceInfo(deviceinfoset: HDEVINFO, memberindex: u32, deviceinfodata: *mut SP_DEVINFO_DATA) -> windows_core::BOOL {

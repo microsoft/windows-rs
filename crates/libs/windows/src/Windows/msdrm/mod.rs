@@ -57,7 +57,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msdrm.dll" "system" fn DRMAttest(henablingprincipal : super::msdrmdefs::DRMHANDLE, wszdata : windows_core::PCWSTR, etype : super::msdrmdefs::DRMATTESTTYPE, pcattestedblob : *mut u32, wszattestedblob : windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { DRMAttest(henablingprincipal, wszdata.param().abi(), etype, pcattestedblob as _, core::mem::transmute(wszattestedblob)) }
+    unsafe { DRMAttest(henablingprincipal, wszdata.param().abi(), etype, pcattestedblob as _, wszattestedblob) }
 }
 #[cfg(feature = "msdrmdefs")]
 #[inline]

@@ -170,7 +170,7 @@ pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) ->
 #[inline]
 pub unsafe fn DwmTetherContact(dwpointerid: u32, fenable: bool, pttether: super::windef::POINT) -> windows_core::HRESULT {
     windows_core::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u32, fenable : windows_core::BOOL, pttether : super::windef::POINT) -> windows_core::HRESULT);
-    unsafe { DwmTetherContact(dwpointerid, fenable.into(), core::mem::transmute(pttether)) }
+    unsafe { DwmTetherContact(dwpointerid, fenable.into(), pttether) }
 }
 #[cfg(feature = "windef")]
 #[inline]

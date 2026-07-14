@@ -209,12 +209,12 @@ where
 #[inline]
 pub unsafe fn WNetGetProviderNameA(dwnettype: u32, lpprovidername: windows_core::PSTR, lpbuffersize: *mut u32) -> u32 {
     windows_core::link!("mpr.dll" "system" fn WNetGetProviderNameA(dwnettype : u32, lpprovidername : windows_core::PSTR, lpbuffersize : *mut u32) -> u32);
-    unsafe { WNetGetProviderNameA(dwnettype, core::mem::transmute(lpprovidername), lpbuffersize as _) }
+    unsafe { WNetGetProviderNameA(dwnettype, lpprovidername, lpbuffersize as _) }
 }
 #[inline]
 pub unsafe fn WNetGetProviderNameW(dwnettype: u32, lpprovidername: windows_core::PWSTR, lpbuffersize: *mut u32) -> u32 {
     windows_core::link!("mpr.dll" "system" fn WNetGetProviderNameW(dwnettype : u32, lpprovidername : windows_core::PWSTR, lpbuffersize : *mut u32) -> u32);
-    unsafe { WNetGetProviderNameW(dwnettype, core::mem::transmute(lpprovidername), lpbuffersize as _) }
+    unsafe { WNetGetProviderNameW(dwnettype, lpprovidername, lpbuffersize as _) }
 }
 #[inline]
 pub unsafe fn WNetGetResourceInformationA(lpnetresource: *const NETRESOURCEA, lpbuffer: *mut core::ffi::c_void, lpcbbuffer: *mut u32, lplpsystem: *mut windows_core::PSTR) -> u32 {
@@ -258,7 +258,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("mpr.dll" "system" fn WNetGetUserA(lpname : windows_core::PCSTR, lpusername : windows_core::PSTR, lpnlength : *mut u32) -> u32);
-    unsafe { WNetGetUserA(lpname.param().abi(), core::mem::transmute(lpusername), lpnlength as _) }
+    unsafe { WNetGetUserA(lpname.param().abi(), lpusername, lpnlength as _) }
 }
 #[inline]
 pub unsafe fn WNetGetUserW<P0>(lpname: P0, lpusername: windows_core::PWSTR, lpnlength: *mut u32) -> u32
@@ -266,7 +266,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mpr.dll" "system" fn WNetGetUserW(lpname : windows_core::PCWSTR, lpusername : windows_core::PWSTR, lpnlength : *mut u32) -> u32);
-    unsafe { WNetGetUserW(lpname.param().abi(), core::mem::transmute(lpusername), lpnlength as _) }
+    unsafe { WNetGetUserW(lpname.param().abi(), lpusername, lpnlength as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

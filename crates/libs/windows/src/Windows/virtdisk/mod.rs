@@ -85,7 +85,7 @@ pub unsafe fn ForkVirtualDisk(virtualdiskhandle: super::winnt::HANDLE, flags: FO
 #[inline]
 pub unsafe fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes: *mut u32, pathsbuffer: windows_core::PWSTR) -> u32 {
     windows_core::link!("virtdisk.dll" "system" fn GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes : *mut u32, pathsbuffer : windows_core::PWSTR) -> u32);
-    unsafe { GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes as _, core::mem::transmute(pathsbuffer)) }
+    unsafe { GetAllAttachedVirtualDiskPhysicalPaths(pathsbuffersizeinbytes as _, pathsbuffer) }
 }
 #[cfg(all(feature = "winioctl", feature = "winnt"))]
 #[inline]
@@ -115,7 +115,7 @@ pub unsafe fn GetVirtualDiskOperationProgress(virtualdiskhandle: super::winnt::H
 #[inline]
 pub unsafe fn GetVirtualDiskPhysicalPath(virtualdiskhandle: super::winnt::HANDLE, diskpathsizeinbytes: *mut u32, diskpath: windows_core::PWSTR) -> u32 {
     windows_core::link!("virtdisk.dll" "system" fn GetVirtualDiskPhysicalPath(virtualdiskhandle : super::winnt::HANDLE, diskpathsizeinbytes : *mut u32, diskpath : windows_core::PWSTR) -> u32);
-    unsafe { GetVirtualDiskPhysicalPath(virtualdiskhandle, diskpathsizeinbytes as _, core::mem::transmute(diskpath)) }
+    unsafe { GetVirtualDiskPhysicalPath(virtualdiskhandle, diskpathsizeinbytes as _, diskpath) }
 }
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 #[inline]

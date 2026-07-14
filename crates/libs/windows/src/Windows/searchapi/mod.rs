@@ -353,19 +353,19 @@ windows_core::imp::interface_hierarchy!(IRowsetEvents, windows_core::IUnknown);
 impl IRowsetEvents {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnNewItem(&self, itemid: *const super::propidlbase::PROPVARIANT, newitemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnNewItem)(windows_core::Interface::as_raw(self), core::mem::transmute(itemid), newitemstate) }
+        unsafe { (windows_core::Interface::vtable(self).OnNewItem)(windows_core::Interface::as_raw(self), itemid, newitemstate) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnChangedItem(&self, itemid: *const super::propidlbase::PROPVARIANT, rowsetitemstate: ROWSETEVENT_ITEMSTATE, changeditemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnChangedItem)(windows_core::Interface::as_raw(self), core::mem::transmute(itemid), rowsetitemstate, changeditemstate) }
+        unsafe { (windows_core::Interface::vtable(self).OnChangedItem)(windows_core::Interface::as_raw(self), itemid, rowsetitemstate, changeditemstate) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnDeletedItem(&self, itemid: *const super::propidlbase::PROPVARIANT, deleteditemstate: ROWSETEVENT_ITEMSTATE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnDeletedItem)(windows_core::Interface::as_raw(self), core::mem::transmute(itemid), deleteditemstate) }
+        unsafe { (windows_core::Interface::vtable(self).OnDeletedItem)(windows_core::Interface::as_raw(self), itemid, deleteditemstate) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnRowsetEvent(&self, eventtype: ROWSETEVENT_TYPE, eventdata: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnRowsetEvent)(windows_core::Interface::as_raw(self), eventtype, core::mem::transmute(eventdata)) }
+        unsafe { (windows_core::Interface::vtable(self).OnRowsetEvent)(windows_core::Interface::as_raw(self), eventtype, eventdata) }
     }
 }
 #[repr(C)]
@@ -519,7 +519,7 @@ impl ISearchCatalogManager {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetParameter)(windows_core::Interface::as_raw(self), pszname.param().abi(), core::mem::transmute(pvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetParameter)(windows_core::Interface::as_raw(self), pszname.param().abi(), pvalue) }
     }
     pub unsafe fn GetCatalogStatus(&self, pstatus: *mut CatalogStatus, ppausedreason: *mut CatalogPausedReason) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetCatalogStatus)(windows_core::Interface::as_raw(self), pstatus as _, ppausedreason as _) }
@@ -1649,7 +1649,7 @@ impl ISearchManager {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetParameter)(windows_core::Interface::as_raw(self), pszname.param().abi(), core::mem::transmute(pvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetParameter)(windows_core::Interface::as_raw(self), pszname.param().abi(), pvalue) }
     }
     pub unsafe fn ProxyName(&self) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
@@ -2414,7 +2414,7 @@ impl ISearchQueryHelper {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn WriteProperties(&self, itemid: ITEMID, dwnumberofcolumns: u32, pcolumns: *const super::wtypes::PROPERTYKEY, pvalues: *const SEARCH_COLUMN_PROPERTIES, pftgathermodifiedtime: *const super::minwindef::FILETIME) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WriteProperties)(windows_core::Interface::as_raw(self), itemid, dwnumberofcolumns, pcolumns, core::mem::transmute(pvalues), pftgathermodifiedtime) }
+        unsafe { (windows_core::Interface::vtable(self).WriteProperties)(windows_core::Interface::as_raw(self), itemid, dwnumberofcolumns, pcolumns, pvalues, pftgathermodifiedtime) }
     }
     pub unsafe fn SetQueryMaxResults(&self, cmaxresults: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetQueryMaxResults)(windows_core::Interface::as_raw(self), cmaxresults) }
@@ -3275,7 +3275,7 @@ windows_core::imp::interface_hierarchy!(IUrlAccessor, windows_core::IUnknown);
 impl IUrlAccessor {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddRequestParameter(&self, pspec: *const super::propidlbase::PROPSPEC, pvar: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddRequestParameter)(windows_core::Interface::as_raw(self), pspec, core::mem::transmute(pvar)) }
+        unsafe { (windows_core::Interface::vtable(self).AddRequestParameter)(windows_core::Interface::as_raw(self), pspec, pvar) }
     }
     pub unsafe fn GetDocFormat(&self, wszdocformat: *mut u16, dwsize: u32, pdwlength: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetDocFormat)(windows_core::Interface::as_raw(self), wszdocformat as _, dwsize, pdwlength as _) }

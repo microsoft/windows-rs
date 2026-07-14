@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IEnumWIA_DEV_CAPS, IEnumWIA_DEV_CAPS_Vtbl, 
 windows_core::imp::interface_hierarchy!(IEnumWIA_DEV_CAPS, windows_core::IUnknown);
 impl IEnumWIA_DEV_CAPS {
     pub unsafe fn Next(&self, celt: u32, rgelt: *mut WIA_DEV_CAP, pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgelt), pceltfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgelt, pceltfetched as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -602,7 +602,7 @@ impl IWiaDataTransfer {
     where
         P1: windows_core::Param<IWiaDataCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).idtGetData)(windows_core::Interface::as_raw(self), core::mem::transmute(pmedium), piwiadatacallback.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).idtGetData)(windows_core::Interface::as_raw(self), pmedium, piwiadatacallback.param().abi()) }
     }
     pub unsafe fn idtGetBandedData<P1>(&self, pwiadatatransinfo: *const WIA_DATA_TRANSFER_INFO, piwiadatacallback: P1) -> windows_core::HRESULT
     where
@@ -1200,7 +1200,7 @@ impl IWiaImageFilter {
         P1: windows_core::Param<IWiaItem2>,
         P3: windows_core::Param<super::objidlbase::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).FilterPreviewImage)(windows_core::Interface::as_raw(self), lflags, pwiachilditem2.param().abi(), core::mem::transmute(inputimageextents), pinputstream.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).FilterPreviewImage)(windows_core::Interface::as_raw(self), lflags, pwiachilditem2.param().abi(), inputimageextents, pinputstream.param().abi()) }
     }
     pub unsafe fn ApplyProperties<P0>(&self, pwiapropertystorage: P0) -> windows_core::HRESULT
     where
@@ -2220,7 +2220,7 @@ impl IWiaPropertyStorage {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn WriteMultiple(&self, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC, rgpropvar: *const super::propidlbase::PROPVARIANT, propidnamefirst: super::wtypes::PROPID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, core::mem::transmute(rgpropvar), propidnamefirst) }
+        unsafe { (windows_core::Interface::vtable(self).WriteMultiple)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgpropvar, propidnamefirst) }
     }
     #[cfg(all(feature = "propidlbase", feature = "wtypes"))]
     pub unsafe fn DeleteMultiple(&self, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC) -> windows_core::HRESULT {
@@ -2267,7 +2267,7 @@ impl IWiaPropertyStorage {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPropertyAttributes(&self, cpspec: u32, rgpspec: *const super::propidlbase::PROPSPEC, rgflags: *mut u32, rgpropvar: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyAttributes)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgflags as _, core::mem::transmute(rgpropvar)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyAttributes)(windows_core::Interface::as_raw(self), cpspec, rgpspec, rgflags as _, rgpropvar) }
     }
     pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
         unsafe {

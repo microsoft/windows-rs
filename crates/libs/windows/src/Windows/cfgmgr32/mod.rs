@@ -225,24 +225,24 @@ pub unsafe fn CM_Enumerate_Classes_Ex(ulclassindex: u32, classguid: *mut windows
 #[inline]
 pub unsafe fn CM_Enumerate_EnumeratorsA(ulenumindex: u32, buffer: windows_core::PSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_EnumeratorsA(ulenumindex : u32, buffer : windows_core::PSTR, pullength : *mut u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Enumerate_EnumeratorsA(ulenumindex, core::mem::transmute(buffer), pullength as _, ulflags) }
+    unsafe { CM_Enumerate_EnumeratorsA(ulenumindex, buffer, pullength as _, ulflags) }
 }
 #[inline]
 pub unsafe fn CM_Enumerate_EnumeratorsW(ulenumindex: u32, buffer: windows_core::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_EnumeratorsW(ulenumindex : u32, buffer : windows_core::PWSTR, pullength : *mut u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Enumerate_EnumeratorsW(ulenumindex, core::mem::transmute(buffer), pullength as _, ulflags) }
+    unsafe { CM_Enumerate_EnumeratorsW(ulenumindex, buffer, pullength as _, ulflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CM_Enumerate_Enumerators_ExA(ulenumindex: u32, buffer: windows_core::PSTR, pullength: *mut u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_Enumerators_ExA(ulenumindex : u32, buffer : windows_core::PSTR, pullength : *mut u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Enumerate_Enumerators_ExA(ulenumindex, core::mem::transmute(buffer), pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Enumerate_Enumerators_ExA(ulenumindex, buffer, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn CM_Enumerate_Enumerators_ExW(ulenumindex: u32, buffer: windows_core::PWSTR, pullength: *mut u32, ulflags: u32, hmachine: Option<HMACHINE>) -> CONFIGRET {
     windows_core::link!("setupapi.dll" "system" fn CM_Enumerate_Enumerators_ExW(ulenumindex : u32, buffer : windows_core::PWSTR, pullength : *mut u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Enumerate_Enumerators_ExW(ulenumindex, core::mem::transmute(buffer), pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Enumerate_Enumerators_ExW(ulenumindex, buffer, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -598,7 +598,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_AliasA(pszdeviceinterface : windows_core::PCSTR, aliasinterfaceguid : *const windows_core::GUID, pszaliasdeviceinterface : windows_core::PSTR, pullength : *mut u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Get_Device_Interface_AliasA(pszdeviceinterface.param().abi(), aliasinterfaceguid, core::mem::transmute(pszaliasdeviceinterface), pullength as _, ulflags) }
+    unsafe { CM_Get_Device_Interface_AliasA(pszdeviceinterface.param().abi(), aliasinterfaceguid, pszaliasdeviceinterface, pullength as _, ulflags) }
 }
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_AliasW<P0>(pszdeviceinterface: P0, aliasinterfaceguid: *const windows_core::GUID, pszaliasdeviceinterface: windows_core::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET
@@ -606,7 +606,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_AliasW(pszdeviceinterface : windows_core::PCWSTR, aliasinterfaceguid : *const windows_core::GUID, pszaliasdeviceinterface : windows_core::PWSTR, pullength : *mut u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Get_Device_Interface_AliasW(pszdeviceinterface.param().abi(), aliasinterfaceguid, core::mem::transmute(pszaliasdeviceinterface), pullength as _, ulflags) }
+    unsafe { CM_Get_Device_Interface_AliasW(pszdeviceinterface.param().abi(), aliasinterfaceguid, pszaliasdeviceinterface, pullength as _, ulflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -615,7 +615,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_Alias_ExA(pszdeviceinterface : windows_core::PCSTR, aliasinterfaceguid : *const windows_core::GUID, pszaliasdeviceinterface : windows_core::PSTR, pullength : *mut u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Get_Device_Interface_Alias_ExA(pszdeviceinterface.param().abi(), aliasinterfaceguid, core::mem::transmute(pszaliasdeviceinterface), pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Get_Device_Interface_Alias_ExA(pszdeviceinterface.param().abi(), aliasinterfaceguid, pszaliasdeviceinterface, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -624,7 +624,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface : windows_core::PCWSTR, aliasinterfaceguid : *const windows_core::GUID, pszaliasdeviceinterface : windows_core::PWSTR, pullength : *mut u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface.param().abi(), aliasinterfaceguid, core::mem::transmute(pszaliasdeviceinterface), pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Get_Device_Interface_Alias_ExW(pszdeviceinterface.param().abi(), aliasinterfaceguid, pszaliasdeviceinterface, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CM_Get_Device_Interface_ListA(interfaceclassguid: *const windows_core::GUID, pdeviceid: Option<*const i8>, buffer: &mut [i8], ulflags: u32) -> CONFIGRET {
@@ -1143,7 +1143,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_InterfaceA(dndevinst : DEVINST, interfaceclassguid : *const windows_core::GUID, pszreference : windows_core::PCSTR, pszdeviceinterface : windows_core::PSTR, pullength : *mut u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Register_Device_InterfaceA(dndevinst, interfaceclassguid, pszreference.param().abi(), core::mem::transmute(pszdeviceinterface), pullength as _, ulflags) }
+    unsafe { CM_Register_Device_InterfaceA(dndevinst, interfaceclassguid, pszreference.param().abi(), pszdeviceinterface, pullength as _, ulflags) }
 }
 #[inline]
 pub unsafe fn CM_Register_Device_InterfaceW<P2>(dndevinst: DEVINST, interfaceclassguid: *const windows_core::GUID, pszreference: P2, pszdeviceinterface: windows_core::PWSTR, pullength: *mut u32, ulflags: u32) -> CONFIGRET
@@ -1151,7 +1151,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_InterfaceW(dndevinst : DEVINST, interfaceclassguid : *const windows_core::GUID, pszreference : windows_core::PCWSTR, pszdeviceinterface : windows_core::PWSTR, pullength : *mut u32, ulflags : u32) -> CONFIGRET);
-    unsafe { CM_Register_Device_InterfaceW(dndevinst, interfaceclassguid, pszreference.param().abi(), core::mem::transmute(pszdeviceinterface), pullength as _, ulflags) }
+    unsafe { CM_Register_Device_InterfaceW(dndevinst, interfaceclassguid, pszreference.param().abi(), pszdeviceinterface, pullength as _, ulflags) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1160,7 +1160,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_Interface_ExA(dndevinst : DEVINST, interfaceclassguid : *const windows_core::GUID, pszreference : windows_core::PCSTR, pszdeviceinterface : windows_core::PSTR, pullength : *mut u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Register_Device_Interface_ExA(dndevinst, interfaceclassguid, pszreference.param().abi(), core::mem::transmute(pszdeviceinterface), pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Register_Device_Interface_ExA(dndevinst, interfaceclassguid, pszreference.param().abi(), pszdeviceinterface, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -1169,7 +1169,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("setupapi.dll" "system" fn CM_Register_Device_Interface_ExW(dndevinst : DEVINST, interfaceclassguid : *const windows_core::GUID, pszreference : windows_core::PCWSTR, pszdeviceinterface : windows_core::PWSTR, pullength : *mut u32, ulflags : u32, hmachine : HMACHINE) -> CONFIGRET);
-    unsafe { CM_Register_Device_Interface_ExW(dndevinst, interfaceclassguid, pszreference.param().abi(), core::mem::transmute(pszdeviceinterface), pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CM_Register_Device_Interface_ExW(dndevinst, interfaceclassguid, pszreference.param().abi(), pszdeviceinterface, pullength as _, ulflags, hmachine.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

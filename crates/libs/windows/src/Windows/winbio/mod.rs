@@ -135,7 +135,7 @@ pub unsafe fn WinBioGetCredentialState(identity: WINBIO_IDENTITY, r#type: WINBIO
     windows_core::link!("winbio.dll" "system" fn WinBioGetCredentialState(identity : WINBIO_IDENTITY, r#type : WINBIO_CREDENTIAL_TYPE, credentialstate : *mut WINBIO_CREDENTIAL_STATE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        WinBioGetCredentialState(core::mem::transmute(identity), r#type, &mut result__).map(|| result__)
+        WinBioGetCredentialState(identity, r#type, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -250,7 +250,7 @@ pub unsafe fn WinBioRemoveAllDomainCredentials() -> windows_core::HRESULT {
 #[inline]
 pub unsafe fn WinBioRemoveCredential(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE) -> windows_core::HRESULT {
     windows_core::link!("winbio.dll" "system" fn WinBioRemoveCredential(identity : WINBIO_IDENTITY, r#type : WINBIO_CREDENTIAL_TYPE) -> windows_core::HRESULT);
-    unsafe { WinBioRemoveCredential(core::mem::transmute(identity), r#type) }
+    unsafe { WinBioRemoveCredential(identity, r#type) }
 }
 #[inline]
 pub unsafe fn WinBioSetCredential(r#type: WINBIO_CREDENTIAL_TYPE, credential: &[u8], format: WINBIO_CREDENTIAL_FORMAT) -> windows_core::HRESULT {

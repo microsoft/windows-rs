@@ -149,7 +149,7 @@ pub unsafe fn BluetoothSdpGetElementData(psdpstream: &[u8], pdata: *mut SDP_ELEM
 #[inline]
 pub unsafe fn BluetoothSdpGetString(precordstream: &[u8], pstringdata: Option<*const SDP_STRING_TYPE_DATA>, usstringoffset: u16, pszstring: windows_core::PWSTR, pcchstringlength: *mut u32) -> u32 {
     windows_core::link!("bthprops.cpl" "system" fn BluetoothSdpGetString(precordstream : *const u8, cbrecordlength : u32, pstringdata : *const SDP_STRING_TYPE_DATA, usstringoffset : u16, pszstring : windows_core::PWSTR, pcchstringlength : *mut u32) -> u32);
-    unsafe { BluetoothSdpGetString(precordstream.as_ptr(), precordstream.len().try_into().unwrap(), pstringdata.unwrap_or(core::mem::zeroed()) as _, usstringoffset, core::mem::transmute(pszstring), pcchstringlength as _) }
+    unsafe { BluetoothSdpGetString(precordstream.as_ptr(), precordstream.len().try_into().unwrap(), pstringdata.unwrap_or(core::mem::zeroed()) as _, usstringoffset, pszstring, pcchstringlength as _) }
 }
 #[cfg(all(feature = "bthdef", feature = "minwinbase", feature = "windef"))]
 #[inline]

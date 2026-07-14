@@ -2672,7 +2672,7 @@ windows_core::imp::interface_hierarchy!(IAppxEncryptedPackageWriter2, windows_co
 impl IAppxEncryptedPackageWriter2 {
     #[cfg(feature = "objidlbase")]
     pub unsafe fn AddPayloadFilesEncrypted(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadFilesEncrypted)(windows_core::Interface::as_raw(self), filecount, core::mem::transmute(payloadfiles), memorylimit) }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadFilesEncrypted)(windows_core::Interface::as_raw(self), filecount, payloadfiles, memorylimit) }
     }
 }
 #[repr(C)]
@@ -2714,7 +2714,7 @@ impl IAppxEncryptionFactory {
         P0: windows_core::Param<super::objidlbase::IStream>,
         P1: windows_core::Param<super::objidlbase::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles) }
+        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), settings, keyinfo, exemptedfiles) }
     }
     #[cfg(feature = "objidlbase")]
     pub unsafe fn DecryptPackage<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
@@ -2732,7 +2732,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "objidlbase")]
@@ -2751,7 +2751,7 @@ impl IAppxEncryptionFactory {
         P0: windows_core::Param<super::objidlbase::IStream>,
         P1: windows_core::Param<super::objidlbase::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles) }
+        unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), settings, keyinfo, exemptedfiles) }
     }
     #[cfg(feature = "objidlbase")]
     pub unsafe fn DecryptBundle<P0, P1>(&self, inputstream: P0, outputstream: P1, keyinfo: *const APPX_KEY_INFO) -> windows_core::HRESULT
@@ -2768,7 +2768,7 @@ impl IAppxEncryptionFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "objidlbase")]
@@ -2935,7 +2935,7 @@ impl IAppxEncryptionFactory2 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), contentgroupmapstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), contentgroupmapstream.param().abi(), settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -2984,7 +2984,7 @@ impl IAppxEncryptionFactory3 {
         P0: windows_core::Param<super::objidlbase::IStream>,
         P1: windows_core::Param<super::objidlbase::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles) }
+        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), settings, keyinfo, exemptedfiles) }
     }
     #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateEncryptedPackageWriter<P0, P1, P2>(&self, outputstream: P0, manifeststream: P1, contentgroupmapstream: P2, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>
@@ -2995,7 +2995,7 @@ impl IAppxEncryptionFactory3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), contentgroupmapstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedPackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), manifeststream.param().abi(), contentgroupmapstream.param().abi(), settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
@@ -3004,7 +3004,7 @@ impl IAppxEncryptionFactory3 {
         P0: windows_core::Param<super::objidlbase::IStream>,
         P1: windows_core::Param<super::objidlbase::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles) }
+        unsafe { (windows_core::Interface::vtable(self).EncryptBundle)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), settings, keyinfo, exemptedfiles) }
     }
     #[cfg(all(feature = "objidlbase", feature = "urlmon"))]
     pub unsafe fn CreateEncryptedBundleWriter<P0>(&self, outputstream: P0, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>
@@ -3013,7 +3013,7 @@ impl IAppxEncryptionFactory3 {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, core::mem::transmute(settings), keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateEncryptedBundleWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), bundleversion, settings, keyinfo, exemptedfiles, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -3107,7 +3107,7 @@ impl IAppxEncryptionFactory4 {
         P0: windows_core::Param<super::objidlbase::IStream>,
         P1: windows_core::Param<super::objidlbase::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), core::mem::transmute(settings), keyinfo, exemptedfiles, memorylimit) }
+        unsafe { (windows_core::Interface::vtable(self).EncryptPackage)(windows_core::Interface::as_raw(self), inputstream.param().abi(), outputstream.param().abi(), settings, keyinfo, exemptedfiles, memorylimit) }
     }
 }
 #[repr(C)]
@@ -3233,7 +3233,7 @@ impl IAppxFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreatePackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), core::mem::transmute(settings), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreatePackageWriter)(windows_core::Interface::as_raw(self), outputstream.param().abi(), settings, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "objidlbase")]
@@ -6723,7 +6723,7 @@ impl IAppxPackageEditor {
         P0: windows_core::Param<super::objidlbase::IStream>,
         P1: windows_core::Param<super::objidlbase::IStream>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateEncryptedPackage)(windows_core::Interface::as_raw(self), baselineencryptedpackagestream.param().abi(), deltapackagestream.param().abi(), updateoption, core::mem::transmute(settings), keyinfo) }
+        unsafe { (windows_core::Interface::vtable(self).UpdateEncryptedPackage)(windows_core::Interface::as_raw(self), baselineencryptedpackagestream.param().abi(), deltapackagestream.param().abi(), updateoption, settings, keyinfo) }
     }
     #[cfg(feature = "objidlbase")]
     pub unsafe fn UpdatePackageManifest<P0, P1>(&self, packagestream: P0, updatedmanifeststream: P1, ispackageencrypted: bool, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::HRESULT
@@ -7066,7 +7066,7 @@ windows_core::imp::interface_hierarchy!(IAppxPackageWriter3, windows_core::IUnkn
 impl IAppxPackageWriter3 {
     #[cfg(feature = "objidlbase")]
     pub unsafe fn AddPayloadFiles(&self, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPayloadFiles)(windows_core::Interface::as_raw(self), filecount, core::mem::transmute(payloadfiles), memorylimit) }
+        unsafe { (windows_core::Interface::vtable(self).AddPayloadFiles)(windows_core::Interface::as_raw(self), filecount, payloadfiles, memorylimit) }
     }
 }
 #[repr(C)]

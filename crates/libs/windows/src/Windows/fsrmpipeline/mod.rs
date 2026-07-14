@@ -986,11 +986,11 @@ impl IFsrmClassifierModuleImplementation {
     }
     #[cfg(all(feature = "fsrmenums", feature = "wtypes"))]
     pub unsafe fn DoesPropertyValueApply(&self, property: &windows_core::BSTR, value: &windows_core::BSTR, applyvalue: *mut super::wtypes::VARIANT_BOOL, idrule: super::fsrmenums::FSRM_OBJECT_ID, idpropdef: super::fsrmenums::FSRM_OBJECT_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DoesPropertyValueApply)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(property), core::mem::transmute_copy(value), applyvalue as _, core::mem::transmute(idrule), core::mem::transmute(idpropdef)) }
+        unsafe { (windows_core::Interface::vtable(self).DoesPropertyValueApply)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(property), core::mem::transmute_copy(value), applyvalue as _, idrule, idpropdef) }
     }
     #[cfg(feature = "fsrmenums")]
     pub unsafe fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: super::fsrmenums::FSRM_OBJECT_ID, idpropdef: super::fsrmenums::FSRM_OBJECT_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyValueToApply)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(property), core::mem::transmute(value), core::mem::transmute(idrule), core::mem::transmute(idpropdef)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyValueToApply)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(property), core::mem::transmute(value), idrule, idpropdef) }
     }
     pub unsafe fn OnEndFile(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnEndFile)(windows_core::Interface::as_raw(self)) }

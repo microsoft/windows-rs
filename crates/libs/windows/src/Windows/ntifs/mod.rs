@@ -561,7 +561,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlIdnToAscii(flags : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlIdnToAscii(flags, sourcestring.param().abi(), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength as _) }
+    unsafe { RtlIdnToAscii(flags, sourcestring.param().abi(), sourcestringlength, destinationstring, destinationstringlength as _) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -570,7 +570,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlIdnToNameprepUnicode(flags : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlIdnToNameprepUnicode(flags, sourcestring.param().abi(), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength as _) }
+    unsafe { RtlIdnToNameprepUnicode(flags, sourcestring.param().abi(), sourcestringlength, destinationstring, destinationstringlength as _) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -579,7 +579,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlIdnToUnicode(flags : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlIdnToUnicode(flags, sourcestring.param().abi(), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength as _) }
+    unsafe { RtlIdnToUnicode(flags, sourcestring.param().abi(), sourcestringlength, destinationstring, destinationstringlength as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "ntnls"))]
 #[inline]
@@ -674,7 +674,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdll.dll" "system" fn RtlNormalizeString(normform : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlNormalizeString(normform, sourcestring.param().abi(), sourcestringlength, core::mem::transmute(destinationstring), destinationstringlength as _) }
+    unsafe { RtlNormalizeString(normform, sourcestring.param().abi(), sourcestringlength, destinationstring, destinationstringlength as _) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
@@ -704,13 +704,13 @@ pub unsafe fn RtlPrefixString(string1: *const super::ntsecapi::STRING, string2: 
 #[inline]
 pub unsafe fn RtlQueryPackageIdentity(tokenobject: *const core::ffi::c_void, packagefullname: windows_core::PWSTR, packagesize: *mut usize, appid: Option<windows_core::PWSTR>, appidsize: Option<*mut usize>, packaged: Option<*mut bool>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlQueryPackageIdentity(tokenobject : *const core::ffi::c_void, packagefullname : windows_core::PWSTR, packagesize : *mut usize, appid : windows_core::PWSTR, appidsize : *mut usize, packaged : *mut bool) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlQueryPackageIdentity(tokenobject, core::mem::transmute(packagefullname), packagesize as _, appid.unwrap_or(core::mem::zeroed()) as _, appidsize.unwrap_or(core::mem::zeroed()) as _, packaged.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RtlQueryPackageIdentity(tokenobject, packagefullname, packagesize as _, appid.unwrap_or(core::mem::zeroed()) as _, appidsize.unwrap_or(core::mem::zeroed()) as _, packaged.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "bcrypt")]
 #[inline]
 pub unsafe fn RtlQueryPackageIdentityEx(tokenobject: *const core::ffi::c_void, packagefullname: windows_core::PWSTR, packagesize: *mut usize, appid: Option<windows_core::PWSTR>, appidsize: Option<*mut usize>, dynamicid: Option<*mut windows_core::GUID>, flags: Option<*mut u64>) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlQueryPackageIdentityEx(tokenobject : *const core::ffi::c_void, packagefullname : windows_core::PWSTR, packagesize : *mut usize, appid : windows_core::PWSTR, appidsize : *mut usize, dynamicid : *mut windows_core::GUID, flags : *mut u64) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlQueryPackageIdentityEx(tokenobject, core::mem::transmute(packagefullname), packagesize as _, appid.unwrap_or(core::mem::zeroed()) as _, appidsize.unwrap_or(core::mem::zeroed()) as _, dynamicid.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { RtlQueryPackageIdentityEx(tokenobject, packagefullname, packagesize as _, appid.unwrap_or(core::mem::zeroed()) as _, appidsize.unwrap_or(core::mem::zeroed()) as _, dynamicid.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RtlQueryProcessPlaceholderCompatibilityMode() -> i8 {

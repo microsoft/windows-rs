@@ -2,13 +2,13 @@
 #[inline]
 pub unsafe fn StgConvertPropertyToVariant(pprop: *const SERIALIZEDPROPERTYVALUE, codepage: u16, pvar: *mut super::propidlbase::PROPVARIANT, pma: *const PMemoryAllocator) -> bool {
     windows_core::link!("ole32.dll" "system" fn StgConvertPropertyToVariant(pprop : *const SERIALIZEDPROPERTYVALUE, codepage : u16, pvar : *mut super::propidlbase::PROPVARIANT, pma : *const PMemoryAllocator) -> bool);
-    unsafe { StgConvertPropertyToVariant(pprop, codepage, core::mem::transmute(pvar), pma) }
+    unsafe { StgConvertPropertyToVariant(pprop, codepage, pvar, pma) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn StgConvertVariantToProperty(pvar: *const super::propidlbase::PROPVARIANT, codepage: u16, pprop: Option<*mut SERIALIZEDPROPERTYVALUE>, pcb: *mut u32, pid: super::wtypes::PROPID, freserved: Option<bool>, pcindirect: Option<*mut u32>) -> *mut SERIALIZEDPROPERTYVALUE {
     windows_core::link!("ole32.dll" "system" fn StgConvertVariantToProperty(pvar : *const super::propidlbase::PROPVARIANT, codepage : u16, pprop : *mut SERIALIZEDPROPERTYVALUE, pcb : *mut u32, pid : super::wtypes::PROPID, freserved : bool, pcindirect : *mut u32) -> *mut SERIALIZEDPROPERTYVALUE);
-    unsafe { StgConvertVariantToProperty(core::mem::transmute(pvar), codepage, pprop.unwrap_or(core::mem::zeroed()) as _, pcb as _, pid, freserved.unwrap_or(core::mem::zeroed()) as _, pcindirect.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { StgConvertVariantToProperty(pvar, codepage, pprop.unwrap_or(core::mem::zeroed()) as _, pcb as _, pid, freserved.unwrap_or(core::mem::zeroed()) as _, pcindirect.unwrap_or(core::mem::zeroed()) as _) }
 }
 pub const PIDDI_THUMBNAIL: u32 = 2;
 pub const PIDDSI_BYTECOUNT: u32 = 4;

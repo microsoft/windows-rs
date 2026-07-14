@@ -2994,7 +2994,7 @@ impl IShellFolderViewDual {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SelectItem(&self, pvfi: *const super::oaidl::VARIANT, dwflags: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SelectItem)(windows_core::Interface::as_raw(self), core::mem::transmute(pvfi), dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).SelectItem)(windows_core::Interface::as_raw(self), pvfi, dwflags) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PopupItemMenu<P0>(&self, pfi: P0, vx: &super::oaidl::VARIANT, vy: &super::oaidl::VARIANT) -> windows_core::Result<windows_core::BSTR>
@@ -3819,7 +3819,7 @@ impl IWebWizardHost {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetProperty(&self, bstrpropertyname: &windows_core::BSTR, pvproperty: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname), core::mem::transmute(pvproperty)) }
+        unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname), pvproperty) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Property(&self, bstrpropertyname: &windows_core::BSTR) -> windows_core::Result<super::oaidl::VARIANT> {

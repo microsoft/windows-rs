@@ -365,7 +365,7 @@ pub unsafe fn RasGetLinkStatistics(hrasconn: HRASCONN, dwsubentry: u32, lpstatis
 #[inline]
 pub unsafe fn RasGetPCscf(lpszpcscf: windows_core::PWSTR) -> u32 {
     windows_core::link!("rasapi32.dll" "system" fn RasGetPCscf(lpszpcscf : windows_core::PWSTR) -> u32);
-    unsafe { RasGetPCscf(core::mem::transmute(lpszpcscf)) }
+    unsafe { RasGetPCscf(lpszpcscf) }
 }
 #[inline]
 pub unsafe fn RasGetProjectionInfoA(param0: HRASCONN, param1: tagRASPROJECTION, param2: *mut core::ffi::c_void, param3: *mut u32) -> u32 {

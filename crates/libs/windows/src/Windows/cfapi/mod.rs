@@ -40,7 +40,7 @@ pub unsafe fn CfDehydratePlaceholder(filehandle: super::winnt::HANDLE, startingo
 #[inline]
 pub unsafe fn CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfDisconnectSyncRoot(connectionkey : CF_CONNECTION_KEY) -> windows_core::HRESULT);
-    unsafe { CfDisconnectSyncRoot(core::mem::transmute(connectionkey)) }
+    unsafe { CfDisconnectSyncRoot(connectionkey) }
 }
 #[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
 #[inline]
@@ -69,7 +69,7 @@ pub unsafe fn CfGetPlaceholderRangeInfo(filehandle: super::winnt::HANDLE, infocl
 #[inline]
 pub unsafe fn CfGetPlaceholderRangeInfoForHydration(connectionkey: CF_CONNECTION_KEY, transferkey: CF_TRANSFER_KEY, fileid: i64, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, rangelength: i64, infobuffer: *mut core::ffi::c_void, infobuffersize: u32, infobufferwritten: Option<*mut u32>) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfGetPlaceholderRangeInfoForHydration(connectionkey : CF_CONNECTION_KEY, transferkey : CF_TRANSFER_KEY, fileid : i64, infoclass : CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset : i64, rangelength : i64, infobuffer : *mut core::ffi::c_void, infobuffersize : u32, infobufferwritten : *mut u32) -> windows_core::HRESULT);
-    unsafe { CfGetPlaceholderRangeInfoForHydration(core::mem::transmute(connectionkey), transferkey, fileid, infoclass, startingoffset, rangelength, infobuffer as _, infobuffersize, infobufferwritten.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CfGetPlaceholderRangeInfoForHydration(connectionkey, transferkey, fileid, infoclass, startingoffset, rangelength, infobuffer as _, infobuffersize, infobufferwritten.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE {
@@ -148,7 +148,7 @@ pub unsafe fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY) -> win
     windows_core::link!("cldapi.dll" "system" fn CfQuerySyncProviderStatus(connectionkey : CF_CONNECTION_KEY, providerstatus : *mut CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CfQuerySyncProviderStatus(core::mem::transmute(connectionkey), &mut result__).map(|| result__)
+        CfQuerySyncProviderStatus(connectionkey, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "winnt")]
@@ -184,12 +184,12 @@ pub unsafe fn CfReleaseTransferKey(filehandle: super::winnt::HANDLE) -> CF_TRANS
 #[inline]
 pub unsafe fn CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: CF_TRANSFER_KEY, providerprogresstotal: i64, providerprogresscompleted: i64) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfReportProviderProgress(connectionkey : CF_CONNECTION_KEY, transferkey : CF_TRANSFER_KEY, providerprogresstotal : i64, providerprogresscompleted : i64) -> windows_core::HRESULT);
-    unsafe { CfReportProviderProgress(core::mem::transmute(connectionkey), transferkey, providerprogresstotal, providerprogresscompleted) }
+    unsafe { CfReportProviderProgress(connectionkey, transferkey, providerprogresstotal, providerprogresscompleted) }
 }
 #[inline]
 pub unsafe fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: CF_TRANSFER_KEY, requestkey: CF_REQUEST_KEY, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfReportProviderProgress2(connectionkey : CF_CONNECTION_KEY, transferkey : CF_TRANSFER_KEY, requestkey : CF_REQUEST_KEY, providerprogresstotal : i64, providerprogresscompleted : i64, targetsessionid : u32) -> windows_core::HRESULT);
-    unsafe { CfReportProviderProgress2(core::mem::transmute(connectionkey), transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid) }
+    unsafe { CfReportProviderProgress2(connectionkey, transferkey, requestkey, providerprogresstotal, providerprogresscompleted, targetsessionid) }
 }
 #[inline]
 pub unsafe fn CfReportSyncStatus<P0>(syncrootpath: P0, syncstatus: Option<*const CF_SYNC_STATUS>) -> windows_core::HRESULT
@@ -240,7 +240,7 @@ pub unsafe fn CfUpdatePlaceholder(filehandle: super::winnt::HANDLE, fsmetadata: 
 #[inline]
 pub unsafe fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT {
     windows_core::link!("cldapi.dll" "system" fn CfUpdateSyncProviderStatus(connectionkey : CF_CONNECTION_KEY, providerstatus : CF_SYNC_PROVIDER_STATUS) -> windows_core::HRESULT);
-    unsafe { CfUpdateSyncProviderStatus(core::mem::transmute(connectionkey), providerstatus) }
+    unsafe { CfUpdateSyncProviderStatus(connectionkey, providerstatus) }
 }
 #[cfg(feature = "winnt")]
 pub type CF_CALLBACK = Option<unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS)>;

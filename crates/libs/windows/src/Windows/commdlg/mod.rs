@@ -101,13 +101,13 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> windows_core::BOOL {
 #[inline]
 pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> windows_core::HRESULT {
     windows_core::link!("comdlg32.dll" "system" fn PrintDlgExA(ppd : *mut PRINTDLGEXA) -> windows_core::HRESULT);
-    unsafe { PrintDlgExA(core::mem::transmute(ppd)) }
+    unsafe { PrintDlgExA(ppd) }
 }
 #[cfg(all(feature = "minwindef", feature = "prsht", feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> windows_core::HRESULT {
     windows_core::link!("comdlg32.dll" "system" fn PrintDlgExW(ppd : *mut PRINTDLGEXW) -> windows_core::HRESULT);
-    unsafe { PrintDlgExW(core::mem::transmute(ppd)) }
+    unsafe { PrintDlgExW(ppd) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef", feature = "winnt"))]
 #[inline]

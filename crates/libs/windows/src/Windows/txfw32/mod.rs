@@ -14,7 +14,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("txfw32.dll" "system" fn TxfLogCreateFileReadContext(logpath : windows_core::PCWSTR, beginninglsn : super::clfs::CLFS_LSN, endinglsn : super::clfs::CLFS_LSN, txffileid : *const TXF_ID, txflogcontext : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { TxfLogCreateFileReadContext(logpath.param().abi(), core::mem::transmute(beginninglsn), core::mem::transmute(endinglsn), txffileid, txflogcontext as _) }
+    unsafe { TxfLogCreateFileReadContext(logpath.param().abi(), beginninglsn, endinglsn, txffileid, txflogcontext as _) }
 }
 #[cfg(feature = "clfs")]
 #[inline]
@@ -23,7 +23,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("txfw32.dll" "system" fn TxfLogCreateRangeReadContext(logpath : windows_core::PCWSTR, beginninglsn : super::clfs::CLFS_LSN, endinglsn : super::clfs::CLFS_LSN, beginningvirtualclock : *const i64, endingvirtualclock : *const i64, recordtypemask : u32, txflogcontext : *mut *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { TxfLogCreateRangeReadContext(logpath.param().abi(), core::mem::transmute(beginninglsn), core::mem::transmute(endinglsn), beginningvirtualclock, endingvirtualclock, recordtypemask, txflogcontext as _) }
+    unsafe { TxfLogCreateRangeReadContext(logpath.param().abi(), beginninglsn, endinglsn, beginningvirtualclock, endingvirtualclock, recordtypemask, txflogcontext as _) }
 }
 #[inline]
 pub unsafe fn TxfLogDestroyReadContext(txflogcontext: *const core::ffi::c_void) -> windows_core::BOOL {
@@ -38,7 +38,7 @@ pub unsafe fn TxfLogReadRecords(txflogcontext: *const core::ffi::c_void, bufferl
 #[inline]
 pub unsafe fn TxfLogRecordGetFileName(recordbuffer: *const core::ffi::c_void, recordbufferlengthinbytes: u32, namebuffer: windows_core::PWSTR, namebufferlengthinbytes: *mut u32, txfid: Option<*mut TXF_ID>) -> windows_core::BOOL {
     windows_core::link!("txfw32.dll" "system" fn TxfLogRecordGetFileName(recordbuffer : *const core::ffi::c_void, recordbufferlengthinbytes : u32, namebuffer : windows_core::PWSTR, namebufferlengthinbytes : *mut u32, txfid : *mut TXF_ID) -> windows_core::BOOL);
-    unsafe { TxfLogRecordGetFileName(recordbuffer, recordbufferlengthinbytes, core::mem::transmute(namebuffer), namebufferlengthinbytes as _, txfid.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { TxfLogRecordGetFileName(recordbuffer, recordbufferlengthinbytes, namebuffer, namebufferlengthinbytes as _, txfid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn TxfLogRecordGetGenericType(recordbuffer: *const core::ffi::c_void, recordbufferlengthinbytes: u32, generictype: *mut u32, virtualclock: Option<*mut i64>) -> windows_core::BOOL {

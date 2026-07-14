@@ -116,17 +116,17 @@ pub unsafe fn PathCchRemoveBackslash(pszpath: &mut [u16]) -> windows_core::HRESU
 #[inline]
 pub unsafe fn PathCchRemoveBackslashEx(pszpath: windows_core::PWSTR, cchpath: usize, ppszend: *mut windows_core::PWSTR, pcchremaining: Option<*mut usize>) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveBackslashEx(pszpath : windows_core::PWSTR, cchpath : usize, ppszend : *mut windows_core::PWSTR, pcchremaining : *mut usize) -> windows_core::HRESULT);
-    unsafe { PathCchRemoveBackslashEx(core::mem::transmute(pszpath), cchpath, ppszend as _, pcchremaining.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { PathCchRemoveBackslashEx(pszpath, cchpath, ppszend as _, pcchremaining.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn PathCchRemoveExtension(pszpath: windows_core::PWSTR, cchpath: usize) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveExtension(pszpath : windows_core::PWSTR, cchpath : usize) -> windows_core::HRESULT);
-    unsafe { PathCchRemoveExtension(core::mem::transmute(pszpath), cchpath) }
+    unsafe { PathCchRemoveExtension(pszpath, cchpath) }
 }
 #[inline]
 pub unsafe fn PathCchRemoveFileSpec(pszpath: windows_core::PWSTR, cchpath: usize) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchRemoveFileSpec(pszpath : windows_core::PWSTR, cchpath : usize) -> windows_core::HRESULT);
-    unsafe { PathCchRemoveFileSpec(core::mem::transmute(pszpath), cchpath) }
+    unsafe { PathCchRemoveFileSpec(pszpath, cchpath) }
 }
 #[inline]
 pub unsafe fn PathCchRenameExtension<P2>(pszpath: &mut [u16], pszext: P2) -> windows_core::HRESULT
@@ -155,7 +155,7 @@ pub unsafe fn PathCchStripPrefix(pszpath: &mut [u16]) -> windows_core::HRESULT {
 #[inline]
 pub unsafe fn PathCchStripToRoot(pszpath: windows_core::PWSTR, cchpath: usize) -> windows_core::HRESULT {
     windows_core::link!("api-ms-win-core-path-l1-1-0.dll" "system" fn PathCchStripToRoot(pszpath : windows_core::PWSTR, cchpath : usize) -> windows_core::HRESULT);
-    unsafe { PathCchStripToRoot(core::mem::transmute(pszpath), cchpath) }
+    unsafe { PathCchStripToRoot(pszpath, cchpath) }
 }
 #[inline]
 pub unsafe fn PathIsUNCEx<P0>(pszpath: P0, ppszserver: *mut windows_core::PCWSTR) -> windows_core::BOOL

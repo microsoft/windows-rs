@@ -403,7 +403,7 @@ pub unsafe fn InitializeFlatSB(param0: super::windef::HWND) -> windows_core::BOO
 #[inline]
 pub unsafe fn LBItemFromPt(hlb: super::windef::HWND, pt: super::windef::POINT, bautoscroll: bool) -> i32 {
     windows_core::link!("comctl32.dll" "system" fn LBItemFromPt(hlb : super::windef::HWND, pt : super::windef::POINT, bautoscroll : windows_core::BOOL) -> i32);
-    unsafe { LBItemFromPt(hlb, core::mem::transmute(pt), bautoscroll.into()) }
+    unsafe { LBItemFromPt(hlb, pt, bautoscroll.into()) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]

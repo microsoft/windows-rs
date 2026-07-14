@@ -170,7 +170,7 @@ pub unsafe fn CompatFlagsFromClsid(pclsid: *const windows_core::GUID, pdwcompatf
 #[inline]
 pub unsafe fn CopyBindInfo(pcbisrc: *const BINDINFO, pbidest: *mut BINDINFO) -> windows_core::HRESULT {
     windows_core::link!("urlmon.dll" "system" fn CopyBindInfo(pcbisrc : *const BINDINFO, pbidest : *mut BINDINFO) -> windows_core::HRESULT);
-    unsafe { CopyBindInfo(core::mem::transmute(pcbisrc), core::mem::transmute(pbidest)) }
+    unsafe { CopyBindInfo(pcbisrc, pbidest) }
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 #[inline]
@@ -178,7 +178,7 @@ pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::objidl::STGMEDIUM) -> win
     windows_core::link!("urlmon.dll" "system" fn CopyStgMedium(pcstgmedsrc : *const super::objidl::STGMEDIUM, pstgmeddest : *mut super::objidl::STGMEDIUM) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CopyStgMedium(core::mem::transmute(pcstgmedsrc), &mut result__).map(|| core::mem::transmute(result__))
+        CopyStgMedium(pcstgmedsrc, &mut result__).map(|| core::mem::transmute(result__))
     }
 }
 #[cfg(feature = "objidl")]
@@ -497,7 +497,7 @@ where
 #[inline]
 pub unsafe fn ObtainUserAgentString(dwoption: u32, pszuaout: windows_core::PSTR, cbsize: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("urlmon.dll" "system" fn ObtainUserAgentString(dwoption : u32, pszuaout : windows_core::PSTR, cbsize : *mut u32) -> windows_core::HRESULT);
-    unsafe { ObtainUserAgentString(dwoption, core::mem::transmute(pszuaout), cbsize as _) }
+    unsafe { ObtainUserAgentString(dwoption, pszuaout, cbsize as _) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
@@ -538,7 +538,7 @@ pub unsafe fn RegisterMediaTypes(ctypes: u32, rgsztypes: *const windows_core::PC
 #[inline]
 pub unsafe fn ReleaseBindInfo(pbindinfo: *mut BINDINFO) {
     windows_core::link!("urlmon.dll" "system" fn ReleaseBindInfo(pbindinfo : *mut BINDINFO));
-    unsafe { ReleaseBindInfo(core::mem::transmute(pbindinfo)) }
+    unsafe { ReleaseBindInfo(pbindinfo) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
@@ -1391,11 +1391,11 @@ impl IBindStatusCallback {
     }
     #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBindInfo)(windows_core::Interface::as_raw(self), grfbindf as _, core::mem::transmute(pbindinfo)) }
+        unsafe { (windows_core::Interface::vtable(self).GetBindInfo)(windows_core::Interface::as_raw(self), grfbindf as _, pbindinfo) }
     }
     #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn OnDataAvailable(&self, grfbscf: u32, dwsize: u32, pformatetc: *const super::objidl::FORMATETC, pstgmed: *const super::objidl::STGMEDIUM) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnDataAvailable)(windows_core::Interface::as_raw(self), grfbscf, dwsize, pformatetc, core::mem::transmute(pstgmed)) }
+        unsafe { (windows_core::Interface::vtable(self).OnDataAvailable)(windows_core::Interface::as_raw(self), grfbscf, dwsize, pformatetc, pstgmed) }
     }
     pub unsafe fn OnObjectAvailable<P1>(&self, riid: *const windows_core::GUID, punk: P1) -> windows_core::HRESULT
     where
@@ -1520,7 +1520,7 @@ windows_core::imp::interface_hierarchy!(IBindStatusCallbackEx, windows_core::IUn
 impl IBindStatusCallbackEx {
     #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBindInfoEx)(windows_core::Interface::as_raw(self), grfbindf as _, core::mem::transmute(pbindinfo), grfbindf2 as _, pdwreserved as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetBindInfoEx)(windows_core::Interface::as_raw(self), grfbindf as _, pbindinfo, grfbindf2 as _, pdwreserved as _) }
     }
 }
 #[repr(C)]
@@ -1832,7 +1832,7 @@ impl IEncodingFilterFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindBestFilter)(windows_core::Interface::as_raw(self), pwzcodein.param().abi(), pwzcodeout.param().abi(), core::mem::transmute(info), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindBestFilter)(windows_core::Interface::as_raw(self), pwzcodein.param().abi(), pwzcodeout.param().abi(), info, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetDefaultFilter<P0, P1>(&self, pwzcodein: P0, pwzcodeout: P1) -> windows_core::Result<IDataFilter>
@@ -2149,7 +2149,7 @@ windows_core::imp::interface_hierarchy!(IInternetBindInfo, windows_core::IUnknow
 impl IInternetBindInfo {
     #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetBindInfo(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBindInfo)(windows_core::Interface::as_raw(self), grfbindf as _, core::mem::transmute(pbindinfo)) }
+        unsafe { (windows_core::Interface::vtable(self).GetBindInfo)(windows_core::Interface::as_raw(self), grfbindf as _, pbindinfo) }
     }
     pub unsafe fn GetBindString(&self, ulstringtype: u32, ppwzstr: *mut windows_core::PWSTR, cel: u32, pcelfetched: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetBindString)(windows_core::Interface::as_raw(self), ulstringtype, ppwzstr as _, cel, pcelfetched as _) }
@@ -2208,7 +2208,7 @@ windows_core::imp::interface_hierarchy!(IInternetBindInfoEx, windows_core::IUnkn
 impl IInternetBindInfoEx {
     #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn GetBindInfoEx(&self, grfbindf: *mut u32, pbindinfo: *mut BINDINFO, grfbindf2: *mut u32, pdwreserved: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBindInfoEx)(windows_core::Interface::as_raw(self), grfbindf as _, core::mem::transmute(pbindinfo), grfbindf2 as _, pdwreserved as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetBindInfoEx)(windows_core::Interface::as_raw(self), grfbindf as _, pbindinfo, grfbindf2 as _, pdwreserved as _) }
     }
 }
 #[repr(C)]
@@ -2498,14 +2498,14 @@ impl IInternetProtocolInfo {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ParseUrl)(windows_core::Interface::as_raw(self), pwzurl.param().abi(), parseaction, dwparseflags, core::mem::transmute(pwzresult), cchresult, pcchresult as _, dwreserved) }
+        unsafe { (windows_core::Interface::vtable(self).ParseUrl)(windows_core::Interface::as_raw(self), pwzurl.param().abi(), parseaction, dwparseflags, pwzresult, cchresult, pcchresult as _, dwreserved) }
     }
     pub unsafe fn CombineUrl<P0, P1>(&self, pwzbaseurl: P0, pwzrelativeurl: P1, dwcombineflags: u32, pwzresult: windows_core::PWSTR, cchresult: u32, pcchresult: *mut u32, dwreserved: u32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).CombineUrl)(windows_core::Interface::as_raw(self), pwzbaseurl.param().abi(), pwzrelativeurl.param().abi(), dwcombineflags, core::mem::transmute(pwzresult), cchresult, pcchresult as _, dwreserved) }
+        unsafe { (windows_core::Interface::vtable(self).CombineUrl)(windows_core::Interface::as_raw(self), pwzbaseurl.param().abi(), pwzrelativeurl.param().abi(), dwcombineflags, pwzresult, cchresult, pcchresult as _, dwreserved) }
     }
     pub unsafe fn CompareUrl<P0, P1>(&self, pwzurl1: P0, pwzurl2: P1, dwcompareflags: u32) -> windows_core::HRESULT
     where

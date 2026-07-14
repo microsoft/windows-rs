@@ -10,7 +10,7 @@ pub unsafe fn CreateILockBytesOnHGlobal(hglobal: Option<super::minwindef::HGLOBA
 #[inline]
 pub unsafe fn FmtIdToPropStgName(pfmtid: *const windows_core::GUID, oszname: windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn FmtIdToPropStgName(pfmtid : *const windows_core::GUID, oszname : windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { FmtIdToPropStgName(pfmtid, core::mem::transmute(oszname)) }
+    unsafe { FmtIdToPropStgName(pfmtid, oszname) }
 }
 #[cfg(feature = "objidl")]
 #[inline]

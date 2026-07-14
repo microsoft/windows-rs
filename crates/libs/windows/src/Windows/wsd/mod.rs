@@ -417,7 +417,7 @@ impl IWSDAsyncResult {
         unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetEvent(&self, pevent: *mut WSD_EVENT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(pevent)) }
+        unsafe { (windows_core::Interface::vtable(self).GetEvent)(windows_core::Interface::as_raw(self), pevent) }
     }
     pub unsafe fn GetEndpointProxy(&self) -> windows_core::Result<IWSDEndpointProxy> {
         unsafe {

@@ -168,13 +168,13 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mscms.dll" "system" fn ColorProfileAddDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_core::PCWSTR, targetadapterid : super::winnt::LUID, sourceid : u32, setasdefault : windows_core::BOOL, associateasadvancedcolor : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { ColorProfileAddDisplayAssociation(scope, profilename.param().abi(), core::mem::transmute(targetadapterid), sourceid, setasdefault.into(), associateasadvancedcolor.into()) }
+    unsafe { ColorProfileAddDisplayAssociation(scope, profilename.param().abi(), targetadapterid, sourceid, setasdefault.into(), associateasadvancedcolor.into()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ColorProfileGetDeviceCapabilities(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::winnt::LUID, sourceid: u32, capstype: WCS_DEVICE_CAPABILITIES_TYPE, outputcapabilities: *mut core::ffi::c_void) -> windows_core::HRESULT {
     windows_core::link!("mscms.dll" "system" fn ColorProfileGetDeviceCapabilities(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::winnt::LUID, sourceid : u32, capstype : WCS_DEVICE_CAPABILITIES_TYPE, outputcapabilities : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { ColorProfileGetDeviceCapabilities(scope, core::mem::transmute(targetadapterid), sourceid, capstype, outputcapabilities as _) }
+    unsafe { ColorProfileGetDeviceCapabilities(scope, targetadapterid, sourceid, capstype, outputcapabilities as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -182,14 +182,14 @@ pub unsafe fn ColorProfileGetDisplayDefault(scope: WCS_PROFILE_MANAGEMENT_SCOPE,
     windows_core::link!("mscms.dll" "system" fn ColorProfileGetDisplayDefault(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::winnt::LUID, sourceid : u32, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, profilename : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        ColorProfileGetDisplayDefault(scope, core::mem::transmute(targetadapterid), sourceid, profiletype, profilesubtype, &mut result__).map(|| result__)
+        ColorProfileGetDisplayDefault(scope, targetadapterid, sourceid, profiletype, profilesubtype, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "winnt")]
 #[inline]
 pub unsafe fn ColorProfileGetDisplayList(scope: WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid: super::winnt::LUID, sourceid: u32, profilelist: *mut *mut windows_core::PWSTR, profilecount: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("mscms.dll" "system" fn ColorProfileGetDisplayList(scope : WCS_PROFILE_MANAGEMENT_SCOPE, targetadapterid : super::winnt::LUID, sourceid : u32, profilelist : *mut *mut windows_core::PWSTR, profilecount : *mut u32) -> windows_core::HRESULT);
-    unsafe { ColorProfileGetDisplayList(scope, core::mem::transmute(targetadapterid), sourceid, profilelist as _, profilecount as _) }
+    unsafe { ColorProfileGetDisplayList(scope, targetadapterid, sourceid, profilelist as _, profilecount as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -197,7 +197,7 @@ pub unsafe fn ColorProfileGetDisplayUserScope(targetadapterid: super::winnt::LUI
     windows_core::link!("mscms.dll" "system" fn ColorProfileGetDisplayUserScope(targetadapterid : super::winnt::LUID, sourceid : u32, scope : *mut WCS_PROFILE_MANAGEMENT_SCOPE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        ColorProfileGetDisplayUserScope(core::mem::transmute(targetadapterid), sourceid, &mut result__).map(|| result__)
+        ColorProfileGetDisplayUserScope(targetadapterid, sourceid, &mut result__).map(|| result__)
     }
 }
 #[cfg(feature = "winnt")]
@@ -207,7 +207,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mscms.dll" "system" fn ColorProfileRemoveDisplayAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_core::PCWSTR, targetadapterid : super::winnt::LUID, sourceid : u32, dissociateadvancedcolor : windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { ColorProfileRemoveDisplayAssociation(scope, profilename.param().abi(), core::mem::transmute(targetadapterid), sourceid, dissociateadvancedcolor.into()) }
+    unsafe { ColorProfileRemoveDisplayAssociation(scope, profilename.param().abi(), targetadapterid, sourceid, dissociateadvancedcolor.into()) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -216,7 +216,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mscms.dll" "system" fn ColorProfileSetDisplayDefaultAssociation(scope : WCS_PROFILE_MANAGEMENT_SCOPE, profilename : windows_core::PCWSTR, profiletype : COLORPROFILETYPE, profilesubtype : COLORPROFILESUBTYPE, targetadapterid : super::winnt::LUID, sourceid : u32) -> windows_core::HRESULT);
-    unsafe { ColorProfileSetDisplayDefaultAssociation(scope, profilename.param().abi(), profiletype, profilesubtype, core::mem::transmute(targetadapterid), sourceid) }
+    unsafe { ColorProfileSetDisplayDefaultAssociation(scope, profilename.param().abi(), profiletype, profilesubtype, targetadapterid, sourceid) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -616,7 +616,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mscms.dll" "system" fn WcsGetDefaultColorProfile(scope : WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename : windows_core::PCWSTR, cptcolorprofiletype : COLORPROFILETYPE, cpstcolorprofilesubtype : COLORPROFILESUBTYPE, dwprofileid : u32, cbprofilename : u32, pprofilename : windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { WcsGetDefaultColorProfile(scope, pdevicename.param().abi(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, cbprofilename, core::mem::transmute(pprofilename)) }
+    unsafe { WcsGetDefaultColorProfile(scope, pdevicename.param().abi(), cptcolorprofiletype, cpstcolorprofilesubtype, dwprofileid, cbprofilename, pprofilename) }
 }
 #[inline]
 pub unsafe fn WcsGetDefaultColorProfileSize<P1>(scope: WCS_PROFILE_MANAGEMENT_SCOPE, pdevicename: P1, cptcolorprofiletype: COLORPROFILETYPE, cpstcolorprofilesubtype: COLORPROFILESUBTYPE, dwprofileid: u32, pcbprofilename: *mut u32) -> windows_core::BOOL

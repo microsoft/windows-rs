@@ -734,7 +734,7 @@ impl IEnumTfPropertyValue {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, ulcount: u32, rgvalues: *mut TF_PROPERTYVAL, pcfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ulcount, core::mem::transmute(rgvalues), pcfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ulcount, rgvalues, pcfetched as _) }
     }
     pub unsafe fn Reset(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)) }
@@ -1732,7 +1732,7 @@ windows_core::imp::interface_hierarchy!(ITfCompartment, windows_core::IUnknown);
 impl ITfCompartment {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, tid: TfClientId, pvarvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), tid, core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), tid, pvarvalue) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self) -> windows_core::Result<super::oaidl::VARIANT> {
@@ -2151,10 +2151,10 @@ impl ITfContext {
         }
     }
     pub unsafe fn GetSelection(&self, ec: TfEditCookie, ulindex: u32, ulcount: u32, pselection: *mut TF_SELECTION, pcfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), ec, ulindex, ulcount, core::mem::transmute(pselection), pcfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetSelection)(windows_core::Interface::as_raw(self), ec, ulindex, ulcount, pselection, pcfetched as _) }
     }
     pub unsafe fn SetSelection(&self, ec: TfEditCookie, ulcount: u32, pselection: *const TF_SELECTION) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), ec, ulcount, core::mem::transmute(pselection)) }
+        unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), ec, ulcount, pselection) }
     }
     pub unsafe fn GetStart(&self, ec: TfEditCookie) -> windows_core::Result<ITfRange> {
         unsafe {
@@ -5665,7 +5665,7 @@ impl ITfProperty {
     where
         P1: windows_core::Param<ITfRange>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), ec, prange.param().abi(), pvarvalue) }
     }
     pub unsafe fn Clear<P1>(&self, ec: TfEditCookie, prange: P1) -> windows_core::HRESULT
     where
@@ -6047,10 +6047,10 @@ impl ITfRange {
         unsafe { (windows_core::Interface::vtable(self).InsertEmbedded)(windows_core::Interface::as_raw(self), ec, dwflags, pdataobject.param().abi()) }
     }
     pub unsafe fn ShiftStart(&self, ec: TfEditCookie, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ShiftStart)(windows_core::Interface::as_raw(self), ec, cchreq, pcch as _, core::mem::transmute(phalt)) }
+        unsafe { (windows_core::Interface::vtable(self).ShiftStart)(windows_core::Interface::as_raw(self), ec, cchreq, pcch as _, phalt) }
     }
     pub unsafe fn ShiftEnd(&self, ec: TfEditCookie, cchreq: i32, pcch: *mut i32, phalt: *const TF_HALTCOND) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ShiftEnd)(windows_core::Interface::as_raw(self), ec, cchreq, pcch as _, core::mem::transmute(phalt)) }
+        unsafe { (windows_core::Interface::vtable(self).ShiftEnd)(windows_core::Interface::as_raw(self), ec, cchreq, pcch as _, phalt) }
     }
     pub unsafe fn ShiftStartToRange<P1>(&self, ec: TfEditCookie, prange: P1, apos: TfAnchor) -> windows_core::HRESULT
     where

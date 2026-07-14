@@ -1167,7 +1167,7 @@ pub unsafe fn CryptImportKey(hprov: HCRYPTPROV, pbdata: &[u8], hpubkey: HCRYPTKE
 #[inline]
 pub unsafe fn CryptImportPKCS8(sprivatekeyandparams: CRYPT_PKCS8_IMPORT_PARAMS, dwflags: u32, phcryptprov: Option<*mut HCRYPTPROV>, pvauxinfo: Option<*const core::ffi::c_void>) -> windows_core::BOOL {
     windows_core::link!("crypt32.dll" "system" fn CryptImportPKCS8(sprivatekeyandparams : CRYPT_PKCS8_IMPORT_PARAMS, dwflags : u32, phcryptprov : *mut HCRYPTPROV, pvauxinfo : *const core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { CryptImportPKCS8(core::mem::transmute(sprivatekeyandparams), dwflags, phcryptprov.unwrap_or(core::mem::zeroed()) as _, pvauxinfo.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { CryptImportPKCS8(sprivatekeyandparams, dwflags, phcryptprov.unwrap_or(core::mem::zeroed()) as _, pvauxinfo.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn CryptImportPublicKeyInfo(hcryptprov: HCRYPTPROV, dwcertencodingtype: u32, pinfo: *const CERT_PUBLIC_KEY_INFO, phkey: *mut HCRYPTKEY) -> windows_core::BOOL {

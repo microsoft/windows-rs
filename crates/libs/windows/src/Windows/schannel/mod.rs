@@ -8,7 +8,7 @@ pub unsafe fn SslCrackCertificate(pbcertificate: *mut u8, cbcertificate: u32, dw
 #[inline]
 pub unsafe fn SslDeserializeCertificateStore(serializedcertificatestore: super::wincrypt::CERT_BLOB, ppcertcontext: *mut super::wincrypt::PCCERT_CONTEXT) -> super::ncrypt::SECURITY_STATUS {
     windows_core::link!("schannel.dll" "system" fn SslDeserializeCertificateStore(serializedcertificatestore : super::wincrypt::CERT_BLOB, ppcertcontext : *mut super::wincrypt::PCCERT_CONTEXT) -> super::ncrypt::SECURITY_STATUS);
-    unsafe { SslDeserializeCertificateStore(core::mem::transmute(serializedcertificatestore), ppcertcontext as _) }
+    unsafe { SslDeserializeCertificateStore(serializedcertificatestore, ppcertcontext as _) }
 }
 #[inline]
 pub unsafe fn SslEmptyCacheA<P0>(psztargetname: P0, dwflags: u32) -> windows_core::BOOL

@@ -89,7 +89,7 @@ impl IMFDeviceTransform {
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsample: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, coutputbuffercount, core::mem::transmute(poutputsample), pdwstatus as _) }
+        unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, coutputbuffercount, poutputsample, pdwstatus as _) }
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn SetInputStreamState<P1>(&self, dwstreamid: u32, pmediatype: P1, value: DeviceStreamState, dwflags: u32) -> windows_core::HRESULT
@@ -634,7 +634,7 @@ impl IMFTransform {
     }
     #[cfg(feature = "mfobjects")]
     pub unsafe fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsamples: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, coutputbuffercount, core::mem::transmute(poutputsamples), pdwstatus as _) }
+        unsafe { (windows_core::Interface::vtable(self).ProcessOutput)(windows_core::Interface::as_raw(self), dwflags, coutputbuffercount, poutputsamples, pdwstatus as _) }
     }
 }
 #[repr(C)]

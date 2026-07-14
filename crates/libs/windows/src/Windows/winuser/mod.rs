@@ -247,7 +247,7 @@ pub unsafe fn ChangeWindowMessageFilterEx(hwnd: super::windef::HWND, message: u3
 #[inline]
 pub unsafe fn CharLowerA(lpsz: windows_core::PSTR) -> windows_core::PSTR {
     windows_core::link!("user32.dll" "system" fn CharLowerA(lpsz : windows_core::PSTR) -> windows_core::PSTR);
-    unsafe { CharLowerA(core::mem::transmute(lpsz)) }
+    unsafe { CharLowerA(lpsz) }
 }
 #[inline]
 pub unsafe fn CharLowerBuffA(lpsz: &mut [u8]) -> u32 {
@@ -262,7 +262,7 @@ pub unsafe fn CharLowerBuffW(lpsz: &mut [u16]) -> u32 {
 #[inline]
 pub unsafe fn CharLowerW(lpsz: windows_core::PWSTR) -> windows_core::PWSTR {
     windows_core::link!("user32.dll" "system" fn CharLowerW(lpsz : windows_core::PWSTR) -> windows_core::PWSTR);
-    unsafe { CharLowerW(core::mem::transmute(lpsz)) }
+    unsafe { CharLowerW(lpsz) }
 }
 #[inline]
 pub unsafe fn CharNextA<P0>(lpsz: P0) -> windows_core::PSTR
@@ -321,7 +321,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "system" fn CharToOemA(psrc : windows_core::PCSTR, pdst : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { CharToOemA(psrc.param().abi(), core::mem::transmute(pdst)) }
+    unsafe { CharToOemA(psrc.param().abi(), pdst) }
 }
 #[inline]
 pub unsafe fn CharToOemBuffA<P0>(lpszsrc: P0, lpszdst: &mut [u8]) -> windows_core::BOOL
@@ -345,12 +345,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("user32.dll" "system" fn CharToOemW(psrc : windows_core::PCWSTR, pdst : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { CharToOemW(psrc.param().abi(), core::mem::transmute(pdst)) }
+    unsafe { CharToOemW(psrc.param().abi(), pdst) }
 }
 #[inline]
 pub unsafe fn CharUpperA(lpsz: windows_core::PSTR) -> windows_core::PSTR {
     windows_core::link!("user32.dll" "system" fn CharUpperA(lpsz : windows_core::PSTR) -> windows_core::PSTR);
-    unsafe { CharUpperA(core::mem::transmute(lpsz)) }
+    unsafe { CharUpperA(lpsz) }
 }
 #[inline]
 pub unsafe fn CharUpperBuffA(lpsz: &mut [u8]) -> u32 {
@@ -365,7 +365,7 @@ pub unsafe fn CharUpperBuffW(lpsz: &mut [u16]) -> u32 {
 #[inline]
 pub unsafe fn CharUpperW(lpsz: windows_core::PWSTR) -> windows_core::PWSTR {
     windows_core::link!("user32.dll" "system" fn CharUpperW(lpsz : windows_core::PWSTR) -> windows_core::PWSTR);
-    unsafe { CharUpperW(core::mem::transmute(lpsz)) }
+    unsafe { CharUpperW(lpsz) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -395,13 +395,13 @@ pub unsafe fn CheckRadioButton(hdlg: super::windef::HWND, nidfirstbutton: i32, n
 #[inline]
 pub unsafe fn ChildWindowFromPoint(hwndparent: super::windef::HWND, point: super::windef::POINT) -> super::windef::HWND {
     windows_core::link!("user32.dll" "system" fn ChildWindowFromPoint(hwndparent : super::windef::HWND, point : super::windef::POINT) -> super::windef::HWND);
-    unsafe { ChildWindowFromPoint(hwndparent, core::mem::transmute(point)) }
+    unsafe { ChildWindowFromPoint(hwndparent, point) }
 }
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn ChildWindowFromPointEx(hwnd: super::windef::HWND, pt: super::windef::POINT, flags: u32) -> super::windef::HWND {
     windows_core::link!("user32.dll" "system" fn ChildWindowFromPointEx(hwnd : super::windef::HWND, pt : super::windef::POINT, flags : u32) -> super::windef::HWND);
-    unsafe { ChildWindowFromPointEx(hwnd, core::mem::transmute(pt), flags) }
+    unsafe { ChildWindowFromPointEx(hwnd, pt, flags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -862,25 +862,25 @@ pub unsafe fn DisplayConfigSetDeviceInfo(setpacket: *const super::wingdi::DISPLA
 #[inline]
 pub unsafe fn DlgDirListA(hdlg: super::windef::HWND, lppathspec: windows_core::PSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: u32) -> i32 {
     windows_core::link!("user32.dll" "system" fn DlgDirListA(hdlg : super::windef::HWND, lppathspec : windows_core::PSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : u32) -> i32);
-    unsafe { DlgDirListA(hdlg, core::mem::transmute(lppathspec), nidlistbox, nidstaticpath, ufiletype) }
+    unsafe { DlgDirListA(hdlg, lppathspec, nidlistbox, nidstaticpath, ufiletype) }
 }
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DlgDirListComboBoxA(hdlg: super::windef::HWND, lppathspec: windows_core::PSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: u32) -> i32 {
     windows_core::link!("user32.dll" "system" fn DlgDirListComboBoxA(hdlg : super::windef::HWND, lppathspec : windows_core::PSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : u32) -> i32);
-    unsafe { DlgDirListComboBoxA(hdlg, core::mem::transmute(lppathspec), nidcombobox, nidstaticpath, ufiletype) }
+    unsafe { DlgDirListComboBoxA(hdlg, lppathspec, nidcombobox, nidstaticpath, ufiletype) }
 }
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DlgDirListComboBoxW(hdlg: super::windef::HWND, lppathspec: windows_core::PWSTR, nidcombobox: i32, nidstaticpath: i32, ufiletype: u32) -> i32 {
     windows_core::link!("user32.dll" "system" fn DlgDirListComboBoxW(hdlg : super::windef::HWND, lppathspec : windows_core::PWSTR, nidcombobox : i32, nidstaticpath : i32, ufiletype : u32) -> i32);
-    unsafe { DlgDirListComboBoxW(hdlg, core::mem::transmute(lppathspec), nidcombobox, nidstaticpath, ufiletype) }
+    unsafe { DlgDirListComboBoxW(hdlg, lppathspec, nidcombobox, nidstaticpath, ufiletype) }
 }
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn DlgDirListW(hdlg: super::windef::HWND, lppathspec: windows_core::PWSTR, nidlistbox: i32, nidstaticpath: i32, ufiletype: u32) -> i32 {
     windows_core::link!("user32.dll" "system" fn DlgDirListW(hdlg : super::windef::HWND, lppathspec : windows_core::PWSTR, nidlistbox : i32, nidstaticpath : i32, ufiletype : u32) -> i32);
-    unsafe { DlgDirListW(hdlg, core::mem::transmute(lppathspec), nidlistbox, nidstaticpath, ufiletype) }
+    unsafe { DlgDirListW(hdlg, lppathspec, nidlistbox, nidstaticpath, ufiletype) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -910,7 +910,7 @@ pub unsafe fn DlgDirSelectExW(hwnddlg: super::windef::HWND, lpstring: &mut [u16]
 #[inline]
 pub unsafe fn DragDetect(hwnd: super::windef::HWND, pt: super::windef::POINT) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn DragDetect(hwnd : super::windef::HWND, pt : super::windef::POINT) -> windows_core::BOOL);
-    unsafe { DragDetect(hwnd, core::mem::transmute(pt)) }
+    unsafe { DragDetect(hwnd, pt) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -1075,7 +1075,7 @@ pub unsafe fn EndPaint(hwnd: super::windef::HWND, lppaint: *const PAINTSTRUCT) -
 #[inline]
 pub unsafe fn EnterMoveSizeLoop(hwnd: super::windef::HWND, ptcursor: super::windef::POINT, movesizecode: MOVESIZE_OPERATION) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn EnterMoveSizeLoop(hwnd : super::windef::HWND, ptcursor : super::windef::POINT, movesizecode : MOVESIZE_OPERATION) -> windows_core::BOOL);
-    unsafe { EnterMoveSizeLoop(hwnd, core::mem::transmute(ptcursor), movesizecode) }
+    unsafe { EnterMoveSizeLoop(hwnd, ptcursor, movesizecode) }
 }
 #[cfg(all(feature = "minwindef", feature = "windef"))]
 #[inline]
@@ -1730,12 +1730,12 @@ pub unsafe fn GetKeyboardLayoutList(lplist: Option<&mut [super::minwindef::HKL]>
 #[inline]
 pub unsafe fn GetKeyboardLayoutNameA(pwszklid: windows_core::PSTR) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetKeyboardLayoutNameA(pwszklid : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { GetKeyboardLayoutNameA(core::mem::transmute(pwszklid)) }
+    unsafe { GetKeyboardLayoutNameA(pwszklid) }
 }
 #[inline]
 pub unsafe fn GetKeyboardLayoutNameW(pwszklid: windows_core::PWSTR) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn GetKeyboardLayoutNameW(pwszklid : windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { GetKeyboardLayoutNameW(core::mem::transmute(pwszklid)) }
+    unsafe { GetKeyboardLayoutNameW(pwszklid) }
 }
 #[inline]
 pub unsafe fn GetKeyboardState(lpkeystate: &mut [u8; 256]) -> windows_core::BOOL {
@@ -2970,7 +2970,7 @@ pub unsafe fn MapWindowPoints(hwndfrom: Option<super::windef::HWND>, hwndto: Opt
 #[inline]
 pub unsafe fn MenuItemFromPoint(hwnd: Option<super::windef::HWND>, hmenu: super::windef::HMENU, ptscreen: super::windef::POINT) -> i32 {
     windows_core::link!("user32.dll" "system" fn MenuItemFromPoint(hwnd : super::windef::HWND, hmenu : super::windef::HMENU, ptscreen : super::windef::POINT) -> i32);
-    unsafe { MenuItemFromPoint(hwnd.unwrap_or(core::mem::zeroed()) as _, hmenu, core::mem::transmute(ptscreen)) }
+    unsafe { MenuItemFromPoint(hwnd.unwrap_or(core::mem::zeroed()) as _, hmenu, ptscreen) }
 }
 #[inline]
 pub unsafe fn MessageBeep(utype: u32) -> windows_core::BOOL {
@@ -3051,7 +3051,7 @@ where
 #[inline]
 pub unsafe fn MonitorFromPoint(pt: super::windef::POINT, dwflags: u32) -> super::windef::HMONITOR {
     windows_core::link!("user32.dll" "system" fn MonitorFromPoint(pt : super::windef::POINT, dwflags : u32) -> super::windef::HMONITOR);
-    unsafe { MonitorFromPoint(core::mem::transmute(pt), dwflags) }
+    unsafe { MonitorFromPoint(pt, dwflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -3100,7 +3100,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "system" fn OemToCharA(psrc : windows_core::PCSTR, pdst : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { OemToCharA(psrc.param().abi(), core::mem::transmute(pdst)) }
+    unsafe { OemToCharA(psrc.param().abi(), pdst) }
 }
 #[inline]
 pub unsafe fn OemToCharBuffA<P0>(lpszsrc: P0, lpszdst: &mut [u8]) -> windows_core::BOOL
@@ -3124,7 +3124,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "system" fn OemToCharW(psrc : windows_core::PCSTR, pdst : windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { OemToCharW(psrc.param().abi(), core::mem::transmute(pdst)) }
+    unsafe { OemToCharW(psrc.param().abi(), pdst) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -3279,7 +3279,7 @@ where
 #[inline]
 pub unsafe fn PtInRect(lprc: *const super::windef::RECT, pt: super::windef::POINT) -> windows_core::BOOL {
     windows_core::link!("user32.dll" "system" fn PtInRect(lprc : *const super::windef::RECT, pt : super::windef::POINT) -> windows_core::BOOL);
-    unsafe { PtInRect(lprc, core::mem::transmute(pt)) }
+    unsafe { PtInRect(lprc, pt) }
 }
 #[cfg(all(feature = "windef", feature = "wingdi", feature = "winnt"))]
 #[inline]
@@ -3291,7 +3291,7 @@ pub unsafe fn QueryDisplayConfig(flags: u32, numpatharrayelements: *mut u32, pat
 #[inline]
 pub unsafe fn RealChildWindowFromPoint(hwndparent: super::windef::HWND, ptparentclientcoords: super::windef::POINT) -> super::windef::HWND {
     windows_core::link!("user32.dll" "system" fn RealChildWindowFromPoint(hwndparent : super::windef::HWND, ptparentclientcoords : super::windef::POINT) -> super::windef::HWND);
-    unsafe { RealChildWindowFromPoint(hwndparent, core::mem::transmute(ptparentclientcoords)) }
+    unsafe { RealChildWindowFromPoint(hwndparent, ptparentclientcoords) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -4450,13 +4450,13 @@ pub unsafe fn WindowFromDC(hdc: super::windef::HDC) -> super::windef::HWND {
 #[inline]
 pub unsafe fn WindowFromPhysicalPoint(point: super::windef::POINT) -> super::windef::HWND {
     windows_core::link!("user32.dll" "system" fn WindowFromPhysicalPoint(point : super::windef::POINT) -> super::windef::HWND);
-    unsafe { WindowFromPhysicalPoint(core::mem::transmute(point)) }
+    unsafe { WindowFromPhysicalPoint(point) }
 }
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn WindowFromPoint(point: super::windef::POINT) -> super::windef::HWND {
     windows_core::link!("user32.dll" "system" fn WindowFromPoint(point : super::windef::POINT) -> super::windef::HWND);
-    unsafe { WindowFromPoint(core::mem::transmute(point)) }
+    unsafe { WindowFromPoint(point) }
 }
 #[inline]
 pub unsafe fn keybd_event(bvk: u8, bscan: u8, dwflags: u32, dwextrainfo: usize) {
@@ -4474,7 +4474,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "C" fn wsprintfA(param0 : windows_core::PSTR, param1 : windows_core::PCSTR) -> i32);
-    unsafe { wsprintfA(core::mem::transmute(param0), param1.param().abi()) }
+    unsafe { wsprintfA(param0, param1.param().abi()) }
 }
 #[inline]
 pub unsafe fn wsprintfW<P1>(param0: windows_core::PWSTR, param1: P1) -> i32
@@ -4482,7 +4482,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("user32.dll" "C" fn wsprintfW(param0 : windows_core::PWSTR, param1 : windows_core::PCWSTR) -> i32);
-    unsafe { wsprintfW(core::mem::transmute(param0), param1.param().abi()) }
+    unsafe { wsprintfW(param0, param1.param().abi()) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -4491,7 +4491,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "system" fn wvsprintfA(param0 : windows_core::PSTR, param1 : windows_core::PCSTR, arglist : *const i8) -> i32);
-    unsafe { wvsprintfA(core::mem::transmute(param0), param1.param().abi(), arglist) }
+    unsafe { wvsprintfA(param0, param1.param().abi(), arglist) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
@@ -4501,7 +4501,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("user32.dll" "system" fn wvsprintfA(param0 : windows_core::PSTR, param1 : windows_core::PCSTR, arglist : super::vadefs::va_list) -> i32);
-    unsafe { wvsprintfA(core::mem::transmute(param0), param1.param().abi(), arglist) }
+    unsafe { wvsprintfA(param0, param1.param().abi(), arglist) }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[inline]
@@ -4510,7 +4510,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("user32.dll" "system" fn wvsprintfW(param0 : windows_core::PWSTR, param1 : windows_core::PCWSTR, arglist : *const i8) -> i32);
-    unsafe { wvsprintfW(core::mem::transmute(param0), param1.param().abi(), arglist) }
+    unsafe { wvsprintfW(param0, param1.param().abi(), arglist) }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(feature = "vadefs")]
@@ -4520,7 +4520,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("user32.dll" "system" fn wvsprintfW(param0 : windows_core::PWSTR, param1 : windows_core::PCWSTR, arglist : super::vadefs::va_list) -> i32);
-    unsafe { wvsprintfW(core::mem::transmute(param0), param1.param().abi(), arglist) }
+    unsafe { wvsprintfW(param0, param1.param().abi(), arglist) }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]

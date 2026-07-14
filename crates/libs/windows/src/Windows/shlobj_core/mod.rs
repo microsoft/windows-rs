@@ -5,7 +5,7 @@ where
     P0: windows_core::Param<super::shobjidl_core::IShellFolder>,
 {
     windows_core::link!("shell32.dll" "system" fn AssocGetDetailsOfPropKey(psf : *mut core::ffi::c_void, pidl : *const super::shtypes::ITEMIDLIST, pkey : *const super::wtypes::PROPERTYKEY, pv : *mut super::oaidl::VARIANT, pffoundpropkey : *mut windows_core::BOOL) -> windows_core::HRESULT);
-    unsafe { AssocGetDetailsOfPropKey(psf.param().abi(), pidl, pkey, core::mem::transmute(pv), pffoundpropkey.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { AssocGetDetailsOfPropKey(psf.param().abi(), pidl, pkey, pv, pffoundpropkey.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[inline]
@@ -38,7 +38,7 @@ pub unsafe fn DAD_AutoScroll(hwnd: super::windef::HWND, pad: *mut AUTO_SCROLL_DA
 #[inline]
 pub unsafe fn DAD_DragEnterEx(hwndtarget: super::windef::HWND, ptstart: super::windef::POINT) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn DAD_DragEnterEx(hwndtarget : super::windef::HWND, ptstart : super::windef::POINT) -> windows_core::BOOL);
-    unsafe { DAD_DragEnterEx(hwndtarget, core::mem::transmute(ptstart)) }
+    unsafe { DAD_DragEnterEx(hwndtarget, ptstart) }
 }
 #[cfg(all(feature = "objidl", feature = "windef"))]
 #[inline]
@@ -47,7 +47,7 @@ where
     P2: windows_core::Param<super::objidl::IDataObject>,
 {
     windows_core::link!("shell32.dll" "system" fn DAD_DragEnterEx2(hwndtarget : super::windef::HWND, ptstart : super::windef::POINT, pdtobject : *mut core::ffi::c_void) -> windows_core::BOOL);
-    unsafe { DAD_DragEnterEx2(hwndtarget, core::mem::transmute(ptstart), pdtobject.param().abi()) }
+    unsafe { DAD_DragEnterEx2(hwndtarget, ptstart, pdtobject.param().abi()) }
 }
 #[inline]
 pub unsafe fn DAD_DragLeave() -> windows_core::BOOL {
@@ -58,7 +58,7 @@ pub unsafe fn DAD_DragLeave() -> windows_core::BOOL {
 #[inline]
 pub unsafe fn DAD_DragMove(pt: super::windef::POINT) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn DAD_DragMove(pt : super::windef::POINT) -> windows_core::BOOL);
-    unsafe { DAD_DragMove(core::mem::transmute(pt)) }
+    unsafe { DAD_DragMove(pt) }
 }
 #[cfg(all(feature = "commctrl", feature = "windef"))]
 #[inline]
@@ -225,12 +225,12 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn PathCleanupSpec(pszdir : windows_core::PCWSTR, pszspec : windows_core::PWSTR) -> i32);
-    unsafe { PathCleanupSpec(pszdir.param().abi(), core::mem::transmute(pszspec)) }
+    unsafe { PathCleanupSpec(pszdir.param().abi(), pszspec) }
 }
 #[inline]
 pub unsafe fn PathGetShortPath(pszlongpath: windows_core::PWSTR) {
     windows_core::link!("shell32.dll" "system" fn PathGetShortPath(pszlongpath : windows_core::PWSTR));
-    unsafe { PathGetShortPath(core::mem::transmute(pszlongpath)) }
+    unsafe { PathGetShortPath(pszlongpath) }
 }
 #[inline]
 pub unsafe fn PathIsExe<P0>(pszpath: P0) -> windows_core::BOOL
@@ -253,7 +253,7 @@ where
 #[inline]
 pub unsafe fn PathResolve(pszpath: windows_core::PWSTR, dirs: Option<*const windows_core::PCWSTR>, fflags: u32) -> i32 {
     windows_core::link!("shell32.dll" "system" fn PathResolve(pszpath : windows_core::PWSTR, dirs : *const windows_core::PCWSTR, fflags : u32) -> i32);
-    unsafe { PathResolve(core::mem::transmute(pszpath), dirs.unwrap_or(core::mem::zeroed()) as _, fflags) }
+    unsafe { PathResolve(pszpath, dirs.unwrap_or(core::mem::zeroed()) as _, fflags) }
 }
 #[inline]
 pub unsafe fn PathYetAnotherMakeUniqueName<P1, P2, P3>(pszuniquename: windows_core::PWSTR, pszpath: P1, pszshort: P2, pszfilespec: P3) -> windows_core::BOOL
@@ -263,7 +263,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn PathYetAnotherMakeUniqueName(pszuniquename : windows_core::PWSTR, pszpath : windows_core::PCWSTR, pszshort : windows_core::PCWSTR, pszfilespec : windows_core::PCWSTR) -> windows_core::BOOL);
-    unsafe { PathYetAnotherMakeUniqueName(core::mem::transmute(pszuniquename), pszpath.param().abi(), pszshort.param().abi(), pszfilespec.param().abi()) }
+    unsafe { PathYetAnotherMakeUniqueName(pszuniquename, pszpath.param().abi(), pszshort.param().abi(), pszfilespec.param().abi()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -481,7 +481,7 @@ where
 {
     windows_core::link!("shell32.dll" "system" fn SHCreateDefaultContextMenu(pdcm : *const DEFCONTEXTMENU, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { SHCreateDefaultContextMenu(core::mem::transmute(pdcm), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { SHCreateDefaultContextMenu(pdcm, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -526,7 +526,7 @@ pub unsafe fn SHCreateShellFolderView(pcsfv: *const SFV_CREATE) -> windows_core:
     windows_core::link!("shell32.dll" "system" fn SHCreateShellFolderView(pcsfv : *const SFV_CREATE, ppsv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateShellFolderView(core::mem::transmute(pcsfv), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        SHCreateShellFolderView(pcsfv, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "minwindef", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
@@ -535,7 +535,7 @@ pub unsafe fn SHCreateShellFolderViewEx(pcsfv: *const CSFV) -> windows_core::Res
     windows_core::link!("shell32.dll" "system" fn SHCreateShellFolderViewEx(pcsfv : *const CSFV, ppsv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        SHCreateShellFolderViewEx(core::mem::transmute(pcsfv), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        SHCreateShellFolderViewEx(pcsfv, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
@@ -672,7 +672,7 @@ pub unsafe fn SHGetFolderLocation(hwnd: Option<super::windef::HWND>, csidl: i32,
 #[inline]
 pub unsafe fn SHGetFolderPathA(hwnd: Option<super::windef::HWND>, csidl: i32, htoken: Option<super::winnt::HANDLE>, dwflags: u32, pszpath: windows_core::PSTR) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHGetFolderPathA(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszpath : windows_core::PSTR) -> windows_core::HRESULT);
-    unsafe { SHGetFolderPathA(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, core::mem::transmute(pszpath)) }
+    unsafe { SHGetFolderPathA(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, pszpath) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -681,7 +681,7 @@ where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirA(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszsubdir : windows_core::PCSTR, pszpath : windows_core::PSTR) -> windows_core::HRESULT);
-    unsafe { SHGetFolderPathAndSubDirA(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, pszsubdir.param().abi(), core::mem::transmute(pszpath)) }
+    unsafe { SHGetFolderPathAndSubDirA(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, pszsubdir.param().abi(), pszpath) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -690,13 +690,13 @@ where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetFolderPathAndSubDirW(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszsubdir : windows_core::PCWSTR, pszpath : windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { SHGetFolderPathAndSubDirW(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, pszsubdir.param().abi(), core::mem::transmute(pszpath)) }
+    unsafe { SHGetFolderPathAndSubDirW(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, pszsubdir.param().abi(), pszpath) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
 pub unsafe fn SHGetFolderPathW(hwnd: Option<super::windef::HWND>, csidl: i32, htoken: Option<super::winnt::HANDLE>, dwflags: u32, pszpath: windows_core::PWSTR) -> windows_core::HRESULT {
     windows_core::link!("shell32.dll" "system" fn SHGetFolderPathW(hwnd : super::windef::HWND, csidl : i32, htoken : super::winnt::HANDLE, dwflags : u32, pszpath : windows_core::PWSTR) -> windows_core::HRESULT);
-    unsafe { SHGetFolderPathW(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, core::mem::transmute(pszpath)) }
+    unsafe { SHGetFolderPathW(hwnd.unwrap_or(core::mem::zeroed()) as _, csidl, htoken.unwrap_or(core::mem::zeroed()) as _, dwflags, pszpath) }
 }
 #[inline]
 pub unsafe fn SHGetIconOverlayIndexA<P0>(psziconpath: P0, iiconindex: i32) -> i32
@@ -763,7 +763,7 @@ pub unsafe fn SHGetMalloc() -> windows_core::Result<super::objidlbase::IMalloc> 
 #[inline]
 pub unsafe fn SHGetPathFromIDListA(pidl: *const super::shtypes::ITEMIDLIST, pszpath: windows_core::PSTR) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHGetPathFromIDListA(pidl : *const super::shtypes::ITEMIDLIST, pszpath : windows_core::PSTR) -> windows_core::BOOL);
-    unsafe { SHGetPathFromIDListA(pidl, core::mem::transmute(pszpath)) }
+    unsafe { SHGetPathFromIDListA(pidl, pszpath) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -775,7 +775,7 @@ pub unsafe fn SHGetPathFromIDListEx(pidl: *const super::shtypes::ITEMIDLIST, psz
 #[inline]
 pub unsafe fn SHGetPathFromIDListW(pidl: *const super::shtypes::ITEMIDLIST, pszpath: windows_core::PWSTR) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHGetPathFromIDListW(pidl : *const super::shtypes::ITEMIDLIST, pszpath : windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { SHGetPathFromIDListW(pidl, core::mem::transmute(pszpath)) }
+    unsafe { SHGetPathFromIDListW(pidl, pszpath) }
 }
 #[cfg(all(feature = "shobjidl_core", feature = "shtypes"))]
 #[inline]
@@ -821,13 +821,13 @@ pub unsafe fn SHGetSpecialFolderLocation(hwnd: Option<super::windef::HWND>, csid
 #[inline]
 pub unsafe fn SHGetSpecialFolderPathA(hwnd: Option<super::windef::HWND>, pszpath: windows_core::PSTR, csidl: i32, fcreate: bool) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHGetSpecialFolderPathA(hwnd : super::windef::HWND, pszpath : windows_core::PSTR, csidl : i32, fcreate : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { SHGetSpecialFolderPathA(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszpath), csidl, fcreate.into()) }
+    unsafe { SHGetSpecialFolderPathA(hwnd.unwrap_or(core::mem::zeroed()) as _, pszpath, csidl, fcreate.into()) }
 }
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn SHGetSpecialFolderPathW(hwnd: Option<super::windef::HWND>, pszpath: windows_core::PWSTR, csidl: i32, fcreate: bool) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHGetSpecialFolderPathW(hwnd : super::windef::HWND, pszpath : windows_core::PWSTR, csidl : i32, fcreate : windows_core::BOOL) -> windows_core::BOOL);
-    unsafe { SHGetSpecialFolderPathW(hwnd.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszpath), csidl, fcreate.into()) }
+    unsafe { SHGetSpecialFolderPathW(hwnd.unwrap_or(core::mem::zeroed()) as _, pszpath, csidl, fcreate.into()) }
 }
 #[cfg(feature = "shtypes")]
 #[inline]
@@ -935,7 +935,7 @@ where
     P0: windows_core::Param<super::propidlbase::IPropertyStorage>,
 {
     windows_core::link!("shell32.dll" "system" fn SHPropStgReadMultiple(pps : *mut core::ffi::c_void, ucodepage : u32, cpspec : u32, rgpspec : *const super::propidlbase::PROPSPEC, rgvar : *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe { SHPropStgReadMultiple(pps.param().abi(), ucodepage, cpspec, rgpspec, core::mem::transmute(rgvar)) }
+    unsafe { SHPropStgReadMultiple(pps.param().abi(), ucodepage, cpspec, rgpspec, rgvar) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -944,7 +944,7 @@ where
     P0: windows_core::Param<super::propidlbase::IPropertyStorage>,
 {
     windows_core::link!("shell32.dll" "system" fn SHPropStgWriteMultiple(pps : *mut core::ffi::c_void, pucodepage : *mut u32, cpspec : u32, rgpspec : *const super::propidlbase::PROPSPEC, rgvar : *mut super::propidlbase::PROPVARIANT, propidnamefirst : super::wtypes::PROPID) -> windows_core::HRESULT);
-    unsafe { SHPropStgWriteMultiple(pps.param().abi(), pucodepage.unwrap_or(core::mem::zeroed()) as _, cpspec, rgpspec, core::mem::transmute(rgvar), propidnamefirst) }
+    unsafe { SHPropStgWriteMultiple(pps.param().abi(), pucodepage.unwrap_or(core::mem::zeroed()) as _, cpspec, rgpspec, rgvar, propidnamefirst) }
 }
 #[cfg(all(feature = "minwindef", feature = "prsht"))]
 #[inline]
@@ -1027,7 +1027,7 @@ where
 #[inline]
 pub unsafe fn SHValidateUNC(hwndowner: Option<super::windef::HWND>, pszfile: windows_core::PWSTR, fconnect: u32) -> windows_core::BOOL {
     windows_core::link!("shell32.dll" "system" fn SHValidateUNC(hwndowner : super::windef::HWND, pszfile : windows_core::PWSTR, fconnect : u32) -> windows_core::BOOL);
-    unsafe { SHValidateUNC(hwndowner.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pszfile), fconnect) }
+    unsafe { SHValidateUNC(hwndowner.unwrap_or(core::mem::zeroed()) as _, pszfile, fconnect) }
 }
 #[inline]
 pub unsafe fn Shell_GetCachedImageIndex<P0>(pwsziconpath: P0, iiconindex: i32, uiconflags: u32) -> i32
@@ -2302,7 +2302,7 @@ impl INamedPropertyBag {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).ReadPropertyNPB)(windows_core::Interface::as_raw(self), pszbagname.param().abi(), pszpropname.param().abi(), core::mem::transmute(pvar)) }
+        unsafe { (windows_core::Interface::vtable(self).ReadPropertyNPB)(windows_core::Interface::as_raw(self), pszbagname.param().abi(), pszpropname.param().abi(), pvar) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn WritePropertyNPB<P0, P1>(&self, pszbagname: P0, pszpropname: P1, pvar: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT
@@ -2310,7 +2310,7 @@ impl INamedPropertyBag {
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).WritePropertyNPB)(windows_core::Interface::as_raw(self), pszbagname.param().abi(), pszpropname.param().abi(), core::mem::transmute(pvar)) }
+        unsafe { (windows_core::Interface::vtable(self).WritePropertyNPB)(windows_core::Interface::as_raw(self), pszbagname.param().abi(), pszpropname.param().abi(), pvar) }
     }
     pub unsafe fn RemovePropertyNPB<P0, P1>(&self, pszbagname: P0, pszpropname: P1) -> windows_core::HRESULT
     where

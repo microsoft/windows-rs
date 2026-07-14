@@ -142,7 +142,7 @@ impl IOleCommandTarget {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Exec(&self, pguidcmdgroup: *const windows_core::GUID, ncmdid: u32, ncmdexecopt: u32, pvain: *const super::oaidl::VARIANT, pvaout: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Exec)(windows_core::Interface::as_raw(self), pguidcmdgroup, ncmdid, ncmdexecopt, core::mem::transmute(pvain), core::mem::transmute(pvaout)) }
+        unsafe { (windows_core::Interface::vtable(self).Exec)(windows_core::Interface::as_raw(self), pguidcmdgroup, ncmdid, ncmdexecopt, pvain, pvaout) }
     }
 }
 #[repr(C)]
@@ -579,7 +579,7 @@ impl IPrint {
     where
         P4: windows_core::Param<IContinueCallback>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Print)(windows_core::Interface::as_raw(self), grfflags, pptd as _, pppageset as _, core::mem::transmute(pstgmoptions), pcallback.param().abi(), nfirstpage, pcpagesprinted as _, pnlastpage as _) }
+        unsafe { (windows_core::Interface::vtable(self).Print)(windows_core::Interface::as_raw(self), grfflags, pptd as _, pppageset as _, pstgmoptions, pcallback.param().abi(), nfirstpage, pcpagesprinted as _, pnlastpage as _) }
     }
 }
 #[repr(C)]

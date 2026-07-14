@@ -126,7 +126,7 @@ windows_core::imp::interface_hierarchy!(IAudioSystemEffectsPropertyChangeNotific
 impl IAudioSystemEffectsPropertyChangeNotificationClient {
     #[cfg(feature = "wtypes")]
     pub unsafe fn OnPropertyChanged(&self, r#type: AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE, key: super::wtypes::PROPERTYKEY) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnPropertyChanged)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(key)) }
+        unsafe { (windows_core::Interface::vtable(self).OnPropertyChanged)(windows_core::Interface::as_raw(self), r#type, key) }
     }
 }
 #[repr(C)]
@@ -718,7 +718,7 @@ impl IMMNotificationClient {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnPropertyValueChanged)(windows_core::Interface::as_raw(self), pwstrdeviceid.param().abi(), core::mem::transmute(key)) }
+        unsafe { (windows_core::Interface::vtable(self).OnPropertyValueChanged)(windows_core::Interface::as_raw(self), pwstrdeviceid.param().abi(), key) }
     }
 }
 #[repr(C)]

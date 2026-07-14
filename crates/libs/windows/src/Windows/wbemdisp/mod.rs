@@ -1233,7 +1233,7 @@ impl ISWbemNamedValue {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, varvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(varvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), varvalue) }
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -1344,7 +1344,7 @@ impl ISWbemNamedValueSet {
     pub unsafe fn Add(&self, strname: &windows_core::BSTR, varvalue: *const super::oaidl::VARIANT, iflags: i32) -> windows_core::Result<ISWbemNamedValue> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute(varvalue), iflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), varvalue, iflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Remove(&self, strname: &windows_core::BSTR, iflags: i32) -> windows_core::HRESULT {
@@ -3091,7 +3091,7 @@ impl ISWbemProperty {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, varvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(varvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), varvalue) }
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -3438,7 +3438,7 @@ impl ISWbemQualifier {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, varvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(varvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), varvalue) }
     }
     pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
         unsafe {
@@ -3722,7 +3722,7 @@ impl ISWbemQualifierSet {
     pub unsafe fn Add(&self, strname: &windows_core::BSTR, varval: *const super::oaidl::VARIANT, bpropagatestosubclass: super::wtypes::VARIANT_BOOL, bpropagatestoinstance: super::wtypes::VARIANT_BOOL, bisoverridable: super::wtypes::VARIANT_BOOL, iflags: i32) -> windows_core::Result<ISWbemQualifier> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute(varval), bpropagatestosubclass, bpropagatestoinstance, bisoverridable, iflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), varval, bpropagatestosubclass, bpropagatestoinstance, bisoverridable, iflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Remove(&self, strname: &windows_core::BSTR, iflags: i32) -> windows_core::HRESULT {

@@ -1876,7 +1876,7 @@ impl IComponentType {
     }
     #[cfg(feature = "strmif")]
     pub unsafe fn SetMediaType(&self, mediatype: *const super::strmif::AM_MEDIA_TYPE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMediaType)(windows_core::Interface::as_raw(self), core::mem::transmute(mediatype)) }
+        unsafe { (windows_core::Interface::vtable(self).SetMediaType)(windows_core::Interface::as_raw(self), mediatype) }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {
@@ -4546,7 +4546,7 @@ impl IESEventFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateESEvent)(windows_core::Interface::as_raw(self), pserviceprovider.param().abi(), dweventid, core::mem::transmute(guideventtype), dweventdatalength, peventdata, core::mem::transmute_copy(bstrbaseurl), pinitcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateESEvent)(windows_core::Interface::as_raw(self), pserviceprovider.param().abi(), dweventid, guideventtype, dweventdatalength, peventdata, core::mem::transmute_copy(bstrbaseurl), pinitcontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -7094,7 +7094,7 @@ impl IScanningTunerEx {
         unsafe { (windows_core::Interface::vtable(self).GetTunerStatus)(windows_core::Interface::as_raw(self), secondsleft as _, currentlocktype as _, autodetect as _, currentfreq as _) }
     }
     pub unsafe fn GetCurrentTunerStandardCapability(&self, currentbroadcaststandard: windows_core::GUID, settlingtime: *mut i32, tvstandardssupported: *mut i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentTunerStandardCapability)(windows_core::Interface::as_raw(self), core::mem::transmute(currentbroadcaststandard), settlingtime as _, tvstandardssupported as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentTunerStandardCapability)(windows_core::Interface::as_raw(self), currentbroadcaststandard, settlingtime as _, tvstandardssupported as _) }
     }
     pub unsafe fn SetScanSignalTypeFilter(&self, scanmodulationtypes: i32, analogvideostandard: i32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetScanSignalTypeFilter)(windows_core::Interface::as_raw(self), scanmodulationtypes, analogvideostandard) }

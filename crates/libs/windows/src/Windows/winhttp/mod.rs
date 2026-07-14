@@ -282,7 +282,7 @@ pub unsafe fn WinHttpSetTimeouts(hinternet: HINTERNET, nresolvetimeout: i32, nco
 #[inline]
 pub unsafe fn WinHttpTimeFromSystemTime(pst: *const super::minwinbase::SYSTEMTIME, pwsztime: windows_core::PWSTR) -> windows_core::BOOL {
     windows_core::link!("winhttp.dll" "system" fn WinHttpTimeFromSystemTime(pst : *const super::minwinbase::SYSTEMTIME, pwsztime : windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { WinHttpTimeFromSystemTime(pst, core::mem::transmute(pwsztime)) }
+    unsafe { WinHttpTimeFromSystemTime(pst, pwsztime) }
 }
 #[cfg(feature = "minwinbase")]
 #[inline]

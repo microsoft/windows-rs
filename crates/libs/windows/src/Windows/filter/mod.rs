@@ -69,7 +69,7 @@ impl IFilter {
     }
     #[cfg(feature = "wtypesbase")]
     pub unsafe fn BindRegion(&self, origpos: FILTERREGION, riid: *const windows_core::GUID, ppunk: *mut *mut core::ffi::c_void) -> super::wtypesbase::SCODE {
-        unsafe { (windows_core::Interface::vtable(self).BindRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(origpos), riid, ppunk as _) }
+        unsafe { (windows_core::Interface::vtable(self).BindRegion)(windows_core::Interface::as_raw(self), origpos, riid, ppunk as _) }
     }
 }
 #[repr(C)]

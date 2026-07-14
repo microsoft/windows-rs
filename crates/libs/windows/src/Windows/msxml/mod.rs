@@ -12645,7 +12645,7 @@ windows_core::imp::define_interface!(IXMLError, IXMLError_Vtbl, 0x948c5ad3_c58d_
 windows_core::imp::interface_hierarchy!(IXMLError, windows_core::IUnknown);
 impl IXMLError {
     pub unsafe fn GetErrorInfo(&self, perrorreturn: *mut XML_ERROR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(perrorreturn)) }
+        unsafe { (windows_core::Interface::vtable(self).GetErrorInfo)(windows_core::Interface::as_raw(self), perrorreturn) }
     }
 }
 #[repr(C)]

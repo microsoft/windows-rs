@@ -10890,14 +10890,14 @@ impl ID3D12Device {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateGraphicsPipelineState)(windows_core::Interface::as_raw(self), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateGraphicsPipelineState)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> windows_core::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateComputePipelineState)(windows_core::Interface::as_raw(self), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateComputePipelineState)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn CreateCommandList<P2, P3, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P2, pinitialstate: P3) -> windows_core::Result<T>
     where
@@ -10930,7 +10930,7 @@ impl ID3D12Device {
     }
     pub unsafe fn CreateConstantBufferView(&self, pdesc: Option<*const D3D12_CONSTANT_BUFFER_VIEW_DESC>, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateConstantBufferView)(windows_core::Interface::as_raw(self), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateConstantBufferView)(windows_core::Interface::as_raw(self), pdesc.unwrap_or(core::mem::zeroed()) as _, destdescriptor);
         }
     }
     #[cfg(feature = "dxgi")]
@@ -10939,7 +10939,7 @@ impl ID3D12Device {
         P0: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateShaderResourceView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateShaderResourceView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, destdescriptor);
         }
     }
     #[cfg(feature = "dxgi")]
@@ -10949,7 +10949,7 @@ impl ID3D12Device {
         P1: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateUnorderedAccessView)(windows_core::Interface::as_raw(self), presource.param().abi(), pcounterresource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateUnorderedAccessView)(windows_core::Interface::as_raw(self), presource.param().abi(), pcounterresource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, destdescriptor);
         }
     }
     #[cfg(feature = "dxgi")]
@@ -10958,7 +10958,7 @@ impl ID3D12Device {
         P0: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateRenderTargetView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateRenderTargetView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, destdescriptor);
         }
     }
     #[cfg(feature = "dxgi")]
@@ -10967,12 +10967,12 @@ impl ID3D12Device {
         P0: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateDepthStencilView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateDepthStencilView)(windows_core::Interface::as_raw(self), presource.param().abi(), pdesc.unwrap_or(core::mem::zeroed()) as _, destdescriptor);
         }
     }
     pub unsafe fn CreateSampler(&self, pdesc: *const D3D12_SAMPLER_DESC, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateSampler)(windows_core::Interface::as_raw(self), pdesc, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateSampler)(windows_core::Interface::as_raw(self), pdesc, destdescriptor);
         }
     }
     pub unsafe fn CopyDescriptors(&self, numdestdescriptorranges: u32, pdestdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, pdestdescriptorrangesizes: Option<*const u32>, numsrcdescriptorranges: u32, psrcdescriptorrangestarts: *const D3D12_CPU_DESCRIPTOR_HANDLE, psrcdescriptorrangesizes: Option<*const u32>, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
@@ -10982,7 +10982,7 @@ impl ID3D12Device {
     }
     pub unsafe fn CopyDescriptorsSimple(&self, numdescriptors: u32, destdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE) {
         unsafe {
-            (windows_core::Interface::vtable(self).CopyDescriptorsSimple)(windows_core::Interface::as_raw(self), numdescriptors, core::mem::transmute(destdescriptorrangestart), core::mem::transmute(srcdescriptorrangestart), descriptorheapstype);
+            (windows_core::Interface::vtable(self).CopyDescriptorsSimple)(windows_core::Interface::as_raw(self), numdescriptors, destdescriptorrangestart, srcdescriptorrangestart, descriptorheapstype);
         }
     }
     #[cfg(feature = "dxgi")]
@@ -11696,7 +11696,7 @@ windows_core::imp::interface_hierarchy!(ID3D12Device11, windows_core::IUnknown, 
 impl ID3D12Device11 {
     pub unsafe fn CreateSampler2(&self, pdesc: *const D3D12_SAMPLER_DESC2, destdescriptor: D3D12_CPU_DESCRIPTOR_HANDLE) {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateSampler2)(windows_core::Interface::as_raw(self), pdesc, core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateSampler2)(windows_core::Interface::as_raw(self), pdesc, destdescriptor);
         }
     }
 }
@@ -12469,7 +12469,7 @@ impl ID3D12Device8 {
         P1: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).CreateSamplerFeedbackUnorderedAccessView)(windows_core::Interface::as_raw(self), ptargetedresource.param().abi(), pfeedbackresource.param().abi(), core::mem::transmute(destdescriptor));
+            (windows_core::Interface::vtable(self).CreateSamplerFeedbackUnorderedAccessView)(windows_core::Interface::as_raw(self), ptargetedresource.param().abi(), pfeedbackresource.param().abi(), destdescriptor);
         }
     }
     #[cfg(feature = "dxgi")]
@@ -13849,7 +13849,7 @@ impl ID3D12GraphicsCommandList {
     #[cfg(feature = "dxgi")]
     pub unsafe fn CopyTextureRegion(&self, pdst: *const D3D12_TEXTURE_COPY_LOCATION, dstx: u32, dsty: u32, dstz: u32, psrc: *const D3D12_TEXTURE_COPY_LOCATION, psrcbox: Option<*const D3D12_BOX>) {
         unsafe {
-            (windows_core::Interface::vtable(self).CopyTextureRegion)(windows_core::Interface::as_raw(self), core::mem::transmute(pdst), dstx, dsty, dstz, core::mem::transmute(psrc), psrcbox.unwrap_or(core::mem::zeroed()) as _);
+            (windows_core::Interface::vtable(self).CopyTextureRegion)(windows_core::Interface::as_raw(self), pdst, dstx, dsty, dstz, psrc, psrcbox.unwrap_or(core::mem::zeroed()) as _);
         }
     }
     pub unsafe fn CopyResource<P0, P1>(&self, pdstresource: P0, psrcresource: P1)
@@ -13951,12 +13951,12 @@ impl ID3D12GraphicsCommandList {
     }
     pub unsafe fn SetComputeRootDescriptorTable(&self, rootparameterindex: u32, basedescriptor: D3D12_GPU_DESCRIPTOR_HANDLE) {
         unsafe {
-            (windows_core::Interface::vtable(self).SetComputeRootDescriptorTable)(windows_core::Interface::as_raw(self), rootparameterindex, core::mem::transmute(basedescriptor));
+            (windows_core::Interface::vtable(self).SetComputeRootDescriptorTable)(windows_core::Interface::as_raw(self), rootparameterindex, basedescriptor);
         }
     }
     pub unsafe fn SetGraphicsRootDescriptorTable(&self, rootparameterindex: u32, basedescriptor: D3D12_GPU_DESCRIPTOR_HANDLE) {
         unsafe {
-            (windows_core::Interface::vtable(self).SetGraphicsRootDescriptorTable)(windows_core::Interface::as_raw(self), rootparameterindex, core::mem::transmute(basedescriptor));
+            (windows_core::Interface::vtable(self).SetGraphicsRootDescriptorTable)(windows_core::Interface::as_raw(self), rootparameterindex, basedescriptor);
         }
     }
     pub unsafe fn SetComputeRoot32BitConstant(&self, rootparameterindex: u32, srcdata: u32, destoffsetin32bitvalues: u32) {
@@ -14033,13 +14033,13 @@ impl ID3D12GraphicsCommandList {
     #[cfg(feature = "windef")]
     pub unsafe fn ClearDepthStencilView(&self, depthstencilview: D3D12_CPU_DESCRIPTOR_HANDLE, clearflags: D3D12_CLEAR_FLAGS, depth: f32, stencil: u8, prects: &[D3D12_RECT]) {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearDepthStencilView)(windows_core::Interface::as_raw(self), core::mem::transmute(depthstencilview), clearflags, depth, stencil, prects.len().try_into().unwrap(), prects.as_ptr());
+            (windows_core::Interface::vtable(self).ClearDepthStencilView)(windows_core::Interface::as_raw(self), depthstencilview, clearflags, depth, stencil, prects.len().try_into().unwrap(), prects.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn ClearRenderTargetView(&self, rendertargetview: D3D12_CPU_DESCRIPTOR_HANDLE, colorrgba: &[f32; 4], prects: &[D3D12_RECT]) {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), core::mem::transmute(rendertargetview), colorrgba.as_ptr(), prects.len().try_into().unwrap(), prects.as_ptr());
+            (windows_core::Interface::vtable(self).ClearRenderTargetView)(windows_core::Interface::as_raw(self), rendertargetview, colorrgba.as_ptr(), prects.len().try_into().unwrap(), prects.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
@@ -14048,7 +14048,7 @@ impl ID3D12GraphicsCommandList {
         P2: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewUint)(windows_core::Interface::as_raw(self), core::mem::transmute(viewgpuhandleincurrentheap), core::mem::transmute(viewcpuhandle), presource.param().abi(), values.as_ptr(), prects.len().try_into().unwrap(), prects.as_ptr());
+            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewUint)(windows_core::Interface::as_raw(self), viewgpuhandleincurrentheap, viewcpuhandle, presource.param().abi(), values.as_ptr(), prects.len().try_into().unwrap(), prects.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
@@ -14057,7 +14057,7 @@ impl ID3D12GraphicsCommandList {
         P2: windows_core::Param<ID3D12Resource>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewFloat)(windows_core::Interface::as_raw(self), core::mem::transmute(viewgpuhandleincurrentheap), core::mem::transmute(viewcpuhandle), presource.param().abi(), values.as_ptr(), prects.len().try_into().unwrap(), prects.as_ptr());
+            (windows_core::Interface::vtable(self).ClearUnorderedAccessViewFloat)(windows_core::Interface::as_raw(self), viewgpuhandleincurrentheap, viewcpuhandle, presource.param().abi(), values.as_ptr(), prects.len().try_into().unwrap(), prects.as_ptr());
         }
     }
     #[cfg(feature = "windef")]
@@ -16316,7 +16316,7 @@ impl ID3D12PipelineLibrary {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).LoadGraphicsPipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).LoadGraphicsPipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn LoadComputePipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> windows_core::Result<T>
     where
@@ -16324,7 +16324,7 @@ impl ID3D12PipelineLibrary {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).LoadComputePipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).LoadComputePipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn GetSerializedSize(&self) -> usize {
         unsafe { (windows_core::Interface::vtable(self).GetSerializedSize)(windows_core::Interface::as_raw(self)) }
@@ -18471,7 +18471,7 @@ impl ID3D12VideoDecodeCommandList {
         P0: windows_core::Param<ID3D12VideoDecoder>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).DecodeFrame)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+            (windows_core::Interface::vtable(self).DecodeFrame)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), poutputarguments, pinputarguments);
         }
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
@@ -18648,7 +18648,7 @@ impl ID3D12VideoDecodeCommandList1 {
         P0: windows_core::Param<ID3D12VideoDecoder>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).DecodeFrame1)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+            (windows_core::Interface::vtable(self).DecodeFrame1)(windows_core::Interface::as_raw(self), pdecoder.param().abi(), poutputarguments, pinputarguments);
         }
     }
 }
@@ -19467,12 +19467,12 @@ impl ID3D12VideoEncodeCommandList {
         P0: windows_core::Param<ID3D12VideoMotionEstimator>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).EstimateMotion)(windows_core::Interface::as_raw(self), pmotionestimator.param().abi(), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+            (windows_core::Interface::vtable(self).EstimateMotion)(windows_core::Interface::as_raw(self), pmotionestimator.param().abi(), poutputarguments, pinputarguments);
         }
     }
     pub unsafe fn ResolveMotionVectorHeap(&self, poutputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT, pinputarguments: *const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResolveMotionVectorHeap)(windows_core::Interface::as_raw(self), core::mem::transmute(poutputarguments), core::mem::transmute(pinputarguments));
+            (windows_core::Interface::vtable(self).ResolveMotionVectorHeap)(windows_core::Interface::as_raw(self), poutputarguments, pinputarguments);
         }
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
@@ -19738,13 +19738,13 @@ impl ID3D12VideoEncodeCommandList2 {
         P1: windows_core::Param<ID3D12VideoEncoderHeap>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).EncodeFrame)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+            (windows_core::Interface::vtable(self).EncodeFrame)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), pinputarguments, poutputarguments);
         }
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn ResolveEncoderOutputMetadata(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+            (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata)(windows_core::Interface::as_raw(self), pinputarguments, poutputarguments);
         }
     }
 }
@@ -19851,19 +19851,19 @@ impl ID3D12VideoEncodeCommandList4 {
         P1: windows_core::Param<ID3D12VideoEncoderHeap1>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).EncodeFrame1)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+            (windows_core::Interface::vtable(self).EncodeFrame1)(windows_core::Interface::as_raw(self), pencoder.param().abi(), pheap.param().abi(), pinputarguments, poutputarguments);
         }
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn ResolveEncoderOutputMetadata1(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS1, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS1) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata1)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+            (windows_core::Interface::vtable(self).ResolveEncoderOutputMetadata1)(windows_core::Interface::as_raw(self), pinputarguments, poutputarguments);
         }
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn ResolveInputParamLayout(&self, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_INPUT_PARAM_LAYOUT_OUTPUT_ARGUMENTS) {
         unsafe {
-            (windows_core::Interface::vtable(self).ResolveInputParamLayout)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputarguments), core::mem::transmute(poutputarguments));
+            (windows_core::Interface::vtable(self).ResolveInputParamLayout)(windows_core::Interface::as_raw(self), pinputarguments, poutputarguments);
         }
     }
 }
@@ -19943,10 +19943,10 @@ impl ID3D12VideoEncoder {
         unsafe { (windows_core::Interface::vtable(self).GetCodec)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCodecProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(dstprofile)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCodecProfile)(windows_core::Interface::as_raw(self), dstprofile) }
     }
     pub unsafe fn GetCodecConfiguration(&self, dstcodecconfig: D3D12_VIDEO_ENCODER_CODEC_CONFIGURATION) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCodecConfiguration)(windows_core::Interface::as_raw(self), core::mem::transmute(dstcodecconfig)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCodecConfiguration)(windows_core::Interface::as_raw(self), dstcodecconfig) }
     }
     #[cfg(feature = "dxgi")]
     pub unsafe fn GetInputFormat(&self) -> super::dxgi::DXGI_FORMAT {
@@ -20062,10 +20062,10 @@ impl ID3D12VideoEncoderHeap {
         unsafe { (windows_core::Interface::vtable(self).GetCodec)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn GetCodecProfile(&self, dstprofile: D3D12_VIDEO_ENCODER_PROFILE_DESC) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCodecProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(dstprofile)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCodecProfile)(windows_core::Interface::as_raw(self), dstprofile) }
     }
     pub unsafe fn GetCodecLevel(&self, dstlevel: D3D12_VIDEO_ENCODER_LEVEL_SETTING) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCodecLevel)(windows_core::Interface::as_raw(self), core::mem::transmute(dstlevel)) }
+        unsafe { (windows_core::Interface::vtable(self).GetCodecLevel)(windows_core::Interface::as_raw(self), dstlevel) }
     }
     pub unsafe fn GetResolutionListCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetResolutionListCount)(windows_core::Interface::as_raw(self)) }
@@ -20474,7 +20474,7 @@ impl ID3D12VideoProcessCommandList {
         P0: windows_core::Param<ID3D12VideoProcessor>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ProcessFrames)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), core::mem::transmute(poutputarguments), pinputarguments.len().try_into().unwrap(), pinputarguments.as_ptr());
+            (windows_core::Interface::vtable(self).ProcessFrames)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), poutputarguments, pinputarguments.len().try_into().unwrap(), pinputarguments.as_ptr());
         }
     }
     pub unsafe fn WriteBufferImmediate(&self, count: u32, pparams: *const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: Option<*const D3D12_WRITEBUFFERIMMEDIATE_MODE>) {
@@ -20651,7 +20651,7 @@ impl ID3D12VideoProcessCommandList1 {
         P0: windows_core::Param<ID3D12VideoProcessor>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ProcessFrames1)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), core::mem::transmute(poutputarguments), pinputarguments.len().try_into().unwrap(), pinputarguments.as_ptr());
+            (windows_core::Interface::vtable(self).ProcessFrames1)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), poutputarguments, pinputarguments.len().try_into().unwrap(), pinputarguments.as_ptr());
         }
     }
 }
@@ -21046,7 +21046,7 @@ impl ID3D12WorkGraphProperties {
         }
     }
     pub unsafe fn GetNodeIndex(&self, workgraphindex: u32, nodeid: D3D12_NODE_ID) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).GetNodeIndex)(windows_core::Interface::as_raw(self), workgraphindex, core::mem::transmute(nodeid)) }
+        unsafe { (windows_core::Interface::vtable(self).GetNodeIndex)(windows_core::Interface::as_raw(self), workgraphindex, nodeid) }
     }
     pub unsafe fn GetNodeLocalRootArgumentsTableIndex(&self, workgraphindex: u32, nodeindex: u32) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetNodeLocalRootArgumentsTableIndex)(windows_core::Interface::as_raw(self), workgraphindex, nodeindex) }
@@ -21062,7 +21062,7 @@ impl ID3D12WorkGraphProperties {
         }
     }
     pub unsafe fn GetEntrypointIndex(&self, workgraphindex: u32, nodeid: D3D12_NODE_ID) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).GetEntrypointIndex)(windows_core::Interface::as_raw(self), workgraphindex, core::mem::transmute(nodeid)) }
+        unsafe { (windows_core::Interface::vtable(self).GetEntrypointIndex)(windows_core::Interface::as_raw(self), workgraphindex, nodeid) }
     }
     pub unsafe fn GetEntrypointRecordSizeInBytes(&self, workgraphindex: u32, entrypointindex: u32) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetEntrypointRecordSizeInBytes)(windows_core::Interface::as_raw(self), workgraphindex, entrypointindex) }

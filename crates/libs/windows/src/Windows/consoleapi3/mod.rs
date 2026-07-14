@@ -134,7 +134,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetConsoleCommandHistoryW(commands : windows_core::PWSTR, commandbufferlength : u32, exename : windows_core::PCWSTR) -> u32);
-    unsafe { GetConsoleCommandHistoryW(core::mem::transmute(commands), commandbufferlength, exename.param().abi()) }
+    unsafe { GetConsoleCommandHistoryW(commands, commandbufferlength, exename.param().abi()) }
 }
 #[inline]
 pub unsafe fn GetConsoleDisplayMode(lpmodeflags: *mut u32) -> windows_core::BOOL {

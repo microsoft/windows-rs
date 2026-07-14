@@ -635,13 +635,13 @@ pub unsafe fn ProgIDFromCLSID(clsid: *const windows_core::GUID) -> windows_core:
 #[inline]
 pub unsafe fn PropVariantClear(pvar: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn PropVariantClear(pvar : *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe { PropVariantClear(core::mem::transmute(pvar)) }
+    unsafe { PropVariantClear(pvar) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn PropVariantCopy(pvardest: *mut super::propidlbase::PROPVARIANT, pvarsrc: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn PropVariantCopy(pvardest : *mut super::propidlbase::PROPVARIANT, pvarsrc : *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe { PropVariantCopy(core::mem::transmute(pvardest), core::mem::transmute(pvarsrc)) }
+    unsafe { PropVariantCopy(pvardest, pvarsrc) }
 }
 #[cfg(feature = "objidlbase")]
 #[inline]

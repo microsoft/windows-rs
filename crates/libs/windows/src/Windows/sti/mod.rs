@@ -308,7 +308,7 @@ impl IStillImageW {
         unsafe { (windows_core::Interface::vtable(self).CreateDevice)(windows_core::Interface::as_raw(self), pwszdevicename.param().abi(), dwmode, core::mem::transmute(pdevice), punkouter.param().abi()) }
     }
     pub unsafe fn GetSTILaunchInformation(&self, pwszdevicename: windows_core::PWSTR, pdweventcode: Option<*mut u32>, pwszeventname: windows_core::PWSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetSTILaunchInformation)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszdevicename), pdweventcode.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pwszeventname)) }
+        unsafe { (windows_core::Interface::vtable(self).GetSTILaunchInformation)(windows_core::Interface::as_raw(self), pwszdevicename, pdweventcode.unwrap_or(core::mem::zeroed()) as _, pwszeventname) }
     }
     pub unsafe fn RegisterLaunchApplication<P0, P1>(&self, pwszappname: P0, pwszcommandline: P1) -> windows_core::HRESULT
     where

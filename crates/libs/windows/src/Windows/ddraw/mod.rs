@@ -3387,11 +3387,11 @@ impl IDirectDrawSurface {
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, param4) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
+        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::windef::RECT, param4: u32) -> windows_core::HRESULT
@@ -3521,7 +3521,7 @@ impl IDirectDrawSurface {
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, param4) }
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0) }
@@ -3953,11 +3953,11 @@ impl IDirectDrawSurface2 {
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, param4) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
+        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::windef::RECT, param4: u32) -> windows_core::HRESULT
@@ -4087,7 +4087,7 @@ impl IDirectDrawSurface2 {
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, param4) }
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0) }
@@ -4555,11 +4555,11 @@ impl IDirectDrawSurface3 {
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, param4) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
+        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::windef::RECT, param4: u32) -> windows_core::HRESULT
@@ -4689,7 +4689,7 @@ impl IDirectDrawSurface3 {
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, param4) }
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0) }
@@ -5173,11 +5173,11 @@ impl IDirectDrawSurface4 {
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, param4) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
+        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::windef::RECT, param4: u32) -> windows_core::HRESULT
@@ -5311,7 +5311,7 @@ impl IDirectDrawSurface4 {
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, param4) }
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0) }
@@ -5873,11 +5873,11 @@ impl IDirectDrawSurface7 {
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
+        unsafe { (windows_core::Interface::vtable(self).Blt)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, param4) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn BltBatch(&self, param0: *mut DDBLTBATCH, param1: u32, param2: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), core::mem::transmute(param0), param1, param2) }
+        unsafe { (windows_core::Interface::vtable(self).BltBatch)(windows_core::Interface::as_raw(self), param0, param1, param2) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn BltFast<P2>(&self, param0: u32, param1: u32, param2: P2, param3: *mut super::windef::RECT, param4: u32) -> windows_core::HRESULT
@@ -6011,7 +6011,7 @@ impl IDirectDrawSurface7 {
     where
         P1: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, core::mem::transmute(param4)) }
+        unsafe { (windows_core::Interface::vtable(self).UpdateOverlay)(windows_core::Interface::as_raw(self), param0 as _, param1.param().abi(), param2 as _, param3, param4) }
     }
     pub unsafe fn UpdateOverlayDisplay(&self, param0: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).UpdateOverlayDisplay)(windows_core::Interface::as_raw(self), param0) }

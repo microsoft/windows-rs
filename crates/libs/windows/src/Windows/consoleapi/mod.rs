@@ -25,7 +25,7 @@ pub unsafe fn CreatePseudoConsole(size: super::wincontypes::COORD, hinput: super
     windows_core::link!("kernel32.dll" "system" fn CreatePseudoConsole(size : super::wincontypes::COORD, hinput : super::winnt::HANDLE, houtput : super::winnt::HANDLE, dwflags : u32, phpc : *mut super::wincontypes::HPCON) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        CreatePseudoConsole(core::mem::transmute(size), hinput, houtput, dwflags, &mut result__).map(|| result__)
+        CreatePseudoConsole(size, hinput, houtput, dwflags, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -101,7 +101,7 @@ pub unsafe fn ReleasePseudoConsole(hpc: super::wincontypes::HPCON) -> windows_co
 #[inline]
 pub unsafe fn ResizePseudoConsole(hpc: super::wincontypes::HPCON, size: super::wincontypes::COORD) -> windows_core::HRESULT {
     windows_core::link!("kernel32.dll" "system" fn ResizePseudoConsole(hpc : super::wincontypes::HPCON, size : super::wincontypes::COORD) -> windows_core::HRESULT);
-    unsafe { ResizePseudoConsole(hpc, core::mem::transmute(size)) }
+    unsafe { ResizePseudoConsole(hpc, size) }
 }
 #[inline]
 pub unsafe fn SetConsoleCtrlHandler(handlerroutine: PHANDLER_ROUTINE, add: bool) -> windows_core::BOOL {

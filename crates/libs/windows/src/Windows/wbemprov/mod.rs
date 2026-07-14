@@ -241,7 +241,7 @@ windows_core::imp::define_interface!(IWbemEventProviderQuerySink, IWbemEventProv
 windows_core::imp::interface_hierarchy!(IWbemEventProviderQuerySink, windows_core::IUnknown);
 impl IWbemEventProviderQuerySink {
     pub unsafe fn NewQuery(&self, dwid: u32, wszquerylanguage: WBEM_WSTR, wszquery: WBEM_WSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).NewQuery)(windows_core::Interface::as_raw(self), dwid, core::mem::transmute(wszquerylanguage), core::mem::transmute(wszquery)) }
+        unsafe { (windows_core::Interface::vtable(self).NewQuery)(windows_core::Interface::as_raw(self), dwid, wszquerylanguage, wszquery) }
     }
     pub unsafe fn CancelQuery(&self, dwid: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).CancelQuery)(windows_core::Interface::as_raw(self), dwid) }
@@ -287,7 +287,7 @@ windows_core::imp::define_interface!(IWbemEventProviderSecurity, IWbemEventProvi
 windows_core::imp::interface_hierarchy!(IWbemEventProviderSecurity, windows_core::IUnknown);
 impl IWbemEventProviderSecurity {
     pub unsafe fn AccessCheck(&self, wszquerylanguage: WBEM_CWSTR, wszquery: WBEM_CWSTR, lsidlength: i32, psid: *const u8) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AccessCheck)(windows_core::Interface::as_raw(self), core::mem::transmute(wszquerylanguage), core::mem::transmute(wszquery), lsidlength, psid) }
+        unsafe { (windows_core::Interface::vtable(self).AccessCheck)(windows_core::Interface::as_raw(self), wszquerylanguage, wszquery, lsidlength, psid) }
     }
 }
 #[repr(C)]
@@ -588,7 +588,7 @@ impl IWbemPropertyProvider {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn PutProperty(&self, lflags: i32, strlocale: &windows_core::BSTR, strclassmapping: &windows_core::BSTR, strinstmapping: &windows_core::BSTR, strpropmapping: &windows_core::BSTR, pvvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PutProperty)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(strlocale), core::mem::transmute_copy(strclassmapping), core::mem::transmute_copy(strinstmapping), core::mem::transmute_copy(strpropmapping), core::mem::transmute(pvvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).PutProperty)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute_copy(strlocale), core::mem::transmute_copy(strclassmapping), core::mem::transmute_copy(strinstmapping), core::mem::transmute_copy(strpropmapping), pvvalue) }
     }
 }
 #[repr(C)]

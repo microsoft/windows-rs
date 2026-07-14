@@ -30,7 +30,7 @@ impl AsyncIMultiQI {
         unsafe { (windows_core::Interface::vtable(self).Begin_QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), pmqis.len().try_into().unwrap(), pmqis.as_mut_ptr()) }
     }
     pub unsafe fn Finish_QueryMultipleInterfaces(&self, pmqis: *mut MULTI_QI) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Finish_QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), core::mem::transmute(pmqis)) }
+        unsafe { (windows_core::Interface::vtable(self).Finish_QueryMultipleInterfaces)(windows_core::Interface::as_raw(self), pmqis) }
     }
 }
 #[repr(C)]

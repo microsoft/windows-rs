@@ -206,7 +206,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn FindFirstFileNameW(lpfilename : windows_core::PCWSTR, dwflags : u32, stringlength : *mut u32, linkname : windows_core::PWSTR) -> super::winnt::HANDLE);
-    unsafe { FindFirstFileNameW(lpfilename.param().abi(), dwflags, stringlength as _, core::mem::transmute(linkname)) }
+    unsafe { FindFirstFileNameW(lpfilename.param().abi(), dwflags, stringlength as _, linkname) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
@@ -248,7 +248,7 @@ pub unsafe fn FindNextFileA(hfindfile: super::winnt::HANDLE, lpfindfiledata: *mu
 #[inline]
 pub unsafe fn FindNextFileNameW(hfindstream: super::winnt::HANDLE, stringlength: *mut u32, linkname: windows_core::PWSTR) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn FindNextFileNameW(hfindstream : super::winnt::HANDLE, stringlength : *mut u32, linkname : windows_core::PWSTR) -> windows_core::BOOL);
-    unsafe { FindNextFileNameW(hfindstream, stringlength as _, core::mem::transmute(linkname)) }
+    unsafe { FindNextFileNameW(hfindstream, stringlength as _, linkname) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
@@ -493,7 +493,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetTempFileNameA(lppathname : windows_core::PCSTR, lpprefixstring : windows_core::PCSTR, uunique : u32, lptempfilename : windows_core::PSTR) -> u32);
-    unsafe { GetTempFileNameA(lppathname.param().abi(), lpprefixstring.param().abi(), uunique, core::mem::transmute(lptempfilename)) }
+    unsafe { GetTempFileNameA(lppathname.param().abi(), lpprefixstring.param().abi(), uunique, lptempfilename) }
 }
 #[inline]
 pub unsafe fn GetTempFileNameW<P0, P1>(lppathname: P0, lpprefixstring: P1, uunique: u32, lptempfilename: windows_core::PWSTR) -> u32
@@ -502,7 +502,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("kernel32.dll" "system" fn GetTempFileNameW(lppathname : windows_core::PCWSTR, lpprefixstring : windows_core::PCWSTR, uunique : u32, lptempfilename : windows_core::PWSTR) -> u32);
-    unsafe { GetTempFileNameW(lppathname.param().abi(), lpprefixstring.param().abi(), uunique, core::mem::transmute(lptempfilename)) }
+    unsafe { GetTempFileNameW(lppathname.param().abi(), lpprefixstring.param().abi(), uunique, lptempfilename) }
 }
 #[inline]
 pub unsafe fn GetTempPath2A(buffer: Option<&mut [u8]>) -> u32 {

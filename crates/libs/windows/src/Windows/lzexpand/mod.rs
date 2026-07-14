@@ -9,7 +9,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("lz32.dll" "system" fn GetExpandedNameA(lpszsource : windows_core::PCSTR, lpszbuffer : windows_core::PSTR) -> i32);
-    unsafe { GetExpandedNameA(lpszsource.param().abi(), core::mem::transmute(lpszbuffer)) }
+    unsafe { GetExpandedNameA(lpszsource.param().abi(), lpszbuffer) }
 }
 #[inline]
 pub unsafe fn GetExpandedNameW<P0>(lpszsource: P0, lpszbuffer: windows_core::PWSTR) -> i32
@@ -17,7 +17,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("lz32.dll" "system" fn GetExpandedNameW(lpszsource : windows_core::PCWSTR, lpszbuffer : windows_core::PWSTR) -> i32);
-    unsafe { GetExpandedNameW(lpszsource.param().abi(), core::mem::transmute(lpszbuffer)) }
+    unsafe { GetExpandedNameW(lpszsource.param().abi(), lpszbuffer) }
 }
 #[inline]
 pub unsafe fn LZClose(hfile: i32) {

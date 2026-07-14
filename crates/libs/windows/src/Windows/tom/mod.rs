@@ -88,11 +88,11 @@ impl ITextDocument {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Open(&self, pvar: *const super::oaidl::VARIANT, flags: i32, codepage: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), flags, codepage) }
+        unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), pvar, flags, codepage) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Save(&self, pvar: *const super::oaidl::VARIANT, flags: i32, codepage: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), flags, codepage) }
+        unsafe { (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), pvar, flags, codepage) }
     }
     pub unsafe fn Freeze(&self) -> windows_core::Result<i32> {
         unsafe {
@@ -4723,42 +4723,42 @@ impl ITextRange {
     pub unsafe fn MoveWhile(&self, cset: *const super::oaidl::VARIANT, count: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MoveWhile)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).MoveWhile)(windows_core::Interface::as_raw(self), cset, count, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn MoveStartWhile(&self, cset: *const super::oaidl::VARIANT, count: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MoveStartWhile)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).MoveStartWhile)(windows_core::Interface::as_raw(self), cset, count, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn MoveEndWhile(&self, cset: *const super::oaidl::VARIANT, count: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MoveEndWhile)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).MoveEndWhile)(windows_core::Interface::as_raw(self), cset, count, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn MoveUntil(&self, cset: *const super::oaidl::VARIANT, count: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MoveUntil)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).MoveUntil)(windows_core::Interface::as_raw(self), cset, count, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn MoveStartUntil(&self, cset: *const super::oaidl::VARIANT, count: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MoveStartUntil)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).MoveStartUntil)(windows_core::Interface::as_raw(self), cset, count, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn MoveEndUntil(&self, cset: *const super::oaidl::VARIANT, count: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MoveEndUntil)(windows_core::Interface::as_raw(self), core::mem::transmute(cset), count, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).MoveEndUntil)(windows_core::Interface::as_raw(self), cset, count, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn FindText(&self, bstr: &windows_core::BSTR, count: i32, flags: i32) -> windows_core::Result<i32> {
@@ -4801,13 +4801,13 @@ impl ITextRange {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Paste(&self, pvar: *const super::oaidl::VARIANT, format: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), format) }
+        unsafe { (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self), pvar, format) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CanPaste(&self, pvar: *const super::oaidl::VARIANT, format: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CanPaste)(windows_core::Interface::as_raw(self), core::mem::transmute(pvar), format, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).CanPaste)(windows_core::Interface::as_raw(self), pvar, format, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn CanEdit(&self) -> windows_core::Result<i32> {

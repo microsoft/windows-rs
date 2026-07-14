@@ -1364,7 +1364,7 @@ impl IRMHelper {
         unsafe { (windows_core::Interface::vtable(self).RMCount)(windows_core::Interface::as_raw(self), dwctotalnumberofrms) }
     }
     pub unsafe fn RMInfo(&self, pxa_switch: *const xa_switch_t, fcdeclcallingconv: bool, pszopenstring: *const i8, pszclosestring: *const i8, guidrmrecovery: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RMInfo)(windows_core::Interface::as_raw(self), pxa_switch, fcdeclcallingconv.into(), pszopenstring, pszclosestring, core::mem::transmute(guidrmrecovery)) }
+        unsafe { (windows_core::Interface::vtable(self).RMInfo)(windows_core::Interface::as_raw(self), pxa_switch, fcdeclcallingconv.into(), pszopenstring, pszclosestring, guidrmrecovery) }
     }
 }
 #[repr(C)]
@@ -2277,7 +2277,7 @@ windows_core::imp::define_interface!(IXAConfig, IXAConfig_Vtbl, 0xc8a6e3a1_9a8c_
 windows_core::imp::interface_hierarchy!(IXAConfig, windows_core::IUnknown);
 impl IXAConfig {
     pub unsafe fn Initialize(&self, clsidhelperdll: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), core::mem::transmute(clsidhelperdll)) }
+        unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), clsidhelperdll) }
     }
     pub unsafe fn Terminate(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self)) }

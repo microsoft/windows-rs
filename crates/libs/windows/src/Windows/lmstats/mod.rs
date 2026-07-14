@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn NetStatisticsGet(servername: super::winnt::LPTSTR, service: super::winnt::LPTSTR, level: u32, options: u32, buffer: *mut super::minwindef::LPBYTE) -> u32 {
     windows_core::link!("netapi32.dll" "system" fn NetStatisticsGet(servername : super::winnt::LPTSTR, service : super::winnt::LPTSTR, level : u32, options : u32, buffer : *mut super::minwindef::LPBYTE) -> u32);
-    unsafe { NetStatisticsGet(core::mem::transmute(servername), core::mem::transmute(service), level, options, buffer as _) }
+    unsafe { NetStatisticsGet(servername, service, level, options, buffer as _) }
 }
 pub type LPSTAT_SERVER_0 = *mut STAT_SERVER_0;
 pub type LPSTAT_WORKSTATION_0 = *mut STAT_WORKSTATION_0;

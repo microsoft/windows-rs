@@ -196,7 +196,7 @@ impl IBDA_ConditionalAccess {
     }
     #[cfg(feature = "bdatypes")]
     pub unsafe fn get_SmartCardApplications(&self, pulcapplications: *mut u32, ulcapplicationsmax: u32, rgapplications: *mut SmartCardApplication) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).get_SmartCardApplications)(windows_core::Interface::as_raw(self), pulcapplications as _, ulcapplicationsmax, core::mem::transmute(rgapplications)) }
+        unsafe { (windows_core::Interface::vtable(self).get_SmartCardApplications)(windows_core::Interface::as_raw(self), pulcapplications as _, ulcapplicationsmax, rgapplications) }
     }
     pub unsafe fn get_Entitlement(&self, usvirtualchannel: u16) -> windows_core::Result<EntitlementType> {
         unsafe {
@@ -3129,7 +3129,7 @@ impl IBDA_Topology {
     }
     #[cfg(feature = "strmif")]
     pub unsafe fn SetMediaType(&self, ulpinid: u32, pmediatype: *const super::strmif::AM_MEDIA_TYPE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMediaType)(windows_core::Interface::as_raw(self), ulpinid, core::mem::transmute(pmediatype)) }
+        unsafe { (windows_core::Interface::vtable(self).SetMediaType)(windows_core::Interface::as_raw(self), ulpinid, pmediatype) }
     }
     #[cfg(feature = "strmif")]
     pub unsafe fn SetMedium(&self, ulpinid: u32, pmedium: *const super::strmif::REGPINMEDIUM) -> windows_core::HRESULT {
@@ -3694,7 +3694,7 @@ windows_core::imp::define_interface!(IBroadcastEvent, IBroadcastEvent_Vtbl, 0x3b
 windows_core::imp::interface_hierarchy!(IBroadcastEvent, windows_core::IUnknown);
 impl IBroadcastEvent {
     pub unsafe fn Fire(&self, eventid: windows_core::GUID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Fire)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid)) }
+        unsafe { (windows_core::Interface::vtable(self).Fire)(windows_core::Interface::as_raw(self), eventid) }
     }
 }
 #[repr(C)]
@@ -3731,7 +3731,7 @@ impl core::ops::Deref for IBroadcastEventEx {
 windows_core::imp::interface_hierarchy!(IBroadcastEventEx, windows_core::IUnknown, IBroadcastEvent);
 impl IBroadcastEventEx {
     pub unsafe fn FireEx(&self, eventid: windows_core::GUID, param1: u32, param2: u32, param3: u32, param4: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FireEx)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), param1, param2, param3, param4) }
+        unsafe { (windows_core::Interface::vtable(self).FireEx)(windows_core::Interface::as_raw(self), eventid, param1, param2, param3, param4) }
     }
 }
 #[repr(C)]
@@ -3945,7 +3945,7 @@ impl IESEvents {
     where
         P1: windows_core::Param<IESEvent>,
     {
-        unsafe { (windows_core::Interface::vtable(self).OnESEventReceived)(windows_core::Interface::as_raw(self), core::mem::transmute(guideventtype), pesevent.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).OnESEventReceived)(windows_core::Interface::as_raw(self), guideventtype, pesevent.param().abi()) }
     }
 }
 #[repr(C)]

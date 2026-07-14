@@ -5,7 +5,7 @@ windows_core::imp::interface_hierarchy!(ICanHandleException, windows_core::IUnkn
 impl ICanHandleException {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CanHandleException(&self, pexcepinfo: *const super::oaidl::EXCEPINFO, pvar: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CanHandleException)(windows_core::Interface::as_raw(self), core::mem::transmute(pexcepinfo), core::mem::transmute(pvar)) }
+        unsafe { (windows_core::Interface::vtable(self).CanHandleException)(windows_core::Interface::as_raw(self), pexcepinfo, pvar) }
     }
 }
 #[repr(C)]
@@ -44,7 +44,7 @@ impl IDispError {
     pub unsafe fn QueryErrorInfo(&self, guiderrortype: windows_core::GUID) -> windows_core::Result<Self> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryErrorInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(guiderrortype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).QueryErrorInfo)(windows_core::Interface::as_raw(self), guiderrortype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn GetNext(&self) -> windows_core::Result<Self> {
@@ -438,7 +438,7 @@ windows_core::imp::interface_hierarchy!(IVariantChangeType, windows_core::IUnkno
 impl IVariantChangeType {
     #[cfg(all(feature = "oaidl", feature = "winnt", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ChangeType(&self, pvardst: *mut super::oaidl::VARIANT, pvarsrc: *const super::oaidl::VARIANT, lcid: super::winnt::LCID, vtnew: super::wtypes::VARTYPE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ChangeType)(windows_core::Interface::as_raw(self), core::mem::transmute(pvardst), core::mem::transmute(pvarsrc), lcid, vtnew) }
+        unsafe { (windows_core::Interface::vtable(self).ChangeType)(windows_core::Interface::as_raw(self), pvardst, pvarsrc, lcid, vtnew) }
     }
 }
 #[repr(C)]

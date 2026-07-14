@@ -159,11 +159,11 @@ impl IDropTarget {
     where
         P0: windows_core::Param<super::objidl::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DragEnter)(windows_core::Interface::as_raw(self), pdataobj.param().abi(), grfkeystate, core::mem::transmute(pt), pdweffect as _) }
+        unsafe { (windows_core::Interface::vtable(self).DragEnter)(windows_core::Interface::as_raw(self), pdataobj.param().abi(), grfkeystate, pt, pdweffect as _) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn DragOver(&self, grfkeystate: u32, pt: super::windef::POINTL, pdweffect: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DragOver)(windows_core::Interface::as_raw(self), grfkeystate, core::mem::transmute(pt), pdweffect as _) }
+        unsafe { (windows_core::Interface::vtable(self).DragOver)(windows_core::Interface::as_raw(self), grfkeystate, pt, pdweffect as _) }
     }
     pub unsafe fn DragLeave(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).DragLeave)(windows_core::Interface::as_raw(self)) }
@@ -173,7 +173,7 @@ impl IDropTarget {
     where
         P0: windows_core::Param<super::objidl::IDataObject>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Drop)(windows_core::Interface::as_raw(self), pdataobj.param().abi(), grfkeystate, core::mem::transmute(pt), pdweffect as _) }
+        unsafe { (windows_core::Interface::vtable(self).Drop)(windows_core::Interface::as_raw(self), pdataobj.param().abi(), grfkeystate, pt, pdweffect as _) }
     }
 }
 #[repr(C)]
@@ -541,7 +541,7 @@ impl IOleCache {
     }
     #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
     pub unsafe fn SetData(&self, pformatetc: *const super::objidl::FORMATETC, pmedium: *const super::objidl::STGMEDIUM, frelease: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), pformatetc, core::mem::transmute(pmedium), frelease.into()) }
+        unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), pformatetc, pmedium, frelease.into()) }
     }
 }
 #[repr(C)]
@@ -1262,7 +1262,7 @@ impl IOleInPlaceSite {
     }
     #[cfg(feature = "windef")]
     pub unsafe fn Scroll(&self, scrollextant: super::windef::SIZE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), core::mem::transmute(scrollextant)) }
+        unsafe { (windows_core::Interface::vtable(self).Scroll)(windows_core::Interface::as_raw(self), scrollextant) }
     }
     pub unsafe fn OnUIDeactivate(&self, fundoable: bool) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).OnUIDeactivate)(windows_core::Interface::as_raw(self), fundoable.into()) }

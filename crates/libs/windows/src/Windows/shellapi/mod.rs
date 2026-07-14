@@ -127,7 +127,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn FindExecutableA(lpfile : windows_core::PCSTR, lpdirectory : windows_core::PCSTR, lpresult : windows_core::PSTR) -> super::minwindef::HINSTANCE);
-    unsafe { FindExecutableA(lpfile.param().abi(), lpdirectory.param().abi(), core::mem::transmute(lpresult)) }
+    unsafe { FindExecutableA(lpfile.param().abi(), lpdirectory.param().abi(), lpresult) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
@@ -137,7 +137,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn FindExecutableW(lpfile : windows_core::PCWSTR, lpdirectory : windows_core::PCWSTR, lpresult : windows_core::PWSTR) -> super::minwindef::HINSTANCE);
-    unsafe { FindExecutableW(lpfile.param().abi(), lpdirectory.param().abi(), core::mem::transmute(lpresult)) }
+    unsafe { FindExecutableW(lpfile.param().abi(), lpdirectory.param().abi(), lpresult) }
 }
 #[inline]
 pub unsafe fn InitNetworkAddressControl() -> windows_core::BOOL {
@@ -291,7 +291,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetNewLinkInfoA(pszlinkto : windows_core::PCSTR, pszdir : windows_core::PCSTR, pszname : windows_core::PSTR, pfmustcopy : *mut windows_core::BOOL, uflags : u32) -> windows_core::BOOL);
-    unsafe { SHGetNewLinkInfoA(pszlinkto.param().abi(), pszdir.param().abi(), core::mem::transmute(pszname), pfmustcopy as _, uflags) }
+    unsafe { SHGetNewLinkInfoA(pszlinkto.param().abi(), pszdir.param().abi(), pszname, pfmustcopy as _, uflags) }
 }
 #[inline]
 pub unsafe fn SHGetNewLinkInfoW<P0, P1>(pszlinkto: P0, pszdir: P1, pszname: windows_core::PWSTR, pfmustcopy: *mut windows_core::BOOL, uflags: u32) -> windows_core::BOOL
@@ -300,7 +300,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("shell32.dll" "system" fn SHGetNewLinkInfoW(pszlinkto : windows_core::PCWSTR, pszdir : windows_core::PCWSTR, pszname : windows_core::PWSTR, pfmustcopy : *mut windows_core::BOOL, uflags : u32) -> windows_core::BOOL);
-    unsafe { SHGetNewLinkInfoW(pszlinkto.param().abi(), pszdir.param().abi(), core::mem::transmute(pszname), pfmustcopy as _, uflags) }
+    unsafe { SHGetNewLinkInfoW(pszlinkto.param().abi(), pszdir.param().abi(), pszname, pfmustcopy as _, uflags) }
 }
 #[cfg(feature = "windef")]
 #[inline]

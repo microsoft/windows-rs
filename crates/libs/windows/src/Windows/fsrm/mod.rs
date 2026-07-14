@@ -1109,7 +1109,7 @@ impl IFsrmCollection {
     pub unsafe fn GetById(&self, id: super::fsrmenums::FSRM_OBJECT_ID) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetById)(windows_core::Interface::as_raw(self), core::mem::transmute(id), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).GetById)(windows_core::Interface::as_raw(self), id, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -1397,35 +1397,35 @@ windows_core::imp::interface_hierarchy!(IFsrmExportImport, windows_core::IUnknow
 impl IFsrmExportImport {
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ExportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::oaidl::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ExportFileGroups)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute(filegroupnamessafearray), core::mem::transmute_copy(remotehost)) }
+        unsafe { (windows_core::Interface::vtable(self).ExportFileGroups)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), filegroupnamessafearray, core::mem::transmute_copy(remotehost)) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ImportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::oaidl::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ImportFileGroups)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute(filegroupnamessafearray), core::mem::transmute_copy(remotehost), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ImportFileGroups)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), filegroupnamessafearray, core::mem::transmute_copy(remotehost), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ExportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::oaidl::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ExportFileScreenTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute(templatenamessafearray), core::mem::transmute_copy(remotehost)) }
+        unsafe { (windows_core::Interface::vtable(self).ExportFileScreenTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), templatenamessafearray, core::mem::transmute_copy(remotehost)) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ImportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::oaidl::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ImportFileScreenTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute(templatenamessafearray), core::mem::transmute_copy(remotehost), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ImportFileScreenTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), templatenamessafearray, core::mem::transmute_copy(remotehost), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ExportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::oaidl::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ExportQuotaTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute(templatenamessafearray), core::mem::transmute_copy(remotehost)) }
+        unsafe { (windows_core::Interface::vtable(self).ExportQuotaTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), templatenamessafearray, core::mem::transmute_copy(remotehost)) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ImportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::oaidl::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ImportQuotaTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute(templatenamessafearray), core::mem::transmute_copy(remotehost), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ImportQuotaTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), templatenamessafearray, core::mem::transmute_copy(remotehost), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1563,7 +1563,7 @@ impl IFsrmMutableCollection {
     }
     #[cfg(feature = "fsrmenums")]
     pub unsafe fn RemoveById(&self, id: super::fsrmenums::FSRM_OBJECT_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RemoveById)(windows_core::Interface::as_raw(self), core::mem::transmute(id)) }
+        unsafe { (windows_core::Interface::vtable(self).RemoveById)(windows_core::Interface::as_raw(self), id) }
     }
     pub unsafe fn Clone(&self) -> windows_core::Result<Self> {
         unsafe {

@@ -730,9 +730,12 @@ impl CppMethod {
                             }
                         }
                         ParamHint::Blittable => {
-                            if config.bindgen.style.is_minimal() {
-                                // In minimal mode, blittable types ARE their ABI
-                                // representation — no transmute needed.
+                            // A blittable (copyable) param's Rust type usually matches
+                            // its ABI type, making the transmute redundant. It is only
+                            // needed when the two differ (e.g. a generic's `AbiType`).
+                            if param.write_default(config).to_string()
+                                == param.write_abi(config).to_string()
+                            {
                                 quote! { #name, }
                             } else {
                                 quote! { core::mem::transmute(#name), }

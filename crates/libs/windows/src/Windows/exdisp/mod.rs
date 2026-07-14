@@ -1084,7 +1084,7 @@ impl IShellUIHelper {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn NavigateAndFind(&self, url: &windows_core::BSTR, strquery: &windows_core::BSTR, vartargetframe: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).NavigateAndFind)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url), core::mem::transmute_copy(strquery), core::mem::transmute(vartargetframe)) }
+        unsafe { (windows_core::Interface::vtable(self).NavigateAndFind)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(url), core::mem::transmute_copy(strquery), vartargetframe) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn ImportExportFavorites(&self, fimport: super::wtypes::VARIANT_BOOL, strimpexppath: &windows_core::BSTR) -> windows_core::HRESULT {
@@ -1106,7 +1106,7 @@ impl IShellUIHelper {
     pub unsafe fn ShowBrowserUI(&self, bstrname: &windows_core::BSTR, pvarin: *const super::oaidl::VARIANT) -> windows_core::Result<super::oaidl::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ShowBrowserUI)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute(pvarin), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).ShowBrowserUI)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), pvarin, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -3050,7 +3050,7 @@ impl IShellWindows {
     pub unsafe fn RegisterPending(&self, lthreadid: i32, pvarloc: *const super::oaidl::VARIANT, pvarlocroot: *const super::oaidl::VARIANT, swclass: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RegisterPending)(windows_core::Interface::as_raw(self), lthreadid, core::mem::transmute(pvarloc), core::mem::transmute(pvarlocroot), swclass, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).RegisterPending)(windows_core::Interface::as_raw(self), lthreadid, pvarloc, pvarlocroot, swclass, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn Revoke(&self, lcookie: i32) -> windows_core::HRESULT {
@@ -3058,7 +3058,7 @@ impl IShellWindows {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnNavigate(&self, lcookie: i32, pvarloc: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnNavigate)(windows_core::Interface::as_raw(self), lcookie, core::mem::transmute(pvarloc)) }
+        unsafe { (windows_core::Interface::vtable(self).OnNavigate)(windows_core::Interface::as_raw(self), lcookie, pvarloc) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn OnActivated(&self, lcookie: i32, factive: super::wtypes::VARIANT_BOOL) -> windows_core::HRESULT {
@@ -3068,7 +3068,7 @@ impl IShellWindows {
     pub unsafe fn FindWindowSW(&self, pvarloc: *const super::oaidl::VARIANT, pvarlocroot: *const super::oaidl::VARIANT, swclass: i32, phwnd: *mut i32, swfwoptions: i32) -> windows_core::Result<super::oaidl::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindWindowSW)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarloc), core::mem::transmute(pvarlocroot), swclass, phwnd as _, swfwoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).FindWindowSW)(windows_core::Interface::as_raw(self), pvarloc, pvarlocroot, swclass, phwnd as _, swfwoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn OnCreated<P1>(&self, lcookie: i32, punk: P1) -> windows_core::HRESULT
@@ -3741,7 +3741,7 @@ windows_core::imp::interface_hierarchy!(IWebBrowser2, windows_core::IUnknown, su
 impl IWebBrowser2 {
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Navigate2(&self, url: *const super::oaidl::VARIANT, flags: Option<*const super::oaidl::VARIANT>, targetframename: Option<*const super::oaidl::VARIANT>, postdata: Option<*const super::oaidl::VARIANT>, headers: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Navigate2)(windows_core::Interface::as_raw(self), core::mem::transmute(url), flags.unwrap_or(core::mem::zeroed()) as _, targetframename.unwrap_or(core::mem::zeroed()) as _, postdata.unwrap_or(core::mem::zeroed()) as _, headers.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Navigate2)(windows_core::Interface::as_raw(self), url, flags.unwrap_or(core::mem::zeroed()) as _, targetframename.unwrap_or(core::mem::zeroed()) as _, postdata.unwrap_or(core::mem::zeroed()) as _, headers.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "docobj")]
     pub unsafe fn QueryStatusWB(&self, cmdid: super::docobj::OLECMDID) -> windows_core::Result<super::docobj::OLECMDF> {
@@ -3756,7 +3756,7 @@ impl IWebBrowser2 {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn ShowBrowserBar(&self, pvaclsid: *const super::oaidl::VARIANT, pvarshow: Option<*const super::oaidl::VARIANT>, pvarsize: Option<*const super::oaidl::VARIANT>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ShowBrowserBar)(windows_core::Interface::as_raw(self), core::mem::transmute(pvaclsid), pvarshow.unwrap_or(core::mem::zeroed()) as _, pvarsize.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).ShowBrowserBar)(windows_core::Interface::as_raw(self), pvaclsid, pvarshow.unwrap_or(core::mem::zeroed()) as _, pvarsize.unwrap_or(core::mem::zeroed()) as _) }
     }
     #[cfg(feature = "ocidl")]
     pub unsafe fn ReadyState(&self) -> windows_core::Result<super::ocidl::READYSTATE> {

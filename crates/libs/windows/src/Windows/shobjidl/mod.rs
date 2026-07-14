@@ -346,7 +346,7 @@ windows_core::imp::define_interface!(ICDBurn, ICDBurn_Vtbl, 0x3d73a659_e5d0_4d42
 windows_core::imp::interface_hierarchy!(ICDBurn, windows_core::IUnknown);
 impl ICDBurn {
     pub unsafe fn GetRecorderDriveLetter(&self, pszdrive: windows_core::PWSTR, cch: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRecorderDriveLetter)(windows_core::Interface::as_raw(self), core::mem::transmute(pszdrive), cch) }
+        unsafe { (windows_core::Interface::vtable(self).GetRecorderDriveLetter)(windows_core::Interface::as_raw(self), pszdrive, cch) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn Burn(&self, hwnd: super::windef::HWND) -> windows_core::HRESULT {
@@ -477,7 +477,7 @@ impl ICommDlgBrowser3 {
         unsafe { (windows_core::Interface::vtable(self).OnColumnClicked)(windows_core::Interface::as_raw(self), ppshv.param().abi(), icolumn) }
     }
     pub unsafe fn GetCurrentFilter(&self, pszfilespec: windows_core::PWSTR, cchfilespec: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetCurrentFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfilespec), cchfilespec) }
+        unsafe { (windows_core::Interface::vtable(self).GetCurrentFilter)(windows_core::Interface::as_raw(self), pszfilespec, cchfilespec) }
     }
     #[cfg(feature = "oleidl")]
     pub unsafe fn OnPreViewCreated<P0>(&self, ppshv: P0) -> windows_core::HRESULT
@@ -1659,11 +1659,11 @@ impl INameSpaceTreeControlCustomDraw {
     }
     #[cfg(all(feature = "commctrl", feature = "minwindef", feature = "shobjidl_core", feature = "windef"))]
     pub unsafe fn ItemPrePaint(&self, hdc: super::windef::HDC, prc: *const super::windef::RECT, pnstccditem: *const NSTCCUSTOMDRAW, pclrtext: *mut super::windef::COLORREF, pclrtextbk: *mut super::windef::COLORREF, plres: *mut super::minwindef::LRESULT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ItemPrePaint)(windows_core::Interface::as_raw(self), hdc, prc, core::mem::transmute(pnstccditem), pclrtext as _, pclrtextbk as _, plres as _) }
+        unsafe { (windows_core::Interface::vtable(self).ItemPrePaint)(windows_core::Interface::as_raw(self), hdc, prc, pnstccditem, pclrtext as _, pclrtextbk as _, plres as _) }
     }
     #[cfg(all(feature = "commctrl", feature = "shobjidl_core", feature = "windef"))]
     pub unsafe fn ItemPostPaint(&self, hdc: super::windef::HDC, prc: *const super::windef::RECT, pnstccditem: *const NSTCCUSTOMDRAW) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ItemPostPaint)(windows_core::Interface::as_raw(self), hdc, prc, core::mem::transmute(pnstccditem)) }
+        unsafe { (windows_core::Interface::vtable(self).ItemPostPaint)(windows_core::Interface::as_raw(self), hdc, prc, pnstccditem) }
     }
 }
 #[repr(C)]

@@ -499,7 +499,7 @@ impl IVdsAsync {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)) }
     }
     pub unsafe fn Wait(&self, phrresult: *mut windows_core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), phrresult as _, core::mem::transmute(pasyncout)) }
+        unsafe { (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), phrresult as _, pasyncout) }
     }
     pub unsafe fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, pulpercentcompleted: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).QueryStatus)(windows_core::Interface::as_raw(self), phrresult as _, pulpercentcompleted as _) }
@@ -1525,14 +1525,14 @@ impl IVdsHwProviderStoragePools {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateLunInStoragePool)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, core::mem::transmute(storagepoolid), pwszunmaskinglist.param().abi(), phints2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateLunInStoragePool)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, storagepoolid, pwszunmaskinglist.param().abi(), phints2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "vdslun")]
     pub unsafe fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: VDS_OBJECT_ID, phints2: *const VDS_HINTS2) -> windows_core::Result<u64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryMaxLunCreateSizeInStoragePool)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(storagepoolid), phints2, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).QueryMaxLunCreateSizeInStoragePool)(windows_core::Interface::as_raw(self), r#type, storagepoolid, phints2, &mut result__).map(|| result__)
         }
     }
 }
@@ -1706,13 +1706,13 @@ impl IVdsIscsiInitiatorAdapter {
     pub unsafe fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: VDS_OBJECT_ID, targetportalid: VDS_OBJECT_ID, initiatorportalid: VDS_OBJECT_ID, ulloginflags: u32, bheaderdigest: bool, bdatadigest: bool, authtype: VDS_ISCSI_AUTH_TYPE) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LoginToTarget)(windows_core::Interface::as_raw(self), logintype, core::mem::transmute(targetid), core::mem::transmute(targetportalid), core::mem::transmute(initiatorportalid), ulloginflags, bheaderdigest.into(), bdatadigest.into(), authtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LoginToTarget)(windows_core::Interface::as_raw(self), logintype, targetid, targetportalid, initiatorportalid, ulloginflags, bheaderdigest.into(), bdatadigest.into(), authtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn LogoutFromTarget(&self, targetid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).LogoutFromTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(targetid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).LogoutFromTarget)(windows_core::Interface::as_raw(self), targetid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -1806,11 +1806,11 @@ impl IVdsIscsiInitiatorPortal {
     pub unsafe fn GetIpsecSecurity(&self, targetportalid: VDS_OBJECT_ID) -> windows_core::Result<u64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetIpsecSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(targetportalid), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetIpsecSecurity)(windows_core::Interface::as_raw(self), targetportalid, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn SetIpsecSecurity(&self, targetportalid: VDS_OBJECT_ID, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetIpsecSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(targetportalid), ullsecurityflags, pipseckey) }
+        unsafe { (windows_core::Interface::vtable(self).SetIpsecSecurity)(windows_core::Interface::as_raw(self), targetportalid, ullsecurityflags, pipseckey) }
     }
 }
 #[repr(C)]
@@ -2042,13 +2042,13 @@ impl IVdsIscsiPortalGroup {
     pub unsafe fn AddPortal(&self, portalid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddPortal)(windows_core::Interface::as_raw(self), core::mem::transmute(portalid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddPortal)(windows_core::Interface::as_raw(self), portalid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemovePortal(&self, portalid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemovePortal)(windows_core::Interface::as_raw(self), core::mem::transmute(portalid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RemovePortal)(windows_core::Interface::as_raw(self), portalid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Delete(&self) -> windows_core::Result<IVdsAsync> {
@@ -2430,13 +2430,13 @@ impl IVdsLun {
     pub unsafe fn AddPlex(&self, lunid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddPlex)(windows_core::Interface::as_raw(self), core::mem::transmute(lunid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddPlex)(windows_core::Interface::as_raw(self), lunid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemovePlex(&self, plexid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemovePlex)(windows_core::Interface::as_raw(self), core::mem::transmute(plexid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RemovePlex)(windows_core::Interface::as_raw(self), plexid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Recover(&self) -> windows_core::Result<IVdsAsync> {
@@ -3364,19 +3364,19 @@ impl IVdsPack {
         }
     }
     pub unsafe fn AddDisk(&self, diskid: VDS_OBJECT_ID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddDisk)(windows_core::Interface::as_raw(self), core::mem::transmute(diskid), partitionstyle, bashotspare.into()) }
+        unsafe { (windows_core::Interface::vtable(self).AddDisk)(windows_core::Interface::as_raw(self), diskid, partitionstyle, bashotspare.into()) }
     }
     pub unsafe fn MigrateDisks(&self, pdiskarray: *const VDS_OBJECT_ID, lnumberofdisks: i32, targetpack: VDS_OBJECT_ID, bforce: bool, bqueryonly: bool, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).MigrateDisks)(windows_core::Interface::as_raw(self), pdiskarray, lnumberofdisks, core::mem::transmute(targetpack), bforce.into(), bqueryonly.into(), presults as _, pbrebootneeded as _) }
+        unsafe { (windows_core::Interface::vtable(self).MigrateDisks)(windows_core::Interface::as_raw(self), pdiskarray, lnumberofdisks, targetpack, bforce.into(), bqueryonly.into(), presults as _, pbrebootneeded as _) }
     }
     pub unsafe fn ReplaceDisk(&self, olddiskid: VDS_OBJECT_ID, newdiskid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ReplaceDisk)(windows_core::Interface::as_raw(self), core::mem::transmute(olddiskid), core::mem::transmute(newdiskid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).ReplaceDisk)(windows_core::Interface::as_raw(self), olddiskid, newdiskid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemoveMissingDisk(&self, diskid: VDS_OBJECT_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RemoveMissingDisk)(windows_core::Interface::as_raw(self), core::mem::transmute(diskid)) }
+        unsafe { (windows_core::Interface::vtable(self).RemoveMissingDisk)(windows_core::Interface::as_raw(self), diskid) }
     }
     pub unsafe fn Recover(&self) -> windows_core::Result<IVdsAsync> {
         unsafe {
@@ -3718,7 +3718,7 @@ impl IVdsService {
     pub unsafe fn GetObject(&self, objectid: VDS_OBJECT_ID, r#type: VDS_OBJECT_TYPE) -> windows_core::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(objectid), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), objectid, r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn QueryDriveLetters(&self, wcfirstletter: u16, count: u32, pdriveletterproparray: *mut VDS_DRIVE_LETTER_PROP) -> windows_core::HRESULT {
@@ -4061,13 +4061,13 @@ impl IVdsServiceIscsi {
         unsafe { (windows_core::Interface::vtable(self).SetAllIpsecTunnelAddresses)(windows_core::Interface::as_raw(self), ptunneladdress, pdestinationaddress) }
     }
     pub unsafe fn SetAllIpsecSecurity(&self, targetportalid: VDS_OBJECT_ID, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetAllIpsecSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(targetportalid), ullsecurityflags, pipseckey) }
+        unsafe { (windows_core::Interface::vtable(self).SetAllIpsecSecurity)(windows_core::Interface::as_raw(self), targetportalid, ullsecurityflags, pipseckey) }
     }
     pub unsafe fn SetInitiatorSharedSecret(&self, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET, targetid: VDS_OBJECT_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetInitiatorSharedSecret)(windows_core::Interface::as_raw(self), pinitiatorsharedsecret, core::mem::transmute(targetid)) }
+        unsafe { (windows_core::Interface::vtable(self).SetInitiatorSharedSecret)(windows_core::Interface::as_raw(self), pinitiatorsharedsecret, targetid) }
     }
     pub unsafe fn RememberTargetSharedSecret(&self, targetid: VDS_OBJECT_ID, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RememberTargetSharedSecret)(windows_core::Interface::as_raw(self), core::mem::transmute(targetid), ptargetsharedsecret) }
+        unsafe { (windows_core::Interface::vtable(self).RememberTargetSharedSecret)(windows_core::Interface::as_raw(self), targetid, ptargetsharedsecret) }
     }
 }
 #[repr(C)]
@@ -4546,7 +4546,7 @@ impl IVdsSubSystem {
         }
     }
     pub unsafe fn ReplaceDrive(&self, drivetobereplaced: VDS_OBJECT_ID, replacementdrive: VDS_OBJECT_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReplaceDrive)(windows_core::Interface::as_raw(self), core::mem::transmute(drivetobereplaced), core::mem::transmute(replacementdrive)) }
+        unsafe { (windows_core::Interface::vtable(self).ReplaceDrive)(windows_core::Interface::as_raw(self), drivetobereplaced, replacementdrive) }
     }
     pub unsafe fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), status) }
@@ -5408,19 +5408,19 @@ impl IVdsVolume {
     pub unsafe fn AddPlex(&self, volumeid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).AddPlex)(windows_core::Interface::as_raw(self), core::mem::transmute(volumeid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).AddPlex)(windows_core::Interface::as_raw(self), volumeid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn BreakPlex(&self, plexid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).BreakPlex)(windows_core::Interface::as_raw(self), core::mem::transmute(plexid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).BreakPlex)(windows_core::Interface::as_raw(self), plexid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn RemovePlex(&self, plexid: VDS_OBJECT_ID) -> windows_core::Result<IVdsAsync> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RemovePlex)(windows_core::Interface::as_raw(self), core::mem::transmute(plexid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RemovePlex)(windows_core::Interface::as_raw(self), plexid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn Delete(&self, bforce: bool) -> windows_core::HRESULT {

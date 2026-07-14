@@ -163,7 +163,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerA(serviceclass : windows_core::PCSTR, servicename : windows_core::PCSTR, pcspnlength : *mut u32, pszspn : windows_core::PSTR) -> u32);
-    unsafe { DsClientMakeSpnForTargetServerA(serviceclass.param().abi(), servicename.param().abi(), pcspnlength as _, core::mem::transmute(pszspn)) }
+    unsafe { DsClientMakeSpnForTargetServerA(serviceclass.param().abi(), servicename.param().abi(), pcspnlength as _, pszspn) }
 }
 #[inline]
 pub unsafe fn DsClientMakeSpnForTargetServerW<P0, P1>(serviceclass: P0, servicename: P1, pcspnlength: *mut u32, pszspn: windows_core::PWSTR) -> u32
@@ -172,7 +172,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("ntdsapi.dll" "system" fn DsClientMakeSpnForTargetServerW(serviceclass : windows_core::PCWSTR, servicename : windows_core::PCWSTR, pcspnlength : *mut u32, pszspn : windows_core::PWSTR) -> u32);
-    unsafe { DsClientMakeSpnForTargetServerW(serviceclass.param().abi(), servicename.param().abi(), pcspnlength as _, core::mem::transmute(pszspn)) }
+    unsafe { DsClientMakeSpnForTargetServerW(serviceclass.param().abi(), servicename.param().abi(), pcspnlength as _, pszspn) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

@@ -485,7 +485,7 @@ windows_core::imp::define_interface!(IEnumConnections, IEnumConnections_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IEnumConnections, windows_core::IUnknown);
 impl IEnumConnections {
     pub unsafe fn Next(&self, cconnections: u32, rgcd: *mut CONNECTDATA, pcfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cconnections, core::mem::transmute(rgcd), pcfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cconnections, rgcd, pcfetched as _) }
     }
     pub unsafe fn Skip(&self, cconnections: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cconnections) }
@@ -660,7 +660,7 @@ impl IFont {
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn put_Size(&self, size: super::wtypes::CY) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).put_Size)(windows_core::Interface::as_raw(self), core::mem::transmute(size)) }
+        unsafe { (windows_core::Interface::vtable(self).put_Size)(windows_core::Interface::as_raw(self), size) }
     }
     pub unsafe fn get_Bold(&self) -> windows_core::Result<windows_core::BOOL> {
         unsafe {
@@ -3421,11 +3421,11 @@ impl IPropertyBag2 {
     where
         P2: windows_core::Param<super::oaidl::IErrorLog>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), cproperties, ppropbag, perrlog.param().abi(), core::mem::transmute(pvarvalue), phrerror as _) }
+        unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), cproperties, ppropbag, perrlog.param().abi(), pvarvalue, phrerror as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Write(&self, cproperties: u32, ppropbag: *const PROPBAG2, pvarvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), cproperties, ppropbag, core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), cproperties, ppropbag, pvarvalue) }
     }
     pub unsafe fn CountProperties(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -4079,7 +4079,7 @@ windows_core::imp::interface_hierarchy!(IQuickActivate, windows_core::IUnknown);
 impl IQuickActivate {
     #[cfg(all(feature = "objidl", feature = "oleidl", feature = "servprov", feature = "urlmon", feature = "windef"))]
     pub unsafe fn QuickActivate(&self, pqacontainer: *const QACONTAINER, pqacontrol: *mut QACONTROL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).QuickActivate)(windows_core::Interface::as_raw(self), core::mem::transmute(pqacontainer), pqacontrol as _) }
+        unsafe { (windows_core::Interface::vtable(self).QuickActivate)(windows_core::Interface::as_raw(self), pqacontainer, pqacontrol as _) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SetContentExtent(&self, psizel: *const super::windef::SIZE) -> windows_core::HRESULT {
@@ -4283,7 +4283,7 @@ impl IViewObjectEx {
     pub unsafe fn QueryHitPoint(&self, dwaspect: u32, prectbounds: *const super::windef::RECT, ptlloc: super::windef::POINT, lclosehint: i32) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).QueryHitPoint)(windows_core::Interface::as_raw(self), dwaspect, prectbounds, core::mem::transmute(ptlloc), lclosehint, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).QueryHitPoint)(windows_core::Interface::as_raw(self), dwaspect, prectbounds, ptlloc, lclosehint, &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "windef")]

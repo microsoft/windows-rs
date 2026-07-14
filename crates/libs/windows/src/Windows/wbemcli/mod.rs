@@ -450,14 +450,14 @@ impl IWbemClassObject {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, core::mem::transmute(pval), ptype as _, plflavor as _) }
+        unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, pval, ptype as _, plflavor as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Put<P0>(&self, wszname: P0, lflags: i32, pval: *const super::oaidl::VARIANT, r#type: CIMTYPE) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Put)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, core::mem::transmute(pval), r#type) }
+        unsafe { (windows_core::Interface::vtable(self).Put)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, pval, r#type) }
     }
     pub unsafe fn Delete<P0>(&self, wszname: P0) -> windows_core::HRESULT
     where
@@ -472,7 +472,7 @@ impl IWbemClassObject {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetNames)(windows_core::Interface::as_raw(self), wszqualifiername.param().abi(), lflags, core::mem::transmute(pqualifierval), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetNames)(windows_core::Interface::as_raw(self), wszqualifiername.param().abi(), lflags, pqualifierval, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn BeginEnumeration(&self, lenumflags: i32) -> windows_core::HRESULT {
@@ -480,7 +480,7 @@ impl IWbemClassObject {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, lflags: i32, strname: *mut windows_core::BSTR, pval: *mut super::oaidl::VARIANT, ptype: *mut CIMTYPE, plflavor: *mut i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(strname), core::mem::transmute(pval), ptype as _, plflavor as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(strname), pval, ptype as _, plflavor as _) }
     }
     pub unsafe fn EndEnumeration(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndEnumeration)(windows_core::Interface::as_raw(self)) }
@@ -1017,7 +1017,7 @@ impl IWbemContext {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, lflags: i32, pstrname: *mut windows_core::BSTR, pvalue: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(pstrname), core::mem::transmute(pvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(pstrname), pvalue) }
     }
     pub unsafe fn EndEnumeration(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndEnumeration)(windows_core::Interface::as_raw(self)) }
@@ -1027,7 +1027,7 @@ impl IWbemContext {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, core::mem::transmute(pvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, pvalue) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue<P0>(&self, wszname: P0, lflags: i32) -> windows_core::Result<super::oaidl::VARIANT>
@@ -1551,7 +1551,7 @@ impl IWbemObjectSinkEx {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn WriteStreamParameter(&self, strname: &windows_core::BSTR, vtvalue: *const super::oaidl::VARIANT, ultype: u32, ulflags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).WriteStreamParameter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), core::mem::transmute(vtvalue), ultype, ulflags) }
+        unsafe { (windows_core::Interface::vtable(self).WriteStreamParameter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strname), vtvalue, ultype, ulflags) }
     }
 }
 #[repr(C)]
@@ -1714,14 +1714,14 @@ impl IWbemQualifierSet {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, core::mem::transmute(pval), plflavor as _) }
+        unsafe { (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), wszname.param().abi(), lflags, pval, plflavor as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Put<P0>(&self, wszname: P0, pval: *const super::oaidl::VARIANT, lflavor: i32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).Put)(windows_core::Interface::as_raw(self), wszname.param().abi(), core::mem::transmute(pval), lflavor) }
+        unsafe { (windows_core::Interface::vtable(self).Put)(windows_core::Interface::as_raw(self), wszname.param().abi(), pval, lflavor) }
     }
     pub unsafe fn Delete<P0>(&self, wszname: P0) -> windows_core::HRESULT
     where
@@ -1741,7 +1741,7 @@ impl IWbemQualifierSet {
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, lflags: i32, pstrname: *mut windows_core::BSTR, pval: *mut super::oaidl::VARIANT, plflavor: *mut i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(pstrname), core::mem::transmute(pval), plflavor as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), lflags, core::mem::transmute(pstrname), pval, plflavor as _) }
     }
     pub unsafe fn EndEnumeration(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).EndEnumeration)(windows_core::Interface::as_raw(self)) }

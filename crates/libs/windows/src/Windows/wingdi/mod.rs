@@ -52,7 +52,7 @@ where
 #[inline]
 pub unsafe fn AlphaBlend(hdcdest: super::windef::HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: super::windef::HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> windows_core::BOOL {
     windows_core::link!("msimg32.dll" "system" fn AlphaBlend(hdcdest : super::windef::HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : super::windef::HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, ftn : BLENDFUNCTION) -> windows_core::BOOL);
-    unsafe { AlphaBlend(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, core::mem::transmute(ftn)) }
+    unsafe { AlphaBlend(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, ftn) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -767,7 +767,7 @@ pub unsafe fn FrameRgn(hdc: super::windef::HDC, hrgn: super::minwindef::HRGN, hb
 #[inline]
 pub unsafe fn GdiAlphaBlend(hdcdest: super::windef::HDC, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: super::windef::HDC, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: BLENDFUNCTION) -> windows_core::BOOL {
     windows_core::link!("gdi32.dll" "system" fn GdiAlphaBlend(hdcdest : super::windef::HDC, xorigindest : i32, yorigindest : i32, wdest : i32, hdest : i32, hdcsrc : super::windef::HDC, xoriginsrc : i32, yoriginsrc : i32, wsrc : i32, hsrc : i32, ftn : BLENDFUNCTION) -> windows_core::BOOL);
-    unsafe { GdiAlphaBlend(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, core::mem::transmute(ftn)) }
+    unsafe { GdiAlphaBlend(hdcdest, xorigindest, yorigindest, wdest, hdest, hdcsrc, xoriginsrc, yoriginsrc, wsrc, hsrc, ftn) }
 }
 #[cfg(feature = "windef")]
 #[inline]

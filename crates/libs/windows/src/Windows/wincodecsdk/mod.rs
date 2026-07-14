@@ -776,11 +776,11 @@ impl IWICMetadataReader {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValueByIndex(&self, nindex: u32, pvarschema: *mut super::propidlbase::PROPVARIANT, pvarid: *mut super::propidlbase::PROPVARIANT, pvarvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetValueByIndex)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute(pvarschema), core::mem::transmute(pvarid), core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).GetValueByIndex)(windows_core::Interface::as_raw(self), nindex, pvarschema, pvarid, pvarvalue) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValue(&self, pvarschema: *const super::propidlbase::PROPVARIANT, pvarid: *const super::propidlbase::PROPVARIANT, pvarvalue: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarschema), core::mem::transmute(pvarid), core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), pvarschema, pvarid, pvarvalue) }
     }
     #[cfg(feature = "wincodec")]
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<super::wincodec::IWICEnumMetadataItem> {
@@ -1009,15 +1009,15 @@ windows_core::imp::interface_hierarchy!(IWICMetadataWriter, windows_core::IUnkno
 impl IWICMetadataWriter {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, pvarschema: *const super::propidlbase::PROPVARIANT, pvarid: *const super::propidlbase::PROPVARIANT, pvarvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarschema), core::mem::transmute(pvarid), core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), pvarschema, pvarid, pvarvalue) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValueByIndex(&self, nindex: u32, pvarschema: *const super::propidlbase::PROPVARIANT, pvarid: *const super::propidlbase::PROPVARIANT, pvarvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValueByIndex)(windows_core::Interface::as_raw(self), nindex, core::mem::transmute(pvarschema), core::mem::transmute(pvarid), core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetValueByIndex)(windows_core::Interface::as_raw(self), nindex, pvarschema, pvarid, pvarvalue) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RemoveValue(&self, pvarschema: *const super::propidlbase::PROPVARIANT, pvarid: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RemoveValue)(windows_core::Interface::as_raw(self), core::mem::transmute(pvarschema), core::mem::transmute(pvarid)) }
+        unsafe { (windows_core::Interface::vtable(self).RemoveValue)(windows_core::Interface::as_raw(self), pvarschema, pvarid) }
     }
     pub unsafe fn RemoveValueByIndex(&self, nindex: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveValueByIndex)(windows_core::Interface::as_raw(self), nindex) }

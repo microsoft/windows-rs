@@ -8,7 +8,7 @@ impl IWbemPath {
         unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), umode, pszpath.param().abi()) }
     }
     pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), lflags, pubufflength as _, core::mem::transmute(psztext)) }
+        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), lflags, pubufflength as _, psztext) }
     }
     pub unsafe fn GetInfo(&self, urequestedinfo: u32) -> windows_core::Result<u64> {
         unsafe {
@@ -23,7 +23,7 @@ impl IWbemPath {
         unsafe { (windows_core::Interface::vtable(self).SetServer)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
     pub unsafe fn GetServer(&self, punamebuflength: *mut u32, pname: windows_core::PWSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetServer)(windows_core::Interface::as_raw(self), punamebuflength as _, core::mem::transmute(pname)) }
+        unsafe { (windows_core::Interface::vtable(self).GetServer)(windows_core::Interface::as_raw(self), punamebuflength as _, pname) }
     }
     pub unsafe fn GetNamespaceCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -38,7 +38,7 @@ impl IWbemPath {
         unsafe { (windows_core::Interface::vtable(self).SetNamespaceAt)(windows_core::Interface::as_raw(self), uindex, pszname.param().abi()) }
     }
     pub unsafe fn GetNamespaceAt(&self, uindex: u32, punamebuflength: *mut u32, pname: windows_core::PWSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetNamespaceAt)(windows_core::Interface::as_raw(self), uindex, punamebuflength as _, core::mem::transmute(pname)) }
+        unsafe { (windows_core::Interface::vtable(self).GetNamespaceAt)(windows_core::Interface::as_raw(self), uindex, punamebuflength as _, pname) }
     }
     pub unsafe fn RemoveNamespaceAt(&self, uindex: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveNamespaceAt)(windows_core::Interface::as_raw(self), uindex) }
@@ -65,10 +65,10 @@ impl IWbemPath {
         unsafe { (windows_core::Interface::vtable(self).SetScopeFromText)(windows_core::Interface::as_raw(self), uindex, psztext.param().abi()) }
     }
     pub unsafe fn GetScope(&self, uindex: u32, puclassnamebufsize: *mut u32, pszclass: windows_core::PWSTR, pkeylist: *mut Option<IWbemPathKeyList>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetScope)(windows_core::Interface::as_raw(self), uindex, puclassnamebufsize as _, core::mem::transmute(pszclass), core::mem::transmute(pkeylist)) }
+        unsafe { (windows_core::Interface::vtable(self).GetScope)(windows_core::Interface::as_raw(self), uindex, puclassnamebufsize as _, pszclass, core::mem::transmute(pkeylist)) }
     }
     pub unsafe fn GetScopeAsText(&self, uindex: u32, putextbufsize: *mut u32, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetScopeAsText)(windows_core::Interface::as_raw(self), uindex, putextbufsize as _, core::mem::transmute(psztext)) }
+        unsafe { (windows_core::Interface::vtable(self).GetScopeAsText)(windows_core::Interface::as_raw(self), uindex, putextbufsize as _, psztext) }
     }
     pub unsafe fn RemoveScope(&self, uindex: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemoveScope)(windows_core::Interface::as_raw(self), uindex) }
@@ -423,14 +423,14 @@ impl IWbemPathKeyList {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetKey2)(windows_core::Interface::as_raw(self), wszname.param().abi(), uflags, ucimtype, core::mem::transmute(pkeyval)) }
+        unsafe { (windows_core::Interface::vtable(self).SetKey2)(windows_core::Interface::as_raw(self), wszname.param().abi(), uflags, ucimtype, pkeyval) }
     }
     pub unsafe fn GetKey(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: Option<windows_core::PWSTR>, pukeyvalbufsize: *mut u32, pkeyval: *mut core::ffi::c_void, puapparentcimtype: *mut u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetKey)(windows_core::Interface::as_raw(self), ukeyix, uflags, punamebufsize as _, pszkeyname.unwrap_or(core::mem::zeroed()) as _, pukeyvalbufsize as _, pkeyval as _, puapparentcimtype as _) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetKey2(&self, ukeyix: u32, uflags: u32, punamebufsize: *mut u32, pszkeyname: Option<windows_core::PWSTR>, pkeyvalue: *mut super::oaidl::VARIANT, puapparentcimtype: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetKey2)(windows_core::Interface::as_raw(self), ukeyix, uflags, punamebufsize as _, pszkeyname.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(pkeyvalue), puapparentcimtype as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetKey2)(windows_core::Interface::as_raw(self), ukeyix, uflags, punamebufsize as _, pszkeyname.unwrap_or(core::mem::zeroed()) as _, pkeyvalue, puapparentcimtype as _) }
     }
     pub unsafe fn RemoveKey<P0>(&self, wszname: P0, uflags: u32) -> windows_core::HRESULT
     where
@@ -452,7 +452,7 @@ impl IWbemPathKeyList {
         }
     }
     pub unsafe fn GetText(&self, lflags: i32, pubufflength: *mut u32, psztext: windows_core::PWSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), lflags, pubufflength as _, core::mem::transmute(psztext)) }
+        unsafe { (windows_core::Interface::vtable(self).GetText)(windows_core::Interface::as_raw(self), lflags, pubufflength as _, psztext) }
     }
 }
 #[repr(C)]

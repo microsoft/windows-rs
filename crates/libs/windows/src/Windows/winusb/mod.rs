@@ -7,7 +7,7 @@ pub unsafe fn WinUsb_AbortPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid:
 #[inline]
 pub unsafe fn WinUsb_ControlTransfer(interfacehandle: WINUSB_INTERFACE_HANDLE, setuppacket: WINUSB_SETUP_PACKET, buffer: Option<&mut [u8]>, lengthtransferred: Option<*mut u32>, overlapped: Option<*const super::minwinbase::OVERLAPPED>) -> windows_core::BOOL {
     windows_core::link!("winusb.dll" "system" fn WinUsb_ControlTransfer(interfacehandle : WINUSB_INTERFACE_HANDLE, setuppacket : WINUSB_SETUP_PACKET, buffer : *mut u8, bufferlength : u32, lengthtransferred : *mut u32, overlapped : *const super::minwinbase::OVERLAPPED) -> windows_core::BOOL);
-    unsafe { WinUsb_ControlTransfer(interfacehandle, core::mem::transmute(setuppacket), buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lengthtransferred.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WinUsb_ControlTransfer(interfacehandle, setuppacket, buffer.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), buffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lengthtransferred.unwrap_or(core::mem::zeroed()) as _, overlapped.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn WinUsb_FlushPipe(interfacehandle: WINUSB_INTERFACE_HANDLE, pipeid: u8) -> windows_core::BOOL {

@@ -353,7 +353,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("wlanapi.dll" "system" fn WlanSetProfileEapUserData(hclienthandle : super::winnt::HANDLE, pinterfaceguid : *const windows_core::GUID, strprofilename : windows_core::PCWSTR, eaptype : super::eaptypes::EAP_METHOD_TYPE, dwflags : u32, dweapuserdatasize : u32, pbeapuserdata : *const u8, preserved : *const core::ffi::c_void) -> u32);
-    unsafe { WlanSetProfileEapUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), core::mem::transmute(eaptype), dwflags, pbeapuserdata.map_or(0, |slice| slice.len().try_into().unwrap()), pbeapuserdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), preserved.unwrap_or(core::mem::zeroed()) as _) }
+    unsafe { WlanSetProfileEapUserData(hclienthandle, pinterfaceguid, strprofilename.param().abi(), eaptype, dwflags, pbeapuserdata.map_or(0, |slice| slice.len().try_into().unwrap()), pbeapuserdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

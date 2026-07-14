@@ -209,7 +209,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
     windows_core::link!("msi.dll" "system" fn MsiEnumComponentCostsA(hinstall : super::msi::MSIHANDLE, szcomponent : windows_core::PCSTR, dwindex : u32, istate : super::msi::INSTALLSTATE, szdrivebuf : windows_core::PSTR, pcchdrivebuf : *mut u32, picost : *mut i32, pitempcost : *mut i32) -> u32);
-    unsafe { MsiEnumComponentCostsA(hinstall, szcomponent.param().abi(), dwindex, istate, core::mem::transmute(szdrivebuf), pcchdrivebuf as _, picost as _, pitempcost as _) }
+    unsafe { MsiEnumComponentCostsA(hinstall, szcomponent.param().abi(), dwindex, istate, szdrivebuf, pcchdrivebuf as _, picost as _, pitempcost as _) }
 }
 #[cfg(feature = "msi")]
 #[inline]
@@ -218,7 +218,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("msi.dll" "system" fn MsiEnumComponentCostsW(hinstall : super::msi::MSIHANDLE, szcomponent : windows_core::PCWSTR, dwindex : u32, istate : super::msi::INSTALLSTATE, szdrivebuf : windows_core::PWSTR, pcchdrivebuf : *mut u32, picost : *mut i32, pitempcost : *mut i32) -> u32);
-    unsafe { MsiEnumComponentCostsW(hinstall, szcomponent.param().abi(), dwindex, istate, core::mem::transmute(szdrivebuf), pcchdrivebuf as _, picost as _, pitempcost as _) }
+    unsafe { MsiEnumComponentCostsW(hinstall, szcomponent.param().abi(), dwindex, istate, szdrivebuf, pcchdrivebuf as _, picost as _, pitempcost as _) }
 }
 #[cfg(feature = "msi")]
 #[inline]

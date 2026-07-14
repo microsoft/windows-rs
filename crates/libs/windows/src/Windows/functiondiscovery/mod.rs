@@ -632,7 +632,7 @@ impl IFunctionInstanceCollectionQuery {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddPropertyConstraint(&self, key: *const super::wtypes::PROPERTYKEY, pv: *const super::propidlbase::PROPVARIANT, enumpropertyconstraint: PropertyConstraint) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPropertyConstraint)(windows_core::Interface::as_raw(self), key, core::mem::transmute(pv), enumpropertyconstraint) }
+        unsafe { (windows_core::Interface::vtable(self).AddPropertyConstraint)(windows_core::Interface::as_raw(self), key, pv, enumpropertyconstraint) }
     }
     pub unsafe fn Execute(&self) -> windows_core::Result<IFunctionInstanceCollection> {
         unsafe {

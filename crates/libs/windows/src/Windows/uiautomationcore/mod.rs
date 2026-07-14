@@ -3600,7 +3600,7 @@ impl ITextProvider {
     pub unsafe fn RangeFromPoint(&self, point: UiaPoint) -> windows_core::Result<ITextRangeProvider> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RangeFromPoint)(windows_core::Interface::as_raw(self), core::mem::transmute(point), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RangeFromPoint)(windows_core::Interface::as_raw(self), point, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub unsafe fn DocumentRange(&self) -> windows_core::Result<ITextRangeProvider> {
@@ -4856,7 +4856,7 @@ impl IUIAutomationRegistrar {
         }
     }
     pub unsafe fn RegisterPattern(&self, pattern: *const UIAutomationPatternInfo, ppatternid: *mut PATTERNID, ppatternavailablepropertyid: *mut PROPERTYID, propertyidcount: u32, ppropertyids: *mut PROPERTYID, eventidcount: u32, peventids: *mut EVENTID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RegisterPattern)(windows_core::Interface::as_raw(self), core::mem::transmute(pattern), ppatternid as _, ppatternavailablepropertyid as _, propertyidcount, ppropertyids as _, eventidcount, peventids as _) }
+        unsafe { (windows_core::Interface::vtable(self).RegisterPattern)(windows_core::Interface::as_raw(self), pattern, ppatternid as _, ppatternavailablepropertyid as _, propertyidcount, ppropertyids as _, eventidcount, peventids as _) }
     }
 }
 #[repr(C)]

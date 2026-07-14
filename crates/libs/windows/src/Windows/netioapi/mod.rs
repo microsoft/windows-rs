@@ -283,7 +283,7 @@ pub unsafe fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut PMIB_IF_TABLE
 #[inline]
 pub unsafe fn GetInterfaceDnsSettings(interface: windows_core::GUID, settings: *mut DNS_INTERFACE_SETTINGS) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn GetInterfaceDnsSettings(interface : windows_core::GUID, settings : *mut DNS_INTERFACE_SETTINGS) -> super::bcrypt::NTSTATUS);
-    unsafe { GetInterfaceDnsSettings(core::mem::transmute(interface), settings as _) }
+    unsafe { GetInterfaceDnsSettings(interface, settings as _) }
 }
 #[cfg(all(feature = "bcrypt", feature = "ifdef"))]
 #[inline]
@@ -499,7 +499,7 @@ pub unsafe fn SetFlVirtualInterface(row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) ->
 #[inline]
 pub unsafe fn SetInterfaceDnsSettings(interface: windows_core::GUID, settings: *const DNS_INTERFACE_SETTINGS) -> super::bcrypt::NTSTATUS {
     windows_core::link!("iphlpapi.dll" "system" fn SetInterfaceDnsSettings(interface : windows_core::GUID, settings : *const DNS_INTERFACE_SETTINGS) -> super::bcrypt::NTSTATUS);
-    unsafe { SetInterfaceDnsSettings(core::mem::transmute(interface), settings) }
+    unsafe { SetInterfaceDnsSettings(interface, settings) }
 }
 #[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]

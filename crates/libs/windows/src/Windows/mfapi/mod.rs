@@ -174,7 +174,7 @@ where
     P0: windows_core::Param<super::mfobjects::IMFMediaType>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFCreateAMMediaTypeFromMFMediaType(pmftype : *mut core::ffi::c_void, guidformatblocktype : windows_core::GUID, ppamtype : *mut *mut super::strmif::AM_MEDIA_TYPE) -> windows_core::HRESULT);
-    unsafe { MFCreateAMMediaTypeFromMFMediaType(pmftype.param().abi(), core::mem::transmute(guidformatblocktype), ppamtype as _) }
+    unsafe { MFCreateAMMediaTypeFromMFMediaType(pmftype.param().abi(), guidformatblocktype, ppamtype as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -380,7 +380,7 @@ pub unsafe fn MFCreateMediaTypeFromRepresentation(guidrepresentation: windows_co
     windows_core::link!("mfplat.dll" "system" fn MFCreateMediaTypeFromRepresentation(guidrepresentation : windows_core::GUID, pvrepresentation : *const core::ffi::c_void, ppimediatype : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        MFCreateMediaTypeFromRepresentation(core::mem::transmute(guidrepresentation), pvrepresentation, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        MFCreateMediaTypeFromRepresentation(guidrepresentation, pvrepresentation, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
     }
 }
 #[cfg(feature = "mfobjects")]
@@ -676,7 +676,7 @@ where
     P0: windows_core::Param<super::mfobjects::IMFMediaType>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFInitAMMediaTypeFromMFMediaType(pmftype : *mut core::ffi::c_void, guidformatblocktype : windows_core::GUID, pamtype : *mut super::strmif::AM_MEDIA_TYPE) -> windows_core::HRESULT);
-    unsafe { MFInitAMMediaTypeFromMFMediaType(pmftype.param().abi(), core::mem::transmute(guidformatblocktype), core::mem::transmute(pamtype)) }
+    unsafe { MFInitAMMediaTypeFromMFMediaType(pmftype.param().abi(), guidformatblocktype, pamtype) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -694,7 +694,7 @@ where
     P0: windows_core::Param<super::mfobjects::IMFMediaType>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFInitMediaTypeFromAMMediaType(pmftype : *mut core::ffi::c_void, pamtype : *const super::strmif::AM_MEDIA_TYPE) -> windows_core::HRESULT);
-    unsafe { MFInitMediaTypeFromAMMediaType(pmftype.param().abi(), core::mem::transmute(pamtype)) }
+    unsafe { MFInitMediaTypeFromAMMediaType(pmftype.param().abi(), pamtype) }
 }
 #[cfg(all(feature = "mfobjects", feature = "windef"))]
 #[inline]
@@ -938,7 +938,7 @@ where
     P4: windows_core::Param<super::mfobjects::IMFAttributes>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFTEnum(guidcategory : windows_core::GUID, flags : u32, pinputtype : *const super::mfobjects::MFT_REGISTER_TYPE_INFO, poutputtype : *const super::mfobjects::MFT_REGISTER_TYPE_INFO, pattributes : *mut core::ffi::c_void, ppclsidmft : *mut *mut windows_core::GUID, pcmfts : *mut u32) -> windows_core::HRESULT);
-    unsafe { MFTEnum(core::mem::transmute(guidcategory), flags, pinputtype.unwrap_or(core::mem::zeroed()) as _, poutputtype.unwrap_or(core::mem::zeroed()) as _, pattributes.param().abi(), ppclsidmft as _, pcmfts as _) }
+    unsafe { MFTEnum(guidcategory, flags, pinputtype.unwrap_or(core::mem::zeroed()) as _, poutputtype.unwrap_or(core::mem::zeroed()) as _, pattributes.param().abi(), ppclsidmft as _, pcmfts as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -947,19 +947,19 @@ where
     P4: windows_core::Param<super::mfobjects::IMFAttributes>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFTEnum2(guidcategory : windows_core::GUID, flags : u32, pinputtype : *const super::mfobjects::MFT_REGISTER_TYPE_INFO, poutputtype : *const super::mfobjects::MFT_REGISTER_TYPE_INFO, pattributes : *mut core::ffi::c_void, pppmftactivate : *mut *mut *mut core::ffi::c_void, pnummftactivate : *mut u32) -> windows_core::HRESULT);
-    unsafe { MFTEnum2(core::mem::transmute(guidcategory), flags, pinputtype.unwrap_or(core::mem::zeroed()) as _, poutputtype.unwrap_or(core::mem::zeroed()) as _, pattributes.param().abi(), pppmftactivate as _, pnummftactivate as _) }
+    unsafe { MFTEnum2(guidcategory, flags, pinputtype.unwrap_or(core::mem::zeroed()) as _, poutputtype.unwrap_or(core::mem::zeroed()) as _, pattributes.param().abi(), pppmftactivate as _, pnummftactivate as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
 pub unsafe fn MFTEnumEx(guidcategory: windows_core::GUID, flags: u32, pinputtype: Option<*const super::mfobjects::MFT_REGISTER_TYPE_INFO>, poutputtype: Option<*const super::mfobjects::MFT_REGISTER_TYPE_INFO>, pppmftactivate: *mut *mut Option<super::mfobjects::IMFActivate>, pnummftactivate: *mut u32) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFTEnumEx(guidcategory : windows_core::GUID, flags : u32, pinputtype : *const super::mfobjects::MFT_REGISTER_TYPE_INFO, poutputtype : *const super::mfobjects::MFT_REGISTER_TYPE_INFO, pppmftactivate : *mut *mut *mut core::ffi::c_void, pnummftactivate : *mut u32) -> windows_core::HRESULT);
-    unsafe { MFTEnumEx(core::mem::transmute(guidcategory), flags, pinputtype.unwrap_or(core::mem::zeroed()) as _, poutputtype.unwrap_or(core::mem::zeroed()) as _, pppmftactivate as _, pnummftactivate as _) }
+    unsafe { MFTEnumEx(guidcategory, flags, pinputtype.unwrap_or(core::mem::zeroed()) as _, poutputtype.unwrap_or(core::mem::zeroed()) as _, pppmftactivate as _, pnummftactivate as _) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
 pub unsafe fn MFTGetInfo(clsidmft: windows_core::GUID, pszname: Option<*mut windows_core::PWSTR>, ppinputtypes: *mut *mut super::mfobjects::MFT_REGISTER_TYPE_INFO, pcinputtypes: Option<*mut u32>, ppoutputtypes: *mut *mut super::mfobjects::MFT_REGISTER_TYPE_INFO, pcoutputtypes: Option<*mut u32>, ppattributes: *mut Option<super::mfobjects::IMFAttributes>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFTGetInfo(clsidmft : windows_core::GUID, pszname : *mut windows_core::PWSTR, ppinputtypes : *mut *mut super::mfobjects::MFT_REGISTER_TYPE_INFO, pcinputtypes : *mut u32, ppoutputtypes : *mut *mut super::mfobjects::MFT_REGISTER_TYPE_INFO, pcoutputtypes : *mut u32, ppattributes : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFTGetInfo(core::mem::transmute(clsidmft), pszname.unwrap_or(core::mem::zeroed()) as _, ppinputtypes as _, pcinputtypes.unwrap_or(core::mem::zeroed()) as _, ppoutputtypes as _, pcoutputtypes.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppattributes)) }
+    unsafe { MFTGetInfo(clsidmft, pszname.unwrap_or(core::mem::zeroed()) as _, ppinputtypes as _, pcinputtypes.unwrap_or(core::mem::zeroed()) as _, ppoutputtypes as _, pcoutputtypes.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppattributes)) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]
@@ -969,7 +969,7 @@ where
     P8: windows_core::Param<super::mfobjects::IMFAttributes>,
 {
     windows_core::link!("mfplat.dll" "system" fn MFTRegister(clsidmft : windows_core::GUID, guidcategory : windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const super::mfobjects::MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const super::mfobjects::MFT_REGISTER_TYPE_INFO, pattributes : *mut core::ffi::c_void) -> windows_core::HRESULT);
-    unsafe { MFTRegister(core::mem::transmute(clsidmft), core::mem::transmute(guidcategory), pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), pattributes.param().abi()) }
+    unsafe { MFTRegister(clsidmft, guidcategory, pszname.param().abi(), flags, pinputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), pinputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), poutputtypes.map_or(0, |slice| slice.len().try_into().unwrap()), poutputtypes.map_or(core::ptr::null(), |slice| slice.as_ptr()), pattributes.param().abi()) }
 }
 #[cfg(all(feature = "mfobjects", feature = "unknwnbase"))]
 #[inline]
@@ -993,7 +993,7 @@ where
 #[inline]
 pub unsafe fn MFTUnregister(clsidmft: windows_core::GUID) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFTUnregister(clsidmft : windows_core::GUID) -> windows_core::HRESULT);
-    unsafe { MFTUnregister(core::mem::transmute(clsidmft)) }
+    unsafe { MFTUnregister(clsidmft) }
 }
 #[cfg(feature = "unknwnbase")]
 #[inline]
@@ -1007,7 +1007,7 @@ where
 #[inline]
 pub unsafe fn MFTUnregisterLocalByCLSID(clsidmft: windows_core::GUID) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFTUnregisterLocalByCLSID(clsidmft : windows_core::GUID) -> windows_core::HRESULT);
-    unsafe { MFTUnregisterLocalByCLSID(core::mem::transmute(clsidmft)) }
+    unsafe { MFTUnregisterLocalByCLSID(clsidmft) }
 }
 #[inline]
 pub unsafe fn MFUnlockDXGIDeviceManager() -> windows_core::HRESULT {
@@ -1044,7 +1044,7 @@ where
 #[inline]
 pub unsafe fn MFValidateMediaTypeSize(formattype: windows_core::GUID, pblock: Option<&[u8]>) -> windows_core::HRESULT {
     windows_core::link!("mfplat.dll" "system" fn MFValidateMediaTypeSize(formattype : windows_core::GUID, pblock : *const u8, cbsize : u32) -> windows_core::HRESULT);
-    unsafe { MFValidateMediaTypeSize(core::mem::transmute(formattype), pblock.map_or(core::ptr::null(), |slice| slice.as_ptr()), pblock.map_or(0, |slice| slice.len().try_into().unwrap())) }
+    unsafe { MFValidateMediaTypeSize(formattype, pblock.map_or(core::ptr::null(), |slice| slice.as_ptr()), pblock.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "mfobjects")]
 #[inline]

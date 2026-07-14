@@ -34,13 +34,13 @@ pub unsafe fn RtlIpv4AddressToStringA(addr: *const super::inaddr::IN_ADDR, s: &m
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringExA(address: *const super::inaddr::IN_ADDR, port: u16, addressstring: windows_core::PSTR, addressstringlength: *mut u32) -> i32 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExA(address : *const super::inaddr::IN_ADDR, port : u16, addressstring : windows_core::PSTR, addressstringlength : *mut u32) -> i32);
-    unsafe { RtlIpv4AddressToStringExA(address, port, core::mem::transmute(addressstring), addressstringlength as _) }
+    unsafe { RtlIpv4AddressToStringExA(address, port, addressstring, addressstringlength as _) }
 }
 #[cfg(feature = "inaddr")]
 #[inline]
 pub unsafe fn RtlIpv4AddressToStringExW(address: *const super::inaddr::IN_ADDR, port: u16, addressstring: windows_core::PWSTR, addressstringlength: *mut u32) -> i32 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv4AddressToStringExW(address : *const super::inaddr::IN_ADDR, port : u16, addressstring : windows_core::PWSTR, addressstringlength : *mut u32) -> i32);
-    unsafe { RtlIpv4AddressToStringExW(address, port, core::mem::transmute(addressstring), addressstringlength as _) }
+    unsafe { RtlIpv4AddressToStringExW(address, port, addressstring, addressstringlength as _) }
 }
 #[cfg(feature = "inaddr")]
 #[inline]
@@ -94,13 +94,13 @@ pub unsafe fn RtlIpv6AddressToStringA(addr: *const super::in6addr::IN6_ADDR, s: 
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringExA(address: *const super::in6addr::IN6_ADDR, scopeid: u32, port: u16, addressstring: windows_core::PSTR, addressstringlength: *mut u32) -> i32 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExA(address : *const super::in6addr::IN6_ADDR, scopeid : u32, port : u16, addressstring : windows_core::PSTR, addressstringlength : *mut u32) -> i32);
-    unsafe { RtlIpv6AddressToStringExA(address, scopeid, port, core::mem::transmute(addressstring), addressstringlength as _) }
+    unsafe { RtlIpv6AddressToStringExA(address, scopeid, port, addressstring, addressstringlength as _) }
 }
 #[cfg(feature = "in6addr")]
 #[inline]
 pub unsafe fn RtlIpv6AddressToStringExW(address: *const super::in6addr::IN6_ADDR, scopeid: u32, port: u16, addressstring: windows_core::PWSTR, addressstringlength: *mut u32) -> i32 {
     windows_core::link!("ntdll.dll" "system" fn RtlIpv6AddressToStringExW(address : *const super::in6addr::IN6_ADDR, scopeid : u32, port : u16, addressstring : windows_core::PWSTR, addressstringlength : *mut u32) -> i32);
-    unsafe { RtlIpv6AddressToStringExW(address, scopeid, port, core::mem::transmute(addressstring), addressstringlength as _) }
+    unsafe { RtlIpv6AddressToStringExW(address, scopeid, port, addressstring, addressstringlength as _) }
 }
 #[cfg(feature = "in6addr")]
 #[inline]

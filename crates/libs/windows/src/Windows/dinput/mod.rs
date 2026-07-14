@@ -2617,7 +2617,7 @@ impl IDirectInput8A {
     }
     #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
     pub unsafe fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ConfigureDevices)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2, param3 as _) }
+        unsafe { (windows_core::Interface::vtable(self).ConfigureDevices)(windows_core::Interface::as_raw(self), param0, param1, param2, param3 as _) }
     }
 }
 #[repr(C)]
@@ -2772,7 +2772,7 @@ impl IDirectInput8W {
     }
     #[cfg(all(feature = "dsound", feature = "minwindef", feature = "windef"))]
     pub unsafe fn ConfigureDevices(&self, param0: LPDICONFIGUREDEVICESCALLBACK, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ConfigureDevices)(windows_core::Interface::as_raw(self), param0, core::mem::transmute(param1), param2, param3 as _) }
+        unsafe { (windows_core::Interface::vtable(self).ConfigureDevices)(windows_core::Interface::as_raw(self), param0, param1, param2, param3 as _) }
     }
 }
 #[repr(C)]

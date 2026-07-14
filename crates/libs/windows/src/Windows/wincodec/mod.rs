@@ -3409,7 +3409,7 @@ windows_core::imp::interface_hierarchy!(IWICEnumMetadataItem, windows_core::IUnk
 impl IWICEnumMetadataItem {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, celt: u32, rgeltschema: *mut super::propidlbase::PROPVARIANT, rgeltid: *mut super::propidlbase::PROPVARIANT, rgeltvalue: Option<*mut super::propidlbase::PROPVARIANT>, pceltfetched: Option<*mut u32>) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgeltschema), core::mem::transmute(rgeltid), rgeltvalue.unwrap_or(core::mem::zeroed()) as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgeltschema, rgeltid, rgeltvalue.unwrap_or(core::mem::zeroed()) as _, pceltfetched.unwrap_or(core::mem::zeroed()) as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -4716,7 +4716,7 @@ impl IWICMetadataQueryReader {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).GetMetadataByName)(windows_core::Interface::as_raw(self), wzname.param().abi(), core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).GetMetadataByName)(windows_core::Interface::as_raw(self), wzname.param().abi(), pvarvalue) }
     }
     #[cfg(feature = "objidlbase")]
     pub unsafe fn GetEnumerator(&self) -> windows_core::Result<super::objidlbase::IEnumString> {
@@ -4815,7 +4815,7 @@ impl IWICMetadataQueryWriter {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMetadataByName)(windows_core::Interface::as_raw(self), wzname.param().abi(), core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetMetadataByName)(windows_core::Interface::as_raw(self), wzname.param().abi(), pvarvalue) }
     }
     pub unsafe fn RemoveMetadataByName<P0>(&self, wzname: P0) -> windows_core::HRESULT
     where

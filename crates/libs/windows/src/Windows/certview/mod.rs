@@ -81,7 +81,7 @@ impl ICertView {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetRestriction(&self, columnindex: i32, seekoperator: i32, sortorder: i32, pvarvalue: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetRestriction)(windows_core::Interface::as_raw(self), columnindex, seekoperator, sortorder, core::mem::transmute(pvarvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetRestriction)(windows_core::Interface::as_raw(self), columnindex, seekoperator, sortorder, pvarvalue) }
     }
     pub unsafe fn OpenView(&self) -> windows_core::Result<IEnumCERTVIEWROW> {
         unsafe {

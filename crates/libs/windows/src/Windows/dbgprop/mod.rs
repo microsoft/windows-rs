@@ -96,7 +96,7 @@ windows_core::imp::interface_hierarchy!(IDebugExtendedProperty, windows_core::IU
 impl IDebugExtendedProperty {
     #[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetExtendedPropertyInfo(&self, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, core::mem::transmute(pextendedpropertyinfo)) }
+        unsafe { (windows_core::Interface::vtable(self).GetExtendedPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, pextendedpropertyinfo) }
     }
     pub unsafe fn EnumExtendedMembers(&self, dwfieldspec: u32, nradix: u32) -> windows_core::Result<IEnumDebugExtendedPropertyInfo> {
         unsafe {
@@ -157,7 +157,7 @@ windows_core::imp::define_interface!(IDebugProperty, IDebugProperty_Vtbl, 0x5197
 windows_core::imp::interface_hierarchy!(IDebugProperty, windows_core::IUnknown);
 impl IDebugProperty {
     pub unsafe fn GetPropertyInfo(&self, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, core::mem::transmute(ppropertyinfo)) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropertyInfo)(windows_core::Interface::as_raw(self), dwfieldspec, nradix, ppropertyinfo) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetExtendedInfo(&self, cinfos: u32, rgguidextendedinfo: *const windows_core::GUID) -> windows_core::Result<super::oaidl::VARIANT> {
@@ -409,7 +409,7 @@ windows_core::imp::interface_hierarchy!(IEnumDebugExtendedPropertyInfo, windows_
 impl IEnumDebugExtendedPropertyInfo {
     #[cfg(all(feature = "oaidl", feature = "objidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn Next(&self, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(rgextendedpropertyinfo), pceltfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, rgextendedpropertyinfo, pceltfetched as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }
@@ -515,7 +515,7 @@ windows_core::imp::define_interface!(IEnumDebugPropertyInfo, IEnumDebugPropertyI
 windows_core::imp::interface_hierarchy!(IEnumDebugPropertyInfo, windows_core::IUnknown);
 impl IEnumDebugPropertyInfo {
     pub unsafe fn Next(&self, celt: u32, pi: *mut DebugPropertyInfo, pceltsfetched: *mut u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, core::mem::transmute(pi), pceltsfetched as _) }
+        unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), celt, pi, pceltsfetched as _) }
     }
     pub unsafe fn Skip(&self, celt: u32) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt) }

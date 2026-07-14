@@ -1223,7 +1223,7 @@ windows_core::imp::define_interface!(IDXGIDebug, IDXGIDebug_Vtbl, 0x119e7452_de9
 windows_core::imp::interface_hierarchy!(IDXGIDebug, windows_core::IUnknown);
 impl IDXGIDebug {
     pub unsafe fn ReportLiveObjects(&self, apiid: windows_core::GUID, flags: DXGI_DEBUG_RLO_FLAGS) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).ReportLiveObjects)(windows_core::Interface::as_raw(self), core::mem::transmute(apiid), flags) }
+        unsafe { (windows_core::Interface::vtable(self).ReportLiveObjects)(windows_core::Interface::as_raw(self), apiid, flags) }
     }
 }
 #[repr(C)]
@@ -2456,7 +2456,7 @@ impl IDXGIFactory4 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).EnumAdapterByLuid)(windows_core::Interface::as_raw(self), core::mem::transmute(adapterluid), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).EnumAdapterByLuid)(windows_core::Interface::as_raw(self), adapterluid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     pub unsafe fn EnumWarpAdapter<T>(&self) -> windows_core::Result<T>
     where
@@ -2748,101 +2748,101 @@ windows_core::imp::define_interface!(IDXGIInfoQueue, IDXGIInfoQueue_Vtbl, 0xd674
 windows_core::imp::interface_hierarchy!(IDXGIInfoQueue, windows_core::IUnknown);
 impl IDXGIInfoQueue {
     pub unsafe fn SetMessageCountLimit(&self, producer: DXGI_DEBUG_ID, messagecountlimit: u64) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetMessageCountLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), messagecountlimit) }
+        unsafe { (windows_core::Interface::vtable(self).SetMessageCountLimit)(windows_core::Interface::as_raw(self), producer, messagecountlimit) }
     }
     pub unsafe fn ClearStoredMessages(&self, producer: DXGI_DEBUG_ID) {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearStoredMessages)(windows_core::Interface::as_raw(self), core::mem::transmute(producer));
+            (windows_core::Interface::vtable(self).ClearStoredMessages)(windows_core::Interface::as_raw(self), producer);
         }
     }
     pub unsafe fn GetMessage(&self, producer: DXGI_DEBUG_ID, messageindex: u64, pmessage: Option<*mut DXGI_INFO_QUEUE_MESSAGE>, pmessagebytelength: *mut usize) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), messageindex, pmessage.unwrap_or(core::mem::zeroed()) as _, pmessagebytelength as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), producer, messageindex, pmessage.unwrap_or(core::mem::zeroed()) as _, pmessagebytelength as _) }
     }
     pub unsafe fn GetNumStoredMessagesAllowedByRetrievalFilters(&self, producer: DXGI_DEBUG_ID) -> u64 {
-        unsafe { (windows_core::Interface::vtable(self).GetNumStoredMessagesAllowedByRetrievalFilters)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).GetNumStoredMessagesAllowedByRetrievalFilters)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn GetNumStoredMessages(&self, producer: DXGI_DEBUG_ID) -> u64 {
-        unsafe { (windows_core::Interface::vtable(self).GetNumStoredMessages)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).GetNumStoredMessages)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn GetNumMessagesDiscardedByMessageCountLimit(&self, producer: DXGI_DEBUG_ID) -> u64 {
-        unsafe { (windows_core::Interface::vtable(self).GetNumMessagesDiscardedByMessageCountLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).GetNumMessagesDiscardedByMessageCountLimit)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn GetMessageCountLimit(&self, producer: DXGI_DEBUG_ID) -> u64 {
-        unsafe { (windows_core::Interface::vtable(self).GetMessageCountLimit)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).GetMessageCountLimit)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn GetNumMessagesAllowedByStorageFilter(&self, producer: DXGI_DEBUG_ID) -> u64 {
-        unsafe { (windows_core::Interface::vtable(self).GetNumMessagesAllowedByStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).GetNumMessagesAllowedByStorageFilter)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn GetNumMessagesDeniedByStorageFilter(&self, producer: DXGI_DEBUG_ID) -> u64 {
-        unsafe { (windows_core::Interface::vtable(self).GetNumMessagesDeniedByStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).GetNumMessagesDeniedByStorageFilter)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn AddStorageFilterEntries(&self, producer: DXGI_DEBUG_ID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddStorageFilterEntries)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter) }
+        unsafe { (windows_core::Interface::vtable(self).AddStorageFilterEntries)(windows_core::Interface::as_raw(self), producer, pfilter) }
     }
     pub unsafe fn GetStorageFilter(&self, producer: DXGI_DEBUG_ID, pfilter: Option<*mut DXGI_INFO_QUEUE_FILTER>, pfilterbytelength: *mut usize) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetStorageFilter)(windows_core::Interface::as_raw(self), producer, pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _) }
     }
     pub unsafe fn ClearStorageFilter(&self, producer: DXGI_DEBUG_ID) {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer));
+            (windows_core::Interface::vtable(self).ClearStorageFilter)(windows_core::Interface::as_raw(self), producer);
         }
     }
     pub unsafe fn PushEmptyStorageFilter(&self, producer: DXGI_DEBUG_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PushEmptyStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).PushEmptyStorageFilter)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn PushDenyAllStorageFilter(&self, producer: DXGI_DEBUG_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PushDenyAllStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).PushDenyAllStorageFilter)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn PushCopyOfStorageFilter(&self, producer: DXGI_DEBUG_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PushCopyOfStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).PushCopyOfStorageFilter)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn PushStorageFilter(&self, producer: DXGI_DEBUG_ID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PushStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter) }
+        unsafe { (windows_core::Interface::vtable(self).PushStorageFilter)(windows_core::Interface::as_raw(self), producer, pfilter) }
     }
     pub unsafe fn PopStorageFilter(&self, producer: DXGI_DEBUG_ID) {
         unsafe {
-            (windows_core::Interface::vtable(self).PopStorageFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer));
+            (windows_core::Interface::vtable(self).PopStorageFilter)(windows_core::Interface::as_raw(self), producer);
         }
     }
     pub unsafe fn GetStorageFilterStackSize(&self, producer: DXGI_DEBUG_ID) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).GetStorageFilterStackSize)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).GetStorageFilterStackSize)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn AddRetrievalFilterEntries(&self, producer: DXGI_DEBUG_ID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddRetrievalFilterEntries)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter) }
+        unsafe { (windows_core::Interface::vtable(self).AddRetrievalFilterEntries)(windows_core::Interface::as_raw(self), producer, pfilter) }
     }
     pub unsafe fn GetRetrievalFilter(&self, producer: DXGI_DEBUG_ID, pfilter: Option<*mut DXGI_INFO_QUEUE_FILTER>, pfilterbytelength: *mut usize) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilter)(windows_core::Interface::as_raw(self), producer, pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _) }
     }
     pub unsafe fn ClearRetrievalFilter(&self, producer: DXGI_DEBUG_ID) {
         unsafe {
-            (windows_core::Interface::vtable(self).ClearRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer));
+            (windows_core::Interface::vtable(self).ClearRetrievalFilter)(windows_core::Interface::as_raw(self), producer);
         }
     }
     pub unsafe fn PushEmptyRetrievalFilter(&self, producer: DXGI_DEBUG_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PushEmptyRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).PushEmptyRetrievalFilter)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn PushDenyAllRetrievalFilter(&self, producer: DXGI_DEBUG_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PushDenyAllRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).PushDenyAllRetrievalFilter)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn PushCopyOfRetrievalFilter(&self, producer: DXGI_DEBUG_ID) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PushCopyOfRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).PushCopyOfRetrievalFilter)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn PushRetrievalFilter(&self, producer: DXGI_DEBUG_ID, pfilter: *const DXGI_INFO_QUEUE_FILTER) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).PushRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), pfilter) }
+        unsafe { (windows_core::Interface::vtable(self).PushRetrievalFilter)(windows_core::Interface::as_raw(self), producer, pfilter) }
     }
     pub unsafe fn PopRetrievalFilter(&self, producer: DXGI_DEBUG_ID) {
         unsafe {
-            (windows_core::Interface::vtable(self).PopRetrievalFilter)(windows_core::Interface::as_raw(self), core::mem::transmute(producer));
+            (windows_core::Interface::vtable(self).PopRetrievalFilter)(windows_core::Interface::as_raw(self), producer);
         }
     }
     pub unsafe fn GetRetrievalFilterStackSize(&self, producer: DXGI_DEBUG_ID) -> u32 {
-        unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilterStackSize)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilterStackSize)(windows_core::Interface::as_raw(self), producer) }
     }
     pub unsafe fn AddMessage<P4>(&self, producer: DXGI_DEBUG_ID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, id: DXGI_INFO_QUEUE_MESSAGE_ID, pdescription: P4) -> windows_core::HRESULT
     where
         P4: windows_core::Param<windows_core::PCSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), category, severity, id, pdescription.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), producer, category, severity, id, pdescription.param().abi()) }
     }
     pub unsafe fn AddApplicationMessage<P1>(&self, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, pdescription: P1) -> windows_core::HRESULT
     where
@@ -2851,30 +2851,30 @@ impl IDXGIInfoQueue {
         unsafe { (windows_core::Interface::vtable(self).AddApplicationMessage)(windows_core::Interface::as_raw(self), severity, pdescription.param().abi()) }
     }
     pub unsafe fn SetBreakOnCategory(&self, producer: DXGI_DEBUG_ID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY, benable: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), category, benable.into()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), producer, category, benable.into()) }
     }
     pub unsafe fn SetBreakOnSeverity(&self, producer: DXGI_DEBUG_ID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY, benable: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBreakOnSeverity)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), severity, benable.into()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBreakOnSeverity)(windows_core::Interface::as_raw(self), producer, severity, benable.into()) }
     }
     pub unsafe fn SetBreakOnID(&self, producer: DXGI_DEBUG_ID, id: DXGI_INFO_QUEUE_MESSAGE_ID, benable: bool) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), id, benable.into()) }
+        unsafe { (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), producer, id, benable.into()) }
     }
     pub unsafe fn GetBreakOnCategory(&self, producer: DXGI_DEBUG_ID, category: DXGI_INFO_QUEUE_MESSAGE_CATEGORY) -> windows_core::BOOL {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakOnCategory)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), category) }
+        unsafe { (windows_core::Interface::vtable(self).GetBreakOnCategory)(windows_core::Interface::as_raw(self), producer, category) }
     }
     pub unsafe fn GetBreakOnSeverity(&self, producer: DXGI_DEBUG_ID, severity: DXGI_INFO_QUEUE_MESSAGE_SEVERITY) -> windows_core::BOOL {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakOnSeverity)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), severity) }
+        unsafe { (windows_core::Interface::vtable(self).GetBreakOnSeverity)(windows_core::Interface::as_raw(self), producer, severity) }
     }
     pub unsafe fn GetBreakOnID(&self, producer: DXGI_DEBUG_ID, id: DXGI_INFO_QUEUE_MESSAGE_ID) -> windows_core::BOOL {
-        unsafe { (windows_core::Interface::vtable(self).GetBreakOnID)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), id) }
+        unsafe { (windows_core::Interface::vtable(self).GetBreakOnID)(windows_core::Interface::as_raw(self), producer, id) }
     }
     pub unsafe fn SetMuteDebugOutput(&self, producer: DXGI_DEBUG_ID, bmute: bool) {
         unsafe {
-            (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(producer), bmute.into());
+            (windows_core::Interface::vtable(self).SetMuteDebugOutput)(windows_core::Interface::as_raw(self), producer, bmute.into());
         }
     }
     pub unsafe fn GetMuteDebugOutput(&self, producer: DXGI_DEBUG_ID) -> windows_core::BOOL {
-        unsafe { (windows_core::Interface::vtable(self).GetMuteDebugOutput)(windows_core::Interface::as_raw(self), core::mem::transmute(producer)) }
+        unsafe { (windows_core::Interface::vtable(self).GetMuteDebugOutput)(windows_core::Interface::as_raw(self), producer) }
     }
 }
 #[repr(C)]

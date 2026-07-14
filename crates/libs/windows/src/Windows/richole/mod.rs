@@ -16,11 +16,11 @@ impl IRichEditOle {
     }
     #[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef"))]
     pub unsafe fn GetObject(&self, iob: i32, lpreobject: *mut REOBJECT, dwflags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), iob, core::mem::transmute(lpreobject), dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), iob, lpreobject, dwflags) }
     }
     #[cfg(all(feature = "objidl", feature = "oleidl", feature = "windef"))]
     pub unsafe fn InsertObject(&self, lpreobject: *mut REOBJECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InsertObject)(windows_core::Interface::as_raw(self), core::mem::transmute(lpreobject)) }
+        unsafe { (windows_core::Interface::vtable(self).InsertObject)(windows_core::Interface::as_raw(self), lpreobject) }
     }
     pub unsafe fn ConvertObject<P2>(&self, iob: i32, rclsidnew: *const windows_core::GUID, lpstrusertypenew: P2) -> windows_core::HRESULT
     where

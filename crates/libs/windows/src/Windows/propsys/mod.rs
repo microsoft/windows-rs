@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn PSCoerceToCanonicalValue(key: *const super::wtypes::PROPERTYKEY, ppropvar: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSCoerceToCanonicalValue(key : *const super::wtypes::PROPERTYKEY, ppropvar : *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe { PSCoerceToCanonicalValue(key, core::mem::transmute(ppropvar)) }
+    unsafe { PSCoerceToCanonicalValue(key, ppropvar) }
 }
 #[inline]
 pub unsafe fn PSCreateAdapterFromPropertyStore<P0, T>(pps: P0) -> windows_core::Result<T>
@@ -81,7 +81,7 @@ where
 {
     windows_core::link!("propsys.dll" "system" fn PSCreateSimplePropertyChange(flags : PKA_FLAGS, key : *const super::wtypes::PROPERTYKEY, propvar : *const super::propidlbase::PROPVARIANT, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { PSCreateSimplePropertyChange(flags, key, core::mem::transmute(propvar), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { PSCreateSimplePropertyChange(flags, key, propvar, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn PSEnumeratePropertyDescriptions<T>(filteron: PROPDESC_ENUMFILTER) -> windows_core::Result<T>
@@ -96,7 +96,7 @@ where
 #[inline]
 pub unsafe fn PSFormatForDisplay(propkey: *const super::wtypes::PROPERTYKEY, propvar: *const super::propidlbase::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS, pwsztext: &mut [u16]) -> windows_core::HRESULT {
     windows_core::link!("propsys.dll" "system" fn PSFormatForDisplay(propkey : *const super::wtypes::PROPERTYKEY, propvar : *const super::propidlbase::PROPVARIANT, pdfflags : PROPDESC_FORMAT_FLAGS, pwsztext : windows_core::PWSTR, cchtext : u32) -> windows_core::HRESULT);
-    unsafe { PSFormatForDisplay(propkey, core::mem::transmute(propvar), pdfflags, core::mem::transmute(pwsztext.as_mut_ptr()), pwsztext.len().try_into().unwrap()) }
+    unsafe { PSFormatForDisplay(propkey, propvar, pdfflags, core::mem::transmute(pwsztext.as_mut_ptr()), pwsztext.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -104,7 +104,7 @@ pub unsafe fn PSFormatForDisplayAlloc(key: *const super::wtypes::PROPERTYKEY, pr
     windows_core::link!("propsys.dll" "system" fn PSFormatForDisplayAlloc(key : *const super::wtypes::PROPERTYKEY, propvar : *const super::propidlbase::PROPVARIANT, pdff : PROPDESC_FORMAT_FLAGS, ppszdisplay : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PSFormatForDisplayAlloc(key, core::mem::transmute(propvar), pdff, &mut result__).map(|| result__)
+        PSFormatForDisplayAlloc(key, propvar, pdff, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -125,7 +125,7 @@ pub unsafe fn PSGetImageReferenceForValue(propkey: *const super::wtypes::PROPERT
     windows_core::link!("propsys.dll" "system" fn PSGetImageReferenceForValue(propkey : *const super::wtypes::PROPERTYKEY, propvar : *const super::propidlbase::PROPVARIANT, ppszimageres : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
-        PSGetImageReferenceForValue(propkey, core::mem::transmute(propvar), &mut result__).map(|| result__)
+        PSGetImageReferenceForValue(propkey, propvar, &mut result__).map(|| result__)
     }
 }
 #[inline]
@@ -445,7 +445,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("propsys.dll" "system" fn PSPropertyBag_ReadType(propbag : *mut core::ffi::c_void, propname : windows_core::PCWSTR, var : *mut super::oaidl::VARIANT, r#type : super::wtypes::VARTYPE) -> windows_core::HRESULT);
-    unsafe { PSPropertyBag_ReadType(propbag.param().abi(), propname.param().abi(), core::mem::transmute(var), r#type) }
+    unsafe { PSPropertyBag_ReadType(propbag.param().abi(), propname.param().abi(), var, r#type) }
 }
 #[cfg(feature = "oaidl")]
 #[inline]
@@ -655,7 +655,7 @@ where
     P1: windows_core::Param<IPropertyDescription>,
 {
     windows_core::link!("propsys.dll" "system" fn PSSetPropertyValue(pps : *mut core::ffi::c_void, ppd : *mut core::ffi::c_void, propvar : *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT);
-    unsafe { PSSetPropertyValue(pps.param().abi(), ppd.param().abi(), core::mem::transmute(propvar)) }
+    unsafe { PSSetPropertyValue(pps.param().abi(), ppd.param().abi(), propvar) }
 }
 #[cfg(feature = "wtypes")]
 #[inline]
@@ -679,7 +679,7 @@ where
 {
     windows_core::link!("propsys.dll" "system" fn PropVariantToWinRTPropertyValue(propvar : *const super::propidlbase::PROPVARIANT, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
-    unsafe { PropVariantToWinRTPropertyValue(core::mem::transmute(propvar), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+    unsafe { PropVariantToWinRTPropertyValue(propvar, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
@@ -886,7 +886,7 @@ impl INamedPropertyStore {
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetNamedValue)(windows_core::Interface::as_raw(self), pszname.param().abi(), core::mem::transmute(propvar)) }
+        unsafe { (windows_core::Interface::vtable(self).SetNamedValue)(windows_core::Interface::as_raw(self), pszname.param().abi(), propvar) }
     }
     pub unsafe fn GetNameCount(&self) -> windows_core::Result<u32> {
         unsafe {
@@ -1171,7 +1171,7 @@ impl IPropertyChange {
     pub unsafe fn ApplyToPropVariant(&self, propvarin: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).ApplyToPropVariant)(windows_core::Interface::as_raw(self), core::mem::transmute(propvarin), &mut result__).map(|| core::mem::transmute(result__))
+            (windows_core::Interface::vtable(self).ApplyToPropVariant)(windows_core::Interface::as_raw(self), propvarin, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
 }
@@ -1423,7 +1423,7 @@ impl IPropertyDescription {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetRelativeDescription(&self, propvar1: *const super::propidlbase::PROPVARIANT, propvar2: *const super::propidlbase::PROPVARIANT, ppszdesc1: *mut windows_core::PWSTR, ppszdesc2: *mut windows_core::PWSTR) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetRelativeDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(propvar1), core::mem::transmute(propvar2), ppszdesc1 as _, ppszdesc2 as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetRelativeDescription)(windows_core::Interface::as_raw(self), propvar1, propvar2, ppszdesc1 as _, ppszdesc2 as _) }
     }
     pub unsafe fn GetSortDescription(&self) -> windows_core::Result<PROPDESC_SORTDESCRIPTION> {
         unsafe {
@@ -1456,18 +1456,18 @@ impl IPropertyDescription {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn CoerceToCanonicalValue(&self, ppropvar: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).CoerceToCanonicalValue)(windows_core::Interface::as_raw(self), core::mem::transmute(ppropvar)) }
+        unsafe { (windows_core::Interface::vtable(self).CoerceToCanonicalValue)(windows_core::Interface::as_raw(self), ppropvar) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FormatForDisplay(&self, propvar: *const super::propidlbase::PROPVARIANT, pdfflags: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FormatForDisplay)(windows_core::Interface::as_raw(self), core::mem::transmute(propvar), pdfflags, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).FormatForDisplay)(windows_core::Interface::as_raw(self), propvar, pdfflags, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn IsValueCanonical(&self, propvar: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).IsValueCanonical)(windows_core::Interface::as_raw(self), core::mem::transmute(propvar)) }
+        unsafe { (windows_core::Interface::vtable(self).IsValueCanonical)(windows_core::Interface::as_raw(self), propvar) }
     }
 }
 #[repr(C)]
@@ -1807,7 +1807,7 @@ impl IPropertyDescription2 {
     pub unsafe fn GetImageReferenceForValue(&self, propvar: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).GetImageReferenceForValue)(windows_core::Interface::as_raw(self), core::mem::transmute(propvar), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).GetImageReferenceForValue)(windows_core::Interface::as_raw(self), propvar, &mut result__).map(|| result__)
         }
     }
 }
@@ -2343,7 +2343,7 @@ impl IPropertyEnumTypeList {
     pub unsafe fn FindMatchingIndex(&self, propvarcmp: *const super::propidlbase::PROPVARIANT) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FindMatchingIndex)(windows_core::Interface::as_raw(self), core::mem::transmute(propvarcmp), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).FindMatchingIndex)(windows_core::Interface::as_raw(self), propvarcmp, &mut result__).map(|| result__)
         }
     }
 }
@@ -2441,7 +2441,7 @@ impl IPropertyStore {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValue(&self, key: *const super::wtypes::PROPERTYKEY, propvar: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), key, core::mem::transmute(propvar)) }
+        unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), key, propvar) }
     }
     pub unsafe fn Commit(&self) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self)) }
@@ -2552,7 +2552,7 @@ impl IPropertyStoreCache {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetValueAndState(&self, key: *const super::wtypes::PROPERTYKEY, ppropvar: *mut super::propidlbase::PROPVARIANT, pstate: *mut PSC_STATE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetValueAndState)(windows_core::Interface::as_raw(self), key, core::mem::transmute(ppropvar), pstate as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetValueAndState)(windows_core::Interface::as_raw(self), key, ppropvar, pstate as _) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn SetState(&self, key: *const super::wtypes::PROPERTYKEY, state: PSC_STATE) -> windows_core::HRESULT {
@@ -2560,7 +2560,7 @@ impl IPropertyStoreCache {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetValueAndState(&self, key: *const super::wtypes::PROPERTYKEY, ppropvar: *const super::propidlbase::PROPVARIANT, state: PSC_STATE) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetValueAndState)(windows_core::Interface::as_raw(self), key, core::mem::transmute(ppropvar), state) }
+        unsafe { (windows_core::Interface::vtable(self).SetValueAndState)(windows_core::Interface::as_raw(self), key, ppropvar, state) }
     }
 }
 #[repr(C)]
@@ -2774,13 +2774,13 @@ impl IPropertySystem {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FormatForDisplay(&self, key: *const super::wtypes::PROPERTYKEY, propvar: *const super::propidlbase::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS, psztext: windows_core::PWSTR, cchtext: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).FormatForDisplay)(windows_core::Interface::as_raw(self), key, core::mem::transmute(propvar), pdff, core::mem::transmute(psztext), cchtext) }
+        unsafe { (windows_core::Interface::vtable(self).FormatForDisplay)(windows_core::Interface::as_raw(self), key, propvar, pdff, psztext, cchtext) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn FormatForDisplayAlloc(&self, key: *const super::wtypes::PROPERTYKEY, propvar: *const super::propidlbase::PROPVARIANT, pdff: PROPDESC_FORMAT_FLAGS) -> windows_core::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).FormatForDisplayAlloc)(windows_core::Interface::as_raw(self), key, core::mem::transmute(propvar), pdff, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).FormatForDisplayAlloc)(windows_core::Interface::as_raw(self), key, propvar, pdff, &mut result__).map(|| result__)
         }
     }
     pub unsafe fn RegisterPropertySchema<P0>(&self, pszpath: P0) -> windows_core::HRESULT

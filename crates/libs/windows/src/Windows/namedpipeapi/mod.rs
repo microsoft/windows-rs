@@ -37,7 +37,7 @@ pub unsafe fn DisconnectNamedPipe(hnamedpipe: super::winnt::HANDLE) -> windows_c
 #[inline]
 pub unsafe fn GetNamedPipeClientComputerNameW(pipe: super::winnt::HANDLE, clientcomputername: windows_core::PWSTR, clientcomputernamelength: u32) -> windows_core::BOOL {
     windows_core::link!("kernel32.dll" "system" fn GetNamedPipeClientComputerNameW(pipe : super::winnt::HANDLE, clientcomputername : windows_core::PWSTR, clientcomputernamelength : u32) -> windows_core::BOOL);
-    unsafe { GetNamedPipeClientComputerNameW(pipe, core::mem::transmute(clientcomputername), clientcomputernamelength) }
+    unsafe { GetNamedPipeClientComputerNameW(pipe, clientcomputername, clientcomputernamelength) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

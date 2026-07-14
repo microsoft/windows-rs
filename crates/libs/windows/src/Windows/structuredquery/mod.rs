@@ -51,7 +51,7 @@ impl IConditionFactory {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).MakeLeaf)(windows_core::Interface::as_raw(self), pszpropertyname.param().abi(), cop, pszvaluetype.param().abi(), core::mem::transmute(ppropvar), ppropertynameterm.param().abi(), poperationterm.param().abi(), pvalueterm.param().abi(), fexpand.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).MakeLeaf)(windows_core::Interface::as_raw(self), pszpropertyname.param().abi(), cop, pszvaluetype.param().abi(), ppropvar, ppropertynameterm.param().abi(), poperationterm.param().abi(), pvalueterm.param().abi(), fexpand.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "minwinbase", feature = "objidl", feature = "structuredquerycondition"))]
@@ -237,7 +237,7 @@ impl IConditionFactory2 {
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
-        unsafe { (windows_core::Interface::vtable(self).CreateLeaf)(windows_core::Interface::as_raw(self), propkey, cop, core::mem::transmute(propvar), pszsemantictype.param().abi(), pszlocalename.param().abi(), ppropertynameterm.param().abi(), poperationterm.param().abi(), pvalueterm.param().abi(), cco, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
+        unsafe { (windows_core::Interface::vtable(self).CreateLeaf)(windows_core::Interface::as_raw(self), propkey, cop, propvar, pszsemantictype.param().abi(), pszlocalename.param().abi(), ppropertynameterm.param().abi(), poperationterm.param().abi(), pvalueterm.param().abi(), cco, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(all(feature = "minwinbase", feature = "objidl", feature = "structuredquerycondition"))]
     pub unsafe fn ResolveCondition<P0, T>(&self, pc: P0, sqro: STRUCTURED_QUERY_RESOLVE_OPTION, pstreferencetime: Option<*const super::minwinbase::SYSTEMTIME>) -> windows_core::Result<T>
@@ -416,7 +416,7 @@ impl IConditionGenerator {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).DefaultPhrase)(windows_core::Interface::as_raw(self), pszvaluetype.param().abi(), core::mem::transmute(ppropvar), fuseenglish.into(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).DefaultPhrase)(windows_core::Interface::as_raw(self), pszvaluetype.param().abi(), ppropvar, fuseenglish.into(), &mut result__).map(|| result__)
         }
     }
 }
@@ -684,7 +684,7 @@ windows_core::imp::interface_hierarchy!(IInterval, windows_core::IUnknown);
 impl IInterval {
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetLimits(&self, pilklower: *mut INTERVAL_LIMIT_KIND, ppropvarlower: *mut super::propidlbase::PROPVARIANT, pilkupper: *mut INTERVAL_LIMIT_KIND, ppropvarupper: *mut super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetLimits)(windows_core::Interface::as_raw(self), pilklower as _, core::mem::transmute(ppropvarlower), pilkupper as _, core::mem::transmute(ppropvarupper)) }
+        unsafe { (windows_core::Interface::vtable(self).GetLimits)(windows_core::Interface::as_raw(self), pilklower as _, ppropvarlower, pilkupper as _, ppropvarupper) }
     }
 }
 #[repr(C)]
@@ -868,7 +868,7 @@ impl IQueryParser {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION, poptionvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOption)(windows_core::Interface::as_raw(self), option, core::mem::transmute(poptionvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetOption)(windows_core::Interface::as_raw(self), option, poptionvalue) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetOption(&self, option: STRUCTURED_QUERY_SINGLE_OPTION) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
@@ -882,7 +882,7 @@ impl IQueryParser {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetMultiOption)(windows_core::Interface::as_raw(self), option, pszoptionkey.param().abi(), core::mem::transmute(poptionvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetMultiOption)(windows_core::Interface::as_raw(self), option, pszoptionkey.param().abi(), poptionvalue) }
     }
     pub unsafe fn GetSchemaProvider(&self) -> windows_core::Result<ISchemaProvider> {
         unsafe {
@@ -1079,7 +1079,7 @@ impl IQueryParserManager {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetOption(&self, option: QUERY_PARSER_MANAGER_OPTION, poptionvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetOption)(windows_core::Interface::as_raw(self), option, core::mem::transmute(poptionvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetOption)(windows_core::Interface::as_raw(self), option, poptionvalue) }
     }
 }
 #[repr(C)]

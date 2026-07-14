@@ -13007,7 +13007,7 @@ impl ID3D11VideoContext {
         P0: windows_core::Param<ID3D11VideoProcessor>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).VideoProcessorSetOutputConstriction)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), enable.into(), core::mem::transmute(size));
+            (windows_core::Interface::vtable(self).VideoProcessorSetOutputConstriction)(windows_core::Interface::as_raw(self), pvideoprocessor.param().abi(), enable.into(), size);
         }
     }
     pub unsafe fn VideoProcessorSetOutputStereoMode<P0>(&self, pvideoprocessor: P0, enable: bool)

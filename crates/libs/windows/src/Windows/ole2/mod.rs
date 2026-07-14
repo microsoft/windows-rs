@@ -50,7 +50,7 @@ where
     P0: windows_core::Param<super::objidl::IStorage>,
 {
     windows_core::link!("ole32.dll" "system" fn OleConvertIStorageToOLESTREAMEx(pstg : *mut core::ffi::c_void, cfformat : super::wtypes::CLIPFORMAT, lwidth : i32, lheight : i32, dwsize : u32, pmedium : *mut super::objidl::STGMEDIUM, polestm : *mut OLESTREAM) -> windows_core::HRESULT);
-    unsafe { OleConvertIStorageToOLESTREAMEx(pstg.param().abi(), cfformat, lwidth, lheight, dwsize, core::mem::transmute(pmedium), polestm as _) }
+    unsafe { OleConvertIStorageToOLESTREAMEx(pstg.param().abi(), cfformat, lwidth, lheight, dwsize, pmedium, polestm as _) }
 }
 #[cfg(feature = "objidl")]
 #[inline]
@@ -74,13 +74,13 @@ where
     P1: windows_core::Param<super::objidl::IStorage>,
 {
     windows_core::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorageEx(polestm : *mut OLESTREAM, pstg : *mut core::ffi::c_void, pcfformat : *mut super::wtypes::CLIPFORMAT, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super::objidl::STGMEDIUM) -> windows_core::HRESULT);
-    unsafe { OleConvertOLESTREAMToIStorageEx(polestm as _, pstg.param().abi(), pcfformat as _, plwwidth as _, plheight as _, pdwsize as _, core::mem::transmute(pmedium)) }
+    unsafe { OleConvertOLESTREAMToIStorageEx(polestm as _, pstg.param().abi(), pcfformat as _, plwwidth as _, plheight as _, pdwsize as _, pmedium) }
 }
 #[cfg(all(feature = "minwindef", feature = "objidl", feature = "objidlbase", feature = "windef", feature = "winnt", feature = "wtypes"))]
 #[inline]
 pub unsafe fn OleConvertOLESTREAMToIStorageEx2(polestm: *const OLESTREAM, pstg: &Option<super::objidl::IStorage>, pcfformat: *mut super::wtypes::CLIPFORMAT, plwwidth: *mut i32, plheight: *mut i32, pdwsize: *mut u32, pmedium: *mut super::objidl::STGMEDIUM, opt: Option<u32>, pvcallbackcontext: Option<*const core::ffi::c_void>, pqueryconvertolelinkcallback: OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_core::HRESULT {
     windows_core::link!("ole32.dll" "system" fn OleConvertOLESTREAMToIStorageEx2(polestm : *const OLESTREAM, pstg : *mut core::ffi::c_void, pcfformat : *mut super::wtypes::CLIPFORMAT, plwwidth : *mut i32, plheight : *mut i32, pdwsize : *mut u32, pmedium : *mut super::objidl::STGMEDIUM, opt : u32, pvcallbackcontext : *const core::ffi::c_void, pqueryconvertolelinkcallback : OLESTREAMQUERYCONVERTOLELINKCALLBACK) -> windows_core::HRESULT);
-    unsafe { OleConvertOLESTREAMToIStorageEx2(polestm, core::mem::transmute_copy(pstg), pcfformat as _, plwwidth as _, plheight as _, pdwsize as _, core::mem::transmute(pmedium), opt.unwrap_or(core::mem::zeroed()) as _, pvcallbackcontext.unwrap_or(core::mem::zeroed()) as _, pqueryconvertolelinkcallback) }
+    unsafe { OleConvertOLESTREAMToIStorageEx2(polestm, core::mem::transmute_copy(pstg), pcfformat as _, plwwidth as _, plheight as _, pdwsize as _, pmedium, opt.unwrap_or(core::mem::zeroed()) as _, pvcallbackcontext.unwrap_or(core::mem::zeroed()) as _, pqueryconvertolelinkcallback) }
 }
 #[cfg(all(feature = "objidl", feature = "oleidl", feature = "wtypes"))]
 #[inline]

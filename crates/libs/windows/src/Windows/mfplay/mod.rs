@@ -413,7 +413,7 @@ impl IMFPMediaPlayer {
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetPosition(&self, guidpositiontype: *const windows_core::GUID, pvpositionvalue: *const super::propidlbase::PROPVARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), guidpositiontype, core::mem::transmute(pvpositionvalue)) }
+        unsafe { (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), guidpositiontype, pvpositionvalue) }
     }
     #[cfg(all(feature = "minwindef", feature = "oaidl", feature = "objidl", feature = "objidlbase", feature = "propidlbase", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPosition(&self, guidpositiontype: *const windows_core::GUID) -> windows_core::Result<super::propidlbase::PROPVARIANT> {
@@ -1022,7 +1022,7 @@ impl IMFPMediaPlayerCallback {
     #[cfg(feature = "propsys")]
     pub unsafe fn OnMediaPlayerEvent(&self, peventheader: *const MFP_EVENT_HEADER) {
         unsafe {
-            (windows_core::Interface::vtable(self).OnMediaPlayerEvent)(windows_core::Interface::as_raw(self), core::mem::transmute(peventheader));
+            (windows_core::Interface::vtable(self).OnMediaPlayerEvent)(windows_core::Interface::as_raw(self), peventheader);
         }
     }
 }

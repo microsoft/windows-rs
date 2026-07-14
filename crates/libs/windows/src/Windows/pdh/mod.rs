@@ -627,7 +627,7 @@ where
 #[inline]
 pub unsafe fn PdhReadRawLogRecord(hlog: PDH_HLOG, ftrecord: super::minwindef::FILETIME, prawlogrecord: Option<*mut PDH_RAW_LOG_RECORD>, pdwbufferlength: *mut u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhReadRawLogRecord(hlog : PDH_HLOG, ftrecord : super::minwindef::FILETIME, prawlogrecord : *mut PDH_RAW_LOG_RECORD, pdwbufferlength : *mut u32) -> PDH_STATUS);
-    unsafe { PdhReadRawLogRecord(hlog, core::mem::transmute(ftrecord), prawlogrecord.unwrap_or(core::mem::zeroed()) as _, pdwbufferlength as _) }
+    unsafe { PdhReadRawLogRecord(hlog, ftrecord, prawlogrecord.unwrap_or(core::mem::zeroed()) as _, pdwbufferlength as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]
@@ -639,13 +639,13 @@ pub unsafe fn PdhRemoveCounter(hcounter: PDH_HCOUNTER) -> PDH_STATUS {
 #[inline]
 pub unsafe fn PdhSelectDataSourceA(hwndowner: super::windef::HWND, dwflags: u32, szdatasource: windows_core::PSTR, pcchbufferlength: *mut u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhSelectDataSourceA(hwndowner : super::windef::HWND, dwflags : u32, szdatasource : windows_core::PSTR, pcchbufferlength : *mut u32) -> PDH_STATUS);
-    unsafe { PdhSelectDataSourceA(hwndowner, dwflags, core::mem::transmute(szdatasource), pcchbufferlength as _) }
+    unsafe { PdhSelectDataSourceA(hwndowner, dwflags, szdatasource, pcchbufferlength as _) }
 }
 #[cfg(feature = "windef")]
 #[inline]
 pub unsafe fn PdhSelectDataSourceW(hwndowner: super::windef::HWND, dwflags: u32, szdatasource: windows_core::PWSTR, pcchbufferlength: *mut u32) -> PDH_STATUS {
     windows_core::link!("pdh.dll" "system" fn PdhSelectDataSourceW(hwndowner : super::windef::HWND, dwflags : u32, szdatasource : windows_core::PWSTR, pcchbufferlength : *mut u32) -> PDH_STATUS);
-    unsafe { PdhSelectDataSourceW(hwndowner, dwflags, core::mem::transmute(szdatasource), pcchbufferlength as _) }
+    unsafe { PdhSelectDataSourceW(hwndowner, dwflags, szdatasource, pcchbufferlength as _) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

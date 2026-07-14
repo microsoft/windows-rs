@@ -1339,11 +1339,11 @@ impl ISpGrammarBuilder {
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddWordTransition)(windows_core::Interface::as_raw(self), hfromstate, htostate, psz.param().abi(), pszseparators.param().abi(), ewordtype, weight, core::mem::transmute(ppropinfo)) }
+        unsafe { (windows_core::Interface::vtable(self).AddWordTransition)(windows_core::Interface::as_raw(self), hfromstate, htostate, psz.param().abi(), pszseparators.param().abi(), ewordtype, weight, ppropinfo) }
     }
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddRuleTransition(&self, hfromstate: SPSTATEHANDLE, htostate: SPSTATEHANDLE, hrule: SPSTATEHANDLE, weight: f32, ppropinfo: *const SPPROPERTYINFO) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddRuleTransition)(windows_core::Interface::as_raw(self), hfromstate, htostate, hrule, weight, core::mem::transmute(ppropinfo)) }
+        unsafe { (windows_core::Interface::vtable(self).AddRuleTransition)(windows_core::Interface::as_raw(self), hfromstate, htostate, hrule, weight, ppropinfo) }
     }
     pub unsafe fn AddResource<P1, P2>(&self, hrulestate: SPSTATEHANDLE, pszresourcename: P1, pszresourcevalue: P2) -> windows_core::HRESULT
     where
@@ -2574,7 +2574,7 @@ impl ISpPhoneConverter {
     pub unsafe fn IdToPhone(&self, pid: PCSPPHONEID) -> windows_core::Result<u16> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IdToPhone)(windows_core::Interface::as_raw(self), core::mem::transmute(pid), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IdToPhone)(windows_core::Interface::as_raw(self), pid, &mut result__).map(|| result__)
         }
     }
 }
@@ -6507,7 +6507,7 @@ impl ISpeechBaseStream {
     pub unsafe fn Read(&self, buffer: *mut super::oaidl::VARIANT, numberofbytes: i32) -> windows_core::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), core::mem::transmute(buffer), numberofbytes, &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), buffer, numberofbytes, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
@@ -7203,7 +7203,7 @@ impl ISpeechGrammarRuleState {
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddWordTransition)(windows_core::Interface::as_raw(self), deststate.param().abi(), core::mem::transmute_copy(words), core::mem::transmute_copy(separators), r#type, core::mem::transmute_copy(propertyname), propertyid, core::mem::transmute(propertyvalue), weight) }
+        unsafe { (windows_core::Interface::vtable(self).AddWordTransition)(windows_core::Interface::as_raw(self), deststate.param().abi(), core::mem::transmute_copy(words), core::mem::transmute_copy(separators), r#type, core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddRuleTransition<P0, P1>(&self, destinationstate: P0, rule: P1, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::oaidl::VARIANT, weight: f32) -> windows_core::HRESULT
@@ -7211,14 +7211,14 @@ impl ISpeechGrammarRuleState {
         P0: windows_core::Param<Self>,
         P1: windows_core::Param<ISpeechGrammarRule>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddRuleTransition)(windows_core::Interface::as_raw(self), destinationstate.param().abi(), rule.param().abi(), core::mem::transmute_copy(propertyname), propertyid, core::mem::transmute(propertyvalue), weight) }
+        unsafe { (windows_core::Interface::vtable(self).AddRuleTransition)(windows_core::Interface::as_raw(self), destinationstate.param().abi(), rule.param().abi(), core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddSpecialTransition<P0>(&self, destinationstate: P0, r#type: SpeechSpecialTransitionType, propertyname: &windows_core::BSTR, propertyid: i32, propertyvalue: *const super::oaidl::VARIANT, weight: f32) -> windows_core::HRESULT
     where
         P0: windows_core::Param<Self>,
     {
-        unsafe { (windows_core::Interface::vtable(self).AddSpecialTransition)(windows_core::Interface::as_raw(self), destinationstate.param().abi(), r#type, core::mem::transmute_copy(propertyname), propertyid, core::mem::transmute(propertyvalue), weight) }
+        unsafe { (windows_core::Interface::vtable(self).AddSpecialTransition)(windows_core::Interface::as_raw(self), destinationstate.param().abi(), r#type, core::mem::transmute_copy(propertyname), propertyid, propertyvalue, weight) }
     }
 }
 #[cfg(feature = "oaidl")]
@@ -7857,14 +7857,14 @@ impl ISpeechLexicon {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn AddPronunciationByPhoneIds(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, phoneids: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).AddPronunciationByPhoneIds)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrword), langid, partofspeech, core::mem::transmute(phoneids)) }
+        unsafe { (windows_core::Interface::vtable(self).AddPronunciationByPhoneIds)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrword), langid, partofspeech, phoneids) }
     }
     pub unsafe fn RemovePronunciation(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, bstrpronunciation: &windows_core::BSTR) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).RemovePronunciation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrword), langid, partofspeech, core::mem::transmute_copy(bstrpronunciation)) }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn RemovePronunciationByPhoneIds(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, partofspeech: SpeechPartOfSpeech, phoneids: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).RemovePronunciationByPhoneIds)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrword), langid, partofspeech, core::mem::transmute(phoneids)) }
+        unsafe { (windows_core::Interface::vtable(self).RemovePronunciationByPhoneIds)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrword), langid, partofspeech, phoneids) }
     }
     pub unsafe fn GetPronunciations(&self, bstrword: &windows_core::BSTR, langid: SpeechLanguageId, typeflags: SpeechLexiconType) -> windows_core::Result<ISpeechLexiconPronunciations> {
         unsafe {
@@ -8738,7 +8738,7 @@ impl ISpeechObjectToken {
     {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsUISupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(typeofui), core::mem::transmute(extradata), object.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsUISupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(typeofui), extradata, object.param().abi(), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
@@ -8746,7 +8746,7 @@ impl ISpeechObjectToken {
     where
         P4: windows_core::Param<windows_core::IUnknown>,
     {
-        unsafe { (windows_core::Interface::vtable(self).DisplayUI)(windows_core::Interface::as_raw(self), hwnd, core::mem::transmute_copy(title), core::mem::transmute_copy(typeofui), core::mem::transmute(extradata), object.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).DisplayUI)(windows_core::Interface::as_raw(self), hwnd, core::mem::transmute_copy(title), core::mem::transmute_copy(typeofui), extradata, object.param().abi()) }
     }
     #[cfg(feature = "wtypes")]
     pub unsafe fn MatchesAttributes(&self, attributes: &windows_core::BSTR) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
@@ -10390,7 +10390,7 @@ impl ISpeechPhraseInfoBuilder {
     pub unsafe fn RestorePhraseFromMemory(&self, phraseinmemory: *const super::oaidl::VARIANT) -> windows_core::Result<ISpeechPhraseInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).RestorePhraseFromMemory)(windows_core::Interface::as_raw(self), core::mem::transmute(phraseinmemory), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).RestorePhraseFromMemory)(windows_core::Interface::as_raw(self), phraseinmemory, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }
@@ -11409,7 +11409,7 @@ impl ISpeechRecoContext {
     pub unsafe fn CreateResultFromMemory(&self, resultblock: *const super::oaidl::VARIANT) -> windows_core::Result<ISpeechRecoResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).CreateResultFromMemory)(windows_core::Interface::as_raw(self), core::mem::transmute(resultblock), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+            (windows_core::Interface::vtable(self).CreateResultFromMemory)(windows_core::Interface::as_raw(self), resultblock, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
@@ -12900,7 +12900,7 @@ impl ISpeechRecognizer {
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn EmulateRecognition(&self, textelements: &super::oaidl::VARIANT, elementdisplayattributes: *const super::oaidl::VARIANT, languageid: i32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).EmulateRecognition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(textelements), core::mem::transmute(elementdisplayattributes), languageid) }
+        unsafe { (windows_core::Interface::vtable(self).EmulateRecognition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(textelements), elementdisplayattributes, languageid) }
     }
     pub unsafe fn CreateRecoContext(&self) -> windows_core::Result<ISpeechRecoContext> {
         unsafe {
@@ -12946,12 +12946,12 @@ impl ISpeechRecognizer {
     pub unsafe fn IsUISupported(&self, typeofui: &windows_core::BSTR, extradata: *const super::oaidl::VARIANT) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsUISupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(typeofui), core::mem::transmute(extradata), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsUISupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(typeofui), extradata, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn DisplayUI(&self, hwndparent: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DisplayUI)(windows_core::Interface::as_raw(self), hwndparent, core::mem::transmute_copy(title), core::mem::transmute_copy(typeofui), core::mem::transmute(extradata)) }
+        unsafe { (windows_core::Interface::vtable(self).DisplayUI)(windows_core::Interface::as_raw(self), hwndparent, core::mem::transmute_copy(title), core::mem::transmute_copy(typeofui), extradata) }
     }
     pub unsafe fn GetRecognizers(&self, requiredattributes: &windows_core::BSTR, optionalattributes: &windows_core::BSTR) -> windows_core::Result<ISpeechObjectTokens> {
         unsafe {
@@ -13956,12 +13956,12 @@ impl ISpeechVoice {
     pub unsafe fn IsUISupported(&self, typeofui: &windows_core::BSTR, extradata: *const super::oaidl::VARIANT) -> windows_core::Result<super::wtypes::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(self).IsUISupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(typeofui), core::mem::transmute(extradata), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(self).IsUISupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(typeofui), extradata, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn DisplayUI(&self, hwndparent: i32, title: &windows_core::BSTR, typeofui: &windows_core::BSTR, extradata: *const super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).DisplayUI)(windows_core::Interface::as_raw(self), hwndparent, core::mem::transmute_copy(title), core::mem::transmute_copy(typeofui), core::mem::transmute(extradata)) }
+        unsafe { (windows_core::Interface::vtable(self).DisplayUI)(windows_core::Interface::as_raw(self), hwndparent, core::mem::transmute_copy(title), core::mem::transmute_copy(typeofui), extradata) }
     }
 }
 #[cfg(feature = "oaidl")]

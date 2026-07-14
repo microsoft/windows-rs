@@ -49,7 +49,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpAddSubnetElementV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, addelementinfo : *mut DHCP_SUBNET_ELEMENT_DATA_V6) -> u32);
-    unsafe { DhcpAddSubnetElementV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), addelementinfo as _) }
+    unsafe { DhcpAddSubnetElementV6(serveripaddress.param().abi(), subnetaddress, addelementinfo as _) }
 }
 #[inline]
 pub unsafe fn DhcpAuditLogGetParams<P0>(serveripaddress: P0, flags: u32, auditlogdir: *mut windows_core::PWSTR, diskcheckinterval: *mut u32, maxlogfilessize: *mut u32, minspaceondisk: *mut u32) -> u32
@@ -152,7 +152,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpCreateSubnetV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, subnetinfo : *mut DHCP_SUBNET_INFO_V6) -> u32);
-    unsafe { DhcpCreateSubnetV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), subnetinfo as _) }
+    unsafe { DhcpCreateSubnetV6(serveripaddress.param().abi(), subnetaddress, subnetinfo as _) }
 }
 #[inline]
 pub unsafe fn DhcpCreateSubnetVQ<P0>(serveripaddress: P0, subnetaddress: DHCP_IP_ADDRESS, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32
@@ -223,7 +223,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpDeleteSubnetV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, forceflag : DHCP_FORCE_FLAG) -> u32);
-    unsafe { DhcpDeleteSubnetV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), forceflag) }
+    unsafe { DhcpDeleteSubnetV6(serveripaddress.param().abi(), subnetaddress, forceflag) }
 }
 #[inline]
 pub unsafe fn DhcpDeleteSuperScopeV4<P0, P1>(serveripaddress: P0, superscopename: P1) -> u32
@@ -369,7 +369,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetClientsV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, resumehandle : *mut DHCP_RESUME_IPV6_HANDLE, preferredmaximum : u32, clientinfo : *mut LPDHCP_CLIENT_INFO_ARRAY_V6, clientsread : *mut u32, clientstotal : *mut u32) -> u32);
-    unsafe { DhcpEnumSubnetClientsV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), resumehandle as _, preferredmaximum, clientinfo as _, clientsread as _, clientstotal as _) }
+    unsafe { DhcpEnumSubnetClientsV6(serveripaddress.param().abi(), subnetaddress, resumehandle as _, preferredmaximum, clientinfo as _, clientsread as _, clientstotal as _) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnetClientsVQ<P0>(serveripaddress: P0, subnetaddress: DHCP_IP_ADDRESS, resumehandle: *mut DHCP_RESUME_HANDLE, preferredmaximum: u32, clientinfo: *mut LPDHCP_CLIENT_INFO_ARRAY_VQ, clientsread: *mut u32, clientstotal: *mut u32) -> u32
@@ -409,7 +409,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpEnumSubnetElementsV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, enumelementtype : DHCP_SUBNET_ELEMENT_TYPE_V6, resumehandle : *mut DHCP_RESUME_HANDLE, preferredmaximum : u32, enumelementinfo : *mut LPDHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, elementsread : *mut u32, elementstotal : *mut u32) -> u32);
-    unsafe { DhcpEnumSubnetElementsV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), enumelementtype, resumehandle as _, preferredmaximum, enumelementinfo as _, elementsread as _, elementstotal as _) }
+    unsafe { DhcpEnumSubnetElementsV6(serveripaddress.param().abi(), subnetaddress, enumelementtype, resumehandle as _, preferredmaximum, enumelementinfo as _, elementsread as _, elementstotal as _) }
 }
 #[inline]
 pub unsafe fn DhcpEnumSubnets<P0>(serveripaddress: P0, resumehandle: *mut DHCP_RESUME_HANDLE, preferredmaximum: u32, enuminfo: *mut LPDHCP_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32
@@ -644,7 +644,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpGetSubnetInfoV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, subnetinfo : *mut LPDHCP_SUBNET_INFO_V6) -> u32);
-    unsafe { DhcpGetSubnetInfoV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), subnetinfo as _) }
+    unsafe { DhcpGetSubnetInfoV6(serveripaddress.param().abi(), subnetaddress, subnetinfo as _) }
 }
 #[inline]
 pub unsafe fn DhcpGetSubnetInfoVQ<P0>(serveripaddress: P0, subnetaddress: DHCP_IP_ADDRESS, subnetinfo: *mut LPDHCP_SUBNET_INFO_VQ) -> u32
@@ -889,7 +889,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpRemoveSubnetElementV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, removeelementinfo : *mut DHCP_SUBNET_ELEMENT_DATA_V6, forceflag : DHCP_FORCE_FLAG) -> u32);
-    unsafe { DhcpRemoveSubnetElementV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), removeelementinfo as _, forceflag) }
+    unsafe { DhcpRemoveSubnetElementV6(serveripaddress.param().abi(), subnetaddress, removeelementinfo as _, forceflag) }
 }
 #[inline]
 pub unsafe fn DhcpRpcFreeMemory(bufferpointer: *mut core::ffi::c_void) {
@@ -1199,7 +1199,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "C" fn DhcpSetSubnetInfoV6(serveripaddress : windows_core::PCWSTR, subnetaddress : DHCP_IPV6_ADDRESS, subnetinfo : *mut DHCP_SUBNET_INFO_V6) -> u32);
-    unsafe { DhcpSetSubnetInfoV6(serveripaddress.param().abi(), core::mem::transmute(subnetaddress), subnetinfo as _) }
+    unsafe { DhcpSetSubnetInfoV6(serveripaddress.param().abi(), subnetaddress, subnetinfo as _) }
 }
 #[inline]
 pub unsafe fn DhcpSetSubnetInfoVQ<P0>(serveripaddress: P0, subnetaddress: DHCP_IP_ADDRESS, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32
@@ -1575,7 +1575,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpV6GetFreeIPAddress(serveripaddress : windows_core::PCWSTR, scopeid : DHCP_IPV6_ADDRESS, startip : DHCP_IPV6_ADDRESS, endip : DHCP_IPV6_ADDRESS, numfreeaddrreq : u32, ipaddrlist : *mut LPDHCPV6_IP_ARRAY) -> u32);
-    unsafe { DhcpV6GetFreeIPAddress(serveripaddress.param().abi(), core::mem::transmute(scopeid), core::mem::transmute(startip), core::mem::transmute(endip), numfreeaddrreq, ipaddrlist as _) }
+    unsafe { DhcpV6GetFreeIPAddress(serveripaddress.param().abi(), scopeid, startip, endip, numfreeaddrreq, ipaddrlist as _) }
 }
 #[inline]
 pub unsafe fn DhcpV6GetStatelessStatistics<P0>(serveripaddress: P0, statelessstats: *mut LPDHCPV6_STATELESS_STATS) -> u32
@@ -1591,7 +1591,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpV6GetStatelessStoreParams(serveripaddress : windows_core::PCWSTR, fserverlevel : windows_core::BOOL, subnetaddress : DHCP_IPV6_ADDRESS, params : *mut LPDHCPV6_STATELESS_PARAMS) -> u32);
-    unsafe { DhcpV6GetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.into(), core::mem::transmute(subnetaddress), params as _) }
+    unsafe { DhcpV6GetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.into(), subnetaddress, params as _) }
 }
 #[inline]
 pub unsafe fn DhcpV6SetStatelessStoreParams<P0>(serveripaddress: P0, fserverlevel: bool, subnetaddress: DHCP_IPV6_ADDRESS, fieldmodified: u32, params: *const DHCPV6_STATELESS_PARAMS) -> u32
@@ -1599,7 +1599,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("dhcpsapi.dll" "system" fn DhcpV6SetStatelessStoreParams(serveripaddress : windows_core::PCWSTR, fserverlevel : windows_core::BOOL, subnetaddress : DHCP_IPV6_ADDRESS, fieldmodified : u32, params : *const DHCPV6_STATELESS_PARAMS) -> u32);
-    unsafe { DhcpV6SetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.into(), core::mem::transmute(subnetaddress), fieldmodified, params) }
+    unsafe { DhcpV6SetStatelessStoreParams(serveripaddress.param().abi(), fserverlevel.into(), subnetaddress, fieldmodified, params) }
 }
 pub const ADDRESS_TYPE_IANA: u32 = 0;
 pub const ADDRESS_TYPE_IATA: u32 = 1;

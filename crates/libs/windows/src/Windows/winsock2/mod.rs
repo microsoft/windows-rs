@@ -19,13 +19,13 @@ pub unsafe fn WSAAccept(s: SOCKET, addr: Option<*mut super::ws2::SOCKADDR>, addr
 #[inline]
 pub unsafe fn WSAAddressToStringA(lpsaaddress: *const super::ws2::SOCKADDR, dwaddresslength: u32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOA>, lpszaddressstring: windows_core::PSTR, lpdwaddressstringlength: *mut u32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAddressToStringA(lpsaaddress : *const super::ws2::SOCKADDR, dwaddresslength : u32, lpprotocolinfo : *const WSAPROTOCOL_INFOA, lpszaddressstring : windows_core::PSTR, lpdwaddressstringlength : *mut u32) -> i32);
-    unsafe { WSAAddressToStringA(lpsaaddress, dwaddresslength, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpszaddressstring), lpdwaddressstringlength as _) }
+    unsafe { WSAAddressToStringA(lpsaaddress, dwaddresslength, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, lpszaddressstring, lpdwaddressstringlength as _) }
 }
 #[cfg(feature = "ws2")]
 #[inline]
 pub unsafe fn WSAAddressToStringW(lpsaaddress: *const super::ws2::SOCKADDR, dwaddresslength: u32, lpprotocolinfo: Option<*const WSAPROTOCOL_INFOW>, lpszaddressstring: windows_core::PWSTR, lpdwaddressstringlength: *mut u32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSAAddressToStringW(lpsaaddress : *const super::ws2::SOCKADDR, dwaddresslength : u32, lpprotocolinfo : *const WSAPROTOCOL_INFOW, lpszaddressstring : windows_core::PWSTR, lpdwaddressstringlength : *mut u32) -> i32);
-    unsafe { WSAAddressToStringW(lpsaaddress, dwaddresslength, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpszaddressstring), lpdwaddressstringlength as _) }
+    unsafe { WSAAddressToStringW(lpsaaddress, dwaddresslength, lpprotocolinfo.unwrap_or(core::mem::zeroed()) as _, lpszaddressstring, lpdwaddressstringlength as _) }
 }
 #[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
@@ -225,12 +225,12 @@ pub unsafe fn WSAGetServiceClassInfoW(lpproviderid: *const windows_core::GUID, l
 #[inline]
 pub unsafe fn WSAGetServiceClassNameByClassIdA(lpserviceclassid: *const windows_core::GUID, lpszserviceclassname: windows_core::PSTR, lpdwbufferlength: *mut u32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSAGetServiceClassNameByClassIdA(lpserviceclassid : *const windows_core::GUID, lpszserviceclassname : windows_core::PSTR, lpdwbufferlength : *mut u32) -> i32);
-    unsafe { WSAGetServiceClassNameByClassIdA(lpserviceclassid, core::mem::transmute(lpszserviceclassname), lpdwbufferlength as _) }
+    unsafe { WSAGetServiceClassNameByClassIdA(lpserviceclassid, lpszserviceclassname, lpdwbufferlength as _) }
 }
 #[inline]
 pub unsafe fn WSAGetServiceClassNameByClassIdW(lpserviceclassid: *const windows_core::GUID, lpszserviceclassname: windows_core::PWSTR, lpdwbufferlength: *mut u32) -> i32 {
     windows_core::link!("ws2_32.dll" "system" fn WSAGetServiceClassNameByClassIdW(lpserviceclassid : *const windows_core::GUID, lpszserviceclassname : windows_core::PWSTR, lpdwbufferlength : *mut u32) -> i32);
-    unsafe { WSAGetServiceClassNameByClassIdW(lpserviceclassid, core::mem::transmute(lpszserviceclassname), lpdwbufferlength as _) }
+    unsafe { WSAGetServiceClassNameByClassIdW(lpserviceclassid, lpszserviceclassname, lpdwbufferlength as _) }
 }
 #[inline]
 pub unsafe fn WSAHtonl(s: SOCKET, hostlong: u_long, lpnetlong: *mut u_long) -> i32 {
@@ -569,7 +569,7 @@ where
 #[inline]
 pub unsafe fn inet_ntoa(r#in: super::inaddr::IN_ADDR) -> *mut i8 {
     windows_core::link!("ws2_32.dll" "system" fn inet_ntoa(r#in : super::inaddr::IN_ADDR) -> *mut i8);
-    unsafe { inet_ntoa(core::mem::transmute(r#in)) }
+    unsafe { inet_ntoa(r#in) }
 }
 #[inline]
 pub unsafe fn ioctlsocket(s: SOCKET, cmd: i32, argp: *mut u_long) -> i32 {

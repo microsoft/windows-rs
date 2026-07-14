@@ -2,7 +2,7 @@
 #[inline]
 pub unsafe fn AccNotifyTouchInteraction(hwndapp: super::windef::HWND, hwndtarget: super::windef::HWND, pttarget: super::windef::POINT) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn AccNotifyTouchInteraction(hwndapp : super::windef::HWND, hwndtarget : super::windef::HWND, pttarget : super::windef::POINT) -> windows_core::HRESULT);
-    unsafe { AccNotifyTouchInteraction(hwndapp, hwndtarget, core::mem::transmute(pttarget)) }
+    unsafe { AccNotifyTouchInteraction(hwndapp, hwndtarget, pttarget) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -23,13 +23,13 @@ where
 #[inline]
 pub unsafe fn AccessibleObjectFromEvent(hwnd: super::windef::HWND, dwid: u32, dwchildid: u32, ppacc: *mut Option<IAccessible>, pvarchild: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::windef::HWND, dwid : u32, dwchildid : u32, ppacc : *mut *mut core::ffi::c_void, pvarchild : *mut super::oaidl::VARIANT) -> windows_core::HRESULT);
-    unsafe { AccessibleObjectFromEvent(hwnd, dwid, dwchildid, core::mem::transmute(ppacc), core::mem::transmute(pvarchild)) }
+    unsafe { AccessibleObjectFromEvent(hwnd, dwid, dwchildid, core::mem::transmute(ppacc), pvarchild) }
 }
 #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
 #[inline]
 pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::windef::POINT, ppacc: *mut Option<IAccessible>, pvarchild: *mut super::oaidl::VARIANT) -> windows_core::HRESULT {
     windows_core::link!("oleacc.dll" "system" fn AccessibleObjectFromPoint(ptscreen : super::windef::POINT, ppacc : *mut *mut core::ffi::c_void, pvarchild : *mut super::oaidl::VARIANT) -> windows_core::HRESULT);
-    unsafe { AccessibleObjectFromPoint(core::mem::transmute(ptscreen), core::mem::transmute(ppacc), core::mem::transmute(pvarchild)) }
+    unsafe { AccessibleObjectFromPoint(ptscreen, core::mem::transmute(ppacc), pvarchild) }
 }
 #[cfg(feature = "windef")]
 #[inline]
@@ -191,7 +191,7 @@ windows_core::imp::interface_hierarchy!(IAccPropServer, windows_core::IUnknown);
 impl IAccPropServer {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn GetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: MSAAPROPID, pvarvalue: *mut super::oaidl::VARIANT, pfhasprop: *mut windows_core::BOOL) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetPropValue)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, core::mem::transmute(idprop), core::mem::transmute(pvarvalue), pfhasprop as _) }
+        unsafe { (windows_core::Interface::vtable(self).GetPropValue)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, idprop, pvarvalue, pfhasprop as _) }
     }
 }
 #[repr(C)]
@@ -229,7 +229,7 @@ windows_core::imp::interface_hierarchy!(IAccPropServices, windows_core::IUnknown
 impl IAccPropServices {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: MSAAPROPID, var: &super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetPropValue)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, core::mem::transmute(idprop), core::mem::transmute_copy(var)) }
+        unsafe { (windows_core::Interface::vtable(self).SetPropValue)(windows_core::Interface::as_raw(self), pidstring, dwidstringlen, idprop, core::mem::transmute_copy(var)) }
     }
     pub unsafe fn SetPropServer<P4>(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const MSAAPROPID, cprops: i32, pserver: P4, annoscope: AnnoScope) -> windows_core::HRESULT
     where
@@ -242,14 +242,14 @@ impl IAccPropServices {
     }
     #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetHwndProp(&self, hwnd: super::windef::HWND, idobject: u32, idchild: u32, idprop: MSAAPROPID, var: &super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetHwndProp)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(idprop), core::mem::transmute_copy(var)) }
+        unsafe { (windows_core::Interface::vtable(self).SetHwndProp)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, idprop, core::mem::transmute_copy(var)) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SetHwndPropStr<P4>(&self, hwnd: super::windef::HWND, idobject: u32, idchild: u32, idprop: MSAAPROPID, str: P4) -> windows_core::HRESULT
     where
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetHwndPropStr)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, core::mem::transmute(idprop), str.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetHwndPropStr)(windows_core::Interface::as_raw(self), hwnd, idobject, idchild, idprop, str.param().abi()) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SetHwndPropServer<P5>(&self, hwnd: super::windef::HWND, idobject: u32, idchild: u32, paprops: *const MSAAPROPID, cprops: i32, pserver: P5, annoscope: AnnoScope) -> windows_core::HRESULT
@@ -272,14 +272,14 @@ impl IAccPropServices {
     }
     #[cfg(all(feature = "oaidl", feature = "windef", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn SetHmenuProp(&self, hmenu: super::windef::HMENU, idchild: u32, idprop: MSAAPROPID, var: &super::oaidl::VARIANT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetHmenuProp)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(idprop), core::mem::transmute_copy(var)) }
+        unsafe { (windows_core::Interface::vtable(self).SetHmenuProp)(windows_core::Interface::as_raw(self), hmenu, idchild, idprop, core::mem::transmute_copy(var)) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SetHmenuPropStr<P3>(&self, hmenu: super::windef::HMENU, idchild: u32, idprop: MSAAPROPID, str: P3) -> windows_core::HRESULT
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetHmenuPropStr)(windows_core::Interface::as_raw(self), hmenu, idchild, core::mem::transmute(idprop), str.param().abi()) }
+        unsafe { (windows_core::Interface::vtable(self).SetHmenuPropStr)(windows_core::Interface::as_raw(self), hmenu, idchild, idprop, str.param().abi()) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn SetHmenuPropServer<P4>(&self, hmenu: super::windef::HMENU, idchild: u32, paprops: *const MSAAPROPID, cprops: i32, pserver: P4, annoscope: AnnoScope) -> windows_core::HRESULT

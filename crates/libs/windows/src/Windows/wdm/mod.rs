@@ -699,7 +699,7 @@ pub unsafe fn RtlUTF8StringToUnicodeString(destinationstring: *mut super::ntseca
 #[inline]
 pub unsafe fn RtlUTF8ToUnicodeN(unicodestringdestination: windows_core::PWSTR, unicodestringmaxbytecount: u32, unicodestringactualbytecount: *mut u32, utf8stringsource: &[u8]) -> super::bcrypt::NTSTATUS {
     windows_core::link!("ntdll.dll" "system" fn RtlUTF8ToUnicodeN(unicodestringdestination : windows_core::PWSTR, unicodestringmaxbytecount : u32, unicodestringactualbytecount : *mut u32, utf8stringsource : *const i8, utf8stringbytecount : u32) -> super::bcrypt::NTSTATUS);
-    unsafe { RtlUTF8ToUnicodeN(core::mem::transmute(unicodestringdestination), unicodestringmaxbytecount, unicodestringactualbytecount as _, core::mem::transmute(utf8stringsource.as_ptr()), utf8stringsource.len().try_into().unwrap()) }
+    unsafe { RtlUTF8ToUnicodeN(unicodestringdestination, unicodestringmaxbytecount, unicodestringactualbytecount as _, core::mem::transmute(utf8stringsource.as_ptr()), utf8stringsource.len().try_into().unwrap()) }
 }
 #[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi"))]
 #[inline]

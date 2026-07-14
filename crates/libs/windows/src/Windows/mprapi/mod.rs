@@ -72,7 +72,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
     windows_core::link!("mprapi.dll" "system" fn MprAdminGetPDCServer(lpszdomain : windows_core::PCWSTR, lpszserver : windows_core::PCWSTR, lpszpdcserver : windows_core::PWSTR) -> u32);
-    unsafe { MprAdminGetPDCServer(lpszdomain.param().abi(), lpszserver.param().abi(), core::mem::transmute(lpszpdcserver)) }
+    unsafe { MprAdminGetPDCServer(lpszdomain.param().abi(), lpszserver.param().abi(), lpszpdcserver) }
 }
 #[cfg(feature = "winnt")]
 #[inline]

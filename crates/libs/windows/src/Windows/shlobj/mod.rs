@@ -34,7 +34,7 @@ where
 #[inline]
 pub unsafe fn PathQualify(psz: windows_core::PWSTR) {
     windows_core::link!("shell32.dll" "system" fn PathQualify(psz : windows_core::PWSTR));
-    unsafe { PathQualify(core::mem::transmute(psz)) }
+    unsafe { PathQualify(psz) }
 }
 #[cfg(feature = "shlobj_core")]
 #[inline]
@@ -252,7 +252,7 @@ impl IActiveDesktopP {
         unsafe { (windows_core::Interface::vtable(self).SetScheme)(windows_core::Interface::as_raw(self), pwszschemename.param().abi(), dwflags) }
     }
     pub unsafe fn GetScheme(&self, pwszschemename: windows_core::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetScheme)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszschemename), pdwcchbuffer as _, dwflags) }
+        unsafe { (windows_core::Interface::vtable(self).GetScheme)(windows_core::Interface::as_raw(self), pwszschemename, pdwcchbuffer as _, dwflags) }
     }
 }
 #[repr(C)]
@@ -727,7 +727,7 @@ windows_core::imp::interface_hierarchy!(IDocViewSite, windows_core::IUnknown);
 impl IDocViewSite {
     #[cfg(all(feature = "oaidl", feature = "wtypes", feature = "wtypesbase"))]
     pub unsafe fn OnSetTitle(&self, pvtitle: *const super::oaidl::VARIANTARG) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).OnSetTitle)(windows_core::Interface::as_raw(self), core::mem::transmute(pvtitle)) }
+        unsafe { (windows_core::Interface::vtable(self).OnSetTitle)(windows_core::Interface::as_raw(self), pvtitle) }
     }
 }
 #[repr(C)]
@@ -1121,11 +1121,11 @@ impl IShellFolderBand {
     }
     #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
     pub unsafe fn SetBandInfoSFB(&self, pbi: *const BANDINFOSFB) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).SetBandInfoSFB)(windows_core::Interface::as_raw(self), core::mem::transmute(pbi)) }
+        unsafe { (windows_core::Interface::vtable(self).SetBandInfoSFB)(windows_core::Interface::as_raw(self), pbi) }
     }
     #[cfg(all(feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
     pub unsafe fn GetBandInfoSFB(&self, pbi: *mut BANDINFOSFB) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).GetBandInfoSFB)(windows_core::Interface::as_raw(self), core::mem::transmute(pbi)) }
+        unsafe { (windows_core::Interface::vtable(self).GetBandInfoSFB)(windows_core::Interface::as_raw(self), pbi) }
     }
 }
 #[repr(C)]

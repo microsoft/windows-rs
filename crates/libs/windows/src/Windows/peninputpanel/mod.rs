@@ -1145,11 +1145,11 @@ impl ITextInputPanelEventSink {
     }
     #[cfg(feature = "windef")]
     pub unsafe fn InPlaceSizeChanging(&self, oldboundingrectangle: super::windef::RECT, newboundingrectangle: super::windef::RECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InPlaceSizeChanging)(windows_core::Interface::as_raw(self), core::mem::transmute(oldboundingrectangle), core::mem::transmute(newboundingrectangle)) }
+        unsafe { (windows_core::Interface::vtable(self).InPlaceSizeChanging)(windows_core::Interface::as_raw(self), oldboundingrectangle, newboundingrectangle) }
     }
     #[cfg(feature = "windef")]
     pub unsafe fn InPlaceSizeChanged(&self, oldboundingrectangle: super::windef::RECT, newboundingrectangle: super::windef::RECT) -> windows_core::HRESULT {
-        unsafe { (windows_core::Interface::vtable(self).InPlaceSizeChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(oldboundingrectangle), core::mem::transmute(newboundingrectangle)) }
+        unsafe { (windows_core::Interface::vtable(self).InPlaceSizeChanged)(windows_core::Interface::as_raw(self), oldboundingrectangle, newboundingrectangle) }
     }
     pub unsafe fn InputAreaChanging(&self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).InputAreaChanging)(windows_core::Interface::as_raw(self), oldinputarea, newinputarea) }
