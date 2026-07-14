@@ -117,6 +117,14 @@ build.
 - **Reentrancy-safe** — `wndproc` moves the handlers out of the state before
   invoking them and restores them afterward, so a handler that pumps nested
   messages can't alias (or, behind `RefCell`, panic on re-borrowing) itself.
+- **Panicking handlers abort** — the handlers are invoked directly from
+  `wndproc`, an `extern "system"` function, without a `catch_unwind` wrapper. A
+  panic that escapes a handler therefore unwinds to that boundary and aborts the
+  process (guaranteed since Rust 1.81; the crate's MSRV is well past that), rather
+  than unwinding into the OS frames that called `wndproc`. This is intentional —
+  it mirrors a C++ `noexcept` boundary calling `std::terminate`. A handler that
+  needs to recover from its own panics should wrap its body in
+  `std::panic::catch_unwind`.
 - **Not a kitchen sink** — the crate covers window creation, a resize hook, and a
   message loop only. Anything beyond that (menus, input, multiple monitors, etc.)
   belongs in the consuming app or a focused [`windows-bindgen`](windows-bindgen.md)
