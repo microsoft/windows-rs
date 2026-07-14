@@ -41,10 +41,11 @@ pub use download::{
 };
 pub use environment::Environment;
 pub use event::{
-    AcceleratorKeyPressedArgs, ContentLoadingArgs, EventRegistration, KeyEventKind,
-    MoveFocusReason, MoveFocusRequestedArgs, NavigationCompletedArgs, NavigationStartingArgs,
-    NewWindowRequestedArgs, PermissionKind, PermissionRequestedArgs, PermissionState,
-    ProcessFailedArgs, ProcessFailedKind, WebMessageReceivedArgs,
+    AcceleratorKeyPressedArgs, ContentLoadingArgs, DevToolsProtocolEventReceivedArgs,
+    EventRegistration, KeyEventKind, MoveFocusReason, MoveFocusRequestedArgs,
+    NavigationCompletedArgs, NavigationStartingArgs, NewWindowRequestedArgs, PermissionKind,
+    PermissionRequestedArgs, PermissionState, ProcessFailedArgs, ProcessFailedKind,
+    WebMessageReceivedArgs,
 };
 pub use options::{EnvironmentOptions, ScrollBarStyle};
 pub use profile::{PreferredColorScheme, Profile};

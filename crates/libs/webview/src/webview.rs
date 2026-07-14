@@ -265,6 +265,53 @@ impl WebView {
         unsafe { self.0.ExecuteScript(&javascript, &handler) }.ok()
     }
 
+    /// Asynchronously calls a Chrome DevTools Protocol method — the programmatic
+    /// CDP channel that reaches browser-level capabilities beyond page script,
+    /// such as `Network.*` interception, `Page.printToPDF`, and `Emulation.*`.
+    /// `method` is a CDP method name (for example `"Browser.getVersion"`) and
+    /// `params_json` is its parameters as a JSON object string (`"{}"` for none).
+    /// The `handler` closure receives the method's return object as JSON on the
+    /// UI thread.
+    pub fn call_dev_tools_protocol_method<F: FnOnce(Result<String>) + 'static>(
+        &self,
+        method: &str,
+        params_json: &str,
+        handler: F,
+    ) -> Result<()> {
+        let method = HSTRING::from(method);
+        let params = HSTRING::from(params_json);
+        let handler = handler::CallDevToolsProtocolMethodCompleted::create(handler);
+        unsafe {
+            self.0
+                .CallDevToolsProtocolMethod(&method, &params, &handler)
+        }
+        .ok()
+    }
+
+    /// Subscribes to a Chrome DevTools Protocol event by name (for example
+    /// `"Runtime.consoleAPICalled"`), the programmatic counterpart to
+    /// [`call_dev_tools_protocol_method`](Self::call_dev_tools_protocol_method).
+    /// The handler receives each event's parameters as JSON. Most CDP events only
+    /// fire after their domain is enabled, so call the matching `*.enable` method
+    /// first. The returned [`EventRegistration`] keeps the subscription alive
+    /// until it is dropped.
+    pub fn on_dev_tools_protocol_event<F>(
+        &self,
+        event_name: &str,
+        handler: F,
+    ) -> Result<EventRegistration>
+    where
+        F: FnMut(DevToolsProtocolEventReceivedArgs) + 'static,
+    {
+        let event_name = HSTRING::from(event_name);
+        let receiver = unsafe { self.0.GetDevToolsProtocolEventReceiver(&event_name)? };
+        let handler = handler::DevToolsProtocolEventReceived::create(handler);
+        let token = unsafe { receiver.add_DevToolsProtocolEventReceived(&handler)? };
+        Ok(EventRegistration::new(move || {
+            let _ = unsafe { receiver.remove_DevToolsProtocolEventReceived(token) };
+        }))
+    }
+
     /// Registers JavaScript to run before any other script each time a document
     /// is created, returning a [`ScriptId`] that can later be passed to
     /// [`remove_script_to_execute_on_document_created`](Self::remove_script_to_execute_on_document_created).

@@ -22,6 +22,8 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
     ("Ipc_PageToHost", ipc::page_to_host),
     ("Ipc_HostToPageRoundTrip", ipc::host_to_page_round_trip),
     ("Ipc_JsonRoundTrip", ipc::json_round_trip),
+    ("DevTools_CallReturnsJson", devtools::call_returns_json),
+    ("DevTools_EventReceived", devtools::event_received),
     (
         "Protocol_WebResourceServedFromMemory",
         protocol::web_resource_served_from_memory,

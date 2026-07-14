@@ -160,6 +160,24 @@ runs before page script on every new document — the usual place to set up the
 host-communication channel. `execute_script(js, callback)` evaluates script and
 delivers the JSON result to the callback.
 
+## DevTools protocol
+
+For automation that reaches past page script — network interception, emulation,
+tracing, `Page.printToPDF` — the crate exposes the in-process [Chrome DevTools
+Protocol](https://chromedevtools.github.io/devtools-protocol/) channel (no remote
+debugging port required):
+
+- **Call a method:** `call_dev_tools_protocol_method(method, params_json,
+  callback)` sends a CDP command (for example `"Browser.getVersion"`) with its
+  parameters as a JSON object string, delivering the result object as JSON to the
+  callback — the same async shape as `execute_script`.
+- **Subscribe to an event:** `on_dev_tools_protocol_event(event_name, handler)`
+  returns an `EventRegistration` and delivers each event's parameters as JSON via
+  a `DevToolsProtocolEventReceivedArgs`. Most CDP events only fire after their
+  domain is enabled, so call the matching `*.enable` method first. Each event name
+  is backed by its own receiver object, which the registration keeps alive for the
+  subscription's lifetime.
+
 ## Custom protocols
 
 `on_web_resource_requested(uri_filter, handler)` intercepts resource loads whose
@@ -285,6 +303,7 @@ Run one with `cargo run -p webview_samples --example <name>`:
 | `cookies` | Adding a cookie and enumerating cookies with the cookie manager. |
 | `profile` | An in-private controller, the dark color scheme, and clearing browsing data. |
 | `script` | The document-created script lifecycle: inject a script that runs before each page, read a value it set back with `execute_script`, then remove it. |
+| `devtools` | Driving the page over the Chrome DevTools Protocol: call `Browser.getVersion` and subscribe to `Runtime.consoleAPICalled`. |
 
 ## Reactor integration
 
@@ -338,17 +357,19 @@ non-goal: WebView2's single-threaded COM apartment and callback model make the
 pump-and-wait approach (below) a more natural fit.
 
 Covered: synchronous creation, navigation and document state, settings, host ↔
-page messaging, custom protocols (serve from memory), downloads, profiles,
+page messaging, the DevTools protocol (call methods and subscribe to events),
+custom protocols (serve from memory), downloads, profiles,
 environment options, controller polish (zoom, default background
 colour/transparency, DPI/rasterization scale), focus and keyboard events, and the
 navigation, content-loading, document-title, window-close, new-window,
 permission, process-failed, and fullscreen events.
 
 Out of scope: host objects (`AddHostObjectToScript` — `postMessage` covers the
-same host ↔ page need), the DevTools protocol (`CallDevToolsProtocolMethod`),
-`TrySuspend`/`Resume`, `CapturePreview`, and the frame, composition (windowless),
-print, and audio interface families. Each can be added later behind the same
-minimal-binding pattern when a concrete need arises.
+same host ↔ page need), the session-scoped DevTools variant
+(`CallDevToolsProtocolMethodForSession`), `TrySuspend`/`Resume`, `CapturePreview`,
+and the frame, composition (windowless), print, and audio interface families.
+Each can be added later behind the same minimal-binding pattern when a concrete
+need arises.
 
 ### How it's built
 
@@ -627,11 +648,17 @@ call host methods directly, beyond message passing) and
 data (e.g. handing a dataset — or canvas-produced bytes — to the page without
 serializing through JSON).
 
-#### 3. DevTools Protocol *(medium)*
+#### 3. DevTools Protocol *(base methods done)*
 
-`CallDevToolsProtocolMethod` and `GetDevToolsProtocolEventReceiver` expose the
-Chrome DevTools Protocol — automation, performance tracing, network inspection,
-emulation, and scripted control. Valuable for testing and tooling.
+Present: `call_dev_tools_protocol_method` and `on_dev_tools_protocol_event` project
+the base `ICoreWebView2` Chrome DevTools Protocol channel — automation, performance
+tracing, network inspection, emulation, and scripted control (see [DevTools
+protocol](#devtools-protocol)), behind the same minimal-binding pattern as the rest
+of the crate.
+
+Missing: the session-scoped `CallDevToolsProtocolMethodForSession`
+(`ICoreWebView2_11`) and its `...EventArgs2::SessionId`, for targeting CDP commands
+at a specific session (iframes, workers).
 
 #### 4. Print and capture *(medium)*
 
@@ -701,6 +728,46 @@ so the relationship is about division of labor:
 
 Windowless composition (§1) is the highest-leverage but largest piece. Host
 objects / IPC (§2) and the app-relevant events — context menus and authentication
-(§5) — are smaller and independently shippable. Print/capture (§4) and the DevTools
-protocol (§3) are self-contained add-ons that can land whenever a concrete need
-arises, behind the same minimal-binding pattern the crate already uses.
+(§5) — are smaller and independently shippable. Print/capture (§4) is a
+self-contained add-on that can land whenever a concrete need arises, behind the
+same minimal-binding pattern the crate already uses; the DevTools protocol (§3)
+already landed that way.
+
+---
+
+### DevTools Protocol — implementation plan
+
+Projects the two base-`ICoreWebView2` DevTools methods that today sit as
+unprojected `usize` vtable slots (`bindings.rs` `CallDevToolsProtocolMethod` /
+`GetDevToolsProtocolEventReceiver`). All supporting interfaces already exist in
+the scraped `WebView2.h`, so no metadata work is needed. Scope is the **base**
+methods only; `CallDevToolsProtocolMethodForSession` (`ICoreWebView2_11`) and
+`...EventArgs2::SessionId` are deferred.
+
+1. **Filter** (`crates/tools/webview/src/webview.txt`)
+   - `--implement`: `ICoreWebView2CallDevToolsProtocolMethodCompletedHandler`,
+     `ICoreWebView2DevToolsProtocolEventReceivedEventHandler`.
+   - `--filter`: add `CallDevToolsProtocolMethod` and
+     `GetDevToolsProtocolEventReceiver` to the `ICoreWebView2::{…}` list;
+     `ICoreWebView2DevToolsProtocolEventReceiver::{add_DevToolsProtocolEventReceived,
+     remove_DevToolsProtocolEventReceived}`;
+     `ICoreWebView2DevToolsProtocolEventReceivedEventArgs::{get_ParameterObjectAsJson}`.
+2. **Regenerate** `bindings.rs` with `cargo run -p tool_webview` (needs libclang;
+   the CI `gen` job re-runs it, so the committed file must match).
+3. **`handler.rs`** — `CallDevToolsProtocolMethodCompleted` (clone of
+   `ExecuteScriptCompleted`, `Invoke(errorCode, result: &PCWSTR)` → `Result<String>`)
+   and a `DevToolsProtocolEventReceived` `event_handler!` entry.
+4. **`event.rs`** — `DevToolsProtocolEventReceivedArgs` with
+   `parameter_object_as_json() -> String`; export from `lib.rs`.
+5. **`webview.rs`** — `call_dev_tools_protocol_method(method, params_json, handler)`
+   mirroring `execute_script`, and `on_dev_tools_protocol_event(event_name, handler)
+   -> Result<EventRegistration>`. The latter obtains a per-name receiver via
+   `GetDevToolsProtocolEventReceiver`, subscribes on it, and the returned
+   registration **captures the receiver** to keep the subscription alive — so it
+   cannot reuse the `subscription!` macro (which registers on the `WebView`).
+6. **Tests** — `fixtures/devtools.rs`, registered in `fixtures/mod.rs` and
+   `registry.rs`: `DevTools_CallReturnsJson` (`Browser.getVersion` → JSON contains
+   `product`) and `DevTools_EventReceived` (`Runtime.consoleAPICalled` after
+   `Runtime.enable`, page logs a sentinel, assert the parameter JSON contains it).
+7. **Sample** — `examples/devtools.rs`, mirroring `script.rs`: call
+   `Browser.getVersion` and subscribe to console events.

@@ -186,6 +186,42 @@ impl ICoreWebView2ClearBrowsingDataCompletedHandler_Impl for ClearBrowsingDataCo
     }
 }
 
+/// Adapts a Rust closure to the
+/// `ICoreWebView2CallDevToolsProtocolMethodCompletedHandler` COM interface. The
+/// completion result is the CDP method's return object as a JSON string.
+pub(crate) struct CallDevToolsProtocolMethodCompleted(
+    Cell<Option<Box<dyn FnOnce(Result<String>)>>>,
+);
+
+implement_decl! {
+    impl CallDevToolsProtocolMethodCompleted as pub(crate) CallDevToolsProtocolMethodCompleted_Impl:
+        [ICoreWebView2CallDevToolsProtocolMethodCompletedHandler]
+}
+
+impl CallDevToolsProtocolMethodCompleted {
+    pub(crate) fn create<F: FnOnce(Result<String>) + 'static>(
+        handler: F,
+    ) -> ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {
+        Self(Cell::new(Some(Box::new(handler)))).into()
+    }
+}
+
+impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl
+    for CallDevToolsProtocolMethodCompleted_Impl
+{
+    fn Invoke(&self, errorcode: HRESULT, result: &PCWSTR) -> Result<()> {
+        let outcome = errorcode
+            .ok()
+            .map(|()| unsafe { result.to_string().unwrap_or_default() });
+
+        if let Some(handler) = self.0.take() {
+            handler(outcome);
+        }
+
+        Ok(())
+    }
+}
+
 /// Defines an event-handler adapter that forwards a WebView2 event to a Rust
 /// `FnMut` closure. The default form wraps the event's args interface with an
 /// `ICoreWebView2` sender; passing a sender type handles events raised on a
@@ -249,6 +285,7 @@ event_handler!(DownloadStarting / DownloadStarting_Impl, ICoreWebView2DownloadSt
 event_handler!(DownloadStateChanged / DownloadStateChanged_Impl, ICoreWebView2StateChangedEventHandler / ICoreWebView2StateChangedEventHandler_Impl, sender ICoreWebView2DownloadOperation => DownloadOperation);
 event_handler!(BytesReceivedChanged / BytesReceivedChanged_Impl, ICoreWebView2BytesReceivedChangedEventHandler / ICoreWebView2BytesReceivedChangedEventHandler_Impl, sender ICoreWebView2DownloadOperation => DownloadOperation);
 event_handler!(ProcessFailed / ProcessFailed_Impl, ICoreWebView2ProcessFailedEventHandler / ICoreWebView2ProcessFailedEventHandler_Impl, ICoreWebView2ProcessFailedEventArgs => ProcessFailedArgs);
+event_handler!(DevToolsProtocolEventReceived / DevToolsProtocolEventReceived_Impl, ICoreWebView2DevToolsProtocolEventReceivedEventHandler / ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl, ICoreWebView2DevToolsProtocolEventReceivedEventArgs => DevToolsProtocolEventReceivedArgs);
 event_handler!(MoveFocusRequested / MoveFocusRequested_Impl, ICoreWebView2MoveFocusRequestedEventHandler / ICoreWebView2MoveFocusRequestedEventHandler_Impl, ICoreWebView2Controller, ICoreWebView2MoveFocusRequestedEventArgs => MoveFocusRequestedArgs);
 event_handler!(AcceleratorKeyPressed / AcceleratorKeyPressed_Impl, ICoreWebView2AcceleratorKeyPressedEventHandler / ICoreWebView2AcceleratorKeyPressedEventHandler_Impl, ICoreWebView2Controller, ICoreWebView2AcceleratorKeyPressedEventArgs => AcceleratorKeyPressedArgs);
 
