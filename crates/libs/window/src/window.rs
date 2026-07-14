@@ -263,6 +263,10 @@ unsafe extern "system" fn wndproc(
             let mut message_handler = (*state).message.take();
             let mut resize_handler = (*state).resize.take();
 
+            // Handlers are invoked directly, without catch_unwind: a panic that
+            // escapes one unwinds to this extern "system" boundary and aborts the
+            // process rather than crossing into the OS frames that called wndproc.
+            // This is intentional.
             if let Some(handler) = message_handler.as_mut() {
                 handled = handler(hwnd, message, wparam, lparam);
             }
