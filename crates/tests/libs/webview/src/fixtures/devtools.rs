@@ -31,7 +31,8 @@ fn call(harness: &Harness, method: &str, params_json: &str) -> Option<Result<Str
 /// `call_dev_tools_protocol_method` returns the CDP method's result as JSON, and
 /// forwards a non-empty parameter object to the browser.
 pub fn call_returns_json(harness: &Harness) {
-    // No parameters: a browser-level query page script cannot reach.
+    // No parameters: `Browser.getVersion` reports browser details that page
+    // script cannot obtain, confirming the call reaches the CDP channel.
     let version = call(harness, "Browser.getVersion", "{}");
     harness.check(
         "DevTools_Call_Result",
@@ -57,8 +58,8 @@ pub fn event_received(harness: &Harness) {
     let sink = received.clone();
     let webview = harness.webview();
 
-    let Ok(registration) = webview
-        .on_dev_tools_protocol_event("Runtime.consoleAPICalled", move |args| {
+    let Ok(registration) =
+        webview.on_dev_tools_protocol_event("Runtime.consoleAPICalled", move |args| {
             *sink.borrow_mut() = Some(args.parameter_object_as_json());
         })
     else {
