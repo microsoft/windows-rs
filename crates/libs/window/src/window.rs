@@ -98,12 +98,6 @@ impl WindowBuilder {
 
     /// Sets a handler called for every window message. Return `Some(result)` to
     /// handle the message, or `None` to fall through to default processing.
-    ///
-    /// # Panics
-    ///
-    /// The handler runs inside `wndproc`, an `extern "system"` function, with no
-    /// `catch_unwind`. A panic that escapes it aborts the process. Wrap the body
-    /// in [`std::panic::catch_unwind`] if you need to recover.
     pub fn on_message<F>(mut self, handler: F) -> Self
     where
         F: FnMut(*mut core::ffi::c_void, u32, usize, isize) -> Option<isize> + 'static,
@@ -114,12 +108,6 @@ impl WindowBuilder {
 
     /// Sets a handler called when the client area is resized, with the new
     /// width and height in pixels.
-    ///
-    /// # Panics
-    ///
-    /// The handler runs inside `wndproc`, an `extern "system"` function, with no
-    /// `catch_unwind`. A panic that escapes it aborts the process. Wrap the body
-    /// in [`std::panic::catch_unwind`] if you need to recover.
     pub fn on_resize<F>(mut self, handler: F) -> Self
     where
         F: FnMut(i32, i32) + 'static,
@@ -277,8 +265,8 @@ unsafe extern "system" fn wndproc(
 
             // Handlers are invoked directly, without catch_unwind: a panic that
             // escapes one unwinds to this extern "system" boundary and aborts the
-            // process (guaranteed since Rust 1.81) rather than crossing into the
-            // OS frames that called wndproc. This is intentional.
+            // process rather than crossing into the OS frames that called wndproc.
+            // This is intentional.
             if let Some(handler) = message_handler.as_mut() {
                 handled = handler(hwnd, message, wparam, lparam);
             }

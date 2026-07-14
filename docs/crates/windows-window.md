@@ -56,6 +56,14 @@ dispatch (for example calling `SetWindowPos`, which synchronously sends
 fall through to default processing. This keeps shared state behind an
 `Rc<RefCell<..>>` safe from reentrant borrows.
 
+`wndproc` invokes your handlers directly, without a `catch_unwind`, so a panic
+that escapes a handler aborts the process at the `extern "system"` boundary
+rather than unwinding into the Win32 frames that called it — much like a C++
+`noexcept` function terminating. This is intentional; the crate does not try to
+recover from handler panics. If a handler needs to survive its own panics, wrap
+its body in `std::panic::catch_unwind` (usually via `AssertUnwindSafe`, since
+handler closures capture mutable state).
+
 ## The message loop
 
 - **`run()`** — a blocking, event-driven loop (`GetMessage`) until the window
@@ -117,14 +125,9 @@ build.
 - **Reentrancy-safe** — `wndproc` moves the handlers out of the state before
   invoking them and restores them afterward, so a handler that pumps nested
   messages can't alias (or, behind `RefCell`, panic on re-borrowing) itself.
-- **Panicking handlers abort** — the handlers are invoked directly from
-  `wndproc`, an `extern "system"` function, without a `catch_unwind` wrapper. A
-  panic that escapes a handler therefore unwinds to that boundary and aborts the
-  process (guaranteed since Rust 1.81; the crate's MSRV is well past that), rather
-  than unwinding into the OS frames that called `wndproc`. This is intentional —
-  it mirrors a C++ `noexcept` boundary calling `std::terminate`. A handler that
-  needs to recover from its own panics should wrap its body in
-  `std::panic::catch_unwind`.
+- **No `catch_unwind`** — handlers are invoked directly, so a panic aborts at the
+  `extern "system"` boundary (see [The API](#the-api) above). This is deliberate:
+  recovering from handler panics is out of scope for this crate.
 - **Not a kitchen sink** — the crate covers window creation, a resize hook, and a
   message loop only. Anything beyond that (menus, input, multiple monitors, etc.)
   belongs in the consuming app or a focused [`windows-bindgen`](windows-bindgen.md)
