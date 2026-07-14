@@ -17,7 +17,7 @@ fn call(harness: &Harness, method: &str, params_json: &str) -> Option<Result<Str
         harness
             .webview()
             .call_dev_tools_protocol_method(method, params_json, move |result| {
-                *sink.borrow_mut() = Some(result)
+                *sink.borrow_mut() = Some(result);
             })
     {
         return Some(Err(error));
@@ -28,12 +28,26 @@ fn call(harness: &Harness, method: &str, params_json: &str) -> Option<Result<Str
     slot.borrow_mut().take()
 }
 
-/// `call_dev_tools_protocol_method` returns the CDP method's result as JSON.
+/// `call_dev_tools_protocol_method` returns the CDP method's result as JSON, and
+/// forwards a non-empty parameter object to the browser.
 pub fn call_returns_json(harness: &Harness) {
-    let result = call(harness, "Browser.getVersion", "{}");
+    // No parameters: a browser-level query page script cannot reach.
+    let version = call(harness, "Browser.getVersion", "{}");
     harness.check(
         "DevTools_Call_Result",
-        matches!(result, Some(Ok(ref value)) if value.contains("product")),
+        matches!(version, Some(Ok(ref value)) if value.contains("product")),
+    );
+
+    // With parameters: the `expression` must reach the browser for the evaluated
+    // result to come back, proving `params_json` is forwarded rather than ignored.
+    let evaluated = call(
+        harness,
+        "Runtime.evaluate",
+        r#"{"expression":"6 * 7","returnByValue":true}"#,
+    );
+    harness.check(
+        "DevTools_Call_ParamsForwarded",
+        matches!(evaluated, Some(Ok(ref value)) if value.contains("\"value\":42")),
     );
 }
 
@@ -45,7 +59,7 @@ pub fn event_received(harness: &Harness) {
 
     let Ok(registration) = webview
         .on_dev_tools_protocol_event("Runtime.consoleAPICalled", move |args| {
-            *sink.borrow_mut() = Some(args.parameter_object_as_json())
+            *sink.borrow_mut() = Some(args.parameter_object_as_json());
         })
     else {
         harness.check("DevTools_Event_Subscribe", false);
