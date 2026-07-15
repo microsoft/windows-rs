@@ -80,31 +80,35 @@ impl TypeClosure {
                 types.insert(ty.clone());
 
                 // An unscoped (C-style) enum named directly in the filter projects
-                // all of its variants. Unlike scoped/WinRT enums (whose variants are
+                // its variants. Unlike scoped/WinRT enums (whose variants are
                 // associated consts of the type), these variants are surfaced as
                 // standalone `Enum_Member` constants, so they must be pulled into the
                 // closure explicitly — otherwise the enum projects as a bare
-                // `pub type Enum = i32;` with no values. A per-variant filter
-                // (`Enum::{A, B}`) is applied later at constant-write time. An
-                // explicit name-only shell (`Enum::{}`) records no variant set, so it
-                // keeps just the alias; enums reached only as a dependency stay
-                // name-only too.
+                // `pub type Enum = i32;` with no values. The recorded variant set
+                // decides which come along: a bare enum records `All`; `Enum::{A, B}`
+                // records just those; an explicit shell `Enum::{}` records an empty
+                // set (alias only). Enums reached only as a dependency record no set
+                // and stay name-only too. Member constants requested individually
+                // (`Enum_Member`) are independent direct types, so they are unaffected
+                // by this set.
                 if let Type::CppEnum(e) = &ty {
-                    if !e.def.has_attribute("ScopedEnumAttribute")
-                        && filter
-                            .enum_variant_filter(e.def.namespace(), e.def.name())
-                            .is_some()
-                    {
-                        let enum_arches = e.def.arches();
-                        for field in e.def.fields() {
-                            if field.flags().contains(FieldAttributes::Literal) {
-                                Type::CppConst(CppConst {
-                                    namespace: e.def.namespace(),
-                                    field,
-                                    enum_arches,
-                                    is_enum_member: true,
-                                })
-                                .combine_closure(&mut types, reader, references);
+                    if !e.def.has_attribute("ScopedEnumAttribute") {
+                        if let Some(variant_set) =
+                            filter.enum_variant_filter(e.def.namespace(), e.def.name())
+                        {
+                            let enum_arches = e.def.arches();
+                            for field in e.def.fields() {
+                                if field.flags().contains(FieldAttributes::Literal)
+                                    && variant_set.includes(field.name())
+                                {
+                                    Type::CppConst(CppConst {
+                                        namespace: e.def.namespace(),
+                                        field,
+                                        enum_arches,
+                                        is_enum_member: true,
+                                    })
+                                    .combine_closure(&mut types, reader, references);
+                                }
                             }
                         }
                     }

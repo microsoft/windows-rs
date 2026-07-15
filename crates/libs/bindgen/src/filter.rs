@@ -345,6 +345,18 @@ impl Filter {
                         // to `Shell` on a closure build.
                         if include {
                             let key = (namespace.clone(), name.clone());
+                            // An enum shell records an empty variant set so it
+                            // projects no variants: unscoped enum members are
+                            // suppressed at constant-write time, and scoped/WinRT
+                            // enums (whose variants ride along with the type) emit
+                            // an empty `impl` block. Without this an enum `::{}`
+                            // would fall through to the "no filter" path and emit
+                            // every variant, unlike an interface `::{}` shell.
+                            if Self::is_enum(reader, namespace, name) {
+                                enum_variants
+                                    .entry(key.clone())
+                                    .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+                            }
                             if !direct_types.contains(&key) {
                                 direct_types.push(key);
                             }
@@ -403,6 +415,15 @@ impl Filter {
         matches!(
             reader.with_full_name(namespace, name).next(),
             Some(Type::CppEnum(e)) if !e.def.has_attribute("ScopedEnumAttribute")
+        )
+    }
+
+    /// Whether the named type resolves to an enum of either flavor (WinRT/scoped
+    /// or unscoped Win32).
+    fn is_enum(reader: &Reader, namespace: &str, name: &str) -> bool {
+        matches!(
+            reader.with_full_name(namespace, name).next(),
+            Some(Type::Enum(_) | Type::CppEnum(_))
         )
     }
 
