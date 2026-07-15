@@ -67,6 +67,22 @@ impl CppConst {
         }
 
         let field_ty = self.field.field_type(None, config.reader).to_const_type();
+
+        // Honor a per-variant filter (`Enum::{A, B}`) on an unscoped enum. Its
+        // variants are standalone constants, so the subset can't be applied when
+        // the enum type itself is written (as it is for scoped/WinRT enums via
+        // `write_enum_constants`); apply it here instead by suppressing members
+        // that were not requested.
+        if self.is_enum_member {
+            let enum_name = field_ty.type_name().name();
+            if let Some(variant_set) = config.filter.enum_variant_filter(self.namespace, enum_name)
+            {
+                if !variant_set.includes(self.field.name()) {
+                    return quote! {};
+                }
+            }
+        }
+
         let tn = field_ty.type_name().name();
         let name = if !tn.is_empty() && self.field.name() == tn {
             to_ident(&format!("{tn}_"))

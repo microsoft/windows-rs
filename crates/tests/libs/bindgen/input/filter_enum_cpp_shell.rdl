@@ -1,0 +1,12 @@
+//! --filter Test.Enum::{} --flat
+// An explicit name-only shell (`Enum::{}`) on an unscoped enum keeps just the
+// bare `pub type` alias, projecting none of its variant constants.
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Enum {
+        First = 1,
+        Second = 2,
+        Third = 3,
+    }
+}

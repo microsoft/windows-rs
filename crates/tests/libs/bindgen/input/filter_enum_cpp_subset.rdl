@@ -1,0 +1,13 @@
+//! --filter Test.Enum::{First,Third} --flat
+// A per-variant filter on an unscoped (C-style) enum emits only the requested
+// variants. Because the variants are standalone constants, the subset is applied
+// at constant-write time via enum_variant_filter (see cpp_const.rs).
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Enum {
+        First = 1,
+        Second = 2,
+        Third = 3,
+    }
+}

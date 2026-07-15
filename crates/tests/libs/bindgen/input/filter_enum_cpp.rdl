@@ -1,0 +1,14 @@
+//! --filter Test.Enum --flat
+// Naming an unscoped (C-style) enum type by name pulls in all of its variant
+// constants, not just the bare `pub type` alias. The variants are surfaced as
+// standalone `Enum_Member` constants, so the type-closure walk must reach them
+// from the enum seed (see type_closure.rs CppEnum arm).
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Enum {
+        First = 1,
+        Second = 2,
+        Third = 3,
+    }
+}

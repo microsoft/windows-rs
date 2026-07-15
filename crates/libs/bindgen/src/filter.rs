@@ -309,8 +309,20 @@ impl Filter {
                         let key = (namespace.clone(), name.clone());
                         if Self::is_interface(reader, namespace, name) {
                             requested_interfaces.entry(key).or_insert(MethodSet::All);
-                        } else if !direct_types.contains(&key) {
-                            direct_types.push(key);
+                        } else {
+                            // A bare unscoped (C-style) enum projects all of its
+                            // variants. They are surfaced as standalone constants
+                            // rather than associated consts, so record an `All`
+                            // variant set to drive the type-closure member walk (an
+                            // explicit `::{}` shell records nothing and stays a bare
+                            // `pub type` alias). Harmless for scoped/WinRT enums,
+                            // whose variants ride along with the type anyway.
+                            if Self::is_unscoped_enum(reader, namespace, name) {
+                                enum_variants.entry(key.clone()).or_insert(MethodSet::All);
+                            }
+                            if !direct_types.contains(&key) {
+                                direct_types.push(key);
+                            }
                         }
                     }
                 }
@@ -381,6 +393,16 @@ impl Filter {
         matches!(
             reader.with_full_name(namespace, name).next(),
             Some(Type::Interface(_) | Type::CppInterface(_))
+        )
+    }
+
+    /// Whether the named type resolves to an unscoped (C-style) enum, whose
+    /// variants are surfaced as standalone constants rather than associated
+    /// consts and so must be pulled into the closure explicitly.
+    fn is_unscoped_enum(reader: &Reader, namespace: &str, name: &str) -> bool {
+        matches!(
+            reader.with_full_name(namespace, name).next(),
+            Some(Type::CppEnum(e)) if !e.def.has_attribute("ScopedEnumAttribute")
         )
     }
 
