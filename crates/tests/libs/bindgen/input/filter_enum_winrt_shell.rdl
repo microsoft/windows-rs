@@ -1,6 +1,6 @@
 //! --filter Test.Color::{} --flat
-// A name-only shell (`Enum::{}`) on a scoped/WinRT enum projects the newtype
-// with an empty `impl` block — no variant consts — mirroring an interface shell.
+// A name-only shell (`Enum::{}`) on a scoped/WinRT enum projects just the
+// newtype with no variant consts, mirroring an interface shell.
 #[winrt]
 mod Test {
     #[repr(i32)]

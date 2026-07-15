@@ -1,7 +1,6 @@
 //! --filter Test.Enum::{First,Third} --flat
-// A per-variant filter on an unscoped (C-style) enum emits only the requested
-// variants. Because the variants are standalone constants, the subset is applied
-// at constant-write time via enum_variant_filter (see cpp_const.rs).
+// A per-variant filter on an unscoped enum pulls only the requested variant
+// constants into the closure.
 #[win32]
 mod Test {
     #[repr(i32)]

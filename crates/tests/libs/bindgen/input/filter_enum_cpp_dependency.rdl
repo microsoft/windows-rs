@@ -1,10 +1,6 @@
 //! --filter Test.GetMode --flat
-// An unscoped (C-style) enum reached only as a dependency of a seed (here the
-// return type of `GetMode`) stays a bare `pub type` alias — its variant
-// constants are NOT projected. Only enums named directly in the filter pull
-// their `Enum_Member` constants into the closure; a dependency records no
-// variant set, so the member-pull in type_closure.rs is skipped. This guards
-// against those consts leaking in as `dead_code` under `-D warnings`.
+// An unscoped enum reached only as a dependency (here `GetMode`'s return type)
+// stays a bare `pub type` alias — its variant constants are not projected.
 #[win32]
 mod Test {
     #[repr(i32)]

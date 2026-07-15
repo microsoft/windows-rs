@@ -1,7 +1,6 @@
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct Color(pub i32);
-impl Color {}
 impl windows_core::TypeKind for Color {
     type TypeKind = windows_core::CopyType;
 }

@@ -79,18 +79,13 @@ impl TypeClosure {
                 ty.combine_closure(&mut types, reader, references);
                 types.insert(ty.clone());
 
-                // An unscoped (C-style) enum named directly in the filter projects
-                // its variants. Unlike scoped/WinRT enums (whose variants are
-                // associated consts of the type), these variants are surfaced as
-                // standalone `Enum_Member` constants, so they must be pulled into the
-                // closure explicitly — otherwise the enum projects as a bare
-                // `pub type Enum = i32;` with no values. The recorded variant set
-                // decides which come along: a bare enum records `All`; `Enum::{A, B}`
-                // records just those; an explicit shell `Enum::{}` records an empty
-                // set (alias only). Enums reached only as a dependency record no set
-                // and stay name-only too. Member constants requested individually
-                // (`Enum_Member`) are independent direct types, so they are unaffected
-                // by this set.
+                // Unscoped (C-style) enum variants are standalone `Enum_Member`
+                // constants, not associated consts, so they must be pulled into the
+                // closure explicitly — otherwise the enum is a bare `pub type` alias
+                // with no values. The recorded variant set decides which come along
+                // (`All`, a subset, or an empty shell); enums reached only as a
+                // dependency record no set and stay name-only. Individually requested
+                // member consts are independent direct types, unaffected by this.
                 if let Type::CppEnum(e) = &ty {
                     if !e.def.has_attribute("ScopedEnumAttribute") {
                         if let Some(variant_set) =
