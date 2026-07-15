@@ -1,0 +1,12 @@
+//! --filter Test.Enum --flat
+// A bare unscoped (C-style) enum projects all its variant constants, not just
+// the `pub type` alias — the closure pulls the standalone `Enum_Member` consts.
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Enum {
+        First = 1,
+        Second = 2,
+        Third = 3,
+    }
+}

@@ -78,6 +78,36 @@ impl TypeClosure {
             for ty in reader.with_full_name(namespace, name) {
                 ty.combine_closure(&mut types, reader, references);
                 types.insert(ty.clone());
+
+                // Unscoped (C-style) enum variants are standalone `Enum_Member`
+                // constants, not associated consts, so they must be pulled into the
+                // closure explicitly — otherwise the enum is a bare `pub type` alias
+                // with no values. The recorded variant set decides which come along
+                // (`All`, a subset, or an empty shell); enums reached only as a
+                // dependency record no set and stay name-only. Individually requested
+                // member consts are independent direct types, unaffected by this.
+                if let Type::CppEnum(e) = &ty {
+                    if !e.def.has_attribute("ScopedEnumAttribute") {
+                        if let Some(variant_set) =
+                            filter.enum_variant_filter(e.def.namespace(), e.def.name())
+                        {
+                            let enum_arches = e.def.arches();
+                            for field in e.def.fields() {
+                                if field.flags().contains(FieldAttributes::Literal)
+                                    && variant_set.includes(field.name())
+                                {
+                                    Type::CppConst(CppConst {
+                                        namespace: e.def.namespace(),
+                                        field,
+                                        enum_arches,
+                                        is_enum_member: true,
+                                    })
+                                    .combine_closure(&mut types, reader, references);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 

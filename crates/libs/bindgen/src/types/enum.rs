@@ -96,6 +96,11 @@ impl Enum {
         }
 
         let fields = write_enum_constants(self.def, config);
+        let fields = if fields.is_empty() {
+            quote! {}
+        } else {
+            quote! { impl #name { #(#fields)* } }
+        };
 
         let flags = if config.bindgen.style.is_sys() || underlying_type != Type::U32 {
             quote! {}
@@ -127,9 +132,7 @@ impl Enum {
             #[repr(transparent)]
             #derive
             pub struct #name(pub #underlying_type);
-            impl #name {
-                #(#fields)*
-            }
+            #fields
             #win_traits
             #flags
         }

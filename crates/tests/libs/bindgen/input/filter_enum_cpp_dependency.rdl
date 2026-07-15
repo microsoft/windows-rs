@@ -1,0 +1,14 @@
+//! --filter Test.GetMode --flat
+// An unscoped enum reached only as a dependency (here `GetMode`'s return type)
+// stays a bare `pub type` alias — its variant constants are not projected.
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Mode {
+        First = 1,
+        Second = 2,
+        Third = 3,
+    }
+    #[library("test.dll")]
+    extern fn GetMode() -> Mode;
+}

@@ -340,7 +340,7 @@ extras::ISurfaceImageSourceNativeWithD2D::{SetDevice, BeginDraw, EndDraw, Suspen
 extras::ISwapChainPanelNative::SetSwapChain
 extras::IWindowNative::get_WindowHandle
 extras::MddBootstrapInitialize2
-extras::MddBootstrapInitializeOptions
+extras::MddBootstrapInitializeOptions::{}
 extras::MddBootstrapInitializeOptions_OnNoMatch_ShowUI
 extras::MddBootstrapInitializeOptions_OnPackageIdentity_NOOP
 extras::WINDOWSAPPSDK_RELEASE_MAJORMINOR
