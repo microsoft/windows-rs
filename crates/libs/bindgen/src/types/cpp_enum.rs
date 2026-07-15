@@ -56,11 +56,10 @@ impl CppEnum {
 
         let fields = if is_scoped {
             let fields = write_enum_constants(self.def, config);
-
-            quote! {
-                impl #name {
-                    #(#fields)*
-                }
+            if fields.is_empty() {
+                quote! {}
+            } else {
+                quote! { impl #name { #(#fields)* } }
             }
         } else {
             quote! {}

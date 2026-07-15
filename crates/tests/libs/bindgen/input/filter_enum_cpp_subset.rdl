@@ -1,0 +1,12 @@
+//! --filter Test.Enum::{First,Third} --flat
+// A per-variant filter on an unscoped enum pulls only the requested variant
+// constants into the closure.
+#[win32]
+mod Test {
+    #[repr(i32)]
+    enum Enum {
+        First = 1,
+        Second = 2,
+        Third = 3,
+    }
+}

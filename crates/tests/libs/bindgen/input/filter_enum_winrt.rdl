@@ -1,0 +1,12 @@
+//! --filter Test.Color --flat
+// A bare scoped/WinRT enum projects the newtype with all its variant consts,
+// mirroring filter_enum_cpp for the scoped kind.
+#[winrt]
+mod Test {
+    #[repr(i32)]
+    enum Color {
+        Red = 0,
+        Green = 1,
+        Blue = 2,
+    }
+}

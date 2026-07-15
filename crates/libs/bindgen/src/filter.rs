@@ -298,19 +298,22 @@ impl Filter {
                     rules.push((full, include));
 
                     if include {
-                        // A bare type mention is "full". An interface seeds its
-                        // whole method set into the [`TypeClosure`] walk; every
-                        // other kind keeps its natural full surface (all struct
-                        // fields, all enum variants, a class's default
-                        // interface) via `direct_types`. Class activation and an
-                        // interface's method subset stay explicit
-                        // (`::CreateInstance`, `::{a, b}`); a name-only shell is
-                        // the explicit `::{}`.
+                        // A bare mention is "full": an interface seeds all its
+                        // methods; other kinds keep their natural surface via
+                        // `direct_types`.
                         let key = (namespace.clone(), name.clone());
                         if Self::is_interface(reader, namespace, name) {
                             requested_interfaces.entry(key).or_insert(MethodSet::All);
-                        } else if !direct_types.contains(&key) {
-                            direct_types.push(key);
+                        } else {
+                            // Unscoped enum variants are standalone constants, not
+                            // associated consts, so record `All` to pull them in the
+                            // closure walk (see `type_closure`).
+                            if Self::is_unscoped_enum(reader, namespace, name) {
+                                enum_variants.entry(key.clone()).or_insert(MethodSet::All);
+                            }
+                            if !direct_types.contains(&key) {
+                                direct_types.push(key);
+                            }
                         }
                     }
                 }
@@ -327,12 +330,16 @@ impl Filter {
                     }
 
                     if members.is_empty() {
-                        // `Ns.Type::{}` — an explicit name-only shell: make the
-                        // type available without projecting any of its methods.
-                        // Recorded as a direct type so `type_role` resolves it
-                        // to `Shell` on a closure build.
+                        // `Ns.Type::{}` — an explicit name-only shell.
                         if include {
                             let key = (namespace.clone(), name.clone());
+                            // An empty variant set makes an enum shell project no
+                            // variants, rather than falling through to "all".
+                            if Self::is_enum(reader, namespace, name) {
+                                enum_variants
+                                    .entry(key.clone())
+                                    .or_insert_with(|| MethodSet::Names(BTreeSet::new()));
+                            }
                             if !direct_types.contains(&key) {
                                 direct_types.push(key);
                             }
@@ -381,6 +388,25 @@ impl Filter {
         matches!(
             reader.with_full_name(namespace, name).next(),
             Some(Type::Interface(_) | Type::CppInterface(_))
+        )
+    }
+
+    /// Whether the named type resolves to an unscoped (C-style) enum, whose
+    /// variants are surfaced as standalone constants rather than associated
+    /// consts and so must be pulled into the closure explicitly.
+    fn is_unscoped_enum(reader: &Reader, namespace: &str, name: &str) -> bool {
+        matches!(
+            reader.with_full_name(namespace, name).next(),
+            Some(Type::CppEnum(e)) if !e.def.has_attribute("ScopedEnumAttribute")
+        )
+    }
+
+    /// Whether the named type resolves to an enum of either flavor (WinRT/scoped
+    /// or unscoped Win32).
+    fn is_enum(reader: &Reader, namespace: &str, name: &str) -> bool {
+        matches!(
+            reader.with_full_name(namespace, name).next(),
+            Some(Type::Enum(_) | Type::CppEnum(_))
         )
     }
 
