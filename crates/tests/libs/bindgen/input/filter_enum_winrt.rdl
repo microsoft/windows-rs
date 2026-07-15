@@ -1,0 +1,14 @@
+//! --filter Test.Color --flat
+// Naming a scoped/WinRT enum directly by type projects the newtype with all of
+// its variant constants — the closure's `None` variant filter (no `::{}` and no
+// `::{A, B}`) keeps every variant. Mirrors filter_enum_cpp for the scoped kind,
+// and contrasts with filter_enum_winrt_shell (`Color::{}` → empty `impl`).
+#[winrt]
+mod Test {
+    #[repr(i32)]
+    enum Color {
+        Red = 0,
+        Green = 1,
+        Blue = 2,
+    }
+}
