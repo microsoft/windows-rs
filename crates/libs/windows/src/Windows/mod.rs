@@ -210,6 +210,8 @@ pub mod ddeml;
 pub mod ddraw;
 #[cfg(feature = "debugapi")]
 pub mod debugapi;
+#[cfg(feature = "devicetopology")]
+pub mod devicetopology;
 #[cfg(feature = "devpkey")]
 pub mod devpkey;
 #[cfg(feature = "devpropdef")]
@@ -266,6 +268,8 @@ pub mod eaptypes;
 pub mod edevdefs;
 #[cfg(feature = "enclaveapi")]
 pub mod enclaveapi;
+#[cfg(feature = "endpointvolume")]
+pub mod endpointvolume;
 #[cfg(feature = "errhandlingapi")]
 pub mod errhandlingapi;
 #[cfg(feature = "errors")]

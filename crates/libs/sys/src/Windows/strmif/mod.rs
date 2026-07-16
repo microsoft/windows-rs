@@ -206,21 +206,21 @@ pub const AM_QUERY_DECODER_DXVA_1_SUPPORT: u32 = 2;
 pub const AM_QUERY_DECODER_VMR_SUPPORT: u32 = 1;
 pub const AM_RENDEREX_RENDERTOEXISTINGRENDERERS: _AM_RENSDEREXFLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub struct AM_SAMPLE2_PROPERTIES {
     pub cbData: u32,
     pub dwTypeSpecificFlags: u32,
     pub dwSampleFlags: u32,
     pub lActual: i32,
-    pub tStart: super::mediaobj::REFERENCE_TIME,
-    pub tStop: super::mediaobj::REFERENCE_TIME,
+    pub tStart: super::ksmedia::REFERENCE_TIME,
+    pub tStop: super::ksmedia::REFERENCE_TIME,
     pub dwStreamId: u32,
     pub pMediaType: *mut AM_MEDIA_TYPE,
     pub pbBuffer: *mut u8,
     pub cbBuffer: i32,
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "ksmedia")]
 impl Default for AM_SAMPLE2_PROPERTIES {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -257,11 +257,11 @@ pub const AM_SEEKING_Segment: AM_SEEKING_SEEKING_FLAGS = 16;
 pub const AM_SEEKING_Source: AM_SEEKING_SEEKING_CAPABILITIES = 256;
 pub const AM_STREAM_CONTROL: tagAM_SAMPLE_PROPERTY_FLAGS = 1;
 #[repr(C)]
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy, Default)]
 pub struct AM_STREAM_INFO {
-    pub tStart: super::mediaobj::REFERENCE_TIME,
-    pub tStop: super::mediaobj::REFERENCE_TIME,
+    pub tStart: super::ksmedia::REFERENCE_TIME,
+    pub tStop: super::ksmedia::REFERENCE_TIME,
     pub dwStartCookie: u32,
     pub dwStopCookie: u32,
     pub dwFlags: u32,
@@ -932,13 +932,13 @@ pub const PhysConn_Video_VideoEncoder: PhysicalConnectorType = 13;
 pub const PhysConn_Video_YRYBY: PhysicalConnectorType = 5;
 pub type PhysicalConnectorType = i32;
 #[repr(C)]
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy, Default)]
 pub struct Quality {
     pub Type: QualityMessageType,
     pub Proportion: i32,
-    pub Late: super::mediaobj::REFERENCE_TIME,
-    pub TimeStamp: super::mediaobj::REFERENCE_TIME,
+    pub Late: super::ksmedia::REFERENCE_TIME,
+    pub TimeStamp: super::ksmedia::REFERENCE_TIME,
 }
 pub type QualityMessageType = i32;
 #[repr(C)]
@@ -1232,20 +1232,20 @@ pub const VMRMode_Renderless: VMRMode = 4;
 pub const VMRMode_Windowed: VMRMode = 1;
 pub const VMRMode_Windowless: VMRMode = 2;
 #[repr(C)]
-#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct VMRPRESENTATIONINFO {
     pub dwFlags: u32,
     pub lpSurf: *mut core::ffi::c_void,
-    pub rtStart: super::mediaobj::REFERENCE_TIME,
-    pub rtEnd: super::mediaobj::REFERENCE_TIME,
+    pub rtStart: super::ksmedia::REFERENCE_TIME,
+    pub rtEnd: super::ksmedia::REFERENCE_TIME,
     pub szAspectRatio: super::windef::SIZE,
     pub rcSrc: super::windef::RECT,
     pub rcDst: super::windef::RECT,
     pub dwTypeSpecificFlags: u32,
     pub dwInterlaceFlags: u32,
 }
-#[cfg(all(feature = "ddraw", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ddraw", feature = "ksmedia", feature = "windef"))]
 impl Default for VMRPRESENTATIONINFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
