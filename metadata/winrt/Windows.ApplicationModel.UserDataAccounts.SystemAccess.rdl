@@ -1,0 +1,143 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod UserDataAccounts {
+            mod SystemAccess {
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum DeviceAccountAuthenticationType {
+                    Basic = 0,
+                    OAuth = 1,
+                    SingleSignOn = 2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DeviceAccountConfiguration {
+                    IDeviceAccountConfiguration,
+                    IDeviceAccountConfiguration2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum DeviceAccountIconId {
+                    Exchange = 0,
+                    Msa = 1,
+                    Outlook = 2,
+                    Generic = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum DeviceAccountMailAgeFilter {
+                    All = 0,
+                    Last1Day = 1,
+                    Last3Days = 2,
+                    Last7Days = 3,
+                    Last14Days = 4,
+                    Last30Days = 5,
+                    Last90Days = 6,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum DeviceAccountServerType {
+                    Exchange = 0,
+                    Pop = 1,
+                    Imap = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum DeviceAccountSyncScheduleKind {
+                    Manual = 0,
+                    Every15Minutes = 1,
+                    Every30Minutes = 2,
+                    Every60Minutes = 3,
+                    Every2Hours = 4,
+                    Daily = 5,
+                    AsItemsArrive = 6,
+                }
+                #[guid(0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DeviceAccountConfiguration)]
+                interface IDeviceAccountConfiguration {
+                    AccountName: String;
+                    DeviceAccountTypeId: String;
+                    ServerType: DeviceAccountServerType;
+                    EmailAddress: String;
+                    Domain: String;
+                    EmailSyncEnabled: bool;
+                    ContactsSyncEnabled: bool;
+                    CalendarSyncEnabled: bool;
+                    IncomingServerAddress: String;
+                    IncomingServerPort: i32;
+                    IncomingServerRequiresSsl: bool;
+                    IncomingServerUsername: String;
+                    OutgoingServerAddress: String;
+                    OutgoingServerPort: i32;
+                    OutgoingServerRequiresSsl: bool;
+                    OutgoingServerUsername: String;
+                }
+                #[guid(0xf2b2e5a6_728d_4a4a_8945_2bf8580136de)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DeviceAccountConfiguration)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IDeviceAccountConfiguration2 {
+                    IncomingServerCredential: super::super::super::Security::Credentials::PasswordCredential;
+                    OutgoingServerCredential: super::super::super::Security::Credentials::PasswordCredential;
+                    OAuthRefreshToken: String;
+                    IsExternallyManaged: bool;
+                    AccountIconId: DeviceAccountIconId;
+                    AuthenticationType: DeviceAccountAuthenticationType;
+                    #[get]
+                    IsSsoAuthenticationSupported: bool;
+                    SsoAccountId: String;
+                    AlwaysDownloadFullMessage: bool;
+                    #[get]
+                    DoesPolicyAllowMailSync: bool;
+                    SyncScheduleKind: DeviceAccountSyncScheduleKind;
+                    MailAgeFilter: DeviceAccountMailAgeFilter;
+                    IsClientAuthenticationCertificateRequired: bool;
+                    AutoSelectAuthenticationCertificate: bool;
+                    AuthenticationCertificateId: String;
+                    CardDavSyncScheduleKind: DeviceAccountSyncScheduleKind;
+                    CalDavSyncScheduleKind: DeviceAccountSyncScheduleKind;
+                    CardDavServerUrl: super::super::super::Foundation::Uri;
+                    CardDavRequiresSsl: bool;
+                    CalDavServerUrl: super::super::super::Foundation::Uri;
+                    CalDavRequiresSsl: bool;
+                    WasModifiedByUser: bool;
+                    WasIncomingServerCertificateHashConfirmed: bool;
+                    IncomingServerCertificateHash: String;
+                    IsOutgoingServerAuthenticationRequired: bool;
+                    IsOutgoingServerAuthenticationEnabled: bool;
+                    WasOutgoingServerCertificateHashConfirmed: bool;
+                    OutgoingServerCertificateHash: String;
+                    IsSyncScheduleManagedBySystem: bool;
+                }
+                #[guid(0x9d6b11b9_cbe5_45f5_822b_c267b81dbdb6)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountSystemAccessManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IUserDataAccountSystemAccessManagerStatics {
+                    fn AddAndShowDeviceAccountsAsync(&self, accounts: super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<String>>;
+                }
+                #[guid(0x943f854d_4b4e_439f_83d3_979b27c05ac7)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountSystemAccessManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IUserDataAccountSystemAccessManagerStatics2 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SuppressLocalAccountWithAccountAsync(&self, userDataAccountId: String) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn CreateDeviceAccountAsync(&self, account: DeviceAccountConfiguration) -> super::super::super::Foundation::IAsyncOperation<String>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn DeleteDeviceAccountAsync(&self, accountId: String) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetDeviceAccountConfigurationAsync(&self, accountId: String) -> super::super::super::Foundation::IAsyncOperation<DeviceAccountConfiguration>;
+                }
+                #[Windows::Foundation::Metadata::Static(IUserDataAccountSystemAccessManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IUserDataAccountSystemAccessManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                class UserDataAccountSystemAccessManager {}
+            }
+        }
+    }
+}

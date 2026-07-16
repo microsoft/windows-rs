@@ -1,0 +1,45 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Portable {
+            #[guid(0xa88214e1_59c7_4a20_aba6_9f6707937230)]
+            #[Windows::Foundation::Metadata::ContractVersion(PortableDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ServiceDevice)]
+            interface IServiceDeviceStatics {
+                fn GetDeviceSelector(&self, serviceType: ServiceDeviceType) -> String;
+                fn GetDeviceSelectorFromServiceId(&self, serviceId: GUID) -> String;
+            }
+            #[guid(0x5ece44ee_1b23_4dd2_8652_bc164f003128)]
+            #[Windows::Foundation::Metadata::ContractVersion(PortableDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageDevice)]
+            interface IStorageDeviceStatics {
+                fn FromId(&self, deviceId: String) -> super::super::Storage::StorageFolder;
+                fn GetDeviceSelector(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct PortableDeviceContract {}
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(PortableDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IServiceDeviceStatics, 65536, "Windows.Devices.Portable.PortableDeviceContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ServiceDevice {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(PortableDeviceContract, 65536)]
+            enum ServiceDeviceType {
+                CalendarService = 0,
+                ContactsService = 1,
+                DeviceStatusService = 2,
+                NotesService = 3,
+                RingtonesService = 4,
+                SmsService = 5,
+                TasksService = 6,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(PortableDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IStorageDeviceStatics, 65536, "Windows.Devices.Portable.PortableDeviceContract")]
+            class StorageDevice {}
+        }
+    }
+}

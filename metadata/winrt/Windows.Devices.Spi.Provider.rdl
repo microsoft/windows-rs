@@ -1,0 +1,69 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Spi {
+            mod Provider {
+                #[guid(0xf6034550_a542_4ec0_9601_a4dd68f8697b)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ProviderSpiConnectionSettings)]
+                interface IProviderSpiConnectionSettings {
+                    ChipSelectLine: i32;
+                    Mode: ProviderSpiMode;
+                    DataBitLength: i32;
+                    ClockFrequency: i32;
+                    SharingMode: ProviderSpiSharingMode;
+                }
+                #[guid(0x66456b5a_0c79_43e3_9f3c_e59780ac18fa)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ProviderSpiConnectionSettings)]
+                interface IProviderSpiConnectionSettingsFactory {
+                    fn Create(&self, chipSelectLine: i32) -> ProviderSpiConnectionSettings;
+                }
+                #[guid(0xc1686504_02ce_4226_a385_4f11fb04b41b)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface ISpiControllerProvider {
+                    fn GetDeviceProvider(&self, settings: ProviderSpiConnectionSettings) -> ISpiDeviceProvider;
+                }
+                #[guid(0x0d1c3443_304b_405c_b4f7_f5ab1074461e)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface ISpiDeviceProvider: super::super::super::Foundation::IClosable {
+                    #[get]
+                    DeviceId: String;
+                    #[get]
+                    ConnectionSettings: ProviderSpiConnectionSettings;
+                    fn Write(&self, buffer: [u8]);
+                    fn Read(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] buffer: [u8]);
+                    fn TransferSequential(&self, writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
+                    fn TransferFullDuplex(&self, writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
+                }
+                #[guid(0x96b461e2_77d4_48ce_aaa0_75715a8362cf)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface ISpiProvider {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetControllersAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>;
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(IProviderSpiConnectionSettingsFactory, 131072, "Windows.Devices.DevicesLowLevelContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                class ProviderSpiConnectionSettings {
+                    IProviderSpiConnectionSettings,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                enum ProviderSpiMode {
+                    Mode0 = 0,
+                    Mode1 = 1,
+                    Mode2 = 2,
+                    Mode3 = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                enum ProviderSpiSharingMode {
+                    Exclusive = 0,
+                    Shared = 1,
+                }
+            }
+        }
+    }
+}

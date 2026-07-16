@@ -1,0 +1,109 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod I2c {
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            enum I2cBusSpeed {
+                StandardMode = 0,
+                FastMode = 1,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Activatable(II2cConnectionSettingsFactory, 65536, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            class I2cConnectionSettings {
+                II2cConnectionSettings,
+            }
+            #[Windows::Foundation::Metadata::Static(II2cControllerStatics, 131072, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class I2cController {
+                II2cController,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(II2cDeviceStatics, 65536, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class I2cDevice {
+                II2cDevice,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            enum I2cSharingMode {
+                Exclusive = 0,
+                Shared = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            struct I2cTransferResult {
+                Status: I2cTransferStatus,
+                BytesTransferred: u32,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            enum I2cTransferStatus {
+                FullTransfer = 0,
+                PartialTransfer = 1,
+                SlaveAddressNotAcknowledged = 2,
+                ClockStretchTimeout = 3,
+                UnknownError = 4,
+            }
+            #[guid(0xf2db1307_ab6f_4639_a767_54536dc3460f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(I2cConnectionSettings)]
+            interface II2cConnectionSettings {
+                SlaveAddress: i32;
+                BusSpeed: I2cBusSpeed;
+                SharingMode: I2cSharingMode;
+            }
+            #[guid(0x81b586b3_9693_41b1_a243_ded4f6e66926)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(I2cConnectionSettings)]
+            interface II2cConnectionSettingsFactory {
+                fn Create(&self, slaveAddress: i32) -> I2cConnectionSettings;
+            }
+            #[guid(0xc48ab1b2_87a0_4166_8e3e_b4b8f97cd729)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(I2cController)]
+            interface II2cController {
+                fn GetDevice(&self, settings: I2cConnectionSettings) -> I2cDevice;
+            }
+            #[guid(0x40fc0365_5f05_4e7e_84bd_100db8e0aec5)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(I2cController)]
+            interface II2cControllerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetControllersAsync(&self, provider: Provider::II2cProvider) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<I2cController>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<I2cController>;
+            }
+            #[guid(0x8636c136_b9c5_4f70_9449_cc46dc6f57eb)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(I2cDevice)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            interface II2cDevice: super::super::Foundation::IClosable {
+                #[get]
+                DeviceId: String;
+                #[get]
+                ConnectionSettings: I2cConnectionSettings;
+                fn Write(&self, buffer: [u8]);
+                fn WritePartial(&self, buffer: [u8]) -> I2cTransferResult;
+                fn Read(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] buffer: [u8]);
+                fn ReadPartial(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] buffer: [u8]) -> I2cTransferResult;
+                fn WriteRead(&self, writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
+                fn WriteReadPartial(&self, writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]) -> I2cTransferResult;
+            }
+            #[guid(0x91a33be3_7334_4512_96bc_fbae9459f5f6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            interface II2cDeviceStatics {
+                #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
+                fn GetDeviceSelector(&self) -> String;
+                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorFromFriendlyName")]
+                fn GetDeviceSelector(&self, friendlyName: String) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String, settings: I2cConnectionSettings) -> super::super::Foundation::IAsyncOperation<I2cDevice>;
+            }
+        }
+    }
+}

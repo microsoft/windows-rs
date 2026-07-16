@@ -1,0 +1,180 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Xaml {
+            mod Navigation {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Composable(IFrameNavigationOptionsFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                class FrameNavigationOptions {
+                    IFrameNavigationOptions,
+                }
+                #[guid(0xb539ad2a_9fb7_520a_8f41_57a50c59cf92)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FrameNavigationOptions)]
+                interface IFrameNavigationOptions {
+                    IsNavigationStackEnabled: bool;
+                    TransitionInfoOverride: super::Media::Animation::NavigationTransitionInfo;
+                }
+                #[guid(0xd4681e41_7e6d_5c7c_aca0_478681cc6fce)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FrameNavigationOptions)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IFrameNavigationOptionsFactory {
+                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> FrameNavigationOptions;
+                }
+                #[guid(0xfd1d67ae_eafb_4079_be80_6dc92a03aedf)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(NavigatingCancelEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface INavigatingCancelEventArgs {
+                    Cancel: bool;
+                    #[get]
+                    NavigationMode: NavigationMode;
+                    #[get]
+                    SourcePageType: super::Interop::TypeName;
+                }
+                #[guid(0x5407b704_8147_4343_838f_dd1ee908c137)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(NavigatingCancelEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface INavigatingCancelEventArgs2 {
+                    #[get]
+                    Parameter: Object;
+                    #[get]
+                    NavigationTransitionInfo: super::Media::Animation::NavigationTransitionInfo;
+                }
+                #[guid(0xb6aa9834_6691_44d1_bdf7_58820c27b0d0)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(NavigationEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface INavigationEventArgs {
+                    #[get]
+                    Content: Object;
+                    #[get]
+                    Parameter: Object;
+                    #[get]
+                    SourcePageType: super::Interop::TypeName;
+                    #[get]
+                    NavigationMode: NavigationMode;
+                    Uri: super::super::super::Foundation::Uri;
+                }
+                #[guid(0xdbff71d9_979a_4b2e_a49b_3bb17fdef574)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(NavigationEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface INavigationEventArgs2 {
+                    #[get]
+                    NavigationTransitionInfo: super::Media::Animation::NavigationTransitionInfo;
+                }
+                #[guid(0x11c1dff7_36c2_4102_b2ef_0217a97289b3)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(NavigationFailedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface INavigationFailedEventArgs {
+                    #[get]
+                    Exception: HRESULT;
+                    Handled: bool;
+                    #[get]
+                    SourcePageType: super::Interop::TypeName;
+                }
+                #[guid(0xef8814a6_9388_4aca_8572_405194069080)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PageStackEntry)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IPageStackEntry {
+                    #[get]
+                    SourcePageType: super::Interop::TypeName;
+                    #[get]
+                    Parameter: Object;
+                    #[get]
+                    NavigationTransitionInfo: super::Media::Animation::NavigationTransitionInfo;
+                }
+                #[guid(0x4454048a_a8b9_4f78_9b84_1f51f58851ff)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PageStackEntry)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IPageStackEntryFactory {
+                    fn CreateInstance(&self, sourcePageType: super::Interop::TypeName, parameter: Object, navigationTransitionInfo: super::Media::Animation::NavigationTransitionInfo) -> PageStackEntry;
+                }
+                #[guid(0xaceff8e3_246c_4033_9f01_01cb0da5254e)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PageStackEntry)]
+                interface IPageStackEntryStatics {
+                    #[get]
+                    SourcePageTypeProperty: super::DependencyProperty;
+                }
+                #[guid(0xaebaf785_43fc_4e2c_95c3_97ae84eabc8e)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                delegate fn LoadCompletedEventHandler(sender: Object, e: NavigationEventArgs);
+                #[guid(0x7bd1cf54_23cf_4cce_b2f5_4ce78d96896e)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn NavigatedEventHandler(sender: Object, e: NavigationEventArgs);
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class NavigatingCancelEventArgs {
+                    INavigatingCancelEventArgs,
+                    INavigatingCancelEventArgs2,
+                }
+                #[guid(0x75d6a78f_a302_4489_9898_24ea49182910)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn NavigatingCancelEventHandler(sender: Object, e: NavigatingCancelEventArgs);
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum NavigationCacheMode {
+                    Disabled = 0,
+                    Required = 1,
+                    Enabled = 2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class NavigationEventArgs {
+                    INavigationEventArgs,
+                    INavigationEventArgs2,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class NavigationFailedEventArgs {
+                    INavigationFailedEventArgs,
+                }
+                #[guid(0x4dab4671_12b2_43c7_b892_9be2dcd3e88d)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                delegate fn NavigationFailedEventHandler(sender: Object, e: NavigationFailedEventArgs);
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum NavigationMode {
+                    New = 0,
+                    Back = 1,
+                    Forward = 2,
+                    Refresh = 3,
+                }
+                #[guid(0xf0117ddb_12fa_4d8d_8b26_b383d09c2b3c)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn NavigationStoppedEventHandler(sender: Object, e: NavigationEventArgs);
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Activatable(IPageStackEntryFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(IPageStackEntryStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                class PageStackEntry: super::DependencyObject {
+                    IPageStackEntry,
+                }
+            }
+        }
+    }
+}

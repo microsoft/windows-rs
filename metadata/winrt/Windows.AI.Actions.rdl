@@ -1,0 +1,608 @@
+#[winrt]
+mod Windows {
+    mod AI {
+        mod Actions {
+            #[Windows::Foundation::Metadata::Composable(IActionEntityFactory, Public, 65536, "Windows.AI.Actions.ActionsContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ActionEntity {
+                IActionEntity,
+                IActionEntity2,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ActionEntityDisplayInfo {
+                IActionEntityDisplayInfo,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Composable(IActionEntityFactoryFactory, Public, 65536, "Windows.AI.Actions.ActionsContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            class ActionEntityFactory {
+                IActionEntityFactory2,
+                IActionEntityFactory3,
+                IActionEntityFactory4,
+                IActionEntityFactory5,
+                IActionEntityFactory6,
+                IActionEntityFactory7,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            enum ActionEntityKind {
+                None = 0,
+                Document = 1,
+                File = 2,
+                Photo = 3,
+                Text = 4,
+                StreamingText = 5,
+                RemoteFile = 6,
+                Table = 7,
+                Contact = 8,
+                Uri = 9,
+                Array = 10,
+                Appointment = 11,
+                Date = 12,
+                CustomText = 13,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            enum ActionEntityTextFormat {
+                Plain = 0,
+                Markdown = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            class ActionFeedback {
+                IActionFeedback,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            enum ActionFeedbackKind {
+                Positive = 0,
+                Negative = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            class ActionInvocationContext {
+                IActionInvocationContext,
+                IActionInvocationContext2,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ActionInvocationHelpDetails {
+                IActionInvocationHelpDetails,
+                IActionInvocationHelpDetails2,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            enum ActionInvocationHelpKind {
+                None = 0,
+                Error = 1,
+                Warning = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            enum ActionInvocationResult {
+                Success = 0,
+                UserCanceled = 1,
+                Unsupported = 2,
+                Unavailable = 3,
+            }
+            #[Windows::Foundation::Metadata::Composable(IActionRuntimeFactory, Public, 65536, "Windows.AI.Actions.ActionsContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IActionRuntimeStatics, 524288, "Windows.AI.Actions.ActionsContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ActionRuntime {
+                IActionRuntime,
+                IActionRuntime2,
+                IActionRuntime3,
+                IActionRuntime4,
+                IActionRuntime5,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(524288)]
+            struct ActionsContract {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 458752)]
+            class AppointmentActionEntity: ActionEntity {
+                IAppointmentActionEntity,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 393216)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ArrayActionEntity: ActionEntity {
+                IArrayActionEntity,
+                IArrayActionEntity2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ContactActionEntity: ActionEntity {
+                IContactActionEntity,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Composable(ICustomActionEntityStoreFactory, Public, 524288, "Windows.AI.Actions.ActionsContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
+            #[Windows::Foundation::Metadata::Experimental]
+            class CustomActionEntityStore {
+                ICustomActionEntityStore,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class CustomTextActionEntity: ActionEntity {
+                ICustomTextActionEntity,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 458752)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class DateTimeActionEntity: ActionEntity {
+                IDateTimeActionEntity,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class DocumentActionEntity: ActionEntity {
+                IDocumentActionEntity,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            class FileActionEntity: ActionEntity {
+                IFileActionEntity,
+            }
+            #[guid(0x445e700f_2122_5668_9a16_4cab2982c5f4)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntity)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            interface IActionEntity {
+                #[get]
+                Kind: ActionEntityKind;
+                #[get]
+                DisplayInfo: ActionEntityDisplayInfo;
+            }
+            #[guid(0x98fe136d_dd3a_58c1_af76_feb4e19dce9e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntity)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            interface IActionEntity2 {
+                #[get]
+                Id: String;
+            }
+            #[guid(0x057a9ede_03e1_55c6_acba_c7056216735a)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityDisplayInfo)]
+            interface IActionEntityDisplayInfo {
+                #[get]
+                Title: String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntity)]
+            interface IActionEntityFactory {}
+            #[guid(0xea2fb6a5_ec6d_5180_9d30_bc663b84e7b8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            interface IActionEntityFactory2 {
+                fn CreateFileEntity(&self, path: String) -> FileActionEntity;
+                fn CreateDocumentEntity(&self, path: String) -> DocumentActionEntity;
+                fn CreatePhotoEntity(&self, path: String) -> PhotoActionEntity;
+                fn CreateTextEntity(&self, text: String) -> TextActionEntity;
+            }
+            #[guid(0x4910e689_00b5_56bb_9c65_0fcc76215283)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
+            interface IActionEntityFactory3 {
+                fn CreateRemoteFileEntity(&self, sourceId: String, fileKind: RemoteFileKind, sourceUri: super::super::Foundation::Uri, fileId: String, contentType: String, driveId: String, accountId: String, extension: String) -> RemoteFileActionEntity;
+                #[Windows::Foundation::Metadata::Overload("CreateTextEntityWithTextFormat")]
+                fn CreateTextEntity(&self, text: String, textFormat: ActionEntityTextFormat) -> TextActionEntity;
+                fn CreateStreamingTextActionEntityWriter(&self, textFormat: ActionEntityTextFormat) -> StreamingTextActionEntityWriter;
+            }
+            #[guid(0x332eda05_de0e_5a58_b318_a2ad771f013d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 196608)]
+            interface IActionEntityFactory4 {
+                fn CreateTableEntity(&self, data: [String], columnCount: u32) -> TableActionEntity;
+                fn CreateContactEntity(&self, contact: super::super::ApplicationModel::Contacts::Contact) -> ContactActionEntity;
+            }
+            #[guid(0xb59faab1_cfe4_564a_a5ba_53ad7ff6f924)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 393216)]
+            interface IActionEntityFactory5 {
+                fn CreateUriEntity(&self, Uri: super::super::Foundation::Uri) -> UriActionEntity;
+                fn CreateArrayEntity(&self, kind: ActionEntityKind, entities: [ActionEntity]) -> ArrayActionEntity;
+            }
+            #[guid(0xda7123da_5639_590f_a2db_c3b5e221f3b6)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 458752)]
+            interface IActionEntityFactory6 {
+                fn CreateDateTimeEntity(&self, dateTime: super::super::Foundation::DateTime) -> DateTimeActionEntity;
+                fn CreateAppointmentEntity(&self, sourceId: String, appointment: super::super::ApplicationModel::Appointments::Appointment, attendees: [ContactActionEntity]) -> AppointmentActionEntity;
+            }
+            #[guid(0xb814b8d5_c9b2_51b5_a342_9fe054d8a1eb)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
+            interface IActionEntityFactory7 {
+                fn CreateCustomTextEntity(&self, kind: String, keyPhrase: String, props: super::super::Foundation::Collections::IMapView<String, Object>) -> CustomTextActionEntity;
+                fn CreateArrayEntityWithCustomKind(&self, elementKind: ActionEntityKind, customKind: String, entities: [ActionEntity]) -> ArrayActionEntity;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityFactory)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            interface IActionEntityFactoryFactory {}
+            #[guid(0xa12ee7ab_2454_56c9_bbdf_c089457fbc5e)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionFeedback)]
+            interface IActionFeedback {
+                #[get]
+                FeedbackKind: ActionFeedbackKind;
+            }
+            #[guid(0xc32b622e_86e1_5eba_9661_605910104978)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionInvocationContext)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            interface IActionInvocationContext {
+                #[get]
+                EntityFactory: ActionEntityFactory;
+                fn SetInputEntity(&self, inputName: String, inputValue: ActionEntity);
+                fn GetInputEntities(&self) -> [NamedActionEntity];
+                fn SetOutputEntity(&self, outputName: String, outputValue: ActionEntity);
+                fn GetOutputEntities(&self) -> [NamedActionEntity];
+                Result: ActionInvocationResult;
+                ExtendedError: HRESULT;
+            }
+            #[guid(0x7c843086_9279_5bcd_8f2e_d15121e7a827)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionInvocationContext)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            interface IActionInvocationContext2 {
+                #[get]
+                InvokerWindowId: super::super::UI::WindowId;
+                #[get]
+                HelpDetails: ActionInvocationHelpDetails;
+                #[get]
+                ActionId: String;
+                #[get]
+                InvokerAppUserModelId: String;
+            }
+            #[guid(0x5430f272_078f_5722_8f7d_90cf8ddd595e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionInvocationHelpDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            interface IActionInvocationHelpDetails {
+                Kind: ActionInvocationHelpKind;
+                Title: String;
+                Description: String;
+                HelpUri: super::super::Foundation::Uri;
+                HelpUriDescription: String;
+            }
+            #[guid(0x307f6ba5_5fda_59f1_9722_1859801ad550)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionInvocationHelpDetails)]
+            interface IActionInvocationHelpDetails2 {
+                event Changed: super::super::Foundation::TypedEventHandler<ActionInvocationHelpDetails, Object>;
+            }
+            #[guid(0x206efa2c_c909_508a_b4b0_9482be96db9c)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionRuntime)]
+            interface IActionRuntime {
+                #[get]
+                ActionCatalog: Hosting::ActionCatalog;
+                #[get]
+                EntityFactory: ActionEntityFactory;
+                fn CreateInvocationContext(&self, actionId: String) -> ActionInvocationContext;
+            }
+            #[guid(0x2da4d2c0_e593_5350_8143_15bb24f63411)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionRuntime)]
+            interface IActionRuntime2 {
+                fn CreateActionFeedback(&self, feedbackKind: ActionFeedbackKind) -> ActionFeedback;
+                fn SetActionAvailability(&self, actionId: String, isAvailable: bool);
+                fn GetActionAvailability(&self, actionId: String) -> bool;
+            }
+            #[guid(0xf020c3c0_caec_5928_ad00_81069b80fbc1)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionRuntime)]
+            interface IActionRuntime3 {
+                fn CreateInvocationContextWithWindowId(&self, actionId: String, invokerWindowId: super::super::UI::WindowId) -> ActionInvocationContext;
+                fn GetActionEntityById(&self, entityId: String) -> ActionEntity;
+                #[get]
+                LatestSupportedSchemaVersion: u32;
+            }
+            #[guid(0x06851dcd_c743_5c7f_88a1_bbaeb02f5e28)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionRuntime)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 327680)]
+            interface IActionRuntime4 {
+                fn GetActionInvocationContextFromToken(&self, token: String) -> ActionInvocationContext;
+            }
+            #[guid(0xc2e995b1_52a9_5f3a_bebb_a04655e96218)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionRuntime)]
+            interface IActionRuntime5 {
+                #[get]
+                CustomEntityStore: CustomActionEntityStore;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionRuntime)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            interface IActionRuntimeFactory {}
+            #[guid(0x2c697aab_55f2_55aa_9d63_a73ec190cecd)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActionRuntime)]
+            interface IActionRuntimeStatics {
+                fn GetDefault(&self) -> ActionRuntime;
+            }
+            #[guid(0x29daa00e_b474_581c_b555_6187d1aa8231)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentActionEntity)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 458752)]
+            interface IAppointmentActionEntity {
+                #[get]
+                SourceId: String;
+                #[get]
+                Appointment: super::super::ApplicationModel::Appointments::Appointment;
+                fn GetAttendees(&self) -> [ContactActionEntity];
+                fn GetPresentedFiles(&self) -> [RemoteFileActionEntity];
+                fn SetPresentedFiles(&self, files: [RemoteFileActionEntity]);
+                fn GetSharedFiles(&self) -> [RemoteFileActionEntity];
+                fn SetSharedFiles(&self, files: [RemoteFileActionEntity]);
+            }
+            #[guid(0x45798e78_1059_5311_8a1b_de0081a4ca3b)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 393216)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ArrayActionEntity)]
+            interface IArrayActionEntity {
+                #[get]
+                ElementKind: ActionEntityKind;
+                fn GetAll(&self) -> [ActionEntity];
+            }
+            #[guid(0x7366e049_7fe8_5df9_bbca_cea5c0f3d316)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ArrayActionEntity)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
+            #[Windows::Foundation::Metadata::Experimental]
+            interface IArrayActionEntity2 {
+                #[get]
+                CustomElementKind: String;
+            }
+            #[guid(0x458c3e07_5892_5485_bd9b_8f7a540c9501)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContactActionEntity)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 196608)]
+            interface IContactActionEntity {
+                #[get]
+                Contact: super::super::ApplicationModel::Contacts::Contact;
+            }
+            #[guid(0xfa7b44d0_1762_5828_9938_e7cae5199e01)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CustomActionEntityStore)]
+            #[Windows::Foundation::Metadata::Experimental]
+            interface ICustomActionEntityStore {
+                fn GetLastModifiedTime(&self, kind: String) -> super::super::Foundation::DateTime;
+                fn Insert(&self, entity: CustomTextActionEntity);
+                fn InsertMany(&self, entities: [CustomTextActionEntity]);
+                fn Delete(&self, kind: String);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(CustomActionEntityStore)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
+            interface ICustomActionEntityStoreFactory {}
+            #[guid(0x50eaac95_1d6c_54b0_8963_e38dea3f6aec)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CustomTextActionEntity)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 524288)]
+            interface ICustomTextActionEntity {
+                #[get]
+                CustomTextKind: String;
+                #[get]
+                KeyPhrase: String;
+                #[get]
+                Properties: super::super::Foundation::Collections::IMapView<String, Object>;
+            }
+            #[guid(0xfd5a0880_eeae_553a_bfed_a9229d57447d)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DateTimeActionEntity)]
+            #[Windows::Foundation::Metadata::Experimental]
+            interface IDateTimeActionEntity {
+                #[get]
+                DateTime: super::super::Foundation::DateTime;
+            }
+            #[guid(0x56715297_960b_59ff_af4b_ece1098b2e36)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DocumentActionEntity)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            interface IDocumentActionEntity {
+                #[get]
+                FullPath: String;
+            }
+            #[guid(0xf20ab43f_4c80_5904_bd42_3e6248babfcf)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileActionEntity)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            interface IFileActionEntity {
+                #[get]
+                FullPath: String;
+            }
+            #[guid(0x1aaebeef_435b_5a0d_8182_05fe4dd47712)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NamedActionEntity)]
+            interface INamedActionEntity {
+                Name: String;
+                Entity: ActionEntity;
+            }
+            #[guid(0x425123b3_20ef_51a6_b35f_8414384765c5)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoActionEntity)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            interface IPhotoActionEntity {
+                #[get]
+                FullPath: String;
+            }
+            #[guid(0xa5d8ec21_a2bd_545a_abfc_d7aa79fd0b81)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RemoteFileActionEntity)]
+            interface IRemoteFileActionEntity {
+                #[get]
+                SourceId: String;
+                #[get]
+                FileKind: RemoteFileKind;
+                #[get]
+                SourceUri: super::super::Foundation::Uri;
+                #[get]
+                FileId: String;
+                #[get]
+                ContentType: String;
+                #[get]
+                DriveId: String;
+                #[get]
+                AccountId: String;
+                #[get]
+                Extension: String;
+            }
+            #[guid(0x9cc8cc54_77d8_5537_83c4_6f18c1bc9f67)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RemoteFileActionEntity)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 458752)]
+            interface IRemoteFileActionEntity2 {
+                Filename: String;
+                Creator: ContactActionEntity;
+                LastUpdatedTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                fn SetContributors(&self, contributors: [ContactActionEntity]);
+                fn GetContributors(&self) -> [ContactActionEntity];
+            }
+            #[guid(0x44cd8a16_abc9_5703_b4bf_6fe8b7a802fd)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StreamingTextActionEntity)]
+            interface IStreamingTextActionEntity {
+                #[get]
+                IsComplete: bool;
+                fn GetText(&self) -> String;
+                #[get]
+                TextFormat: ActionEntityTextFormat;
+                event TextChanged: super::super::Foundation::TypedEventHandler<StreamingTextActionEntity, StreamingTextActionEntityTextChangedArgs>;
+            }
+            #[guid(0x2c62011f_3e06_588b_a3bd_d726bd82fb13)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StreamingTextActionEntityTextChangedArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            interface IStreamingTextActionEntityTextChangedArgs {
+                #[get]
+                Text: String;
+                #[get]
+                IsComplete: bool;
+            }
+            #[guid(0x6bce2f76_a8af_5ff2_833c_108737ba0f42)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StreamingTextActionEntityWriter)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            interface IStreamingTextActionEntityWriter {
+                #[get]
+                ReaderEntity: StreamingTextActionEntity;
+                #[get]
+                TextFormat: ActionEntityTextFormat;
+                fn SetText(&self, text: String);
+            }
+            #[guid(0x0f252cdb_ba24_5dbb_9d17_1b300773d141)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TableActionEntity)]
+            interface ITableActionEntity {
+                fn GetTextContent(&self) -> [String];
+                #[get]
+                RowCount: u32;
+                #[get]
+                ColumnCount: u32;
+            }
+            #[guid(0x3c4ec25f_5adb_5f73_b8f3_080fbeadd612)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TextActionEntity)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            interface ITextActionEntity {
+                #[get]
+                Text: String;
+            }
+            #[guid(0x7c500889_cf08_51e7_beca_f0bbc7a7486c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TextActionEntity)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            interface ITextActionEntity2 {
+                #[get]
+                TextFormat: ActionEntityTextFormat;
+            }
+            #[guid(0xa81cde77_bc25_532d_905e_b0725c5bcd4e)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 393216)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UriActionEntity)]
+            interface IUriActionEntity {
+                #[get]
+                Uri: super::super::Foundation::Uri;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class NamedActionEntity {
+                INamedActionEntity,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class PhotoActionEntity: ActionEntity {
+                IPhotoActionEntity,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class RemoteFileActionEntity: ActionEntity {
+                IRemoteFileActionEntity,
+                IRemoteFileActionEntity2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            enum RemoteFileKind {
+                Document = 0,
+                Photo = 1,
+                File = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            class StreamingTextActionEntity: ActionEntity {
+                IStreamingTextActionEntity,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class StreamingTextActionEntityTextChangedArgs {
+                IStreamingTextActionEntityTextChangedArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class StreamingTextActionEntityWriter {
+                IStreamingTextActionEntityWriter,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 196608)]
+            class TableActionEntity: ActionEntity {
+                ITableActionEntity,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 65536)]
+            class TextActionEntity: ActionEntity {
+                ITextActionEntity,
+                ITextActionEntity2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Experimental]
+            #[Windows::Foundation::Metadata::ContractVersion(ActionsContract, 393216)]
+            class UriActionEntity: ActionEntity {
+                IUriActionEntity,
+            }
+        }
+    }
+}

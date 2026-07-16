@@ -1,0 +1,135 @@
+#[winrt]
+mod Windows {
+    mod Globalization {
+        mod DateTimeFormatting {
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IDateTimeFormatterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IDateTimeFormatterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class DateTimeFormatter {
+                IDateTimeFormatter,
+                IDateTimeFormatter2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum DayFormat {
+                None = 0,
+                Default = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum DayOfWeekFormat {
+                None = 0,
+                Default = 1,
+                Abbreviated = 2,
+                Full = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum HourFormat {
+                None = 0,
+                Default = 1,
+            }
+            #[guid(0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DateTimeFormatter)]
+            interface IDateTimeFormatter {
+                #[get]
+                Languages: super::super::Foundation::Collections::IVectorView<String>;
+                #[get]
+                GeographicRegion: String;
+                #[get]
+                Calendar: String;
+                #[get]
+                Clock: String;
+                NumeralSystem: String;
+                #[get]
+                Patterns: super::super::Foundation::Collections::IVectorView<String>;
+                #[get]
+                Template: String;
+                fn Format(&self, value: super::super::Foundation::DateTime) -> String;
+                #[get]
+                IncludeYear: YearFormat;
+                #[get]
+                IncludeMonth: MonthFormat;
+                #[get]
+                IncludeDayOfWeek: DayOfWeekFormat;
+                #[get]
+                IncludeDay: DayFormat;
+                #[get]
+                IncludeHour: HourFormat;
+                #[get]
+                IncludeMinute: MinuteFormat;
+                #[get]
+                IncludeSecond: SecondFormat;
+                #[get]
+                ResolvedLanguage: String;
+                #[get]
+                ResolvedGeographicRegion: String;
+            }
+            #[guid(0x27c91a86_bdaa_4fd0_9e36_671d5aa5ee03)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DateTimeFormatter)]
+            interface IDateTimeFormatter2 {
+                #[Windows::Foundation::Metadata::Overload("FormatUsingTimeZone")]
+                fn Format(&self, datetime: super::super::Foundation::DateTime, timeZoneId: String) -> String;
+            }
+            #[guid(0xec8d8a53_1a2e_412d_8815_3b745fb1a2a0)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DateTimeFormatter)]
+            interface IDateTimeFormatterFactory {
+                fn CreateDateTimeFormatter(&self, formatTemplate: String) -> DateTimeFormatter;
+                fn CreateDateTimeFormatterLanguages(&self, formatTemplate: String, languages: super::super::Foundation::Collections::IIterable<String>) -> DateTimeFormatter;
+                fn CreateDateTimeFormatterContext(&self, formatTemplate: String, languages: super::super::Foundation::Collections::IIterable<String>, geographicRegion: String, calendar: String, clock: String) -> DateTimeFormatter;
+                fn CreateDateTimeFormatterDate(&self, yearFormat: YearFormat, monthFormat: MonthFormat, dayFormat: DayFormat, dayOfWeekFormat: DayOfWeekFormat) -> DateTimeFormatter;
+                fn CreateDateTimeFormatterTime(&self, hourFormat: HourFormat, minuteFormat: MinuteFormat, secondFormat: SecondFormat) -> DateTimeFormatter;
+                fn CreateDateTimeFormatterDateTimeLanguages(&self, yearFormat: YearFormat, monthFormat: MonthFormat, dayFormat: DayFormat, dayOfWeekFormat: DayOfWeekFormat, hourFormat: HourFormat, minuteFormat: MinuteFormat, secondFormat: SecondFormat, languages: super::super::Foundation::Collections::IIterable<String>) -> DateTimeFormatter;
+                fn CreateDateTimeFormatterDateTimeContext(&self, yearFormat: YearFormat, monthFormat: MonthFormat, dayFormat: DayFormat, dayOfWeekFormat: DayOfWeekFormat, hourFormat: HourFormat, minuteFormat: MinuteFormat, secondFormat: SecondFormat, languages: super::super::Foundation::Collections::IIterable<String>, geographicRegion: String, calendar: String, clock: String) -> DateTimeFormatter;
+            }
+            #[guid(0xbfcde7c0_df4c_4a2e_9012_f47daf3f1212)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DateTimeFormatter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDateTimeFormatterStatics {
+                #[get]
+                LongDate: DateTimeFormatter;
+                #[get]
+                LongTime: DateTimeFormatter;
+                #[get]
+                ShortDate: DateTimeFormatter;
+                #[get]
+                ShortTime: DateTimeFormatter;
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MinuteFormat {
+                None = 0,
+                Default = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MonthFormat {
+                None = 0,
+                Default = 1,
+                Abbreviated = 2,
+                Full = 3,
+                Numeric = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum SecondFormat {
+                None = 0,
+                Default = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum YearFormat {
+                None = 0,
+                Default = 1,
+                Abbreviated = 2,
+                Full = 3,
+            }
+        }
+    }
+}

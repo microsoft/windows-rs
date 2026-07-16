@@ -1,0 +1,323 @@
+#[winrt]
+mod Windows {
+    mod System {
+        mod Diagnostics {
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            class DiagnosticActionResult {
+                IDiagnosticActionResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            enum DiagnosticActionState {
+                Initializing = 0,
+                Downloading = 1,
+                VerifyingTrust = 2,
+                Detecting = 3,
+                Resolving = 4,
+                VerifyingResolution = 5,
+                Executing = 6,
+            }
+            #[Windows::Foundation::Metadata::Static(IDiagnosticInvokerStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            class DiagnosticInvoker {
+                IDiagnosticInvoker,
+                IDiagnosticInvoker2,
+            }
+            #[guid(0xc265a296_e73b_4097_b28f_3442f03dd831)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DiagnosticActionResult)]
+            interface IDiagnosticActionResult {
+                #[get]
+                ExtendedError: HRESULT;
+                #[get]
+                Results: super::super::Foundation::Collections::ValueSet;
+            }
+            #[guid(0x187b270a_02e3_4f86_84fc_fdd892b5940f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DiagnosticInvoker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IDiagnosticInvoker {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RunDiagnosticActionAsync(&self, context: super::super::Data::Json::JsonObject) -> super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>;
+            }
+            #[guid(0xe3bf945c_155a_4b52_a8ec_070c44f95000)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DiagnosticInvoker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IDiagnosticInvoker2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RunDiagnosticActionFromStringAsync(&self, context: String) -> super::super::Foundation::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>;
+            }
+            #[guid(0x5cfad8de_f15c_4554_a813_c113c3881b09)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DiagnosticInvoker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IDiagnosticInvokerStatics {
+                fn GetDefault(&self) -> DiagnosticInvoker;
+                fn GetForUser(&self, user: super::User) -> DiagnosticInvoker;
+                #[get]
+                IsSupported: bool;
+            }
+            #[guid(0x0bbb2472_c8bf_423a_a810_b559ae4354e2)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProcessCpuUsage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProcessCpuUsage {
+                fn GetReport(&self) -> ProcessCpuUsageReport;
+            }
+            #[guid(0x8a6d9cac_3987_4e2f_a119_6b5fa214f1b4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProcessCpuUsageReport)]
+            interface IProcessCpuUsageReport {
+                #[get]
+                KernelTime: super::super::Foundation::TimeSpan;
+                #[get]
+                UserTime: super::super::Foundation::TimeSpan;
+            }
+            #[guid(0xe830b04b_300e_4ee6_a0ab_5b5f5231b434)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProcessDiagnosticInfo)]
+            interface IProcessDiagnosticInfo {
+                #[get]
+                ProcessId: u32;
+                #[get]
+                ExecutableFileName: String;
+                #[get]
+                Parent: ProcessDiagnosticInfo;
+                #[get]
+                ProcessStartTime: super::super::Foundation::DateTime;
+                #[get]
+                DiskUsage: ProcessDiskUsage;
+                #[get]
+                MemoryUsage: ProcessMemoryUsage;
+                #[get]
+                CpuUsage: ProcessCpuUsage;
+            }
+            #[guid(0x9558cb1a_3d0b_49ec_ab70_4f7a112805de)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProcessDiagnosticInfo)]
+            interface IProcessDiagnosticInfo2 {
+                fn GetAppDiagnosticInfos(&self) -> super::super::Foundation::Collections::IVector<super::AppDiagnosticInfo>;
+                #[get]
+                IsPackaged: bool;
+            }
+            #[guid(0x2f41b260_b49f_428c_aa0e_84744f49ca95)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProcessDiagnosticInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProcessDiagnosticInfoStatics {
+                fn GetForProcesses(&self) -> super::super::Foundation::Collections::IVectorView<ProcessDiagnosticInfo>;
+                fn GetForCurrentProcess(&self) -> ProcessDiagnosticInfo;
+            }
+            #[guid(0x4a869897_9899_4a44_a29b_091663be09b6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProcessDiagnosticInfo)]
+            interface IProcessDiagnosticInfoStatics2 {
+                fn TryGetForProcessId(&self, processId: u32) -> ProcessDiagnosticInfo;
+            }
+            #[guid(0x5ad78bfd_7e51_4e53_bfaa_5a6ee1aabbf8)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProcessDiskUsage)]
+            interface IProcessDiskUsage {
+                fn GetReport(&self) -> ProcessDiskUsageReport;
+            }
+            #[guid(0x401627fd_535d_4c1f_81b8_da54e1be635e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProcessDiskUsageReport)]
+            interface IProcessDiskUsageReport {
+                #[get]
+                ReadOperationCount: i64;
+                #[get]
+                WriteOperationCount: i64;
+                #[get]
+                OtherOperationCount: i64;
+                #[get]
+                BytesReadCount: i64;
+                #[get]
+                BytesWrittenCount: i64;
+                #[get]
+                OtherBytesCount: i64;
+            }
+            #[guid(0xf50b229b_827c_42b7_b07c_0e32627e6b3e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProcessMemoryUsage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProcessMemoryUsage {
+                fn GetReport(&self) -> ProcessMemoryUsageReport;
+            }
+            #[guid(0xc2c77cba_1951_4685_8532_7e749ecf8eeb)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProcessMemoryUsageReport)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProcessMemoryUsageReport {
+                #[get]
+                NonPagedPoolSizeInBytes: u64;
+                #[get]
+                PageFaultCount: u32;
+                #[get]
+                PageFileSizeInBytes: u64;
+                #[get]
+                PagedPoolSizeInBytes: u64;
+                #[get]
+                PeakNonPagedPoolSizeInBytes: u64;
+                #[get]
+                PeakPageFileSizeInBytes: u64;
+                #[get]
+                PeakPagedPoolSizeInBytes: u64;
+                #[get]
+                PeakVirtualMemorySizeInBytes: u64;
+                #[get]
+                PeakWorkingSetSizeInBytes: u64;
+                #[get]
+                PrivatePageCount: u64;
+                #[get]
+                VirtualMemorySizeInBytes: u64;
+                #[get]
+                WorkingSetSizeInBytes: u64;
+            }
+            #[guid(0x6037b3ac_02d6_4234_8362_7fe3adc81f5f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemCpuUsage)]
+            interface ISystemCpuUsage {
+                fn GetReport(&self) -> SystemCpuUsageReport;
+            }
+            #[guid(0x2c26d0b2_9483_4f62_ab57_82b29d9719b8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemCpuUsageReport)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface ISystemCpuUsageReport {
+                #[get]
+                KernelTime: super::super::Foundation::TimeSpan;
+                #[get]
+                UserTime: super::super::Foundation::TimeSpan;
+                #[get]
+                IdleTime: super::super::Foundation::TimeSpan;
+            }
+            #[guid(0xa290fe05_dff3_407f_9a1b_0b2b317ca800)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemDiagnosticInfo)]
+            interface ISystemDiagnosticInfo {
+                #[get]
+                MemoryUsage: SystemMemoryUsage;
+                #[get]
+                CpuUsage: SystemCpuUsage;
+            }
+            #[guid(0xd404ac21_fc7d_45f0_9a3f_39203aed9f7e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemDiagnosticInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface ISystemDiagnosticInfoStatics {
+                fn GetForCurrentSystem(&self) -> SystemDiagnosticInfo;
+            }
+            #[guid(0x79ded189_6af9_4da9_a422_15f73255b3eb)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemDiagnosticInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 720896)]
+            interface ISystemDiagnosticInfoStatics2 {
+                fn IsArchitectureSupported(&self, r#type: super::ProcessorArchitecture) -> bool;
+                #[get]
+                PreferredArchitecture: super::ProcessorArchitecture;
+            }
+            #[guid(0x17ffc595_1702_49cf_aa27_2f0a32591404)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemMemoryUsage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface ISystemMemoryUsage {
+                fn GetReport(&self) -> SystemMemoryUsageReport;
+            }
+            #[guid(0x38663c87_2a9f_403a_bd19_2cf3e8169500)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemMemoryUsageReport)]
+            interface ISystemMemoryUsageReport {
+                #[get]
+                TotalPhysicalSizeInBytes: u64;
+                #[get]
+                AvailableSizeInBytes: u64;
+                #[get]
+                CommittedSizeInBytes: u64;
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            class ProcessCpuUsage {
+                IProcessCpuUsage,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            class ProcessCpuUsageReport {
+                IProcessCpuUsageReport,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IProcessDiagnosticInfoStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IProcessDiagnosticInfoStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ProcessDiagnosticInfo {
+                IProcessDiagnosticInfo,
+                IProcessDiagnosticInfo2,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ProcessDiskUsage {
+                IProcessDiskUsage,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            class ProcessDiskUsageReport {
+                IProcessDiskUsageReport,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            class ProcessMemoryUsage {
+                IProcessMemoryUsage,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ProcessMemoryUsageReport {
+                IProcessMemoryUsageReport,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            class SystemCpuUsage {
+                ISystemCpuUsage,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            class SystemCpuUsageReport {
+                ISystemCpuUsageReport,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(ISystemDiagnosticInfoStatics2, 720896, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Static(ISystemDiagnosticInfoStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SystemDiagnosticInfo {
+                ISystemDiagnosticInfo,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SystemMemoryUsage {
+                ISystemMemoryUsage,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class SystemMemoryUsageReport {
+                ISystemMemoryUsageReport,
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Composition {
+            mod Desktop {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class DesktopWindowTarget: super::CompositionTarget {
+                    IDesktopWindowTarget,
+                }
+                #[guid(0x6329d6ca_3366_490e_9db3_25312929ac51)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DesktopWindowTarget)]
+                interface IDesktopWindowTarget {
+                    #[get]
+                    IsTopmost: bool;
+                }
+            }
+        }
+    }
+}

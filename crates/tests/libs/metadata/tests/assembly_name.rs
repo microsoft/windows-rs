@@ -11,7 +11,7 @@ fn file() {
     assert_eq!(reader.assembly_name(), Some("TestName"));
 
     let reader = reader::File::read("../../../libs/bindgen/default/Windows.Win32.winmd").unwrap();
-    assert_eq!(reader.assembly_name(), Some("Windows.Win32.winmd"));
+    assert_eq!(reader.assembly_name(), Some("Windows.Win32"));
 }
 
 #[test]
@@ -28,11 +28,11 @@ fn index() {
     );
     assert_eq!(
         index.assembly_name("Windows.Win32", "SID_IDENTIFIER_AUTHORITY"),
-        Some("Windows.Win32.winmd")
+        Some("Windows.Win32")
     );
     assert_eq!(
         index.assembly_name("Windows.Win32", "DRIVER_OBJECT"),
-        Some("Windows.Wdk.winmd")
+        Some("Windows.Wdk")
     );
     assert_eq!(index.assembly_name("Windows.Win32", "NotAttribute"), None);
 }

@@ -1,0 +1,97 @@
+#[winrt]
+mod Windows {
+    mod System {
+        mod Preview {
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::Deprecated("HingeState is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            enum HingeState {
+                Unknown = 0,
+                Closed = 1,
+                Concave = 2,
+                Flat = 3,
+                Convex = 4,
+                Full = 5,
+            }
+            #[guid(0x72245c31_4b39_42a6_8e73_7235ade16853)]
+            #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreview is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TwoPanelHingedDevicePosturePreview)]
+            interface ITwoPanelHingedDevicePosturePreview {
+                #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreview is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetCurrentPostureAsync(&self) -> super::super::Foundation::IAsyncOperation<TwoPanelHingedDevicePosturePreviewReading>;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreview is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                fn add_PostureChanged(&self, handler: super::super::Foundation::TypedEventHandler<TwoPanelHingedDevicePosturePreview, TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreview is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                fn remove_PostureChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[guid(0xa0251452_4ad6_4b38_8426_c59a15493a7d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TwoPanelHingedDevicePosturePreviewReading)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreviewReading is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+            interface ITwoPanelHingedDevicePosturePreviewReading {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreviewReading is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                fn get_Timestamp(&self) -> super::super::Foundation::DateTime;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreviewReading is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                fn get_HingeState(&self) -> HingeState;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreviewReading is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                fn get_Panel1Orientation(&self) -> super::super::Devices::Sensors::SimpleOrientation;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreviewReading is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                fn get_Panel1Id(&self) -> String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreviewReading is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                fn get_Panel2Orientation(&self) -> super::super::Devices::Sensors::SimpleOrientation;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreviewReading is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                fn get_Panel2Id(&self) -> String;
+            }
+            #[guid(0x2d2d1bc6_02ce_474a_a556_a75b1cf93a03)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+            interface ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                fn get_Reading(&self) -> TwoPanelHingedDevicePosturePreviewReading;
+            }
+            #[guid(0x0c4733d2_57e0_4180_bd5e_f31a2138423e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TwoPanelHingedDevicePosturePreview)]
+            #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreview is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ITwoPanelHingedDevicePosturePreviewStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreview is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<TwoPanelHingedDevicePosturePreview>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreview is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ITwoPanelHingedDevicePosturePreviewStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class TwoPanelHingedDevicePosturePreview {
+                ITwoPanelHingedDevicePosturePreview,
+            }
+            #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreviewReading is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class TwoPanelHingedDevicePosturePreviewReading {
+                ITwoPanelHingedDevicePosturePreviewReading,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::Deprecated("TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
+                ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs,
+            }
+        }
+    }
+}

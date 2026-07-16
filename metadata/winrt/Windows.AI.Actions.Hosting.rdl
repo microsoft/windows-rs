@@ -1,0 +1,162 @@
+#[winrt]
+mod Windows {
+    mod AI {
+        mod Actions {
+            mod Hosting {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                class ActionCatalog {
+                    IActionCatalog,
+                    IActionCatalog2,
+                    IActionCatalog3,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ActionDefinition {
+                    IActionDefinition,
+                    IActionDefinition2,
+                    IActionDefinition3,
+                    IActionDefinition4,
+                    IActionDefinition5,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                class ActionEntityRegistrationInfo {
+                    IActionEntityRegistrationInfo,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 262144)]
+                class ActionInstance {
+                    IActionInstance,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 262144)]
+                class ActionInstanceDisplayInfo {
+                    IActionInstanceDisplayInfo,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ActionOverload {
+                    IActionOverload,
+                    IActionOverload2,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[guid(0xdbe7c537_66ea_5394_9085_4fc19d78375c)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionCatalog)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                interface IActionCatalog {
+                    fn GetAllActions(&self) -> [ActionDefinition];
+                    event Changed: super::super::super::Foundation::TypedEventHandler<ActionCatalog, Object>;
+                }
+                #[guid(0x370360b1_a14b_5ea8_b611_b5f70342ba44)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionCatalog)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 262144)]
+                interface IActionCatalog2 {
+                    #[Windows::Foundation::Metadata::Overload("GetActionsForInputs")]
+                    fn GetActionsForInputs(&self, inputEntities: [super::ActionEntity]) -> [ActionInstance];
+                    #[Windows::Foundation::Metadata::Overload("GetActionsForInputs2")]
+                    fn GetActionsForInputs(&self, inputEntities: [super::ActionEntity], invokerWindowId: super::super::super::UI::WindowId) -> [ActionInstance];
+                }
+                #[guid(0x2e05d518_8680_55d3_820d_2605adb7d62d)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionCatalog)]
+                interface IActionCatalog3 {
+                    fn GetActionsForCurrentApp(&self) -> [ActionDefinition];
+                }
+                #[guid(0xfe766add_924d_5231_855e_dac9e82c7e6c)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionDefinition)]
+                interface IActionDefinition {
+                    #[get]
+                    Id: String;
+                    #[get]
+                    Description: String;
+                    #[get]
+                    IconFullPath: String;
+                    #[get]
+                    PackageFamilyName: String;
+                    fn GetInputs(&self) -> [ActionEntityRegistrationInfo];
+                    fn GetOutputs(&self) -> [ActionEntityRegistrationInfo];
+                    fn GetOverloads(&self) -> [ActionOverload];
+                }
+                #[guid(0xc1f44733_f563_54e2_bd2b_dc4c732054cf)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionDefinition)]
+                interface IActionDefinition2 {
+                    #[get]
+                    DisplaysUI: bool;
+                    #[get]
+                    UsesGenerativeAI: bool;
+                    #[get]
+                    SchemaVersion: u32;
+                }
+                #[guid(0x89c9a7e0_4bfd_55f4_9eed_dce2250114fa)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionDefinition)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 196608)]
+                interface IActionDefinition3 {
+                    #[get]
+                    PackageRelativeApplicationId: String;
+                }
+                #[guid(0x6dd91071_8847_55b6_9518_9ff8de421eb7)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionDefinition)]
+                interface IActionDefinition4 {
+                    #[get]
+                    IsCurrentlyAvailable: bool;
+                }
+                #[guid(0x5bea33ef_d325_53a8_8db3_0d771f4d1e54)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionDefinition)]
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 393216)]
+                interface IActionDefinition5 {
+                    fn GetIconFullPath(&self, qualifierValues: super::super::super::Foundation::Collections::PropertySet) -> String;
+                }
+                #[guid(0xc3b92bdb_03c3_5a9e_b049_002fa0405699)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionEntityRegistrationInfo)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                interface IActionEntityRegistrationInfo {
+                    Name: String;
+                    Kind: super::ActionEntityKind;
+                }
+                #[guid(0x809bcb6e_e6ef_5f16_b89a_06b8893df20e)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionInstance)]
+                interface IActionInstance {
+                    #[get]
+                    DisplayInfo: ActionInstanceDisplayInfo;
+                    #[get]
+                    Definition: ActionDefinition;
+                    #[get]
+                    Context: super::ActionInvocationContext;
+                    fn InvokeAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0xfcfdce21_678b_5602_b9dc_2f4533a6f4b2)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionInstanceDisplayInfo)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 262144)]
+                interface IActionInstanceDisplayInfo {
+                    #[get]
+                    Description: String;
+                }
+                #[guid(0x5d184610_d09d_5375_9849_505c359dca01)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionOverload)]
+                interface IActionOverload {
+                    #[get]
+                    DescriptionTemplate: String;
+                    fn GetInputs(&self) -> [ActionEntityRegistrationInfo];
+                    fn InvokeAsync(&self, context: super::ActionInvocationContext) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x57ec9906_8231_5a9e_929f_bf39e952eb93)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ActionOverload)]
+                interface IActionOverload2 {
+                    fn InvokeFeedbackAsync(&self, context: super::ActionInvocationContext, feedback: super::ActionFeedback) -> super::super::super::Foundation::IAsyncAction;
+                    fn GetSupportsFeedback(&self) -> bool;
+                }
+            }
+        }
+    }
+}

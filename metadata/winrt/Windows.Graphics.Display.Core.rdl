@@ -1,0 +1,122 @@
+#[winrt]
+mod Windows {
+    mod Graphics {
+        mod Display {
+            mod Core {
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum HdmiDisplayColorSpace {
+                    RgbLimited = 0,
+                    RgbFull = 1,
+                    BT2020 = 2,
+                    BT709 = 3,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                struct HdmiDisplayHdr2086Metadata {
+                    RedPrimaryX: u16,
+                    RedPrimaryY: u16,
+                    GreenPrimaryX: u16,
+                    GreenPrimaryY: u16,
+                    BluePrimaryX: u16,
+                    BluePrimaryY: u16,
+                    WhitePointX: u16,
+                    WhitePointY: u16,
+                    MaxMasteringLuminance: u16,
+                    MinMasteringLuminance: u16,
+                    MaxContentLightLevel: u16,
+                    MaxFrameAverageLightLevel: u16,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum HdmiDisplayHdrOption {
+                    None = 0,
+                    EotfSdr = 1,
+                    Eotf2084 = 2,
+                    DolbyVisionLowLatency = 3,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::Static(IHdmiDisplayInformationStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                class HdmiDisplayInformation {
+                    IHdmiDisplayInformation,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class HdmiDisplayMode {
+                    IHdmiDisplayMode,
+                    IHdmiDisplayMode2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum HdmiDisplayPixelEncoding {
+                    Rgb444 = 0,
+                    Ycc444 = 1,
+                    Ycc422 = 2,
+                    Ycc420 = 3,
+                }
+                #[guid(0x130b3c0a_f565_476e_abd5_ea05aee74c69)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HdmiDisplayInformation)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IHdmiDisplayInformation {
+                    fn GetSupportedDisplayModes(&self) -> super::super::super::Foundation::Collections::IVectorView<HdmiDisplayMode>;
+                    fn GetCurrentDisplayMode(&self) -> HdmiDisplayMode;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SetDefaultDisplayModeAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::Overload("RequestSetCurrentDisplayModeAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestSetCurrentDisplayModeAsync(&self, mode: HdmiDisplayMode) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    #[Windows::Foundation::Metadata::Overload("RequestSetCurrentDisplayModeWithHdrAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestSetCurrentDisplayModeAsync(&self, mode: HdmiDisplayMode, hdrOption: HdmiDisplayHdrOption) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    #[Windows::Foundation::Metadata::Overload("RequestSetCurrentDisplayModeWithHdrAndMetadataAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestSetCurrentDisplayModeAsync(&self, mode: HdmiDisplayMode, hdrOption: HdmiDisplayHdrOption, hdrMetadata: HdmiDisplayHdr2086Metadata) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    event DisplayModesChanged: super::super::super::Foundation::TypedEventHandler<HdmiDisplayInformation, Object>;
+                }
+                #[guid(0x6ce6b260_f42a_4a15_914c_7b8e2a5a65df)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HdmiDisplayInformation)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IHdmiDisplayInformationStatics {
+                    fn GetForCurrentView(&self) -> HdmiDisplayInformation;
+                }
+                #[guid(0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HdmiDisplayMode)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IHdmiDisplayMode {
+                    #[get]
+                    ResolutionWidthInRawPixels: u32;
+                    #[get]
+                    ResolutionHeightInRawPixels: u32;
+                    #[get]
+                    RefreshRate: f64;
+                    #[get]
+                    StereoEnabled: bool;
+                    #[get]
+                    BitsPerPixel: u16;
+                    fn IsEqual(&self, mode: HdmiDisplayMode) -> bool;
+                    #[get]
+                    ColorSpace: HdmiDisplayColorSpace;
+                    #[get]
+                    PixelEncoding: HdmiDisplayPixelEncoding;
+                    #[get]
+                    IsSdrLuminanceSupported: bool;
+                    #[get]
+                    IsSmpte2084Supported: bool;
+                    #[get]
+                    Is2086MetadataSupported: bool;
+                }
+                #[guid(0x07cd4e9f_4b3c_42b8_84e7_895368718af2)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HdmiDisplayMode)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IHdmiDisplayMode2 {
+                    #[get]
+                    IsDolbyVisionLowLatencySupported: bool;
+                }
+            }
+        }
+    }
+}

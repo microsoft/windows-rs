@@ -1,0 +1,394 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Xaml {
+            mod Media {
+                mod Imaging {
+                    #[repr(u32)]
+                    #[flags]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum BitmapCreateOptions {
+                        None = 0,
+                        IgnoreImageCache = 8,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(IBitmapImageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IBitmapImageStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IBitmapImageStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IBitmapImageStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class BitmapImage: BitmapSource {
+                        IBitmapImage,
+                        IBitmapImage2,
+                        IBitmapImage3,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(IBitmapSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Composable(IBitmapSourceFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class BitmapSource: super::ImageSource {
+                        IBitmapSource,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum DecodePixelType {
+                        Physical = 0,
+                        Logical = 1,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class DownloadProgressEventArgs {
+                        IDownloadProgressEventArgs,
+                    }
+                    #[guid(0x1abaee23_74ee_4cc7_99ba_b171e3cda61e)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    delegate fn DownloadProgressEventHandler(sender: Object, e: DownloadProgressEventArgs);
+                    #[guid(0x31af3271_e3b4_442d_a341_4c0226b2725b)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BitmapImage)]
+                    interface IBitmapImage {
+                        CreateOptions: BitmapCreateOptions;
+                        UriSource: super::super::super::super::Foundation::Uri;
+                        DecodePixelWidth: i32;
+                        DecodePixelHeight: i32;
+                        event DownloadProgress: DownloadProgressEventHandler;
+                        event ImageOpened: super::super::RoutedEventHandler;
+                        event ImageFailed: super::super::ExceptionRoutedEventHandler;
+                    }
+                    #[guid(0x1069c1b6_8c9b_4762_be3d_759f5698f2b3)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BitmapImage)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IBitmapImage2 {
+                        DecodePixelType: DecodePixelType;
+                    }
+                    #[guid(0xf1de6f26_3c73_453f_a7ba_9b85c18b3733)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BitmapImage)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IBitmapImage3 {
+                        #[get]
+                        IsAnimatedBitmap: bool;
+                        #[get]
+                        IsPlaying: bool;
+                        AutoPlay: bool;
+                        fn Play(&self);
+                        fn Stop(&self);
+                    }
+                    #[guid(0xc9132978_4810_4e5e_8087_03671ee60d85)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BitmapImage)]
+                    interface IBitmapImageFactory {
+                        fn CreateInstanceWithUriSource(&self, uriSource: super::super::super::super::Foundation::Uri) -> BitmapImage;
+                    }
+                    #[guid(0x9e282143_70e8_437c_9fa4_2cbf295cff84)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BitmapImage)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IBitmapImageStatics {
+                        #[get]
+                        CreateOptionsProperty: super::super::DependencyProperty;
+                        #[get]
+                        UriSourceProperty: super::super::DependencyProperty;
+                        #[get]
+                        DecodePixelWidthProperty: super::super::DependencyProperty;
+                        #[get]
+                        DecodePixelHeightProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xc5f5576a_75af_41a4_b893_8fe91fee2882)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BitmapImage)]
+                    interface IBitmapImageStatics2 {
+                        #[get]
+                        DecodePixelTypeProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x2b44e30d_f6d5_4411_a8cd_bf7603c4faa0)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BitmapImage)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IBitmapImageStatics3 {
+                        #[get]
+                        IsAnimatedBitmapProperty: super::super::DependencyProperty;
+                        #[get]
+                        IsPlayingProperty: super::super::DependencyProperty;
+                        #[get]
+                        AutoPlayProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x23d86411_202f_41b2_8c5b_a8a3b333800b)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BitmapSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IBitmapSource {
+                        #[get]
+                        PixelWidth: i32;
+                        #[get]
+                        PixelHeight: i32;
+                        fn SetSource(&self, streamSource: super::super::super::super::Storage::Streams::IRandomAccessStream);
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn SetSourceAsync(&self, streamSource: super::super::super::super::Storage::Streams::IRandomAccessStream) -> super::super::super::super::Foundation::IAsyncAction;
+                    }
+                    #[guid(0xe240420e_d4a7_49a4_a0b4_a59fdd77e508)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BitmapSource)]
+                    interface IBitmapSourceFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> BitmapSource;
+                    }
+                    #[guid(0x9a9c9981_827b_4e51_891b_8a15b511842d)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BitmapSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IBitmapSourceStatics {
+                        #[get]
+                        PixelWidthProperty: super::super::DependencyProperty;
+                        #[get]
+                        PixelHeightProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x7311e0d4_fe94_4e70_9b90_cdd47ac23afb)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DownloadProgressEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IDownloadProgressEventArgs {
+                        Progress: i32;
+                    }
+                    #[guid(0x500dee81_893c_4c0a_8fec_4678ac717589)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RenderTargetBitmap)]
+                    interface IRenderTargetBitmap {
+                        #[get]
+                        PixelWidth: i32;
+                        #[get]
+                        PixelHeight: i32;
+                        #[Windows::Foundation::Metadata::Overload("RenderAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn RenderAsync(&self, element: super::super::UIElement) -> super::super::super::super::Foundation::IAsyncAction;
+                        #[Windows::Foundation::Metadata::Overload("RenderToSizeAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn RenderAsync(&self, element: super::super::UIElement, scaledWidth: i32, scaledHeight: i32) -> super::super::super::super::Foundation::IAsyncAction;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn GetPixelsAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>;
+                    }
+                    #[guid(0xf0a1efee_c131_4d40_9c47_f7d7cf2b077f)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RenderTargetBitmap)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IRenderTargetBitmapStatics {
+                        #[get]
+                        PixelWidthProperty: super::super::DependencyProperty;
+                        #[get]
+                        PixelHeightProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xd2dd9ed0_d3c5_4056_91b5_b7c1d1e8130e)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SoftwareBitmapSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISoftwareBitmapSource {
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn SetBitmapAsync(&self, softwareBitmap: super::super::super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::super::super::Foundation::IAsyncAction;
+                    }
+                    #[guid(0x62f7d416_c714_4c4c_8273_f839bc58135c)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SurfaceImageSource)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISurfaceImageSource {}
+                    #[guid(0x3ab2212a_ef65_4a5f_bfac_73993e8c12c9)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SurfaceImageSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISurfaceImageSourceFactory {
+                        fn CreateInstanceWithDimensions(&self, pixelWidth: i32, pixelHeight: i32, baseInterface: Object, innerInterface: &mut Object) -> SurfaceImageSource;
+                        fn CreateInstanceWithDimensionsAndOpacity(&self, pixelWidth: i32, pixelHeight: i32, isOpaque: bool, baseInterface: Object, innerInterface: &mut Object) -> SurfaceImageSource;
+                    }
+                    #[guid(0x03e1cec3_0ca8_4a4e_8d7c_c808a0838586)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SvgImageSource)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface ISvgImageSource {
+                        UriSource: super::super::super::super::Foundation::Uri;
+                        RasterizePixelWidth: f64;
+                        RasterizePixelHeight: f64;
+                        event Opened: super::super::super::super::Foundation::TypedEventHandler<SvgImageSource, SvgImageSourceOpenedEventArgs>;
+                        event OpenFailed: super::super::super::super::Foundation::TypedEventHandler<SvgImageSource, SvgImageSourceFailedEventArgs>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn SetSourceAsync(&self, streamSource: super::super::super::super::Storage::Streams::IRandomAccessStream) -> super::super::super::super::Foundation::IAsyncOperation<SvgImageSourceLoadStatus>;
+                    }
+                    #[guid(0xc794e9e7_cf23_4d72_bf1a_dfaa16d8ea52)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SvgImageSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISvgImageSourceFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> SvgImageSource;
+                        fn CreateInstanceWithUriSource(&self, uriSource: super::super::super::super::Foundation::Uri, baseInterface: Object, innerInterface: &mut Object) -> SvgImageSource;
+                    }
+                    #[guid(0x68bb3170_3ccc_4035_ac01_9834543d744e)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SvgImageSourceFailedEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISvgImageSourceFailedEventArgs {
+                        #[get]
+                        Status: SvgImageSourceLoadStatus;
+                    }
+                    #[guid(0x85ef4c16_748e_4008_95c7_6a23dd7316db)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SvgImageSourceOpenedEventArgs)]
+                    interface ISvgImageSourceOpenedEventArgs {}
+                    #[guid(0x9c6638ce_bed1_4aab_acbb_d3e2185d315a)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SvgImageSource)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface ISvgImageSourceStatics {
+                        #[get]
+                        UriSourceProperty: super::super::DependencyProperty;
+                        #[get]
+                        RasterizePixelWidthProperty: super::super::DependencyProperty;
+                        #[get]
+                        RasterizePixelHeightProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x4a711fea_bfac_11e0_a06a_9de44724019b)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(VirtualSurfaceImageSource)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IVirtualSurfaceImageSource {}
+                    #[guid(0x3ab2212a_bfac_11e0_8a92_69e44724019b)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(VirtualSurfaceImageSource)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IVirtualSurfaceImageSourceFactory {
+                        fn CreateInstanceWithDimensions(&self, pixelWidth: i32, pixelHeight: i32) -> VirtualSurfaceImageSource;
+                        fn CreateInstanceWithDimensionsAndOpacity(&self, pixelWidth: i32, pixelHeight: i32, isOpaque: bool) -> VirtualSurfaceImageSource;
+                    }
+                    #[guid(0xbf0b7e6f_df7c_4a85_8413_a1216285835c)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WriteableBitmap)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IWriteableBitmap {
+                        #[get]
+                        PixelBuffer: super::super::super::super::Storage::Streams::IBuffer;
+                        fn Invalidate(&self);
+                    }
+                    #[guid(0x5563ebb1_3ef2_42c5_9c6d_1cf5dcc041ff)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WriteableBitmap)]
+                    interface IWriteableBitmapFactory {
+                        fn CreateInstanceWithDimensions(&self, pixelWidth: i32, pixelHeight: i32) -> WriteableBitmap;
+                    }
+                    #[guid(0x5d5fe9aa_533e_44b8_a975_fc5f1e3bff52)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(XamlRenderingBackgroundTask)]
+                    interface IXamlRenderingBackgroundTask {}
+                    #[guid(0xa3d1bb63_38f8_4da3_9fca_fd8128a2cbf9)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(XamlRenderingBackgroundTask)]
+                    interface IXamlRenderingBackgroundTaskFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> XamlRenderingBackgroundTask;
+                    }
+                    #[guid(0x9c2a6997_a908_4711_b4b2_a960db3d8e5a)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(XamlRenderingBackgroundTask)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IXamlRenderingBackgroundTaskOverrides {
+                        fn OnRun(&self, taskInstance: super::super::super::super::ApplicationModel::Background::IBackgroundTaskInstance);
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IRenderTargetBitmapStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class RenderTargetBitmap: super::ImageSource {
+                        IRenderTargetBitmap,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class SoftwareBitmapSource: super::ImageSource {
+                        ISoftwareBitmapSource,
+                        super::super::super::super::Foundation::IClosable,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Composable(ISurfaceImageSourceFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class SurfaceImageSource: super::ImageSource {
+                        ISurfaceImageSource,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(ISvgImageSourceStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Composable(ISvgImageSourceFactory, Public, 262144, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    class SvgImageSource: super::ImageSource {
+                        ISvgImageSource,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class SvgImageSourceFailedEventArgs {
+                        ISvgImageSourceFailedEventArgs,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum SvgImageSourceLoadStatus {
+                        Success = 0,
+                        NetworkError = 1,
+                        InvalidFormat = 2,
+                        Other = 3,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class SvgImageSourceOpenedEventArgs {
+                        ISvgImageSourceOpenedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(IVirtualSurfaceImageSourceFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class VirtualSurfaceImageSource: SurfaceImageSource {
+                        IVirtualSurfaceImageSource,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(IWriteableBitmapFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class WriteableBitmap: BitmapSource {
+                        IWriteableBitmap,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Composable(IXamlRenderingBackgroundTaskFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class XamlRenderingBackgroundTask {
+                        IXamlRenderingBackgroundTask,
+                        IXamlRenderingBackgroundTaskOverrides,
+                    }
+                }
+            }
+        }
+    }
+}

@@ -325,8 +325,8 @@ impl HtmlPrintDocumentSource {
             (windows_core::Interface::vtable(self).PercentScale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPercentScale(&self, scalepercent: f32) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPercentScale)(windows_core::Interface::as_raw(self), scalepercent).ok() }
+    pub fn SetPercentScale(&self, value: f32) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetPercentScale)(windows_core::Interface::as_raw(self), value).ok() }
     }
     pub fn PageRange(&self) -> windows_core::Result<windows_core::HSTRING> {
         unsafe {
@@ -574,8 +574,8 @@ impl IWebUIBackgroundTaskInstance {
             (windows_core::Interface::vtable(self).Succeeded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSucceeded)(windows_core::Interface::as_raw(self), succeeded).ok() }
+    pub fn SetSucceeded(&self, value: bool) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetSucceeded)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
 impl windows_core::RuntimeName for IWebUIBackgroundTaskInstance {
@@ -583,7 +583,7 @@ impl windows_core::RuntimeName for IWebUIBackgroundTaskInstance {
 }
 pub trait IWebUIBackgroundTaskInstance_Impl: windows_core::IUnknownImpl {
     fn Succeeded(&self) -> windows_core::Result<bool>;
-    fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()>;
+    fn SetSucceeded(&self, value: bool) -> windows_core::Result<()>;
 }
 impl IWebUIBackgroundTaskInstance_Vtbl {
     pub const fn new<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>() -> Self {
@@ -599,10 +599,10 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn SetSucceeded<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, succeeded: bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetSucceeded<Identity: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: bool) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebUIBackgroundTaskInstance_Impl::SetSucceeded(this, succeeded).into()
+                IWebUIBackgroundTaskInstance_Impl::SetSucceeded(this, value).into()
             }
         }
         Self {
@@ -1697,18 +1697,18 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
             (windows_core::Interface::vtable(this).TriggerDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Canceled<F>(&self, cancelhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Canceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<super::super::ApplicationModel::Background::IBackgroundTaskInstance>, super::super::ApplicationModel::Background::BackgroundTaskCancellationReason) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Background::IBackgroundTaskInstance>(self)?;
-        let cancelhandler = <super::super::ApplicationModel::Background::BackgroundTaskCanceledEventHandler>::new(move |a0, a1| {
-            cancelhandler(a0, a1);
+        let handler = <super::super::ApplicationModel::Background::BackgroundTaskCanceledEventHandler>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&cancelhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveCanceled))
         }
     }
@@ -1732,8 +1732,8 @@ impl WebUIBackgroundTaskInstanceRuntimeClass {
             (windows_core::Interface::vtable(self).Succeeded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSucceeded(&self, succeeded: bool) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetSucceeded)(windows_core::Interface::as_raw(self), succeeded).ok() }
+    pub fn SetSucceeded(&self, value: bool) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetSucceeded)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
 #[cfg(feature = "ApplicationModel_Background")]
@@ -4512,12 +4512,12 @@ impl WebUIView {
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSource<P0>(&self, source: P0) -> windows_core::Result<()>
+    pub fn SetSource<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;
-        unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), source.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     pub fn DocumentTitle(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<super::super::Web::UI::IWebViewControl>(self)?;

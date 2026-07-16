@@ -1,0 +1,110 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Display {
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::Static(IDisplayMonitorStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class DisplayMonitor {
+                IDisplayMonitor,
+                IDisplayMonitor2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum DisplayMonitorConnectionKind {
+                Internal = 0,
+                Wired = 1,
+                Wireless = 2,
+                Virtual = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum DisplayMonitorDescriptorKind {
+                Edid = 0,
+                DisplayId = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum DisplayMonitorPhysicalConnectorKind {
+                Unknown = 0,
+                HD15 = 1,
+                AnalogTV = 2,
+                Dvi = 3,
+                Hdmi = 4,
+                Lvds = 5,
+                Sdi = 6,
+                DisplayPort = 7,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum DisplayMonitorUsageKind {
+                Standard = 0,
+                HeadMounted = 1,
+                SpecialPurpose = 2,
+            }
+            #[guid(0x1f6b15d4_1d01_4c51_87e2_6f954a772b59)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayMonitor)]
+            interface IDisplayMonitor {
+                #[get]
+                DeviceId: String;
+                #[get]
+                DisplayName: String;
+                #[get]
+                ConnectionKind: DisplayMonitorConnectionKind;
+                #[get]
+                PhysicalConnector: DisplayMonitorPhysicalConnectorKind;
+                #[get]
+                DisplayAdapterDeviceId: String;
+                #[get]
+                DisplayAdapterId: super::super::Graphics::DisplayAdapterId;
+                #[get]
+                DisplayAdapterTargetId: u32;
+                #[get]
+                UsageKind: DisplayMonitorUsageKind;
+                #[get]
+                NativeResolutionInRawPixels: super::super::Graphics::SizeInt32;
+                #[get]
+                PhysicalSizeInInches: super::super::Foundation::IReference<super::super::Foundation::Size>;
+                #[get]
+                RawDpiX: f32;
+                #[get]
+                RawDpiY: f32;
+                #[get]
+                RedPrimary: super::super::Foundation::Point;
+                #[get]
+                GreenPrimary: super::super::Foundation::Point;
+                #[get]
+                BluePrimary: super::super::Foundation::Point;
+                #[get]
+                WhitePoint: super::super::Foundation::Point;
+                #[get]
+                MaxLuminanceInNits: f32;
+                #[get]
+                MinLuminanceInNits: f32;
+                #[get]
+                MaxAverageFullFrameLuminanceInNits: f32;
+                fn GetDescriptor(&self, descriptorKind: DisplayMonitorDescriptorKind) -> [u8];
+            }
+            #[guid(0x023018e6_cb23_5830_96df_a7bf6e602577)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayMonitor)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IDisplayMonitor2 {
+                #[get]
+                IsDolbyVisionSupportedInHdrMode: bool;
+            }
+            #[guid(0x6eae698f_a228_4c05_821d_b695d667de8e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayMonitor)]
+            interface IDisplayMonitorStatics {
+                fn GetDeviceSelector(&self) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<DisplayMonitor>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromInterfaceIdAsync(&self, deviceInterfaceId: String) -> super::super::Foundation::IAsyncOperation<DisplayMonitor>;
+            }
+        }
+    }
+}

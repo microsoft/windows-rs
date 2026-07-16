@@ -1,0 +1,35 @@
+#[winrt]
+mod Windows {
+    mod Graphics {
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        struct DisplayAdapterId {
+            LowPart: u32,
+            HighPart: i32,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 786432)]
+        struct DisplayId {
+            Value: u64,
+        }
+        #[guid(0xcaff7902_670c_4181_a624_da977203b845)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        interface IGeometrySource2D {}
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        struct PointInt32 {
+            X: i32,
+            Y: i32,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        struct RectInt32 {
+            X: i32,
+            Y: i32,
+            Width: i32,
+            Height: i32,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        struct SizeInt32 {
+            Width: i32,
+            Height: i32,
+        }
+    }
+}

@@ -1,0 +1,152 @@
+#[winrt]
+mod Windows {
+    mod Gaming {
+        mod Input {
+            mod Preview {
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                enum DeviceCommand {
+                    Reset = 0,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                enum GameControllerBatteryChargingState {
+                    Unknown = 0,
+                    Inactive = 1,
+                    Active = 2,
+                    Error = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                enum GameControllerBatteryKind {
+                    Unknown = 0,
+                    None = 1,
+                    Standard = 2,
+                    Rechargeable = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                enum GameControllerBatteryLevel {
+                    Unknown = 0,
+                    Critical = 1,
+                    Low = 2,
+                    Medium = 3,
+                    Full = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                enum GameControllerFirmwareCorruptReason {
+                    Unknown = 0,
+                    NotCorrupt = 1,
+                    TwoUpCorrupt = 2,
+                    AppCorrupt = 3,
+                    RadioCorrupt = 4,
+                    EepromCorrupt = 5,
+                    SafeToUpdate = 6,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::Static(IGameControllerProviderInfoStatics, 65536, "Windows.Gaming.Input.GamingInputPreviewContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class GameControllerProviderInfo {}
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                struct HeadsetGeqGains {
+                    band1Gain: i32,
+                    band2Gain: i32,
+                    band3Gain: i32,
+                    band4Gain: i32,
+                    band5Gain: i32,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                enum HeadsetLevel {
+                    Off = 0,
+                    Low = 1,
+                    Medium = 2,
+                    High = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                enum HeadsetOperation {
+                    Geq = 0,
+                    BassBoostGain = 1,
+                    SmartMute = 2,
+                    SideTone = 3,
+                    MuteLedBrightness = 4,
+                    SwapMixAndVolumeDials = 5,
+                }
+                #[guid(0x0be1e6c5_d9bd_44ee_8362_488b2e464bfb)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameControllerProviderInfo)]
+                interface IGameControllerProviderInfoStatics {
+                    fn GetParentProviderId(&self, provider: super::Custom::IGameControllerProvider) -> String;
+                    fn GetProviderId(&self, provider: super::Custom::IGameControllerProvider) -> String;
+                }
+                #[guid(0x2da3ed52_ffd9_43e2_825c_1d2790e04d14)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LegacyGipGameControllerProvider)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                interface ILegacyGipGameControllerProvider {
+                    #[get]
+                    BatteryChargingState: GameControllerBatteryChargingState;
+                    #[get]
+                    BatteryKind: GameControllerBatteryKind;
+                    #[get]
+                    BatteryLevel: GameControllerBatteryLevel;
+                    fn GetDeviceFirmwareCorruptionState(&self) -> GameControllerFirmwareCorruptReason;
+                    #[get]
+                    IsFirmwareCorrupted: bool;
+                    fn IsInterfaceSupported(&self, interfaceId: GUID) -> bool;
+                    #[get]
+                    IsSyntheticDevice: bool;
+                    #[get]
+                    PreferredTypes: super::super::super::Foundation::Collections::IVectorView<String>;
+                    fn ExecuteCommand(&self, command: DeviceCommand);
+                    fn SetHomeLedIntensity(&self, intensity: u8);
+                    fn GetExtendedDeviceInfo(&self) -> [u8];
+                    fn SetHeadsetOperation(&self, operation: HeadsetOperation, buffer: [u8]);
+                    fn GetHeadsetOperation(&self, operation: HeadsetOperation) -> [u8];
+                    #[get]
+                    AppCompatVersion: u32;
+                    fn SetStandardControllerButtonRemapping(&self, user: super::super::super::System::User, previous: bool, remapping: super::super::super::Foundation::Collections::IMapView<RemappingButtonCategory, Object>);
+                    fn GetStandardControllerButtonRemapping(&self, user: super::super::super::System::User, previous: bool) -> super::super::super::Foundation::Collections::IMapView<RemappingButtonCategory, Object>;
+                }
+                #[guid(0xd40dda17_b1f4_499a_874c_7095aac15291)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LegacyGipGameControllerProvider)]
+                interface ILegacyGipGameControllerProviderStatics {
+                    fn FromGameController(&self, controller: super::IGameController) -> LegacyGipGameControllerProvider;
+                    fn FromGameControllerProvider(&self, provider: super::Custom::IGameControllerProvider) -> LegacyGipGameControllerProvider;
+                    fn PairPilotToCopilot(&self, user: super::super::super::System::User, pilotControllerProviderId: String, copilotControllerProviderId: String);
+                    fn ClearPairing(&self, user: super::super::super::System::User, controllerProviderId: String);
+                    fn IsPilot(&self, user: super::super::super::System::User, controllerProviderId: String) -> String;
+                    fn IsCopilot(&self, user: super::super::super::System::User, controllerProviderId: String) -> String;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ILegacyGipGameControllerProviderStatics, 131072, "Windows.Gaming.Input.GamingInputPreviewContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772168)]
+                class LegacyGipGameControllerProvider {
+                    ILegacyGipGameControllerProvider,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                enum RemappingButtonCategory {
+                    ButtonSettings = 0,
+                    AnalogSettings = 1,
+                    VibrationSettings = 2,
+                    ShareShortPress = 3,
+                    ShareShortPressMetaData = 4,
+                    ShareShortPressMetaDataDisplay = 5,
+                    ShareLongPress = 6,
+                    ShareLongPressMetaData = 7,
+                    ShareLongPressMetaDataDisplay = 8,
+                    ShareDoublePress = 9,
+                    ShareDoublePressMetaData = 10,
+                    ShareDoublePressMetaDataDisplay = 11,
+                }
+            }
+        }
+    }
+}

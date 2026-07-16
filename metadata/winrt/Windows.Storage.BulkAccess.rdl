@@ -1,0 +1,90 @@
+#[winrt]
+mod Windows {
+    mod Storage {
+        mod BulkAccess {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class FileInformation {
+                IStorageItemInformation,
+                super::IStorageFile,
+                super::Streams::IInputStreamReference,
+                super::Streams::IRandomAccessStreamReference,
+                super::IStorageItem,
+                super::IStorageItemProperties,
+                super::IStorageItem2,
+                super::IStorageItemPropertiesWithProvider,
+                super::IStorageFilePropertiesWithAvailability,
+                super::IStorageFile2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(IFileInformationFactoryFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class FileInformationFactory {
+                IFileInformationFactory,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class FolderInformation {
+                IStorageItemInformation,
+                super::IStorageFolder,
+                super::IStorageItem,
+                super::IStorageItemProperties,
+                super::Search::IStorageFolderQueryOperations,
+                super::IStorageItem2,
+                super::IStorageFolder2,
+                super::IStorageItemPropertiesWithProvider,
+            }
+            #[guid(0x401d88be_960f_4d6d_a7d0_1a3861e76c83)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileInformationFactory)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFileInformationFactory {
+                #[Windows::Foundation::Metadata::Overload("GetItemsAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetItemsAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>;
+                #[Windows::Foundation::Metadata::Overload("GetItemsAsyncDefaultStartAndCount")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetItemsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IStorageItemInformation>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("GetFilesAsync")]
+                fn GetFilesAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("GetFilesAsyncDefaultStartAndCount")]
+                fn GetFilesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FileInformation>>;
+                #[Windows::Foundation::Metadata::Overload("GetFoldersAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetFoldersAsync(&self, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("GetFoldersAsyncDefaultStartAndCount")]
+                fn GetFoldersAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<FolderInformation>>;
+                fn GetVirtualizedItemsVector(&self) -> Object;
+                fn GetVirtualizedFilesVector(&self) -> Object;
+                fn GetVirtualizedFoldersVector(&self) -> Object;
+            }
+            #[guid(0x84ea0e7d_e4a2_4f00_8afa_af5e0f826bd5)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileInformationFactory)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFileInformationFactoryFactory {
+                fn CreateWithMode(&self, queryResult: super::Search::IStorageQueryResultBase, mode: super::FileProperties::ThumbnailMode) -> FileInformationFactory;
+                fn CreateWithModeAndSize(&self, queryResult: super::Search::IStorageQueryResultBase, mode: super::FileProperties::ThumbnailMode, requestedThumbnailSize: u32) -> FileInformationFactory;
+                fn CreateWithModeAndSizeAndOptions(&self, queryResult: super::Search::IStorageQueryResultBase, mode: super::FileProperties::ThumbnailMode, requestedThumbnailSize: u32, thumbnailOptions: super::FileProperties::ThumbnailOptions) -> FileInformationFactory;
+                fn CreateWithModeAndSizeAndOptionsAndFlags(&self, queryResult: super::Search::IStorageQueryResultBase, mode: super::FileProperties::ThumbnailMode, requestedThumbnailSize: u32, thumbnailOptions: super::FileProperties::ThumbnailOptions, delayLoad: bool) -> FileInformationFactory;
+            }
+            #[guid(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IStorageItemInformation {
+                #[get]
+                MusicProperties: super::FileProperties::MusicProperties;
+                #[get]
+                VideoProperties: super::FileProperties::VideoProperties;
+                #[get]
+                ImageProperties: super::FileProperties::ImageProperties;
+                #[get]
+                DocumentProperties: super::FileProperties::DocumentProperties;
+                #[get]
+                BasicProperties: super::FileProperties::BasicProperties;
+                #[get]
+                Thumbnail: super::FileProperties::StorageItemThumbnail;
+                event ThumbnailUpdated: super::super::Foundation::TypedEventHandler<IStorageItemInformation, Object>;
+                event PropertiesUpdated: super::super::Foundation::TypedEventHandler<IStorageItemInformation, Object>;
+            }
+        }
+    }
+}

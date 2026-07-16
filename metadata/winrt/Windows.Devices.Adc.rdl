@@ -1,0 +1,67 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Adc {
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class AdcChannel {
+                IAdcChannel,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            enum AdcChannelMode {
+                SingleEnded = 0,
+                Differential = 1,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IAdcControllerStatics2, 131072, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::Static(IAdcControllerStatics, 65536, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            class AdcController {
+                IAdcController,
+            }
+            #[guid(0x040bf414_2588_4a56_abef_73a260acc60a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AdcChannel)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            interface IAdcChannel: super::super::Foundation::IClosable {
+                #[get]
+                Controller: AdcController;
+                fn ReadValue(&self) -> i32;
+                fn ReadRatio(&self) -> f64;
+            }
+            #[guid(0x2a76e4b0_a896_4219_86b6_ea8cdce98f56)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AdcController)]
+            interface IAdcController {
+                #[get]
+                ChannelCount: i32;
+                #[get]
+                ResolutionInBits: i32;
+                #[get]
+                MinValue: i32;
+                #[get]
+                MaxValue: i32;
+                ChannelMode: AdcChannelMode;
+                fn IsChannelModeSupported(&self, channelMode: AdcChannelMode) -> bool;
+                fn OpenChannel(&self, channelNumber: i32) -> AdcChannel;
+            }
+            #[guid(0xcce98e0c_01f8_4891_bc3b_be53ef279ca4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AdcController)]
+            interface IAdcControllerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetControllersAsync(&self, provider: Provider::IAdcProvider) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AdcController>>;
+            }
+            #[guid(0xa2b93b1d_977b_4f5a_a5fe_a6abaffe6484)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AdcController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]
+            interface IAdcControllerStatics2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<AdcController>;
+            }
+        }
+    }
+}

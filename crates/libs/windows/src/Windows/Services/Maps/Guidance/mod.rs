@@ -586,18 +586,18 @@ impl GuidanceNavigator {
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateUserLocationWithPositionOverride)(windows_core::Interface::as_raw(self), userlocation.param().abi(), positionoverride).ok() }
     }
-    pub fn AudioNotificationRequested<F>(&self, value: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn AudioNotificationRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<GuidanceAudioNotificationRequestedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IGuidanceNavigator2>(self)?;
-        let value = <super::super::super::Foundation::TypedEventHandler<Self, GuidanceAudioNotificationRequestedEventArgs>>::new(move |a0, a1| {
-            value(a0, a1);
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, GuidanceAudioNotificationRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).AudioNotificationRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&value), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(this).AudioNotificationRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveAudioNotificationRequested))
         }
     }

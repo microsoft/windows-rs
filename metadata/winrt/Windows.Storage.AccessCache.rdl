@@ -1,0 +1,121 @@
+#[winrt]
+mod Windows {
+    mod Storage {
+        mod AccessCache {
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AccessCacheOptions {
+                None = 0,
+                DisallowUserInput = 1,
+                FastLocationsOnly = 2,
+                UseReadOnlyCachedCopy = 4,
+                SuppressAccessTimeUpdate = 8,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct AccessListEntry {
+                Token: String,
+                Metadata: String,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AccessListEntryView {
+                super::super::Foundation::Collections::IVectorView<AccessListEntry>,
+                super::super::Foundation::Collections::IIterable<AccessListEntry>,
+            }
+            #[guid(0x59677e5c_55be_4c66_ba66_5eaea79d2631)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ItemRemovedEventArgs)]
+            interface IItemRemovedEventArgs {
+                #[get]
+                RemovedEntry: AccessListEntry;
+            }
+            #[guid(0x4391dfaa_d033_48f9_8060_3ec847d2e3f1)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageApplicationPermissions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IStorageApplicationPermissionsStatics {
+                #[get]
+                FutureAccessList: StorageItemAccessList;
+                #[get]
+                MostRecentlyUsedList: StorageItemMostRecentlyUsedList;
+            }
+            #[guid(0x072716ec_aa05_4294_9a11_1a3d04519ad0)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageApplicationPermissions)]
+            interface IStorageApplicationPermissionsStatics2 {
+                fn GetFutureAccessListForUser(&self, user: super::super::System::User) -> StorageItemAccessList;
+                fn GetMostRecentlyUsedListForUser(&self, user: super::super::System::User) -> StorageItemMostRecentlyUsedList;
+            }
+            #[guid(0x2caff6ad_de90_47f5_b2c3_dd36c9fdd453)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IStorageItemAccessList {
+                #[Windows::Foundation::Metadata::Overload("AddOverloadDefaultMetadata")]
+                fn Add(&self, file: super::IStorageItem) -> String;
+                #[Windows::Foundation::Metadata::Overload("Add")]
+                fn Add(&self, file: super::IStorageItem, metadata: String) -> String;
+                #[Windows::Foundation::Metadata::Overload("AddOrReplaceOverloadDefaultMetadata")]
+                fn AddOrReplace(&self, token: String, file: super::IStorageItem);
+                #[Windows::Foundation::Metadata::Overload("AddOrReplace")]
+                fn AddOrReplace(&self, token: String, file: super::IStorageItem, metadata: String);
+                #[Windows::Foundation::Metadata::Overload("GetItemAsync")]
+                fn GetItemAsync(&self, token: String) -> super::super::Foundation::IAsyncOperation<super::IStorageItem>;
+                #[Windows::Foundation::Metadata::Overload("GetFileAsync")]
+                fn GetFileAsync(&self, token: String) -> super::super::Foundation::IAsyncOperation<super::StorageFile>;
+                #[Windows::Foundation::Metadata::Overload("GetFolderAsync")]
+                fn GetFolderAsync(&self, token: String) -> super::super::Foundation::IAsyncOperation<super::StorageFolder>;
+                #[Windows::Foundation::Metadata::Overload("GetItemWithOptionsAsync")]
+                fn GetItemAsync(&self, token: String, options: AccessCacheOptions) -> super::super::Foundation::IAsyncOperation<super::IStorageItem>;
+                #[Windows::Foundation::Metadata::Overload("GetFileWithOptionsAsync")]
+                fn GetFileAsync(&self, token: String, options: AccessCacheOptions) -> super::super::Foundation::IAsyncOperation<super::StorageFile>;
+                #[Windows::Foundation::Metadata::Overload("GetFolderWithOptionsAsync")]
+                fn GetFolderAsync(&self, token: String, options: AccessCacheOptions) -> super::super::Foundation::IAsyncOperation<super::StorageFolder>;
+                fn Remove(&self, token: String);
+                fn ContainsItem(&self, token: String) -> bool;
+                fn Clear(&self);
+                fn CheckAccess(&self, file: super::IStorageItem) -> bool;
+                #[get]
+                Entries: AccessListEntryView;
+                #[get]
+                MaximumItemsAllowed: u32;
+            }
+            #[guid(0x016239d5_510d_411e_8cf1_c3d1effa4c33)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemMostRecentlyUsedList)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IStorageItemMostRecentlyUsedList: IStorageItemAccessList {
+                event ItemRemoved: super::super::Foundation::TypedEventHandler<StorageItemMostRecentlyUsedList, ItemRemovedEventArgs>;
+            }
+            #[guid(0xda481ea0_ed8d_4731_a1db_e44ee2204093)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemMostRecentlyUsedList)]
+            interface IStorageItemMostRecentlyUsedList2: IStorageItemMostRecentlyUsedList + IStorageItemAccessList {
+                #[Windows::Foundation::Metadata::Overload("AddWithMetadataAndVisibility")]
+                fn Add(&self, file: super::IStorageItem, metadata: String, visibility: RecentStorageItemVisibility) -> String;
+                #[Windows::Foundation::Metadata::Overload("AddOrReplaceWithMetadataAndVisibility")]
+                fn AddOrReplace(&self, token: String, file: super::IStorageItem, metadata: String, visibility: RecentStorageItemVisibility);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ItemRemovedEventArgs {
+                IItemRemovedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum RecentStorageItemVisibility {
+                AppOnly = 0,
+                AppAndSystem = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IStorageApplicationPermissionsStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IStorageApplicationPermissionsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class StorageApplicationPermissions {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class StorageItemAccessList {
+                IStorageItemAccessList,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class StorageItemMostRecentlyUsedList {
+                IStorageItemMostRecentlyUsedList,
+                IStorageItemAccessList,
+                IStorageItemMostRecentlyUsedList2,
+            }
+        }
+    }
+}

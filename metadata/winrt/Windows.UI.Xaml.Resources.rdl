@@ -1,0 +1,45 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Xaml {
+            mod Resources {
+                #[Windows::Foundation::Metadata::Composable(ICustomXamlResourceLoaderFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(ICustomXamlResourceLoaderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class CustomXamlResourceLoader {
+                    ICustomXamlResourceLoader,
+                    ICustomXamlResourceLoaderOverrides,
+                }
+                #[guid(0x511a84ab_4a88_419f_852e_54083b90b078)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CustomXamlResourceLoader)]
+                interface ICustomXamlResourceLoader {}
+                #[guid(0x5bfd7e49_7886_44f3_8ed3_6fec0463ed69)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CustomXamlResourceLoader)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICustomXamlResourceLoaderFactory {
+                    fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> CustomXamlResourceLoader;
+                }
+                #[guid(0xf851e991_af02_46e8_9af8_427b7ebfe9f8)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CustomXamlResourceLoader)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICustomXamlResourceLoaderOverrides {
+                    fn GetResource(&self, resourceId: String, objectType: String, propertyName: String, propertyType: String) -> Object;
+                }
+                #[guid(0x224ff617_e4dc_4c27_ad32_db93d5d0e5da)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CustomXamlResourceLoader)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ICustomXamlResourceLoaderStatics {
+                    Current: CustomXamlResourceLoader;
+                }
+            }
+        }
+    }
+}

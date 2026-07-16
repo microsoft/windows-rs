@@ -1,0 +1,412 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Composition {
+            mod Scenes {
+                #[guid(0x5d8ffc70_c618_4083_8251_9962593114aa)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneBoundingBox)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface ISceneBoundingBox {
+                    #[get]
+                    Center: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
+                    Extents: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
+                    Max: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
+                    Min: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
+                    Size: super::super::super::Foundation::Numerics::Vector3;
+                }
+                #[guid(0xae20fc96_226c_44bd_95cb_dd5ed9ebe9a5)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneComponent)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ISceneComponent {
+                    #[get]
+                    ComponentType: SceneComponentType;
+                }
+                #[guid(0xc483791c_5f46_45e4_b666_a3d2259f9b2e)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneComponentCollection)]
+                interface ISceneComponentCollection {}
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneComponent)]
+                interface ISceneComponentFactory {}
+                #[guid(0x8ca74b7c_30df_4e07_9490_37875af1a123)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneMaterial)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface ISceneMaterial {}
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneMaterial)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ISceneMaterialFactory {}
+                #[guid(0x422a1642_1ef1_485c_97e9_ae6f95ad812f)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneMaterialInput)]
+                interface ISceneMaterialInput {}
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneMaterialInput)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface ISceneMaterialInputFactory {}
+                #[guid(0xee9a1530_1155_4c0c_92bd_40020cf78347)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneMesh)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ISceneMesh {
+                    #[get]
+                    Bounds: SceneBoundingBox;
+                    PrimitiveTopology: super::super::super::Graphics::DirectX::DirectXPrimitiveTopology;
+                    fn FillMeshAttribute(&self, semantic: SceneAttributeSemantic, format: super::super::super::Graphics::DirectX::DirectXPixelFormat, memory: super::super::super::Foundation::MemoryBuffer);
+                }
+                #[guid(0xce843171_3d43_4855_aa69_31ff988d049d)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneMeshMaterialAttributeMap)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ISceneMeshMaterialAttributeMap {}
+                #[guid(0x9929f7e3_6364_477e_98fe_74ed9fd4c2de)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneMeshRendererComponent)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface ISceneMeshRendererComponent {
+                    Material: SceneMaterial;
+                    Mesh: SceneMesh;
+                    #[get]
+                    UVMappings: SceneMeshMaterialAttributeMap;
+                }
+                #[guid(0x4954f37a_4459_4521_bd6e_2b38b8d711ea)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneMeshRendererComponent)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface ISceneMeshRendererComponentStatics {
+                    fn Create(&self, compositor: super::Compositor) -> SceneMeshRendererComponent;
+                }
+                #[guid(0x8412316c_7b57_473f_966b_81dc277b1751)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneMesh)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface ISceneMeshStatics {
+                    fn Create(&self, compositor: super::Compositor) -> SceneMesh;
+                }
+                #[guid(0xc1d91446_799c_429e_a4e4_5da645f18e61)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneMetallicRoughnessMaterial)]
+                interface ISceneMetallicRoughnessMaterial {
+                    BaseColorInput: SceneMaterialInput;
+                    BaseColorFactor: super::super::super::Foundation::Numerics::Vector4;
+                    MetallicFactor: f32;
+                    MetallicRoughnessInput: SceneMaterialInput;
+                    RoughnessFactor: f32;
+                }
+                #[guid(0x3bddca50_6d9d_4531_8dc4_b27e3e49b7ab)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneMetallicRoughnessMaterial)]
+                interface ISceneMetallicRoughnessMaterialStatics {
+                    fn Create(&self, compositor: super::Compositor) -> SceneMetallicRoughnessMaterial;
+                }
+                #[guid(0xc05576c2_32b1_4269_980d_b98537100ae4)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneModelTransform)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ISceneModelTransform {
+                    Orientation: super::super::super::Foundation::Numerics::Quaternion;
+                    RotationAngle: f32;
+                    RotationAngleInDegrees: f32;
+                    RotationAxis: super::super::super::Foundation::Numerics::Vector3;
+                    Scale: super::super::super::Foundation::Numerics::Vector3;
+                    Translation: super::super::super::Foundation::Numerics::Vector3;
+                }
+                #[guid(0xacf2c247_f307_4581_9c41_af2e29c3b016)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneNode)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface ISceneNode {
+                    #[get]
+                    Children: SceneNodeCollection;
+                    #[get]
+                    Components: SceneComponentCollection;
+                    #[get]
+                    Parent: SceneNode;
+                    #[get]
+                    Transform: SceneModelTransform;
+                    fn FindFirstComponentOfType(&self, value: SceneComponentType) -> SceneComponent;
+                }
+                #[guid(0x29ada101_2dd9_4332_be63_60d2cf4269f2)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneNodeCollection)]
+                interface ISceneNodeCollection {}
+                #[guid(0x579a0faa_be9d_4210_908c_93d15feed0b7)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneNode)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ISceneNodeStatics {
+                    fn Create(&self, compositor: super::Compositor) -> SceneNode;
+                }
+                #[guid(0x1e94249b_0f1b_49eb_a819_877d8450005b)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneObject)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ISceneObject {}
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneObject)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface ISceneObjectFactory {}
+                #[guid(0xaab6ebbe_d680_46df_8294_b6800a9f95e7)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ScenePbrMaterial)]
+                interface IScenePbrMaterial {
+                    AlphaCutoff: f32;
+                    AlphaMode: SceneAlphaMode;
+                    EmissiveInput: SceneMaterialInput;
+                    EmissiveFactor: super::super::super::Foundation::Numerics::Vector3;
+                    IsDoubleSided: bool;
+                    NormalInput: SceneMaterialInput;
+                    NormalScale: f32;
+                    OcclusionInput: SceneMaterialInput;
+                    OcclusionStrength: f32;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ScenePbrMaterial)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IScenePbrMaterialFactory {}
+                #[guid(0xf1acb857_cf4f_4025_9b25_a2d1944cf507)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneRendererComponent)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface ISceneRendererComponent {}
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneRendererComponent)]
+                interface ISceneRendererComponentFactory {}
+                #[guid(0x9937da5c_a9ca_4cfc_b3aa_088356518742)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneSurfaceMaterialInput)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ISceneSurfaceMaterialInput {
+                    BitmapInterpolationMode: super::CompositionBitmapInterpolationMode;
+                    Surface: super::ICompositionSurface;
+                    WrappingUMode: SceneWrappingMode;
+                    WrappingVMode: SceneWrappingMode;
+                }
+                #[guid(0x5a2394d3_6429_4589_bbcf_b84f4f3cfbfe)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneSurfaceMaterialInput)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface ISceneSurfaceMaterialInputStatics {
+                    fn Create(&self, compositor: super::Compositor) -> SceneSurfaceMaterialInput;
+                }
+                #[guid(0x8e672c1e_d734_47b1_be14_3d694ffa4301)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneVisual)]
+                interface ISceneVisual {
+                    Root: SceneNode;
+                }
+                #[guid(0xb8347e9a_50aa_4527_8d34_de4cb8ea88b4)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneVisual)]
+                interface ISceneVisualStatics {
+                    fn Create(&self, compositor: super::Compositor) -> SceneVisual;
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum SceneAlphaMode {
+                    Opaque = 0,
+                    AlphaTest = 1,
+                    Blend = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum SceneAttributeSemantic {
+                    Index = 0,
+                    Vertex = 1,
+                    Normal = 2,
+                    TexCoord0 = 3,
+                    TexCoord1 = 4,
+                    Color = 5,
+                    Tangent = 6,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class SceneBoundingBox: SceneObject {
+                    ISceneBoundingBox,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::Composable(ISceneComponentFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
+                class SceneComponent: SceneObject {
+                    ISceneComponent,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SceneComponentCollection: SceneObject {
+                    super::super::super::Foundation::Collections::IVector<SceneComponent>,
+                    ISceneComponentCollection,
+                    super::super::super::Foundation::Collections::IIterable<SceneComponent>,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum SceneComponentType {
+                    MeshRendererComponent = 0,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::Composable(ISceneMaterialFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SceneMaterial: SceneObject {
+                    ISceneMaterial,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::Composable(ISceneMaterialInputFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SceneMaterialInput: SceneObject {
+                    ISceneMaterialInput,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::Static(ISceneMeshStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                class SceneMesh: SceneObject {
+                    ISceneMesh,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SceneMeshMaterialAttributeMap: SceneObject {
+                    ISceneMeshMaterialAttributeMap,
+                    super::super::super::Foundation::Collections::IMap<String, SceneAttributeSemantic>,
+                    super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, SceneAttributeSemantic>>,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::Static(ISceneMeshRendererComponentStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SceneMeshRendererComponent: SceneRendererComponent {
+                    ISceneMeshRendererComponent,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(ISceneMetallicRoughnessMaterialStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+                class SceneMetallicRoughnessMaterial: ScenePbrMaterial {
+                    ISceneMetallicRoughnessMaterial,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                class SceneModelTransform: super::CompositionTransform {
+                    ISceneModelTransform,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(ISceneNodeStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SceneNode: SceneObject {
+                    ISceneNode,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SceneNodeCollection: SceneObject {
+                    super::super::super::Foundation::Collections::IVector<SceneNode>,
+                    ISceneNodeCollection,
+                    super::super::super::Foundation::Collections::IIterable<SceneNode>,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::Composable(ISceneObjectFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class SceneObject: super::CompositionObject {
+                    ISceneObject,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::Composable(IScenePbrMaterialFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ScenePbrMaterial: SceneMaterial {
+                    IScenePbrMaterial,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Composable(ISceneRendererComponentFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                class SceneRendererComponent: SceneComponent {
+                    ISceneRendererComponent,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::Static(ISceneSurfaceMaterialInputStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class SceneSurfaceMaterialInput: SceneMaterialInput {
+                    ISceneSurfaceMaterialInput,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ISceneVisualStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+                class SceneVisual: super::ContainerVisual {
+                    ISceneVisual,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum SceneWrappingMode {
+                    ClampToEdge = 0,
+                    MirroredRepeat = 1,
+                    Repeat = 2,
+                }
+            }
+        }
+    }
+}

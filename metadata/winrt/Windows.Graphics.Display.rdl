@@ -1,0 +1,412 @@
+#[winrt]
+mod Windows {
+    mod Graphics {
+        mod Display {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AdvancedColorInfo {
+                IAdvancedColorInfo,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum AdvancedColorKind {
+                StandardDynamicRange = 0,
+                WideColorGamut = 1,
+                HighDynamicRange = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IBrightnessOverrideStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            class BrightnessOverride {
+                IBrightnessOverride,
+            }
+            #[Windows::Foundation::Metadata::Static(IBrightnessOverrideSettingsStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class BrightnessOverrideSettings {
+                IBrightnessOverrideSettings,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IColorOverrideSettingsStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+            class ColorOverrideSettings {
+                IColorOverrideSettings,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum DisplayBrightnessOverrideOptions {
+                None = 0,
+                UseDimmedPolicyWhenBatteryIsLow = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum DisplayBrightnessOverrideScenario {
+                IdleBrightness = 0,
+                BarcodeReadingBrightness = 1,
+                FullBrightness = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum DisplayBrightnessScenario {
+                DefaultBrightness = 0,
+                IdleBrightness = 1,
+                BarcodeReadingBrightness = 2,
+                FullBrightness = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum DisplayColorOverrideScenario {
+                Accurate = 0,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::Static(IDisplayEnhancementOverrideStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class DisplayEnhancementOverride {
+                IDisplayEnhancementOverride,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class DisplayEnhancementOverrideCapabilities {
+                IDisplayEnhancementOverrideCapabilities,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
+                IDisplayEnhancementOverrideCapabilitiesChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::Static(IDisplayInformationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class DisplayInformation {
+                IDisplayInformation,
+                IDisplayInformation2,
+                IDisplayInformation3,
+                IDisplayInformation4,
+                IDisplayInformation5,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum DisplayOrientations {
+                None = 0,
+                Landscape = 1,
+                Portrait = 2,
+                LandscapeFlipped = 4,
+                PortraitFlipped = 8,
+            }
+            #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IDisplayPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class DisplayProperties {}
+            #[guid(0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980)]
+            #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn DisplayPropertiesEventHandler(sender: Object);
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IDisplayServicesStatics, 786432, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            class DisplayServices {
+                IDisplayServices,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum HdrMetadataFormat {
+                Hdr10 = 0,
+                Hdr10Plus = 1,
+            }
+            #[guid(0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AdvancedColorInfo)]
+            interface IAdvancedColorInfo {
+                #[get]
+                CurrentAdvancedColorKind: AdvancedColorKind;
+                #[get]
+                RedPrimary: super::super::Foundation::Point;
+                #[get]
+                GreenPrimary: super::super::Foundation::Point;
+                #[get]
+                BluePrimary: super::super::Foundation::Point;
+                #[get]
+                WhitePoint: super::super::Foundation::Point;
+                #[get]
+                MaxLuminanceInNits: f32;
+                #[get]
+                MinLuminanceInNits: f32;
+                #[get]
+                MaxAverageFullFrameLuminanceInNits: f32;
+                #[get]
+                SdrWhiteLevelInNits: f32;
+                fn IsHdrMetadataFormatCurrentlySupported(&self, format: HdrMetadataFormat) -> bool;
+                fn IsAdvancedColorKindAvailable(&self, kind: AdvancedColorKind) -> bool;
+            }
+            #[guid(0x96c9621a_c143_4392_bedd_4a7e9574c8fd)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BrightnessOverride)]
+            interface IBrightnessOverride {
+                #[get]
+                IsSupported: bool;
+                #[get]
+                IsOverrideActive: bool;
+                #[get]
+                BrightnessLevel: f64;
+                fn SetBrightnessLevel(&self, brightnessLevel: f64, options: DisplayBrightnessOverrideOptions);
+                fn SetBrightnessScenario(&self, scenario: DisplayBrightnessScenario, options: DisplayBrightnessOverrideOptions);
+                fn GetLevelForScenario(&self, scenario: DisplayBrightnessScenario) -> f64;
+                fn StartOverride(&self);
+                fn StopOverride(&self);
+                event IsSupportedChanged: super::super::Foundation::TypedEventHandler<BrightnessOverride, Object>;
+                event IsOverrideActiveChanged: super::super::Foundation::TypedEventHandler<BrightnessOverride, Object>;
+                event BrightnessLevelChanged: super::super::Foundation::TypedEventHandler<BrightnessOverride, Object>;
+            }
+            #[guid(0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BrightnessOverrideSettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IBrightnessOverrideSettings {
+                #[get]
+                DesiredLevel: f64;
+                #[get]
+                DesiredNits: f32;
+            }
+            #[guid(0xd487dc90_6f74_440b_b383_5fe96cf00b0f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BrightnessOverrideSettings)]
+            interface IBrightnessOverrideSettingsStatics {
+                fn CreateFromLevel(&self, level: f64) -> BrightnessOverrideSettings;
+                fn CreateFromNits(&self, nits: f32) -> BrightnessOverrideSettings;
+                fn CreateFromDisplayBrightnessOverrideScenario(&self, overrideScenario: DisplayBrightnessOverrideScenario) -> BrightnessOverrideSettings;
+            }
+            #[guid(0x03a7b9ed_e1f1_4a68_a11f_946ad8ce5393)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BrightnessOverride)]
+            interface IBrightnessOverrideStatics {
+                fn GetDefaultForSystem(&self) -> BrightnessOverride;
+                fn GetForCurrentView(&self) -> BrightnessOverride;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveForSystemAsync(&self, value: BrightnessOverride) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[guid(0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ColorOverrideSettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IColorOverrideSettings {
+                #[get]
+                DesiredDisplayColorOverrideScenario: DisplayColorOverrideScenario;
+            }
+            #[guid(0xb068e05f_c41f_4ac9_afab_827ab6248f9a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ColorOverrideSettings)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IColorOverrideSettingsStatics {
+                fn CreateFromDisplayColorOverrideScenario(&self, overrideScenario: DisplayColorOverrideScenario) -> ColorOverrideSettings;
+            }
+            #[guid(0x429594cf_d97a_4b02_a428_5c4292f7f522)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayEnhancementOverride)]
+            interface IDisplayEnhancementOverride {
+                ColorOverrideSettings: ColorOverrideSettings;
+                BrightnessOverrideSettings: BrightnessOverrideSettings;
+                #[get]
+                CanOverride: bool;
+                #[get]
+                IsOverrideActive: bool;
+                fn GetCurrentDisplayEnhancementOverrideCapabilities(&self) -> DisplayEnhancementOverrideCapabilities;
+                fn RequestOverride(&self);
+                fn StopOverride(&self);
+                event CanOverrideChanged: super::super::Foundation::TypedEventHandler<DisplayEnhancementOverride, Object>;
+                event IsOverrideActiveChanged: super::super::Foundation::TypedEventHandler<DisplayEnhancementOverride, Object>;
+                event DisplayEnhancementOverrideCapabilitiesChanged: super::super::Foundation::TypedEventHandler<DisplayEnhancementOverride, DisplayEnhancementOverrideCapabilitiesChangedEventArgs>;
+            }
+            #[guid(0x457060de_ee5a_47b7_9918_1e51e812ccc8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayEnhancementOverrideCapabilities)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IDisplayEnhancementOverrideCapabilities {
+                #[get]
+                IsBrightnessControlSupported: bool;
+                #[get]
+                IsBrightnessNitsControlSupported: bool;
+                fn GetSupportedNitRanges(&self) -> super::super::Foundation::Collections::IVectorView<NitRange>;
+            }
+            #[guid(0xdb61e664_15fa_49da_8b77_07dbd2af585d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayEnhancementOverrideCapabilitiesChangedEventArgs)]
+            interface IDisplayEnhancementOverrideCapabilitiesChangedEventArgs {
+                #[get]
+                Capabilities: DisplayEnhancementOverrideCapabilities;
+            }
+            #[guid(0xcf5b7ec1_9791_4453_b013_29b6f778e519)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayEnhancementOverride)]
+            interface IDisplayEnhancementOverrideStatics {
+                fn GetForCurrentView(&self) -> DisplayEnhancementOverride;
+            }
+            #[guid(0xbed112ae_adc3_4dc9_ae65_851f4d7d4799)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayInformation)]
+            interface IDisplayInformation {
+                #[get]
+                CurrentOrientation: DisplayOrientations;
+                #[get]
+                NativeOrientation: DisplayOrientations;
+                event OrientationChanged: super::super::Foundation::TypedEventHandler<DisplayInformation, Object>;
+                #[get]
+                ResolutionScale: ResolutionScale;
+                #[get]
+                LogicalDpi: f32;
+                #[get]
+                RawDpiX: f32;
+                #[get]
+                RawDpiY: f32;
+                event DpiChanged: super::super::Foundation::TypedEventHandler<DisplayInformation, Object>;
+                #[get]
+                StereoEnabled: bool;
+                event StereoEnabledChanged: super::super::Foundation::TypedEventHandler<DisplayInformation, Object>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetColorProfileAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>;
+                event ColorProfileChanged: super::super::Foundation::TypedEventHandler<DisplayInformation, Object>;
+            }
+            #[guid(0x4dcd0021_fad1_4b8e_8edf_775887b8bf19)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayInformation)]
+            interface IDisplayInformation2: IDisplayInformation {
+                #[get]
+                RawPixelsPerViewPixel: f64;
+            }
+            #[guid(0xdb15011d_0f09_4466_8ff3_11de9a3c929a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface IDisplayInformation3 {
+                #[get]
+                DiagonalSizeInInches: super::super::Foundation::IReference<f64>;
+            }
+            #[guid(0xc972ce2f_1242_46be_b536_e1aafe9e7acf)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayInformation)]
+            interface IDisplayInformation4 {
+                #[get]
+                ScreenWidthInRawPixels: u32;
+                #[get]
+                ScreenHeightInRawPixels: u32;
+            }
+            #[guid(0x3a5442dc_2cde_4a8d_80d1_21dc5adcc1aa)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayInformation)]
+            interface IDisplayInformation5 {
+                fn GetAdvancedColorInfo(&self) -> AdvancedColorInfo;
+                event AdvancedColorInfoChanged: super::super::Foundation::TypedEventHandler<DisplayInformation, Object>;
+            }
+            #[guid(0xc6a02a6c_d452_44dc_ba07_96f3c6adf9d1)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDisplayInformationStatics {
+                fn GetForCurrentView(&self) -> DisplayInformation;
+                AutoRotationPreferences: DisplayOrientations;
+                event DisplayContentsInvalidated: super::super::Foundation::TypedEventHandler<DisplayInformation, Object>;
+            }
+            #[guid(0x6937ed8d_30ea_4ded_8271_4553ff02f68a)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayProperties)]
+            interface IDisplayPropertiesStatics {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_CurrentOrientation(&self) -> DisplayOrientations;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_NativeOrientation(&self) -> DisplayOrientations;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_AutoRotationPreferences(&self) -> DisplayOrientations;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_AutoRotationPreferences(&self, value: DisplayOrientations);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn add_OrientationChanged(&self, handler: DisplayPropertiesEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn remove_OrientationChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_ResolutionScale(&self) -> ResolutionScale;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_LogicalDpi(&self) -> f32;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn add_LogicalDpiChanged(&self, handler: DisplayPropertiesEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn remove_LogicalDpiChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_StereoEnabled(&self) -> bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn add_StereoEnabledChanged(&self, handler: DisplayPropertiesEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn remove_StereoEnabledChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetColorProfileAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn add_ColorProfileChanged(&self, handler: DisplayPropertiesEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn remove_ColorProfileChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn add_DisplayContentsInvalidated(&self, handler: DisplayPropertiesEventHandler) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn remove_DisplayContentsInvalidated(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayServices)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            interface IDisplayServices {}
+            #[guid(0xdc2096bf_730a_5560_b461_91c13d692e0c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayServices)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            interface IDisplayServicesStatics {
+                fn FindAll(&self) -> [super::DisplayId];
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            struct NitRange {
+                MinNits: f32,
+                MaxNits: f32,
+                StepSizeNits: f32,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ResolutionScale {
+                Invalid = 0,
+                Scale100Percent = 100,
+                Scale120Percent = 120,
+                Scale125Percent = 125,
+                Scale140Percent = 140,
+                Scale150Percent = 150,
+                Scale160Percent = 160,
+                Scale175Percent = 175,
+                Scale180Percent = 180,
+                Scale200Percent = 200,
+                Scale225Percent = 225,
+                Scale250Percent = 250,
+                Scale300Percent = 300,
+                Scale350Percent = 350,
+                Scale400Percent = 400,
+                Scale450Percent = 450,
+                Scale500Percent = 500,
+            }
+        }
+    }
+}

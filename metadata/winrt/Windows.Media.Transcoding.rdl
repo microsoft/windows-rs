@@ -1,0 +1,90 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod Transcoding {
+            #[guid(0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaTranscoder)]
+            interface IMediaTranscoder {
+                #[set]
+                TrimStartTime: super::super::Foundation::TimeSpan;
+                #[get]
+                TrimStartTime: super::super::Foundation::TimeSpan;
+                #[set]
+                TrimStopTime: super::super::Foundation::TimeSpan;
+                #[get]
+                TrimStopTime: super::super::Foundation::TimeSpan;
+                #[set]
+                AlwaysReencode: bool;
+                #[get]
+                AlwaysReencode: bool;
+                #[set]
+                HardwareAccelerationEnabled: bool;
+                #[get]
+                HardwareAccelerationEnabled: bool;
+                #[Windows::Foundation::Metadata::Overload("AddAudioEffect")]
+                fn AddAudioEffect(&self, activatableClassId: String);
+                #[Windows::Foundation::Metadata::Overload("AddAudioEffectWithSettings")]
+                fn AddAudioEffect(&self, activatableClassId: String, effectRequired: bool, configuration: super::super::Foundation::Collections::IPropertySet);
+                #[Windows::Foundation::Metadata::Overload("AddVideoEffect")]
+                fn AddVideoEffect(&self, activatableClassId: String);
+                #[Windows::Foundation::Metadata::Overload("AddVideoEffectWithSettings")]
+                fn AddVideoEffect(&self, activatableClassId: String, effectRequired: bool, configuration: super::super::Foundation::Collections::IPropertySet);
+                fn ClearEffects(&self);
+                fn PrepareFileTranscodeAsync(&self, source: super::super::Storage::IStorageFile, destination: super::super::Storage::IStorageFile, profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
+                fn PrepareStreamTranscodeAsync(&self, source: super::super::Storage::Streams::IRandomAccessStream, destination: super::super::Storage::Streams::IRandomAccessStream, profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
+            }
+            #[guid(0x40531d74_35e0_4f04_8574_ca8bc4e5a082)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaTranscoder)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaTranscoder2 {
+                fn PrepareMediaStreamSourceTranscodeAsync(&self, source: super::Core::IMediaSource, destination: super::super::Storage::Streams::IRandomAccessStream, profile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperation<PrepareTranscodeResult>;
+                #[set]
+                VideoProcessingAlgorithm: MediaVideoProcessingAlgorithm;
+                #[get]
+                VideoProcessingAlgorithm: MediaVideoProcessingAlgorithm;
+            }
+            #[guid(0x05f25dce_994f_4a34_9d68_97ccce1730d6)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PrepareTranscodeResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPrepareTranscodeResult {
+                #[get]
+                CanTranscode: bool;
+                #[get]
+                FailureReason: TranscodeFailureReason;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TranscodeAsync(&self) -> super::super::Foundation::IAsyncActionWithProgress<f64>;
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class MediaTranscoder {
+                IMediaTranscoder,
+                IMediaTranscoder2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MediaVideoProcessingAlgorithm {
+                Default = 0,
+                MrfCrf444 = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PrepareTranscodeResult {
+                IPrepareTranscodeResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TranscodeFailureReason {
+                None = 0,
+                Unknown = 1,
+                InvalidProfile = 2,
+                CodecNotFound = 3,
+            }
+        }
+    }
+}

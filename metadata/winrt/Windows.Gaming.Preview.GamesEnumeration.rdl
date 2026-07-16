@@ -1,0 +1,148 @@
+#[winrt]
+mod Windows {
+    mod Gaming {
+        mod Preview {
+            mod GamesEnumeration {
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IGameListStatics2, 131072, "Windows.Gaming.Preview.GamesEnumerationContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IGameListStatics, 65536, "Windows.Gaming.Preview.GamesEnumerationContract")]
+                class GameList {}
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
+                enum GameListCategory {
+                    Candidate = 0,
+                    ConfirmedBySystem = 1,
+                    ConfirmedByUser = 2,
+                }
+                #[guid(0x25f6a421_d8f5_4d91_b40e_53d5e86fde64)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
+                delegate fn GameListChangedEventHandler(game: GameListEntry);
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class GameListEntry {
+                    IGameListEntry,
+                    IGameListEntry2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
+                enum GameListEntryLaunchableState {
+                    NotLaunchable = 0,
+                    ByLastRunningFullPath = 1,
+                    ByUserProvidedPath = 2,
+                    ByTile = 3,
+                }
+                #[guid(0x10c5648f_6c8f_4712_9b38_474bc22e76d8)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
+                delegate fn GameListRemovedEventHandler(identifier: String);
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GameModeConfiguration {
+                    IGameModeConfiguration,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
+                #[Windows::Foundation::Metadata::Static(IGameModeUserConfigurationStatics, 131072, "Windows.Gaming.Preview.GamesEnumerationContract")]
+                class GameModeUserConfiguration {
+                    IGameModeUserConfiguration,
+                }
+                #[guid(0x735924d3_811f_4494_b69c_c641a0c61543)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
+                interface IGameListEntry {
+                    #[get]
+                    DisplayInfo: super::super::super::ApplicationModel::AppDisplayInfo;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn LaunchAsync(&self) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    #[get]
+                    Category: GameListCategory;
+                    #[get]
+                    Properties: super::super::super::Foundation::Collections::IMapView<String, Object>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SetCategoryAsync(&self, value: GameListCategory) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0xd84a8f8b_8749_4a25_90d3_f6c5a427886d)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameListEntry)]
+                interface IGameListEntry2: IGameListEntry {
+                    #[get]
+                    LaunchableState: GameListEntryLaunchableState;
+                    #[get]
+                    LauncherExecutable: super::super::super::Storage::IStorageFile;
+                    #[get]
+                    LaunchParameters: String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("SetLauncherExecutableFileAsync")]
+                    fn SetLauncherExecutableFileAsync(&self, executableFile: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("SetLauncherExecutableFileWithParamsAsync")]
+                    fn SetLauncherExecutableFileAsync(&self, executableFile: super::super::super::Storage::IStorageFile, launchParams: String) -> super::super::super::Foundation::IAsyncAction;
+                    #[get]
+                    TitleId: String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SetTitleIdAsync(&self, id: String) -> super::super::super::Foundation::IAsyncAction;
+                    #[get]
+                    GameModeConfiguration: GameModeConfiguration;
+                }
+                #[guid(0x2ddd0f6f_9c66_4b05_945c_d6ed78491b8c)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameList)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
+                interface IGameListStatics {
+                    #[Windows::Foundation::Metadata::Overload("FindAllAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn FindAllAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>;
+                    #[Windows::Foundation::Metadata::Overload("FindAllAsyncPackageFamilyName")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn FindAllAsync(&self, packageFamilyName: String) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>;
+                    event GameAdded: GameListChangedEventHandler;
+                    event GameRemoved: GameListRemovedEventHandler;
+                    event GameUpdated: GameListChangedEventHandler;
+                }
+                #[guid(0x395f2098_ea1a_45aa_9268_a83905686f27)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameList)]
+                interface IGameListStatics2 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn MergeEntriesAsync(&self, left: GameListEntry, right: GameListEntry) -> super::super::super::Foundation::IAsyncOperation<GameListEntry>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn UnmergeEntryAsync(&self, mergedEntry: GameListEntry) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<GameListEntry>>;
+                }
+                #[guid(0x78e591af_b142_4ef0_8830_55bc2be4f5ea)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameModeConfiguration)]
+                interface IGameModeConfiguration {
+                    IsEnabled: bool;
+                    #[get]
+                    RelatedProcessNames: super::super::super::Foundation::Collections::IVector<String>;
+                    PercentGpuTimeAllocatedToGame: super::super::super::Foundation::IReference<i32>;
+                    PercentGpuMemoryAllocatedToGame: super::super::super::Foundation::IReference<i32>;
+                    PercentGpuMemoryAllocatedToSystemCompositor: super::super::super::Foundation::IReference<i32>;
+                    MaxCpuCount: super::super::super::Foundation::IReference<i32>;
+                    CpuExclusivityMaskLow: super::super::super::Foundation::IReference<i32>;
+                    CpuExclusivityMaskHigh: super::super::super::Foundation::IReference<i32>;
+                    AffinitizeToExclusiveCpus: bool;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SaveAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x72d34af4_756b_470f_a0c2_ba62a90795db)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameModeUserConfiguration)]
+                interface IGameModeUserConfiguration {
+                    #[get]
+                    GamingRelatedProcessNames: super::super::super::Foundation::Collections::IVector<String>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SaveAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x6e50d97c_66ea_478e_a4a1_f57c0e8d00e7)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameModeUserConfiguration)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
+                interface IGameModeUserConfigurationStatics {
+                    fn GetDefault(&self) -> GameModeUserConfiguration;
+                }
+            }
+        }
+    }
+}

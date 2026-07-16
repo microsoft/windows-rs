@@ -1,0 +1,2202 @@
+#[winrt]
+mod Windows {
+    mod Networking {
+        mod NetworkOperators {
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum DataClasses {
+                None = 0,
+                Gprs = 1,
+                Edge = 2,
+                Umts = 4,
+                Hsdpa = 8,
+                Hsupa = 16,
+                LteAdvanced = 32,
+                NewRadioNonStandalone = 64,
+                NewRadioStandalone = 128,
+                Cdma1xRtt = 65536,
+                Cdma1xEvdo = 131072,
+                Cdma1xEvdoRevA = 262144,
+                Cdma1xEvdv = 524288,
+                Cdma3xRtt = 1048576,
+                Cdma1xEvdoRevB = 2097152,
+                CdmaUmb = 4194304,
+                Custom = 2147483648,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class ESim {
+                IESim,
+                IESim2,
+                IESim3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class ESimAddedEventArgs {
+                IESimAddedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum ESimAuthenticationPreference {
+                OnEntry = 0,
+                OnAction = 1,
+                Never = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class ESimDiscoverEvent {
+                IESimDiscoverEvent,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ESimDiscoverResult {
+                IESimDiscoverResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum ESimDiscoverResultKind {
+                None = 0,
+                Events = 1,
+                ProfileMetadata = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class ESimDownloadProfileMetadataResult {
+                IESimDownloadProfileMetadataResult,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IESimManagerStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+            class ESimManager {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ESimOperationResult {
+                IESimOperationResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum ESimOperationStatus {
+                Success = 0,
+                NotAuthorized = 1,
+                NotFound = 2,
+                PolicyViolation = 3,
+                InsufficientSpaceOnCard = 4,
+                ServerFailure = 5,
+                ServerNotReachable = 6,
+                TimeoutWaitingForUserConsent = 7,
+                IncorrectConfirmationCode = 8,
+                ConfirmationCodeMaxRetriesExceeded = 9,
+                CardRemoved = 10,
+                CardBusy = 11,
+                Other = 12,
+                CardGeneralFailure = 13,
+                ConfirmationCodeMissing = 14,
+                InvalidMatchingId = 15,
+                NoEligibleProfileForThisDevice = 16,
+                OperationAborted = 17,
+                EidMismatch = 18,
+                ProfileNotAvailableForNewBinding = 19,
+                ProfileNotReleasedByOperator = 20,
+                OperationProhibitedByProfileClass = 21,
+                ProfileNotPresent = 22,
+                NoCorrespondingRequest = 23,
+                TimeoutWaitingForResponse = 24,
+                IccidAlreadyExists = 25,
+                ProfileProcessingError = 26,
+                ServerNotTrusted = 27,
+                ProfileDownloadMaxRetriesExceeded = 28,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ESimPolicy {
+                IESimPolicy,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ESimProfile {
+                IESimProfile,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum ESimProfileClass {
+                Operational = 0,
+                Test = 1,
+                Provisioning = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            struct ESimProfileInstallProgress {
+                TotalSizeInBytes: i32,
+                InstalledSizeInBytes: i32,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ESimProfileMetadata {
+                IESimProfileMetadata,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum ESimProfileMetadataState {
+                Unknown = 0,
+                WaitingForInstall = 1,
+                Downloading = 2,
+                Installing = 3,
+                Expired = 4,
+                RejectingDownload = 5,
+                NoLongerAvailable = 6,
+                DeniedByPolicy = 7,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ESimProfilePolicy {
+                IESimProfilePolicy,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum ESimProfileState {
+                Unknown = 0,
+                Disabled = 1,
+                Enabled = 2,
+                Deleted = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ESimRemovedEventArgs {
+                IESimRemovedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class ESimServiceInfo {
+                IESimServiceInfo,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum ESimState {
+                Unknown = 0,
+                Idle = 1,
+                Removed = 2,
+                Busy = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ESimUpdatedEventArgs {
+                IESimUpdatedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class ESimWatcher {
+                IESimWatcher,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum ESimWatcherStatus {
+                Created = 0,
+                Started = 1,
+                EnumerationCompleted = 2,
+                Stopping = 3,
+                Stopped = 4,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IHotspotAuthenticationContextStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class HotspotAuthenticationContext {
+                IHotspotAuthenticationContext,
+                IHotspotAuthenticationContext2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class HotspotAuthenticationEventDetails {
+                IHotspotAuthenticationEventDetails,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum HotspotAuthenticationResponseCode {
+                NoError = 0,
+                LoginSucceeded = 50,
+                LoginFailed = 100,
+                RadiusServerError = 102,
+                NetworkAdministratorError = 105,
+                LoginAborted = 151,
+                AccessGatewayInternalError = 255,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class HotspotCredentialsAuthenticationResult {
+                IHotspotCredentialsAuthenticationResult,
+            }
+            #[guid(0x6f6e6e26_f123_437d_8ced_dc1d2bc0c3a9)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESim)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IESim {
+                #[get]
+                AvailableMemoryInBytes: super::super::Foundation::IReference<i32>;
+                #[get]
+                Eid: String;
+                #[get]
+                FirmwareVersion: String;
+                #[get]
+                MobileBroadbandModemDeviceId: String;
+                #[get]
+                Policy: ESimPolicy;
+                #[get]
+                State: ESimState;
+                fn GetProfiles(&self) -> super::super::Foundation::Collections::IVectorView<ESimProfile>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeleteProfileAsync(&self, profileId: String) -> super::super::Foundation::IAsyncOperation<ESimOperationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DownloadProfileMetadataAsync(&self, activationCode: String) -> super::super::Foundation::IAsyncOperation<ESimDownloadProfileMetadataResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ResetAsync(&self) -> super::super::Foundation::IAsyncOperation<ESimOperationResult>;
+                event ProfileChanged: super::super::Foundation::TypedEventHandler<ESim, Object>;
+            }
+            #[guid(0xbd4fd0a0_c68f_56eb_b99b_8f34b8100299)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESim)]
+            interface IESim2 {
+                #[Windows::Foundation::Metadata::Overload("Discover")]
+                fn Discover(&self) -> ESimDiscoverResult;
+                #[Windows::Foundation::Metadata::Overload("DiscoverWithServerAddressAndMatchingId")]
+                fn Discover(&self, serverAddress: String, matchingId: String) -> ESimDiscoverResult;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("DiscoverAsync")]
+                fn DiscoverAsync(&self) -> super::super::Foundation::IAsyncOperation<ESimDiscoverResult>;
+                #[Windows::Foundation::Metadata::Overload("DiscoverWithServerAddressAndMatchingIdAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DiscoverAsync(&self, serverAddress: String, matchingId: String) -> super::super::Foundation::IAsyncOperation<ESimDiscoverResult>;
+            }
+            #[guid(0xfe1edf45_01b8_5d31_b8d3_d9cbebb2b831)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESim)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            interface IESim3 {
+                #[get]
+                SlotIndex: super::super::Foundation::IReference<i32>;
+            }
+            #[guid(0x38bd0a58_4d5a_4d08_8da7_e73eff369ddd)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimAddedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IESimAddedEventArgs {
+                #[get]
+                ESim: ESim;
+            }
+            #[guid(0xe59ac3e3_39bc_5f6f_9321_0d4a182d261b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimDiscoverEvent)]
+            interface IESimDiscoverEvent {
+                #[get]
+                MatchingId: String;
+                #[get]
+                RspServerAddress: String;
+            }
+            #[guid(0x56b4bb5e_ab2f_5ac6_b359_dd5a8e237926)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimDiscoverResult)]
+            interface IESimDiscoverResult {
+                #[get]
+                Events: super::super::Foundation::Collections::IVectorView<ESimDiscoverEvent>;
+                #[get]
+                Kind: ESimDiscoverResultKind;
+                #[get]
+                ProfileMetadata: ESimProfileMetadata;
+                #[get]
+                Result: ESimOperationResult;
+            }
+            #[guid(0xc4234d9e_5ad6_426d_8d00_4434f449afec)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimDownloadProfileMetadataResult)]
+            interface IESimDownloadProfileMetadataResult {
+                #[get]
+                Result: ESimOperationResult;
+                #[get]
+                ProfileMetadata: ESimProfileMetadata;
+            }
+            #[guid(0x0bfa2c0c_df88_4631_bf04_c12e281b3962)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimManager)]
+            interface IESimManagerStatics {
+                #[get]
+                ServiceInfo: ESimServiceInfo;
+                fn TryCreateESimWatcher(&self) -> ESimWatcher;
+                event ServiceInfoChanged: super::super::Foundation::EventHandler<Object>;
+            }
+            #[guid(0xa67b63b1_309b_4e77_9e7e_cd93f1ddc7b9)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimOperationResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IESimOperationResult {
+                #[get]
+                Status: ESimOperationStatus;
+            }
+            #[guid(0x41e1b99d_cf7e_4315_882b_6f1e74b0d38f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimPolicy)]
+            interface IESimPolicy {
+                #[get]
+                ShouldEnableManagingUi: bool;
+            }
+            #[guid(0xee1e7880_06a9_4027_b4f8_ddb23d7810e0)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimProfile)]
+            interface IESimProfile {
+                #[get]
+                Class: ESimProfileClass;
+                #[get]
+                Nickname: String;
+                #[get]
+                Policy: ESimProfilePolicy;
+                #[get]
+                Id: String;
+                #[get]
+                ProviderIcon: super::super::Storage::Streams::IRandomAccessStreamReference;
+                #[get]
+                ProviderId: String;
+                #[get]
+                ProviderName: String;
+                #[get]
+                State: ESimProfileState;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DisableAsync(&self) -> super::super::Foundation::IAsyncOperation<ESimOperationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn EnableAsync(&self) -> super::super::Foundation::IAsyncOperation<ESimOperationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetNicknameAsync(&self, newNickname: String) -> super::super::Foundation::IAsyncOperation<ESimOperationResult>;
+            }
+            #[guid(0xed25831f_90db_498d_a7b4_ebce807d3c23)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimProfileMetadata)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IESimProfileMetadata {
+                #[get]
+                IsConfirmationCodeRequired: bool;
+                #[get]
+                Policy: ESimProfilePolicy;
+                #[get]
+                Id: String;
+                #[get]
+                ProviderIcon: super::super::Storage::Streams::IRandomAccessStreamReference;
+                #[get]
+                ProviderId: String;
+                #[get]
+                ProviderName: String;
+                #[get]
+                State: ESimProfileMetadataState;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DenyInstallAsync(&self) -> super::super::Foundation::IAsyncOperation<ESimOperationResult>;
+                #[Windows::Foundation::Metadata::Overload("ConfirmInstallAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ConfirmInstallAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>;
+                #[Windows::Foundation::Metadata::Overload("ConfirmInstallWithConfirmationCodeAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ConfirmInstallAsync(&self, confirmationCode: String) -> super::super::Foundation::IAsyncOperationWithProgress<ESimOperationResult, ESimProfileInstallProgress>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn PostponeInstallAsync(&self) -> super::super::Foundation::IAsyncOperation<ESimOperationResult>;
+                event StateChanged: super::super::Foundation::TypedEventHandler<ESimProfileMetadata, Object>;
+            }
+            #[guid(0xe6dd0f1d_9c5c_46c5_a289_a948999bf062)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimProfilePolicy)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IESimProfilePolicy {
+                #[get]
+                CanDelete: bool;
+                #[get]
+                CanDisable: bool;
+                #[get]
+                IsManagedByEnterprise: bool;
+            }
+            #[guid(0xdec5277b_2fd9_4ed9_8376_d9b5e41278a3)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimRemovedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IESimRemovedEventArgs {
+                #[get]
+                ESim: ESim;
+            }
+            #[guid(0xf16aabcf_7f59_4a51_8494_bd89d5ff50ee)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimServiceInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IESimServiceInfo {
+                #[get]
+                AuthenticationPreference: ESimAuthenticationPreference;
+                #[get]
+                IsESimUiEnabled: bool;
+            }
+            #[guid(0x4c125cec_508d_4b88_83cb_68bef8168d12)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimUpdatedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IESimUpdatedEventArgs {
+                #[get]
+                ESim: ESim;
+            }
+            #[guid(0xc1f84ceb_a28d_4fbf_9771_6e31b81ccf22)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ESimWatcher)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IESimWatcher {
+                #[get]
+                Status: ESimWatcherStatus;
+                fn Start(&self);
+                fn Stop(&self);
+                event Added: super::super::Foundation::TypedEventHandler<ESimWatcher, ESimAddedEventArgs>;
+                event EnumerationCompleted: super::super::Foundation::TypedEventHandler<ESimWatcher, Object>;
+                event Removed: super::super::Foundation::TypedEventHandler<ESimWatcher, ESimRemovedEventArgs>;
+                event Stopped: super::super::Foundation::TypedEventHandler<ESimWatcher, Object>;
+                event Updated: super::super::Foundation::TypedEventHandler<ESimWatcher, ESimUpdatedEventArgs>;
+            }
+            #[guid(0xe756c791_1003_4de5_83c7_de61d88831d0)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HotspotAuthenticationContext)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IHotspotAuthenticationContext {
+                #[get]
+                WirelessNetworkId: [u8];
+                #[get]
+                NetworkAdapter: super::Connectivity::NetworkAdapter;
+                #[get]
+                RedirectMessageUrl: super::super::Foundation::Uri;
+                #[get]
+                RedirectMessageXml: super::super::Data::Xml::Dom::XmlDocument;
+                #[get]
+                AuthenticationUrl: super::super::Foundation::Uri;
+                fn IssueCredentials(&self, userName: String, password: String, extraParameters: String, markAsManualConnectOnFailure: bool);
+                fn AbortAuthentication(&self, markAsManual: bool);
+                fn SkipAuthentication(&self);
+                fn TriggerAttentionRequired(&self, packageRelativeApplicationId: String, applicationParameters: String);
+            }
+            #[guid(0xe756c791_1004_4de5_83c7_de61d88831d0)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HotspotAuthenticationContext)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IHotspotAuthenticationContext2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn IssueCredentialsAsync(&self, userName: String, password: String, extraParameters: String, markAsManualConnectOnFailure: bool) -> super::super::Foundation::IAsyncOperation<HotspotCredentialsAuthenticationResult>;
+            }
+            #[guid(0xe756c791_1002_4de5_83c7_de61d88831d0)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HotspotAuthenticationContext)]
+            interface IHotspotAuthenticationContextStatics {
+                fn TryGetAuthenticationContext(&self, evenToken: String, context: &mut HotspotAuthenticationContext) -> bool;
+            }
+            #[guid(0xe756c791_1001_4de5_83c7_de61d88831d0)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HotspotAuthenticationEventDetails)]
+            interface IHotspotAuthenticationEventDetails {
+                #[get]
+                EventToken: String;
+            }
+            #[guid(0xe756c791_1005_4de5_83c7_de61d88831d0)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HotspotCredentialsAuthenticationResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IHotspotCredentialsAuthenticationResult {
+                #[get]
+                HasNetworkErrorOccurred: bool;
+                #[get]
+                ResponseCode: HotspotAuthenticationResponseCode;
+                #[get]
+                LogoffUrl: super::super::Foundation::Uri;
+                #[get]
+                AuthenticationReplyXml: super::super::Data::Xml::Dom::XmlDocument;
+            }
+            #[guid(0xb458aeed_49f1_4c22_b073_96d511bf9c35)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(KnownCSimFilePaths)]
+            interface IKnownCSimFilePathsStatics {
+                #[get]
+                EFSpn: super::super::Foundation::Collections::IVectorView<u32>;
+                #[get]
+                Gid1: super::super::Foundation::Collections::IVectorView<u32>;
+                #[get]
+                Gid2: super::super::Foundation::Collections::IVectorView<u32>;
+            }
+            #[guid(0x3883c8b9_ff24_4571_a867_09f960426e14)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(KnownRuimFilePaths)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IKnownRuimFilePathsStatics {
+                #[get]
+                EFSpn: super::super::Foundation::Collections::IVectorView<u32>;
+                #[get]
+                Gid1: super::super::Foundation::Collections::IVectorView<u32>;
+                #[get]
+                Gid2: super::super::Foundation::Collections::IVectorView<u32>;
+            }
+            #[guid(0x80cd1a63_37a5_43d3_80a3_ccd23e8fecee)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(KnownSimFilePaths)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IKnownSimFilePathsStatics {
+                #[get]
+                EFOns: super::super::Foundation::Collections::IVectorView<u32>;
+                #[get]
+                EFSpn: super::super::Foundation::Collections::IVectorView<u32>;
+                #[get]
+                Gid1: super::super::Foundation::Collections::IVectorView<u32>;
+                #[get]
+                Gid2: super::super::Foundation::Collections::IVectorView<u32>;
+            }
+            #[guid(0x7c34e581_1f1b_43f4_9530_8b092d32d71f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(KnownUSimFilePaths)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IKnownUSimFilePathsStatics {
+                #[get]
+                EFSpn: super::super::Foundation::Collections::IVectorView<u32>;
+                #[get]
+                EFOpl: super::super::Foundation::Collections::IVectorView<u32>;
+                #[get]
+                EFPnn: super::super::Foundation::Collections::IVectorView<u32>;
+                #[get]
+                Gid1: super::super::Foundation::Collections::IVectorView<u32>;
+                #[get]
+                Gid2: super::super::Foundation::Collections::IVectorView<u32>;
+            }
+            #[guid(0x36c24ccd_cee2_43e0_a603_ee86a36d6570)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandAccount)]
+            interface IMobileBroadbandAccount {
+                #[get]
+                NetworkAccountId: String;
+                #[get]
+                ServiceProviderGuid: GUID;
+                #[get]
+                ServiceProviderName: String;
+                #[get]
+                CurrentNetwork: MobileBroadbandNetwork;
+                #[get]
+                CurrentDeviceInformation: MobileBroadbandDeviceInformation;
+            }
+            #[guid(0x38f52f1c_1136_4257_959f_b658a352b6d4)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandAccount)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandAccount2 {
+                fn GetConnectionProfiles(&self) -> super::super::Foundation::Collections::IVectorView<super::Connectivity::ConnectionProfile>;
+            }
+            #[guid(0x092a1e21_9379_4b9b_ad31_d5fee2f748c6)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandAccount)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IMobileBroadbandAccount3 {
+                #[get]
+                AccountExperienceUrl: super::super::Foundation::Uri;
+            }
+            #[guid(0x3853c880_77de_4c04_bead_a123b08c9f59)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandAccountEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandAccountEventArgs {
+                #[get]
+                NetworkAccountId: String;
+            }
+            #[guid(0xaa7f4d24_afc1_4fc8_ae9a_a9175310faad)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandAccount)]
+            interface IMobileBroadbandAccountStatics {
+                #[get]
+                AvailableNetworkAccountIds: super::super::Foundation::Collections::IVectorView<String>;
+                fn CreateFromNetworkAccountId(&self, networkAccountId: String) -> MobileBroadbandAccount;
+            }
+            #[guid(0x7bc31d88_a6bd_49e1_80ab_6b91354a57d4)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandAccountUpdatedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandAccountUpdatedEventArgs {
+                #[get]
+                NetworkAccountId: String;
+                #[get]
+                HasDeviceInformationChanged: bool;
+                #[get]
+                HasNetworkChanged: bool;
+            }
+            #[guid(0x6bf3335e_23b5_449f_928d_5e0d3e04471d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandAccountWatcher)]
+            interface IMobileBroadbandAccountWatcher {
+                event AccountAdded: super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>;
+                event AccountUpdated: super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountUpdatedEventArgs>;
+                event AccountRemoved: super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, MobileBroadbandAccountEventArgs>;
+                event EnumerationCompleted: super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, Object>;
+                event Stopped: super::super::Foundation::TypedEventHandler<MobileBroadbandAccountWatcher, Object>;
+                #[get]
+                Status: MobileBroadbandAccountWatcherStatus;
+                fn Start(&self);
+                fn Stop(&self);
+            }
+            #[guid(0xb9af4b7e_cbf9_4109_90be_5c06bfd513b6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandAntennaSar)]
+            interface IMobileBroadbandAntennaSar {
+                #[get]
+                AntennaIndex: i32;
+                #[get]
+                SarBackoffIndex: i32;
+            }
+            #[guid(0xa91e1716_c04d_4a21_8698_1459dc672c6e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandAntennaSar)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IMobileBroadbandAntennaSarFactory {
+                fn CreateWithIndex(&self, antennaIndex: i32, sarBackoffIndex: i32) -> MobileBroadbandAntennaSar;
+            }
+            #[guid(0x0601b3b4_411a_4f2e_8287_76f5650c60cd)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandCellCdma)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IMobileBroadbandCellCdma {
+                #[get]
+                BaseStationId: super::super::Foundation::IReference<i32>;
+                #[get]
+                BaseStationPNCode: super::super::Foundation::IReference<i32>;
+                #[get]
+                BaseStationLatitude: super::super::Foundation::IReference<f64>;
+                #[get]
+                BaseStationLongitude: super::super::Foundation::IReference<f64>;
+                #[get]
+                BaseStationLastBroadcastGpsTime: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
+                #[get]
+                NetworkId: super::super::Foundation::IReference<i32>;
+                #[get]
+                PilotSignalStrengthInDB: super::super::Foundation::IReference<f64>;
+                #[get]
+                SystemId: super::super::Foundation::IReference<i32>;
+            }
+            #[guid(0xcc917f06_7ee0_47b8_9e1f_c3b48df9df5b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandCellGsm)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IMobileBroadbandCellGsm {
+                #[get]
+                BaseStationId: super::super::Foundation::IReference<i32>;
+                #[get]
+                CellId: super::super::Foundation::IReference<i32>;
+                #[get]
+                ChannelNumber: super::super::Foundation::IReference<i32>;
+                #[get]
+                LocationAreaCode: super::super::Foundation::IReference<i32>;
+                #[get]
+                ProviderId: String;
+                #[get]
+                ReceivedSignalStrengthInDBm: super::super::Foundation::IReference<f64>;
+                #[get]
+                TimingAdvanceInBitPeriods: super::super::Foundation::IReference<i32>;
+            }
+            #[guid(0x9197c87b_2b78_456d_8b53_aaa25d0af741)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandCellLte)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IMobileBroadbandCellLte {
+                #[get]
+                CellId: super::super::Foundation::IReference<i32>;
+                #[get]
+                ChannelNumber: super::super::Foundation::IReference<i32>;
+                #[get]
+                PhysicalCellId: super::super::Foundation::IReference<i32>;
+                #[get]
+                ProviderId: String;
+                #[get]
+                ReferenceSignalReceivedPowerInDBm: super::super::Foundation::IReference<f64>;
+                #[get]
+                ReferenceSignalReceivedQualityInDBm: super::super::Foundation::IReference<f64>;
+                #[get]
+                TimingAdvanceInBitPeriods: super::super::Foundation::IReference<i32>;
+                #[get]
+                TrackingAreaCode: super::super::Foundation::IReference<i32>;
+            }
+            #[guid(0xa13f0deb_66fc_4b4b_83a9_a487a3a5a0a6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandCellNR)]
+            interface IMobileBroadbandCellNR {
+                #[get]
+                CellId: super::super::Foundation::IReference<i64>;
+                #[get]
+                ChannelNumber: super::super::Foundation::IReference<i32>;
+                #[get]
+                PhysicalCellId: super::super::Foundation::IReference<i32>;
+                #[get]
+                ProviderId: String;
+                #[get]
+                ReferenceSignalReceivedPowerInDBm: super::super::Foundation::IReference<f64>;
+                #[get]
+                ReferenceSignalReceivedQualityInDBm: super::super::Foundation::IReference<f64>;
+                #[get]
+                TimingAdvanceInNanoseconds: super::super::Foundation::IReference<i32>;
+                #[get]
+                TrackingAreaCode: super::super::Foundation::IReference<i32>;
+                #[get]
+                SignalToNoiseRatioInDB: super::super::Foundation::IReference<f64>;
+            }
+            #[guid(0x0eda1655_db0e_4182_8cda_cc419a7bde08)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandCellTdscdma)]
+            interface IMobileBroadbandCellTdscdma {
+                #[get]
+                CellId: super::super::Foundation::IReference<i32>;
+                #[get]
+                CellParameterId: super::super::Foundation::IReference<i32>;
+                #[get]
+                ChannelNumber: super::super::Foundation::IReference<i32>;
+                #[get]
+                LocationAreaCode: super::super::Foundation::IReference<i32>;
+                #[get]
+                PathLossInDB: super::super::Foundation::IReference<f64>;
+                #[get]
+                ProviderId: String;
+                #[get]
+                ReceivedSignalCodePowerInDBm: super::super::Foundation::IReference<f64>;
+                #[get]
+                TimingAdvanceInBitPeriods: super::super::Foundation::IReference<i32>;
+            }
+            #[guid(0x77b4b5ae_49c8_4f15_b285_4c26a7f67215)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandCellUmts)]
+            interface IMobileBroadbandCellUmts {
+                #[get]
+                CellId: super::super::Foundation::IReference<i32>;
+                #[get]
+                ChannelNumber: super::super::Foundation::IReference<i32>;
+                #[get]
+                LocationAreaCode: super::super::Foundation::IReference<i32>;
+                #[get]
+                PathLossInDB: super::super::Foundation::IReference<f64>;
+                #[get]
+                PrimaryScramblingCode: super::super::Foundation::IReference<i32>;
+                #[get]
+                ProviderId: String;
+                #[get]
+                ReceivedSignalCodePowerInDBm: super::super::Foundation::IReference<f64>;
+                #[get]
+                SignalToNoiseRatioInDB: super::super::Foundation::IReference<f64>;
+            }
+            #[guid(0x89a9562a_e472_4da5_929c_de61711dd261)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandCellsInfo)]
+            interface IMobileBroadbandCellsInfo {
+                #[get]
+                NeighboringCellsCdma: super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>;
+                #[get]
+                NeighboringCellsGsm: super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>;
+                #[get]
+                NeighboringCellsLte: super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>;
+                #[get]
+                NeighboringCellsTdscdma: super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>;
+                #[get]
+                NeighboringCellsUmts: super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>;
+                #[get]
+                ServingCellsCdma: super::super::Foundation::Collections::IVectorView<MobileBroadbandCellCdma>;
+                #[get]
+                ServingCellsGsm: super::super::Foundation::Collections::IVectorView<MobileBroadbandCellGsm>;
+                #[get]
+                ServingCellsLte: super::super::Foundation::Collections::IVectorView<MobileBroadbandCellLte>;
+                #[get]
+                ServingCellsTdscdma: super::super::Foundation::Collections::IVectorView<MobileBroadbandCellTdscdma>;
+                #[get]
+                ServingCellsUmts: super::super::Foundation::Collections::IVectorView<MobileBroadbandCellUmts>;
+            }
+            #[guid(0x66205912_b89f_4e12_bbb6_d5cf09a820ca)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandCellsInfo)]
+            interface IMobileBroadbandCellsInfo2 {
+                #[get]
+                NeighboringCellsNR: super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>;
+                #[get]
+                ServingCellsNR: super::super::Foundation::Collections::IVectorView<MobileBroadbandCellNR>;
+            }
+            #[guid(0xf718b184_c370_5fd4_a670_1846cb9bce47)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandCurrentSlotIndexChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            interface IMobileBroadbandCurrentSlotIndexChangedEventArgs {
+                #[get]
+                CurrentSlotIndex: i32;
+            }
+            #[guid(0xe6d08168_e381_4c6e_9be8_fe156969a446)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceInformation)]
+            interface IMobileBroadbandDeviceInformation {
+                #[get]
+                NetworkDeviceStatus: NetworkDeviceStatus;
+                #[get]
+                Manufacturer: String;
+                #[get]
+                Model: String;
+                #[get]
+                FirmwareInformation: String;
+                #[get]
+                CellularClass: super::super::Devices::Sms::CellularClass;
+                #[get]
+                DataClasses: DataClasses;
+                #[get]
+                CustomDataClass: String;
+                #[get]
+                MobileEquipmentId: String;
+                #[get]
+                TelephoneNumbers: super::super::Foundation::Collections::IVectorView<String>;
+                #[get]
+                SubscriberId: String;
+                #[get]
+                SimIccId: String;
+                #[get]
+                DeviceType: MobileBroadbandDeviceType;
+                #[get]
+                DeviceId: String;
+                #[get]
+                CurrentRadioState: MobileBroadbandRadioState;
+            }
+            #[guid(0x2e467af1_f932_4737_a722_03ba72370cb8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandDeviceInformation2 {
+                #[get]
+                PinManager: MobileBroadbandPinManager;
+                #[get]
+                Revision: String;
+                #[get]
+                SerialNumber: String;
+            }
+            #[guid(0xe08bb4bd_5d30_4b5a_92cc_d54df881d49e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IMobileBroadbandDeviceInformation3 {
+                #[get]
+                SimSpn: String;
+                #[get]
+                SimPnn: String;
+                #[get]
+                SimGid1: String;
+            }
+            #[guid(0x263f3152_7b9d_582c_b17c_f80a60b50031)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceInformation)]
+            interface IMobileBroadbandDeviceInformation4 {
+                #[get]
+                SlotManager: MobileBroadbandSlotManager;
+            }
+            #[guid(0x22be1a52_bd80_40ac_8e1f_2e07836a3dbd)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceService)]
+            interface IMobileBroadbandDeviceService {
+                #[get]
+                DeviceServiceId: GUID;
+                #[get]
+                SupportedCommands: super::super::Foundation::Collections::IVectorView<u32>;
+                fn OpenDataSession(&self) -> MobileBroadbandDeviceServiceDataSession;
+                fn OpenCommandSession(&self) -> MobileBroadbandDeviceServiceCommandSession;
+            }
+            #[guid(0x28e4338f_cca4_5047_a20c_0a6d79acecba)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceServiceCommandEventArgs)]
+            interface IMobileBroadbandDeviceServiceCommandEventArgs {
+                #[get]
+                DeviceId: String;
+                #[get]
+                DeviceServiceId: GUID;
+                #[get]
+                EventId: u32;
+                #[get]
+                ReceivedData: super::super::Storage::Streams::IBuffer;
+            }
+            #[guid(0xb0f46abb_94d6_44b9_a538_f0810b645389)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceServiceCommandResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandDeviceServiceCommandResult {
+                #[get]
+                StatusCode: u32;
+                #[get]
+                ResponseData: super::super::Storage::Streams::IBuffer;
+            }
+            #[guid(0xfc098a45_913b_4914_b6c3_ae6304593e75)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceServiceCommandSession)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandDeviceServiceCommandSession {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SendQueryCommandAsync(&self, commandId: u32, data: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SendSetCommandAsync(&self, commandId: u32, data: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<MobileBroadbandDeviceServiceCommandResult>;
+                fn CloseSession(&self);
+            }
+            #[guid(0xef004861_2546_5739_86e7_0fdc0e62411c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceServiceCommandSession)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            interface IMobileBroadbandDeviceServiceCommandSession2 {
+                event CommandReceived: super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceCommandSession, MobileBroadbandDeviceServiceCommandEventArgs>;
+            }
+            #[guid(0xb6aa13de_1380_40e3_8618_73cbca48138c)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceServiceDataReceivedEventArgs)]
+            interface IMobileBroadbandDeviceServiceDataReceivedEventArgs {
+                #[get]
+                ReceivedData: super::super::Storage::Streams::IBuffer;
+            }
+            #[guid(0xdad62333_8bcf_4289_8a37_045c2169486a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceServiceDataSession)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandDeviceServiceDataSession {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn WriteDataAsync(&self, value: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncAction;
+                fn CloseSession(&self);
+                event DataReceived: super::super::Foundation::TypedEventHandler<MobileBroadbandDeviceServiceDataSession, MobileBroadbandDeviceServiceDataReceivedEventArgs>;
+            }
+            #[guid(0x53d69b5b_c4ed_45f0_803a_d9417a6d9846)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceServiceInformation)]
+            interface IMobileBroadbandDeviceServiceInformation {
+                #[get]
+                DeviceServiceId: GUID;
+                #[get]
+                IsDataReadSupported: bool;
+                #[get]
+                IsDataWriteSupported: bool;
+            }
+            #[guid(0x4a055b70_b9ae_4458_9241_a6a5fbf18a0c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceServiceTriggerDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandDeviceServiceTriggerDetails {
+                #[get]
+                DeviceId: String;
+                #[get]
+                DeviceServiceId: GUID;
+                #[get]
+                ReceivedData: super::super::Storage::Streams::IBuffer;
+            }
+            #[guid(0xd83d5f16_336a_553f_94bb_0cd1a2ff0c81)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 917504)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandDeviceServiceTriggerDetails)]
+            interface IMobileBroadbandDeviceServiceTriggerDetails2 {
+                #[get]
+                EventId: u32;
+            }
+            #[guid(0xd0356912_e9f9_4f67_a03d_43189a316bf1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandModem)]
+            interface IMobileBroadbandModem {
+                #[get]
+                CurrentAccount: MobileBroadbandAccount;
+                #[get]
+                DeviceInformation: MobileBroadbandDeviceInformation;
+                #[get]
+                MaxDeviceServiceCommandSizeInBytes: u32;
+                #[get]
+                MaxDeviceServiceDataSizeInBytes: u32;
+                #[get]
+                DeviceServices: super::super::Foundation::Collections::IVectorView<MobileBroadbandDeviceServiceInformation>;
+                fn GetDeviceService(&self, deviceServiceId: GUID) -> MobileBroadbandDeviceService;
+                #[get]
+                IsResetSupported: bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ResetAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetCurrentConfigurationAsync(&self) -> super::super::Foundation::IAsyncOperation<MobileBroadbandModemConfiguration>;
+                #[get]
+                CurrentNetwork: MobileBroadbandNetwork;
+            }
+            #[guid(0x12862b28_b9eb_4ee2_bbe3_711f53eea373)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandModem)]
+            interface IMobileBroadbandModem2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetIsPassthroughEnabledAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetIsPassthroughEnabledAsync(&self, value: bool) -> super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>;
+            }
+            #[guid(0xe9fec6ea_2f34_4582_9102_c314d2a87eec)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandModem)]
+            interface IMobileBroadbandModem3 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryGetPcoAsync(&self) -> super::super::Foundation::IAsyncOperation<MobileBroadbandPco>;
+                #[get]
+                IsInEmergencyCallMode: bool;
+                event IsInEmergencyCallModeChanged: super::super::Foundation::TypedEventHandler<MobileBroadbandModem, Object>;
+            }
+            #[guid(0x4a0398c2_91be_412b_b569_586e9f0030d1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandModem)]
+            interface IMobileBroadbandModem4 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("SetIsPassthroughEnabledWithSlotIndexAsync")]
+                fn SetIsPassthroughEnabledAsync(&self, value: bool, slotindex: i32) -> super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>;
+                #[Windows::Foundation::Metadata::Overload("GetIsPassthroughEnabledWithSlotIndexAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetIsPassthroughEnabledAsync(&self, slotindex: i32) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("SetIsPassthroughEnabledWithSlotIndex")]
+                fn SetIsPassthroughEnabled(&self, value: bool, slotindex: i32) -> MobileBroadbandModemStatus;
+                #[Windows::Foundation::Metadata::Overload("GetIsPassthroughEnabledWithSlotIndex")]
+                fn GetIsPassthroughEnabled(&self, slotindex: i32) -> bool;
+            }
+            #[guid(0xfce035a3_d6cd_4320_b982_be9d3ec7890f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandModemConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandModemConfiguration {
+                #[get]
+                Uicc: MobileBroadbandUicc;
+                #[get]
+                HomeProviderId: String;
+                #[get]
+                HomeProviderName: String;
+            }
+            #[guid(0x320ff5c5_e460_42ae_aa51_69621e7a4477)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandModemConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IMobileBroadbandModemConfiguration2 {
+                #[get]
+                SarManager: MobileBroadbandSarManager;
+            }
+            #[guid(0xb5618fec_e661_4330_9bb4_3480212ec354)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandModemIsolation)]
+            interface IMobileBroadbandModemIsolation {
+                fn AddAllowedHost(&self, host: super::HostName);
+                fn AddAllowedHostRange(&self, first: super::HostName, last: super::HostName);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ApplyConfigurationAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ClearConfigurationAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[guid(0x21d7ec58_c2b1_4c2f_a030_72820a24ecd9)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandModemIsolation)]
+            interface IMobileBroadbandModemIsolationFactory {
+                fn Create(&self, modemDeviceId: String, ruleGroupId: String) -> MobileBroadbandModemIsolation;
+            }
+            #[guid(0xf99ed637_d6f1_4a78_8cbc_6421a65063c8)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandModem)]
+            interface IMobileBroadbandModemStatics {
+                fn GetDeviceSelector(&self) -> String;
+                fn FromId(&self, deviceId: String) -> MobileBroadbandModem;
+                fn GetDefault(&self) -> MobileBroadbandModem;
+            }
+            #[guid(0xcb63928c_0309_4cb6_a8c1_6a5a3c8e1ff6)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandNetwork)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandNetwork {
+                #[get]
+                NetworkAdapter: super::Connectivity::NetworkAdapter;
+                #[get]
+                NetworkRegistrationState: NetworkRegistrationState;
+                #[get]
+                RegistrationNetworkError: u32;
+                #[get]
+                PacketAttachNetworkError: u32;
+                #[get]
+                ActivationNetworkError: u32;
+                #[get]
+                AccessPointName: String;
+                #[get]
+                RegisteredDataClass: DataClasses;
+                #[get]
+                RegisteredProviderId: String;
+                #[get]
+                RegisteredProviderName: String;
+                fn ShowConnectionUI(&self);
+            }
+            #[guid(0x5a55db22_62f7_4bdd_ba1d_477441960ba0)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandNetwork)]
+            interface IMobileBroadbandNetwork2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetVoiceCallSupportAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[get]
+                RegistrationUiccApps: super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>;
+            }
+            #[guid(0x33670a8a_c7ef_444c_ab6c_df7ef7a390fe)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandNetwork)]
+            interface IMobileBroadbandNetwork3 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetCellsInfoAsync(&self) -> super::super::Foundation::IAsyncOperation<MobileBroadbandCellsInfo>;
+            }
+            #[guid(0xbeaf94e1_960f_49b4_a08d_7d85e968c7ec)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandNetworkRegistrationStateChange)]
+            interface IMobileBroadbandNetworkRegistrationStateChange {
+                #[get]
+                DeviceId: String;
+                #[get]
+                Network: MobileBroadbandNetwork;
+            }
+            #[guid(0x89135cff_28b8_46aa_b137_1c4b0f21edfe)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandNetworkRegistrationStateChangeTriggerDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+                #[get]
+                NetworkRegistrationStateChanges: super::super::Foundation::Collections::IVectorView<MobileBroadbandNetworkRegistrationStateChange>;
+            }
+            #[guid(0xd4e4fcbe_e3a3_43c5_a87b_6c86d229d7fa)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandPco)]
+            interface IMobileBroadbandPco {
+                #[get]
+                Data: super::super::Storage::Streams::IBuffer;
+                #[get]
+                IsComplete: bool;
+                #[get]
+                DeviceId: String;
+            }
+            #[guid(0x263f5114_64e0_4493_909b_2d14a01962b1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandPcoDataChangeTriggerDetails)]
+            interface IMobileBroadbandPcoDataChangeTriggerDetails {
+                #[get]
+                UpdatedData: MobileBroadbandPco;
+            }
+            #[guid(0xe661d709_e779_45bf_8281_75323df9e321)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandPin)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandPin {
+                #[get]
+                Type: MobileBroadbandPinType;
+                #[get]
+                LockState: MobileBroadbandPinLockState;
+                #[get]
+                Format: MobileBroadbandPinFormat;
+                #[get]
+                Enabled: bool;
+                #[get]
+                MaxLength: u32;
+                #[get]
+                MinLength: u32;
+                #[get]
+                AttemptsRemaining: u32;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn EnableAsync(&self, currentPin: String) -> super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DisableAsync(&self, currentPin: String) -> super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn EnterAsync(&self, currentPin: String) -> super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ChangeAsync(&self, currentPin: String, newPin: String) -> super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn UnblockAsync(&self, pinUnblockKey: String, newPin: String) -> super::super::Foundation::IAsyncOperation<MobileBroadbandPinOperationResult>;
+            }
+            #[guid(0xbe16673e_1f04_4f95_8b90_e7f559dde7e5)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandPinLockStateChange)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandPinLockStateChange {
+                #[get]
+                DeviceId: String;
+                #[get]
+                PinType: MobileBroadbandPinType;
+                #[get]
+                PinLockState: MobileBroadbandPinLockState;
+            }
+            #[guid(0xd338c091_3e91_4d38_9036_aee83a6e79ad)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandPinLockStateChangeTriggerDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandPinLockStateChangeTriggerDetails {
+                #[get]
+                PinLockStateChanges: super::super::Foundation::Collections::IVectorView<MobileBroadbandPinLockStateChange>;
+            }
+            #[guid(0x83567edd_6e1f_4b9b_a413_2b1f50cc36df)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandPinManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandPinManager {
+                #[get]
+                SupportedPins: super::super::Foundation::Collections::IVectorView<MobileBroadbandPinType>;
+                fn GetPin(&self, pinType: MobileBroadbandPinType) -> MobileBroadbandPin;
+            }
+            #[guid(0x11dddc32_31e7_49f5_b663_123d3bef0362)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandPinOperationResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandPinOperationResult {
+                #[get]
+                IsSuccessful: bool;
+                #[get]
+                AttemptsRemaining: u32;
+            }
+            #[guid(0xb054a561_9833_4aed_9717_4348b21a24b3)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandRadioStateChange)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandRadioStateChange {
+                #[get]
+                DeviceId: String;
+                #[get]
+                RadioState: MobileBroadbandRadioState;
+            }
+            #[guid(0x71301ace_093c_42c6_b0db_ad1f75a65445)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandRadioStateChangeTriggerDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandRadioStateChangeTriggerDetails {
+                #[get]
+                RadioStateChanges: super::super::Foundation::Collections::IVectorView<MobileBroadbandRadioStateChange>;
+            }
+            #[guid(0xe5b26833_967e_40c9_a485_19c0dd209e22)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandSarManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IMobileBroadbandSarManager {
+                #[get]
+                IsBackoffEnabled: bool;
+                #[get]
+                IsWiFiHardwareIntegrated: bool;
+                #[get]
+                IsSarControlledByHardware: bool;
+                #[get]
+                Antennas: super::super::Foundation::Collections::IVectorView<MobileBroadbandAntennaSar>;
+                #[get]
+                HysteresisTimerPeriod: super::super::Foundation::TimeSpan;
+                event TransmissionStateChanged: super::super::Foundation::TypedEventHandler<MobileBroadbandSarManager, MobileBroadbandTransmissionStateChangedEventArgs>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn EnableBackoffAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DisableBackoffAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetConfigurationAsync(&self, antennas: super::super::Foundation::Collections::IIterable<MobileBroadbandAntennaSar>) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RevertSarToHardwareControlAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetTransmissionStateChangedHysteresisAsync(&self, timerPeriod: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetIsTransmittingAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn StartTransmissionStateMonitoring(&self);
+                fn StopTransmissionStateMonitoring(&self);
+            }
+            #[guid(0xbd350b32_882e_542a_b17d_0bb1b49bae9e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandSlotInfo)]
+            interface IMobileBroadbandSlotInfo {
+                #[get]
+                Index: i32;
+                #[get]
+                State: MobileBroadbandSlotState;
+            }
+            #[guid(0x393cb039_ca44_524c_822d_83a3620f0efc)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandSlotInfo)]
+            interface IMobileBroadbandSlotInfo2 {
+                #[get]
+                IccId: String;
+            }
+            #[guid(0x3158839f_950c_54ce_a48d_ba4529b48f0f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandSlotInfoChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            interface IMobileBroadbandSlotInfoChangedEventArgs {
+                #[get]
+                SlotInfo: MobileBroadbandSlotInfo;
+            }
+            #[guid(0xeba07cd6_2019_5f81_a294_cc364a11d0b2)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandSlotManager)]
+            interface IMobileBroadbandSlotManager {
+                #[get]
+                SlotInfos: super::super::Foundation::Collections::IVectorView<MobileBroadbandSlotInfo>;
+                #[get]
+                CurrentSlotIndex: i32;
+                fn SetCurrentSlot(&self, slotIndex: i32) -> MobileBroadbandModemStatus;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetCurrentSlotAsync(&self, slotIndex: i32) -> super::super::Foundation::IAsyncOperation<MobileBroadbandModemStatus>;
+                event SlotInfoChanged: super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandSlotInfoChangedEventArgs>;
+                event CurrentSlotIndexChanged: super::super::Foundation::TypedEventHandler<MobileBroadbandSlotManager, MobileBroadbandCurrentSlotIndexChangedEventArgs>;
+            }
+            #[guid(0x612e3875_040a_4f99_a4f9_61d7c32da129)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandTransmissionStateChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IMobileBroadbandTransmissionStateChangedEventArgs {
+                #[get]
+                IsTransmitting: bool;
+            }
+            #[guid(0xe634f691_525a_4ce2_8fce_aa4162579154)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandUicc)]
+            interface IMobileBroadbandUicc {
+                #[get]
+                SimIccId: String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetUiccAppsAsync(&self) -> super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppsResult>;
+            }
+            #[guid(0x4d170556_98a1_43dd_b2ec_50c90cf248df)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandUiccApp)]
+            interface IMobileBroadbandUiccApp {
+                #[get]
+                Id: super::super::Storage::Streams::IBuffer;
+                #[get]
+                Kind: UiccAppKind;
+                fn GetRecordDetailsAsync(&self, uiccFilePath: super::super::Foundation::Collections::IIterable<u32>) -> super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppRecordDetailsResult>;
+                fn ReadRecordAsync(&self, uiccFilePath: super::super::Foundation::Collections::IIterable<u32>, recordIndex: i32) -> super::super::Foundation::IAsyncOperation<MobileBroadbandUiccAppReadRecordResult>;
+            }
+            #[guid(0x64c95285_358e_47c5_8249_695f383b2bdb)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandUiccAppReadRecordResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandUiccAppReadRecordResult {
+                #[get]
+                Status: MobileBroadbandUiccAppOperationStatus;
+                #[get]
+                Data: super::super::Storage::Streams::IBuffer;
+            }
+            #[guid(0xd919682f_be14_4934_981d_2f57b9ed83e6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandUiccAppRecordDetailsResult)]
+            interface IMobileBroadbandUiccAppRecordDetailsResult {
+                #[get]
+                Status: MobileBroadbandUiccAppOperationStatus;
+                #[get]
+                Kind: UiccAppRecordKind;
+                #[get]
+                RecordCount: i32;
+                #[get]
+                RecordSize: i32;
+                #[get]
+                ReadAccessCondition: UiccAccessCondition;
+                #[get]
+                WriteAccessCondition: UiccAccessCondition;
+            }
+            #[guid(0x744930eb_8157_4a41_8494_6bf54c9b1d2b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MobileBroadbandUiccAppsResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMobileBroadbandUiccAppsResult {
+                #[get]
+                Status: MobileBroadbandUiccAppOperationStatus;
+                #[get]
+                UiccApps: super::super::Foundation::Collections::IVectorView<MobileBroadbandUiccApp>;
+            }
+            #[guid(0x50e3126d_a465_4eeb_9317_28a167630cea)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorDataUsageTriggerDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface INetworkOperatorDataUsageTriggerDetails {
+                #[get]
+                NotificationKind: NetworkOperatorDataUsageNotificationKind;
+            }
+            #[guid(0xbc68a9d1_82e1_4488_9f2c_1276c2468fac)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorNotificationEventDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(LegacyNetworkOperatorsContract, 65536)]
+            interface INetworkOperatorNotificationEventDetails {
+                #[get]
+                NotificationType: NetworkOperatorEventMessageType;
+                #[get]
+                NetworkAccountId: String;
+                #[get]
+                EncodingType: u8;
+                #[get]
+                Message: String;
+                #[get]
+                RuleId: String;
+                #[get]
+                SmsMessage: super::super::Devices::Sms::ISmsMessage;
+            }
+            #[guid(0x0bcc0284_412e_403d_acc6_b757e34774a4)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringAccessPointConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INetworkOperatorTetheringAccessPointConfiguration {
+                Ssid: String;
+                Passphrase: String;
+            }
+            #[guid(0xb1809142_7238_59a0_928b_74ab46fd64b6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringAccessPointConfiguration)]
+            interface INetworkOperatorTetheringAccessPointConfiguration2 {
+                fn IsBandSupported(&self, band: TetheringWiFiBand) -> bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> super::super::Foundation::IAsyncOperation<bool>;
+                Band: TetheringWiFiBand;
+            }
+            #[guid(0xa9bb0081_9eed_5d18_b676_24b74a182b8c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringAccessPointConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            interface INetworkOperatorTetheringAccessPointConfiguration3 {
+                fn IsAuthenticationKindSupported(&self, authenticationKind: TetheringWiFiAuthenticationKind) -> bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn IsAuthenticationKindSupportedAsync(&self, authenticationKind: TetheringWiFiAuthenticationKind) -> super::super::Foundation::IAsyncOperation<bool>;
+                AuthenticationKind: TetheringWiFiAuthenticationKind;
+            }
+            #[guid(0x709d254c_595f_4847_bb30_646935542918)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringClient)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INetworkOperatorTetheringClient {
+                #[get]
+                MacAddress: String;
+                #[get]
+                HostNames: super::super::Foundation::Collections::IVectorView<super::HostName>;
+            }
+            #[guid(0x91b14016_8dca_4225_bbed_eef8b8d718d7)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringManager)]
+            interface INetworkOperatorTetheringClientManager {
+                fn GetTetheringClients(&self) -> super::super::Foundation::Collections::IVectorView<NetworkOperatorTetheringClient>;
+            }
+            #[guid(0x0108916d_9e9a_4af6_8da3_60493b19c204)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorNotificationEventDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(LegacyNetworkOperatorsContract, 65536)]
+            interface INetworkOperatorTetheringEntitlementCheck {
+                fn AuthorizeTethering(&self, allow: bool, entitlementFailureReason: String);
+            }
+            #[guid(0xd45a8da0_0e86_4d98_8ba4_dd70d4b764d3)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringManager)]
+            interface INetworkOperatorTetheringManager {
+                #[get]
+                MaxClientCount: u32;
+                #[get]
+                ClientCount: u32;
+                #[get]
+                TetheringOperationalState: TetheringOperationalState;
+                fn GetCurrentAccessPointConfiguration(&self) -> NetworkOperatorTetheringAccessPointConfiguration;
+                fn ConfigureAccessPointAsync(&self, configuration: NetworkOperatorTetheringAccessPointConfiguration) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StartTetheringAsync(&self) -> super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StopTetheringAsync(&self) -> super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>;
+            }
+            #[guid(0x7c1a4df2_b789_4fea_bc4e_1f2b9e76c1f7)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringManager)]
+            interface INetworkOperatorTetheringManager2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StartTetheringAsync(&self, configuration: NetworkOperatorTetheringSessionAccessPointConfiguration) -> super::super::Foundation::IAsyncOperation<NetworkOperatorTetheringOperationResult>;
+            }
+            #[guid(0x3ebcbacc_f8c3_405c_9964_70a1eeabe194)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INetworkOperatorTetheringManagerStatics {
+                fn GetTetheringCapability(&self, networkAccountId: String) -> TetheringCapability;
+                fn CreateFromNetworkAccountId(&self, networkAccountId: String) -> NetworkOperatorTetheringManager;
+            }
+            #[guid(0x5b235412_35f0_49e7_9b08_16d278fbaa42)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INetworkOperatorTetheringManagerStatics2 {
+                fn GetTetheringCapabilityFromConnectionProfile(&self, profile: super::Connectivity::ConnectionProfile) -> TetheringCapability;
+                #[Windows::Foundation::Metadata::Overload("CreateFromConnectionProfile")]
+                fn CreateFromConnectionProfile(&self, profile: super::Connectivity::ConnectionProfile) -> NetworkOperatorTetheringManager;
+            }
+            #[guid(0x8fdaadb6_4af9_4f21_9b58_d53e9f24231e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringManager)]
+            interface INetworkOperatorTetheringManagerStatics3 {
+                #[Windows::Foundation::Metadata::Overload("CreateFromConnectionProfileWithTargetAdapter")]
+                fn CreateFromConnectionProfile(&self, profile: super::Connectivity::ConnectionProfile, adapter: super::Connectivity::NetworkAdapter) -> NetworkOperatorTetheringManager;
+            }
+            #[guid(0xb3b9f9d0_ebff_46a4_a847_d663d8b0977e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface INetworkOperatorTetheringManagerStatics4 {
+                fn IsNoConnectionsTimeoutEnabled(&self) -> bool;
+                fn EnableNoConnectionsTimeout(&self);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn EnableNoConnectionsTimeoutAsync(&self) -> super::super::Foundation::IAsyncAction;
+                fn DisableNoConnectionsTimeout(&self);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DisableNoConnectionsTimeoutAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[guid(0xebd203a1_01ba_476d_b4b3_bf3d12c8f80c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringOperationResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INetworkOperatorTetheringOperationResult {
+                #[get]
+                Status: TetheringOperationStatus;
+                #[get]
+                AdditionalErrorMessage: String;
+            }
+            #[guid(0x0bcc1104_34b7_5212_858c_59d97404920a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkOperatorTetheringSessionAccessPointConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            interface INetworkOperatorTetheringSessionAccessPointConfiguration {
+                Ssid: String;
+                Passphrase: String;
+                fn IsBandSupported(&self, band: TetheringWiFiBand) -> bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn IsBandSupportedAsync(&self, band: TetheringWiFiBand) -> super::super::Foundation::IAsyncOperation<bool>;
+                Band: TetheringWiFiBand;
+                fn IsAuthenticationKindSupported(&self, authenticationKind: TetheringWiFiAuthenticationKind) -> bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn IsAuthenticationKindSupportedAsync(&self, authenticationKind: TetheringWiFiAuthenticationKind) -> super::super::Foundation::IAsyncOperation<bool>;
+                AuthenticationKind: TetheringWiFiAuthenticationKind;
+                PerformancePriority: TetheringWiFiPerformancePriority;
+            }
+            #[guid(0x217700e0_8203_11df_adb9_f4ce462d9137)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProvisionFromXmlDocumentResults)]
+            interface IProvisionFromXmlDocumentResults {
+                #[get]
+                AllElementsProvisioned: bool;
+                #[get]
+                ProvisionResultsXml: String;
+            }
+            #[guid(0x217700e0_8202_11df_adb9_f4ce462d9137)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProvisionedProfile)]
+            interface IProvisionedProfile {
+                fn UpdateCost(&self, value: super::Connectivity::NetworkCostType);
+                fn UpdateUsage(&self, value: ProfileUsage);
+            }
+            #[guid(0x217700e0_8201_11df_adb9_f4ce462d9137)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProvisioningAgent)]
+            interface IProvisioningAgent {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ProvisionFromXmlDocumentAsync(&self, provisioningXmlDocument: String) -> super::super::Foundation::IAsyncOperation<ProvisionFromXmlDocumentResults>;
+                fn GetProvisionedProfile(&self, mediaType: ProfileMediaType, profileName: String) -> ProvisionedProfile;
+            }
+            #[guid(0x217700e0_8101_11df_adb9_f4ce462d9137)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProvisioningAgent)]
+            interface IProvisioningAgentStaticMethods {
+                fn CreateFromNetworkAccountId(&self, networkAccountId: String) -> ProvisioningAgent;
+            }
+            #[guid(0x03c65e9d_5926_41f3_a94e_b50926fc421b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TetheringEntitlementCheckTriggerDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface ITetheringEntitlementCheckTriggerDetails {
+                #[get]
+                NetworkAccountId: String;
+                fn AllowTethering(&self);
+                fn DenyTethering(&self, entitlementFailureReason: String);
+            }
+            #[guid(0x2f9acf82_2004_4d5d_bf81_2aba1b4be4a8)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UssdMessage)]
+            interface IUssdMessage {
+                DataCodingScheme: u8;
+                fn GetPayload(&self) -> [u8];
+                fn SetPayload(&self, #[Windows::Foundation::Metadata::Range(0, 160)] value: [u8]);
+                PayloadAsText: String;
+            }
+            #[guid(0x2f9acf82_1003_4d5d_bf81_2aba1b4be4a8)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UssdMessage)]
+            interface IUssdMessageFactory {
+                fn CreateMessage(&self, messageText: String) -> UssdMessage;
+            }
+            #[guid(0x2f9acf82_2005_4d5d_bf81_2aba1b4be4a8)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UssdReply)]
+            interface IUssdReply {
+                #[get]
+                ResultCode: UssdResultCode;
+                #[get]
+                Message: UssdMessage;
+            }
+            #[guid(0x2f9acf82_2002_4d5d_bf81_2aba1b4be4a8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UssdSession)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IUssdSession {
+                fn SendMessageAndGetReplyAsync(&self, message: UssdMessage) -> super::super::Foundation::IAsyncOperation<UssdReply>;
+                fn Close(&self);
+            }
+            #[guid(0x2f9acf82_1001_4d5d_bf81_2aba1b4be4a8)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UssdSession)]
+            interface IUssdSessionStatics {
+                fn CreateFromNetworkAccountId(&self, networkAccountId: String) -> UssdSession;
+                fn CreateFromNetworkInterfaceId(&self, networkInterfaceId: String) -> UssdSession;
+            }
+            #[Windows::Foundation::Metadata::Static(IKnownCSimFilePathsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class KnownCSimFilePaths {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IKnownRuimFilePathsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class KnownRuimFilePaths {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Static(IKnownSimFilePathsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class KnownSimFilePaths {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IKnownUSimFilePathsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class KnownUSimFilePaths {}
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct LegacyNetworkOperatorsContract {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IMobileBroadbandAccountStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MobileBroadbandAccount {
+                IMobileBroadbandAccount,
+                IMobileBroadbandAccount2,
+                IMobileBroadbandAccount3,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MobileBroadbandAccountEventArgs {
+                IMobileBroadbandAccountEventArgs,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MobileBroadbandAccountUpdatedEventArgs {
+                IMobileBroadbandAccountUpdatedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class MobileBroadbandAccountWatcher {
+                IMobileBroadbandAccountWatcher,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MobileBroadbandAccountWatcherStatus {
+                Created = 0,
+                Started = 1,
+                EnumerationCompleted = 2,
+                Stopped = 3,
+                Aborted = 4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(IMobileBroadbandAntennaSarFactory, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            class MobileBroadbandAntennaSar {
+                IMobileBroadbandAntennaSar,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MobileBroadbandCellCdma {
+                IMobileBroadbandCellCdma,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MobileBroadbandCellGsm {
+                IMobileBroadbandCellGsm,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MobileBroadbandCellLte {
+                IMobileBroadbandCellLte,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            class MobileBroadbandCellNR {
+                IMobileBroadbandCellNR,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            class MobileBroadbandCellTdscdma {
+                IMobileBroadbandCellTdscdma,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MobileBroadbandCellUmts {
+                IMobileBroadbandCellUmts,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MobileBroadbandCellsInfo {
+                IMobileBroadbandCellsInfo,
+                IMobileBroadbandCellsInfo2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            class MobileBroadbandCurrentSlotIndexChangedEventArgs {
+                IMobileBroadbandCurrentSlotIndexChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MobileBroadbandDeviceInformation {
+                IMobileBroadbandDeviceInformation,
+                IMobileBroadbandDeviceInformation2,
+                IMobileBroadbandDeviceInformation3,
+                IMobileBroadbandDeviceInformation4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MobileBroadbandDeviceService {
+                IMobileBroadbandDeviceService,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MobileBroadbandDeviceServiceCommandEventArgs {
+                IMobileBroadbandDeviceServiceCommandEventArgs,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MobileBroadbandDeviceServiceCommandResult {
+                IMobileBroadbandDeviceServiceCommandResult,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MobileBroadbandDeviceServiceCommandSession {
+                IMobileBroadbandDeviceServiceCommandSession,
+                IMobileBroadbandDeviceServiceCommandSession2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MobileBroadbandDeviceServiceDataReceivedEventArgs {
+                IMobileBroadbandDeviceServiceDataReceivedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MobileBroadbandDeviceServiceDataSession {
+                IMobileBroadbandDeviceServiceDataSession,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MobileBroadbandDeviceServiceInformation {
+                IMobileBroadbandDeviceServiceInformation,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MobileBroadbandDeviceServiceTriggerDetails {
+                IMobileBroadbandDeviceServiceTriggerDetails,
+                IMobileBroadbandDeviceServiceTriggerDetails2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MobileBroadbandDeviceType {
+                Unknown = 0,
+                Embedded = 1,
+                Removable = 2,
+                Remote = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IMobileBroadbandModemStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MobileBroadbandModem {
+                IMobileBroadbandModem,
+                IMobileBroadbandModem2,
+                IMobileBroadbandModem3,
+                IMobileBroadbandModem4,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MobileBroadbandModemConfiguration {
+                IMobileBroadbandModemConfiguration,
+                IMobileBroadbandModemConfiguration2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::Activatable(IMobileBroadbandModemIsolationFactory, 393216, "Windows.Foundation.UniversalApiContract")]
+            class MobileBroadbandModemIsolation {
+                IMobileBroadbandModemIsolation,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            enum MobileBroadbandModemStatus {
+                Success = 0,
+                OtherFailure = 1,
+                Busy = 2,
+                NoDeviceSupport = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class MobileBroadbandNetwork {
+                IMobileBroadbandNetwork,
+                IMobileBroadbandNetwork2,
+                IMobileBroadbandNetwork3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MobileBroadbandNetworkRegistrationStateChange {
+                IMobileBroadbandNetworkRegistrationStateChange,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MobileBroadbandNetworkRegistrationStateChangeTriggerDetails {
+                IMobileBroadbandNetworkRegistrationStateChangeTriggerDetails,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class MobileBroadbandPco {
+                IMobileBroadbandPco,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class MobileBroadbandPcoDataChangeTriggerDetails {
+                IMobileBroadbandPcoDataChangeTriggerDetails,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MobileBroadbandPin {
+                IMobileBroadbandPin,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MobileBroadbandPinFormat {
+                Unknown = 0,
+                Numeric = 1,
+                Alphanumeric = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MobileBroadbandPinLockState {
+                Unknown = 0,
+                Unlocked = 1,
+                PinRequired = 2,
+                PinUnblockKeyRequired = 3,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MobileBroadbandPinLockStateChange {
+                IMobileBroadbandPinLockStateChange,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MobileBroadbandPinLockStateChangeTriggerDetails {
+                IMobileBroadbandPinLockStateChangeTriggerDetails,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MobileBroadbandPinManager {
+                IMobileBroadbandPinManager,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MobileBroadbandPinOperationResult {
+                IMobileBroadbandPinOperationResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MobileBroadbandPinType {
+                None = 0,
+                Custom = 1,
+                Pin1 = 2,
+                Pin2 = 3,
+                SimPin = 4,
+                FirstSimPin = 5,
+                NetworkPin = 6,
+                NetworkSubsetPin = 7,
+                ServiceProviderPin = 8,
+                CorporatePin = 9,
+                SubsidyLock = 10,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MobileBroadbandRadioState {
+                Off = 0,
+                On = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MobileBroadbandRadioStateChange {
+                IMobileBroadbandRadioStateChange,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MobileBroadbandRadioStateChangeTriggerDetails {
+                IMobileBroadbandRadioStateChangeTriggerDetails,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            class MobileBroadbandSarManager {
+                IMobileBroadbandSarManager,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            class MobileBroadbandSlotInfo {
+                IMobileBroadbandSlotInfo,
+                IMobileBroadbandSlotInfo2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            class MobileBroadbandSlotInfoChangedEventArgs {
+                IMobileBroadbandSlotInfoChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            class MobileBroadbandSlotManager {
+                IMobileBroadbandSlotManager,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            enum MobileBroadbandSlotState {
+                Unmanaged = 0,
+                Unknown = 1,
+                OffEmpty = 2,
+                Off = 3,
+                Empty = 4,
+                NotReady = 5,
+                Active = 6,
+                Error = 7,
+                ActiveEsim = 8,
+                ActiveEsimNoProfile = 9,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            class MobileBroadbandTransmissionStateChangedEventArgs {
+                IMobileBroadbandTransmissionStateChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MobileBroadbandUicc {
+                IMobileBroadbandUicc,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MobileBroadbandUiccApp {
+                IMobileBroadbandUiccApp,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MobileBroadbandUiccAppOperationStatus {
+                Success = 0,
+                InvalidUiccFilePath = 1,
+                AccessConditionNotHeld = 2,
+                UiccBusy = 3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MobileBroadbandUiccAppReadRecordResult {
+                IMobileBroadbandUiccAppReadRecordResult,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MobileBroadbandUiccAppRecordDetailsResult {
+                IMobileBroadbandUiccAppRecordDetailsResult,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MobileBroadbandUiccAppsResult {
+                IMobileBroadbandUiccAppsResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum NetworkDeviceStatus {
+                DeviceNotReady = 0,
+                DeviceReady = 1,
+                SimNotInserted = 2,
+                BadSim = 3,
+                DeviceHardwareFailure = 4,
+                AccountNotActivated = 5,
+                DeviceLocked = 6,
+                DeviceBlocked = 7,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum NetworkOperatorDataUsageNotificationKind {
+                DataUsageProgress = 0,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class NetworkOperatorDataUsageTriggerDetails {
+                INetworkOperatorDataUsageTriggerDetails,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum NetworkOperatorEventMessageType {
+                Gsm = 0,
+                Cdma = 1,
+                Ussd = 2,
+                DataPlanThresholdReached = 3,
+                DataPlanReset = 4,
+                DataPlanDeleted = 5,
+                ProfileConnected = 6,
+                ProfileDisconnected = 7,
+                RegisteredRoaming = 8,
+                RegisteredHome = 9,
+                TetheringEntitlementCheck = 10,
+                TetheringOperationalStateChanged = 11,
+                TetheringNumberOfClientsChanged = 12,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(LegacyNetworkOperatorsContract, 65536)]
+            class NetworkOperatorNotificationEventDetails {
+                INetworkOperatorNotificationEventDetails,
+                INetworkOperatorTetheringEntitlementCheck,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class NetworkOperatorTetheringAccessPointConfiguration {
+                INetworkOperatorTetheringAccessPointConfiguration,
+                INetworkOperatorTetheringAccessPointConfiguration2,
+                INetworkOperatorTetheringAccessPointConfiguration3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class NetworkOperatorTetheringClient {
+                INetworkOperatorTetheringClient,
+            }
+            #[Windows::Foundation::Metadata::Static(INetworkOperatorTetheringManagerStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(INetworkOperatorTetheringManagerStatics4, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(INetworkOperatorTetheringManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(INetworkOperatorTetheringManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class NetworkOperatorTetheringManager {
+                INetworkOperatorTetheringManager,
+                INetworkOperatorTetheringClientManager,
+                INetworkOperatorTetheringManager2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class NetworkOperatorTetheringOperationResult {
+                INetworkOperatorTetheringOperationResult,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(1114112, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            class NetworkOperatorTetheringSessionAccessPointConfiguration {
+                INetworkOperatorTetheringSessionAccessPointConfiguration,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum NetworkRegistrationState {
+                None = 0,
+                Deregistered = 1,
+                Searching = 2,
+                Home = 3,
+                Roaming = 4,
+                Partner = 5,
+                Denied = 6,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ProfileMediaType {
+                Wlan = 0,
+                Wwan = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct ProfileUsage {
+                UsageInMegabytes: u32,
+                LastSyncTime: super::super::Foundation::DateTime,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class ProvisionFromXmlDocumentResults {
+                IProvisionFromXmlDocumentResults,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ProvisionedProfile {
+                IProvisionedProfile,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IProvisioningAgentStaticMethods, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ProvisioningAgent {
+                IProvisioningAgent,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TetheringCapability {
+                Enabled = 0,
+                DisabledByGroupPolicy = 1,
+                DisabledByHardwareLimitation = 2,
+                DisabledByOperator = 3,
+                DisabledBySku = 4,
+                DisabledByRequiredAppNotInstalled = 5,
+                DisabledDueToUnknownCause = 6,
+                DisabledBySystemCapability = 7,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class TetheringEntitlementCheckTriggerDetails {
+                ITetheringEntitlementCheckTriggerDetails,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TetheringOperationStatus {
+                Success = 0,
+                Unknown = 1,
+                MobileBroadbandDeviceOff = 2,
+                WiFiDeviceOff = 3,
+                EntitlementCheckTimeout = 4,
+                EntitlementCheckFailure = 5,
+                OperationInProgress = 6,
+                BluetoothDeviceOff = 7,
+                NetworkLimitedConnectivity = 8,
+                AlreadyOn = 9,
+                RadioRestriction = 10,
+                BandInterference = 11,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TetheringOperationalState {
+                Unknown = 0,
+                On = 1,
+                Off = 2,
+                InTransition = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            enum TetheringWiFiAuthenticationKind {
+                Wpa2 = 0,
+                Wpa3TransitionMode = 1,
+                Wpa3 = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            enum TetheringWiFiBand {
+                Auto = 0,
+                TwoPointFourGigahertz = 1,
+                FiveGigahertz = 2,
+                SixGigahertz = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            enum TetheringWiFiPerformancePriority {
+                Default = 0,
+                TetheringOverStation = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum UiccAccessCondition {
+                AlwaysAllowed = 0,
+                Pin1 = 1,
+                Pin2 = 2,
+                Pin3 = 3,
+                Pin4 = 4,
+                Administrative5 = 5,
+                Administrative6 = 6,
+                NeverAllowed = 7,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum UiccAppKind {
+                Unknown = 0,
+                MF = 1,
+                MFSim = 2,
+                MFRuim = 3,
+                USim = 4,
+                CSim = 5,
+                ISim = 6,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum UiccAppRecordKind {
+                Unknown = 0,
+                Transparent = 1,
+                RecordOriented = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(IUssdMessageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class UssdMessage {
+                IUssdMessage,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class UssdReply {
+                IUssdReply,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum UssdResultCode {
+                NoActionRequired = 0,
+                ActionRequired = 1,
+                Terminated = 2,
+                OtherLocalClient = 3,
+                OperationNotSupported = 4,
+                NetworkTimeout = 5,
+            }
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IUssdSessionStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class UssdSession {
+                IUssdSession,
+            }
+        }
+    }
+}

@@ -1,0 +1,95 @@
+#[winrt]
+mod Windows {
+    mod Management {
+        #[guid(0xb0fbc327_28c1_4b52_a548_c5807caf70b6)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MdmAlert)]
+        interface IMdmAlert {
+            Data: String;
+            Format: MdmAlertDataType;
+            Mark: MdmAlertMark;
+            Source: String;
+            #[get]
+            Status: u32;
+            Target: String;
+            Type: String;
+        }
+        #[guid(0xfe89314c_8f64_4797_a9d7_9d88f86ae166)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MdmSession)]
+        interface IMdmSession {
+            #[get]
+            Alerts: super::Foundation::Collections::IVectorView<MdmAlert>;
+            #[get]
+            ExtendedError: HRESULT;
+            #[get]
+            Id: String;
+            #[get]
+            State: MdmSessionState;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn AttachAsync(&self) -> super::Foundation::IAsyncAction;
+            fn Delete(&self);
+            #[Windows::Foundation::Metadata::Overload("StartAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn StartAsync(&self) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("StartWithAlertsAsync")]
+            fn StartAsync(&self, alerts: super::Foundation::Collections::IIterable<MdmAlert>) -> super::Foundation::IAsyncAction;
+        }
+        #[guid(0xcf4ad959_f745_4b79_9b5c_de0bf8efe44b)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MdmSessionManager)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        interface IMdmSessionManagerStatics {
+            #[get]
+            SessionIds: super::Foundation::Collections::IVectorView<String>;
+            fn TryCreateSession(&self) -> MdmSession;
+            fn DeleteSessionById(&self, sessionId: String);
+            fn GetSessionById(&self, sessionId: String) -> MdmSession;
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+        #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        class MdmAlert {
+            IMdmAlert,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        enum MdmAlertDataType {
+            String = 0,
+            Base64 = 1,
+            Boolean = 2,
+            Integer = 3,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        enum MdmAlertMark {
+            None = 0,
+            Fatal = 1,
+            Critical = 2,
+            Warning = 3,
+            Informational = 4,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+        class MdmSession {
+            IMdmSession,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+        #[Windows::Foundation::Metadata::Static(IMdmSessionManagerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        class MdmSessionManager {}
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        enum MdmSessionState {
+            NotStarted = 0,
+            Starting = 1,
+            Connecting = 2,
+            Communicating = 3,
+            AlertStatusAvailable = 4,
+            Retrying = 5,
+            Completed = 6,
+        }
+    }
+}

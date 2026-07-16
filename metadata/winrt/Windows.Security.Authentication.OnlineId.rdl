@@ -1,0 +1,190 @@
+#[winrt]
+mod Windows {
+    mod Security {
+        mod Authentication {
+            mod OnlineId {
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum CredentialPromptType {
+                    PromptIfNeeded = 0,
+                    RetypeCredentials = 1,
+                    DoNotPrompt = 2,
+                }
+                #[guid(0xa003f58a_29ab_4817_b884_d7516dad18b9)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdAuthenticator)]
+                interface IOnlineIdAuthenticator {
+                    #[Windows::Foundation::Metadata::Overload("AuthenticateUserAsync")]
+                    fn AuthenticateUserAsync(&self, request: OnlineIdServiceTicketRequest) -> UserAuthenticationOperation;
+                    #[Windows::Foundation::Metadata::Overload("AuthenticateUserAsyncAdvanced")]
+                    fn AuthenticateUserAsync(&self, requests: super::super::super::Foundation::Collections::IIterable<OnlineIdServiceTicketRequest>, credentialPromptType: CredentialPromptType) -> UserAuthenticationOperation;
+                    fn SignOutUserAsync(&self) -> SignOutUserOperation;
+                    #[set]
+                    ApplicationId: GUID;
+                    #[get]
+                    ApplicationId: GUID;
+                    #[get]
+                    CanSignOut: bool;
+                    #[get]
+                    AuthenticatedSafeCustomerId: String;
+                }
+                #[guid(0xc95c547f_d781_4a94_acb8_c59874238c26)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdServiceTicket)]
+                interface IOnlineIdServiceTicket {
+                    #[get]
+                    Value: String;
+                    #[get]
+                    Request: OnlineIdServiceTicketRequest;
+                    #[get]
+                    ErrorCode: i32;
+                }
+                #[guid(0x297445d3_fb63_4135_8909_4e354c061466)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdServiceTicketRequest)]
+                interface IOnlineIdServiceTicketRequest {
+                    #[get]
+                    Service: String;
+                    #[get]
+                    Policy: String;
+                }
+                #[guid(0xbebb0a08_9e73_4077_9614_08614c0bc245)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdServiceTicketRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IOnlineIdServiceTicketRequestFactory {
+                    fn CreateOnlineIdServiceTicketRequest(&self, service: String, policy: String) -> OnlineIdServiceTicketRequest;
+                    fn CreateOnlineIdServiceTicketRequestAdvanced(&self, service: String) -> OnlineIdServiceTicketRequest;
+                }
+                #[guid(0x5798befb_1de4_4186_a2e6_b563f86aaf44)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdSystemAuthenticatorForUser)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IOnlineIdSystemAuthenticatorForUser {
+                    #[Windows::Foundation::Metadata::Overload("GetTicketAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetTicketAsync(&self, request: OnlineIdServiceTicketRequest) -> super::super::super::Foundation::IAsyncOperation<OnlineIdSystemTicketResult>;
+                    #[set]
+                    ApplicationId: GUID;
+                    #[get]
+                    ApplicationId: GUID;
+                    #[get]
+                    User: super::super::super::System::User;
+                }
+                #[guid(0x85047792_f634_41e3_96a4_5164e902c740)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdSystemAuthenticator)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IOnlineIdSystemAuthenticatorStatics {
+                    #[get]
+                    Default: OnlineIdSystemAuthenticatorForUser;
+                    fn GetForUser(&self, user: super::super::super::System::User) -> OnlineIdSystemAuthenticatorForUser;
+                }
+                #[guid(0x743cd20d_b6ca_434d_8124_53ea12685307)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdSystemIdentity)]
+                interface IOnlineIdSystemIdentity {
+                    #[get]
+                    Ticket: OnlineIdServiceTicket;
+                    #[get]
+                    Id: String;
+                }
+                #[guid(0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(OnlineIdSystemTicketResult)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IOnlineIdSystemTicketResult {
+                    #[get]
+                    Identity: OnlineIdSystemIdentity;
+                    #[get]
+                    Status: OnlineIdSystemTicketStatus;
+                    #[get]
+                    ExtendedError: HRESULT;
+                }
+                #[guid(0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserIdentity)]
+                interface IUserIdentity {
+                    #[get]
+                    Tickets: super::super::super::Foundation::Collections::IVectorView<OnlineIdServiceTicket>;
+                    #[get]
+                    Id: String;
+                    #[get]
+                    SafeCustomerId: String;
+                    #[get]
+                    SignInName: String;
+                    #[get]
+                    FirstName: String;
+                    #[get]
+                    LastName: String;
+                    #[get]
+                    IsBetaAccount: bool;
+                    #[get]
+                    IsConfirmedPC: bool;
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class OnlineIdAuthenticator {
+                    IOnlineIdAuthenticator,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class OnlineIdServiceTicket {
+                    IOnlineIdServiceTicket,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(IOnlineIdServiceTicketRequestFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                class OnlineIdServiceTicketRequest {
+                    IOnlineIdServiceTicketRequest,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IOnlineIdSystemAuthenticatorStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class OnlineIdSystemAuthenticator {}
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class OnlineIdSystemAuthenticatorForUser {
+                    IOnlineIdSystemAuthenticatorForUser,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class OnlineIdSystemIdentity {
+                    IOnlineIdSystemIdentity,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class OnlineIdSystemTicketResult {
+                    IOnlineIdSystemTicketResult,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum OnlineIdSystemTicketStatus {
+                    Success = 0,
+                    Error = 1,
+                    ServiceConnectionError = 2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SignOutUserOperation {
+                    super::super::super::Foundation::IAsyncAction,
+                    super::super::super::Foundation::IAsyncInfo,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class UserAuthenticationOperation {
+                    super::super::super::Foundation::IAsyncOperation<UserIdentity>,
+                    super::super::super::Foundation::IAsyncInfo,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class UserIdentity {
+                    IUserIdentity,
+                }
+            }
+        }
+    }
+}

@@ -2340,17 +2340,17 @@ impl IBackgroundTaskInstance {
             (windows_core::Interface::vtable(self).TriggerDetails)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Canceled<F>(&self, cancelhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Canceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, BackgroundTaskCancellationReason) + Send + 'static,
     {
-        let cancelhandler = <BackgroundTaskCanceledEventHandler>::new(move |a0, a1| {
-            cancelhandler(a0, a1);
+        let handler = <BackgroundTaskCanceledEventHandler>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Canceled)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&cancelhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).Canceled)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveCanceled))
         }
     }
@@ -2376,8 +2376,8 @@ pub trait IBackgroundTaskInstance_Impl: windows_core::IUnknownImpl {
     fn Progress(&self) -> windows_core::Result<u32>;
     fn SetProgress(&self, value: u32) -> windows_core::Result<()>;
     fn TriggerDetails(&self) -> windows_core::Result<windows_core::IInspectable>;
-    fn Canceled(&self, cancelHandler: windows_core::Ref<BackgroundTaskCanceledEventHandler>) -> windows_core::Result<i64>;
-    fn RemoveCanceled(&self, cookie: i64) -> windows_core::Result<()>;
+    fn Canceled(&self, handler: windows_core::Ref<BackgroundTaskCanceledEventHandler>) -> windows_core::Result<i64>;
+    fn RemoveCanceled(&self, token: i64) -> windows_core::Result<()>;
     fn SuspendedCount(&self) -> windows_core::Result<u32>;
     fn GetDeferral(&self) -> windows_core::Result<BackgroundTaskDeferral>;
 }
@@ -2439,10 +2439,10 @@ impl IBackgroundTaskInstance_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn Canceled<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cancelhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn Canceled<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IBackgroundTaskInstance_Impl::Canceled(this, core::mem::transmute_copy(&cancelhandler)) {
+                match IBackgroundTaskInstance_Impl::Canceled(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -2451,10 +2451,10 @@ impl IBackgroundTaskInstance_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveCanceled<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveCanceled<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundTaskInstance_Impl::RemoveCanceled(this, cookie).into()
+                IBackgroundTaskInstance_Impl::RemoveCanceled(this, token).into()
             }
         }
         unsafe extern "system" fn SuspendedCount<Identity: IBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut u32) -> windows_core::HRESULT {
@@ -2559,18 +2559,18 @@ impl IBackgroundTaskInstance2 {
             (windows_core::Interface::vtable(this).TriggerDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Canceled<F>(&self, cancelhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Canceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskInstance>(self)?;
-        let cancelhandler = <BackgroundTaskCanceledEventHandler>::new(move |a0, a1| {
-            cancelhandler(a0, a1);
+        let handler = <BackgroundTaskCanceledEventHandler>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&cancelhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveCanceled))
         }
     }
@@ -2671,18 +2671,18 @@ impl IBackgroundTaskInstance4 {
             (windows_core::Interface::vtable(this).TriggerDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Canceled<F>(&self, cancelhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Canceled<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IBackgroundTaskInstance>(self)?;
-        let cancelhandler = <BackgroundTaskCanceledEventHandler>::new(move |a0, a1| {
-            cancelhandler(a0, a1);
+        let handler = <BackgroundTaskCanceledEventHandler>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&cancelhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveCanceled))
         }
     }
@@ -2810,9 +2810,9 @@ pub trait IBackgroundTaskRegistration_Impl: windows_core::IUnknownImpl {
     fn TaskId(&self) -> windows_core::Result<windows_core::GUID>;
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn Progress(&self, handler: windows_core::Ref<BackgroundTaskProgressEventHandler>) -> windows_core::Result<i64>;
-    fn RemoveProgress(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveProgress(&self, token: i64) -> windows_core::Result<()>;
     fn Completed(&self, handler: windows_core::Ref<BackgroundTaskCompletedEventHandler>) -> windows_core::Result<i64>;
-    fn RemoveCompleted(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveCompleted(&self, token: i64) -> windows_core::Result<()>;
     fn Unregister(&self, cancelTask: bool) -> windows_core::Result<()>;
 }
 impl IBackgroundTaskRegistration_Vtbl {
@@ -2854,10 +2854,10 @@ impl IBackgroundTaskRegistration_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveProgress<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveProgress<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundTaskRegistration_Impl::RemoveProgress(this, cookie).into()
+                IBackgroundTaskRegistration_Impl::RemoveProgress(this, token).into()
             }
         }
         unsafe extern "system" fn Completed<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -2872,10 +2872,10 @@ impl IBackgroundTaskRegistration_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveCompleted<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveCompleted<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IBackgroundTaskRegistration_Impl::RemoveCompleted(this, cookie).into()
+                IBackgroundTaskRegistration_Impl::RemoveCompleted(this, token).into()
             }
         }
         unsafe extern "system" fn Unregister<Identity: IBackgroundTaskRegistration_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, canceltask: bool) -> windows_core::HRESULT {

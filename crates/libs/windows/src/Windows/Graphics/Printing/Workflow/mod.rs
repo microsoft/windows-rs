@@ -810,31 +810,31 @@ impl windows_core::RuntimeType for PrintWorkflowAttributesMergePolicy {
 pub struct PrintWorkflowBackgroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowBackgroundSession {
-    pub fn SetupRequested<F>(&self, setupeventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn SetupRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowBackgroundSetupRequestedEventArgs>) + Send + 'static,
     {
-        let setupeventhandler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowBackgroundSetupRequestedEventArgs>>::new(move |a0, a1| {
-            setupeventhandler(a0, a1);
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowBackgroundSetupRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SetupRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&setupeventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).SetupRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSetupRequested))
         }
     }
-    pub fn Submitted<F>(&self, submittedeventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Submitted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowSubmittedEventArgs>) + Send + 'static,
     {
-        let submittedeventhandler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowSubmittedEventArgs>>::new(move |a0, a1| {
-            submittedeventhandler(a0, a1);
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowSubmittedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Submitted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&submittedeventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).Submitted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSubmitted))
         }
     }
@@ -945,31 +945,31 @@ unsafe impl Sync for PrintWorkflowConfiguration {}
 pub struct PrintWorkflowForegroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowForegroundSession {
-    pub fn SetupRequested<F>(&self, setupeventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn SetupRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowForegroundSetupRequestedEventArgs>) + Send + 'static,
     {
-        let setupeventhandler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowForegroundSetupRequestedEventArgs>>::new(move |a0, a1| {
-            setupeventhandler(a0, a1);
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowForegroundSetupRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).SetupRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&setupeventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).SetupRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveSetupRequested))
         }
     }
-    pub fn XpsDataAvailable<F>(&self, xpsdataavailableeventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn XpsDataAvailable<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintWorkflowXpsDataAvailableEventArgs>) + Send + 'static,
     {
-        let xpsdataavailableeventhandler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowXpsDataAvailableEventArgs>>::new(move |a0, a1| {
-            xpsdataavailableeventhandler(a0, a1);
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintWorkflowXpsDataAvailableEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).XpsDataAvailable)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&xpsdataavailableeventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).XpsDataAvailable)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveXpsDataAvailable))
         }
     }

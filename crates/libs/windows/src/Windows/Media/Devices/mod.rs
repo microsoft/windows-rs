@@ -3576,8 +3576,8 @@ impl PhotoConfirmationControl {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetPixelFormat(&self, format: super::MediaProperties::MediaPixelFormat) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetPixelFormat)(windows_core::Interface::as_raw(self), format).ok() }
+    pub fn SetPixelFormat(&self, value: super::MediaProperties::MediaPixelFormat) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetPixelFormat)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
 impl windows_core::RuntimeType for PhotoConfirmationControl {

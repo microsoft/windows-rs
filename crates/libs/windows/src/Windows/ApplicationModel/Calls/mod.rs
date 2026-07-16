@@ -3635,17 +3635,17 @@ impl VoipCallCoordinator {
             (windows_core::Interface::vtable(self).ReserveCallResourcesAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(taskentrypoint), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MuteStateChanged<F>(&self, mutechangehandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn MuteStateChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<MuteChangeEventArgs>) + Send + 'static,
     {
-        let mutechangehandler = <super::super::Foundation::TypedEventHandler<Self, MuteChangeEventArgs>>::new(move |a0, a1| {
-            mutechangehandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, MuteChangeEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).MuteStateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&mutechangehandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).MuteStateChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMuteStateChanged))
         }
     }
@@ -3854,31 +3854,31 @@ impl VoipPhoneCall {
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveResumeRequested))
         }
     }
-    pub fn AnswerRequested<F>(&self, accepthandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn AnswerRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<CallAnswerEventArgs>) + Send + 'static,
     {
-        let accepthandler = <super::super::Foundation::TypedEventHandler<Self, CallAnswerEventArgs>>::new(move |a0, a1| {
-            accepthandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, CallAnswerEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).AnswerRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&accepthandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).AnswerRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveAnswerRequested))
         }
     }
-    pub fn RejectRequested<F>(&self, rejecthandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn RejectRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<CallRejectEventArgs>) + Send + 'static,
     {
-        let rejecthandler = <super::super::Foundation::TypedEventHandler<Self, CallRejectEventArgs>>::new(move |a0, a1| {
-            rejecthandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, CallRejectEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).RejectRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&rejecthandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).RejectRequested)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveRejectRequested))
         }
     }
