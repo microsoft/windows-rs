@@ -183,7 +183,7 @@ mod Windows {
             fn GetUInt64(&self) -> u64;
             fn GetSingle(&self) -> f32;
             fn GetDouble(&self) -> f64;
-            fn GetChar16(&self) -> u16;
+            fn GetChar16(&self) -> Char16;
             fn GetBoolean(&self) -> bool;
             fn GetString(&self) -> String;
             fn GetGuid(&self) -> GUID;
@@ -201,7 +201,7 @@ mod Windows {
             fn GetUInt64Array(&self, value: &mut [u64]);
             fn GetSingleArray(&self, value: &mut [f32]);
             fn GetDoubleArray(&self, value: &mut [f64]);
-            fn GetChar16Array(&self, value: &mut [u16]);
+            fn GetChar16Array(&self, value: &mut [Char16]);
             fn GetBooleanArray(&self, value: &mut [bool]);
             fn GetStringArray(&self, value: &mut [String]);
             fn GetInspectableArray(&self, value: &mut [Object]);
@@ -227,7 +227,7 @@ mod Windows {
             fn CreateUInt64(&self, value: u64) -> Object;
             fn CreateSingle(&self, value: f32) -> Object;
             fn CreateDouble(&self, value: f64) -> Object;
-            fn CreateChar16(&self, value: u16) -> Object;
+            fn CreateChar16(&self, value: Char16) -> Object;
             fn CreateBoolean(&self, value: bool) -> Object;
             fn CreateString(&self, value: String) -> Object;
             fn CreateInspectable(&self, value: Object) -> Object;
@@ -246,7 +246,7 @@ mod Windows {
             fn CreateUInt64Array(&self, value: [u64]) -> Object;
             fn CreateSingleArray(&self, value: [f32]) -> Object;
             fn CreateDoubleArray(&self, value: [f64]) -> Object;
-            fn CreateChar16Array(&self, value: [u16]) -> Object;
+            fn CreateChar16Array(&self, value: [Char16]) -> Object;
             fn CreateBooleanArray(&self, value: [bool]) -> Object;
             fn CreateStringArray(&self, value: [String]) -> Object;
             fn CreateInspectableArray(&self, value: [Object]) -> Object;

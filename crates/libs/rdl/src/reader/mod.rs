@@ -990,6 +990,7 @@ impl Encoder<'_> {
                 "void" => return Ok(metadata::Type::Void),
                 "String" => return Ok(metadata::Type::String),
                 "Object" => return Ok(metadata::Type::Object),
+                "Char16" => return Ok(metadata::Type::Char),
 
                 _ => {}
             }

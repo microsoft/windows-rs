@@ -331,17 +331,17 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("AddDoubleArrayWithFormatAndTags")]
                 fn AddDoubleArray(&self, name: String, value: [f64], format: LoggingFieldFormat, tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddChar16")]
-                fn AddChar16(&self, name: String, value: u16);
+                fn AddChar16(&self, name: String, value: Char16);
                 #[Windows::Foundation::Metadata::Overload("AddChar16WithFormat")]
-                fn AddChar16(&self, name: String, value: u16, format: LoggingFieldFormat);
+                fn AddChar16(&self, name: String, value: Char16, format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddChar16WithFormatAndTags")]
-                fn AddChar16(&self, name: String, value: u16, format: LoggingFieldFormat, tags: i32);
+                fn AddChar16(&self, name: String, value: Char16, format: LoggingFieldFormat, tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddChar16Array")]
-                fn AddChar16Array(&self, name: String, value: [u16]);
+                fn AddChar16Array(&self, name: String, value: [Char16]);
                 #[Windows::Foundation::Metadata::Overload("AddChar16ArrayWithFormat")]
-                fn AddChar16Array(&self, name: String, value: [u16], format: LoggingFieldFormat);
+                fn AddChar16Array(&self, name: String, value: [Char16], format: LoggingFieldFormat);
                 #[Windows::Foundation::Metadata::Overload("AddChar16ArrayWithFormatAndTags")]
-                fn AddChar16Array(&self, name: String, value: [u16], format: LoggingFieldFormat, tags: i32);
+                fn AddChar16Array(&self, name: String, value: [Char16], format: LoggingFieldFormat, tags: i32);
                 #[Windows::Foundation::Metadata::Overload("AddBoolean")]
                 fn AddBoolean(&self, name: String, value: bool);
                 #[Windows::Foundation::Metadata::Overload("AddBooleanWithFormat")]

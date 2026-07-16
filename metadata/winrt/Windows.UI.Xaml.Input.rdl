@@ -216,7 +216,7 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICharacterReceivedRoutedEventArgs {
                     #[get]
-                    Character: u16;
+                    Character: Char16;
                     #[get]
                     KeyStatus: super::super::Core::CorePhysicalKeyStatus;
                     Handled: bool;

@@ -93,7 +93,7 @@ mod Windows {
                     fn ConvertValue(&self, r#type: super::Interop::TypeName, value: Object) -> Object;
                     fn SetPropertyFromString(&self, dependencyObject: Object, propertyToSet: super::DependencyProperty, value: String);
                     fn SetPropertyFromBoolean(&self, dependencyObject: Object, propertyToSet: super::DependencyProperty, value: bool);
-                    fn SetPropertyFromChar16(&self, dependencyObject: Object, propertyToSet: super::DependencyProperty, value: u16);
+                    fn SetPropertyFromChar16(&self, dependencyObject: Object, propertyToSet: super::DependencyProperty, value: Char16);
                     fn SetPropertyFromDateTime(&self, dependencyObject: Object, propertyToSet: super::DependencyProperty, value: super::super::super::Foundation::DateTime);
                     fn SetPropertyFromDouble(&self, dependencyObject: Object, propertyToSet: super::DependencyProperty, value: f64);
                     fn SetPropertyFromInt32(&self, dependencyObject: Object, propertyToSet: super::DependencyProperty, value: i32);

@@ -1,0 +1,12 @@
+#[winrt]
+mod Test {
+    struct CharValue {
+        Value: Char16,
+    }
+    interface ICharTest {
+        fn GetChar(&self) -> Char16;
+        fn SetChar(&self, value: Char16);
+        fn GetCharArray(&self, value: &mut [Char16]);
+        fn CreateCharArray(&self, value: [Char16]) -> Object;
+    }
+}

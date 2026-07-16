@@ -159,7 +159,7 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(UnicodeCharacters)]
             interface IUnicodeCharactersStatics {
                 fn GetCodepointFromSurrogatePair(&self, highSurrogate: u32, lowSurrogate: u32) -> u32;
-                fn GetSurrogatePairFromCodepoint(&self, codepoint: u32, highSurrogate: &mut u16, lowSurrogate: &mut u16);
+                fn GetSurrogatePairFromCodepoint(&self, codepoint: u32, highSurrogate: &mut Char16, lowSurrogate: &mut Char16);
                 fn IsHighSurrogate(&self, codepoint: u32) -> bool;
                 fn IsLowSurrogate(&self, codepoint: u32) -> bool;
                 fn IsSupplementary(&self, codepoint: u32) -> bool;
