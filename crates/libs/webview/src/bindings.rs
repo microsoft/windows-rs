@@ -375,6 +375,26 @@ impl ICoreWebView2 {
             )
         }
     }
+    pub(crate) unsafe fn CallDevToolsProtocolMethod<P0, P1, P2>(
+        &self,
+        methodname: P0,
+        parametersasjson: P1,
+        handler: P2,
+    ) -> windows_core::HRESULT
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+        P1: windows_core::Param<windows_core::PCWSTR>,
+        P2: windows_core::Param<ICoreWebView2CallDevToolsProtocolMethodCompletedHandler>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).CallDevToolsProtocolMethod)(
+                windows_core::Interface::as_raw(self),
+                methodname.param().abi(),
+                parametersasjson.param().abi(),
+                handler.param().abi(),
+            )
+        }
+    }
     pub(crate) unsafe fn GoBack(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GoBack)(windows_core::Interface::as_raw(self))
@@ -383,6 +403,23 @@ impl ICoreWebView2 {
     pub(crate) unsafe fn GoForward(&self) -> windows_core::HRESULT {
         unsafe {
             (windows_core::Interface::vtable(self).GoForward)(windows_core::Interface::as_raw(self))
+        }
+    }
+    pub(crate) unsafe fn GetDevToolsProtocolEventReceiver<P0>(
+        &self,
+        eventname: P0,
+    ) -> windows_core::Result<ICoreWebView2DevToolsProtocolEventReceiver>
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).GetDevToolsProtocolEventReceiver)(
+                windows_core::Interface::as_raw(self),
+                eventname.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub(crate) unsafe fn Stop(&self) -> windows_core::HRESULT {
@@ -675,13 +712,22 @@ pub struct ICoreWebView2_Vtbl {
     ) -> windows_core::HRESULT,
     pub remove_WebMessageReceived:
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    CallDevToolsProtocolMethod: usize,
+    pub CallDevToolsProtocolMethod: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+        windows_core::PCWSTR,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     BrowserProcessId: usize,
     CanGoBack: usize,
     CanGoForward: usize,
     pub GoBack: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GoForward: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
-    GetDevToolsProtocolEventReceiver: usize,
+    pub GetDevToolsProtocolEventReceiver: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub Stop: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub add_NewWindowRequested: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -991,6 +1037,67 @@ impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
     }
 }
 impl windows_core::RuntimeName for ICoreWebView2BytesReceivedChangedEventHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2CallDevToolsProtocolMethodCompletedHandler,
+    ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl,
+    0x5c4889f0_5ef6_4c5a_952c_d8f1b92d0574
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2CallDevToolsProtocolMethodCompletedHandler,
+    windows_core::IUnknown
+);
+#[repr(C)]
+pub struct ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::HRESULT,
+        windows_core::PCWSTR,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl:
+    windows_core::IUnknownImpl
+{
+    fn Invoke(
+        &self,
+        errorcode: windows_core::HRESULT,
+        result: &windows_core::PCWSTR,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            errorcode: windows_core::HRESULT,
+            result: windows_core::PCWSTR,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&errorcode),
+                    core::mem::transmute(&result),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == & < ICoreWebView2CallDevToolsProtocolMethodCompletedHandler as windows_core::Interface >::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2ClearBrowsingDataCompletedHandler,
     ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl,
@@ -2209,6 +2316,144 @@ impl ICoreWebView2Deferral {
 pub struct ICoreWebView2Deferral_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub Complete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2DevToolsProtocolEventReceivedEventArgs,
+    ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl,
+    0x653c2959_bb3a_4377_8632_b58ada4e66c4
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2DevToolsProtocolEventReceivedEventArgs,
+    windows_core::IUnknown
+);
+impl ICoreWebView2DevToolsProtocolEventReceivedEventArgs {
+    pub(crate) unsafe fn ParameterObjectAsJson(&self) -> windows_core::Result<LPWSTR> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).ParameterObjectAsJson)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub ParameterObjectAsJson:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut LPWSTR) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICoreWebView2DevToolsProtocolEventReceivedEventHandler,
+    ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl,
+    0xe2fda4be_5456_406c_a261_3d452138362c
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2DevToolsProtocolEventReceivedEventHandler,
+    windows_core::IUnknown
+);
+#[repr(C)]
+pub struct ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub Invoke: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+pub trait ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl:
+    windows_core::IUnknownImpl
+{
+    fn Invoke(
+        &self,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2DevToolsProtocolEventReceivedEventArgs>,
+    ) -> windows_core::Result<()>;
+}
+impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
+    pub const fn new<
+        Identity: ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl,
+        const OFFSET: isize,
+    >() -> Self {
+        unsafe extern "system" fn Invoke<
+            Identity: ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            sender: *mut core::ffi::c_void,
+            args: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl::Invoke(
+                    this,
+                    core::mem::transmute_copy(&sender),
+                    core::mem::transmute_copy(&args),
+                )
+                .into()
+            }
+        }
+        Self {
+            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
+            Invoke: Invoke::<Identity, OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == & < ICoreWebView2DevToolsProtocolEventReceivedEventHandler as windows_core::Interface >::IID
+    }
+}
+impl windows_core::RuntimeName for ICoreWebView2DevToolsProtocolEventReceivedEventHandler {}
+windows_core::imp::define_interface!(
+    ICoreWebView2DevToolsProtocolEventReceiver,
+    ICoreWebView2DevToolsProtocolEventReceiver_Vtbl,
+    0xb32ca51a_8371_45e9_9317_af021d080367
+);
+windows_core::imp::interface_hierarchy!(
+    ICoreWebView2DevToolsProtocolEventReceiver,
+    windows_core::IUnknown
+);
+impl ICoreWebView2DevToolsProtocolEventReceiver {
+    pub(crate) unsafe fn add_DevToolsProtocolEventReceived<P0>(
+        &self,
+        eventhandler: P0,
+    ) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<ICoreWebView2DevToolsProtocolEventReceivedEventHandler>,
+    {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).add_DevToolsProtocolEventReceived)(
+                windows_core::Interface::as_raw(self),
+                eventhandler.param().abi(),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn remove_DevToolsProtocolEventReceived(
+        &self,
+        token: i64,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).remove_DevToolsProtocolEventReceived)(
+                windows_core::Interface::as_raw(self),
+                token,
+            )
+        }
+    }
+}
+#[repr(C)]
+pub struct ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {
+    pub base__: windows_core::IUnknown_Vtbl,
+    pub add_DevToolsProtocolEventReceived: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub remove_DevToolsProtocolEventReceived:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     ICoreWebView2DocumentTitleChangedEventHandler,
