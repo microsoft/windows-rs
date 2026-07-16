@@ -1,0 +1,52 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        struct AUDIO_VOLUME_NOTIFICATION_DATA {
+            guidEventContext: GUID,
+            bMuted: BOOL,
+            fMasterVolume: f32,
+            nChannels: u32,
+            afChannelVolumes: [f32; 1],
+        }
+        const ENDPOINT_HARDWARE_SUPPORT_METER: u32 = 4;
+        const ENDPOINT_HARDWARE_SUPPORT_MUTE: u32 = 2;
+        const ENDPOINT_HARDWARE_SUPPORT_VOLUME: u32 = 1;
+        #[guid(0x5cdf2c82_841e_4546_9722_0cf74078229a)]
+        interface IAudioEndpointVolume: IUnknown {
+            fn RegisterControlChangeNotify(&self, pNotify: IAudioEndpointVolumeCallback) -> HRESULT;
+            fn UnregisterControlChangeNotify(&self, pNotify: IAudioEndpointVolumeCallback) -> HRESULT;
+            fn GetChannelCount(&self, pnChannelCount: *mut u32) -> HRESULT;
+            fn SetMasterVolumeLevel(&self, fLevelDB: f32, pguidEventContext: *const GUID) -> HRESULT;
+            fn SetMasterVolumeLevelScalar(&self, fLevel: f32, pguidEventContext: *const GUID) -> HRESULT;
+            fn GetMasterVolumeLevel(&self, pfLevelDB: *mut f32) -> HRESULT;
+            fn GetMasterVolumeLevelScalar(&self, pfLevel: *mut f32) -> HRESULT;
+            fn SetChannelVolumeLevel(&self, nChannel: u32, fLevelDB: f32, pguidEventContext: *const GUID) -> HRESULT;
+            fn SetChannelVolumeLevelScalar(&self, nChannel: u32, fLevel: f32, pguidEventContext: *const GUID) -> HRESULT;
+            fn GetChannelVolumeLevel(&self, nChannel: u32, pfLevelDB: *mut f32) -> HRESULT;
+            fn GetChannelVolumeLevelScalar(&self, nChannel: u32, pfLevel: *mut f32) -> HRESULT;
+            fn SetMute(&self, bMute: BOOL, pguidEventContext: *const GUID) -> HRESULT;
+            fn GetMute(&self, pbMute: *mut BOOL) -> HRESULT;
+            fn GetVolumeStepInfo(&self, pnStep: *mut u32, pnStepCount: *mut u32) -> HRESULT;
+            fn VolumeStepUp(&self, pguidEventContext: *const GUID) -> HRESULT;
+            fn VolumeStepDown(&self, pguidEventContext: *const GUID) -> HRESULT;
+            fn QueryHardwareSupport(&self, pdwHardwareSupportMask: *mut u32) -> HRESULT;
+            fn GetVolumeRange(&self, pflVolumeMindB: *mut f32, pflVolumeMaxdB: *mut f32, pflVolumeIncrementdB: *mut f32) -> HRESULT;
+        }
+        #[guid(0x657804fa_d6ad_4496_8a60_352752af4f89)]
+        interface IAudioEndpointVolumeCallback: IUnknown {
+            fn OnNotify(&self, pNotify: *mut AUDIO_VOLUME_NOTIFICATION_DATA) -> HRESULT;
+        }
+        #[guid(0x66e11784_f695_4f28_a505_a7080081a78f)]
+        interface IAudioEndpointVolumeEx: IAudioEndpointVolume {
+            fn GetVolumeRangeChannel(&self, iChannel: u32, pflVolumeMindB: *mut f32, pflVolumeMaxdB: *mut f32, pflVolumeIncrementdB: *mut f32) -> HRESULT;
+        }
+        #[guid(0xc02216f6_8c67_4b5b_9d00_d008e73e0064)]
+        interface IAudioMeterInformation: IUnknown {
+            fn GetPeakValue(&self, pfPeak: *mut f32) -> HRESULT;
+            fn GetMeteringChannelCount(&self, pnChannelCount: *mut u32) -> HRESULT;
+            fn GetChannelsPeakValues(&self, u32ChannelCount: u32, afPeakValues: *mut f32) -> HRESULT;
+            fn QueryHardwareSupport(&self, pdwHardwareSupportMask: *mut u32) -> HRESULT;
+        }
+        type PAUDIO_VOLUME_NOTIFICATION_DATA = *mut AUDIO_VOLUME_NOTIFICATION_DATA;
+    }
+}
