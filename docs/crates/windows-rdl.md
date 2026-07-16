@@ -380,7 +380,15 @@ Three levels of evidence were gathered:
   100% of the original SDK winmd — anything dropped at that first boundary would be
   absent from both A and B and thus invisible to the diff. Closing that last gap
   requires a **semantic** comparison of the original SDK-merged winmd against
-  winmd′ (table/row level), which was not built here.
+  winmd′ (table/row level), which was not built here. **This caveat proved real:**
+  the WinRT `Char` primitive (`System.Char`) was written as `u16` — identical to
+  `U16` — so the round-trip silently collapsed `Char → U16`. Idempotence never saw
+  it (the writer mapped both to `u16` in *both* directions); it surfaced only when
+  the RDL-rebuilt `Windows.winmd` broke the cppwinrt C++ header build
+  (`CreateChar16Array` became `uint16_t[]`). Fixed by giving `Char` the dedicated
+  RDL spelling `Char16` (mapped to `metadata::Type::Char` in the shared
+  `emit.rs` writer and the RDL reader), with a `char16`
+  round-trip fixture in `test_rdl`.
 
 ### Gaps to close
 
@@ -394,9 +402,13 @@ Three levels of evidence were gathered:
    so CI regenerates the WinRT RDL + winmd and fails on any `git diff`. The bitrotted
    `tool_rdl_roundtrip` has been removed and superseded by `tool_roundtrip`.
 
-3. **First-boundary losslessness is unproven for WinRT.** Still open: only a
-   semantic original-vs-round-tripped winmd comparison would fully close the loop;
-   idempotence alone does not.
+3. **First-boundary losslessness is only spot-checked for WinRT.** Partially
+   addressed: the `Char → U16` collapse was found (via the cppwinrt build) and
+   fixed with the `Char16` primitive, and a per-namespace comparison of the
+   SDK-merged winmd against the RDL-rebuilt `metadata/winrt` now shows only the
+   expected accessor param-name normalization. Still open as a *systematic* guard:
+   a table/row-level semantic winmd differ would catch any future first-boundary
+   loss automatically instead of relying on a downstream build to break.
 
 4. **Documented cosmetic asymmetries** (raw identifiers, GUID constants, delegate
    ABI spelling; see *Known limitations* above) would produce spurious diffs in a
