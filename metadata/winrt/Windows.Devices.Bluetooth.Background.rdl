@@ -1,0 +1,171 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Bluetooth {
+            mod Background {
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum BluetoothEventTriggeringMode {
+                    Serial = 0,
+                    Batch = 1,
+                    KeepLatest = 2,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class BluetoothLEAdvertisementPublisherTriggerDetails {
+                    IBluetoothLEAdvertisementPublisherTriggerDetails,
+                    IBluetoothLEAdvertisementPublisherTriggerDetails2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class BluetoothLEAdvertisementWatcherTriggerDetails {
+                    IBluetoothLEAdvertisementWatcherTriggerDetails,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattCharacteristicNotificationTriggerDetails {
+                    IGattCharacteristicNotificationTriggerDetails,
+                    IGattCharacteristicNotificationTriggerDetails2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Static(IGattServiceProviderConnectionStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GattServiceProviderConnection {
+                    IGattServiceProviderConnection,
+                    IGattServiceProviderConnection2,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class GattServiceProviderTriggerDetails {
+                    IGattServiceProviderTriggerDetails,
+                }
+                #[guid(0x610eca86_3480_41c9_a918_7ddadf207e00)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisherTriggerDetails)]
+                interface IBluetoothLEAdvertisementPublisherTriggerDetails {
+                    #[get]
+                    Status: super::Advertisement::BluetoothLEAdvertisementPublisherStatus;
+                    #[get]
+                    Error: super::BluetoothError;
+                }
+                #[guid(0xd4a3d025_c601_42d6_9829_4ccb3f5cd77f)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisherTriggerDetails)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                interface IBluetoothLEAdvertisementPublisherTriggerDetails2 {
+                    #[get]
+                    SelectedTransmitPowerLevelInDBm: super::super::super::Foundation::IReference<i16>;
+                }
+                #[guid(0xa7db5ad7_2257_4e69_9784_fee645c1dce0)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementWatcherTriggerDetails)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IBluetoothLEAdvertisementWatcherTriggerDetails {
+                    #[get]
+                    Error: super::BluetoothError;
+                    #[get]
+                    Advertisements: super::super::super::Foundation::Collections::IVectorView<super::Advertisement::BluetoothLEAdvertisementReceivedEventArgs>;
+                    #[get]
+                    SignalStrengthFilter: super::BluetoothSignalStrengthFilter;
+                }
+                #[guid(0x9ba03b18_0fec_436a_93b1_f46c697532a2)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristicNotificationTriggerDetails)]
+                interface IGattCharacteristicNotificationTriggerDetails {
+                    #[get]
+                    Characteristic: super::GenericAttributeProfile::GattCharacteristic;
+                    #[get]
+                    Value: super::super::super::Storage::Streams::IBuffer;
+                }
+                #[guid(0x727a50dc_949d_454a_b192_983467e3d50f)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattCharacteristicNotificationTriggerDetails)]
+                interface IGattCharacteristicNotificationTriggerDetails2 {
+                    #[get]
+                    Error: super::BluetoothError;
+                    #[get]
+                    EventTriggeringMode: BluetoothEventTriggeringMode;
+                    #[get]
+                    ValueChangedEvents: super::super::super::Foundation::Collections::IVectorView<super::GenericAttributeProfile::GattValueChangedEventArgs>;
+                }
+                #[guid(0x7fa1b9b9_2f13_40b5_9582_8eb78e98ef13)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderConnection)]
+                interface IGattServiceProviderConnection {
+                    #[get]
+                    TriggerId: String;
+                    #[get]
+                    Service: super::GenericAttributeProfile::GattLocalService;
+                    fn Start(&self);
+                }
+                #[guid(0x90d12be0_ebc0_484f_ae0a_7eb8b6266bac)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderConnection)]
+                interface IGattServiceProviderConnection2 {
+                    fn UpdateAdvertisingParameters(&self, parameters: super::GenericAttributeProfile::GattServiceProviderAdvertisingParameters);
+                }
+                #[guid(0x3d509f4b_0b0e_4466_b8cd_6ebdda1fa17d)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderConnection)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IGattServiceProviderConnectionStatics {
+                    #[get]
+                    AllServices: super::super::super::Foundation::Collections::IMapView<String, GattServiceProviderConnection>;
+                }
+                #[guid(0xae8c0625_05ff_4afb_b16a_de95f3cf0158)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderTriggerDetails)]
+                interface IGattServiceProviderTriggerDetails {
+                    #[get]
+                    Connection: GattServiceProviderConnection;
+                }
+                #[guid(0xf922734d_2e3c_4efc_ab59_fc5cf96f97e3)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommConnectionTriggerDetails)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IRfcommConnectionTriggerDetails {
+                    #[get]
+                    Socket: super::super::super::Networking::Sockets::StreamSocket;
+                    #[get]
+                    Incoming: bool;
+                    #[get]
+                    RemoteDevice: super::BluetoothDevice;
+                }
+                #[guid(0x6d3e75a8_5429_4059_92e3_1e8b65528707)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommInboundConnectionInformation)]
+                interface IRfcommInboundConnectionInformation {
+                    SdpRecord: super::super::super::Storage::Streams::IBuffer;
+                    LocalServiceId: super::Rfcomm::RfcommServiceId;
+                    ServiceCapabilities: super::BluetoothServiceCapabilities;
+                }
+                #[guid(0xb091227b_f434_4cb0_99b1_4ab8cedaedd7)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommOutboundConnectionInformation)]
+                interface IRfcommOutboundConnectionInformation {
+                    RemoteServiceId: super::Rfcomm::RfcommServiceId;
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class RfcommConnectionTriggerDetails {
+                    IRfcommConnectionTriggerDetails,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class RfcommInboundConnectionInformation {
+                    IRfcommInboundConnectionInformation,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class RfcommOutboundConnectionInformation {
+                    IRfcommOutboundConnectionInformation,
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,270 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Input {
+            #[guid(0x3a3f9b56_6798_4bbc_833e_0f34b17c65ff)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(KeyboardCapabilities)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IKeyboardCapabilities {
+                #[get]
+                KeyboardPresent: i32;
+            }
+            #[guid(0xbca5e023_7dd9_4b6b_9a92_55d43cb38f73)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MouseCapabilities)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMouseCapabilities {
+                #[get]
+                MousePresent: i32;
+                #[get]
+                VerticalWheelPresent: i32;
+                #[get]
+                HorizontalWheelPresent: i32;
+                #[get]
+                SwapButtons: i32;
+                #[get]
+                NumberOfButtons: u32;
+            }
+            #[guid(0x88edf458_f2c8_49f4_be1f_c256b388bc11)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MouseDevice)]
+            interface IMouseDevice {
+                event MouseMoved: super::super::Foundation::TypedEventHandler<MouseDevice, MouseEventArgs>;
+            }
+            #[guid(0x484a9045_6d70_49db_8e68_46ffbd17d38d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MouseDevice)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMouseDeviceStatics {
+                fn GetForCurrentView(&self) -> MouseDevice;
+            }
+            #[guid(0xf625aa5d_2354_4cc7_9230_96941c969fde)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MouseEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMouseEventArgs {
+                #[get]
+                MouseDelta: MouseDelta;
+            }
+            #[guid(0x8245c376_1ee3_53f7_b1f7_8334a16f2815)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PenButtonListener)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IPenButtonListener {
+                fn IsSupported(&self) -> bool;
+                event IsSupportedChanged: super::super::Foundation::TypedEventHandler<PenButtonListener, Object>;
+                event TailButtonClicked: super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonClickedEventArgs>;
+                event TailButtonDoubleClicked: super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonDoubleClickedEventArgs>;
+                event TailButtonLongPressed: super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonLongPressedEventArgs>;
+            }
+            #[guid(0x19a8a584_862f_5f69_bfea_05f6584f133f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PenButtonListener)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IPenButtonListenerStatics {
+                fn GetDefault(&self) -> PenButtonListener;
+            }
+            #[guid(0x31856eba_a738_5a8c_b8f6_f97ef68d18ef)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PenDevice)]
+            interface IPenDevice {
+                #[get]
+                PenId: GUID;
+            }
+            #[guid(0x0207d327_7fb8_5566_8c34_f8342037b7f9)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 917504)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PenDevice)]
+            interface IPenDevice2 {
+                #[get]
+                SimpleHapticsController: super::Haptics::SimpleHapticsController;
+            }
+            #[guid(0x9dfbbe01_0966_5180_bcb4_b85060e39479)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PenDevice)]
+            interface IPenDeviceStatics {
+                fn GetFromPointerId(&self, pointerId: u32) -> PenDevice;
+            }
+            #[guid(0x759f4d90_1dc0_55cb_ad18_b9101456f592)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PenDockListener)]
+            interface IPenDockListener {
+                fn IsSupported(&self) -> bool;
+                event IsSupportedChanged: super::super::Foundation::TypedEventHandler<PenDockListener, Object>;
+                event Docked: super::super::Foundation::TypedEventHandler<PenDockListener, PenDockedEventArgs>;
+                event Undocked: super::super::Foundation::TypedEventHandler<PenDockListener, PenUndockedEventArgs>;
+            }
+            #[guid(0xcab75e9a_0016_5c72_969e_a97e11992a93)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PenDockListener)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IPenDockListenerStatics {
+                fn GetDefault(&self) -> PenDockListener;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PenDockedEventArgs)]
+            interface IPenDockedEventArgs {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PenTailButtonClickedEventArgs)]
+            interface IPenTailButtonClickedEventArgs {}
+            #[Windows::Foundation::Metadata::ExclusiveTo(PenTailButtonDoubleClickedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IPenTailButtonDoubleClickedEventArgs {}
+            #[Windows::Foundation::Metadata::ExclusiveTo(PenTailButtonLongPressedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IPenTailButtonLongPressedEventArgs {}
+            #[Windows::Foundation::Metadata::ExclusiveTo(PenUndockedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IPenUndockedEventArgs {}
+            #[guid(0x93c9bafc_ebcb_467e_82c6_276feae36b5a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PointerDevice)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPointerDevice {
+                #[get]
+                PointerDeviceType: PointerDeviceType;
+                #[get]
+                IsIntegrated: bool;
+                #[get]
+                MaxContacts: u32;
+                #[get]
+                PhysicalDeviceRect: super::super::Foundation::Rect;
+                #[get]
+                ScreenRect: super::super::Foundation::Rect;
+                #[get]
+                SupportedUsages: super::super::Foundation::Collections::IVectorView<PointerDeviceUsage>;
+            }
+            #[guid(0xf8a6d2a0_c484_489f_ae3e_30d2ee1ffd3e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PointerDevice)]
+            interface IPointerDevice2 {
+                #[get]
+                MaxPointersWithZDistance: u32;
+            }
+            #[guid(0xd8b89aa1_d1c6_416e_bd8d_5790914dc563)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PointerDevice)]
+            interface IPointerDeviceStatics {
+                fn GetPointerDevice(&self, pointerId: u32) -> PointerDevice;
+                fn GetPointerDevices(&self) -> super::super::Foundation::Collections::IVectorView<PointerDevice>;
+            }
+            #[guid(0x20dd55f9_13f1_46c8_9285_2c05fa3eda6f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TouchCapabilities)]
+            interface ITouchCapabilities {
+                #[get]
+                TouchPresent: i32;
+                #[get]
+                Contacts: u32;
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class KeyboardCapabilities {
+                IKeyboardCapabilities,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MouseCapabilities {
+                IMouseCapabilities,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct MouseDelta {
+                X: i32,
+                Y: i32,
+            }
+            #[Windows::Foundation::Metadata::Static(IMouseDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class MouseDevice {
+                IMouseDevice,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MouseEventArgs {
+                IMouseEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IPenButtonListenerStatics, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            class PenButtonListener {
+                IPenButtonListener,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::Static(IPenDeviceStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class PenDevice {
+                IPenDevice,
+                IPenDevice2,
+            }
+            #[Windows::Foundation::Metadata::Static(IPenDockListenerStatics, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PenDockListener {
+                IPenDockListener,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            class PenDockedEventArgs {
+                IPenDockedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            class PenTailButtonClickedEventArgs {
+                IPenTailButtonClickedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PenTailButtonDoubleClickedEventArgs {
+                IPenTailButtonDoubleClickedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class PenTailButtonLongPressedEventArgs {
+                IPenTailButtonLongPressedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class PenUndockedEventArgs {
+                IPenUndockedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(None)]
+            #[Windows::Foundation::Metadata::Static(IPointerDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PointerDevice {
+                IPointerDevice,
+                IPointerDevice2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PointerDeviceType {
+                Touch = 0,
+                Pen = 1,
+                Mouse = 2,
+                Touchpad = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct PointerDeviceUsage {
+                UsagePage: u32,
+                Usage: u32,
+                MinLogical: i32,
+                MaxLogical: i32,
+                MinPhysical: i32,
+                MaxPhysical: i32,
+                Unit: u32,
+                PhysicalMultiplier: f32,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class TouchCapabilities {
+                ITouchCapabilities,
+            }
+        }
+    }
+}

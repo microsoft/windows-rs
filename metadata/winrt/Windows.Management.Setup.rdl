@@ -1,0 +1,203 @@
+#[winrt]
+mod Windows {
+    mod Management {
+        mod Setup {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Activatable(1048576, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AgentProvisioningProgressReport {
+                IAgentProvisioningProgressReport,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            enum DeploymentAgentProgressState {
+                NotStarted = 0,
+                Initializing = 1,
+                InProgress = 2,
+                Completed = 3,
+                ErrorOccurred = 4,
+                RebootRequired = 5,
+                Canceled = 6,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            enum DeploymentSessionConnectionChange {
+                NoChange = 0,
+                HostConnectionLost = 1,
+                HostConnectionRestored = 2,
+                AgentConnectionLost = 3,
+                AgentConnectionRestored = 4,
+                InternetConnectionLost = 5,
+                InternetConnectionRestored = 6,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class DeploymentSessionConnectionChangedEventArgs {
+                IDeploymentSessionConnectionChangedEventArgs,
+            }
+            #[guid(0xc94a770b_5b05_4595_9e69_79070484377e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            delegate fn DeploymentSessionHeartbeatRequested(eventArgs: DeploymentSessionHeartbeatRequestedEventArgs);
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            class DeploymentSessionHeartbeatRequestedEventArgs {
+                IDeploymentSessionHeartbeatRequestedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            enum DeploymentSessionStateChange {
+                NoChange = 0,
+                CancelRequestedByUser = 1,
+                RetryRequestedByUser = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class DeploymentSessionStateChangedEventArgs {
+                IDeploymentSessionStateChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Activatable(IDeploymentWorkloadFactory, 1048576, "Windows.Foundation.UniversalApiContract")]
+            class DeploymentWorkload {
+                IDeploymentWorkload,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(IDeploymentWorkloadBatchFactory, 1048576, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            class DeploymentWorkloadBatch {
+                IDeploymentWorkloadBatch,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            enum DeploymentWorkloadState {
+                NotStarted = 0,
+                InProgress = 1,
+                Completed = 2,
+                Failed = 3,
+                Canceled = 4,
+                Skipped = 5,
+                Uninstalled = 6,
+                RebootRequired = 7,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            class DevicePreparationExecutionContext {
+                IDevicePreparationExecutionContext,
+            }
+            #[guid(0x5097398a_70cc_5181_a7af_d31c167323d1)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AgentProvisioningProgressReport)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            interface IAgentProvisioningProgressReport {
+                State: DeploymentAgentProgressState;
+                ProgressPercentage: f64;
+                EstimatedTimeRemaining: super::super::Foundation::TimeSpan;
+                DisplayProgress: String;
+                DisplayProgressSecondary: String;
+                #[get]
+                Batches: super::super::Foundation::Collections::IVector<DeploymentWorkloadBatch>;
+                CurrentBatchIndex: u32;
+            }
+            #[guid(0x8d40c631_6e4b_5d59_92f8_0de54c2a3c6b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeploymentSessionConnectionChangedEventArgs)]
+            interface IDeploymentSessionConnectionChangedEventArgs {
+                #[get]
+                SessionId: String;
+                #[get]
+                Change: DeploymentSessionConnectionChange;
+            }
+            #[guid(0x09d81fa0_1036_58e6_b63b_fe343c45005f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeploymentSessionHeartbeatRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            interface IDeploymentSessionHeartbeatRequestedEventArgs {
+                Handled: bool;
+            }
+            #[guid(0xfbd3b7f3_88cb_5703_b8a5_0218de8fed81)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeploymentSessionStateChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            interface IDeploymentSessionStateChangedEventArgs {
+                #[get]
+                SessionId: String;
+                #[get]
+                Change: DeploymentSessionStateChange;
+            }
+            #[guid(0x1cefd3d4_456c_50d1_9312_cc5c818fc12e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeploymentWorkload)]
+            interface IDeploymentWorkload {
+                #[get]
+                Id: String;
+                DisplayFriendlyName: String;
+                StartTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                EndTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                ErrorCode: u32;
+                ErrorMessage: String;
+                PossibleCause: String;
+                PossibleResolution: String;
+                State: DeploymentWorkloadState;
+                StateDetails: String;
+            }
+            #[guid(0x5e56e3df_b9c0_5fee_ba3f_e89d800a9bf2)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeploymentWorkloadBatch)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            interface IDeploymentWorkloadBatch {
+                #[get]
+                Id: u32;
+                DisplayCategoryTitle: String;
+                #[get]
+                BatchWorkloads: super::super::Foundation::Collections::IVector<DeploymentWorkload>;
+            }
+            #[guid(0xd0209697_9560_5a05_bdf6_f1af535cb0d4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeploymentWorkloadBatch)]
+            interface IDeploymentWorkloadBatchFactory {
+                fn CreateInstance(&self, id: u32) -> DeploymentWorkloadBatch;
+            }
+            #[guid(0x41426c72_22a3_5339_bdf1_51268169aa61)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeploymentWorkload)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            interface IDeploymentWorkloadFactory {
+                fn CreateInstance(&self, id: String) -> DeploymentWorkload;
+            }
+            #[guid(0x084f221b_2484_5e81_a4e7_83f6caf19dc4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DevicePreparationExecutionContext)]
+            interface IDevicePreparationExecutionContext {
+                #[get]
+                Context: String;
+            }
+            #[guid(0xebd8677f_dfd2_59da_ac3d_753ee1667cbb)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MachineProvisioningProgressReporter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            interface IMachineProvisioningProgressReporter {
+                #[get]
+                SessionId: GUID;
+                #[get]
+                SessionConnection: DeploymentSessionConnectionChange;
+                #[get]
+                SessionState: DeploymentSessionStateChange;
+                event SessionStateChanged: super::super::Foundation::TypedEventHandler<MachineProvisioningProgressReporter, DeploymentSessionStateChangedEventArgs>;
+                event SessionConnectionChanged: super::super::Foundation::TypedEventHandler<MachineProvisioningProgressReporter, DeploymentSessionConnectionChangedEventArgs>;
+                fn ReportProgress(&self, updateReport: AgentProvisioningProgressReport);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetDevicePreparationExecutionContextAsync(&self) -> super::super::Foundation::IAsyncOperation<DevicePreparationExecutionContext>;
+            }
+            #[guid(0x77682c17_5da3_51fc_a042_c7b53458ddb5)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MachineProvisioningProgressReporter)]
+            interface IMachineProvisioningProgressReporterStatics {
+                fn GetForLaunchUri(&self, launchUri: super::super::Foundation::Uri, heartbeatHandler: DeploymentSessionHeartbeatRequested) -> MachineProvisioningProgressReporter;
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IMachineProvisioningProgressReporterStatics, 1048576, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1048576)]
+            class MachineProvisioningProgressReporter {
+                IMachineProvisioningProgressReporter,
+            }
+        }
+    }
+}

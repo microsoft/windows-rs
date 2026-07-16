@@ -388,7 +388,7 @@ impl windows_core::RuntimeName for IMemoryBufferReference {
 pub trait IMemoryBufferReference_Impl: IClosable_Impl {
     fn Capacity(&self) -> windows_core::Result<u32>;
     fn Closed(&self, handler: windows_core::Ref<TypedEventHandler<IMemoryBufferReference, windows_core::IInspectable>>) -> windows_core::Result<i64>;
-    fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveClosed(&self, token: i64) -> windows_core::Result<()>;
 }
 impl IMemoryBufferReference_Vtbl {
     pub const fn new<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>() -> Self {
@@ -416,10 +416,10 @@ impl IMemoryBufferReference_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveClosed<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Identity: IMemoryBufferReference_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IMemoryBufferReference_Impl::RemoveClosed(this, cookie).into()
+                IMemoryBufferReference_Impl::RemoveClosed(this, token).into()
             }
         }
         Self {

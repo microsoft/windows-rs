@@ -4704,8 +4704,8 @@ impl PlayReadyMeteringReportServiceRequest {
             (windows_core::Interface::vtable(self).MeteringCertificate)(windows_core::Interface::as_raw(self), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn SetMeteringCertificate(&self, meteringcertbytes: &[u8]) -> windows_core::Result<()> {
-        unsafe { (windows_core::Interface::vtable(self).SetMeteringCertificate)(windows_core::Interface::as_raw(self), meteringcertbytes.len().try_into().unwrap(), meteringcertbytes.as_ptr()).ok() }
+    pub fn SetMeteringCertificate(&self, value: &[u8]) -> windows_core::Result<()> {
+        unsafe { (windows_core::Interface::vtable(self).SetMeteringCertificate)(windows_core::Interface::as_raw(self), value.len().try_into().unwrap(), value.as_ptr()).ok() }
     }
     pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;

@@ -1,0 +1,34 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Input {
+            mod Inking {
+                mod Preview {
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PalmRejectionDelayZonePreview)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IPalmRejectionDelayZonePreview {}
+                    #[guid(0xcdef5ee0_93d0_53a9_8f0e_9a379f8f7530)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PalmRejectionDelayZonePreview)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IPalmRejectionDelayZonePreviewStatics {
+                        #[Windows::Foundation::Metadata::Overload("CreateForVisual")]
+                        fn CreateForVisual(&self, inputPanelVisual: super::super::super::Composition::Visual, inputPanelRect: super::super::super::super::Foundation::Rect) -> PalmRejectionDelayZonePreview;
+                        #[Windows::Foundation::Metadata::Overload("CreateForVisualWithViewportClip")]
+                        fn CreateForVisual(&self, inputPanelVisual: super::super::super::Composition::Visual, inputPanelRect: super::super::super::super::Foundation::Rect, viewportVisual: super::super::super::Composition::Visual, viewportRect: super::super::super::super::Foundation::Rect) -> PalmRejectionDelayZonePreview;
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IPalmRejectionDelayZonePreviewStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class PalmRejectionDelayZonePreview {
+                        IPalmRejectionDelayZonePreview,
+                        super::super::super::super::Foundation::IClosable,
+                    }
+                }
+            }
+        }
+    }
+}

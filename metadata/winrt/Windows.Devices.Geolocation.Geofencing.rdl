@@ -1,0 +1,122 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Geolocation {
+            mod Geofencing {
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(IGeofenceFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                class Geofence {
+                    IGeofence,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IGeofenceMonitorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GeofenceMonitor {
+                    IGeofenceMonitor,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum GeofenceMonitorStatus {
+                    Ready = 0,
+                    Initializing = 1,
+                    NoData = 2,
+                    Disabled = 3,
+                    NotInitialized = 4,
+                    NotAvailable = 5,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum GeofenceRemovalReason {
+                    Used = 0,
+                    Expired = 1,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum GeofenceState {
+                    None = 0,
+                    Entered = 1,
+                    Exited = 2,
+                    Removed = 4,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class GeofenceStateChangeReport {
+                    IGeofenceStateChangeReport,
+                }
+                #[guid(0x9c090823_edb8_47e0_8245_5bf61d321f2d)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Geofence)]
+                interface IGeofence {
+                    #[get]
+                    StartTime: super::super::super::Foundation::DateTime;
+                    #[get]
+                    Duration: super::super::super::Foundation::TimeSpan;
+                    #[get]
+                    DwellTime: super::super::super::Foundation::TimeSpan;
+                    #[get]
+                    Id: String;
+                    #[get]
+                    MonitoredStates: MonitoredGeofenceStates;
+                    #[get]
+                    Geoshape: super::IGeoshape;
+                    #[get]
+                    SingleUse: bool;
+                }
+                #[guid(0x841f624b_325f_4b90_bca7_2b8022a93796)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Geofence)]
+                interface IGeofenceFactory {
+                    fn Create(&self, id: String, geoshape: super::IGeoshape) -> Geofence;
+                    fn CreateWithMonitorStates(&self, id: String, geoshape: super::IGeoshape, monitoredStates: MonitoredGeofenceStates, singleUse: bool) -> Geofence;
+                    fn CreateWithMonitorStatesAndDwellTime(&self, id: String, geoshape: super::IGeoshape, monitoredStates: MonitoredGeofenceStates, singleUse: bool, dwellTime: super::super::super::Foundation::TimeSpan) -> Geofence;
+                    fn CreateWithMonitorStatesDwellTimeStartTimeAndDuration(&self, id: String, geoshape: super::IGeoshape, monitoredStates: MonitoredGeofenceStates, singleUse: bool, dwellTime: super::super::super::Foundation::TimeSpan, startTime: super::super::super::Foundation::DateTime, duration: super::super::super::Foundation::TimeSpan) -> Geofence;
+                }
+                #[guid(0x4c0f5f78_1c1f_4621_bbbd_833b92247226)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GeofenceMonitor)]
+                interface IGeofenceMonitor {
+                    #[get]
+                    Status: GeofenceMonitorStatus;
+                    #[get]
+                    Geofences: super::super::super::Foundation::Collections::IVector<Geofence>;
+                    #[get]
+                    LastKnownGeoposition: super::Geoposition;
+                    event GeofenceStateChanged: super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, Object>;
+                    fn ReadReports(&self) -> super::super::super::Foundation::Collections::IVectorView<GeofenceStateChangeReport>;
+                    event StatusChanged: super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, Object>;
+                }
+                #[guid(0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GeofenceMonitor)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IGeofenceMonitorStatics {
+                    #[get]
+                    Current: GeofenceMonitor;
+                }
+                #[guid(0x9a243c18_2464_4c89_be05_b3ffff5babc5)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GeofenceStateChangeReport)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IGeofenceStateChangeReport {
+                    #[get]
+                    NewState: GeofenceState;
+                    #[get]
+                    Geofence: Geofence;
+                    #[get]
+                    Geoposition: super::Geoposition;
+                    #[get]
+                    RemovalReason: GeofenceRemovalReason;
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum MonitoredGeofenceStates {
+                    None = 0,
+                    Entered = 1,
+                    Exited = 2,
+                    Removed = 4,
+                }
+            }
+        }
+    }
+}

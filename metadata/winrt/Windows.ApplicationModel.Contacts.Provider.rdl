@@ -1,0 +1,63 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod Contacts {
+            mod Provider {
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum AddContactResult {
+                    Added = 0,
+                    AlreadyAdded = 1,
+                    Unavailable = 2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class ContactPickerUI {
+                    IContactPickerUI,
+                    IContactPickerUI2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class ContactRemovedEventArgs {
+                    IContactRemovedEventArgs,
+                }
+                #[guid(0xe2cc1366_cf66_43c4_a96a_a5a112db4746)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactPickerUI)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IContactPickerUI {
+                    #[Windows::Foundation::Metadata::Deprecated("AddContact may be altered or unavailable for releases after Windows 8.1. Instead, use AddContact without the ID.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                    fn AddContact(&self, id: String, contact: super::Contact) -> AddContactResult;
+                    fn RemoveContact(&self, id: String);
+                    fn ContainsContact(&self, id: String) -> bool;
+                    #[special]
+                    #[Windows::Foundation::Metadata::Deprecated("DesiredFields may be altered or unavailable for releases after Windows 8.1. Instead, use DesiredFieldsWithContactFieldType.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                    fn get_DesiredFields(&self) -> super::super::super::Foundation::Collections::IVectorView<String>;
+                    #[get]
+                    SelectionMode: super::ContactSelectionMode;
+                    event ContactRemoved: super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>;
+                }
+                #[guid(0x6e449e28_7b25_4999_9b0b_875400a1e8c8)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactPickerUI)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IContactPickerUI2 {
+                    fn AddContact(&self, contact: super::Contact) -> AddContactResult;
+                    #[get]
+                    DesiredFieldsWithContactFieldType: super::super::super::Foundation::Collections::IVector<super::ContactFieldType>;
+                }
+                #[guid(0xc44bb54b_732f_5004_8cd7_65d90cf25f42)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                interface IContactProvider {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetContactFromRemoteIdAsync(&self, contactRemoteId: String) -> super::super::super::Foundation::IAsyncOperation<super::Contact>;
+                    #[get]
+                    ContactListId: String;
+                }
+                #[guid(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactRemovedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IContactRemovedEventArgs {
+                    #[get]
+                    Id: String;
+                }
+            }
+        }
+    }
+}

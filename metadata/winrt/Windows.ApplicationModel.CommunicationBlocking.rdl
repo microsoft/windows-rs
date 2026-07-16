@@ -1,0 +1,49 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod CommunicationBlocking {
+            #[Windows::Foundation::Metadata::ContractVersion(CommunicationBlockingContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(ICommunicationBlockingAccessManagerStatics, 65536, "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class CommunicationBlockingAccessManager {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ICommunicationBlockingAppManagerStatics, 65536, "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(CommunicationBlockingContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(ICommunicationBlockingAppManagerStatics2, 131072, "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class CommunicationBlockingAppManager {}
+            #[Windows::Foundation::Metadata::ContractVersion(131072)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct CommunicationBlockingContract {}
+            #[guid(0x1c969998_9d2a_5db7_edd5_0ce407fc2595)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CommunicationBlockingAccessManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(CommunicationBlockingContract, 65536)]
+            interface ICommunicationBlockingAccessManagerStatics {
+                #[get]
+                IsBlockingActive: bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn IsBlockedNumberAsync(&self, number: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn ShowBlockNumbersUI(&self, phoneNumbers: super::super::Foundation::Collections::IIterable<String>) -> bool;
+                fn ShowUnblockNumbersUI(&self, phoneNumbers: super::super::Foundation::Collections::IIterable<String>) -> bool;
+                fn ShowBlockedCallsUI(&self);
+                fn ShowBlockedMessagesUI(&self);
+            }
+            #[guid(0x77db58ec_14a6_4baa_942a_6a673d999bf2)]
+            #[Windows::Foundation::Metadata::ContractVersion(CommunicationBlockingContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CommunicationBlockingAppManager)]
+            interface ICommunicationBlockingAppManagerStatics {
+                #[get]
+                IsCurrentAppActiveBlockingApp: bool;
+                fn ShowCommunicationBlockingSettingsUI(&self);
+            }
+            #[guid(0x14a68edd_ed88_457a_a364_a3634d6f166d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CommunicationBlockingAppManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(CommunicationBlockingContract, 131072)]
+            interface ICommunicationBlockingAppManagerStatics2: ICommunicationBlockingAppManagerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestSetAsActiveBlockingAppAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+        }
+    }
+}

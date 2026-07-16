@@ -1,0 +1,195 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Input {
+            mod Preview {
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                enum GazeDeviceConfigurationStatePreview {
+                    Unknown = 0,
+                    Ready = 1,
+                    Configuring = 2,
+                    ScreenSetupNeeded = 3,
+                    UserCalibrationNeeded = 4,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class GazeDevicePreview {
+                    IGazeDevicePreview,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                class GazeDeviceWatcherAddedPreviewEventArgs {
+                    IGazeDeviceWatcherAddedPreviewEventArgs,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                class GazeDeviceWatcherPreview {
+                    IGazeDeviceWatcherPreview,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                class GazeDeviceWatcherRemovedPreviewEventArgs {
+                    IGazeDeviceWatcherRemovedPreviewEventArgs,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                class GazeDeviceWatcherUpdatedPreviewEventArgs {
+                    IGazeDeviceWatcherUpdatedPreviewEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class GazeEnteredPreviewEventArgs {
+                    IGazeEnteredPreviewEventArgs,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                class GazeExitedPreviewEventArgs {
+                    IGazeExitedPreviewEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(IGazeInputSourcePreviewStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+                class GazeInputSourcePreview {
+                    IGazeInputSourcePreview,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class GazeMovedPreviewEventArgs {
+                    IGazeMovedPreviewEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class GazePointPreview {
+                    IGazePointPreview,
+                }
+                #[guid(0xe79e7ee9_b389_11e7_b201_c8d3ffb75721)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GazeDevicePreview)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface IGazeDevicePreview {
+                    #[get]
+                    Id: u32;
+                    #[get]
+                    CanTrackEyes: bool;
+                    #[get]
+                    CanTrackHead: bool;
+                    #[get]
+                    ConfigurationState: GazeDeviceConfigurationStatePreview;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestCalibrationAsync(&self) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    fn GetNumericControlDescriptions(&self, usagePage: u16, usageId: u16) -> super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>;
+                    fn GetBooleanControlDescriptions(&self, usagePage: u16, usageId: u16) -> super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidBooleanControlDescription>;
+                }
+                #[guid(0xe79e7eed_b389_11e7_b201_c8d3ffb75721)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GazeDeviceWatcherAddedPreviewEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IGazeDeviceWatcherAddedPreviewEventArgs {
+                    #[get]
+                    Device: GazeDevicePreview;
+                }
+                #[guid(0xe79e7ee7_b389_11e7_b201_c8d3ffb75721)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GazeDeviceWatcherPreview)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IGazeDeviceWatcherPreview {
+                    event Added: super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherAddedPreviewEventArgs>;
+                    event Removed: super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherRemovedPreviewEventArgs>;
+                    event Updated: super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherUpdatedPreviewEventArgs>;
+                    event EnumerationCompleted: super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, Object>;
+                    fn Start(&self);
+                    fn Stop(&self);
+                }
+                #[guid(0xf2631f08_0e3f_431f_a606_50b35af94a1c)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GazeDeviceWatcherRemovedPreviewEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface IGazeDeviceWatcherRemovedPreviewEventArgs {
+                    #[get]
+                    Device: GazeDevicePreview;
+                }
+                #[guid(0x7fe830ef_7f08_4737_88e1_4a83ae4e4885)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GazeDeviceWatcherUpdatedPreviewEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IGazeDeviceWatcherUpdatedPreviewEventArgs {
+                    #[get]
+                    Device: GazeDevicePreview;
+                }
+                #[guid(0x2567bf43_1225_489f_9dd1_daa7c50fbf4b)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GazeEnteredPreviewEventArgs)]
+                interface IGazeEnteredPreviewEventArgs {
+                    Handled: bool;
+                    #[get]
+                    CurrentPoint: GazePointPreview;
+                }
+                #[guid(0x5d0af07e_7d83_40ef_9f0a_fbc1bbdcc5ac)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GazeExitedPreviewEventArgs)]
+                interface IGazeExitedPreviewEventArgs {
+                    Handled: bool;
+                    #[get]
+                    CurrentPoint: GazePointPreview;
+                }
+                #[guid(0xe79e7ee8_b389_11e7_b201_c8d3ffb75721)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GazeInputSourcePreview)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IGazeInputSourcePreview {
+                    event GazeMoved: super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeMovedPreviewEventArgs>;
+                    event GazeEntered: super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeEnteredPreviewEventArgs>;
+                    event GazeExited: super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeExitedPreviewEventArgs>;
+                }
+                #[guid(0xe79e7ee6_b389_11e7_b201_c8d3ffb75721)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GazeInputSourcePreview)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface IGazeInputSourcePreviewStatics {
+                    fn GetForCurrentView(&self) -> GazeInputSourcePreview;
+                    fn CreateWatcher(&self) -> GazeDeviceWatcherPreview;
+                }
+                #[guid(0xe79e7eeb_b389_11e7_b201_c8d3ffb75721)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GazeMovedPreviewEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface IGazeMovedPreviewEventArgs {
+                    Handled: bool;
+                    #[get]
+                    CurrentPoint: GazePointPreview;
+                    fn GetIntermediatePoints(&self) -> super::super::super::Foundation::Collections::IVector<GazePointPreview>;
+                }
+                #[guid(0xe79e7eea_b389_11e7_b201_c8d3ffb75721)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GazePointPreview)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IGazePointPreview {
+                    #[get]
+                    SourceDevice: GazeDevicePreview;
+                    #[get]
+                    EyeGazePosition: super::super::super::Foundation::IReference<super::super::super::Foundation::Point>;
+                    #[get]
+                    HeadGazePosition: super::super::super::Foundation::IReference<super::super::super::Foundation::Point>;
+                    #[get]
+                    Timestamp: u64;
+                    #[get]
+                    HidInputReport: super::super::HumanInterfaceDevice::HidInputReport;
+                }
+            }
+        }
+    }
+}

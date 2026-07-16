@@ -1,0 +1,125 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Xaml {
+            mod Interop {
+                #[guid(0x624cd4e1_d007_43b1_9c03_af4d3e6258c4)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                delegate fn BindableVectorChangedEventHandler(vector: IBindableObservableVector, e: Object);
+                #[guid(0x036d2c08_df29_41af_8aa2_d774be62ba6f)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IBindableIterable {
+                    fn First(&self) -> IBindableIterator;
+                }
+                #[guid(0x6a1d6c07_076d_49f2_8314_f52c9c9a8331)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IBindableIterator {
+                    #[get]
+                    Current: Object;
+                    #[get]
+                    HasCurrent: bool;
+                    fn MoveNext(&self) -> bool;
+                }
+                #[guid(0xfe1eb536_7e7f_4f90_ac9a_474984aae512)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IBindableObservableVector: IBindableVector + IBindableIterable {
+                    event VectorChanged: BindableVectorChangedEventHandler;
+                }
+                #[guid(0x393de7de_6fd0_4c0d_bb71_47244a113e93)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IBindableVector: IBindableIterable {
+                    fn GetAt(&self, index: u32) -> Object;
+                    #[get]
+                    Size: u32;
+                    fn GetView(&self) -> IBindableVectorView;
+                    fn IndexOf(&self, value: Object, index: &mut u32) -> bool;
+                    fn SetAt(&self, index: u32, value: Object);
+                    fn InsertAt(&self, index: u32, value: Object);
+                    fn RemoveAt(&self, index: u32);
+                    fn Append(&self, value: Object);
+                    fn RemoveAtEnd(&self);
+                    fn Clear(&self);
+                }
+                #[guid(0x346dd6e7_976e_4bc3_815d_ece243bc0f33)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IBindableVectorView: IBindableIterable {
+                    fn GetAt(&self, index: u32) -> Object;
+                    #[get]
+                    Size: u32;
+                    fn IndexOf(&self, value: Object, index: &mut u32) -> bool;
+                }
+                #[guid(0x28b167d5_1a31_465b_9b25_d5c3ae686c40)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface INotifyCollectionChanged {
+                    event CollectionChanged: NotifyCollectionChangedEventHandler;
+                }
+                #[guid(0x4cf68d33_e3f2_4964_b85e_945b4f7e2f21)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(NotifyCollectionChangedEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface INotifyCollectionChangedEventArgs {
+                    #[get]
+                    Action: NotifyCollectionChangedAction;
+                    #[get]
+                    NewItems: IBindableVector;
+                    #[get]
+                    OldItems: IBindableVector;
+                    #[get]
+                    NewStartingIndex: i32;
+                    #[get]
+                    OldStartingIndex: i32;
+                }
+                #[guid(0xb30c3e3a_df8d_44a5_9a38_7ac0d08ce63d)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(NotifyCollectionChangedEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface INotifyCollectionChangedEventArgsFactory {
+                    fn CreateInstanceWithAllParameters(&self, action: NotifyCollectionChangedAction, newItems: IBindableVector, oldItems: IBindableVector, newIndex: i32, oldIndex: i32, baseInterface: Object, innerInterface: &mut Object) -> NotifyCollectionChangedEventArgs;
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum NotifyCollectionChangedAction {
+                    Add = 0,
+                    Remove = 1,
+                    Replace = 2,
+                    Move = 3,
+                    Reset = 4,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Composable(INotifyCollectionChangedEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class NotifyCollectionChangedEventArgs {
+                    INotifyCollectionChangedEventArgs,
+                }
+                #[guid(0xca10b37c_f382_4591_8557_5e24965279b0)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                delegate fn NotifyCollectionChangedEventHandler(sender: Object, e: NotifyCollectionChangedEventArgs);
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum TypeKind {
+                    Primitive = 0,
+                    Metadata = 1,
+                    Custom = 2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                struct TypeName {
+                    Name: String,
+                    Kind: TypeKind,
+                }
+            }
+        }
+    }
+}

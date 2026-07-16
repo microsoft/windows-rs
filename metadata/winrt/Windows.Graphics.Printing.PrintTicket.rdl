@@ -1,0 +1,268 @@
+#[winrt]
+mod Windows {
+    mod Graphics {
+        mod Printing {
+            mod PrintTicket {
+                #[guid(0x8c45508b_bbdc_4256_a142_2fd615ecb416)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketCapabilities)]
+                interface IPrintTicketCapabilities {
+                    #[get]
+                    Name: String;
+                    #[get]
+                    XmlNamespace: String;
+                    #[get]
+                    XmlNode: super::super::super::Data::Xml::Dom::IXmlNode;
+                    #[get]
+                    DocumentBindingFeature: PrintTicketFeature;
+                    #[get]
+                    DocumentCollateFeature: PrintTicketFeature;
+                    #[get]
+                    DocumentDuplexFeature: PrintTicketFeature;
+                    #[get]
+                    DocumentHolePunchFeature: PrintTicketFeature;
+                    #[get]
+                    DocumentInputBinFeature: PrintTicketFeature;
+                    #[get]
+                    DocumentNUpFeature: PrintTicketFeature;
+                    #[get]
+                    DocumentStapleFeature: PrintTicketFeature;
+                    #[get]
+                    JobPasscodeFeature: PrintTicketFeature;
+                    #[get]
+                    PageBorderlessFeature: PrintTicketFeature;
+                    #[get]
+                    PageMediaSizeFeature: PrintTicketFeature;
+                    #[get]
+                    PageMediaTypeFeature: PrintTicketFeature;
+                    #[get]
+                    PageOrientationFeature: PrintTicketFeature;
+                    #[get]
+                    PageOutputColorFeature: PrintTicketFeature;
+                    #[get]
+                    PageOutputQualityFeature: PrintTicketFeature;
+                    #[get]
+                    PageResolutionFeature: PrintTicketFeature;
+                    fn GetFeature(&self, name: String, xmlNamespace: String) -> PrintTicketFeature;
+                    fn GetParameterDefinition(&self, name: String, xmlNamespace: String) -> PrintTicketParameterDefinition;
+                }
+                #[guid(0xe7607d6a_59f5_4103_8858_b97710963d39)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketFeature)]
+                interface IPrintTicketFeature {
+                    #[get]
+                    Name: String;
+                    #[get]
+                    XmlNamespace: String;
+                    #[get]
+                    XmlNode: super::super::super::Data::Xml::Dom::IXmlNode;
+                    #[get]
+                    DisplayName: String;
+                    fn GetOption(&self, name: String, xmlNamespace: String) -> PrintTicketOption;
+                    #[get]
+                    Options: super::super::super::Foundation::Collections::IVectorView<PrintTicketOption>;
+                    fn GetSelectedOption(&self) -> PrintTicketOption;
+                    fn SetSelectedOption(&self, value: PrintTicketOption);
+                    #[get]
+                    SelectionType: PrintTicketFeatureSelectionType;
+                }
+                #[guid(0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketOption)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface IPrintTicketOption {
+                    #[get]
+                    Name: String;
+                    #[get]
+                    XmlNamespace: String;
+                    #[get]
+                    XmlNode: super::super::super::Data::Xml::Dom::IXmlNode;
+                    #[get]
+                    DisplayName: String;
+                    fn GetPropertyNode(&self, name: String, xmlNamespace: String) -> super::super::super::Data::Xml::Dom::IXmlNode;
+                    fn GetScoredPropertyNode(&self, name: String, xmlNamespace: String) -> super::super::super::Data::Xml::Dom::IXmlNode;
+                    fn GetPropertyValue(&self, name: String, xmlNamespace: String) -> PrintTicketValue;
+                    fn GetScoredPropertyValue(&self, name: String, xmlNamespace: String) -> PrintTicketValue;
+                }
+                #[guid(0xd6bab4e4_2962_4c01_b7f3_9a9294eb8335)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketParameterDefinition)]
+                interface IPrintTicketParameterDefinition {
+                    #[get]
+                    Name: String;
+                    #[get]
+                    XmlNamespace: String;
+                    #[get]
+                    XmlNode: super::super::super::Data::Xml::Dom::IXmlNode;
+                    #[get]
+                    DataType: PrintTicketParameterDataType;
+                    #[get]
+                    UnitType: String;
+                    #[get]
+                    RangeMin: i32;
+                    #[get]
+                    RangeMax: i32;
+                }
+                #[guid(0x5e3335bb_a0a5_48b1_9d5c_07116ddc597a)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketParameterInitializer)]
+                interface IPrintTicketParameterInitializer {
+                    #[get]
+                    Name: String;
+                    #[get]
+                    XmlNamespace: String;
+                    #[get]
+                    XmlNode: super::super::super::Data::Xml::Dom::IXmlNode;
+                    #[set]
+                    Value: PrintTicketValue;
+                    #[get]
+                    Value: PrintTicketValue;
+                }
+                #[guid(0x66b30a32_244d_4e22_a98b_bb3cf1f2dd91)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintTicketValue)]
+                interface IPrintTicketValue {
+                    #[get]
+                    Type: PrintTicketValueType;
+                    fn GetValueAsInteger(&self) -> i32;
+                    fn GetValueAsString(&self) -> String;
+                }
+                #[guid(0x41d52285_35e8_448e_a8c5_e4b6a2cf826c)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WorkflowPrintTicket)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface IWorkflowPrintTicket {
+                    #[get]
+                    Name: String;
+                    #[get]
+                    XmlNamespace: String;
+                    #[get]
+                    XmlNode: super::super::super::Data::Xml::Dom::IXmlNode;
+                    fn GetCapabilities(&self) -> PrintTicketCapabilities;
+                    #[get]
+                    DocumentBindingFeature: PrintTicketFeature;
+                    #[get]
+                    DocumentCollateFeature: PrintTicketFeature;
+                    #[get]
+                    DocumentDuplexFeature: PrintTicketFeature;
+                    #[get]
+                    DocumentHolePunchFeature: PrintTicketFeature;
+                    #[get]
+                    DocumentInputBinFeature: PrintTicketFeature;
+                    #[get]
+                    DocumentNUpFeature: PrintTicketFeature;
+                    #[get]
+                    DocumentStapleFeature: PrintTicketFeature;
+                    #[get]
+                    JobPasscodeFeature: PrintTicketFeature;
+                    #[get]
+                    PageBorderlessFeature: PrintTicketFeature;
+                    #[get]
+                    PageMediaSizeFeature: PrintTicketFeature;
+                    #[get]
+                    PageMediaTypeFeature: PrintTicketFeature;
+                    #[get]
+                    PageOrientationFeature: PrintTicketFeature;
+                    #[get]
+                    PageOutputColorFeature: PrintTicketFeature;
+                    #[get]
+                    PageOutputQualityFeature: PrintTicketFeature;
+                    #[get]
+                    PageResolutionFeature: PrintTicketFeature;
+                    fn GetFeature(&self, name: String, xmlNamespace: String) -> PrintTicketFeature;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn NotifyXmlChangedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ValidateAsync(&self) -> super::super::super::Foundation::IAsyncOperation<WorkflowPrintTicketValidationResult>;
+                    fn GetParameterInitializer(&self, name: String, xmlNamespace: String) -> PrintTicketParameterInitializer;
+                    fn SetParameterInitializerAsInteger(&self, name: String, xmlNamespace: String, integerValue: i32) -> PrintTicketParameterInitializer;
+                    fn SetParameterInitializerAsString(&self, name: String, xmlNamespace: String, stringValue: String) -> PrintTicketParameterInitializer;
+                    fn MergeAndValidateTicket(&self, deltaShemaTicket: WorkflowPrintTicket) -> WorkflowPrintTicket;
+                }
+                #[guid(0x966d1166_d9c7_569e_b7d8_f2b341c8f976)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WorkflowPrintTicket)]
+                interface IWorkflowPrintTicketFactory {
+                    fn CreateInstance(&self, printerName: String, printTicketStream: super::super::super::Storage::Streams::IInputStream) -> WorkflowPrintTicket;
+                }
+                #[guid(0x0ad1f392_da7b_4a36_bf36_6a99a62e2059)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WorkflowPrintTicketValidationResult)]
+                interface IWorkflowPrintTicketValidationResult {
+                    #[get]
+                    Validated: bool;
+                    #[get]
+                    ExtendedError: HRESULT;
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                class PrintTicketCapabilities {
+                    IPrintTicketCapabilities,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class PrintTicketFeature {
+                    IPrintTicketFeature,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                enum PrintTicketFeatureSelectionType {
+                    PickOne = 0,
+                    PickMany = 1,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                class PrintTicketOption {
+                    IPrintTicketOption,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                enum PrintTicketParameterDataType {
+                    Integer = 0,
+                    NumericString = 1,
+                    String = 2,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class PrintTicketParameterDefinition {
+                    IPrintTicketParameterDefinition,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class PrintTicketParameterInitializer {
+                    IPrintTicketParameterInitializer,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class PrintTicketValue {
+                    IPrintTicketValue,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                enum PrintTicketValueType {
+                    Integer = 0,
+                    String = 1,
+                    Unknown = 2,
+                }
+                #[Windows::Foundation::Metadata::Activatable(IWorkflowPrintTicketFactory, 1245184, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class WorkflowPrintTicket {
+                    IWorkflowPrintTicket,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class WorkflowPrintTicketValidationResult {
+                    IWorkflowPrintTicketValidationResult,
+                }
+            }
+        }
+    }
+}

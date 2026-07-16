@@ -24,13 +24,16 @@ committed `metadata/wdk/*.rdl` corpus is the snapshot.
 
 ## `Windows.winmd`
 
-The WinRT metadata, generated in-house by `tool_windows` (`cargo run -p tool_windows`)
-by merging the per-contract `.winmd` files from the Windows SDK Contracts NuGet package
-with `windows-metadata` (the same merger `tool_win32`/`tool_wdk` use), replacing the
-external `mdmerge` tool.
+The WinRT metadata, generated in-house by `tool_winrt` (`cargo run -p tool_winrt`) by
+merging the per-contract `.winmd` files from the Windows SDK Contracts NuGet package with
+`windows-metadata` (the same merger `tool_win32`/`tool_wdk` use, replacing the external
+`mdmerge` tool), decompiling the result to the committed `metadata/winrt` RDL snapshot, and
+compiling that snapshot back into this winmd. As with `metadata/win32` and `metadata/wdk`,
+the RDL is the reviewable source of truth: a WinRT metadata change shows up as a readable RDL
+`git diff`, and `tool_roundtrip` re-validates the round-trip without the SDK.
 
 - Source: <https://www.nuget.org/packages/Microsoft.Windows.SDK.Contracts>
-- Version: `10.0.28000.2270` (pinned in `crates/tools/windows/src/main.rs`)
+- Version: `10.0.28000.2270` (pinned in `crates/tools/winrt/src/main.rs`)
 
 ---
 

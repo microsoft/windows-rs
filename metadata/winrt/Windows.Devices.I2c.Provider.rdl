@@ -1,0 +1,70 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod I2c {
+            mod Provider {
+                #[guid(0x61c2bb82_4510_4163_a87c_4e15a9558980)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface II2cControllerProvider {
+                    fn GetDeviceProvider(&self, settings: ProviderI2cConnectionSettings) -> II2cDeviceProvider;
+                }
+                #[guid(0xad342654_57e8_453e_8329_d1e447d103a9)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface II2cDeviceProvider: super::super::super::Foundation::IClosable {
+                    #[get]
+                    DeviceId: String;
+                    fn Write(&self, buffer: [u8]);
+                    fn WritePartial(&self, buffer: [u8]) -> ProviderI2cTransferResult;
+                    fn Read(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] buffer: [u8]);
+                    fn ReadPartial(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] buffer: [u8]) -> ProviderI2cTransferResult;
+                    fn WriteRead(&self, writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]);
+                    fn WriteReadPartial(&self, writeBuffer: [u8], #[Windows::Foundation::Metadata::Range(0, 2147483647)] #[out] readBuffer: [u8]) -> ProviderI2cTransferResult;
+                }
+                #[guid(0x6f13083e_bf62_4fe2_a95a_f08999669818)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                interface II2cProvider {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetControllersAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<II2cControllerProvider>>;
+                }
+                #[guid(0xe9db4e34_e510_44b7_809d_f2f85b555339)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ProviderI2cConnectionSettings)]
+                interface IProviderI2cConnectionSettings {
+                    SlaveAddress: i32;
+                    BusSpeed: ProviderI2cBusSpeed;
+                    SharingMode: ProviderI2cSharingMode;
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                enum ProviderI2cBusSpeed {
+                    StandardMode = 0,
+                    FastMode = 1,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                class ProviderI2cConnectionSettings {
+                    IProviderI2cConnectionSettings,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                enum ProviderI2cSharingMode {
+                    Exclusive = 0,
+                    Shared = 1,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                struct ProviderI2cTransferResult {
+                    Status: ProviderI2cTransferStatus,
+                    BytesTransferred: u32,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                enum ProviderI2cTransferStatus {
+                    FullTransfer = 0,
+                    PartialTransfer = 1,
+                    SlaveAddressNotAcknowledged = 2,
+                }
+            }
+        }
+    }
+}

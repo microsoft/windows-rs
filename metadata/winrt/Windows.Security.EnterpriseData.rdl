@@ -1,0 +1,517 @@
+#[winrt]
+mod Windows {
+    mod Security {
+        mod EnterpriseData {
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class BufferProtectUnprotectResult {
+                IBufferProtectUnprotectResult,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class DataProtectionInfo {
+                IDataProtectionInfo,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IDataProtectionManagerStatics, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            class DataProtectionManager {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            enum DataProtectionStatus {
+                ProtectedToOtherIdentity = 0,
+                Protected = 1,
+                Revoked = 2,
+                Unprotected = 3,
+                LicenseExpired = 4,
+                AccessSuspended = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 131072)]
+            enum EnforcementLevel {
+                NoProtection = 0,
+                Silent = 1,
+                Override = 2,
+                Block = 3,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(327680)]
+            struct EnterpriseDataContract {}
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class FileProtectionInfo {
+                IFileProtectionInfo,
+                IFileProtectionInfo2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IFileProtectionManagerStatics2, 131072, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::Static(IFileProtectionManagerStatics, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::Static(IFileProtectionManagerStatics3, 262144, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            class FileProtectionManager {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            enum FileProtectionStatus {
+                Undetermined = 0,
+                Unknown = 0,
+                Unprotected = 1,
+                Revoked = 2,
+                Protected = 3,
+                ProtectedByOtherUser = 4,
+                ProtectedToOtherEnterprise = 5,
+                NotProtectable = 6,
+                ProtectedToOtherIdentity = 7,
+                LicenseExpired = 8,
+                AccessSuspended = 9,
+                FileInUse = 10,
+            }
+            #[Windows::Foundation::Metadata::Static(IFileRevocationManagerStatics, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("FileRevocationManager might be unavailable after Windows 10. Instead, use FileProtectionManager.", Deprecate, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class FileRevocationManager {}
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(IFileUnprotectOptionsFactory, 262144, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 262144)]
+            class FileUnprotectOptions {
+                IFileUnprotectOptions,
+            }
+            #[guid(0x47995edc_6cec_4e3a_b251_9e7485d79e7a)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BufferProtectUnprotectResult)]
+            interface IBufferProtectUnprotectResult {
+                #[get]
+                Buffer: super::super::Storage::Streams::IBuffer;
+                #[get]
+                ProtectionInfo: DataProtectionInfo;
+            }
+            #[guid(0x8420b0c1_5e31_4405_9540_3f943af0cb26)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DataProtectionInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            interface IDataProtectionInfo {
+                #[get]
+                Status: DataProtectionStatus;
+                #[get]
+                Identity: String;
+            }
+            #[guid(0xb6149b74_9144_4ee4_8a8a_30b5f361430e)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DataProtectionManager)]
+            interface IDataProtectionManagerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ProtectAsync(&self, data: super::super::Storage::Streams::IBuffer, identity: String) -> super::super::Foundation::IAsyncOperation<BufferProtectUnprotectResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn UnprotectAsync(&self, data: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<BufferProtectUnprotectResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ProtectStreamAsync(&self, unprotectedStream: super::super::Storage::Streams::IInputStream, identity: String, protectedStream: super::super::Storage::Streams::IOutputStream) -> super::super::Foundation::IAsyncOperation<DataProtectionInfo>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn UnprotectStreamAsync(&self, protectedStream: super::super::Storage::Streams::IInputStream, unprotectedStream: super::super::Storage::Streams::IOutputStream) -> super::super::Foundation::IAsyncOperation<DataProtectionInfo>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetProtectionInfoAsync(&self, protectedData: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<DataProtectionInfo>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetStreamProtectionInfoAsync(&self, protectedStream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperation<DataProtectionInfo>;
+            }
+            #[guid(0x4ee96486_147e_4dd0_8faf_5253ed91ad0c)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileProtectionInfo)]
+            interface IFileProtectionInfo {
+                #[get]
+                Status: FileProtectionStatus;
+                #[get]
+                IsRoamable: bool;
+                #[get]
+                Identity: String;
+            }
+            #[guid(0x82123a4c_557a_498d_8e94_944cd5836432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileProtectionInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 327680)]
+            interface IFileProtectionInfo2 {
+                #[get]
+                IsProtectWhileOpenSupported: bool;
+            }
+            #[guid(0x5846fc9b_e613_426b_bb38_88cba1dc9adb)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileProtectionManager)]
+            interface IFileProtectionManagerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ProtectAsync(&self, target: super::super::Storage::IStorageItem, identity: String) -> super::super::Foundation::IAsyncOperation<FileProtectionInfo>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CopyProtectionAsync(&self, source: super::super::Storage::IStorageItem, target: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetProtectionInfoAsync(&self, source: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<FileProtectionInfo>;
+                #[Windows::Foundation::Metadata::Overload("SaveFileAsContainerAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveFileAsContainerAsync(&self, protectedFile: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>;
+                #[Windows::Foundation::Metadata::Overload("LoadFileFromContainerAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn LoadFileFromContainerAsync(&self, containerFile: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("LoadFileFromContainerWithTargetAsync")]
+                fn LoadFileFromContainerAsync(&self, containerFile: super::super::Storage::IStorageFile, target: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateProtectedAndOpenAsync(&self, parentFolder: super::super::Storage::IStorageFolder, desiredName: String, identity: String, collisionOption: super::super::Storage::CreationCollisionOption) -> super::super::Foundation::IAsyncOperation<ProtectedFileCreateResult>;
+            }
+            #[guid(0x83d2a745_0483_41ab_b2d5_bc7f23d74ebb)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileProtectionManager)]
+            interface IFileProtectionManagerStatics2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn IsContainerAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("LoadFileFromContainerWithTargetAndNameCollisionOptionAsync")]
+                #[Windows::Foundation::Metadata::DefaultOverload]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn LoadFileFromContainerAsync(&self, containerFile: super::super::Storage::IStorageFile, target: super::super::Storage::IStorageItem, collisionOption: super::super::Storage::NameCollisionOption) -> super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>;
+                #[Windows::Foundation::Metadata::Overload("SaveFileAsContainerWithSharingAsync")]
+                #[Windows::Foundation::Metadata::DefaultOverload]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveFileAsContainerAsync(&self, protectedFile: super::super::Storage::IStorageFile, sharedWithIdentities: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>;
+            }
+            #[guid(0x6918849a_624f_46d6_b241_e9cd5fdf3e3f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileProtectionManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 262144)]
+            interface IFileProtectionManagerStatics3 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("UnprotectAsync")]
+                fn UnprotectAsync(&self, target: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<FileProtectionInfo>;
+                #[Windows::Foundation::Metadata::Overload("UnprotectWithOptionsAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn UnprotectAsync(&self, target: super::super::Storage::IStorageItem, options: FileUnprotectOptions) -> super::super::Foundation::IAsyncOperation<FileProtectionInfo>;
+            }
+            #[guid(0x256bbc3d_1c5d_4260_8c75_9144cfb78ba9)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("FileRevocationManager might be unavailable after Windows 10. Instead, use FileProtectionManager.", Deprecate, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileRevocationManager)]
+            interface IFileRevocationManagerStatics {
+                #[Windows::Foundation::Metadata::Deprecated("FileRevocationManager might be unavailable after Windows 10. Instead, use FileProtectionManager.", Deprecate, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ProtectAsync(&self, storageItem: super::super::Storage::IStorageItem, enterpriseIdentity: String) -> super::super::Foundation::IAsyncOperation<FileProtectionStatus>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("FileRevocationManager might be unavailable after Windows 10. Instead, use FileProtectionManager.", Deprecate, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+                fn CopyProtectionAsync(&self, sourceStorageItem: super::super::Storage::IStorageItem, targetStorageItem: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Deprecated("FileRevocationManager might be unavailable after Windows 10. Instead, use FileProtectionManager.", Deprecate, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+                fn Revoke(&self, enterpriseIdentity: String);
+                #[Windows::Foundation::Metadata::Deprecated("FileRevocationManager might be unavailable after Windows 10. Instead, use FileProtectionManager.", Deprecate, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetStatusAsync(&self, storageItem: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<FileProtectionStatus>;
+            }
+            #[guid(0x7d1312f1_3b0d_4dd8_a1f8_1ec53822e2f3)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileUnprotectOptions)]
+            interface IFileUnprotectOptions {
+                #[set]
+                Audit: bool;
+                #[get]
+                Audit: bool;
+            }
+            #[guid(0x51aeb39c_da8c_4c3f_9bfb_cb73a7cce0dd)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileUnprotectOptions)]
+            interface IFileUnprotectOptionsFactory {
+                fn Create(&self, audit: bool) -> FileUnprotectOptions;
+            }
+            #[guid(0xac4dca59_5d80_4e95_8c5f_8539450eebe0)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectedAccessResumedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            interface IProtectedAccessResumedEventArgs {
+                #[get]
+                Identities: super::super::Foundation::Collections::IVectorView<String>;
+            }
+            #[guid(0x75a193e0_a344_429f_b975_04fc1f88c185)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectedAccessSuspendingEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            interface IProtectedAccessSuspendingEventArgs {
+                #[get]
+                Identities: super::super::Foundation::Collections::IVectorView<String>;
+                #[get]
+                Deadline: super::super::Foundation::DateTime;
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[guid(0x3948ef95_f7fb_4b42_afb0_df70b41543c1)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectedContainerExportResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            interface IProtectedContainerExportResult {
+                #[get]
+                Status: ProtectedImportExportStatus;
+                #[get]
+                File: super::super::Storage::StorageFile;
+            }
+            #[guid(0xcdb780d1_e7bb_4d1a_9339_34dc41149f9b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectedContainerImportResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            interface IProtectedContainerImportResult {
+                #[get]
+                Status: ProtectedImportExportStatus;
+                #[get]
+                File: super::super::Storage::StorageFile;
+            }
+            #[guid(0x63686821_58b9_47ee_93d9_f0f741cf43f0)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectedContentRevokedEventArgs)]
+            interface IProtectedContentRevokedEventArgs {
+                #[get]
+                Identities: super::super::Foundation::Collections::IVectorView<String>;
+            }
+            #[guid(0x28e3ed6a_e9e7_4a03_9f53_bdb16172699b)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectedFileCreateResult)]
+            interface IProtectedFileCreateResult {
+                #[get]
+                File: super::super::Storage::StorageFile;
+                #[get]
+                Stream: super::super::Storage::Streams::IRandomAccessStream;
+                #[get]
+                ProtectionInfo: FileProtectionInfo;
+            }
+            #[guid(0x425ab7e4_feb7_44fc_b3bb_c3c4d7ecbebb)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectionPolicyAuditInfo)]
+            interface IProtectionPolicyAuditInfo {
+                #[set]
+                Action: ProtectionPolicyAuditAction;
+                #[get]
+                Action: ProtectionPolicyAuditAction;
+                #[set]
+                DataDescription: String;
+                #[get]
+                DataDescription: String;
+                #[set]
+                SourceDescription: String;
+                #[get]
+                SourceDescription: String;
+                #[set]
+                TargetDescription: String;
+                #[get]
+                TargetDescription: String;
+            }
+            #[guid(0x7ed4180b_92e8_42d5_83d4_25440b423549)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectionPolicyAuditInfo)]
+            interface IProtectionPolicyAuditInfoFactory {
+                fn Create(&self, action: ProtectionPolicyAuditAction, dataDescription: String, sourceDescription: String, targetDescription: String) -> ProtectionPolicyAuditInfo;
+                fn CreateWithActionAndDataDescription(&self, action: ProtectionPolicyAuditAction, dataDescription: String) -> ProtectionPolicyAuditInfo;
+            }
+            #[guid(0xd5703e18_a08d_47e6_a240_9934d7165eb5)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectionPolicyManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            interface IProtectionPolicyManager {
+                #[set]
+                Identity: String;
+                #[get]
+                Identity: String;
+            }
+            #[guid(0xabf7527a_8435_417f_99b6_51beaf365888)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectionPolicyManager)]
+            interface IProtectionPolicyManager2 {
+                #[set]
+                ShowEnterpriseIndicator: bool;
+                #[get]
+                ShowEnterpriseIndicator: bool;
+            }
+            #[guid(0xc0bffc66_8c3d_4d56_8804_c68f0ad32ec5)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectionPolicyManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            interface IProtectionPolicyManagerStatics {
+                fn IsIdentityManaged(&self, identity: String) -> bool;
+                fn TryApplyProcessUIPolicy(&self, identity: String) -> bool;
+                fn ClearProcessUIPolicy(&self);
+                fn CreateCurrentThreadNetworkContext(&self, identity: String) -> ThreadNetworkContext;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetPrimaryManagedIdentityForNetworkEndpointAsync(&self, endpointHost: super::super::Networking::HostName) -> super::super::Foundation::IAsyncOperation<String>;
+                fn RevokeContent(&self, identity: String);
+                fn GetForCurrentView(&self) -> ProtectionPolicyManager;
+                event ProtectedAccessSuspending: super::super::Foundation::EventHandler<ProtectedAccessSuspendingEventArgs>;
+                event ProtectedAccessResumed: super::super::Foundation::EventHandler<ProtectedAccessResumedEventArgs>;
+                event ProtectedContentRevoked: super::super::Foundation::EventHandler<ProtectedContentRevokedEventArgs>;
+                fn CheckAccess(&self, sourceIdentity: String, targetIdentity: String) -> ProtectionPolicyEvaluationResult;
+                #[Windows::Foundation::Metadata::Overload("RequestAccessAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessAsync(&self, sourceIdentity: String, targetIdentity: String) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+            }
+            #[guid(0xb68f9a8c_39e0_4649_b2e4_070ab8a579b3)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectionPolicyManager)]
+            interface IProtectionPolicyManagerStatics2 {
+                fn HasContentBeenRevokedSince(&self, identity: String, since: super::super::Foundation::DateTime) -> bool;
+                fn CheckAccessForApp(&self, sourceIdentity: String, appPackageFamilyName: String) -> ProtectionPolicyEvaluationResult;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RequestAccessForAppAsync")]
+                fn RequestAccessForAppAsync(&self, sourceIdentity: String, appPackageFamilyName: String) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                fn GetEnforcementLevel(&self, identity: String) -> EnforcementLevel;
+                fn IsUserDecryptionAllowed(&self, identity: String) -> bool;
+                fn IsProtectionUnderLockRequired(&self, identity: String) -> bool;
+                event PolicyChanged: super::super::Foundation::EventHandler<Object>;
+                #[get]
+                IsProtectionEnabled: bool;
+            }
+            #[guid(0x48ff9e8c_6a6f_4d9f_bced_18ab537aa015)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectionPolicyManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 196608)]
+            interface IProtectionPolicyManagerStatics3 {
+                #[Windows::Foundation::Metadata::Overload("RequestAccessWithAuditingInfoAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessAsync(&self, sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RequestAccessWithMessageAsync")]
+                fn RequestAccessAsync(&self, sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[Windows::Foundation::Metadata::Overload("RequestAccessForAppWithAuditingInfoAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessForAppAsync(&self, sourceIdentity: String, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[Windows::Foundation::Metadata::Overload("RequestAccessForAppWithMessageAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessForAppAsync(&self, sourceIdentity: String, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                fn LogAuditEvent(&self, sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo);
+            }
+            #[guid(0x20b794db_ccbd_490f_8c83_49ccb77aea6c)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProtectionPolicyManager)]
+            interface IProtectionPolicyManagerStatics4 {
+                fn IsRoamableProtectionEnabled(&self, identity: String) -> bool;
+                #[Windows::Foundation::Metadata::Overload("RequestAccessWithBehaviorAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessAsync(&self, sourceIdentity: String, targetIdentity: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RequestAccessForAppWithBehaviorAsync")]
+                fn RequestAccessForAppAsync(&self, sourceIdentity: String, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[Windows::Foundation::Metadata::Overload("RequestAccessToFilesForAppAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessToFilesForAppAsync(&self, sourceItemList: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RequestAccessToFilesForAppWithMessageAndBehaviorAsync")]
+                fn RequestAccessToFilesForAppAsync(&self, sourceItemList: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, appPackageFamilyName: String, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[Windows::Foundation::Metadata::Overload("RequestAccessToFilesForProcessAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessToFilesForProcessAsync(&self, sourceItemList: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, processId: u32, auditInfo: ProtectionPolicyAuditInfo) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RequestAccessToFilesForProcessWithMessageAndBehaviorAsync")]
+                fn RequestAccessToFilesForProcessAsync(&self, sourceItemList: super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>, processId: u32, auditInfo: ProtectionPolicyAuditInfo, messageFromApp: String, behavior: ProtectionPolicyRequestAccessBehavior) -> super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn IsFileProtectionRequiredAsync(&self, target: super::super::Storage::IStorageItem, identity: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn IsFileProtectionRequiredForNewFileAsync(&self, parentFolder: super::super::Storage::IStorageFolder, identity: String, desiredName: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[get]
+                PrimaryManagedIdentity: String;
+                fn GetPrimaryManagedIdentityForIdentity(&self, identity: String) -> String;
+            }
+            #[guid(0xfa4ea8e9_ef13_405a_b12c_d7348c6f41fc)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ThreadNetworkContext)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            interface IThreadNetworkContext {}
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class ProtectedAccessResumedEventArgs {
+                IProtectedAccessResumedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ProtectedAccessSuspendingEventArgs {
+                IProtectedAccessSuspendingEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ProtectedContainerExportResult {
+                IProtectedContainerExportResult,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            class ProtectedContainerImportResult {
+                IProtectedContainerImportResult,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ProtectedContentRevokedEventArgs {
+                IProtectedContentRevokedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class ProtectedFileCreateResult {
+                IProtectedFileCreateResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            enum ProtectedImportExportStatus {
+                Ok = 0,
+                Undetermined = 1,
+                Unprotected = 2,
+                Revoked = 3,
+                NotRoamable = 4,
+                ProtectedToOtherIdentity = 5,
+                LicenseExpired = 6,
+                AccessSuspended = 7,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 196608)]
+            enum ProtectionPolicyAuditAction {
+                Decrypt = 0,
+                CopyToLocation = 1,
+                SendToRecipient = 2,
+                Other = 3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::Activatable(IProtectionPolicyAuditInfoFactory, 196608, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            class ProtectionPolicyAuditInfo {
+                IProtectionPolicyAuditInfo,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ProtectionPolicyEvaluationResult {
+                Allowed = 0,
+                Blocked = 1,
+                ConsentRequired = 2,
+            }
+            #[Windows::Foundation::Metadata::Static(IProtectionPolicyManagerStatics4, 262144, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::Static(IProtectionPolicyManagerStatics2, 131072, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IProtectionPolicyManagerStatics, 65536, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IProtectionPolicyManagerStatics3, 196608, "Windows.Security.EnterpriseData.EnterpriseDataContract")]
+            class ProtectionPolicyManager {
+                IProtectionPolicyManager,
+                IProtectionPolicyManager2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 196608)]
+            enum ProtectionPolicyRequestAccessBehavior {
+                Decrypt = 0,
+                TreatOverridePolicyAsBlock = 1,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(EnterpriseDataContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class ThreadNetworkContext {
+                IThreadNetworkContext,
+                super::super::Foundation::IClosable,
+            }
+        }
+    }
+}

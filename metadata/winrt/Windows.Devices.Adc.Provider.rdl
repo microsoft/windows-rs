@@ -1,0 +1,37 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Adc {
+            mod Provider {
+                #[guid(0xbe545828_816d_4de5_a048_aba06958aaa8)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 65536)]
+                interface IAdcControllerProvider {
+                    #[get]
+                    ChannelCount: i32;
+                    #[get]
+                    ResolutionInBits: i32;
+                    #[get]
+                    MinValue: i32;
+                    #[get]
+                    MaxValue: i32;
+                    ChannelMode: ProviderAdcChannelMode;
+                    fn IsChannelModeSupported(&self, channelMode: ProviderAdcChannelMode) -> bool;
+                    fn AcquireChannel(&self, channel: i32);
+                    fn ReleaseChannel(&self, channel: i32);
+                    fn ReadValue(&self, channelNumber: i32) -> i32;
+                }
+                #[guid(0x28953668_9359_4c57_bc88_e275e81638c9)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 65536)]
+                interface IAdcProvider {
+                    fn GetControllers(&self) -> super::super::super::Foundation::Collections::IVectorView<IAdcControllerProvider>;
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 65536)]
+                enum ProviderAdcChannelMode {
+                    SingleEnded = 0,
+                    Differential = 1,
+                }
+            }
+        }
+    }
+}

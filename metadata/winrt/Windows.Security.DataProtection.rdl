@@ -1,0 +1,96 @@
+#[winrt]
+mod Windows {
+    mod Security {
+        mod DataProtection {
+            #[guid(0xa76582c9_06a2_4273_a803_834c9f87fbeb)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAvailabilityStateChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IUserDataAvailabilityStateChangedEventArgs {
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[guid(0x8efd0e90_fa9a_46a4_a377_01cebf1e74d8)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataBufferUnprotectResult)]
+            interface IUserDataBufferUnprotectResult {
+                #[get]
+                Status: UserDataBufferUnprotectStatus;
+                #[get]
+                UnprotectedBuffer: super::super::Storage::Streams::IBuffer;
+            }
+            #[guid(0x1f13237d_b42e_4a88_9480_0f240924c876)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataProtectionManager)]
+            interface IUserDataProtectionManager {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ProtectStorageItemAsync(&self, storageItem: super::super::Storage::IStorageItem, availability: UserDataAvailability) -> super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionStatus>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetStorageItemProtectionInfoAsync(&self, storageItem: super::super::Storage::IStorageItem) -> super::super::Foundation::IAsyncOperation<UserDataStorageItemProtectionInfo>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ProtectBufferAsync(&self, unprotectedBuffer: super::super::Storage::Streams::IBuffer, availability: UserDataAvailability) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn UnprotectBufferAsync(&self, protectedBuffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<UserDataBufferUnprotectResult>;
+                fn IsContinuedDataAvailabilityExpected(&self, availability: UserDataAvailability) -> bool;
+                event DataAvailabilityStateChanged: super::super::Foundation::TypedEventHandler<UserDataProtectionManager, UserDataAvailabilityStateChangedEventArgs>;
+            }
+            #[guid(0x977780e8_6dce_4fae_af85_782ac2cf4572)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataProtectionManager)]
+            interface IUserDataProtectionManagerStatics {
+                fn TryGetDefault(&self) -> UserDataProtectionManager;
+                fn TryGetForUser(&self, user: super::super::System::User) -> UserDataProtectionManager;
+            }
+            #[guid(0x5b6680f6_e87f_40a1_b19d_a6187a0c662f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataStorageItemProtectionInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IUserDataStorageItemProtectionInfo {
+                #[get]
+                Availability: UserDataAvailability;
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum UserDataAvailability {
+                Always = 0,
+                AfterFirstUnlock = 1,
+                WhileUnlocked = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class UserDataAvailabilityStateChangedEventArgs {
+                IUserDataAvailabilityStateChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class UserDataBufferUnprotectResult {
+                IUserDataBufferUnprotectResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum UserDataBufferUnprotectStatus {
+                Succeeded = 0,
+                Unavailable = 1,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IUserDataProtectionManagerStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class UserDataProtectionManager {
+                IUserDataProtectionManager,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class UserDataStorageItemProtectionInfo {
+                IUserDataStorageItemProtectionInfo,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum UserDataStorageItemProtectionStatus {
+                Succeeded = 0,
+                NotProtectable = 1,
+                DataUnavailable = 2,
+            }
+        }
+    }
+}

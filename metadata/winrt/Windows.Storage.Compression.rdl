@@ -1,0 +1,62 @@
+#[winrt]
+mod Windows {
+    mod Storage {
+        mod Compression {
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum CompressAlgorithm {
+                InvalidAlgorithm = 0,
+                NullAlgorithm = 1,
+                Mszip = 2,
+                Xpress = 3,
+                XpressHuff = 4,
+                Lzms = 5,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(ICompressorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class Compressor {
+                ICompressor,
+                super::Streams::IOutputStream,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Activatable(IDecompressorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class Decompressor {
+                IDecompressor,
+                super::Streams::IInputStream,
+                super::super::Foundation::IClosable,
+            }
+            #[guid(0x0ac3645a_57ac_4ee1_b702_84d39d5424e0)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Compressor)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICompressor: super::Streams::IOutputStream + super::super::Foundation::IClosable {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FinishAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn DetachStream(&self) -> super::Streams::IOutputStream;
+            }
+            #[guid(0x5f3d96a4_2cfb_442c_a8ba_d7d11b039da0)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Compressor)]
+            interface ICompressorFactory {
+                fn CreateCompressor(&self, underlyingStream: super::Streams::IOutputStream) -> Compressor;
+                fn CreateCompressorEx(&self, underlyingStream: super::Streams::IOutputStream, algorithm: CompressAlgorithm, blockSize: u32) -> Compressor;
+            }
+            #[guid(0xb883fe46_d68a_4c8b_ada0_4ee813fc5283)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Decompressor)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDecompressor: super::Streams::IInputStream + super::super::Foundation::IClosable {
+                fn DetachStream(&self) -> super::Streams::IInputStream;
+            }
+            #[guid(0x5337e252_1da2_42e1_8834_0379d28d742f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Decompressor)]
+            interface IDecompressorFactory {
+                fn CreateDecompressor(&self, underlyingStream: super::Streams::IInputStream) -> Decompressor;
+            }
+        }
+    }
+}

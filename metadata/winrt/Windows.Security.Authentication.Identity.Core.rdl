@@ -1,0 +1,175 @@
+#[winrt]
+mod Windows {
+    mod Security {
+        mod Authentication {
+            mod Identity {
+                mod Core {
+                    #[guid(0x0fd340a5_f574_4320_a08e_0a19a82322aa)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MicrosoftAccountMultiFactorAuthenticationManager)]
+                    interface IMicrosoftAccountMultiFactorAuthenticationManager {
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn GetOneTimePassCodeAsync(&self, userAccountId: String, codeLength: u32) -> super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorOneTimeCodedInfo>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn AddDeviceAsync(&self, userAccountId: String, authenticationToken: String, wnsChannelId: String) -> super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn RemoveDeviceAsync(&self, userAccountId: String) -> super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn UpdateWnsChannelAsync(&self, userAccountId: String, channelUri: String) -> super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn GetSessionsAsync(&self, userAccountIdList: super::super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorGetSessionsResult>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn GetSessionsAndUnregisteredAccountsAsync(&self, userAccountIdList: super::super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("ApproveSessionUsingAuthSessionInfoAsync")]
+                        fn ApproveSessionAsync(&self, sessionAuthentictionStatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, authenticationSessionInfo: MicrosoftAccountMultiFactorSessionInfo) -> super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>;
+                        #[Windows::Foundation::Metadata::Overload("ApproveSessionAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn ApproveSessionAsync(&self, sessionAuthentictionStatus: MicrosoftAccountMultiFactorSessionAuthenticationStatus, userAccountId: String, sessionId: String, sessionAuthenticationType: MicrosoftAccountMultiFactorAuthenticationType) -> super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("DenySessionUsingAuthSessionInfoAsync")]
+                        fn DenySessionAsync(&self, authenticationSessionInfo: MicrosoftAccountMultiFactorSessionInfo) -> super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("DenySessionAsync")]
+                        fn DenySessionAsync(&self, userAccountId: String, sessionId: String, sessionAuthenticationType: MicrosoftAccountMultiFactorAuthenticationType) -> super::super::super::super::Foundation::IAsyncOperation<MicrosoftAccountMultiFactorServiceResponse>;
+                    }
+                    #[guid(0xd964c2e6_f446_4c71_8b79_6ea4024aa9b8)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MicrosoftAccountMultiFactorAuthenticationManager)]
+                    interface IMicrosoftAccountMultiFactorAuthenticatorStatics {
+                        #[get]
+                        Current: MicrosoftAccountMultiFactorAuthenticationManager;
+                    }
+                    #[guid(0x4e23a9a0_e9fa_497a_95de_6d5747bf974c)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MicrosoftAccountMultiFactorGetSessionsResult)]
+                    interface IMicrosoftAccountMultiFactorGetSessionsResult {
+                        #[get]
+                        Sessions: super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>;
+                        #[get]
+                        ServiceResponse: MicrosoftAccountMultiFactorServiceResponse;
+                    }
+                    #[guid(0x82ba264b_d87c_4668_a976_40cfae547d08)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MicrosoftAccountMultiFactorOneTimeCodedInfo)]
+                    interface IMicrosoftAccountMultiFactorOneTimeCodedInfo {
+                        #[get]
+                        Code: String;
+                        #[get]
+                        TimeInterval: super::super::super::super::Foundation::TimeSpan;
+                        #[get]
+                        TimeToLive: super::super::super::super::Foundation::TimeSpan;
+                        #[get]
+                        ServiceResponse: MicrosoftAccountMultiFactorServiceResponse;
+                    }
+                    #[guid(0x5f7eabb4_a278_4635_b765_b494eb260af4)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MicrosoftAccountMultiFactorSessionInfo)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    interface IMicrosoftAccountMultiFactorSessionInfo {
+                        #[get]
+                        UserAccountId: String;
+                        #[get]
+                        SessionId: String;
+                        #[get]
+                        DisplaySessionId: String;
+                        #[get]
+                        ApprovalStatus: MicrosoftAccountMultiFactorSessionApprovalStatus;
+                        #[get]
+                        AuthenticationType: MicrosoftAccountMultiFactorAuthenticationType;
+                        #[get]
+                        RequestTime: super::super::super::super::Foundation::DateTime;
+                        #[get]
+                        ExpirationTime: super::super::super::super::Foundation::DateTime;
+                    }
+                    #[guid(0xaa7ec5fb_da3f_4088_a20d_5618afadb2e5)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    interface IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
+                        #[get]
+                        Sessions: super::super::super::super::Foundation::Collections::IVectorView<MicrosoftAccountMultiFactorSessionInfo>;
+                        #[get]
+                        UnregisteredAccounts: super::super::super::super::Foundation::Collections::IVectorView<String>;
+                        #[get]
+                        ServiceResponse: MicrosoftAccountMultiFactorServiceResponse;
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Static(IMicrosoftAccountMultiFactorAuthenticatorStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class MicrosoftAccountMultiFactorAuthenticationManager {
+                        IMicrosoftAccountMultiFactorAuthenticationManager,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    enum MicrosoftAccountMultiFactorAuthenticationType {
+                        User = 0,
+                        Device = 1,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    class MicrosoftAccountMultiFactorGetSessionsResult {
+                        IMicrosoftAccountMultiFactorGetSessionsResult,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class MicrosoftAccountMultiFactorOneTimeCodedInfo {
+                        IMicrosoftAccountMultiFactorOneTimeCodedInfo,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    enum MicrosoftAccountMultiFactorServiceResponse {
+                        Success = 0,
+                        Error = 1,
+                        NoNetworkConnection = 2,
+                        ServiceUnavailable = 3,
+                        TotpSetupDenied = 4,
+                        NgcNotSetup = 5,
+                        SessionAlreadyDenied = 6,
+                        SessionAlreadyApproved = 7,
+                        SessionExpired = 8,
+                        NgcNonceExpired = 9,
+                        InvalidSessionId = 10,
+                        InvalidSessionType = 11,
+                        InvalidOperation = 12,
+                        InvalidStateTransition = 13,
+                        DeviceNotFound = 14,
+                        FlowDisabled = 15,
+                        SessionNotApproved = 16,
+                        OperationCanceledByUser = 17,
+                        NgcDisabledByServer = 18,
+                        NgcKeyNotFoundOnServer = 19,
+                        UIRequired = 20,
+                        DeviceIdChanged = 21,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    enum MicrosoftAccountMultiFactorSessionApprovalStatus {
+                        Pending = 0,
+                        Approved = 1,
+                        Denied = 2,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    enum MicrosoftAccountMultiFactorSessionAuthenticationStatus {
+                        Authenticated = 0,
+                        Unauthenticated = 1,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class MicrosoftAccountMultiFactorSessionInfo {
+                        IMicrosoftAccountMultiFactorSessionInfo,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    class MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
+                        IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo,
+                    }
+                }
+            }
+        }
+    }
+}

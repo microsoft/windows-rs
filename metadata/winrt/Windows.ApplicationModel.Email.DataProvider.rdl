@@ -1,0 +1,584 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod Email {
+            mod DataProvider {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailDataProviderConnection {
+                    IEmailDataProviderConnection,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailDataProviderTriggerDetails {
+                    IEmailDataProviderTriggerDetails,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxCreateFolderRequest {
+                    IEmailMailboxCreateFolderRequest,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxCreateFolderRequestEventArgs {
+                    IEmailMailboxCreateFolderRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxDeleteFolderRequest {
+                    IEmailMailboxDeleteFolderRequest,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxDeleteFolderRequestEventArgs {
+                    IEmailMailboxDeleteFolderRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailMailboxDownloadAttachmentRequest {
+                    IEmailMailboxDownloadAttachmentRequest,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxDownloadAttachmentRequestEventArgs {
+                    IEmailMailboxDownloadAttachmentRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailMailboxDownloadMessageRequest {
+                    IEmailMailboxDownloadMessageRequest,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailMailboxDownloadMessageRequestEventArgs {
+                    IEmailMailboxDownloadMessageRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailMailboxEmptyFolderRequest {
+                    IEmailMailboxEmptyFolderRequest,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxEmptyFolderRequestEventArgs {
+                    IEmailMailboxEmptyFolderRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxForwardMeetingRequest {
+                    IEmailMailboxForwardMeetingRequest,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxForwardMeetingRequestEventArgs {
+                    IEmailMailboxForwardMeetingRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailMailboxGetAutoReplySettingsRequest {
+                    IEmailMailboxGetAutoReplySettingsRequest,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailMailboxGetAutoReplySettingsRequestEventArgs {
+                    IEmailMailboxGetAutoReplySettingsRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxMoveFolderRequest {
+                    IEmailMailboxMoveFolderRequest,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxMoveFolderRequestEventArgs {
+                    IEmailMailboxMoveFolderRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class EmailMailboxProposeNewTimeForMeetingRequest {
+                    IEmailMailboxProposeNewTimeForMeetingRequest,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
+                    IEmailMailboxProposeNewTimeForMeetingRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailMailboxResolveRecipientsRequest {
+                    IEmailMailboxResolveRecipientsRequest,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxResolveRecipientsRequestEventArgs {
+                    IEmailMailboxResolveRecipientsRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxServerSearchReadBatchRequest {
+                    IEmailMailboxServerSearchReadBatchRequest,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxServerSearchReadBatchRequestEventArgs {
+                    IEmailMailboxServerSearchReadBatchRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class EmailMailboxSetAutoReplySettingsRequest {
+                    IEmailMailboxSetAutoReplySettingsRequest,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailMailboxSetAutoReplySettingsRequestEventArgs {
+                    IEmailMailboxSetAutoReplySettingsRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class EmailMailboxSyncManagerSyncRequest {
+                    IEmailMailboxSyncManagerSyncRequest,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailMailboxSyncManagerSyncRequestEventArgs {
+                    IEmailMailboxSyncManagerSyncRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailMailboxUpdateMeetingResponseRequest {
+                    IEmailMailboxUpdateMeetingResponseRequest,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class EmailMailboxUpdateMeetingResponseRequestEventArgs {
+                    IEmailMailboxUpdateMeetingResponseRequestEventArgs,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class EmailMailboxValidateCertificatesRequest {
+                    IEmailMailboxValidateCertificatesRequest,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class EmailMailboxValidateCertificatesRequestEventArgs {
+                    IEmailMailboxValidateCertificatesRequestEventArgs,
+                }
+                #[guid(0x3b9c9dc7_37b2_4bf0_ae30_7b644a1c96e1)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailDataProviderConnection)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailDataProviderConnection {
+                    event MailboxSyncRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxSyncManagerSyncRequestEventArgs>;
+                    event DownloadMessageRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDownloadMessageRequestEventArgs>;
+                    event DownloadAttachmentRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDownloadAttachmentRequestEventArgs>;
+                    event CreateFolderRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxCreateFolderRequestEventArgs>;
+                    event DeleteFolderRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxDeleteFolderRequestEventArgs>;
+                    event EmptyFolderRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxEmptyFolderRequestEventArgs>;
+                    event MoveFolderRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxMoveFolderRequestEventArgs>;
+                    event UpdateMeetingResponseRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxUpdateMeetingResponseRequestEventArgs>;
+                    event ForwardMeetingRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxForwardMeetingRequestEventArgs>;
+                    event ProposeNewTimeForMeetingRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxProposeNewTimeForMeetingRequestEventArgs>;
+                    event SetAutoReplySettingsRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxSetAutoReplySettingsRequestEventArgs>;
+                    event GetAutoReplySettingsRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxGetAutoReplySettingsRequestEventArgs>;
+                    event ResolveRecipientsRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxResolveRecipientsRequestEventArgs>;
+                    event ValidateCertificatesRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxValidateCertificatesRequestEventArgs>;
+                    event ServerSearchReadBatchRequested: super::super::super::Foundation::TypedEventHandler<EmailDataProviderConnection, EmailMailboxServerSearchReadBatchRequestEventArgs>;
+                    fn Start(&self);
+                }
+                #[guid(0x8f3e4e50_341e_45f3_bba0_84a005e1319a)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailDataProviderTriggerDetails)]
+                interface IEmailDataProviderTriggerDetails {
+                    #[get]
+                    Connection: EmailDataProviderConnection;
+                }
+                #[guid(0x184d3775_c921_4c39_a309_e16c9f22b04b)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxCreateFolderRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxCreateFolderRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    ParentFolderId: String;
+                    #[get]
+                    Name: String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self, folder: super::EmailFolder) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self, status: super::EmailMailboxCreateFolderStatus) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x03e4c02c_241c_4ea9_a68f_ff20bc5afc85)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxCreateFolderRequestEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxCreateFolderRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxCreateFolderRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0x9469e88a_a931_4779_923d_09a3ea292e29)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxDeleteFolderRequest)]
+                interface IEmailMailboxDeleteFolderRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    EmailFolderId: String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self, status: super::EmailMailboxDeleteFolderStatus) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0xb4d32d06_2332_4678_8378_28b579336846)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxDeleteFolderRequestEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxDeleteFolderRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxDeleteFolderRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0x0b1dbbb4_750c_48e1_bce4_8d589684ffbc)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxDownloadAttachmentRequest)]
+                interface IEmailMailboxDownloadAttachmentRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    EmailMessageId: String;
+                    #[get]
+                    EmailAttachmentId: String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0xccddc46d_ffa8_4877_9f9d_fed7bcaf4104)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxDownloadAttachmentRequestEventArgs)]
+                interface IEmailMailboxDownloadAttachmentRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxDownloadAttachmentRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0x497b4187_5b4d_4b23_816c_f3842beb753e)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxDownloadMessageRequest)]
+                interface IEmailMailboxDownloadMessageRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    EmailMessageId: String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x470409ad_d0a0_4a5b_bb2a_37621039c53e)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxDownloadMessageRequestEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxDownloadMessageRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxDownloadMessageRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0xfe4b03ab_f86d_46d9_b4ce_bc8a6d9e9268)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxEmptyFolderRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxEmptyFolderRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    EmailFolderId: String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self, status: super::EmailMailboxEmptyFolderStatus) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x7183f484_985a_4ac0_b33f_ee0e2627a3c0)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxEmptyFolderRequestEventArgs)]
+                interface IEmailMailboxEmptyFolderRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxEmptyFolderRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0x616d6af1_70d4_4832_b869_b80542ae9be8)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxForwardMeetingRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxForwardMeetingRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    EmailMessageId: String;
+                    #[get]
+                    Recipients: super::super::super::Foundation::Collections::IVectorView<super::EmailRecipient>;
+                    #[get]
+                    Subject: String;
+                    #[get]
+                    ForwardHeaderType: super::EmailMessageBodyKind;
+                    #[get]
+                    ForwardHeader: String;
+                    #[get]
+                    Comment: String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x2bd8f33a_2974_4759_a5a5_58f44d3c0275)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxForwardMeetingRequestEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxForwardMeetingRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxForwardMeetingRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0x9b380789_1e88_4e01_84cc_1386ad9a2c2f)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxGetAutoReplySettingsRequest)]
+                interface IEmailMailboxGetAutoReplySettingsRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    RequestedFormat: super::EmailMailboxAutoReplyMessageResponseKind;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self, autoReplySettings: super::EmailMailboxAutoReplySettings) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0xd79f55c2_fd45_4004_8a91_9bacf38b7022)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxGetAutoReplySettingsRequestEventArgs)]
+                interface IEmailMailboxGetAutoReplySettingsRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxGetAutoReplySettingsRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0x10ba2856_4a95_4068_91cc_67cc7acf454f)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxMoveFolderRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxMoveFolderRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    EmailFolderId: String;
+                    #[get]
+                    NewParentFolderId: String;
+                    #[get]
+                    NewFolderName: String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x38623020_14ba_4c88_8698_7239e3c8aaa7)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxMoveFolderRequestEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxMoveFolderRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxMoveFolderRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0x5aeff152_9799_4f9f_a399_ff07f3eef04e)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxProposeNewTimeForMeetingRequest)]
+                interface IEmailMailboxProposeNewTimeForMeetingRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    EmailMessageId: String;
+                    #[get]
+                    NewStartTime: super::super::super::Foundation::DateTime;
+                    #[get]
+                    NewDuration: super::super::super::Foundation::TimeSpan;
+                    #[get]
+                    Subject: String;
+                    #[get]
+                    Comment: String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0xfb480b98_33ad_4a67_8251_0f9c249b6a20)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxProposeNewTimeForMeetingRequestEventArgs)]
+                interface IEmailMailboxProposeNewTimeForMeetingRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxProposeNewTimeForMeetingRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0xefa4cf70_7b39_4c9b_811e_41eaf43a332d)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxResolveRecipientsRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxResolveRecipientsRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    Recipients: super::super::super::Foundation::Collections::IVectorView<String>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self, resolutionResults: super::super::super::Foundation::Collections::IIterable<super::EmailRecipientResolutionResult>) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x260f9e02_b2cf_40f8_8c28_e3ed43b1e89a)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxResolveRecipientsRequestEventArgs)]
+                interface IEmailMailboxResolveRecipientsRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxResolveRecipientsRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0x090eebdf_5a96_41d3_8ad8_34912f9aa60e)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxServerSearchReadBatchRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxServerSearchReadBatchRequest {
+                    #[get]
+                    SessionId: String;
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    EmailFolderId: String;
+                    #[get]
+                    Options: super::EmailQueryOptions;
+                    #[get]
+                    SuggestedBatchSize: u32;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SaveMessageAsync(&self, message: super::EmailMessage) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self, batchStatus: super::EmailBatchStatus) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x14101b4e_ed9e_45d1_ad7a_cc9b7f643ae2)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxServerSearchReadBatchRequestEventArgs)]
+                interface IEmailMailboxServerSearchReadBatchRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxServerSearchReadBatchRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0x75a422d0_a88e_4e54_8dc7_c243186b774e)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxSetAutoReplySettingsRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxSetAutoReplySettingsRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    AutoReplySettings: super::EmailMailboxAutoReplySettings;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x09da11ad_d7ca_4087_ac86_53fa67f76246)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxSetAutoReplySettingsRequestEventArgs)]
+                interface IEmailMailboxSetAutoReplySettingsRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxSetAutoReplySettingsRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0x4e10e8e4_7e67_405a_b673_dc60c91090fc)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxSyncManagerSyncRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxSyncManagerSyncRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x439a031a_8fcc_4ae5_b9b5_d434e0a65aa8)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxSyncManagerSyncRequestEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxSyncManagerSyncRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxSyncManagerSyncRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0x5b99ac93_b2cf_4888_ba4f_306b6b66df30)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxUpdateMeetingResponseRequest)]
+                interface IEmailMailboxUpdateMeetingResponseRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    EmailMessageId: String;
+                    #[get]
+                    Response: super::EmailMeetingResponseType;
+                    #[get]
+                    Subject: String;
+                    #[get]
+                    Comment: String;
+                    #[get]
+                    SendUpdate: bool;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x6898d761_56c9_4f17_be31_66fda94ba159)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxUpdateMeetingResponseRequestEventArgs)]
+                interface IEmailMailboxUpdateMeetingResponseRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxUpdateMeetingResponseRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+                #[guid(0xa94d3931_e11a_4f97_b81a_187a70a8f41a)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxValidateCertificatesRequest)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IEmailMailboxValidateCertificatesRequest {
+                    #[get]
+                    EmailMailboxId: String;
+                    #[get]
+                    Certificates: super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportCompletedAsync(&self, validationStatuses: super::super::super::Foundation::Collections::IIterable<super::EmailCertificateValidationStatus>) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x2583bf17_02ff_49fe_a73c_03f37566c691)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(EmailMailboxValidateCertificatesRequestEventArgs)]
+                interface IEmailMailboxValidateCertificatesRequestEventArgs {
+                    #[get]
+                    Request: EmailMailboxValidateCertificatesRequest;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+            }
+        }
+    }
+}

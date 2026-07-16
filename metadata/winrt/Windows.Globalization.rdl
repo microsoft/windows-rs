@@ -1,0 +1,912 @@
+#[winrt]
+mod Windows {
+    mod Globalization {
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(IApplicationLanguagesStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Static(IApplicationLanguagesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class ApplicationLanguages {}
+        #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Activatable(ICalendarFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Activatable(ICalendarFactory2, 65536, "Windows.Foundation.UniversalApiContract")]
+        class Calendar {
+            ICalendar,
+            ITimeZoneOnCalendar,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class CalendarIdentifiers {}
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(IClockIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        class ClockIdentifiers {}
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        #[Windows::Foundation::Metadata::Activatable(ICurrencyAmountFactory, 524288, "Windows.Foundation.UniversalApiContract")]
+        class CurrencyAmount {
+            ICurrencyAmount,
+        }
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(ICurrencyIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(ICurrencyIdentifiersStatics3, 458752, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Static(ICurrencyIdentifiersStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+        class CurrencyIdentifiers {}
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum DayOfWeek {
+            Sunday = 0,
+            Monday = 1,
+            Tuesday = 2,
+            Wednesday = 3,
+            Thursday = 4,
+            Friday = 5,
+            Saturday = 6,
+        }
+        #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Activatable(IGeographicRegionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::Static(IGeographicRegionStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        class GeographicRegion {
+            IGeographicRegion,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(65536)]
+        #[Windows::Foundation::Metadata::ApiContract]
+        struct GlobalizationJapanesePhoneticAnalyzerContract {}
+        #[guid(0x75b40847_0a4c_4a92_9565_fd63c95f7aed)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationLanguages)]
+        interface IApplicationLanguagesStatics {
+            PrimaryLanguageOverride: String;
+            #[get]
+            Languages: super::Foundation::Collections::IVectorView<String>;
+            #[get]
+            ManifestLanguages: super::Foundation::Collections::IVectorView<String>;
+        }
+        #[guid(0x1df0de4f_072b_4d7b_8f06_cb2db40f2bb5)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationLanguages)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        interface IApplicationLanguagesStatics2 {
+            fn GetLanguagesForUser(&self, user: super::System::User) -> super::Foundation::Collections::IVectorView<String>;
+        }
+        #[guid(0xca30221d_86d9_40fb_a26b_d44eb7cf08ea)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Calendar)]
+        interface ICalendar {
+            fn Clone(&self) -> Calendar;
+            fn SetToMin(&self);
+            fn SetToMax(&self);
+            #[get]
+            Languages: super::Foundation::Collections::IVectorView<String>;
+            NumeralSystem: String;
+            fn GetCalendarSystem(&self) -> String;
+            fn ChangeCalendarSystem(&self, value: String);
+            fn GetClock(&self) -> String;
+            fn ChangeClock(&self, value: String);
+            fn GetDateTime(&self) -> super::Foundation::DateTime;
+            fn SetDateTime(&self, value: super::Foundation::DateTime);
+            fn SetToNow(&self);
+            #[get]
+            FirstEra: i32;
+            #[get]
+            LastEra: i32;
+            #[get]
+            NumberOfEras: i32;
+            Era: i32;
+            fn AddEras(&self, eras: i32);
+            #[Windows::Foundation::Metadata::Overload("EraAsFullString")]
+            fn EraAsString(&self) -> String;
+            #[Windows::Foundation::Metadata::Overload("EraAsString")]
+            fn EraAsString(&self, idealLength: i32) -> String;
+            #[get]
+            FirstYearInThisEra: i32;
+            #[get]
+            LastYearInThisEra: i32;
+            #[get]
+            NumberOfYearsInThisEra: i32;
+            Year: i32;
+            fn AddYears(&self, years: i32);
+            fn YearAsString(&self) -> String;
+            fn YearAsTruncatedString(&self, remainingDigits: i32) -> String;
+            fn YearAsPaddedString(&self, minDigits: i32) -> String;
+            #[get]
+            FirstMonthInThisYear: i32;
+            #[get]
+            LastMonthInThisYear: i32;
+            #[get]
+            NumberOfMonthsInThisYear: i32;
+            Month: i32;
+            fn AddMonths(&self, months: i32);
+            #[Windows::Foundation::Metadata::Overload("MonthAsFullString")]
+            fn MonthAsString(&self) -> String;
+            #[Windows::Foundation::Metadata::Overload("MonthAsString")]
+            fn MonthAsString(&self, idealLength: i32) -> String;
+            #[Windows::Foundation::Metadata::Overload("MonthAsFullSoloString")]
+            fn MonthAsSoloString(&self) -> String;
+            #[Windows::Foundation::Metadata::Overload("MonthAsSoloString")]
+            fn MonthAsSoloString(&self, idealLength: i32) -> String;
+            fn MonthAsNumericString(&self) -> String;
+            fn MonthAsPaddedNumericString(&self, minDigits: i32) -> String;
+            fn AddWeeks(&self, weeks: i32);
+            #[get]
+            FirstDayInThisMonth: i32;
+            #[get]
+            LastDayInThisMonth: i32;
+            #[get]
+            NumberOfDaysInThisMonth: i32;
+            Day: i32;
+            fn AddDays(&self, days: i32);
+            fn DayAsString(&self) -> String;
+            fn DayAsPaddedString(&self, minDigits: i32) -> String;
+            #[get]
+            DayOfWeek: DayOfWeek;
+            #[Windows::Foundation::Metadata::Overload("DayOfWeekAsFullString")]
+            fn DayOfWeekAsString(&self) -> String;
+            #[Windows::Foundation::Metadata::Overload("DayOfWeekAsString")]
+            fn DayOfWeekAsString(&self, idealLength: i32) -> String;
+            #[Windows::Foundation::Metadata::Overload("DayOfWeekAsFullSoloString")]
+            fn DayOfWeekAsSoloString(&self) -> String;
+            #[Windows::Foundation::Metadata::Overload("DayOfWeekAsSoloString")]
+            fn DayOfWeekAsSoloString(&self, idealLength: i32) -> String;
+            #[get]
+            FirstPeriodInThisDay: i32;
+            #[get]
+            LastPeriodInThisDay: i32;
+            #[get]
+            NumberOfPeriodsInThisDay: i32;
+            Period: i32;
+            fn AddPeriods(&self, periods: i32);
+            #[Windows::Foundation::Metadata::Overload("PeriodAsFullString")]
+            fn PeriodAsString(&self) -> String;
+            #[Windows::Foundation::Metadata::Overload("PeriodAsString")]
+            fn PeriodAsString(&self, idealLength: i32) -> String;
+            #[get]
+            FirstHourInThisPeriod: i32;
+            #[get]
+            LastHourInThisPeriod: i32;
+            #[get]
+            NumberOfHoursInThisPeriod: i32;
+            Hour: i32;
+            fn AddHours(&self, hours: i32);
+            fn HourAsString(&self) -> String;
+            fn HourAsPaddedString(&self, minDigits: i32) -> String;
+            Minute: i32;
+            fn AddMinutes(&self, minutes: i32);
+            fn MinuteAsString(&self) -> String;
+            fn MinuteAsPaddedString(&self, minDigits: i32) -> String;
+            Second: i32;
+            fn AddSeconds(&self, seconds: i32);
+            fn SecondAsString(&self) -> String;
+            fn SecondAsPaddedString(&self, minDigits: i32) -> String;
+            Nanosecond: i32;
+            fn AddNanoseconds(&self, nanoseconds: i32);
+            fn NanosecondAsString(&self) -> String;
+            fn NanosecondAsPaddedString(&self, minDigits: i32) -> String;
+            fn Compare(&self, other: Calendar) -> i32;
+            fn CompareDateTime(&self, other: super::Foundation::DateTime) -> i32;
+            fn CopyTo(&self, other: Calendar);
+            #[get]
+            FirstMinuteInThisHour: i32;
+            #[get]
+            LastMinuteInThisHour: i32;
+            #[get]
+            NumberOfMinutesInThisHour: i32;
+            #[get]
+            FirstSecondInThisMinute: i32;
+            #[get]
+            LastSecondInThisMinute: i32;
+            #[get]
+            NumberOfSecondsInThisMinute: i32;
+            #[get]
+            ResolvedLanguage: String;
+            #[get]
+            IsDaylightSavingTime: bool;
+        }
+        #[guid(0x83f58412_e56b_4c75_a66e_0f63d57758a6)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Calendar)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ICalendarFactory {
+            fn CreateCalendarDefaultCalendarAndClock(&self, languages: super::Foundation::Collections::IIterable<String>) -> Calendar;
+            fn CreateCalendar(&self, languages: super::Foundation::Collections::IIterable<String>, calendar: String, clock: String) -> Calendar;
+        }
+        #[guid(0xb44b378c_ca7e_4590_9e72_ea2bec1a5115)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Calendar)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ICalendarFactory2 {
+            fn CreateCalendarWithTimeZone(&self, languages: super::Foundation::Collections::IIterable<String>, calendar: String, clock: String, timeZoneId: String) -> Calendar;
+        }
+        #[guid(0x80653f68_2cb2_4c1f_b590_f0f52bf4fd1a)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CalendarIdentifiers)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ICalendarIdentifiersStatics {
+            #[get]
+            Gregorian: String;
+            #[get]
+            Hebrew: String;
+            #[get]
+            Hijri: String;
+            #[get]
+            Japanese: String;
+            #[get]
+            Julian: String;
+            #[get]
+            Korean: String;
+            #[get]
+            Taiwan: String;
+            #[get]
+            Thai: String;
+            #[get]
+            UmAlQura: String;
+        }
+        #[guid(0x7df4d488_5fd0_42a7_95b5_7d98d823075f)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CalendarIdentifiers)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ICalendarIdentifiersStatics2 {
+            #[get]
+            Persian: String;
+        }
+        #[guid(0x2c225423_1fad_40c0_9334_a8eb90db04f5)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CalendarIdentifiers)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        interface ICalendarIdentifiersStatics3 {
+            #[get]
+            ChineseLunar: String;
+            #[get]
+            JapaneseLunar: String;
+            #[get]
+            KoreanLunar: String;
+            #[get]
+            TaiwanLunar: String;
+            #[get]
+            VietnameseLunar: String;
+        }
+        #[guid(0x523805bb_12ec_4f83_bc31_b1b4376b0808)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ClockIdentifiers)]
+        interface IClockIdentifiersStatics {
+            #[get]
+            TwelveHour: String;
+            #[get]
+            TwentyFourHour: String;
+        }
+        #[guid(0x74b49942_eb75_443a_95b3_7d723f56f93c)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyAmount)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        interface ICurrencyAmount {
+            #[get]
+            Amount: String;
+            #[get]
+            Currency: String;
+        }
+        #[guid(0x48d7168f_ef3b_4aee_a6a1_4b036fe03ff0)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyAmount)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        interface ICurrencyAmountFactory {
+            fn Create(&self, amount: String, currency: String) -> CurrencyAmount;
+        }
+        #[guid(0x9f1d091b_d586_4913_9b6a_a9bd2dc12874)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyIdentifiers)]
+        interface ICurrencyIdentifiersStatics {
+            #[get]
+            AED: String;
+            #[get]
+            AFN: String;
+            #[get]
+            ALL: String;
+            #[get]
+            AMD: String;
+            #[get]
+            ANG: String;
+            #[get]
+            AOA: String;
+            #[get]
+            ARS: String;
+            #[get]
+            AUD: String;
+            #[get]
+            AWG: String;
+            #[get]
+            AZN: String;
+            #[get]
+            BAM: String;
+            #[get]
+            BBD: String;
+            #[get]
+            BDT: String;
+            #[get]
+            BGN: String;
+            #[get]
+            BHD: String;
+            #[get]
+            BIF: String;
+            #[get]
+            BMD: String;
+            #[get]
+            BND: String;
+            #[get]
+            BOB: String;
+            #[get]
+            BRL: String;
+            #[get]
+            BSD: String;
+            #[get]
+            BTN: String;
+            #[get]
+            BWP: String;
+            #[get]
+            BYR: String;
+            #[get]
+            BZD: String;
+            #[get]
+            CAD: String;
+            #[get]
+            CDF: String;
+            #[get]
+            CHF: String;
+            #[get]
+            CLP: String;
+            #[get]
+            CNY: String;
+            #[get]
+            COP: String;
+            #[get]
+            CRC: String;
+            #[get]
+            CUP: String;
+            #[get]
+            CVE: String;
+            #[get]
+            CZK: String;
+            #[get]
+            DJF: String;
+            #[get]
+            DKK: String;
+            #[get]
+            DOP: String;
+            #[get]
+            DZD: String;
+            #[get]
+            EGP: String;
+            #[get]
+            ERN: String;
+            #[get]
+            ETB: String;
+            #[get]
+            EUR: String;
+            #[get]
+            FJD: String;
+            #[get]
+            FKP: String;
+            #[get]
+            GBP: String;
+            #[get]
+            GEL: String;
+            #[get]
+            GHS: String;
+            #[get]
+            GIP: String;
+            #[get]
+            GMD: String;
+            #[get]
+            GNF: String;
+            #[get]
+            GTQ: String;
+            #[get]
+            GYD: String;
+            #[get]
+            HKD: String;
+            #[get]
+            HNL: String;
+            #[get]
+            HRK: String;
+            #[get]
+            HTG: String;
+            #[get]
+            HUF: String;
+            #[get]
+            IDR: String;
+            #[get]
+            ILS: String;
+            #[get]
+            INR: String;
+            #[get]
+            IQD: String;
+            #[get]
+            IRR: String;
+            #[get]
+            ISK: String;
+            #[get]
+            JMD: String;
+            #[get]
+            JOD: String;
+            #[get]
+            JPY: String;
+            #[get]
+            KES: String;
+            #[get]
+            KGS: String;
+            #[get]
+            KHR: String;
+            #[get]
+            KMF: String;
+            #[get]
+            KPW: String;
+            #[get]
+            KRW: String;
+            #[get]
+            KWD: String;
+            #[get]
+            KYD: String;
+            #[get]
+            KZT: String;
+            #[get]
+            LAK: String;
+            #[get]
+            LBP: String;
+            #[get]
+            LKR: String;
+            #[get]
+            LRD: String;
+            #[get]
+            LSL: String;
+            #[get]
+            LTL: String;
+            #[get]
+            LVL: String;
+            #[get]
+            LYD: String;
+            #[get]
+            MAD: String;
+            #[get]
+            MDL: String;
+            #[get]
+            MGA: String;
+            #[get]
+            MKD: String;
+            #[get]
+            MMK: String;
+            #[get]
+            MNT: String;
+            #[get]
+            MOP: String;
+            #[get]
+            MRO: String;
+            #[get]
+            MUR: String;
+            #[get]
+            MVR: String;
+            #[get]
+            MWK: String;
+            #[get]
+            MXN: String;
+            #[get]
+            MYR: String;
+            #[get]
+            MZN: String;
+            #[get]
+            NAD: String;
+            #[get]
+            NGN: String;
+            #[get]
+            NIO: String;
+            #[get]
+            NOK: String;
+            #[get]
+            NPR: String;
+            #[get]
+            NZD: String;
+            #[get]
+            OMR: String;
+            #[get]
+            PAB: String;
+            #[get]
+            PEN: String;
+            #[get]
+            PGK: String;
+            #[get]
+            PHP: String;
+            #[get]
+            PKR: String;
+            #[get]
+            PLN: String;
+            #[get]
+            PYG: String;
+            #[get]
+            QAR: String;
+            #[get]
+            RON: String;
+            #[get]
+            RSD: String;
+            #[get]
+            RUB: String;
+            #[get]
+            RWF: String;
+            #[get]
+            SAR: String;
+            #[get]
+            SBD: String;
+            #[get]
+            SCR: String;
+            #[get]
+            SDG: String;
+            #[get]
+            SEK: String;
+            #[get]
+            SGD: String;
+            #[get]
+            SHP: String;
+            #[get]
+            SLL: String;
+            #[get]
+            SOS: String;
+            #[get]
+            SRD: String;
+            #[get]
+            STD: String;
+            #[get]
+            SYP: String;
+            #[get]
+            SZL: String;
+            #[get]
+            THB: String;
+            #[get]
+            TJS: String;
+            #[get]
+            TMT: String;
+            #[get]
+            TND: String;
+            #[get]
+            TOP: String;
+            #[get]
+            TRY: String;
+            #[get]
+            TTD: String;
+            #[get]
+            TWD: String;
+            #[get]
+            TZS: String;
+            #[get]
+            UAH: String;
+            #[get]
+            UGX: String;
+            #[get]
+            USD: String;
+            #[get]
+            UYU: String;
+            #[get]
+            UZS: String;
+            #[get]
+            VEF: String;
+            #[get]
+            VND: String;
+            #[get]
+            VUV: String;
+            #[get]
+            WST: String;
+            #[get]
+            XAF: String;
+            #[get]
+            XCD: String;
+            #[get]
+            XOF: String;
+            #[get]
+            XPF: String;
+            #[get]
+            XXX: String;
+            #[get]
+            YER: String;
+            #[get]
+            ZAR: String;
+            #[get]
+            ZMW: String;
+            #[get]
+            ZWL: String;
+        }
+        #[guid(0x1814797f_c3b2_4c33_9591_980011950d37)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyIdentifiers)]
+        interface ICurrencyIdentifiersStatics2 {
+            #[get]
+            BYN: String;
+        }
+        #[guid(0x4fb23bfa_ed25_4f4d_857f_237f1748c21c)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 458752)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyIdentifiers)]
+        interface ICurrencyIdentifiersStatics3 {
+            #[get]
+            MRU: String;
+            #[get]
+            SSP: String;
+            #[get]
+            STN: String;
+            #[get]
+            VES: String;
+        }
+        #[guid(0x01e9a621_4a64_4ed9_954f_9edeb07bd903)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(GeographicRegion)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IGeographicRegion {
+            #[get]
+            Code: String;
+            #[get]
+            CodeTwoLetter: String;
+            #[get]
+            CodeThreeLetter: String;
+            #[get]
+            CodeThreeDigit: String;
+            #[get]
+            DisplayName: String;
+            #[get]
+            NativeName: String;
+            #[get]
+            CurrenciesInUse: super::Foundation::Collections::IVectorView<String>;
+        }
+        #[guid(0x53425270_77b4_426b_859f_81e19d512546)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(GeographicRegion)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IGeographicRegionFactory {
+            fn CreateGeographicRegion(&self, geographicRegionCode: String) -> GeographicRegion;
+        }
+        #[guid(0x29e28974_7ad9_4ef4_8799_b3b44fadec08)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(GeographicRegion)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IGeographicRegionStatics {
+            fn IsSupported(&self, geographicRegionCode: String) -> bool;
+        }
+        #[guid(0x2f6a9300_e85b_43e6_897d_5d82f862df21)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(JapanesePhoneme)]
+        #[Windows::Foundation::Metadata::ContractVersion(GlobalizationJapanesePhoneticAnalyzerContract, 65536)]
+        interface IJapanesePhoneme {
+            #[get]
+            DisplayText: String;
+            #[get]
+            YomiText: String;
+            #[get]
+            IsPhraseStart: bool;
+        }
+        #[guid(0x88ab9e90_93de_41b2_b4d5_8edb227fd1c2)]
+        #[Windows::Foundation::Metadata::ContractVersion(GlobalizationJapanesePhoneticAnalyzerContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(JapanesePhoneticAnalyzer)]
+        interface IJapanesePhoneticAnalyzerStatics {
+            #[Windows::Foundation::Metadata::Overload("GetWords")]
+            fn GetWords(&self, input: String) -> super::Foundation::Collections::IVectorView<JapanesePhoneme>;
+            #[Windows::Foundation::Metadata::Overload("GetWordsWithMonoRubyOption")]
+            fn GetWords(&self, input: String, monoRuby: bool) -> super::Foundation::Collections::IVectorView<JapanesePhoneme>;
+        }
+        #[guid(0xea79a752_f7c2_4265_b1bd_c4dec4e4f080)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
+        interface ILanguage {
+            #[get]
+            LanguageTag: String;
+            #[get]
+            DisplayName: String;
+            #[get]
+            NativeName: String;
+            #[get]
+            Script: String;
+        }
+        #[guid(0x6a47e5b5_d94d_4886_a404_a5a5b9d5b494)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
+        interface ILanguage2 {
+            #[get]
+            LayoutDirection: LanguageLayoutDirection;
+        }
+        #[guid(0xc6af3d10_641a_5ba4_bb43_5e12aed75954)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 655360)]
+        interface ILanguage3 {
+            #[get]
+            AbbreviatedName: String;
+        }
+        #[guid(0x7d7daf45_368d_4364_852b_dec927037b85)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
+        interface ILanguageExtensionSubtags {
+            fn GetExtensionSubtags(&self, singleton: String) -> super::Foundation::Collections::IVectorView<String>;
+        }
+        #[guid(0x9b0252ac_0c27_44f8_b792_9793fb66c63e)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ILanguageFactory {
+            fn CreateLanguage(&self, languageTag: String) -> Language;
+        }
+        #[guid(0xb23cd557_0865_46d4_89b8_d59be8990f0d)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ILanguageStatics {
+            fn IsWellFormed(&self, languageTag: String) -> bool;
+            #[get]
+            CurrentInputMethodLanguageTag: String;
+        }
+        #[guid(0x30199f6e_914b_4b2a_9d6e_e3b0e27dbe4f)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
+        interface ILanguageStatics2 {
+            fn TrySetInputMethodLanguageTag(&self, languageTag: String) -> bool;
+        }
+        #[guid(0xd15ecb5a_71de_5752_9542_fac5b4f27261)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 655360)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
+        interface ILanguageStatics3 {
+            fn GetMuiCompatibleLanguageListFromLanguageTags(&self, languageTags: super::Foundation::Collections::IIterable<String>) -> super::Foundation::Collections::IVector<String>;
+        }
+        #[guid(0xa5c662c3_68c9_4d3d_b765_972029e21dec)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(NumeralSystemIdentifiers)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface INumeralSystemIdentifiersStatics {
+            #[get]
+            Arab: String;
+            #[get]
+            ArabExt: String;
+            #[get]
+            Bali: String;
+            #[get]
+            Beng: String;
+            #[get]
+            Cham: String;
+            #[get]
+            Deva: String;
+            #[get]
+            FullWide: String;
+            #[get]
+            Gujr: String;
+            #[get]
+            Guru: String;
+            #[get]
+            HaniDec: String;
+            #[get]
+            Java: String;
+            #[get]
+            Kali: String;
+            #[get]
+            Khmr: String;
+            #[get]
+            Knda: String;
+            #[get]
+            Lana: String;
+            #[get]
+            LanaTham: String;
+            #[get]
+            Laoo: String;
+            #[get]
+            Latn: String;
+            #[get]
+            Lepc: String;
+            #[get]
+            Limb: String;
+            #[get]
+            Mlym: String;
+            #[get]
+            Mong: String;
+            #[get]
+            Mtei: String;
+            #[get]
+            Mymr: String;
+            #[get]
+            MymrShan: String;
+            #[get]
+            Nkoo: String;
+            #[get]
+            Olck: String;
+            #[get]
+            Orya: String;
+            #[get]
+            Saur: String;
+            #[get]
+            Sund: String;
+            #[get]
+            Talu: String;
+            #[get]
+            TamlDec: String;
+            #[get]
+            Telu: String;
+            #[get]
+            Thai: String;
+            #[get]
+            Tibt: String;
+            #[get]
+            Vaii: String;
+        }
+        #[guid(0x7f003228_9ddb_4a34_9104_0260c091a7c7)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(NumeralSystemIdentifiers)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface INumeralSystemIdentifiersStatics2 {
+            #[get]
+            Brah: String;
+            #[get]
+            Osma: String;
+            #[get]
+            MathBold: String;
+            #[get]
+            MathDbl: String;
+            #[get]
+            MathSans: String;
+            #[get]
+            MathSanb: String;
+            #[get]
+            MathMono: String;
+            #[get]
+            ZmthBold: String;
+            #[get]
+            ZmthDbl: String;
+            #[get]
+            ZmthSans: String;
+            #[get]
+            ZmthSanb: String;
+            #[get]
+            ZmthMono: String;
+        }
+        #[guid(0xbb3c25e5_46cf_4317_a3f5_02621ad54478)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Calendar)]
+        interface ITimeZoneOnCalendar {
+            fn GetTimeZone(&self) -> String;
+            fn ChangeTimeZone(&self, timeZoneId: String);
+            #[Windows::Foundation::Metadata::Overload("TimeZoneAsFullString")]
+            fn TimeZoneAsString(&self) -> String;
+            #[Windows::Foundation::Metadata::Overload("TimeZoneAsString")]
+            fn TimeZoneAsString(&self, idealLength: i32) -> String;
+        }
+        #[Windows::Foundation::Metadata::Threading(STA)]
+        #[Windows::Foundation::Metadata::ContractVersion(GlobalizationJapanesePhoneticAnalyzerContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+        class JapanesePhoneme {
+            IJapanesePhoneme,
+        }
+        #[Windows::Foundation::Metadata::Threading(STA)]
+        #[Windows::Foundation::Metadata::ContractVersion(GlobalizationJapanesePhoneticAnalyzerContract, 65536)]
+        #[Windows::Foundation::Metadata::Static(IJapanesePhoneticAnalyzerStatics, 65536, "Windows.Globalization.GlobalizationJapanesePhoneticAnalyzerContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+        class JapanesePhoneticAnalyzer {}
+        #[Windows::Foundation::Metadata::Static(ILanguageStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Activatable(ILanguageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(ILanguageStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(ILanguageStatics3, 655360, "Windows.Foundation.UniversalApiContract")]
+        class Language {
+            ILanguage,
+            ILanguageExtensionSubtags,
+            ILanguage2,
+            ILanguage3,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        enum LanguageLayoutDirection {
+            Ltr = 0,
+            Rtl = 1,
+            TtbLtr = 2,
+            TtbRtl = 3,
+        }
+        #[Windows::Foundation::Metadata::Static(INumeralSystemIdentifiersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(INumeralSystemIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        class NumeralSystemIdentifiers {}
+    }
+}

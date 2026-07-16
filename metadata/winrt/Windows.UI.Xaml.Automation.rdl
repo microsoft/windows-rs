@@ -1,0 +1,1166 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Xaml {
+            mod Automation {
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IAnnotationPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class AnnotationPatternIdentifiers {
+                    IAnnotationPatternIdentifiers,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum AnnotationType {
+                    Unknown = 60000,
+                    SpellingError = 60001,
+                    GrammarError = 60002,
+                    Comment = 60003,
+                    FormulaError = 60004,
+                    TrackChanges = 60005,
+                    Header = 60006,
+                    Footer = 60007,
+                    Highlighted = 60008,
+                    Endnote = 60009,
+                    Footnote = 60010,
+                    InsertionChange = 60011,
+                    DeletionChange = 60012,
+                    MoveChange = 60013,
+                    FormatChange = 60014,
+                    UnsyncedChange = 60015,
+                    EditingLockedChange = 60016,
+                    ExternalChange = 60017,
+                    ConflictingChange = 60018,
+                    Author = 60019,
+                    AdvancedProofingIssue = 60020,
+                    DataValidationError = 60021,
+                    CircularReferenceError = 60022,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum AutomationActiveEnd {
+                    None = 0,
+                    Start = 1,
+                    End = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum AutomationAnimationStyle {
+                    None = 0,
+                    LasVegasLights = 1,
+                    BlinkingBackground = 2,
+                    SparkleText = 3,
+                    MarchingBlackAnts = 4,
+                    MarchingRedAnts = 5,
+                    Shimmer = 6,
+                    Other = 7,
+                }
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IAutomationAnnotationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Activatable(IAutomationAnnotationFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                class AutomationAnnotation: super::DependencyObject {
+                    IAutomationAnnotation,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum AutomationBulletStyle {
+                    None = 0,
+                    HollowRoundBullet = 1,
+                    FilledRoundBullet = 2,
+                    HollowSquareBullet = 3,
+                    FilledSquareBullet = 4,
+                    DashBullet = 5,
+                    Other = 6,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum AutomationCaretBidiMode {
+                    LTR = 0,
+                    RTL = 1,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum AutomationCaretPosition {
+                    Unknown = 0,
+                    EndOfLine = 1,
+                    BeginningOfLine = 2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(IAutomationElementIdentifiersStatics4, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAutomationElementIdentifiersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAutomationElementIdentifiersStatics7, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAutomationElementIdentifiersStatics6, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAutomationElementIdentifiersStatics5, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAutomationElementIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAutomationElementIdentifiersStatics8, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAutomationElementIdentifiersStatics3, 65536, "Windows.Foundation.UniversalApiContract")]
+                class AutomationElementIdentifiers {
+                    IAutomationElementIdentifiers,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum AutomationFlowDirections {
+                    Default = 0,
+                    RightToLeft = 1,
+                    BottomToTop = 2,
+                    Vertical = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum AutomationOutlineStyles {
+                    None = 0,
+                    Outline = 1,
+                    Shadow = 2,
+                    Engraved = 3,
+                    Embossed = 4,
+                }
+                #[Windows::Foundation::Metadata::Static(IAutomationPropertiesStatics9, 917504, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IAutomationPropertiesStatics6, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAutomationPropertiesStatics4, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAutomationPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IAutomationPropertiesStatics8, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAutomationPropertiesStatics3, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAutomationPropertiesStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAutomationPropertiesStatics7, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(IAutomationPropertiesStatics5, 196608, "Windows.Foundation.UniversalApiContract")]
+                class AutomationProperties {
+                    IAutomationProperties,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class AutomationProperty {
+                    IAutomationProperty,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum AutomationStyleId {
+                    Heading1 = 70001,
+                    Heading2 = 70002,
+                    Heading3 = 70003,
+                    Heading4 = 70004,
+                    Heading5 = 70005,
+                    Heading6 = 70006,
+                    Heading7 = 70007,
+                    Heading8 = 70008,
+                    Heading9 = 70009,
+                    Title = 70010,
+                    Subtitle = 70011,
+                    Normal = 70012,
+                    Emphasis = 70013,
+                    Quote = 70014,
+                    BulletedList = 70015,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum AutomationTextDecorationLineStyle {
+                    None = 0,
+                    Single = 1,
+                    WordsOnly = 2,
+                    Double = 3,
+                    Dot = 4,
+                    Dash = 5,
+                    DashDot = 6,
+                    DashDotDot = 7,
+                    Wavy = 8,
+                    ThickSingle = 9,
+                    DoubleWavy = 10,
+                    ThickWavy = 11,
+                    LongDash = 12,
+                    ThickDash = 13,
+                    ThickDashDot = 14,
+                    ThickDashDotDot = 15,
+                    ThickDot = 16,
+                    ThickLongDash = 17,
+                    Other = 18,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum AutomationTextEditChangeType {
+                    None = 0,
+                    AutoCorrect = 1,
+                    Composition = 2,
+                    CompositionFinalized = 3,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IDockPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class DockPatternIdentifiers {
+                    IDockPatternIdentifiers,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum DockPosition {
+                    Top = 0,
+                    Left = 1,
+                    Bottom = 2,
+                    Right = 3,
+                    Fill = 4,
+                    None = 5,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IDragPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DragPatternIdentifiers {
+                    IDragPatternIdentifiers,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IDropTargetPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                class DropTargetPatternIdentifiers {
+                    IDropTargetPatternIdentifiers,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IExpandCollapsePatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class ExpandCollapsePatternIdentifiers {
+                    IExpandCollapsePatternIdentifiers,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum ExpandCollapseState {
+                    Collapsed = 0,
+                    Expanded = 1,
+                    PartiallyExpanded = 2,
+                    LeafNode = 3,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IGridItemPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class GridItemPatternIdentifiers {
+                    IGridItemPatternIdentifiers,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IGridPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class GridPatternIdentifiers {
+                    IGridPatternIdentifiers,
+                }
+                #[guid(0xd475a0c1_48b2_4e40_a6cf_3dc4b638c0de)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AnnotationPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAnnotationPatternIdentifiers {}
+                #[guid(0xe0e3a35d_d167_46dc_95ab_330af61aebb5)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AnnotationPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IAnnotationPatternIdentifiersStatics {
+                    #[get]
+                    AnnotationTypeIdProperty: AutomationProperty;
+                    #[get]
+                    AnnotationTypeNameProperty: AutomationProperty;
+                    #[get]
+                    AuthorProperty: AutomationProperty;
+                    #[get]
+                    DateTimeProperty: AutomationProperty;
+                    #[get]
+                    TargetProperty: AutomationProperty;
+                }
+                #[guid(0xfb3c30ca_03d8_4618_91bf_e4d84f4af318)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationAnnotation)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IAutomationAnnotation {
+                    Type: AnnotationType;
+                    Element: super::UIElement;
+                }
+                #[guid(0x4906fa52_ddc0_4e69_b76b_019d928d822f)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationAnnotation)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAutomationAnnotationFactory {
+                    fn CreateInstance(&self, r#type: AnnotationType) -> AutomationAnnotation;
+                    fn CreateWithElementParameter(&self, r#type: AnnotationType, element: super::UIElement) -> AutomationAnnotation;
+                }
+                #[guid(0xe503eab7_4ee5_48cb_b5b8_bbcd46c9d1da)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationAnnotation)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IAutomationAnnotationStatics {
+                    #[get]
+                    TypeProperty: super::DependencyProperty;
+                    #[get]
+                    ElementProperty: super::DependencyProperty;
+                }
+                #[guid(0xe68a63cf_4345_4e2d_8a6a_49cce1fa2dcc)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElementIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IAutomationElementIdentifiers {}
+                #[guid(0x4549399f_8340_4d67_b9bf_8c2ac6a0773a)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElementIdentifiers)]
+                interface IAutomationElementIdentifiersStatics {
+                    #[get]
+                    AcceleratorKeyProperty: AutomationProperty;
+                    #[get]
+                    AccessKeyProperty: AutomationProperty;
+                    #[get]
+                    AutomationIdProperty: AutomationProperty;
+                    #[get]
+                    BoundingRectangleProperty: AutomationProperty;
+                    #[get]
+                    ClassNameProperty: AutomationProperty;
+                    #[get]
+                    ClickablePointProperty: AutomationProperty;
+                    #[get]
+                    ControlTypeProperty: AutomationProperty;
+                    #[get]
+                    HasKeyboardFocusProperty: AutomationProperty;
+                    #[get]
+                    HelpTextProperty: AutomationProperty;
+                    #[get]
+                    IsContentElementProperty: AutomationProperty;
+                    #[get]
+                    IsControlElementProperty: AutomationProperty;
+                    #[get]
+                    IsEnabledProperty: AutomationProperty;
+                    #[get]
+                    IsKeyboardFocusableProperty: AutomationProperty;
+                    #[get]
+                    IsOffscreenProperty: AutomationProperty;
+                    #[get]
+                    IsPasswordProperty: AutomationProperty;
+                    #[get]
+                    IsRequiredForFormProperty: AutomationProperty;
+                    #[get]
+                    ItemStatusProperty: AutomationProperty;
+                    #[get]
+                    ItemTypeProperty: AutomationProperty;
+                    #[get]
+                    LabeledByProperty: AutomationProperty;
+                    #[get]
+                    LocalizedControlTypeProperty: AutomationProperty;
+                    #[get]
+                    NameProperty: AutomationProperty;
+                    #[get]
+                    OrientationProperty: AutomationProperty;
+                    #[get]
+                    LiveSettingProperty: AutomationProperty;
+                }
+                #[guid(0xb5cbb1e2_d55f_46a9_9eda_1a4742515dc3)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElementIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IAutomationElementIdentifiersStatics2 {
+                    #[get]
+                    ControlledPeersProperty: AutomationProperty;
+                }
+                #[guid(0x0f5cbebd_b3eb_4083_adc7_0c2f39bb3543)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElementIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAutomationElementIdentifiersStatics3 {
+                    #[get]
+                    PositionInSetProperty: AutomationProperty;
+                    #[get]
+                    SizeOfSetProperty: AutomationProperty;
+                    #[get]
+                    LevelProperty: AutomationProperty;
+                    #[get]
+                    AnnotationsProperty: AutomationProperty;
+                }
+                #[guid(0x5af51f75_5913_4d78_b330_a6f50b73ed9b)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElementIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IAutomationElementIdentifiersStatics4 {
+                    #[get]
+                    LandmarkTypeProperty: AutomationProperty;
+                    #[get]
+                    LocalizedLandmarkTypeProperty: AutomationProperty;
+                }
+                #[guid(0x986a8206_de59_42f9_a1e7_62b8af9e756d)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElementIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IAutomationElementIdentifiersStatics5 {
+                    #[get]
+                    IsPeripheralProperty: AutomationProperty;
+                    #[get]
+                    IsDataValidForFormProperty: AutomationProperty;
+                    #[get]
+                    FullDescriptionProperty: AutomationProperty;
+                    #[get]
+                    DescribedByProperty: AutomationProperty;
+                    #[get]
+                    FlowsToProperty: AutomationProperty;
+                    #[get]
+                    FlowsFromProperty: AutomationProperty;
+                }
+                #[guid(0xde52b00d_8328_4eae_8035_f8db99c8bac4)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElementIdentifiers)]
+                interface IAutomationElementIdentifiersStatics6 {
+                    #[get]
+                    CultureProperty: AutomationProperty;
+                }
+                #[guid(0x00f1abb2_742c_446a_a8f6_1672b10d2874)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElementIdentifiers)]
+                interface IAutomationElementIdentifiersStatics7 {
+                    #[get]
+                    HeadingLevelProperty: AutomationProperty;
+                }
+                #[guid(0x8517b060_806c_5dc5_bc41_891bb5a47adf)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElementIdentifiers)]
+                interface IAutomationElementIdentifiersStatics8 {
+                    #[get]
+                    IsDialogProperty: AutomationProperty;
+                }
+                #[guid(0x68d7232c_e622_48e9_af0b_1ffa33cc5cba)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationProperties)]
+                interface IAutomationProperties {}
+                #[guid(0xb618fd7b_32d0_4970_9c42_7c039ac7be78)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationProperties)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAutomationPropertiesStatics {
+                    #[get]
+                    AcceleratorKeyProperty: super::DependencyProperty;
+                    fn GetAcceleratorKey(&self, element: super::DependencyObject) -> String;
+                    fn SetAcceleratorKey(&self, element: super::DependencyObject, value: String);
+                    #[get]
+                    AccessKeyProperty: super::DependencyProperty;
+                    fn GetAccessKey(&self, element: super::DependencyObject) -> String;
+                    fn SetAccessKey(&self, element: super::DependencyObject, value: String);
+                    #[get]
+                    AutomationIdProperty: super::DependencyProperty;
+                    fn GetAutomationId(&self, element: super::DependencyObject) -> String;
+                    fn SetAutomationId(&self, element: super::DependencyObject, value: String);
+                    #[get]
+                    HelpTextProperty: super::DependencyProperty;
+                    fn GetHelpText(&self, element: super::DependencyObject) -> String;
+                    fn SetHelpText(&self, element: super::DependencyObject, value: String);
+                    #[get]
+                    IsRequiredForFormProperty: super::DependencyProperty;
+                    fn GetIsRequiredForForm(&self, element: super::DependencyObject) -> bool;
+                    fn SetIsRequiredForForm(&self, element: super::DependencyObject, value: bool);
+                    #[get]
+                    ItemStatusProperty: super::DependencyProperty;
+                    fn GetItemStatus(&self, element: super::DependencyObject) -> String;
+                    fn SetItemStatus(&self, element: super::DependencyObject, value: String);
+                    #[get]
+                    ItemTypeProperty: super::DependencyProperty;
+                    fn GetItemType(&self, element: super::DependencyObject) -> String;
+                    fn SetItemType(&self, element: super::DependencyObject, value: String);
+                    #[get]
+                    LabeledByProperty: super::DependencyProperty;
+                    fn GetLabeledBy(&self, element: super::DependencyObject) -> super::UIElement;
+                    fn SetLabeledBy(&self, element: super::DependencyObject, value: super::UIElement);
+                    #[get]
+                    NameProperty: super::DependencyProperty;
+                    fn GetName(&self, element: super::DependencyObject) -> String;
+                    fn SetName(&self, element: super::DependencyObject, value: String);
+                    #[get]
+                    LiveSettingProperty: super::DependencyProperty;
+                    fn GetLiveSetting(&self, element: super::DependencyObject) -> Peers::AutomationLiveSetting;
+                    fn SetLiveSetting(&self, element: super::DependencyObject, value: Peers::AutomationLiveSetting);
+                }
+                #[guid(0x3976547f_7089_4801_8f1d_aab78090d1a0)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationProperties)]
+                interface IAutomationPropertiesStatics2 {
+                    #[get]
+                    AccessibilityViewProperty: super::DependencyProperty;
+                    fn GetAccessibilityView(&self, element: super::DependencyObject) -> Peers::AccessibilityView;
+                    fn SetAccessibilityView(&self, element: super::DependencyObject, value: Peers::AccessibilityView);
+                    #[get]
+                    ControlledPeersProperty: super::DependencyProperty;
+                    fn GetControlledPeers(&self, element: super::DependencyObject) -> super::super::super::Foundation::Collections::IVector<super::UIElement>;
+                }
+                #[guid(0x7b75d735_5cb1_42ad_9b57_5faba8c1867f)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationProperties)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IAutomationPropertiesStatics3 {
+                    #[get]
+                    PositionInSetProperty: super::DependencyProperty;
+                    fn GetPositionInSet(&self, element: super::DependencyObject) -> i32;
+                    fn SetPositionInSet(&self, element: super::DependencyObject, value: i32);
+                    #[get]
+                    SizeOfSetProperty: super::DependencyProperty;
+                    fn GetSizeOfSet(&self, element: super::DependencyObject) -> i32;
+                    fn SetSizeOfSet(&self, element: super::DependencyObject, value: i32);
+                    #[get]
+                    LevelProperty: super::DependencyProperty;
+                    fn GetLevel(&self, element: super::DependencyObject) -> i32;
+                    fn SetLevel(&self, element: super::DependencyObject, value: i32);
+                    #[get]
+                    AnnotationsProperty: super::DependencyProperty;
+                    fn GetAnnotations(&self, element: super::DependencyObject) -> super::super::super::Foundation::Collections::IVector<AutomationAnnotation>;
+                }
+                #[guid(0xf7d62655_311a_4b7c_a131_524e89cd3cf9)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationProperties)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IAutomationPropertiesStatics4 {
+                    #[get]
+                    LandmarkTypeProperty: super::DependencyProperty;
+                    fn GetLandmarkType(&self, element: super::DependencyObject) -> Peers::AutomationLandmarkType;
+                    fn SetLandmarkType(&self, element: super::DependencyObject, value: Peers::AutomationLandmarkType);
+                    #[get]
+                    LocalizedLandmarkTypeProperty: super::DependencyProperty;
+                    fn GetLocalizedLandmarkType(&self, element: super::DependencyObject) -> String;
+                    fn SetLocalizedLandmarkType(&self, element: super::DependencyObject, value: String);
+                }
+                #[guid(0x0be35b26_c8f9_41a2_b4db_e6a7a32b0c34)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationProperties)]
+                interface IAutomationPropertiesStatics5 {
+                    #[get]
+                    IsPeripheralProperty: super::DependencyProperty;
+                    fn GetIsPeripheral(&self, element: super::DependencyObject) -> bool;
+                    fn SetIsPeripheral(&self, element: super::DependencyObject, value: bool);
+                    #[get]
+                    IsDataValidForFormProperty: super::DependencyProperty;
+                    fn GetIsDataValidForForm(&self, element: super::DependencyObject) -> bool;
+                    fn SetIsDataValidForForm(&self, element: super::DependencyObject, value: bool);
+                    #[get]
+                    FullDescriptionProperty: super::DependencyProperty;
+                    fn GetFullDescription(&self, element: super::DependencyObject) -> String;
+                    fn SetFullDescription(&self, element: super::DependencyObject, value: String);
+                    #[get]
+                    LocalizedControlTypeProperty: super::DependencyProperty;
+                    fn GetLocalizedControlType(&self, element: super::DependencyObject) -> String;
+                    fn SetLocalizedControlType(&self, element: super::DependencyObject, value: String);
+                    #[get]
+                    DescribedByProperty: super::DependencyProperty;
+                    fn GetDescribedBy(&self, element: super::DependencyObject) -> super::super::super::Foundation::Collections::IVector<super::DependencyObject>;
+                    #[get]
+                    FlowsToProperty: super::DependencyProperty;
+                    fn GetFlowsTo(&self, element: super::DependencyObject) -> super::super::super::Foundation::Collections::IVector<super::DependencyObject>;
+                    #[get]
+                    FlowsFromProperty: super::DependencyProperty;
+                    fn GetFlowsFrom(&self, element: super::DependencyObject) -> super::super::super::Foundation::Collections::IVector<super::DependencyObject>;
+                }
+                #[guid(0xc61e030f_eb49_4e5d_b012_4c1c96c3901b)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationProperties)]
+                interface IAutomationPropertiesStatics6 {
+                    #[get]
+                    CultureProperty: super::DependencyProperty;
+                    fn GetCulture(&self, element: super::DependencyObject) -> i32;
+                    fn SetCulture(&self, element: super::DependencyObject, value: i32);
+                }
+                #[guid(0xf7e98bf3_8f91_4068_a4ad_b7b402d10a2c)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationProperties)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface IAutomationPropertiesStatics7 {
+                    #[get]
+                    HeadingLevelProperty: super::DependencyProperty;
+                    fn GetHeadingLevel(&self, element: super::DependencyObject) -> Peers::AutomationHeadingLevel;
+                    fn SetHeadingLevel(&self, element: super::DependencyObject, value: Peers::AutomationHeadingLevel);
+                }
+                #[guid(0x432eca20_171a_560d_8524_3e651d3ad6ca)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationProperties)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IAutomationPropertiesStatics8 {
+                    #[get]
+                    IsDialogProperty: super::DependencyProperty;
+                    fn GetIsDialog(&self, element: super::DependencyObject) -> bool;
+                    fn SetIsDialog(&self, element: super::DependencyObject, value: bool);
+                }
+                #[guid(0x2f20b1d1_87b2_5562_8077_da593edafd2d)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 917504)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationProperties)]
+                interface IAutomationPropertiesStatics9 {
+                    #[get]
+                    AutomationControlTypeProperty: super::DependencyProperty;
+                    fn GetAutomationControlType(&self, element: super::UIElement) -> Peers::AutomationControlType;
+                    fn SetAutomationControlType(&self, element: super::UIElement, value: Peers::AutomationControlType);
+                }
+                #[guid(0xb627195b_3227_4e16_9534_ddece30ddb46)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AutomationProperty)]
+                interface IAutomationProperty {}
+                #[guid(0xccd7f4e6_e4f9_47ff_bde7_378b11f78e09)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DockPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IDockPatternIdentifiers {}
+                #[guid(0x2b87245c_ed80_4fe5_8eb4_708a39c841e5)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DockPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IDockPatternIdentifiersStatics {
+                    #[get]
+                    DockPositionProperty: AutomationProperty;
+                }
+                #[guid(0x6266e985_4d07_4e80_82eb_8f96690a1a0c)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DragPatternIdentifiers)]
+                interface IDragPatternIdentifiers {}
+                #[guid(0x2a05379d_1755_4082_9d90_46f1411d7986)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DragPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IDragPatternIdentifiersStatics {
+                    #[get]
+                    DropEffectProperty: AutomationProperty;
+                    #[get]
+                    DropEffectsProperty: AutomationProperty;
+                    #[get]
+                    GrabbedItemsProperty: AutomationProperty;
+                    #[get]
+                    IsGrabbedProperty: AutomationProperty;
+                }
+                #[guid(0x11865133_a6fe_4634_bd18_0ef612b7b208)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DropTargetPatternIdentifiers)]
+                interface IDropTargetPatternIdentifiers {}
+                #[guid(0x1b693304_89fb_4b0a_9452_ca2c66aaf9f3)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DropTargetPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IDropTargetPatternIdentifiersStatics {
+                    #[get]
+                    DropTargetEffectProperty: AutomationProperty;
+                    #[get]
+                    DropTargetEffectsProperty: AutomationProperty;
+                }
+                #[guid(0xb006bac0_751b_4d55_92cb_613ec1bdf5d0)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ExpandCollapsePatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IExpandCollapsePatternIdentifiers {}
+                #[guid(0xd7816fd4_6ee0_4f38_8e14_56ef21adacfd)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ExpandCollapsePatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IExpandCollapsePatternIdentifiersStatics {
+                    #[get]
+                    ExpandCollapseStateProperty: AutomationProperty;
+                }
+                #[guid(0x757744f1_3285_4fb1_803b_2545bd431599)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GridItemPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IGridItemPatternIdentifiers {}
+                #[guid(0x217d2402_5e46_4d61_8794_b8ee8e774714)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GridItemPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IGridItemPatternIdentifiersStatics {
+                    #[get]
+                    ColumnProperty: AutomationProperty;
+                    #[get]
+                    ColumnSpanProperty: AutomationProperty;
+                    #[get]
+                    ContainingGridProperty: AutomationProperty;
+                    #[get]
+                    RowProperty: AutomationProperty;
+                    #[get]
+                    RowSpanProperty: AutomationProperty;
+                }
+                #[guid(0xc902980f_96c5_450c_9044_7e52c24f9e94)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GridPatternIdentifiers)]
+                interface IGridPatternIdentifiers {}
+                #[guid(0x7bc452f3_a181_4137_8de9_1f9b1a8320ed)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GridPatternIdentifiers)]
+                interface IGridPatternIdentifiersStatics {
+                    #[get]
+                    ColumnCountProperty: AutomationProperty;
+                    #[get]
+                    RowCountProperty: AutomationProperty;
+                }
+                #[guid(0x5d5cd3b8_1e12_488b_b0ea_5e6cb89816e1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MultipleViewPatternIdentifiers)]
+                interface IMultipleViewPatternIdentifiers {}
+                #[guid(0xa9cfa66f_6b84_4d71_9e48_d764d3bcda8e)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MultipleViewPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IMultipleViewPatternIdentifiersStatics {
+                    #[get]
+                    CurrentViewProperty: AutomationProperty;
+                    #[get]
+                    SupportedViewsProperty: AutomationProperty;
+                }
+                #[guid(0xf8760f45_33c9_467d_bc9e_d1515263ace1)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RangeValuePatternIdentifiers)]
+                interface IRangeValuePatternIdentifiers {}
+                #[guid(0xce23450f_1c27_457f_b815_7a5e46863dbb)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RangeValuePatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IRangeValuePatternIdentifiersStatics {
+                    #[get]
+                    IsReadOnlyProperty: AutomationProperty;
+                    #[get]
+                    LargeChangeProperty: AutomationProperty;
+                    #[get]
+                    MaximumProperty: AutomationProperty;
+                    #[get]
+                    MinimumProperty: AutomationProperty;
+                    #[get]
+                    SmallChangeProperty: AutomationProperty;
+                    #[get]
+                    ValueProperty: AutomationProperty;
+                }
+                #[guid(0x366b1003_425c_4951_ae83_d521e73bc696)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ScrollPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IScrollPatternIdentifiers {}
+                #[guid(0x4bf8e0a1_fb7f_4fa4_83b3_cfaeb103a685)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ScrollPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IScrollPatternIdentifiersStatics {
+                    #[get]
+                    HorizontallyScrollableProperty: AutomationProperty;
+                    #[get]
+                    HorizontalScrollPercentProperty: AutomationProperty;
+                    #[get]
+                    HorizontalViewSizeProperty: AutomationProperty;
+                    #[get]
+                    NoScroll: f64;
+                    #[get]
+                    VerticallyScrollableProperty: AutomationProperty;
+                    #[get]
+                    VerticalScrollPercentProperty: AutomationProperty;
+                    #[get]
+                    VerticalViewSizeProperty: AutomationProperty;
+                }
+                #[guid(0x2dafa41a_3ef8_4bb5_a02b_3ee1b2274740)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SelectionItemPatternIdentifiers)]
+                interface ISelectionItemPatternIdentifiers {}
+                #[guid(0xa918d163_487e_4e3e_9f86_7b44acbe27ce)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SelectionItemPatternIdentifiers)]
+                interface ISelectionItemPatternIdentifiersStatics {
+                    #[get]
+                    IsSelectedProperty: AutomationProperty;
+                    #[get]
+                    SelectionContainerProperty: AutomationProperty;
+                }
+                #[guid(0x4aa66fb0_e3f7_475f_b78d_f8a83bb730c4)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SelectionPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ISelectionPatternIdentifiers {}
+                #[guid(0x93035b4c_6b50_40a1_b23f_5c78ddbd479a)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SelectionPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ISelectionPatternIdentifiersStatics {
+                    #[get]
+                    CanSelectMultipleProperty: AutomationProperty;
+                    #[get]
+                    IsSelectionRequiredProperty: AutomationProperty;
+                    #[get]
+                    SelectionProperty: AutomationProperty;
+                }
+                #[guid(0x84347e19_ca4b_46a2_a794_c87928a3b1ab)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpreadsheetItemPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ISpreadsheetItemPatternIdentifiers {}
+                #[guid(0x43658779_5380_4f12_b468_b4f368ad4499)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpreadsheetItemPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ISpreadsheetItemPatternIdentifiersStatics {
+                    #[get]
+                    FormulaProperty: AutomationProperty;
+                }
+                #[guid(0xb0e4e201_e89d_436b_8287_4f7903466879)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(StylesPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IStylesPatternIdentifiers {}
+                #[guid(0x528a457a_bc3c_4d48_94af_1f68703ca296)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(StylesPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IStylesPatternIdentifiersStatics {
+                    #[get]
+                    ExtendedPropertiesProperty: AutomationProperty;
+                    #[get]
+                    FillColorProperty: AutomationProperty;
+                    #[get]
+                    FillPatternColorProperty: AutomationProperty;
+                    #[get]
+                    FillPatternStyleProperty: AutomationProperty;
+                    #[get]
+                    ShapeProperty: AutomationProperty;
+                    #[get]
+                    StyleIdProperty: AutomationProperty;
+                    #[get]
+                    StyleNameProperty: AutomationProperty;
+                }
+                #[guid(0xc326e5ad_8077_4c64_98e4_e83bcf1b4389)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TableItemPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ITableItemPatternIdentifiers {}
+                #[guid(0x24c4b923_e9a2_4de9_b2a4_a8b22d0be362)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TableItemPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ITableItemPatternIdentifiersStatics {
+                    #[get]
+                    ColumnHeaderItemsProperty: AutomationProperty;
+                    #[get]
+                    RowHeaderItemsProperty: AutomationProperty;
+                }
+                #[guid(0x38d104fe_0d0c_412a_bf8d_51ede683baf5)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TablePatternIdentifiers)]
+                interface ITablePatternIdentifiers {}
+                #[guid(0x75073d25_32c9_4903_aecf_dc3504cbd244)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TablePatternIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ITablePatternIdentifiersStatics {
+                    #[get]
+                    ColumnHeadersProperty: AutomationProperty;
+                    #[get]
+                    RowHeadersProperty: AutomationProperty;
+                    #[get]
+                    RowOrColumnMajorProperty: AutomationProperty;
+                }
+                #[guid(0x7e191f6b_34d4_4ae7_83ac_29f88882d985)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TogglePatternIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ITogglePatternIdentifiers {}
+                #[guid(0xc7f75544_14a5_4f2f_92fc_760524de06ea)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TogglePatternIdentifiers)]
+                interface ITogglePatternIdentifiersStatics {
+                    #[get]
+                    ToggleStateProperty: AutomationProperty;
+                }
+                #[guid(0x08aaa03d_dea7_402f_8097_9a2783d60e5d)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TransformPattern2Identifiers)]
+                interface ITransformPattern2Identifiers {}
+                #[guid(0x78963644_11f0_467c_a72b_5dac41c1f6fe)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TransformPattern2Identifiers)]
+                interface ITransformPattern2IdentifiersStatics {
+                    #[get]
+                    CanZoomProperty: AutomationProperty;
+                    #[get]
+                    ZoomLevelProperty: AutomationProperty;
+                    #[get]
+                    MaxZoomProperty: AutomationProperty;
+                    #[get]
+                    MinZoomProperty: AutomationProperty;
+                }
+                #[guid(0xe4115b8c_c3c8_4a37_b994_2709a7811665)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TransformPatternIdentifiers)]
+                interface ITransformPatternIdentifiers {}
+                #[guid(0x4570edab_d705_40c4_a1dc_e9acfcef85f6)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TransformPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ITransformPatternIdentifiersStatics {
+                    #[get]
+                    CanMoveProperty: AutomationProperty;
+                    #[get]
+                    CanResizeProperty: AutomationProperty;
+                    #[get]
+                    CanRotateProperty: AutomationProperty;
+                }
+                #[guid(0x425bf64c_5333_4e41_b470_2bad14ecd085)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ValuePatternIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IValuePatternIdentifiers {}
+                #[guid(0xc247e8f7_adcc_440f_b123_33788a40525a)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ValuePatternIdentifiers)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IValuePatternIdentifiersStatics {
+                    #[get]
+                    IsReadOnlyProperty: AutomationProperty;
+                    #[get]
+                    ValueProperty: AutomationProperty;
+                }
+                #[guid(0x39f78bb4_7032_41e2_b79e_27b74a8628de)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WindowPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IWindowPatternIdentifiers {}
+                #[guid(0x07d0ad06_6302_4d29_878b_19da03fc228d)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WindowPatternIdentifiers)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IWindowPatternIdentifiersStatics {
+                    #[get]
+                    CanMaximizeProperty: AutomationProperty;
+                    #[get]
+                    CanMinimizeProperty: AutomationProperty;
+                    #[get]
+                    IsModalProperty: AutomationProperty;
+                    #[get]
+                    IsTopmostProperty: AutomationProperty;
+                    #[get]
+                    WindowInteractionStateProperty: AutomationProperty;
+                    #[get]
+                    WindowVisualStateProperty: AutomationProperty;
+                }
+                #[Windows::Foundation::Metadata::Static(IMultipleViewPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class MultipleViewPatternIdentifiers {
+                    IMultipleViewPatternIdentifiers,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IRangeValuePatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class RangeValuePatternIdentifiers {
+                    IRangeValuePatternIdentifiers,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum RowOrColumnMajor {
+                    RowMajor = 0,
+                    ColumnMajor = 1,
+                    Indeterminate = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum ScrollAmount {
+                    LargeDecrement = 0,
+                    SmallDecrement = 1,
+                    NoAmount = 2,
+                    LargeIncrement = 3,
+                    SmallIncrement = 4,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IScrollPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class ScrollPatternIdentifiers {
+                    IScrollPatternIdentifiers,
+                }
+                #[Windows::Foundation::Metadata::Static(ISelectionItemPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SelectionItemPatternIdentifiers {
+                    ISelectionItemPatternIdentifiers,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ISelectionPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                class SelectionPatternIdentifiers {
+                    ISelectionPatternIdentifiers,
+                }
+                #[Windows::Foundation::Metadata::Static(ISpreadsheetItemPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SpreadsheetItemPatternIdentifiers {
+                    ISpreadsheetItemPatternIdentifiers,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(IStylesPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class StylesPatternIdentifiers {
+                    IStylesPatternIdentifiers,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum SupportedTextSelection {
+                    None = 0,
+                    Single = 1,
+                    Multiple = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum SynchronizedInputType {
+                    KeyUp = 1,
+                    KeyDown = 2,
+                    LeftMouseUp = 4,
+                    LeftMouseDown = 8,
+                    RightMouseUp = 16,
+                    RightMouseDown = 32,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(ITableItemPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class TableItemPatternIdentifiers {
+                    ITableItemPatternIdentifiers,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(ITablePatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class TablePatternIdentifiers {
+                    ITablePatternIdentifiers,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(ITogglePatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class TogglePatternIdentifiers {
+                    ITogglePatternIdentifiers,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum ToggleState {
+                    Off = 0,
+                    On = 1,
+                    Indeterminate = 2,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ITransformPattern2IdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class TransformPattern2Identifiers {
+                    ITransformPattern2Identifiers,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(ITransformPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class TransformPatternIdentifiers {
+                    ITransformPatternIdentifiers,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IValuePatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class ValuePatternIdentifiers {
+                    IValuePatternIdentifiers,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum WindowInteractionState {
+                    Running = 0,
+                    Closing = 1,
+                    ReadyForUserInteraction = 2,
+                    BlockedByModalWindow = 3,
+                    NotResponding = 4,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IWindowPatternIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class WindowPatternIdentifiers {
+                    IWindowPatternIdentifiers,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum WindowVisualState {
+                    Normal = 0,
+                    Maximized = 1,
+                    Minimized = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum ZoomUnit {
+                    NoAmount = 0,
+                    LargeDecrement = 1,
+                    SmallDecrement = 2,
+                    LargeIncrement = 3,
+                    SmallIncrement = 4,
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,78 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod FaceAnalysis {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class DetectedFace {
+                IDetectedFace,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IFaceDetectorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class FaceDetector {
+                IFaceDetector,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IFaceTrackerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class FaceTracker {
+                IFaceTracker,
+            }
+            #[guid(0x8200d454_66bc_34df_9410_e89400195414)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DetectedFace)]
+            interface IDetectedFace {
+                #[get]
+                FaceBox: super::super::Graphics::Imaging::BitmapBounds;
+            }
+            #[guid(0x16b672dc_fe6f_3117_8d95_c3f04d51630c)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FaceDetector)]
+            interface IFaceDetector {
+                #[Windows::Foundation::Metadata::Overload("DetectFacesAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DetectFacesAsync(&self, image: super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;
+                #[Windows::Foundation::Metadata::Overload("DetectFacesWithSearchAreaAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DetectFacesAsync(&self, image: super::super::Graphics::Imaging::SoftwareBitmap, searchArea: super::super::Graphics::Imaging::BitmapBounds) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;
+                MinDetectableFaceSize: super::super::Graphics::Imaging::BitmapSize;
+                MaxDetectableFaceSize: super::super::Graphics::Imaging::BitmapSize;
+            }
+            #[guid(0xbc042d67_9047_33f6_881b_6746c1b218b8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FaceDetector)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFaceDetectorStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateAsync(&self) -> super::super::Foundation::IAsyncOperation<FaceDetector>;
+                fn GetSupportedBitmapPixelFormats(&self) -> super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>;
+                fn IsBitmapPixelFormatSupported(&self, bitmapPixelFormat: super::super::Graphics::Imaging::BitmapPixelFormat) -> bool;
+                #[get]
+                IsSupported: bool;
+            }
+            #[guid(0x6ba67d8c_a841_4420_93e6_2420a1884fcf)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FaceTracker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFaceTracker {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ProcessNextFrameAsync(&self, videoFrame: super::VideoFrame) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;
+                MinDetectableFaceSize: super::super::Graphics::Imaging::BitmapSize;
+                MaxDetectableFaceSize: super::super::Graphics::Imaging::BitmapSize;
+            }
+            #[guid(0xe9629198_1801_3fa5_932e_31d767af6c4d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FaceTracker)]
+            interface IFaceTrackerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateAsync(&self) -> super::super::Foundation::IAsyncOperation<FaceTracker>;
+                fn GetSupportedBitmapPixelFormats(&self) -> super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>;
+                fn IsBitmapPixelFormatSupported(&self, bitmapPixelFormat: super::super::Graphics::Imaging::BitmapPixelFormat) -> bool;
+                #[get]
+                IsSupported: bool;
+            }
+        }
+    }
+}

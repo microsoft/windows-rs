@@ -1,0 +1,20 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Notifications {
+            mod Preview {
+                #[guid(0x507e5c83_50f9_5412_8953_b65c18cfab12)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ToastOcclusionManagerPreview)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                interface IToastOcclusionManagerPreviewStatics {
+                    fn SetToastWindowMargin(&self, appWindowId: super::super::WindowId, margin: f64);
+                }
+                #[Windows::Foundation::Metadata::Static(IToastOcclusionManagerPreviewStatics, 851968, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ToastOcclusionManagerPreview {}
+            }
+        }
+    }
+}

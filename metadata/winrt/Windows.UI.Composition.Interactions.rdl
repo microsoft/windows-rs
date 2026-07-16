@@ -1,0 +1,615 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Composition {
+            mod Interactions {
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(ICompositionConditionalValueStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                class CompositionConditionalValue: super::CompositionObject {
+                    ICompositionConditionalValue,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class CompositionInteractionSourceCollection: super::CompositionObject {
+                    ICompositionInteractionSourceCollection,
+                    super::super::super::Foundation::Collections::IIterable<ICompositionInteractionSource>,
+                }
+                #[guid(0x43250538_eb73_4561_a71d_1a43eaeb7a9b)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CompositionConditionalValue)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface ICompositionConditionalValue {
+                    Condition: super::ExpressionAnimation;
+                    Value: super::ExpressionAnimation;
+                }
+                #[guid(0x090c4b72_8467_4d0a_9065_ac46b80a5522)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CompositionConditionalValue)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface ICompositionConditionalValueStatics {
+                    fn Create(&self, compositor: super::Compositor) -> CompositionConditionalValue;
+                }
+                #[guid(0x043b2431_06e3_495a_ba54_409f0017fac0)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface ICompositionInteractionSource {}
+                #[guid(0x1b468e4b_a5bf_47d8_a547_3894155a158c)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CompositionInteractionSourceCollection)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface ICompositionInteractionSourceCollection {
+                    #[get]
+                    Count: i32;
+                    fn Add(&self, value: ICompositionInteractionSource);
+                    fn Remove(&self, value: ICompositionInteractionSource);
+                    fn RemoveAll(&self);
+                }
+                #[guid(0xa78347e5_a9d1_4d02_985e_b930cd0b9da4)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionSourceConfiguration)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                interface IInteractionSourceConfiguration {
+                    PositionXSourceMode: InteractionSourceRedirectionMode;
+                    PositionYSourceMode: InteractionSourceRedirectionMode;
+                    ScaleSourceMode: InteractionSourceRedirectionMode;
+                }
+                #[guid(0x2a8e8cb1_1000_4416_8363_cc27fb877308)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTracker)]
+                interface IInteractionTracker {
+                    #[get]
+                    InteractionSources: CompositionInteractionSourceCollection;
+                    #[get]
+                    IsPositionRoundingSuggested: bool;
+                    MaxPosition: super::super::super::Foundation::Numerics::Vector3;
+                    MaxScale: f32;
+                    MinPosition: super::super::super::Foundation::Numerics::Vector3;
+                    MinScale: f32;
+                    #[get]
+                    NaturalRestingPosition: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
+                    NaturalRestingScale: f32;
+                    #[get]
+                    Owner: IInteractionTrackerOwner;
+                    #[get]
+                    Position: super::super::super::Foundation::Numerics::Vector3;
+                    PositionInertiaDecayRate: super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>;
+                    #[get]
+                    PositionVelocityInPixelsPerSecond: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
+                    Scale: f32;
+                    ScaleInertiaDecayRate: super::super::super::Foundation::IReference<f32>;
+                    #[get]
+                    ScaleVelocityInPercentPerSecond: f32;
+                    fn AdjustPositionXIfGreaterThanThreshold(&self, adjustment: f32, positionThreshold: f32);
+                    fn AdjustPositionYIfGreaterThanThreshold(&self, adjustment: f32, positionThreshold: f32);
+                    fn ConfigurePositionXInertiaModifiers(&self, modifiers: super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>);
+                    fn ConfigurePositionYInertiaModifiers(&self, modifiers: super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>);
+                    fn ConfigureScaleInertiaModifiers(&self, modifiers: super::super::super::Foundation::Collections::IIterable<InteractionTrackerInertiaModifier>);
+                    fn TryUpdatePosition(&self, value: super::super::super::Foundation::Numerics::Vector3) -> i32;
+                    fn TryUpdatePositionBy(&self, amount: super::super::super::Foundation::Numerics::Vector3) -> i32;
+                    fn TryUpdatePositionWithAnimation(&self, animation: super::CompositionAnimation) -> i32;
+                    fn TryUpdatePositionWithAdditionalVelocity(&self, velocityInPixelsPerSecond: super::super::super::Foundation::Numerics::Vector3) -> i32;
+                    fn TryUpdateScale(&self, value: f32, centerPoint: super::super::super::Foundation::Numerics::Vector3) -> i32;
+                    fn TryUpdateScaleWithAnimation(&self, animation: super::CompositionAnimation, centerPoint: super::super::super::Foundation::Numerics::Vector3) -> i32;
+                    fn TryUpdateScaleWithAdditionalVelocity(&self, velocityInPercentPerSecond: f32, centerPoint: super::super::super::Foundation::Numerics::Vector3) -> i32;
+                }
+                #[guid(0x25769a3e_ce6d_448c_8386_92620d240756)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTracker)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IInteractionTracker2 {
+                    fn ConfigureCenterPointXInertiaModifiers(&self, conditionalValues: super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>);
+                    fn ConfigureCenterPointYInertiaModifiers(&self, conditionalValues: super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>);
+                }
+                #[guid(0xe6c5d7a2_5c4b_42c6_84b7_f69441b18091)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTracker)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IInteractionTracker3 {
+                    fn ConfigureVector2PositionInertiaModifiers(&self, modifiers: super::super::super::Foundation::Collections::IIterable<InteractionTrackerVector2InertiaModifier>);
+                }
+                #[guid(0xebd222bc_04af_4ac7_847d_06ea36e80a16)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTracker)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IInteractionTracker4 {
+                    #[Windows::Foundation::Metadata::Overload("TryUpdatePositionWithOption")]
+                    fn TryUpdatePosition(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> i32;
+                    #[Windows::Foundation::Metadata::Overload("TryUpdatePositionByWithOption")]
+                    fn TryUpdatePositionBy(&self, amount: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption) -> i32;
+                    #[get]
+                    IsInertiaFromImpulse: bool;
+                }
+                #[guid(0xd3ef5da2_a254_40e4_88d5_44e4e16b5809)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTracker)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IInteractionTracker5 {
+                    #[Windows::Foundation::Metadata::Overload("TryUpdatePositionWithOption")]
+                    fn TryUpdatePosition(&self, value: super::super::super::Foundation::Numerics::Vector3, option: InteractionTrackerClampingOption, posUpdateOption: InteractionTrackerPositionUpdateOption) -> i32;
+                }
+                #[guid(0x8d1c8cf1_d7b0_434c_a5d2_2d7611864834)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerCustomAnimationStateEnteredArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IInteractionTrackerCustomAnimationStateEnteredArgs {
+                    #[get]
+                    RequestId: i32;
+                }
+                #[guid(0x47d579b7_0985_5e99_b024_2f32c380c1a4)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerCustomAnimationStateEnteredArgs)]
+                interface IInteractionTrackerCustomAnimationStateEnteredArgs2 {
+                    #[get]
+                    IsFromBinding: bool;
+                }
+                #[guid(0x50012faa_1510_4142_a1a5_019b09f8857b)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerIdleStateEnteredArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IInteractionTrackerIdleStateEnteredArgs {
+                    #[get]
+                    RequestId: i32;
+                }
+                #[guid(0xf2e771ed_b803_5137_9435_1c96e48721e9)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerIdleStateEnteredArgs)]
+                interface IInteractionTrackerIdleStateEnteredArgs2 {
+                    #[get]
+                    IsFromBinding: bool;
+                }
+                #[guid(0xa0e2c920_26b4_4da2_8b61_5e683979bbe2)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInertiaModifier)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IInteractionTrackerInertiaModifier {}
+                #[guid(0x993818fe_c94e_4b86_87f3_922665ba46b9)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInertiaModifier)]
+                interface IInteractionTrackerInertiaModifierFactory {}
+                #[guid(0x04922fdc_f154_4cb8_bf33_cc1ba611e6db)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInertiaMotion)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IInteractionTrackerInertiaMotion {
+                    Condition: super::ExpressionAnimation;
+                    Motion: super::ExpressionAnimation;
+                }
+                #[guid(0x8cc83dd6_ba7b_431a_844b_6eac9130f99a)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInertiaMotion)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IInteractionTrackerInertiaMotionStatics {
+                    fn Create(&self, compositor: super::Compositor) -> InteractionTrackerInertiaMotion;
+                }
+                #[guid(0x70acdaae_27dc_48ed_a3c3_6d61c9a029d2)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInertiaNaturalMotion)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface IInteractionTrackerInertiaNaturalMotion {
+                    Condition: super::ExpressionAnimation;
+                    NaturalMotion: super::ScalarNaturalMotionAnimation;
+                }
+                #[guid(0xcfda55b0_5e3e_4289_932d_ee5f50e74283)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInertiaNaturalMotion)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface IInteractionTrackerInertiaNaturalMotionStatics {
+                    fn Create(&self, compositor: super::Compositor) -> InteractionTrackerInertiaNaturalMotion;
+                }
+                #[guid(0x86f7ec09_5096_4170_9cc8_df2fe101bb93)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInertiaRestingValue)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IInteractionTrackerInertiaRestingValue {
+                    Condition: super::ExpressionAnimation;
+                    RestingValue: super::ExpressionAnimation;
+                }
+                #[guid(0x18ed4699_0745_4096_bcab_3a4e99569bcf)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInertiaRestingValue)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface IInteractionTrackerInertiaRestingValueStatics {
+                    fn Create(&self, compositor: super::Compositor) -> InteractionTrackerInertiaRestingValue;
+                }
+                #[guid(0x87108cf2_e7ff_4f7d_9ffd_d72f1e409b63)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInertiaStateEnteredArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IInteractionTrackerInertiaStateEnteredArgs {
+                    #[get]
+                    ModifiedRestingPosition: super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>;
+                    #[get]
+                    ModifiedRestingScale: super::super::super::Foundation::IReference<f32>;
+                    #[get]
+                    NaturalRestingPosition: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
+                    NaturalRestingScale: f32;
+                    #[get]
+                    PositionVelocityInPixelsPerSecond: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
+                    RequestId: i32;
+                    #[get]
+                    ScaleVelocityInPercentPerSecond: f32;
+                }
+                #[guid(0xb1eb32f6_c26c_41f6_a189_fabc22b323cc)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInertiaStateEnteredArgs)]
+                interface IInteractionTrackerInertiaStateEnteredArgs2 {
+                    #[get]
+                    IsInertiaFromImpulse: bool;
+                }
+                #[guid(0x48ac1c2f_47bd_59af_a58c_79bd2eb9ef71)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInertiaStateEnteredArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface IInteractionTrackerInertiaStateEnteredArgs3 {
+                    #[get]
+                    IsFromBinding: bool;
+                }
+                #[guid(0xa7263939_a17b_4011_99fd_b5c24f143748)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInteractingStateEnteredArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IInteractionTrackerInteractingStateEnteredArgs {
+                    #[get]
+                    RequestId: i32;
+                }
+                #[guid(0x509652d6_d488_59cd_819f_f52310295b11)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerInteractingStateEnteredArgs)]
+                interface IInteractionTrackerInteractingStateEnteredArgs2 {
+                    #[get]
+                    IsFromBinding: bool;
+                }
+                #[guid(0xdb2e8af3_4deb_4e53_b29c_b06c9f96d651)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IInteractionTrackerOwner {
+                    fn CustomAnimationStateEntered(&self, sender: InteractionTracker, args: InteractionTrackerCustomAnimationStateEnteredArgs);
+                    fn IdleStateEntered(&self, sender: InteractionTracker, args: InteractionTrackerIdleStateEnteredArgs);
+                    fn InertiaStateEntered(&self, sender: InteractionTracker, args: InteractionTrackerInertiaStateEnteredArgs);
+                    fn InteractingStateEntered(&self, sender: InteractionTracker, args: InteractionTrackerInteractingStateEnteredArgs);
+                    fn RequestIgnored(&self, sender: InteractionTracker, args: InteractionTrackerRequestIgnoredArgs);
+                    fn ValuesChanged(&self, sender: InteractionTracker, args: InteractionTrackerValuesChangedArgs);
+                }
+                #[guid(0x80dd82f1_ce25_488f_91dd_cb6455ccff2e)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerRequestIgnoredArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IInteractionTrackerRequestIgnoredArgs {
+                    #[get]
+                    RequestId: i32;
+                }
+                #[guid(0xbba5d7b7_6590_4498_8d6c_eb62b514c92a)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTracker)]
+                interface IInteractionTrackerStatics {
+                    fn Create(&self, compositor: super::Compositor) -> InteractionTracker;
+                    fn CreateWithOwner(&self, compositor: super::Compositor, owner: IInteractionTrackerOwner) -> InteractionTracker;
+                }
+                #[guid(0x35e53720_46b7_5cb0_b505_f3d6884a6163)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTracker)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface IInteractionTrackerStatics2 {
+                    fn SetBindingMode(&self, boundTracker1: InteractionTracker, boundTracker2: InteractionTracker, axisMode: InteractionBindingAxisModes);
+                    fn GetBindingMode(&self, boundTracker1: InteractionTracker, boundTracker2: InteractionTracker) -> InteractionBindingAxisModes;
+                }
+                #[guid(0xcf1578ef_d3df_4501_b9e6_f02fb22f73d0)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerValuesChangedArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IInteractionTrackerValuesChangedArgs {
+                    #[get]
+                    Position: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
+                    RequestId: i32;
+                    #[get]
+                    Scale: f32;
+                }
+                #[guid(0x87e08ab0_3086_4853_a4b7_77882ad5d7e3)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerVector2InertiaModifier)]
+                interface IInteractionTrackerVector2InertiaModifier {}
+                #[guid(0x7401d6c4_6c6d_48df_bc3e_171e227e7d7f)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerVector2InertiaModifier)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface IInteractionTrackerVector2InertiaModifierFactory {}
+                #[guid(0x5f17695c_162d_4c07_9400_c282b28276ca)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerVector2InertiaNaturalMotion)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface IInteractionTrackerVector2InertiaNaturalMotion {
+                    Condition: super::ExpressionAnimation;
+                    NaturalMotion: super::Vector2NaturalMotionAnimation;
+                }
+                #[guid(0x82001a48_09c0_434f_8189_141c66df362f)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InteractionTrackerVector2InertiaNaturalMotion)]
+                interface IInteractionTrackerVector2InertiaNaturalMotionStatics {
+                    fn Create(&self, compositor: super::Compositor) -> InteractionTrackerVector2InertiaNaturalMotion;
+                }
+                #[guid(0xca0e8a86_d8d6_4111_b088_70347bd2b0ed)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VisualInteractionSource)]
+                interface IVisualInteractionSource {
+                    IsPositionXRailsEnabled: bool;
+                    IsPositionYRailsEnabled: bool;
+                    ManipulationRedirectionMode: VisualInteractionSourceRedirectionMode;
+                    PositionXChainingMode: InteractionChainingMode;
+                    PositionXSourceMode: InteractionSourceMode;
+                    PositionYChainingMode: InteractionChainingMode;
+                    PositionYSourceMode: InteractionSourceMode;
+                    ScaleChainingMode: InteractionChainingMode;
+                    ScaleSourceMode: InteractionSourceMode;
+                    #[get]
+                    Source: super::Visual;
+                    fn TryRedirectForManipulation(&self, pointerPoint: super::super::Input::PointerPoint);
+                }
+                #[guid(0xaa914893_a73c_414d_80d0_249bad2fbd93)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VisualInteractionSource)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IVisualInteractionSource2 {
+                    #[get]
+                    DeltaPosition: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
+                    DeltaScale: f32;
+                    #[get]
+                    Position: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
+                    PositionVelocity: super::super::super::Foundation::Numerics::Vector3;
+                    #[get]
+                    Scale: f32;
+                    #[get]
+                    ScaleVelocity: f32;
+                    fn ConfigureCenterPointXModifiers(&self, conditionalValues: super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>);
+                    fn ConfigureCenterPointYModifiers(&self, conditionalValues: super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>);
+                    fn ConfigureDeltaPositionXModifiers(&self, conditionalValues: super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>);
+                    fn ConfigureDeltaPositionYModifiers(&self, conditionalValues: super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>);
+                    fn ConfigureDeltaScaleModifiers(&self, conditionalValues: super::super::super::Foundation::Collections::IIterable<CompositionConditionalValue>);
+                }
+                #[guid(0xd941ef2a_0d5c_4057_92d7_c9711533204f)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VisualInteractionSource)]
+                interface IVisualInteractionSource3 {
+                    #[get]
+                    PointerWheelConfig: InteractionSourceConfiguration;
+                }
+                #[guid(0xb2ca917c_e98a_41f2_b3c9_891c9266c8f6)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VisualInteractionSource)]
+                interface IVisualInteractionSourceObjectFactory {}
+                #[guid(0x369965e1_8645_4f75_ba00_6479cd10c8e6)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VisualInteractionSource)]
+                interface IVisualInteractionSourceStatics {
+                    fn Create(&self, source: super::Visual) -> VisualInteractionSource;
+                }
+                #[guid(0xa979c032_5764_55e0_bc1f_0778786dcfde)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VisualInteractionSource)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface IVisualInteractionSourceStatics2 {
+                    fn CreateFromIVisualElement(&self, source: super::IVisualElement) -> VisualInteractionSource;
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                enum InteractionBindingAxisModes {
+                    None = 0,
+                    PositionX = 1,
+                    PositionY = 2,
+                    Scale = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum InteractionChainingMode {
+                    Auto = 0,
+                    Always = 1,
+                    Never = 2,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class InteractionSourceConfiguration: super::CompositionObject {
+                    IInteractionSourceConfiguration,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum InteractionSourceMode {
+                    Disabled = 0,
+                    EnabledWithInertia = 1,
+                    EnabledWithoutInertia = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                enum InteractionSourceRedirectionMode {
+                    Disabled = 0,
+                    Enabled = 1,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::Static(IInteractionTrackerStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IInteractionTrackerStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+                class InteractionTracker: super::CompositionObject {
+                    IInteractionTracker,
+                    IInteractionTracker2,
+                    IInteractionTracker3,
+                    IInteractionTracker4,
+                    IInteractionTracker5,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum InteractionTrackerClampingOption {
+                    Auto = 0,
+                    Disabled = 1,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class InteractionTrackerCustomAnimationStateEnteredArgs {
+                    IInteractionTrackerCustomAnimationStateEnteredArgs,
+                    IInteractionTrackerCustomAnimationStateEnteredArgs2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class InteractionTrackerIdleStateEnteredArgs {
+                    IInteractionTrackerIdleStateEnteredArgs,
+                    IInteractionTrackerIdleStateEnteredArgs2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Composable(IInteractionTrackerInertiaModifierFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
+                class InteractionTrackerInertiaModifier: super::CompositionObject {
+                    IInteractionTrackerInertiaModifier,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IInteractionTrackerInertiaMotionStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                class InteractionTrackerInertiaMotion: InteractionTrackerInertiaModifier {
+                    IInteractionTrackerInertiaMotion,
+                }
+                #[Windows::Foundation::Metadata::Static(IInteractionTrackerInertiaNaturalMotionStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class InteractionTrackerInertiaNaturalMotion: InteractionTrackerInertiaModifier {
+                    IInteractionTrackerInertiaNaturalMotion,
+                }
+                #[Windows::Foundation::Metadata::Static(IInteractionTrackerInertiaRestingValueStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class InteractionTrackerInertiaRestingValue: InteractionTrackerInertiaModifier {
+                    IInteractionTrackerInertiaRestingValue,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class InteractionTrackerInertiaStateEnteredArgs {
+                    IInteractionTrackerInertiaStateEnteredArgs,
+                    IInteractionTrackerInertiaStateEnteredArgs2,
+                    IInteractionTrackerInertiaStateEnteredArgs3,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                class InteractionTrackerInteractingStateEnteredArgs {
+                    IInteractionTrackerInteractingStateEnteredArgs,
+                    IInteractionTrackerInteractingStateEnteredArgs2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                enum InteractionTrackerPositionUpdateOption {
+                    Default = 0,
+                    AllowActiveCustomScaleAnimation = 1,
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class InteractionTrackerRequestIgnoredArgs {
+                    IInteractionTrackerRequestIgnoredArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                class InteractionTrackerValuesChangedArgs {
+                    IInteractionTrackerValuesChangedArgs,
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Composable(IInteractionTrackerVector2InertiaModifierFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class InteractionTrackerVector2InertiaModifier: super::CompositionObject {
+                    IInteractionTrackerVector2InertiaModifier,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::Static(IInteractionTrackerVector2InertiaNaturalMotionStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class InteractionTrackerVector2InertiaNaturalMotion: InteractionTrackerVector2InertiaModifier {
+                    IInteractionTrackerVector2InertiaNaturalMotion,
+                }
+                #[Windows::Foundation::Metadata::Static(IVisualInteractionSourceStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::Composable(IVisualInteractionSourceObjectFactory, Public, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IVisualInteractionSourceStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class VisualInteractionSource: super::CompositionObject {
+                    IVisualInteractionSource,
+                    IVisualInteractionSource2,
+                    IVisualInteractionSource3,
+                    ICompositionInteractionSource,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum VisualInteractionSourceRedirectionMode {
+                    Off = 0,
+                    CapableTouchpadOnly = 1,
+                    PointerWheelOnly = 2,
+                    CapableTouchpadAndPointerWheel = 3,
+                }
+            }
+        }
+    }
+}

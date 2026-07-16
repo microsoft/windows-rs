@@ -1,0 +1,270 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod Resources {
+            mod Core {
+                #[guid(0x1c98c219_0b13_4240_89a5_d495dc189a00)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(NamedResource)]
+                interface INamedResource {
+                    #[get]
+                    Uri: super::super::super::Foundation::Uri;
+                    #[get]
+                    Candidates: super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>;
+                    #[Windows::Foundation::Metadata::Overload("Resolve")]
+                    fn Resolve(&self) -> ResourceCandidate;
+                    #[Windows::Foundation::Metadata::Overload("ResolveForContext")]
+                    fn Resolve(&self, resourceContext: ResourceContext) -> ResourceCandidate;
+                    #[Windows::Foundation::Metadata::Overload("ResolveAll")]
+                    fn ResolveAll(&self) -> super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>;
+                    #[Windows::Foundation::Metadata::Overload("ResolveAllForContext")]
+                    fn ResolveAll(&self, resourceContext: ResourceContext) -> super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>;
+                }
+                #[guid(0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceCandidate)]
+                interface IResourceCandidate {
+                    #[get]
+                    Qualifiers: super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>;
+                    #[get]
+                    IsMatch: bool;
+                    #[get]
+                    IsMatchAsDefault: bool;
+                    #[get]
+                    IsDefault: bool;
+                    #[get]
+                    ValueAsString: String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetValueAsFileAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::StorageFile>;
+                    fn GetQualifierValue(&self, qualifierName: String) -> String;
+                }
+                #[guid(0x69e5b468_f6fc_4013_aaa2_d53f1757d3b5)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceCandidate)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IResourceCandidate2 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn GetValueAsStreamAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStream>;
+                }
+                #[guid(0x08ae97f8_517a_4674_958c_4a3c7cd2cc6b)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceCandidate)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface IResourceCandidate3 {
+                    #[get]
+                    Kind: ResourceCandidateKind;
+                }
+                #[guid(0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceContext)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IResourceContext {
+                    #[get]
+                    QualifierValues: super::super::super::Foundation::Collections::IObservableMap<String, String>;
+                    #[Windows::Foundation::Metadata::Overload("Reset")]
+                    fn Reset(&self);
+                    #[Windows::Foundation::Metadata::Overload("ResetQualifierValues")]
+                    fn Reset(&self, qualifierNames: super::super::super::Foundation::Collections::IIterable<String>);
+                    fn OverrideToMatch(&self, result: super::super::super::Foundation::Collections::IIterable<ResourceQualifier>);
+                    fn Clone(&self) -> ResourceContext;
+                    Languages: super::super::super::Foundation::Collections::IVectorView<String>;
+                }
+                #[guid(0x98be9d6c_6338_4b31_99df_b2b442f17149)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceContext)]
+                interface IResourceContextStatics {
+                    fn CreateMatchingContext(&self, result: super::super::super::Foundation::Collections::IIterable<ResourceQualifier>) -> ResourceContext;
+                }
+                #[guid(0x41f752ef_12af_41b9_ab36_b1eb4b512460)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceContext)]
+                interface IResourceContextStatics2 {
+                    fn GetForCurrentView(&self) -> ResourceContext;
+                    #[Windows::Foundation::Metadata::Overload("SetGlobalQualifierValue")]
+                    fn SetGlobalQualifierValue(&self, key: String, value: String);
+                    #[Windows::Foundation::Metadata::Overload("ResetGlobalQualifierValues")]
+                    fn ResetGlobalQualifierValues(&self);
+                    #[Windows::Foundation::Metadata::Overload("ResetGlobalQualifierValuesForSpecifiedQualifiers")]
+                    fn ResetGlobalQualifierValues(&self, qualifierNames: super::super::super::Foundation::Collections::IIterable<String>);
+                    fn GetForViewIndependentUse(&self) -> ResourceContext;
+                }
+                #[guid(0x20cf492c_af0f_450b_9da6_106dd0c29a39)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceContext)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IResourceContextStatics3 {
+                    #[Windows::Foundation::Metadata::Overload("SetGlobalQualifierValueWithPersistence")]
+                    fn SetGlobalQualifierValue(&self, key: String, value: String, persistence: ResourceQualifierPersistence);
+                }
+                #[guid(0x22eb9ccd_fb31_4bfa_b86b_df9d9d7bdc39)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceContext)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface IResourceContextStatics4 {
+                    fn GetForUIContext(&self, context: super::super::super::UI::UIContext) -> ResourceContext;
+                }
+                #[guid(0xf744d97b_9988_44fb_abd6_5378844cfa8b)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IResourceManager {
+                    #[get]
+                    MainResourceMap: ResourceMap;
+                    #[get]
+                    AllResourceMaps: super::super::super::Foundation::Collections::IMapView<String, ResourceMap>;
+                    #[get]
+                    DefaultContext: ResourceContext;
+                    fn LoadPriFiles(&self, files: super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>);
+                    fn UnloadPriFiles(&self, files: super::super::super::Foundation::Collections::IIterable<super::super::super::Storage::IStorageFile>);
+                }
+                #[guid(0x9d66fe6c_a4d7_4c23_9e85_675f304c252d)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceManager)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IResourceManager2 {
+                    fn GetAllNamedResourcesForPackage(&self, packageName: String, resourceLayoutInfo: ResourceLayoutInfo) -> super::super::super::Foundation::Collections::IVectorView<NamedResource>;
+                    fn GetAllSubtreesForPackage(&self, packageName: String, resourceLayoutInfo: ResourceLayoutInfo) -> super::super::super::Foundation::Collections::IVectorView<ResourceMap>;
+                }
+                #[guid(0x1cc0fdfc_69ee_4e43_9901_47f12687baf7)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceManager)]
+                interface IResourceManagerStatics {
+                    #[get]
+                    Current: ResourceManager;
+                    fn IsResourceReference(&self, resourceReference: String) -> bool;
+                }
+                #[guid(0x72284824_db8c_42f8_b08c_53ff357dad82)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceMap)]
+                interface IResourceMap: super::super::super::Foundation::Collections::IMapView<String, NamedResource> + super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, NamedResource>> {
+                    #[get]
+                    Uri: super::super::super::Foundation::Uri;
+                    #[Windows::Foundation::Metadata::Overload("GetValue")]
+                    fn GetValue(&self, resource: String) -> ResourceCandidate;
+                    #[Windows::Foundation::Metadata::Overload("GetValueForContext")]
+                    fn GetValue(&self, resource: String, context: ResourceContext) -> ResourceCandidate;
+                    fn GetSubtree(&self, reference: String) -> ResourceMap;
+                }
+                #[guid(0x785da5b2_4afd_4376_a888_c5f9a6b7a05c)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ResourceQualifier)]
+                interface IResourceQualifier {
+                    #[get]
+                    QualifierName: String;
+                    #[get]
+                    QualifierValue: String;
+                    #[get]
+                    IsDefault: bool;
+                    #[get]
+                    IsMatch: bool;
+                    #[get]
+                    Score: f64;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class NamedResource {
+                    INamedResource,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ResourceCandidate {
+                    IResourceCandidate,
+                    IResourceCandidate2,
+                    IResourceCandidate3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                enum ResourceCandidateKind {
+                    String = 0,
+                    File = 1,
+                    EmbeddedData = 2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ResourceCandidateVectorView {
+                    super::super::super::Foundation::Collections::IVectorView<ResourceCandidate>,
+                    super::super::super::Foundation::Collections::IIterable<ResourceCandidate>,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IResourceContextStatics4, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IResourceContextStatics3, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IResourceContextStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IResourceContextStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                class ResourceContext {
+                    IResourceContext,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class ResourceContextLanguagesVectorView {
+                    super::super::super::Foundation::Collections::IVectorView<String>,
+                    super::super::super::Foundation::Collections::IIterable<String>,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                struct ResourceLayoutInfo {
+                    MajorVersion: u32,
+                    MinorVersion: u32,
+                    ResourceSubtreeCount: u32,
+                    NamedResourceCount: u32,
+                    Checksum: i32,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IResourceManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class ResourceManager {
+                    IResourceManager,
+                    IResourceManager2,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class ResourceMap {
+                    IResourceMap,
+                    super::super::super::Foundation::Collections::IMapView<String, NamedResource>,
+                    super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, NamedResource>>,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ResourceMapIterator {
+                    super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<String, NamedResource>>,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class ResourceMapMapView {
+                    super::super::super::Foundation::Collections::IMapView<String, ResourceMap>,
+                    super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, ResourceMap>>,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class ResourceMapMapViewIterator {
+                    super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<String, ResourceMap>>,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ResourceQualifier {
+                    IResourceQualifier,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class ResourceQualifierMapView {
+                    super::super::super::Foundation::Collections::IMapView<String, String>,
+                    super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, String>>,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ResourceQualifierObservableMap {
+                    super::super::super::Foundation::Collections::IObservableMap<String, String>,
+                    super::super::super::Foundation::Collections::IMap<String, String>,
+                    super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, String>>,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum ResourceQualifierPersistence {
+                    None = 0,
+                    LocalMachine = 1,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ResourceQualifierVectorView {
+                    super::super::super::Foundation::Collections::IVectorView<ResourceQualifier>,
+                    super::super::super::Foundation::Collections::IIterable<ResourceQualifier>,
+                }
+            }
+        }
+    }
+}

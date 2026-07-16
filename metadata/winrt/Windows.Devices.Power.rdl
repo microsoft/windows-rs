@@ -1,0 +1,98 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Power {
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IBatteryStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class Battery {
+                IBattery,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class BatteryReport {
+                IBatteryReport,
+            }
+            #[guid(0xbc894fc6_0072_47c8_8b5d_614aaa7a437e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Battery)]
+            interface IBattery {
+                #[get]
+                DeviceId: String;
+                fn GetReport(&self) -> BatteryReport;
+                event ReportUpdated: super::super::Foundation::TypedEventHandler<Battery, Object>;
+            }
+            #[guid(0xc9858c3a_4e13_420a_a8d0_24f18f395401)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BatteryReport)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBatteryReport {
+                #[get]
+                ChargeRateInMilliwatts: super::super::Foundation::IReference<i32>;
+                #[get]
+                DesignCapacityInMilliwattHours: super::super::Foundation::IReference<i32>;
+                #[get]
+                FullChargeCapacityInMilliwattHours: super::super::Foundation::IReference<i32>;
+                #[get]
+                RemainingCapacityInMilliwattHours: super::super::Foundation::IReference<i32>;
+                #[get]
+                Status: super::super::System::Power::BatteryStatus;
+            }
+            #[guid(0x79cd72b6_9e5e_4452_bea6_dfcd541e597f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Battery)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBatteryStatics {
+                #[get]
+                AggregateBattery: Battery;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Battery>;
+                fn GetDeviceSelector(&self) -> String;
+            }
+            #[guid(0xc360fb17_fc92_5f6e_999d_16a4cf9d6c40)]
+            #[Windows::Foundation::Metadata::ContractVersion(PowerGridApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PowerGridData)]
+            interface IPowerGridData {
+                #[get]
+                Severity: f64;
+                #[get]
+                IsLowUserExperienceImpact: bool;
+            }
+            #[guid(0x077e4de9_ed60_58bb_a850_003c6a138685)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PowerGridForecast)]
+            #[Windows::Foundation::Metadata::ContractVersion(PowerGridApiContract, 65536)]
+            interface IPowerGridForecast {
+                #[get]
+                StartTime: super::super::Foundation::DateTime;
+                #[get]
+                BlockDuration: super::super::Foundation::TimeSpan;
+                #[get]
+                Forecast: super::super::Foundation::Collections::IVectorView<PowerGridData>;
+            }
+            #[guid(0x5b78c806_2e4e_5bcc_bb34_cb81c60f9e12)]
+            #[Windows::Foundation::Metadata::ContractVersion(PowerGridApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PowerGridForecast)]
+            interface IPowerGridForecastStatics {
+                fn GetForecast(&self) -> PowerGridForecast;
+                event ForecastUpdated: super::super::Foundation::EventHandler<Object>;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct PowerGridApiContract {}
+            #[Windows::Foundation::Metadata::ContractVersion(PowerGridApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PowerGridData {
+                IPowerGridData,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(PowerGridApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IPowerGridForecastStatics, 65536, "Windows.Devices.Power.PowerGridApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PowerGridForecast {
+                IPowerGridForecast,
+            }
+        }
+    }
+}

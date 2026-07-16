@@ -1,0 +1,151 @@
+#[winrt]
+mod Windows {
+    mod Perception {
+        mod People {
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IEyesPoseStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+            class EyesPose {
+                IEyesPose,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum HandJointKind {
+                Palm = 0,
+                Wrist = 1,
+                ThumbMetacarpal = 2,
+                ThumbProximal = 3,
+                ThumbDistal = 4,
+                ThumbTip = 5,
+                IndexMetacarpal = 6,
+                IndexProximal = 7,
+                IndexIntermediate = 8,
+                IndexDistal = 9,
+                IndexTip = 10,
+                MiddleMetacarpal = 11,
+                MiddleProximal = 12,
+                MiddleIntermediate = 13,
+                MiddleDistal = 14,
+                MiddleTip = 15,
+                RingMetacarpal = 16,
+                RingProximal = 17,
+                RingIntermediate = 18,
+                RingDistal = 19,
+                RingTip = 20,
+                LittleMetacarpal = 21,
+                LittleProximal = 22,
+                LittleIntermediate = 23,
+                LittleDistal = 24,
+                LittleTip = 25,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class HandMeshObserver {
+                IHandMeshObserver,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            struct HandMeshVertex {
+                Position: super::super::Foundation::Numerics::Vector3,
+                Normal: super::super::Foundation::Numerics::Vector3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class HandMeshVertexState {
+                IHandMeshVertexState,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class HandPose {
+                IHandPose,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class HeadPose {
+                IHeadPose,
+            }
+            #[guid(0x682a9b23_8a1e_5b86_a060_906ffacb62a4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EyesPose)]
+            interface IEyesPose {
+                #[get]
+                IsCalibrationValid: bool;
+                #[get]
+                Gaze: super::super::Foundation::IReference<super::Spatial::SpatialRay>;
+                #[get]
+                UpdateTimestamp: super::PerceptionTimestamp;
+            }
+            #[guid(0x1cff7413_b21f_54c0_80c1_e60d994ca58c)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EyesPose)]
+            interface IEyesPoseStatics {
+                fn IsSupported(&self) -> bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>;
+            }
+            #[guid(0x85ae30cb_6fc3_55c4_a7b4_29e33896ca69)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HandMeshObserver)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IHandMeshObserver {
+                #[get]
+                Source: super::super::UI::Input::Spatial::SpatialInteractionSource;
+                #[get]
+                TriangleIndexCount: u32;
+                #[get]
+                VertexCount: u32;
+                fn GetTriangleIndices(&self, #[out] indices: [u16]);
+                fn GetVertexStateForPose(&self, handPose: HandPose) -> HandMeshVertexState;
+                #[get]
+                NeutralPose: HandPose;
+                #[get]
+                NeutralPoseVersion: i32;
+                #[get]
+                ModelId: i32;
+            }
+            #[guid(0x046c5fef_1d8b_55de_ab2c_1cd424886d8f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HandMeshVertexState)]
+            interface IHandMeshVertexState {
+                #[get]
+                CoordinateSystem: super::Spatial::SpatialCoordinateSystem;
+                fn GetVertices(&self, #[out] vertices: [HandMeshVertex]);
+                #[get]
+                UpdateTimestamp: super::PerceptionTimestamp;
+            }
+            #[guid(0x4d98e79a_bb08_5d09_91de_df0dd3fae46c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HandPose)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IHandPose {
+                fn TryGetJoint(&self, coordinateSystem: super::Spatial::SpatialCoordinateSystem, joint: HandJointKind, jointPose: &mut JointPose) -> bool;
+                fn TryGetJoints(&self, coordinateSystem: super::Spatial::SpatialCoordinateSystem, joints: [HandJointKind], #[out] jointPoses: [JointPose]) -> bool;
+                fn GetRelativeJoint(&self, joint: HandJointKind, referenceJoint: HandJointKind) -> JointPose;
+                fn GetRelativeJoints(&self, joints: [HandJointKind], referenceJoints: [HandJointKind], #[out] jointPoses: [JointPose]);
+            }
+            #[guid(0x7f5ac5a5_49db_379f_9429_32a2faf34fa6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HeadPose)]
+            interface IHeadPose {
+                #[get]
+                Position: super::super::Foundation::Numerics::Vector3;
+                #[get]
+                ForwardDirection: super::super::Foundation::Numerics::Vector3;
+                #[get]
+                UpDirection: super::super::Foundation::Numerics::Vector3;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            struct JointPose {
+                Orientation: super::super::Foundation::Numerics::Quaternion,
+                Position: super::super::Foundation::Numerics::Vector3,
+                Radius: f32,
+                Accuracy: JointPoseAccuracy,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum JointPoseAccuracy {
+                High = 0,
+                Approximate = 1,
+            }
+        }
+    }
+}

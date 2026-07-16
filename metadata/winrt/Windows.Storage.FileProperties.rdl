@@ -1,0 +1,265 @@
+#[winrt]
+mod Windows {
+    mod Storage {
+        mod FileProperties {
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class BasicProperties {
+                IBasicProperties,
+                IStorageItemExtraProperties,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class DocumentProperties {
+                IDocumentProperties,
+                IStorageItemExtraProperties,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IGeotagHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class GeotagHelper {}
+            #[guid(0xd05d55db_785e_4a66_be02_9beec58aea81)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BasicProperties)]
+            interface IBasicProperties {
+                #[get]
+                Size: u64;
+                #[get]
+                DateModified: super::super::Foundation::DateTime;
+                #[get]
+                ItemDate: super::super::Foundation::DateTime;
+            }
+            #[guid(0x7eab19bc_1821_4923_b4a9_0aea404d0070)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DocumentProperties)]
+            interface IDocumentProperties: IStorageItemExtraProperties {
+                #[get]
+                Author: super::super::Foundation::Collections::IVector<String>;
+                Title: String;
+                #[get]
+                Keywords: super::super::Foundation::Collections::IVector<String>;
+                Comment: String;
+            }
+            #[guid(0x41493244_2524_4655_86a6_ed16f5fc716b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GeotagHelper)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IGeotagHelperStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetGeotagAsync(&self, file: super::IStorageFile) -> super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetGeotagFromGeolocatorAsync(&self, file: super::IStorageFile, geolocator: super::super::Devices::Geolocation::Geolocator) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetGeotagAsync(&self, file: super::IStorageFile, geopoint: super::super::Devices::Geolocation::Geopoint) -> super::super::Foundation::IAsyncAction;
+            }
+            #[guid(0x523c9424_fcff_4275_afee_ecdb9ab47973)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageProperties)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IImageProperties: IStorageItemExtraProperties {
+                Rating: u32;
+                #[get]
+                Keywords: super::super::Foundation::Collections::IVector<String>;
+                DateTaken: super::super::Foundation::DateTime;
+                #[get]
+                Width: u32;
+                #[get]
+                Height: u32;
+                Title: String;
+                #[get]
+                Latitude: super::super::Foundation::IReference<f64>;
+                #[get]
+                Longitude: super::super::Foundation::IReference<f64>;
+                CameraManufacturer: String;
+                CameraModel: String;
+                #[get]
+                Orientation: PhotoOrientation;
+                #[get]
+                PeopleNames: super::super::Foundation::Collections::IVectorView<String>;
+            }
+            #[guid(0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MusicProperties)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMusicProperties: IStorageItemExtraProperties {
+                Album: String;
+                Artist: String;
+                #[get]
+                Genre: super::super::Foundation::Collections::IVector<String>;
+                TrackNumber: u32;
+                Title: String;
+                Rating: u32;
+                #[get]
+                Duration: super::super::Foundation::TimeSpan;
+                #[get]
+                Bitrate: u32;
+                AlbumArtist: String;
+                #[get]
+                Composers: super::super::Foundation::Collections::IVector<String>;
+                #[get]
+                Conductors: super::super::Foundation::Collections::IVector<String>;
+                Subtitle: String;
+                #[get]
+                Producers: super::super::Foundation::Collections::IVector<String>;
+                Publisher: String;
+                #[get]
+                Writers: super::super::Foundation::Collections::IVector<String>;
+                Year: u32;
+            }
+            #[guid(0x05294bad_bc38_48bf_85d7_770e0e2ae0ba)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemContentProperties)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IStorageItemContentProperties: IStorageItemExtraProperties {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetMusicPropertiesAsync(&self) -> super::super::Foundation::IAsyncOperation<MusicProperties>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetVideoPropertiesAsync(&self) -> super::super::Foundation::IAsyncOperation<VideoProperties>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetImagePropertiesAsync(&self) -> super::super::Foundation::IAsyncOperation<ImageProperties>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetDocumentPropertiesAsync(&self) -> super::super::Foundation::IAsyncOperation<DocumentProperties>;
+            }
+            #[guid(0xc54361b2_54cd_432b_bdbc_4b19c4b470d7)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IStorageItemExtraProperties {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RetrievePropertiesAsync(&self, propertiesToRetrieve: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<String, Object>>;
+                #[Windows::Foundation::Metadata::Overload("SavePropertiesAsync")]
+                fn SavePropertiesAsync(&self, #[Windows::Foundation::Metadata::HasVariant] propertiesToSave: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, Object>>) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Overload("SavePropertiesAsyncOverloadDefault")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SavePropertiesAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[guid(0x693dd42f_dbe7_49b5_b3b3_2893ac5d3423)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemThumbnail)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IThumbnailProperties {
+                #[get]
+                OriginalWidth: u32;
+                #[get]
+                OriginalHeight: u32;
+                #[get]
+                ReturnedSmallerCachedSize: bool;
+                #[get]
+                Type: ThumbnailType;
+            }
+            #[guid(0x719ae507_68de_4db8_97de_49998c059f2f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoProperties)]
+            interface IVideoProperties: IStorageItemExtraProperties {
+                Rating: u32;
+                #[get]
+                Keywords: super::super::Foundation::Collections::IVector<String>;
+                #[get]
+                Width: u32;
+                #[get]
+                Height: u32;
+                #[get]
+                Duration: super::super::Foundation::TimeSpan;
+                #[get]
+                Latitude: super::super::Foundation::IReference<f64>;
+                #[get]
+                Longitude: super::super::Foundation::IReference<f64>;
+                Title: String;
+                Subtitle: String;
+                #[get]
+                Producers: super::super::Foundation::Collections::IVector<String>;
+                Publisher: String;
+                #[get]
+                Writers: super::super::Foundation::Collections::IVector<String>;
+                Year: u32;
+                #[get]
+                Bitrate: u32;
+                #[get]
+                Directors: super::super::Foundation::Collections::IVector<String>;
+                #[get]
+                Orientation: VideoOrientation;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ImageProperties {
+                IImageProperties,
+                IStorageItemExtraProperties,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MusicProperties {
+                IMusicProperties,
+                IStorageItemExtraProperties,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PhotoOrientation {
+                Unspecified = 0,
+                Normal = 1,
+                FlipHorizontal = 2,
+                Rotate180 = 3,
+                FlipVertical = 4,
+                Transpose = 5,
+                Rotate270 = 6,
+                Transverse = 7,
+                Rotate90 = 8,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PropertyPrefetchOptions {
+                None = 0,
+                MusicProperties = 1,
+                VideoProperties = 2,
+                ImageProperties = 4,
+                DocumentProperties = 8,
+                BasicProperties = 16,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class StorageItemContentProperties {
+                IStorageItemContentProperties,
+                IStorageItemExtraProperties,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class StorageItemThumbnail {
+                super::Streams::IRandomAccessStreamWithContentType,
+                super::Streams::IContentTypeProvider,
+                super::Streams::IRandomAccessStream,
+                super::Streams::IOutputStream,
+                super::super::Foundation::IClosable,
+                super::Streams::IInputStream,
+                IThumbnailProperties,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ThumbnailMode {
+                PicturesView = 0,
+                VideosView = 1,
+                MusicView = 2,
+                DocumentsView = 3,
+                ListView = 4,
+                SingleItem = 5,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ThumbnailOptions {
+                None = 0,
+                ReturnOnlyIfCached = 1,
+                ResizeThumbnail = 2,
+                UseCurrentScale = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ThumbnailType {
+                Image = 0,
+                Icon = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum VideoOrientation {
+                Normal = 0,
+                Rotate90 = 90,
+                Rotate180 = 180,
+                Rotate270 = 270,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class VideoProperties {
+                IVideoProperties,
+                IStorageItemExtraProperties,
+            }
+        }
+    }
+}

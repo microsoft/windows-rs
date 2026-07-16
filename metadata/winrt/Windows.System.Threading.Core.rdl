@@ -1,0 +1,68 @@
+#[winrt]
+mod Windows {
+    mod System {
+        mod Threading {
+            mod Core {
+                #[guid(0xb6daa9fc_bc5b_401a_a8b2_6e754d14daa6)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PreallocatedWorkItem)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IPreallocatedWorkItem {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RunAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0xe3d32b45_dfea_469b_82c5_f6e3cefdeafb)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PreallocatedWorkItem)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IPreallocatedWorkItemFactory {
+                    fn CreateWorkItem(&self, handler: super::WorkItemHandler) -> PreallocatedWorkItem;
+                    fn CreateWorkItemWithPriority(&self, handler: super::WorkItemHandler, priority: super::WorkItemPriority) -> PreallocatedWorkItem;
+                    fn CreateWorkItemWithPriorityAndOptions(&self, handler: super::WorkItemHandler, priority: super::WorkItemPriority, options: super::WorkItemOptions) -> PreallocatedWorkItem;
+                }
+                #[guid(0x14285e06_63a7_4713_b6d9_62f64b56fb8b)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SignalNotifier)]
+                interface ISignalNotifier {
+                    fn Enable(&self);
+                    fn Terminate(&self);
+                }
+                #[guid(0x1c4e4566_8400_46d3_a115_7d0c0dfc9f62)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SignalNotifier)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface ISignalNotifierStatics {
+                    #[Windows::Foundation::Metadata::Overload("AttachToEvent")]
+                    fn AttachToEvent(&self, name: String, handler: SignalHandler) -> SignalNotifier;
+                    #[Windows::Foundation::Metadata::Overload("AttachToEventWithTimeout")]
+                    fn AttachToEvent(&self, name: String, handler: SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> SignalNotifier;
+                    #[Windows::Foundation::Metadata::Overload("AttachToSemaphore")]
+                    fn AttachToSemaphore(&self, name: String, handler: SignalHandler) -> SignalNotifier;
+                    #[Windows::Foundation::Metadata::Overload("AttachToSemaphoreWithTimeout")]
+                    fn AttachToSemaphore(&self, name: String, handler: SignalHandler, timeout: super::super::super::Foundation::TimeSpan) -> SignalNotifier;
+                }
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Activatable(IPreallocatedWorkItemFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class PreallocatedWorkItem {
+                    IPreallocatedWorkItem,
+                }
+                #[guid(0x923c402e_4721_440e_9dda_55b6f2e07710)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                delegate fn SignalHandler(signalNotifier: SignalNotifier, timedOut: bool);
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(ISignalNotifierStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class SignalNotifier {
+                    ISignalNotifier,
+                }
+            }
+        }
+    }
+}

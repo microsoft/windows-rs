@@ -1804,18 +1804,18 @@ impl AppointmentStore {
             (windows_core::Interface::vtable(self).FindLocalIdsFromRoamingIdAsync)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(roamingid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StoreChanged<F>(&self, phandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn StoreChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<AppointmentStoreChangedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IAppointmentStore2>(self)?;
-        let phandler = <super::super::Foundation::TypedEventHandler<Self, AppointmentStoreChangedEventArgs>>::new(move |a0, a1| {
-            phandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, AppointmentStoreChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).StoreChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&phandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(this).StoreChanged)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveStoreChanged))
         }
     }

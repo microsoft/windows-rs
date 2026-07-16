@@ -1,0 +1,170 @@
+#[winrt]
+mod Windows {
+    mod Gaming {
+        mod Input {
+            mod ForceFeedback {
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::Activatable(IConditionForceEffectFactory, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class ConditionForceEffect {
+                    IForceFeedbackEffect,
+                    IConditionForceEffect,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum ConditionForceEffectKind {
+                    Spring = 0,
+                    Damper = 1,
+                    Inertia = 2,
+                    Friction = 3,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class ConstantForceEffect {
+                    IForceFeedbackEffect,
+                    IConstantForceEffect,
+                }
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum ForceFeedbackEffectAxes {
+                    None = 0,
+                    X = 1,
+                    Y = 2,
+                    Z = 4,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum ForceFeedbackEffectState {
+                    Stopped = 0,
+                    Running = 1,
+                    Paused = 2,
+                    Faulted = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum ForceFeedbackLoadEffectResult {
+                    Succeeded = 0,
+                    EffectStorageFull = 1,
+                    EffectNotSupported = 2,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class ForceFeedbackMotor {
+                    IForceFeedbackMotor,
+                }
+                #[guid(0x32d1ea68_3695_4e69_85c0_cd1944189140)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ConditionForceEffect)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IConditionForceEffect: IForceFeedbackEffect {
+                    #[get]
+                    Kind: ConditionForceEffectKind;
+                    fn SetParameters(&self, direction: super::super::super::Foundation::Numerics::Vector3, positiveCoefficient: f32, negativeCoefficient: f32, maxPositiveMagnitude: f32, maxNegativeMagnitude: f32, deadZone: f32, bias: f32);
+                }
+                #[guid(0x91a99264_1810_4eb6_a773_bfd3b8cddbab)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ConditionForceEffect)]
+                interface IConditionForceEffectFactory {
+                    fn CreateInstance(&self, effectKind: ConditionForceEffectKind) -> ConditionForceEffect;
+                }
+                #[guid(0x9bfa0140_f3c7_415c_b068_0f068734bce0)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ConstantForceEffect)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IConstantForceEffect: IForceFeedbackEffect {
+                    fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan);
+                    fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, attackGain: f32, sustainGain: f32, releaseGain: f32, startDelay: super::super::super::Foundation::TimeSpan, attackDuration: super::super::super::Foundation::TimeSpan, sustainDuration: super::super::super::Foundation::TimeSpan, releaseDuration: super::super::super::Foundation::TimeSpan, repeatCount: u32);
+                }
+                #[guid(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IForceFeedbackEffect {
+                    Gain: f64;
+                    #[get]
+                    State: ForceFeedbackEffectState;
+                    fn Start(&self);
+                    fn Stop(&self);
+                }
+                #[guid(0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ForceFeedbackMotor)]
+                interface IForceFeedbackMotor {
+                    #[get]
+                    AreEffectsPaused: bool;
+                    MasterGain: f64;
+                    #[get]
+                    IsEnabled: bool;
+                    #[get]
+                    SupportedAxes: ForceFeedbackEffectAxes;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn LoadEffectAsync(&self, effect: IForceFeedbackEffect) -> super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>;
+                    fn PauseAllEffects(&self);
+                    fn ResumeAllEffects(&self);
+                    fn StopAllEffects(&self);
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn TryDisableAsync(&self) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn TryEnableAsync(&self) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn TryResetAsync(&self) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn TryUnloadEffectAsync(&self, effect: IForceFeedbackEffect) -> super::super::super::Foundation::IAsyncOperation<bool>;
+                }
+                #[guid(0x5c5138d7_fc75_4d52_9a0a_efe4cab5fe64)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PeriodicForceEffect)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IPeriodicForceEffect: IForceFeedbackEffect {
+                    #[get]
+                    Kind: PeriodicForceEffectKind;
+                    fn SetParameters(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, duration: super::super::super::Foundation::TimeSpan);
+                    fn SetParametersWithEnvelope(&self, vector: super::super::super::Foundation::Numerics::Vector3, frequency: f32, phase: f32, bias: f32, attackGain: f32, sustainGain: f32, releaseGain: f32, startDelay: super::super::super::Foundation::TimeSpan, attackDuration: super::super::super::Foundation::TimeSpan, sustainDuration: super::super::super::Foundation::TimeSpan, releaseDuration: super::super::super::Foundation::TimeSpan, repeatCount: u32);
+                }
+                #[guid(0x6f62eb1a_9851_477b_b318_35ecaa15070f)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PeriodicForceEffect)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IPeriodicForceEffectFactory {
+                    fn CreateInstance(&self, effectKind: PeriodicForceEffectKind) -> PeriodicForceEffect;
+                }
+                #[guid(0xf1f81259_1ca6_4080_b56d_b43f3354d052)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RampForceEffect)]
+                interface IRampForceEffect: IForceFeedbackEffect {
+                    fn SetParameters(&self, startVector: super::super::super::Foundation::Numerics::Vector3, endVector: super::super::super::Foundation::Numerics::Vector3, duration: super::super::super::Foundation::TimeSpan);
+                    fn SetParametersWithEnvelope(&self, startVector: super::super::super::Foundation::Numerics::Vector3, endVector: super::super::super::Foundation::Numerics::Vector3, attackGain: f32, sustainGain: f32, releaseGain: f32, startDelay: super::super::super::Foundation::TimeSpan, attackDuration: super::super::super::Foundation::TimeSpan, sustainDuration: super::super::super::Foundation::TimeSpan, releaseDuration: super::super::super::Foundation::TimeSpan, repeatCount: u32);
+                }
+                #[Windows::Foundation::Metadata::Activatable(IPeriodicForceEffectFactory, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class PeriodicForceEffect {
+                    IForceFeedbackEffect,
+                    IPeriodicForceEffect,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum PeriodicForceEffectKind {
+                    SquareWave = 0,
+                    SineWave = 1,
+                    TriangleWave = 2,
+                    SawtoothWaveUp = 3,
+                    SawtoothWaveDown = 4,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class RampForceEffect {
+                    IForceFeedbackEffect,
+                    IRampForceEffect,
+                }
+            }
+        }
+    }
+}

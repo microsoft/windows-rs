@@ -1,0 +1,398 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod PlayTo {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class CurrentTimeChangeRequestedEventArgs {
+                ICurrentTimeChangeRequestedEventArgs,
+            }
+            #[guid(0x99711324_edc7_4bf5_91f6_3c8627db59e5)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrentTimeChangeRequestedEventArgs)]
+            interface ICurrentTimeChangeRequestedEventArgs {
+                #[get]
+                Time: super::super::Foundation::TimeSpan;
+            }
+            #[guid(0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MuteChangeRequestedEventArgs)]
+            interface IMuteChangeRequestedEventArgs {
+                #[get]
+                Mute: bool;
+            }
+            #[guid(0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToConnection may be altered or unavailable for releases after Windows 10. Instead, use CastingConnection.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToConnection)]
+            interface IPlayToConnection {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnection may be altered or unavailable for releases after Windows 10. Instead, use CastingConnection.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_State(&self) -> PlayToConnectionState;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnection may be altered or unavailable for releases after Windows 10. Instead, use CastingConnection.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn add_StateChanged(&self, handler: super::super::Foundation::TypedEventHandler<PlayToConnection, PlayToConnectionStateChangedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnection may be altered or unavailable for releases after Windows 10. Instead, use CastingConnection.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn remove_StateChanged(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnection may be altered or unavailable for releases after Windows 10. Instead, use CastingConnection.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn add_Transferred(&self, handler: super::super::Foundation::TypedEventHandler<PlayToConnection, PlayToConnectionTransferredEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnection may be altered or unavailable for releases after Windows 10. Instead, use CastingConnection.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn remove_Transferred(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnection may be altered or unavailable for releases after Windows 10. Instead, use CastingConnection.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn add_Error(&self, handler: super::super::Foundation::TypedEventHandler<PlayToConnection, PlayToConnectionErrorEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnection may be altered or unavailable for releases after Windows 10. Instead, use CastingConnection.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn remove_Error(&self, token: super::super::Foundation::EventRegistrationToken);
+            }
+            #[guid(0xbf5eada6_88e6_445f_9d40_d9b9f8939896)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionErrorEventArgs may be altered or unavailable for releases after Windows 10. Instead, use CastingConnectionErrorOccurredEventArgs.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToConnectionErrorEventArgs)]
+            interface IPlayToConnectionErrorEventArgs {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionErrorEventArgs may be altered or unavailable for releases after Windows 10. Instead, use CastingConnectionErrorOccurredEventArgs.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Code(&self) -> PlayToConnectionError;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionErrorEventArgs may be altered or unavailable for releases after Windows 10. Instead, use CastingConnectionErrorOccurredEventArgs.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Message(&self) -> String;
+            }
+            #[guid(0x68c4b50f_0c20_4980_8602_58c62238d423)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToConnectionStateChangedEventArgs)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionStateChangedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPlayToConnectionStateChangedEventArgs {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionStateChangedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_PreviousState(&self) -> PlayToConnectionState;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionStateChangedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_CurrentState(&self) -> PlayToConnectionState;
+            }
+            #[guid(0xfae3193a_0683_47d9_8df0_18cbb48984d8)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToConnectionTransferredEventArgs)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionTransferredEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            interface IPlayToConnectionTransferredEventArgs {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionTransferredEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_PreviousSource(&self) -> PlayToSource;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionTransferredEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_CurrentSource(&self) -> PlayToSource;
+            }
+            #[guid(0xf56a206e_1b77_42ef_8f0d_b949f8d9b260)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToManager)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToManager may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            interface IPlayToManager {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToManager may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn add_SourceRequested(&self, handler: super::super::Foundation::TypedEventHandler<PlayToManager, PlayToSourceRequestedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToManager may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn remove_SourceRequested(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToManager may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn add_SourceSelected(&self, handler: super::super::Foundation::TypedEventHandler<PlayToManager, PlayToSourceSelectedEventArgs>) -> super::super::Foundation::EventRegistrationToken;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToManager may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn remove_SourceSelected(&self, token: super::super::Foundation::EventRegistrationToken);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToManager may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_DefaultSourceSelection(&self, value: bool);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToManager may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_DefaultSourceSelection(&self) -> bool;
+            }
+            #[guid(0x64e6a887_3982_4f3b_ba20_6155e435325b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToManager may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToManager)]
+            interface IPlayToManagerStatics {
+                #[Windows::Foundation::Metadata::Deprecated("PlayToManager may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn GetForCurrentView(&self) -> PlayToManager;
+                #[Windows::Foundation::Metadata::Deprecated("PlayToManager may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn ShowPlayToUI(&self);
+            }
+            #[guid(0xac15cf47_a162_4aa6_af1b_3aa35f3b9069)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToReceiver)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPlayToReceiver {
+                event PlayRequested: super::super::Foundation::TypedEventHandler<PlayToReceiver, Object>;
+                event PauseRequested: super::super::Foundation::TypedEventHandler<PlayToReceiver, Object>;
+                event SourceChangeRequested: super::super::Foundation::TypedEventHandler<PlayToReceiver, SourceChangeRequestedEventArgs>;
+                event PlaybackRateChangeRequested: super::super::Foundation::TypedEventHandler<PlayToReceiver, PlaybackRateChangeRequestedEventArgs>;
+                event CurrentTimeChangeRequested: super::super::Foundation::TypedEventHandler<PlayToReceiver, CurrentTimeChangeRequestedEventArgs>;
+                event MuteChangeRequested: super::super::Foundation::TypedEventHandler<PlayToReceiver, MuteChangeRequestedEventArgs>;
+                event VolumeChangeRequested: super::super::Foundation::TypedEventHandler<PlayToReceiver, VolumeChangeRequestedEventArgs>;
+                event TimeUpdateRequested: super::super::Foundation::TypedEventHandler<PlayToReceiver, Object>;
+                event StopRequested: super::super::Foundation::TypedEventHandler<PlayToReceiver, Object>;
+                fn NotifyVolumeChange(&self, volume: f64, mute: bool);
+                fn NotifyRateChange(&self, rate: f64);
+                fn NotifyLoadedMetadata(&self);
+                fn NotifyTimeUpdate(&self, currentTime: super::super::Foundation::TimeSpan);
+                fn NotifyDurationChange(&self, duration: super::super::Foundation::TimeSpan);
+                fn NotifySeeking(&self);
+                fn NotifySeeked(&self);
+                fn NotifyPaused(&self);
+                fn NotifyPlaying(&self);
+                fn NotifyEnded(&self);
+                fn NotifyError(&self);
+                fn NotifyStopped(&self);
+                FriendlyName: String;
+                #[set]
+                SupportsImage: bool;
+                #[get]
+                SupportsImage: bool;
+                #[set]
+                SupportsAudio: bool;
+                #[get]
+                SupportsAudio: bool;
+                #[set]
+                SupportsVideo: bool;
+                #[get]
+                SupportsVideo: bool;
+                #[get]
+                Properties: super::super::Foundation::Collections::IPropertySet;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StartAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StopAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[guid(0x7f138a08_fbb7_4b09_8356_aa5f4e335c31)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10. Instead, use CastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToSource)]
+            interface IPlayToSource {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10. Instead, use CastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Connection(&self) -> PlayToConnection;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10. Instead, use CastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Next(&self) -> PlayToSource;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10. Instead, use CastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_Next(&self, value: PlayToSource);
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10. Instead, use CastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn PlayNext(&self);
+            }
+            #[guid(0x4100891d_278e_4f29_859b_a9e501053e7d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToSourceDeferral)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToSourceDeferral may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            interface IPlayToSourceDeferral {
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceDeferral may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn Complete(&self);
+            }
+            #[guid(0xf8584665_64f4_44a0_ac0d_468d2b8fda83)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToSourceRequest)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPlayToSourceRequest {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Deadline(&self) -> super::super::Foundation::DateTime;
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn DisplayErrorString(&self, errorString: String);
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn GetDeferral(&self) -> PlayToSourceDeferral;
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn SetSource(&self, value: PlayToSource);
+            }
+            #[guid(0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToSourceRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequestedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            interface IPlayToSourceRequestedEventArgs {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequestedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_SourceRequest(&self) -> PlayToSourceRequest;
+            }
+            #[guid(0x0c9d8511_5202_4dcb_8c67_abda12bb3c12)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToSourceSelectedEventArgs)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToSourceSelectedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPlayToSourceSelectedEventArgs {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceSelectedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_FriendlyName(&self) -> String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceSelectedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Icon(&self) -> super::super::Storage::Streams::IRandomAccessStreamWithContentType;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceSelectedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_SupportsImage(&self) -> bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceSelectedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_SupportsAudio(&self) -> bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceSelectedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_SupportsVideo(&self) -> bool;
+            }
+            #[guid(0xaab253eb_3301_4dc4_afba_b2f2ed9635a0)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToSourceWithPreferredSourceUri may be altered or unavailable for releases after Windows 10. Instead, use CastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlayToSource)]
+            interface IPlayToSourceWithPreferredSourceUri {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceWithPreferredSourceUri may be altered or unavailable for releases after Windows 10. Instead, use CastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_PreferredSourceUri(&self) -> super::super::Foundation::Uri;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("PlayToSourceWithPreferredSourceUri may be altered or unavailable for releases after Windows 10. Instead, use CastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_PreferredSourceUri(&self, value: super::super::Foundation::Uri);
+            }
+            #[guid(0x0f5661ae_2c88_4cca_8540_d586095d13a5)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackRateChangeRequestedEventArgs)]
+            interface IPlaybackRateChangeRequestedEventArgs {
+                #[get]
+                Rate: f64;
+            }
+            #[guid(0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SourceChangeRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ISourceChangeRequestedEventArgs {
+                #[get]
+                Stream: super::super::Storage::Streams::IRandomAccessStreamWithContentType;
+                #[get]
+                Title: String;
+                #[get]
+                Author: String;
+                #[get]
+                Album: String;
+                #[get]
+                Genre: String;
+                #[get]
+                Description: String;
+                #[get]
+                Date: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[get]
+                Thumbnail: super::super::Storage::Streams::IRandomAccessStreamReference;
+                #[get]
+                Rating: super::super::Foundation::IReference<u32>;
+                #[get]
+                Properties: super::super::Foundation::Collections::IMapView<String, Object>;
+            }
+            #[guid(0x6f026d5c_cf75_4c2b_913e_6d7c6c329179)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VolumeChangeRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVolumeChangeRequestedEventArgs {
+                #[get]
+                Volume: f64;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MuteChangeRequestedEventArgs {
+                IMuteChangeRequestedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToConnection may be altered or unavailable for releases after Windows 10. Instead, use CastingConnection.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PlayToConnection {
+                IPlayToConnection,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionError may be altered or unavailable for releases after Windows 10. Instead, use CastingConnectionErrorStatus.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PlayToConnectionError {
+                None = 0,
+                DeviceNotResponding = 1,
+                DeviceError = 2,
+                DeviceLocked = 3,
+                ProtectedPlaybackFailed = 4,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionErrorEventArgs may be altered or unavailable for releases after Windows 10. Instead, use CastingConnectionErrorOccurredEventArgs.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PlayToConnectionErrorEventArgs {
+                IPlayToConnectionErrorEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionState may be altered or unavailable for releases after Windows 10. Instead, use CastingConnectionState.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PlayToConnectionState {
+                Disconnected = 0,
+                Connected = 1,
+                Rendering = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionStateChangedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class PlayToConnectionStateChangedEventArgs {
+                IPlayToConnectionStateChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToConnectionTransferredEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PlayToConnectionTransferredEventArgs {
+                IPlayToConnectionTransferredEventArgs,
+            }
+            #[Windows::Foundation::Metadata::Static(IPlayToManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToManager may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PlayToManager {
+                IPlayToManager,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class PlayToReceiver {
+                IPlayToReceiver,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToSource may be altered or unavailable for releases after Windows 10. Instead, use CastingSource.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class PlayToSource {
+                IPlayToSource,
+                IPlayToSourceWithPreferredSourceUri,
+            }
+            #[Windows::Foundation::Metadata::Deprecated("PlayToSourceDeferral may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PlayToSourceDeferral {
+                IPlayToSourceDeferral,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequest may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PlayToSourceRequest {
+                IPlayToSourceRequest,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToSourceRequestedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            class PlayToSourceRequestedEventArgs {
+                IPlayToSourceRequestedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Deprecated("PlayToSourceSelectedEventArgs may be altered or unavailable for releases after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            class PlayToSourceSelectedEventArgs {
+                IPlayToSourceSelectedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PlaybackRateChangeRequestedEventArgs {
+                IPlaybackRateChangeRequestedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class SourceChangeRequestedEventArgs {
+                ISourceChangeRequestedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class VolumeChangeRequestedEventArgs {
+                IVolumeChangeRequestedEventArgs,
+            }
+        }
+    }
+}

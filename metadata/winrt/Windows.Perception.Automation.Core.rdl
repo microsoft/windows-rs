@@ -1,0 +1,26 @@
+#[winrt]
+mod Windows {
+    mod Perception {
+        mod Automation {
+            mod Core {
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Static(ICorePerceptionAutomationStatics, 65536, "Windows.Perception.Automation.Core.PerceptionAutomationCoreContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::ContractVersion(PerceptionAutomationCoreContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class CorePerceptionAutomation {}
+                #[guid(0x0bb04541_4ce2_4923_9a76_8187ecc59112)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(PerceptionAutomationCoreContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CorePerceptionAutomation)]
+                interface ICorePerceptionAutomationStatics {
+                    fn SetActivationFactoryProvider(&self, provider: super::super::super::Foundation::IGetActivationFactory);
+                }
+                #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(65536)]
+                struct PerceptionAutomationCoreContract {}
+            }
+        }
+    }
+}

@@ -1,0 +1,113 @@
+#[winrt]
+mod Windows {
+    mod Data {
+        mod Pdf {
+            #[guid(0xac7ebedd_80fa_4089_846e_81b77ff5a86c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PdfDocument)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPdfDocument {
+                fn GetPage(&self, pageIndex: u32) -> PdfPage;
+                #[get]
+                PageCount: u32;
+                #[get]
+                IsPasswordProtected: bool;
+            }
+            #[guid(0x433a0b5f_c007_4788_90f2_08143d922599)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PdfDocument)]
+            interface IPdfDocumentStatics {
+                #[Windows::Foundation::Metadata::Overload("LoadFromFileAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn LoadFromFileAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<PdfDocument>;
+                #[Windows::Foundation::Metadata::Overload("LoadFromFileWithPasswordAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn LoadFromFileAsync(&self, file: super::super::Storage::IStorageFile, password: String) -> super::super::Foundation::IAsyncOperation<PdfDocument>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("LoadFromStreamAsync")]
+                fn LoadFromStreamAsync(&self, inputStream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<PdfDocument>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("LoadFromStreamWithPasswordAsync")]
+                fn LoadFromStreamAsync(&self, inputStream: super::super::Storage::Streams::IRandomAccessStream, password: String) -> super::super::Foundation::IAsyncOperation<PdfDocument>;
+            }
+            #[guid(0x9db4b0c8_5320_4cfc_ad76_493fdad0e594)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PdfPage)]
+            interface IPdfPage {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("RenderToStreamAsync")]
+                fn RenderToStreamAsync(&self, outputStream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Overload("RenderWithOptionsToStreamAsync")]
+                fn RenderToStreamAsync(&self, outputStream: super::super::Storage::Streams::IRandomAccessStream, options: PdfPageRenderOptions) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn PreparePageAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[get]
+                Index: u32;
+                #[get]
+                Size: super::super::Foundation::Size;
+                #[get]
+                Dimensions: PdfPageDimensions;
+                #[get]
+                Rotation: PdfPageRotation;
+                #[get]
+                PreferredZoom: f32;
+            }
+            #[guid(0x22170471_313e_44e8_835d_63a3e7624a10)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PdfPageDimensions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPdfPageDimensions {
+                #[get]
+                MediaBox: super::super::Foundation::Rect;
+                #[get]
+                CropBox: super::super::Foundation::Rect;
+                #[get]
+                BleedBox: super::super::Foundation::Rect;
+                #[get]
+                TrimBox: super::super::Foundation::Rect;
+                #[get]
+                ArtBox: super::super::Foundation::Rect;
+            }
+            #[guid(0x3c98056f_b7cf_4c29_9a04_52d90267f425)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PdfPageRenderOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPdfPageRenderOptions {
+                SourceRect: super::super::Foundation::Rect;
+                DestinationWidth: u32;
+                DestinationHeight: u32;
+                BackgroundColor: super::super::UI::Color;
+                IsIgnoringHighContrast: bool;
+                BitmapEncoderId: GUID;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IPdfDocumentStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PdfDocument {
+                IPdfDocument,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PdfPage {
+                IPdfPage,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PdfPageDimensions {
+                IPdfPageDimensions,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PdfPageRenderOptions {
+                IPdfPageRenderOptions,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PdfPageRotation {
+                Normal = 0,
+                Rotate90 = 1,
+                Rotate180 = 2,
+                Rotate270 = 3,
+            }
+        }
+    }
+}

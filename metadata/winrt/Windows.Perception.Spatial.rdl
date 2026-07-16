@@ -1,0 +1,508 @@
+#[winrt]
+mod Windows {
+    mod Perception {
+        mod Spatial {
+            #[guid(0x0529e5ce_1d34_3702_bcec_eabff578a869)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchor)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface ISpatialAnchor {
+                #[get]
+                CoordinateSystem: SpatialCoordinateSystem;
+                #[get]
+                RawCoordinateSystem: SpatialCoordinateSystem;
+                event RawCoordinateSystemAdjusted: super::super::Foundation::TypedEventHandler<SpatialAnchor, SpatialAnchorRawCoordinateSystemAdjustedEventArgs>;
+            }
+            #[guid(0xed17c908_a695_4cf6_92fd_97263ba71047)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchor)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface ISpatialAnchor2 {
+                #[get]
+                RemovedByUser: bool;
+            }
+            #[guid(0x77c25b2b_3409_4088_b91b_fdfd05d1648f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchorExportSufficiency)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ISpatialAnchorExportSufficiency {
+                #[get]
+                IsMinimallySufficient: bool;
+                #[get]
+                SufficiencyLevel: f64;
+                #[get]
+                RecommendedSufficiencyLevel: f64;
+            }
+            #[guid(0x9a2a4338_24fb_4269_89c5_88304aeef20f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchorExporter)]
+            interface ISpatialAnchorExporter {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAnchorExportSufficiencyAsync(&self, anchor: SpatialAnchor, purpose: SpatialAnchorExportPurpose) -> super::super::Foundation::IAsyncOperation<SpatialAnchorExportSufficiency>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryExportAnchorAsync(&self, anchor: SpatialAnchor, purpose: SpatialAnchorExportPurpose, stream: super::super::Storage::Streams::IOutputStream) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[guid(0xed2507b8_2475_439c_85ff_7fed341fdc88)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchorExporter)]
+            interface ISpatialAnchorExporterStatics {
+                fn GetDefault(&self) -> SpatialAnchorExporter;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>;
+            }
+            #[guid(0x88e30eab_f3b7_420b_b086_8a80c07d910d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchorManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface ISpatialAnchorManagerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestStoreAsync(&self) -> super::super::Foundation::IAsyncOperation<SpatialAnchorStore>;
+            }
+            #[guid(0xa1e81eb8_56c7_3117_a2e4_81e0fcf28e00)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchorRawCoordinateSystemAdjustedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface ISpatialAnchorRawCoordinateSystemAdjustedEventArgs {
+                #[get]
+                OldRawCoordinateSystemToNewRawCoordinateSystemTransform: super::super::Foundation::Numerics::Matrix4x4;
+            }
+            #[guid(0xa9928642_0174_311c_ae79_0e5107669f16)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchor)]
+            interface ISpatialAnchorStatics {
+                #[Windows::Foundation::Metadata::Overload("TryCreateRelativeTo")]
+                fn TryCreateRelativeTo(&self, coordinateSystem: SpatialCoordinateSystem) -> SpatialAnchor;
+                #[Windows::Foundation::Metadata::Overload("TryCreateWithPositionRelativeTo")]
+                fn TryCreateRelativeTo(&self, coordinateSystem: SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3) -> SpatialAnchor;
+                #[Windows::Foundation::Metadata::Overload("TryCreateWithPositionAndOrientationRelativeTo")]
+                fn TryCreateRelativeTo(&self, coordinateSystem: SpatialCoordinateSystem, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> SpatialAnchor;
+            }
+            #[guid(0xb0bc3636_486a_3cb0_9e6f_1245165c4db6)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchorStore)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface ISpatialAnchorStore {
+                fn GetAllSavedAnchors(&self) -> super::super::Foundation::Collections::IMapView<String, SpatialAnchor>;
+                fn TrySave(&self, id: String, anchor: SpatialAnchor) -> bool;
+                fn Remove(&self, id: String);
+                fn Clear(&self);
+            }
+            #[guid(0x03bbf9b9_12d8_4bce_8835_c5df3ac0adab)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::Deprecated("Use SpatialEntityStore instead of SpatialAnchorTransferManager. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialAnchorTransferManager)]
+            interface ISpatialAnchorTransferManagerStatics {
+                #[Windows::Foundation::Metadata::Deprecated("Use SpatialEntityStore instead of SpatialAnchorTransferManager. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryImportAnchorsAsync(&self, stream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<String, SpatialAnchor>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("Use SpatialEntityStore instead of SpatialAnchorTransferManager. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                fn TryExportAnchorsAsync(&self, anchors: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, SpatialAnchor>>, stream: super::super::Storage::Streams::IOutputStream) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Deprecated("Use SpatialEntityStore instead of SpatialAnchorTransferManager. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<SpatialPerceptionAccessStatus>;
+            }
+            #[guid(0xfb2065da_68c3_33df_b7af_4c787207999c)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialBoundingVolume)]
+            interface ISpatialBoundingVolume {}
+            #[guid(0x05889117_b3e1_36d8_b017_566181a5b196)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialBoundingVolume)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface ISpatialBoundingVolumeStatics {
+                fn FromBox(&self, coordinateSystem: SpatialCoordinateSystem, r#box: SpatialBoundingBox) -> SpatialBoundingVolume;
+                fn FromOrientedBox(&self, coordinateSystem: SpatialCoordinateSystem, r#box: SpatialBoundingOrientedBox) -> SpatialBoundingVolume;
+                fn FromSphere(&self, coordinateSystem: SpatialCoordinateSystem, sphere: SpatialBoundingSphere) -> SpatialBoundingVolume;
+                fn FromFrustum(&self, coordinateSystem: SpatialCoordinateSystem, frustum: SpatialBoundingFrustum) -> SpatialBoundingVolume;
+            }
+            #[guid(0x69ebca4b_60a3_3586_a653_59a7bd676d07)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialCoordinateSystem)]
+            interface ISpatialCoordinateSystem {
+                fn TryGetTransformTo(&self, target: SpatialCoordinateSystem) -> super::super::Foundation::IReference<super::super::Foundation::Numerics::Matrix4x4>;
+            }
+            #[guid(0x166de955_e1eb_454c_ba08_e6c0668ddc65)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialEntity)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface ISpatialEntity {
+                #[get]
+                Id: String;
+                #[get]
+                Anchor: SpatialAnchor;
+                #[get]
+                Properties: super::super::Foundation::Collections::ValueSet;
+            }
+            #[guid(0xa397f49b_156a_4707_ac2c_d31d570ed399)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialEntityAddedEventArgs)]
+            interface ISpatialEntityAddedEventArgs {
+                #[get]
+                Entity: SpatialEntity;
+            }
+            #[guid(0xe1f1e325_349f_4225_a2f3_4b01c15fe056)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialEntity)]
+            interface ISpatialEntityFactory {
+                fn CreateWithSpatialAnchor(&self, spatialAnchor: SpatialAnchor) -> SpatialEntity;
+                fn CreateWithSpatialAnchorAndProperties(&self, spatialAnchor: SpatialAnchor, propertySet: super::super::Foundation::Collections::ValueSet) -> SpatialEntity;
+            }
+            #[guid(0x91741800_536d_4e9f_abf6_415b5444d651)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialEntityRemovedEventArgs)]
+            interface ISpatialEntityRemovedEventArgs {
+                #[get]
+                Entity: SpatialEntity;
+            }
+            #[guid(0x329788ba_e513_4f06_889d_1be30ecf43e6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialEntityStore)]
+            interface ISpatialEntityStore {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveAsync(&self, entity: SpatialEntity) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RemoveAsync(&self, entity: SpatialEntity) -> super::super::Foundation::IAsyncAction;
+                fn CreateEntityWatcher(&self) -> SpatialEntityWatcher;
+            }
+            #[guid(0x6b4b389e_7c50_4e92_8a62_4d1d4b7ccd3e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialEntityStore)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface ISpatialEntityStoreStatics {
+                #[get]
+                IsSupported: bool;
+                #[Windows::Foundation::Metadata::Overload("TryGetForRemoteSystemSession")]
+                fn TryGet(&self, session: super::super::System::RemoteSystems::RemoteSystemSession) -> SpatialEntityStore;
+            }
+            #[guid(0xe5671766_627b_43cb_a49f_b3be6d47deed)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialEntityUpdatedEventArgs)]
+            interface ISpatialEntityUpdatedEventArgs {
+                #[get]
+                Entity: SpatialEntity;
+            }
+            #[guid(0xb3b85fa0_6d5e_4bbc_805d_5fe5b9ba1959)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialEntityWatcher)]
+            interface ISpatialEntityWatcher {
+                #[get]
+                Status: SpatialEntityWatcherStatus;
+                event Added: super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityAddedEventArgs>;
+                event Updated: super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityUpdatedEventArgs>;
+                event Removed: super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityRemovedEventArgs>;
+                event EnumerationCompleted: super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, Object>;
+                fn Start(&self);
+                fn Stop(&self);
+            }
+            #[guid(0x1d81d29d_24a1_37d5_8fa1_39b4f9ad67e2)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialLocation)]
+            interface ISpatialLocation {
+                #[get]
+                Position: super::super::Foundation::Numerics::Vector3;
+                #[get]
+                Orientation: super::super::Foundation::Numerics::Quaternion;
+                #[get]
+                AbsoluteLinearVelocity: super::super::Foundation::Numerics::Vector3;
+                #[get]
+                AbsoluteLinearAcceleration: super::super::Foundation::Numerics::Vector3;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Use AbsoluteAngularVelocityAxisAngle instead of AbsoluteAngularVelocity. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
+                fn get_AbsoluteAngularVelocity(&self) -> super::super::Foundation::Numerics::Quaternion;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Use AbsoluteAngularAccelerationAxisAngle instead of AbsoluteAngularAcceleration. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
+                fn get_AbsoluteAngularAcceleration(&self) -> super::super::Foundation::Numerics::Quaternion;
+            }
+            #[guid(0x117f2416_38a7_4a18_b404_ab8fabe1d78b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialLocation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface ISpatialLocation2 {
+                #[get]
+                AbsoluteAngularVelocityAxisAngle: super::super::Foundation::Numerics::Vector3;
+                #[get]
+                AbsoluteAngularAccelerationAxisAngle: super::super::Foundation::Numerics::Vector3;
+            }
+            #[guid(0xf6478925_9e0c_3bb6_997e_b64ecca24cf4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialLocator)]
+            interface ISpatialLocator {
+                #[get]
+                Locatability: SpatialLocatability;
+                event LocatabilityChanged: super::super::Foundation::TypedEventHandler<SpatialLocator, Object>;
+                event PositionalTrackingDeactivating: super::super::Foundation::TypedEventHandler<SpatialLocator, SpatialLocatorPositionalTrackingDeactivatingEventArgs>;
+                fn TryLocateAtTimestamp(&self, timestamp: super::PerceptionTimestamp, coordinateSystem: SpatialCoordinateSystem) -> SpatialLocation;
+                #[Windows::Foundation::Metadata::Overload("CreateAttachedFrameOfReferenceAtCurrentHeading")]
+                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self) -> SpatialLocatorAttachedFrameOfReference;
+                #[Windows::Foundation::Metadata::Overload("CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition")]
+                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self, relativePosition: super::super::Foundation::Numerics::Vector3) -> SpatialLocatorAttachedFrameOfReference;
+                #[Windows::Foundation::Metadata::Overload("CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation")]
+                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion) -> SpatialLocatorAttachedFrameOfReference;
+                #[Windows::Foundation::Metadata::Overload("CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading")]
+                fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion, relativeHeadingInRadians: f64) -> SpatialLocatorAttachedFrameOfReference;
+                #[Windows::Foundation::Metadata::Overload("CreateStationaryFrameOfReferenceAtCurrentLocation")]
+                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self) -> SpatialStationaryFrameOfReference;
+                #[Windows::Foundation::Metadata::Overload("CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition")]
+                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self, relativePosition: super::super::Foundation::Numerics::Vector3) -> SpatialStationaryFrameOfReference;
+                #[Windows::Foundation::Metadata::Overload("CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation")]
+                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion) -> SpatialStationaryFrameOfReference;
+                #[Windows::Foundation::Metadata::Overload("CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading")]
+                fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self, relativePosition: super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::Foundation::Numerics::Quaternion, relativeHeadingInRadians: f64) -> SpatialStationaryFrameOfReference;
+            }
+            #[guid(0xe1774ef6_1f4f_499c_9625_ef5e6ed7a048)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialLocatorAttachedFrameOfReference)]
+            interface ISpatialLocatorAttachedFrameOfReference {
+                RelativePosition: super::super::Foundation::Numerics::Vector3;
+                RelativeOrientation: super::super::Foundation::Numerics::Quaternion;
+                fn AdjustHeading(&self, headingOffsetInRadians: f64);
+                fn GetStationaryCoordinateSystemAtTimestamp(&self, timestamp: super::PerceptionTimestamp) -> SpatialCoordinateSystem;
+                fn TryGetRelativeHeadingAtTimestamp(&self, timestamp: super::PerceptionTimestamp) -> super::super::Foundation::IReference<f64>;
+            }
+            #[guid(0xb8a84063_e3f4_368b_9061_9ea9d1d6cc16)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialLocatorPositionalTrackingDeactivatingEventArgs)]
+            interface ISpatialLocatorPositionalTrackingDeactivatingEventArgs {
+                Canceled: bool;
+            }
+            #[guid(0xb76e3340_a7c2_361b_bb82_56e93b89b1bb)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialLocator)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface ISpatialLocatorStatics {
+                fn GetDefault(&self) -> SpatialLocator;
+            }
+            #[guid(0x7a8a3464_ad0d_4590_ab86_33062b674926)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialStageFrameOfReference)]
+            interface ISpatialStageFrameOfReference {
+                #[get]
+                CoordinateSystem: SpatialCoordinateSystem;
+                #[get]
+                MovementRange: SpatialMovementRange;
+                #[get]
+                LookDirectionRange: SpatialLookDirectionRange;
+                fn GetCoordinateSystemAtCurrentLocation(&self, locator: SpatialLocator) -> SpatialCoordinateSystem;
+                fn TryGetMovementBounds(&self, coordinateSystem: SpatialCoordinateSystem) -> [super::super::Foundation::Numerics::Vector3];
+            }
+            #[guid(0xf78d5c4d_a0a4_499c_8d91_a8c965d40654)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialStageFrameOfReference)]
+            interface ISpatialStageFrameOfReferenceStatics {
+                #[get]
+                Current: SpatialStageFrameOfReference;
+                event CurrentChanged: super::super::Foundation::EventHandler<Object>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestNewStageAsync(&self) -> super::super::Foundation::IAsyncOperation<SpatialStageFrameOfReference>;
+            }
+            #[guid(0x09dbccb9_bcf8_3e7f_be7e_7edccbb178a8)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpatialStationaryFrameOfReference)]
+            interface ISpatialStationaryFrameOfReference {
+                #[get]
+                CoordinateSystem: SpatialCoordinateSystem;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(ISpatialAnchorStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SpatialAnchor {
+                ISpatialAnchor,
+                ISpatialAnchor2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            enum SpatialAnchorExportPurpose {
+                Relocalization = 0,
+                Sharing = 1,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SpatialAnchorExportSufficiency {
+                ISpatialAnchorExportSufficiency,
+            }
+            #[Windows::Foundation::Metadata::Static(ISpatialAnchorExporterStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            class SpatialAnchorExporter {
+                ISpatialAnchorExporter,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(ISpatialAnchorManagerStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SpatialAnchorManager {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
+                ISpatialAnchorRawCoordinateSystemAdjustedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SpatialAnchorStore {
+                ISpatialAnchorStore,
+            }
+            #[Windows::Foundation::Metadata::Static(ISpatialAnchorTransferManagerStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Deprecated("Use SpatialEntityStore instead of SpatialAnchorTransferManager. For more info, see MSDN.", Deprecate, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            class SpatialAnchorTransferManager {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            struct SpatialBoundingBox {
+                Center: super::super::Foundation::Numerics::Vector3,
+                Extents: super::super::Foundation::Numerics::Vector3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            struct SpatialBoundingFrustum {
+                Near: super::super::Foundation::Numerics::Plane,
+                Far: super::super::Foundation::Numerics::Plane,
+                Right: super::super::Foundation::Numerics::Plane,
+                Left: super::super::Foundation::Numerics::Plane,
+                Top: super::super::Foundation::Numerics::Plane,
+                Bottom: super::super::Foundation::Numerics::Plane,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            struct SpatialBoundingOrientedBox {
+                Center: super::super::Foundation::Numerics::Vector3,
+                Extents: super::super::Foundation::Numerics::Vector3,
+                Orientation: super::super::Foundation::Numerics::Quaternion,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            struct SpatialBoundingSphere {
+                Center: super::super::Foundation::Numerics::Vector3,
+                Radius: f32,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ISpatialBoundingVolumeStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+            class SpatialBoundingVolume {
+                ISpatialBoundingVolume,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SpatialCoordinateSystem {
+                ISpatialCoordinateSystem,
+            }
+            #[Windows::Foundation::Metadata::Activatable(ISpatialEntityFactory, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class SpatialEntity {
+                ISpatialEntity,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            class SpatialEntityAddedEventArgs {
+                ISpatialEntityAddedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class SpatialEntityRemovedEventArgs {
+                ISpatialEntityRemovedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Static(ISpatialEntityStoreStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SpatialEntityStore {
+                ISpatialEntityStore,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            class SpatialEntityUpdatedEventArgs {
+                ISpatialEntityUpdatedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            class SpatialEntityWatcher {
+                ISpatialEntityWatcher,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum SpatialEntityWatcherStatus {
+                Created = 0,
+                Started = 1,
+                EnumerationCompleted = 2,
+                Stopping = 3,
+                Stopped = 4,
+                Aborted = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            enum SpatialLocatability {
+                Unavailable = 0,
+                OrientationOnly = 1,
+                PositionalTrackingActivating = 2,
+                PositionalTrackingActive = 3,
+                PositionalTrackingInhibited = 4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            class SpatialLocation {
+                ISpatialLocation,
+                ISpatialLocation2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ISpatialLocatorStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class SpatialLocator {
+                ISpatialLocator,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class SpatialLocatorAttachedFrameOfReference {
+                ISpatialLocatorAttachedFrameOfReference,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SpatialLocatorPositionalTrackingDeactivatingEventArgs {
+                ISpatialLocatorPositionalTrackingDeactivatingEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum SpatialLookDirectionRange {
+                ForwardOnly = 0,
+                Omnidirectional = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum SpatialMovementRange {
+                NoMovement = 0,
+                Bounded = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            enum SpatialPerceptionAccessStatus {
+                Unspecified = 0,
+                Allowed = 1,
+                DeniedByUser = 2,
+                DeniedBySystem = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            struct SpatialRay {
+                Origin: super::super::Foundation::Numerics::Vector3,
+                Direction: super::super::Foundation::Numerics::Vector3,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Static(ISpatialStageFrameOfReferenceStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            class SpatialStageFrameOfReference {
+                ISpatialStageFrameOfReference,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class SpatialStationaryFrameOfReference {
+                ISpatialStationaryFrameOfReference,
+            }
+        }
+    }
+}

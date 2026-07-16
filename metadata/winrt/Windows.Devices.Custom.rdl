@@ -1,0 +1,108 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Custom {
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::Static(ICustomDeviceStatics, 65536, "Windows.Devices.Custom.CustomDeviceContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            class CustomDevice {
+                ICustomDevice,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            struct CustomDeviceContract {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            enum DeviceAccessMode {
+                Read = 0,
+                Write = 1,
+                ReadWrite = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            enum DeviceSharingMode {
+                Shared = 0,
+                Exclusive = 1,
+            }
+            #[guid(0xdd30251f_c48b_43bd_bcb1_dec88f15143e)]
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CustomDevice)]
+            interface ICustomDevice {
+                #[get]
+                InputStream: super::super::Storage::Streams::IInputStream;
+                #[get]
+                OutputStream: super::super::Storage::Streams::IOutputStream;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SendIOControlAsync(&self, ioControlCode: IIOControlCode, inputBuffer: super::super::Storage::Streams::IBuffer, outputBuffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<u32>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TrySendIOControlAsync(&self, ioControlCode: IIOControlCode, inputBuffer: super::super::Storage::Streams::IBuffer, outputBuffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[guid(0xc8220312_ef4c_46b1_a58e_eeb308dc8917)]
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CustomDevice)]
+            interface ICustomDeviceStatics {
+                fn GetDeviceSelector(&self, classGuid: GUID) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String, desiredAccess: DeviceAccessMode, sharingMode: DeviceSharingMode) -> super::super::Foundation::IAsyncOperation<CustomDevice>;
+            }
+            #[guid(0x0e9559e7_60c8_4375_a761_7f8808066c60)]
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            interface IIOControlCode {
+                #[get]
+                AccessMode: IOControlAccessMode;
+                #[get]
+                BufferingMethod: IOControlBufferingMethod;
+                #[get]
+                Function: u16;
+                #[get]
+                DeviceType: u16;
+                #[get]
+                ControlCode: u32;
+            }
+            #[guid(0x856a7cf0_4c11_44ae_afc6_b8d4a212788f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IOControlCode)]
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            interface IIOControlCodeFactory {
+                fn CreateIOControlCode(&self, deviceType: u16, function: u16, accessMode: IOControlAccessMode, bufferingMethod: IOControlBufferingMethod) -> IOControlCode;
+            }
+            #[guid(0xee5479c2_5448_45da_ad1b_24948c239094)]
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(KnownDeviceTypes)]
+            interface IKnownDeviceTypesStatics {
+                #[get]
+                Unknown: u16;
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            enum IOControlAccessMode {
+                Any = 0,
+                Read = 1,
+                Write = 2,
+                ReadWrite = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            enum IOControlBufferingMethod {
+                Buffered = 0,
+                DirectInput = 1,
+                DirectOutput = 2,
+                Neither = 3,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(IIOControlCodeFactory, 65536, "Windows.Devices.Custom.CustomDeviceContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class IOControlCode {
+                IIOControlCode,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::Static(IKnownDeviceTypesStatics, 65536, "Windows.Devices.Custom.CustomDeviceContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class KnownDeviceTypes {}
+        }
+    }
+}

@@ -1,0 +1,82 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod Ocr {
+            #[guid(0x5a14bc41_5b76_3140_b680_8825562683ac)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OcrEngine)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IOcrEngine {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RecognizeAsync(&self, bitmap: super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::Foundation::IAsyncOperation<OcrResult>;
+                #[get]
+                RecognizerLanguage: super::super::Globalization::Language;
+            }
+            #[guid(0x5bffa85a_3384_3540_9940_699120d428a8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OcrEngine)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IOcrEngineStatics {
+                #[get]
+                MaxImageDimension: u32;
+                #[get]
+                AvailableRecognizerLanguages: super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>;
+                fn IsLanguageSupported(&self, language: super::super::Globalization::Language) -> bool;
+                fn TryCreateFromLanguage(&self, language: super::super::Globalization::Language) -> OcrEngine;
+                fn TryCreateFromUserProfileLanguages(&self) -> OcrEngine;
+            }
+            #[guid(0x0043a16f_e31f_3a24_899c_d444bd088124)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OcrLine)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IOcrLine {
+                #[get]
+                Words: super::super::Foundation::Collections::IVectorView<OcrWord>;
+                #[get]
+                Text: String;
+            }
+            #[guid(0x9bd235b2_175b_3d6a_92e2_388c206e2f63)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OcrResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IOcrResult {
+                #[get]
+                Lines: super::super::Foundation::Collections::IVectorView<OcrLine>;
+                #[get]
+                TextAngle: super::super::Foundation::IReference<f64>;
+                #[get]
+                Text: String;
+            }
+            #[guid(0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OcrWord)]
+            interface IOcrWord {
+                #[get]
+                BoundingRect: super::super::Foundation::Rect;
+                #[get]
+                Text: String;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IOcrEngineStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class OcrEngine {
+                IOcrEngine,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class OcrLine {
+                IOcrLine,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class OcrResult {
+                IOcrResult,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class OcrWord {
+                IOcrWord,
+            }
+        }
+    }
+}

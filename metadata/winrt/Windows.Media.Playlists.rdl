@@ -1,0 +1,47 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod Playlists {
+            #[guid(0x803736f5_cf44_4d97_83b3_7a089e9ab663)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Playlist)]
+            #[Windows::Foundation::Metadata::ContractVersion(PlaylistsContract, 65536)]
+            interface IPlaylist {
+                #[get]
+                Files: super::super::Foundation::Collections::IVector<super::super::Storage::StorageFile>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::Overload("SaveAsAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveAsAsync(&self, saveLocation: super::super::Storage::IStorageFolder, desiredName: String, option: super::super::Storage::NameCollisionOption) -> super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>;
+                #[Windows::Foundation::Metadata::Overload("SaveAsWithFormatAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveAsAsync(&self, saveLocation: super::super::Storage::IStorageFolder, desiredName: String, option: super::super::Storage::NameCollisionOption, playlistFormat: PlaylistFormat) -> super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFile>;
+            }
+            #[guid(0xc5c331cd_81f9_4ff3_95b9_70b6ff046b68)]
+            #[Windows::Foundation::Metadata::ContractVersion(PlaylistsContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Playlist)]
+            interface IPlaylistStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn LoadAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<Playlist>;
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(PlaylistsContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Media.Playlists.PlaylistsContract")]
+            #[Windows::Foundation::Metadata::Static(IPlaylistStatics, 65536, "Windows.Media.Playlists.PlaylistsContract")]
+            class Playlist {
+                IPlaylist,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(PlaylistsContract, 65536)]
+            enum PlaylistFormat {
+                WindowsMedia = 0,
+                Zune = 1,
+                M3u = 2,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            struct PlaylistsContract {}
+        }
+    }
+}

@@ -1,0 +1,432 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod StartScreen {
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ForegroundText {
+                Dark = 0,
+                Light = 1,
+            }
+            #[guid(0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(JumpList)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            interface IJumpList {
+                #[get]
+                Items: super::super::Foundation::Collections::IVector<JumpListItem>;
+                SystemGroupKind: JumpListSystemGroupKind;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[guid(0x7adb6717_8b5d_4820_995b_9b418dbe48b0)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(JumpListItem)]
+            interface IJumpListItem {
+                #[get]
+                Kind: JumpListItemKind;
+                #[get]
+                Arguments: String;
+                #[get]
+                RemovedByUser: bool;
+                Description: String;
+                DisplayName: String;
+                GroupName: String;
+                Logo: super::super::Foundation::Uri;
+            }
+            #[guid(0xf1bfc4e8_c7aa_49cb_8dde_ecfccd7ad7e4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(JumpListItem)]
+            interface IJumpListItemStatics {
+                fn CreateWithArguments(&self, arguments: String, displayName: String) -> JumpListItem;
+                fn CreateSeparator(&self) -> JumpListItem;
+            }
+            #[guid(0xa7e0c681_e67e_4b74_8250_3f322c4d92c3)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(JumpList)]
+            interface IJumpListStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn LoadCurrentAsync(&self) -> super::super::Foundation::IAsyncOperation<JumpList>;
+                fn IsSupported(&self) -> bool;
+            }
+            #[guid(0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
+            interface ISecondaryTile {
+                #[set]
+                TileId: String;
+                #[get]
+                TileId: String;
+                #[set]
+                Arguments: String;
+                #[get]
+                Arguments: String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("ShortName may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayName.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_ShortName(&self, value: String);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("ShortName may be altered or unavailable for releases after Windows 8.1. Instead, use DisplayName.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_ShortName(&self) -> String;
+                #[set]
+                DisplayName: String;
+                #[get]
+                DisplayName: String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Logo may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.Square150x150Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_Logo(&self, value: super::super::Foundation::Uri);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Logo may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.Square150x150Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Logo(&self) -> super::super::Foundation::Uri;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("SmallLogo may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.Square30x30Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_SmallLogo(&self, value: super::super::Foundation::Uri);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("SmallLogo may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.Square30x30Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_SmallLogo(&self) -> super::super::Foundation::Uri;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("WideLogo may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.Wide310x150Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_WideLogo(&self, value: super::super::Foundation::Uri);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("WideLogo may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.Wide310x150Logo.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_WideLogo(&self) -> super::super::Foundation::Uri;
+                #[set]
+                LockScreenBadgeLogo: super::super::Foundation::Uri;
+                #[get]
+                LockScreenBadgeLogo: super::super::Foundation::Uri;
+                #[set]
+                LockScreenDisplayBadgeAndTileText: bool;
+                #[get]
+                LockScreenDisplayBadgeAndTileText: bool;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("TileOptions may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.ShowNameOnSquare150x150Logo, VisualElements.ShowNameOnWide310x150Logo, and RoamingEnabled.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_TileOptions(&self, value: TileOptions);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("TileOptions may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.ShowNameOnSquare150x150Logo, VisualElements.ShowNameOnWide310x150Logo, and RoamingEnabled.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_TileOptions(&self) -> TileOptions;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("TileOptions may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.ShowNameOnSquare150x150Logo, VisualElements.ShowNameOnWide310x150Logo, and RoamingEnabled.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_ForegroundText(&self, value: ForegroundText);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("ForegroundText may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.ForegroundText.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_ForegroundText(&self) -> ForegroundText;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("BackgroundColor may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.BackgroundColor.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_BackgroundColor(&self, value: super::Color);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("BackgroundColor may be altered or unavailable for releases after Windows 8.1. Instead, use VisualElements.BackgroundColor.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_BackgroundColor(&self) -> super::Color;
+                #[Windows::Foundation::Metadata::Overload("RequestCreateAsync")]
+                fn RequestCreateAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("RequestCreateAsyncWithPoint")]
+                fn RequestCreateAsync(&self, invocationPoint: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("RequestCreateAsyncWithRect")]
+                fn RequestCreateForSelectionAsync(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("RequestCreateAsyncWithRectAndPlacement")]
+                fn RequestCreateForSelectionAsync(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("RequestDeleteAsync")]
+                fn RequestDeleteAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("RequestDeleteAsyncWithPoint")]
+                fn RequestDeleteAsync(&self, invocationPoint: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("RequestDeleteAsyncWithRect")]
+                fn RequestDeleteForSelectionAsync(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::Overload("RequestDeleteAsyncWithRectAndPlacement")]
+                fn RequestDeleteForSelectionAsync(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::Popups::Placement) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn UpdateAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[guid(0xb2f6cc35_3250_4990_923c_294ab4b694dd)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
+            interface ISecondaryTile2: ISecondaryTile {
+                #[set]
+                PhoneticName: String;
+                #[get]
+                PhoneticName: String;
+                #[get]
+                VisualElements: SecondaryTileVisualElements;
+                #[set]
+                RoamingEnabled: bool;
+                #[get]
+                RoamingEnabled: bool;
+                event VisualElementsRequested: super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>;
+            }
+            #[guid(0x57f52ca0_51bc_4abf_8ebf_627a0398b05a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ISecondaryTileFactory {
+                #[Windows::Foundation::Metadata::Deprecated("SecondaryTile(string, string, string, string, Windows.UI.StartScreen.TileOptions, Windows.Foundation.Uri) may be altered or unavailable for releases after Windows Phone 8.1. Instead, use SecondaryTile(string, string, string, Windows.Foundation.Uri, Windows.UI.StartScreen.TileSize).", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn CreateTile(&self, tileId: String, shortName: String, displayName: String, arguments: String, tileOptions: TileOptions, logoReference: super::super::Foundation::Uri) -> SecondaryTile;
+                #[Windows::Foundation::Metadata::Deprecated("SecondaryTile(string, string, string, string, Windows.UI.StartScreen.TileOptions, Windows.Foundation.Uri, Windows.Foundation.Uri) may be altered or unavailable for releases after Windows Phone 8.1. Instead, use SecondaryTile(string, string, string, Windows.Foundation.Uri, Windows.UI.StartScreen.TileSize).", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn CreateWideTile(&self, tileId: String, shortName: String, displayName: String, arguments: String, tileOptions: TileOptions, logoReference: super::super::Foundation::Uri, wideLogoReference: super::super::Foundation::Uri) -> SecondaryTile;
+                fn CreateWithId(&self, tileId: String) -> SecondaryTile;
+            }
+            #[guid(0x274b8a3b_522d_448e_9eb2_d0672ab345c8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ISecondaryTileFactory2: ISecondaryTileFactory {
+                fn CreateMinimalTile(&self, tileId: String, displayName: String, arguments: String, square150x150Logo: super::super::Foundation::Uri, desiredSize: TileSize) -> SecondaryTile;
+            }
+            #[guid(0x99908dae_d051_4676_87fe_9ec242d83c74)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ISecondaryTileStatics {
+                fn Exists(&self, tileId: String) -> bool;
+                #[Windows::Foundation::Metadata::Overload("FindAllAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAllAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>;
+                #[Windows::Foundation::Metadata::Overload("FindAllForApplicationAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAllAsync(&self, applicationId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAllForPackageAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SecondaryTile>>;
+            }
+            #[guid(0x1d8df333_815e_413f_9f50_a81da70a96b2)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTileVisualElements)]
+            interface ISecondaryTileVisualElements {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("SecondaryTileVisualElements.Square30x30Logo may be altered or unavailable for release after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_Square30x30Logo(&self, value: super::super::Foundation::Uri);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("SecondaryTileVisualElements.Square30x30Logo may be altered or unavailable for release after Windows 10.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Square30x30Logo(&self) -> super::super::Foundation::Uri;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("SecondaryTileVisualElements.Square70x70Logo may be altered or unavailable for release after Windows Phone 8.1.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_Square70x70Logo(&self, value: super::super::Foundation::Uri);
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("SecondaryTileVisualElements.Square70x70Logo may be altered or unavailable for release after Windows Phone 8.1.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Square70x70Logo(&self) -> super::super::Foundation::Uri;
+                #[set]
+                Square150x150Logo: super::super::Foundation::Uri;
+                #[get]
+                Square150x150Logo: super::super::Foundation::Uri;
+                #[set]
+                Wide310x150Logo: super::super::Foundation::Uri;
+                #[get]
+                Wide310x150Logo: super::super::Foundation::Uri;
+                #[set]
+                Square310x310Logo: super::super::Foundation::Uri;
+                #[get]
+                Square310x310Logo: super::super::Foundation::Uri;
+                #[set]
+                ForegroundText: ForegroundText;
+                #[get]
+                ForegroundText: ForegroundText;
+                #[set]
+                BackgroundColor: super::Color;
+                #[get]
+                BackgroundColor: super::Color;
+                #[set]
+                ShowNameOnSquare150x150Logo: bool;
+                #[get]
+                ShowNameOnSquare150x150Logo: bool;
+                #[set]
+                ShowNameOnWide310x150Logo: bool;
+                #[get]
+                ShowNameOnWide310x150Logo: bool;
+                #[set]
+                ShowNameOnSquare310x310Logo: bool;
+                #[get]
+                ShowNameOnSquare310x310Logo: bool;
+            }
+            #[guid(0xfd2e31d0_57dc_4794_8ecf_5682f5f3e6ef)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTileVisualElements)]
+            interface ISecondaryTileVisualElements2 {
+                #[set]
+                Square71x71Logo: super::super::Foundation::Uri;
+                #[get]
+                Square71x71Logo: super::super::Foundation::Uri;
+            }
+            #[guid(0x56b55ad6_d15c_40f4_81e7_57ffd8f8a4e9)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTileVisualElements)]
+            interface ISecondaryTileVisualElements3 {
+                #[set]
+                Square44x44Logo: super::super::Foundation::Uri;
+                #[get]
+                Square44x44Logo: super::super::Foundation::Uri;
+            }
+            #[guid(0x66566117_b544_40d2_8d12_74d4ec24d04c)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTileVisualElements)]
+            interface ISecondaryTileVisualElements4 {
+                #[get]
+                MixedRealityModel: TileMixedRealityModel;
+            }
+            #[guid(0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StartScreenManager)]
+            interface IStartScreenManager {
+                #[get]
+                User: super::super::System::User;
+                fn SupportsAppListEntry(&self, appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ContainsAppListEntryAsync(&self, appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn RequestAddAppListEntryAsync(&self, appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[guid(0x08a716b6_316b_4ad9_acb8_fe9cf00bd608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StartScreenManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface IStartScreenManager2: IStartScreenManager {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ContainsSecondaryTileAsync(&self, tileId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryRemoveSecondaryTileAsync(&self, tileId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[guid(0x7865ef0f_b585_464e_8993_34e8f8738d48)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StartScreenManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IStartScreenManagerStatics {
+                fn GetDefault(&self) -> StartScreenManager;
+                fn GetForUser(&self, user: super::super::System::User) -> StartScreenManager;
+            }
+            #[guid(0xb0764e5b_887d_4242_9a19_3d0a4ea78031)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileMixedRealityModel)]
+            interface ITileMixedRealityModel {
+                #[set]
+                Uri: super::super::Foundation::Uri;
+                #[get]
+                Uri: super::super::Foundation::Uri;
+                #[set]
+                BoundingBox: super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>;
+                #[get]
+                BoundingBox: super::super::Foundation::IReference<super::super::Perception::Spatial::SpatialBoundingBox>;
+            }
+            #[guid(0x439470b2_d7c5_410b_8319_9486a27b6c67)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileMixedRealityModel)]
+            interface ITileMixedRealityModel2 {
+                #[set]
+                ActivationBehavior: TileMixedRealityModelActivationBehavior;
+                #[get]
+                ActivationBehavior: TileMixedRealityModelActivationBehavior;
+            }
+            #[guid(0xc138333a_9308_4072_88cc_d068db347c68)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VisualElementsRequest)]
+            interface IVisualElementsRequest {
+                #[get]
+                VisualElements: SecondaryTileVisualElements;
+                #[get]
+                AlternateVisualElements: super::super::Foundation::Collections::IVectorView<SecondaryTileVisualElements>;
+                #[get]
+                Deadline: super::super::Foundation::DateTime;
+                fn GetDeferral(&self) -> VisualElementsRequestDeferral;
+            }
+            #[guid(0xa1656eb0_0126_4357_8204_bd82bb2a046d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VisualElementsRequestDeferral)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVisualElementsRequestDeferral {
+                fn Complete(&self);
+            }
+            #[guid(0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VisualElementsRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVisualElementsRequestedEventArgs {
+                #[get]
+                Request: VisualElementsRequest;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IJumpListStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+            class JumpList {
+                IJumpList,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IJumpListItemStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+            class JumpListItem {
+                IJumpListItem,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            enum JumpListItemKind {
+                Arguments = 0,
+                Separator = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            enum JumpListSystemGroupKind {
+                None = 0,
+                Frequent = 1,
+                Recent = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(ISecondaryTileStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(ISecondaryTileFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::Activatable(ISecondaryTileFactory2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class SecondaryTile {
+                ISecondaryTile,
+                ISecondaryTile2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            class SecondaryTileVisualElements {
+                ISecondaryTileVisualElements,
+                ISecondaryTileVisualElements2,
+                ISecondaryTileVisualElements3,
+                ISecondaryTileVisualElements4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IStartScreenManagerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            class StartScreenManager {
+                IStartScreenManager,
+                IStartScreenManager2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            class TileMixedRealityModel {
+                ITileMixedRealityModel,
+                ITileMixedRealityModel2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum TileMixedRealityModelActivationBehavior {
+                Default = 0,
+                None = 1,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TileOptions {
+                None = 0,
+                ShowNameOnLogo = 1,
+                ShowNameOnWideLogo = 2,
+                CopyOnDeployment = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TileSize {
+                Default = 0,
+                Square30x30 = 1,
+                Square70x70 = 2,
+                Square150x150 = 3,
+                Wide310x150 = 4,
+                Square310x310 = 5,
+                Square71x71 = 6,
+                Square44x44 = 7,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class VisualElementsRequest {
+                IVisualElementsRequest,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class VisualElementsRequestDeferral {
+                IVisualElementsRequestDeferral,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class VisualElementsRequestedEventArgs {
+                IVisualElementsRequestedEventArgs,
+            }
+        }
+    }
+}

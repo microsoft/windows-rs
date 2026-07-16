@@ -1,0 +1,88 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod UserDataAccounts {
+            mod Provider {
+                #[guid(0x5f200037_f6ef_4ec3_8630_012c59c1149f)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountPartnerAccountInfo)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IUserDataAccountPartnerAccountInfo {
+                    #[get]
+                    DisplayName: String;
+                    #[get]
+                    Priority: u32;
+                    #[get]
+                    AccountKind: UserDataAccountProviderPartnerAccountKind;
+                }
+                #[guid(0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountProviderAddAccountOperation)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IUserDataAccountProviderAddAccountOperation: IUserDataAccountProviderOperation {
+                    #[get]
+                    ContentKinds: super::UserDataAccountContentKinds;
+                    #[get]
+                    PartnerAccountInfos: super::super::super::Foundation::Collections::IVectorView<UserDataAccountPartnerAccountInfo>;
+                    fn ReportCompleted(&self, userDataAccountId: String);
+                }
+                #[guid(0xa20aad63_888c_4a62_a3dd_34d07a802b2b)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IUserDataAccountProviderOperation {
+                    #[get]
+                    Kind: UserDataAccountProviderOperationKind;
+                }
+                #[guid(0x6235dc15_bfcb_41e1_9957_9759a28846cc)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountProviderResolveErrorsOperation)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IUserDataAccountProviderResolveErrorsOperation: IUserDataAccountProviderOperation {
+                    #[get]
+                    UserDataAccountId: String;
+                    fn ReportCompleted(&self);
+                }
+                #[guid(0x92034db7_8648_4f30_acfa_3002658ca80d)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountProviderSettingsOperation)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                interface IUserDataAccountProviderSettingsOperation: IUserDataAccountProviderOperation {
+                    #[get]
+                    UserDataAccountId: String;
+                    fn ReportCompleted(&self);
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class UserDataAccountPartnerAccountInfo {
+                    IUserDataAccountPartnerAccountInfo,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class UserDataAccountProviderAddAccountOperation {
+                    IUserDataAccountProviderAddAccountOperation,
+                    IUserDataAccountProviderOperation,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum UserDataAccountProviderOperationKind {
+                    AddAccount = 0,
+                    Settings = 1,
+                    ResolveErrors = 2,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                enum UserDataAccountProviderPartnerAccountKind {
+                    Exchange = 0,
+                    PopOrImap = 1,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                class UserDataAccountProviderResolveErrorsOperation {
+                    IUserDataAccountProviderResolveErrorsOperation,
+                    IUserDataAccountProviderOperation,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class UserDataAccountProviderSettingsOperation {
+                    IUserDataAccountProviderSettingsOperation,
+                    IUserDataAccountProviderOperation,
+                }
+            }
+        }
+    }
+}

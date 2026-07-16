@@ -1,0 +1,355 @@
+#[winrt]
+mod Windows {
+    mod Security {
+        mod Authentication {
+            mod Web {
+                mod Core {
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class FindAllAccountsResult {
+                        IFindAllAccountsResult,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    enum FindAllWebAccountsStatus {
+                        Success = 0,
+                        NotAllowedByProvider = 1,
+                        NotSupportedByProvider = 2,
+                        ProviderError = 3,
+                    }
+                    #[guid(0xa5812b5d_b72e_420c_86ab_aac0d7b7261f)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FindAllAccountsResult)]
+                    interface IFindAllAccountsResult {
+                        #[get]
+                        Accounts: super::super::super::super::Foundation::Collections::IVectorView<super::super::super::Credentials::WebAccount>;
+                        #[get]
+                        Status: FindAllWebAccountsStatus;
+                        #[get]
+                        ProviderError: WebProviderError;
+                    }
+                    #[guid(0x6fb7037d_424e_44ec_977c_ef2415462a5a)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountEventArgs)]
+                    interface IWebAccountEventArgs {
+                        #[get]
+                        Account: super::super::super::Credentials::WebAccount;
+                    }
+                    #[guid(0x7445f5fd_aa9d_4619_8d5d_c138a4ede3e5)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountMonitor)]
+                    interface IWebAccountMonitor {
+                        event Updated: super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>;
+                        event Removed: super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>;
+                        event DefaultSignInAccountChanged: super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, Object>;
+                    }
+                    #[guid(0xa7adc1f8_24b8_4f01_9ae5_24545e71233a)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAccountMonitor)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 655360)]
+                    interface IWebAccountMonitor2 {
+                        event AccountPictureUpdated: super::super::super::super::Foundation::TypedEventHandler<WebAccountMonitor, WebAccountEventArgs>;
+                    }
+                    #[guid(0x7fb013e8_0bd8_542b_b486_8323163a4b85)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 983040)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationAddAccountResponse)]
+                    interface IWebAuthenticationAddAccountResponse {
+                        #[get]
+                        WebAccount: super::super::super::Credentials::WebAccount;
+                        #[get]
+                        Properties: super::super::super::super::Foundation::Collections::IMap<String, String>;
+                    }
+                    #[guid(0x325f903e_77be_5365_81d9_0321cdd82195)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 983040)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationAddAccountResponse)]
+                    interface IWebAuthenticationAddAccountResponseFactory {
+                        fn CreateWithAccount(&self, webAccount: super::super::super::Credentials::WebAccount) -> WebAuthenticationAddAccountResponse;
+                    }
+                    #[guid(0x88fad03c_901d_5ffa_9259_701d3ca08ef2)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationAddAccountResult)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 983040)]
+                    interface IWebAuthenticationAddAccountResult {
+                        #[get]
+                        ResponseData: WebAuthenticationAddAccountResponse;
+                        #[get]
+                        ResponseStatus: WebAuthenticationAddAccountStatus;
+                        #[get]
+                        ResponseError: WebProviderError;
+                    }
+                    #[guid(0x6aca7c92_a581_4479_9c10_752eff44fd34)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationCoreManager)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IWebAuthenticationCoreManagerStatics {
+                        #[Windows::Foundation::Metadata::Overload("GetTokenSilentlyAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn GetTokenSilentlyAsync(&self, request: WebTokenRequest) -> super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>;
+                        #[Windows::Foundation::Metadata::Overload("GetTokenSilentlyWithWebAccountAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn GetTokenSilentlyAsync(&self, request: WebTokenRequest, webAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>;
+                        #[Windows::Foundation::Metadata::Overload("RequestTokenAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn RequestTokenAsync(&self, request: WebTokenRequest) -> super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>;
+                        #[Windows::Foundation::Metadata::Overload("RequestTokenWithWebAccountAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn RequestTokenAsync(&self, request: WebTokenRequest, webAccount: super::super::super::Credentials::WebAccount) -> super::super::super::super::Foundation::IAsyncOperation<WebTokenRequestResult>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn FindAccountAsync(&self, provider: super::super::super::Credentials::WebAccountProvider, webAccountId: String) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccount>;
+                        #[Windows::Foundation::Metadata::Overload("FindAccountProviderAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn FindAccountProviderAsync(&self, webAccountProviderId: String) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("FindAccountProviderWithAuthorityAsync")]
+                        fn FindAccountProviderAsync(&self, webAccountProviderId: String, authority: String) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>;
+                    }
+                    #[guid(0xf584184a_8b57_4820_b6a4_70a5b6fcf44a)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationCoreManager)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IWebAuthenticationCoreManagerStatics2: IWebAuthenticationCoreManagerStatics {
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("FindAccountProviderWithAuthorityForUserAsync")]
+                        fn FindAccountProviderAsync(&self, webAccountProviderId: String, authority: String, user: super::super::super::super::System::User) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>;
+                    }
+                    #[guid(0x2404eeb2_8924_4d93_ab3a_99688b419d56)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationCoreManager)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    interface IWebAuthenticationCoreManagerStatics3: IWebAuthenticationCoreManagerStatics {
+                        fn CreateWebAccountMonitor(&self, webAccounts: super::super::super::super::Foundation::Collections::IIterable<super::super::super::Credentials::WebAccount>) -> WebAccountMonitor;
+                    }
+                    #[guid(0x54e633fe_96e0_41e8_9832_1298897c2aaf)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 393216)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationCoreManager)]
+                    interface IWebAuthenticationCoreManagerStatics4: IWebAuthenticationCoreManagerStatics {
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("FindAllAccountsAsync")]
+                        fn FindAllAccountsAsync(&self, provider: super::super::super::Credentials::WebAccountProvider) -> super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>;
+                        #[Windows::Foundation::Metadata::Overload("FindAllAccountsWithClientIdAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn FindAllAccountsAsync(&self, provider: super::super::super::Credentials::WebAccountProvider, clientId: String) -> super::super::super::super::Foundation::IAsyncOperation<FindAllAccountsResult>;
+                        #[Windows::Foundation::Metadata::Overload("FindSystemAccountProviderAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn FindSystemAccountProviderAsync(&self, webAccountProviderId: String) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("FindSystemAccountProviderWithAuthorityAsync")]
+                        fn FindSystemAccountProviderAsync(&self, webAccountProviderId: String, authority: String) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>;
+                        #[Windows::Foundation::Metadata::Overload("FindSystemAccountProviderWithAuthorityForUserAsync")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn FindSystemAccountProviderAsync(&self, webAccountProviderId: String, authority: String, user: super::super::super::super::System::User) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::Credentials::WebAccountProvider>;
+                    }
+                    #[guid(0xd07c1ded_270f_4554_9966_27b7df05b965)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationCoreManager)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 983040)]
+                    interface IWebAuthenticationCoreManagerStatics5 {
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn AddAccountWithTransferTokenAsync(&self, request: WebAuthenticationTransferTokenRequest) -> super::super::super::super::Foundation::IAsyncOperation<WebAuthenticationAddAccountResult>;
+                    }
+                    #[guid(0x7acfa5b6_529d_5e76_9846_f3fd999304d0)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 983040)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationTransferTokenRequest)]
+                    interface IWebAuthenticationTransferTokenRequest {
+                        #[get]
+                        WebAccountProvider: super::super::super::Credentials::WebAccountProvider;
+                        TransferToken: String;
+                        #[get]
+                        Properties: super::super::super::super::Foundation::Collections::IMap<String, String>;
+                        CorrelationId: String;
+                    }
+                    #[guid(0x5f16b627_04c4_5f0b_8683_8bab58965656)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 983040)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebAuthenticationTransferTokenRequest)]
+                    interface IWebAuthenticationTransferTokenRequestFactory {
+                        fn Create(&self, provider: super::super::super::Credentials::WebAccountProvider, transferToken: String) -> WebAuthenticationTransferTokenRequest;
+                        fn CreateWithCorrelationId(&self, provider: super::super::super::Credentials::WebAccountProvider, transferToken: String, correlationId: String) -> WebAuthenticationTransferTokenRequest;
+                    }
+                    #[guid(0xdb191bb1_50c5_4809_8dca_09c99410245c)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebProviderError)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IWebProviderError {
+                        #[get]
+                        ErrorCode: u32;
+                        #[get]
+                        ErrorMessage: String;
+                        #[get]
+                        Properties: super::super::super::super::Foundation::Collections::IMap<String, String>;
+                    }
+                    #[guid(0xe3c40a2d_89ef_4e37_847f_a8b9d5a32910)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebProviderError)]
+                    interface IWebProviderErrorFactory {
+                        fn Create(&self, errorCode: u32, errorMessage: String) -> WebProviderError;
+                    }
+                    #[guid(0xb77b4d68_adcb_4673_b364_0cf7b35caf97)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebTokenRequest)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IWebTokenRequest {
+                        #[get]
+                        WebAccountProvider: super::super::super::Credentials::WebAccountProvider;
+                        #[get]
+                        Scope: String;
+                        #[get]
+                        ClientId: String;
+                        #[get]
+                        PromptType: WebTokenRequestPromptType;
+                        #[get]
+                        Properties: super::super::super::super::Foundation::Collections::IMap<String, String>;
+                    }
+                    #[guid(0xd700c079_30c8_4397_9654_961c3be8b855)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 131072)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebTokenRequest)]
+                    interface IWebTokenRequest2 {
+                        #[get]
+                        AppProperties: super::super::super::super::Foundation::Collections::IMap<String, String>;
+                    }
+                    #[guid(0x5a755b51_3bb1_41a5_a63d_90bc32c7db9a)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebTokenRequest)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    interface IWebTokenRequest3 {
+                        CorrelationId: String;
+                    }
+                    #[guid(0x6cf2141c_0ff0_4c67_b84f_99ddbe4a72c9)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebTokenRequest)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IWebTokenRequestFactory {
+                        fn Create(&self, provider: super::super::super::Credentials::WebAccountProvider, scope: String, clientId: String) -> WebTokenRequest;
+                        fn CreateWithPromptType(&self, provider: super::super::super::Credentials::WebAccountProvider, scope: String, clientId: String, promptType: WebTokenRequestPromptType) -> WebTokenRequest;
+                        fn CreateWithProvider(&self, provider: super::super::super::Credentials::WebAccountProvider) -> WebTokenRequest;
+                        fn CreateWithScope(&self, provider: super::super::super::Credentials::WebAccountProvider, scope: String) -> WebTokenRequest;
+                    }
+                    #[guid(0xc12a8305_d1f8_4483_8d54_38fe292784ff)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebTokenRequestResult)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IWebTokenRequestResult {
+                        #[get]
+                        ResponseData: super::super::super::super::Foundation::Collections::IVectorView<WebTokenResponse>;
+                        #[get]
+                        ResponseStatus: WebTokenRequestStatus;
+                        #[get]
+                        ResponseError: WebProviderError;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn InvalidateCacheAsync(&self) -> super::super::super::super::Foundation::IAsyncAction;
+                    }
+                    #[guid(0x67a7c5ca_83f6_44c6_a3b1_0eb69e41fa8a)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebTokenResponse)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IWebTokenResponse {
+                        #[get]
+                        Token: String;
+                        #[get]
+                        ProviderError: WebProviderError;
+                        #[get]
+                        WebAccount: super::super::super::Credentials::WebAccount;
+                        #[get]
+                        Properties: super::super::super::super::Foundation::Collections::IMap<String, String>;
+                    }
+                    #[guid(0xab6bf7f8_5450_4ef6_97f7_052b0431c0f0)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(WebTokenResponse)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IWebTokenResponseFactory {
+                        fn CreateWithToken(&self, token: String) -> WebTokenResponse;
+                        fn CreateWithTokenAndAccount(&self, token: String, webAccount: super::super::super::Credentials::WebAccount) -> WebTokenResponse;
+                        fn CreateWithTokenAccountAndError(&self, token: String, webAccount: super::super::super::Credentials::WebAccount, error: WebProviderError) -> WebTokenResponse;
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class WebAccountEventArgs {
+                        IWebAccountEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    class WebAccountMonitor {
+                        IWebAccountMonitor,
+                        IWebAccountMonitor2,
+                    }
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 983040)]
+                    #[Windows::Foundation::Metadata::Activatable(IWebAuthenticationAddAccountResponseFactory, 983040, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class WebAuthenticationAddAccountResponse {
+                        IWebAuthenticationAddAccountResponse,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 983040)]
+                    class WebAuthenticationAddAccountResult {
+                        IWebAuthenticationAddAccountResult,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 983040)]
+                    enum WebAuthenticationAddAccountStatus {
+                        Success = 0,
+                        Error = 1,
+                        NotSupportedByProvider = 2,
+                        ServiceConnectionError = 3,
+                        ProviderError = 4,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IWebAuthenticationCoreManagerStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IWebAuthenticationCoreManagerStatics4, 393216, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IWebAuthenticationCoreManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IWebAuthenticationCoreManagerStatics5, 983040, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IWebAuthenticationCoreManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                    class WebAuthenticationCoreManager {}
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 983040)]
+                    #[Windows::Foundation::Metadata::Activatable(IWebAuthenticationTransferTokenRequestFactory, 983040, "Windows.Foundation.UniversalApiContract")]
+                    class WebAuthenticationTransferTokenRequest {
+                        IWebAuthenticationTransferTokenRequest,
+                    }
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(IWebProviderErrorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class WebProviderError {
+                        IWebProviderError,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(IWebTokenRequestFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class WebTokenRequest {
+                        IWebTokenRequest,
+                        IWebTokenRequest2,
+                        IWebTokenRequest3,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum WebTokenRequestPromptType {
+                        Default = 0,
+                        ForceAuthentication = 1,
+                    }
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class WebTokenRequestResult {
+                        IWebTokenRequestResult,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum WebTokenRequestStatus {
+                        Success = 0,
+                        UserCancel = 1,
+                        AccountSwitch = 2,
+                        UserInteractionRequired = 3,
+                        AccountProviderNotAvailable = 4,
+                        ProviderError = 5,
+                    }
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(IWebTokenResponseFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class WebTokenResponse {
+                        IWebTokenResponse,
+                    }
+                }
+            }
+        }
+    }
+}
