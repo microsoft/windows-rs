@@ -364,6 +364,7 @@ const HEADERS: &[&str] = &[
     "audioclientactivationparams.h",
     "spatialaudiometadata.h",
     "spatialaudioclient.h",
+    "audiopolicy.h",
     "ntstatus.h",
     "sql.h",
     "sqlext.h",
