@@ -456,11 +456,15 @@ SDK Contracts winmds ──merge──▶ merged winmd (in target/)
 ```
 
 The `gen` job's `git diff` on *both* `metadata/winrt` and `Windows.winmd`
-validates the `RDL → winmd` (reader) direction end-to-end. One-time effect:
-`Windows.winmd` re-bases to its RDL-rebuilt form (a reviewable diff); downstream
-`windows-bindgen` is unaffected as the metadata is semantically equivalent. The
-crate was renamed to `tool_winrt` to align it with `tool_win32` / `tool_wdk`
-(mechanical: `Cargo.toml`, the `gen` matrix, and doc comments).
+validates the `RDL → winmd` (reader) direction end-to-end. One-time effects:
+`Windows.winmd` re-bases to its RDL-rebuilt form (a reviewable diff), and — because
+the RDL accessor shorthand does not record the original accessor parameter name (see
+*Known limitations*) — the reader synthesizes canonical names (`value` for property
+setters, `handler`/`token` for event add/remove). That normalizes those parameter
+names in the generated `windows` crate (a one-time cosmetic regen via `tool_package`;
+ABI, signatures, types, and vtable order are unchanged). The crate was renamed to
+`tool_winrt` to align it with `tool_win32` / `tool_wdk` (mechanical: `Cargo.toml`,
+the `gen` matrix, and doc comments).
 
 ### Part 2 — a fast, SDK-free validator (`tool_roundtrip`)
 
