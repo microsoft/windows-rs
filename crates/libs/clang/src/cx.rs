@@ -900,18 +900,22 @@ impl Type {
             }
             CXType_Elaborated => self.underlying_type().is_interface(),
             CXType_Typedef => {
-                // A synthetic MIDL parameterized-interface alias
-                // (`__FIMapView_2_HSTRING_IInspectable_t`) is a typedef to a WinRT generic
-                // interface instantiation whose template body is never instantiated in the
-                // scrape, so the structural pure-virtual probe misses it. Recognise the
-                // `ABI::…::Name<…>` canonical form (a WinRT parameterized type is always an
-                // interface) so the implied-pointer collapse in `to_type` strips the extra
-                // indirection — the canonical kind guard excludes a pointer-to-generic, which
-                // must keep its own explicit level.
+                // A WinRT projection interface referenced through an `ABI::…` typedef is
+                // always an interface, but the structural pure-virtual probe misses it: a
+                // generic instantiation (`__FIMapView_2_HSTRING_IInspectable_t`) is never
+                // instantiated in the scrape, and a non-generic interop reference
+                // (`typedef interface ICompositionTexture ICompositionTexture;`) is usually
+                // only forward-declared, so its underlying record has no methods. Recognise
+                // the `ABI::…` canonical record form directly so the implied-pointer collapse
+                // in `to_type` strips the extra indirection (`ICompositionTexture**` →
+                // `*mut ICompositionTexture`). The canonical kind guard excludes a
+                // pointer-to-generic, which must keep its own explicit level.
                 let canonical = self.canonical_type();
                 if canonical.kind() != CXType_Pointer {
                     let spelling = canonical.spelling();
-                    if spelling.starts_with("ABI::") && spelling.contains('<') {
+                    if spelling.starts_with("ABI::")
+                        && (spelling.contains('<') || canonical.kind() == CXType_Record)
+                    {
                         return true;
                     }
                 }
@@ -1103,12 +1107,18 @@ impl Type {
                 // — is inlined to the WinRT generic it names, so the mangled MIDL spelling never
                 // surfaces in the projection (`get_Attributes` then returns `IMapView<String, Object>`
                 // directly and the now-unreferenced alias decl is dropped by the reachability sweep).
-                // Gated to generic ABI instantiations: a non-generic named typedef keeps its own
-                // name through `resolve_typedef`.
-                let canonical = self.canonical_type().spelling();
+                // A non-generic `ABI::…` *record* typedef — the `typedef interface IC IC;` a WinRT
+                // interop header emits for the projection interfaces it references (often only
+                // forward-declared, so the structural interface probe in `resolve_typedef` misses
+                // it) — is likewise routed through `abi_projection` so it resolves to its
+                // `Windows.winmd` cross-reference (or the flat root when absent), rather than falling
+                // through to a dangling flat-root name. An ABI *enum* typedef keeps its own name
+                // through `resolve_typedef` (the canonical-kind guard excludes it).
+                let canonical_type = self.canonical_type();
+                let canonical = canonical_type.spelling();
                 if parser.winrt_types.is_some()
                     && canonical.starts_with("ABI::")
-                    && canonical.contains('<')
+                    && (canonical.contains('<') || canonical_type.kind() == CXType_Record)
                     && let Some(projected) = self.abi_projection(parser)
                 {
                     return projected;

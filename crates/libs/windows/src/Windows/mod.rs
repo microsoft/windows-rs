@@ -1058,6 +1058,8 @@ pub mod windot11;
 pub mod windowsdatapdfinterop;
 #[cfg(feature = "windowsdevicesdisplaycoreinterop")]
 pub mod windowsdevicesdisplaycoreinterop;
+#[cfg(feature = "windowsgraphicscaptureinterop")]
+pub mod windowsgraphicscaptureinterop;
 #[cfg(feature = "windowsgraphicsdirectxdirect3d11interop")]
 pub mod windowsgraphicsdirectxdirect3d11interop;
 #[cfg(feature = "windowsgraphicsimaginginterop")]
@@ -1068,6 +1070,8 @@ pub mod windowsmediacoreinterop;
 pub mod windowssecurityisolationisolatedenvironmentinterop;
 #[cfg(feature = "windowsstoragecom")]
 pub mod windowsstoragecom;
+#[cfg(feature = "windowsuicompositioninterop")]
+pub mod windowsuicompositioninterop;
 #[cfg(feature = "windowsuiviewmanagementcorecoreframeworkinputviewinterop")]
 pub mod windowsuiviewmanagementcorecoreframeworkinputviewinterop;
 #[cfg(feature = "windowsuixamlhostingdesktopwindowxamlsource")]

@@ -1,0 +1,18 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356)]
+        interface IGraphicsCaptureItemInterop: IUnknown {
+            fn CreateForWindow(&self, window: HWND, riid: *const GUID, #[iid_is] result: *mut *mut void) -> HRESULT;
+            fn CreateForMonitor(&self, monitor: HMONITOR, riid: *const GUID, #[iid_is] result: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x33274d14_a076_4048_8416_747e9b04db7b)]
+        interface IMonitorGraphicsCaptureItemInterop: IUnknown {
+            fn GetMonitor(&self, monitor: *mut HMONITOR) -> HRESULT;
+        }
+        #[guid(0x38e4c48b_94e6_4c44_9cfa_968193316c0c)]
+        interface IWindowGraphicsCaptureItemInterop: IUnknown {
+            fn GetWindow(&self, window: *mut HWND) -> HRESULT;
+        }
+    }
+}

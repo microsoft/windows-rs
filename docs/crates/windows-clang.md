@@ -435,6 +435,31 @@ indirection (`IMapView **` → `*mut IMapView`, matching `IActivatableClassRegis
 `*mut IActivatableClassRegistration`) even though the generic's template body is never instantiated
 in the scrape.
 
+The same split covers the WinRT *interop* headers — `Windows.Graphics.Capture.Interop.h`,
+`windows.ui.composition.interop.h` — whose interfaces (`IGraphicsCaptureItemInterop`,
+`ICompositorInterop`, `ICompositionCapabilitiesInteropFactory`, …) hand out projected objects as
+COM out-parameters. Two wrinkles beyond the `roregistrationapi.h` case:
+
+- *The projection `#include` does not parse.* Each interop header `#include`s its sibling
+  `winrt\` C++/WinRT projection header (e.g. `winrt\windows.ui.composition.h`) purely to name a few
+  `ABI::Windows::*` interfaces, but that projection drags in a closure that aborts the
+  definition-mode translation unit (a transitive typedef/enum conflict, e.g.
+  `winrt\Windows.Devices.Sensors.h`'s `MagnetometerAccuracy`). `tool_win32` shadows the projection
+  with a minimal **stub header** of the same name (`STUB_INCLUDE_DIR`, prepended to the `-isystem`
+  path): the capture stub is empty (its interop interfaces name only `HWND`/`HMONITOR`/`REFIID`/
+  `void**`); the composition stub forward-declares the three `ABI::Windows::UI::Composition::*`
+  interfaces the interop header dereferences. The resolution winmd then classifies those names
+  exactly as it does any other `ABI::` reference.
+- *A non-generic `ABI::` interface reference is only forward-declared.* The `typedef interface IC IC;`
+  such a header (or the stub) emits leaves the underlying record incomplete, so the structural
+  pure-virtual probe in `is_interface` would miss it and `resolve_typedef` would flat-root the bare
+  name into a dangling `Windows.Win32` reference. `is_interface` and the `to_type` typedef arm
+  therefore recognize a non-generic `ABI::…` *record* canonical directly (symmetric with the
+  `ABI::…<…>` generic case above): it routes through `abi_projection` for the cross-winmd reference
+  and collapses the implied pointer (`ICompositionTexture **` → `*mut ICompositionTexture`). An
+  `ABI::` *enum* typedef (canonical kind `Enum`, e.g. `ActivationType`) is excluded and keeps its
+  own name through `resolve_typedef`.
+
 Downstream, the flat `Windows.Win32.winmd` then carries a reference to a WinRT type. The full
 `windows` crate loads `Windows.winmd` and projects it normally (`IMapView<String, Object>`
 re-exported from `windows-collections`); `windows-sys`, which reads only the Win32 corpus,
@@ -676,7 +701,9 @@ None of these block use of the crate.
   structurally out of reach: headers needing compiler-intrinsic or out-of-SDK toolchains
   (DirectXMath → `cpuid.h`; DISM/WIMGAPI in the ADK; `mscoree.h` in the NETFXSDK), and
   headers that `#include` the C++/WinRT (`cppwinrt\`) projection, which does not parse in the
-  definition-mode scrape. And the single flat `Windows.Win32` namespace is **lossy for
+  definition-mode scrape — though a header that only *references* a handful of `ABI::Windows::*`
+  interfaces can be reached by shadowing the projection `#include` with a minimal stub
+  (`STUB_INCLUDE_DIR`; see the WinRT interop section). And the single flat `Windows.Win32` namespace is **lossy for
   genuine name collisions** — where the reference disambiguated two distinct entities by
   editorial sub-namespace, dedup keeps one (e.g. `PID_SECURITY`, the `E_NOTFOUND`
   HRESULT-vs-`#define` class).

@@ -45,6 +45,16 @@ const SDK_VERSION: &str = "10.0.28000.2270";
 /// The marketing SDK folder nested inside the NuGet package's `c/Include` tree.
 const SDK_INCLUDE_DIR: &str = "10.0.28000.0";
 
+/// Directory of hand-authored stub headers, prepended to the `-isystem` search path so a
+/// stubbed name resolves here ahead of the real SDK copy. Holds minimal replacements for a
+/// few `winrt\` C++/WinRT ABI projection headers (`windows.ui.composition.h`,
+/// `windows.graphics.capture.h`) that the definition-mode scrape cannot parse (their
+/// transitive projection closure aborts the translation unit). The interop headers that
+/// `#include` them only name a handful of `ABI::Windows::*` interfaces as opaque pointers, so
+/// the stubs forward-declare just those (or are empty) — the resolution winmd then maps the
+/// names to their real `Windows.winmd` projection. See each stub's file header.
+const STUB_INCLUDE_DIR: &str = "crates/tools/win32/stubs";
+
 // libclang provisioning (pinned version, wheel URLs, resource-header component) lives in
 // `windows-clang` so every clang consumer shares one download cache; see
 // `windows_clang::ensure_libclang` / `windows_clang::clang_resource_dir`.
@@ -455,6 +465,12 @@ const HEADERS: &[&str] = &[
     "windows.ui.xaml.hosting.desktopwindowxamlsource.h",
     "windows.ui.xaml.hosting.referencetracker.h",
     "WindowsStorageCOM.h",
+    // Interop headers that `#include` an unparseable `winrt\` C++/WinRT projection header; a
+    // stub (see `STUB_INCLUDE_DIR`) shadows the projection so only the trivial interop
+    // interfaces are scraped (capture names no projected type; composition names a few
+    // `ABI::Windows::UI::Composition::*` interfaces resolved via the resolution winmd).
+    "Windows.Graphics.Capture.Interop.h",
+    "windows.ui.composition.interop.h",
     // WinRT C-ABI interop (winrt\ dir, out of the um/shared scope but named here so
     // scope_headers makes them roots). These are the flat COM/C interop headers that
     // win32metadata maps to Windows.Win32.System.WinRT[.Metadata] — NOT the winmd-generated
@@ -747,10 +763,12 @@ fn main() {
         .map(|lib| resolve(lib, &lib_dirs, "import library", "pinned SDK lib"))
         .collect();
     println!("Import libraries: {} entries", import_libs.len());
-    // SDK include directories, passed to clang as `-isystem` so `#include <…>` resolves.
-    let include_args: Vec<String> = include_dirs
-        .iter()
-        .flat_map(|dir| ["-isystem".to_string(), dir.clone()])
+    // SDK include directories, passed to clang as `-isystem` so `#include <…>` resolves. The
+    // stub directory is prepended so a stubbed projection header (see `STUB_INCLUDE_DIR`)
+    // shadows the unparseable SDK copy.
+    let include_args: Vec<String> = std::iter::once(STUB_INCLUDE_DIR.to_string())
+        .chain(include_dirs.iter().cloned())
+        .flat_map(|dir| ["-isystem".to_string(), dir])
         .collect();
 
     // Build the main translation unit: the prelude (windows.h) followed by every API
