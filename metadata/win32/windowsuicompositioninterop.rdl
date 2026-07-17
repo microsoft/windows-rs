@@ -1,0 +1,55 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x2c9db356_e70d_4642_8298_bc4aa5b4865c)]
+        interface ICompositionCapabilitiesInteropFactory: IInspectable {
+            fn GetForWindow(&self, hwnd: HWND, result: *mut super::UI::Composition::ICompositionCapabilities) -> HRESULT;
+        }
+        #[guid(0xfd04e6e3_fe0c_4c3c_ab19_a07601a576ee)]
+        interface ICompositionDrawingSurfaceInterop: IUnknown {
+            fn BeginDraw(&self, #[opt] updateRect: *const RECT, iid: *const GUID, #[iid_is] updateObject: *mut *mut void, updateOffset: *mut POINT) -> HRESULT;
+            fn EndDraw(&self) -> HRESULT;
+            fn Resize(&self, sizePixels: SIZE) -> HRESULT;
+            fn Scroll(&self, #[opt] scrollRect: *const RECT, #[opt] clipRect: *const RECT, offsetX: i32, offsetY: i32) -> HRESULT;
+            fn ResumeDraw(&self) -> HRESULT;
+            fn SuspendDraw(&self) -> HRESULT;
+        }
+        #[guid(0x41e64aae_98c0_4239_8e95_a330dd6aa18b)]
+        interface ICompositionDrawingSurfaceInterop2: ICompositionDrawingSurfaceInterop {
+            fn CopySurface(&self, destinationResource: IUnknown, destinationOffsetX: i32, destinationOffsetY: i32, #[opt] sourceRectangle: *const RECT) -> HRESULT;
+        }
+        #[guid(0xa116ff71_f8bf_4c8a_9c98_70779a32a9c8)]
+        interface ICompositionGraphicsDeviceInterop: IUnknown {
+            fn GetRenderingDevice(&self, value: *mut IUnknown) -> HRESULT;
+            fn SetRenderingDevice(&self, value: IUnknown) -> HRESULT;
+        }
+        #[guid(0xd528a265_f0a5_422f_a39d_ef62d7cd1cc4)]
+        interface ICompositionTextureInterop: IUnknown {
+            fn GetAvailableFence(&self, fenceValue: *mut u64, iid: *const GUID, #[iid_is] availableFence: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x29e691fa_4567_4dca_b319_d0f207eb6807)]
+        interface ICompositorDesktopInterop: IUnknown {
+            fn CreateDesktopWindowTarget(&self, hwndTarget: HWND, isTopmost: BOOL, result: *mut super::UI::Composition::Desktop::IDesktopWindowTarget) -> HRESULT;
+            fn EnsureOnThread(&self, threadId: u32) -> HRESULT;
+        }
+        #[guid(0x25297d5c_3ad4_4c9c_b5cf_e36a38512330)]
+        interface ICompositorInterop: IUnknown {
+            fn CreateCompositionSurfaceForHandle(&self, swapChain: HANDLE, result: *mut super::UI::Composition::ICompositionSurface) -> HRESULT;
+            fn CreateCompositionSurfaceForSwapChain(&self, swapChain: IUnknown, result: *mut super::UI::Composition::ICompositionSurface) -> HRESULT;
+            fn CreateGraphicsDevice(&self, renderingDevice: IUnknown, result: *mut super::UI::Composition::ICompositionGraphicsDevice) -> HRESULT;
+        }
+        #[guid(0xd3eef34c_0667_4afc_8d13_867607b0fe91)]
+        interface ICompositorInterop2: IUnknown {
+            fn CheckCompositionTextureSupport(&self, renderingDevice: IUnknown, supportsCompositionTextures: *mut BOOL) -> HRESULT;
+            fn CreateCompositionTexture(&self, d3dTexture: IUnknown, compositionTexture: *mut super::UI::Composition::ICompositionTexture) -> HRESULT;
+        }
+        #[guid(0x35dbf59e_e3f9_45b0_81e7_fe75f4145dc9)]
+        interface IDesktopWindowTargetInterop: IUnknown {
+            fn get_Hwnd(&self, value: *mut HWND) -> HRESULT;
+        }
+        #[guid(0x11f62cd1_2f9d_42d3_b05f_d6790d9e9f8e)]
+        interface IVisualInteractionSourceInterop: IUnknown {
+            fn TryRedirectForManipulation(&self, pointerInfo: *const POINTER_INFO) -> HRESULT;
+        }
+    }
+}

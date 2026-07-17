@@ -199,10 +199,12 @@ OS-version availability, `SetLastError` behaviour, loose-constant→enum promoti
 wrappers) they belong in the hand-written `windows` projection layer, not smuggled
 into the metadata as synthetic attributes.
 
-The **only** hand-authored input is `metadata/win32/metadata.rdl` — the attribute
+The **only** hand-authored input is `metadata/metadata.rdl` — the attribute
 vocabulary (`NativeTypedefAttribute`, `SupportedArchitectureAttribute`,
 `DoesNotReturnAttribute`, …) that exists only in metadata, so no C header can declare
-it. Everything else — including the `Foundation` scalars `BOOL`/`HANDLE`/`HRESULT` —
+it. It lives beside (not inside) the generated `metadata/win32` corpus so that directory
+can be freely cleared and rebuilt without disturbing this prerequisite. Everything else —
+including the `Foundation` scalars `BOOL`/`HANDLE`/`HRESULT` —
 is header-derived. Semantic scalars survive not through a seed list but because
 scalar collapse is *opt-in*: `fundamental_scalar` / `pointer_sized_abi` (`canon.rs`)
 are curated allowlists of names that collapse to a Rust primitive (`DWORD` → `u32`);
@@ -393,6 +395,77 @@ per-DLL host libraries (`kernel32.lib`) first, the `api-ms-win-*` apiset umbrell
 those from `vertdll.dll` faults a normal process at load; ordering it after the apiset
 umbrella lets them resolve to their loadable `api-ms-win-core-synch`/`-enclave` contract,
 leaving `vertdll.lib` to stamp only genuinely enclave-only residue (`EnclaveSealData`, …).
+
+### WinRT interop headers and the `ABI::Windows::*` split
+
+A handful of SDK headers declare Win32 COM entry points whose signatures reach into the
+`ABI::Windows::*` C++/WinRT projection namespace — e.g. `roregistrationapi.h`'s
+`RoGetActivatableClassRegistration`, which returns an
+`ABI::Windows::Foundation::IActivatableClassRegistration**`. That namespace holds two kinds of
+type that need opposite handling:
+
+- *Win32 COM interop types* that live in `ABI::Windows::*` but are **not** projected WinRT types
+  (absent from `Windows.winmd`) — `IActivatableClassRegistration`, `ActivationType`,
+  `RegistrationScope`. These are fully defined COM interfaces/enums and belong in the flat
+  `Windows.Win32` namespace like any other Win32 type.
+- *True WinRT projection types* that already exist in `Windows.winmd` (e.g.
+  `Windows.Foundation.Collections.IMapView`2`). Flattening these would drag the whole WinRT surface
+  into Win32, so a referenced one must become a cross-winmd reference (the `Windows.Wdk` →
+  `Windows.Win32` pattern, here an `AssemblyRef` on the `Windows` assembly).
+
+`tool_win32` tells the two apart by carrying `Windows.winmd` as a **resolution winmd**
+(`RESOLUTION_WINMDS`, threaded through `Clang::resolution_input`): a *resolution-only* input that
+is never emitted or excluded, used purely to classify names. `load_winrt_types` reads its
+backtick-stripped `Namespace.Name` set; `flatten_decls` then recurses into the `ABI` namespace
+(instead of skipping it) and keeps a declaration only when it is *absent* from that set, while
+`abi_projection` (`cx.rs`) maps a *present* name to the cross-winmd reference. A generic
+instantiation (`IMapView<HSTRING, IInspectable *>`) is rebuilt into its closed WinRT form
+(`IMapView<String, Object>`) from the clang template arguments, mapping the C++/WinRT ABI
+spellings back to WinRT primitives (`HSTRING` → `String`, `IInspectable *` → `Object`). With no
+resolution winmd supplied (e.g. `tool_wdk`) the `ABI` namespace is skipped entirely, as before.
+
+The MIDL-mangled parameterized-interface aliases those headers emit
+(`typedef ABI::…::IMapView<HSTRING, IInspectable *> __FIMapView_2_HSTRING_IInspectable_t;`) are
+inlined at every use site rather than surfaced: a typedef whose canonical is an `ABI::…<…>` generic
+instantiation projects directly to the WinRT generic (`get_Attributes` returns
+`IMapView<String, Object>`, not the mangled alias), and the now-unreferenced alias declaration is
+dropped by the reachability sweep. Because a WinRT parameterized type is always a COM interface,
+`is_interface` also recognizes that canonical form, so the implied-pointer collapse strips the extra
+indirection (`IMapView **` → `*mut IMapView`, matching `IActivatableClassRegistration **` →
+`*mut IActivatableClassRegistration`) even though the generic's template body is never instantiated
+in the scrape.
+
+The same split covers the WinRT *interop* headers — `Windows.Graphics.Capture.Interop.h`,
+`windows.ui.composition.interop.h` — whose interfaces (`IGraphicsCaptureItemInterop`,
+`ICompositorInterop`, `ICompositionCapabilitiesInteropFactory`, …) hand out projected objects as
+COM out-parameters. Two wrinkles beyond the `roregistrationapi.h` case:
+
+- *The projection `#include` does not parse.* Each interop header `#include`s its sibling
+  `winrt\` C++/WinRT projection header (e.g. `winrt\windows.ui.composition.h`) purely to name a few
+  `ABI::Windows::*` interfaces, but that projection drags in a closure that fails to parse (a
+  transitive typedef/enum conflict, e.g. `winrt\Windows.Devices.Sensors.h`'s `MagnetometerAccuracy`).
+  Rather than abort the whole translation unit, the by-header scrape is *error-tolerant*: a
+  diagnostic whose source file is an emitted (in-scope) header still fails loudly, but a diagnostic
+  in a transitive-only include — a `winrt\` projection header that is never itself emitted — is
+  tolerated, and the scrape proceeds on clang's best-effort AST (which still carries the in-scope
+  interop interfaces). `tool_win32` passes `-ferror-limit=0` so clang does not truncate the later
+  declarations after those errors. The `ABI::Windows::*` interfaces the interop headers dereference
+  are then classified by the resolution winmd exactly as any other `ABI::` reference.
+- *A non-generic `ABI::` interface reference is only forward-declared.* The `typedef interface IC IC;`
+  such a header emits leaves the underlying record incomplete, so the structural
+  pure-virtual probe in `is_interface` would miss it and `resolve_typedef` would flat-root the bare
+  name into a dangling `Windows.Win32` reference. `is_interface` and the `to_type` typedef arm
+  therefore recognize a non-generic `ABI::…` *record* canonical directly (symmetric with the
+  `ABI::…<…>` generic case above): it routes through `abi_projection` for the cross-winmd reference
+  and collapses the implied pointer (`ICompositionTexture **` → `*mut ICompositionTexture`). An
+  `ABI::` *enum* typedef (canonical kind `Enum`, e.g. `ActivationType`) is excluded and keeps its
+  own name through `resolve_typedef`.
+
+Downstream, the flat `Windows.Win32.winmd` then carries a reference to a WinRT type. The full
+`windows` crate loads `Windows.winmd` and projects it normally (`IMapView<String, Object>`
+re-exported from `windows-collections`); `windows-sys`, which reads only the Win32 corpus,
+degrades an unresolvable WinRT reference type to the opaque COM pointer (`*mut c_void`) — the same
+representation it already gives every interface (`windows-bindgen`, `types::from_metadata_type`).
 
 ## The WDK corpus: tool_wdk
 
@@ -625,13 +698,17 @@ None of these block use of the crate.
 
 - **Coverage is the `HEADERS` list.** The corpus covers exactly the headers listed in
   `tool_win32`/`tool_wdk`'s `HEADERS`/`SOURCE_HEADERS` consts; a missing API is usually a
-  one-line header addition (the reachability closure does the rest). Some surface is
-  structurally out of reach: interop headers that take WinRT projection types
-  (`ABI::Windows::*`), headers needing compiler-intrinsic or out-of-SDK toolchains
-  (DirectXMath → `cpuid.h`; DISM/WIMGAPI in the ADK; `mscoree.h` in the NETFXSDK). And the
-  single flat `Windows.Win32` namespace is **lossy for genuine name collisions** — where the
-  reference disambiguated two distinct entities by editorial sub-namespace, dedup keeps one
-  (e.g. `PID_SECURITY`, the `E_NOTFOUND` HRESULT-vs-`#define` class).
+  one-line header addition (the reachability closure does the rest). Some surface is still
+  structurally out of reach: headers needing compiler-intrinsic or out-of-SDK toolchains
+  (DirectXMath → `cpuid.h`; DISM/WIMGAPI in the ADK; `mscoree.h` in the NETFXSDK), and
+  headers that `#include` the C++/WinRT (`cppwinrt\`) projection, which does not parse in the
+  definition-mode scrape — though a header that only *references* a handful of `ABI::Windows::*`
+  interfaces is reached via error-tolerant parsing (the scrape tolerates parse errors in the
+  transitive-only `winrt\` projection closure while still failing loudly on errors in emitted
+  headers; see the WinRT interop section). And the single flat `Windows.Win32` namespace is **lossy
+  for genuine name collisions** — where the reference disambiguated two distinct entities by
+  editorial sub-namespace, dedup keeps one (e.g. `PID_SECURITY`, the `E_NOTFOUND`
+  HRESULT-vs-`#define` class).
 - **Parsing fidelity.** Two SAL surfaces bypass the shared `parse_params`: struct fields
   (`_Field_size_` is not mapped to array-size metadata, which bindgen never consumes) and
   callback return attributes. A `__fastcall` callback is recorded faithfully in the winmd but
@@ -644,3 +721,10 @@ None of these block use of the crate.
 - **IDL as the COM source of truth (future direction).** Parsing `.idl` (or `midl` output)
   directly would recover the pointer-shape attributes headers don't express as SAL
   (`[unique]`/`[length_is]`/`[iid_is]`), keeping the header path for flat C APIs.
+- **Drop the empty `windows-sys` interop modules.** An all-interface interop header
+  (`windowsgraphicscaptureinterop`, `windowsuicompositioninterop`, and the pre-existing
+  `windowsgraphicsimaginginterop`/`windowsmediacoreinterop`/… siblings) projects to an *empty*
+  module in `windows-sys` — the flat crate emits no COM interfaces — yet `tool_package` still
+  writes the file and a dead Cargo feature. These empty modules and their features should be
+  suppressed in the `--sys` package writer (skip a namespace that yields zero `sys`-visible items)
+  so the flat crate carries no inert surface.

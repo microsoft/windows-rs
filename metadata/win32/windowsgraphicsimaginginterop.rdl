@@ -1,0 +1,14 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x94bc8415_04ea_4b2e_af13_4de95aa898eb)]
+        interface ISoftwareBitmapNative: IInspectable {
+            fn GetData(&self, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xc3c181ec_2914_4791_af02_02d224a10b43)]
+        interface ISoftwareBitmapNativeFactory: IInspectable {
+            fn CreateFromWICBitmap(&self, data: IWICBitmap, forceReadOnly: BOOL, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateFromMF2DBuffer2(&self, data: IMF2DBuffer2, subtype: *const GUID, width: u32, height: u32, forceReadOnly: BOOL, #[opt] minDisplayAperture: *const MFVideoArea, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+    }
+}

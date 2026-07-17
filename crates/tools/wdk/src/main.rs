@@ -163,6 +163,7 @@ fn main() {
         winmd: WINMD.to_string(),
         archs,
         reference_winmds: REFERENCE_WINMDS.iter().map(|s| s.to_string()).collect(),
+        resolution_winmds: Vec::new(),
         seed: None,
         parallel: true,
     });

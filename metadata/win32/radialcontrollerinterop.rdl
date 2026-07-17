@@ -1,0 +1,17 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x787cdaac_3186_476d_87e4_b9374a7b9970)]
+        interface IRadialControllerConfigurationInterop: IInspectable {
+            fn GetForWindow(&self, hwnd: HWND, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x3d577eff_4cee_11e6_b535_001bdc06ab3b)]
+        interface IRadialControllerIndependentInputSourceInterop: IInspectable {
+            fn CreateForWindow(&self, hwnd: HWND, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x1b0535c9_57ad_45c1_9d79_ad5c34360513)]
+        interface IRadialControllerInterop: IInspectable {
+            fn CreateForWindow(&self, hwnd: HWND, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+    }
+}

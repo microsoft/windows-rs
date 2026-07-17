@@ -1,0 +1,9 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x75cf2c57_9195_4931_8332_f0b409e916af)]
+        interface IInputPaneInterop: IInspectable {
+            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] inputPane: *mut *mut void) -> HRESULT;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ActivationType {
+            ActivationType_InProcess = 0,
+            ActivationType_OutOfProcess = 1,
+            ActivationType_RemoteProcess = 2,
+        }
+        #[guid(0x9bbcae23_3dd6_49c3_b63c_1c587e7a6a67)]
+        interface IActivatableClassRegistration: IInspectable {
+            fn get_ActivatableClassId(&self, activatableClassID: *mut HSTRING) -> HRESULT;
+            fn get_ActivationType(&self, activationType: *mut ActivationType) -> HRESULT;
+            fn get_RegistrationScope(&self, registrationScope: *mut RegistrationScope) -> HRESULT;
+            fn get_RegisteredTrustLevel(&self, registeredTrustLevel: *mut RegisteredTrustLevel) -> HRESULT;
+            fn get_Attributes(&self, attributes: *mut super::Foundation::Collections::IMapView<String, Object>) -> HRESULT;
+        }
+        type RegisteredTrustLevel = TrustLevel;
+        #[repr(i32)]
+        enum RegistrationScope {
+            RegistrationScope_PerMachine = 0,
+            RegistrationScope_PerUser = 1,
+            RegistrationScope_InboxApp = 2,
+        }
+    }
+}

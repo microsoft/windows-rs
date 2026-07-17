@@ -789,6 +789,41 @@ impl Type {
         Self(unsafe { clang_getCanonicalType(self.0) })
     }
 
+    /// The number of template arguments of a class-template specialization
+    /// (`clang_Type_getNumTemplateArguments`), or a negative value when the type is not a
+    /// specialization. Called on the canonical type of a WinRT generic instantiation
+    /// (`ABI::Windows::Foundation::Collections::IMapView<HSTRING, IInspectable *>`) to recover
+    /// its closed argument list.
+    pub fn num_template_args(&self) -> i32 {
+        unsafe { clang_Type_getNumTemplateArguments(self.0) }
+    }
+
+    /// The `i`th template argument as a type (`clang_Type_getTemplateArgumentAsType`).
+    pub fn template_arg_type(&self, i: u32) -> Self {
+        Self(unsafe { clang_Type_getTemplateArgumentAsType(self.0, i) })
+    }
+
+    /// Resolves this type as an argument of a WinRT generic instantiation (`IMapView<K, V>`).
+    ///
+    /// A WinRT generic's arguments are WinRT types, but the C++/WinRT ABI represents them in their
+    /// projected form: `String` is passed as `HSTRING` (`struct HSTRING__ *`) and `Object` as
+    /// `IInspectable *`. Mapping those back to [`metadata::Type::String`]/[`metadata::Type::Object`]
+    /// keeps the closed instantiation faithful to the `Windows.winmd` definition (and matches the
+    /// WinRT projection RDL's `IMapView<String, Object>`), instead of leaking the raw ABI handle
+    /// tag (`HSTRING__`, which is dropped and would dangle). Any other argument — including a nested
+    /// generic — is resolved through the ordinary [`to_type`](Self::to_type) path.
+    fn winrt_generic_arg(&self, parser: &mut Parser<'_>) -> metadata::Type {
+        let mut peeled = self.canonical_type();
+        while peeled.kind() == CXType_Pointer {
+            peeled = peeled.pointee_type();
+        }
+        match peeled.ty().name().as_str() {
+            "HSTRING__" => metadata::Type::String,
+            "IInspectable" => metadata::Type::Object,
+            _ => self.to_type(parser),
+        }
+    }
+
     pub fn is_function_pointer(&self) -> bool {
         self.function_pointee().is_some()
     }
@@ -864,7 +899,40 @@ impl Type {
                 decl.has_pure_virtual_methods() || decl.has_interface_base()
             }
             CXType_Elaborated => self.underlying_type().is_interface(),
-            CXType_Typedef => self.ty().typedef_underlying_type().is_interface(),
+            CXType_Typedef => {
+                // A WinRT projection interface referenced through an `ABI::…` typedef is
+                // an interface, but the structural pure-virtual probe misses it: a generic
+                // instantiation (`__FIMapView_2_HSTRING_IInspectable_t`) is never instantiated
+                // in the scrape, and a non-generic interop reference
+                // (`typedef interface ICompositionTexture ICompositionTexture;`) is usually
+                // only forward-declared, so its underlying record has no methods. Recognise
+                // the `ABI::…` canonical form directly so the implied-pointer collapse in
+                // `to_type` strips the extra indirection (`ICompositionTexture**` →
+                // `*mut ICompositionTexture`). The canonical kind guard excludes a
+                // pointer-to-generic, which must keep its own explicit level.
+                let canonical = self.canonical_type();
+                if canonical.kind() != CXType_Pointer {
+                    let spelling = canonical.spelling();
+                    if spelling.starts_with("ABI::") {
+                        // A generic instantiation is always a WinRT interface.
+                        if spelling.contains('<') {
+                            return true;
+                        }
+                        // A non-generic `ABI::…` record: if it is fully defined, classify it
+                        // structurally so a WinRT *value struct* (`Rect`, `Point`, …) is not
+                        // mistaken for an interface; an incomplete forward-declaration — all an
+                        // interop header emits for a projected interface — is taken as an
+                        // interface, its real shape living in the resolution winmd.
+                        if canonical.kind() == CXType_Record {
+                            let decl = canonical.ty();
+                            return decl.has_pure_virtual_methods()
+                                || decl.has_interface_base()
+                                || !decl.has_definition();
+                        }
+                    }
+                }
+                self.ty().typedef_underlying_type().is_interface()
+            }
             _ => false,
         }
     }
@@ -901,6 +969,56 @@ impl Type {
             || (is_midl_placeholder_tag(&decl.name()) && is_handle_shape(&decl))
     }
 
+    /// If this type is a declaration in the `ABI::Windows::*` C++/WinRT projection namespace,
+    /// resolves it to a metadata `Type`; otherwise returns `None`.
+    ///
+    /// The canonical spelling of such a type is `ABI::<Namespace>::<Name>` (a `using`-aliased or
+    /// generic-instantiation reference reports the ABI-qualified path as its canonical type even
+    /// when its own spelling is the bare or mangled name). With a resolution winmd configured
+    /// ([`Parser::winrt_types`]), a name present in that set is a *true* `Windows.winmd`
+    /// projection and becomes a cross-winmd reference (`ABI::Windows::Foundation::AsyncStatus` →
+    /// `Windows.Foundation.AsyncStatus`), while a name *absent* from it is a Win32 COM interop
+    /// entity captured into the flat root ([`Parser::namespace`]) like any other in-closure type.
+    /// Without a resolution winmd the type is always mapped to its `Windows.winmd` reference — the
+    /// legacy behaviour for an out-of-scope projection reached through an incidentally-included
+    /// `winrt/` header, whose referencing declaration the sweep drops afterwards.
+    ///
+    /// A generic instantiation (`IMapView<HSTRING, IInspectable *>`) keeps its closed argument
+    /// list: the bare name carries no backtick arity (the RDL reader infers it from the argument
+    /// count, matching the WinRT projection RDL) and each argument is resolved recursively.
+    fn abi_projection(&self, parser: &mut Parser<'_>) -> Option<metadata::Type> {
+        let canonical = self.canonical_type().spelling();
+        let projected = canonical.strip_prefix("ABI::")?;
+        // The bare stem drops any generic arguments (`IMapView<HSTRING, IInspectable *>` →
+        // `IMapView`); the closed argument list is reconstructed below for a WinRT projection.
+        let stem = projected.split('<').next().unwrap_or(projected);
+        let (namespace, name) = stem.rsplit_once("::")?;
+        let ns = namespace.replace("::", ".");
+        // With a resolution winmd configured, a name *absent* from it is a Win32 COM interop
+        // entity captured into the flat root. In every other case — a name present in the winmd,
+        // or the legacy path with no resolution winmd (an out-of-scope projection later swept) —
+        // the type is a cross-winmd reference to its `Windows.winmd` projection.
+        if let Some(set) = parser.winrt_types
+            && !set.contains(&format!("{ns}.{name}"))
+        {
+            return Some(metadata::Type::value_named(parser.namespace, name));
+        }
+        let record = self.canonical_type();
+        let num = record.num_template_args();
+        let generics = if num > 0 {
+            (0..num as u32)
+                .map(|i| record.template_arg_type(i).winrt_generic_arg(parser))
+                .collect()
+        } else {
+            vec![]
+        };
+        Some(metadata::Type::ClassName(metadata::TypeName {
+            namespace: ns,
+            name: name.to_string(),
+            generics,
+        }))
+    }
+
     /// Convert this clang type to a metadata `Type`.
     ///
     /// `parser` carries the shared parse context: the current namespace,
@@ -928,6 +1046,15 @@ impl Type {
             CXType_Char16 => metadata::Type::U16,
             CXType_Char32 => metadata::Type::U32,
             CXType_Enum | CXType_Record => {
+                // A type declared in the `ABI::Windows::*` projection namespace: with a resolution
+                // winmd configured this either references a true `Windows.winmd` type or names a
+                // captured Win32 interop entity in the flat root; resolved before the tag-based
+                // naming below (which would misname it via its C++ tag).
+                if parser.winrt_types.is_some()
+                    && let Some(projected) = self.abi_projection(parser)
+                {
+                    return projected;
+                }
                 let decl = self.ty();
                 let tag_name = decl.name();
                 // For anonymous types (empty or "(anonymous …)") the cursor
@@ -986,7 +1113,30 @@ impl Type {
                 metadata::Type::value_named(&ns, &name)
             }
             CXType_Elaborated => self.underlying_type().to_type(parser),
-            CXType_Typedef => resolve_typedef(self, parser),
+            CXType_Typedef => {
+                // A synthetic MIDL parameterized-interface alias — e.g.
+                // `typedef ABI::Windows::…::IMapView<HSTRING, IInspectable*> __FIMapView_2_HSTRING_IInspectable_t;`
+                // — is inlined to the WinRT generic it names, so the mangled MIDL spelling never
+                // surfaces in the projection (`get_Attributes` then returns `IMapView<String, Object>`
+                // directly and the now-unreferenced alias decl is dropped by the reachability sweep).
+                // A non-generic `ABI::…` *record* typedef — the `typedef interface IC IC;` a WinRT
+                // interop header emits for the projection interfaces it references (often only
+                // forward-declared, so the structural interface probe in `resolve_typedef` misses
+                // it) — is likewise routed through `abi_projection` so it resolves to its
+                // `Windows.winmd` cross-reference (or the flat root when absent), rather than falling
+                // through to a dangling flat-root name. An ABI *enum* typedef keeps its own name
+                // through `resolve_typedef` (the canonical-kind guard excludes it).
+                let canonical_type = self.canonical_type();
+                let canonical = canonical_type.spelling();
+                if parser.winrt_types.is_some()
+                    && canonical.starts_with("ABI::")
+                    && (canonical.contains('<') || canonical_type.kind() == CXType_Record)
+                    && let Some(projected) = self.abi_projection(parser)
+                {
+                    return projected;
+                }
+                resolve_typedef(self, parser)
+            }
             CXType_Pointer => {
                 let pointee = self.pointee_type();
                 // Function pointers map to opaque *mut u8; they are emitted
@@ -1080,25 +1230,17 @@ impl Type {
             rest => {
                 // The `ABI::Windows::*` C++/WinRT projection mirrors a type that already
                 // exists in `Windows.winmd`, so map it to that reference rather than
-                // failing. Such types only reach here through declarations pulled in by an
-                // incidentally-included `winrt/` projection header (e.g. `asyncinfo.h`'s
-                // out-of-scope `IAsyncInfo::get_Status(AsyncStatus*)`, dragged in by
-                // `UserConsentVerifierInterop.h`); the header sweep drops the referencing
-                // declaration afterwards, but emission still has to resolve the type first.
-                // `ABI::Windows::Foundation::AsyncStatus` -> `Windows.Foundation.AsyncStatus`.
-                let spelling = self.spelling();
-                // Match on the canonical spelling: a `using`-aliased reference (as in
-                // `asyncinfo.h`) reports the bare name as its spelling but the fully
-                // qualified `ABI::Windows::…` path as its canonical type.
-                let canonical = self.canonical_type().spelling();
-                if let Some(projected) = canonical.strip_prefix("ABI::") {
-                    // Drop any generic arguments (`IReference<T>` -> `IReference`); these only
-                    // occur on the dropped projection declarations, never on a kept interop API.
-                    let projected = projected.split('<').next().unwrap_or(projected);
-                    if let Some((namespace, name)) = projected.rsplit_once("::") {
-                        return metadata::Type::value_named(&namespace.replace("::", "."), name);
-                    }
+                // failing. Such types reach here either as an out-of-scope projection pulled in
+                // by an incidentally-included `winrt/` projection header (e.g. `asyncinfo.h`'s
+                // `IAsyncInfo::get_Status(AsyncStatus*)`, dragged in by `UserConsentVerifierInterop.h`;
+                // the sweep drops the referencing declaration afterwards) or — when a resolution
+                // winmd is configured — as an interop entity referenced by a kept API, captured
+                // into the flat root. `ABI::Windows::Foundation::AsyncStatus` -> `Windows.Foundation.AsyncStatus`.
+                if let Some(projected) = self.abi_projection(parser) {
+                    return projected;
                 }
+                let spelling = self.spelling();
+                let canonical = self.canonical_type().spelling();
                 panic!(
                     "unhandled type kind {rest:?}: spelling={:?} canonical={:?} decl_at={}",
                     spelling,

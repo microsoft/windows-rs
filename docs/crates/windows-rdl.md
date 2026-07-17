@@ -489,10 +489,10 @@ re-derives every committed RDL corpus *from its committed winmd* and relies on
   *writer* direction independently of the Contracts merge.
 - **Win32 / WDK:** the winmd cannot place types in header files, so the tool reads
   the committed corpus for the name → header-stem map (`windows_rdl::item_names`,
-  exactly as `merge_arch_rdl` does), preserves the `metadata/win32/metadata.rdl`
-  seed (WDK has no seed — it resolves attributes from the Win32 reference winmd),
-  then `writer(winmd).partition(map) → metadata/{win32,wdk}`. Validates that the
-  winmd's *content* round-trips to the committed RDL under the committed layout.
+  exactly as `merge_arch_rdl` does), restores the hand-authored `metadata/metadata.rdl`
+  seed (which lives outside the corpus dir; WDK has no seed — it resolves attributes
+  from the Win32 reference winmd), then `writer(winmd).partition(map) → metadata/{win32,wdk}`.
+  Validates that the winmd's *content* round-trips to the committed RDL under the committed layout.
 
 Because the round-trip output is byte-identical to what the generator wrote (that
 identity *is* the property under test), there is no real two-writer conflict: the

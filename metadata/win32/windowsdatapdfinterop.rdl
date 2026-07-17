@@ -1,0 +1,20 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x7d9dcd91_d277_4947_8527_07a0daeda94a)]
+        interface IPdfRendererNative: IUnknown {
+            fn RenderPageToSurface(&self, pdfPage: IUnknown, pSurface: IDXGISurface, offset: POINT, #[opt] pRenderParams: *const PDF_RENDER_PARAMS) -> HRESULT;
+            fn RenderPageToDeviceContext(&self, pdfPage: IUnknown, pD2DDeviceContext: ID2D1DeviceContext, #[opt] pRenderParams: *const PDF_RENDER_PARAMS) -> HRESULT;
+        }
+        struct PDF_RENDER_PARAMS {
+            SourceRect: D2D_RECT_F,
+            DestinationWidth: u32,
+            DestinationHeight: u32,
+            BackgroundColor: D2D_COLOR_F,
+            IgnoreHighContrast: BOOLEAN,
+        }
+        extern fn PFN_PDF_CREATE_RENDERER(param0: IDXGIDevice, param1: *mut IPdfRendererNative) -> HRESULT;
+        #[library("Windows.Data.Pdf.dll")]
+        extern fn PdfCreateRenderer(pDevice: IDXGIDevice, ppRenderer: *mut IPdfRendererNative) -> HRESULT;
+    }
+}

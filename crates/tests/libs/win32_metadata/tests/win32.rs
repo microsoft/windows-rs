@@ -21,13 +21,22 @@
 fn slice() {
     let manifest = env!("CARGO_MANIFEST_DIR");
     let rdl_dir = format!("{manifest}/../../../../metadata/win32");
+    let seed = format!("{manifest}/../../../../metadata/metadata.rdl");
+    // The corpus carries cross-winmd references (WinRT interop APIs name true `Windows.*` types),
+    // so `Windows.winmd` is supplied as a resolution reference — exactly as the scrape does via its
+    // `RESOLUTION_WINMDS`.
+    let winrt = format!("{manifest}/../../../../crates/libs/bindgen/default/Windows.winmd");
     let scratch = format!("{}/win32", env!("OUT_DIR"));
     std::fs::create_dir_all(&scratch).unwrap();
 
-    // Compile the whole committed corpus to one winmd (no libclang/SDK needed).
+    // Compile the whole committed corpus to one winmd (no libclang/SDK needed). The
+    // hand-authored seed (which defines the `Windows.Win32.Metadata` attribute types the
+    // corpus references) lives outside `rdl_dir`, so it is fed in explicitly.
     let winmd = format!("{scratch}/Windows.Win32.winmd");
     windows_rdl::reader()
         .input(&rdl_dir)
+        .input(&seed)
+        .input(&winrt)
         .output(&winmd)
         .write()
         .unwrap();

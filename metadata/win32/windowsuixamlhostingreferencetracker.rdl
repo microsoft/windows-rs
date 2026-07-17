@@ -1,0 +1,57 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x04b3486c_4687_4229_8d14_505ab584dd88)]
+        interface IFindReferenceTargetsCallback: IUnknown {
+            fn FoundTrackerTarget(&self, target: IReferenceTrackerTarget) -> HRESULT;
+        }
+        #[guid(0x11d3b13a_180e_4789_a8be_7712882893e6)]
+        interface IReferenceTracker: IUnknown {
+            fn ConnectFromTrackerSource(&self) -> HRESULT;
+            fn DisconnectFromTrackerSource(&self) -> HRESULT;
+            fn FindTrackerTargets(&self, callback: IFindReferenceTargetsCallback) -> HRESULT;
+            fn GetReferenceTrackerManager(&self, value: *mut IReferenceTrackerManager) -> HRESULT;
+            fn AddRefFromTrackerSource(&self) -> HRESULT;
+            fn ReleaseFromTrackerSource(&self) -> HRESULT;
+            fn PegFromTrackerSource(&self) -> HRESULT;
+        }
+        #[guid(0x4e897caa_59d5_4613_8f8c_f7ebd1f399b0)]
+        interface IReferenceTrackerExtension: IUnknown {}
+        #[guid(0x29a71c6a_3c42_4416_a39d_e2825a07a773)]
+        interface IReferenceTrackerHost: IUnknown {
+            fn DisconnectUnusedReferenceSources(&self, options: XAML_REFERENCETRACKER_DISCONNECT) -> HRESULT;
+            fn ReleaseDisconnectedReferenceSources(&self) -> HRESULT;
+            fn NotifyEndOfReferenceTrackingOnThread(&self) -> HRESULT;
+            fn GetTrackerTarget(&self, unknown: IUnknown, newReference: *mut IReferenceTrackerTarget) -> HRESULT;
+            fn AddMemoryPressure(&self, bytesAllocated: u64) -> HRESULT;
+            fn RemoveMemoryPressure(&self, bytesAllocated: u64) -> HRESULT;
+        }
+        #[guid(0x3cf184b4_7ccb_4dda_8455_7e6ce99a3298)]
+        interface IReferenceTrackerManager: IUnknown {
+            fn ReferenceTrackingStarted(&self) -> HRESULT;
+            fn FindTrackerTargetsCompleted(&self, findFailed: boolean) -> HRESULT;
+            fn ReferenceTrackingCompleted(&self) -> HRESULT;
+            fn SetReferenceTrackerHost(&self, value: IReferenceTrackerHost) -> HRESULT;
+        }
+        #[guid(0x64bd43f8_bfee_4ec4_b7eb_2935158dae21)]
+        interface IReferenceTrackerTarget: IUnknown {
+            fn AddRefFromReferenceTracker(&self) -> u32;
+            fn ReleaseFromReferenceTracker(&self) -> u32;
+            fn Peg(&self) -> HRESULT;
+            fn Unpeg(&self) -> HRESULT;
+        }
+        #[guid(0xeb24c20b_9816_4ac7_8cff_36f67a118f4e)]
+        interface ITrackerOwner: IUnknown {
+            fn CreateTrackerHandle(&self, #[retval] returnValue: *mut TrackerHandle) -> HRESULT;
+            fn DeleteTrackerHandle(&self, handle: TrackerHandle) -> HRESULT;
+            fn SetTrackerValue(&self, handle: TrackerHandle, value: IUnknown) -> HRESULT;
+            fn TryGetSafeTrackerValue(&self, handle: TrackerHandle, #[retval] returnValue: *mut IUnknown) -> boolean;
+        }
+        type TrackerHandle = *mut void;
+        #[repr(i32)]
+        enum XAML_REFERENCETRACKER_DISCONNECT {
+            XAML_REFERENCETRACKER_DISCONNECT_DEFAULT = 0,
+            XAML_REFERENCETRACKER_DISCONNECT_SUSPEND = 1,
+        }
+    }
+}

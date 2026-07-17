@@ -158,6 +158,22 @@ layout is for *external* consumers generating their own namespace-organized bind
 are the full API surface), and `--package` only ever pairs with default or `--sys` — the
 two crates the repo publishes.
 
+**Future work — decouple module path from Cargo feature (`--package`).** Today `--package`
+derives the module *and* the feature from the same winmd namespace, a rigid 1:1:1
+(`package_writer::write_package` uses `tree.namespace` for both the directory and
+`tree.feature()`). This is why `tool_package`'s `remap.rs` synthesises ~570 per-header
+`Windows.<stem>` namespaces from the flat `Windows.Win32` winmd: it is the only way to get
+per-header Cargo features, but it also forces ~570 flat lowercase modules under
+`windows::`/`windows_sys::` (e.g. the direct2d sample imports from 15 of them: `windows::d2d`,
+`windows::dxgi`, `windows::windef`, …). We should let package mode map an item's *feature*
+(from its defining header) independently of its *module* (a coarser, friendlier grouping), so
+the Win32 surface can live under a small number of modules while keeping granular build-time
+gating. The per-item `#[cfg(feature=…)]` machinery already exists (`package_writer::Cfg`); the
+coupled part is the module split. Note the original win32metadata sub-namespaces
+(`Win32::Graphics::Direct2D`, `Win32::System::WinRT`, …) are *not* recoverable — the in-house
+flat winmd dropped them — so the grouping must come from a curated header→module map (a coarser
+sibling of `remap.rs`'s `FOLD_PREFIXES`), not from the original namespaces.
+
 Other useful options:
 
 - **`--in` / `.input(..)` / `.inputs(..)`** — add your own `.winmd` files or

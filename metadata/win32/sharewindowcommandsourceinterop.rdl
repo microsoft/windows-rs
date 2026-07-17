@@ -1,0 +1,13 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x6571a721_643d_43d4_aca4_6b6f5f30f1ad)]
+        interface IShareWindowCommandEventArgsInterop: IUnknown {
+            fn GetWindow(&self, #[retval] value: *mut HWND) -> HRESULT;
+        }
+        #[guid(0x461a191f_8424_43a6_a0fa_3451a22f56ab)]
+        interface IShareWindowCommandSourceInterop: IUnknown {
+            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] shareWindowCommandSource: *mut *mut void) -> HRESULT;
+        }
+    }
+}

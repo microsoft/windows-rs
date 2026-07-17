@@ -1,0 +1,17 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x1ade314d_0e0a_40d9_824c_9a088a50059f)]
+        interface IUserActivityInterop: IInspectable {
+            fn CreateSessionForWindow(&self, window: HWND, iid: *const GUID, #[retval] #[iid_is] value: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xdd69f876_9699_4715_9095_e37ea30dfa1b)]
+        interface IUserActivityRequestManagerInterop: IInspectable {
+            fn GetForWindow(&self, window: HWND, iid: *const GUID, #[retval] #[iid_is] value: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0xc15df8bc_8844_487a_b85b_7578e0f61419)]
+        interface IUserActivitySourceHostInterop: IInspectable {
+            fn SetActivitySourceHost(&self, activitySourceHost: HSTRING) -> HRESULT;
+        }
+    }
+}

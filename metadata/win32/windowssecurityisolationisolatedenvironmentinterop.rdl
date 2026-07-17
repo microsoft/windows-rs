@@ -1,0 +1,9 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x85713c2e_8e62_46c5_8de2_c647e1d54636)]
+        interface IIsolatedEnvironmentInterop: IUnknown {
+            fn GetHostHwndInterop(&self, containerHwnd: HWND, #[retval] hostHwnd: *mut HWND) -> HRESULT;
+        }
+    }
+}

@@ -1,0 +1,10 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x24394699_1f2c_4eb3_8cd7_0ec1da42a540)]
+        interface IPlayToManagerInterop: IInspectable {
+            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] playToManager: *mut *mut void) -> HRESULT;
+            fn ShowPlayToUIForWindow(&self, appWindow: HWND) -> HRESULT;
+        }
+    }
+}

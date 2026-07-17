@@ -1,0 +1,14 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x83c78b3c_d88b_4950_aa6e_22b8d22aabd3)]
+        interface ICorrelationVectorInformation: IInspectable {
+            #[special]
+            fn get_LastCorrelationVectorForThread(&self, #[retval] cv: *mut HSTRING) -> HRESULT;
+            #[special]
+            fn get_NextCorrelationVectorForThread(&self, #[retval] cv: *mut HSTRING) -> HRESULT;
+            #[special]
+            fn put_NextCorrelationVectorForThread(&self, cv: HSTRING) -> HRESULT;
+        }
+    }
+}

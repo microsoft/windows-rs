@@ -1,0 +1,15 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x3cbcf1bf_2f76_4e9c_96ab_e84b37972554)]
+        interface IDesktopWindowXamlSourceNative: IUnknown {
+            fn AttachToWindow(&self, parentWnd: HWND) -> HRESULT;
+            #[special]
+            fn get_WindowHandle(&self, #[retval] hWnd: *mut HWND) -> HRESULT;
+        }
+        #[guid(0xe3dcd8c7_3057_4692_99c3_7b7720afda31)]
+        interface IDesktopWindowXamlSourceNative2: IDesktopWindowXamlSourceNative {
+            fn PreTranslateMessage(&self, message: *const MSG, #[retval] result: *mut BOOL) -> HRESULT;
+        }
+    }
+}
