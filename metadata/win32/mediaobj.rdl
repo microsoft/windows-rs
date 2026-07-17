@@ -75,7 +75,6 @@ mod Windows {
             fn GetLatency(&self, pLatencyTime: *mut REFERENCE_TIME) -> HRESULT;
         }
         type PDMO_OUTPUT_DATA_BUFFER = *mut DMO_OUTPUT_DATA_BUFFER;
-        type REFERENCE_TIME = i64;
         #[repr(i32)]
         enum _DMO_INPLACE_PROCESS_FLAGS {
             DMO_INPLACE_NORMAL = 0,

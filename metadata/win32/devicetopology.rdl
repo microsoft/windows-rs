@@ -1,0 +1,173 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum ConnectorType {
+            Unknown_Connector = 0,
+            Physical_Internal = 1,
+            Physical_External = 2,
+            Software_IO = 3,
+            Software_Fixed = 4,
+            Network = 5,
+        }
+        const DEVTOPO_HARDWARE_INITIATED_EVENTCONTEXT: u32 = 1685217608;
+        #[repr(i32)]
+        enum DataFlow {
+            In = 0,
+            Out = 1,
+        }
+        const DeviceTopology: GUID = 0x1df639d0_5ec1_47aa_9379_828dc1aa8c59;
+        const EVENTCONTEXT_VOLUMESLIDER: GUID = 0xe2c2e9de_09b1_4b04_84e5_07931225ee04;
+        #[guid(0x85401fd4_6de4_4b9d_9869_2d6753a82f3c)]
+        interface IAudioAutoGainControl: IUnknown {
+            fn GetEnabled(&self, pbEnabled: *mut BOOL) -> HRESULT;
+            fn SetEnabled(&self, bEnable: BOOL, #[opt] pguidEventContext: *const GUID) -> HRESULT;
+        }
+        #[guid(0xa2b1a1d9_4db3_425d_a2b2_bd335cb3e2e5)]
+        interface IAudioBass: IPerChannelDbLevel {}
+        #[guid(0xbb11c46f_ec28_493c_b88a_5db88062ce98)]
+        interface IAudioChannelConfig: IUnknown {
+            fn SetChannelConfig(&self, dwConfig: u32, #[opt] pguidEventContext: *const GUID) -> HRESULT;
+            fn GetChannelConfig(&self, #[retval] pdwConfig: *mut u32) -> HRESULT;
+        }
+        #[guid(0x4f03dc02_5e6e_4653_8f72_a030c123d598)]
+        interface IAudioInputSelector: IUnknown {
+            fn GetSelection(&self, pnIdSelected: *mut u32) -> HRESULT;
+            fn SetSelection(&self, nIdSelect: u32, #[opt] pguidEventContext: *const GUID) -> HRESULT;
+        }
+        #[guid(0x7d8b1437_dd53_4350_9c1b_1ee2890bd938)]
+        interface IAudioLoudness: IUnknown {
+            fn GetEnabled(&self, pbEnabled: *mut BOOL) -> HRESULT;
+            fn SetEnabled(&self, bEnable: BOOL, #[opt] pguidEventContext: *const GUID) -> HRESULT;
+        }
+        #[guid(0x5e54b6d7_b44b_40d9_9a9e_e691d9ce6edf)]
+        interface IAudioMidrange: IPerChannelDbLevel {}
+        #[guid(0xdf45aeea_b74a_4b6b_afad_2366b6aa012e)]
+        interface IAudioMute: IUnknown {
+            fn SetMute(&self, bMuted: BOOL, #[opt] pguidEventContext: *const GUID) -> HRESULT;
+            fn GetMute(&self, pbMuted: *mut BOOL) -> HRESULT;
+        }
+        #[guid(0xbb515f69_94a7_429e_8b9c_271b3f11a3ab)]
+        interface IAudioOutputSelector: IUnknown {
+            fn GetSelection(&self, pnIdSelected: *mut u32) -> HRESULT;
+            fn SetSelection(&self, nIdSelect: u32, #[opt] pguidEventContext: *const GUID) -> HRESULT;
+        }
+        #[guid(0xdd79923c_0599_45e0_b8b6_c8df7db6e796)]
+        interface IAudioPeakMeter: IUnknown {
+            fn GetChannelCount(&self, pcChannels: *mut u32) -> HRESULT;
+            fn GetLevel(&self, nChannel: u32, pfLevel: *mut f32) -> HRESULT;
+        }
+        #[guid(0x0a717812_694e_4907_b74b_bafa5cfdca7b)]
+        interface IAudioTreble: IPerChannelDbLevel {}
+        #[guid(0x7fb7b48f_531d_44a2_bcb3_5ad5a134b3dc)]
+        interface IAudioVolumeLevel: IPerChannelDbLevel {}
+        #[guid(0x9c2c4058_23f5_41de_877a_df3af236a09e)]
+        interface IConnector: IUnknown {
+            fn GetType(&self, pType: *mut ConnectorType) -> HRESULT;
+            fn GetDataFlow(&self, pFlow: *mut DataFlow) -> HRESULT;
+            fn ConnectTo(&self, pConnectTo: IConnector) -> HRESULT;
+            fn Disconnect(&self) -> HRESULT;
+            fn IsConnected(&self, pbConnected: *mut BOOL) -> HRESULT;
+            fn GetConnectedTo(&self, ppConTo: *mut IConnector) -> HRESULT;
+            fn GetConnectorIdConnectedTo(&self, ppwstrConnectorId: *mut PWSTR) -> HRESULT;
+            fn GetDeviceIdConnectedTo(&self, ppwstrDeviceId: *mut PWSTR) -> HRESULT;
+        }
+        #[guid(0xa09513ed_c709_4d21_bd7b_5f34c47f3947)]
+        interface IControlChangeNotify: IUnknown {
+            fn OnNotify(&self, dwSenderProcessId: u32, #[opt] pguidEventContext: *const GUID) -> HRESULT;
+        }
+        #[guid(0x45d37c3f_5140_444a_ae24_400789f3cbf3)]
+        interface IControlInterface: IUnknown {
+            fn GetName(&self, ppwstrName: *mut PWSTR) -> HRESULT;
+            fn GetIID(&self, pIID: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x3b22bcbf_2586_4af0_8583_205d391b807c)]
+        interface IDeviceSpecificProperty: IUnknown {
+            fn GetType(&self, pVType: *mut VARTYPE) -> HRESULT;
+            fn GetValue(&self, pvValue: *mut void, #[in] #[out] pcbValue: *mut u32) -> HRESULT;
+            fn SetValue(&self, pvValue: *const void, cbValue: u32, #[opt] pguidEventContext: *const GUID) -> HRESULT;
+            fn Get4BRange(&self, plMin: *mut i32, plMax: *mut i32, plStepping: *mut i32) -> HRESULT;
+        }
+        #[guid(0x2a07407e_6497_4a18_9787_32f79bd0d98f)]
+        interface IDeviceTopology: IUnknown {
+            fn GetConnectorCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetConnector(&self, nIndex: u32, ppConnector: *mut IConnector) -> HRESULT;
+            fn GetSubunitCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetSubunit(&self, nIndex: u32, ppSubunit: *mut ISubunit) -> HRESULT;
+            fn GetPartById(&self, nId: u32, ppPart: *mut IPart) -> HRESULT;
+            fn GetDeviceId(&self, ppwstrDeviceId: *mut PWSTR) -> HRESULT;
+            fn GetSignalPath(&self, pIPartFrom: IPart, pIPartTo: IPart, bRejectMixedPaths: BOOL, ppParts: *mut IPartsList) -> HRESULT;
+        }
+        #[guid(0x28f54685_06fd_11d2_b27a_00a0c9223196)]
+        interface IKsControl: IUnknown {
+            fn KsProperty(&self, Property: *const KSIDENTIFIER, PropertyLength: u32, #[in] #[out] PropertyData: *mut void, DataLength: u32, BytesReturned: *mut u32) -> HRESULT;
+            fn KsMethod(&self, Method: *const KSIDENTIFIER, MethodLength: u32, #[in] #[out] MethodData: *mut void, DataLength: u32, BytesReturned: *mut u32) -> HRESULT;
+            fn KsEvent(&self, Event: *const KSIDENTIFIER, EventLength: u32, #[in] #[out] EventData: *mut void, DataLength: u32, BytesReturned: *mut u32) -> HRESULT;
+        }
+        #[guid(0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5)]
+        interface IKsFormatSupport: IUnknown {
+            fn IsFormatSupported(&self, pKsFormat: *const KSDATARANGE, cbFormat: u32, pbSupported: *mut BOOL) -> HRESULT;
+            fn GetDevicePreferredFormat(&self, ppKsFormat: *mut PKSDATAFORMAT) -> HRESULT;
+        }
+        #[guid(0xc99af463_d629_4ec4_8c00_e54d68154248)]
+        interface IKsJackContainerId: IUnknown {
+            fn GetJackContainerId(&self, pJackContainerId: *mut GUID) -> HRESULT;
+        }
+        #[guid(0x4509f757_2d46_4637_8e62_ce7db944f57b)]
+        interface IKsJackDescription: IUnknown {
+            fn GetJackCount(&self, pcJacks: *mut u32) -> HRESULT;
+            fn GetJackDescription(&self, nJack: u32, pDescription: *mut KSJACK_DESCRIPTION) -> HRESULT;
+        }
+        #[guid(0x478f3a9b_e0c9_4827_9228_6f5505ffe76a)]
+        interface IKsJackDescription2: IUnknown {
+            fn GetJackCount(&self, pcJacks: *mut u32) -> HRESULT;
+            fn GetJackDescription2(&self, nJack: u32, pDescription2: *mut KSJACK_DESCRIPTION2) -> HRESULT;
+        }
+        #[guid(0xe3f6778b_6660_4cc8_a291_ecc4192d9967)]
+        interface IKsJackDescription3: IUnknown {
+            fn GetJackCount(&self, pcJacks: *mut u32) -> HRESULT;
+            fn GetJackDescription3(&self, nJack: u32, pDescription3: *mut KSJACK_DESCRIPTION3) -> HRESULT;
+        }
+        #[guid(0xd9bd72ed_290f_4581_9ff3_61027a8fe532)]
+        interface IKsJackSinkInformation: IUnknown {
+            fn GetJackSinkInformation(&self, pJackSinkInformation: *mut KSJACK_SINK_INFORMATION) -> HRESULT;
+        }
+        #[guid(0xae2de0e4_5bca_4f2d_aa46_5d13f8fdb3a9)]
+        interface IPart: IUnknown {
+            fn GetName(&self, ppwstrName: *mut PWSTR) -> HRESULT;
+            fn GetLocalId(&self, pnId: *mut u32) -> HRESULT;
+            fn GetGlobalId(&self, ppwstrGlobalId: *mut PWSTR) -> HRESULT;
+            fn GetPartType(&self, pPartType: *mut PartType) -> HRESULT;
+            fn GetSubType(&self, pSubType: *mut GUID) -> HRESULT;
+            fn GetControlInterfaceCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetControlInterface(&self, nIndex: u32, ppInterfaceDesc: *mut IControlInterface) -> HRESULT;
+            fn EnumPartsIncoming(&self, ppParts: *mut IPartsList) -> HRESULT;
+            fn EnumPartsOutgoing(&self, ppParts: *mut IPartsList) -> HRESULT;
+            fn GetTopologyObject(&self, ppTopology: *mut IDeviceTopology) -> HRESULT;
+            fn Activate(&self, dwClsContext: u32, refiid: *const GUID, #[opt] ppvObject: *mut *mut void) -> HRESULT;
+            fn RegisterControlChangeCallback(&self, riid: *const GUID, pNotify: IControlChangeNotify) -> HRESULT;
+            fn UnregisterControlChangeCallback(&self, pNotify: IControlChangeNotify) -> HRESULT;
+        }
+        #[guid(0x6daa848c_5eb0_45cc_aea5_998a2cda1ffb)]
+        interface IPartsList: IUnknown {
+            fn GetCount(&self, pCount: *mut u32) -> HRESULT;
+            fn GetPart(&self, nIndex: u32, ppPart: *mut IPart) -> HRESULT;
+        }
+        #[guid(0xc2f8e001_f205_4bc9_99bc_c13b1e048ccb)]
+        interface IPerChannelDbLevel: IUnknown {
+            fn GetChannelCount(&self, pcChannels: *mut u32) -> HRESULT;
+            fn GetLevelRange(&self, nChannel: u32, pfMinLevelDB: *mut f32, pfMaxLevelDB: *mut f32, pfStepping: *mut f32) -> HRESULT;
+            fn GetLevel(&self, nChannel: u32, pfLevelDB: *mut f32) -> HRESULT;
+            fn SetLevel(&self, nChannel: u32, fLevelDB: f32, #[opt] pguidEventContext: *const GUID) -> HRESULT;
+            fn SetLevelUniform(&self, fLevelDB: f32, #[opt] pguidEventContext: *const GUID) -> HRESULT;
+            fn SetLevelAllChannels(&self, #[len_param(1)] aLevelsDB: *const f32, cChannels: u32, #[opt] pguidEventContext: *const GUID) -> HRESULT;
+        }
+        #[guid(0x82149a85_dba6_4487_86bb_ea8f7fefcc71)]
+        interface ISubunit: IUnknown {}
+        #[repr(i32)]
+        enum PartType {
+            Connector = 0,
+            Subunit = 1,
+        }
+    }
+}

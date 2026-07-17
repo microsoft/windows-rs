@@ -28,13 +28,15 @@ impl Default for DMO_MEDIA_TYPE {
     }
 }
 #[repr(C)]
+#[cfg(feature = "ksmedia")]
 #[derive(Clone, Copy)]
 pub struct DMO_OUTPUT_DATA_BUFFER {
     pub pBuffer: *mut core::ffi::c_void,
     pub dwStatus: u32,
-    pub rtTimestamp: REFERENCE_TIME,
-    pub rtTimelength: REFERENCE_TIME,
+    pub rtTimestamp: super::ksmedia::REFERENCE_TIME,
+    pub rtTimelength: super::ksmedia::REFERENCE_TIME,
 }
+#[cfg(feature = "ksmedia")]
 impl Default for DMO_OUTPUT_DATA_BUFFER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -55,8 +57,8 @@ pub const DMO_QUALITY_STATUS_ENABLED: _DMO_QUALITY_STATUS_FLAGS = 1;
 pub const DMO_SET_TYPEF_CLEAR: _DMO_SET_TYPE_FLAGS = 2;
 pub const DMO_SET_TYPEF_TEST_ONLY: _DMO_SET_TYPE_FLAGS = 1;
 pub const DMO_VOSF_NEEDS_PREVIOUS_SAMPLE: _DMO_VIDEO_OUTPUT_STREAM_FLAGS = 1;
+#[cfg(feature = "ksmedia")]
 pub type PDMO_OUTPUT_DATA_BUFFER = *mut DMO_OUTPUT_DATA_BUFFER;
-pub type REFERENCE_TIME = i64;
 pub type _DMO_INPLACE_PROCESS_FLAGS = i32;
 pub type _DMO_INPUT_DATA_BUFFER_FLAGS = i32;
 pub type _DMO_INPUT_STATUS_FLAGS = i32;

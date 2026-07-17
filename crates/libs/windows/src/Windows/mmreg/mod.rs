@@ -317,12 +317,6 @@ pub const JPEG_YCbCr: u32 = 2;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KSDATAFORMAT_SUBTYPE_IEEE_FLOAT(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_PCM(pub u8);
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct KSDATAFORMAT_SUBTYPE_WAVEFORMATEX(pub u8);
 pub type LPADPCMCOEFSET = *mut ADPCMCOEFSET;
 #[cfg(feature = "mmeapi")]
 pub type LPADPCMEWAVEFORMAT = *mut ADPCMEWAVEFORMAT;
@@ -405,9 +399,9 @@ pub type LPSONARCWAVEFORMAT = *mut SONARCWAVEFORMAT;
 pub type LPTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
 pub type LPVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
 pub type LPWAVEFILTER = *mut WAVEFILTER;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "ksmedia", feature = "mmeapi"))]
 pub type LPWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "ksmedia", feature = "mmeapi"))]
 pub type LPWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
 #[cfg(feature = "mmeapi")]
 pub type LPWMAUDIO2WAVEFORMAT = *mut WMAUDIO2WAVEFORMAT;
@@ -2076,9 +2070,9 @@ pub type NPSONARCWAVEFORMAT = *mut SONARCWAVEFORMAT;
 pub type NPTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
 pub type NPVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
 pub type NPWAVEFILTER = *mut WAVEFILTER;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "ksmedia", feature = "mmeapi"))]
 pub type NPWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "ksmedia", feature = "mmeapi"))]
 pub type NPWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
 #[cfg(feature = "mmeapi")]
 pub type NPYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
@@ -2192,11 +2186,9 @@ pub type PSONARCWAVEFORMAT = *mut SONARCWAVEFORMAT;
 pub type PTRUESPEECHWAVEFORMAT = *mut TRUESPEECHWAVEFORMAT;
 pub type PVOLUMEWAVEFILTER = *mut VOLUMEWAVEFILTER;
 pub type PWAVEFILTER = *mut WAVEFILTER;
-#[cfg(feature = "mmeapi")]
-pub type PWAVEFORMATEXTENSIBLE = *mut WAVEFORMATEXTENSIBLE;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "ksmedia", feature = "mmeapi"))]
 pub type PWAVEFORMATIEEEFLOATEX = *mut WAVEFORMATIEEEFLOATEX;
-#[cfg(feature = "mmeapi")]
+#[cfg(all(feature = "ksmedia", feature = "mmeapi"))]
 pub type PWAVEFORMATPCMEX = *mut WAVEFORMATPCMEX;
 #[cfg(feature = "mmeapi")]
 pub type PYAMAHA_ADPCMWAVEFORMAT = *mut YAMAHA_ADPCMWAVEFORMAT;
@@ -2269,26 +2261,6 @@ pub struct SONARCWAVEFORMAT {
     pub wfx: super::mmeapi::WAVEFORMATEX,
     pub wCompType: u16,
 }
-pub const SPEAKER_ALL: u32 = 2147483648;
-pub const SPEAKER_BACK_CENTER: u32 = 256;
-pub const SPEAKER_BACK_LEFT: u32 = 16;
-pub const SPEAKER_BACK_RIGHT: u32 = 32;
-pub const SPEAKER_FRONT_CENTER: u32 = 4;
-pub const SPEAKER_FRONT_LEFT: u32 = 1;
-pub const SPEAKER_FRONT_LEFT_OF_CENTER: u32 = 64;
-pub const SPEAKER_FRONT_RIGHT: u32 = 2;
-pub const SPEAKER_FRONT_RIGHT_OF_CENTER: u32 = 128;
-pub const SPEAKER_LOW_FREQUENCY: u32 = 8;
-pub const SPEAKER_RESERVED: u32 = 2147221504;
-pub const SPEAKER_SIDE_LEFT: u32 = 512;
-pub const SPEAKER_SIDE_RIGHT: u32 = 1024;
-pub const SPEAKER_TOP_BACK_CENTER: u32 = 65536;
-pub const SPEAKER_TOP_BACK_LEFT: u32 = 32768;
-pub const SPEAKER_TOP_BACK_RIGHT: u32 = 131072;
-pub const SPEAKER_TOP_CENTER: u32 = 2048;
-pub const SPEAKER_TOP_FRONT_CENTER: u32 = 8192;
-pub const SPEAKER_TOP_FRONT_LEFT: u32 = 4096;
-pub const SPEAKER_TOP_FRONT_RIGHT: u32 = 16384;
 #[repr(C, packed(1))]
 #[cfg(feature = "mmeapi")]
 #[derive(Clone, Copy)]
@@ -2323,39 +2295,10 @@ impl Default for WAVEFILTER {
         unsafe { core::mem::zeroed() }
     }
 }
-#[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
-pub struct WAVEFORMATEXTENSIBLE {
-    pub Format: super::mmeapi::WAVEFORMATEX,
-    pub Samples: WAVEFORMATEXTENSIBLE_0,
-    pub dwChannelMask: u32,
-    pub SubFormat: windows_core::GUID,
-}
-#[cfg(feature = "mmeapi")]
-impl Default for WAVEFORMATEXTENSIBLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[repr(C, packed(1))]
-#[cfg(feature = "mmeapi")]
-#[derive(Clone, Copy)]
-pub union WAVEFORMATEXTENSIBLE_0 {
-    pub wValidBitsPerSample: u16,
-    pub wSamplesPerBlock: u16,
-    pub wReserved: u16,
-}
-#[cfg(feature = "mmeapi")]
-impl Default for WAVEFORMATEXTENSIBLE_0 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "mmeapi")]
-pub type WAVEFORMATIEEEFLOATEX = WAVEFORMATEXTENSIBLE;
-#[cfg(feature = "mmeapi")]
-pub type WAVEFORMATPCMEX = WAVEFORMATEXTENSIBLE;
+#[cfg(all(feature = "ksmedia", feature = "mmeapi"))]
+pub type WAVEFORMATIEEEFLOATEX = super::ksmedia::WAVEFORMATEXTENSIBLE;
+#[cfg(all(feature = "ksmedia", feature = "mmeapi"))]
+pub type WAVEFORMATPCMEX = super::ksmedia::WAVEFORMATEXTENSIBLE;
 pub const WAVE_FILTER_DEVELOPMENT: u32 = 65535;
 pub const WAVE_FILTER_ECHO: u32 = 2;
 pub const WAVE_FILTER_UNKNOWN: u32 = 0;
@@ -2419,7 +2362,6 @@ pub const WAVE_FORMAT_ECHOSC3: u32 = 58;
 pub const WAVE_FORMAT_ENCORE_G726: u32 = 41223;
 pub const WAVE_FORMAT_ESPCM: u32 = 97;
 pub const WAVE_FORMAT_ESST_AC3: u32 = 577;
-pub const WAVE_FORMAT_EXTENSIBLE: u32 = 65534;
 pub const WAVE_FORMAT_FAAD_AAC: u32 = 28781;
 pub const WAVE_FORMAT_FLAC: u32 = 61868;
 pub const WAVE_FORMAT_FM_TOWNS_SND: u32 = 768;

@@ -64,6 +64,8 @@ pub mod audevcod;
 pub mod audioclient;
 #[cfg(feature = "audioclientactivationparams")]
 pub mod audioclientactivationparams;
+#[cfg(feature = "audiopolicy")]
+pub mod audiopolicy;
 #[cfg(feature = "audiosessiontypes")]
 pub mod audiosessiontypes;
 #[cfg(feature = "authz")]
@@ -212,6 +214,8 @@ pub mod ddeml;
 pub mod ddraw;
 #[cfg(feature = "debugapi")]
 pub mod debugapi;
+#[cfg(feature = "devicetopology")]
+pub mod devicetopology;
 #[cfg(feature = "devpkey")]
 pub mod devpkey;
 #[cfg(feature = "devpropdef")]
@@ -268,6 +272,8 @@ pub mod eaptypes;
 pub mod edevdefs;
 #[cfg(feature = "enclaveapi")]
 pub mod enclaveapi;
+#[cfg(feature = "endpointvolume")]
+pub mod endpointvolume;
 #[cfg(feature = "errhandlingapi")]
 pub mod errhandlingapi;
 #[cfg(feature = "errors")]

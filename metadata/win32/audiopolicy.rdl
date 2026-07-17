@@ -1,0 +1,71 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum AudioSessionDisconnectReason {
+            DisconnectReasonDeviceRemoval = 0,
+            DisconnectReasonServerShutdown = 1,
+            DisconnectReasonFormatChanged = 2,
+            DisconnectReasonSessionLogoff = 3,
+            DisconnectReasonSessionDisconnected = 4,
+            DisconnectReasonExclusiveModeOverride = 5,
+        }
+        #[guid(0xf4b1a599_7266_4319_a8ca_e70acb11e8cd)]
+        interface IAudioSessionControl: IUnknown {
+            fn GetState(&self, pRetVal: *mut AudioSessionState) -> HRESULT;
+            fn GetDisplayName(&self, pRetVal: *mut PWSTR) -> HRESULT;
+            fn SetDisplayName(&self, Value: PCWSTR, EventContext: *const GUID) -> HRESULT;
+            fn GetIconPath(&self, pRetVal: *mut PWSTR) -> HRESULT;
+            fn SetIconPath(&self, Value: PCWSTR, EventContext: *const GUID) -> HRESULT;
+            fn GetGroupingParam(&self, pRetVal: *mut GUID) -> HRESULT;
+            fn SetGroupingParam(&self, Override: *const GUID, EventContext: *const GUID) -> HRESULT;
+            fn RegisterAudioSessionNotification(&self, NewNotifications: IAudioSessionEvents) -> HRESULT;
+            fn UnregisterAudioSessionNotification(&self, NewNotifications: IAudioSessionEvents) -> HRESULT;
+        }
+        #[guid(0xbfb7ff88_7239_4fc9_8fa2_07c950be9c6d)]
+        interface IAudioSessionControl2: IAudioSessionControl {
+            fn GetSessionIdentifier(&self, pRetVal: *mut PWSTR) -> HRESULT;
+            fn GetSessionInstanceIdentifier(&self, pRetVal: *mut PWSTR) -> HRESULT;
+            fn GetProcessId(&self, pRetVal: *mut u32) -> HRESULT;
+            fn IsSystemSoundsSession(&self) -> HRESULT;
+            fn SetDuckingPreference(&self, optOut: BOOL) -> HRESULT;
+        }
+        #[guid(0xe2f5bb11_0570_40ca_acdd_3aa01277dee8)]
+        interface IAudioSessionEnumerator: IUnknown {
+            fn GetCount(&self, SessionCount: *mut i32) -> HRESULT;
+            fn GetSession(&self, SessionCount: i32, Session: *mut IAudioSessionControl) -> HRESULT;
+        }
+        #[guid(0x24918acc_64b3_37c1_8ca9_74a66e9957a8)]
+        interface IAudioSessionEvents: IUnknown {
+            fn OnDisplayNameChanged(&self, NewDisplayName: PCWSTR, EventContext: *const GUID) -> HRESULT;
+            fn OnIconPathChanged(&self, NewIconPath: PCWSTR, EventContext: *const GUID) -> HRESULT;
+            fn OnSimpleVolumeChanged(&self, NewVolume: f32, NewMute: BOOL, EventContext: *const GUID) -> HRESULT;
+            fn OnChannelVolumeChanged(&self, ChannelCount: u32, #[len_param(0)] NewChannelVolumeArray: *const f32, ChangedChannel: u32, EventContext: *const GUID) -> HRESULT;
+            fn OnGroupingParamChanged(&self, NewGroupingParam: *const GUID, EventContext: *const GUID) -> HRESULT;
+            fn OnStateChanged(&self, NewState: AudioSessionState) -> HRESULT;
+            fn OnSessionDisconnected(&self, DisconnectReason: AudioSessionDisconnectReason) -> HRESULT;
+        }
+        #[guid(0xbfa971f1_4d5e_40bb_935e_967039bfbee4)]
+        interface IAudioSessionManager: IUnknown {
+            fn GetAudioSessionControl(&self, #[opt] AudioSessionGuid: *const GUID, StreamFlags: u32, SessionControl: *mut IAudioSessionControl) -> HRESULT;
+            fn GetSimpleAudioVolume(&self, #[opt] AudioSessionGuid: *const GUID, StreamFlags: u32, AudioVolume: *mut ISimpleAudioVolume) -> HRESULT;
+        }
+        #[guid(0x77aa99a0_1bd6_484f_8bc7_2c654c9a9b6f)]
+        interface IAudioSessionManager2: IAudioSessionManager {
+            fn GetSessionEnumerator(&self, #[retval] SessionEnum: *mut IAudioSessionEnumerator) -> HRESULT;
+            fn RegisterSessionNotification(&self, SessionNotification: IAudioSessionNotification) -> HRESULT;
+            fn UnregisterSessionNotification(&self, SessionNotification: IAudioSessionNotification) -> HRESULT;
+            fn RegisterDuckNotification(&self, sessionID: PCWSTR, duckNotification: IAudioVolumeDuckNotification) -> HRESULT;
+            fn UnregisterDuckNotification(&self, duckNotification: IAudioVolumeDuckNotification) -> HRESULT;
+        }
+        #[guid(0x641dd20b_4d41_49cc_aba3_174b9477bb08)]
+        interface IAudioSessionNotification: IUnknown {
+            fn OnSessionCreated(&self, NewSession: IAudioSessionControl) -> HRESULT;
+        }
+        #[guid(0xc3b284d4_6d39_4359_b3cf_b56ddb3bb39c)]
+        interface IAudioVolumeDuckNotification: IUnknown {
+            fn OnVolumeDuckNotification(&self, sessionID: PCWSTR, countCommunicationSessions: u32) -> HRESULT;
+            fn OnVolumeUnduckNotification(&self, sessionID: PCWSTR) -> HRESULT;
+        }
+    }
+}

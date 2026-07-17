@@ -439,6 +439,7 @@ const HEADERS: &[&str] = &[
     "winstring.h",
     "rometadata.h",
     "roparameterizediid.h",
+    "audiopolicy.h",
     // Excluded WinRT interop headers: `RoMetadataApi.h` and `rometadataresolution.h`
     // `#include <cor.h>`, the CLR unmanaged-metadata header, which ships only in the
     // NETFXSDK (not the pinned Windows SDK NuGet) — pulling it in would make the scrape
@@ -468,6 +469,7 @@ const SATELLITE_HEADERS: &[&str] = &[
     "batclass.h",
     "hidclass.h",
     "winternl.h",
+    "endpointvolume.h",
 ];
 
 /// Import libraries (resolved against the pinned Windows SDK x64 lib tree) read to recover the

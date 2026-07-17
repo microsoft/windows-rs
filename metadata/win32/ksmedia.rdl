@@ -1136,6 +1136,7 @@ mod Windows {
         struct KSDATAFORMAT_SUBTYPE_NABTS {}
         struct KSDATAFORMAT_SUBTYPE_NABTS_FEC {}
         struct KSDATAFORMAT_SUBTYPE_OVERLAY {}
+        struct KSDATAFORMAT_SUBTYPE_PCM {}
         struct KSDATAFORMAT_SUBTYPE_RAW8 {}
         struct KSDATAFORMAT_SUBTYPE_RIFF {}
         struct KSDATAFORMAT_SUBTYPE_RIFFMIDI {}
@@ -1151,6 +1152,7 @@ mod Windows {
         struct KSDATAFORMAT_SUBTYPE_UNIVERSALMIDIPACKET {}
         struct KSDATAFORMAT_SUBTYPE_VPVBI {}
         struct KSDATAFORMAT_SUBTYPE_VPVideo {}
+        struct KSDATAFORMAT_SUBTYPE_WAVEFORMATEX {}
         struct KSDATAFORMAT_SUBTYPE_WMAUDIO2 {}
         struct KSDATAFORMAT_SUBTYPE_WMAUDIO3 {}
         struct KSDATAFORMAT_SUBTYPE_WMAUDIO_LOSSLESS {}
@@ -4014,10 +4016,12 @@ mod Windows {
         type PVIDEOFORMAT_DX12 = *mut VIDEOFORMAT_DX12;
         type PVRAM_SURFACE_INFO = *mut VRAM_SURFACE_INFO;
         type PVRAM_SURFACE_INFO_PROPERTY_S = *mut VRAM_SURFACE_INFO_PROPERTY_S;
+        type PWAVEFORMATEXTENSIBLE = *mut WAVEFORMATEXTENSIBLE;
         type PWAVEFORMATEXTENSIBLE_IEC61937 = *mut WAVEFORMATEXTENSIBLE_IEC61937;
         type PWNF_KSCAMERA_STREAMSTATE_INFO = *mut WNF_KSCAMERA_STREAMSTATE_INFO;
         type PWST_BUFFER = *mut WST_BUFFER;
         type PWST_BUFFER_LINE = *mut WST_BUFFER_LINE;
+        type REFERENCE_TIME = i64;
         struct SECURE_BUFFER_INFO {
             guidBufferIdentifier: GUID,
             cbBufferSize: u32,
@@ -4028,6 +4032,26 @@ mod Windows {
             Size: u32,
             PatternType: GUID,
         }
+        const SPEAKER_ALL: u32 = 2147483648;
+        const SPEAKER_BACK_CENTER: u32 = 256;
+        const SPEAKER_BACK_LEFT: u32 = 16;
+        const SPEAKER_BACK_RIGHT: u32 = 32;
+        const SPEAKER_FRONT_CENTER: u32 = 4;
+        const SPEAKER_FRONT_LEFT: u32 = 1;
+        const SPEAKER_FRONT_LEFT_OF_CENTER: u32 = 64;
+        const SPEAKER_FRONT_RIGHT: u32 = 2;
+        const SPEAKER_FRONT_RIGHT_OF_CENTER: u32 = 128;
+        const SPEAKER_LOW_FREQUENCY: u32 = 8;
+        const SPEAKER_RESERVED: u32 = 2147221504;
+        const SPEAKER_SIDE_LEFT: u32 = 512;
+        const SPEAKER_SIDE_RIGHT: u32 = 1024;
+        const SPEAKER_TOP_BACK_CENTER: u32 = 65536;
+        const SPEAKER_TOP_BACK_LEFT: u32 = 32768;
+        const SPEAKER_TOP_BACK_RIGHT: u32 = 131072;
+        const SPEAKER_TOP_CENTER: u32 = 2048;
+        const SPEAKER_TOP_FRONT_CENTER: u32 = 8192;
+        const SPEAKER_TOP_FRONT_LEFT: u32 = 4096;
+        const SPEAKER_TOP_FRONT_RIGHT: u32 = 16384;
         #[repr(i32)]
         enum TELEPHONY_CALLCONTROLOP {
             TELEPHONY_CALLCONTROLOP_DISABLE = 0,
@@ -4240,12 +4264,24 @@ mod Windows {
             pVramSurfaceInfo: PVRAM_SURFACE_INFO,
         }
         #[packed(1)]
+        struct WAVEFORMATEXTENSIBLE {
+            Format: WAVEFORMATEX,
+            Samples: #[packed(1)] union {
+                wValidBitsPerSample: u16,
+                wSamplesPerBlock: u16,
+                wReserved: u16,
+            },
+            dwChannelMask: u32,
+            SubFormat: GUID,
+        }
+        #[packed(1)]
         struct WAVEFORMATEXTENSIBLE_IEC61937 {
             FormatExt: WAVEFORMATEXTENSIBLE,
             dwEncodedSamplesPerSec: u32,
             dwEncodedChannelCount: u32,
             dwAverageBytesPerSec: u32,
         }
+        const WAVE_FORMAT_EXTENSIBLE: u32 = 65534;
         struct WNF_KSCAMERA_STREAMSTATE_INFO {
             ProcessId: u32,
             SessionId: u32,
