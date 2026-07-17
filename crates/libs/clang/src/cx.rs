@@ -901,22 +901,34 @@ impl Type {
             CXType_Elaborated => self.underlying_type().is_interface(),
             CXType_Typedef => {
                 // A WinRT projection interface referenced through an `ABI::…` typedef is
-                // always an interface, but the structural pure-virtual probe misses it: a
-                // generic instantiation (`__FIMapView_2_HSTRING_IInspectable_t`) is never
-                // instantiated in the scrape, and a non-generic interop reference
+                // an interface, but the structural pure-virtual probe misses it: a generic
+                // instantiation (`__FIMapView_2_HSTRING_IInspectable_t`) is never instantiated
+                // in the scrape, and a non-generic interop reference
                 // (`typedef interface ICompositionTexture ICompositionTexture;`) is usually
                 // only forward-declared, so its underlying record has no methods. Recognise
-                // the `ABI::…` canonical record form directly so the implied-pointer collapse
-                // in `to_type` strips the extra indirection (`ICompositionTexture**` →
+                // the `ABI::…` canonical form directly so the implied-pointer collapse in
+                // `to_type` strips the extra indirection (`ICompositionTexture**` →
                 // `*mut ICompositionTexture`). The canonical kind guard excludes a
                 // pointer-to-generic, which must keep its own explicit level.
                 let canonical = self.canonical_type();
                 if canonical.kind() != CXType_Pointer {
                     let spelling = canonical.spelling();
-                    if spelling.starts_with("ABI::")
-                        && (spelling.contains('<') || canonical.kind() == CXType_Record)
-                    {
-                        return true;
+                    if spelling.starts_with("ABI::") {
+                        // A generic instantiation is always a WinRT interface.
+                        if spelling.contains('<') {
+                            return true;
+                        }
+                        // A non-generic `ABI::…` record: if it is fully defined, classify it
+                        // structurally so a WinRT *value struct* (`Rect`, `Point`, …) is not
+                        // mistaken for an interface; an incomplete forward-declaration — all an
+                        // interop header emits for a projected interface — is taken as an
+                        // interface, its real shape living in the resolution winmd.
+                        if canonical.kind() == CXType_Record {
+                            let decl = canonical.ty();
+                            return decl.has_pure_virtual_methods()
+                                || decl.has_interface_base()
+                                || !decl.has_definition();
+                        }
                     }
                 }
                 self.ty().typedef_underlying_type().is_interface()
