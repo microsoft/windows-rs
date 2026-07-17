@@ -1,0 +1,371 @@
+#[winrt]
+mod Windows {
+    mod Security {
+        mod Authentication {
+            mod Identity {
+                mod Provider {
+                    #[guid(0x020a16e5_6a25_40a3_8c00_50a023f619d1)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorAuthentication)]
+                    interface ISecondaryAuthenticationFactorAuthentication {
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_ServiceAuthenticationHmac(&self) -> super::super::super::super::Storage::Streams::IBuffer;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_SessionNonce(&self) -> super::super::super::super::Storage::Streams::IBuffer;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_DeviceNonce(&self) -> super::super::super::super::Storage::Streams::IBuffer;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_DeviceConfigurationData(&self) -> super::super::super::super::Storage::Streams::IBuffer;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn FinishAuthenticationAsync(&self, deviceHmac: super::super::super::super::Storage::Streams::IBuffer, sessionHmac: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorFinishAuthenticationStatus>;
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn AbortAuthenticationAsync(&self, errorLogMessage: String) -> super::super::super::super::Foundation::IAsyncAction;
+                    }
+                    #[guid(0x9cbb5987_ef6d_4bc2_bf49_4617515a0f9a)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorAuthenticationResult)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    interface ISecondaryAuthenticationFactorAuthenticationResult {
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_Status(&self) -> SecondaryAuthenticationFactorAuthenticationStatus;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_Authentication(&self) -> SecondaryAuthenticationFactorAuthentication;
+                    }
+                    #[guid(0xd4a5ee56_7291_4073_bc1f_ccb8f5afdf96)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    interface ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_StageInfo(&self) -> SecondaryAuthenticationFactorAuthenticationStageInfo;
+                    }
+                    #[guid(0x56fec28b_e8aa_4c0f_8e4c_a559e73add88)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationStageInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorAuthenticationStageInfo)]
+                    interface ISecondaryAuthenticationFactorAuthenticationStageInfo {
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationStageInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_Stage(&self) -> SecondaryAuthenticationFactorAuthenticationStage;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationStageInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_Scenario(&self) -> SecondaryAuthenticationFactorAuthenticationScenario;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationStageInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_DeviceId(&self) -> String;
+                    }
+                    #[guid(0x3f582656_28f8_4e0f_ae8c_5898b9ae2469)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorAuthentication)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    interface ISecondaryAuthenticationFactorAuthenticationStatics {
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn ShowNotificationMessageAsync(&self, deviceName: String, message: SecondaryAuthenticationFactorAuthenticationMessage) -> super::super::super::super::Foundation::IAsyncAction;
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn StartAuthenticationAsync(&self, deviceId: String, serviceAuthenticationNonce: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationResult>;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn add_AuthenticationStageChanged(&self, handler: super::super::super::super::Foundation::EventHandler<SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs>) -> super::super::super::super::Foundation::EventRegistrationToken;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn remove_AuthenticationStageChanged(&self, token: super::super::super::super::Foundation::EventRegistrationToken);
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn GetAuthenticationStageInfoAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorAuthenticationStageInfo>;
+                    }
+                    #[guid(0x90499a19_7ef2_4523_951c_a417a24acf93)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorDevicePresenceMonitoringRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorRegistration)]
+                    interface ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics {
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Deprecated("RegisterDevicePresenceMonitoringAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
+                        #[Windows::Foundation::Metadata::Overload("RegisterDevicePresenceMonitoringAsync")]
+                        fn RegisterDevicePresenceMonitoringAsync(&self, deviceId: String, deviceInstancePath: String, monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Overload("RegisterDevicePresenceMonitoringWithNewDeviceAsync")]
+                        #[Windows::Foundation::Metadata::Deprecated("RegisterDevicePresenceMonitoringWithNewDeviceAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
+                        fn RegisterDevicePresenceMonitoringAsync(&self, deviceId: String, deviceInstancePath: String, monitoringMode: SecondaryAuthenticationFactorDevicePresenceMonitoringMode, deviceFriendlyName: String, deviceModelNumber: String, deviceConfigurationData: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus>;
+                        #[Windows::Foundation::Metadata::Deprecated("UnregisterDevicePresenceMonitoringAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn UnregisterDevicePresenceMonitoringAsync(&self, deviceId: String) -> super::super::super::super::Foundation::IAsyncAction;
+                        #[Windows::Foundation::Metadata::Deprecated("IsDevicePresenceMonitoringSupported is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
+                        fn IsDevicePresenceMonitoringSupported(&self) -> bool;
+                    }
+                    #[guid(0x1e2ba861_8533_4fce_839b_ecb72410ac14)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorInfo)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    interface ISecondaryAuthenticationFactorInfo {
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_DeviceId(&self) -> String;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_DeviceFriendlyName(&self) -> String;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_DeviceModelNumber(&self) -> String;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_DeviceConfigurationData(&self) -> super::super::super::super::Storage::Streams::IBuffer;
+                    }
+                    #[guid(0x14d981a3_fc26_4ff7_abc3_48e82a512a0a)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorInfo)]
+                    interface ISecondaryAuthenticationFactorInfo2: ISecondaryAuthenticationFactorInfo {
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("PresenceMonitoringMode is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
+                        fn get_PresenceMonitoringMode(&self) -> SecondaryAuthenticationFactorDevicePresenceMonitoringMode;
+                        #[Windows::Foundation::Metadata::Deprecated("UpdateDevicePresenceAsync is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn UpdateDevicePresenceAsync(&self, presenceState: SecondaryAuthenticationFactorDevicePresence) -> super::super::super::super::Foundation::IAsyncAction;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("IsAuthenticationSupported is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
+                        fn get_IsAuthenticationSupported(&self) -> bool;
+                    }
+                    #[guid(0x9f4cbbb4_8cba_48b0_840d_dbb22a54c678)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorRegistration)]
+                    interface ISecondaryAuthenticationFactorRegistration {
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn FinishRegisteringDeviceAsync(&self, deviceConfigurationData: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncAction;
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn AbortRegisteringDeviceAsync(&self, errorLogMessage: String) -> super::super::super::super::Foundation::IAsyncAction;
+                    }
+                    #[guid(0xa4fe35f0_ade3_4981_af6b_ec195921682a)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorRegistrationResult)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistrationResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    interface ISecondaryAuthenticationFactorRegistrationResult {
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistrationResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_Status(&self) -> SecondaryAuthenticationFactorRegistrationStatus;
+                        #[special]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistrationResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn get_Registration(&self) -> SecondaryAuthenticationFactorRegistration;
+                    }
+                    #[guid(0x1adf0f65_e3b7_4155_997f_b756ef65beba)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryAuthenticationFactorRegistration)]
+                    interface ISecondaryAuthenticationFactorRegistrationStatics {
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn RequestStartRegisteringDeviceAsync(&self, deviceId: String, capabilities: SecondaryAuthenticationFactorDeviceCapabilities, deviceFriendlyName: String, deviceModelNumber: String, deviceKey: super::super::super::super::Storage::Streams::IBuffer, mutualAuthenticationKey: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncOperation<SecondaryAuthenticationFactorRegistrationResult>;
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn FindAllRegisteredDeviceInfoAsync(&self, queryType: SecondaryAuthenticationFactorDeviceFindScope) -> super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Foundation::Collections::IVectorView<SecondaryAuthenticationFactorInfo>>;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        fn UnregisterDeviceAsync(&self, deviceId: String) -> super::super::super::super::Foundation::IAsyncAction;
+                        #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn UpdateDeviceConfigurationDataAsync(&self, deviceId: String, deviceConfigurationData: super::super::super::super::Storage::Streams::IBuffer) -> super::super::super::super::Foundation::IAsyncAction;
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthentication is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(ISecondaryAuthenticationFactorAuthenticationStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    class SecondaryAuthenticationFactorAuthentication {
+                        ISecondaryAuthenticationFactorAuthentication,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationMessage is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    enum SecondaryAuthenticationFactorAuthenticationMessage {
+                        Invalid = 0,
+                        SwipeUpWelcome = 1,
+                        TapWelcome = 2,
+                        DeviceNeedsAttention = 3,
+                        LookingForDevice = 4,
+                        LookingForDevicePluggedin = 5,
+                        BluetoothIsDisabled = 6,
+                        NfcIsDisabled = 7,
+                        WiFiIsDisabled = 8,
+                        ExtraTapIsRequired = 9,
+                        DisabledByPolicy = 10,
+                        TapOnDeviceRequired = 11,
+                        HoldFinger = 12,
+                        ScanFinger = 13,
+                        UnauthorizedUser = 14,
+                        ReregisterRequired = 15,
+                        TryAgain = 16,
+                        SayPassphrase = 17,
+                        ReadyToSignIn = 18,
+                        UseAnotherSignInOption = 19,
+                        ConnectionRequired = 20,
+                        TimeLimitExceeded = 21,
+                        CanceledByUser = 22,
+                        CenterHand = 23,
+                        MoveHandCloser = 24,
+                        MoveHandFarther = 25,
+                        PlaceHandAbove = 26,
+                        RecognitionFailed = 27,
+                        DeviceUnavailable = 28,
+                    }
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                    class SecondaryAuthenticationFactorAuthenticationResult {
+                        ISecondaryAuthenticationFactorAuthenticationResult,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationScenario is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    enum SecondaryAuthenticationFactorAuthenticationScenario {
+                        SignIn = 0,
+                        CredentialPrompt = 1,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationStage is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    enum SecondaryAuthenticationFactorAuthenticationStage {
+                        NotStarted = 0,
+                        WaitingForUserConfirmation = 1,
+                        CollectingCredential = 2,
+                        SuspendingAuthentication = 3,
+                        CredentialCollected = 4,
+                        CredentialAuthenticated = 5,
+                        StoppingAuthentication = 6,
+                        ReadyForLock = 7,
+                        CheckingDevicePresence = 8,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                    class SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
+                        ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationStageInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                    class SecondaryAuthenticationFactorAuthenticationStageInfo {
+                        ISecondaryAuthenticationFactorAuthenticationStageInfo,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorAuthenticationStatus is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    enum SecondaryAuthenticationFactorAuthenticationStatus {
+                        Failed = 0,
+                        Started = 1,
+                        UnknownDevice = 2,
+                        DisabledByPolicy = 3,
+                        InvalidAuthenticationStage = 4,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorDeviceCapabilities is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    enum SecondaryAuthenticationFactorDeviceCapabilities {
+                        None = 0,
+                        SecureStorage = 1,
+                        StoreKeys = 2,
+                        ConfirmUserIntentToAuthenticate = 4,
+                        SupportSecureUserPresenceCheck = 8,
+                        TransmittedDataIsEncrypted = 16,
+                        HMacSha256 = 32,
+                        CloseRangeDataTransmission = 64,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorDeviceFindScope is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    enum SecondaryAuthenticationFactorDeviceFindScope {
+                        User = 0,
+                        AllUsers = 1,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorDevicePresence is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    enum SecondaryAuthenticationFactorDevicePresence {
+                        Absent = 0,
+                        Present = 1,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorDevicePresenceMonitoringMode is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
+                    enum SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
+                        Unsupported = 0,
+                        AppManaged = 1,
+                        SystemManaged = 2,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 458752, "Windows.Foundation.UniversalApiContract")]
+                    enum SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
+                        Unsupported = 0,
+                        Succeeded = 1,
+                        DisabledByPolicy = 2,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorFinishAuthenticationStatus is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    enum SecondaryAuthenticationFactorFinishAuthenticationStatus {
+                        Failed = 0,
+                        Completed = 1,
+                        NonceExpired = 2,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorInfo is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class SecondaryAuthenticationFactorInfo {
+                        ISecondaryAuthenticationFactorInfo,
+                        ISecondaryAuthenticationFactorInfo2,
+                    }
+                    #[Windows::Foundation::Metadata::Static(ISecondaryAuthenticationFactorRegistrationStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Static(ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistration is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class SecondaryAuthenticationFactorRegistration {
+                        ISecondaryAuthenticationFactorRegistration,
+                    }
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistrationResult is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class SecondaryAuthenticationFactorRegistrationResult {
+                        ISecondaryAuthenticationFactorRegistrationResult,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::Deprecated("SecondaryAuthenticationFactorRegistrationStatus is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+                    enum SecondaryAuthenticationFactorRegistrationStatus {
+                        Failed = 0,
+                        Started = 1,
+                        CanceledByUser = 2,
+                        PinSetupRequired = 3,
+                        DisabledByPolicy = 4,
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,208 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod VoiceCommands {
+            #[guid(0x936f5273_ec82_42a6_a55c_d2d79ec6f920)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceCommand)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVoiceCommand {
+                #[get]
+                CommandName: String;
+                #[get]
+                Properties: super::super::Foundation::Collections::IMapView<String, super::super::Foundation::Collections::IVectorView<String>>;
+                #[get]
+                SpeechRecognitionResult: super::super::Media::SpeechRecognition::SpeechRecognitionResult;
+            }
+            #[guid(0xc85e675d_fe42_432c_9907_09df9fcf64e8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceCommandCompletedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVoiceCommandCompletedEventArgs {
+                #[get]
+                Reason: VoiceCommandCompletionReason;
+            }
+            #[guid(0xa022593e_8221_4526_b083_840972262247)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceCommandConfirmationResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVoiceCommandConfirmationResult {
+                #[get]
+                Confirmed: bool;
+            }
+            #[guid(0x3eefe9f0_b8c7_4c76_a0de_1607895ee327)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceCommandContentTile)]
+            interface IVoiceCommandContentTile {
+                Title: String;
+                TextLine1: String;
+                TextLine2: String;
+                TextLine3: String;
+                Image: super::super::Storage::IStorageFile;
+                AppContext: Object;
+                AppLaunchArgument: String;
+                ContentTileType: VoiceCommandContentTileType;
+            }
+            #[guid(0x7972aad0_0974_4979_984b_cb8959cd61ae)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceCommandDefinition)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVoiceCommandDefinition {
+                #[get]
+                Language: String;
+                #[get]
+                Name: String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetPhraseListAsync(&self, phraseListName: String, phraseList: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncAction;
+            }
+            #[guid(0x8fe7a69e_067e_4f16_a18c_5b17e9499940)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceCommandDefinitionManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVoiceCommandDefinitionManagerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn InstallCommandDefinitionsFromStorageFileAsync(&self, file: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncAction;
+                #[get]
+                InstalledCommandDefinitions: super::super::Foundation::Collections::IMapView<String, VoiceCommandDefinition>;
+            }
+            #[guid(0xecc68cfe_c9ac_45df_a8ea_feea08ef9c5e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceCommandDisambiguationResult)]
+            interface IVoiceCommandDisambiguationResult {
+                #[get]
+                SelectedItem: VoiceCommandContentTile;
+            }
+            #[guid(0x0284b30e_8a3b_4cc4_a6a1_cad5be2716b5)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceCommandResponse)]
+            interface IVoiceCommandResponse {
+                Message: VoiceCommandUserMessage;
+                RepeatMessage: VoiceCommandUserMessage;
+                AppLaunchArgument: String;
+                #[get]
+                VoiceCommandContentTiles: super::super::Foundation::Collections::IVector<VoiceCommandContentTile>;
+            }
+            #[guid(0x2932f813_0d3b_49f2_96dd_625019bd3b5d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceCommandResponse)]
+            interface IVoiceCommandResponseStatics {
+                #[get]
+                MaxSupportedVoiceCommandContentTiles: u32;
+                #[Windows::Foundation::Metadata::Overload("CreateResponse")]
+                fn CreateResponse(&self, userMessage: VoiceCommandUserMessage) -> VoiceCommandResponse;
+                #[Windows::Foundation::Metadata::Overload("CreateResponseWithTiles")]
+                fn CreateResponse(&self, message: VoiceCommandUserMessage, contentTiles: super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>) -> VoiceCommandResponse;
+                #[Windows::Foundation::Metadata::Overload("CreateResponseForPrompt")]
+                fn CreateResponseForPrompt(&self, message: VoiceCommandUserMessage, repeatMessage: VoiceCommandUserMessage) -> VoiceCommandResponse;
+                #[Windows::Foundation::Metadata::Overload("CreateResponseForPromptWithTiles")]
+                fn CreateResponseForPrompt(&self, message: VoiceCommandUserMessage, repeatMessage: VoiceCommandUserMessage, contentTiles: super::super::Foundation::Collections::IIterable<VoiceCommandContentTile>) -> VoiceCommandResponse;
+            }
+            #[guid(0xd894bb9f_21da_44a4_98a2_fb131920a9cc)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceCommandServiceConnection)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVoiceCommandServiceConnection {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetVoiceCommandAsync(&self) -> super::super::Foundation::IAsyncOperation<VoiceCommand>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestConfirmationAsync(&self, response: VoiceCommandResponse) -> super::super::Foundation::IAsyncOperation<VoiceCommandConfirmationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestDisambiguationAsync(&self, response: VoiceCommandResponse) -> super::super::Foundation::IAsyncOperation<VoiceCommandDisambiguationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReportProgressAsync(&self, response: VoiceCommandResponse) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReportSuccessAsync(&self, response: VoiceCommandResponse) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ReportFailureAsync(&self, response: VoiceCommandResponse) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAppLaunchAsync(&self, response: VoiceCommandResponse) -> super::super::Foundation::IAsyncAction;
+                #[get]
+                Language: super::super::Globalization::Language;
+                event VoiceCommandCompleted: super::super::Foundation::TypedEventHandler<VoiceCommandServiceConnection, VoiceCommandCompletedEventArgs>;
+            }
+            #[guid(0x370ebffb_2d34_42df_8770_074d0f334697)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceCommandServiceConnection)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVoiceCommandServiceConnectionStatics {
+                fn FromAppServiceTriggerDetails(&self, triggerDetails: super::AppService::AppServiceTriggerDetails) -> VoiceCommandServiceConnection;
+            }
+            #[guid(0x674eb3c0_44f6_4f07_b979_4c723fc08597)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceCommandUserMessage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVoiceCommandUserMessage {
+                DisplayMessage: String;
+                SpokenMessage: String;
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class VoiceCommand {
+                IVoiceCommand,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class VoiceCommandCompletedEventArgs {
+                IVoiceCommandCompletedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum VoiceCommandCompletionReason {
+                Unknown = 0,
+                CommunicationFailed = 1,
+                ResourceLimitsExceeded = 2,
+                Canceled = 3,
+                TimeoutExceeded = 4,
+                AppLaunched = 5,
+                Completed = 6,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class VoiceCommandConfirmationResult {
+                IVoiceCommandConfirmationResult,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class VoiceCommandContentTile {
+                IVoiceCommandContentTile,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum VoiceCommandContentTileType {
+                TitleOnly = 0,
+                TitleWithText = 1,
+                TitleWith68x68Icon = 2,
+                TitleWith68x68IconAndText = 3,
+                TitleWith68x92Icon = 4,
+                TitleWith68x92IconAndText = 5,
+                TitleWith280x140Icon = 6,
+                TitleWith280x140IconAndText = 7,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class VoiceCommandDefinition {
+                IVoiceCommandDefinition,
+            }
+            #[Windows::Foundation::Metadata::Static(IVoiceCommandDefinitionManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class VoiceCommandDefinitionManager {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class VoiceCommandDisambiguationResult {
+                IVoiceCommandDisambiguationResult,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IVoiceCommandResponseStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class VoiceCommandResponse {
+                IVoiceCommandResponse,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IVoiceCommandServiceConnectionStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class VoiceCommandServiceConnection {
+                IVoiceCommandServiceConnection,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class VoiceCommandUserMessage {
+                IVoiceCommandUserMessage,
+            }
+        }
+    }
+}

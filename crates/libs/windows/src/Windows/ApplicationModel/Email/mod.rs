@@ -1112,17 +1112,17 @@ impl EmailMailbox {
             (windows_core::Interface::vtable(self).TryProposeNewTimeForMeetingAsync)(windows_core::Interface::as_raw(self), meeting.param().abi(), newstarttime, newduration, core::mem::transmute_copy(subject), core::mem::transmute_copy(comment), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MailboxChanged<F>(&self, phandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn MailboxChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<EmailMailboxChangedEventArgs>) + Send + 'static,
     {
-        let phandler = <super::super::Foundation::TypedEventHandler<Self, EmailMailboxChangedEventArgs>>::new(move |a0, a1| {
-            phandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, EmailMailboxChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).MailboxChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&phandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).MailboxChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMailboxChanged))
         }
     }
@@ -2259,9 +2259,9 @@ impl EmailMeetingInfo {
             (windows_core::Interface::vtable(self).ProposedStartTime)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::DateTime>| r__.Value())
         }
     }
-    pub fn SetProposedStartTime(&self, proposedstarttime: Option<windows_time::DateTime>) -> windows_core::Result<()> {
-        let proposedstarttime__ = proposedstarttime.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetProposedStartTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(proposedstarttime__.as_ref()).abi()).ok() }
+    pub fn SetProposedStartTime(&self, value: Option<windows_time::DateTime>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::DateTime> as From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetProposedStartTime)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn ProposedDuration(&self) -> windows_core::Result<windows_time::TimeSpan> {
         unsafe {
@@ -2269,9 +2269,9 @@ impl EmailMeetingInfo {
             (windows_core::Interface::vtable(self).ProposedDuration)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__)).and_then(|r__: windows_reference::IReference<windows_time::TimeSpan>| r__.Value())
         }
     }
-    pub fn SetProposedDuration(&self, duration: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
-        let duration__ = duration.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
-        unsafe { (windows_core::Interface::vtable(self).SetProposedDuration)(windows_core::Interface::as_raw(self), windows_core::Param::param(duration__.as_ref()).abi()).ok() }
+    pub fn SetProposedDuration(&self, value: Option<windows_time::TimeSpan>) -> windows_core::Result<()> {
+        let value__ = value.map(<windows_reference::IReference<windows_time::TimeSpan> as From<_>>::from);
+        unsafe { (windows_core::Interface::vtable(self).SetProposedDuration)(windows_core::Interface::as_raw(self), windows_core::Param::param(value__.as_ref()).abi()).ok() }
     }
     pub fn RecurrenceStartTime(&self) -> windows_core::Result<windows_time::DateTime> {
         unsafe {

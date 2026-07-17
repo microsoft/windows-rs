@@ -264,17 +264,17 @@ impl DatagramSocket {
             (windows_core::Interface::vtable(self).GetOutputStreamWithEndpointPairAsync)(windows_core::Interface::as_raw(self), endpointpair.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MessageReceived<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn MessageReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<DatagramSocketMessageReceivedEventArgs>) + Send + 'static,
     {
-        let eventhandler = <super::super::Foundation::TypedEventHandler<Self, DatagramSocketMessageReceivedEventArgs>>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, DatagramSocketMessageReceivedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).MessageReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).MessageReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMessageReceived))
         }
     }
@@ -1493,17 +1493,17 @@ impl IWebSocket {
     pub fn SetRequestHeader(&self, headername: &windows_core::HSTRING, headervalue: &windows_core::HSTRING) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRequestHeader)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(headername), core::mem::transmute_copy(headervalue)).ok() }
     }
-    pub fn Closed<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + 'static,
     {
-        let eventhandler = <super::super::Foundation::TypedEventHandler<Self, WebSocketClosedEventArgs>>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, WebSocketClosedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Closed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).Closed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveClosed))
         }
     }
@@ -1524,8 +1524,8 @@ pub trait IWebSocket_Impl: super::super::Foundation::IClosable_Impl {
     fn OutputStream(&self) -> windows_core::Result<super::super::Storage::Streams::IOutputStream>;
     fn ConnectAsync(&self, uri: windows_core::Ref<super::super::Foundation::Uri>) -> windows_core::Result<windows_future::IAsyncAction>;
     fn SetRequestHeader(&self, headerName: &windows_core::HSTRING, headerValue: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn Closed(&self, eventHandler: windows_core::Ref<super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveClosed(&self, eventCookie: i64) -> windows_core::Result<()>;
+    fn Closed(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>) -> windows_core::Result<i64>;
+    fn RemoveClosed(&self, token: i64) -> windows_core::Result<()>;
     fn CloseWithStatus(&self, code: u16, reason: &windows_core::HSTRING) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Storage_Streams")]
@@ -1563,10 +1563,10 @@ impl IWebSocket_Vtbl {
                 IWebSocket_Impl::SetRequestHeader(this, core::mem::transmute(&headername), core::mem::transmute(&headervalue)).into()
             }
         }
-        unsafe extern "system" fn Closed<Identity: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventhandler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn Closed<Identity: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IWebSocket_Impl::Closed(this, core::mem::transmute_copy(&eventhandler)) {
+                match IWebSocket_Impl::Closed(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -1575,10 +1575,10 @@ impl IWebSocket_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveClosed<Identity: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, eventcookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Identity: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                IWebSocket_Impl::RemoveClosed(this, eventcookie).into()
+                IWebSocket_Impl::RemoveClosed(this, token).into()
             }
         }
         unsafe extern "system" fn CloseWithStatus<Identity: IWebSocket_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, code: u16, reason: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -2224,32 +2224,32 @@ impl MessageWebSocket {
             (windows_core::Interface::vtable(self).Information)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MessageReceived<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn MessageReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<MessageWebSocketMessageReceivedEventArgs>) + Send + 'static,
     {
-        let eventhandler = <super::super::Foundation::TypedEventHandler<Self, MessageWebSocketMessageReceivedEventArgs>>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, MessageWebSocketMessageReceivedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).MessageReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).MessageReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMessageReceived))
         }
     }
-    pub fn ServerCustomValidationRequested<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ServerCustomValidationRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketServerCustomValidationRequestedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IMessageWebSocket2>(self)?;
-        let eventhandler = <super::super::Foundation::TypedEventHandler<Self, WebSocketServerCustomValidationRequestedEventArgs>>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, WebSocketServerCustomValidationRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveServerCustomValidationRequested))
         }
     }
@@ -2297,18 +2297,18 @@ impl MessageWebSocket {
         let this = &windows_core::Interface::cast::<IWebSocket>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headername), core::mem::transmute_copy(headervalue)).ok() }
     }
-    pub fn Closed<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<IWebSocket>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IWebSocket>(self)?;
-        let eventhandler = <super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveClosed))
         }
     }
@@ -2621,17 +2621,17 @@ impl ServerMessageWebSocket {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn MessageReceived<F>(&self, value: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn MessageReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<MessageWebSocketMessageReceivedEventArgs>) + Send + 'static,
     {
-        let value = <super::super::Foundation::TypedEventHandler<Self, MessageWebSocketMessageReceivedEventArgs>>::new(move |a0, a1| {
-            value(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, MessageWebSocketMessageReceivedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).MessageReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&value), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).MessageReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveMessageReceived))
         }
     }
@@ -2654,17 +2654,17 @@ impl ServerMessageWebSocket {
             (windows_core::Interface::vtable(self).OutputStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Closed<F>(&self, value: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + 'static,
     {
-        let value = <super::super::Foundation::TypedEventHandler<Self, WebSocketClosedEventArgs>>::new(move |a0, a1| {
-            value(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, WebSocketClosedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Closed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&value), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).Closed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveClosed))
         }
     }
@@ -2777,17 +2777,17 @@ impl ServerStreamWebSocket {
             (windows_core::Interface::vtable(self).OutputStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Closed<F>(&self, value: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + 'static,
     {
-        let value = <super::super::Foundation::TypedEventHandler<Self, WebSocketClosedEventArgs>>::new(move |a0, a1| {
-            value(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, WebSocketClosedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).Closed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&value), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).Closed)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveClosed))
         }
     }
@@ -3585,17 +3585,17 @@ impl StreamSocketListener {
             (windows_core::Interface::vtable(self).BindEndpointAsync)(windows_core::Interface::as_raw(self), localhostname.param().abi(), core::mem::transmute_copy(localservicename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConnectionReceived<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ConnectionReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<StreamSocketListenerConnectionReceivedEventArgs>) + Send + 'static,
     {
-        let eventhandler = <super::super::Foundation::TypedEventHandler<Self, StreamSocketListenerConnectionReceivedEventArgs>>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, StreamSocketListenerConnectionReceivedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ConnectionReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).ConnectionReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveConnectionReceived))
         }
     }
@@ -3811,18 +3811,18 @@ impl StreamWebSocket {
             (windows_core::Interface::vtable(self).InputStream)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ServerCustomValidationRequested<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ServerCustomValidationRequested<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<WebSocketServerCustomValidationRequestedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IStreamWebSocket2>(self)?;
-        let eventhandler = <super::super::Foundation::TypedEventHandler<Self, WebSocketServerCustomValidationRequestedEventArgs>>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, WebSocketServerCustomValidationRequestedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(this).ServerCustomValidationRequested)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveServerCustomValidationRequested))
         }
     }
@@ -3848,18 +3848,18 @@ impl StreamWebSocket {
         let this = &windows_core::Interface::cast::<IWebSocket>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRequestHeader)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(headername), core::mem::transmute_copy(headervalue)).ok() }
     }
-    pub fn Closed<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn Closed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<IWebSocket>, windows_core::Ref<WebSocketClosedEventArgs>) + Send + 'static,
     {
         let this = &windows_core::Interface::cast::<IWebSocket>(self)?;
-        let eventhandler = <super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<IWebSocket, WebSocketClosedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(this.clone(), token__, windows_core::Interface::vtable(this).RemoveClosed))
         }
     }

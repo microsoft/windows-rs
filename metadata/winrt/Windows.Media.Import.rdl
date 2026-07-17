@@ -1,0 +1,533 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod Import {
+            #[guid(0xf4e112f8_843d_428a_a1a6_81510292b0ae)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportDeleteImportedItemsFromSourceResult)]
+            interface IPhotoImportDeleteImportedItemsFromSourceResult {
+                #[get]
+                Session: PhotoImportSession;
+                #[get]
+                HasSucceeded: bool;
+                #[get]
+                DeletedItems: super::super::Foundation::Collections::IVectorView<PhotoImportItem>;
+                #[get]
+                PhotosCount: u32;
+                #[get]
+                PhotosSizeInBytes: u64;
+                #[get]
+                VideosCount: u32;
+                #[get]
+                VideosSizeInBytes: u64;
+                #[get]
+                SidecarsCount: u32;
+                #[get]
+                SidecarsSizeInBytes: u64;
+                #[get]
+                SiblingsCount: u32;
+                #[get]
+                SiblingsSizeInBytes: u64;
+                #[get]
+                TotalCount: u32;
+                #[get]
+                TotalSizeInBytes: u64;
+            }
+            #[guid(0x3915e647_6c78_492b_844e_8fe5e8f6bfb9)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportFindItemsResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPhotoImportFindItemsResult {
+                #[get]
+                Session: PhotoImportSession;
+                #[get]
+                HasSucceeded: bool;
+                #[get]
+                FoundItems: super::super::Foundation::Collections::IVectorView<PhotoImportItem>;
+                #[get]
+                PhotosCount: u32;
+                #[get]
+                PhotosSizeInBytes: u64;
+                #[get]
+                VideosCount: u32;
+                #[get]
+                VideosSizeInBytes: u64;
+                #[get]
+                SidecarsCount: u32;
+                #[get]
+                SidecarsSizeInBytes: u64;
+                #[get]
+                SiblingsCount: u32;
+                #[get]
+                SiblingsSizeInBytes: u64;
+                #[get]
+                TotalCount: u32;
+                #[get]
+                TotalSizeInBytes: u64;
+                fn SelectAll(&self);
+                fn SelectNone(&self);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SelectNewAsync(&self) -> super::super::Foundation::IAsyncAction;
+                fn SetImportMode(&self, value: PhotoImportImportMode);
+                #[get]
+                ImportMode: PhotoImportImportMode;
+                #[get]
+                SelectedPhotosCount: u32;
+                #[get]
+                SelectedPhotosSizeInBytes: u64;
+                #[get]
+                SelectedVideosCount: u32;
+                #[get]
+                SelectedVideosSizeInBytes: u64;
+                #[get]
+                SelectedSidecarsCount: u32;
+                #[get]
+                SelectedSidecarsSizeInBytes: u64;
+                #[get]
+                SelectedSiblingsCount: u32;
+                #[get]
+                SelectedSiblingsSizeInBytes: u64;
+                #[get]
+                SelectedTotalCount: u32;
+                #[get]
+                SelectedTotalSizeInBytes: u64;
+                event SelectionChanged: super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportSelectionChangedEventArgs>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ImportItemsAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>;
+                event ItemImported: super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportItemImportedEventArgs>;
+            }
+            #[guid(0xfbdd6a3b_ecf9_406a_815e_5015625b0a88)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportFindItemsResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IPhotoImportFindItemsResult2 {
+                fn AddItemsInDateRangeToSelection(&self, rangeStart: super::super::Foundation::DateTime, rangeLength: super::super::Foundation::TimeSpan);
+            }
+            #[guid(0xe4d4f478_d419_4443_a84e_f06a850c0b00)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportImportItemsResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPhotoImportImportItemsResult {
+                #[get]
+                Session: PhotoImportSession;
+                #[get]
+                HasSucceeded: bool;
+                #[get]
+                ImportedItems: super::super::Foundation::Collections::IVectorView<PhotoImportItem>;
+                #[get]
+                PhotosCount: u32;
+                #[get]
+                PhotosSizeInBytes: u64;
+                #[get]
+                VideosCount: u32;
+                #[get]
+                VideosSizeInBytes: u64;
+                #[get]
+                SidecarsCount: u32;
+                #[get]
+                SidecarsSizeInBytes: u64;
+                #[get]
+                SiblingsCount: u32;
+                #[get]
+                SiblingsSizeInBytes: u64;
+                #[get]
+                TotalCount: u32;
+                #[get]
+                TotalSizeInBytes: u64;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeleteImportedItemsFromSourceAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>;
+            }
+            #[guid(0xa9d07e76_9bfc_43b8_b356_633b6a988c9e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportItem)]
+            interface IPhotoImportItem {
+                #[get]
+                Name: String;
+                #[get]
+                ItemKey: u64;
+                #[get]
+                ContentType: PhotoImportContentType;
+                #[get]
+                SizeInBytes: u64;
+                #[get]
+                Date: super::super::Foundation::DateTime;
+                #[get]
+                Sibling: PhotoImportSidecar;
+                #[get]
+                Sidecars: super::super::Foundation::Collections::IVectorView<PhotoImportSidecar>;
+                #[get]
+                VideoSegments: super::super::Foundation::Collections::IVectorView<PhotoImportVideoSegment>;
+                IsSelected: bool;
+                #[get]
+                Thumbnail: super::super::Storage::Streams::IRandomAccessStreamReference;
+                #[get]
+                ImportedFileNames: super::super::Foundation::Collections::IVectorView<String>;
+                #[get]
+                DeletedFileNames: super::super::Foundation::Collections::IVectorView<String>;
+            }
+            #[guid(0xf1053505_f53b_46a3_9e30_3610791a9110)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportItem)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface IPhotoImportItem2 {
+                #[get]
+                Path: String;
+            }
+            #[guid(0x42cb2fdd_7d68_47b5_bc7c_ceb73e0c77dc)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportItemImportedEventArgs)]
+            interface IPhotoImportItemImportedEventArgs {
+                #[get]
+                ImportedItem: PhotoImportItem;
+            }
+            #[guid(0x2771903d_a046_4f06_9b9c_bfd662e83287)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportManager)]
+            interface IPhotoImportManagerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn IsSupportedAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAllSourcesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PhotoImportSource>>;
+                fn GetPendingOperations(&self) -> super::super::Foundation::Collections::IVectorView<PhotoImportOperation>;
+            }
+            #[guid(0xd9f797e4_a09a_4ee4_a4b1_20940277a5be)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportOperation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPhotoImportOperation {
+                #[get]
+                Stage: PhotoImportStage;
+                #[get]
+                Session: PhotoImportSession;
+                #[special]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn get_ContinueFindingItemsAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>;
+                #[special]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn get_ContinueImportingItemsAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>;
+                #[special]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn get_ContinueDeletingImportedItemsFromSourceAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>;
+            }
+            #[guid(0x10461782_fa9d_4c30_8bc9_4d64911572d5)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportSelectionChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPhotoImportSelectionChangedEventArgs {
+                #[get]
+                IsSelectionEmpty: bool;
+            }
+            #[guid(0xaa63916e_ecdb_4efe_94c6_5f5cafe34cfb)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportSession)]
+            interface IPhotoImportSession: super::super::Foundation::IClosable {
+                #[get]
+                Source: PhotoImportSource;
+                #[get]
+                SessionId: GUID;
+                #[set]
+                DestinationFolder: super::super::Storage::IStorageFolder;
+                #[get]
+                DestinationFolder: super::super::Storage::IStorageFolder;
+                #[set]
+                AppendSessionDateToDestinationFolder: bool;
+                #[get]
+                AppendSessionDateToDestinationFolder: bool;
+                #[set]
+                SubfolderCreationMode: PhotoImportSubfolderCreationMode;
+                #[get]
+                SubfolderCreationMode: PhotoImportSubfolderCreationMode;
+                #[set]
+                DestinationFileNamePrefix: String;
+                #[get]
+                DestinationFileNamePrefix: String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindItemsAsync(&self, contentTypeFilter: PhotoImportContentTypeFilter, itemSelectionMode: PhotoImportItemSelectionMode) -> super::super::Foundation::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>;
+            }
+            #[guid(0x2a526710_3ec6_469d_a375_2b9f4785391e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportSession)]
+            interface IPhotoImportSession2 {
+                #[set]
+                SubfolderDateFormat: PhotoImportSubfolderDateFormat;
+                #[get]
+                SubfolderDateFormat: PhotoImportSubfolderDateFormat;
+                #[set]
+                RememberDeselectedItems: bool;
+                #[get]
+                RememberDeselectedItems: bool;
+            }
+            #[guid(0x46d7d757_f802_44c7_9c98_7a71f4bc1486)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportSidecar)]
+            interface IPhotoImportSidecar {
+                #[get]
+                Name: String;
+                #[get]
+                SizeInBytes: u64;
+                #[get]
+                Date: super::super::Foundation::DateTime;
+            }
+            #[guid(0x1f8ea35e_145b_4cd6_87f1_54965a982fef)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportSource)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPhotoImportSource {
+                #[get]
+                Id: String;
+                #[get]
+                DisplayName: String;
+                #[get]
+                Description: String;
+                #[get]
+                Manufacturer: String;
+                #[get]
+                Model: String;
+                #[get]
+                SerialNumber: String;
+                #[get]
+                ConnectionProtocol: String;
+                #[get]
+                ConnectionTransport: PhotoImportConnectionTransport;
+                #[get]
+                Type: PhotoImportSourceType;
+                #[get]
+                PowerSource: PhotoImportPowerSource;
+                #[get]
+                BatteryLevelPercent: super::super::Foundation::IReference<u32>;
+                #[get]
+                DateTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[get]
+                StorageMedia: super::super::Foundation::Collections::IVectorView<PhotoImportStorageMedium>;
+                #[get]
+                IsLocked: super::super::Foundation::IReference<bool>;
+                #[get]
+                IsMassStorage: bool;
+                #[get]
+                Thumbnail: super::super::Storage::Streams::IRandomAccessStreamReference;
+                fn CreateImportSession(&self) -> PhotoImportSession;
+            }
+            #[guid(0x0528e586_32d8_467c_8cee_23a1b2f43e85)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportSource)]
+            interface IPhotoImportSourceStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, sourceId: String) -> super::super::Foundation::IAsyncOperation<PhotoImportSource>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromFolderAsync(&self, sourceRootFolder: super::super::Storage::IStorageFolder) -> super::super::Foundation::IAsyncOperation<PhotoImportSource>;
+            }
+            #[guid(0xf2b9b093_fc85_487f_87c2_58d675d05b07)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportStorageMedium)]
+            interface IPhotoImportStorageMedium {
+                #[get]
+                Name: String;
+                #[get]
+                Description: String;
+                #[get]
+                SerialNumber: String;
+                #[get]
+                StorageMediumType: PhotoImportStorageMediumType;
+                #[get]
+                SupportedAccessMode: PhotoImportAccessMode;
+                #[get]
+                CapacityInBytes: u64;
+                #[get]
+                AvailableSpaceInBytes: u64;
+                fn Refresh(&self);
+            }
+            #[guid(0x623c0289_321a_41d8_9166_8c62a333276c)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhotoImportVideoSegment)]
+            interface IPhotoImportVideoSegment {
+                #[get]
+                Name: String;
+                #[get]
+                SizeInBytes: u64;
+                #[get]
+                Date: super::super::Foundation::DateTime;
+                #[get]
+                Sibling: PhotoImportSidecar;
+                #[get]
+                Sidecars: super::super::Foundation::Collections::IVectorView<PhotoImportSidecar>;
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PhotoImportAccessMode {
+                ReadWrite = 0,
+                ReadOnly = 1,
+                ReadAndDelete = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PhotoImportConnectionTransport {
+                Unknown = 0,
+                Usb = 1,
+                IP = 2,
+                Bluetooth = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PhotoImportContentType {
+                Unknown = 0,
+                Image = 1,
+                Video = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PhotoImportContentTypeFilter {
+                OnlyImages = 0,
+                OnlyVideos = 1,
+                ImagesAndVideos = 2,
+                ImagesAndVideosFromCameraRoll = 3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class PhotoImportDeleteImportedItemsFromSourceResult {
+                IPhotoImportDeleteImportedItemsFromSourceResult,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class PhotoImportFindItemsResult {
+                IPhotoImportFindItemsResult,
+                IPhotoImportFindItemsResult2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PhotoImportImportItemsResult {
+                IPhotoImportImportItemsResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PhotoImportImportMode {
+                ImportEverything = 0,
+                IgnoreSidecars = 1,
+                IgnoreSiblings = 2,
+                IgnoreSidecarsAndSiblings = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class PhotoImportItem {
+                IPhotoImportItem,
+                IPhotoImportItem2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PhotoImportItemImportedEventArgs {
+                IPhotoImportItemImportedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PhotoImportItemSelectionMode {
+                SelectAll = 0,
+                SelectNone = 1,
+                SelectNew = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IPhotoImportManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class PhotoImportManager {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PhotoImportOperation {
+                IPhotoImportOperation,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PhotoImportPowerSource {
+                Unknown = 0,
+                Battery = 1,
+                External = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct PhotoImportProgress {
+                ItemsImported: u32,
+                TotalItemsToImport: u32,
+                BytesImported: u64,
+                TotalBytesToImport: u64,
+                ImportProgress: f64,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PhotoImportSelectionChangedEventArgs {
+                IPhotoImportSelectionChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PhotoImportSession {
+                IPhotoImportSession,
+                super::super::Foundation::IClosable,
+                IPhotoImportSession2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class PhotoImportSidecar {
+                IPhotoImportSidecar,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IPhotoImportSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PhotoImportSource {
+                IPhotoImportSource,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PhotoImportSourceType {
+                Generic = 0,
+                Camera = 1,
+                MediaPlayer = 2,
+                Phone = 3,
+                Video = 4,
+                PersonalInfoManager = 5,
+                AudioRecorder = 6,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PhotoImportStage {
+                NotStarted = 0,
+                FindingItems = 1,
+                ImportingItems = 2,
+                DeletingImportedItemsFromSource = 3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class PhotoImportStorageMedium {
+                IPhotoImportStorageMedium,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PhotoImportStorageMediumType {
+                Undefined = 0,
+                Fixed = 1,
+                Removable = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PhotoImportSubfolderCreationMode {
+                DoNotCreateSubfolders = 0,
+                CreateSubfoldersFromFileDate = 1,
+                CreateSubfoldersFromExifDate = 2,
+                KeepOriginalFolderStructure = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum PhotoImportSubfolderDateFormat {
+                Year = 0,
+                YearMonth = 1,
+                YearMonthDay = 2,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PhotoImportVideoSegment {
+                IPhotoImportVideoSegment,
+            }
+        }
+    }
+}

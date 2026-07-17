@@ -1,0 +1,246 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod Editing {
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::GCPressure(amount = High)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IBackgroundAudioTrackStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class BackgroundAudioTrack {
+                IBackgroundAudioTrack,
+            }
+            #[Windows::Foundation::Metadata::GCPressure(amount = High)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class EmbeddedAudioTrack {
+                IEmbeddedAudioTrack,
+            }
+            #[guid(0x4b91b3bd_9e21_4266_a9c2_67dd011a2357)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundAudioTrack)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundAudioTrack {
+                TrimTimeFromStart: super::super::Foundation::TimeSpan;
+                TrimTimeFromEnd: super::super::Foundation::TimeSpan;
+                #[get]
+                OriginalDuration: super::super::Foundation::TimeSpan;
+                #[get]
+                TrimmedDuration: super::super::Foundation::TimeSpan;
+                #[get]
+                UserData: super::super::Foundation::Collections::IMap<String, String>;
+                #[set]
+                Delay: super::super::Foundation::TimeSpan;
+                #[get]
+                Delay: super::super::Foundation::TimeSpan;
+                #[set]
+                Volume: f64;
+                #[get]
+                Volume: f64;
+                fn Clone(&self) -> BackgroundAudioTrack;
+                fn GetAudioEncodingProperties(&self) -> super::MediaProperties::AudioEncodingProperties;
+                #[get]
+                AudioEffectDefinitions: super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>;
+            }
+            #[guid(0xd9b1c0d7_d018_42a8_a559_cb4d9e97e664)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundAudioTrack)]
+            interface IBackgroundAudioTrackStatics {
+                fn CreateFromEmbeddedAudioTrack(&self, embeddedAudioTrack: EmbeddedAudioTrack) -> BackgroundAudioTrack;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateFromFileAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<BackgroundAudioTrack>;
+            }
+            #[guid(0x55ee5a7a_2d30_3fba_a190_4f1a6454f88f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EmbeddedAudioTrack)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IEmbeddedAudioTrack {
+                fn GetAudioEncodingProperties(&self) -> super::MediaProperties::AudioEncodingProperties;
+            }
+            #[guid(0x53f25366_5fba_3ea4_8693_24761811140a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaClip)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaClip {
+                TrimTimeFromStart: super::super::Foundation::TimeSpan;
+                TrimTimeFromEnd: super::super::Foundation::TimeSpan;
+                #[get]
+                OriginalDuration: super::super::Foundation::TimeSpan;
+                #[get]
+                TrimmedDuration: super::super::Foundation::TimeSpan;
+                #[get]
+                UserData: super::super::Foundation::Collections::IMap<String, String>;
+                fn Clone(&self) -> MediaClip;
+                #[get]
+                StartTimeInComposition: super::super::Foundation::TimeSpan;
+                #[get]
+                EndTimeInComposition: super::super::Foundation::TimeSpan;
+                #[get]
+                EmbeddedAudioTracks: super::super::Foundation::Collections::IVectorView<EmbeddedAudioTrack>;
+                SelectedEmbeddedAudioTrackIndex: u32;
+                #[set]
+                Volume: f64;
+                #[get]
+                Volume: f64;
+                fn GetVideoEncodingProperties(&self) -> super::MediaProperties::VideoEncodingProperties;
+                #[get]
+                AudioEffectDefinitions: super::super::Foundation::Collections::IVector<super::Effects::IAudioEffectDefinition>;
+                #[get]
+                VideoEffectDefinitions: super::super::Foundation::Collections::IVector<super::Effects::IVideoEffectDefinition>;
+            }
+            #[guid(0xfa402b68_928f_43c4_bc6e_783a1a359656)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaClip)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaClipStatics {
+                fn CreateFromColor(&self, color: super::super::UI::Color, originalDuration: super::super::Foundation::TimeSpan) -> MediaClip;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateFromFileAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<MediaClip>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateFromImageFileAsync(&self, file: super::super::Storage::IStorageFile, originalDuration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<MediaClip>;
+            }
+            #[guid(0x5b1dd7b3_854e_4d9b_877d_4774a556cd12)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaClip)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaClipStatics2 {
+                fn CreateFromSurface(&self, surface: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, originalDuration: super::super::Foundation::TimeSpan) -> MediaClip;
+            }
+            #[guid(0x2e06e605_dc71_41d6_b837_2d2bc14a2947)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaComposition)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaComposition {
+                #[get]
+                Duration: super::super::Foundation::TimeSpan;
+                #[get]
+                Clips: super::super::Foundation::Collections::IVector<MediaClip>;
+                #[get]
+                BackgroundAudioTracks: super::super::Foundation::Collections::IVector<BackgroundAudioTrack>;
+                #[get]
+                UserData: super::super::Foundation::Collections::IMap<String, String>;
+                fn Clone(&self) -> MediaComposition;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetThumbnailAsync(&self, timeFromStart: super::super::Foundation::TimeSpan, scaledWidth: i32, scaledHeight: i32, framePrecision: VideoFramePrecision) -> super::super::Foundation::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>;
+                fn GetThumbnailsAsync(&self, timesFromStart: super::super::Foundation::Collections::IIterable<super::super::Foundation::TimeSpan>, scaledWidth: i32, scaledHeight: i32, framePrecision: VideoFramePrecision) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>;
+                #[Windows::Foundation::Metadata::Overload("RenderToFileAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RenderToFileAsync(&self, destination: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
+                #[Windows::Foundation::Metadata::Overload("RenderToFileWithTrimmingPreferenceAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RenderToFileAsync(&self, destination: super::super::Storage::IStorageFile, trimmingPreference: MediaTrimmingPreference) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
+                #[Windows::Foundation::Metadata::Overload("RenderToFileWithProfileAsync")]
+                fn RenderToFileAsync(&self, destination: super::super::Storage::IStorageFile, trimmingPreference: MediaTrimmingPreference, encodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::super::Foundation::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>;
+                fn CreateDefaultEncodingProfile(&self) -> super::MediaProperties::MediaEncodingProfile;
+                #[Windows::Foundation::Metadata::Overload("GenerateMediaStreamSource")]
+                fn GenerateMediaStreamSource(&self) -> super::Core::MediaStreamSource;
+                #[Windows::Foundation::Metadata::Overload("GenerateMediaStreamSourceWithProfile")]
+                fn GenerateMediaStreamSource(&self, encodingProfile: super::MediaProperties::MediaEncodingProfile) -> super::Core::MediaStreamSource;
+                fn GeneratePreviewMediaStreamSource(&self, scaledWidth: i32, scaledHeight: i32) -> super::Core::MediaStreamSource;
+            }
+            #[guid(0xa59e5372_2366_492c_bec8_e6dfba6d0281)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaComposition)]
+            interface IMediaComposition2 {
+                #[get]
+                OverlayLayers: super::super::Foundation::Collections::IVector<MediaOverlayLayer>;
+            }
+            #[guid(0x87a08f04_e32a_45ce_8f66_a30df0766224)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaComposition)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaCompositionStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn LoadAsync(&self, file: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<MediaComposition>;
+            }
+            #[guid(0xa902ae5d_7869_4830_8ab1_94dc01c05fa4)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaOverlay)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaOverlay {
+                Position: super::super::Foundation::Rect;
+                #[set]
+                Delay: super::super::Foundation::TimeSpan;
+                #[get]
+                Delay: super::super::Foundation::TimeSpan;
+                Opacity: f64;
+                fn Clone(&self) -> MediaOverlay;
+                #[get]
+                Clip: MediaClip;
+                AudioEnabled: bool;
+            }
+            #[guid(0xb584828a_6188_4f8f_a2e0_aa552d598e18)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaOverlay)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaOverlayFactory {
+                fn Create(&self, clip: MediaClip) -> MediaOverlay;
+                fn CreateWithPositionAndOpacity(&self, clip: MediaClip, position: super::super::Foundation::Rect, opacity: f64) -> MediaOverlay;
+            }
+            #[guid(0xa6d9ba57_eeda_46c6_bbe5_e398c84168ac)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaOverlayLayer)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaOverlayLayer {
+                fn Clone(&self) -> MediaOverlayLayer;
+                #[get]
+                Overlays: super::super::Foundation::Collections::IVector<MediaOverlay>;
+                #[get]
+                CustomCompositorDefinition: super::Effects::IVideoCompositorDefinition;
+            }
+            #[guid(0x947cb473_a39e_4362_abbf_9f8b5070a062)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaOverlayLayer)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMediaOverlayLayerFactory {
+                fn CreateWithCompositorDefinition(&self, compositorDefinition: super::Effects::IVideoCompositorDefinition) -> MediaOverlayLayer;
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IMediaClipStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IMediaClipStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::GCPressure(amount = High)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MediaClip {
+                IMediaClip,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Static(IMediaCompositionStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::GCPressure(amount = High)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class MediaComposition {
+                IMediaComposition,
+                IMediaComposition2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::GCPressure(amount = High)]
+            #[Windows::Foundation::Metadata::Activatable(IMediaOverlayFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MediaOverlay {
+                IMediaOverlay,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IMediaOverlayLayerFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::GCPressure(amount = High)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MediaOverlayLayer {
+                IMediaOverlayLayer,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MediaTrimmingPreference {
+                Fast = 0,
+                Precise = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum VideoFramePrecision {
+                NearestFrame = 0,
+                NearestKeyFrame = 1,
+            }
+        }
+    }
+}

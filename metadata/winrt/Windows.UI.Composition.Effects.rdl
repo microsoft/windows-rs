@@ -1,0 +1,46 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Composition {
+            mod Effects {
+                #[guid(0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneLightingEffect)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                interface ISceneLightingEffect {
+                    AmbientAmount: f32;
+                    DiffuseAmount: f32;
+                    NormalMapSource: super::super::super::Graphics::Effects::IGraphicsEffectSource;
+                    SpecularAmount: f32;
+                    SpecularShine: f32;
+                }
+                #[guid(0x9e270e81_72f0_4c5c_95f8_8a6e0024f409)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneLightingEffect)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface ISceneLightingEffect2 {
+                    ReflectanceModel: SceneLightingEffectReflectanceModel;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                class SceneLightingEffect {
+                    ISceneLightingEffect,
+                    ISceneLightingEffect2,
+                    super::super::super::Graphics::Effects::IGraphicsEffect,
+                    super::super::super::Graphics::Effects::IGraphicsEffectSource,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                enum SceneLightingEffectReflectanceModel {
+                    BlinnPhong = 0,
+                    PhysicallyBasedBlinnPhong = 1,
+                }
+            }
+        }
+    }
+}

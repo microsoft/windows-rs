@@ -1,0 +1,10 @@
+#[winrt]
+mod Windows {
+    mod AI {
+        mod Agents {
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(131072)]
+            struct AgentsContract {}
+        }
+    }
+}

@@ -1,0 +1,39 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Background {
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class DeviceServicingDetails {
+                IDeviceServicingDetails,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class DeviceUseDetails {
+                IDeviceUseDetails,
+            }
+            #[guid(0x4aabee29_2344_4ac4_8527_4a8ef6905645)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeviceServicingDetails)]
+            interface IDeviceServicingDetails {
+                #[get]
+                DeviceId: String;
+                #[get]
+                Arguments: String;
+                #[get]
+                ExpectedDuration: super::super::Foundation::TimeSpan;
+            }
+            #[guid(0x7d565141_557e_4154_b994_e4f7a11fb323)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DeviceUseDetails)]
+            interface IDeviceUseDetails {
+                #[get]
+                DeviceId: String;
+                #[get]
+                Arguments: String;
+            }
+        }
+    }
+}

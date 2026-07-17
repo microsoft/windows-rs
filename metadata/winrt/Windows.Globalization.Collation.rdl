@@ -1,0 +1,45 @@
+#[winrt]
+mod Windows {
+    mod Globalization {
+        mod Collation {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class CharacterGrouping {
+                ICharacterGrouping,
+            }
+            #[Windows::Foundation::Metadata::Activatable(ICharacterGroupingsFactory, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class CharacterGroupings {
+                ICharacterGroupings,
+                super::super::Foundation::Collections::IVectorView<CharacterGrouping>,
+                super::super::Foundation::Collections::IIterable<CharacterGrouping>,
+            }
+            #[guid(0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CharacterGrouping)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICharacterGrouping {
+                #[get]
+                First: String;
+                #[get]
+                Label: String;
+            }
+            #[guid(0xb8d20a75_d4cf_4055_80e5_ce169c226496)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CharacterGroupings)]
+            interface ICharacterGroupings: super::super::Foundation::Collections::IVectorView<CharacterGrouping> + super::super::Foundation::Collections::IIterable<CharacterGrouping> {
+                fn Lookup(&self, text: String) -> String;
+            }
+            #[guid(0x99ea9fd9_886d_4401_9f98_69c82d4c2f78)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CharacterGroupings)]
+            interface ICharacterGroupingsFactory {
+                fn Create(&self, language: String) -> CharacterGroupings;
+            }
+        }
+    }
+}

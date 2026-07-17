@@ -835,31 +835,31 @@ impl ProximityDevice {
     pub fn StopPublishingMessage(&self, messageid: i64) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StopPublishingMessage)(windows_core::Interface::as_raw(self), messageid).ok() }
     }
-    pub fn DeviceArrived<F>(&self, arrivedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn DeviceArrived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>) + Send + 'static,
     {
-        let arrivedhandler = <DeviceArrivedEventHandler>::new(move |a0| {
-            arrivedhandler(a0);
+        let handler = <DeviceArrivedEventHandler>::new(move |a0| {
+            handler(a0);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DeviceArrived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&arrivedhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).DeviceArrived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDeviceArrived))
         }
     }
-    pub fn DeviceDeparted<F>(&self, departedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn DeviceDeparted<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>) + Send + 'static,
     {
-        let departedhandler = <DeviceDepartedEventHandler>::new(move |a0| {
-            departedhandler(a0);
+        let handler = <DeviceDepartedEventHandler>::new(move |a0| {
+            handler(a0);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DeviceDeparted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&departedhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).DeviceDeparted)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDeviceDeparted))
         }
     }

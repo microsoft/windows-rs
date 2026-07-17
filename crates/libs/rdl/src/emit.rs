@@ -32,7 +32,7 @@ pub fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
     use metadata::Type::*;
     match item {
         Bool => quote! { bool },
-        Char => quote! { u16 },
+        Char => quote! { Char16 },
         I8 => quote! { i8 },
         U8 => quote! { u8 },
         I16 => quote! { i16 },

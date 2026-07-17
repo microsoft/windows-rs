@@ -1,0 +1,90 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Sensors {
+            mod Custom {
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ICustomSensorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class CustomSensor {
+                    ICustomSensor,
+                    ICustomSensor2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class CustomSensorReading {
+                    ICustomSensorReading,
+                    ICustomSensorReading2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class CustomSensorReadingChangedEventArgs {
+                    ICustomSensorReadingChangedEventArgs,
+                }
+                #[guid(0xa136f9ad_4034_4b4d_99dd_531aac649c09)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensor)]
+                interface ICustomSensor {
+                    fn GetCurrentReading(&self) -> CustomSensorReading;
+                    #[get]
+                    MinimumReportInterval: u32;
+                    #[set]
+                    ReportInterval: u32;
+                    #[get]
+                    ReportInterval: u32;
+                    #[get]
+                    DeviceId: String;
+                    event ReadingChanged: super::super::super::Foundation::TypedEventHandler<CustomSensor, CustomSensorReadingChangedEventArgs>;
+                }
+                #[guid(0x20db3111_ec58_4d9f_bfbd_e77825088510)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensor)]
+                interface ICustomSensor2 {
+                    #[set]
+                    ReportLatency: u32;
+                    #[get]
+                    ReportLatency: u32;
+                    #[get]
+                    MaxBatchSize: u32;
+                }
+                #[guid(0x64004f4d_446a_4366_a87a_5f963268ec53)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensorReading)]
+                interface ICustomSensorReading {
+                    #[get]
+                    Timestamp: super::super::super::Foundation::DateTime;
+                    #[get]
+                    Properties: super::super::super::Foundation::Collections::IMapView<String, Object>;
+                }
+                #[guid(0x223c98ea_bf73_4992_9a48_d3c897594ccb)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensorReading)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                interface ICustomSensorReading2 {
+                    #[get]
+                    PerformanceCount: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
+                }
+                #[guid(0x6b202023_cffd_4cc1_8ff0_e21823d76fcc)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensorReadingChangedEventArgs)]
+                interface ICustomSensorReadingChangedEventArgs {
+                    #[get]
+                    Reading: CustomSensorReading;
+                }
+                #[guid(0x992052cf_f422_4c7d_836b_e7dc74a7124b)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensor)]
+                interface ICustomSensorStatics {
+                    fn GetDeviceSelector(&self, interfaceId: GUID) -> String;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn FromIdAsync(&self, sensorId: String) -> super::super::super::Foundation::IAsyncOperation<CustomSensor>;
+                }
+            }
+        }
+    }
+}

@@ -203,7 +203,9 @@ lowering code. A `formatter` module pretty-prints generated RDL.
 
 Verified by the dedicated test crates `test_rdl` (RDL ↔ winmd round-trips, with
 the `input/*.rdl` fixtures) and `test_clang` (header → RDL goldens under
-`expected/*.rdl`), plus the `rdl_roundtrip` tool. Downstream, `test_bindgen`
+`expected/*.rdl`), plus the SDK-free `tool_roundtrip` validator (re-derives every
+committed RDL corpus — WinRT, Win32, WDK — from its committed winmd and is
+`git diff`-enforced in the `gen` workflow). Downstream, `test_bindgen`
 covers the `.winmd` → Rust step that consumes this crate's output. Run
 `cargo test -p test_rdl` and `cargo test -p test_clang`.
 
@@ -229,9 +231,12 @@ remap of the same in-house corpus. Nothing reads the win32metadata reference win
 ### The winmd layout
 
 - `crates/libs/bindgen/default/Windows.winmd` — **WinRT** metadata, rebuilt in-house
-  by `tool_windows` by merging the per-contract winmds from the Windows SDK Contracts
-  NuGet package (there is no in-house WinRT *scraper* — the inputs are the SDK's own
-  reference winmds, merged rather than compiled from headers).
+  by `tool_winrt`: it merges the per-contract winmds from the Windows SDK Contracts
+  NuGet package, decompiles the result to the committed `metadata/winrt/*.rdl`
+  snapshot (per namespace), and compiles that snapshot back into the winmd. There is
+  no in-house WinRT *scraper* — the external inputs are the SDK's own reference
+  winmds, merged rather than compiled from headers — but the RDL step makes the
+  layout match Win32/WDK: the committed RDL is the reviewable source of truth.
 - `crates/libs/bindgen/default/Windows.Win32.winmd` — **in-house** Win32 metadata,
   written by `tool_win32`. This is what `windows-bindgen`'s bundled `"default"`
   bindings resolve to.
@@ -273,3 +278,242 @@ is projected alongside the remapped Win32/WDK partition.
 - **Round-trip asymmetries.** A few RDL ↔ winmd forms don't round-trip
   byte-identically (raw identifiers, GUID constants, delegate ABI spelling). The
   winmd is correct either way; this is a cosmetic writer-side gap.
+
+---
+
+## Study: does RDL losslessly round-trip WinRT and Win32 metadata?
+
+This section records a focused investigation into whether RDL — as produced and
+consumed by `windows-rdl`, `windows-clang`, and `windows-metadata` — can describe
+the full WinRT and Win32 metadata surface without loss, and where the validation
+gaps are. It is a findings report intended to seed follow-up work, not a
+description of shipped behavior.
+
+### Question
+
+Can RDL express every language/API/metadata feature present in today's WinRT and
+Win32 metadata, and do we have proof that a `winmd → RDL → winmd` round-trip is
+lossless for both?
+
+### What already guarantees Win32/WDK
+
+Win32 and WDK are lossless **by construction**: the in-house
+`Windows.Win32.winmd` and `Windows.Wdk.winmd` are *produced from* RDL. The
+committed `metadata/win32/*.rdl` and `metadata/wdk/*.rdl` snapshots are the
+reviewable source of truth, and the `gen` CI workflow regenerates the winmds with
+`tool_win32` / `tool_wdk` and fails on any `git diff`. So for Win32/WDK, "RDL can
+express it" is not a hypothesis — RDL is the authoring format, and CI enforces the
+round-trip continuously.
+
+WinRT was different at the time of this study. `Windows.winmd` was built by
+`tool_windows`, which **merged the Windows SDK Contracts winmds directly** — RDL was
+never in that path — so nothing in the normal build proved that WinRT metadata
+survived an RDL round-trip, and there was no committed WinRT RDL snapshot to review
+or diff against. (This has since been addressed — see *Implemented design* below —
+by inserting the RDL step into the renamed `tool_winrt` and committing
+`metadata/winrt`.)
+
+### Method
+
+Three levels of evidence were gathered:
+
+1. **Feature-vocabulary coverage** — the `test_rdl` fixtures (`crates/tests/libs/rdl/input/*.rdl`)
+   already exercise the WinRT-relevant constructs: generic interfaces and
+   delegates, required interfaces, runtime classes (static/activatable/composable
+   factories), events, WinRT enums/flags, `ExclusiveTo`, and custom attribute
+   arguments — alongside the Win32 constructs (callbacks, handles, unions,
+   packed/aligned structs). `crates/tests/libs/rdl/tests/roundtrip.rs` compiles
+   each fixture RDL → winmd → RDL and asserts the regenerated text matches the
+   input exactly.
+
+2. **Whole-surface projection** — a `winmd → RDL → winmd` projection was run over the
+   real committed `Windows.winmd`. The winmd → RDL writer emitted **343 per-namespace
+   `.rdl` files** covering the entire WinRT surface **with no unsupported-feature
+   errors**, and the RDL reader compiled all of it back to a winmd, also without
+   error. Spot-checking `Windows.Foundation.rdl` confirmed high fidelity:
+   multi-parameter generic delegates (`AsyncOperationProgressHandler<TResult, TProgress>`),
+   generic interfaces with required interfaces
+   (`IAsyncActionWithProgress<TProgress>: IAsyncInfo`), `#[get]`/`#[set]`
+   properties, `event` accessors, `ContractVersion` / `ApiContract` /
+   `Activatable` / `Static` / `MarshalingBehavior` / `Threading` attributes, and
+   GUIDs all survive.
+
+3. **Idempotence proof** — a raw winmd byte comparison is *not* a valid
+   losslessness test (winmd encoding legitimately varies in heap dedup and the
+   resolved dependency closure, so the round-tripped winmd is a different size
+   while being semantically equivalent). The valid check is at the canonical-RDL-text
+   level. A double round-trip was run:
+
+   ```text
+   Windows.winmd ──writer──▶ RDL(A) ──reader──▶ winmd′ ──writer──▶ RDL(B)
+   ```
+
+   **All 343 namespace files of RDL(A) and RDL(B) were byte-identical.** The
+   winmd ↔ RDL projection is therefore a stable fixed point across the whole WinRT
+   surface.
+
+### Findings
+
+- **RDL is expressive enough for the current WinRT and Win32 surface.** The full
+  WinRT winmd projects to RDL and back with zero unsupported-feature errors, and
+  the projection is idempotent. Nothing in today's metadata trips an
+  RDL-expressiveness limit.
+
+- **The reader fails loud, never silent.** Unsupported forms are hard errors, not
+  silent drops — e.g. `"type not supported"` and `"constant type not supported"`
+  (`crates/libs/rdl/src/reader/mod.rs`), `"callback abi not supported"` /
+  `"variadic parameters are not supported for callbacks"`
+  (`reader/callback.rs`), `"function abi not supported"` (`reader/fn.rs`). If a
+  future metadata construct exceeded RDL's vocabulary, the round-trip would fail
+  rather than quietly lose data. None of these fired on the current corpus.
+
+- **The writer drops nothing structurally.** `write_type_def` handles every
+  `TypeCategory` (Struct, Enum, Interface, Class, Delegate/Callback, Attribute)
+  with no catch-all drop, and the interface property/event shorthand
+  (`get_`/`put_` → property, `add_`/`remove_` → event) is `consumed`-tracked with
+  unconsumed methods falling through to full method form. The A == B idempotence
+  result confirms every such collapse is reversible.
+
+- **Idempotence is a fixed-point proof, with one honest caveat.** A == B proves
+  the RDL round-trip is stable and that the reader preserves everything the writer
+  emits. It does *not*, by itself, prove the *first* `winmd → RDL` step preserved
+  100% of the original SDK winmd — anything dropped at that first boundary would be
+  absent from both A and B and thus invisible to the diff. Closing that last gap
+  requires a **semantic** comparison of the original SDK-merged winmd against
+  winmd′ (table/row level), which was not built here. **This caveat proved real:**
+  the WinRT `Char` primitive (`System.Char`) was written as `u16` — identical to
+  `U16` — so the round-trip silently collapsed `Char → U16`. Idempotence never saw
+  it (the writer mapped both to `u16` in *both* directions); it surfaced only when
+  the RDL-rebuilt `Windows.winmd` broke the cppwinrt C++ header build
+  (`CreateChar16Array` became `uint16_t[]`). Fixed by giving `Char` the dedicated
+  RDL spelling `Char16` (mapped to `metadata::Type::Char` in the shared
+  `emit.rs` writer and the RDL reader), with a `char16`
+  round-trip fixture in `test_rdl`.
+
+### Gaps to close
+
+1. ~~**No committed WinRT RDL snapshot.**~~ **Closed.** `metadata/winrt/` now exists
+   (per-namespace, analogous to `metadata/win32/`), written by `tool_winrt` and
+   re-derivable by `tool_roundtrip`. As predicted by the idempotence result, the
+   snapshot is diff-stable.
+
+2. ~~**WinRT round-trip is not CI-enforced.**~~ **Closed.** `tool_winrt` and
+   `tool_roundtrip` are in the `gen` workflow matrix (`.github/workflows/gen.yml`),
+   so CI regenerates the WinRT RDL + winmd and fails on any `git diff`. The bitrotted
+   `tool_rdl_roundtrip` has been removed and superseded by `tool_roundtrip`.
+
+3. **First-boundary losslessness is only spot-checked for WinRT.** Partially
+   addressed: the `Char → U16` collapse was found (via the cppwinrt build) and
+   fixed with the `Char16` primitive, and a per-namespace comparison of the
+   SDK-merged winmd against the RDL-rebuilt `metadata/winrt` now shows only the
+   expected accessor param-name normalization. Still open as a *systematic* guard:
+   a table/row-level semantic winmd differ would catch any future first-boundary
+   loss automatically instead of relying on a downstream build to break.
+
+4. **Documented cosmetic asymmetries** (raw identifiers, GUID constants, delegate
+   ABI spelling; see *Known limitations* above) would produce spurious diffs in a
+   naive committed-snapshot check unless the writer output is treated as the
+   canonical form — which the idempotence result shows it already is for the WinRT
+   surface, and which the committed `metadata/winrt` snapshot now formalizes.
+
+### Suggested follow-up
+
+- ~~Add a `metadata/winrt/` RDL snapshot~~ and ~~fix/replace `tool_rdl_roundtrip`~~
+  are **done** (see *Implemented design* below).
+- Add a semantic winmd-equivalence check (original SDK-merged `Windows.winmd`
+  vs. the RDL-round-tripped winmd′, compared at the table/row level via
+  `windows-metadata`) to prove first-boundary losslessness, closing the one gap
+  idempotence cannot.
+
+---
+
+## Implemented design: unified metadata validation
+
+This section describes the model — now implemented — for validating all three
+metadata families (WinRT, Win32, WDK) so that **RDL is the reviewable source of truth
+and the `.winmd` is a derived artifact**, with `git diff` enforcing the round-trip.
+
+### The one structural asymmetry to absorb
+
+The winmd is *partition-lossy*, but only for the header-scraped families:
+
+- **WinRT** partitions RDL by **namespace**, which is stored in the winmd. So
+  `Windows.winmd → metadata/winrt` is fully reconstructable from the winmd alone —
+  a true `winmd → RDL` round-trip.
+- **Win32 / WDK** partition RDL by **defining header**, which is *not* in the flat
+  `Windows.Win32` winmd. `tool_win32` / `tool_wdk` recover it during the scrape and
+  bake it into `metadata/win32` / `metadata/wdk`. That file layout cannot be
+  rebuilt from the winmd alone; the RDL corpus owns it.
+
+A consistent design therefore treats the committed RDL as authoritative for
+partitioning, and validates *content* round-tripping against it.
+
+### Current vs. target state
+
+| Family | External source | Committed RDL | Committed winmd | RDL in winmd build path? |
+|---|---|---|---|---|
+| Win32 | SDK headers | `metadata/win32` (per header) | `Windows.Win32.winmd` | Yes |
+| WDK | WDK headers | `metadata/wdk` (per header) | `Windows.Wdk.winmd` | Yes |
+| WinRT | SDK Contracts winmds | `metadata/winrt` (per namespace) | `Windows.winmd` | Yes — merge → RDL → winmd |
+
+### Part 1 — WinRT matches the other generators (`tool_windows` → `tool_winrt`)
+
+The RDL step is inserted so WinRT's generator is structurally identical to
+`tool_win32` / `tool_wdk`:
+
+```text
+SDK Contracts winmds ──merge──▶ merged winmd (in target/)
+                     ──writer, split by namespace──▶ metadata/winrt/*.rdl   (committed)
+                     ──reader──▶ crates/libs/bindgen/default/Windows.winmd  (committed, derived)
+```
+
+The `gen` job's `git diff` on *both* `metadata/winrt` and `Windows.winmd`
+validates the `RDL → winmd` (reader) direction end-to-end. One-time effects:
+`Windows.winmd` re-bases to its RDL-rebuilt form (a reviewable diff), and — because
+the RDL accessor shorthand does not record the original accessor parameter name (see
+*Known limitations*) — the reader synthesizes canonical names (`value` for property
+setters, `handler`/`token` for event add/remove). That normalizes those parameter
+names in the generated `windows` crate (a one-time cosmetic regen via `tool_package`;
+ABI, signatures, types, and vtable order are unchanged). The crate was renamed to
+`tool_winrt` to align it with `tool_win32` / `tool_wdk` (mechanical: `Cargo.toml`,
+the `gen` matrix, and doc comments).
+
+### Part 2 — a fast, SDK-free validator (`tool_roundtrip`)
+
+`tool_roundtrip` depends only on `windows-rdl` (no libclang, no NuGet); it
+re-derives every committed RDL corpus *from its committed winmd* and relies on
+`git diff`:
+
+- **WinRT:** `writer(Windows.winmd).filters(["Windows", "!Windows.Win32", "!Windows.Wdk"]).split(true) → metadata/winrt`.
+  Pure `winmd → RDL`; the namespace layout comes from the winmd. Validates the
+  *writer* direction independently of the Contracts merge.
+- **Win32 / WDK:** the winmd cannot place types in header files, so the tool reads
+  the committed corpus for the name → header-stem map (`windows_rdl::item_names`,
+  exactly as `merge_arch_rdl` does), preserves the `metadata/win32/metadata.rdl`
+  seed (WDK has no seed — it resolves attributes from the Win32 reference winmd),
+  then `writer(winmd).partition(map) → metadata/{win32,wdk}`. Validates that the
+  winmd's *content* round-trips to the committed RDL under the committed layout.
+
+Because the round-trip output is byte-identical to what the generator wrote (that
+identity *is* the property under test), there is no real two-writer conflict: the
+generator is the slow provenance guard; `tool_roundtrip` is the fast consistency
+guard. Both the `split` and `partition` writer paths already clear stale `*.rdl`
+before writing, so repeated runs are idempotent.
+
+### Part 3 — CI wiring
+
+`winrt` and `roundtrip` are in the `.github/workflows/gen.yml` tool matrix, reusing
+the existing `cargo run -p tool_<tool>` + `git diff --exit-code` pattern. (`gen.yml`
+is hand-maintained, not generated by `tool_yml`.)
+
+### What each arrow proves
+
+| Arrow | Validated by | Mechanism |
+|---|---|---|
+| external → RDL → winmd (all three) | generator (`tool_win32` / `tool_wdk` / `tool_winrt`) | `git diff` on RDL + winmd |
+| winmd → RDL (WinRT) | `tool_roundtrip` | `git diff` (namespace partition, from winmd) |
+| winmd → RDL content (Win32 / WDK) | `tool_roundtrip` | `git diff` (layout from committed corpus + seed) |
+
+Together this makes `RDL ↔ winmd` a `git diff`-enforced bijection for WinRT and a
+`git diff`-enforced content round-trip for Win32 / WDK, whose file layout is by
+definition owned by the RDL corpus.

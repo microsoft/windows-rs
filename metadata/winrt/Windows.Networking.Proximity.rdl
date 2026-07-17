@@ -1,0 +1,235 @@
+#[winrt]
+mod Windows {
+    mod Networking {
+        mod Proximity {
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ConnectionRequestedEventArgs {
+                IConnectionRequestedEventArgs,
+            }
+            #[guid(0xefa9da69_f6e1_49c9_a49e_8e0fc58fb911)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn DeviceArrivedEventHandler(sender: ProximityDevice);
+            #[guid(0xefa9da69_f6e2_49c9_a49e_8e0fc58fb911)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn DeviceDepartedEventHandler(sender: ProximityDevice);
+            #[guid(0xeb6891ae_4f1e_4c66_bd0d_46924a942e08)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionRequestedEventArgs)]
+            interface IConnectionRequestedEventArgs {
+                #[get]
+                PeerInformation: PeerInformation;
+            }
+            #[guid(0x914b3b61_f6e1_47c4_a14c_148a1903d0c6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PeerFinder)]
+            interface IPeerFinderStatics {
+                AllowBluetooth: bool;
+                AllowInfrastructure: bool;
+                AllowWiFiDirect: bool;
+                DisplayName: String;
+                #[get]
+                SupportedDiscoveryTypes: PeerDiscoveryTypes;
+                #[get]
+                AlternateIdentities: super::super::Foundation::Collections::IMap<String, String>;
+                #[Windows::Foundation::Metadata::Overload("Start")]
+                fn Start(&self);
+                #[Windows::Foundation::Metadata::Overload("StartWithMessage")]
+                fn Start(&self, peerMessage: String);
+                fn Stop(&self);
+                event TriggeredConnectionStateChanged: super::super::Foundation::TypedEventHandler<Object, TriggeredConnectionStateChangedEventArgs>;
+                event ConnectionRequested: super::super::Foundation::TypedEventHandler<Object, ConnectionRequestedEventArgs>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAllPeersAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PeerInformation>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ConnectAsync(&self, peerInformation: PeerInformation) -> super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>;
+            }
+            #[guid(0xd6e73c65_fdd0_4b0b_9312_866408935d82)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PeerFinder)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPeerFinderStatics2 {
+                Role: PeerRole;
+                DiscoveryData: super::super::Storage::Streams::IBuffer;
+                fn CreateWatcher(&self) -> PeerWatcher;
+            }
+            #[guid(0x20024f08_9fff_45f4_b6e9_408b2ebef373)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PeerInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPeerInformation {
+                #[get]
+                DisplayName: String;
+            }
+            #[guid(0xb20f612a_dbd0_40f8_95bd_2d4209c7836f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PeerInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPeerInformation3 {
+                #[get]
+                Id: String;
+                #[get]
+                DiscoveryData: super::super::Storage::Streams::IBuffer;
+            }
+            #[guid(0xecc7ccad_1b70_4e8b_92db_bbe781419308)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PeerInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPeerInformationWithHostAndService {
+                #[get]
+                HostName: super::HostName;
+                #[get]
+                ServiceName: String;
+            }
+            #[guid(0x3cee21f8_2fa6_4679_9691_03c94a420f34)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PeerWatcher)]
+            interface IPeerWatcher {
+                event Added: super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>;
+                event Removed: super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>;
+                event Updated: super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>;
+                event EnumerationCompleted: super::super::Foundation::TypedEventHandler<PeerWatcher, Object>;
+                event Stopped: super::super::Foundation::TypedEventHandler<PeerWatcher, Object>;
+                #[get]
+                Status: PeerWatcherStatus;
+                fn Start(&self);
+                fn Stop(&self);
+            }
+            #[guid(0xefa8a552_f6e1_4329_a0fc_ab6b0fd28262)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProximityDevice)]
+            interface IProximityDevice {
+                fn SubscribeForMessage(&self, messageType: String, messageReceivedHandler: MessageReceivedHandler) -> i64;
+                #[Windows::Foundation::Metadata::Overload("PublishMessage")]
+                fn PublishMessage(&self, messageType: String, message: String) -> i64;
+                #[Windows::Foundation::Metadata::Overload("PublishMessageWithCallback")]
+                fn PublishMessage(&self, messageType: String, message: String, messageTransmittedHandler: MessageTransmittedHandler) -> i64;
+                #[Windows::Foundation::Metadata::Overload("PublishBinaryMessage")]
+                fn PublishBinaryMessage(&self, messageType: String, message: super::super::Storage::Streams::IBuffer) -> i64;
+                #[Windows::Foundation::Metadata::Overload("PublishBinaryMessageWithCallback")]
+                fn PublishBinaryMessage(&self, messageType: String, message: super::super::Storage::Streams::IBuffer, messageTransmittedHandler: MessageTransmittedHandler) -> i64;
+                #[Windows::Foundation::Metadata::Overload("PublishUriMessage")]
+                fn PublishUriMessage(&self, message: super::super::Foundation::Uri) -> i64;
+                #[Windows::Foundation::Metadata::Overload("PublishUriMessageWithCallback")]
+                fn PublishUriMessage(&self, message: super::super::Foundation::Uri, messageTransmittedHandler: MessageTransmittedHandler) -> i64;
+                fn StopSubscribingForMessage(&self, subscriptionId: i64);
+                fn StopPublishingMessage(&self, messageId: i64);
+                event DeviceArrived: DeviceArrivedEventHandler;
+                event DeviceDeparted: DeviceDepartedEventHandler;
+                #[get]
+                MaxMessageBytes: u32;
+                #[get]
+                BitsPerSecond: u64;
+                #[get]
+                DeviceId: String;
+            }
+            #[guid(0x914ba01d_f6e1_47c4_a14c_148a1903d0c6)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProximityDevice)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProximityDeviceStatics {
+                fn GetDeviceSelector(&self) -> String;
+                fn GetDefault(&self) -> ProximityDevice;
+                fn FromId(&self, deviceId: String) -> ProximityDevice;
+            }
+            #[guid(0xefab0782_f6e1_4675_a045_d8e320c24808)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProximityMessage)]
+            interface IProximityMessage {
+                #[get]
+                MessageType: String;
+                #[get]
+                SubscriptionId: i64;
+                #[get]
+                Data: super::super::Storage::Streams::IBuffer;
+                #[get]
+                DataAsString: String;
+            }
+            #[guid(0xc6a780ad_f6e1_4d54_96e2_33f620bca88a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TriggeredConnectionStateChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ITriggeredConnectionStateChangedEventArgs {
+                #[get]
+                State: TriggeredConnectState;
+                #[get]
+                Id: u32;
+                #[get]
+                Socket: super::Sockets::StreamSocket;
+            }
+            #[guid(0xefab0782_f6e2_4675_a045_d8e320c24808)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn MessageReceivedHandler(sender: ProximityDevice, message: ProximityMessage);
+            #[guid(0xefaa0b4a_f6e2_4d7d_856c_78fc8efc021e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn MessageTransmittedHandler(sender: ProximityDevice, messageId: i64);
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PeerDiscoveryTypes {
+                None = 0,
+                Browse = 1,
+                Triggered = 2,
+            }
+            #[Windows::Foundation::Metadata::Static(IPeerFinderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IPeerFinderStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PeerFinder {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PeerInformation {
+                IPeerInformation,
+                IPeerInformation3,
+                IPeerInformationWithHostAndService,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PeerRole {
+                Peer = 0,
+                Host = 1,
+                Client = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PeerWatcher {
+                IPeerWatcher,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PeerWatcherStatus {
+                Created = 0,
+                Started = 1,
+                EnumerationCompleted = 2,
+                Stopping = 3,
+                Stopped = 4,
+                Aborted = 5,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IProximityDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class ProximityDevice {
+                IProximityDevice,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ProximityMessage {
+                IProximityMessage,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TriggeredConnectState {
+                PeerFound = 0,
+                Listening = 1,
+                Connecting = 2,
+                Completed = 3,
+                Canceled = 4,
+                Failed = 5,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class TriggeredConnectionStateChangedEventArgs {
+                ITriggeredConnectionStateChangedEventArgs,
+            }
+        }
+    }
+}

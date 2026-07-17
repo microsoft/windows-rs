@@ -1,0 +1,241 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod AppService {
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IAppServiceCatalogStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AppServiceCatalog {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AppServiceClosedEventArgs {
+                IAppServiceClosedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppServiceClosedStatus {
+                Completed = 0,
+                Canceled = 1,
+                ResourceLimitsExceeded = 2,
+                Unknown = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IAppServiceConnectionStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+            class AppServiceConnection {
+                IAppServiceConnection,
+                IAppServiceConnection2,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppServiceConnectionStatus {
+                Success = 0,
+                AppNotInstalled = 1,
+                AppUnavailable = 2,
+                AppServiceUnavailable = 3,
+                Unknown = 4,
+                RemoteSystemUnavailable = 5,
+                RemoteSystemNotSupportedByApp = 6,
+                NotAuthorized = 7,
+                AuthenticationError = 8,
+                NetworkNotAvailable = 9,
+                DisabledByPolicy = 10,
+                WebServiceUnavailable = 11,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AppServiceDeferral {
+                IAppServiceDeferral,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AppServiceRequest {
+                IAppServiceRequest,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AppServiceRequestReceivedEventArgs {
+                IAppServiceRequestReceivedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AppServiceResponse {
+                IAppServiceResponse,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AppServiceResponseStatus {
+                Success = 0,
+                Failure = 1,
+                ResourceLimitsExceeded = 2,
+                Unknown = 3,
+                RemoteSystemUnavailable = 4,
+                MessageSizeTooLarge = 5,
+                AppUnavailable = 6,
+                AuthenticationError = 7,
+                NetworkNotAvailable = 8,
+                DisabledByPolicy = 9,
+                WebServiceUnavailable = 10,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class AppServiceTriggerDetails {
+                IAppServiceTriggerDetails,
+                IAppServiceTriggerDetails2,
+                IAppServiceTriggerDetails3,
+                IAppServiceTriggerDetails4,
+            }
+            #[guid(0xef0d2507_d132_4c85_8395_3c31d5a1e941)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceCatalog)]
+            interface IAppServiceCatalogStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAppServiceProvidersAsync(&self, appServiceName: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>;
+            }
+            #[guid(0xde6016f6_cb03_4d35_ac8d_cc6303239731)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceClosedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppServiceClosedEventArgs {
+                #[get]
+                Status: AppServiceClosedStatus;
+            }
+            #[guid(0x9dd474a2_871f_4d52_89a9_9e090531bd27)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceConnection)]
+            interface IAppServiceConnection {
+                AppServiceName: String;
+                PackageFamilyName: String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn OpenAsync(&self) -> super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SendMessageAsync(&self, message: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<AppServiceResponse>;
+                event RequestReceived: super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceRequestReceivedEventArgs>;
+                event ServiceClosed: super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceClosedEventArgs>;
+            }
+            #[guid(0x8bdfcd5f_2302_4fbd_8061_52511c2f8bf9)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceConnection)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAppServiceConnection2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn OpenRemoteAsync(&self, remoteSystemConnectionRequest: super::super::System::RemoteSystems::RemoteSystemConnectionRequest) -> super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>;
+                User: super::super::System::User;
+            }
+            #[guid(0xadc56ce9_d408_5673_8637_827a4b274168)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceConnection)]
+            interface IAppServiceConnectionStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SendStatelessMessageAsync(&self, connection: AppServiceConnection, connectionRequest: super::super::System::RemoteSystems::RemoteSystemConnectionRequest, message: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<StatelessAppServiceResponse>;
+            }
+            #[guid(0x7e1b5322_eab0_4248_ae04_fdf93838e472)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceDeferral)]
+            interface IAppServiceDeferral {
+                fn Complete(&self);
+            }
+            #[guid(0x20e58d9d_18de_4b01_80ba_90a76204e3c8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceRequest)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppServiceRequest {
+                #[get]
+                Message: super::super::Foundation::Collections::ValueSet;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SendResponseAsync(&self, message: super::super::Foundation::Collections::ValueSet) -> super::super::Foundation::IAsyncOperation<AppServiceResponseStatus>;
+            }
+            #[guid(0x6e122360_ff65_44ae_9e45_857fe4180681)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceRequestReceivedEventArgs)]
+            interface IAppServiceRequestReceivedEventArgs {
+                #[get]
+                Request: AppServiceRequest;
+                fn GetDeferral(&self) -> AppServiceDeferral;
+            }
+            #[guid(0x8d503cec_9aa3_4e68_9559_9de63e372ce4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceResponse)]
+            interface IAppServiceResponse {
+                #[get]
+                Message: super::super::Foundation::Collections::ValueSet;
+                #[get]
+                Status: AppServiceResponseStatus;
+            }
+            #[guid(0x88a2dcac_ad28_41b8_80bb_bdf1b2169e19)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceTriggerDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAppServiceTriggerDetails {
+                #[get]
+                Name: String;
+                #[get]
+                CallerPackageFamilyName: String;
+                #[get]
+                AppServiceConnection: AppServiceConnection;
+            }
+            #[guid(0xe83d54b2_28cc_43f2_b465_c0482e59e2dc)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceTriggerDetails)]
+            interface IAppServiceTriggerDetails2 {
+                #[get]
+                IsRemoteSystemConnection: bool;
+            }
+            #[guid(0xfbd71e21_7939_4e68_9e3c_7780147aabb6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceTriggerDetails)]
+            interface IAppServiceTriggerDetails3 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CheckCallerForCapabilityAsync(&self, capabilityName: String) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[guid(0x1185b180_8861_5e30_ab55_1cf4d08bbf6d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceTriggerDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IAppServiceTriggerDetails4 {
+                #[get]
+                CallerRemoteConnectionToken: String;
+            }
+            #[guid(0x43754af7_a9ec_52fe_82e7_939b68dc9388)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StatelessAppServiceResponse)]
+            interface IStatelessAppServiceResponse {
+                #[get]
+                Message: super::super::Foundation::Collections::ValueSet;
+                #[get]
+                Status: StatelessAppServiceResponseStatus;
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class StatelessAppServiceResponse {
+                IStatelessAppServiceResponse,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum StatelessAppServiceResponseStatus {
+                Success = 0,
+                AppNotInstalled = 1,
+                AppUnavailable = 2,
+                AppServiceUnavailable = 3,
+                RemoteSystemUnavailable = 4,
+                RemoteSystemNotSupportedByApp = 5,
+                NotAuthorized = 6,
+                ResourceLimitsExceeded = 7,
+                MessageSizeTooLarge = 8,
+                Failure = 9,
+                Unknown = 10,
+                AuthenticationError = 11,
+                NetworkNotAvailable = 12,
+                DisabledByPolicy = 13,
+                WebServiceUnavailable = 14,
+            }
+        }
+    }
+}

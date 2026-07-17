@@ -403,6 +403,21 @@ impl AcceleratorKeyPressedArgs {
     }
 }
 
+/// A Chrome DevTools Protocol event, delivered to a
+/// [`WebView::on_dev_tools_protocol_event`] handler. The event's parameters are
+/// available as a JSON object string.
+pub struct DevToolsProtocolEventReceivedArgs(
+    pub(crate) ICoreWebView2DevToolsProtocolEventReceivedEventArgs,
+);
+
+impl DevToolsProtocolEventReceivedArgs {
+    /// Returns the event's parameter object as a JSON string, matching the
+    /// `params` of the corresponding CDP event.
+    pub fn parameter_object_as_json(&self) -> String {
+        unsafe { string::take_result(self.0.ParameterObjectAsJson()) }
+    }
+}
+
 /// An RAII guard for an event subscription. The handler stays registered until
 /// this value is dropped or [`EventRegistration::remove`] is called.
 #[must_use]

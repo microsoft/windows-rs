@@ -1,0 +1,94 @@
+#[winrt]
+mod Windows {
+    mod System {
+        mod Diagnostics {
+            mod DevicePortal {
+                #[Windows::Foundation::Metadata::Static(IDevicePortalConnectionStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class DevicePortalConnection {
+                    IDevicePortalConnection,
+                    IDevicePortalWebSocketConnection,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DevicePortalConnectionClosedEventArgs {
+                    IDevicePortalConnectionClosedEventArgs,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum DevicePortalConnectionClosedReason {
+                    Unknown = 0,
+                    ResourceLimitsExceeded = 1,
+                    ProtocolError = 2,
+                    NotAuthorized = 3,
+                    UserNotPresent = 4,
+                    ServiceTerminated = 5,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DevicePortalConnectionRequestReceivedEventArgs {
+                    IDevicePortalConnectionRequestReceivedEventArgs,
+                    IDevicePortalWebSocketConnectionRequestReceivedEventArgs,
+                }
+                #[guid(0x0f447f51_1198_4da1_8d54_bdef393e09b6)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnection)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IDevicePortalConnection {
+                    event Closed: super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionClosedEventArgs>;
+                    event RequestReceived: super::super::super::Foundation::TypedEventHandler<DevicePortalConnection, DevicePortalConnectionRequestReceivedEventArgs>;
+                }
+                #[guid(0xfcf70e38_7032_428c_9f50_945c15a9f0cb)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnectionClosedEventArgs)]
+                interface IDevicePortalConnectionClosedEventArgs {
+                    #[get]
+                    Reason: DevicePortalConnectionClosedReason;
+                }
+                #[guid(0x64dae045_6fda_4459_9ebd_ecce22e38559)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnectionRequestReceivedEventArgs)]
+                interface IDevicePortalConnectionRequestReceivedEventArgs {
+                    #[get]
+                    RequestMessage: super::super::super::Web::Http::HttpRequestMessage;
+                    #[get]
+                    ResponseMessage: super::super::super::Web::Http::HttpResponseMessage;
+                }
+                #[guid(0x4bbe31e7_e9b9_4645_8fed_a53eea0edbd6)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnection)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IDevicePortalConnectionStatics {
+                    fn GetForAppServiceConnection(&self, appServiceConnection: super::super::super::ApplicationModel::AppService::AppServiceConnection) -> DevicePortalConnection;
+                }
+                #[guid(0x67657920_d65a_42f0_aef4_787808098b7b)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnection)]
+                interface IDevicePortalWebSocketConnection {
+                    #[Windows::Foundation::Metadata::Overload("GetServerMessageWebSocketForRequest")]
+                    fn GetServerMessageWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
+                    #[Windows::Foundation::Metadata::Overload("GetServerMessageWebSocketForRequest2")]
+                    fn GetServerMessageWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage, messageType: super::super::super::Networking::Sockets::SocketMessageType, protocol: String) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
+                    #[Windows::Foundation::Metadata::Overload("GetServerMessageWebSocketForRequest3")]
+                    fn GetServerMessageWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage, messageType: super::super::super::Networking::Sockets::SocketMessageType, protocol: String, outboundBufferSizeInBytes: u32, maxMessageSize: u32, receiveMode: super::super::super::Networking::Sockets::MessageWebSocketReceiveMode) -> super::super::super::Networking::Sockets::ServerMessageWebSocket;
+                    #[Windows::Foundation::Metadata::Overload("GetServerStreamWebSocketForRequest")]
+                    fn GetServerStreamWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage) -> super::super::super::Networking::Sockets::ServerStreamWebSocket;
+                    #[Windows::Foundation::Metadata::Overload("GetServerStreamWebSocketForRequest2")]
+                    fn GetServerStreamWebSocketForRequest(&self, request: super::super::super::Web::Http::HttpRequestMessage, protocol: String, outboundBufferSizeInBytes: u32, noDelay: bool) -> super::super::super::Networking::Sockets::ServerStreamWebSocket;
+                }
+                #[guid(0x79fdcaba_175c_4739_9f74_dda797c35b3f)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DevicePortalConnectionRequestReceivedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                interface IDevicePortalWebSocketConnectionRequestReceivedEventArgs {
+                    #[get]
+                    IsWebSocketUpgradeRequest: bool;
+                    #[get]
+                    WebSocketProtocolsRequested: super::super::super::Foundation::Collections::IVectorView<String>;
+                    fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        #[Windows::Foundation::Metadata::ContractVersion(196608)]
+        #[Windows::Foundation::Metadata::ApiContract]
+        struct DevicesLowLevelContract {}
+        #[guid(0xa73e561c_aac1_4ec7_a852_479f7060d01f)]
+        #[Windows::Foundation::Metadata::ContractVersion(DevicesLowLevelContract, 131072)]
+        interface ILowLevelDevicesAggregateProvider {
+            #[get]
+            AdcControllerProvider: Adc::Provider::IAdcControllerProvider;
+            #[get]
+            PwmControllerProvider: Pwm::Provider::IPwmControllerProvider;
+            #[get]
+            GpioControllerProvider: Gpio::Provider::IGpioControllerProvider;
+            #[get]
+            I2cControllerProvider: I2c::Provider::II2cControllerProvider;
+            #[get]
+            SpiControllerProvider: Spi::Provider::ISpiControllerProvider;
+        }
+        #[guid(0x9ac4aaf6_3473_465e_96d5_36281a2c57af)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(LowLevelDevicesAggregateProvider)]
+        #[Windows::Foundation::Metadata::ContractVersion(DevicesLowLevelContract, 131072)]
+        interface ILowLevelDevicesAggregateProviderFactory {
+            fn Create(&self, adc: Adc::Provider::IAdcControllerProvider, pwm: Pwm::Provider::IPwmControllerProvider, gpio: Gpio::Provider::IGpioControllerProvider, i2c: I2c::Provider::II2cControllerProvider, spi: Spi::Provider::ISpiControllerProvider) -> LowLevelDevicesAggregateProvider;
+        }
+        #[guid(0x2ec23dd4_179b_45de_9b39_3ae02527de52)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(LowLevelDevicesController)]
+        #[Windows::Foundation::Metadata::ContractVersion(DevicesLowLevelContract, 131072)]
+        interface ILowLevelDevicesController {}
+        #[guid(0x093e926a_fccb_4394_a697_19de637c2db3)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(LowLevelDevicesController)]
+        #[Windows::Foundation::Metadata::ContractVersion(DevicesLowLevelContract, 131072)]
+        interface ILowLevelDevicesControllerStatics {
+            DefaultProvider: ILowLevelDevicesAggregateProvider;
+        }
+        #[Windows::Foundation::Metadata::Activatable(ILowLevelDevicesAggregateProviderFactory, 131072, "Windows.Devices.DevicesLowLevelContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(DevicesLowLevelContract, 131072)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        class LowLevelDevicesAggregateProvider {
+            ILowLevelDevicesAggregateProvider,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(DevicesLowLevelContract, 131072)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::Static(ILowLevelDevicesControllerStatics, 131072, "Windows.Devices.DevicesLowLevelContract")]
+        class LowLevelDevicesController {
+            ILowLevelDevicesController,
+        }
+    }
+}

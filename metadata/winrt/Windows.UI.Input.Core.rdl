@@ -1,0 +1,39 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Input {
+            mod Core {
+                #[guid(0x3d577ef6_4cee_11e6_b535_001bdc06ab3b)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerIndependentInputSource)]
+                interface IRadialControllerIndependentInputSource {
+                    #[get]
+                    Controller: super::RadialController;
+                    #[get]
+                    Dispatcher: super::super::Core::CoreDispatcher;
+                }
+                #[guid(0x7073aad8_35f3_4eeb_8751_be4d0a66faf4)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerIndependentInputSource)]
+                interface IRadialControllerIndependentInputSource2 {
+                    #[get]
+                    DispatcherQueue: super::super::super::System::DispatcherQueue;
+                }
+                #[guid(0x3d577ef5_4cee_11e6_b535_001bdc06ab3b)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerIndependentInputSource)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IRadialControllerIndependentInputSourceStatics {
+                    fn CreateForView(&self, view: super::super::super::ApplicationModel::Core::CoreApplicationView) -> RadialControllerIndependentInputSource;
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Static(IRadialControllerIndependentInputSourceStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                class RadialControllerIndependentInputSource {
+                    IRadialControllerIndependentInputSource,
+                    IRadialControllerIndependentInputSource2,
+                }
+            }
+        }
+    }
+}

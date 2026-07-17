@@ -1,0 +1,2174 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Xaml {
+            mod Media {
+                mod Animation {
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class AddDeleteThemeTransition: Transition {
+                        IAddDeleteThemeTransition,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IBackEaseStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class BackEase: EasingFunctionBase {
+                        IBackEase,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::Composable(IBasicConnectedAnimationConfigurationFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
+                    class BasicConnectedAnimationConfiguration: ConnectedAnimationConfiguration {
+                        IBasicConnectedAnimationConfiguration,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Storyboard")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(IBeginStoryboardStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class BeginStoryboard: super::super::TriggerAction {
+                        IBeginStoryboard,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IBounceEaseStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class BounceEase: EasingFunctionBase {
+                        IBounceEase,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class CircleEase: EasingFunctionBase {
+                        ICircleEase,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum ClockState {
+                        Active = 0,
+                        Filling = 1,
+                        Stopped = 2,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IColorAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class ColorAnimation: Timeline {
+                        IColorAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::UI::Xaml::Markup::ContentProperty(Name = "KeyFrames")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IColorAnimationUsingKeyFramesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class ColorAnimationUsingKeyFrames: Timeline {
+                        IColorAnimationUsingKeyFrames,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IColorKeyFrameStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Composable(IColorKeyFrameFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class ColorKeyFrame: super::super::DependencyObject {
+                        IColorKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class ColorKeyFrameCollection {
+                        super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame>,
+                        super::super::super::super::Foundation::Collections::IIterable<ColorKeyFrame>,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(ICommonNavigationTransitionInfoStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class CommonNavigationTransitionInfo: NavigationTransitionInfo {
+                        ICommonNavigationTransitionInfo,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::AttributeName("conditionallyindependentlyanimatable")]
+                    #[Windows::Foundation::Metadata::AttributeUsage(Property)]
+                    attribute ConditionallyIndependentlyAnimatableAttribute {
+                        fn();
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class ConnectedAnimation {
+                        IConnectedAnimation,
+                        IConnectedAnimation2,
+                        IConnectedAnimation3,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum ConnectedAnimationComponent {
+                        OffsetX = 0,
+                        OffsetY = 1,
+                        CrossFade = 2,
+                        Scale = 3,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Composable(IConnectedAnimationConfigurationFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class ConnectedAnimationConfiguration {
+                        IConnectedAnimationConfiguration,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IConnectedAnimationServiceStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class ConnectedAnimationService {
+                        IConnectedAnimationService,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IContentThemeTransitionStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class ContentThemeTransition: Transition {
+                        IContentThemeTransition,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IContinuumNavigationTransitionInfoStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class ContinuumNavigationTransitionInfo: NavigationTransitionInfo {
+                        IContinuumNavigationTransitionInfo,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class CubicEase: EasingFunctionBase {
+                        ICubicEase,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Composable(IDirectConnectedAnimationConfigurationFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
+                    class DirectConnectedAnimationConfiguration: ConnectedAnimationConfiguration {
+                        IDirectConnectedAnimationConfiguration,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class DiscreteColorKeyFrame: ColorKeyFrame {
+                        IDiscreteColorKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class DiscreteDoubleKeyFrame: DoubleKeyFrame {
+                        IDiscreteDoubleKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class DiscreteObjectKeyFrame: ObjectKeyFrame {
+                        IDiscreteObjectKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class DiscretePointKeyFrame: PointKeyFrame {
+                        IDiscretePointKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IDoubleAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class DoubleAnimation: Timeline {
+                        IDoubleAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::UI::Xaml::Markup::ContentProperty(Name = "KeyFrames")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IDoubleAnimationUsingKeyFramesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class DoubleAnimationUsingKeyFrames: Timeline {
+                        IDoubleAnimationUsingKeyFrames,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Composable(IDoubleKeyFrameFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IDoubleKeyFrameStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class DoubleKeyFrame: super::super::DependencyObject {
+                        IDoubleKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class DoubleKeyFrameCollection {
+                        super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame>,
+                        super::super::super::super::Foundation::Collections::IIterable<DoubleKeyFrame>,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IDragItemThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class DragItemThemeAnimation: Timeline {
+                        IDragItemThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IDragOverThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class DragOverThemeAnimation: Timeline {
+                        IDragOverThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class DrillInNavigationTransitionInfo: NavigationTransitionInfo {
+                        IDrillInNavigationTransitionInfo,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IDrillInThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class DrillInThemeAnimation: Timeline {
+                        IDrillInThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IDrillOutThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class DrillOutThemeAnimation: Timeline {
+                        IDrillOutThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IDropTargetItemThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class DropTargetItemThemeAnimation: Timeline {
+                        IDropTargetItemThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IEasingColorKeyFrameStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class EasingColorKeyFrame: ColorKeyFrame {
+                        IEasingColorKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IEasingDoubleKeyFrameStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class EasingDoubleKeyFrame: DoubleKeyFrame {
+                        IEasingDoubleKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Composable(IEasingFunctionBaseFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IEasingFunctionBaseStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class EasingFunctionBase: super::super::DependencyObject {
+                        IEasingFunctionBase,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum EasingMode {
+                        EaseOut = 0,
+                        EaseIn = 1,
+                        EaseInOut = 2,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IEasingPointKeyFrameStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class EasingPointKeyFrame: PointKeyFrame {
+                        IEasingPointKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IEdgeUIThemeTransitionStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class EdgeUIThemeTransition: Transition {
+                        IEdgeUIThemeTransition,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IElasticEaseStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class ElasticEase: EasingFunctionBase {
+                        IElasticEase,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IEntranceNavigationTransitionInfoStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class EntranceNavigationTransitionInfo: NavigationTransitionInfo {
+                        IEntranceNavigationTransitionInfo,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IEntranceThemeTransitionStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class EntranceThemeTransition: Transition {
+                        IEntranceThemeTransition,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IExponentialEaseStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class ExponentialEase: EasingFunctionBase {
+                        IExponentialEase,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IFadeInThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class FadeInThemeAnimation: Timeline {
+                        IFadeInThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(IFadeOutThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class FadeOutThemeAnimation: Timeline {
+                        IFadeOutThemeAnimation,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum FillBehavior {
+                        HoldEnd = 0,
+                        Stop = 1,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Composable(IGravityConnectedAnimationConfigurationFactory, Public, 458752, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    class GravityConnectedAnimationConfiguration: ConnectedAnimationConfiguration {
+                        IGravityConnectedAnimationConfiguration,
+                        IGravityConnectedAnimationConfiguration2,
+                    }
+                    #[guid(0xadec852e_4424_4dab_99c1_3a04e36a3c48)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(AddDeleteThemeTransition)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IAddDeleteThemeTransition {}
+                    #[guid(0xe47796e7_f805_4a8f_81c9_38e6472caa94)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BackEase)]
+                    interface IBackEase {
+                        Amplitude: f64;
+                    }
+                    #[guid(0x3c70a2ff_a0a0_4786_926c_22321f8f25b7)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BackEase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IBackEaseStatics {
+                        #[get]
+                        AmplitudeProperty: super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BasicConnectedAnimationConfiguration)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    interface IBasicConnectedAnimationConfiguration {}
+                    #[guid(0x95e6844a_4377_503c_bee2_11dfcd5570e6)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BasicConnectedAnimationConfiguration)]
+                    interface IBasicConnectedAnimationConfigurationFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> BasicConnectedAnimationConfiguration;
+                    }
+                    #[guid(0x64189fcd_49ec_4e52_a6f6_55324c921053)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BeginStoryboard)]
+                    interface IBeginStoryboard {
+                        Storyboard: Storyboard;
+                    }
+                    #[guid(0x12cff18c_aa91_4c4a_b82f_df34fc57f94b)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BeginStoryboard)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IBeginStoryboardStatics {
+                        #[get]
+                        StoryboardProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x2bf1464e_fc71_47ed_85a1_3ba9577718b4)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BounceEase)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IBounceEase {
+                        Bounces: i32;
+                        Bounciness: f64;
+                    }
+                    #[guid(0xc0701da2_4f73_41c9_b2cb_2ea3105107ff)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(BounceEase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IBounceEaseStatics {
+                        #[get]
+                        BouncesProperty: super::super::DependencyProperty;
+                        #[get]
+                        BouncinessProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x53a3bdb2_9177_4e6e_a043_5082d889ab1f)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CircleEase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ICircleEase {}
+                    #[guid(0xb8ae8a15_0f63_4694_9467_bdafac1253ea)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IColorAnimation {
+                        From: super::super::super::super::Foundation::IReference<super::super::super::Color>;
+                        To: super::super::super::super::Foundation::IReference<super::super::super::Color>;
+                        By: super::super::super::super::Foundation::IReference<super::super::super::Color>;
+                        EasingFunction: EasingFunctionBase;
+                        EnableDependentAnimation: bool;
+                    }
+                    #[guid(0x55eaf6e2_87e3_4f48_958f_855b2f9ea9ec)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IColorAnimationStatics {
+                        #[get]
+                        FromProperty: super::super::DependencyProperty;
+                        #[get]
+                        ToProperty: super::super::DependencyProperty;
+                        #[get]
+                        ByProperty: super::super::DependencyProperty;
+                        #[get]
+                        EasingFunctionProperty: super::super::DependencyProperty;
+                        #[get]
+                        EnableDependentAnimationProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xf5c82640_13c3_42aa_9ae2_7e6b51c92f95)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorAnimationUsingKeyFrames)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IColorAnimationUsingKeyFrames {
+                        #[get]
+                        KeyFrames: ColorKeyFrameCollection;
+                        EnableDependentAnimation: bool;
+                    }
+                    #[guid(0xb4723cdc_96e9_48f9_8d92_9b648b2f1cc6)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorAnimationUsingKeyFrames)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IColorAnimationUsingKeyFramesStatics {
+                        #[get]
+                        EnableDependentAnimationProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xb51d82d9_0910_4589_a284_b0c9205858e9)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorKeyFrame)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IColorKeyFrame {
+                        Value: super::super::super::Color;
+                        KeyTime: KeyTime;
+                    }
+                    #[guid(0x769bd88a_9cfb_4a7d_96c4_a1e7de6fdb4b)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorKeyFrame)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IColorKeyFrameFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> ColorKeyFrame;
+                    }
+                    #[guid(0xc043ae99_210c_430f_9da5_df1082692055)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ColorKeyFrame)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IColorKeyFrameStatics {
+                        #[get]
+                        ValueProperty: super::super::DependencyProperty;
+                        #[get]
+                        KeyTimeProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x50345692_a555_4624_a361_0a91c1706473)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CommonNavigationTransitionInfo)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ICommonNavigationTransitionInfo {
+                        IsStaggeringEnabled: bool;
+                    }
+                    #[guid(0x1e3efe33_50be_4443_883c_e5627201c2e5)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CommonNavigationTransitionInfo)]
+                    interface ICommonNavigationTransitionInfoStatics {
+                        #[get]
+                        IsStaggeringEnabledProperty: super::super::DependencyProperty;
+                        #[get]
+                        IsStaggerElementProperty: super::super::DependencyProperty;
+                        fn GetIsStaggerElement(&self, element: super::super::UIElement) -> bool;
+                        fn SetIsStaggerElement(&self, element: super::super::UIElement, value: bool);
+                    }
+                    #[guid(0x3518628c_f387_4c25_ac98_44e86c3cadf0)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ConnectedAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    interface IConnectedAnimation {
+                        event Completed: super::super::super::super::Foundation::TypedEventHandler<ConnectedAnimation, Object>;
+                        #[Windows::Foundation::Metadata::Overload("TryStart")]
+                        fn TryStart(&self, destination: super::super::UIElement) -> bool;
+                        fn Cancel(&self);
+                    }
+                    #[guid(0x5d2f8e5c_584b_4ddd_b668_973891431459)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ConnectedAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 262144)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IConnectedAnimation2 {
+                        IsScaleAnimationEnabled: bool;
+                        #[Windows::Foundation::Metadata::Overload("TryStartWithCoordinatedElements")]
+                        fn TryStart(&self, destination: super::super::UIElement, coordinatedElements: super::super::super::super::Foundation::Collections::IIterable<super::super::UIElement>) -> bool;
+                        fn SetAnimationComponent(&self, component: ConnectedAnimationComponent, animation: super::super::super::Composition::ICompositionAnimationBase);
+                    }
+                    #[guid(0x6e3040c6_0430_59c0_a80c_cceed2e778dd)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ConnectedAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IConnectedAnimation3 {
+                        Configuration: ConnectedAnimationConfiguration;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ConnectedAnimationConfiguration)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IConnectedAnimationConfiguration {}
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ConnectedAnimationConfiguration)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IConnectedAnimationConfigurationFactory {}
+                    #[guid(0x1c6875c9_19bb_4d47_b9aa_66c802dcb9ff)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ConnectedAnimationService)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    interface IConnectedAnimationService {
+                        DefaultDuration: super::super::super::super::Foundation::TimeSpan;
+                        DefaultEasingFunction: super::super::super::Composition::CompositionEasingFunction;
+                        fn PrepareToAnimate(&self, key: String, source: super::super::UIElement) -> ConnectedAnimation;
+                        fn GetAnimation(&self, key: String) -> ConnectedAnimation;
+                    }
+                    #[guid(0xc7078ea5_d688_40e8_8f90_96a6279273d2)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ConnectedAnimationService)]
+                    interface IConnectedAnimationServiceStatics {
+                        fn GetForCurrentView(&self) -> ConnectedAnimationService;
+                    }
+                    #[guid(0xf66fc5c3_5915_437d_8e3b_adf8e7f0ab57)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ContentThemeTransition)]
+                    interface IContentThemeTransition {
+                        HorizontalOffset: f64;
+                        VerticalOffset: f64;
+                    }
+                    #[guid(0x0e8ee385_9a42_4459_afa9_337dc41e1587)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ContentThemeTransition)]
+                    interface IContentThemeTransitionStatics {
+                        #[get]
+                        HorizontalOffsetProperty: super::super::DependencyProperty;
+                        #[get]
+                        VerticalOffsetProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x4be1dbad_8ba6_4004_8438_8a9017978543)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ContinuumNavigationTransitionInfo)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IContinuumNavigationTransitionInfo {
+                        ExitElement: super::super::UIElement;
+                    }
+                    #[guid(0x3e25dd53_b18f_4bf1_b3bc_92f516f29903)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ContinuumNavigationTransitionInfo)]
+                    interface IContinuumNavigationTransitionInfoStatics {
+                        #[get]
+                        ExitElementProperty: super::super::DependencyProperty;
+                        #[get]
+                        IsEntranceElementProperty: super::super::DependencyProperty;
+                        fn GetIsEntranceElement(&self, element: super::super::UIElement) -> bool;
+                        fn SetIsEntranceElement(&self, element: super::super::UIElement, value: bool);
+                        #[get]
+                        IsExitElementProperty: super::super::DependencyProperty;
+                        fn GetIsExitElement(&self, element: super::super::UIElement) -> bool;
+                        fn SetIsExitElement(&self, element: super::super::UIElement, value: bool);
+                        #[get]
+                        ExitElementContainerProperty: super::super::DependencyProperty;
+                        fn GetExitElementContainer(&self, element: super::super::Controls::ListViewBase) -> bool;
+                        fn SetExitElementContainer(&self, element: super::super::Controls::ListViewBase, value: bool);
+                    }
+                    #[guid(0x1b94fc76_dad7_4354_b1a2_7969fbf6a70d)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(CubicEase)]
+                    interface ICubicEase {}
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DirectConnectedAnimationConfiguration)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IDirectConnectedAnimationConfiguration {}
+                    #[guid(0x059263e9_d2b3_5a77_9cf4_e26d8b542608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DirectConnectedAnimationConfiguration)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    interface IDirectConnectedAnimationConfigurationFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> DirectConnectedAnimationConfiguration;
+                    }
+                    #[guid(0x230c08f4_e062_4cb1_8e2a_14093d73ed8c)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DiscreteColorKeyFrame)]
+                    interface IDiscreteColorKeyFrame {}
+                    #[guid(0xf5f51f3a_ad11_49ce_8e1c_08fdf1447446)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DiscreteDoubleKeyFrame)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IDiscreteDoubleKeyFrame {}
+                    #[guid(0xc7dcde89_f12d_4a9c_8199_e7a9ece3a473)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DiscreteObjectKeyFrame)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IDiscreteObjectKeyFrame {}
+                    #[guid(0xe0a9070d_4c42_4a90_983a_75f5a83a2fbe)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DiscretePointKeyFrame)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IDiscretePointKeyFrame {}
+                    #[guid(0x7e9f3d59_0f07_4bc9_977d_03763ff8154f)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DoubleAnimation)]
+                    interface IDoubleAnimation {
+                        From: super::super::super::super::Foundation::IReference<f64>;
+                        To: super::super::super::super::Foundation::IReference<f64>;
+                        By: super::super::super::super::Foundation::IReference<f64>;
+                        EasingFunction: EasingFunctionBase;
+                        EnableDependentAnimation: bool;
+                    }
+                    #[guid(0xe27a935d_f111_43b7_b824_832b58d7786b)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DoubleAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IDoubleAnimationStatics {
+                        #[get]
+                        FromProperty: super::super::DependencyProperty;
+                        #[get]
+                        ToProperty: super::super::DependencyProperty;
+                        #[get]
+                        ByProperty: super::super::DependencyProperty;
+                        #[get]
+                        EasingFunctionProperty: super::super::DependencyProperty;
+                        #[get]
+                        EnableDependentAnimationProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x4fee628f_bfee_4f75_83c2_a93b39488473)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DoubleAnimationUsingKeyFrames)]
+                    interface IDoubleAnimationUsingKeyFrames {
+                        #[get]
+                        KeyFrames: DoubleKeyFrameCollection;
+                        EnableDependentAnimation: bool;
+                    }
+                    #[guid(0x109bf2f6_c60f_49aa_abf6_f696d492116b)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DoubleAnimationUsingKeyFrames)]
+                    interface IDoubleAnimationUsingKeyFramesStatics {
+                        #[get]
+                        EnableDependentAnimationProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x674456fd_e81e_4f4e_b4ad_0acfed9ecd68)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DoubleKeyFrame)]
+                    interface IDoubleKeyFrame {
+                        Value: f64;
+                        KeyTime: KeyTime;
+                    }
+                    #[guid(0xac97dec3_7538_40b9_b152_696f7fbf4722)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DoubleKeyFrame)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IDoubleKeyFrameFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> DoubleKeyFrame;
+                    }
+                    #[guid(0x324641b0_7d37_427a_adeb_43f38bb61a4d)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DoubleKeyFrame)]
+                    interface IDoubleKeyFrameStatics {
+                        #[get]
+                        ValueProperty: super::super::DependencyProperty;
+                        #[get]
+                        KeyTimeProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x0c7d5db5_7ed6_4949_b4e6_a78c9f4f978d)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DragItemThemeAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IDragItemThemeAnimation {
+                        TargetName: String;
+                    }
+                    #[guid(0x6218b9f5_013a_4fb1_86fc_92bc4e8d0241)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DragItemThemeAnimation)]
+                    interface IDragItemThemeAnimationStatics {
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x72f762f7_7e51_4a6b_b937_dc4b4c1c5458)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DragOverThemeAnimation)]
+                    interface IDragOverThemeAnimation {
+                        TargetName: String;
+                        ToOffset: f64;
+                        Direction: super::super::Controls::Primitives::AnimationDirection;
+                    }
+                    #[guid(0x146ffe57_3c9d_41d9_a5ff_8d7239516810)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DragOverThemeAnimation)]
+                    interface IDragOverThemeAnimationStatics {
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        ToOffsetProperty: super::super::DependencyProperty;
+                        #[get]
+                        DirectionProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x3b86201a_45d3_463b_939e_c8595f439bcc)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DrillInNavigationTransitionInfo)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IDrillInNavigationTransitionInfo {}
+                    #[guid(0xb090b824_f1d2_41b8_87ba_78034126594c)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DrillInThemeAnimation)]
+                    interface IDrillInThemeAnimation {
+                        EntranceTargetName: String;
+                        EntranceTarget: super::super::DependencyObject;
+                        ExitTargetName: String;
+                        ExitTarget: super::super::DependencyObject;
+                    }
+                    #[guid(0xc61fe488_a17a_4b11_b53b_a4f1a07d4ba9)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DrillInThemeAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IDrillInThemeAnimationStatics {
+                        #[get]
+                        EntranceTargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        EntranceTargetProperty: super::super::DependencyProperty;
+                        #[get]
+                        ExitTargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        ExitTargetProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xd890ccdf_06d3_4f7e_8e4a_4fb76e256139)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DrillOutThemeAnimation)]
+                    interface IDrillOutThemeAnimation {
+                        EntranceTargetName: String;
+                        EntranceTarget: super::super::DependencyObject;
+                        ExitTargetName: String;
+                        ExitTarget: super::super::DependencyObject;
+                    }
+                    #[guid(0xbeb5db9b_2617_4888_80dd_72fa7bb6fac3)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DrillOutThemeAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IDrillOutThemeAnimationStatics {
+                        #[get]
+                        EntranceTargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        EntranceTargetProperty: super::super::DependencyProperty;
+                        #[get]
+                        ExitTargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        ExitTargetProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x1881c968_1824_462b_87e8_c357212b977b)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DropTargetItemThemeAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IDropTargetItemThemeAnimation {
+                        TargetName: String;
+                    }
+                    #[guid(0xae80f486_2e56_4513_bf18_d77470164ae5)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(DropTargetItemThemeAnimation)]
+                    interface IDropTargetItemThemeAnimationStatics {
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xc733d630_f4b9_4934_9bdd_27ac5ed1cfd8)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EasingColorKeyFrame)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IEasingColorKeyFrame {
+                        EasingFunction: EasingFunctionBase;
+                    }
+                    #[guid(0x6f3837fc_8e3d_4522_9b0f_003db8609851)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EasingColorKeyFrame)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IEasingColorKeyFrameStatics {
+                        #[get]
+                        EasingFunctionProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x965adb8d_9a54_4108_b4ff_b5a5212cb338)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EasingDoubleKeyFrame)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IEasingDoubleKeyFrame {
+                        EasingFunction: EasingFunctionBase;
+                    }
+                    #[guid(0xc8d3d845_dbae_4e5b_8b84_d9537398e5b1)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EasingDoubleKeyFrame)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IEasingDoubleKeyFrameStatics {
+                        #[get]
+                        EasingFunctionProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xc108383f_2c02_4151_8ecd_68ddaa3f0d9b)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EasingFunctionBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IEasingFunctionBase {
+                        EasingMode: EasingMode;
+                        fn Ease(&self, normalizedTime: f64) -> f64;
+                    }
+                    #[guid(0x1830fe6a_f01b_43e0_b61f_b452a1c66fd2)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EasingFunctionBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IEasingFunctionBaseFactory {}
+                    #[guid(0x2a5031aa_2c50_4a1d_bb04_d75e07b71548)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EasingFunctionBase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IEasingFunctionBaseStatics {
+                        #[get]
+                        EasingModeProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xb3c91380_6868_4225_a70b_3981cc0b2947)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EasingPointKeyFrame)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IEasingPointKeyFrame {
+                        EasingFunction: EasingFunctionBase;
+                    }
+                    #[guid(0xe22dbfc4_080c_402c_a6b5_f48d0a98116b)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EasingPointKeyFrame)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IEasingPointKeyFrameStatics {
+                        #[get]
+                        EasingFunctionProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x5c86c19b_49d7_19ec_cf19_83a73c6de75e)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EdgeUIThemeTransition)]
+                    interface IEdgeUIThemeTransition {
+                        Edge: super::super::Controls::Primitives::EdgeTransitionLocation;
+                    }
+                    #[guid(0x16a2b13b_4705_302b_27c6_2aac92f645ac)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EdgeUIThemeTransition)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IEdgeUIThemeTransitionStatics {
+                        #[get]
+                        EdgeProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xef5ba58c_b0b6_4a6c_9ca8_fb4233f12459)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ElasticEase)]
+                    interface IElasticEase {
+                        Oscillations: i32;
+                        Springiness: f64;
+                    }
+                    #[guid(0xa9f566ec_fe9c_4b2b_8e52_bb785d562185)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ElasticEase)]
+                    interface IElasticEaseStatics {
+                        #[get]
+                        OscillationsProperty: super::super::DependencyProperty;
+                        #[get]
+                        SpringinessProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x720a256b_1c8a_41ee_82ec_8a87c0cf47da)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EntranceNavigationTransitionInfo)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IEntranceNavigationTransitionInfo {}
+                    #[guid(0xf948c27a_40c9_469f_8f33_bf45c8811f21)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EntranceNavigationTransitionInfo)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IEntranceNavigationTransitionInfoStatics {
+                        #[get]
+                        IsTargetElementProperty: super::super::DependencyProperty;
+                        fn GetIsTargetElement(&self, element: super::super::UIElement) -> bool;
+                        fn SetIsTargetElement(&self, element: super::super::UIElement, value: bool);
+                    }
+                    #[guid(0x07698c09_a8e3_419a_a01d_7410a0ae8ec8)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EntranceThemeTransition)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IEntranceThemeTransition {
+                        FromHorizontalOffset: f64;
+                        FromVerticalOffset: f64;
+                        IsStaggeringEnabled: bool;
+                    }
+                    #[guid(0x37cc0577_ff98_4aed_b86e_5ec23702f877)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(EntranceThemeTransition)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IEntranceThemeTransitionStatics {
+                        #[get]
+                        FromHorizontalOffsetProperty: super::super::DependencyProperty;
+                        #[get]
+                        FromVerticalOffsetProperty: super::super::DependencyProperty;
+                        #[get]
+                        IsStaggeringEnabledProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x7cb9e41d_f0bb_4bca_9da5_9ba3a11734c4)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ExponentialEase)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IExponentialEase {
+                        Exponent: f64;
+                    }
+                    #[guid(0xf37ee7e3_a761_4352_9ad6_70794567581a)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ExponentialEase)]
+                    interface IExponentialEaseStatics {
+                        #[get]
+                        ExponentProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x6d4bc8f5_a918_4477_8078_554c68812ab8)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FadeInThemeAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IFadeInThemeAnimation {
+                        TargetName: String;
+                    }
+                    #[guid(0x7f0117e1_bea9_4923_b23a_0ddf4d7b8737)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FadeInThemeAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IFadeInThemeAnimationStatics {
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x89276ba9_ffd4_45b6_9b9a_ced48951e712)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FadeOutThemeAnimation)]
+                    interface IFadeOutThemeAnimation {
+                        TargetName: String;
+                    }
+                    #[guid(0xfe17a81a_4168_4f68_a28c_e5dd98cf680f)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FadeOutThemeAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IFadeOutThemeAnimationStatics {
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                    }
+                    #[Windows::Foundation::Metadata::ExclusiveTo(GravityConnectedAnimationConfiguration)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    interface IGravityConnectedAnimationConfiguration {}
+                    #[guid(0x62333add_aed4_5fed_95ff_d128acce8be4)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(GravityConnectedAnimationConfiguration)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 524288)]
+                    interface IGravityConnectedAnimationConfiguration2 {
+                        IsShadowEnabled: bool;
+                    }
+                    #[guid(0xe822c41f_3656_5090_92f5_c217eaacb682)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(GravityConnectedAnimationConfiguration)]
+                    interface IGravityConnectedAnimationConfigurationFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> GravityConnectedAnimationConfiguration;
+                    }
+                    #[guid(0x77a163bb_d5ca_4a32_ba0b_7dff988e58a0)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(KeySpline)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IKeySpline {
+                        ControlPoint1: super::super::super::super::Foundation::Point;
+                        ControlPoint2: super::super::super::super::Foundation::Point;
+                    }
+                    #[guid(0x3643e480_4823_466a_abe5_5e79c8ed77ed)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(KeyTimeHelper)]
+                    interface IKeyTimeHelper {}
+                    #[guid(0x7fa2612c_22a9_45e9_9af7_c7416efff7a5)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(KeyTimeHelper)]
+                    interface IKeyTimeHelperStatics {
+                        fn FromTimeSpan(&self, timeSpan: super::super::super::super::Foundation::TimeSpan) -> KeyTime;
+                    }
+                    #[guid(0x66fdb6ef_ac81_4611_b1d2_61f545983f03)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(LinearColorKeyFrame)]
+                    interface ILinearColorKeyFrame {}
+                    #[guid(0x8efdf265_9a7b_431d_8f0c_14c56b5ea4d9)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(LinearDoubleKeyFrame)]
+                    interface ILinearDoubleKeyFrame {}
+                    #[guid(0xe7c9b8ef_af24_49ee_84f1_a86600a4e319)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(LinearPointKeyFrame)]
+                    interface ILinearPointKeyFrame {}
+                    #[guid(0x8833848c_4eb7_41f2_8799_9eef0a213b73)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(NavigationThemeTransition)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface INavigationThemeTransition {
+                        DefaultNavigationTransitionInfo: NavigationTransitionInfo;
+                    }
+                    #[guid(0xea2f06e0_5e60_4f8e_bcaf_431487a294ab)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(NavigationThemeTransition)]
+                    interface INavigationThemeTransitionStatics {
+                        #[get]
+                        DefaultNavigationTransitionInfoProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xa9b05091_ae4a_4372_8625_21b7a8b98ca4)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(NavigationTransitionInfo)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface INavigationTransitionInfo {}
+                    #[guid(0xedf4f8d5_af63_4fab_9d4a_87927f82dd6b)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(NavigationTransitionInfo)]
+                    interface INavigationTransitionInfoFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> NavigationTransitionInfo;
+                    }
+                    #[guid(0xd9517e6a_a9d0_4bf7_9db0_4633a69daff2)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(NavigationTransitionInfo)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface INavigationTransitionInfoOverrides {
+                        fn GetNavigationStateCore(&self) -> String;
+                        fn SetNavigationStateCore(&self, navigationState: String);
+                    }
+                    #[guid(0x334a2d92_b74a_4c64_b9a6_58bcfa314f22)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ObjectAnimationUsingKeyFrames)]
+                    interface IObjectAnimationUsingKeyFrames {
+                        #[get]
+                        KeyFrames: ObjectKeyFrameCollection;
+                        EnableDependentAnimation: bool;
+                    }
+                    #[guid(0xeb736182_6af1_49a3_97b6_783ed97400fe)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ObjectAnimationUsingKeyFrames)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IObjectAnimationUsingKeyFramesStatics {
+                        #[get]
+                        EnableDependentAnimationProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x9852a851_8593_48ee_a6a4_d5d4720f029a)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ObjectKeyFrame)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IObjectKeyFrame {
+                        Value: Object;
+                        KeyTime: KeyTime;
+                    }
+                    #[guid(0x1626143e_3e6d_44d8_9b9a_04aea70f8492)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ObjectKeyFrame)]
+                    interface IObjectKeyFrameFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> ObjectKeyFrame;
+                    }
+                    #[guid(0x2cd6ab00_5319_4286_8eed_4e755ea0cf9c)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ObjectKeyFrame)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IObjectKeyFrameStatics {
+                        #[get]
+                        ValueProperty: super::super::DependencyProperty;
+                        #[get]
+                        KeyTimeProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x4708eb8e_4bfc_ee46_d4f9_708def3fbb2b)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PaneThemeTransition)]
+                    interface IPaneThemeTransition {
+                        Edge: super::super::Controls::Primitives::EdgeTransitionLocation;
+                    }
+                    #[guid(0x316b382f_4be4_1797_b45c_cd900bbe0caa)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PaneThemeTransition)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IPaneThemeTransitionStatics {
+                        #[get]
+                        EdgeProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x30f04312_7726_4f88_b8e2_2fa54518963b)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PointAnimation)]
+                    interface IPointAnimation {
+                        From: super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>;
+                        To: super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>;
+                        By: super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Point>;
+                        EasingFunction: EasingFunctionBase;
+                        EnableDependentAnimation: bool;
+                    }
+                    #[guid(0x2f99b356_e737_408b_a0fd_327826d32255)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PointAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IPointAnimationStatics {
+                        #[get]
+                        FromProperty: super::super::DependencyProperty;
+                        #[get]
+                        ToProperty: super::super::DependencyProperty;
+                        #[get]
+                        ByProperty: super::super::DependencyProperty;
+                        #[get]
+                        EasingFunctionProperty: super::super::DependencyProperty;
+                        #[get]
+                        EnableDependentAnimationProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x9b944f72_446a_41d0_a129_41a620f4595d)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PointAnimationUsingKeyFrames)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IPointAnimationUsingKeyFrames {
+                        #[get]
+                        KeyFrames: PointKeyFrameCollection;
+                        EnableDependentAnimation: bool;
+                    }
+                    #[guid(0x5f454c87_2390_46ea_baa7_762f4bc30d04)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PointAnimationUsingKeyFrames)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IPointAnimationUsingKeyFramesStatics {
+                        #[get]
+                        EnableDependentAnimationProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xfcc88d01_7f82_4dae_8026_7b7e086878b3)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PointKeyFrame)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IPointKeyFrame {
+                        Value: super::super::super::super::Foundation::Point;
+                        KeyTime: KeyTime;
+                    }
+                    #[guid(0xcb214bdf_426a_4392_8355_c2ae52852623)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PointKeyFrame)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IPointKeyFrameFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> PointKeyFrame;
+                    }
+                    #[guid(0x95cf1b27_7965_4bec_b9fb_fbe94b65518e)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PointKeyFrame)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IPointKeyFrameStatics {
+                        #[get]
+                        ValueProperty: super::super::DependencyProperty;
+                        #[get]
+                        KeyTimeProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xb58e714e_c49d_4788_a233_0ae85d99dd5a)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PointerDownThemeAnimation)]
+                    interface IPointerDownThemeAnimation {
+                        TargetName: String;
+                    }
+                    #[guid(0x63a7cb7b_6d46_4494_b94a_e72f3b492a61)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PointerDownThemeAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IPointerDownThemeAnimationStatics {
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xe9e9d07d_6340_4828_ad12_690694b9910b)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PointerUpThemeAnimation)]
+                    interface IPointerUpThemeAnimation {
+                        TargetName: String;
+                    }
+                    #[guid(0x7c618f9c_7992_4139_8bfc_0883b9727a7e)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PointerUpThemeAnimation)]
+                    interface IPointerUpThemeAnimationStatics {
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x196938c1_1c07_4c28_8847_f9f055b32855)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PopInThemeAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IPopInThemeAnimation {
+                        TargetName: String;
+                        FromHorizontalOffset: f64;
+                        FromVerticalOffset: f64;
+                    }
+                    #[guid(0xefaa99d3_218a_4701_977f_f1bfae8ba649)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PopInThemeAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IPopInThemeAnimationStatics {
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        FromHorizontalOffsetProperty: super::super::DependencyProperty;
+                        #[get]
+                        FromVerticalOffsetProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x4786ab49_0e48_4e81_a2e5_cc5aa19e48d3)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PopOutThemeAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IPopOutThemeAnimation {
+                        TargetName: String;
+                    }
+                    #[guid(0x1d492c09_03c1_4490_99dc_909feab357fb)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PopOutThemeAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IPopOutThemeAnimationStatics {
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x47843552_4283_545e_c791_268dca22ce4b)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PopupThemeTransition)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IPopupThemeTransition {
+                        FromHorizontalOffset: f64;
+                        FromVerticalOffset: f64;
+                    }
+                    #[guid(0xe5a1640e_490d_1505_9f6b_8fafc044dec5)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PopupThemeTransition)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IPopupThemeTransitionStatics {
+                        #[get]
+                        FromHorizontalOffsetProperty: super::super::DependencyProperty;
+                        #[get]
+                        FromVerticalOffsetProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x69c80579_eedf_405b_8680_d9606880c937)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PowerEase)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IPowerEase {
+                        Power: f64;
+                    }
+                    #[guid(0xa5955103_91a2_460c_9c41_d28f6a939bda)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PowerEase)]
+                    interface IPowerEaseStatics {
+                        #[get]
+                        PowerProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xe1510e91_ef6d_44f0_803d_68d16de0ddfc)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(QuadraticEase)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IQuadraticEase {}
+                    #[guid(0xe8698814_fe42_4a05_b5b8_081f41157815)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(QuarticEase)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IQuarticEase {}
+                    #[guid(0x92ee793b_3c49_4108_aa11_ab786603da21)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(QuinticEase)]
+                    interface IQuinticEase {}
+                    #[guid(0xf2065c6c_d052_4ad1_8362_b71b36df7497)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ReorderThemeTransition)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IReorderThemeTransition {}
+                    #[guid(0x6863ab72_4997_47f9_87ad_37efb75993ea)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RepeatBehaviorHelper)]
+                    interface IRepeatBehaviorHelper {}
+                    #[guid(0x7a795033_79f3_4dd9_b267_9cf50fb51f84)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RepeatBehaviorHelper)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IRepeatBehaviorHelperStatics {
+                        #[get]
+                        Forever: RepeatBehavior;
+                        fn FromCount(&self, count: f64) -> RepeatBehavior;
+                        fn FromDuration(&self, duration: super::super::super::super::Foundation::TimeSpan) -> RepeatBehavior;
+                        fn GetHasCount(&self, target: RepeatBehavior) -> bool;
+                        fn GetHasDuration(&self, target: RepeatBehavior) -> bool;
+                        fn Equals(&self, target: RepeatBehavior, value: RepeatBehavior) -> bool;
+                    }
+                    #[guid(0xecda24e8_8945_4949_a1bf_62109965a7e9)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RepositionThemeAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IRepositionThemeAnimation {
+                        TargetName: String;
+                        FromHorizontalOffset: f64;
+                        FromVerticalOffset: f64;
+                    }
+                    #[guid(0x4d92b1b1_860b_4bf9_a59d_1eb1ccbe8fe0)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RepositionThemeAnimation)]
+                    interface IRepositionThemeAnimationStatics {
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        FromHorizontalOffsetProperty: super::super::DependencyProperty;
+                        #[get]
+                        FromVerticalOffsetProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x88329b82_98f3_455a_ac53_2e7083b6e22c)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RepositionThemeTransition)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IRepositionThemeTransition {}
+                    #[guid(0xcebfe864_dbea_4404_8e6e_de55ada75239)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RepositionThemeTransition)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IRepositionThemeTransition2 {
+                        IsStaggeringEnabled: bool;
+                    }
+                    #[guid(0x9240e930_0a19_468b_8c2a_68fab4500027)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(RepositionThemeTransition)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 196608)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IRepositionThemeTransitionStatics2 {
+                        #[get]
+                        IsStaggeringEnabledProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xa9382962_230b_49da_9e0d_664987892343)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SineEase)]
+                    interface ISineEase {}
+                    #[guid(0xd6ac9d77_2e03_405f_80ed_e62beef3668f)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SlideNavigationTransitionInfo)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISlideNavigationTransitionInfo {}
+                    #[guid(0x90e2d9c0_5c81_5001_8013_4fbfea4bf139)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SlideNavigationTransitionInfo)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISlideNavigationTransitionInfo2 {
+                        Effect: SlideNavigationTransitionEffect;
+                    }
+                    #[guid(0x8a861baa_981a_5ace_9f85_cb7fde648a67)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SlideNavigationTransitionInfo)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISlideNavigationTransitionInfoStatics2 {
+                        #[get]
+                        EffectProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x1a4a5941_1fe0_473a_8efe_4316d8c86229)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SplineColorKeyFrame)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISplineColorKeyFrame {
+                        KeySpline: KeySpline;
+                    }
+                    #[guid(0x61d1d997_8589_4f2f_8fbb_7d03edc98dd3)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SplineColorKeyFrame)]
+                    interface ISplineColorKeyFrameStatics {
+                        #[get]
+                        KeySplineProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x00d72d38_6b2b_4843_838e_c8b115eec801)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SplineDoubleKeyFrame)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISplineDoubleKeyFrame {
+                        KeySpline: KeySpline;
+                    }
+                    #[guid(0x060a8ffc_975f_4e4e_9ec7_13c5aee02062)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SplineDoubleKeyFrame)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISplineDoubleKeyFrameStatics {
+                        #[get]
+                        KeySplineProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x0f19f306_7036_494f_bc3c_780df0cc524a)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SplinePointKeyFrame)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISplinePointKeyFrame {
+                        KeySpline: KeySpline;
+                    }
+                    #[guid(0xe97a32c2_0a7a_4766_95cb_0d692611cb4c)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SplinePointKeyFrame)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISplinePointKeyFrameStatics {
+                        #[get]
+                        KeySplineProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x4f799518_ff39_4e90_bb74_2abd56027402)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SplitCloseThemeAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISplitCloseThemeAnimation {
+                        OpenedTargetName: String;
+                        OpenedTarget: super::super::DependencyObject;
+                        ClosedTargetName: String;
+                        ClosedTarget: super::super::DependencyObject;
+                        ContentTargetName: String;
+                        ContentTarget: super::super::DependencyObject;
+                        OpenedLength: f64;
+                        ClosedLength: f64;
+                        OffsetFromCenter: f64;
+                        ContentTranslationDirection: super::super::Controls::Primitives::AnimationDirection;
+                        ContentTranslationOffset: f64;
+                    }
+                    #[guid(0x7aa94de9_cc9b_4e90_a11a_0050a2216a9e)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SplitCloseThemeAnimation)]
+                    interface ISplitCloseThemeAnimationStatics {
+                        #[get]
+                        OpenedTargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        OpenedTargetProperty: super::super::DependencyProperty;
+                        #[get]
+                        ClosedTargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        ClosedTargetProperty: super::super::DependencyProperty;
+                        #[get]
+                        ContentTargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        ContentTargetProperty: super::super::DependencyProperty;
+                        #[get]
+                        OpenedLengthProperty: super::super::DependencyProperty;
+                        #[get]
+                        ClosedLengthProperty: super::super::DependencyProperty;
+                        #[get]
+                        OffsetFromCenterProperty: super::super::DependencyProperty;
+                        #[get]
+                        ContentTranslationDirectionProperty: super::super::DependencyProperty;
+                        #[get]
+                        ContentTranslationOffsetProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x785fd7aa_5456_4639_8fd2_26bae6a5ffe4)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SplitOpenThemeAnimation)]
+                    interface ISplitOpenThemeAnimation {
+                        OpenedTargetName: String;
+                        OpenedTarget: super::super::DependencyObject;
+                        ClosedTargetName: String;
+                        ClosedTarget: super::super::DependencyObject;
+                        ContentTargetName: String;
+                        ContentTarget: super::super::DependencyObject;
+                        OpenedLength: f64;
+                        ClosedLength: f64;
+                        OffsetFromCenter: f64;
+                        ContentTranslationDirection: super::super::Controls::Primitives::AnimationDirection;
+                        ContentTranslationOffset: f64;
+                    }
+                    #[guid(0x8d4cfa89_3a91_458d_b0fb_4cad625cbf8d)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SplitOpenThemeAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISplitOpenThemeAnimationStatics {
+                        #[get]
+                        OpenedTargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        OpenedTargetProperty: super::super::DependencyProperty;
+                        #[get]
+                        ClosedTargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        ClosedTargetProperty: super::super::DependencyProperty;
+                        #[get]
+                        ContentTargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        ContentTargetProperty: super::super::DependencyProperty;
+                        #[get]
+                        OpenedLengthProperty: super::super::DependencyProperty;
+                        #[get]
+                        ClosedLengthProperty: super::super::DependencyProperty;
+                        #[get]
+                        OffsetFromCenterProperty: super::super::DependencyProperty;
+                        #[get]
+                        ContentTranslationDirectionProperty: super::super::DependencyProperty;
+                        #[get]
+                        ContentTranslationOffsetProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xd45c1e6e_3594_460e_981a_32271bd3aa06)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Storyboard)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IStoryboard {
+                        #[get]
+                        Children: TimelineCollection;
+                        fn Seek(&self, offset: super::super::super::super::Foundation::TimeSpan);
+                        fn Stop(&self);
+                        fn Begin(&self);
+                        fn Pause(&self);
+                        fn Resume(&self);
+                        fn GetCurrentState(&self) -> ClockState;
+                        fn GetCurrentTime(&self) -> super::super::super::super::Foundation::TimeSpan;
+                        fn SeekAlignedToLastTick(&self, offset: super::super::super::super::Foundation::TimeSpan);
+                        fn SkipToFill(&self);
+                    }
+                    #[guid(0xd82f07d8_73d5_4379_bd48_7e05184a8bad)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Storyboard)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IStoryboardStatics {
+                        #[get]
+                        TargetPropertyProperty: super::super::DependencyProperty;
+                        fn GetTargetProperty(&self, element: Timeline) -> String;
+                        fn SetTargetProperty(&self, element: Timeline, path: String);
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                        fn GetTargetName(&self, element: Timeline) -> String;
+                        fn SetTargetName(&self, element: Timeline, name: String);
+                        fn SetTarget(&self, timeline: Timeline, target: super::super::DependencyObject);
+                    }
+                    #[guid(0x244d7b0c_b1b7_4871_9d3e_d56203a3a5b4)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SuppressNavigationTransitionInfo)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISuppressNavigationTransitionInfo {}
+                    #[guid(0xa38a4214_0bca_4d2d_95f7_ceba57fbaf60)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SwipeBackThemeAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISwipeBackThemeAnimation {
+                        TargetName: String;
+                        FromHorizontalOffset: f64;
+                        FromVerticalOffset: f64;
+                    }
+                    #[guid(0x693f31bf_4da6_468a_8ce0_996c9aad42e0)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SwipeBackThemeAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISwipeBackThemeAnimationStatics {
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        FromHorizontalOffsetProperty: super::super::DependencyProperty;
+                        #[get]
+                        FromVerticalOffsetProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0xcdd067c0_580e_4e40_be98_f202d3d84365)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SwipeHintThemeAnimation)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISwipeHintThemeAnimation {
+                        TargetName: String;
+                        ToHorizontalOffset: f64;
+                        ToVerticalOffset: f64;
+                    }
+                    #[guid(0x23d61a57_9115_4d63_b04a_b89f1c744dc0)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(SwipeHintThemeAnimation)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISwipeHintThemeAnimationStatics {
+                        #[get]
+                        TargetNameProperty: super::super::DependencyProperty;
+                        #[get]
+                        ToHorizontalOffsetProperty: super::super::DependencyProperty;
+                        #[get]
+                        ToVerticalOffsetProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x0bc465dc_be4d_4d0d_9549_2208b715f40d)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Timeline)]
+                    interface ITimeline {
+                        AutoReverse: bool;
+                        BeginTime: super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::TimeSpan>;
+                        Duration: super::super::Duration;
+                        SpeedRatio: f64;
+                        FillBehavior: FillBehavior;
+                        RepeatBehavior: RepeatBehavior;
+                        event Completed: super::super::super::super::Foundation::EventHandler<Object>;
+                    }
+                    #[guid(0x1d56bb07_bda4_478b_8ada_eb04d580cd5e)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Timeline)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ITimelineFactory {
+                        fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Timeline;
+                    }
+                    #[guid(0xa902ed4e_ef10_4d6f_9a40_93cb8895f4e5)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Timeline)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ITimelineStatics {
+                        AllowDependentAnimations: bool;
+                        #[get]
+                        AutoReverseProperty: super::super::DependencyProperty;
+                        #[get]
+                        BeginTimeProperty: super::super::DependencyProperty;
+                        #[get]
+                        DurationProperty: super::super::DependencyProperty;
+                        #[get]
+                        SpeedRatioProperty: super::super::DependencyProperty;
+                        #[get]
+                        FillBehaviorProperty: super::super::DependencyProperty;
+                        #[get]
+                        RepeatBehaviorProperty: super::super::DependencyProperty;
+                    }
+                    #[guid(0x3c677c7c_01d0_4dce_b333_976f93312b08)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Transition)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ITransition {}
+                    #[guid(0xdc9ab2cf_3bc9_44aa_b3fc_883a83233a2c)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Transition)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ITransitionFactory {}
+                    #[Windows::Foundation::Metadata::AttributeName("independentlyanimatable")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::AttributeUsage(Property)]
+                    attribute IndependentlyAnimatableAttribute {
+                        fn();
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class KeySpline: super::super::DependencyObject {
+                        IKeySpline,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    struct KeyTime {
+                        TimeSpan: super::super::super::super::Foundation::TimeSpan,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(IKeyTimeHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class KeyTimeHelper {
+                        IKeyTimeHelper,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class LinearColorKeyFrame: ColorKeyFrame {
+                        ILinearColorKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class LinearDoubleKeyFrame: DoubleKeyFrame {
+                        ILinearDoubleKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class LinearPointKeyFrame: PointKeyFrame {
+                        ILinearPointKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(INavigationThemeTransitionStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::UI::Xaml::Markup::ContentProperty(Name = "DefaultNavigationTransitionInfo")]
+                    class NavigationThemeTransition: Transition {
+                        INavigationThemeTransition,
+                    }
+                    #[Windows::Foundation::Metadata::Composable(INavigationTransitionInfoFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class NavigationTransitionInfo: super::super::DependencyObject {
+                        INavigationTransitionInfo,
+                        INavigationTransitionInfoOverrides,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(IObjectAnimationUsingKeyFramesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::UI::Xaml::Markup::ContentProperty(Name = "KeyFrames")]
+                    class ObjectAnimationUsingKeyFrames: Timeline {
+                        IObjectAnimationUsingKeyFrames,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Composable(IObjectKeyFrameFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IObjectKeyFrameStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class ObjectKeyFrame: super::super::DependencyObject {
+                        IObjectKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class ObjectKeyFrameCollection {
+                        super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame>,
+                        super::super::super::super::Foundation::Collections::IIterable<ObjectKeyFrame>,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IPaneThemeTransitionStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class PaneThemeTransition: Transition {
+                        IPaneThemeTransition,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IPointAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class PointAnimation: Timeline {
+                        IPointAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(IPointAnimationUsingKeyFramesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::UI::Xaml::Markup::ContentProperty(Name = "KeyFrames")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class PointAnimationUsingKeyFrames: Timeline {
+                        IPointAnimationUsingKeyFrames,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IPointKeyFrameStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Composable(IPointKeyFrameFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class PointKeyFrame: super::super::DependencyObject {
+                        IPointKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class PointKeyFrameCollection {
+                        super::super::super::super::Foundation::Collections::IVector<PointKeyFrame>,
+                        super::super::super::super::Foundation::Collections::IIterable<PointKeyFrame>,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IPointerDownThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class PointerDownThemeAnimation: Timeline {
+                        IPointerDownThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IPointerUpThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class PointerUpThemeAnimation: Timeline {
+                        IPointerUpThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IPopInThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class PopInThemeAnimation: Timeline {
+                        IPopInThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IPopOutThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class PopOutThemeAnimation: Timeline {
+                        IPopOutThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::Static(IPopupThemeTransitionStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class PopupThemeTransition: Transition {
+                        IPopupThemeTransition,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IPowerEaseStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class PowerEase: EasingFunctionBase {
+                        IPowerEase,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class QuadraticEase: EasingFunctionBase {
+                        IQuadraticEase,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class QuarticEase: EasingFunctionBase {
+                        IQuarticEase,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class QuinticEase: EasingFunctionBase {
+                        IQuinticEase,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class ReorderThemeTransition: Transition {
+                        IReorderThemeTransition,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    struct RepeatBehavior {
+                        Count: f64,
+                        Duration: super::super::super::super::Foundation::TimeSpan,
+                        Type: RepeatBehaviorType,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IRepeatBehaviorHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class RepeatBehaviorHelper {
+                        IRepeatBehaviorHelper,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    enum RepeatBehaviorType {
+                        Count = 0,
+                        Duration = 1,
+                        Forever = 2,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IRepositionThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class RepositionThemeAnimation: Timeline {
+                        IRepositionThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Static(IRepositionThemeTransitionStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class RepositionThemeTransition: Transition {
+                        IRepositionThemeTransition,
+                        IRepositionThemeTransition2,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class SineEase: EasingFunctionBase {
+                        ISineEase,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
+                    enum SlideNavigationTransitionEffect {
+                        FromBottom = 0,
+                        FromLeft = 1,
+                        FromRight = 2,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(ISlideNavigationTransitionInfoStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class SlideNavigationTransitionInfo: NavigationTransitionInfo {
+                        ISlideNavigationTransitionInfo,
+                        ISlideNavigationTransitionInfo2,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(ISplineColorKeyFrameStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class SplineColorKeyFrame: ColorKeyFrame {
+                        ISplineColorKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(ISplineDoubleKeyFrameStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class SplineDoubleKeyFrame: DoubleKeyFrame {
+                        ISplineDoubleKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(ISplinePointKeyFrameStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    class SplinePointKeyFrame: PointKeyFrame {
+                        ISplinePointKeyFrame,
+                    }
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(ISplitCloseThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class SplitCloseThemeAnimation: Timeline {
+                        ISplitCloseThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(ISplitOpenThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class SplitOpenThemeAnimation: Timeline {
+                        ISplitOpenThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Children")]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Static(IStoryboardStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class Storyboard: Timeline {
+                        IStoryboard,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class SuppressNavigationTransitionInfo: NavigationTransitionInfo {
+                        ISuppressNavigationTransitionInfo,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Static(ISwipeBackThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class SwipeBackThemeAnimation: Timeline {
+                        ISwipeBackThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::Static(ISwipeHintThemeAnimationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class SwipeHintThemeAnimation: Timeline {
+                        ISwipeHintThemeAnimation,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(ITimelineStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::Composable(ITimelineFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    class Timeline: super::super::DependencyObject {
+                        ITimeline,
+                    }
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    class TimelineCollection {
+                        super::super::super::super::Foundation::Collections::IVector<Timeline>,
+                        super::super::super::super::Foundation::Collections::IIterable<Timeline>,
+                    }
+                    #[Windows::Foundation::Metadata::Composable(ITransitionFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class Transition: super::super::DependencyObject {
+                        ITransition,
+                    }
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    class TransitionCollection {
+                        super::super::super::super::Foundation::Collections::IVector<Transition>,
+                        super::super::super::super::Foundation::Collections::IIterable<Transition>,
+                    }
+                }
+            }
+        }
+    }
+}

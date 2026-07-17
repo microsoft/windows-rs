@@ -1,0 +1,22 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod Core {
+            mod Preview {
+                #[guid(0x6a633961_dbed_464c_a09a_33412f5caa3f)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SoundLevelBroker)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface ISoundLevelBrokerStatics {
+                    #[get]
+                    SoundLevel: super::super::SoundLevel;
+                    event SoundLevelChanged: super::super::super::Foundation::EventHandler<Object>;
+                }
+                #[Windows::Foundation::Metadata::Static(ISoundLevelBrokerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class SoundLevelBroker {}
+            }
+        }
+    }
+}

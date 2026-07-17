@@ -1,0 +1,207 @@
+#[winrt]
+mod Windows {
+    mod Storage {
+        mod Pickers {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class FileExtensionVector {
+                super::super::Foundation::Collections::IVector<String>,
+                super::super::Foundation::Collections::IIterable<String>,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IFileOpenPickerStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IFileOpenPickerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class FileOpenPicker {
+                IFileOpenPicker,
+                IFileOpenPicker2,
+                IFileOpenPickerWithOperationId,
+                IFileOpenPicker3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class FilePickerFileTypesOrderedMap {
+                super::super::Foundation::Collections::IMap<String, super::super::Foundation::Collections::IVector<String>>,
+                super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, super::super::Foundation::Collections::IVector<String>>>,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class FilePickerSelectedFilesArray {
+                super::super::Foundation::Collections::IVectorView<super::StorageFile>,
+                super::super::Foundation::Collections::IIterable<super::StorageFile>,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IFileSavePickerStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class FileSavePicker {
+                IFileSavePicker,
+                IFileSavePicker2,
+                IFileSavePicker3,
+                IFileSavePicker4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IFolderPickerStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+            class FolderPicker {
+                IFolderPicker,
+                IFolderPicker2,
+                IFolderPicker3,
+            }
+            #[guid(0x2ca8278a_12c5_4c5f_8977_94547793c241)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileOpenPicker)]
+            interface IFileOpenPicker {
+                ViewMode: PickerViewMode;
+                SettingsIdentifier: String;
+                SuggestedStartLocation: PickerLocationId;
+                CommitButtonText: String;
+                #[get]
+                FileTypeFilter: super::super::Foundation::Collections::IVector<String>;
+                fn PickSingleFileAsync(&self) -> super::super::Foundation::IAsyncOperation<super::StorageFile>;
+                fn PickMultipleFilesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>;
+            }
+            #[guid(0x8ceb6cd2_b446_46f7_b265_90f8e55ad650)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileOpenPicker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFileOpenPicker2 {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Instead, use PickSingleFileAsync/PickMultipleFilesAsync", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_ContinuationData(&self) -> super::super::Foundation::Collections::ValueSet;
+                #[Windows::Foundation::Metadata::Deprecated("Instead, use PickSingleFileAsync", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn PickSingleFileAndContinue(&self);
+                #[Windows::Foundation::Metadata::Deprecated("Instead, use PickMultipleFilesAsync", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn PickMultipleFilesAndContinue(&self);
+            }
+            #[guid(0xd9a5c5b3_c5dc_5b98_bd80_a8d0ca0584d8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileOpenPicker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IFileOpenPicker3 {
+                #[get]
+                User: super::super::System::User;
+            }
+            #[guid(0x6821573b_2f02_4833_96d4_abbfad72b67b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileOpenPicker)]
+            interface IFileOpenPickerStatics {
+                #[Windows::Foundation::Metadata::Deprecated("Instead, use PickSingleFileAsync", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ResumePickSingleFileAsync(&self) -> super::super::Foundation::IAsyncOperation<super::StorageFile>;
+            }
+            #[guid(0xe8917415_eddd_5c98_b6f3_366fdfcad392)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileOpenPicker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IFileOpenPickerStatics2 {
+                fn CreateForUser(&self, user: super::super::System::User) -> FileOpenPicker;
+            }
+            #[guid(0x3f57b569_2522_4ca5_aa73_a15509f1fcbf)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileOpenPicker)]
+            interface IFileOpenPickerWithOperationId {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn PickSingleFileAsync(&self, pickerOperationId: String) -> super::super::Foundation::IAsyncOperation<super::StorageFile>;
+            }
+            #[guid(0x3286ffcb_617f_4cc5_af6a_b3fdf29ad145)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileSavePicker)]
+            interface IFileSavePicker {
+                SettingsIdentifier: String;
+                SuggestedStartLocation: PickerLocationId;
+                CommitButtonText: String;
+                #[get]
+                FileTypeChoices: super::super::Foundation::Collections::IMap<String, super::super::Foundation::Collections::IVector<String>>;
+                DefaultFileExtension: String;
+                SuggestedSaveFile: super::StorageFile;
+                SuggestedFileName: String;
+                fn PickSaveFileAsync(&self) -> super::super::Foundation::IAsyncOperation<super::StorageFile>;
+            }
+            #[guid(0x0ec313a2_d24b_449a_8197_e89104fd42cc)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileSavePicker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFileSavePicker2 {
+                #[get]
+                ContinuationData: super::super::Foundation::Collections::ValueSet;
+                #[Windows::Foundation::Metadata::Deprecated("Instead, use PickSaveFileAsync", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn PickSaveFileAndContinue(&self);
+            }
+            #[guid(0x698aec69_ba3c_4e51_bd90_4abcbbf4cfaf)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileSavePicker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFileSavePicker3 {
+                EnterpriseId: String;
+            }
+            #[guid(0xe7d83a5a_ddfa_5de0_8b70_c842c21988ec)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileSavePicker)]
+            interface IFileSavePicker4 {
+                #[get]
+                User: super::super::System::User;
+            }
+            #[guid(0x28e3cf9e_961c_5e2c_aed7_e64737f4ce37)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileSavePicker)]
+            interface IFileSavePickerStatics {
+                fn CreateForUser(&self, user: super::super::System::User) -> FileSavePicker;
+            }
+            #[guid(0x084f7799_f3fb_400a_99b1_7b4a772fd60d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FolderPicker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IFolderPicker {
+                ViewMode: PickerViewMode;
+                SettingsIdentifier: String;
+                SuggestedStartLocation: PickerLocationId;
+                CommitButtonText: String;
+                #[get]
+                FileTypeFilter: super::super::Foundation::Collections::IVector<String>;
+                fn PickSingleFolderAsync(&self) -> super::super::Foundation::IAsyncOperation<super::StorageFolder>;
+            }
+            #[guid(0x8eb3ba97_dc85_4616_be94_9660881f2f5d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FolderPicker)]
+            interface IFolderPicker2 {
+                #[get]
+                ContinuationData: super::super::Foundation::Collections::ValueSet;
+                #[Windows::Foundation::Metadata::Deprecated("Instead, use PickSingleFolderAsync", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn PickFolderAndContinue(&self);
+            }
+            #[guid(0x673b1e29_d326_53c0_bd24_a25c714cee36)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FolderPicker)]
+            interface IFolderPicker3 {
+                #[get]
+                User: super::super::System::User;
+            }
+            #[guid(0x9be34740_7ca1_5942_a3c8_46f2551ecff3)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FolderPicker)]
+            interface IFolderPickerStatics {
+                fn CreateForUser(&self, user: super::super::System::User) -> FolderPicker;
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PickerLocationId {
+                DocumentsLibrary = 0,
+                ComputerFolder = 1,
+                Desktop = 2,
+                Downloads = 3,
+                HomeGroup = 4,
+                MusicLibrary = 5,
+                PicturesLibrary = 6,
+                VideosLibrary = 7,
+                Objects3D = 8,
+                Unspecified = 9,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PickerViewMode {
+                List = 0,
+                Thumbnail = 1,
+            }
+        }
+    }
+}

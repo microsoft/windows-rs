@@ -1,0 +1,45 @@
+#[winrt]
+mod Windows {
+    mod System {
+        mod Power {
+            mod Diagnostics {
+                #[Windows::Foundation::Metadata::Static(IBackgroundEnergyDiagnosticsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                class BackgroundEnergyDiagnostics {}
+                #[Windows::Foundation::Metadata::Static(IForegroundEnergyDiagnosticsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("Foreground Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ForegroundEnergyDiagnostics {}
+                #[guid(0xd7663702_d3a6_46e0_8f9b_50b95bb4f9c5)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundEnergyDiagnostics)]
+                #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IBackgroundEnergyDiagnosticsStatics {
+                    #[special]
+                    #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                    fn get_DeviceSpecificConversionFactor(&self) -> f64;
+                    #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                    fn ComputeTotalEnergyUsage(&self) -> u64;
+                    #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                    fn ResetTotalEnergyUsage(&self);
+                }
+                #[guid(0x23ca0917_cd07_4609_be15_8fe894c5e41e)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ForegroundEnergyDiagnostics)]
+                #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                interface IForegroundEnergyDiagnosticsStatics {
+                    #[special]
+                    #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                    fn get_DeviceSpecificConversionFactor(&self) -> f64;
+                    #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                    fn ComputeTotalEnergyUsage(&self) -> u64;
+                    #[Windows::Foundation::Metadata::Deprecated("Background Energy Diagnostics has been deprecated. For more info, see MSDN.", Deprecate, 393216, "Windows.Foundation.UniversalApiContract")]
+                    fn ResetTotalEnergyUsage(&self);
+                }
+            }
+        }
+    }
+}

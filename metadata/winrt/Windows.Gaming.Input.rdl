@@ -1,0 +1,531 @@
+#[winrt]
+mod Windows {
+    mod Gaming {
+        mod Input {
+            #[Windows::Foundation::Metadata::Static(IArcadeStickStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Static(IArcadeStickStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ArcadeStick {
+                IArcadeStick,
+                IGameController,
+                IGameControllerBatteryInfo,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum ArcadeStickButtons {
+                None = 0,
+                StickUp = 1,
+                StickDown = 2,
+                StickLeft = 4,
+                StickRight = 8,
+                Action1 = 16,
+                Action2 = 32,
+                Action3 = 64,
+                Action4 = 128,
+                Action5 = 256,
+                Action6 = 512,
+                Special1 = 1024,
+                Special2 = 2048,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            struct ArcadeStickReading {
+                Timestamp: u64,
+                Buttons: ArcadeStickButtons,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Static(IFlightStickStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            class FlightStick {
+                IFlightStick,
+                IGameController,
+                IGameControllerBatteryInfo,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum FlightStickButtons {
+                None = 0,
+                FirePrimary = 1,
+                FireSecondary = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            struct FlightStickReading {
+                Timestamp: u64,
+                Buttons: FlightStickButtons,
+                HatSwitch: GameControllerSwitchPosition,
+                Roll: f64,
+                Pitch: f64,
+                Yaw: f64,
+                Throttle: f64,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum GameControllerButtonLabel {
+                None = 0,
+                XboxBack = 1,
+                XboxStart = 2,
+                XboxMenu = 3,
+                XboxView = 4,
+                XboxUp = 5,
+                XboxDown = 6,
+                XboxLeft = 7,
+                XboxRight = 8,
+                XboxA = 9,
+                XboxB = 10,
+                XboxX = 11,
+                XboxY = 12,
+                XboxLeftBumper = 13,
+                XboxLeftTrigger = 14,
+                XboxLeftStickButton = 15,
+                XboxRightBumper = 16,
+                XboxRightTrigger = 17,
+                XboxRightStickButton = 18,
+                XboxPaddle1 = 19,
+                XboxPaddle2 = 20,
+                XboxPaddle3 = 21,
+                XboxPaddle4 = 22,
+                Mode = 23,
+                Select = 24,
+                Menu = 25,
+                View = 26,
+                Back = 27,
+                Start = 28,
+                Options = 29,
+                Share = 30,
+                Up = 31,
+                Down = 32,
+                Left = 33,
+                Right = 34,
+                LetterA = 35,
+                LetterB = 36,
+                LetterC = 37,
+                LetterL = 38,
+                LetterR = 39,
+                LetterX = 40,
+                LetterY = 41,
+                LetterZ = 42,
+                Cross = 43,
+                Circle = 44,
+                Square = 45,
+                Triangle = 46,
+                LeftBumper = 47,
+                LeftTrigger = 48,
+                LeftStickButton = 49,
+                Left1 = 50,
+                Left2 = 51,
+                Left3 = 52,
+                RightBumper = 53,
+                RightTrigger = 54,
+                RightStickButton = 55,
+                Right1 = 56,
+                Right2 = 57,
+                Right3 = 58,
+                Paddle1 = 59,
+                Paddle2 = 60,
+                Paddle3 = 61,
+                Paddle4 = 62,
+                Plus = 63,
+                Minus = 64,
+                DownLeftArrow = 65,
+                DialLeft = 66,
+                DialRight = 67,
+                Suspension = 68,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum GameControllerSwitchKind {
+                TwoWay = 0,
+                FourWay = 1,
+                EightWay = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum GameControllerSwitchPosition {
+                Center = 0,
+                Up = 1,
+                UpRight = 2,
+                Right = 3,
+                DownRight = 4,
+                Down = 5,
+                DownLeft = 6,
+                Left = 7,
+                UpLeft = 8,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IGamepadStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Static(IGamepadStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+            class Gamepad {
+                IGamepad,
+                IGameController,
+                IGamepad2,
+                IGameControllerBatteryInfo,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum GamepadButtons {
+                None = 0,
+                Menu = 1,
+                View = 2,
+                A = 4,
+                B = 8,
+                X = 16,
+                Y = 32,
+                DPadUp = 64,
+                DPadDown = 128,
+                DPadLeft = 256,
+                DPadRight = 512,
+                LeftShoulder = 1024,
+                RightShoulder = 2048,
+                LeftThumbstick = 4096,
+                RightThumbstick = 8192,
+                Paddle1 = 16384,
+                Paddle2 = 32768,
+                Paddle3 = 65536,
+                Paddle4 = 131072,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct GamepadReading {
+                Timestamp: u64,
+                Buttons: GamepadButtons,
+                LeftTrigger: f64,
+                RightTrigger: f64,
+                LeftThumbstickX: f64,
+                LeftThumbstickY: f64,
+                RightThumbstickX: f64,
+                RightThumbstickY: f64,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct GamepadVibration {
+                LeftMotor: f64,
+                RightMotor: f64,
+                LeftTrigger: f64,
+                RightTrigger: f64,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(131072)]
+            struct GamingInputPreviewContract {}
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class Headset {
+                IHeadset,
+                IGameControllerBatteryInfo,
+            }
+            #[guid(0xb14a539d_befb_4c81_8051_15ecf3b13036)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ArcadeStick)]
+            interface IArcadeStick: IGameController {
+                fn GetButtonLabel(&self, button: ArcadeStickButtons) -> GameControllerButtonLabel;
+                fn GetCurrentReading(&self) -> ArcadeStickReading;
+            }
+            #[guid(0x5c37b8c8_37b1_4ad8_9458_200f1a30018e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ArcadeStick)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IArcadeStickStatics {
+                event ArcadeStickAdded: super::super::Foundation::EventHandler<ArcadeStick>;
+                event ArcadeStickRemoved: super::super::Foundation::EventHandler<ArcadeStick>;
+                #[get]
+                ArcadeSticks: super::super::Foundation::Collections::IVectorView<ArcadeStick>;
+            }
+            #[guid(0x52b5d744_bb86_445a_b59c_596f0e2a49df)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ArcadeStick)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IArcadeStickStatics2: IArcadeStickStatics {
+                fn FromGameController(&self, gameController: IGameController) -> ArcadeStick;
+            }
+            #[guid(0xb4a2c01c_b83b_4459_a1a9_97b03c33da7c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FlightStick)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IFlightStick: IGameController {
+                #[get]
+                HatSwitchKind: GameControllerSwitchKind;
+                fn GetButtonLabel(&self, button: FlightStickButtons) -> GameControllerButtonLabel;
+                fn GetCurrentReading(&self) -> FlightStickReading;
+            }
+            #[guid(0x5514924a_fecc_435e_83dc_5cec8a18a520)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FlightStick)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IFlightStickStatics {
+                event FlightStickAdded: super::super::Foundation::EventHandler<FlightStick>;
+                event FlightStickRemoved: super::super::Foundation::EventHandler<FlightStick>;
+                #[get]
+                FlightSticks: super::super::Foundation::Collections::IVectorView<FlightStick>;
+                fn FromGameController(&self, gameController: IGameController) -> FlightStick;
+            }
+            #[guid(0x1baf6522_5f64_42c5_8267_b9fe2215bfbd)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IGameController {
+                event HeadsetConnected: super::super::Foundation::TypedEventHandler<IGameController, Headset>;
+                event HeadsetDisconnected: super::super::Foundation::TypedEventHandler<IGameController, Headset>;
+                event UserChanged: super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>;
+                #[get]
+                Headset: Headset;
+                #[get]
+                IsWireless: bool;
+                #[get]
+                User: super::super::System::User;
+            }
+            #[guid(0xdcecc681_3963_4da6_955d_553f3b6f6161)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IGameControllerBatteryInfo {
+                fn TryGetBatteryReport(&self) -> super::super::Devices::Power::BatteryReport;
+            }
+            #[guid(0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Gamepad)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IGamepad: IGameController {
+                Vibration: GamepadVibration;
+                fn GetCurrentReading(&self) -> GamepadReading;
+            }
+            #[guid(0x3c1689bd_5915_4245_b0c0_c89fae0308ff)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Gamepad)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IGamepad2: IGamepad + IGameController {
+                fn GetButtonLabel(&self, button: GamepadButtons) -> GameControllerButtonLabel;
+            }
+            #[guid(0x8bbce529_d49c_39e9_9560_e47dde96b7c8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Gamepad)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IGamepadStatics {
+                event GamepadAdded: super::super::Foundation::EventHandler<Gamepad>;
+                event GamepadRemoved: super::super::Foundation::EventHandler<Gamepad>;
+                #[get]
+                Gamepads: super::super::Foundation::Collections::IVectorView<Gamepad>;
+            }
+            #[guid(0x42676dc5_0856_47c4_9213_b395504c3a3c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Gamepad)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IGamepadStatics2: IGamepadStatics {
+                fn FromGameController(&self, gameController: IGameController) -> Gamepad;
+            }
+            #[guid(0x3fd156ef_6925_3fa8_9181_029c5223ae3b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Headset)]
+            interface IHeadset {
+                #[get]
+                CaptureDeviceId: String;
+                #[get]
+                RenderDeviceId: String;
+            }
+            #[guid(0xf546656f_e106_4c82_a90f_554012904b85)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RacingWheel)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IRacingWheel: IGameController {
+                #[get]
+                HasClutch: bool;
+                #[get]
+                HasHandbrake: bool;
+                #[get]
+                HasPatternShifter: bool;
+                #[get]
+                MaxPatternShifterGear: i32;
+                #[get]
+                MaxWheelAngle: f64;
+                #[get]
+                WheelMotor: ForceFeedback::ForceFeedbackMotor;
+                fn GetButtonLabel(&self, button: RacingWheelButtons) -> GameControllerButtonLabel;
+                fn GetCurrentReading(&self) -> RacingWheelReading;
+            }
+            #[guid(0x3ac12cd5_581b_4936_9f94_69f1e6514c7d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RacingWheel)]
+            interface IRacingWheelStatics {
+                event RacingWheelAdded: super::super::Foundation::EventHandler<RacingWheel>;
+                event RacingWheelRemoved: super::super::Foundation::EventHandler<RacingWheel>;
+                #[get]
+                RacingWheels: super::super::Foundation::Collections::IVectorView<RacingWheel>;
+            }
+            #[guid(0xe666bcaa_edfd_4323_a9f6_3c384048d1ed)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RacingWheel)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IRacingWheelStatics2: IRacingWheelStatics {
+                fn FromGameController(&self, gameController: IGameController) -> RacingWheel;
+            }
+            #[guid(0x7cad6d91_a7e1_4f71_9a78_33e9c5dfea62)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RawGameController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IRawGameController: IGameController {
+                #[get]
+                AxisCount: i32;
+                #[get]
+                ButtonCount: i32;
+                #[get]
+                ForceFeedbackMotors: super::super::Foundation::Collections::IVectorView<ForceFeedback::ForceFeedbackMotor>;
+                #[get]
+                HardwareProductId: u16;
+                #[get]
+                HardwareVendorId: u16;
+                #[get]
+                SwitchCount: i32;
+                fn GetButtonLabel(&self, buttonIndex: i32) -> GameControllerButtonLabel;
+                fn GetCurrentReading(&self, #[out] buttonArray: [bool], #[out] switchArray: [GameControllerSwitchPosition], #[out] axisArray: [f64]) -> u64;
+                fn GetSwitchKind(&self, switchIndex: i32) -> GameControllerSwitchKind;
+            }
+            #[guid(0x43c0c035_bb73_4756_a787_3ed6bea617bd)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RawGameController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IRawGameController2: IRawGameController + IGameController {
+                #[get]
+                SimpleHapticsControllers: super::super::Foundation::Collections::IVectorView<super::super::Devices::Haptics::SimpleHapticsController>;
+                #[get]
+                NonRoamableId: String;
+                #[get]
+                DisplayName: String;
+            }
+            #[guid(0xeb8d0792_e95a_4b19_afc7_0a59f8bf759e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RawGameController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IRawGameControllerStatics {
+                event RawGameControllerAdded: super::super::Foundation::EventHandler<RawGameController>;
+                event RawGameControllerRemoved: super::super::Foundation::EventHandler<RawGameController>;
+                #[get]
+                RawGameControllers: super::super::Foundation::Collections::IVectorView<RawGameController>;
+                fn FromGameController(&self, gameController: IGameController) -> RawGameController;
+            }
+            #[guid(0xe5aeefdd_f50e_4a55_8cdc_d33229548175)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UINavigationController)]
+            interface IUINavigationController: IGameController {
+                fn GetCurrentReading(&self) -> UINavigationReading;
+                fn GetOptionalButtonLabel(&self, button: OptionalUINavigationButtons) -> GameControllerButtonLabel;
+                fn GetRequiredButtonLabel(&self, button: RequiredUINavigationButtons) -> GameControllerButtonLabel;
+            }
+            #[guid(0x2f14930a_f6f8_4a48_8d89_94786cca0c2e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UINavigationController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IUINavigationControllerStatics {
+                event UINavigationControllerAdded: super::super::Foundation::EventHandler<UINavigationController>;
+                event UINavigationControllerRemoved: super::super::Foundation::EventHandler<UINavigationController>;
+                #[get]
+                UINavigationControllers: super::super::Foundation::Collections::IVectorView<UINavigationController>;
+            }
+            #[guid(0xe0cb28e3_b20b_4b0b_9ed4_f3d53cec0de4)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UINavigationController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IUINavigationControllerStatics2: IUINavigationControllerStatics {
+                fn FromGameController(&self, gameController: IGameController) -> UINavigationController;
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum OptionalUINavigationButtons {
+                None = 0,
+                Context1 = 1,
+                Context2 = 2,
+                Context3 = 4,
+                Context4 = 8,
+                PageUp = 16,
+                PageDown = 32,
+                PageLeft = 64,
+                PageRight = 128,
+                ScrollUp = 256,
+                ScrollDown = 512,
+                ScrollLeft = 1024,
+                ScrollRight = 2048,
+            }
+            #[Windows::Foundation::Metadata::Static(IRacingWheelStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Static(IRacingWheelStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class RacingWheel {
+                IRacingWheel,
+                IGameController,
+                IGameControllerBatteryInfo,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum RacingWheelButtons {
+                None = 0,
+                PreviousGear = 1,
+                NextGear = 2,
+                DPadUp = 4,
+                DPadDown = 8,
+                DPadLeft = 16,
+                DPadRight = 32,
+                Button1 = 64,
+                Button2 = 128,
+                Button3 = 256,
+                Button4 = 512,
+                Button5 = 1024,
+                Button6 = 2048,
+                Button7 = 4096,
+                Button8 = 8192,
+                Button9 = 16384,
+                Button10 = 32768,
+                Button11 = 65536,
+                Button12 = 131072,
+                Button13 = 262144,
+                Button14 = 524288,
+                Button15 = 1048576,
+                Button16 = 2097152,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            struct RacingWheelReading {
+                Timestamp: u64,
+                Buttons: RacingWheelButtons,
+                PatternShifterGear: i32,
+                Wheel: f64,
+                Throttle: f64,
+                Brake: f64,
+                Clutch: f64,
+                Handbrake: f64,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Static(IRawGameControllerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class RawGameController {
+                IRawGameController,
+                IGameController,
+                IGameControllerBatteryInfo,
+                IRawGameController2,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum RequiredUINavigationButtons {
+                None = 0,
+                Menu = 1,
+                View = 2,
+                Accept = 4,
+                Cancel = 8,
+                Up = 16,
+                Down = 32,
+                Left = 64,
+                Right = 128,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Static(IUINavigationControllerStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IUINavigationControllerStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            class UINavigationController {
+                IUINavigationController,
+                IGameController,
+                IGameControllerBatteryInfo,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            struct UINavigationReading {
+                Timestamp: u64,
+                RequiredButtons: RequiredUINavigationButtons,
+                OptionalButtons: OptionalUINavigationButtons,
+            }
+        }
+    }
+}

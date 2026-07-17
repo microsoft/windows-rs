@@ -1,0 +1,22 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod UserActivities {
+            mod Core {
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::Static(ICoreUserActivityManagerStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class CoreUserActivityManager {}
+                #[guid(0xca3adb02_a4be_4d4d_bfa8_6795f4264efb)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreUserActivityManager)]
+                interface ICoreUserActivityManagerStatics {
+                    fn CreateUserActivitySessionInBackground(&self, activity: super::UserActivity) -> super::UserActivitySession;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn DeleteUserActivitySessionsInTimeRangeAsync(&self, channel: super::UserActivityChannel, startTime: super::super::super::Foundation::DateTime, endTime: super::super::super::Foundation::DateTime) -> super::super::super::Foundation::IAsyncAction;
+                }
+            }
+        }
+    }
+}

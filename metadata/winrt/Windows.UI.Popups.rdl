@@ -1,0 +1,104 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Popups {
+            #[guid(0x33f59b01_5325_43ab_9ab3_bdae440e4121)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MessageDialog)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMessageDialog {
+                Title: String;
+                #[get]
+                Commands: super::super::Foundation::Collections::IVector<IUICommand>;
+                DefaultCommandIndex: u32;
+                CancelCommandIndex: u32;
+                Content: String;
+                fn ShowAsync(&self) -> super::super::Foundation::IAsyncOperation<IUICommand>;
+                Options: MessageDialogOptions;
+            }
+            #[guid(0x2d161777_a66f_4ea5_bb87_793ffa4941f2)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MessageDialog)]
+            interface IMessageDialogFactory {
+                fn Create(&self, content: String) -> MessageDialog;
+                fn CreateWithTitle(&self, content: String, title: String) -> MessageDialog;
+            }
+            #[guid(0x4e9bc6dc_880d_47fc_a0a1_72b639e62559)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PopupMenu)]
+            interface IPopupMenu {
+                #[get]
+                Commands: super::super::Foundation::Collections::IVector<IUICommand>;
+                fn ShowAsync(&self, invocationPoint: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<IUICommand>;
+                #[Windows::Foundation::Metadata::Overload("ShowAsyncWithRect")]
+                fn ShowForSelectionAsync(&self, selection: super::super::Foundation::Rect) -> super::super::Foundation::IAsyncOperation<IUICommand>;
+                #[Windows::Foundation::Metadata::Overload("ShowAsyncWithRectAndPlacement")]
+                fn ShowForSelectionAsync(&self, selection: super::super::Foundation::Rect, preferredPlacement: Placement) -> super::super::Foundation::IAsyncOperation<IUICommand>;
+            }
+            #[guid(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IUICommand {
+                Label: String;
+                Invoked: UICommandInvokedHandler;
+                Id: Object;
+            }
+            #[guid(0xa21a8189_26b0_4676_ae94_54041bc125e8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UICommand)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IUICommandFactory {
+                fn Create(&self, label: String) -> UICommand;
+                fn CreateWithHandler(&self, label: String, action: UICommandInvokedHandler) -> UICommand;
+                fn CreateWithHandlerAndId(&self, label: String, action: UICommandInvokedHandler, #[Windows::Foundation::Metadata::Variant] commandId: Object) -> UICommand;
+            }
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(IMessageDialogFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class MessageDialog {
+                IMessageDialog,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MessageDialogOptions {
+                None = 0,
+                AcceptUserInputAfterDelay = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum Placement {
+                Default = 0,
+                Above = 1,
+                Below = 2,
+                Left = 3,
+                Right = 4,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            class PopupMenu {
+                IPopupMenu,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(IUICommandFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class UICommand {
+                IUICommand,
+            }
+            #[guid(0xdaf77a4f_c27a_4298_9ac6_2922c45e7da6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn UICommandInvokedHandler(command: IUICommand);
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            class UICommandSeparator {
+                IUICommand,
+            }
+        }
+    }
+}

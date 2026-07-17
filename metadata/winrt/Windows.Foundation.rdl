@@ -1,0 +1,474 @@
+#[winrt]
+mod Windows {
+    mod Foundation {
+        #[guid(0xa4ed5c81_76c9_40bd_8be6_b1d90fb20ae7)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        delegate fn AsyncActionCompletedHandler(asyncInfo: IAsyncAction, asyncStatus: AsyncStatus);
+        #[guid(0x6d844858_0cff_4590_ae89_95a5a5c8b4b8)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        delegate fn AsyncActionProgressHandler<TProgress>(asyncInfo: IAsyncActionWithProgress<TProgress>, progressInfo: TProgress);
+        #[guid(0x9c029f91_cc84_44fd_ac26_0a6c4e555281)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        delegate fn AsyncActionWithProgressCompletedHandler<TProgress>(asyncInfo: IAsyncActionWithProgress<TProgress>, asyncStatus: AsyncStatus);
+        #[guid(0xfcdcf02c_e5d8_4478_915a_4d90b74b83a5)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        delegate fn AsyncOperationCompletedHandler<TResult>(asyncInfo: IAsyncOperation<TResult>, asyncStatus: AsyncStatus);
+        #[guid(0x55690902_0aab_421a_8778_f8ce5026d758)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        delegate fn AsyncOperationProgressHandler<TResult, TProgress>(asyncInfo: IAsyncOperationWithProgress<TResult, TProgress>, progressInfo: TProgress);
+        #[guid(0xe85df41d_6aa7_46e3_a8e2_f009d840c627)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        delegate fn AsyncOperationWithProgressCompletedHandler<TResult, TProgress>(asyncInfo: IAsyncOperationWithProgress<TResult, TProgress>, asyncStatus: AsyncStatus);
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        enum AsyncStatus {
+            Canceled = 2,
+            Completed = 1,
+            Error = 3,
+            Started = 0,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        struct DateTime {
+            UniversalTime: i64,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Activatable(IDeferralFactory, 65536, "Windows.Foundation.FoundationContract")]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        class Deferral {
+            IDeferral,
+            IClosable,
+        }
+        #[guid(0xed32a372_f3c8_4faa_9cfb_470148da3888)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        delegate fn DeferralCompletedHandler();
+        #[guid(0x9de1c535_6ae1_11e0_84e1_18a905bcc53f)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        delegate fn EventHandler<T>(sender: Object, args: T);
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        struct EventRegistrationToken {
+            Value: i64,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(262144)]
+        #[Windows::Foundation::Metadata::ApiContract]
+        struct FoundationContract {}
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 458752)]
+        #[Windows::Foundation::Metadata::Static(IGuidHelperStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class GuidHelper {}
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        struct HResult {
+            Value: i32,
+        }
+        #[guid(0x5a648006_843a_4da9_865b_9d26e5dfad7b)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        interface IAsyncAction: IAsyncInfo {
+            #[set]
+            Completed: AsyncActionCompletedHandler;
+            #[get]
+            Completed: AsyncActionCompletedHandler;
+            fn GetResults(&self);
+        }
+        #[guid(0x1f6db258_e803_48a1_9546_eb7353398884)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        interface IAsyncActionWithProgress<TProgress>: IAsyncInfo {
+            #[set]
+            Progress: AsyncActionProgressHandler<TProgress>;
+            #[get]
+            Progress: AsyncActionProgressHandler<TProgress>;
+            #[set]
+            Completed: AsyncActionWithProgressCompletedHandler<TProgress>;
+            #[get]
+            Completed: AsyncActionWithProgressCompletedHandler<TProgress>;
+            fn GetResults(&self);
+        }
+        #[guid(0x00000036_0000_0000_c000_000000000046)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        interface IAsyncInfo {
+            #[get]
+            Id: u32;
+            #[get]
+            Status: AsyncStatus;
+            #[get]
+            ErrorCode: HRESULT;
+            fn Cancel(&self);
+            fn Close(&self);
+        }
+        #[guid(0xb5d036d7_e297_498f_ba60_0289e76e23dd)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        interface IAsyncOperationWithProgress<TResult, TProgress>: IAsyncInfo {
+            #[set]
+            Progress: AsyncOperationProgressHandler<TResult, TProgress>;
+            #[get]
+            Progress: AsyncOperationProgressHandler<TResult, TProgress>;
+            #[set]
+            Completed: AsyncOperationWithProgressCompletedHandler<TResult, TProgress>;
+            #[get]
+            Completed: AsyncOperationWithProgressCompletedHandler<TResult, TProgress>;
+            fn GetResults(&self) -> TResult;
+        }
+        #[guid(0x9fc2b0bb_e446_44e2_aa61_9cab8f636af2)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        interface IAsyncOperation<TResult>: IAsyncInfo {
+            #[set]
+            Completed: AsyncOperationCompletedHandler<TResult>;
+            #[get]
+            Completed: AsyncOperationCompletedHandler<TResult>;
+            fn GetResults(&self) -> TResult;
+        }
+        #[guid(0x30d5a829_7fa4_4026_83bb_d75bae4ea99e)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        interface IClosable {
+            fn Close(&self);
+        }
+        #[guid(0xd6269732_3b7f_46a7_b40b_4fdca2a2c693)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Deferral)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        interface IDeferral: IClosable {
+            fn Complete(&self);
+        }
+        #[guid(0x65a1ecc5_3fb5_4832_8ca9_f061b281d13a)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Deferral)]
+        interface IDeferralFactory {
+            fn Create(&self, handler: DeferralCompletedHandler) -> Deferral;
+        }
+        #[guid(0x4edb8ee2_96dd_49a7_94f7_4607ddab8e3c)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        interface IGetActivationFactory {
+            fn GetActivationFactory(&self, activatableClassId: String) -> Object;
+        }
+        #[guid(0x59c7966b_ae52_5283_ad7f_a1b9e9678add)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(GuidHelper)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 458752)]
+        interface IGuidHelperStatics {
+            fn CreateNewGuid(&self) -> GUID;
+            #[get]
+            Empty: GUID;
+            fn Equals(&self, target: &GUID, value: &GUID) -> bool;
+        }
+        #[guid(0xfbc4dd2a_245b_11e4_af98_689423260cf8)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        interface IMemoryBuffer: IClosable {
+            fn CreateReference(&self) -> IMemoryBufferReference;
+        }
+        #[guid(0xfbc4dd2b_245b_11e4_af98_689423260cf8)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MemoryBuffer)]
+        interface IMemoryBufferFactory {
+            fn Create(&self, #[Windows::Foundation::Metadata::Range(0, 2147483647)] capacity: u32) -> MemoryBuffer;
+        }
+        #[guid(0xfbc4dd29_245b_11e4_af98_689423260cf8)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        interface IMemoryBufferReference: IClosable {
+            #[get]
+            Capacity: u32;
+            event Closed: TypedEventHandler<IMemoryBufferReference, Object>;
+        }
+        #[guid(0x4bd682dd_7554_40e9_9a9b_82654ede7e62)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        interface IPropertyValue {
+            #[get]
+            Type: PropertyType;
+            #[get]
+            IsNumericScalar: bool;
+            fn GetUInt8(&self) -> u8;
+            fn GetInt16(&self) -> i16;
+            fn GetUInt16(&self) -> u16;
+            fn GetInt32(&self) -> i32;
+            fn GetUInt32(&self) -> u32;
+            fn GetInt64(&self) -> i64;
+            fn GetUInt64(&self) -> u64;
+            fn GetSingle(&self) -> f32;
+            fn GetDouble(&self) -> f64;
+            fn GetChar16(&self) -> Char16;
+            fn GetBoolean(&self) -> bool;
+            fn GetString(&self) -> String;
+            fn GetGuid(&self) -> GUID;
+            fn GetDateTime(&self) -> DateTime;
+            fn GetTimeSpan(&self) -> TimeSpan;
+            fn GetPoint(&self) -> Point;
+            fn GetSize(&self) -> Size;
+            fn GetRect(&self) -> Rect;
+            fn GetUInt8Array(&self, value: &mut [u8]);
+            fn GetInt16Array(&self, value: &mut [i16]);
+            fn GetUInt16Array(&self, value: &mut [u16]);
+            fn GetInt32Array(&self, value: &mut [i32]);
+            fn GetUInt32Array(&self, value: &mut [u32]);
+            fn GetInt64Array(&self, value: &mut [i64]);
+            fn GetUInt64Array(&self, value: &mut [u64]);
+            fn GetSingleArray(&self, value: &mut [f32]);
+            fn GetDoubleArray(&self, value: &mut [f64]);
+            fn GetChar16Array(&self, value: &mut [Char16]);
+            fn GetBooleanArray(&self, value: &mut [bool]);
+            fn GetStringArray(&self, value: &mut [String]);
+            fn GetInspectableArray(&self, value: &mut [Object]);
+            fn GetGuidArray(&self, value: &mut [GUID]);
+            fn GetDateTimeArray(&self, value: &mut [DateTime]);
+            fn GetTimeSpanArray(&self, value: &mut [TimeSpan]);
+            fn GetPointArray(&self, value: &mut [Point]);
+            fn GetSizeArray(&self, value: &mut [Size]);
+            fn GetRectArray(&self, value: &mut [Rect]);
+        }
+        #[guid(0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(PropertyValue)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        interface IPropertyValueStatics {
+            fn CreateEmpty(&self) -> Object;
+            fn CreateUInt8(&self, value: u8) -> Object;
+            fn CreateInt16(&self, value: i16) -> Object;
+            fn CreateUInt16(&self, value: u16) -> Object;
+            fn CreateInt32(&self, value: i32) -> Object;
+            fn CreateUInt32(&self, value: u32) -> Object;
+            fn CreateInt64(&self, value: i64) -> Object;
+            fn CreateUInt64(&self, value: u64) -> Object;
+            fn CreateSingle(&self, value: f32) -> Object;
+            fn CreateDouble(&self, value: f64) -> Object;
+            fn CreateChar16(&self, value: Char16) -> Object;
+            fn CreateBoolean(&self, value: bool) -> Object;
+            fn CreateString(&self, value: String) -> Object;
+            fn CreateInspectable(&self, value: Object) -> Object;
+            fn CreateGuid(&self, value: GUID) -> Object;
+            fn CreateDateTime(&self, value: DateTime) -> Object;
+            fn CreateTimeSpan(&self, value: TimeSpan) -> Object;
+            fn CreatePoint(&self, value: Point) -> Object;
+            fn CreateSize(&self, value: Size) -> Object;
+            fn CreateRect(&self, value: Rect) -> Object;
+            fn CreateUInt8Array(&self, value: [u8]) -> Object;
+            fn CreateInt16Array(&self, value: [i16]) -> Object;
+            fn CreateUInt16Array(&self, value: [u16]) -> Object;
+            fn CreateInt32Array(&self, value: [i32]) -> Object;
+            fn CreateUInt32Array(&self, value: [u32]) -> Object;
+            fn CreateInt64Array(&self, value: [i64]) -> Object;
+            fn CreateUInt64Array(&self, value: [u64]) -> Object;
+            fn CreateSingleArray(&self, value: [f32]) -> Object;
+            fn CreateDoubleArray(&self, value: [f64]) -> Object;
+            fn CreateChar16Array(&self, value: [Char16]) -> Object;
+            fn CreateBooleanArray(&self, value: [bool]) -> Object;
+            fn CreateStringArray(&self, value: [String]) -> Object;
+            fn CreateInspectableArray(&self, value: [Object]) -> Object;
+            fn CreateGuidArray(&self, value: [GUID]) -> Object;
+            fn CreateDateTimeArray(&self, value: [DateTime]) -> Object;
+            fn CreateTimeSpanArray(&self, value: [TimeSpan]) -> Object;
+            fn CreatePointArray(&self, value: [Point]) -> Object;
+            fn CreateSizeArray(&self, value: [Size]) -> Object;
+            fn CreateRectArray(&self, value: [Rect]) -> Object;
+        }
+        #[guid(0x61c17707_2d65_11e0_9ae8_d48564015472)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        interface IReferenceArray<T>: IPropertyValue {
+            #[get]
+            Value: [T];
+        }
+        #[guid(0x61c17706_2d65_11e0_9ae8_d48564015472)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        interface IReference<T>: IPropertyValue {
+            #[get]
+            Value: T;
+        }
+        #[guid(0x96369f54_8eb6_48f0_abce_c1b211e627c3)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        interface IStringable {
+            fn ToString(&self) -> String;
+        }
+        #[guid(0xc1d432ba_c824_4452_a7fd_512bc3bbe9a1)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Uri)]
+        interface IUriEscapeStatics {
+            fn UnescapeComponent(&self, toUnescape: String) -> String;
+            fn EscapeComponent(&self, toEscape: String) -> String;
+        }
+        #[guid(0x9e365e57_48b2_4160_956f_c7385120bbfc)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Uri)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        interface IUriRuntimeClass {
+            #[get]
+            AbsoluteUri: String;
+            #[get]
+            DisplayUri: String;
+            #[get]
+            Domain: String;
+            #[get]
+            Extension: String;
+            #[get]
+            Fragment: String;
+            #[get]
+            Host: String;
+            #[get]
+            Password: String;
+            #[get]
+            Path: String;
+            #[get]
+            Query: String;
+            #[get]
+            QueryParsed: WwwFormUrlDecoder;
+            #[get]
+            RawUri: String;
+            #[get]
+            SchemeName: String;
+            #[get]
+            UserName: String;
+            #[get]
+            Port: i32;
+            #[get]
+            Suspicious: bool;
+            fn Equals(&self, pUri: Uri) -> bool;
+            fn CombineUri(&self, relativeUri: String) -> Uri;
+        }
+        #[guid(0x44a9796f_723e_4fdf_a218_033e75b0c084)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Uri)]
+        interface IUriRuntimeClassFactory {
+            fn CreateUri(&self, uri: String) -> Uri;
+            fn CreateWithRelativeUri(&self, baseUri: String, relativeUri: String) -> Uri;
+        }
+        #[guid(0x758d9661_221c_480f_a339_50656673f46f)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Uri)]
+        interface IUriRuntimeClassWithAbsoluteCanonicalUri {
+            #[get]
+            AbsoluteCanonicalUri: String;
+            #[get]
+            DisplayIri: String;
+        }
+        #[guid(0x125e7431_f678_4e8e_b670_20a9b06c512d)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        interface IWwwFormUrlDecoderEntry {
+            #[get]
+            Name: String;
+            #[get]
+            Value: String;
+        }
+        #[guid(0xd45a0451_f225_4542_9296_0e1df5d254df)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(WwwFormUrlDecoder)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        interface IWwwFormUrlDecoderRuntimeClass: Collections::IIterable<IWwwFormUrlDecoderEntry> + Collections::IVectorView<IWwwFormUrlDecoderEntry> {
+            fn GetFirstValueByName(&self, name: String) -> String;
+        }
+        #[guid(0x5b8c6b3d_24ae_41b5_a1bf_f0c3d544845b)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(WwwFormUrlDecoder)]
+        interface IWwwFormUrlDecoderRuntimeClassFactory {
+            fn CreateWwwFormUrlDecoder(&self, query: String) -> WwwFormUrlDecoder;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Activatable(IMemoryBufferFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        class MemoryBuffer {
+            IMemoryBuffer,
+            IClosable,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        struct Point {
+            X: f32,
+            Y: f32,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        enum PropertyType {
+            Empty = 0,
+            UInt8 = 1,
+            Int16 = 2,
+            UInt16 = 3,
+            Int32 = 4,
+            UInt32 = 5,
+            Int64 = 6,
+            UInt64 = 7,
+            Single = 8,
+            Double = 9,
+            Char16 = 10,
+            Boolean = 11,
+            String = 12,
+            Inspectable = 13,
+            DateTime = 14,
+            TimeSpan = 15,
+            Guid = 16,
+            Point = 17,
+            Size = 18,
+            Rect = 19,
+            OtherType = 20,
+            UInt8Array = 1025,
+            Int16Array = 1026,
+            UInt16Array = 1027,
+            Int32Array = 1028,
+            UInt32Array = 1029,
+            Int64Array = 1030,
+            UInt64Array = 1031,
+            SingleArray = 1032,
+            DoubleArray = 1033,
+            Char16Array = 1034,
+            BooleanArray = 1035,
+            StringArray = 1036,
+            InspectableArray = 1037,
+            DateTimeArray = 1038,
+            TimeSpanArray = 1039,
+            GuidArray = 1040,
+            PointArray = 1041,
+            SizeArray = 1042,
+            RectArray = 1043,
+            OtherTypeArray = 1044,
+        }
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        #[Windows::Foundation::Metadata::Static(IPropertyValueStatics, 65536, "Windows.Foundation.FoundationContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class PropertyValue {}
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        struct Rect {
+            X: f32,
+            Y: f32,
+            Width: f32,
+            Height: f32,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        struct Size {
+            Width: f32,
+            Height: f32,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        struct TimeSpan {
+            Duration: i64,
+        }
+        #[guid(0x9de1c534_6ae1_11e0_84e1_18a905bcc53f)]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        delegate fn TypedEventHandler<TSender, TResult>(sender: TSender, args: TResult);
+        #[Windows::Foundation::Metadata::ApiContract]
+        #[Windows::Foundation::Metadata::ContractVersion(1310720)]
+        struct UniversalApiContract {}
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(IUriEscapeStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::Activatable(IUriRuntimeClassFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        class Uri {
+            IUriRuntimeClass,
+            IUriRuntimeClassWithAbsoluteCanonicalUri,
+            IStringable,
+        }
+        #[Windows::Foundation::Metadata::Activatable(IWwwFormUrlDecoderRuntimeClassFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class WwwFormUrlDecoder {
+            IWwwFormUrlDecoderRuntimeClass,
+            Collections::IVectorView<IWwwFormUrlDecoderEntry>,
+            Collections::IIterable<IWwwFormUrlDecoderEntry>,
+        }
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        class WwwFormUrlDecoderEntry {
+            IWwwFormUrlDecoderEntry,
+        }
+    }
+}

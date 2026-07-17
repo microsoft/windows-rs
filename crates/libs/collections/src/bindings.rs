@@ -1381,19 +1381,19 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
     IObservableMap<K, V>
 {
-    pub fn MapChanged<F>(&self, vhnd: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn MapChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<IMapChangedEventArgs<K>>) + Send + 'static,
     {
-        let vhnd = <MapChangedEventHandler<K, V>>::new(move |a0, a1| {
-            vhnd(a0, a1);
+        let handler = <MapChangedEventHandler<K, V>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
             let token__ = (windows_core::Interface::vtable(self).MapChanged)(
                 windows_core::Interface::as_raw(self),
-                windows_core::Interface::as_raw(&vhnd),
+                windows_core::Interface::as_raw(&handler),
                 &mut result__,
             )
             .map(|| result__)?;
@@ -1537,7 +1537,7 @@ where
 {
     fn MapChanged(
         &self,
-        vhnd: windows_core::Ref<MapChangedEventHandler<K, V>>,
+        handler: windows_core::Ref<MapChangedEventHandler<K, V>>,
     ) -> windows_core::Result<i64>;
     fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()>;
 }
@@ -1552,13 +1552,13 @@ impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'sta
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            vhnd: *mut core::ffi::c_void,
+            handler: *mut core::ffi::c_void,
             result__: *mut i64,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IObservableMap_Impl::MapChanged(this, core::mem::transmute_copy(&vhnd)) {
+                match IObservableMap_Impl::MapChanged(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)
@@ -1654,19 +1654,19 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IVector<
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IObservableVector<T> {
-    pub fn VectorChanged<F>(&self, vhnd: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn VectorChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<IVectorChangedEventArgs>) + Send + 'static,
     {
-        let vhnd = <VectorChangedEventHandler<T>>::new(move |a0, a1| {
-            vhnd(a0, a1);
+        let handler = <VectorChangedEventHandler<T>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
             let token__ = (windows_core::Interface::vtable(self).VectorChanged)(
                 windows_core::Interface::as_raw(self),
-                windows_core::Interface::as_raw(&vhnd),
+                windows_core::Interface::as_raw(&handler),
                 &mut result__,
             )
             .map(|| result__)?;
@@ -1863,7 +1863,7 @@ where
 {
     fn VectorChanged(
         &self,
-        vhnd: windows_core::Ref<VectorChangedEventHandler<T>>,
+        handler: windows_core::Ref<VectorChangedEventHandler<T>>,
     ) -> windows_core::Result<i64>;
     fn RemoveVectorChanged(&self, token: i64) -> windows_core::Result<()>;
 }
@@ -1875,14 +1875,16 @@ impl<T: windows_core::RuntimeType + 'static> IObservableVector_Vtbl<T> {
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            vhnd: *mut core::ffi::c_void,
+            handler: *mut core::ffi::c_void,
             result__: *mut i64,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                match IObservableVector_Impl::VectorChanged(this, core::mem::transmute_copy(&vhnd))
-                {
+                match IObservableVector_Impl::VectorChanged(
+                    this,
+                    core::mem::transmute_copy(&handler),
+                ) {
                     Ok(ok__) => {
                         result__.write(ok__);
                         windows_core::HRESULT(0)

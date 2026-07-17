@@ -1,0 +1,89 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod ContentRestrictions {
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ContentAccessRestrictionLevel {
+                Allow = 0,
+                Warn = 1,
+                Block = 2,
+                Hide = 3,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ContentRestrictionsBrowsePolicy {
+                IContentRestrictionsBrowsePolicy,
+            }
+            #[guid(0x8c0133a4_442e_461a_8757_fad2f5bd37e4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContentRestrictionsBrowsePolicy)]
+            interface IContentRestrictionsBrowsePolicy {
+                #[get]
+                GeographicRegion: String;
+                #[get]
+                MaxBrowsableAgeRating: super::super::Foundation::IReference<u32>;
+                #[get]
+                PreferredAgeRating: super::super::Foundation::IReference<u32>;
+            }
+            #[guid(0x694866df_66b2_4dc3_96b1_f090eedee255)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RatedContentDescription)]
+            interface IRatedContentDescription {
+                Id: String;
+                Title: String;
+                Image: super::super::Storage::Streams::IRandomAccessStreamReference;
+                Category: RatedContentCategory;
+                Ratings: super::super::Foundation::Collections::IVector<String>;
+            }
+            #[guid(0x2e38df62_9b90_4fa6_89c1_4b8d2ffb3573)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RatedContentDescription)]
+            interface IRatedContentDescriptionFactory {
+                fn Create(&self, id: String, title: String, category: RatedContentCategory) -> RatedContentDescription;
+            }
+            #[guid(0x3f7f23cb_ba07_4401_a49d_8b9222205723)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RatedContentRestrictions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IRatedContentRestrictions {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetBrowsePolicyAsync(&self) -> super::super::Foundation::IAsyncOperation<ContentRestrictionsBrowsePolicy>;
+                fn GetRestrictionLevelAsync(&self, RatedContentDescription: RatedContentDescription) -> super::super::Foundation::IAsyncOperation<ContentAccessRestrictionLevel>;
+                fn RequestContentAccessAsync(&self, RatedContentDescription: RatedContentDescription) -> super::super::Foundation::IAsyncOperation<bool>;
+                event RestrictionsChanged: super::super::Foundation::EventHandler<Object>;
+            }
+            #[guid(0xfb4b2996_c3bd_4910_9619_97cfd0694d56)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RatedContentRestrictions)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IRatedContentRestrictionsFactory {
+                fn CreateWithMaxAgeRating(&self, maxAgeRating: u32) -> RatedContentRestrictions;
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum RatedContentCategory {
+                General = 0,
+                Application = 1,
+                Game = 2,
+                Movie = 3,
+                Television = 4,
+                Music = 5,
+            }
+            #[Windows::Foundation::Metadata::Activatable(IRatedContentDescriptionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class RatedContentDescription {
+                IRatedContentDescription,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IRatedContentRestrictionsFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class RatedContentRestrictions {
+                IRatedContentRestrictions,
+            }
+        }
+    }
+}

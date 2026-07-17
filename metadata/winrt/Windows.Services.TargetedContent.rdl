@@ -1,0 +1,348 @@
+#[winrt]
+mod Windows {
+    mod Services {
+        mod TargetedContent {
+            #[guid(0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentAction)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            interface ITargetedContentAction {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn InvokeAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[guid(0xe0f59d26_5927_4450_965c_1ceb7becde65)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentAvailabilityChangedEventArgs)]
+            interface ITargetedContentAvailabilityChangedEventArgs {
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[guid(0x99d488c9_587e_4586_8ef7_b54ca9453a16)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentChangedEventArgs)]
+            interface ITargetedContentChangedEventArgs {
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+                #[get]
+                HasPreviousContentExpired: bool;
+            }
+            #[guid(0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentCollection)]
+            interface ITargetedContentCollection {
+                #[get]
+                Id: String;
+                fn ReportInteraction(&self, interaction: TargetedContentInteraction);
+                fn ReportCustomInteraction(&self, customInteractionName: String);
+                #[get]
+                Path: String;
+                #[get]
+                Properties: super::super::Foundation::Collections::IMapView<String, TargetedContentValue>;
+                #[get]
+                Collections: super::super::Foundation::Collections::IVectorView<TargetedContentCollection>;
+                #[get]
+                Items: super::super::Foundation::Collections::IVectorView<TargetedContentItem>;
+            }
+            #[guid(0xbc2494c9_8837_47c2_850f_d79d64595926)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentContainer)]
+            interface ITargetedContentContainer {
+                #[get]
+                Id: String;
+                #[get]
+                Timestamp: super::super::Foundation::DateTime;
+                #[get]
+                Availability: TargetedContentAvailability;
+                #[get]
+                Content: TargetedContentCollection;
+                fn SelectSingleObject(&self, path: String) -> TargetedContentObject;
+            }
+            #[guid(0x5b47e7fb_2140_4c1f_a736_c59583f227d8)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentContainer)]
+            interface ITargetedContentContainerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAsync(&self, contentId: String) -> super::super::Foundation::IAsyncOperation<TargetedContentContainer>;
+            }
+            #[guid(0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentImage)]
+            interface ITargetedContentImage: super::super::Storage::Streams::IRandomAccessStreamReference {
+                #[get]
+                Height: u32;
+                #[get]
+                Width: u32;
+            }
+            #[guid(0x38168dc4_276c_4c32_96ba_565c6e406e74)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentItem)]
+            interface ITargetedContentItem {
+                #[get]
+                Path: String;
+                fn ReportInteraction(&self, interaction: TargetedContentInteraction);
+                fn ReportCustomInteraction(&self, customInteractionName: String);
+                #[get]
+                State: TargetedContentItemState;
+                #[get]
+                Properties: super::super::Foundation::Collections::IMapView<String, TargetedContentValue>;
+                #[get]
+                Collections: super::super::Foundation::Collections::IVectorView<TargetedContentCollection>;
+            }
+            #[guid(0x73935454_4c65_4b47_a441_472de53c79b6)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentItemState)]
+            interface ITargetedContentItemState {
+                #[get]
+                ShouldDisplay: bool;
+                #[get]
+                AppInstallationState: TargetedContentAppInstallationState;
+            }
+            #[guid(0x041d7969_2212_42d1_9dfa_88a8e3033aa3)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentObject)]
+            interface ITargetedContentObject {
+                #[get]
+                ObjectKind: TargetedContentObjectKind;
+                #[get]
+                Collection: TargetedContentCollection;
+                #[get]
+                Item: TargetedContentItem;
+                #[get]
+                Value: TargetedContentValue;
+            }
+            #[guid(0x9a1cef3d_8073_4416_8df2_546835a6414f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentStateChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            interface ITargetedContentStateChangedEventArgs {
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[guid(0x882c2c49_c652_4c7a_acad_1f7fa2986c73)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentSubscription)]
+            interface ITargetedContentSubscription {
+                #[get]
+                Id: String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetContentContainerAsync(&self) -> super::super::Foundation::IAsyncOperation<TargetedContentContainer>;
+                event ContentChanged: super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentChangedEventArgs>;
+                event AvailabilityChanged: super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentAvailabilityChangedEventArgs>;
+                event StateChanged: super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs>;
+            }
+            #[guid(0x61ee6ad0_2c83_421b_8467_413eaf1aeb97)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentSubscriptionOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            interface ITargetedContentSubscriptionOptions {
+                #[get]
+                SubscriptionId: String;
+                AllowPartialContentAvailability: bool;
+                #[get]
+                CloudQueryParameters: super::super::Foundation::Collections::IMap<String, String>;
+                #[get]
+                LocalFilters: super::super::Foundation::Collections::IVector<String>;
+                fn Update(&self);
+            }
+            #[guid(0xfaddfe80_360d_4916_b53c_7ea27090d02a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentSubscription)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            interface ITargetedContentSubscriptionStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAsync(&self, subscriptionId: String) -> super::super::Foundation::IAsyncOperation<TargetedContentSubscription>;
+                fn GetOptions(&self, subscriptionId: String) -> TargetedContentSubscriptionOptions;
+            }
+            #[guid(0xaafde4b3_4215_4bf8_867f_43f04865f9bf)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentValue)]
+            interface ITargetedContentValue {
+                #[get]
+                ValueKind: TargetedContentValueKind;
+                #[get]
+                Path: String;
+                #[get]
+                String: String;
+                #[get]
+                Uri: super::super::Foundation::Uri;
+                #[get]
+                Number: f64;
+                #[get]
+                Boolean: bool;
+                #[get]
+                File: TargetedContentFile;
+                #[get]
+                ImageFile: TargetedContentImage;
+                #[get]
+                Action: TargetedContentAction;
+                #[get]
+                Strings: super::super::Foundation::Collections::IVectorView<String>;
+                #[get]
+                Uris: super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>;
+                #[get]
+                Numbers: super::super::Foundation::Collections::IVectorView<f64>;
+                #[get]
+                Booleans: super::super::Foundation::Collections::IVectorView<bool>;
+                #[get]
+                Files: super::super::Foundation::Collections::IVectorView<TargetedContentFile>;
+                #[get]
+                ImageFiles: super::super::Foundation::Collections::IVectorView<TargetedContentImage>;
+                #[get]
+                Actions: super::super::Foundation::Collections::IVectorView<TargetedContentAction>;
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class TargetedContentAction {
+                ITargetedContentAction,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            enum TargetedContentAppInstallationState {
+                NotApplicable = 0,
+                NotInstalled = 1,
+                Installed = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            enum TargetedContentAvailability {
+                None = 0,
+                Partial = 1,
+                All = 2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            class TargetedContentAvailabilityChangedEventArgs {
+                ITargetedContentAvailabilityChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            class TargetedContentChangedEventArgs {
+                ITargetedContentChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            class TargetedContentCollection {
+                ITargetedContentCollection,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ITargetedContentContainerStatics, 65536, "Windows.Services.TargetedContent.TargetedContentContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            class TargetedContentContainer {
+                ITargetedContentContainer,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            struct TargetedContentContract {}
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class TargetedContentFile {
+                super::super::Storage::Streams::IRandomAccessStreamReference,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class TargetedContentImage {
+                ITargetedContentImage,
+                super::super::Storage::Streams::IRandomAccessStreamReference,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            enum TargetedContentInteraction {
+                Impression = 0,
+                ClickThrough = 1,
+                Hover = 2,
+                Like = 3,
+                Dislike = 4,
+                Dismiss = 5,
+                Ineligible = 6,
+                Accept = 7,
+                Decline = 8,
+                Defer = 9,
+                Canceled = 10,
+                Conversion = 11,
+                Opportunity = 12,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            class TargetedContentItem {
+                ITargetedContentItem,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            class TargetedContentItemState {
+                ITargetedContentItemState,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class TargetedContentObject {
+                ITargetedContentObject,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            enum TargetedContentObjectKind {
+                Collection = 0,
+                Item = 1,
+                Value = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            class TargetedContentStateChangedEventArgs {
+                ITargetedContentStateChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(ITargetedContentSubscriptionStatics, 65536, "Windows.Services.TargetedContent.TargetedContentContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class TargetedContentSubscription {
+                ITargetedContentSubscription,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            class TargetedContentSubscriptionOptions {
+                ITargetedContentSubscriptionOptions,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            class TargetedContentValue {
+                ITargetedContentValue,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            enum TargetedContentValueKind {
+                String = 0,
+                Uri = 1,
+                Number = 2,
+                Boolean = 3,
+                File = 4,
+                ImageFile = 5,
+                Action = 6,
+                Strings = 7,
+                Uris = 8,
+                Numbers = 9,
+                Booleans = 10,
+                Files = 11,
+                ImageFiles = 12,
+                Actions = 13,
+            }
+        }
+    }
+}

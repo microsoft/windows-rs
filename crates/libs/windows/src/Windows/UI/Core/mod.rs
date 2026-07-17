@@ -2303,7 +2303,7 @@ impl windows_core::RuntimeName for ICoreAcceleratorKeys {
 }
 pub trait ICoreAcceleratorKeys_Impl: windows_core::IUnknownImpl {
     fn AcceleratorKeyActivated(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreDispatcher, AcceleratorKeyEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveAcceleratorKeyActivated(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveAcceleratorKeyActivated(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ICoreAcceleratorKeys_Vtbl {
     pub const fn new<Identity: ICoreAcceleratorKeys_Impl, const OFFSET: isize>() -> Self {
@@ -2319,10 +2319,10 @@ impl ICoreAcceleratorKeys_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveAcceleratorKeyActivated<Identity: ICoreAcceleratorKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveAcceleratorKeyActivated<Identity: ICoreAcceleratorKeys_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreAcceleratorKeys_Impl::RemoveAcceleratorKeyActivated(this, cookie).into()
+                ICoreAcceleratorKeys_Impl::RemoveAcceleratorKeyActivated(this, token).into()
             }
         }
         Self {
@@ -2513,7 +2513,7 @@ pub trait ICoreInputSourceBase_Impl: windows_core::IUnknownImpl {
     fn IsInputEnabled(&self) -> windows_core::Result<bool>;
     fn SetIsInputEnabled(&self, value: bool) -> windows_core::Result<()>;
     fn InputEnabled(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, InputEnabledEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveInputEnabled(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveInputEnabled(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ICoreInputSourceBase_Vtbl {
     pub const fn new<Identity: ICoreInputSourceBase_Impl, const OFFSET: isize>() -> Self {
@@ -2560,10 +2560,10 @@ impl ICoreInputSourceBase_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveInputEnabled<Identity: ICoreInputSourceBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveInputEnabled<Identity: ICoreInputSourceBase_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreInputSourceBase_Impl::RemoveInputEnabled(this, cookie).into()
+                ICoreInputSourceBase_Impl::RemoveInputEnabled(this, token).into()
             }
         }
         Self {
@@ -2767,19 +2767,19 @@ pub trait ICorePointerInputSource_Impl: windows_core::IUnknownImpl {
     fn PointerCursor(&self) -> windows_core::Result<CoreCursor>;
     fn SetPointerCursor(&self, value: windows_core::Ref<CoreCursor>) -> windows_core::Result<()>;
     fn PointerCaptureLost(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerCaptureLost(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerCaptureLost(&self, token: i64) -> windows_core::Result<()>;
     fn PointerEntered(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerEntered(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerEntered(&self, token: i64) -> windows_core::Result<()>;
     fn PointerExited(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerExited(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerExited(&self, token: i64) -> windows_core::Result<()>;
     fn PointerMoved(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerMoved(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerMoved(&self, token: i64) -> windows_core::Result<()>;
     fn PointerPressed(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerPressed(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerPressed(&self, token: i64) -> windows_core::Result<()>;
     fn PointerReleased(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerReleased(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerReleased(&self, token: i64) -> windows_core::Result<()>;
     fn PointerWheelChanged(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerWheelChanged(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerWheelChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ICorePointerInputSource_Vtbl {
     pub const fn new<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>() -> Self {
@@ -2850,10 +2850,10 @@ impl ICorePointerInputSource_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerCaptureLost<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerCaptureLost<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorePointerInputSource_Impl::RemovePointerCaptureLost(this, cookie).into()
+                ICorePointerInputSource_Impl::RemovePointerCaptureLost(this, token).into()
             }
         }
         unsafe extern "system" fn PointerEntered<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -2868,10 +2868,10 @@ impl ICorePointerInputSource_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerEntered<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerEntered<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorePointerInputSource_Impl::RemovePointerEntered(this, cookie).into()
+                ICorePointerInputSource_Impl::RemovePointerEntered(this, token).into()
             }
         }
         unsafe extern "system" fn PointerExited<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -2886,10 +2886,10 @@ impl ICorePointerInputSource_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerExited<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerExited<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorePointerInputSource_Impl::RemovePointerExited(this, cookie).into()
+                ICorePointerInputSource_Impl::RemovePointerExited(this, token).into()
             }
         }
         unsafe extern "system" fn PointerMoved<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -2904,10 +2904,10 @@ impl ICorePointerInputSource_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerMoved<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerMoved<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorePointerInputSource_Impl::RemovePointerMoved(this, cookie).into()
+                ICorePointerInputSource_Impl::RemovePointerMoved(this, token).into()
             }
         }
         unsafe extern "system" fn PointerPressed<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -2922,10 +2922,10 @@ impl ICorePointerInputSource_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerPressed<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerPressed<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorePointerInputSource_Impl::RemovePointerPressed(this, cookie).into()
+                ICorePointerInputSource_Impl::RemovePointerPressed(this, token).into()
             }
         }
         unsafe extern "system" fn PointerReleased<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -2940,10 +2940,10 @@ impl ICorePointerInputSource_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerReleased<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerReleased<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorePointerInputSource_Impl::RemovePointerReleased(this, cookie).into()
+                ICorePointerInputSource_Impl::RemovePointerReleased(this, token).into()
             }
         }
         unsafe extern "system" fn PointerWheelChanged<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -2958,10 +2958,10 @@ impl ICorePointerInputSource_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerWheelChanged<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerWheelChanged<Identity: ICorePointerInputSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorePointerInputSource_Impl::RemovePointerWheelChanged(this, cookie).into()
+                ICorePointerInputSource_Impl::RemovePointerWheelChanged(this, token).into()
             }
         }
         Self {
@@ -3271,11 +3271,11 @@ impl windows_core::RuntimeName for ICorePointerRedirector {
 }
 pub trait ICorePointerRedirector_Impl: windows_core::IUnknownImpl {
     fn PointerRoutedAway(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerRoutedAway(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerRoutedAway(&self, token: i64) -> windows_core::Result<()>;
     fn PointerRoutedTo(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerRoutedTo(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerRoutedTo(&self, token: i64) -> windows_core::Result<()>;
     fn PointerRoutedReleased(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<ICorePointerRedirector, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerRoutedReleased(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerRoutedReleased(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ICorePointerRedirector_Vtbl {
     pub const fn new<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>() -> Self {
@@ -3291,10 +3291,10 @@ impl ICorePointerRedirector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerRoutedAway<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerRoutedAway<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorePointerRedirector_Impl::RemovePointerRoutedAway(this, cookie).into()
+                ICorePointerRedirector_Impl::RemovePointerRoutedAway(this, token).into()
             }
         }
         unsafe extern "system" fn PointerRoutedTo<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -3309,10 +3309,10 @@ impl ICorePointerRedirector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerRoutedTo<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerRoutedTo<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorePointerRedirector_Impl::RemovePointerRoutedTo(this, cookie).into()
+                ICorePointerRedirector_Impl::RemovePointerRoutedTo(this, token).into()
             }
         }
         unsafe extern "system" fn PointerRoutedReleased<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -3327,10 +3327,10 @@ impl ICorePointerRedirector_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerRoutedReleased<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerRoutedReleased<Identity: ICorePointerRedirector_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICorePointerRedirector_Impl::RemovePointerRoutedReleased(this, cookie).into()
+                ICorePointerRedirector_Impl::RemovePointerRoutedReleased(this, token).into()
             }
         }
         Self {
@@ -3734,39 +3734,39 @@ pub trait ICoreWindow_Impl: windows_core::IUnknownImpl {
     fn ReleasePointerCapture(&self) -> windows_core::Result<()>;
     fn SetPointerCapture(&self) -> windows_core::Result<()>;
     fn Activated(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, WindowActivatedEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveActivated(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveActivated(&self, token: i64) -> windows_core::Result<()>;
     fn AutomationProviderRequested(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, AutomationProviderRequestedEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveAutomationProviderRequested(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveAutomationProviderRequested(&self, token: i64) -> windows_core::Result<()>;
     fn CharacterReceived(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, CharacterReceivedEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveCharacterReceived(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveCharacterReceived(&self, token: i64) -> windows_core::Result<()>;
     fn Closed(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, CoreWindowEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveClosed(&self, token: i64) -> windows_core::Result<()>;
     fn InputEnabled(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, InputEnabledEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveInputEnabled(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveInputEnabled(&self, token: i64) -> windows_core::Result<()>;
     fn KeyDown(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveKeyDown(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveKeyDown(&self, token: i64) -> windows_core::Result<()>;
     fn KeyUp(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, KeyEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveKeyUp(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveKeyUp(&self, token: i64) -> windows_core::Result<()>;
     fn PointerCaptureLost(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerCaptureLost(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerCaptureLost(&self, token: i64) -> windows_core::Result<()>;
     fn PointerEntered(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerEntered(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerEntered(&self, token: i64) -> windows_core::Result<()>;
     fn PointerExited(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerExited(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerExited(&self, token: i64) -> windows_core::Result<()>;
     fn PointerMoved(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerMoved(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerMoved(&self, token: i64) -> windows_core::Result<()>;
     fn PointerPressed(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerPressed(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerPressed(&self, token: i64) -> windows_core::Result<()>;
     fn PointerReleased(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerReleased(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerReleased(&self, token: i64) -> windows_core::Result<()>;
     fn TouchHitTesting(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, TouchHitTestingEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveTouchHitTesting(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveTouchHitTesting(&self, token: i64) -> windows_core::Result<()>;
     fn PointerWheelChanged(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, PointerEventArgs>>) -> windows_core::Result<i64>;
-    fn RemovePointerWheelChanged(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemovePointerWheelChanged(&self, token: i64) -> windows_core::Result<()>;
     fn SizeChanged(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, WindowSizeChangedEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveSizeChanged(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveSizeChanged(&self, token: i64) -> windows_core::Result<()>;
     fn VisibilityChanged(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<CoreWindow, VisibilityChangedEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveVisibilityChanged(&self, cookie: i64) -> windows_core::Result<()>;
+    fn RemoveVisibilityChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "System"))]
 impl ICoreWindow_Vtbl {
@@ -3961,10 +3961,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveActivated<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveActivated<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemoveActivated(this, cookie).into()
+                ICoreWindow_Impl::RemoveActivated(this, token).into()
             }
         }
         unsafe extern "system" fn AutomationProviderRequested<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -3979,10 +3979,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveAutomationProviderRequested<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveAutomationProviderRequested<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemoveAutomationProviderRequested(this, cookie).into()
+                ICoreWindow_Impl::RemoveAutomationProviderRequested(this, token).into()
             }
         }
         unsafe extern "system" fn CharacterReceived<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -3997,10 +3997,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveCharacterReceived<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveCharacterReceived<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemoveCharacterReceived(this, cookie).into()
+                ICoreWindow_Impl::RemoveCharacterReceived(this, token).into()
             }
         }
         unsafe extern "system" fn Closed<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4015,10 +4015,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveClosed<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveClosed<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemoveClosed(this, cookie).into()
+                ICoreWindow_Impl::RemoveClosed(this, token).into()
             }
         }
         unsafe extern "system" fn InputEnabled<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4033,10 +4033,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveInputEnabled<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveInputEnabled<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemoveInputEnabled(this, cookie).into()
+                ICoreWindow_Impl::RemoveInputEnabled(this, token).into()
             }
         }
         unsafe extern "system" fn KeyDown<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4051,10 +4051,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveKeyDown<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveKeyDown<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemoveKeyDown(this, cookie).into()
+                ICoreWindow_Impl::RemoveKeyDown(this, token).into()
             }
         }
         unsafe extern "system" fn KeyUp<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4069,10 +4069,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveKeyUp<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveKeyUp<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemoveKeyUp(this, cookie).into()
+                ICoreWindow_Impl::RemoveKeyUp(this, token).into()
             }
         }
         unsafe extern "system" fn PointerCaptureLost<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4087,10 +4087,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerCaptureLost<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerCaptureLost<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemovePointerCaptureLost(this, cookie).into()
+                ICoreWindow_Impl::RemovePointerCaptureLost(this, token).into()
             }
         }
         unsafe extern "system" fn PointerEntered<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4105,10 +4105,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerEntered<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerEntered<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemovePointerEntered(this, cookie).into()
+                ICoreWindow_Impl::RemovePointerEntered(this, token).into()
             }
         }
         unsafe extern "system" fn PointerExited<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4123,10 +4123,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerExited<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerExited<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemovePointerExited(this, cookie).into()
+                ICoreWindow_Impl::RemovePointerExited(this, token).into()
             }
         }
         unsafe extern "system" fn PointerMoved<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4141,10 +4141,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerMoved<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerMoved<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemovePointerMoved(this, cookie).into()
+                ICoreWindow_Impl::RemovePointerMoved(this, token).into()
             }
         }
         unsafe extern "system" fn PointerPressed<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4159,10 +4159,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerPressed<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerPressed<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemovePointerPressed(this, cookie).into()
+                ICoreWindow_Impl::RemovePointerPressed(this, token).into()
             }
         }
         unsafe extern "system" fn PointerReleased<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4177,10 +4177,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerReleased<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerReleased<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemovePointerReleased(this, cookie).into()
+                ICoreWindow_Impl::RemovePointerReleased(this, token).into()
             }
         }
         unsafe extern "system" fn TouchHitTesting<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4195,10 +4195,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveTouchHitTesting<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveTouchHitTesting<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemoveTouchHitTesting(this, cookie).into()
+                ICoreWindow_Impl::RemoveTouchHitTesting(this, token).into()
             }
         }
         unsafe extern "system" fn PointerWheelChanged<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4213,10 +4213,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemovePointerWheelChanged<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemovePointerWheelChanged<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemovePointerWheelChanged(this, cookie).into()
+                ICoreWindow_Impl::RemovePointerWheelChanged(this, token).into()
             }
         }
         unsafe extern "system" fn SizeChanged<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4231,10 +4231,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveSizeChanged<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveSizeChanged<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemoveSizeChanged(this, cookie).into()
+                ICoreWindow_Impl::RemoveSizeChanged(this, token).into()
             }
         }
         unsafe extern "system" fn VisibilityChanged<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
@@ -4249,10 +4249,10 @@ impl ICoreWindow_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn RemoveVisibilityChanged<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, cookie: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveVisibilityChanged<Identity: ICoreWindow_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWindow_Impl::RemoveVisibilityChanged(this, cookie).into()
+                ICoreWindow_Impl::RemoveVisibilityChanged(this, token).into()
             }
         }
         Self {

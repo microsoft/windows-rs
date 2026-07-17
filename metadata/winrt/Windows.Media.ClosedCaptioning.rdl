@@ -1,0 +1,152 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod ClosedCaptioning {
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ClosedCaptionColor {
+                Default = 0,
+                White = 1,
+                Black = 2,
+                Red = 3,
+                Green = 4,
+                Blue = 5,
+                Yellow = 6,
+                Magenta = 7,
+                Cyan = 8,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ClosedCaptionEdgeEffect {
+                Default = 0,
+                None = 1,
+                Raised = 2,
+                Depressed = 3,
+                Uniform = 4,
+                DropShadow = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ClosedCaptionOpacity {
+                Default = 0,
+                OneHundredPercent = 1,
+                SeventyFivePercent = 2,
+                TwentyFivePercent = 3,
+                ZeroPercent = 4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IClosedCaptionPropertiesStatics2, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IClosedCaptionPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ClosedCaptionProperties {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ClosedCaptionSize {
+                Default = 0,
+                FiftyPercent = 1,
+                OneHundredPercent = 2,
+                OneHundredFiftyPercent = 3,
+                TwoHundredPercent = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ClosedCaptionStyle {
+                Default = 0,
+                MonospacedWithSerifs = 1,
+                ProportionalWithSerifs = 2,
+                MonospacedWithoutSerifs = 3,
+                ProportionalWithoutSerifs = 4,
+                Casual = 5,
+                Cursive = 6,
+                SmallCapitals = 7,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IClosedCaptionThemeStatics, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            class ClosedCaptionTheme {
+                IClosedCaptionTheme,
+            }
+            #[guid(0x10aa1f84_cc30_4141_b503_5272289e0c20)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClosedCaptionProperties)]
+            interface IClosedCaptionPropertiesStatics {
+                #[get]
+                FontColor: ClosedCaptionColor;
+                #[get]
+                ComputedFontColor: super::super::UI::Color;
+                #[get]
+                FontOpacity: ClosedCaptionOpacity;
+                #[get]
+                FontSize: ClosedCaptionSize;
+                #[get]
+                FontStyle: ClosedCaptionStyle;
+                #[get]
+                FontEffect: ClosedCaptionEdgeEffect;
+                #[get]
+                BackgroundColor: ClosedCaptionColor;
+                #[get]
+                ComputedBackgroundColor: super::super::UI::Color;
+                #[get]
+                BackgroundOpacity: ClosedCaptionOpacity;
+                #[get]
+                RegionColor: ClosedCaptionColor;
+                #[get]
+                ComputedRegionColor: super::super::UI::Color;
+                #[get]
+                RegionOpacity: ClosedCaptionOpacity;
+            }
+            #[guid(0x9de26870_37de_4197_8845_9a48dc5ac317)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClosedCaptionProperties)]
+            interface IClosedCaptionPropertiesStatics2 {
+                event PropertiesChanged: super::super::Foundation::EventHandler<Object>;
+            }
+            #[guid(0xd3974055_b9b5_52a4_b655_30661f73d1c1)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClosedCaptionTheme)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            interface IClosedCaptionTheme {
+                #[get]
+                Id: String;
+                #[get]
+                DisplayName: String;
+                #[get]
+                FontColor: ClosedCaptionColor;
+                #[get]
+                ComputedFontColor: super::super::UI::Color;
+                #[get]
+                FontOpacity: ClosedCaptionOpacity;
+                #[get]
+                FontSize: ClosedCaptionSize;
+                #[get]
+                FontStyle: ClosedCaptionStyle;
+                #[get]
+                FontEffect: ClosedCaptionEdgeEffect;
+                #[get]
+                BackgroundColor: ClosedCaptionColor;
+                #[get]
+                ComputedBackgroundColor: super::super::UI::Color;
+                #[get]
+                BackgroundOpacity: ClosedCaptionOpacity;
+                #[get]
+                RegionColor: ClosedCaptionColor;
+                #[get]
+                ComputedRegionColor: super::super::UI::Color;
+                #[get]
+                RegionOpacity: ClosedCaptionOpacity;
+            }
+            #[guid(0x0938ae0f_214e_5760_88c9_bb3f1b54f3c7)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClosedCaptionTheme)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            interface IClosedCaptionThemeStatics {
+                fn GetAvailableThemes(&self) -> [ClosedCaptionTheme];
+                fn GetSelectedTheme(&self) -> ClosedCaptionTheme;
+                fn TrySetSelectedTheme(&self, value: ClosedCaptionTheme) -> bool;
+                event ThemesChanged: super::super::Foundation::EventHandler<Object>;
+                event SelectedThemeChanged: super::super::Foundation::EventHandler<Object>;
+            }
+        }
+    }
+}

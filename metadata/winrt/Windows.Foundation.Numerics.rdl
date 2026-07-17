@@ -1,0 +1,70 @@
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Numerics {
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            struct Matrix3x2 {
+                M11: f32,
+                M12: f32,
+                M21: f32,
+                M22: f32,
+                M31: f32,
+                M32: f32,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            struct Matrix4x4 {
+                M11: f32,
+                M12: f32,
+                M13: f32,
+                M14: f32,
+                M21: f32,
+                M22: f32,
+                M23: f32,
+                M24: f32,
+                M31: f32,
+                M32: f32,
+                M33: f32,
+                M34: f32,
+                M41: f32,
+                M42: f32,
+                M43: f32,
+                M44: f32,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            struct Plane {
+                Normal: Vector3,
+                D: f32,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            struct Quaternion {
+                X: f32,
+                Y: f32,
+                Z: f32,
+                W: f32,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 393216)]
+            struct Rational {
+                Numerator: u32,
+                Denominator: u32,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            struct Vector2 {
+                X: f32,
+                Y: f32,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            struct Vector3 {
+                X: f32,
+                Y: f32,
+                Z: f32,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            struct Vector4 {
+                X: f32,
+                Y: f32,
+                Z: f32,
+                W: f32,
+            }
+        }
+    }
+}

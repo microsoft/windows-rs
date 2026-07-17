@@ -1,0 +1,353 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod Effects {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AcousticEchoCancellationConfiguration {
+                IAcousticEchoCancellationConfiguration,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class AudioCaptureEffectsManager {
+                IAudioCaptureEffectsManager,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AudioEffect {
+                IAudioEffect,
+                IAudioEffect2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(IAudioEffectDefinitionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class AudioEffectDefinition {
+                IAudioEffectDefinition,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            enum AudioEffectState {
+                Off = 0,
+                On = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum AudioEffectType {
+                Other = 0,
+                AcousticEchoCancellation = 1,
+                NoiseSuppression = 2,
+                AutomaticGainControl = 3,
+                BeamForming = 4,
+                ConstantToneRemoval = 5,
+                Equalizer = 6,
+                LoudnessEqualizer = 7,
+                BassBoost = 8,
+                VirtualSurround = 9,
+                VirtualHeadphones = 10,
+                SpeakerFill = 11,
+                RoomCorrection = 12,
+                BassManagement = 13,
+                EnvironmentalEffects = 14,
+                SpeakerProtection = 15,
+                SpeakerCompensation = 16,
+                DynamicRangeCompression = 17,
+                FarFieldBeamForming = 18,
+                DeepNoiseSuppression = 19,
+            }
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::Static(IAudioEffectsManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AudioEffectsManager {}
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AudioRenderEffectsManager {
+                IAudioRenderEffectsManager,
+                IAudioRenderEffectsManager2,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::GCPressure(amount = High)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class CompositeVideoFrameContext {
+                ICompositeVideoFrameContext,
+            }
+            #[guid(0x587e735b_175b_5177_a407_2e33bafe33a5)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AcousticEchoCancellationConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            interface IAcousticEchoCancellationConfiguration {
+                fn SetEchoCancellationRenderEndpoint(&self, deviceId: String);
+            }
+            #[guid(0x8f85c271_038d_4393_8298_540110608eef)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioCaptureEffectsManager)]
+            interface IAudioCaptureEffectsManager {
+                event AudioCaptureEffectsChanged: super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, Object>;
+                fn GetAudioCaptureEffects(&self) -> super::super::Foundation::Collections::IVectorView<AudioEffect>;
+            }
+            #[guid(0x34aafa51_9207_4055_be93_6e5734a86ae4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEffect)]
+            interface IAudioEffect {
+                #[get]
+                AudioEffectType: AudioEffectType;
+            }
+            #[guid(0x06703cb0_757e_5757_8af0_6ba58a8b2990)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEffect)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            interface IAudioEffect2 {
+                #[get]
+                AcousticEchoCancellationConfiguration: AcousticEchoCancellationConfiguration;
+                #[get]
+                CanSetState: bool;
+                #[get]
+                State: AudioEffectState;
+                fn SetState(&self, newState: AudioEffectState);
+            }
+            #[guid(0xe4d7f974_7d80_4f73_9089_e31c9db9c294)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAudioEffectDefinition {
+                #[get]
+                ActivatableClassId: String;
+                #[get]
+                Properties: super::super::Foundation::Collections::IPropertySet;
+            }
+            #[guid(0x8e1da646_e705_45ed_8a2b_fc4e4f405a97)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEffectDefinition)]
+            interface IAudioEffectDefinitionFactory {
+                fn Create(&self, activatableClassId: String) -> AudioEffectDefinition;
+                fn CreateWithProperties(&self, activatableClassId: String, props: super::super::Foundation::Collections::IPropertySet) -> AudioEffectDefinition;
+            }
+            #[guid(0x66406c04_86fa_47cc_a315_f489d8c3fe10)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioEffectsManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAudioEffectsManagerStatics {
+                #[Windows::Foundation::Metadata::Overload("CreateAudioRenderEffectsManager")]
+                fn CreateAudioRenderEffectsManager(&self, deviceId: String, category: super::Render::AudioRenderCategory) -> AudioRenderEffectsManager;
+                #[Windows::Foundation::Metadata::Overload("CreateAudioRenderEffectsManagerWithMode")]
+                fn CreateAudioRenderEffectsManager(&self, deviceId: String, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> AudioRenderEffectsManager;
+                #[Windows::Foundation::Metadata::Overload("CreateAudioCaptureEffectsManager")]
+                fn CreateAudioCaptureEffectsManager(&self, deviceId: String, category: super::Capture::MediaCategory) -> AudioCaptureEffectsManager;
+                #[Windows::Foundation::Metadata::Overload("CreateAudioCaptureEffectsManagerWithMode")]
+                fn CreateAudioCaptureEffectsManager(&self, deviceId: String, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> AudioCaptureEffectsManager;
+            }
+            #[guid(0x4dc98966_8751_42b2_bfcb_39ca7864bd47)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioRenderEffectsManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAudioRenderEffectsManager {
+                event AudioRenderEffectsChanged: super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, Object>;
+                fn GetAudioRenderEffects(&self) -> super::super::Foundation::Collections::IVectorView<AudioEffect>;
+            }
+            #[guid(0xa844cd09_5ecc_44b3_bb4e_1db07287139c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioRenderEffectsManager)]
+            #[Windows::Foundation::Metadata::Deprecated("Not supported starting in windows 10", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IAudioRenderEffectsManager2 {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Not supported starting in windows 10", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_EffectsProviderThumbnail(&self) -> super::super::Storage::Streams::IRandomAccessStreamWithContentType;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Not supported starting in windows 10", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_EffectsProviderSettingsLabel(&self) -> String;
+                #[Windows::Foundation::Metadata::Deprecated("Not supported starting in windows 10", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn ShowSettingsUI(&self);
+            }
+            #[guid(0x8c062c53_6bc0_48b8_a99a_4b41550f1359)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBasicAudioEffect: super::IMediaExtension {
+                #[get]
+                UseInputFrameForOutput: bool;
+                #[get]
+                SupportedEncodingProperties: super::super::Foundation::Collections::IVectorView<super::MediaProperties::AudioEncodingProperties>;
+                fn SetEncodingProperties(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties);
+                fn ProcessFrame(&self, context: ProcessAudioFrameContext);
+                fn Close(&self, reason: MediaEffectClosedReason);
+                fn DiscardQueuedFrames(&self);
+            }
+            #[guid(0x8262c7ef_b360_40be_949b_2ff42ff35693)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBasicVideoEffect: super::IMediaExtension {
+                #[get]
+                IsReadOnly: bool;
+                #[get]
+                SupportedMemoryTypes: MediaMemoryTypes;
+                #[get]
+                TimeIndependent: bool;
+                #[get]
+                SupportedEncodingProperties: super::super::Foundation::Collections::IVectorView<super::MediaProperties::VideoEncodingProperties>;
+                fn SetEncodingProperties(&self, encodingProperties: super::MediaProperties::VideoEncodingProperties, device: super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice);
+                fn ProcessFrame(&self, context: ProcessVideoFrameContext);
+                fn Close(&self, reason: MediaEffectClosedReason);
+                fn DiscardQueuedFrames(&self);
+            }
+            #[guid(0x6c30024b_f514_4278_a5f7_b9188049d110)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositeVideoFrameContext)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICompositeVideoFrameContext {
+                #[get]
+                SurfacesToOverlay: super::super::Foundation::Collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>;
+                #[get]
+                BackgroundFrame: super::VideoFrame;
+                #[get]
+                OutputFrame: super::VideoFrame;
+                fn GetOverlayForSurface(&self, surfaceToOverlay: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface) -> super::Editing::MediaOverlay;
+            }
+            #[guid(0x4cd92946_1222_4a27_a586_fb3e20273255)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProcessAudioFrameContext)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProcessAudioFrameContext {
+                #[get]
+                InputFrame: super::AudioFrame;
+                #[get]
+                OutputFrame: super::AudioFrame;
+            }
+            #[guid(0x276f0e2b_6461_401e_ba78_0fdad6114eec)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProcessVideoFrameContext)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProcessVideoFrameContext {
+                #[get]
+                InputFrame: super::VideoFrame;
+                #[get]
+                OutputFrame: super::VideoFrame;
+            }
+            #[guid(0x8510b43e_420c_420f_96c7_7c98bba1fc55)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVideoCompositor: super::IMediaExtension {
+                #[get]
+                TimeIndependent: bool;
+                fn SetEncodingProperties(&self, backgroundProperties: super::MediaProperties::VideoEncodingProperties, device: super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice);
+                fn CompositeFrame(&self, context: CompositeVideoFrameContext);
+                fn Close(&self, reason: MediaEffectClosedReason);
+                fn DiscardQueuedFrames(&self);
+            }
+            #[guid(0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVideoCompositorDefinition {
+                #[get]
+                ActivatableClassId: String;
+                #[get]
+                Properties: super::super::Foundation::Collections::IPropertySet;
+            }
+            #[guid(0x4366fd10_68b8_4d52_89b6_02a968cca899)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoCompositorDefinition)]
+            interface IVideoCompositorDefinitionFactory {
+                fn Create(&self, activatableClassId: String) -> VideoCompositorDefinition;
+                fn CreateWithProperties(&self, activatableClassId: String, props: super::super::Foundation::Collections::IPropertySet) -> VideoCompositorDefinition;
+            }
+            #[guid(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVideoEffectDefinition {
+                #[get]
+                ActivatableClassId: String;
+                #[get]
+                Properties: super::super::Foundation::Collections::IPropertySet;
+            }
+            #[guid(0x81439b4e_6e33_428f_9d21_b5aafef7617c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoEffectDefinition)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVideoEffectDefinitionFactory {
+                fn Create(&self, activatableClassId: String) -> VideoEffectDefinition;
+                fn CreateWithProperties(&self, activatableClassId: String, props: super::super::Foundation::Collections::IPropertySet) -> VideoEffectDefinition;
+            }
+            #[guid(0x9664bb6a_1ea6_4aa6_8074_abe8851ecae2)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoTransformEffectDefinition)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IVideoTransformEffectDefinition: IVideoEffectDefinition {
+                PaddingColor: super::super::UI::Color;
+                OutputSize: super::super::Foundation::Size;
+                CropRectangle: super::super::Foundation::Rect;
+                Rotation: super::MediaProperties::MediaRotation;
+                Mirror: super::MediaProperties::MediaMirroringOptions;
+                #[set]
+                ProcessingAlgorithm: super::Transcoding::MediaVideoProcessingAlgorithm;
+                #[get]
+                ProcessingAlgorithm: super::Transcoding::MediaVideoProcessingAlgorithm;
+            }
+            #[guid(0xf0a8089f_66c8_4694_9fd9_1136abf7444a)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoTransformEffectDefinition)]
+            interface IVideoTransformEffectDefinition2 {
+                #[get]
+                SphericalProjection: VideoTransformSphericalProjection;
+            }
+            #[guid(0xcf4401f0_9bf2_4c39_9f41_e022514a8468)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoTransformSphericalProjection)]
+            interface IVideoTransformSphericalProjection {
+                IsEnabled: bool;
+                FrameFormat: super::MediaProperties::SphericalVideoFrameFormat;
+                ProjectionMode: super::Playback::SphericalVideoProjectionMode;
+                HorizontalFieldOfViewInDegrees: f64;
+                ViewOrientation: super::super::Foundation::Numerics::Quaternion;
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MediaEffectClosedReason {
+                Done = 0,
+                UnknownError = 1,
+                UnsupportedEncodingFormat = 2,
+                EffectCurrentlyUnloaded = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MediaMemoryTypes {
+                Gpu = 0,
+                Cpu = 1,
+                GpuAndCpu = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ProcessAudioFrameContext {
+                IProcessAudioFrameContext,
+            }
+            #[Windows::Foundation::Metadata::GCPressure(amount = High)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class ProcessVideoFrameContext {
+                IProcessVideoFrameContext,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(IVideoCompositorDefinitionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class VideoCompositorDefinition {
+                IVideoCompositorDefinition,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(IVideoEffectDefinitionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class VideoEffectDefinition {
+                IVideoEffectDefinition,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class VideoTransformEffectDefinition {
+                IVideoEffectDefinition,
+                IVideoTransformEffectDefinition,
+                IVideoTransformEffectDefinition2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class VideoTransformSphericalProjection {
+                IVideoTransformSphericalProjection,
+            }
+        }
+    }
+}
