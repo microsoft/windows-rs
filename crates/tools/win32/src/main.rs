@@ -364,7 +364,6 @@ const HEADERS: &[&str] = &[
     "audioclientactivationparams.h",
     "spatialaudiometadata.h",
     "spatialaudioclient.h",
-    "audiopolicy.h",
     "ntstatus.h",
     "sql.h",
     "sqlext.h",
@@ -432,6 +431,7 @@ const HEADERS: &[&str] = &[
     "winstring.h",
     "rometadata.h",
     "roparameterizediid.h",
+    "audiopolicy.h",
     // Excluded WinRT interop headers: `RoMetadataApi.h` and `rometadataresolution.h`
     // `#include <cor.h>`, the CLR unmanaged-metadata header, which ships only in the
     // NETFXSDK (not the pinned Windows SDK NuGet) — pulling it in would make the scrape
