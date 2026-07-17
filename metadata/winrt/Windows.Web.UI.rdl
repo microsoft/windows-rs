@@ -1,0 +1,307 @@
+#[winrt]
+mod Windows {
+    mod Web {
+        mod UI {
+            #[guid(0x3f921316_bc70_4bda_9136_c94370899fab)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IWebViewControl {
+                Source: super::super::Foundation::Uri;
+                #[get]
+                DocumentTitle: String;
+                #[get]
+                CanGoBack: bool;
+                #[get]
+                CanGoForward: bool;
+                #[set]
+                DefaultBackgroundColor: super::super::UI::Color;
+                #[get]
+                DefaultBackgroundColor: super::super::UI::Color;
+                #[get]
+                ContainsFullScreenElement: bool;
+                #[get]
+                Settings: WebViewControlSettings;
+                #[get]
+                DeferredPermissionRequests: super::super::Foundation::Collections::IVectorView<WebViewControlDeferredPermissionRequest>;
+                fn GoForward(&self);
+                fn GoBack(&self);
+                fn Refresh(&self);
+                fn Stop(&self);
+                fn Navigate(&self, source: super::super::Foundation::Uri);
+                fn NavigateToString(&self, text: String);
+                fn NavigateToLocalStreamUri(&self, source: super::super::Foundation::Uri, streamResolver: super::IUriToStreamResolver);
+                fn NavigateWithHttpRequestMessage(&self, requestMessage: super::Http::HttpRequestMessage);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn InvokeScriptAsync(&self, scriptName: String, arguments: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CapturePreviewToStreamAsync(&self, stream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CaptureSelectedContentToDataPackageAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::ApplicationModel::DataTransfer::DataPackage>;
+                fn BuildLocalStreamUri(&self, contentIdentifier: String, relativePath: String) -> super::super::Foundation::Uri;
+                fn GetDeferredPermissionRequestById(&self, id: u32, result: &mut WebViewControlDeferredPermissionRequest);
+                event NavigationStarting: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNavigationStartingEventArgs>;
+                event ContentLoading: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlContentLoadingEventArgs>;
+                event DOMContentLoaded: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlDOMContentLoadedEventArgs>;
+                event NavigationCompleted: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNavigationCompletedEventArgs>;
+                event FrameNavigationStarting: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNavigationStartingEventArgs>;
+                event FrameContentLoading: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlContentLoadingEventArgs>;
+                event FrameDOMContentLoaded: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlDOMContentLoadedEventArgs>;
+                event FrameNavigationCompleted: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNavigationCompletedEventArgs>;
+                event ScriptNotify: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlScriptNotifyEventArgs>;
+                event LongRunningScriptDetected: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlLongRunningScriptDetectedEventArgs>;
+                event UnsafeContentWarningDisplaying: super::super::Foundation::TypedEventHandler<IWebViewControl, Object>;
+                event UnviewableContentIdentified: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlUnviewableContentIdentifiedEventArgs>;
+                event PermissionRequested: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlPermissionRequestedEventArgs>;
+                event UnsupportedUriSchemeIdentified: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlUnsupportedUriSchemeIdentifiedEventArgs>;
+                event NewWindowRequested: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlNewWindowRequestedEventArgs>;
+                event ContainsFullScreenElementChanged: super::super::Foundation::TypedEventHandler<IWebViewControl, Object>;
+                event WebResourceRequested: super::super::Foundation::TypedEventHandler<IWebViewControl, WebViewControlWebResourceRequestedEventArgs>;
+            }
+            #[guid(0x4d3c06f9_c8df_41cc_8bd5_2a947b204503)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            interface IWebViewControl2 {
+                fn AddInitializeScript(&self, script: String);
+            }
+            #[guid(0x9a3fccb2_b9bb_404b_a22b_66dccd1250c6)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlContentLoadingEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IWebViewControlContentLoadingEventArgs {
+                #[get]
+                Uri: super::super::Foundation::Uri;
+            }
+            #[guid(0xbe8bc008_9541_4545_9ff2_2df585b29f7d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlDOMContentLoadedEventArgs)]
+            interface IWebViewControlDOMContentLoadedEventArgs {
+                #[get]
+                Uri: super::super::Foundation::Uri;
+            }
+            #[guid(0x2ce349e0_d759_445c_9926_8995298f152b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlDeferredPermissionRequest)]
+            interface IWebViewControlDeferredPermissionRequest {
+                #[get]
+                Id: u32;
+                #[get]
+                Uri: super::super::Foundation::Uri;
+                #[get]
+                PermissionType: WebViewControlPermissionType;
+                fn Allow(&self);
+                fn Deny(&self);
+            }
+            #[guid(0x2a6e5bba_98b4_45bc_bbeb_0f69ce49c599)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlLongRunningScriptDetectedEventArgs)]
+            interface IWebViewControlLongRunningScriptDetectedEventArgs {
+                #[get]
+                ExecutionTime: super::super::Foundation::TimeSpan;
+                StopPageScriptExecution: bool;
+            }
+            #[guid(0x20409918_4a15_4c46_a55d_f79edb0bde8b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlNavigationCompletedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IWebViewControlNavigationCompletedEventArgs {
+                #[get]
+                Uri: super::super::Foundation::Uri;
+                #[get]
+                IsSuccess: bool;
+                #[get]
+                WebErrorStatus: super::WebErrorStatus;
+            }
+            #[guid(0x0c9057c5_0a08_41c7_863b_71e3a9549137)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlNavigationStartingEventArgs)]
+            interface IWebViewControlNavigationStartingEventArgs {
+                #[get]
+                Uri: super::super::Foundation::Uri;
+                Cancel: bool;
+            }
+            #[guid(0x3df44bbb_a124_46d5_a083_d02cacdff5ad)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlNewWindowRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IWebViewControlNewWindowRequestedEventArgs {
+                #[get]
+                Uri: super::super::Foundation::Uri;
+                #[get]
+                Referrer: super::super::Foundation::Uri;
+                Handled: bool;
+            }
+            #[guid(0xb53c5ca6_2aae_4bfc_92b9_c30e92b48098)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlNewWindowRequestedEventArgs)]
+            interface IWebViewControlNewWindowRequestedEventArgs2 {
+                NewWindow: IWebViewControl;
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[guid(0xe5bc836c_f22f_40e2_95b2_7729f840eb7f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlPermissionRequest)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IWebViewControlPermissionRequest {
+                #[get]
+                Id: u32;
+                #[get]
+                Uri: super::super::Foundation::Uri;
+                #[get]
+                PermissionType: WebViewControlPermissionType;
+                #[get]
+                State: WebViewControlPermissionState;
+                fn Defer(&self);
+                fn Allow(&self);
+                fn Deny(&self);
+            }
+            #[guid(0x27204d51_2488_4cc5_968e_0a771e59c147)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlPermissionRequestedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IWebViewControlPermissionRequestedEventArgs {
+                #[get]
+                PermissionRequest: WebViewControlPermissionRequest;
+            }
+            #[guid(0x491de57b_6f49_41bb_b591_51b85b817037)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlScriptNotifyEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IWebViewControlScriptNotifyEventArgs {
+                #[get]
+                Uri: super::super::Foundation::Uri;
+                #[get]
+                Value: String;
+            }
+            #[guid(0xc9967fbf_5e98_4cfd_8cce_27b0911e3de8)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlSettings)]
+            interface IWebViewControlSettings {
+                #[set]
+                IsJavaScriptEnabled: bool;
+                #[get]
+                IsJavaScriptEnabled: bool;
+                #[set]
+                IsIndexedDBEnabled: bool;
+                #[get]
+                IsIndexedDBEnabled: bool;
+                #[set]
+                IsScriptNotifyAllowed: bool;
+                #[get]
+                IsScriptNotifyAllowed: bool;
+            }
+            #[guid(0xe3b81944_e4fc_43dc_94ca_f980f30bc51d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlUnsupportedUriSchemeIdentifiedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            interface IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
+                #[get]
+                Uri: super::super::Foundation::Uri;
+                Handled: bool;
+            }
+            #[guid(0x4a9680db_88f2_4e20_b693_b4e2df4aa581)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlUnviewableContentIdentifiedEventArgs)]
+            interface IWebViewControlUnviewableContentIdentifiedEventArgs {
+                #[get]
+                Uri: super::super::Foundation::Uri;
+                #[get]
+                Referrer: super::super::Foundation::Uri;
+                #[get]
+                MediaType: String;
+            }
+            #[guid(0x44d6524d_55a4_4d8b_891c_931d8e25d42e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WebViewControlWebResourceRequestedEventArgs)]
+            interface IWebViewControlWebResourceRequestedEventArgs {
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+                #[get]
+                Request: super::Http::HttpRequestMessage;
+                #[set]
+                Response: super::Http::HttpResponseMessage;
+                #[get]
+                Response: super::Http::HttpResponseMessage;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class WebViewControlContentLoadingEventArgs {
+                IWebViewControlContentLoadingEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class WebViewControlDOMContentLoadedEventArgs {
+                IWebViewControlDOMContentLoadedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class WebViewControlDeferredPermissionRequest {
+                IWebViewControlDeferredPermissionRequest,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class WebViewControlLongRunningScriptDetectedEventArgs {
+                IWebViewControlLongRunningScriptDetectedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class WebViewControlNavigationCompletedEventArgs {
+                IWebViewControlNavigationCompletedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class WebViewControlNavigationStartingEventArgs {
+                IWebViewControlNavigationStartingEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class WebViewControlNewWindowRequestedEventArgs {
+                IWebViewControlNewWindowRequestedEventArgs,
+                IWebViewControlNewWindowRequestedEventArgs2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class WebViewControlPermissionRequest {
+                IWebViewControlPermissionRequest,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class WebViewControlPermissionRequestedEventArgs {
+                IWebViewControlPermissionRequestedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum WebViewControlPermissionState {
+                Unknown = 0,
+                Defer = 1,
+                Allow = 2,
+                Deny = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            enum WebViewControlPermissionType {
+                Geolocation = 0,
+                UnlimitedIndexedDBQuota = 1,
+                Media = 2,
+                PointerLock = 3,
+                WebNotifications = 4,
+                Screen = 5,
+                ImmersiveView = 6,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class WebViewControlScriptNotifyEventArgs {
+                IWebViewControlScriptNotifyEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class WebViewControlSettings {
+                IWebViewControlSettings,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class WebViewControlUnsupportedUriSchemeIdentifiedEventArgs {
+                IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            class WebViewControlUnviewableContentIdentifiedEventArgs {
+                IWebViewControlUnviewableContentIdentifiedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            class WebViewControlWebResourceRequestedEventArgs {
+                IWebViewControlWebResourceRequestedEventArgs,
+            }
+        }
+    }
+}

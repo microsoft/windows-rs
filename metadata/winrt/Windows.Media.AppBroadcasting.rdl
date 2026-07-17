@@ -1,0 +1,92 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod AppBroadcasting {
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            #[Windows::Foundation::Metadata::ApiContract]
+            struct AppBroadcastingContract {}
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Media.AppBroadcasting.AppBroadcastingContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AppBroadcastingMonitor {
+                IAppBroadcastingMonitor,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            class AppBroadcastingStatus {
+                IAppBroadcastingStatus,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            class AppBroadcastingStatusDetails {
+                IAppBroadcastingStatusDetails,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IAppBroadcastingUIStatics, 65536, "Windows.Media.AppBroadcasting.AppBroadcastingContract")]
+            class AppBroadcastingUI {
+                IAppBroadcastingUI,
+            }
+            #[guid(0x00f95a68_8907_48a0_b8ef_24d208137542)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastingMonitor)]
+            #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
+            interface IAppBroadcastingMonitor {
+                #[get]
+                IsCurrentAppBroadcasting: bool;
+                event IsCurrentAppBroadcastingChanged: super::super::Foundation::TypedEventHandler<AppBroadcastingMonitor, Object>;
+            }
+            #[guid(0x1225e4df_03a1_42f8_8b80_c9228cd9cf2e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastingStatus)]
+            #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
+            interface IAppBroadcastingStatus {
+                #[get]
+                CanStartBroadcast: bool;
+                #[get]
+                Details: AppBroadcastingStatusDetails;
+            }
+            #[guid(0x069dada4_b573_4e3c_8e19_1bafacd09713)]
+            #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastingStatusDetails)]
+            interface IAppBroadcastingStatusDetails {
+                #[get]
+                IsAnyAppBroadcasting: bool;
+                #[get]
+                IsCaptureResourceUnavailable: bool;
+                #[get]
+                IsGameStreamInProgress: bool;
+                #[get]
+                IsGpuConstrained: bool;
+                #[get]
+                IsAppInactive: bool;
+                #[get]
+                IsBlockedForApp: bool;
+                #[get]
+                IsDisabledByUser: bool;
+                #[get]
+                IsDisabledBySystem: bool;
+            }
+            #[guid(0xe56f9f8f_ee99_4dca_a3c3_70af3db44f5f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastingUI)]
+            #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
+            interface IAppBroadcastingUI {
+                fn GetStatus(&self) -> AppBroadcastingStatus;
+                fn ShowBroadcastUI(&self);
+            }
+            #[guid(0x55a8a79d_23cb_4579_9c34_886fe02c045a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppBroadcastingUI)]
+            #[Windows::Foundation::Metadata::ContractVersion(AppBroadcastingContract, 65536)]
+            interface IAppBroadcastingUIStatics {
+                fn GetDefault(&self) -> AppBroadcastingUI;
+                fn GetForUser(&self, user: super::super::System::User) -> AppBroadcastingUI;
+            }
+        }
+    }
+}

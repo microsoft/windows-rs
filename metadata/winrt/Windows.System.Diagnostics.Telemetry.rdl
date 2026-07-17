@@ -1,0 +1,60 @@
+#[winrt]
+mod Windows {
+    mod System {
+        mod Diagnostics {
+            mod Telemetry {
+                #[guid(0x9bf3f25d_d5c3_4eea_8dbe_9c8dbb0d9d8f)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PlatformTelemetryClient)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                interface IPlatformTelemetryClientStatics {
+                    #[Windows::Foundation::Metadata::Overload("Register")]
+                    fn Register(&self, id: String) -> PlatformTelemetryRegistrationResult;
+                    #[Windows::Foundation::Metadata::Overload("RegisterWithSettings")]
+                    fn Register(&self, id: String, settings: PlatformTelemetryRegistrationSettings) -> PlatformTelemetryRegistrationResult;
+                }
+                #[guid(0x4d8518ab_2292_49bd_a15a_3d71d2145112)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PlatformTelemetryRegistrationResult)]
+                interface IPlatformTelemetryRegistrationResult {
+                    #[get]
+                    Status: PlatformTelemetryRegistrationStatus;
+                }
+                #[guid(0x819a8582_ca19_415e_bb79_9c224bfa3a73)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PlatformTelemetryRegistrationSettings)]
+                interface IPlatformTelemetryRegistrationSettings {
+                    StorageSize: u32;
+                    UploadQuotaSize: u32;
+                }
+                #[Windows::Foundation::Metadata::Static(IPlatformTelemetryClientStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class PlatformTelemetryClient {}
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                class PlatformTelemetryRegistrationResult {
+                    IPlatformTelemetryRegistrationResult,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+                class PlatformTelemetryRegistrationSettings {
+                    IPlatformTelemetryRegistrationSettings,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                enum PlatformTelemetryRegistrationStatus {
+                    Success = 0,
+                    SettingsOutOfRange = 1,
+                    UnknownFailure = 2,
+                }
+            }
+        }
+    }
+}

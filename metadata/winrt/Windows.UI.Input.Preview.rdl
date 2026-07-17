@@ -1,0 +1,22 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Input {
+            mod Preview {
+                #[guid(0xf0551ce5_0de6_5be0_a589_f737201a4582)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InputActivationListenerPreview)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface IInputActivationListenerPreviewStatics {
+                    fn CreateForApplicationWindow(&self, window: super::super::WindowManagement::AppWindow) -> super::InputActivationListener;
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Static(IInputActivationListenerPreviewStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                class InputActivationListenerPreview {}
+            }
+        }
+    }
+}

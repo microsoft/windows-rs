@@ -1,0 +1,31 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Composition {
+            mod Core {
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
+                class CompositorController {
+                    ICompositorController,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[guid(0x2d75f35a_70a7_4395_ba2d_cef0b18399f9)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CompositorController)]
+                interface ICompositorController {
+                    #[get]
+                    Compositor: super::Compositor;
+                    fn Commit(&self);
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn EnsurePreviousCommitCompletedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    event CommitNeeded: super::super::super::Foundation::TypedEventHandler<CompositorController, Object>;
+                }
+            }
+        }
+    }
+}

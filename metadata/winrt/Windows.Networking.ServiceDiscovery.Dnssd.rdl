@@ -1,0 +1,107 @@
+#[winrt]
+mod Windows {
+    mod Networking {
+        mod ServiceDiscovery {
+            mod Dnssd {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                class DnssdRegistrationResult {
+                    IDnssdRegistrationResult,
+                    super::super::super::Foundation::IStringable,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum DnssdRegistrationStatus {
+                    Success = 0,
+                    InvalidServiceName = 1,
+                    ServerError = 2,
+                    SecurityError = 3,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Activatable(IDnssdServiceInstanceFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                class DnssdServiceInstance {
+                    IDnssdServiceInstance,
+                    super::super::super::Foundation::IStringable,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class DnssdServiceInstanceCollection {
+                    super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>,
+                    super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class DnssdServiceWatcher {
+                    IDnssdServiceWatcher,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum DnssdServiceWatcherStatus {
+                    Created = 0,
+                    Started = 1,
+                    EnumerationCompleted = 2,
+                    Stopping = 3,
+                    Stopped = 4,
+                    Aborted = 5,
+                }
+                #[guid(0x3d786ad2_e606_5350_73ea_7e97f066162f)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DnssdRegistrationResult)]
+                interface IDnssdRegistrationResult {
+                    #[get]
+                    Status: DnssdRegistrationStatus;
+                    #[get]
+                    IPAddress: super::super::HostName;
+                    #[get]
+                    HasInstanceNameChanged: bool;
+                }
+                #[guid(0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DnssdServiceInstance)]
+                interface IDnssdServiceInstance {
+                    DnssdServiceInstanceName: String;
+                    HostName: super::super::HostName;
+                    Port: u16;
+                    Priority: u16;
+                    Weight: u16;
+                    #[get]
+                    TextAttributes: super::super::super::Foundation::Collections::IMap<String, String>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("RegisterStreamSocketListenerAsync1")]
+                    fn RegisterStreamSocketListenerAsync(&self, socket: super::super::Sockets::StreamSocketListener) -> super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>;
+                    #[Windows::Foundation::Metadata::Overload("RegisterStreamSocketListenerAsync2")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RegisterStreamSocketListenerAsync(&self, socket: super::super::Sockets::StreamSocketListener, adapter: super::super::Connectivity::NetworkAdapter) -> super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("RegisterDatagramSocketAsync1")]
+                    fn RegisterDatagramSocketAsync(&self, socket: super::super::Sockets::DatagramSocket) -> super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    #[Windows::Foundation::Metadata::Overload("RegisterDatagramSocketAsync2")]
+                    fn RegisterDatagramSocketAsync(&self, socket: super::super::Sockets::DatagramSocket, adapter: super::super::Connectivity::NetworkAdapter) -> super::super::super::Foundation::IAsyncOperation<DnssdRegistrationResult>;
+                }
+                #[guid(0x6cb061a1_c478_4331_9684_4af2186c0a2b)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DnssdServiceInstance)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IDnssdServiceInstanceFactory {
+                    fn Create(&self, dnssdServiceInstanceName: String, hostName: super::super::HostName, port: u16) -> DnssdServiceInstance;
+                }
+                #[guid(0xcc34d9c1_db7d_4b69_983d_c6f83f205682)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DnssdServiceWatcher)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IDnssdServiceWatcher {
+                    event Added: super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, DnssdServiceInstance>;
+                    event EnumerationCompleted: super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, Object>;
+                    event Stopped: super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, Object>;
+                    #[get]
+                    Status: DnssdServiceWatcherStatus;
+                    fn Start(&self);
+                    fn Stop(&self);
+                }
+            }
+        }
+    }
+}

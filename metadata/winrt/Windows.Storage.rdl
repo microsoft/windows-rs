@@ -1,0 +1,1239 @@
+#[winrt]
+mod Windows {
+    mod Storage {
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(IAppDataPathsStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class AppDataPaths {
+            IAppDataPaths,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(MTA)]
+        #[Windows::Foundation::Metadata::Static(IApplicationDataStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::Static(IApplicationDataStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        class ApplicationData {
+            IApplicationData,
+            IApplicationData2,
+            IApplicationData3,
+            super::Foundation::IClosable,
+        }
+        #[Windows::Foundation::Metadata::Threading(MTA)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class ApplicationDataCompositeValue {
+            super::Foundation::Collections::IPropertySet,
+            super::Foundation::Collections::IObservableMap<String, Object>,
+            super::Foundation::Collections::IMap<String, Object>,
+            super::Foundation::Collections::IIterable<super::Foundation::Collections::IKeyValuePair<String, Object>>,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class ApplicationDataContainer {
+            IApplicationDataContainer,
+            super::Foundation::IClosable,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class ApplicationDataContainerSettings {
+            super::Foundation::Collections::IPropertySet,
+            super::Foundation::Collections::IObservableMap<String, Object>,
+            super::Foundation::Collections::IMap<String, Object>,
+            super::Foundation::Collections::IIterable<super::Foundation::Collections::IKeyValuePair<String, Object>>,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum ApplicationDataCreateDisposition {
+            Always = 0,
+            Existing = 1,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum ApplicationDataLocality {
+            Local = 0,
+            Roaming = 1,
+            Temporary = 2,
+            LocalCache = 3,
+            SharedLocal = 4,
+        }
+        #[guid(0xa05791e6_cc9f_4687_acab_a364fd785463)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        delegate fn ApplicationDataSetVersionHandler(setVersionRequest: SetVersionRequest);
+        #[Windows::Foundation::Metadata::Static(ICachedFileManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class CachedFileManager {}
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum CreationCollisionOption {
+            GenerateUniqueName = 0,
+            ReplaceExisting = 1,
+            FailIfExists = 2,
+            OpenIfExists = 3,
+        }
+        #[Windows::Foundation::Metadata::Static(IDownloadsFolderStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Static(IDownloadsFolderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        class DownloadsFolder {}
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum FileAccessMode {
+            Read = 0,
+            ReadWrite = 1,
+        }
+        #[repr(u32)]
+        #[flags]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum FileAttributes {
+            Normal = 0,
+            ReadOnly = 1,
+            Directory = 16,
+            Archive = 32,
+            Temporary = 256,
+            LocallyIncomplete = 512,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(IFileIOStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        class FileIO {}
+        #[guid(0x7301d60a_79a2_48c9_9ec0_3fda092f79e1)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppDataPaths)]
+        interface IAppDataPaths {
+            #[get]
+            Cookies: String;
+            #[get]
+            Desktop: String;
+            #[get]
+            Documents: String;
+            #[get]
+            Favorites: String;
+            #[get]
+            History: String;
+            #[get]
+            InternetCache: String;
+            #[get]
+            LocalAppData: String;
+            #[get]
+            ProgramData: String;
+            #[get]
+            RoamingAppData: String;
+        }
+        #[guid(0xd8eb2afe_a9d9_4b14_b999_e3921379d903)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppDataPaths)]
+        interface IAppDataPathsStatics {
+            fn GetForUser(&self, user: super::System::User) -> AppDataPaths;
+            fn GetDefault(&self) -> AppDataPaths;
+        }
+        #[guid(0xc3da6fb7_b744_4b45_b0b8_223a0938d0dc)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationData)]
+        interface IApplicationData {
+            #[get]
+            Version: u32;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn SetVersionAsync(&self, desiredVersion: u32, handler: ApplicationDataSetVersionHandler) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("ClearAllAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn ClearAsync(&self) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("ClearAsync")]
+            fn ClearAsync(&self, locality: ApplicationDataLocality) -> super::Foundation::IAsyncAction;
+            #[get]
+            LocalSettings: ApplicationDataContainer;
+            #[get]
+            RoamingSettings: ApplicationDataContainer;
+            #[get]
+            LocalFolder: StorageFolder;
+            #[get]
+            RoamingFolder: StorageFolder;
+            #[get]
+            TemporaryFolder: StorageFolder;
+            event DataChanged: super::Foundation::TypedEventHandler<ApplicationData, Object>;
+            fn SignalDataChanged(&self);
+            #[get]
+            RoamingStorageQuota: u64;
+        }
+        #[guid(0x9e65cd69_0ba3_4e32_be29_b02de6607638)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationData)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IApplicationData2 {
+            #[get]
+            LocalCacheFolder: StorageFolder;
+        }
+        #[guid(0xdc222cf4_2772_4c1d_aa2c_c9f743ade8d1)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationData)]
+        interface IApplicationData3 {
+            fn GetPublisherCacheFolder(&self, folderName: String) -> StorageFolder;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn ClearPublisherCacheFolderAsync(&self, folderName: String) -> super::Foundation::IAsyncAction;
+            #[get]
+            SharedLocalFolder: StorageFolder;
+        }
+        #[guid(0xc5aefd1e_f467_40ba_8566_ab640a441e1d)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationDataContainer)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IApplicationDataContainer {
+            #[get]
+            Name: String;
+            #[get]
+            Locality: ApplicationDataLocality;
+            #[get]
+            Values: super::Foundation::Collections::IPropertySet;
+            #[get]
+            Containers: super::Foundation::Collections::IMapView<String, ApplicationDataContainer>;
+            fn CreateContainer(&self, name: String, disposition: ApplicationDataCreateDisposition) -> ApplicationDataContainer;
+            fn DeleteContainer(&self, name: String);
+        }
+        #[guid(0x5612147b_e843_45e3_94d8_06169e3c8e17)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationData)]
+        interface IApplicationDataStatics {
+            #[get]
+            Current: ApplicationData;
+        }
+        #[guid(0xcd606211_cf49_40a4_a47c_c7f0dbba8107)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationData)]
+        interface IApplicationDataStatics2 {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetForUserAsync(&self, user: super::System::User) -> super::Foundation::IAsyncOperation<ApplicationData>;
+        }
+        #[guid(0x8ffc224a_e782_495d_b614_654c4f0b2370)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CachedFileManager)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ICachedFileManagerStatics {
+            fn DeferUpdates(&self, file: IStorageFile);
+            fn CompleteUpdatesAsync(&self, file: IStorageFile) -> super::Foundation::IAsyncOperation<Provider::FileUpdateStatus>;
+        }
+        #[guid(0x27862ed0_404e_47df_a1e2_e37308be7b37)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(DownloadsFolder)]
+        interface IDownloadsFolderStatics {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("CreateFileAsync")]
+            fn CreateFileAsync(&self, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::Overload("CreateFolderAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CreateFolderAsync(&self, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFolder>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("CreateFileWithCollisionOptionAsync")]
+            fn CreateFileAsync(&self, desiredName: String, option: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("CreateFolderWithCollisionOptionAsync")]
+            fn CreateFolderAsync(&self, desiredName: String, option: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFolder>;
+        }
+        #[guid(0xe93045bd_8ef8_4f8e_8d15_ac0e265f390d)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 131072)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(DownloadsFolder)]
+        interface IDownloadsFolderStatics2 {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("CreateFileForUserAsync")]
+            fn CreateFileForUserAsync(&self, user: super::System::User, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("CreateFolderForUserAsync")]
+            fn CreateFolderForUserAsync(&self, user: super::System::User, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFolder>;
+            #[Windows::Foundation::Metadata::Overload("CreateFileForUserWithCollisionOptionAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CreateFileForUserAsync(&self, user: super::System::User, desiredName: String, option: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("CreateFolderForUserWithCollisionOptionAsync")]
+            fn CreateFolderForUserAsync(&self, user: super::System::User, desiredName: String, option: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFolder>;
+        }
+        #[guid(0x887411eb_7f54_4732_a5f0_5e43e3b8c2f5)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(FileIO)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IFileIOStatics {
+            #[Windows::Foundation::Metadata::Overload("ReadTextAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn ReadTextAsync(&self, file: IStorageFile) -> super::Foundation::IAsyncOperation<String>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("ReadTextWithEncodingAsync")]
+            fn ReadTextAsync(&self, file: IStorageFile, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncOperation<String>;
+            #[Windows::Foundation::Metadata::Overload("WriteTextAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn WriteTextAsync(&self, file: IStorageFile, contents: String) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("WriteTextWithEncodingAsync")]
+            fn WriteTextAsync(&self, file: IStorageFile, contents: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("AppendTextAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn AppendTextAsync(&self, file: IStorageFile, contents: String) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("AppendTextWithEncodingAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn AppendTextAsync(&self, file: IStorageFile, contents: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("ReadLinesAsync")]
+            fn ReadLinesAsync(&self, file: IStorageFile) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<String>>;
+            #[Windows::Foundation::Metadata::Overload("ReadLinesWithEncodingAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn ReadLinesAsync(&self, file: IStorageFile, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<String>>;
+            #[Windows::Foundation::Metadata::Overload("WriteLinesAsync")]
+            fn WriteLinesAsync(&self, file: IStorageFile, lines: super::Foundation::Collections::IIterable<String>) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("WriteLinesWithEncodingAsync")]
+            fn WriteLinesAsync(&self, file: IStorageFile, lines: super::Foundation::Collections::IIterable<String>, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("AppendLinesAsync")]
+            fn AppendLinesAsync(&self, file: IStorageFile, lines: super::Foundation::Collections::IIterable<String>) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("AppendLinesWithEncodingAsync")]
+            fn AppendLinesAsync(&self, file: IStorageFile, lines: super::Foundation::Collections::IIterable<String>, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn ReadBufferAsync(&self, file: IStorageFile) -> super::Foundation::IAsyncOperation<Streams::IBuffer>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn WriteBufferAsync(&self, file: IStorageFile, buffer: Streams::IBuffer) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn WriteBytesAsync(&self, file: IStorageFile, buffer: [u8]) -> super::Foundation::IAsyncAction;
+        }
+        #[guid(0x5d115e66_27e8_492f_b8e5_2f90896cd4cd)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(KnownFolders)]
+        interface IKnownFoldersCameraRollStatics {
+            #[get]
+            CameraRoll: StorageFolder;
+        }
+        #[guid(0xdad5ecd6_306f_4d6a_b496_46ba8eb106ce)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(KnownFolders)]
+        interface IKnownFoldersPlaylistsStatics {
+            #[get]
+            Playlists: StorageFolder;
+        }
+        #[guid(0x055c93ea_253d_467c_b6ca_a97da1e9a18d)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(KnownFolders)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IKnownFoldersSavedPicturesStatics {
+            #[get]
+            SavedPictures: StorageFolder;
+        }
+        #[guid(0x5a2a7520_4802_452d_9ad9_4351ada7ec35)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(KnownFolders)]
+        interface IKnownFoldersStatics {
+            #[get]
+            MusicLibrary: StorageFolder;
+            #[get]
+            PicturesLibrary: StorageFolder;
+            #[get]
+            VideosLibrary: StorageFolder;
+            #[get]
+            DocumentsLibrary: StorageFolder;
+            #[get]
+            HomeGroup: StorageFolder;
+            #[get]
+            RemovableDevices: StorageFolder;
+            #[get]
+            MediaServerDevices: StorageFolder;
+        }
+        #[guid(0x194bd0cd_cf6e_4d07_9d53_e9163a2536e9)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(KnownFolders)]
+        interface IKnownFoldersStatics2 {
+            #[get]
+            Objects3D: StorageFolder;
+            #[get]
+            AppCaptures: StorageFolder;
+            #[get]
+            RecordedCalls: StorageFolder;
+        }
+        #[guid(0xc5194341_9742_4ed5_823d_fc1401148764)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(KnownFolders)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 131072)]
+        interface IKnownFoldersStatics3 {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetFolderForUserAsync(&self, user: super::System::User, folderId: KnownFolderId) -> super::Foundation::IAsyncOperation<StorageFolder>;
+        }
+        #[guid(0x1722e6bf_9ff9_4b21_bed5_90ecb13a192e)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 655360)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(KnownFolders)]
+        interface IKnownFoldersStatics4 {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn RequestAccessAsync(&self, folderId: KnownFolderId) -> super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn RequestAccessForUserAsync(&self, user: super::System::User, folderId: KnownFolderId) -> super::Foundation::IAsyncOperation<KnownFoldersAccessStatus>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetFolderAsync(&self, folderId: KnownFolderId) -> super::Foundation::IAsyncOperation<StorageFolder>;
+        }
+        #[guid(0x0f2f3758_8ec7_4381_922b_8f6c07d288f3)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(PathIO)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IPathIOStatics {
+            #[Windows::Foundation::Metadata::Overload("ReadTextAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn ReadTextAsync(&self, absolutePath: String) -> super::Foundation::IAsyncOperation<String>;
+            #[Windows::Foundation::Metadata::Overload("ReadTextWithEncodingAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn ReadTextAsync(&self, absolutePath: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncOperation<String>;
+            #[Windows::Foundation::Metadata::Overload("WriteTextAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn WriteTextAsync(&self, absolutePath: String, contents: String) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("WriteTextWithEncodingAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn WriteTextAsync(&self, absolutePath: String, contents: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("AppendTextAsync")]
+            fn AppendTextAsync(&self, absolutePath: String, contents: String) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("AppendTextWithEncodingAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn AppendTextAsync(&self, absolutePath: String, contents: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("ReadLinesAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn ReadLinesAsync(&self, absolutePath: String) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<String>>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("ReadLinesWithEncodingAsync")]
+            fn ReadLinesAsync(&self, absolutePath: String, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<String>>;
+            #[Windows::Foundation::Metadata::Overload("WriteLinesAsync")]
+            fn WriteLinesAsync(&self, absolutePath: String, lines: super::Foundation::Collections::IIterable<String>) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("WriteLinesWithEncodingAsync")]
+            fn WriteLinesAsync(&self, absolutePath: String, lines: super::Foundation::Collections::IIterable<String>, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("AppendLinesAsync")]
+            fn AppendLinesAsync(&self, absolutePath: String, lines: super::Foundation::Collections::IIterable<String>) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("AppendLinesWithEncodingAsync")]
+            fn AppendLinesAsync(&self, absolutePath: String, lines: super::Foundation::Collections::IIterable<String>, encoding: Streams::UnicodeEncoding) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn ReadBufferAsync(&self, absolutePath: String) -> super::Foundation::IAsyncOperation<Streams::IBuffer>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn WriteBufferAsync(&self, absolutePath: String, buffer: Streams::IBuffer) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn WriteBytesAsync(&self, absolutePath: String, buffer: [u8]) -> super::Foundation::IAsyncAction;
+        }
+        #[guid(0x033508a2_781a_437a_b078_3f32badcfe47)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SetVersionDeferral)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ISetVersionDeferral {
+            fn Complete(&self);
+        }
+        #[guid(0xb9c76b9b_1056_4e69_8330_162619956f9b)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SetVersionRequest)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ISetVersionRequest {
+            #[get]
+            CurrentVersion: u32;
+            #[get]
+            DesiredVersion: u32;
+            fn GetDeferral(&self) -> SetVersionDeferral;
+        }
+        #[guid(0xfa3f6186_4214_428c_a64c_14c9ac7315ea)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageFile: IStorageItem + Streams::IRandomAccessStreamReference + Streams::IInputStreamReference {
+            #[get]
+            FileType: String;
+            #[get]
+            ContentType: String;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn OpenAsync(&self, accessMode: FileAccessMode) -> super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn OpenTransactedWriteAsync(&self) -> super::Foundation::IAsyncOperation<StorageStreamTransaction>;
+            #[Windows::Foundation::Metadata::Overload("CopyOverloadDefaultNameAndOptions")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CopyAsync(&self, destinationFolder: IStorageFolder) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::Overload("CopyOverloadDefaultOptions")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CopyAsync(&self, destinationFolder: IStorageFolder, desiredNewName: String) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("CopyOverload")]
+            fn CopyAsync(&self, destinationFolder: IStorageFolder, desiredNewName: String, option: NameCollisionOption) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CopyAndReplaceAsync(&self, fileToReplace: IStorageFile) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("MoveOverloadDefaultNameAndOptions")]
+            fn MoveAsync(&self, destinationFolder: IStorageFolder) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("MoveOverloadDefaultOptions")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn MoveAsync(&self, destinationFolder: IStorageFolder, desiredNewName: String) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("MoveOverload")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn MoveAsync(&self, destinationFolder: IStorageFolder, desiredNewName: String, option: NameCollisionOption) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn MoveAndReplaceAsync(&self, fileToReplace: IStorageFile) -> super::Foundation::IAsyncAction;
+        }
+        #[guid(0x954e4bcf_0a77_42fb_b777_c2ed58a52e44)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageFile2 {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("OpenWithOptionsAsync")]
+            fn OpenAsync(&self, accessMode: FileAccessMode, options: StorageOpenOptions) -> super::Foundation::IAsyncOperation<Streams::IRandomAccessStream>;
+            #[Windows::Foundation::Metadata::Overload("OpenTransactedWriteWithOptionsAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn OpenTransactedWriteAsync(&self, options: StorageOpenOptions) -> super::Foundation::IAsyncOperation<StorageStreamTransaction>;
+        }
+        #[guid(0xafcbbe9b_582b_4133_9648_e44ca46ee491)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageFilePropertiesWithAvailability {
+            #[get]
+            IsAvailable: bool;
+        }
+        #[guid(0x5984c710_daf2_43c8_8bb4_a4d3eacfd03f)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageFile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageFileStatics {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetFileFromPathAsync(&self, path: String) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetFileFromApplicationUriAsync(&self, uri: super::Foundation::Uri) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CreateStreamedFileAsync(&self, displayNameWithExtension: String, dataRequested: StreamedFileDataRequestedHandler, thumbnail: Streams::IRandomAccessStreamReference) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn ReplaceWithStreamedFileAsync(&self, fileToReplace: IStorageFile, dataRequested: StreamedFileDataRequestedHandler, thumbnail: Streams::IRandomAccessStreamReference) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CreateStreamedFileFromUriAsync(&self, displayNameWithExtension: String, uri: super::Foundation::Uri, thumbnail: Streams::IRandomAccessStreamReference) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn ReplaceWithStreamedFileFromUriAsync(&self, fileToReplace: IStorageFile, uri: super::Foundation::Uri, thumbnail: Streams::IRandomAccessStreamReference) -> super::Foundation::IAsyncOperation<StorageFile>;
+        }
+        #[guid(0x5c76a781_212e_4af9_8f04_740cae108974)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageFile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 655360)]
+        interface IStorageFileStatics2 {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetFileFromPathForUserAsync(&self, user: super::System::User, path: String) -> super::Foundation::IAsyncOperation<StorageFile>;
+        }
+        #[guid(0x72d1cb78_b3ef_4f75_a80b_6fd9dae2944b)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageFolder: IStorageItem {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("CreateFileAsyncOverloadDefaultOptions")]
+            fn CreateFileAsync(&self, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::Overload("CreateFileAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CreateFileAsync(&self, desiredName: String, options: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::Overload("CreateFolderAsyncOverloadDefaultOptions")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CreateFolderAsync(&self, desiredName: String) -> super::Foundation::IAsyncOperation<StorageFolder>;
+            #[Windows::Foundation::Metadata::Overload("CreateFolderAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CreateFolderAsync(&self, desiredName: String, options: CreationCollisionOption) -> super::Foundation::IAsyncOperation<StorageFolder>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetFileAsync(&self, name: String) -> super::Foundation::IAsyncOperation<StorageFile>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetFolderAsync(&self, name: String) -> super::Foundation::IAsyncOperation<StorageFolder>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetItemAsync(&self, name: String) -> super::Foundation::IAsyncOperation<IStorageItem>;
+            #[Windows::Foundation::Metadata::Overload("GetFilesAsyncOverloadDefaultOptionsStartAndCount")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetFilesAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFile>>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("GetFoldersAsyncOverloadDefaultOptionsStartAndCount")]
+            fn GetFoldersAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("GetItemsAsyncOverloadDefaultStartAndCount")]
+            fn GetItemsAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>;
+        }
+        #[guid(0xe827e8b9_08d9_4a8e_a0ac_fe5ed3cbbbd3)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageFolder2 {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn TryGetItemAsync(&self, name: String) -> super::Foundation::IAsyncOperation<IStorageItem>;
+        }
+        #[guid(0x9f617899_bde1_4124_aeb3_b06ad96f98d4)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageFolder)]
+        interface IStorageFolder3 {
+            fn TryGetChangeTracker(&self) -> StorageLibraryChangeTracker;
+        }
+        #[guid(0x08f327ff_85d5_48b9_aee9_28511e339f9f)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageFolder)]
+        interface IStorageFolderStatics {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetFolderFromPathAsync(&self, path: String) -> super::Foundation::IAsyncOperation<StorageFolder>;
+        }
+        #[guid(0xb4656dc3_71d2_467d_8b29_371f0f62bf6f)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 655360)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageFolder)]
+        interface IStorageFolderStatics2 {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetFolderFromPathForUserAsync(&self, user: super::System::User, path: String) -> super::Foundation::IAsyncOperation<StorageFolder>;
+        }
+        #[guid(0x4207a996_ca2f_42f7_bde8_8b10457a7f30)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageItem {
+            #[Windows::Foundation::Metadata::Overload("RenameAsyncOverloadDefaultOptions")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn RenameAsync(&self, desiredName: String) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("RenameAsync")]
+            fn RenameAsync(&self, desiredName: String, option: NameCollisionOption) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("DeleteAsyncOverloadDefaultOptions")]
+            fn DeleteAsync(&self) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::Overload("DeleteAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn DeleteAsync(&self, option: StorageDeleteOption) -> super::Foundation::IAsyncAction;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetBasicPropertiesAsync(&self) -> super::Foundation::IAsyncOperation<FileProperties::BasicProperties>;
+            #[get]
+            Name: String;
+            #[get]
+            Path: String;
+            #[get]
+            Attributes: FileAttributes;
+            #[get]
+            DateCreated: super::Foundation::DateTime;
+            fn IsOfType(&self, r#type: StorageItemTypes) -> bool;
+        }
+        #[guid(0x53f926d2_083c_4283_b45b_81c007237e44)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageItem2: IStorageItem {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetParentAsync(&self) -> super::Foundation::IAsyncOperation<StorageFolder>;
+            fn IsEqual(&self, item: IStorageItem) -> bool;
+        }
+        #[guid(0x86664478_8029_46fe_a789_1c2f3e2ffb5c)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageItemProperties {
+            #[Windows::Foundation::Metadata::Overload("GetThumbnailAsyncOverloadDefaultSizeDefaultOptions")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("GetThumbnailAsyncOverloadDefaultOptions")]
+            fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedSize: u32) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
+            #[Windows::Foundation::Metadata::Overload("GetThumbnailAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedSize: u32, options: FileProperties::ThumbnailOptions) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
+            #[get]
+            DisplayName: String;
+            #[get]
+            DisplayType: String;
+            #[get]
+            FolderRelativeId: String;
+            #[get]
+            Properties: FileProperties::StorageItemContentProperties;
+        }
+        #[guid(0x8e86a951_04b9_4bd2_929d_fef3f71621d0)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageItemProperties2: IStorageItemProperties {
+            #[Windows::Foundation::Metadata::Overload("GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            #[Windows::Foundation::Metadata::Overload("GetScaledImageAsThumbnailAsyncOverloadDefaultOptions")]
+            fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedSize: u32) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
+            #[Windows::Foundation::Metadata::Overload("GetScaledImageAsThumbnailAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetScaledImageAsThumbnailAsync(&self, mode: FileProperties::ThumbnailMode, requestedSize: u32, options: FileProperties::ThumbnailOptions) -> super::Foundation::IAsyncOperation<FileProperties::StorageItemThumbnail>;
+        }
+        #[guid(0x861bf39b_6368_4dee_b40e_74684a5ce714)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageItemPropertiesWithProvider: IStorageItemProperties {
+            #[get]
+            Provider: StorageProvider;
+        }
+        #[guid(0x1edd7103_0e5e_4d6c_b5e8_9318983d6a03)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibrary)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageLibrary {
+            fn RequestAddFolderAsync(&self) -> super::Foundation::IAsyncOperation<StorageFolder>;
+            fn RequestRemoveFolderAsync(&self, folder: StorageFolder) -> super::Foundation::IAsyncOperation<bool>;
+            #[get]
+            Folders: super::Foundation::Collections::IObservableVector<StorageFolder>;
+            #[get]
+            SaveFolder: StorageFolder;
+            event DefinitionChanged: super::Foundation::TypedEventHandler<StorageLibrary, Object>;
+        }
+        #[guid(0x5b0ce348_fcb3_4031_afb0_a68d7bd44534)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibrary)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        interface IStorageLibrary2 {
+            #[get]
+            ChangeTracker: StorageLibraryChangeTracker;
+        }
+        #[guid(0x8a281291_2154_4201_8113_d2c05ce1ad23)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibrary)]
+        interface IStorageLibrary3 {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn AreFolderSuggestionsAvailableAsync(&self) -> super::Foundation::IAsyncOperation<bool>;
+        }
+        #[guid(0x00980b23_2be2_4909_aa48_159f5203a51e)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryChange)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        interface IStorageLibraryChange {
+            #[get]
+            ChangeType: StorageLibraryChangeType;
+            #[get]
+            Path: String;
+            #[get]
+            PreviousPath: String;
+            fn IsOfType(&self, r#type: StorageItemTypes) -> bool;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetStorageItemAsync(&self) -> super::Foundation::IAsyncOperation<IStorageItem>;
+        }
+        #[guid(0xf205bc83_fca2_41f9_8954_ee2e991eb96f)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryChangeReader)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        interface IStorageLibraryChangeReader {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn ReadBatchAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageLibraryChange>>;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn AcceptChangesAsync(&self) -> super::Foundation::IAsyncAction;
+        }
+        #[guid(0xabf4868b_fbcc_4a4f_999e_e7ab7c646dbe)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryChangeReader)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 720896)]
+        interface IStorageLibraryChangeReader2 {
+            fn GetLastChangeId(&self) -> u64;
+        }
+        #[guid(0x9e157316_6073_44f6_9681_7492d1286c90)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryChangeTracker)]
+        interface IStorageLibraryChangeTracker {
+            fn GetChangeReader(&self) -> StorageLibraryChangeReader;
+            fn Enable(&self);
+            fn Reset(&self);
+        }
+        #[guid(0xcd051c3b_0f9f_42f9_8fb3_158d82e13821)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryChangeTracker)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 720896)]
+        interface IStorageLibraryChangeTracker2 {
+            #[Windows::Foundation::Metadata::Overload("EnableWithOptions")]
+            fn Enable(&self, options: StorageLibraryChangeTrackerOptions);
+            fn Disable(&self);
+        }
+        #[guid(0xbb52bcd4_1a6d_59c0_ad2a_823a20532483)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryChangeTrackerOptions)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 720896)]
+        interface IStorageLibraryChangeTrackerOptions {
+            TrackChangeDetails: bool;
+        }
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryLastChangeId)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 720896)]
+        interface IStorageLibraryLastChangeId {}
+        #[guid(0x81a49128_2ca3_5309_b0d1_cf0788e40762)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryLastChangeId)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 720896)]
+        interface IStorageLibraryLastChangeIdStatics {
+            #[get]
+            Unknown: u64;
+        }
+        #[guid(0x4208a6db_684a_49c6_9e59_90121ee050d6)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibrary)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageLibraryStatics {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetLibraryAsync(&self, libraryId: KnownLibraryId) -> super::Foundation::IAsyncOperation<StorageLibrary>;
+        }
+        #[guid(0xffb08ddc_fa75_4695_b9d1_7f81f97832e3)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibrary)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 131072)]
+        interface IStorageLibraryStatics2 {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn GetLibraryForUserAsync(&self, user: super::System::User, libraryId: KnownLibraryId) -> super::Foundation::IAsyncOperation<StorageLibrary>;
+        }
+        #[guid(0xe705eed4_d478_47d6_ba46_1a8ebe114a20)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageProvider)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStorageProvider {
+            #[get]
+            Id: String;
+            #[get]
+            DisplayName: String;
+        }
+        #[guid(0x010d1917_3404_414b_9fd7_cd44472eaa39)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageProvider)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        interface IStorageProvider2: IStorageProvider {
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn IsPropertySupportedForPartialFileAsync(&self, propertyCanonicalName: String) -> super::Foundation::IAsyncOperation<bool>;
+        }
+        #[guid(0xf67cf363_a53d_4d94_ae2c_67232d93acdd)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(StorageStreamTransaction)]
+        interface IStorageStreamTransaction: super::Foundation::IClosable {
+            #[get]
+            Stream: Streams::IRandomAccessStream;
+            #[Windows::Foundation::Metadata::RemoteAsync]
+            fn CommitAsync(&self) -> super::Foundation::IAsyncAction;
+        }
+        #[guid(0x1673fcce_dabd_4d50_beee_180b8a8191b6)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IStreamedFileDataRequest {
+            fn FailAndClose(&self, failureMode: StreamedFileFailureMode);
+        }
+        #[guid(0x3f8f38b7_308c_47e1_924d_8645348e5db7)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemAudioProperties)]
+        interface ISystemAudioProperties {
+            #[get]
+            EncodingBitrate: String;
+        }
+        #[guid(0xe32abf70_d8fa_45ec_a942_d2e26fb60ba5)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemDataPaths)]
+        interface ISystemDataPaths {
+            #[get]
+            Fonts: String;
+            #[get]
+            ProgramData: String;
+            #[get]
+            Public: String;
+            #[get]
+            PublicDesktop: String;
+            #[get]
+            PublicDocuments: String;
+            #[get]
+            PublicDownloads: String;
+            #[get]
+            PublicMusic: String;
+            #[get]
+            PublicPictures: String;
+            #[get]
+            PublicVideos: String;
+            #[get]
+            System: String;
+            #[get]
+            SystemHost: String;
+            #[get]
+            SystemX86: String;
+            #[get]
+            SystemX64: String;
+            #[get]
+            SystemArm: String;
+            #[get]
+            UserProfiles: String;
+            #[get]
+            Windows: String;
+        }
+        #[guid(0xe0f96fd0_9920_4bca_b379_f96fdf7caad8)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemDataPaths)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        interface ISystemDataPathsStatics {
+            fn GetDefault(&self) -> SystemDataPaths;
+        }
+        #[guid(0xc0f46eb4_c174_481a_bc25_921986f6a6f3)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemGPSProperties)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ISystemGPSProperties {
+            #[get]
+            LatitudeDecimal: String;
+            #[get]
+            LongitudeDecimal: String;
+        }
+        #[guid(0x011b2e30_8b39_4308_bea1_e8aa61e47826)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemImageProperties)]
+        interface ISystemImageProperties {
+            #[get]
+            HorizontalSize: String;
+            #[get]
+            VerticalSize: String;
+        }
+        #[guid(0xa42b3316_8415_40dc_8c44_98361d235430)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemMediaProperties)]
+        interface ISystemMediaProperties {
+            #[get]
+            Duration: String;
+            #[get]
+            Producer: String;
+            #[get]
+            Publisher: String;
+            #[get]
+            SubTitle: String;
+            #[get]
+            Writer: String;
+            #[get]
+            Year: String;
+        }
+        #[guid(0xb47988d5_67af_4bc3_8d39_5b89022026a1)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemMusicProperties)]
+        interface ISystemMusicProperties {
+            #[get]
+            AlbumArtist: String;
+            #[get]
+            AlbumTitle: String;
+            #[get]
+            Artist: String;
+            #[get]
+            Composer: String;
+            #[get]
+            Conductor: String;
+            #[get]
+            DisplayArtist: String;
+            #[get]
+            Genre: String;
+            #[get]
+            TrackNumber: String;
+        }
+        #[guid(0x4734fc3d_ab21_4424_b735_f4353a56c8fc)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemPhotoProperties)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ISystemPhotoProperties {
+            #[get]
+            CameraManufacturer: String;
+            #[get]
+            CameraModel: String;
+            #[get]
+            DateTaken: String;
+            #[get]
+            Orientation: String;
+            #[get]
+            PeopleNames: String;
+        }
+        #[guid(0x917a71c1_85f3_4dd1_b001_a50bfd21c8d2)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemProperties)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ISystemProperties {
+            #[get]
+            Author: String;
+            #[get]
+            Comment: String;
+            #[get]
+            ItemNameDisplay: String;
+            #[get]
+            Keywords: String;
+            #[get]
+            Rating: String;
+            #[get]
+            Title: String;
+            #[get]
+            Audio: SystemAudioProperties;
+            #[get]
+            GPS: SystemGPSProperties;
+            #[get]
+            Media: SystemMediaProperties;
+            #[get]
+            Music: SystemMusicProperties;
+            #[get]
+            Photo: SystemPhotoProperties;
+            #[get]
+            Video: SystemVideoProperties;
+            #[get]
+            Image: SystemImageProperties;
+        }
+        #[guid(0x2040f715_67f8_4322_9b80_4fa9fefb83e8)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemVideoProperties)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface ISystemVideoProperties {
+            #[get]
+            Director: String;
+            #[get]
+            FrameHeight: String;
+            #[get]
+            FrameWidth: String;
+            #[get]
+            Orientation: String;
+            #[get]
+            TotalBitrate: String;
+        }
+        #[guid(0xf9c53912_abc4_46ff_8a2b_dc9d7fa6e52f)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(UserDataPaths)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        interface IUserDataPaths {
+            #[get]
+            CameraRoll: String;
+            #[get]
+            Cookies: String;
+            #[get]
+            Desktop: String;
+            #[get]
+            Documents: String;
+            #[get]
+            Downloads: String;
+            #[get]
+            Favorites: String;
+            #[get]
+            History: String;
+            #[get]
+            InternetCache: String;
+            #[get]
+            LocalAppData: String;
+            #[get]
+            LocalAppDataLow: String;
+            #[get]
+            Music: String;
+            #[get]
+            Pictures: String;
+            #[get]
+            Profile: String;
+            #[get]
+            Recent: String;
+            #[get]
+            RoamingAppData: String;
+            #[get]
+            SavedPictures: String;
+            #[get]
+            Screenshots: String;
+            #[get]
+            Templates: String;
+            #[get]
+            Videos: String;
+        }
+        #[guid(0x01b29def_e062_48a1_8b0c_f2c7a9ca56c0)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(UserDataPaths)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        interface IUserDataPathsStatics {
+            fn GetForUser(&self, user: super::System::User) -> UserDataPaths;
+            fn GetDefault(&self) -> UserDataPaths;
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 131072)]
+        enum KnownFolderId {
+            AppCaptures = 0,
+            CameraRoll = 1,
+            DocumentsLibrary = 2,
+            HomeGroup = 3,
+            MediaServerDevices = 4,
+            MusicLibrary = 5,
+            Objects3D = 6,
+            PicturesLibrary = 7,
+            Playlists = 8,
+            RecordedCalls = 9,
+            RemovableDevices = 10,
+            SavedPictures = 11,
+            Screenshots = 12,
+            VideosLibrary = 13,
+            AllAppMods = 14,
+            CurrentAppMods = 15,
+            DownloadsFolder = 16,
+        }
+        #[Windows::Foundation::Metadata::Static(IKnownFoldersSavedPicturesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IKnownFoldersStatics3, 131072, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IKnownFoldersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IKnownFoldersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IKnownFoldersPlaylistsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Static(IKnownFoldersCameraRollStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IKnownFoldersStatics4, 655360, "Windows.Foundation.UniversalApiContract")]
+        class KnownFolders {}
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 655360)]
+        enum KnownFoldersAccessStatus {
+            DeniedBySystem = 0,
+            NotDeclaredByApp = 1,
+            DeniedByUser = 2,
+            UserPromptRequired = 3,
+            Allowed = 4,
+            AllowedPerAppFolder = 5,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum KnownLibraryId {
+            Music = 0,
+            Pictures = 1,
+            Videos = 2,
+            Documents = 3,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum NameCollisionOption {
+            GenerateUniqueName = 0,
+            ReplaceExisting = 1,
+            FailIfExists = 2,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Static(IPathIOStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class PathIO {}
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class SetVersionDeferral {
+            ISetVersionDeferral,
+        }
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class SetVersionRequest {
+            ISetVersionRequest,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum StorageDeleteOption {
+            Default = 0,
+            PermanentDelete = 1,
+        }
+        #[Windows::Foundation::Metadata::Static(IStorageFileStatics2, 655360, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IStorageFileStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+        class StorageFile {
+            IStorageFile,
+            Streams::IInputStreamReference,
+            Streams::IRandomAccessStreamReference,
+            IStorageItem,
+            IStorageItemProperties,
+            IStorageItemProperties2,
+            IStorageItem2,
+            IStorageItemPropertiesWithProvider,
+            IStorageFilePropertiesWithAvailability,
+            IStorageFile2,
+        }
+        #[Windows::Foundation::Metadata::Static(IStorageFolderStatics2, 655360, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IStorageFolderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class StorageFolder {
+            IStorageFolder,
+            IStorageItem,
+            Search::IStorageFolderQueryOperations,
+            IStorageItemProperties,
+            IStorageItemProperties2,
+            IStorageItem2,
+            IStorageFolder2,
+            IStorageItemPropertiesWithProvider,
+            IStorageFolder3,
+        }
+        #[repr(u32)]
+        #[flags]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum StorageItemTypes {
+            None = 0,
+            File = 1,
+            Folder = 2,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Static(IStorageLibraryStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IStorageLibraryStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
+        class StorageLibrary {
+            IStorageLibrary,
+            IStorageLibrary2,
+            IStorageLibrary3,
+        }
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        class StorageLibraryChange {
+            IStorageLibraryChange,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class StorageLibraryChangeReader {
+            IStorageLibraryChangeReader,
+            IStorageLibraryChangeReader2,
+        }
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        class StorageLibraryChangeTracker {
+            IStorageLibraryChangeTracker,
+            IStorageLibraryChangeTracker2,
+        }
+        #[Windows::Foundation::Metadata::Activatable(720896, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 720896)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class StorageLibraryChangeTrackerOptions {
+            IStorageLibraryChangeTrackerOptions,
+        }
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        enum StorageLibraryChangeType {
+            Created = 0,
+            Deleted = 1,
+            MovedOrRenamed = 2,
+            ContentsChanged = 3,
+            MovedOutOfLibrary = 4,
+            MovedIntoLibrary = 5,
+            ContentsReplaced = 6,
+            IndexingStatusChanged = 7,
+            EncryptionChanged = 8,
+            ChangeTrackingLost = 9,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 720896)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(IStorageLibraryLastChangeIdStatics, 720896, "Windows.Foundation.UniversalApiContract")]
+        class StorageLibraryLastChangeId {
+            IStorageLibraryLastChangeId,
+        }
+        #[repr(u32)]
+        #[flags]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum StorageOpenOptions {
+            None = 0,
+            AllowOnlyReaders = 1,
+            AllowReadersAndWriters = 2,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+        class StorageProvider {
+            IStorageProvider,
+            IStorageProvider2,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class StorageStreamTransaction {
+            IStorageStreamTransaction,
+            super::Foundation::IClosable,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class StreamedFileDataRequest {
+            Streams::IOutputStream,
+            super::Foundation::IClosable,
+            IStreamedFileDataRequest,
+        }
+        #[guid(0xfef6a824_2fe1_4d07_a35b_b77c50b5f4cc)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        delegate fn StreamedFileDataRequestedHandler(stream: StreamedFileDataRequest);
+        #[repr(i32)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        enum StreamedFileFailureMode {
+            Failed = 0,
+            CurrentlyUnavailable = 1,
+            Incomplete = 2,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class SystemAudioProperties {
+            ISystemAudioProperties,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::Static(ISystemDataPathsStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+        class SystemDataPaths {
+            ISystemDataPaths,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class SystemGPSProperties {
+            ISystemGPSProperties,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class SystemImageProperties {
+            ISystemImageProperties,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class SystemMediaProperties {
+            ISystemMediaProperties,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class SystemMusicProperties {
+            ISystemMusicProperties,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class SystemPhotoProperties {
+            ISystemPhotoProperties,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Static(ISystemProperties, 65536, "Windows.Foundation.UniversalApiContract")]
+        class SystemProperties {}
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class SystemVideoProperties {
+            ISystemVideoProperties,
+        }
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(IUserDataPathsStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class UserDataPaths {
+            IUserDataPaths,
+        }
+    }
+}

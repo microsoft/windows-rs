@@ -1,0 +1,30 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Xaml {
+            mod Automation {
+                mod Text {
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum TextPatternRangeEndpoint {
+                        Start = 0,
+                        End = 1,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    enum TextUnit {
+                        Character = 0,
+                        Format = 1,
+                        Word = 2,
+                        Line = 3,
+                        Paragraph = 4,
+                        Page = 5,
+                        Document = 6,
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1287,8 +1287,8 @@ impl windows_core::RuntimeName for IWMCodecLeakyBucket {}
 windows_core::imp::define_interface!(IWMCodecOutputTimestamp, IWMCodecOutputTimestamp_Vtbl, 0xb72adf95_7adc_4a72_bc05_577d8ea6bf68);
 windows_core::imp::interface_hierarchy!(IWMCodecOutputTimestamp, windows_core::IUnknown);
 impl IWMCodecOutputTimestamp {
-    #[cfg(feature = "mediaobj")]
-    pub unsafe fn GetNextOutputTime(&self) -> windows_core::Result<super::mediaobj::REFERENCE_TIME> {
+    #[cfg(feature = "ksmedia")]
+    pub unsafe fn GetNextOutputTime(&self) -> windows_core::Result<super::ksmedia::REFERENCE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNextOutputTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1299,19 +1299,19 @@ impl IWMCodecOutputTimestamp {
 #[doc(hidden)]
 pub struct IWMCodecOutputTimestamp_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "mediaobj")]
-    pub GetNextOutputTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::mediaobj::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mediaobj"))]
+    #[cfg(feature = "ksmedia")]
+    pub GetNextOutputTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ksmedia::REFERENCE_TIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ksmedia"))]
     GetNextOutputTime: usize,
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "ksmedia")]
 pub trait IWMCodecOutputTimestamp_Impl: windows_core::IUnknownImpl {
-    fn GetNextOutputTime(&self) -> windows_core::Result<super::mediaobj::REFERENCE_TIME>;
+    fn GetNextOutputTime(&self) -> windows_core::Result<super::ksmedia::REFERENCE_TIME>;
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "ksmedia")]
 impl IWMCodecOutputTimestamp_Vtbl {
     pub const fn new<Identity: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetNextOutputTime<Identity: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prttime: *mut super::mediaobj::REFERENCE_TIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNextOutputTime<Identity: IWMCodecOutputTimestamp_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, prttime: *mut super::ksmedia::REFERENCE_TIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IWMCodecOutputTimestamp_Impl::GetNextOutputTime(this) {
@@ -1329,7 +1329,7 @@ impl IWMCodecOutputTimestamp_Vtbl {
         iid == &<IWMCodecOutputTimestamp as windows_core::Interface>::IID
     }
 }
-#[cfg(feature = "mediaobj")]
+#[cfg(feature = "ksmedia")]
 impl windows_core::RuntimeName for IWMCodecOutputTimestamp {}
 windows_core::imp::define_interface!(IWMCodecPrivateData, IWMCodecPrivateData_Vtbl, 0x73f0be8e_57f7_4f01_aa66_9f57340cfe0e);
 windows_core::imp::interface_hierarchy!(IWMCodecPrivateData, windows_core::IUnknown);

@@ -1,0 +1,83 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Pwm {
+            #[guid(0xc45f5c85_d2e8_42cf_9bd6_cf5ed029e6a7)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PwmController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            interface IPwmController {
+                #[get]
+                PinCount: i32;
+                #[get]
+                ActualFrequency: f64;
+                fn SetDesiredFrequency(&self, desiredFrequency: f64) -> f64;
+                #[get]
+                MinFrequency: f64;
+                #[get]
+                MaxFrequency: f64;
+                fn OpenPin(&self, pinNumber: i32) -> PwmPin;
+            }
+            #[guid(0x4263bda1_8946_4404_bd48_81dd124af4d9)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PwmController)]
+            interface IPwmControllerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetControllersAsync(&self, provider: Provider::IPwmProvider) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>;
+            }
+            #[guid(0x44fc5b1f_f119_4bdd_97ad_f76ef986736d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PwmController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]
+            interface IPwmControllerStatics2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<PwmController>;
+            }
+            #[guid(0xb2581871_0229_4344_ae3f_9b7cd0e66b94)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PwmController)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            interface IPwmControllerStatics3 {
+                #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
+                fn GetDeviceSelector(&self) -> String;
+                #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorFromFriendlyName")]
+                fn GetDeviceSelector(&self, friendlyName: String) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<PwmController>;
+            }
+            #[guid(0x22972dc8_c6cf_4821_b7f9_c6454fb6af79)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PwmPin)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            interface IPwmPin: super::super::Foundation::IClosable {
+                #[get]
+                Controller: PwmController;
+                fn GetActiveDutyCyclePercentage(&self) -> f64;
+                fn SetActiveDutyCyclePercentage(&self, dutyCyclePercentage: f64);
+                Polarity: PwmPulsePolarity;
+                fn Start(&self);
+                fn Stop(&self);
+                #[get]
+                IsStarted: bool;
+            }
+            #[Windows::Foundation::Metadata::Static(IPwmControllerStatics3, 196608, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IPwmControllerStatics2, 131072, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::Static(IPwmControllerStatics, 65536, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PwmController {
+                IPwmController,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class PwmPin {
+                IPwmPin,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            enum PwmPulsePolarity {
+                ActiveHigh = 0,
+                ActiveLow = 1,
+            }
+        }
+    }
+}

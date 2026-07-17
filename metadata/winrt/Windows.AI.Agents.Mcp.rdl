@@ -1,0 +1,54 @@
+#[winrt]
+mod Windows {
+    mod AI {
+        mod Agents {
+            mod Mcp {
+                #[guid(0xc5f8f821_895c_5241_b45a_92e249a7d873)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
+                #[Windows::Foundation::Metadata::Experimental]
+                interface IMcpMessageFilterExperimental {
+                    fn Initialize(&self, clientAppUserModelId: String, clientProcessId: u32, serverIdentity: String, serverName: String, serverProcessId: u32);
+                    fn OnMessage(&self, message: String, direction: McpMessageDirection, filterResponse: McpMessageFilterResponse);
+                }
+                #[guid(0x8127e075_4652_5645_b2eb_0e5772ee5c6f)]
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
+                interface IMcpMessageFilterExperimental2 {
+                    fn Initialize(&self, clientProcessIdentifier: String, clientProcessId: u32, serverProcessIdentifier: String, serverProcessId: u32, serverId: String) -> bool;
+                    fn OnMessage(&self, message: String, direction: McpMessageDirection, filterResponse: McpMessageFilterResponse);
+                }
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(McpMessageFilterResponse)]
+                interface IMcpMessageFilterResponse {}
+                #[guid(0xe215b5f2_cb02_56cf_aab0_84aef65d1665)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
+                #[Windows::Foundation::Metadata::Experimental]
+                interface IMcpMessageFilterResponseExperimental {
+                    IsAllowed: bool;
+                    MessageIfNotAllowed: String;
+                }
+                #[guid(0x10f4b099_6632_505a_a638_e704c7e47abf)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
+                #[Windows::Foundation::Metadata::Experimental]
+                interface IMcpMessageFilterResponseExperimental2 {
+                    fn Allow(&self);
+                    fn Reject(&self, reason: String);
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
+                enum McpMessageDirection {
+                    ClientToServer = 0,
+                    ServerToClient = 1,
+                }
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::AgentsContract, 131072)]
+                class McpMessageFilterResponse {
+                    IMcpMessageFilterResponse,
+                }
+            }
+        }
+    }
+}

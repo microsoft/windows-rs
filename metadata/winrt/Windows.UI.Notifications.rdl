@@ -1,0 +1,1158 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Notifications {
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum AdaptiveNotificationContentKind {
+                Text = 0,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+            class AdaptiveNotificationText {
+                IAdaptiveNotificationText,
+                IAdaptiveNotificationContent,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(IBadgeNotificationFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            class BadgeNotification {
+                IBadgeNotification,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum BadgeTemplateType {
+                BadgeGlyph = 0,
+                BadgeNumber = 1,
+            }
+            #[Windows::Foundation::Metadata::Static(IBadgeUpdateManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IBadgeUpdateManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+            class BadgeUpdateManager {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class BadgeUpdateManagerForUser {
+                IBadgeUpdateManagerForUser,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class BadgeUpdater {
+                IBadgeUpdater,
+            }
+            #[guid(0xeb0dbe66_7448_448d_9db8_d78acd2abba9)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAdaptiveNotificationContent {
+                #[get]
+                Kind: AdaptiveNotificationContentKind;
+                #[get]
+                Hints: super::super::Foundation::Collections::IMap<String, String>;
+            }
+            #[guid(0x46d4a3be_609a_4326_a40b_bfde872034a3)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveNotificationText)]
+            interface IAdaptiveNotificationText {
+                Text: String;
+                Language: String;
+            }
+            #[guid(0x075cb4ca_d08a_4e2f_9233_7e289c1f7722)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BadgeNotification)]
+            interface IBadgeNotification {
+                #[get]
+                Content: super::super::Data::Xml::Dom::XmlDocument;
+                #[set]
+                ExpirationTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[get]
+                ExpirationTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+            }
+            #[guid(0xedf255ce_0618_4d59_948a_5a61040c52f9)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BadgeNotification)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBadgeNotificationFactory {
+                fn CreateBadgeNotification(&self, content: super::super::Data::Xml::Dom::XmlDocument) -> BadgeNotification;
+            }
+            #[guid(0x996b21bc_0386_44e5_ba8d_0c1077a62e92)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BadgeUpdateManagerForUser)]
+            interface IBadgeUpdateManagerForUser {
+                #[Windows::Foundation::Metadata::Overload("CreateBadgeUpdaterForApplication")]
+                fn CreateBadgeUpdaterForApplication(&self) -> BadgeUpdater;
+                #[Windows::Foundation::Metadata::Overload("CreateBadgeUpdaterForApplicationWithId")]
+                fn CreateBadgeUpdaterForApplication(&self, applicationId: String) -> BadgeUpdater;
+                fn CreateBadgeUpdaterForSecondaryTile(&self, tileId: String) -> BadgeUpdater;
+                #[get]
+                User: super::super::System::User;
+            }
+            #[guid(0x33400faa_6dd5_4105_aebc_9b50fca492da)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BadgeUpdateManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBadgeUpdateManagerStatics {
+                #[Windows::Foundation::Metadata::Overload("CreateBadgeUpdaterForApplication")]
+                fn CreateBadgeUpdaterForApplication(&self) -> BadgeUpdater;
+                #[Windows::Foundation::Metadata::Overload("CreateBadgeUpdaterForApplicationWithId")]
+                fn CreateBadgeUpdaterForApplication(&self, applicationId: String) -> BadgeUpdater;
+                fn CreateBadgeUpdaterForSecondaryTile(&self, tileId: String) -> BadgeUpdater;
+                fn GetTemplateContent(&self, r#type: BadgeTemplateType) -> super::super::Data::Xml::Dom::XmlDocument;
+            }
+            #[guid(0x979a35ce_f940_48bf_94e8_ca244d400b41)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BadgeUpdateManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IBadgeUpdateManagerStatics2 {
+                fn GetForUser(&self, user: super::super::System::User) -> BadgeUpdateManagerForUser;
+            }
+            #[guid(0xb5fa1fd4_7562_4f6c_bfa3_1b6ed2e57f2f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BadgeUpdater)]
+            interface IBadgeUpdater {
+                fn Update(&self, notification: BadgeNotification);
+                fn Clear(&self);
+                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdate")]
+                fn StartPeriodicUpdate(&self, badgeContent: super::super::Foundation::Uri, requestedInterval: PeriodicUpdateRecurrence);
+                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdateAtTime")]
+                fn StartPeriodicUpdate(&self, badgeContent: super::super::Foundation::Uri, startTime: super::super::Foundation::DateTime, requestedInterval: PeriodicUpdateRecurrence);
+                fn StopPeriodicUpdate(&self);
+            }
+            #[guid(0x06206598_d496_497d_8692_4f7d7c2770df)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(KnownAdaptiveNotificationHints)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IKnownAdaptiveNotificationHintsStatics {
+                #[get]
+                Style: String;
+                #[get]
+                Wrap: String;
+                #[get]
+                MaxLines: String;
+                #[get]
+                MinLines: String;
+                #[get]
+                TextStacking: String;
+                #[get]
+                Align: String;
+            }
+            #[guid(0x202192d7_8996_45aa_8ba1_d461d72c2a1b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(KnownAdaptiveNotificationTextStyles)]
+            interface IKnownAdaptiveNotificationTextStylesStatics {
+                #[get]
+                Caption: String;
+                #[get]
+                Body: String;
+                #[get]
+                Base: String;
+                #[get]
+                Subtitle: String;
+                #[get]
+                Title: String;
+                #[get]
+                Subheader: String;
+                #[get]
+                Header: String;
+                #[get]
+                TitleNumeral: String;
+                #[get]
+                SubheaderNumeral: String;
+                #[get]
+                HeaderNumeral: String;
+                #[get]
+                CaptionSubtle: String;
+                #[get]
+                BodySubtle: String;
+                #[get]
+                BaseSubtle: String;
+                #[get]
+                SubtitleSubtle: String;
+                #[get]
+                TitleSubtle: String;
+                #[get]
+                SubheaderSubtle: String;
+                #[get]
+                SubheaderNumeralSubtle: String;
+                #[get]
+                HeaderSubtle: String;
+                #[get]
+                HeaderNumeralSubtle: String;
+            }
+            #[guid(0x79427bae_a8b7_4d58_89ea_76a7b7bccded)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(KnownNotificationBindings)]
+            interface IKnownNotificationBindingsStatics {
+                #[get]
+                ToastGeneric: String;
+            }
+            #[guid(0x108037fe_eb76_4f82_97bc_da07530a2e20)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Notification)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface INotification {
+                ExpirationTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                Visual: NotificationVisual;
+            }
+            #[guid(0xf29e4b85_0370_4ad3_b4ea_da9e35e7eabf)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NotificationBinding)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface INotificationBinding {
+                Template: String;
+                Language: String;
+                #[get]
+                Hints: super::super::Foundation::Collections::IMap<String, String>;
+                fn GetTextElements(&self) -> super::super::Foundation::Collections::IVectorView<AdaptiveNotificationText>;
+            }
+            #[guid(0x9ffd2312_9d6a_4aaf_b6ac_ff17f0c1f280)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NotificationData)]
+            interface INotificationData {
+                #[get]
+                Values: super::super::Foundation::Collections::IMap<String, String>;
+                SequenceNumber: u32;
+            }
+            #[guid(0x23c1e33a_1c10_46fb_8040_dec384621cf8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NotificationData)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface INotificationDataFactory {
+                #[Windows::Foundation::Metadata::Overload("CreateNotificationDataWithValuesAndSequenceNumber")]
+                fn CreateNotificationData(&self, initialValues: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, String>>, sequenceNumber: u32) -> NotificationData;
+                #[Windows::Foundation::Metadata::Overload("CreateNotificationDataWithValues")]
+                fn CreateNotificationData(&self, initialValues: super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, String>>) -> NotificationData;
+            }
+            #[guid(0x68835b8e_aa56_4e11_86d3_5f9a6957bc5b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NotificationVisual)]
+            interface INotificationVisual {
+                Language: String;
+                #[get]
+                Bindings: super::super::Foundation::Collections::IVector<NotificationBinding>;
+                fn GetBinding(&self, templateName: String) -> NotificationBinding;
+            }
+            #[guid(0x0abca6d5_99dc_4c78_a11c_c9e7f86d7ef7)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ScheduledTileNotification)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IScheduledTileNotification {
+                #[get]
+                Content: super::super::Data::Xml::Dom::XmlDocument;
+                #[get]
+                DeliveryTime: super::super::Foundation::DateTime;
+                #[set]
+                ExpirationTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[get]
+                ExpirationTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[set]
+                Tag: String;
+                #[get]
+                Tag: String;
+                #[set]
+                Id: String;
+                #[get]
+                Id: String;
+            }
+            #[guid(0x3383138a_98c0_4c3b_bbd6_4a633c7cfc29)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ScheduledTileNotification)]
+            interface IScheduledTileNotificationFactory {
+                fn CreateScheduledTileNotification(&self, content: super::super::Data::Xml::Dom::XmlDocument, deliveryTime: super::super::Foundation::DateTime) -> ScheduledTileNotification;
+            }
+            #[guid(0x79f577f8_0de7_48cd_9740_9b370490c838)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ScheduledToastNotification)]
+            interface IScheduledToastNotification {
+                #[get]
+                Content: super::super::Data::Xml::Dom::XmlDocument;
+                #[get]
+                DeliveryTime: super::super::Foundation::DateTime;
+                #[get]
+                SnoozeInterval: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
+                #[get]
+                MaximumSnoozeCount: u32;
+                #[set]
+                Id: String;
+                #[get]
+                Id: String;
+            }
+            #[guid(0xa66ea09c_31b4_43b0_b5dd_7a40e85363b1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ScheduledToastNotification)]
+            interface IScheduledToastNotification2 {
+                #[set]
+                Tag: String;
+                #[get]
+                Tag: String;
+                #[set]
+                Group: String;
+                #[get]
+                Group: String;
+                #[set]
+                SuppressPopup: bool;
+                #[get]
+                SuppressPopup: bool;
+            }
+            #[guid(0x98429e8b_bd32_4a3b_9d15_22aea49462a1)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ScheduledToastNotification)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IScheduledToastNotification3 {
+                NotificationMirroring: NotificationMirroring;
+                RemoteId: String;
+            }
+            #[guid(0x1d4761fd_bdef_4e4a_96be_0101369b58d2)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ScheduledToastNotification)]
+            interface IScheduledToastNotification4 {
+                ExpirationTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+            }
+            #[guid(0xe7bed191_0bb9_4189_8394_31761b476fd7)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ScheduledToastNotification)]
+            interface IScheduledToastNotificationFactory {
+                fn CreateScheduledToastNotification(&self, content: super::super::Data::Xml::Dom::XmlDocument, deliveryTime: super::super::Foundation::DateTime) -> ScheduledToastNotification;
+                fn CreateScheduledToastNotificationRecurring(&self, content: super::super::Data::Xml::Dom::XmlDocument, deliveryTime: super::super::Foundation::DateTime, snoozeInterval: super::super::Foundation::TimeSpan, maximumSnoozeCount: u32) -> ScheduledToastNotification;
+            }
+            #[guid(0x6173f6b4_412a_5e2c_a6ed_a0209aef9a09)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ScheduledToastNotificationShowingEventArgs)]
+            interface IScheduledToastNotificationShowingEventArgs {
+                Cancel: bool;
+                #[get]
+                ScheduledToastNotification: ScheduledToastNotification;
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[guid(0x342d8988_5af2_481a_a6a3_f2fdc78de88e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ShownTileNotification)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IShownTileNotification {
+                #[get]
+                Arguments: String;
+            }
+            #[guid(0x9a53b261_c70c_42be_b2f3_f42aa97d34e5)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileFlyoutNotification)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ITileFlyoutNotification {
+                #[get]
+                Content: super::super::Data::Xml::Dom::XmlDocument;
+                #[set]
+                ExpirationTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[get]
+                ExpirationTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+            }
+            #[guid(0xef556ff5_5226_4f2b_b278_88a35dfe569f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileFlyoutNotification)]
+            interface ITileFlyoutNotificationFactory {
+                fn CreateTileFlyoutNotification(&self, content: super::super::Data::Xml::Dom::XmlDocument) -> TileFlyoutNotification;
+            }
+            #[guid(0x04363b0b_1ac0_4b99_88e7_ada83e953d48)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileFlyoutUpdateManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ITileFlyoutUpdateManagerStatics {
+                #[Windows::Foundation::Metadata::Overload("CreateTileFlyoutUpdaterForApplication")]
+                fn CreateTileFlyoutUpdaterForApplication(&self) -> TileFlyoutUpdater;
+                #[Windows::Foundation::Metadata::Overload("CreateTileFlyoutUpdaterForApplicationWithId")]
+                fn CreateTileFlyoutUpdaterForApplication(&self, applicationId: String) -> TileFlyoutUpdater;
+                fn CreateTileFlyoutUpdaterForSecondaryTile(&self, tileId: String) -> TileFlyoutUpdater;
+                fn GetTemplateContent(&self, r#type: TileFlyoutTemplateType) -> super::super::Data::Xml::Dom::XmlDocument;
+            }
+            #[guid(0x8d40c76a_c465_4052_a740_5c2654c1a089)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileFlyoutUpdater)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ITileFlyoutUpdater {
+                fn Update(&self, notification: TileFlyoutNotification);
+                fn Clear(&self);
+                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdate")]
+                fn StartPeriodicUpdate(&self, tileFlyoutContent: super::super::Foundation::Uri, requestedInterval: PeriodicUpdateRecurrence);
+                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdateAtTime")]
+                fn StartPeriodicUpdate(&self, tileFlyoutContent: super::super::Foundation::Uri, startTime: super::super::Foundation::DateTime, requestedInterval: PeriodicUpdateRecurrence);
+                fn StopPeriodicUpdate(&self);
+                #[get]
+                Setting: NotificationSetting;
+            }
+            #[guid(0xebaec8fa_50ec_4c18_b4d0_3af02e5540ab)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileNotification)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ITileNotification {
+                #[get]
+                Content: super::super::Data::Xml::Dom::XmlDocument;
+                #[set]
+                ExpirationTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[get]
+                ExpirationTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[set]
+                Tag: String;
+                #[get]
+                Tag: String;
+            }
+            #[guid(0xc6abdd6e_4928_46c8_bdbf_81a047dea0d4)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileNotification)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ITileNotificationFactory {
+                fn CreateTileNotification(&self, content: super::super::Data::Xml::Dom::XmlDocument) -> TileNotification;
+            }
+            #[guid(0x55141348_2ee2_4e2d_9cc1_216a20decc9f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileUpdateManagerForUser)]
+            interface ITileUpdateManagerForUser {
+                #[Windows::Foundation::Metadata::Overload("CreateTileUpdaterForApplication")]
+                fn CreateTileUpdaterForApplicationForUser(&self) -> TileUpdater;
+                #[Windows::Foundation::Metadata::Overload("CreateTileUpdaterForApplicationWithId")]
+                fn CreateTileUpdaterForApplication(&self, applicationId: String) -> TileUpdater;
+                fn CreateTileUpdaterForSecondaryTile(&self, tileId: String) -> TileUpdater;
+                #[get]
+                User: super::super::System::User;
+            }
+            #[guid(0xda159e5d_3ea9_4986_8d84_b09d5e12276d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileUpdateManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ITileUpdateManagerStatics {
+                #[Windows::Foundation::Metadata::Overload("CreateTileUpdaterForApplication")]
+                fn CreateTileUpdaterForApplication(&self) -> TileUpdater;
+                #[Windows::Foundation::Metadata::Overload("CreateTileUpdaterForApplicationWithId")]
+                fn CreateTileUpdaterForApplication(&self, applicationId: String) -> TileUpdater;
+                fn CreateTileUpdaterForSecondaryTile(&self, tileId: String) -> TileUpdater;
+                fn GetTemplateContent(&self, r#type: TileTemplateType) -> super::super::Data::Xml::Dom::XmlDocument;
+            }
+            #[guid(0x731c1ddc_8e14_4b7c_a34b_9d22de76c84d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileUpdateManager)]
+            interface ITileUpdateManagerStatics2 {
+                fn GetForUser(&self, user: super::super::System::User) -> TileUpdateManagerForUser;
+            }
+            #[guid(0x0942a48b_1d91_44ec_9243_c1e821c29a20)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileUpdater)]
+            interface ITileUpdater {
+                fn Update(&self, notification: TileNotification);
+                fn Clear(&self);
+                fn EnableNotificationQueue(&self, enable: bool);
+                #[get]
+                Setting: NotificationSetting;
+                fn AddToSchedule(&self, scheduledTile: ScheduledTileNotification);
+                fn RemoveFromSchedule(&self, scheduledTile: ScheduledTileNotification);
+                fn GetScheduledTileNotifications(&self) -> super::super::Foundation::Collections::IVectorView<ScheduledTileNotification>;
+                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdate")]
+                fn StartPeriodicUpdate(&self, tileContent: super::super::Foundation::Uri, requestedInterval: PeriodicUpdateRecurrence);
+                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdateAtTime")]
+                fn StartPeriodicUpdate(&self, tileContent: super::super::Foundation::Uri, startTime: super::super::Foundation::DateTime, requestedInterval: PeriodicUpdateRecurrence);
+                fn StopPeriodicUpdate(&self);
+                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdateBatch")]
+                fn StartPeriodicUpdateBatch(&self, tileContents: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, requestedInterval: PeriodicUpdateRecurrence);
+                #[Windows::Foundation::Metadata::Overload("StartPeriodicUpdateBatchAtTime")]
+                fn StartPeriodicUpdateBatch(&self, tileContents: super::super::Foundation::Collections::IIterable<super::super::Foundation::Uri>, startTime: super::super::Foundation::DateTime, requestedInterval: PeriodicUpdateRecurrence);
+            }
+            #[guid(0xa2266e12_15ee_43ed_83f5_65b352bb1a84)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileUpdater)]
+            interface ITileUpdater2 {
+                fn EnableNotificationQueueForSquare150x150(&self, enable: bool);
+                fn EnableNotificationQueueForWide310x150(&self, enable: bool);
+                fn EnableNotificationQueueForSquare310x310(&self, enable: bool);
+            }
+            #[guid(0xe3bf92f3_c197_436f_8265_0625824f8dac)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastActivatedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IToastActivatedEventArgs {
+                #[get]
+                Arguments: String;
+            }
+            #[guid(0xab7da512_cc61_568e_81be_304ac31038fa)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastActivatedEventArgs)]
+            interface IToastActivatedEventArgs2 {
+                #[get]
+                UserInput: super::super::Foundation::Collections::ValueSet;
+            }
+            #[guid(0x0a8bc3b0_e0be_4858_bc2a_89dfe0b32863)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastCollection)]
+            interface IToastCollection {
+                #[get]
+                Id: String;
+                DisplayName: String;
+                LaunchArgs: String;
+                Icon: super::super::Foundation::Uri;
+            }
+            #[guid(0x164dd3d7_73c4_44f7_b4ff_fb6d4bf1f4c6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastCollection)]
+            interface IToastCollectionFactory {
+                fn CreateInstance(&self, collectionId: String, displayName: String, launchArgs: String, iconUri: super::super::Foundation::Uri) -> ToastCollection;
+            }
+            #[guid(0x2a1821fe_179d_49bc_b79d_a527920d3665)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastCollectionManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IToastCollectionManager {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SaveToastCollectionAsync(&self, collection: ToastCollection) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAllToastCollectionsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ToastCollection>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetToastCollectionAsync(&self, collectionId: String) -> super::super::Foundation::IAsyncOperation<ToastCollection>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RemoveToastCollectionAsync(&self, collectionId: String) -> super::super::Foundation::IAsyncAction;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RemoveAllToastCollectionsAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[get]
+                User: super::super::System::User;
+                #[get]
+                AppId: String;
+            }
+            #[guid(0x3f89d935_d9cb_4538_a0f0_ffe7659938f8)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastDismissedEventArgs)]
+            interface IToastDismissedEventArgs {
+                #[get]
+                Reason: ToastDismissalReason;
+            }
+            #[guid(0x35176862_cfd4_44f8_ad64_f500fd896c3b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastFailedEventArgs)]
+            interface IToastFailedEventArgs {
+                #[get]
+                ErrorCode: HRESULT;
+            }
+            #[guid(0x997e2675_059e_4e60_8b06_1760917c8b80)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotification)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IToastNotification {
+                #[get]
+                Content: super::super::Data::Xml::Dom::XmlDocument;
+                #[set]
+                ExpirationTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[get]
+                ExpirationTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                event Dismissed: super::super::Foundation::TypedEventHandler<ToastNotification, ToastDismissedEventArgs>;
+                event Activated: super::super::Foundation::TypedEventHandler<ToastNotification, Object>;
+                event Failed: super::super::Foundation::TypedEventHandler<ToastNotification, ToastFailedEventArgs>;
+            }
+            #[guid(0x9dfb9fd1_143a_490e_90bf_b9fba7132de7)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotification)]
+            interface IToastNotification2 {
+                #[set]
+                Tag: String;
+                #[get]
+                Tag: String;
+                #[set]
+                Group: String;
+                #[get]
+                Group: String;
+                #[set]
+                SuppressPopup: bool;
+                #[get]
+                SuppressPopup: bool;
+            }
+            #[guid(0x31e8aed8_8141_4f99_bc0a_c4ed21297d77)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotification)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IToastNotification3 {
+                NotificationMirroring: NotificationMirroring;
+                RemoteId: String;
+            }
+            #[guid(0x15154935_28ea_4727_88e9_c58680e2d118)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotification)]
+            interface IToastNotification4 {
+                Data: NotificationData;
+                Priority: ToastNotificationPriority;
+            }
+            #[guid(0x43ebfe53_89ae_5c1e_a279_3aecfe9b6f54)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotification)]
+            interface IToastNotification6 {
+                ExpiresOnReboot: bool;
+            }
+            #[guid(0x9445135a_38f3_42f6_96aa_7955b0f03da2)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationActionTriggerDetail)]
+            interface IToastNotificationActionTriggerDetail {
+                #[get]
+                Argument: String;
+                #[get]
+                UserInput: super::super::Foundation::Collections::ValueSet;
+            }
+            #[guid(0x04124b20_82c6_4229_b109_fd9ed4662b53)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotification)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IToastNotificationFactory {
+                fn CreateToastNotification(&self, content: super::super::Data::Xml::Dom::XmlDocument) -> ToastNotification;
+            }
+            #[guid(0x5caddc63_01d3_4c97_986f_0533483fee14)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationHistory)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IToastNotificationHistory {
+                #[Windows::Foundation::Metadata::Overload("RemoveGroup")]
+                fn RemoveGroup(&self, group: String);
+                #[Windows::Foundation::Metadata::Overload("RemoveGroupWithId")]
+                fn RemoveGroup(&self, group: String, applicationId: String);
+                #[Windows::Foundation::Metadata::Overload("RemoveGroupedTagWithId")]
+                fn Remove(&self, tag: String, group: String, applicationId: String);
+                #[Windows::Foundation::Metadata::Overload("RemoveGroupedTag")]
+                fn Remove(&self, tag: String, group: String);
+                #[Windows::Foundation::Metadata::Overload("Remove")]
+                fn Remove(&self, tag: String);
+                #[Windows::Foundation::Metadata::Overload("Clear")]
+                fn Clear(&self);
+                #[Windows::Foundation::Metadata::Overload("ClearWithId")]
+                fn Clear(&self, applicationId: String);
+            }
+            #[guid(0x3bc3d253_2f31_4092_9129_8ad5abf067da)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationHistory)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IToastNotificationHistory2 {
+                #[Windows::Foundation::Metadata::Overload("GetHistory")]
+                fn GetHistory(&self) -> super::super::Foundation::Collections::IVectorView<ToastNotification>;
+                #[Windows::Foundation::Metadata::Overload("GetHistoryWithId")]
+                fn GetHistory(&self, applicationId: String) -> super::super::Foundation::Collections::IVectorView<ToastNotification>;
+            }
+            #[guid(0xdb037ffa_0068_412c_9c83_267c37f65670)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationHistoryChangedTriggerDetail)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IToastNotificationHistoryChangedTriggerDetail {
+                #[get]
+                ChangeType: ToastHistoryChangedType;
+            }
+            #[guid(0x0b36e982_c871_49fb_babb_25bdbc4cc45b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationHistoryChangedTriggerDetail)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IToastNotificationHistoryChangedTriggerDetail2 {
+                #[get]
+                CollectionId: String;
+            }
+            #[guid(0x79ab57f6_43fe_487b_8a7f_99567200ae94)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationManagerForUser)]
+            interface IToastNotificationManagerForUser {
+                #[Windows::Foundation::Metadata::Overload("CreateToastNotifier")]
+                fn CreateToastNotifier(&self) -> ToastNotifier;
+                #[Windows::Foundation::Metadata::Overload("CreateToastNotifierWithId")]
+                fn CreateToastNotifier(&self, applicationId: String) -> ToastNotifier;
+                #[get]
+                History: ToastNotificationHistory;
+                #[get]
+                User: super::super::System::User;
+            }
+            #[guid(0x679c64b7_81ab_42c2_8819_c958767753f4)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationManagerForUser)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IToastNotificationManagerForUser2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetToastNotifierForToastCollectionIdAsync(&self, collectionId: String) -> super::super::Foundation::IAsyncOperation<ToastNotifier>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetHistoryForToastCollectionIdAsync(&self, collectionId: String) -> super::super::Foundation::IAsyncOperation<ToastNotificationHistory>;
+                #[Windows::Foundation::Metadata::Overload("GetToastCollectionManager")]
+                fn GetToastCollectionManager(&self) -> ToastCollectionManager;
+                #[Windows::Foundation::Metadata::Overload("GetToastCollectionManagerWithAppId")]
+                fn GetToastCollectionManager(&self, appId: String) -> ToastCollectionManager;
+            }
+            #[guid(0x3efcb176_6cc1_56dc_973b_251f7aacb1c5)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationManagerForUser)]
+            interface IToastNotificationManagerForUser3 {
+                #[get]
+                NotificationMode: ToastNotificationMode;
+                event NotificationModeChanged: super::super::Foundation::TypedEventHandler<ToastNotificationManagerForUser, Object>;
+            }
+            #[guid(0x50ac103f_d235_4598_bbef_98fe4d1a3ad4)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IToastNotificationManagerStatics {
+                #[Windows::Foundation::Metadata::Overload("CreateToastNotifier")]
+                fn CreateToastNotifier(&self) -> ToastNotifier;
+                #[Windows::Foundation::Metadata::Overload("CreateToastNotifierWithId")]
+                fn CreateToastNotifier(&self, applicationId: String) -> ToastNotifier;
+                fn GetTemplateContent(&self, r#type: ToastTemplateType) -> super::super::Data::Xml::Dom::XmlDocument;
+            }
+            #[guid(0x7ab93c52_0e48_4750_ba9d_1a4113981847)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationManager)]
+            interface IToastNotificationManagerStatics2 {
+                #[get]
+                History: ToastNotificationHistory;
+            }
+            #[guid(0x8f993fd3_e516_45fb_8130_398e93fa52c3)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IToastNotificationManagerStatics4 {
+                fn GetForUser(&self, user: super::super::System::User) -> ToastNotificationManagerForUser;
+                fn ConfigureNotificationMirroring(&self, value: NotificationMirroring);
+            }
+            #[guid(0xd6f5f569_d40d_407c_8989_88cab42cfd14)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotificationManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            interface IToastNotificationManagerStatics5 {
+                fn GetDefault(&self) -> ToastNotificationManagerForUser;
+            }
+            #[guid(0x75927b93_03f3_41ec_91d3_6e5bac1b38e7)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotifier)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IToastNotifier {
+                fn Show(&self, notification: ToastNotification);
+                fn Hide(&self, notification: ToastNotification);
+                #[get]
+                Setting: NotificationSetting;
+                fn AddToSchedule(&self, scheduledToast: ScheduledToastNotification);
+                fn RemoveFromSchedule(&self, scheduledToast: ScheduledToastNotification);
+                fn GetScheduledToastNotifications(&self) -> super::super::Foundation::Collections::IVectorView<ScheduledToastNotification>;
+            }
+            #[guid(0x354389c6_7c01_4bd5_9c20_604340cd2b74)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotifier)]
+            interface IToastNotifier2 {
+                #[Windows::Foundation::Metadata::Overload("UpdateWithTagAndGroup")]
+                fn Update(&self, data: NotificationData, tag: String, group: String) -> NotificationUpdateResult;
+                #[Windows::Foundation::Metadata::Overload("UpdateWithTag")]
+                fn Update(&self, data: NotificationData, tag: String) -> NotificationUpdateResult;
+            }
+            #[guid(0xae75a04a_3b0c_51ad_b7e8_b08ab6052549)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ToastNotifier)]
+            interface IToastNotifier3 {
+                event ScheduledToastNotificationShowing: super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs>;
+            }
+            #[guid(0xadf7e52f_4e53_42d5_9c33_eb5ea515b23e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserNotification)]
+            interface IUserNotification {
+                #[get]
+                Notification: Notification;
+                #[get]
+                AppInfo: super::super::ApplicationModel::AppInfo;
+                #[get]
+                Id: u32;
+                #[get]
+                CreationTime: super::super::Foundation::DateTime;
+            }
+            #[guid(0xb6bd6839_79cf_4b25_82c0_0ce1eef81f8c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserNotificationChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IUserNotificationChangedEventArgs {
+                #[get]
+                ChangeKind: UserNotificationChangedKind;
+                #[get]
+                UserNotificationId: u32;
+            }
+            #[Windows::Foundation::Metadata::Static(IKnownAdaptiveNotificationHintsStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class KnownAdaptiveNotificationHints {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IKnownAdaptiveNotificationTextStylesStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            class KnownAdaptiveNotificationTextStyles {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IKnownNotificationBindingsStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            class KnownNotificationBindings {}
+            #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class Notification {
+                INotification,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class NotificationBinding {
+                INotificationBinding,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(INotificationDataFactory, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+            class NotificationData {
+                INotificationData,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum NotificationKinds {
+                Unknown = 0,
+                Toast = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum NotificationMirroring {
+                Allowed = 0,
+                Disabled = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum NotificationSetting {
+                Enabled = 0,
+                DisabledForApplication = 1,
+                DisabledForUser = 2,
+                DisabledByGroupPolicy = 3,
+                DisabledByManifest = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum NotificationUpdateResult {
+                Succeeded = 0,
+                Failed = 1,
+                NotificationNotFound = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class NotificationVisual {
+                INotificationVisual,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum PeriodicUpdateRecurrence {
+                HalfHour = 0,
+                Hour = 1,
+                SixHours = 2,
+                TwelveHours = 3,
+                Daily = 4,
+            }
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(IScheduledTileNotificationFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ScheduledTileNotification {
+                IScheduledTileNotification,
+            }
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(IScheduledToastNotificationFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class ScheduledToastNotification {
+                IScheduledToastNotification,
+                IScheduledToastNotification2,
+                IScheduledToastNotification3,
+                IScheduledToastNotification4,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ScheduledToastNotificationShowingEventArgs {
+                IScheduledToastNotificationShowingEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            class ShownTileNotification {
+                IShownTileNotification,
+            }
+            #[Windows::Foundation::Metadata::Activatable(ITileFlyoutNotificationFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            class TileFlyoutNotification {
+                ITileFlyoutNotification,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TileFlyoutTemplateType {
+                TileFlyoutTemplate01 = 0,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(ITileFlyoutUpdateManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            class TileFlyoutUpdateManager {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class TileFlyoutUpdater {
+                ITileFlyoutUpdater,
+            }
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::Activatable(ITileNotificationFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class TileNotification {
+                ITileNotification,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TileTemplateType {
+                TileSquareImage = 0,
+                TileSquareBlock = 1,
+                TileSquareText01 = 2,
+                TileSquareText02 = 3,
+                TileSquareText03 = 4,
+                TileSquareText04 = 5,
+                TileSquarePeekImageAndText01 = 6,
+                TileSquarePeekImageAndText02 = 7,
+                TileSquarePeekImageAndText03 = 8,
+                TileSquarePeekImageAndText04 = 9,
+                TileWideImage = 10,
+                TileWideImageCollection = 11,
+                TileWideImageAndText01 = 12,
+                TileWideImageAndText02 = 13,
+                TileWideBlockAndText01 = 14,
+                TileWideBlockAndText02 = 15,
+                TileWidePeekImageCollection01 = 16,
+                TileWidePeekImageCollection02 = 17,
+                TileWidePeekImageCollection03 = 18,
+                TileWidePeekImageCollection04 = 19,
+                TileWidePeekImageCollection05 = 20,
+                TileWidePeekImageCollection06 = 21,
+                TileWidePeekImageAndText01 = 22,
+                TileWidePeekImageAndText02 = 23,
+                TileWidePeekImage01 = 24,
+                TileWidePeekImage02 = 25,
+                TileWidePeekImage03 = 26,
+                TileWidePeekImage04 = 27,
+                TileWidePeekImage05 = 28,
+                TileWidePeekImage06 = 29,
+                TileWideSmallImageAndText01 = 30,
+                TileWideSmallImageAndText02 = 31,
+                TileWideSmallImageAndText03 = 32,
+                TileWideSmallImageAndText04 = 33,
+                TileWideSmallImageAndText05 = 34,
+                TileWideText01 = 35,
+                TileWideText02 = 36,
+                TileWideText03 = 37,
+                TileWideText04 = 38,
+                TileWideText05 = 39,
+                TileWideText06 = 40,
+                TileWideText07 = 41,
+                TileWideText08 = 42,
+                TileWideText09 = 43,
+                TileWideText10 = 44,
+                TileWideText11 = 45,
+                TileSquare150x150Image = 0,
+                TileSquare150x150Block = 1,
+                TileSquare150x150Text01 = 2,
+                TileSquare150x150Text02 = 3,
+                TileSquare150x150Text03 = 4,
+                TileSquare150x150Text04 = 5,
+                TileSquare150x150PeekImageAndText01 = 6,
+                TileSquare150x150PeekImageAndText02 = 7,
+                TileSquare150x150PeekImageAndText03 = 8,
+                TileSquare150x150PeekImageAndText04 = 9,
+                TileWide310x150Image = 10,
+                TileWide310x150ImageCollection = 11,
+                TileWide310x150ImageAndText01 = 12,
+                TileWide310x150ImageAndText02 = 13,
+                TileWide310x150BlockAndText01 = 14,
+                TileWide310x150BlockAndText02 = 15,
+                TileWide310x150PeekImageCollection01 = 16,
+                TileWide310x150PeekImageCollection02 = 17,
+                TileWide310x150PeekImageCollection03 = 18,
+                TileWide310x150PeekImageCollection04 = 19,
+                TileWide310x150PeekImageCollection05 = 20,
+                TileWide310x150PeekImageCollection06 = 21,
+                TileWide310x150PeekImageAndText01 = 22,
+                TileWide310x150PeekImageAndText02 = 23,
+                TileWide310x150PeekImage01 = 24,
+                TileWide310x150PeekImage02 = 25,
+                TileWide310x150PeekImage03 = 26,
+                TileWide310x150PeekImage04 = 27,
+                TileWide310x150PeekImage05 = 28,
+                TileWide310x150PeekImage06 = 29,
+                TileWide310x150SmallImageAndText01 = 30,
+                TileWide310x150SmallImageAndText02 = 31,
+                TileWide310x150SmallImageAndText03 = 32,
+                TileWide310x150SmallImageAndText04 = 33,
+                TileWide310x150SmallImageAndText05 = 34,
+                TileWide310x150Text01 = 35,
+                TileWide310x150Text02 = 36,
+                TileWide310x150Text03 = 37,
+                TileWide310x150Text04 = 38,
+                TileWide310x150Text05 = 39,
+                TileWide310x150Text06 = 40,
+                TileWide310x150Text07 = 41,
+                TileWide310x150Text08 = 42,
+                TileWide310x150Text09 = 43,
+                TileWide310x150Text10 = 44,
+                TileWide310x150Text11 = 45,
+                TileSquare310x310BlockAndText01 = 46,
+                TileSquare310x310BlockAndText02 = 47,
+                TileSquare310x310Image = 48,
+                TileSquare310x310ImageAndText01 = 49,
+                TileSquare310x310ImageAndText02 = 50,
+                TileSquare310x310ImageAndTextOverlay01 = 51,
+                TileSquare310x310ImageAndTextOverlay02 = 52,
+                TileSquare310x310ImageAndTextOverlay03 = 53,
+                TileSquare310x310ImageCollectionAndText01 = 54,
+                TileSquare310x310ImageCollectionAndText02 = 55,
+                TileSquare310x310ImageCollection = 56,
+                TileSquare310x310SmallImagesAndTextList01 = 57,
+                TileSquare310x310SmallImagesAndTextList02 = 58,
+                TileSquare310x310SmallImagesAndTextList03 = 59,
+                TileSquare310x310SmallImagesAndTextList04 = 60,
+                TileSquare310x310Text01 = 61,
+                TileSquare310x310Text02 = 62,
+                TileSquare310x310Text03 = 63,
+                TileSquare310x310Text04 = 64,
+                TileSquare310x310Text05 = 65,
+                TileSquare310x310Text06 = 66,
+                TileSquare310x310Text07 = 67,
+                TileSquare310x310Text08 = 68,
+                TileSquare310x310TextList01 = 69,
+                TileSquare310x310TextList02 = 70,
+                TileSquare310x310TextList03 = 71,
+                TileSquare310x310SmallImageAndText01 = 72,
+                TileSquare310x310SmallImagesAndTextList05 = 73,
+                TileSquare310x310Text09 = 74,
+                TileSquare71x71IconWithBadge = 75,
+                TileSquare150x150IconWithBadge = 76,
+                TileWide310x150IconWithBadgeAndText = 77,
+                TileSquare71x71Image = 78,
+                TileTall150x310Image = 79,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(ITileUpdateManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::Static(ITileUpdateManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class TileUpdateManager {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class TileUpdateManagerForUser {
+                ITileUpdateManagerForUser,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class TileUpdater {
+                ITileUpdater,
+                ITileUpdater2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class ToastActivatedEventArgs {
+                IToastActivatedEventArgs,
+                IToastActivatedEventArgs2,
+            }
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::Activatable(IToastCollectionFactory, 262144, "Windows.Foundation.UniversalApiContract")]
+            class ToastCollection {
+                IToastCollection,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ToastCollectionManager {
+                IToastCollectionManager,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ToastDismissalReason {
+                UserCanceled = 0,
+                ApplicationHidden = 1,
+                TimedOut = 2,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ToastDismissedEventArgs {
+                IToastDismissedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ToastFailedEventArgs {
+                IToastFailedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ToastHistoryChangedType {
+                Cleared = 0,
+                Removed = 1,
+                Expired = 2,
+                Added = 3,
+            }
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(IToastNotificationFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class ToastNotification {
+                IToastNotification,
+                IToastNotification2,
+                IToastNotification3,
+                IToastNotification4,
+                IToastNotification6,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ToastNotificationActionTriggerDetail {
+                IToastNotificationActionTriggerDetail,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ToastNotificationHistory {
+                IToastNotificationHistory,
+                IToastNotificationHistory2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ToastNotificationHistoryChangedTriggerDetail {
+                IToastNotificationHistoryChangedTriggerDetail,
+                IToastNotificationHistoryChangedTriggerDetail2,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Static(IToastNotificationManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IToastNotificationManagerStatics4, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IToastNotificationManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IToastNotificationManagerStatics5, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ToastNotificationManager {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            class ToastNotificationManagerForUser {
+                IToastNotificationManagerForUser,
+                IToastNotificationManagerForUser2,
+                IToastNotificationManagerForUser3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            enum ToastNotificationMode {
+                Unrestricted = 0,
+                PriorityOnly = 1,
+                AlarmsOnly = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            enum ToastNotificationPriority {
+                Default = 0,
+                High = 1,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ToastNotifier {
+                IToastNotifier,
+                IToastNotifier2,
+                IToastNotifier3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum ToastTemplateType {
+                ToastImageAndText01 = 0,
+                ToastImageAndText02 = 1,
+                ToastImageAndText03 = 2,
+                ToastImageAndText04 = 3,
+                ToastText01 = 4,
+                ToastText02 = 5,
+                ToastText03 = 6,
+                ToastText04 = 7,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class UserNotification {
+                IUserNotification,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class UserNotificationChangedEventArgs {
+                IUserNotificationChangedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum UserNotificationChangedKind {
+                Added = 0,
+                Removed = 1,
+            }
+        }
+    }
+}

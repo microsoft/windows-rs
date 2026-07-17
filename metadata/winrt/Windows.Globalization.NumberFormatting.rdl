@@ -1,0 +1,256 @@
+#[winrt]
+mod Windows {
+    mod Globalization {
+        mod NumberFormatting {
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(ICurrencyFormatterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class CurrencyFormatter {
+                ICurrencyFormatter,
+                INumberParser,
+                INumberFormatter2,
+                INumberFormatter,
+                INumberFormatterOptions,
+                ICurrencyFormatter2,
+                ISignificantDigitsOption,
+                INumberRounderOption,
+                ISignedZeroOption,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum CurrencyFormatterMode {
+                UseSymbol = 0,
+                UseCurrencyCode = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IDecimalFormatterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class DecimalFormatter {
+                INumberFormatter,
+                INumberFormatterOptions,
+                INumberFormatter2,
+                INumberParser,
+                ISignificantDigitsOption,
+                INumberRounderOption,
+                ISignedZeroOption,
+            }
+            #[guid(0x11730ca5_4b00_41b2_b332_73b12a497d54)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyFormatter)]
+            interface ICurrencyFormatter: INumberFormatterOptions + INumberFormatter + INumberFormatter2 + INumberParser {
+                #[get]
+                Currency: String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Currency may be read-only for releases after Windows 8.1. Instead, use a new CurrencyFormatter.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_Currency(&self, value: String);
+            }
+            #[guid(0x072c2f1d_e7ba_4197_920e_247c92f7dea6)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyFormatter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICurrencyFormatter2 {
+                Mode: CurrencyFormatterMode;
+                fn ApplyRoundingForCurrency(&self, roundingAlgorithm: RoundingAlgorithm);
+            }
+            #[guid(0x86c7537e_b938_4aa2_84b0_2c33dc5b1450)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyFormatter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICurrencyFormatterFactory {
+                fn CreateCurrencyFormatterCode(&self, currencyCode: String) -> CurrencyFormatter;
+                fn CreateCurrencyFormatterCodeContext(&self, currencyCode: String, languages: super::super::Foundation::Collections::IIterable<String>, geographicRegion: String) -> CurrencyFormatter;
+            }
+            #[guid(0x0d018c9a_e393_46b8_b830_7a69c8f89fbb)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DecimalFormatter)]
+            interface IDecimalFormatterFactory {
+                fn CreateDecimalFormatter(&self, languages: super::super::Foundation::Collections::IIterable<String>, geographicRegion: String) -> DecimalFormatter;
+            }
+            #[guid(0x70a64ff8_66ab_4155_9da1_739e46764543)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IncrementNumberRounder)]
+            interface IIncrementNumberRounder {
+                RoundingAlgorithm: RoundingAlgorithm;
+                Increment: f64;
+            }
+            #[guid(0xa5007c49_7676_4db7_8631_1b6ff265caa9)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INumberFormatter {
+                #[Windows::Foundation::Metadata::Overload("FormatInt")]
+                fn Format(&self, value: i64) -> String;
+                #[Windows::Foundation::Metadata::Overload("FormatUInt")]
+                fn Format(&self, value: u64) -> String;
+                #[Windows::Foundation::Metadata::Overload("FormatDouble")]
+                #[Windows::Foundation::Metadata::DefaultOverload]
+                fn Format(&self, value: f64) -> String;
+            }
+            #[guid(0xd4a8c1f0_80d0_4b0d_a89e_882c1e8f8310)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INumberFormatter2 {
+                fn FormatInt(&self, value: i64) -> String;
+                fn FormatUInt(&self, value: u64) -> String;
+                fn FormatDouble(&self, value: f64) -> String;
+            }
+            #[guid(0x80332d21_aee1_4a39_baa2_07ed8c96daf6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INumberFormatterOptions {
+                #[get]
+                Languages: super::super::Foundation::Collections::IVectorView<String>;
+                #[get]
+                GeographicRegion: String;
+                IntegerDigits: i32;
+                FractionDigits: i32;
+                IsGrouped: bool;
+                IsDecimalPointAlwaysDisplayed: bool;
+                NumeralSystem: String;
+                #[get]
+                ResolvedLanguage: String;
+                #[get]
+                ResolvedGeographicRegion: String;
+            }
+            #[guid(0xe6659412_4a13_4a53_83a1_392fbe4cff9f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INumberParser {
+                fn ParseInt(&self, text: String) -> super::super::Foundation::IReference<i64>;
+                fn ParseUInt(&self, text: String) -> super::super::Foundation::IReference<u64>;
+                fn ParseDouble(&self, text: String) -> super::super::Foundation::IReference<f64>;
+            }
+            #[guid(0x5473c375_38ed_4631_b80c_ef34fc48b7f5)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INumberRounder {
+                fn RoundInt32(&self, value: i32) -> i32;
+                fn RoundUInt32(&self, value: u32) -> u32;
+                fn RoundInt64(&self, value: i64) -> i64;
+                fn RoundUInt64(&self, value: u64) -> u64;
+                fn RoundSingle(&self, value: f32) -> f32;
+                fn RoundDouble(&self, value: f64) -> f64;
+            }
+            #[guid(0x3b088433_646f_4efe_8d48_66eb2e49e736)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INumberRounderOption {
+                NumberRounder: INumberRounder;
+            }
+            #[guid(0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NumeralSystemTranslator)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INumeralSystemTranslator {
+                #[get]
+                Languages: super::super::Foundation::Collections::IVectorView<String>;
+                #[get]
+                ResolvedLanguage: String;
+                NumeralSystem: String;
+                fn TranslateNumerals(&self, value: String) -> String;
+            }
+            #[guid(0x9630c8da_36ef_4d88_a85c_6f0d98d620a6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NumeralSystemTranslator)]
+            interface INumeralSystemTranslatorFactory {
+                fn Create(&self, languages: super::super::Foundation::Collections::IIterable<String>) -> NumeralSystemTranslator;
+            }
+            #[guid(0xb7828aef_fed4_4018_a6e2_e09961e03765)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PercentFormatter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IPercentFormatterFactory {
+                fn CreatePercentFormatter(&self, languages: super::super::Foundation::Collections::IIterable<String>, geographicRegion: String) -> PercentFormatter;
+            }
+            #[guid(0x2b37b4ac_e638_4ed5_a998_62f6b06a49ae)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PermilleFormatter)]
+            interface IPermilleFormatterFactory {
+                fn CreatePermilleFormatter(&self, languages: super::super::Foundation::Collections::IIterable<String>, geographicRegion: String) -> PermilleFormatter;
+            }
+            #[guid(0xfd1cdd31_0a3c_49c4_a642_96a1564f4f30)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ISignedZeroOption {
+                IsZeroSigned: bool;
+            }
+            #[guid(0xf5941bca_6646_4913_8c76_1b191ff94dfd)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SignificantDigitsNumberRounder)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ISignificantDigitsNumberRounder {
+                RoundingAlgorithm: RoundingAlgorithm;
+                SignificantDigits: u32;
+            }
+            #[guid(0x1d4dfcdd_2d43_4ee8_bbf1_c1b26a711a58)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ISignificantDigitsOption {
+                SignificantDigits: i32;
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class IncrementNumberRounder {
+                INumberRounder,
+                IIncrementNumberRounder,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(INumeralSystemTranslatorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class NumeralSystemTranslator {
+                INumeralSystemTranslator,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Activatable(IPercentFormatterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PercentFormatter {
+                INumberFormatter,
+                INumberFormatterOptions,
+                INumberFormatter2,
+                INumberParser,
+                ISignificantDigitsOption,
+                INumberRounderOption,
+                ISignedZeroOption,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IPermilleFormatterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class PermilleFormatter {
+                INumberFormatter,
+                INumberFormatterOptions,
+                INumberFormatter2,
+                INumberParser,
+                ISignificantDigitsOption,
+                INumberRounderOption,
+                ISignedZeroOption,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum RoundingAlgorithm {
+                None = 0,
+                RoundDown = 1,
+                RoundUp = 2,
+                RoundTowardsZero = 3,
+                RoundAwayFromZero = 4,
+                RoundHalfDown = 5,
+                RoundHalfUp = 6,
+                RoundHalfTowardsZero = 7,
+                RoundHalfAwayFromZero = 8,
+                RoundHalfToEven = 9,
+                RoundHalfToOdd = 10,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SignificantDigitsNumberRounder {
+                INumberRounder,
+                ISignificantDigitsNumberRounder,
+            }
+        }
+    }
+}

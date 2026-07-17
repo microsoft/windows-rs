@@ -1,0 +1,116 @@
+#[winrt]
+mod Windows {
+    mod Globalization {
+        mod PhoneNumberFormatting {
+            #[guid(0x1556b49e_bad4_4b4a_900d_4407adb7c981)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhoneNumberFormatter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IPhoneNumberFormatter {
+                #[Windows::Foundation::Metadata::Overload("Format")]
+                fn Format(&self, number: PhoneNumberInfo) -> String;
+                #[Windows::Foundation::Metadata::Overload("FormatWithOutputFormat")]
+                fn Format(&self, number: PhoneNumberInfo, numberFormat: PhoneNumberFormat) -> String;
+                fn FormatPartialString(&self, number: String) -> String;
+                fn FormatString(&self, number: String) -> String;
+                fn FormatStringWithLeftToRightMarkers(&self, number: String) -> String;
+            }
+            #[guid(0x5ca6f931_84d9_414b_ab4e_a0552c878602)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhoneNumberFormatter)]
+            interface IPhoneNumberFormatterStatics {
+                fn TryCreate(&self, regionCode: String, phoneNumber: &mut PhoneNumberFormatter);
+                fn GetCountryCodeForRegion(&self, regionCode: String) -> i32;
+                fn GetNationalDirectDialingPrefixForRegion(&self, regionCode: String, stripNonDigit: bool) -> String;
+                fn WrapWithLeftToRightMarkers(&self, number: String) -> String;
+            }
+            #[guid(0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhoneNumberInfo)]
+            interface IPhoneNumberInfo {
+                #[get]
+                CountryCode: i32;
+                #[get]
+                PhoneNumber: String;
+                fn GetLengthOfGeographicalAreaCode(&self) -> i32;
+                fn GetNationalSignificantNumber(&self) -> String;
+                fn GetLengthOfNationalDestinationCode(&self) -> i32;
+                fn PredictNumberKind(&self) -> PredictedPhoneNumberKind;
+                fn GetGeographicRegionCode(&self) -> String;
+                fn CheckNumberMatch(&self, otherNumber: PhoneNumberInfo) -> PhoneNumberMatchResult;
+            }
+            #[guid(0x8202b964_adaa_4cff_8fcf_17e7516a28ff)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhoneNumberInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IPhoneNumberInfoFactory {
+                fn Create(&self, number: String) -> PhoneNumberInfo;
+            }
+            #[guid(0x5b3f4f6a_86a9_40e9_8649_6d61161928d4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PhoneNumberInfo)]
+            interface IPhoneNumberInfoStatics {
+                #[Windows::Foundation::Metadata::Overload("TryParse")]
+                fn TryParse(&self, input: String, phoneNumber: &mut PhoneNumberInfo) -> PhoneNumberParseResult;
+                #[Windows::Foundation::Metadata::Overload("TryParseWithRegion")]
+                fn TryParse(&self, input: String, regionCode: String, phoneNumber: &mut PhoneNumberInfo) -> PhoneNumberParseResult;
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum PhoneNumberFormat {
+                E164 = 0,
+                International = 1,
+                National = 2,
+                Rfc3966 = 3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IPhoneNumberFormatterStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class PhoneNumberFormatter {
+                IPhoneNumberFormatter,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IPhoneNumberInfoStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IPhoneNumberInfoFactory, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class PhoneNumberInfo {
+                IPhoneNumberInfo,
+                super::super::Foundation::IStringable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum PhoneNumberMatchResult {
+                NoMatch = 0,
+                ShortNationalSignificantNumberMatch = 1,
+                NationalSignificantNumberMatch = 2,
+                ExactMatch = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum PhoneNumberParseResult {
+                Valid = 0,
+                NotANumber = 1,
+                InvalidCountryCode = 2,
+                TooShort = 3,
+                TooLong = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            enum PredictedPhoneNumberKind {
+                FixedLine = 0,
+                Mobile = 1,
+                FixedLineOrMobile = 2,
+                TollFree = 3,
+                PremiumRate = 4,
+                SharedCost = 5,
+                Voip = 6,
+                PersonalNumber = 7,
+                Pager = 8,
+                UniversalAccountNumber = 9,
+                Voicemail = 10,
+                Unknown = 11,
+            }
+        }
+    }
+}

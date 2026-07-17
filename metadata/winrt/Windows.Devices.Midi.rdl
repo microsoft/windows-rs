@@ -1,0 +1,449 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Midi {
+            #[guid(0xbe1fa860_62b4_4d52_a37e_92e54d35b909)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiChannelPressureMessage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMidiChannelPressureMessage: IMidiMessage {
+                #[get]
+                Channel: u8;
+                #[get]
+                Pressure: u8;
+            }
+            #[guid(0x6218ed2f_2284_412a_94cf_10fb04842c6c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiChannelPressureMessage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMidiChannelPressureMessageFactory {
+                fn CreateMidiChannelPressureMessage(&self, channel: u8, pressure: u8) -> MidiChannelPressureMessage;
+            }
+            #[guid(0xb7e15f83_780d_405f_b781_3e1598c97f40)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiControlChangeMessage)]
+            interface IMidiControlChangeMessage: IMidiMessage {
+                #[get]
+                Channel: u8;
+                #[get]
+                Controller: u8;
+                #[get]
+                ControlValue: u8;
+            }
+            #[guid(0x2ab14321_956c_46ad_9752_f87f55052fe3)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiControlChangeMessage)]
+            interface IMidiControlChangeMessageFactory {
+                fn CreateMidiControlChangeMessage(&self, channel: u8, controller: u8, controlValue: u8) -> MidiControlChangeMessage;
+            }
+            #[guid(0xd5c1d9db_971a_4eaf_a23d_ea19fe607ff9)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiInPort)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMidiInPort: super::super::Foundation::IClosable {
+                event MessageReceived: super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>;
+                #[get]
+                DeviceId: String;
+            }
+            #[guid(0x44c439dc_67ff_4a6e_8bac_fdb6610cf296)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiInPort)]
+            interface IMidiInPortStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<MidiInPort>;
+                fn GetDeviceSelector(&self) -> String;
+            }
+            #[guid(0x79767945_1094_4283_9be0_289fc0ee8334)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMidiMessage {
+                #[get]
+                Timestamp: super::super::Foundation::TimeSpan;
+                #[get]
+                RawData: super::super::Storage::Streams::IBuffer;
+                #[get]
+                Type: MidiMessageType;
+            }
+            #[guid(0x76566e56_f328_4b51_907d_b3a8ce96bf80)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiMessageReceivedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMidiMessageReceivedEventArgs {
+                #[get]
+                Message: IMidiMessage;
+            }
+            #[guid(0x16fd8af4_198e_4d8f_a654_d305a293548f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiNoteOffMessage)]
+            interface IMidiNoteOffMessage: IMidiMessage {
+                #[get]
+                Channel: u8;
+                #[get]
+                Note: u8;
+                #[get]
+                Velocity: u8;
+            }
+            #[guid(0xa6b240e0_a749_425f_8af4_a4d979cc15b5)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiNoteOffMessage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMidiNoteOffMessageFactory {
+                fn CreateMidiNoteOffMessage(&self, channel: u8, note: u8, velocity: u8) -> MidiNoteOffMessage;
+            }
+            #[guid(0xe0224af5_6181_46dd_afa2_410004c057aa)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiNoteOnMessage)]
+            interface IMidiNoteOnMessage: IMidiMessage {
+                #[get]
+                Channel: u8;
+                #[get]
+                Note: u8;
+                #[get]
+                Velocity: u8;
+            }
+            #[guid(0x9b4280a0_59c1_420e_b517_15a10aa9606b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiNoteOnMessage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMidiNoteOnMessageFactory {
+                fn CreateMidiNoteOnMessage(&self, channel: u8, note: u8, velocity: u8) -> MidiNoteOnMessage;
+            }
+            #[guid(0x931d6d9f_57a2_4a3a_adb8_4640886f6693)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMidiOutPort: super::super::Foundation::IClosable {
+                fn SendMessage(&self, midiMessage: IMidiMessage);
+                fn SendBuffer(&self, midiData: super::super::Storage::Streams::IBuffer);
+                #[get]
+                DeviceId: String;
+            }
+            #[guid(0x065cc3e9_0f88_448b_9b64_a95826c65b8f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiOutPort)]
+            interface IMidiOutPortStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<IMidiOutPort>;
+                fn GetDeviceSelector(&self) -> String;
+            }
+            #[guid(0x29df4cb1_2e9f_4faf_8c2b_9cb82a9079ca)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiPitchBendChangeMessage)]
+            interface IMidiPitchBendChangeMessage: IMidiMessage {
+                #[get]
+                Channel: u8;
+                #[get]
+                Bend: u16;
+            }
+            #[guid(0xf5eedf55_cfc8_4926_b30e_a3622393306c)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiPitchBendChangeMessage)]
+            interface IMidiPitchBendChangeMessageFactory {
+                fn CreateMidiPitchBendChangeMessage(&self, channel: u8, bend: u16) -> MidiPitchBendChangeMessage;
+            }
+            #[guid(0x1f7337fe_ace8_48a0_868e_7cdbf20f04d6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiPolyphonicKeyPressureMessage)]
+            interface IMidiPolyphonicKeyPressureMessage: IMidiMessage {
+                #[get]
+                Channel: u8;
+                #[get]
+                Note: u8;
+                #[get]
+                Pressure: u8;
+            }
+            #[guid(0xe98f483e_c4b3_4dd2_917c_e349815a1b3b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiPolyphonicKeyPressureMessage)]
+            interface IMidiPolyphonicKeyPressureMessageFactory {
+                fn CreateMidiPolyphonicKeyPressureMessage(&self, channel: u8, note: u8, pressure: u8) -> MidiPolyphonicKeyPressureMessage;
+            }
+            #[guid(0x9cbb3c78_7a3e_4327_aa98_20b8e4485af8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiProgramChangeMessage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMidiProgramChangeMessage: IMidiMessage {
+                #[get]
+                Channel: u8;
+                #[get]
+                Program: u8;
+            }
+            #[guid(0xd6b04387_524b_4104_9c99_6572bfd2e261)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiProgramChangeMessage)]
+            interface IMidiProgramChangeMessageFactory {
+                fn CreateMidiProgramChangeMessage(&self, channel: u8, program: u8) -> MidiProgramChangeMessage;
+            }
+            #[guid(0x4ca50c56_ec5e_4ae4_a115_88dc57cc2b79)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiSongPositionPointerMessage)]
+            interface IMidiSongPositionPointerMessage: IMidiMessage {
+                #[get]
+                Beats: u16;
+            }
+            #[guid(0x9c00e996_f10b_4fea_b395_f5d6cf80f64e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiSongPositionPointerMessage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IMidiSongPositionPointerMessageFactory {
+                fn CreateMidiSongPositionPointerMessage(&self, beats: u16) -> MidiSongPositionPointerMessage;
+            }
+            #[guid(0x49f0f27f_6d83_4741_a5bf_4629f6be974f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiSongSelectMessage)]
+            interface IMidiSongSelectMessage: IMidiMessage {
+                #[get]
+                Song: u8;
+            }
+            #[guid(0x848878e4_8748_4129_a66c_a05493f75daa)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiSongSelectMessage)]
+            interface IMidiSongSelectMessageFactory {
+                fn CreateMidiSongSelectMessage(&self, song: u8) -> MidiSongSelectMessage;
+            }
+            #[guid(0xf0da155e_db90_405f_b8ae_21d2e17f2e45)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiSynthesizer)]
+            interface IMidiSynthesizer: IMidiOutPort + super::super::Foundation::IClosable {
+                #[get]
+                AudioDevice: super::Enumeration::DeviceInformation;
+                Volume: f64;
+            }
+            #[guid(0x4224eaa8_6629_4d6b_aa8f_d4521a5a31ce)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiSynthesizer)]
+            interface IMidiSynthesizerStatics {
+                #[Windows::Foundation::Metadata::Overload("CreateAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateAsync(&self) -> super::super::Foundation::IAsyncOperation<MidiSynthesizer>;
+                #[Windows::Foundation::Metadata::Overload("CreateFromAudioDeviceAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateAsync(&self, audioDevice: super::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncOperation<MidiSynthesizer>;
+                fn IsSynthesizer(&self, midiDevice: super::Enumeration::DeviceInformation) -> bool;
+            }
+            #[guid(0x083de222_3b74_4320_9b42_0ca8545f8a24)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiSystemExclusiveMessage)]
+            interface IMidiSystemExclusiveMessageFactory {
+                fn CreateMidiSystemExclusiveMessage(&self, rawData: super::super::Storage::Streams::IBuffer) -> MidiSystemExclusiveMessage;
+            }
+            #[guid(0x0bf7087d_fa63_4a1c_8deb_c0e87796a6d7)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiTimeCodeMessage)]
+            interface IMidiTimeCodeMessage: IMidiMessage {
+                #[get]
+                FrameType: u8;
+                #[get]
+                Values: u8;
+            }
+            #[guid(0xeb3099c5_771c_40de_b961_175a7489a85e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MidiTimeCodeMessage)]
+            interface IMidiTimeCodeMessageFactory {
+                fn CreateMidiTimeCodeMessage(&self, frameType: u8, values: u8) -> MidiTimeCodeMessage;
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MidiActiveSensingMessage {
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(IMidiChannelPressureMessageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class MidiChannelPressureMessage {
+                IMidiChannelPressureMessage,
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MidiContinueMessage {
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(IMidiControlChangeMessageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MidiControlChangeMessage {
+                IMidiControlChangeMessage,
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IMidiInPortStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MidiInPort {
+                IMidiInPort,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MidiMessageReceivedEventArgs {
+                IMidiMessageReceivedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum MidiMessageType {
+                None = 0,
+                NoteOff = 128,
+                NoteOn = 144,
+                PolyphonicKeyPressure = 160,
+                ControlChange = 176,
+                ProgramChange = 192,
+                ChannelPressure = 208,
+                PitchBendChange = 224,
+                SystemExclusive = 240,
+                MidiTimeCode = 241,
+                SongPositionPointer = 242,
+                SongSelect = 243,
+                TuneRequest = 246,
+                EndSystemExclusive = 247,
+                TimingClock = 248,
+                Start = 250,
+                Continue = 251,
+                Stop = 252,
+                ActiveSensing = 254,
+                SystemReset = 255,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(IMidiNoteOffMessageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class MidiNoteOffMessage {
+                IMidiNoteOffMessage,
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(IMidiNoteOnMessageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MidiNoteOnMessage {
+                IMidiNoteOnMessage,
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Static(IMidiOutPortStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MidiOutPort {
+                IMidiOutPort,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Activatable(IMidiPitchBendChangeMessageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MidiPitchBendChangeMessage {
+                IMidiPitchBendChangeMessage,
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::Activatable(IMidiPolyphonicKeyPressureMessageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MidiPolyphonicKeyPressureMessage {
+                IMidiPolyphonicKeyPressureMessage,
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Activatable(IMidiProgramChangeMessageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MidiProgramChangeMessage {
+                IMidiProgramChangeMessage,
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Activatable(IMidiSongPositionPointerMessageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MidiSongPositionPointerMessage {
+                IMidiSongPositionPointerMessage,
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(IMidiSongSelectMessageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class MidiSongSelectMessage {
+                IMidiSongSelectMessage,
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MidiStartMessage {
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            class MidiStopMessage {
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IMidiSynthesizerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MidiSynthesizer {
+                IMidiSynthesizer,
+                IMidiOutPort,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::Activatable(IMidiSystemExclusiveMessageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MidiSystemExclusiveMessage {
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class MidiSystemResetMessage {
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(IMidiTimeCodeMessageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class MidiTimeCodeMessage {
+                IMidiTimeCodeMessage,
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MidiTimingClockMessage {
+                IMidiMessage,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class MidiTuneRequestMessage {
+                IMidiMessage,
+            }
+        }
+    }
+}

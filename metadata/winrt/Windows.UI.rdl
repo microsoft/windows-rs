@@ -1,0 +1,365 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        struct Color {
+            A: u8,
+            R: u8,
+            G: u8,
+            B: u8,
+        }
+        #[Windows::Foundation::Metadata::Static(IColorHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(IColorHelperStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class ColorHelper {
+            IColorHelper,
+        }
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::Static(IColorsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        class Colors {
+            IColors,
+        }
+        #[guid(0x193cfbe7_65c7_4540_ad08_6283ba76879a)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IColorHelper {}
+        #[guid(0x8504dbea_fb6a_4144_a6c2_33499c9284f5)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        interface IColorHelperStatics {
+            fn FromArgb(&self, a: u8, r: u8, g: u8, b: u8) -> Color;
+        }
+        #[guid(0x24d9af02_6eb0_4b94_855c_fcf0818d9a16)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
+        interface IColorHelperStatics2 {
+            fn ToDisplayName(&self, color: Color) -> String;
+        }
+        #[guid(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Colors)]
+        interface IColors {}
+        #[guid(0xcff52e04_cca6_4614_a17e_754910c84a99)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Colors)]
+        interface IColorsStatics {
+            #[get]
+            AliceBlue: Color;
+            #[get]
+            AntiqueWhite: Color;
+            #[get]
+            Aqua: Color;
+            #[get]
+            Aquamarine: Color;
+            #[get]
+            Azure: Color;
+            #[get]
+            Beige: Color;
+            #[get]
+            Bisque: Color;
+            #[get]
+            Black: Color;
+            #[get]
+            BlanchedAlmond: Color;
+            #[get]
+            Blue: Color;
+            #[get]
+            BlueViolet: Color;
+            #[get]
+            Brown: Color;
+            #[get]
+            BurlyWood: Color;
+            #[get]
+            CadetBlue: Color;
+            #[get]
+            Chartreuse: Color;
+            #[get]
+            Chocolate: Color;
+            #[get]
+            Coral: Color;
+            #[get]
+            CornflowerBlue: Color;
+            #[get]
+            Cornsilk: Color;
+            #[get]
+            Crimson: Color;
+            #[get]
+            Cyan: Color;
+            #[get]
+            DarkBlue: Color;
+            #[get]
+            DarkCyan: Color;
+            #[get]
+            DarkGoldenrod: Color;
+            #[get]
+            DarkGray: Color;
+            #[get]
+            DarkGreen: Color;
+            #[get]
+            DarkKhaki: Color;
+            #[get]
+            DarkMagenta: Color;
+            #[get]
+            DarkOliveGreen: Color;
+            #[get]
+            DarkOrange: Color;
+            #[get]
+            DarkOrchid: Color;
+            #[get]
+            DarkRed: Color;
+            #[get]
+            DarkSalmon: Color;
+            #[get]
+            DarkSeaGreen: Color;
+            #[get]
+            DarkSlateBlue: Color;
+            #[get]
+            DarkSlateGray: Color;
+            #[get]
+            DarkTurquoise: Color;
+            #[get]
+            DarkViolet: Color;
+            #[get]
+            DeepPink: Color;
+            #[get]
+            DeepSkyBlue: Color;
+            #[get]
+            DimGray: Color;
+            #[get]
+            DodgerBlue: Color;
+            #[get]
+            Firebrick: Color;
+            #[get]
+            FloralWhite: Color;
+            #[get]
+            ForestGreen: Color;
+            #[get]
+            Fuchsia: Color;
+            #[get]
+            Gainsboro: Color;
+            #[get]
+            GhostWhite: Color;
+            #[get]
+            Gold: Color;
+            #[get]
+            Goldenrod: Color;
+            #[get]
+            Gray: Color;
+            #[get]
+            Green: Color;
+            #[get]
+            GreenYellow: Color;
+            #[get]
+            Honeydew: Color;
+            #[get]
+            HotPink: Color;
+            #[get]
+            IndianRed: Color;
+            #[get]
+            Indigo: Color;
+            #[get]
+            Ivory: Color;
+            #[get]
+            Khaki: Color;
+            #[get]
+            Lavender: Color;
+            #[get]
+            LavenderBlush: Color;
+            #[get]
+            LawnGreen: Color;
+            #[get]
+            LemonChiffon: Color;
+            #[get]
+            LightBlue: Color;
+            #[get]
+            LightCoral: Color;
+            #[get]
+            LightCyan: Color;
+            #[get]
+            LightGoldenrodYellow: Color;
+            #[get]
+            LightGreen: Color;
+            #[get]
+            LightGray: Color;
+            #[get]
+            LightPink: Color;
+            #[get]
+            LightSalmon: Color;
+            #[get]
+            LightSeaGreen: Color;
+            #[get]
+            LightSkyBlue: Color;
+            #[get]
+            LightSlateGray: Color;
+            #[get]
+            LightSteelBlue: Color;
+            #[get]
+            LightYellow: Color;
+            #[get]
+            Lime: Color;
+            #[get]
+            LimeGreen: Color;
+            #[get]
+            Linen: Color;
+            #[get]
+            Magenta: Color;
+            #[get]
+            Maroon: Color;
+            #[get]
+            MediumAquamarine: Color;
+            #[get]
+            MediumBlue: Color;
+            #[get]
+            MediumOrchid: Color;
+            #[get]
+            MediumPurple: Color;
+            #[get]
+            MediumSeaGreen: Color;
+            #[get]
+            MediumSlateBlue: Color;
+            #[get]
+            MediumSpringGreen: Color;
+            #[get]
+            MediumTurquoise: Color;
+            #[get]
+            MediumVioletRed: Color;
+            #[get]
+            MidnightBlue: Color;
+            #[get]
+            MintCream: Color;
+            #[get]
+            MistyRose: Color;
+            #[get]
+            Moccasin: Color;
+            #[get]
+            NavajoWhite: Color;
+            #[get]
+            Navy: Color;
+            #[get]
+            OldLace: Color;
+            #[get]
+            Olive: Color;
+            #[get]
+            OliveDrab: Color;
+            #[get]
+            Orange: Color;
+            #[get]
+            OrangeRed: Color;
+            #[get]
+            Orchid: Color;
+            #[get]
+            PaleGoldenrod: Color;
+            #[get]
+            PaleGreen: Color;
+            #[get]
+            PaleTurquoise: Color;
+            #[get]
+            PaleVioletRed: Color;
+            #[get]
+            PapayaWhip: Color;
+            #[get]
+            PeachPuff: Color;
+            #[get]
+            Peru: Color;
+            #[get]
+            Pink: Color;
+            #[get]
+            Plum: Color;
+            #[get]
+            PowderBlue: Color;
+            #[get]
+            Purple: Color;
+            #[get]
+            Red: Color;
+            #[get]
+            RosyBrown: Color;
+            #[get]
+            RoyalBlue: Color;
+            #[get]
+            SaddleBrown: Color;
+            #[get]
+            Salmon: Color;
+            #[get]
+            SandyBrown: Color;
+            #[get]
+            SeaGreen: Color;
+            #[get]
+            SeaShell: Color;
+            #[get]
+            Sienna: Color;
+            #[get]
+            Silver: Color;
+            #[get]
+            SkyBlue: Color;
+            #[get]
+            SlateBlue: Color;
+            #[get]
+            SlateGray: Color;
+            #[get]
+            Snow: Color;
+            #[get]
+            SpringGreen: Color;
+            #[get]
+            SteelBlue: Color;
+            #[get]
+            Tan: Color;
+            #[get]
+            Teal: Color;
+            #[get]
+            Thistle: Color;
+            #[get]
+            Tomato: Color;
+            #[get]
+            Transparent: Color;
+            #[get]
+            Turquoise: Color;
+            #[get]
+            Violet: Color;
+            #[get]
+            Wheat: Color;
+            #[get]
+            White: Color;
+            #[get]
+            WhiteSmoke: Color;
+            #[get]
+            Yellow: Color;
+            #[get]
+            YellowGreen: Color;
+        }
+        #[guid(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(UIContentRoot)]
+        interface IUIContentRoot {
+            #[get]
+            UIContext: UIContext;
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(UIContext)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        interface IUIContext {}
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class UIContentRoot {
+            IUIContentRoot,
+        }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class UIContext {
+            IUIContext,
+        }
+        #[Windows::Foundation::Metadata::WebHostHidden]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 786432)]
+        struct WindowId {
+            Value: u64,
+        }
+    }
+}

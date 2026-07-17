@@ -363,10 +363,10 @@ pub const DXVA2_VideoProcBobDevice: windows_sys::core::GUID = windows_sys::core:
 pub const DXVA2_VideoProcProgressiveDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5a54a0c9_c7ec_4bd9_8ede_f3c75dc4393b);
 pub const DXVA2_VideoProcSoftwareDevice: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4553d47f_ee7e_4e3f_9475_dbf1376c4810);
 #[repr(C)]
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ksmedia", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DXVA2_VideoProcessBltParams {
-    pub TargetFrame: super::mediaobj::REFERENCE_TIME,
+    pub TargetFrame: super::ksmedia::REFERENCE_TIME,
     pub TargetRect: super::windef::RECT,
     pub ConstrictionSize: super::windef::SIZE,
     pub StreamingFlags: u32,
@@ -380,7 +380,7 @@ pub struct DXVA2_VideoProcessBltParams {
     pub DetailFilterChroma: DXVA2_FilterValues,
     pub DestData: u32,
 }
-#[cfg(all(feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "ksmedia", feature = "windef"))]
 impl Default for DXVA2_VideoProcessBltParams {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -421,11 +421,11 @@ pub struct DXVA2_VideoProcessorCaps {
 }
 pub const DXVA2_VideoProcessorRenderTarget: i32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "d3d9", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "d3d9", feature = "ksmedia", feature = "windef"))]
 #[derive(Clone, Copy)]
 pub struct DXVA2_VideoSample {
-    pub Start: super::mediaobj::REFERENCE_TIME,
-    pub End: super::mediaobj::REFERENCE_TIME,
+    pub Start: super::ksmedia::REFERENCE_TIME,
+    pub End: super::ksmedia::REFERENCE_TIME,
     pub SampleFormat: DXVA2_ExtendedFormat,
     pub SrcSurface: *mut core::ffi::c_void,
     pub SrcRect: super::windef::RECT,
@@ -434,7 +434,7 @@ pub struct DXVA2_VideoSample {
     pub PlanarAlpha: DXVA2_Fixed32,
     pub SampleData: u32,
 }
-#[cfg(all(feature = "d3d9", feature = "mediaobj", feature = "windef"))]
+#[cfg(all(feature = "d3d9", feature = "ksmedia", feature = "windef"))]
 impl Default for DXVA2_VideoSample {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

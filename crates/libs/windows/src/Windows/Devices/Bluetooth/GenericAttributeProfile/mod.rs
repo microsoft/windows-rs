@@ -92,17 +92,17 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(self).WriteClientCharacteristicConfigurationDescriptorAsync)(windows_core::Interface::as_raw(self), clientcharacteristicconfigurationdescriptorvalue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ValueChanged<F>(&self, valuechangedhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn ValueChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<GattValueChangedEventArgs>) + Send + 'static,
     {
-        let valuechangedhandler = <super::super::super::Foundation::TypedEventHandler<Self, GattValueChangedEventArgs>>::new(move |a0, a1| {
-            valuechangedhandler(a0, a1);
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, GattValueChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).ValueChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&valuechangedhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).ValueChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveValueChanged))
         }
     }

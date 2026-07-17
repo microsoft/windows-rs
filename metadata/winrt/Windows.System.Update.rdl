@@ -1,0 +1,139 @@
+#[winrt]
+mod Windows {
+    mod System {
+        mod Update {
+            #[guid(0x779740eb_5624_519e_a8e2_09e9173b3fb7)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemUpdateItem)]
+            interface ISystemUpdateItem {
+                #[get]
+                State: SystemUpdateItemState;
+                #[get]
+                Title: String;
+                #[get]
+                Description: String;
+                #[get]
+                Id: String;
+                #[get]
+                Revision: u32;
+                #[get]
+                DownloadProgress: f64;
+                #[get]
+                InstallProgress: f64;
+                #[get]
+                ExtendedError: HRESULT;
+            }
+            #[guid(0x7ee887f7_8a44_5b6e_bd07_7aece4116ea9)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemUpdateLastErrorInfo)]
+            interface ISystemUpdateLastErrorInfo {
+                #[get]
+                State: SystemUpdateManagerState;
+                #[get]
+                ExtendedError: HRESULT;
+                #[get]
+                IsInteractive: bool;
+            }
+            #[guid(0xb2d3fcef_2971_51be_b41a_8bd703bb701a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SystemUpdateManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            interface ISystemUpdateManagerStatics {
+                fn IsSupported(&self) -> bool;
+                #[get]
+                State: SystemUpdateManagerState;
+                event StateChanged: super::super::Foundation::EventHandler<Object>;
+                #[get]
+                DownloadProgress: f64;
+                #[get]
+                InstallProgress: f64;
+                #[get]
+                UserActiveHoursStart: super::super::Foundation::TimeSpan;
+                #[get]
+                UserActiveHoursEnd: super::super::Foundation::TimeSpan;
+                #[get]
+                UserActiveHoursMax: i32;
+                fn TrySetUserActiveHours(&self, start: super::super::Foundation::TimeSpan, end: super::super::Foundation::TimeSpan) -> bool;
+                #[get]
+                LastUpdateCheckTime: super::super::Foundation::DateTime;
+                #[get]
+                LastUpdateInstallTime: super::super::Foundation::DateTime;
+                #[get]
+                LastErrorInfo: SystemUpdateLastErrorInfo;
+                fn GetAutomaticRebootBlockIds(&self) -> super::super::Foundation::Collections::IVectorView<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn BlockAutomaticRebootAsync(&self, lockId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn UnblockAutomaticRebootAsync(&self, lockId: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                #[get]
+                ExtendedError: HRESULT;
+                fn GetUpdateItems(&self) -> super::super::Foundation::Collections::IVectorView<SystemUpdateItem>;
+                #[get]
+                AttentionRequiredReason: SystemUpdateAttentionRequiredReason;
+                fn SetFlightRing(&self, flightRing: String) -> bool;
+                fn GetFlightRing(&self) -> String;
+                fn StartInstall(&self, action: SystemUpdateStartInstallAction);
+                fn RebootToCompleteInstall(&self);
+                fn StartCancelUpdates(&self);
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            enum SystemUpdateAttentionRequiredReason {
+                None = 0,
+                NetworkRequired = 1,
+                InsufficientDiskSpace = 2,
+                InsufficientBattery = 3,
+                UpdateBlocked = 4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            class SystemUpdateItem {
+                ISystemUpdateItem,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            enum SystemUpdateItemState {
+                NotStarted = 0,
+                Initializing = 1,
+                Preparing = 2,
+                Calculating = 3,
+                Downloading = 4,
+                Installing = 5,
+                Completed = 6,
+                RebootRequired = 7,
+                Error = 8,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class SystemUpdateLastErrorInfo {
+                ISystemUpdateLastErrorInfo,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(ISystemUpdateManagerStatics, 393216, "Windows.System.SystemManagementContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            class SystemUpdateManager {}
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            enum SystemUpdateManagerState {
+                Idle = 0,
+                Detecting = 1,
+                ReadyToDownload = 2,
+                Downloading = 3,
+                ReadyToInstall = 4,
+                Installing = 5,
+                RebootRequired = 6,
+                ReadyToFinalize = 7,
+                Finalizing = 8,
+                Completed = 9,
+                AttentionRequired = 10,
+                Error = 11,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::SystemManagementContract, 393216)]
+            enum SystemUpdateStartInstallAction {
+                UpToReboot = 0,
+                AllowReboot = 1,
+            }
+        }
+    }
+}

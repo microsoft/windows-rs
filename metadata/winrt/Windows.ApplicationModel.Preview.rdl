@@ -1,0 +1,58 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod Preview {
+            #[guid(0xc3a147db_09fa_5aa5_b3bd_119a09963d58)]
+            #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StartupAppInfoPreview)]
+            interface IStartupAppInfoPreview {
+                #[get]
+                DisplayName: String;
+                #[get]
+                Publisher: String;
+                #[get]
+                IsEnabled: bool;
+                #[get]
+                Impact: StartupAppImpactPreview;
+                #[get]
+                ExecutablePath: String;
+            }
+            #[guid(0x7197b9c1_03bb_5693_87c3_6f983cc70fb3)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StartupAppsManagerPreview)]
+            #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
+            interface IStartupAppsManagerPreview {
+                fn GetStartupAppInfos(&self) -> super::super::Foundation::Collections::IVectorView<StartupAppInfoPreview>;
+            }
+            #[guid(0x9d0331f5_343f_5cd7_9d66_762cfa2c0380)]
+            #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StartupAppsManagerPreview)]
+            interface IStartupAppsManagerPreviewStatics {
+                fn GetDefault(&self) -> StartupAppsManagerPreview;
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
+            enum StartupAppImpactPreview {
+                Unknown = 0,
+                None = 1,
+                Low = 2,
+                Medium = 3,
+                High = 4,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
+            class StartupAppInfoPreview {
+                IStartupAppInfoPreview,
+            }
+            #[Windows::Foundation::Metadata::Static(IStartupAppsManagerPreviewStatics, 65536, "Windows.ApplicationModel.Preview.StartupAppsPreviewContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class StartupAppsManagerPreview {
+                IStartupAppsManagerPreview,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            struct StartupAppsPreviewContract {}
+        }
+    }
+}

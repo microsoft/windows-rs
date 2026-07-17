@@ -1,0 +1,57 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod Capture {
+            mod Core {
+                #[guid(0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VariablePhotoCapturedEventArgs)]
+                interface IVariablePhotoCapturedEventArgs {
+                    #[get]
+                    Frame: super::CapturedFrame;
+                    #[get]
+                    CaptureTimeOffset: super::super::super::Foundation::TimeSpan;
+                    #[get]
+                    UsedFrameControllerIndex: super::super::super::Foundation::IReference<u32>;
+                    #[get]
+                    CapturedFrameControlValues: super::CapturedFrameControlValues;
+                }
+                #[guid(0xd0112d1d_031e_4041_a6d6_bd742476a8ee)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VariablePhotoSequenceCapture)]
+                interface IVariablePhotoSequenceCapture {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn StartAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn StopAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn FinishAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                    event PhotoCaptured: super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, VariablePhotoCapturedEventArgs>;
+                    event Stopped: super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, Object>;
+                }
+                #[guid(0xfe2c62bc_50b0_43e3_917c_e3b92798942f)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VariablePhotoSequenceCapture)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IVariablePhotoSequenceCapture2 {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn UpdateSettingsAsync(&self) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class VariablePhotoCapturedEventArgs {
+                    IVariablePhotoCapturedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::Threading(MTA)]
+                class VariablePhotoSequenceCapture {
+                    IVariablePhotoSequenceCapture,
+                    IVariablePhotoSequenceCapture2,
+                }
+            }
+        }
+    }
+}

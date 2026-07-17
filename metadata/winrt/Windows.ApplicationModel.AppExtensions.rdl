@@ -1,0 +1,166 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod AppExtensions {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            class AppExtension {
+                IAppExtension,
+                IAppExtension2,
+                IAppExtension3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Static(IAppExtensionCatalogStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+            class AppExtensionCatalog {
+                IAppExtensionCatalog,
+                IAppExtensionCatalog2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AppExtensionPackageInstalledEventArgs {
+                IAppExtensionPackageInstalledEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AppExtensionPackageStatusChangedEventArgs {
+                IAppExtensionPackageStatusChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class AppExtensionPackageUninstallingEventArgs {
+                IAppExtensionPackageUninstallingEventArgs,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            class AppExtensionPackageUpdatedEventArgs {
+                IAppExtensionPackageUpdatedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class AppExtensionPackageUpdatingEventArgs {
+                IAppExtensionPackageUpdatingEventArgs,
+            }
+            #[guid(0x8450902c_15ed_4faf_93ea_2237bbf8cbd6)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtension)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAppExtension {
+                #[get]
+                Id: String;
+                #[get]
+                DisplayName: String;
+                #[get]
+                Description: String;
+                #[get]
+                Package: super::Package;
+                #[get]
+                AppInfo: super::AppInfo;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetExtensionPropertiesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IPropertySet>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetPublicFolderAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Storage::StorageFolder>;
+            }
+            #[guid(0xab3b15f0_14f9_4b9f_9419_a349a242ef38)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtension)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            interface IAppExtension2 {
+                #[get]
+                AppUserModelId: String;
+            }
+            #[guid(0x5923c101_aa38_4009_84d9_5b54a0df30ae)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtension)]
+            interface IAppExtension3 {
+                fn GetExtensionProperties(&self) -> super::super::Foundation::Collections::IPropertySet;
+                fn GetPublicPath(&self) -> String;
+                fn GetPublicFolder(&self) -> super::super::Storage::StorageFolder;
+            }
+            #[guid(0x97872032_8426_4ad1_9084_92e88c2da200)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionCatalog)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAppExtensionCatalog {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindAllAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AppExtension>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestRemovePackageAsync(&self, packageFullName: String) -> super::super::Foundation::IAsyncOperation<bool>;
+                event PackageInstalled: super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageInstalledEventArgs>;
+                event PackageUpdating: super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUpdatingEventArgs>;
+                event PackageUpdated: super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUpdatedEventArgs>;
+                event PackageUninstalling: super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageUninstallingEventArgs>;
+                event PackageStatusChanged: super::super::Foundation::TypedEventHandler<AppExtensionCatalog, AppExtensionPackageStatusChangedEventArgs>;
+            }
+            #[guid(0x50056eba_58b6_4147_b5a5_8feca6dfb49d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1114112)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionCatalog)]
+            interface IAppExtensionCatalog2 {
+                fn FindAll(&self) -> super::super::Foundation::Collections::IVectorView<AppExtension>;
+            }
+            #[guid(0x3c36668a_5f18_4f0b_9ce5_cab61d196f11)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionCatalog)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAppExtensionCatalogStatics {
+                fn Open(&self, appExtensionName: String) -> AppExtensionCatalog;
+            }
+            #[guid(0x39e59234_3351_4a8d_9745_e7d3dd45bc48)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageInstalledEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAppExtensionPackageInstalledEventArgs {
+                #[get]
+                AppExtensionName: String;
+                #[get]
+                Package: super::Package;
+                #[get]
+                Extensions: super::super::Foundation::Collections::IVectorView<AppExtension>;
+            }
+            #[guid(0x1ce17433_1153_44fd_87b1_8ae1050303df)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageStatusChangedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAppExtensionPackageStatusChangedEventArgs {
+                #[get]
+                AppExtensionName: String;
+                #[get]
+                Package: super::Package;
+            }
+            #[guid(0x60f160c5_171e_40ff_ae98_ab2c20dd4d75)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageUninstallingEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            interface IAppExtensionPackageUninstallingEventArgs {
+                #[get]
+                AppExtensionName: String;
+                #[get]
+                Package: super::Package;
+            }
+            #[guid(0x3a83c43f_797e_44b5_ba24_a4c8b5a543d7)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageUpdatedEventArgs)]
+            interface IAppExtensionPackageUpdatedEventArgs {
+                #[get]
+                AppExtensionName: String;
+                #[get]
+                Package: super::Package;
+                #[get]
+                Extensions: super::super::Foundation::Collections::IVectorView<AppExtension>;
+            }
+            #[guid(0x7ed59329_1a65_4800_a700_b321009e306a)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppExtensionPackageUpdatingEventArgs)]
+            interface IAppExtensionPackageUpdatingEventArgs {
+                #[get]
+                AppExtensionName: String;
+                #[get]
+                Package: super::Package;
+            }
+        }
+    }
+}

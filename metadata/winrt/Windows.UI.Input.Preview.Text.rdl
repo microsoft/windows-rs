@@ -1,0 +1,398 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Input {
+            mod Preview {
+                mod Text {
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class ConversionModeChangedEventArgs {
+                        IConversionModeChangedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    class FocusEnteredEventArgs {
+                        IFocusEnteredEventArgs,
+                    }
+                    #[guid(0xb49761f9_5b21_513c_b6c0_78f27d26b010)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ConversionModeChangedEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    interface IConversionModeChangedEventArgs {
+                        #[get]
+                        NewConversionMode: TextConversionMode;
+                    }
+                    #[guid(0xca4dc200_875f_501d_af14_413a0aa1ed5f)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FocusEnteredEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    interface IFocusEnteredEventArgs {
+                        #[get]
+                        FocusedTextBoxInfo: TextBoxInfo;
+                    }
+                    #[guid(0x4bb448b2_67ba_5215_8783_b444bd28eed3)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(InputDelegationModeChangedEventArgs)]
+                    interface IInputDelegationModeChangedEventArgs {
+                        #[get]
+                        DelegationOn: bool;
+                    }
+                    #[guid(0x0c30f686_a058_5ecc_abd2_9cc861c1185b)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(KeyEventReceivedEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    interface IKeyEventReceivedEventArgs {
+                        #[get]
+                        VirtualKey: super::super::super::super::System::VirtualKey;
+                        #[get]
+                        KeyStatus: super::super::super::Core::CorePhysicalKeyStatus;
+                        #[get]
+                        Unicode: String;
+                        #[get]
+                        Source: KeyEventDeviceType;
+                        fn IsKeyPressed(&self, vkey: super::super::super::super::System::VirtualKey) -> bool;
+                        fn IsToggleKeyOn(&self, vkey: super::super::super::super::System::VirtualKey) -> bool;
+                        #[get]
+                        EditSession: TextEditSession;
+                        Handled: bool;
+                    }
+                    #[guid(0x2afe79b6_5818_50e0_8fa8_81bc96428c46)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(KeyboardInputProcessor)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    interface IKeyboardInputProcessor {
+                        #[get]
+                        InputProfile: String;
+                        #[get]
+                        IsActive: bool;
+                        #[get]
+                        HasFocusedTextBox: bool;
+                        #[get]
+                        FocusedTextBoxId: TextBoxId;
+                        #[get]
+                        FocusedTextBoxInfo: TextBoxInfo;
+                        #[get]
+                        FocusedTextBoxBounds: super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>;
+                        #[get]
+                        SelectionBounds: super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>;
+                        ConversionMode: TextConversionMode;
+                        fn CreateEditSession(&self) -> TextEditSession;
+                        event Activated: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, Object>;
+                        event Deactivated: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, Object>;
+                        event KeyEventReceived: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, KeyEventReceivedEventArgs>;
+                        event FocusEntered: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, FocusEnteredEventArgs>;
+                        event FocusRemoved: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, Object>;
+                        event ConversionModeChanged: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, ConversionModeChangedEventArgs>;
+                        event TextBoxInfoChanged: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, TextBoxInfoChangedEventArgs>;
+                        event TextBoxContentChanged: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, TextBoxContentChangedEventArgs>;
+                        event CompositionTerminated: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, Object>;
+                        event ReconversionRequested: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, ReconversionRequestedEventArgs>;
+                    }
+                    #[guid(0x73852244_d202_55fe_9edf_beb7ec19f937)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ReconversionRequestedEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    interface IReconversionRequestedEventArgs {
+                        #[get]
+                        Range: super::super::super::Text::Core::CoreTextRange;
+                    }
+                    #[guid(0x2cb70a41_5aed_58c5_b4c1_8ee4e1492f9e)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextBoxContentChangedEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    interface ITextBoxContentChangedEventArgs {
+                        #[get]
+                        TextBoxId: TextBoxId;
+                        #[get]
+                        Source: TextChangeSource;
+                        #[get]
+                        SelectionBounds: super::super::super::super::Foundation::Rect;
+                        fn IsContentAttributeChanged(&self, value: TextBoxContentAttribute) -> bool;
+                    }
+                    #[guid(0xb122443d_e8f7_5f8b_813d_aaa0941d5fa0)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextBoxInfo)]
+                    interface ITextBoxInfo {
+                        #[get]
+                        Id: TextBoxId;
+                        #[get]
+                        InputScope: super::super::super::Text::Core::CoreTextInputScope;
+                        #[get]
+                        AppName: String;
+                        #[get]
+                        Url: String;
+                        #[get]
+                        Settings: TextBoxSettings;
+                        #[get]
+                        DisabledFeatures: TextBoxFeatures;
+                    }
+                    #[guid(0xac1275af_648c_5bac_b29f_d1ea17e9e6d6)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextBoxInfoChangedEventArgs)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    interface ITextBoxInfoChangedEventArgs {
+                        #[get]
+                        TextBoxInfo: TextBoxInfo;
+                    }
+                    #[guid(0x5cea9aea_524d_50a4_b08a_c83d8d25ec6e)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextComposition)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    interface ITextComposition {
+                        #[get]
+                        Text: String;
+                        #[get]
+                        FirstSegment: TextCompositionSegment;
+                        #[get]
+                        SelectedSegment: TextCompositionSegment;
+                        CaretPosition: u32;
+                        fn InsertText(&self, text: String) -> TextCompositionSegment;
+                        fn Complete(&self);
+                        fn CompleteUnconverted(&self);
+                        fn CompleteFirstSegment(&self);
+                    }
+                    #[guid(0x0543f6c6_eb98_56d6_8808_2eca6d02f6a5)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextCompositionSegment)]
+                    interface ITextCompositionSegment {
+                        Text: String;
+                        ConvertedText: String;
+                        UnconvertedText: String;
+                        #[get]
+                        Range: super::super::super::Text::Core::CoreTextRange;
+                        ConversionState: super::super::super::Text::Core::CoreTextFormatUpdatingReason;
+                        #[get]
+                        Next: TextCompositionSegment;
+                        #[get]
+                        Previous: TextCompositionSegment;
+                        fn GetTextStyle(&self) -> TextStyle;
+                        fn SetTextStyle(&self, value: TextStyle);
+                    }
+                    #[guid(0x0bcad18a_d31b_5787_aff9_995ee743aea8)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextEditSession)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    interface ITextEditSession {
+                        #[get]
+                        TextBoxId: TextBoxId;
+                        #[get]
+                        TextLength: i32;
+                        #[get]
+                        PopulatedRange: super::super::super::Text::Core::CoreTextRange;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn PopulateAsync(&self, range: super::super::super::Text::Core::CoreTextRange) -> super::super::super::super::Foundation::IAsyncAction;
+                        fn GetText(&self, range: super::super::super::Text::Core::CoreTextRange) -> String;
+                        fn GetSelectedRange(&self) -> super::super::super::Text::Core::CoreTextRange;
+                        fn SetSelectedRange(&self, value: super::super::super::Text::Core::CoreTextRange);
+                        fn ReplaceText(&self, replaceRange: super::super::super::Text::Core::CoreTextRange, text: String) -> super::super::super::Text::Core::CoreTextRange;
+                        #[get]
+                        Composition: TextComposition;
+                        fn StartComposition(&self) -> TextComposition;
+                        fn StartReconversion(&self, range: super::super::super::Text::Core::CoreTextRange) -> TextComposition;
+                        fn SubmitPayload(&self) -> bool;
+                        #[Windows::Foundation::Metadata::RemoteAsync]
+                        fn SubmitPayloadAsync(&self) -> super::super::super::super::Foundation::IAsyncOperation<PayloadResult>;
+                    }
+                    #[guid(0xb0885fb7_e9f8_5849_b0ef_f8155ecf60d1)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextInputProvider)]
+                    interface ITextInputProvider {
+                        fn GetSubscription(&self) -> TextInputServiceSubscription;
+                        fn SetSubscription(&self, subscription: TextInputServiceSubscription);
+                        #[get]
+                        HasFocusedTextBox: bool;
+                        #[get]
+                        FocusedTextBoxId: TextBoxId;
+                        #[get]
+                        FocusedTextBoxInfo: TextBoxInfo;
+                        #[get]
+                        FocusedTextBoxBounds: super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>;
+                        #[get]
+                        SelectionBounds: super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>;
+                        fn CreateEditSession(&self) -> TextEditSession;
+                        fn TryStartDelegation(&self) -> bool;
+                        fn StopDelegation(&self);
+                        event FocusEntered: super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, FocusEnteredEventArgs>;
+                        event FocusRemoved: super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, Object>;
+                        event TextBoxInfoChanged: super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, TextBoxInfoChangedEventArgs>;
+                        event TextBoxContentChanged: super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, TextBoxContentChangedEventArgs>;
+                        event CompositionTerminated: super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, Object>;
+                        event ReconversionRequested: super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, ReconversionRequestedEventArgs>;
+                        event InputDelegationModeChanged: super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, InputDelegationModeChangedEventArgs>;
+                    }
+                    #[guid(0x8e23f89c_ab1f_551a_8751_7d4f29e34d88)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextInputService)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    interface ITextInputService {
+                        fn CreateKeyboardInputProcessor(&self, inputProfile: String) -> KeyboardInputProcessor;
+                        fn CreateTextInputProvider(&self, inputProfile: String) -> TextInputProvider;
+                    }
+                    #[guid(0x91b68f5e_02ed_4e09_ae89_dfd735cf10bc)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextInputService)]
+                    interface ITextInputServiceStatics {
+                        fn GetForCurrentThread(&self) -> TextInputService;
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    class InputDelegationModeChangedEventArgs {
+                        IInputDelegationModeChangedEventArgs,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    enum KeyEventDeviceType {
+                        Undefined = 0,
+                        HardwareKeyboard = 1,
+                        SoftwareKeyboard = 2,
+                        Gamepad = 3,
+                        Injection = 4,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    class KeyEventReceivedEventArgs {
+                        IKeyEventReceivedEventArgs,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class KeyboardInputProcessor {
+                        IKeyboardInputProcessor,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    enum PayloadResult {
+                        InEditing = 0,
+                        Pending = 1,
+                        Completed = 2,
+                        Overridden = 3,
+                        Outrun = 4,
+                        Rejected = 5,
+                        Canceled = 6,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(65536)]
+                    #[Windows::Foundation::Metadata::ApiContract]
+                    struct PreviewTextContract {}
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class ReconversionRequestedEventArgs {
+                        IReconversionRequestedEventArgs,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    enum TextBoxContentAttribute {
+                        None = 0,
+                        Selection = 1,
+                        Text = 2,
+                        Property = 3,
+                        Layout = 4,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class TextBoxContentChangedEventArgs {
+                        ITextBoxContentChangedEventArgs,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    enum TextBoxFeatures {
+                        None = 0,
+                        ReadText = 1,
+                        WriteText = 2,
+                        AugmentText = 4,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    struct TextBoxId {
+                        Value: u32,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class TextBoxInfo {
+                        ITextBoxInfo,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class TextBoxInfoChangedEventArgs {
+                        ITextBoxInfoChangedEventArgs,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    enum TextBoxSettings {
+                        None = 0,
+                        Private = 1,
+                        Multiline = 2,
+                        VerticalWriting = 4,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    enum TextChangeSource {
+                        External = 0,
+                        HardwareKeyTyped = 1,
+                        SoftwareKeyTyped = 2,
+                        KeyboardImeInsertion = 3,
+                        OtherImeInsertion = 4,
+                        Reconversion = 5,
+                        AutoCompletion = 6,
+                        Mixed = 7,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class TextComposition {
+                        ITextComposition,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    class TextCompositionSegment {
+                        ITextCompositionSegment,
+                    }
+                    #[repr(i32)]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    enum TextConversionMode {
+                        Undefined = 0,
+                        AlphanumericHalfWidth = 1,
+                        AlphanumericFullWidth = 2,
+                        NativeHalfWidth = 3,
+                        NativeFullWidth = 4,
+                        KatakanaHalfWidth = 5,
+                        KatakanaFullWidth = 6,
+                        NativeHalfWidthNativeSymbol = 7,
+                        NativeFullWidthNativeSymbol = 8,
+                        NoConversion = 9,
+                        RequestConversion = 10,
+                        NativeEudc = 11,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class TextEditSession {
+                        ITextEditSession,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class TextInputProvider {
+                        ITextInputProvider,
+                    }
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(ITextInputServiceStatics, 65536, "Windows.UI.Input.Preview.Text.PreviewTextContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    class TextInputService {
+                        ITextInputService,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    struct TextInputServiceSubscription {
+                        requiredEnabledFeatures: TextBoxFeatures,
+                        requiredDisabledFeatures: TextBoxFeatures,
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    struct TextStyle {
+                        mask: TextStyleAttributes,
+                        textColor: super::super::super::Color,
+                        backgroundColor: super::super::super::Color,
+                        underlineColor: super::super::super::Color,
+                        underlineType: super::super::super::Text::UnderlineType,
+                    }
+                    #[repr(u32)]
+                    #[flags]
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    enum TextStyleAttributes {
+                        None = 0,
+                        TextColor = 1,
+                        BackgroundColor = 2,
+                        UnderlineColor = 4,
+                        UnderlineType = 8,
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,210 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Scanners {
+            #[guid(0x53a88f78_5298_48a0_8da3_8087519665e0)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageScanner)]
+            interface IImageScanner {
+                #[get]
+                DeviceId: String;
+                #[get]
+                DefaultScanSource: ImageScannerScanSource;
+                fn IsScanSourceSupported(&self, value: ImageScannerScanSource) -> bool;
+                #[get]
+                FlatbedConfiguration: ImageScannerFlatbedConfiguration;
+                #[get]
+                FeederConfiguration: ImageScannerFeederConfiguration;
+                #[get]
+                AutoConfiguration: ImageScannerAutoConfiguration;
+                fn IsPreviewSupported(&self, scanSource: ImageScannerScanSource) -> bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ScanPreviewToStreamAsync(&self, scanSource: ImageScannerScanSource, targetStream: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncOperation<ImageScannerPreviewResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ScanFilesToFolderAsync(&self, scanSource: ImageScannerScanSource, storageFolder: super::super::Storage::StorageFolder) -> super::super::Foundation::IAsyncOperationWithProgress<ImageScannerScanResult, u32>;
+            }
+            #[guid(0x74bdacee_fa97_4c17_8280_40e39c6dcc67)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageScannerFeederConfiguration)]
+            interface IImageScannerFeederConfiguration: IImageScannerFormatConfiguration + IImageScannerSourceConfiguration {
+                #[get]
+                CanAutoDetectPageSize: bool;
+                AutoDetectPageSize: bool;
+                PageSize: super::super::Graphics::Printing::PrintMediaSize;
+                PageOrientation: super::super::Graphics::Printing::PrintOrientation;
+                #[get]
+                PageSizeDimensions: super::super::Foundation::Size;
+                fn IsPageSizeSupported(&self, pageSize: super::super::Graphics::Printing::PrintMediaSize, pageOrientation: super::super::Graphics::Printing::PrintOrientation) -> bool;
+                MaxNumberOfPages: u32;
+                #[get]
+                CanScanDuplex: bool;
+                Duplex: bool;
+                #[get]
+                CanScanAhead: bool;
+                ScanAhead: bool;
+            }
+            #[guid(0xae275d11_dadf_4010_bf10_cca5c83dcbb0)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            interface IImageScannerFormatConfiguration {
+                #[get]
+                DefaultFormat: ImageScannerFormat;
+                Format: ImageScannerFormat;
+                fn IsFormatSupported(&self, value: ImageScannerFormat) -> bool;
+            }
+            #[guid(0x08b7fe8e_8891_441d_be9c_176fa109c8bb)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageScannerPreviewResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            interface IImageScannerPreviewResult {
+                #[get]
+                Succeeded: bool;
+                #[get]
+                Format: ImageScannerFormat;
+            }
+            #[guid(0xc91624cd_9037_4e48_84c1_ac0975076bc5)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageScannerScanResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            interface IImageScannerScanResult {
+                #[get]
+                ScannedFiles: super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>;
+            }
+            #[guid(0xbfb50055_0b44_4c82_9e89_205f9c234e59)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            interface IImageScannerSourceConfiguration: IImageScannerFormatConfiguration {
+                #[get]
+                MinScanArea: super::super::Foundation::Size;
+                #[get]
+                MaxScanArea: super::super::Foundation::Size;
+                SelectedScanRegion: super::super::Foundation::Rect;
+                AutoCroppingMode: ImageScannerAutoCroppingMode;
+                fn IsAutoCroppingModeSupported(&self, value: ImageScannerAutoCroppingMode) -> bool;
+                #[get]
+                MinResolution: ImageScannerResolution;
+                #[get]
+                MaxResolution: ImageScannerResolution;
+                #[get]
+                OpticalResolution: ImageScannerResolution;
+                DesiredResolution: ImageScannerResolution;
+                #[get]
+                ActualResolution: ImageScannerResolution;
+                #[get]
+                DefaultColorMode: ImageScannerColorMode;
+                ColorMode: ImageScannerColorMode;
+                fn IsColorModeSupported(&self, value: ImageScannerColorMode) -> bool;
+                #[get]
+                MinBrightness: i32;
+                #[get]
+                MaxBrightness: i32;
+                #[get]
+                BrightnessStep: u32;
+                #[get]
+                DefaultBrightness: i32;
+                Brightness: i32;
+                #[get]
+                MinContrast: i32;
+                #[get]
+                MaxContrast: i32;
+                #[get]
+                ContrastStep: u32;
+                #[get]
+                DefaultContrast: i32;
+                Contrast: i32;
+            }
+            #[guid(0xbc57e70e_d804_4477_9fb5_b911b5473897)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageScanner)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            interface IImageScannerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<ImageScanner>;
+                fn GetDeviceSelector(&self) -> String;
+            }
+            #[Windows::Foundation::Metadata::Static(IImageScannerStatics, 65536, "Windows.Devices.Scanners.ScannerDeviceContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ImageScanner {
+                IImageScanner,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class ImageScannerAutoConfiguration {
+                IImageScannerFormatConfiguration,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            enum ImageScannerAutoCroppingMode {
+                Disabled = 0,
+                SingleRegion = 1,
+                MultipleRegion = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            enum ImageScannerColorMode {
+                Color = 0,
+                Grayscale = 1,
+                Monochrome = 2,
+                AutoColor = 3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ImageScannerFeederConfiguration {
+                IImageScannerFormatConfiguration,
+                IImageScannerSourceConfiguration,
+                IImageScannerFeederConfiguration,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ImageScannerFlatbedConfiguration {
+                IImageScannerFormatConfiguration,
+                IImageScannerSourceConfiguration,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            enum ImageScannerFormat {
+                Jpeg = 0,
+                Png = 1,
+                DeviceIndependentBitmap = 2,
+                Tiff = 3,
+                Xps = 4,
+                OpenXps = 5,
+                Pdf = 6,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            class ImageScannerPreviewResult {
+                IImageScannerPreviewResult,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            struct ImageScannerResolution {
+                DpiX: f32,
+                DpiY: f32,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ImageScannerScanResult {
+                IImageScannerScanResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            enum ImageScannerScanSource {
+                Default = 0,
+                Flatbed = 1,
+                Feeder = 2,
+                AutoConfigured = 3,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
+            struct ScannerDeviceContract {}
+        }
+    }
+}

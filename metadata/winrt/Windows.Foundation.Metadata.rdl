@@ -1,0 +1,327 @@
+#[winrt]
+mod Windows {
+    mod Foundation {
+        mod Metadata {
+            #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AllowMultiple]
+            attribute ActivatableAttribute {
+                fn(version: u32);
+                fn(version: u32, r#type: String);
+                fn(version: u32, platform: Platform);
+                fn(r#type: Type, version: u32);
+                fn(r#type: Type, version: u32, contractName: String);
+                fn(r#type: Type, version: u32, platform: Platform);
+            }
+            #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeName("allowforweb")]
+            attribute AllowForWebAttribute {
+                fn();
+            }
+            #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            attribute AllowMultipleAttribute {
+                fn();
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(Enum)]
+            attribute ApiContractAttribute {
+                fn();
+            }
+            #[Threading(Both)]
+            #[MarshalingBehavior(Agile)]
+            #[DualApiPartition(version = 167772160)]
+            #[Static(IApiInformationStatics, 65536, "Windows.Foundation.FoundationContract")]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            class ApiInformation {}
+            #[ContractVersion(super::FoundationContract, 262144)]
+            #[AttributeUsage(RuntimeClass)]
+            attribute AttributeNameAttribute {
+                fn(A_0: String);
+            }
+            #[repr(u32)]
+            #[flags]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            enum AttributeTargets {
+                All = 4294967295,
+                Delegate = 1,
+                Enum = 2,
+                Event = 4,
+                Field = 8,
+                Interface = 16,
+                Method = 64,
+                Parameter = 128,
+                Property = 256,
+                RuntimeClass = 512,
+                Struct = 1024,
+                InterfaceImpl = 2048,
+                ApiContract = 8192,
+            }
+            #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            attribute AttributeUsageAttribute {
+                fn(A_0: AttributeTargets);
+            }
+            #[AllowMultiple]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(RuntimeClass)]
+            attribute ComposableAttribute {
+                fn(r#type: Type, compositionType: CompositionType, version: u32);
+                fn(r#type: Type, compositionType: CompositionType, version: u32, platform: Platform);
+                fn(r#type: Type, compositionType: CompositionType, version: u32, contract: String);
+            }
+            #[repr(i32)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            enum CompositionType {
+                Protected = 1,
+                Public = 2,
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AllowMultiple]
+            #[AttributeUsage(3967)]
+            attribute ContractVersionAttribute {
+                fn(version: u32);
+                fn(contract: Type, version: u32);
+                fn(contract: String, version: u32);
+            }
+            #[ContractVersion(super::UniversalApiContract, 196608)]
+            #[AttributeUsage(Struct | RuntimeClass)]
+            #[WebHostHidden]
+            #[AttributeName("createfromstring")]
+            attribute CreateFromStringAttribute {
+                fn();
+                MethodName: String,
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(InterfaceImpl)]
+            attribute DefaultAttribute {
+                fn();
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(Method)]
+            attribute DefaultOverloadAttribute {
+                fn();
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(Struct | RuntimeClass | Property | Method | Interface | Field | Event | Enum | Delegate)]
+            #[AllowMultiple]
+            attribute DeprecatedAttribute {
+                fn(message: String, r#type: DeprecationType, version: u32);
+                fn(message: String, r#type: DeprecationType, version: u32, platform: Platform);
+                fn(message: String, r#type: DeprecationType, version: u32, contract: String);
+            }
+            #[repr(i32)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            enum DeprecationType {
+                Deprecate = 0,
+                Remove = 1,
+            }
+            #[AttributeName("dualapipartition")]
+            #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            attribute DualApiPartitionAttribute {
+                fn();
+                version: u32,
+            }
+            #[AttributeUsage(Interface)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            attribute ExclusiveToAttribute {
+                fn(typeName: Type);
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(Struct | RuntimeClass | Interface | Enum | Delegate)]
+            attribute ExperimentalAttribute {
+                fn();
+            }
+            #[ContractVersion(super::FoundationContract, 262144)]
+            #[AttributeUsage(RuntimeClass)]
+            attribute FastAbiAttribute {
+                fn(version: u32);
+                fn(version: u32, platform: Platform);
+                fn(version: u32, contractName: String);
+            }
+            #[ContractVersion(super::FoundationContract, 196608)]
+            #[AttributeUsage(InterfaceImpl | Struct | RuntimeClass | Method | Interface | Field | Enum | Delegate)]
+            attribute FeatureAttribute {
+                fn(featureStage: FeatureStage, validInAllBranches: bool);
+            }
+            #[repr(i32)]
+            #[ContractVersion(super::FoundationContract, 196608)]
+            enum FeatureStage {
+                AlwaysDisabled = 0,
+                DisabledByDefault = 1,
+                EnabledByDefault = 2,
+                AlwaysEnabled = 3,
+            }
+            #[repr(i32)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            enum GCPressureAmount {
+                Low = 0,
+                Medium = 1,
+                High = 2,
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(RuntimeClass)]
+            #[AttributeName("gc_pressure")]
+            attribute GCPressureAttribute {
+                fn();
+                amount: GCPressureAmount,
+            }
+            #[AttributeUsage(Interface | Delegate)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            attribute GuidAttribute {
+                fn(a: u32, b: u16, c: u16, d: u8, e: u8, f: u8, g: u8, h: u8, i: u8, j: u8, k: u8);
+            }
+            #[AttributeUsage(All)]
+            #[AttributeName("hasvariant")]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            attribute HasVariantAttribute {
+                fn();
+            }
+            #[guid(0x997439fe_f681_4a11_b416_c13a47e8ba36)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[ExclusiveTo(ApiInformation)]
+            interface IApiInformationStatics {
+                fn IsTypePresent(&self, typeName: String) -> bool;
+                #[Overload("IsMethodPresent")]
+                fn IsMethodPresent(&self, typeName: String, methodName: String) -> bool;
+                #[Overload("IsMethodPresentWithArity")]
+                fn IsMethodPresent(&self, typeName: String, methodName: String, inputParameterCount: u32) -> bool;
+                fn IsEventPresent(&self, typeName: String, eventName: String) -> bool;
+                fn IsPropertyPresent(&self, typeName: String, propertyName: String) -> bool;
+                fn IsReadOnlyPropertyPresent(&self, typeName: String, propertyName: String) -> bool;
+                fn IsWriteablePropertyPresent(&self, typeName: String, propertyName: String) -> bool;
+                fn IsEnumNamedValuePresent(&self, enumTypeName: String, valueName: String) -> bool;
+                #[Overload("IsApiContractPresentByMajor")]
+                fn IsApiContractPresent(&self, contractName: String, majorVersion: u16) -> bool;
+                #[Overload("IsApiContractPresentByMajorAndMinor")]
+                fn IsApiContractPresent(&self, contractName: String, majorVersion: u16, minorVersion: u16) -> bool;
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(ApiContract | Struct | RuntimeClass | Interface | Enum | Delegate)]
+            attribute InternalAttribute {
+                fn();
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(Parameter)]
+            attribute LengthIsAttribute {
+                fn(indexLengthParameter: i32);
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(RuntimeClass)]
+            attribute MarshalingBehaviorAttribute {
+                fn(behavior: MarshalingType);
+            }
+            #[repr(i32)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            enum MarshalingType {
+                None = 1,
+                Agile = 2,
+                Standard = 3,
+                InvalidMarshaling = 0,
+            }
+            #[AttributeName("metadata_marshal")]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(RuntimeClass | Interface | Delegate)]
+            attribute MetadataMarshalAttribute {
+                fn();
+            }
+            #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeName("muse")]
+            attribute MuseAttribute {
+                fn();
+                Version: u32,
+            }
+            #[AttributeUsage(Property | Method)]
+            #[AttributeName("noexcept")]
+            #[ContractVersion(super::FoundationContract, 262144)]
+            attribute NoExceptionAttribute {
+                fn();
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(Method)]
+            attribute OverloadAttribute {
+                fn(method: String);
+            }
+            #[AttributeUsage(InterfaceImpl)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            attribute OverridableAttribute {
+                fn();
+            }
+            #[repr(i32)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            enum Platform {
+                Windows = 0,
+                WindowsPhone = 1,
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            attribute PlatformAttribute {
+                fn(platform: Platform);
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(3967)]
+            #[AllowMultiple]
+            attribute PreviousContractVersionAttribute {
+                fn(contract: String, versionLow: u32, versionHigh: u32, newContract: String);
+                fn(contract: String, versionLow: u32, versionHigh: u32);
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(InterfaceImpl)]
+            attribute ProtectedAttribute {
+                fn();
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(Parameter)]
+            attribute RangeAttribute {
+                fn(minValue: i32, maxValue: i32);
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(RuntimeClass | Method)]
+            attribute RemoteAsyncAttribute {
+                fn();
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AllowMultiple]
+            #[AttributeUsage(RuntimeClass)]
+            attribute StaticAttribute {
+                fn(r#type: Type, version: u32);
+                fn(r#type: Type, version: u32, platform: Platform);
+                fn(r#type: Type, version: u32, contractName: String);
+            }
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(RuntimeClass)]
+            attribute ThreadingAttribute {
+                fn(model: ThreadingModel);
+            }
+            #[repr(i32)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            enum ThreadingModel {
+                STA = 1,
+                MTA = 2,
+                Both = 3,
+                InvalidThreading = 0,
+            }
+            #[AttributeName("variant")]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(Property | Parameter)]
+            attribute VariantAttribute {
+                fn();
+            }
+            #[AllowMultiple]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            #[AttributeUsage(3967)]
+            attribute VersionAttribute {
+                fn(version: u32);
+                fn(version: u32, platform: Platform);
+            }
+            #[AttributeName("webhosthidden")]
+            #[AttributeUsage(Struct | RuntimeClass | Interface | Enum | Delegate)]
+            #[ContractVersion(super::FoundationContract, 65536)]
+            attribute WebHostHiddenAttribute {
+                fn();
+            }
+        }
+    }
+}

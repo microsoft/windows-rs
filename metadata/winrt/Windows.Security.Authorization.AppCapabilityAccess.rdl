@@ -1,0 +1,65 @@
+#[winrt]
+mod Windows {
+    mod Security {
+        mod Authorization {
+            mod AppCapabilityAccess {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::Static(IAppCapabilityStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class AppCapability {
+                    IAppCapability,
+                    IAppCapability2,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class AppCapabilityAccessChangedEventArgs {
+                    IAppCapabilityAccessChangedEventArgs,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                enum AppCapabilityAccessStatus {
+                    DeniedBySystem = 0,
+                    NotDeclaredByApp = 1,
+                    DeniedByUser = 2,
+                    UserPromptRequired = 3,
+                    Allowed = 4,
+                }
+                #[guid(0x4c49d915_8a2a_4295_9437_2df7c396aff4)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppCapability)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface IAppCapability {
+                    #[get]
+                    CapabilityName: String;
+                    #[get]
+                    User: super::super::super::System::User;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestAccessAsync(&self) -> super::super::super::Foundation::IAsyncOperation<AppCapabilityAccessStatus>;
+                    fn CheckAccess(&self) -> AppCapabilityAccessStatus;
+                    event AccessChanged: super::super::super::Foundation::TypedEventHandler<AppCapability, AppCapabilityAccessChangedEventArgs>;
+                }
+                #[guid(0x11c7ccb6_c74f_50a3_b960_88008767d939)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppCapability)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
+                interface IAppCapability2 {
+                    DisplayMessage: String;
+                }
+                #[guid(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppCapabilityAccessChangedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                interface IAppCapabilityAccessChangedEventArgs {}
+                #[guid(0x7c353e2a_46ee_44e5_af3d_6ad3fc49bd22)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppCapability)]
+                interface IAppCapabilityStatics {
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestAccessForCapabilitiesAsync(&self, capabilityNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<String, AppCapabilityAccessStatus>>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestAccessForCapabilitiesForUserAsync(&self, user: super::super::super::System::User, capabilityNames: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<String, AppCapabilityAccessStatus>>;
+                    fn Create(&self, capabilityName: String) -> AppCapability;
+                    fn CreateWithProcessIdForUser(&self, user: super::super::super::System::User, capabilityName: String, pid: u32) -> AppCapability;
+                }
+            }
+        }
+    }
+}

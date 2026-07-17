@@ -1,0 +1,504 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod ConversationalAgent {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ActivationSignalDetectionConfiguration {
+                IActivationSignalDetectionConfiguration,
+                super::super::Foundation::IClosable,
+                IActivationSignalDetectionConfiguration2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ActivationSignalDetectionConfigurationCreationResult {
+                IActivationSignalDetectionConfigurationCreationResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            enum ActivationSignalDetectionConfigurationCreationStatus {
+                Success = 0,
+                SignalIdNotAvailable = 1,
+                ModelIdNotSupported = 2,
+                InvalidSignalId = 3,
+                InvalidModelId = 4,
+                InvalidDisplayName = 5,
+                ConfigurationAlreadyExists = 6,
+                CreationNotSupported = 7,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            enum ActivationSignalDetectionConfigurationRemovalResult {
+                Success = 0,
+                NotFound = 1,
+                CurrentlyEnabled = 2,
+                RemovalNotSupported = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            enum ActivationSignalDetectionConfigurationSetModelDataResult {
+                Success = 0,
+                EmptyModelData = 1,
+                UnsupportedFormat = 2,
+                ConfigurationCurrentlyEnabled = 3,
+                InvalidData = 4,
+                SetModelDataNotSupported = 5,
+                ConfigurationNotFound = 6,
+                UnknownError = 7,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            enum ActivationSignalDetectionConfigurationStateChangeResult {
+                Success = 0,
+                NoModelData = 1,
+                ConfigurationNotFound = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            enum ActivationSignalDetectionTrainingDataFormat {
+                Voice8kHz8BitMono = 0,
+                Voice8kHz16BitMono = 1,
+                Voice16kHz8BitMono = 2,
+                Voice16kHz16BitMono = 3,
+                VoiceOEMDefined = 4,
+                Audio44kHz8BitMono = 5,
+                Audio44kHz16BitMono = 6,
+                Audio48kHz8BitMono = 7,
+                Audio48kHz16BitMono = 8,
+                AudioOEMDefined = 9,
+                OtherOEMDefined = 10,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ActivationSignalDetector {
+                IActivationSignalDetector,
+                IActivationSignalDetector2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            enum ActivationSignalDetectorKind {
+                AudioPattern = 0,
+                AudioImpulse = 1,
+                HardwareEvent = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            enum ActivationSignalDetectorPowerState {
+                HighPower = 0,
+                ConnectedLowPower = 1,
+                DisconnectedLowPower = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            enum ConversationalAgentActivationKind {
+                VoiceActivationPreview = 0,
+                Foreground = 1,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            enum ConversationalAgentActivationResult {
+                Success = 0,
+                AgentInactive = 1,
+                ScreenNotAvailable = 2,
+                AgentInterrupted = 3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IConversationalAgentDetectorManagerStatics, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ConversationalAgentDetectorManager {
+                IConversationalAgentDetectorManager,
+                IConversationalAgentDetectorManager2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IConversationalAgentSessionStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class ConversationalAgentSession {
+                IConversationalAgentSession,
+                IConversationalAgentSession2,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ConversationalAgentSessionInterruptedEventArgs {
+                IConversationalAgentSessionInterruptedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum ConversationalAgentSessionUpdateResponse {
+                Success = 0,
+                Failed = 1,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class ConversationalAgentSignal {
+                IConversationalAgentSignal,
+                IConversationalAgentSignal2,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class ConversationalAgentSignalDetectedEventArgs {
+                IConversationalAgentSignalDetectedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum ConversationalAgentState {
+                Inactive = 0,
+                Detecting = 1,
+                Listening = 2,
+                Working = 3,
+                Speaking = 4,
+                ListeningAndSpeaking = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            enum ConversationalAgentSystemStateChangeType {
+                UserAuthentication = 0,
+                ScreenAvailability = 1,
+                IndicatorLightAvailability = 2,
+                VoiceActivationAvailability = 3,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            class ConversationalAgentSystemStateChangedEventArgs {
+                IConversationalAgentSystemStateChangedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            enum ConversationalAgentVoiceActivationPrerequisiteKind {
+                MicrophonePermission = 0,
+                KnownAgents = 1,
+                AgentAllowed = 2,
+                AppCapability = 3,
+                BackgroundTaskRegistration = 4,
+                PolicyPermission = 5,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            enum DetectionConfigurationAvailabilityChangeKind {
+                SystemResourceAccess = 0,
+                Permission = 1,
+                LockScreenPermission = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class DetectionConfigurationAvailabilityChangedEventArgs {
+                IDetectionConfigurationAvailabilityChangedEventArgs,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            class DetectionConfigurationAvailabilityInfo {
+                IDetectionConfigurationAvailabilityInfo,
+                IDetectionConfigurationAvailabilityInfo2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            enum DetectionConfigurationTrainingStatus {
+                Success = 0,
+                FormatNotSupported = 1,
+                VoiceTooQuiet = 2,
+                VoiceTooLoud = 3,
+                VoiceTooFast = 4,
+                VoiceTooSlow = 5,
+                VoiceQualityProblem = 6,
+                TrainingSystemInternalError = 7,
+                TrainingTimedOut = 8,
+                ConfigurationNotFound = 9,
+            }
+            #[guid(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActivationSignalDetectionConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IActivationSignalDetectionConfiguration {
+                #[get]
+                SignalId: String;
+                #[get]
+                ModelId: String;
+                #[get]
+                DisplayName: String;
+                #[get]
+                IsActive: bool;
+                fn SetEnabled(&self, value: bool);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetEnabledAsync(&self, value: bool) -> super::super::Foundation::IAsyncAction;
+                #[get]
+                AvailabilityInfo: DetectionConfigurationAvailabilityInfo;
+                event AvailabilityChanged: super::super::Foundation::TypedEventHandler<ActivationSignalDetectionConfiguration, DetectionConfigurationAvailabilityChangedEventArgs>;
+                fn SetModelData(&self, dataType: String, data: super::super::Storage::Streams::IInputStream);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetModelDataAsync(&self, dataType: String, data: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncAction;
+                fn GetModelDataType(&self) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetModelDataTypeAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
+                fn GetModelData(&self) -> super::super::Storage::Streams::IInputStream;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetModelDataAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IInputStream>;
+                fn ClearModelData(&self);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ClearModelDataAsync(&self) -> super::super::Foundation::IAsyncAction;
+                #[get]
+                TrainingStepsCompleted: u32;
+                #[get]
+                TrainingStepsRemaining: u32;
+                #[get]
+                TrainingDataFormat: ActivationSignalDetectionTrainingDataFormat;
+                fn ApplyTrainingData(&self, trainingDataFormat: ActivationSignalDetectionTrainingDataFormat, trainingData: super::super::Storage::Streams::IInputStream) -> DetectionConfigurationTrainingStatus;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ApplyTrainingDataAsync(&self, trainingDataFormat: ActivationSignalDetectionTrainingDataFormat, trainingData: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperation<DetectionConfigurationTrainingStatus>;
+                fn ClearTrainingData(&self);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn ClearTrainingDataAsync(&self) -> super::super::Foundation::IAsyncAction;
+            }
+            #[guid(0x71d9b022_562c_57ce_a78b_8b4ff0145bab)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActivationSignalDetectionConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            interface IActivationSignalDetectionConfiguration2 {
+                fn SetModelDataWithResult(&self, dataType: String, data: super::super::Storage::Streams::IInputStream) -> ActivationSignalDetectionConfigurationSetModelDataResult;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetModelDataWithResultAsync(&self, dataType: String, data: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationSetModelDataResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetEnabledWithResultAsync(&self, value: bool) -> super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationStateChangeResult>;
+                fn SetEnabledWithResult(&self, value: bool) -> ActivationSignalDetectionConfigurationStateChangeResult;
+                #[get]
+                TrainingStepCompletionMaxAllowedTime: u32;
+            }
+            #[guid(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActivationSignalDetectionConfigurationCreationResult)]
+            interface IActivationSignalDetectionConfigurationCreationResult {
+                #[get]
+                Status: ActivationSignalDetectionConfigurationCreationStatus;
+                #[get]
+                Configuration: ActivationSignalDetectionConfiguration;
+            }
+            #[guid(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActivationSignalDetector)]
+            interface IActivationSignalDetector {
+                #[get]
+                ProviderId: String;
+                #[get]
+                Kind: ActivationSignalDetectorKind;
+                #[get]
+                CanCreateConfigurations: bool;
+                #[get]
+                SupportedModelDataTypes: super::super::Foundation::Collections::IVectorView<String>;
+                #[get]
+                SupportedTrainingDataFormats: super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionTrainingDataFormat>;
+                #[get]
+                SupportedPowerStates: super::super::Foundation::Collections::IVectorView<ActivationSignalDetectorPowerState>;
+                fn GetSupportedModelIdsForSignalId(&self, signalId: String) -> super::super::Foundation::Collections::IVectorView<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetSupportedModelIdsForSignalIdAsync(&self, signalId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
+                fn CreateConfiguration(&self, signalId: String, modelId: String, displayName: String);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateConfigurationAsync(&self, signalId: String, modelId: String, displayName: String) -> super::super::Foundation::IAsyncAction;
+                fn GetConfigurations(&self) -> super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetConfigurationsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetectionConfiguration>>;
+                fn GetConfiguration(&self, signalId: String, modelId: String) -> ActivationSignalDetectionConfiguration;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetConfigurationAsync(&self, signalId: String, modelId: String) -> super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfiguration>;
+                fn RemoveConfiguration(&self, signalId: String, modelId: String);
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RemoveConfigurationAsync(&self, signalId: String, modelId: String) -> super::super::Foundation::IAsyncAction;
+            }
+            #[guid(0xc7e2490a_baa5_59d2_85d1_ba42f7cf78c9)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActivationSignalDetector)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            interface IActivationSignalDetector2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAvailableModelIdsForSignalIdAsync(&self, signalId: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<String>>;
+                fn GetAvailableModelIdsForSignalId(&self, signalId: String) -> super::super::Foundation::Collections::IVector<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateConfigurationWithResultAsync(&self, signalId: String, modelId: String, displayName: String) -> super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationCreationResult>;
+                fn CreateConfigurationWithResult(&self, signalId: String, modelId: String, displayName: String) -> ActivationSignalDetectionConfigurationCreationResult;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RemoveConfigurationWithResultAsync(&self, signalId: String, modelId: String) -> super::super::Foundation::IAsyncOperation<ActivationSignalDetectionConfigurationRemovalResult>;
+                fn RemoveConfigurationWithResult(&self, signalId: String, modelId: String) -> ActivationSignalDetectionConfigurationRemovalResult;
+                #[get]
+                DetectorId: String;
+            }
+            #[guid(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConversationalAgentDetectorManager)]
+            interface IConversationalAgentDetectorManager {
+                fn GetAllActivationSignalDetectors(&self) -> super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAllActivationSignalDetectorsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>;
+                fn GetActivationSignalDetectors(&self, kind: ActivationSignalDetectorKind) -> super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetActivationSignalDetectorsAsync(&self, kind: ActivationSignalDetectorKind) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivationSignalDetector>>;
+            }
+            #[guid(0x84610f31_d7f3_52fe_9311_c9eb4e3eb30a)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConversationalAgentDetectorManager)]
+            interface IConversationalAgentDetectorManager2 {
+                fn GetActivationSignalDetectorFromId(&self, detectorId: String) -> ActivationSignalDetector;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetActivationSignalDetectorFromIdAsync(&self, detectorId: String) -> super::super::Foundation::IAsyncOperation<ActivationSignalDetector>;
+            }
+            #[guid(0x36a8d283_fa0e_5693_8489_0fb2f0ab40d3)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConversationalAgentDetectorManager)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IConversationalAgentDetectorManagerStatics {
+                #[get]
+                Default: ConversationalAgentDetectorManager;
+            }
+            #[guid(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConversationalAgentSession)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IConversationalAgentSession {
+                event SessionInterrupted: super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSessionInterruptedEventArgs>;
+                event SignalDetected: super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSignalDetectedEventArgs>;
+                event SystemStateChanged: super::super::Foundation::TypedEventHandler<ConversationalAgentSession, ConversationalAgentSystemStateChangedEventArgs>;
+                #[get]
+                AgentState: ConversationalAgentState;
+                #[get]
+                Signal: ConversationalAgentSignal;
+                #[get]
+                IsIndicatorLightAvailable: bool;
+                #[get]
+                IsScreenAvailable: bool;
+                #[get]
+                IsUserAuthenticated: bool;
+                #[get]
+                IsVoiceActivationAvailable: bool;
+                #[get]
+                IsInterruptible: bool;
+                #[get]
+                IsInterrupted: bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestInterruptibleAsync(&self, interruptible: bool) -> super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>;
+                fn RequestInterruptible(&self, interruptible: bool) -> ConversationalAgentSessionUpdateResponse;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAgentStateChangeAsync(&self, state: ConversationalAgentState) -> super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>;
+                fn RequestAgentStateChange(&self, state: ConversationalAgentState) -> ConversationalAgentSessionUpdateResponse;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestForegroundActivationAsync(&self) -> super::super::Foundation::IAsyncOperation<ConversationalAgentSessionUpdateResponse>;
+                fn RequestForegroundActivation(&self) -> ConversationalAgentSessionUpdateResponse;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAudioClientAsync(&self) -> super::super::Foundation::IAsyncOperation<Object>;
+                fn GetAudioClient(&self) -> Object;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateAudioDeviceInputNodeAsync(&self, graph: super::super::Media::Audio::AudioGraph) -> super::super::Foundation::IAsyncOperation<super::super::Media::Audio::AudioDeviceInputNode>;
+                fn CreateAudioDeviceInputNode(&self, graph: super::super::Media::Audio::AudioGraph) -> super::super::Media::Audio::AudioDeviceInputNode;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAudioCaptureDeviceIdAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
+                fn GetAudioCaptureDeviceId(&self) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAudioRenderDeviceIdAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
+                fn GetAudioRenderDeviceId(&self) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetSignalModelIdAsync(&self) -> super::super::Foundation::IAsyncOperation<u32>;
+                fn GetSignalModelId(&self) -> u32;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetSignalModelIdAsync(&self, signalModelId: u32) -> super::super::Foundation::IAsyncOperation<bool>;
+                fn SetSignalModelId(&self, signalModelId: u32) -> bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetSupportedSignalModelIdsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>;
+                fn GetSupportedSignalModelIds(&self) -> super::super::Foundation::Collections::IVectorView<u32>;
+            }
+            #[guid(0xa7a9fbf9_ac78_57ff_9596_acc7a1c9a607)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConversationalAgentSession)]
+            interface IConversationalAgentSession2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestActivationAsync(&self, activationKind: ConversationalAgentActivationKind) -> super::super::Foundation::IAsyncOperation<ConversationalAgentActivationResult>;
+                fn RequestActivation(&self, activationKind: ConversationalAgentActivationKind) -> ConversationalAgentActivationResult;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetSupportLockScreenActivationAsync(&self, lockScreenActivationSupported: bool) -> super::super::Foundation::IAsyncAction;
+                fn SetSupportLockScreenActivation(&self, lockScreenActivationSupported: bool);
+                fn GetMissingPrerequisites(&self) -> super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetMissingPrerequisitesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConversationalAgentVoiceActivationPrerequisiteKind>>;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConversationalAgentSessionInterruptedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IConversationalAgentSessionInterruptedEventArgs {}
+            #[guid(0xa005166e_e954_576e_be04_11b8ed10f37b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConversationalAgentSession)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IConversationalAgentSessionStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetCurrentSessionAsync(&self) -> super::super::Foundation::IAsyncOperation<ConversationalAgentSession>;
+                fn GetCurrentSessionSync(&self) -> ConversationalAgentSession;
+            }
+            #[guid(0x20ed25f7_b120_51f2_8603_265d6a47f232)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConversationalAgentSignal)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IConversationalAgentSignal {
+                IsSignalVerificationRequired: bool;
+                SignalId: String;
+                SignalName: String;
+                SignalContext: Object;
+                SignalStart: super::super::Foundation::TimeSpan;
+                SignalEnd: super::super::Foundation::TimeSpan;
+            }
+            #[guid(0xd0cc7ba9_9a7b_5c34_880e_b6146c904ecb)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConversationalAgentSignal)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            interface IConversationalAgentSignal2 {
+                #[get]
+                DetectorId: String;
+                #[get]
+                DetectorKind: ActivationSignalDetectorKind;
+            }
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConversationalAgentSignalDetectedEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            interface IConversationalAgentSignalDetectedEventArgs {}
+            #[guid(0x1c2c6e3e_2785_59a7_8e71_38adeef79928)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConversationalAgentSystemStateChangedEventArgs)]
+            interface IConversationalAgentSystemStateChangedEventArgs {
+                #[get]
+                SystemStateChangeType: ConversationalAgentSystemStateChangeType;
+            }
+            #[guid(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DetectionConfigurationAvailabilityChangedEventArgs)]
+            interface IDetectionConfigurationAvailabilityChangedEventArgs {
+                #[get]
+                Kind: DetectionConfigurationAvailabilityChangeKind;
+            }
+            #[guid(0xb5affeb0_40f0_5398_b838_91979c2c6208)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DetectionConfigurationAvailabilityInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IDetectionConfigurationAvailabilityInfo {
+                #[get]
+                IsEnabled: bool;
+                #[get]
+                HasSystemResourceAccess: bool;
+                #[get]
+                HasPermission: bool;
+                #[get]
+                HasLockScreenPermission: bool;
+            }
+            #[guid(0x30e06433_38b3_5c4b_84c3_62b6e685b2ff)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DetectionConfigurationAvailabilityInfo)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            interface IDetectionConfigurationAvailabilityInfo2 {
+                #[get]
+                UnavailableSystemResources: super::super::Foundation::Collections::IVectorView<SignalDetectorResourceKind>;
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            enum SignalDetectorResourceKind {
+                ParallelModelSupport = 0,
+                ParallelModelSupportForAgent = 1,
+                ParallelSignalSupport = 2,
+                ParallelSignalSupportForAgent = 3,
+                DisplayOffSupport = 4,
+                PluggedInPower = 5,
+                Detector = 6,
+                SupportedSleepState = 7,
+                SupportedBatterySaverState = 8,
+                ScreenAvailability = 9,
+                InputHardware = 10,
+                AcousticEchoCancellation = 11,
+                ModelIdSupport = 12,
+                DataChannel = 13,
+            }
+        }
+    }
+}

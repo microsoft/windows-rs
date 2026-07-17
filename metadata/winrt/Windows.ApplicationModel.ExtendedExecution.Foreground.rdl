@@ -1,0 +1,60 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod ExtendedExecution {
+            mod Foreground {
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum ExtendedExecutionForegroundReason {
+                    Unspecified = 0,
+                    SavingData = 1,
+                    BackgroundAudio = 2,
+                    Unconstrained = 3,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum ExtendedExecutionForegroundResult {
+                    Allowed = 0,
+                    Denied = 1,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class ExtendedExecutionForegroundRevokedEventArgs {
+                    IExtendedExecutionForegroundRevokedEventArgs,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum ExtendedExecutionForegroundRevokedReason {
+                    Resumed = 0,
+                    SystemPolicy = 1,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ExtendedExecutionForegroundSession {
+                    IExtendedExecutionForegroundSession,
+                    super::super::super::Foundation::IClosable,
+                }
+                #[guid(0xb07cd940_9557_aea4_2c99_bdd56d9be461)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ExtendedExecutionForegroundRevokedEventArgs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IExtendedExecutionForegroundRevokedEventArgs {
+                    #[get]
+                    Reason: ExtendedExecutionForegroundRevokedReason;
+                }
+                #[guid(0xfbf440e1_9d10_4201_b01e_c83275296f2e)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ExtendedExecutionForegroundSession)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IExtendedExecutionForegroundSession: super::super::super::Foundation::IClosable {
+                    Description: String;
+                    event Revoked: super::super::super::Foundation::TypedEventHandler<Object, ExtendedExecutionForegroundRevokedEventArgs>;
+                    #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn RequestExtensionAsync(&self) -> super::super::super::Foundation::IAsyncOperation<ExtendedExecutionForegroundResult>;
+                    Reason: ExtendedExecutionForegroundReason;
+                }
+            }
+        }
+    }
+}

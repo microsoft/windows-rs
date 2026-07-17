@@ -1,0 +1,522 @@
+#[winrt]
+mod Windows {
+    mod Networking {
+        mod BackgroundTransfer {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct BackgroundDownloadProgress {
+                BytesReceived: u64,
+                TotalBytesToReceive: u64,
+                Status: BackgroundTransferStatus,
+                HasResponseChanged: bool,
+                HasRestarted: bool,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IBackgroundDownloaderUserConsent, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IBackgroundDownloaderFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBackgroundDownloaderStaticMethods2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBackgroundDownloaderStaticMethods, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class BackgroundDownloader {
+                IBackgroundDownloader,
+                IBackgroundTransferBase,
+                IBackgroundDownloader2,
+                IBackgroundDownloader3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum BackgroundTransferBehavior {
+                Parallel = 0,
+                Serialized = 1,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class BackgroundTransferCompletionGroup {
+                IBackgroundTransferCompletionGroup,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class BackgroundTransferCompletionGroupTriggerDetails {
+                IBackgroundTransferCompletionGroupTriggerDetails,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(IBackgroundTransferContentPartFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class BackgroundTransferContentPart {
+                IBackgroundTransferContentPart,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum BackgroundTransferCostPolicy {
+                Default = 0,
+                UnrestrictedOnly = 1,
+                Always = 2,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IBackgroundTransferErrorStaticMethods, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class BackgroundTransferError {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            struct BackgroundTransferFileRange {
+                Offset: u64,
+                Length: u64,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IBackgroundTransferGroupStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            class BackgroundTransferGroup {
+                IBackgroundTransferGroup,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum BackgroundTransferPriority {
+                Default = 0,
+                High = 1,
+                Low = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class BackgroundTransferRangesDownloadedEventArgs {
+                IBackgroundTransferRangesDownloadedEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum BackgroundTransferStatus {
+                Idle = 0,
+                Running = 1,
+                PausedByApplication = 2,
+                PausedCostedNetwork = 3,
+                PausedNoNetwork = 4,
+                Completed = 5,
+                Canceled = 6,
+                Error = 7,
+                PausedRecoverableWebErrorStatus = 8,
+                PausedSystemPolicy = 32,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct BackgroundUploadProgress {
+                BytesReceived: u64,
+                BytesSent: u64,
+                TotalBytesToReceive: u64,
+                TotalBytesToSend: u64,
+                Status: BackgroundTransferStatus,
+                HasResponseChanged: bool,
+                HasRestarted: bool,
+            }
+            #[Windows::Foundation::Metadata::Static(IBackgroundUploaderUserConsent, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBackgroundUploaderStaticMethods, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IBackgroundUploaderStaticMethods2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(IBackgroundUploaderFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class BackgroundUploader {
+                IBackgroundUploader,
+                IBackgroundTransferBase,
+                IBackgroundUploader2,
+                IBackgroundUploader3,
+            }
+            #[Windows::Foundation::Metadata::Static(IContentPrefetcherTime, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(IContentPrefetcher, 65536, "Windows.Foundation.UniversalApiContract")]
+            class ContentPrefetcher {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class DownloadOperation {
+                IDownloadOperation,
+                IBackgroundTransferOperation,
+                IBackgroundTransferOperationPriority,
+                IDownloadOperation2,
+                IDownloadOperation3,
+                IDownloadOperation4,
+                IDownloadOperation5,
+            }
+            #[guid(0xc1c79333_6649_4b1d_a826_a4b3dd234d0b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundDownloader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundDownloader: IBackgroundTransferBase {
+                #[Windows::Foundation::Metadata::Overload("CreateDownload")]
+                fn CreateDownload(&self, uri: super::super::Foundation::Uri, resultFile: super::super::Storage::IStorageFile) -> DownloadOperation;
+                #[Windows::Foundation::Metadata::Overload("CreateDownloadFromFile")]
+                fn CreateDownload(&self, uri: super::super::Foundation::Uri, resultFile: super::super::Storage::IStorageFile, requestBodyFile: super::super::Storage::IStorageFile) -> DownloadOperation;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateDownloadAsync(&self, uri: super::super::Foundation::Uri, resultFile: super::super::Storage::IStorageFile, requestBodyStream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperation<DownloadOperation>;
+            }
+            #[guid(0xa94a5847_348d_4a35_890e_8a1ef3798479)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundDownloader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundDownloader2 {
+                TransferGroup: BackgroundTransferGroup;
+                SuccessToastNotification: super::super::UI::Notifications::ToastNotification;
+                FailureToastNotification: super::super::UI::Notifications::ToastNotification;
+                SuccessTileNotification: super::super::UI::Notifications::TileNotification;
+                FailureTileNotification: super::super::UI::Notifications::TileNotification;
+            }
+            #[guid(0xd11a8c48_86e8_48e2_b615_6976aabf861d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundDownloader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundDownloader3 {
+                #[get]
+                CompletionGroup: BackgroundTransferCompletionGroup;
+            }
+            #[guid(0x26836c24_d89e_46f4_a29a_4f4d4f144155)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundDownloader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundDownloaderFactory {
+                fn CreateWithCompletionGroup(&self, completionGroup: BackgroundTransferCompletionGroup) -> BackgroundDownloader;
+            }
+            #[guid(0x52a65a35_c64e_426c_9919_540d0d21a650)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundDownloader)]
+            interface IBackgroundDownloaderStaticMethods {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("GetCurrentDownloadsAsync")]
+                fn GetCurrentDownloadsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>;
+                #[Windows::Foundation::Metadata::Deprecated("GetCurrentDownloadsAsync(group) may be altered or unavailable for releases after Windows 8.1. Instead, use GetCurrentDownloadsForTransferGroupAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Overload("GetCurrentDownloadsForGroupAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetCurrentDownloadsAsync(&self, group: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>;
+            }
+            #[guid(0x2faa1327_1ad4_4ca5_b2cd_08dbf0746afe)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundDownloader)]
+            interface IBackgroundDownloaderStaticMethods2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetCurrentDownloadsForTransferGroupAsync(&self, group: BackgroundTransferGroup) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>;
+            }
+            #[guid(0x5d14e906_9266_4808_bd71_5925f2a3130a)]
+            #[Windows::Foundation::Metadata::Deprecated("IBackgroundDownloaderUserConsent is deprecated and may not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundDownloader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundDownloaderUserConsent {
+                #[Windows::Foundation::Metadata::Deprecated("RequestUnconstrainedDownloadsAsync is deprecated and may not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestUnconstrainedDownloadsAsync(&self, operations: super::super::Foundation::Collections::IIterable<DownloadOperation>) -> super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>;
+            }
+            #[guid(0x2a9da250_c769_458c_afe8_feb8d4d3b2ef)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundTransferBase {
+                fn SetRequestHeader(&self, headerName: String, headerValue: String);
+                ServerCredential: super::super::Security::Credentials::PasswordCredential;
+                ProxyCredential: super::super::Security::Credentials::PasswordCredential;
+                Method: String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Group may be altered or unavailable for releases after Windows 8.1. Instead, use TransferGroup.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Group(&self) -> String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Group may be altered or unavailable for releases after Windows 8.1. Instead, use TransferGroup.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn put_Group(&self, value: String);
+                CostPolicy: BackgroundTransferCostPolicy;
+            }
+            #[guid(0x2d930225_986b_574d_7950_0add47f5d706)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTransferCompletionGroup)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundTransferCompletionGroup {
+                #[get]
+                Trigger: super::super::ApplicationModel::Background::IBackgroundTrigger;
+                #[get]
+                IsEnabled: bool;
+                fn Enable(&self);
+            }
+            #[guid(0x7b6be286_6e47_5136_7fcb_fa4389f46f5b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTransferCompletionGroupTriggerDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundTransferCompletionGroupTriggerDetails {
+                #[get]
+                Downloads: super::super::Foundation::Collections::IVectorView<DownloadOperation>;
+                #[get]
+                Uploads: super::super::Foundation::Collections::IVectorView<UploadOperation>;
+            }
+            #[guid(0xe8e15657_d7d1_4ed8_838e_674ac217ace6)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTransferContentPart)]
+            interface IBackgroundTransferContentPart {
+                fn SetHeader(&self, headerName: String, headerValue: String);
+                fn SetText(&self, value: String);
+                fn SetFile(&self, value: super::super::Storage::IStorageFile);
+            }
+            #[guid(0x90ef98a9_7a01_4a0b_9f80_a0b0bb370f8d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundTransferContentPartFactory {
+                fn CreateWithName(&self, name: String) -> BackgroundTransferContentPart;
+                fn CreateWithNameAndFileName(&self, name: String, fileName: String) -> BackgroundTransferContentPart;
+            }
+            #[guid(0xaad33b04_1192_4bf4_8b68_39c5add244e2)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTransferError)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundTransferErrorStaticMethods {
+                fn GetStatus(&self, hresult: i32) -> super::super::Web::WebErrorStatus;
+            }
+            #[guid(0xd8c3e3e4_6459_4540_85eb_aaa1c8903677)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTransferGroup)]
+            interface IBackgroundTransferGroup {
+                #[get]
+                Name: String;
+                TransferBehavior: BackgroundTransferBehavior;
+            }
+            #[guid(0x02ec50b2_7d18_495b_aa22_32a97d45d3e2)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTransferGroup)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundTransferGroupStatics {
+                fn CreateGroup(&self, name: String) -> BackgroundTransferGroup;
+            }
+            #[guid(0xded06846_90ca_44fb_8fb1_124154c0d539)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundTransferOperation {
+                #[get]
+                Guid: GUID;
+                #[get]
+                RequestedUri: super::super::Foundation::Uri;
+                #[get]
+                Method: String;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("Group may be altered or unavailable for releases after Windows 8.1. Instead, use TransferGroup.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_Group(&self) -> String;
+                CostPolicy: BackgroundTransferCostPolicy;
+                fn GetResultStreamAt(&self, position: u64) -> super::super::Storage::Streams::IInputStream;
+                fn GetResponseInformation(&self) -> ResponseInformation;
+            }
+            #[guid(0x04854327_5254_4b3a_915e_0aa49275c0f9)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundTransferOperationPriority {
+                Priority: BackgroundTransferPriority;
+            }
+            #[guid(0x3ebc7453_bf48_4a88_9248_b0c165184f5c)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundTransferRangesDownloadedEventArgs)]
+            interface IBackgroundTransferRangesDownloadedEventArgs {
+                #[get]
+                WasDownloadRestarted: bool;
+                #[get]
+                AddedRanges: super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>;
+                fn GetDeferral(&self) -> super::super::Foundation::Deferral;
+            }
+            #[guid(0xc595c9ae_cead_465b_8801_c55ac90a01ce)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundUploader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundUploader: IBackgroundTransferBase {
+                fn CreateUpload(&self, uri: super::super::Foundation::Uri, sourceFile: super::super::Storage::IStorageFile) -> UploadOperation;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateUploadFromStreamAsync(&self, uri: super::super::Foundation::Uri, sourceStream: super::super::Storage::Streams::IInputStream) -> super::super::Foundation::IAsyncOperation<UploadOperation>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("CreateUploadWithFormDataAndAutoBoundaryAsync")]
+                fn CreateUploadAsync(&self, uri: super::super::Foundation::Uri, parts: super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>) -> super::super::Foundation::IAsyncOperation<UploadOperation>;
+                #[Windows::Foundation::Metadata::Overload("CreateUploadWithSubTypeAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateUploadAsync(&self, uri: super::super::Foundation::Uri, parts: super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>, subType: String) -> super::super::Foundation::IAsyncOperation<UploadOperation>;
+                #[Windows::Foundation::Metadata::Overload("CreateUploadWithSubTypeAndBoundaryAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn CreateUploadAsync(&self, uri: super::super::Foundation::Uri, parts: super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>, subType: String, boundary: String) -> super::super::Foundation::IAsyncOperation<UploadOperation>;
+            }
+            #[guid(0x8e0612ce_0c34_4463_807f_198a1b8bd4ad)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundUploader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundUploader2 {
+                TransferGroup: BackgroundTransferGroup;
+                SuccessToastNotification: super::super::UI::Notifications::ToastNotification;
+                FailureToastNotification: super::super::UI::Notifications::ToastNotification;
+                SuccessTileNotification: super::super::UI::Notifications::TileNotification;
+                FailureTileNotification: super::super::UI::Notifications::TileNotification;
+            }
+            #[guid(0xb95e9439_5bf0_4b3a_8c47_2c6199a854b9)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundUploader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundUploader3 {
+                #[get]
+                CompletionGroup: BackgroundTransferCompletionGroup;
+            }
+            #[guid(0x736203c7_10e7_48a0_ac3c_1ac71095ec57)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundUploader)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IBackgroundUploaderFactory {
+                fn CreateWithCompletionGroup(&self, completionGroup: BackgroundTransferCompletionGroup) -> BackgroundUploader;
+            }
+            #[guid(0xf2875cfb_9b05_4741_9121_740a83e247df)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundUploader)]
+            interface IBackgroundUploaderStaticMethods {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("GetCurrentUploadsAsync")]
+                fn GetCurrentUploadsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>;
+                #[Windows::Foundation::Metadata::Deprecated("GetCurrentUploadsAsync(group) may be altered or unavailable for releases after Windows 8.1. Instead, use GetCurrentUploadsForTransferGroupAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("GetCurrentUploadsForGroupAsync")]
+                fn GetCurrentUploadsAsync(&self, group: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>;
+            }
+            #[guid(0xe919ac62_ea08_42f0_a2ac_07e467549080)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundUploader)]
+            interface IBackgroundUploaderStaticMethods2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetCurrentUploadsForTransferGroupAsync(&self, group: BackgroundTransferGroup) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>;
+            }
+            #[guid(0x3bb384cb_0760_461d_907f_5138f84d44c1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackgroundUploader)]
+            #[Windows::Foundation::Metadata::Deprecated("IBackgroundUploaderUserConsent is deprecated and may not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+            interface IBackgroundUploaderUserConsent {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Deprecated("RequestUnconstrainedUploadsAsync is deprecated and may not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                fn RequestUnconstrainedUploadsAsync(&self, operations: super::super::Foundation::Collections::IIterable<UploadOperation>) -> super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>;
+            }
+            #[guid(0xa8d6f754_7dc1_4cd9_8810_2a6aa9417e11)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContentPrefetcher)]
+            interface IContentPrefetcher {
+                #[get]
+                ContentUris: super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>;
+                #[set]
+                IndirectContentUri: super::super::Foundation::Uri;
+                #[get]
+                IndirectContentUri: super::super::Foundation::Uri;
+            }
+            #[guid(0xe361fd08_132a_4fde_a7cc_fcb0e66523af)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContentPrefetcher)]
+            interface IContentPrefetcherTime {
+                #[get]
+                LastSuccessfulPrefetchTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+            }
+            #[guid(0xbd87ebb0_5714_4e09_ba68_bef73903b0d7)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DownloadOperation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDownloadOperation: IBackgroundTransferOperation {
+                #[get]
+                ResultFile: super::super::Storage::IStorageFile;
+                #[get]
+                Progress: BackgroundDownloadProgress;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StartAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn AttachAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>;
+                fn Pause(&self);
+                fn Resume(&self);
+            }
+            #[guid(0xa3cced40_8f9c_4353_9cd4_290dee387c38)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DownloadOperation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDownloadOperation2 {
+                #[get]
+                TransferGroup: BackgroundTransferGroup;
+            }
+            #[guid(0x5027351c_7d5e_4adc_b8d3_df5c6031b9cc)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DownloadOperation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IDownloadOperation3 {
+                IsRandomAccessRequired: bool;
+                fn GetResultRandomAccessStreamReference(&self) -> super::super::Storage::Streams::IRandomAccessStreamReference;
+                fn GetDownloadedRanges(&self) -> super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>;
+                event RangesDownloaded: super::super::Foundation::TypedEventHandler<DownloadOperation, BackgroundTransferRangesDownloadedEventArgs>;
+                #[set]
+                RequestedUri: super::super::Foundation::Uri;
+                #[get]
+                RecoverableWebErrorStatuses: super::super::Foundation::Collections::IVector<super::super::Web::WebErrorStatus>;
+                #[get]
+                CurrentWebErrorStatus: super::super::Foundation::IReference<super::super::Web::WebErrorStatus>;
+            }
+            #[guid(0x0cdaaef4_8cef_404a_966d_f058400bed80)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DownloadOperation)]
+            interface IDownloadOperation4 {
+                fn MakeCurrentInTransferGroup(&self);
+            }
+            #[guid(0xa699a86f_5590_463a_b8d6_1e491a2760a5)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DownloadOperation)]
+            interface IDownloadOperation5 {
+                fn SetRequestHeader(&self, headerName: String, headerValue: String);
+                fn RemoveRequestHeader(&self, headerName: String);
+            }
+            #[guid(0xf8bb9a12_f713_4792_8b68_d9d297f91d2e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResponseInformation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IResponseInformation {
+                #[get]
+                IsResumable: bool;
+                #[get]
+                ActualUri: super::super::Foundation::Uri;
+                #[get]
+                StatusCode: u32;
+                #[get]
+                Headers: super::super::Foundation::Collections::IMapView<String, String>;
+            }
+            #[guid(0x4c24b81f_d944_4112_a98e_6a69522b7ebb)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UnconstrainedTransferRequestResult)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IUnconstrainedTransferRequestResult is deprecated and may not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+            interface IUnconstrainedTransferRequestResult {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IsUnconstrained is deprecated and may not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+                fn get_IsUnconstrained(&self) -> bool;
+            }
+            #[guid(0x3e5624e0_7389_434c_8b35_427fd36bbdae)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UploadOperation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IUploadOperation: IBackgroundTransferOperation {
+                #[get]
+                SourceFile: super::super::Storage::IStorageFile;
+                #[get]
+                Progress: BackgroundUploadProgress;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn StartAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn AttachAsync(&self) -> super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>;
+            }
+            #[guid(0x556189f2_2774_4df6_9fa5_209f2bfb12f7)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UploadOperation)]
+            interface IUploadOperation2 {
+                #[get]
+                TransferGroup: BackgroundTransferGroup;
+            }
+            #[guid(0x42c92ca3_de39_4546_bc62_3774b4294de3)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UploadOperation)]
+            interface IUploadOperation3 {
+                fn MakeCurrentInTransferGroup(&self);
+            }
+            #[guid(0x50edef31_fac5_41ee_b030_dc77caee9faa)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UploadOperation)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            interface IUploadOperation4 {
+                fn SetRequestHeader(&self, headerName: String, headerValue: String);
+                fn RemoveRequestHeader(&self, headerName: String);
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ResponseInformation {
+                IResponseInformation,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Deprecated("UnconstrainedTransferRequestResult is deprecated and may not work on all platforms. For more info, see MSDN.", Deprecate, 196608, "Windows.Foundation.UniversalApiContract")]
+            class UnconstrainedTransferRequestResult {
+                IUnconstrainedTransferRequestResult,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class UploadOperation {
+                IUploadOperation,
+                IBackgroundTransferOperation,
+                IBackgroundTransferOperationPriority,
+                IUploadOperation2,
+                IUploadOperation3,
+                IUploadOperation4,
+            }
+        }
+    }
+}

@@ -115,7 +115,7 @@ impl Reader {
         validate_use_declarations(&input, &index, &reference)?;
 
         let assembly_name = std::path::Path::new(&self.output)
-            .file_name()
+            .file_stem()
             .and_then(|file_name| file_name.to_str())
             .ok_or_else(|| Error::new("invalid output", &self.output, 0, 0))?;
 
@@ -990,6 +990,7 @@ impl Encoder<'_> {
                 "void" => return Ok(metadata::Type::Void),
                 "String" => return Ok(metadata::Type::String),
                 "Object" => return Ok(metadata::Type::Object),
+                "Char16" => return Ok(metadata::Type::Char),
 
                 _ => {}
             }

@@ -1,0 +1,101 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Enumeration {
+            mod Pnp {
+                #[guid(0x95c66258_733b_4a8f_93a3_db078ac870c1)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PnpObject)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IPnpObject {
+                    #[get]
+                    Type: PnpObjectType;
+                    #[get]
+                    Id: String;
+                    #[get]
+                    Properties: super::super::super::Foundation::Collections::IMapView<String, Object>;
+                    fn Update(&self, updateInfo: PnpObjectUpdate);
+                }
+                #[guid(0xb3c32a3d_d168_4660_bbf3_a733b14b6e01)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PnpObject)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IPnpObjectStatics {
+                    fn CreateFromIdAsync(&self, r#type: PnpObjectType, id: String, requestedProperties: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<PnpObject>;
+                    #[Windows::Foundation::Metadata::Overload("FindAllAsync")]
+                    fn FindAllAsync(&self, r#type: PnpObjectType, requestedProperties: super::super::super::Foundation::Collections::IIterable<String>) -> super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>;
+                    #[Windows::Foundation::Metadata::Overload("FindAllAsyncAqsFilter")]
+                    fn FindAllAsync(&self, r#type: PnpObjectType, requestedProperties: super::super::super::Foundation::Collections::IIterable<String>, aqsFilter: String) -> super::super::super::Foundation::IAsyncOperation<PnpObjectCollection>;
+                    #[Windows::Foundation::Metadata::Overload("CreateWatcher")]
+                    fn CreateWatcher(&self, r#type: PnpObjectType, requestedProperties: super::super::super::Foundation::Collections::IIterable<String>) -> PnpObjectWatcher;
+                    #[Windows::Foundation::Metadata::Overload("CreateWatcherAqsFilter")]
+                    fn CreateWatcher(&self, r#type: PnpObjectType, requestedProperties: super::super::super::Foundation::Collections::IIterable<String>, aqsFilter: String) -> PnpObjectWatcher;
+                }
+                #[guid(0x6f59e812_001e_4844_bcc6_432886856a17)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PnpObjectUpdate)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IPnpObjectUpdate {
+                    #[get]
+                    Type: PnpObjectType;
+                    #[get]
+                    Id: String;
+                    #[get]
+                    Properties: super::super::super::Foundation::Collections::IMapView<String, Object>;
+                }
+                #[guid(0x83c95ca8_4772_4a7a_aca8_e48c42a89c44)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PnpObjectWatcher)]
+                interface IPnpObjectWatcher {
+                    event Added: super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObject>;
+                    event Updated: super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObjectUpdate>;
+                    event Removed: super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, PnpObjectUpdate>;
+                    event EnumerationCompleted: super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, Object>;
+                    event Stopped: super::super::super::Foundation::TypedEventHandler<PnpObjectWatcher, Object>;
+                    #[get]
+                    Status: super::DeviceWatcherStatus;
+                    fn Start(&self);
+                    fn Stop(&self);
+                }
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::Static(IPnpObjectStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class PnpObject {
+                    IPnpObject,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                class PnpObjectCollection {
+                    super::super::super::Foundation::Collections::IVectorView<PnpObject>,
+                    super::super::super::Foundation::Collections::IIterable<PnpObject>,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum PnpObjectType {
+                    Unknown = 0,
+                    DeviceInterface = 1,
+                    DeviceContainer = 2,
+                    Device = 3,
+                    DeviceInterfaceClass = 4,
+                    AssociationEndpoint = 5,
+                    AssociationEndpointContainer = 6,
+                    AssociationEndpointService = 7,
+                    DevicePanel = 8,
+                    AssociationEndpointProtocol = 9,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                class PnpObjectUpdate {
+                    IPnpObjectUpdate,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class PnpObjectWatcher {
+                    IPnpObjectWatcher,
+                }
+            }
+        }
+    }
+}

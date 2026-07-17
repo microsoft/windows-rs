@@ -1,0 +1,69 @@
+#[winrt]
+mod Windows {
+    mod Globalization {
+        mod Fonts {
+            #[guid(0xb12e5c3a_b76d_459b_beeb_901151cd77d1)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LanguageFont)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ILanguageFont {
+                #[get]
+                FontFamily: String;
+                #[get]
+                FontWeight: super::super::UI::Text::FontWeight;
+                #[get]
+                FontStretch: super::super::UI::Text::FontStretch;
+                #[get]
+                FontStyle: super::super::UI::Text::FontStyle;
+                #[get]
+                ScaleFactor: f64;
+            }
+            #[guid(0xf33a7fc3_3a5c_4aea_b9ff_b39fb242f7f6)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LanguageFontGroup)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ILanguageFontGroup {
+                #[get]
+                UITextFont: LanguageFont;
+                #[get]
+                UIHeadingFont: LanguageFont;
+                #[get]
+                UITitleFont: LanguageFont;
+                #[get]
+                UICaptionFont: LanguageFont;
+                #[get]
+                UINotificationHeadingFont: LanguageFont;
+                #[get]
+                TraditionalDocumentFont: LanguageFont;
+                #[get]
+                ModernDocumentFont: LanguageFont;
+                #[get]
+                DocumentHeadingFont: LanguageFont;
+                #[get]
+                FixedWidthTextFont: LanguageFont;
+                #[get]
+                DocumentAlternate1Font: LanguageFont;
+                #[get]
+                DocumentAlternate2Font: LanguageFont;
+            }
+            #[guid(0xfcaeac67_4e77_49c7_b856_dde934fc735b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LanguageFontGroup)]
+            interface ILanguageFontGroupFactory {
+                fn CreateLanguageFontGroup(&self, languageTag: String) -> LanguageFontGroup;
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class LanguageFont {
+                ILanguageFont,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(ILanguageFontGroupFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            class LanguageFontGroup {
+                ILanguageFontGroup,
+            }
+        }
+    }
+}

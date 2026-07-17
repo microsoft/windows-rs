@@ -1,0 +1,165 @@
+#[winrt]
+mod Windows {
+    mod Web {
+        mod Http {
+            mod Diagnostics {
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IHttpDiagnosticProviderStatics, 65536, "Windows.Web.Http.Diagnostics.HttpDiagnosticsContract")]
+                class HttpDiagnosticProvider {
+                    IHttpDiagnosticProvider,
+                }
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class HttpDiagnosticProviderRequestResponseCompletedEventArgs {
+                    IHttpDiagnosticProviderRequestResponseCompletedEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class HttpDiagnosticProviderRequestResponseTimestamps {
+                    IHttpDiagnosticProviderRequestResponseTimestamps,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class HttpDiagnosticProviderRequestSentEventArgs {
+                    IHttpDiagnosticProviderRequestSentEventArgs,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                class HttpDiagnosticProviderResponseReceivedEventArgs {
+                    IHttpDiagnosticProviderResponseReceivedEventArgs,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                enum HttpDiagnosticRequestInitiator {
+                    ParsedElement = 0,
+                    Script = 1,
+                    Image = 2,
+                    Link = 3,
+                    Style = 4,
+                    XmlHttpRequest = 5,
+                    Media = 6,
+                    HtmlDownload = 7,
+                    Prefetch = 8,
+                    Other = 9,
+                    CrossOriginPreFlight = 10,
+                    Fetch = 11,
+                    Beacon = 12,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                class HttpDiagnosticSourceLocation {
+                    IHttpDiagnosticSourceLocation,
+                }
+                #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(131072)]
+                struct HttpDiagnosticsContract {}
+                #[guid(0xbd811501_a056_4d39_b174_833b7b03b02c)]
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpDiagnosticProvider)]
+                interface IHttpDiagnosticProvider {
+                    fn Start(&self);
+                    fn Stop(&self);
+                    event RequestSent: super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestSentEventArgs>;
+                    event ResponseReceived: super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderResponseReceivedEventArgs>;
+                    event RequestResponseCompleted: super::super::super::Foundation::TypedEventHandler<HttpDiagnosticProvider, HttpDiagnosticProviderRequestResponseCompletedEventArgs>;
+                }
+                #[guid(0x735f98ee_94f6_4532_b26e_61e1b1e4efd4)]
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpDiagnosticProviderRequestResponseCompletedEventArgs)]
+                interface IHttpDiagnosticProviderRequestResponseCompletedEventArgs {
+                    #[get]
+                    ActivityId: GUID;
+                    #[get]
+                    Timestamps: HttpDiagnosticProviderRequestResponseTimestamps;
+                    #[get]
+                    RequestedUri: super::super::super::Foundation::Uri;
+                    #[get]
+                    ProcessId: u32;
+                    #[get]
+                    ThreadId: u32;
+                    #[get]
+                    Initiator: HttpDiagnosticRequestInitiator;
+                    #[get]
+                    SourceLocations: super::super::super::Foundation::Collections::IVectorView<HttpDiagnosticSourceLocation>;
+                }
+                #[guid(0xe0afde10_55cf_4c01_91d4_a20557d849f0)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpDiagnosticProviderRequestResponseTimestamps)]
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                interface IHttpDiagnosticProviderRequestResponseTimestamps {
+                    #[get]
+                    CacheCheckedTimestamp: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[get]
+                    ConnectionInitiatedTimestamp: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[get]
+                    NameResolvedTimestamp: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[get]
+                    SslNegotiatedTimestamp: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[get]
+                    ConnectionCompletedTimestamp: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[get]
+                    RequestSentTimestamp: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[get]
+                    RequestCompletedTimestamp: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[get]
+                    ResponseReceivedTimestamp: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[get]
+                    ResponseCompletedTimestamp: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                }
+                #[guid(0x3f5196d0_4c1f_4ebe_a57a_06930771c50d)]
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpDiagnosticProviderRequestSentEventArgs)]
+                interface IHttpDiagnosticProviderRequestSentEventArgs {
+                    #[get]
+                    Timestamp: super::super::super::Foundation::DateTime;
+                    #[get]
+                    ActivityId: GUID;
+                    #[get]
+                    Message: super::HttpRequestMessage;
+                    #[get]
+                    ProcessId: u32;
+                    #[get]
+                    ThreadId: u32;
+                    #[get]
+                    Initiator: HttpDiagnosticRequestInitiator;
+                    #[get]
+                    SourceLocations: super::super::super::Foundation::Collections::IVectorView<HttpDiagnosticSourceLocation>;
+                }
+                #[guid(0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0)]
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpDiagnosticProviderResponseReceivedEventArgs)]
+                interface IHttpDiagnosticProviderResponseReceivedEventArgs {
+                    #[get]
+                    Timestamp: super::super::super::Foundation::DateTime;
+                    #[get]
+                    ActivityId: GUID;
+                    #[get]
+                    Message: super::HttpResponseMessage;
+                }
+                #[guid(0x5b824ec1_6a6c_47cc_afec_1e86bc26053b)]
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpDiagnosticProvider)]
+                interface IHttpDiagnosticProviderStatics {
+                    fn CreateFromProcessDiagnosticInfo(&self, processDiagnosticInfo: super::super::super::System::Diagnostics::ProcessDiagnosticInfo) -> HttpDiagnosticProvider;
+                }
+                #[guid(0x54a9d260_8860_423f_b6fa_d77716f647a7)]
+                #[Windows::Foundation::Metadata::ContractVersion(HttpDiagnosticsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpDiagnosticSourceLocation)]
+                interface IHttpDiagnosticSourceLocation {
+                    #[get]
+                    SourceUri: super::super::super::Foundation::Uri;
+                    #[get]
+                    LineNumber: u64;
+                    #[get]
+                    ColumnNumber: u64;
+                }
+            }
+        }
+    }
+}

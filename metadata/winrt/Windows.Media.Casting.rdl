@@ -1,0 +1,178 @@
+#[winrt]
+mod Windows {
+    mod Media {
+        mod Casting {
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class CastingConnection {
+                ICastingConnection,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class CastingConnectionErrorOccurredEventArgs {
+                ICastingConnectionErrorOccurredEventArgs,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum CastingConnectionErrorStatus {
+                Succeeded = 0,
+                DeviceDidNotRespond = 1,
+                DeviceError = 2,
+                DeviceLocked = 3,
+                ProtectedPlaybackFailed = 4,
+                InvalidCastingSource = 5,
+                Unknown = 6,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum CastingConnectionState {
+                Disconnected = 0,
+                Connected = 1,
+                Rendering = 2,
+                Disconnecting = 3,
+                Connecting = 4,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Static(ICastingDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class CastingDevice {
+                ICastingDevice,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class CastingDevicePicker {
+                ICastingDevicePicker,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class CastingDevicePickerFilter {
+                ICastingDevicePickerFilter,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            class CastingDeviceSelectedEventArgs {
+                ICastingDeviceSelectedEventArgs,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum CastingPlaybackTypes {
+                None = 0,
+                Audio = 1,
+                Video = 2,
+                Picture = 4,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class CastingSource {
+                ICastingSource,
+            }
+            #[guid(0xcd951653_c2f1_4498_8b78_5fb4cd3640dd)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingConnection)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICastingConnection: super::super::Foundation::IClosable {
+                #[get]
+                State: CastingConnectionState;
+                #[get]
+                Device: CastingDevice;
+                Source: CastingSource;
+                event StateChanged: super::super::Foundation::TypedEventHandler<CastingConnection, Object>;
+                event ErrorOccurred: super::super::Foundation::TypedEventHandler<CastingConnection, CastingConnectionErrorOccurredEventArgs>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestStartCastingAsync(&self, value: CastingSource) -> super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DisconnectAsync(&self) -> super::super::Foundation::IAsyncOperation<CastingConnectionErrorStatus>;
+            }
+            #[guid(0xa7fb3c69_8719_4f00_81fb_961863c79a32)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingConnectionErrorOccurredEventArgs)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICastingConnectionErrorOccurredEventArgs {
+                #[get]
+                ErrorStatus: CastingConnectionErrorStatus;
+                #[get]
+                Message: String;
+            }
+            #[guid(0xde721c83_4a43_4ad1_a6d2_2492a796c3f2)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingDevice)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICastingDevice {
+                #[get]
+                Id: String;
+                #[get]
+                FriendlyName: String;
+                #[get]
+                Icon: super::super::Storage::Streams::IRandomAccessStreamWithContentType;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetSupportedCastingPlaybackTypesAsync(&self) -> super::super::Foundation::IAsyncOperation<CastingPlaybackTypes>;
+                fn CreateCastingConnection(&self) -> CastingConnection;
+            }
+            #[guid(0xdcd39924_0591_49be_aacb_4b82ee756a95)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingDevicePicker)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICastingDevicePicker {
+                #[get]
+                Filter: CastingDevicePickerFilter;
+                #[get]
+                Appearance: super::super::Devices::Enumeration::DevicePickerAppearance;
+                event CastingDeviceSelected: super::super::Foundation::TypedEventHandler<CastingDevicePicker, CastingDeviceSelectedEventArgs>;
+                event CastingDevicePickerDismissed: super::super::Foundation::TypedEventHandler<CastingDevicePicker, Object>;
+                #[Windows::Foundation::Metadata::Overload("Show")]
+                fn Show(&self, selection: super::super::Foundation::Rect);
+                #[Windows::Foundation::Metadata::Overload("ShowWithPlacement")]
+                fn Show(&self, selection: super::super::Foundation::Rect, preferredPlacement: super::super::UI::Popups::Placement);
+                fn Hide(&self);
+            }
+            #[guid(0xbe8c619c_b563_4354_ae33_9fdaad8c6291)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingDevicePickerFilter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface ICastingDevicePickerFilter {
+                SupportsAudio: bool;
+                SupportsVideo: bool;
+                SupportsPictures: bool;
+                #[get]
+                SupportedCastingSources: super::super::Foundation::Collections::IVector<CastingSource>;
+            }
+            #[guid(0xdc439e86_dd57_4d0d_9400_af45e4fb3663)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingDeviceSelectedEventArgs)]
+            interface ICastingDeviceSelectedEventArgs {
+                #[get]
+                SelectedCastingDevice: CastingDevice;
+            }
+            #[guid(0xe7d958d7_4d13_4237_a365_4c4f6a4cfd2f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingDevice)]
+            interface ICastingDeviceStatics {
+                fn GetDeviceSelector(&self, r#type: CastingPlaybackTypes) -> String;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetDeviceSelectorFromCastingSourceAsync(&self, castingSource: CastingSource) -> super::super::Foundation::IAsyncOperation<String>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, value: String) -> super::super::Foundation::IAsyncOperation<CastingDevice>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn DeviceInfoSupportsCastingAsync(&self, device: super::super::Devices::Enumeration::DeviceInformation) -> super::super::Foundation::IAsyncOperation<bool>;
+            }
+            #[guid(0xf429ea72_3467_47e6_a027_522923e9d727)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CastingSource)]
+            interface ICastingSource {
+                PreferredSourceUri: super::super::Foundation::Uri;
+            }
+        }
+    }
+}

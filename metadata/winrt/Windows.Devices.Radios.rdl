@@ -1,0 +1,66 @@
+#[winrt]
+mod Windows {
+    mod Devices {
+        mod Radios {
+            #[guid(0x252118df_b33e_416a_875f_1cf38ae2d83e)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Radio)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IRadio {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SetStateAsync(&self, value: RadioState) -> super::super::Foundation::IAsyncOperation<RadioAccessStatus>;
+                event StateChanged: super::super::Foundation::TypedEventHandler<Radio, Object>;
+                #[get]
+                State: RadioState;
+                #[get]
+                Name: String;
+                #[get]
+                Kind: RadioKind;
+            }
+            #[guid(0x5fb6a12e_67cb_46ae_aae9_65919f86eff4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Radio)]
+            interface IRadioStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetRadiosAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Radio>>;
+                fn GetDeviceSelector(&self) -> String;
+                #[Windows::Foundation::Metadata::Overload("FromIdAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Radio>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<RadioAccessStatus>;
+            }
+            #[Windows::Foundation::Metadata::Static(IRadioStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class Radio {
+                IRadio,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum RadioAccessStatus {
+                Unspecified = 0,
+                Allowed = 1,
+                DeniedByUser = 2,
+                DeniedBySystem = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum RadioKind {
+                Other = 0,
+                WiFi = 1,
+                MobileBroadband = 2,
+                Bluetooth = 3,
+                FM = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum RadioState {
+                Unknown = 0,
+                On = 1,
+                Off = 2,
+                Disabled = 3,
+            }
+        }
+    }
+}

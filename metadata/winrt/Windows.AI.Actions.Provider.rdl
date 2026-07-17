@@ -1,0 +1,19 @@
+#[winrt]
+mod Windows {
+    mod AI {
+        mod Actions {
+            mod Provider {
+                #[guid(0xa3fc3c51_a8c6_52c8_ad77_37bf3e2b565c)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 131072)]
+                interface IActionFeedbackHandler {
+                    fn ProcessFeedbackAsync(&self, context: super::ActionInvocationContext, feedback: super::ActionFeedback) -> super::super::super::Foundation::IAsyncAction;
+                }
+                #[guid(0x62906c47_3d07_55f1_aefa_1522505afbbe)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::ActionsContract, 65536)]
+                interface IActionProvider {
+                    fn InvokeAsync(&self, context: super::ActionInvocationContext) -> super::super::super::Foundation::IAsyncAction;
+                }
+            }
+        }
+    }
+}

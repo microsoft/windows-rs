@@ -4117,17 +4117,17 @@ impl MobileBroadbandDeviceServiceDataSession {
     pub fn CloseSession(&self) -> windows_core::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CloseSession)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub fn DataReceived<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn DataReceived<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<MobileBroadbandDeviceServiceDataReceivedEventArgs>) + Send + 'static,
     {
-        let eventhandler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandDeviceServiceDataReceivedEventArgs>>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <super::super::Foundation::TypedEventHandler<Self, MobileBroadbandDeviceServiceDataReceivedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).DataReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).DataReceived)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveDataReceived))
         }
     }

@@ -1,0 +1,857 @@
+#[winrt]
+mod Windows {
+    mod AI {
+        mod MachineLearning {
+            #[guid(0x365585a5_171a_4a2a_985f_265159d3895a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageFeatureDescriptor)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface IImageFeatureDescriptor {
+                #[get]
+                BitmapPixelFormat: super::super::Graphics::Imaging::BitmapPixelFormat;
+                #[get]
+                BitmapAlphaMode: super::super::Graphics::Imaging::BitmapAlphaMode;
+                #[get]
+                Width: u32;
+                #[get]
+                Height: u32;
+            }
+            #[guid(0x2b27cca7_d533_5862_bb98_1611b155b0e1)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageFeatureDescriptor)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 327680)]
+            interface IImageFeatureDescriptor2 {
+                #[get]
+                PixelRange: LearningModelPixelRange;
+            }
+            #[guid(0xf0414fd9_c9aa_4405_b7fb_94f87c8a3037)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageFeatureValue)]
+            interface IImageFeatureValue {
+                #[get]
+                VideoFrame: super::super::Media::VideoFrame;
+            }
+            #[guid(0x1bc317fd_23cb_4610_b085_c8e1c87ebaa0)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageFeatureValue)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface IImageFeatureValueStatics {
+                fn CreateFromVideoFrame(&self, image: super::super::Media::VideoFrame) -> ImageFeatureValue;
+            }
+            #[guid(0x5b8e4920_489f_4e86_9128_265a327b78fa)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModel)]
+            interface ILearningModel {
+                #[get]
+                Author: String;
+                #[get]
+                Name: String;
+                #[get]
+                Domain: String;
+                #[get]
+                Description: String;
+                #[get]
+                Version: i64;
+                #[get]
+                Metadata: super::super::Foundation::Collections::IMapView<String, String>;
+                #[get]
+                InputFeatures: super::super::Foundation::Collections::IVectorView<ILearningModelFeatureDescriptor>;
+                #[get]
+                OutputFeatures: super::super::Foundation::Collections::IVectorView<ILearningModelFeatureDescriptor>;
+            }
+            #[guid(0xea312f20_168f_4f8c_94fe_2e7ac31b4aa8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelBinding)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ILearningModelBinding {
+                #[Windows::Foundation::Metadata::Overload("Bind")]
+                fn Bind(&self, name: String, value: Object);
+                #[Windows::Foundation::Metadata::Overload("BindWithProperties")]
+                fn Bind(&self, name: String, value: Object, props: super::super::Foundation::Collections::IPropertySet);
+                fn Clear(&self);
+            }
+            #[guid(0xc95f7a7a_e788_475e_8917_23aa381faf0b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelBinding)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ILearningModelBindingFactory {
+                fn CreateFromSession(&self, session: LearningModelSession) -> LearningModelBinding;
+            }
+            #[guid(0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelDevice)]
+            interface ILearningModelDevice {
+                #[get]
+                AdapterId: super::super::Graphics::DisplayAdapterId;
+                #[get]
+                Direct3D11Device: super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice;
+            }
+            #[guid(0x9cffd74d_b1e5_4f20_80ad_0a56690db06b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelDevice)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ILearningModelDeviceFactory {
+                fn Create(&self, deviceKind: LearningModelDeviceKind) -> LearningModelDevice;
+            }
+            #[guid(0x49f32107_a8bf_42bb_92c7_10b12dc5d21f)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelDevice)]
+            interface ILearningModelDeviceStatics {
+                fn CreateFromDirect3D11Device(&self, device: super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice) -> LearningModelDevice;
+            }
+            #[guid(0xb2f9bfcd_960e_49c0_8593_eb190ae3eee2)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelEvaluationResult)]
+            interface ILearningModelEvaluationResult {
+                #[get]
+                CorrelationId: String;
+                #[get]
+                ErrorStatus: i32;
+                #[get]
+                Succeeded: bool;
+                #[get]
+                Outputs: super::super::Foundation::Collections::IMapView<String, Object>;
+            }
+            #[guid(0xbc08cf7c_6ed0_4004_97ba_b9a2eecd2b4f)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ILearningModelFeatureDescriptor {
+                #[get]
+                Name: String;
+                #[get]
+                Description: String;
+                #[get]
+                Kind: LearningModelFeatureKind;
+                #[get]
+                IsRequired: bool;
+            }
+            #[guid(0xf51005db_4085_4dfe_9fed_95eb0c0cf75c)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ILearningModelFeatureValue {
+                #[get]
+                Kind: LearningModelFeatureKind;
+            }
+            #[guid(0x2a222e5d_afb1_47ed_bfad_b5b3a459ec04)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ILearningModelOperatorProvider {}
+            #[guid(0x8e58f8f6_b787_4c11_90f0_7129aeca74a9)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelSession)]
+            interface ILearningModelSession {
+                #[get]
+                Model: LearningModel;
+                #[get]
+                Device: LearningModelDevice;
+                #[get]
+                EvaluationProperties: super::super::Foundation::Collections::IPropertySet;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn EvaluateAsync(&self, bindings: LearningModelBinding, correlationId: String) -> super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn EvaluateFeaturesAsync(&self, features: super::super::Foundation::Collections::IMap<String, Object>, correlationId: String) -> super::super::Foundation::IAsyncOperation<LearningModelEvaluationResult>;
+                fn Evaluate(&self, bindings: LearningModelBinding, correlationId: String) -> LearningModelEvaluationResult;
+                fn EvaluateFeatures(&self, features: super::super::Foundation::Collections::IMap<String, Object>, correlationId: String) -> LearningModelEvaluationResult;
+            }
+            #[guid(0x0f6b881d_1c9b_47b6_bfe0_f1cf62a67579)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelSession)]
+            interface ILearningModelSessionFactory {
+                fn CreateFromModel(&self, model: LearningModel) -> LearningModelSession;
+                fn CreateFromModelOnDevice(&self, model: LearningModel, deviceToRunOn: LearningModelDevice) -> LearningModelSession;
+            }
+            #[guid(0x4e5c88bf_0a1f_5fec_ade0_2fd91e4ef29b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelSession)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            interface ILearningModelSessionFactory2 {
+                fn CreateFromModelOnDeviceWithSessionOptions(&self, model: LearningModel, deviceToRunOn: LearningModelDevice, learningModelSessionOptions: LearningModelSessionOptions) -> LearningModelSession;
+            }
+            #[guid(0xb8f63fa1_134d_5133_8cff_3a5c3c263beb)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelSessionOptions)]
+            interface ILearningModelSessionOptions {
+                BatchSizeOverride: u32;
+            }
+            #[guid(0x6fcd1dc4_175f_5bd2_8de5_2f2006a25adf)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelSessionOptions)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 196608)]
+            interface ILearningModelSessionOptions2 {
+                CloseModelOnSessionCreation: bool;
+            }
+            #[guid(0x58e15cee_d8c2_56fc_92e8_76d751081086)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModelSessionOptions)]
+            interface ILearningModelSessionOptions3 {
+                fn OverrideNamedDimension(&self, name: String, dimension: u32);
+            }
+            #[guid(0xe3b977e8_6952_4e47_8ef4_1f7f07897c6d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LearningModel)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ILearningModelStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("LoadFromStorageFileAsync")]
+                fn LoadFromStorageFileAsync(&self, modelFile: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<LearningModel>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                #[Windows::Foundation::Metadata::Overload("LoadFromStreamAsync")]
+                fn LoadFromStreamAsync(&self, modelStream: super::super::Storage::Streams::IRandomAccessStreamReference) -> super::super::Foundation::IAsyncOperation<LearningModel>;
+                #[Windows::Foundation::Metadata::Overload("LoadFromFilePath")]
+                fn LoadFromFilePath(&self, filePath: String) -> LearningModel;
+                #[Windows::Foundation::Metadata::Overload("LoadFromStream")]
+                fn LoadFromStream(&self, modelStream: super::super::Storage::Streams::IRandomAccessStreamReference) -> LearningModel;
+                #[Windows::Foundation::Metadata::Overload("LoadFromStorageFileWithOperatorProviderAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn LoadFromStorageFileAsync(&self, modelFile: super::super::Storage::IStorageFile, operatorProvider: ILearningModelOperatorProvider) -> super::super::Foundation::IAsyncOperation<LearningModel>;
+                #[Windows::Foundation::Metadata::Overload("LoadFromStreamWithOperatorProviderAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn LoadFromStreamAsync(&self, modelStream: super::super::Storage::Streams::IRandomAccessStreamReference, operatorProvider: ILearningModelOperatorProvider) -> super::super::Foundation::IAsyncOperation<LearningModel>;
+                #[Windows::Foundation::Metadata::Overload("LoadFromFilePathWithOperatorProvider")]
+                fn LoadFromFilePath(&self, filePath: String, operatorProvider: ILearningModelOperatorProvider) -> LearningModel;
+                #[Windows::Foundation::Metadata::Overload("LoadFromStreamWithOperatorProvider")]
+                fn LoadFromStream(&self, modelStream: super::super::Storage::Streams::IRandomAccessStreamReference, operatorProvider: ILearningModelOperatorProvider) -> LearningModel;
+            }
+            #[guid(0x530424bd_a257_436d_9e60_c2981f7cc5c4)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MapFeatureDescriptor)]
+            interface IMapFeatureDescriptor {
+                #[get]
+                KeyKind: TensorKind;
+                #[get]
+                ValueDescriptor: ILearningModelFeatureDescriptor;
+            }
+            #[guid(0x84f6945a_562b_4d62_a851_739aced96668)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SequenceFeatureDescriptor)]
+            interface ISequenceFeatureDescriptor {
+                #[get]
+                ElementDescriptor: ILearningModelFeatureDescriptor;
+            }
+            #[guid(0x05489593_a305_4a25_ad09_440119b4b7f6)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensor: ILearningModelFeatureValue {
+                #[get]
+                TensorKind: TensorKind;
+                #[get]
+                Shape: super::super::Foundation::Collections::IVectorView<i64>;
+            }
+            #[guid(0x50f311ed_29e9_4a5c_a44d_8fc512584eed)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorBoolean)]
+            interface ITensorBoolean {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<bool>;
+            }
+            #[guid(0x2796862c_2357_49a7_b476_d0aa3dfe6866)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorBoolean)]
+            interface ITensorBooleanStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorBoolean;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorBoolean;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [bool]) -> TensorBoolean;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<bool>) -> TensorBoolean;
+            }
+            #[guid(0xa3a4a501_6a2d_52d7_b04b_c435baee0115)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorBoolean)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            interface ITensorBooleanStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [bool]) -> TensorBoolean;
+                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorBoolean;
+            }
+            #[guid(0x91e41252_7a8f_4f0e_a28f_9637ffc8a3d0)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorDouble)]
+            interface ITensorDouble {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<f64>;
+            }
+            #[guid(0xa86693c5_9538_44e7_a3ca_5df374a5a70c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorDouble)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorDoubleStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorDouble;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorDouble;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [f64]) -> TensorDouble;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<f64>) -> TensorDouble;
+            }
+            #[guid(0x93a570de_5e9a_5094_85c8_592c655e68ac)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorDouble)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            interface ITensorDoubleStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [f64]) -> TensorDouble;
+                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorDouble;
+            }
+            #[guid(0x74455c80_946a_4310_a19c_ee0af028fce4)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorFeatureDescriptor)]
+            interface ITensorFeatureDescriptor {
+                #[get]
+                TensorKind: TensorKind;
+                #[get]
+                Shape: super::super::Foundation::Collections::IVectorView<i64>;
+            }
+            #[guid(0xf2282d82_aa02_42c8_a0c8_df1efc9676e1)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorFloat)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorFloat {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<f32>;
+            }
+            #[guid(0x0ab994fc_5b89_4c3c_b5e4_5282a5316c0a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorFloat16Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorFloat16Bit {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<f32>;
+            }
+            #[guid(0xa52db6f5_318a_44d4_820b_0cdc7054a84a)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorFloat16Bit)]
+            interface ITensorFloat16BitStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorFloat16Bit;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorFloat16Bit;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [f32]) -> TensorFloat16Bit;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<f32>) -> TensorFloat16Bit;
+            }
+            #[guid(0x68545726_2dc7_51bf_b470_0b344cc2a1bc)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorFloat16Bit)]
+            interface ITensorFloat16BitStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [f32]) -> TensorFloat16Bit;
+                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorFloat16Bit;
+            }
+            #[guid(0xdbcd395b_3ba3_452f_b10d_3c135e573fa9)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorFloat)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorFloatStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorFloat;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorFloat;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [f32]) -> TensorFloat;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<f32>) -> TensorFloat;
+            }
+            #[guid(0x24610bc1_5e44_5713_b281_8f4ad4d555e8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorFloat)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            interface ITensorFloatStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [f32]) -> TensorFloat;
+                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorFloat;
+            }
+            #[guid(0x98a32d39_e6d6_44af_8afa_baebc44dc020)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt16Bit)]
+            interface ITensorInt16Bit {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<i16>;
+            }
+            #[guid(0x98646293_266e_4b1a_821f_e60d70898b91)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt16Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorInt16BitStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorInt16Bit;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt16Bit;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [i16]) -> TensorInt16Bit;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<i16>) -> TensorInt16Bit;
+            }
+            #[guid(0x0cd70cf4_696c_5e5f_95d8_5ebf9670148b)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt16Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            interface ITensorInt16BitStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [i16]) -> TensorInt16Bit;
+                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorInt16Bit;
+            }
+            #[guid(0x2c0c28d3_207c_4486_a7d2_884522c5e589)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt32Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorInt32Bit {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<i32>;
+            }
+            #[guid(0x6539864b_52fa_4e35_907c_834cac417b50)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt32Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorInt32BitStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorInt32Bit;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt32Bit;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [i32]) -> TensorInt32Bit;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<i32>) -> TensorInt32Bit;
+            }
+            #[guid(0x7c4b079a_e956_5ce0_a3bd_157d9d79b5ec)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt32Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            interface ITensorInt32BitStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [i32]) -> TensorInt32Bit;
+                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorInt32Bit;
+            }
+            #[guid(0x499665ba_1fa2_45ad_af25_a0bd9bda4c87)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt64Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorInt64Bit {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<i64>;
+            }
+            #[guid(0x9648ad9d_1198_4d74_9517_783ab62b9cc2)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt64Bit)]
+            interface ITensorInt64BitStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorInt64Bit;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt64Bit;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [i64]) -> TensorInt64Bit;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt64Bit;
+            }
+            #[guid(0x6d3d9dcb_ff40_5ec2_89fe_084e2b6bc6db)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt64Bit)]
+            interface ITensorInt64BitStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [i64]) -> TensorInt64Bit;
+                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorInt64Bit;
+            }
+            #[guid(0xcddd97c5_ffd8_4fef_aefb_30e1a485b2ee)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt8Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorInt8Bit {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<u8>;
+            }
+            #[guid(0xb1a12284_095c_4c76_a661_ac4cee1f3e8b)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt8Bit)]
+            interface ITensorInt8BitStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorInt8Bit;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorInt8Bit;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [u8]) -> TensorInt8Bit;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<u8>) -> TensorInt8Bit;
+            }
+            #[guid(0xc0d59637_c468_56fb_9535_c052bdb93dc0)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorInt8Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            interface ITensorInt8BitStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [u8]) -> TensorInt8Bit;
+                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorInt8Bit;
+            }
+            #[guid(0x582335c8_bdb1_4610_bc75_35e9cbf009b7)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorString)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorString {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<String>;
+            }
+            #[guid(0x83623324_cf26_4f17_a2d4_20ef8d097d53)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorString)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorStringStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorString;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorString;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [String]) -> TensorString;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<String>) -> TensorString;
+            }
+            #[guid(0x9e355ed0_c8e2_5254_9137_0193a3668fd8)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorString)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            interface ITensorStringStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [String]) -> TensorString;
+            }
+            #[guid(0x68140f4b_23c0_42f3_81f6_a891c011bc3f)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt16Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorUInt16Bit {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<u16>;
+            }
+            #[guid(0x5df745dd_028a_481a_a27c_c7e6435e52dd)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt16Bit)]
+            interface ITensorUInt16BitStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorUInt16Bit;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorUInt16Bit;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [u16]) -> TensorUInt16Bit;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<u16>) -> TensorUInt16Bit;
+            }
+            #[guid(0x8af40c64_d69f_5315_9348_490877bbd642)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt16Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            interface ITensorUInt16BitStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [u16]) -> TensorUInt16Bit;
+                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorUInt16Bit;
+            }
+            #[guid(0xd8c9c2ff_7511_45a3_bfac_c38f370d2237)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt32Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorUInt32Bit {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<u32>;
+            }
+            #[guid(0x417c3837_e773_4378_8e7f_0cc33dbea697)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt32Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorUInt32BitStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorUInt32Bit;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorUInt32Bit;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [u32]) -> TensorUInt32Bit;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<u32>) -> TensorUInt32Bit;
+            }
+            #[guid(0xef1a1f1c_314e_569d_b496_5c8447d20cd2)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt32Bit)]
+            interface ITensorUInt32BitStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [u32]) -> TensorUInt32Bit;
+                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorUInt32Bit;
+            }
+            #[guid(0x2e70ffad_04bf_4825_839a_82baef8c7886)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt64Bit)]
+            interface ITensorUInt64Bit {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<u64>;
+            }
+            #[guid(0x7a7e20eb_242f_47cb_a9c6_f602ecfbfee4)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt64Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorUInt64BitStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorUInt64Bit;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorUInt64Bit;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [u64]) -> TensorUInt64Bit;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<u64>) -> TensorUInt64Bit;
+            }
+            #[guid(0x085a687d_67e1_5b1e_b232_4fabe9ca20b3)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt64Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            interface ITensorUInt64BitStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [u64]) -> TensorUInt64Bit;
+                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorUInt64Bit;
+            }
+            #[guid(0x58e1ae27_622b_48e3_be22_d867aed1daac)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt8Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorUInt8Bit {
+                fn GetAsVectorView(&self) -> super::super::Foundation::Collections::IVectorView<u8>;
+            }
+            #[guid(0x05f67583_bc24_4220_8a41_2dcd8c5ed33c)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt8Bit)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            interface ITensorUInt8BitStatics {
+                #[Windows::Foundation::Metadata::Overload("Create")]
+                fn Create(&self) -> TensorUInt8Bit;
+                #[Windows::Foundation::Metadata::Overload("Create2")]
+                fn Create(&self, shape: super::super::Foundation::Collections::IIterable<i64>) -> TensorUInt8Bit;
+                fn CreateFromArray(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: [u8]) -> TensorUInt8Bit;
+                fn CreateFromIterable(&self, shape: super::super::Foundation::Collections::IIterable<i64>, data: super::super::Foundation::Collections::IIterable<u8>) -> TensorUInt8Bit;
+            }
+            #[guid(0x2ba042d6_373e_5a3a_a2fc_a6c41bd52789)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TensorUInt8Bit)]
+            interface ITensorUInt8BitStatics2 {
+                fn CreateFromShapeArrayAndDataArray(&self, shape: [i64], data: [u8]) -> TensorUInt8Bit;
+                fn CreateFromBuffer(&self, shape: [i64], buffer: super::super::Storage::Streams::IBuffer) -> TensorUInt8Bit;
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            class ImageFeatureDescriptor {
+                IImageFeatureDescriptor,
+                IImageFeatureDescriptor2,
+                ILearningModelFeatureDescriptor,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(IImageFeatureValueStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            class ImageFeatureValue {
+                IImageFeatureValue,
+                ILearningModelFeatureValue,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ILearningModelStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class LearningModel {
+                ILearningModel,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::Activatable(ILearningModelBindingFactory, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            class LearningModelBinding {
+                ILearningModelBinding,
+                super::super::Foundation::Collections::IMapView<String, Object>,
+                super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, Object>>,
+            }
+            #[Windows::Foundation::Metadata::Static(ILearningModelDeviceStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(ILearningModelDeviceFactory, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            class LearningModelDevice {
+                ILearningModelDevice,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            enum LearningModelDeviceKind {
+                Default = 0,
+                Cpu = 1,
+                DirectX = 2,
+                DirectXHighPerformance = 3,
+                DirectXMinPower = 4,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            class LearningModelEvaluationResult {
+                ILearningModelEvaluationResult,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            enum LearningModelFeatureKind {
+                Tensor = 0,
+                Sequence = 1,
+                Map = 2,
+                Image = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 327680)]
+            enum LearningModelPixelRange {
+                ZeroTo255 = 0,
+                ZeroToOne = 1,
+                MinusOneToOne = 2,
+            }
+            #[Windows::Foundation::Metadata::Activatable(ILearningModelSessionFactory2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(ILearningModelSessionFactory, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class LearningModelSession {
+                ILearningModelSession,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Activatable(131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class LearningModelSessionOptions {
+                ILearningModelSessionOptions,
+                ILearningModelSessionOptions2,
+                ILearningModelSessionOptions3,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(327680)]
+            struct MachineLearningContract {}
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class MapFeatureDescriptor {
+                IMapFeatureDescriptor,
+                ILearningModelFeatureDescriptor,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            class SequenceFeatureDescriptor {
+                ISequenceFeatureDescriptor,
+                ILearningModelFeatureDescriptor,
+            }
+            #[Windows::Foundation::Metadata::Static(ITensorBooleanStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Static(ITensorBooleanStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class TensorBoolean {
+                ITensorBoolean,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Static(ITensorDoubleStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::Static(ITensorDoubleStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            class TensorDouble {
+                ITensorDouble,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class TensorFeatureDescriptor {
+                ITensorFeatureDescriptor,
+                ILearningModelFeatureDescriptor,
+            }
+            #[Windows::Foundation::Metadata::Static(ITensorFloatStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::Static(ITensorFloatStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class TensorFloat {
+                ITensorFloat,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::Static(ITensorFloat16BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(ITensorFloat16BitStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class TensorFloat16Bit {
+                ITensorFloat16Bit,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::Static(ITensorInt16BitStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(ITensorInt16BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class TensorInt16Bit {
+                ITensorInt16Bit,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ITensorInt32BitStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Static(ITensorInt32BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            class TensorInt32Bit {
+                ITensorInt32Bit,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(ITensorInt64BitStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(ITensorInt64BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            class TensorInt64Bit {
+                ITensorInt64Bit,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(ITensorInt8BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Static(ITensorInt8BitStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class TensorInt8Bit {
+                ITensorInt8Bit,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            enum TensorKind {
+                Undefined = 0,
+                Float = 1,
+                UInt8 = 2,
+                Int8 = 3,
+                UInt16 = 4,
+                Int16 = 5,
+                Int32 = 6,
+                Int64 = 7,
+                String = 8,
+                Boolean = 9,
+                Float16 = 10,
+                Double = 11,
+                UInt32 = 12,
+                UInt64 = 13,
+                Complex64 = 14,
+                Complex128 = 15,
+            }
+            #[Windows::Foundation::Metadata::Static(ITensorStringStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(ITensorStringStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            class TensorString {
+                ITensorString,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::Static(ITensorUInt16BitStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Static(ITensorUInt16BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class TensorUInt16Bit {
+                ITensorUInt16Bit,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::Static(ITensorUInt32BitStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ITensorUInt32BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            class TensorUInt32Bit {
+                ITensorUInt32Bit,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Static(ITensorUInt64BitStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::Static(ITensorUInt64BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class TensorUInt64Bit {
+                ITensorUInt64Bit,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::Static(ITensorUInt8BitStatics2, 131072, "Windows.AI.MachineLearning.MachineLearningContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(MachineLearningContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(ITensorUInt8BitStatics, 65536, "Windows.AI.MachineLearning.MachineLearningContract")]
+            class TensorUInt8Bit {
+                ITensorUInt8Bit,
+                ITensor,
+                ILearningModelFeatureValue,
+                super::super::Foundation::IMemoryBuffer,
+                super::super::Foundation::IClosable,
+            }
+        }
+    }
+}

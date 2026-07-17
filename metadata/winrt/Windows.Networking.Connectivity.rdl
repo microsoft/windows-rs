@@ -1,0 +1,759 @@
+#[winrt]
+mod Windows {
+    mod Networking {
+        mod Connectivity {
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class AttributedNetworkUsage {
+                IAttributedNetworkUsage,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum CellularApnAuthenticationType {
+                None = 0,
+                Pap = 1,
+                Chap = 2,
+                Mschapv2 = 3,
+            }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class CellularApnContext {
+                ICellularApnContext,
+                ICellularApnContext2,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ConnectionCost {
+                IConnectionCost,
+                IConnectionCost2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class ConnectionProfile {
+                IConnectionProfile,
+                IConnectionProfile2,
+                IConnectionProfile3,
+                IConnectionProfile4,
+                IConnectionProfile5,
+                IConnectionProfile6,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            enum ConnectionProfileDeleteStatus {
+                Success = 0,
+                DeniedByUser = 1,
+                DeniedBySystem = 2,
+                UnknownError = 3,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ConnectionProfileFilter {
+                IConnectionProfileFilter,
+                IConnectionProfileFilter2,
+                IConnectionProfileFilter3,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ConnectionSession {
+                IConnectionSession,
+                super::super::Foundation::IClosable,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class ConnectivityInterval {
+                IConnectivityInterval,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::Static(IConnectivityManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class ConnectivityManager {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class DataPlanStatus {
+                IDataPlanStatus,
+            }
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class DataPlanUsage {
+                IDataPlanUsage,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Deprecated("DataUsage may be altered or unavailable for releases after Windows 8.1. Instead, use NetworkUsage.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class DataUsage {
+                IDataUsage,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum DataUsageGranularity {
+                PerMinute = 0,
+                PerHour = 1,
+                PerDay = 2,
+                Total = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            enum DomainAuthenticationKind {
+                None = 0,
+                Ldap = 1,
+                Tls = 2,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum DomainConnectivityLevel {
+                None = 0,
+                Unauthenticated = 1,
+                Authenticated = 2,
+            }
+            #[guid(0xf769b039_eca2_45eb_ade1_b0368b756c49)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AttributedNetworkUsage)]
+            interface IAttributedNetworkUsage {
+                #[get]
+                BytesSent: u64;
+                #[get]
+                BytesReceived: u64;
+                #[get]
+                AttributionId: String;
+                #[get]
+                AttributionName: String;
+                #[get]
+                AttributionThumbnail: super::super::Storage::Streams::IRandomAccessStreamReference;
+            }
+            #[guid(0x6fa529f4_effd_4542_9ab2_705bbf94943a)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CellularApnContext)]
+            interface ICellularApnContext {
+                ProviderId: String;
+                AccessPointName: String;
+                UserName: String;
+                Password: String;
+                IsCompressionEnabled: bool;
+                AuthenticationType: CellularApnAuthenticationType;
+            }
+            #[guid(0x76b0eb1a_ac49_4350_b1e5_dc4763bc69c7)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CellularApnContext)]
+            interface ICellularApnContext2 {
+                ProfileName: String;
+            }
+            #[guid(0xbad7d829_3416_4b10_a202_bac0b075bdae)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionCost)]
+            interface IConnectionCost {
+                #[get]
+                NetworkCostType: NetworkCostType;
+                #[get]
+                Roaming: bool;
+                #[get]
+                OverDataLimit: bool;
+                #[get]
+                ApproachingDataLimit: bool;
+            }
+            #[guid(0x8e113a05_e209_4549_bb25_5e0db691cb05)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionCost)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IConnectionCost2 {
+                #[get]
+                BackgroundDataUsageRestricted: bool;
+            }
+            #[guid(0x71ba143c_598e_49d0_84eb_8febaedcc195)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IConnectionProfile {
+                #[get]
+                ProfileName: String;
+                fn GetNetworkConnectivityLevel(&self) -> NetworkConnectivityLevel;
+                fn GetNetworkNames(&self) -> super::super::Foundation::Collections::IVectorView<String>;
+                fn GetConnectionCost(&self) -> ConnectionCost;
+                fn GetDataPlanStatus(&self) -> DataPlanStatus;
+                #[get]
+                NetworkAdapter: NetworkAdapter;
+                #[Windows::Foundation::Metadata::Overload("GetLocalUsage")]
+                #[Windows::Foundation::Metadata::Deprecated("GetLocalUsage may be altered or unavailable for releases after Windows 8.1. Instead, use GetNetworkUsageAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn GetLocalUsage(&self, StartTime: super::super::Foundation::DateTime, EndTime: super::super::Foundation::DateTime) -> DataUsage;
+                #[Windows::Foundation::Metadata::Deprecated("GetLocalUsage may be altered or unavailable for releases after Windows 8.1. Instead, use GetNetworkUsageAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Overload("GetLocalUsagePerRoamingStates")]
+                fn GetLocalUsage(&self, StartTime: super::super::Foundation::DateTime, EndTime: super::super::Foundation::DateTime, States: RoamingStates) -> DataUsage;
+                #[get]
+                NetworkSecuritySettings: NetworkSecuritySettings;
+            }
+            #[guid(0xe2045145_4c9f_400c_9150_7ec7d6e2888a)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IConnectionProfile2 {
+                #[get]
+                IsWwanConnectionProfile: bool;
+                #[get]
+                IsWlanConnectionProfile: bool;
+                #[get]
+                WwanConnectionProfileDetails: WwanConnectionProfileDetails;
+                #[get]
+                WlanConnectionProfileDetails: WlanConnectionProfileDetails;
+                #[get]
+                ServiceProviderGuid: super::super::Foundation::IReference<GUID>;
+                fn GetSignalBars(&self) -> super::super::Foundation::IReference<u8>;
+                fn GetDomainConnectivityLevel(&self) -> DomainConnectivityLevel;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetNetworkUsageAsync(&self, startTime: super::super::Foundation::DateTime, endTime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<NetworkUsage>>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetConnectivityIntervalsAsync(&self, startTime: super::super::Foundation::DateTime, endTime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectivityInterval>>;
+            }
+            #[guid(0x578c2528_4cd9_4161_8045_201cfd5b115c)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
+            interface IConnectionProfile3 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetAttributedNetworkUsageAsync(&self, startTime: super::super::Foundation::DateTime, endTime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>;
+            }
+            #[guid(0x7a2d42cd_81e0_4ae6_abed_ab9ca13eb714)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IConnectionProfile4 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetProviderNetworkUsageAsync(&self, startTime: super::super::Foundation::DateTime, endTime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>;
+            }
+            #[guid(0x85361ec7_9c73_4be0_8f14_578eec71ee0e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
+            interface IConnectionProfile5 {
+                #[get]
+                CanDelete: bool;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryDeleteAsync(&self) -> super::super::Foundation::IAsyncOperation<ConnectionProfileDeleteStatus>;
+            }
+            #[guid(0xdc27dfe2_7a6f_5d0e_9589_2fe2e5b6f9aa)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            interface IConnectionProfile6 {
+                fn IsDomainAuthenticatedBy(&self, kind: DomainAuthenticationKind) -> bool;
+            }
+            #[guid(0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfileFilter)]
+            interface IConnectionProfileFilter {
+                #[set]
+                IsConnected: bool;
+                #[get]
+                IsConnected: bool;
+                #[set]
+                IsWwanConnectionProfile: bool;
+                #[get]
+                IsWwanConnectionProfile: bool;
+                #[set]
+                IsWlanConnectionProfile: bool;
+                #[get]
+                IsWlanConnectionProfile: bool;
+                #[set]
+                NetworkCostType: NetworkCostType;
+                #[get]
+                NetworkCostType: NetworkCostType;
+                #[set]
+                ServiceProviderGuid: super::super::Foundation::IReference<GUID>;
+                #[get]
+                ServiceProviderGuid: super::super::Foundation::IReference<GUID>;
+            }
+            #[guid(0xcd068ee1_c3fc_4fad_9ddc_593faa4b7885)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfileFilter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IConnectionProfileFilter2 {
+                #[set]
+                IsRoaming: super::super::Foundation::IReference<bool>;
+                #[get]
+                IsRoaming: super::super::Foundation::IReference<bool>;
+                #[set]
+                IsOverDataLimit: super::super::Foundation::IReference<bool>;
+                #[get]
+                IsOverDataLimit: super::super::Foundation::IReference<bool>;
+                #[set]
+                IsBackgroundDataUsageRestricted: super::super::Foundation::IReference<bool>;
+                #[get]
+                IsBackgroundDataUsageRestricted: super::super::Foundation::IReference<bool>;
+                #[get]
+                RawData: super::super::Storage::Streams::IBuffer;
+            }
+            #[guid(0x0aaa09c0_5014_447c_8809_aee4cb0af94a)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfileFilter)]
+            interface IConnectionProfileFilter3 {
+                #[set]
+                PurposeGuid: super::super::Foundation::IReference<GUID>;
+                #[get]
+                PurposeGuid: super::super::Foundation::IReference<GUID>;
+            }
+            #[guid(0xff905d4c_f83b_41b0_8a0c_1462d9c56b73)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionSession)]
+            interface IConnectionSession: super::super::Foundation::IClosable {
+                #[get]
+                ConnectionProfile: ConnectionProfile;
+            }
+            #[guid(0x4faa3fff_6746_4824_a964_eed8e87f8709)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectivityInterval)]
+            interface IConnectivityInterval {
+                #[get]
+                StartTime: super::super::Foundation::DateTime;
+                #[get]
+                ConnectionDuration: super::super::Foundation::TimeSpan;
+            }
+            #[guid(0x5120d4b1_4fb1_48b0_afc9_42e0092a8164)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectivityManager)]
+            interface IConnectivityManagerStatics {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn AcquireConnectionAsync(&self, cellularApnContext: CellularApnContext) -> super::super::Foundation::IAsyncOperation<ConnectionSession>;
+                fn AddHttpRoutePolicy(&self, routePolicy: RoutePolicy);
+                fn RemoveHttpRoutePolicy(&self, routePolicy: RoutePolicy);
+            }
+            #[guid(0x977a8b8c_3885_40f3_8851_42cd2bd568bb)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DataPlanStatus)]
+            interface IDataPlanStatus {
+                #[get]
+                DataPlanUsage: DataPlanUsage;
+                #[get]
+                DataLimitInMegabytes: super::super::Foundation::IReference<u32>;
+                #[get]
+                InboundBitsPerSecond: super::super::Foundation::IReference<u64>;
+                #[get]
+                OutboundBitsPerSecond: super::super::Foundation::IReference<u64>;
+                #[get]
+                NextBillingCycle: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
+                #[get]
+                MaxTransferSizeInMegabytes: super::super::Foundation::IReference<u32>;
+            }
+            #[guid(0xb921492d_3b44_47ff_b361_be59e69ed1b0)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DataPlanUsage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDataPlanUsage {
+                #[get]
+                MegabytesUsed: u32;
+                #[get]
+                LastSyncTime: super::super::Foundation::DateTime;
+            }
+            #[guid(0xc1431dd3_b146_4d39_b959_0c69b096c512)]
+            #[Windows::Foundation::Metadata::Deprecated("IDataUsage may be altered or unavailable for releases after Windows 8.1. Instead, use INetworkUsage.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DataUsage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IDataUsage {
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IDataUsage may be altered or unavailable for releases after Windows 8.1. Instead, use INetworkUsage.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_BytesSent(&self) -> u64;
+                #[special]
+                #[Windows::Foundation::Metadata::Deprecated("IDataUsage may be altered or unavailable for releases after Windows 8.1. Instead, use INetworkUsage.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                fn get_BytesReceived(&self) -> u64;
+            }
+            #[guid(0xd85145e0_138f_47d7_9b3a_36bb488cef33)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IPInformation)]
+            interface IIPInformation {
+                #[get]
+                NetworkAdapter: NetworkAdapter;
+                #[get]
+                PrefixLength: super::super::Foundation::IReference<u8>;
+            }
+            #[guid(0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LanIdentifier)]
+            interface ILanIdentifier {
+                #[get]
+                InfrastructureId: LanIdentifierData;
+                #[get]
+                PortId: LanIdentifierData;
+                #[get]
+                NetworkAdapterId: GUID;
+            }
+            #[guid(0xa74e83c3_d639_45be_a36a_c4e4aeaf6d9b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LanIdentifierData)]
+            interface ILanIdentifierData {
+                #[get]
+                Type: u32;
+                #[get]
+                Value: super::super::Foundation::Collections::IVectorView<u8>;
+            }
+            #[guid(0x3b542e03_5388_496c_a8a3_affd39aec2e6)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkAdapter)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INetworkAdapter {
+                #[get]
+                OutboundMaxBitsPerSecond: u64;
+                #[get]
+                InboundMaxBitsPerSecond: u64;
+                #[get]
+                IanaInterfaceType: u32;
+                #[get]
+                NetworkItem: NetworkItem;
+                #[get]
+                NetworkAdapterId: GUID;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetConnectedProfileAsync(&self) -> super::super::Foundation::IAsyncOperation<ConnectionProfile>;
+            }
+            #[guid(0x5074f851_950d_4165_9c15_365619481eea)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkInformation)]
+            interface INetworkInformationStatics {
+                fn GetConnectionProfiles(&self) -> super::super::Foundation::Collections::IVectorView<ConnectionProfile>;
+                fn GetInternetConnectionProfile(&self) -> ConnectionProfile;
+                fn GetLanIdentifiers(&self) -> super::super::Foundation::Collections::IVectorView<LanIdentifier>;
+                fn GetHostNames(&self) -> super::super::Foundation::Collections::IVectorView<super::HostName>;
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetProxyConfigurationAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperation<ProxyConfiguration>;
+                fn GetSortedEndpointPairs(&self, destinationList: super::super::Foundation::Collections::IIterable<super::EndpointPair>, sortOptions: super::HostNameSortOptions) -> super::super::Foundation::Collections::IVectorView<super::EndpointPair>;
+                event NetworkStatusChanged: NetworkStatusChangedEventHandler;
+            }
+            #[guid(0x459ced14_2832_49b6_ba6e_e265f04786a8)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkInformation)]
+            interface INetworkInformationStatics2 {
+                #[Windows::Foundation::Metadata::RemoteAsync]
+                fn FindConnectionProfilesAsync(&self, pProfileFilter: ConnectionProfileFilter) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ConnectionProfile>>;
+            }
+            #[guid(0x01bc4d39_f5e0_4567_a28c_42080c831b2b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkItem)]
+            interface INetworkItem {
+                #[get]
+                NetworkId: GUID;
+                fn GetNetworkTypes(&self) -> NetworkTypes;
+            }
+            #[guid(0x7ca07e8d_917b_4b5f_b84d_28f7a5ac5402)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkSecuritySettings)]
+            interface INetworkSecuritySettings {
+                #[get]
+                NetworkAuthenticationType: NetworkAuthenticationType;
+                #[get]
+                NetworkEncryptionType: NetworkEncryptionType;
+            }
+            #[guid(0x1f0cf333_d7a6_44dd_a4e9_687c476b903d)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkStateChangeEventDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INetworkStateChangeEventDetails {
+                #[get]
+                HasNewInternetConnectionProfile: bool;
+                #[get]
+                HasNewConnectionCost: bool;
+                #[get]
+                HasNewNetworkConnectivityLevel: bool;
+                #[get]
+                HasNewDomainConnectivityLevel: bool;
+                #[get]
+                HasNewHostNameList: bool;
+                #[get]
+                HasNewWwanRegistrationState: bool;
+            }
+            #[guid(0xd643c0e8_30d3_4f6a_ad47_6a1873ceb3c1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkStateChangeEventDetails)]
+            interface INetworkStateChangeEventDetails2 {
+                #[get]
+                HasNewTetheringOperationalState: bool;
+                #[get]
+                HasNewTetheringClientCount: bool;
+            }
+            #[guid(0x49da8fce_9985_4927_bf5b_072b5c65f8d9)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkUsage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface INetworkUsage {
+                #[get]
+                BytesSent: u64;
+                #[get]
+                BytesReceived: u64;
+                #[get]
+                ConnectionDuration: super::super::Foundation::TimeSpan;
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class IPInformation {
+                IIPInformation,
+            }
+            #[guid(0x5ec69e04_7931_48c8_b8f3_46300fa42728)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProviderNetworkUsage)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            interface IProviderNetworkUsage {
+                #[get]
+                BytesSent: u64;
+                #[get]
+                BytesReceived: u64;
+                #[get]
+                ProviderId: String;
+            }
+            #[guid(0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProxyConfiguration)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IProxyConfiguration {
+                #[get]
+                ProxyUris: super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>;
+                #[get]
+                CanConnectDirectly: bool;
+            }
+            #[guid(0x11abc4ac_0fc7_42e4_8742_569923b1ca11)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RoutePolicy)]
+            interface IRoutePolicy {
+                #[get]
+                ConnectionProfile: ConnectionProfile;
+                #[get]
+                HostName: super::HostName;
+                #[get]
+                HostNameType: super::DomainNameType;
+            }
+            #[guid(0x36027933_a18e_4db5_a697_f58fa7364e44)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RoutePolicy)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            interface IRoutePolicyFactory {
+                fn CreateRoutePolicy(&self, connectionProfile: ConnectionProfile, hostName: super::HostName, r#type: super::DomainNameType) -> RoutePolicy;
+            }
+            #[guid(0x562098cb_b35a_4bf1_a884_b7557e88ff86)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WlanConnectionProfileDetails)]
+            interface IWlanConnectionProfileDetails {
+                fn GetConnectedSsid(&self) -> String;
+            }
+            #[guid(0x0e4da8fe_835f_4df3_82fd_df556ebc09ef)]
+            #[Windows::Foundation::Metadata::ContractVersion(WwanContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WwanConnectionProfileDetails)]
+            interface IWwanConnectionProfileDetails {
+                #[get]
+                HomeProviderId: String;
+                #[get]
+                AccessPointName: String;
+                fn GetNetworkRegistrationState(&self) -> WwanNetworkRegistrationState;
+                fn GetCurrentDataClass(&self) -> WwanDataClass;
+            }
+            #[guid(0x7a754ede_a1ed_48b2_8e92_b460033d52e2)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WwanConnectionProfileDetails)]
+            #[Windows::Foundation::Metadata::ContractVersion(WwanContract, 131072)]
+            interface IWwanConnectionProfileDetails2 {
+                #[get]
+                IPKind: WwanNetworkIPKind;
+                #[get]
+                PurposeGuids: super::super::Foundation::Collections::IVectorView<GUID>;
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class LanIdentifier {
+                ILanIdentifier,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            class LanIdentifierData {
+                ILanIdentifierData,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class NetworkAdapter {
+                INetworkAdapter,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum NetworkAuthenticationType {
+                None = 0,
+                Unknown = 1,
+                Open80211 = 2,
+                SharedKey80211 = 3,
+                Wpa = 4,
+                WpaPsk = 5,
+                WpaNone = 6,
+                Rsna = 7,
+                RsnaPsk = 8,
+                Ihv = 9,
+                Wpa3 = 10,
+                Wpa3Enterprise192Bits = 10,
+                Wpa3Sae = 11,
+                Owe = 12,
+                Wpa3Enterprise = 13,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum NetworkConnectivityLevel {
+                None = 0,
+                LocalAccess = 1,
+                ConstrainedInternetAccess = 2,
+                InternetAccess = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum NetworkCostType {
+                Unknown = 0,
+                Unrestricted = 1,
+                Fixed = 2,
+                Variable = 3,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum NetworkEncryptionType {
+                None = 0,
+                Unknown = 1,
+                Wep = 2,
+                Wep40 = 3,
+                Wep104 = 4,
+                Tkip = 5,
+                Ccmp = 6,
+                WpaUseGroup = 7,
+                RsnUseGroup = 8,
+                Ihv = 9,
+                Gcmp = 10,
+                Gcmp256 = 11,
+            }
+            #[Windows::Foundation::Metadata::Static(INetworkInformationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(INetworkInformationStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class NetworkInformation {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class NetworkItem {
+                INetworkItem,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class NetworkSecuritySettings {
+                INetworkSecuritySettings,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class NetworkStateChangeEventDetails {
+                INetworkStateChangeEventDetails,
+                INetworkStateChangeEventDetails2,
+            }
+            #[guid(0x71ba143f_598e_49d0_84eb_8febaedcc195)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            delegate fn NetworkStatusChangedEventHandler(sender: Object);
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum NetworkTypes {
+                None = 0,
+                Internet = 1,
+                PrivateNetwork = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class NetworkUsage {
+                INetworkUsage,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            struct NetworkUsageStates {
+                Roaming: TriStates,
+                Shared: TriStates,
+            }
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            class ProviderNetworkUsage {
+                IProviderNetworkUsage,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            class ProxyConfiguration {
+                IProxyConfiguration,
+            }
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum RoamingStates {
+                None = 0,
+                NotRoaming = 1,
+                Roaming = 2,
+            }
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Activatable(IRoutePolicyFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class RoutePolicy {
+                IRoutePolicy,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            enum TriStates {
+                DoNotCare = 0,
+                No = 1,
+                Yes = 2,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            class WlanConnectionProfileDetails {
+                IWlanConnectionProfileDetails,
+            }
+            #[Windows::Foundation::Metadata::ContractVersion(WwanContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            class WwanConnectionProfileDetails {
+                IWwanConnectionProfileDetails,
+                IWwanConnectionProfileDetails2,
+            }
+            #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(196608)]
+            struct WwanContract {}
+            #[repr(u32)]
+            #[flags]
+            #[Windows::Foundation::Metadata::ContractVersion(WwanContract, 65536)]
+            enum WwanDataClass {
+                None = 0,
+                Gprs = 1,
+                Edge = 2,
+                Umts = 4,
+                Hsdpa = 8,
+                Hsupa = 16,
+                LteAdvanced = 32,
+                NewRadioNonStandalone = 64,
+                NewRadioStandalone = 128,
+                Cdma1xRtt = 65536,
+                Cdma1xEvdo = 131072,
+                Cdma1xEvdoRevA = 262144,
+                Cdma1xEvdv = 524288,
+                Cdma3xRtt = 1048576,
+                Cdma1xEvdoRevB = 2097152,
+                CdmaUmb = 4194304,
+                Custom = 2147483648,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(WwanContract, 131072)]
+            enum WwanNetworkIPKind {
+                None = 0,
+                Ipv4 = 1,
+                Ipv6 = 2,
+                Ipv4v6 = 3,
+                Ipv4v6v4Xlat = 4,
+            }
+            #[repr(i32)]
+            #[Windows::Foundation::Metadata::ContractVersion(WwanContract, 65536)]
+            enum WwanNetworkRegistrationState {
+                None = 0,
+                Deregistered = 1,
+                Searching = 2,
+                Home = 3,
+                Roaming = 4,
+                Partner = 5,
+                Denied = 6,
+            }
+        }
+    }
+}

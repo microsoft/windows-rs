@@ -1,0 +1,395 @@
+#[winrt]
+mod Windows {
+    mod UI {
+        mod Xaml {
+            mod Automation {
+                mod Provider {
+                    #[guid(0x95ba1417_4437_451b_9461_050a49b59d06)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IAnnotationProvider {
+                        #[get]
+                        AnnotationTypeId: i32;
+                        #[get]
+                        AnnotationTypeName: String;
+                        #[get]
+                        Author: String;
+                        #[get]
+                        DateTime: String;
+                        #[get]
+                        Target: IRawElementProviderSimple;
+                    }
+                    #[guid(0x2bd8a6d0_2fa3_4717_b28c_4917ce54928d)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ICustomNavigationProvider {
+                        fn NavigateCustom(&self, direction: super::Peers::AutomationNavigationDirection) -> Object;
+                    }
+                    #[guid(0x48c243f8_78b1_44a0_ac5f_750757bcde3c)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IDockProvider {
+                        #[get]
+                        DockPosition: super::DockPosition;
+                        fn SetDockPosition(&self, dockPosition: super::DockPosition);
+                    }
+                    #[guid(0x2e7786a9_7ffc_4f57_b965_1ef1f373f546)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IDragProvider {
+                        #[get]
+                        IsGrabbed: bool;
+                        #[get]
+                        DropEffect: String;
+                        #[get]
+                        DropEffects: [String];
+                        fn GetGrabbedItems(&self) -> [IRawElementProviderSimple];
+                    }
+                    #[guid(0x7a245bdd_b458_4fe0_98c8_aac89df56d61)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IDropTargetProvider {
+                        #[get]
+                        DropEffect: String;
+                        #[get]
+                        DropEffects: [String];
+                    }
+                    #[guid(0x49ac8399_d626_4543_94b9_a6d9a9593af6)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IExpandCollapseProvider {
+                        #[get]
+                        ExpandCollapseState: super::ExpandCollapseState;
+                        fn Collapse(&self);
+                        fn Expand(&self);
+                    }
+                    #[guid(0xfff3683c_7407_45bb_a936_df3ed6d3837d)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IGridItemProvider {
+                        #[get]
+                        Column: i32;
+                        #[get]
+                        ColumnSpan: i32;
+                        #[get]
+                        ContainingGrid: IRawElementProviderSimple;
+                        #[get]
+                        Row: i32;
+                        #[get]
+                        RowSpan: i32;
+                    }
+                    #[guid(0x8b62b7a0_932c_4490_9a13_02fdb39a8f5b)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IGridProvider {
+                        #[get]
+                        ColumnCount: i32;
+                        #[get]
+                        RowCount: i32;
+                        fn GetItem(&self, row: i32, column: i32) -> IRawElementProviderSimple;
+                    }
+                    #[guid(0xec752224_9b77_4720_bb21_4ac89fdb1afd)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(IRawElementProviderSimple)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IIRawElementProviderSimple {}
+                    #[guid(0xf7d1a187_b13c_4540_b09e_6778e2dc9ba5)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IInvokeProvider {
+                        fn Invoke(&self);
+                    }
+                    #[guid(0xef5cd845_e1d4_40f4_bad5_c7fad44a703e)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IItemContainerProvider {
+                        fn FindItemByProperty(&self, startAfter: IRawElementProviderSimple, automationProperty: super::AutomationProperty, value: Object) -> IRawElementProviderSimple;
+                    }
+                    #[guid(0xd014e196_0e50_4843_a5d2_c22897c8845a)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IMultipleViewProvider {
+                        #[get]
+                        CurrentView: i32;
+                        fn GetSupportedViews(&self) -> [i32];
+                        fn GetViewName(&self, viewId: i32) -> String;
+                        fn SetCurrentView(&self, viewId: i32);
+                    }
+                    #[guid(0xc3ca36b9_0793_4ed0_bbf4_9ff4e0f98f80)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IObjectModelProvider {
+                        fn GetUnderlyingObjectModel(&self) -> Object;
+                    }
+                    #[guid(0x838a34a8_7d5f_4079_af03_c3d015e93413)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IRangeValueProvider {
+                        #[get]
+                        IsReadOnly: bool;
+                        #[get]
+                        LargeChange: f64;
+                        #[get]
+                        Maximum: f64;
+                        #[get]
+                        Minimum: f64;
+                        #[get]
+                        SmallChange: f64;
+                        #[get]
+                        Value: f64;
+                        fn SetValue(&self, value: f64);
+                    }
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    class IRawElementProviderSimple: super::super::DependencyObject {
+                        IIRawElementProviderSimple,
+                    }
+                    #[guid(0x9a3ec090_5d2c_4e42_9ee6_9d58db100b55)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IScrollItemProvider {
+                        fn ScrollIntoView(&self);
+                    }
+                    #[guid(0x374bf581_7716_4bbc_82eb_d997006ea999)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IScrollProvider {
+                        #[get]
+                        HorizontallyScrollable: bool;
+                        #[get]
+                        HorizontalScrollPercent: f64;
+                        #[get]
+                        HorizontalViewSize: f64;
+                        #[get]
+                        VerticallyScrollable: bool;
+                        #[get]
+                        VerticalScrollPercent: f64;
+                        #[get]
+                        VerticalViewSize: f64;
+                        fn Scroll(&self, horizontalAmount: super::ScrollAmount, verticalAmount: super::ScrollAmount);
+                        fn SetScrollPercent(&self, horizontalPercent: f64, verticalPercent: f64);
+                    }
+                    #[guid(0x6a4977c1_830d_42d2_bf62_042ebddecc19)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISelectionItemProvider {
+                        #[get]
+                        IsSelected: bool;
+                        #[get]
+                        SelectionContainer: IRawElementProviderSimple;
+                        fn AddToSelection(&self);
+                        fn RemoveFromSelection(&self);
+                        fn Select(&self);
+                    }
+                    #[guid(0x1f018fca_b944_4395_8de1_88f674af51d3)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISelectionProvider {
+                        #[get]
+                        CanSelectMultiple: bool;
+                        #[get]
+                        IsSelectionRequired: bool;
+                        fn GetSelection(&self) -> [IRawElementProviderSimple];
+                    }
+                    #[guid(0xebde8f92_6015_4826_b719_47521a81c67e)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISpreadsheetItemProvider {
+                        #[get]
+                        Formula: String;
+                        fn GetAnnotationObjects(&self) -> [IRawElementProviderSimple];
+                        fn GetAnnotationTypes(&self) -> [super::AnnotationType];
+                    }
+                    #[guid(0x15359093_bd99_4cfd_9f07_3b14b315e23d)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ISpreadsheetProvider {
+                        fn GetItemByName(&self, name: String) -> IRawElementProviderSimple;
+                    }
+                    #[guid(0x1a5b7a17_7c01_4bec_9cd4_2dfa7dc246cd)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IStylesProvider {
+                        #[get]
+                        ExtendedProperties: String;
+                        #[get]
+                        FillColor: super::super::super::Color;
+                        #[get]
+                        FillPatternColor: super::super::super::Color;
+                        #[get]
+                        FillPatternStyle: String;
+                        #[get]
+                        Shape: String;
+                        #[get]
+                        StyleId: i32;
+                        #[get]
+                        StyleName: String;
+                    }
+                    #[guid(0x3d60cecb_da54_4aa3_b915_e3244427d4ac)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ISynchronizedInputProvider {
+                        fn Cancel(&self);
+                        fn StartListening(&self, inputType: super::SynchronizedInputType);
+                    }
+                    #[guid(0x3b2c49cd_1de2_4ee2_a3e1_fb553559d15d)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ITableItemProvider {
+                        fn GetColumnHeaderItems(&self) -> [IRawElementProviderSimple];
+                        fn GetRowHeaderItems(&self) -> [IRawElementProviderSimple];
+                    }
+                    #[guid(0x7a8ed399_6824_4595_bab3_464bc9a04417)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ITableProvider {
+                        #[get]
+                        RowOrColumnMajor: super::RowOrColumnMajor;
+                        fn GetColumnHeaders(&self) -> [IRawElementProviderSimple];
+                        fn GetRowHeaders(&self) -> [IRawElementProviderSimple];
+                    }
+                    #[guid(0x1133c336_a89b_4130_9be6_55e33334f557)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ITextChildProvider {
+                        #[get]
+                        TextContainer: IRawElementProviderSimple;
+                        #[get]
+                        TextRange: ITextRangeProvider;
+                    }
+                    #[guid(0xea3605b4_3a05_400e_b5f9_4e91b40f6176)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ITextEditProvider: ITextProvider {
+                        fn GetActiveComposition(&self) -> ITextRangeProvider;
+                        fn GetConversionTarget(&self) -> ITextRangeProvider;
+                    }
+                    #[guid(0xdb5bbc9f_4807_4f2a_8678_1b13f3c60e22)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ITextProvider {
+                        #[get]
+                        DocumentRange: ITextRangeProvider;
+                        #[get]
+                        SupportedTextSelection: super::SupportedTextSelection;
+                        fn GetSelection(&self) -> [ITextRangeProvider];
+                        fn GetVisibleRanges(&self) -> [ITextRangeProvider];
+                        fn RangeFromChild(&self, childElement: IRawElementProviderSimple) -> ITextRangeProvider;
+                        fn RangeFromPoint(&self, screenLocation: super::super::super::super::Foundation::Point) -> ITextRangeProvider;
+                    }
+                    #[guid(0xdf1d48bc_0487_4e7f_9d5e_f09e77e41246)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ITextProvider2: ITextProvider {
+                        fn RangeFromAnnotation(&self, annotationElement: IRawElementProviderSimple) -> ITextRangeProvider;
+                        fn GetCaretRange(&self, isActive: &mut bool) -> ITextRangeProvider;
+                    }
+                    #[guid(0x0274688d_06e9_4f66_9446_28a5be98fbd0)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ITextRangeProvider {
+                        fn Clone(&self) -> ITextRangeProvider;
+                        fn Compare(&self, textRangeProvider: ITextRangeProvider) -> bool;
+                        fn CompareEndpoints(&self, endpoint: super::Text::TextPatternRangeEndpoint, textRangeProvider: ITextRangeProvider, targetEndpoint: super::Text::TextPatternRangeEndpoint) -> i32;
+                        fn ExpandToEnclosingUnit(&self, unit: super::Text::TextUnit);
+                        fn FindAttribute(&self, attributeId: i32, value: Object, backward: bool) -> ITextRangeProvider;
+                        fn FindText(&self, text: String, backward: bool, ignoreCase: bool) -> ITextRangeProvider;
+                        fn GetAttributeValue(&self, attributeId: i32) -> Object;
+                        fn GetBoundingRectangles(&self, returnValue: &mut [f64]);
+                        fn GetEnclosingElement(&self) -> IRawElementProviderSimple;
+                        fn GetText(&self, maxLength: i32) -> String;
+                        fn Move(&self, unit: super::Text::TextUnit, count: i32) -> i32;
+                        fn MoveEndpointByUnit(&self, endpoint: super::Text::TextPatternRangeEndpoint, unit: super::Text::TextUnit, count: i32) -> i32;
+                        fn MoveEndpointByRange(&self, endpoint: super::Text::TextPatternRangeEndpoint, textRangeProvider: ITextRangeProvider, targetEndpoint: super::Text::TextPatternRangeEndpoint);
+                        fn Select(&self);
+                        fn AddToSelection(&self);
+                        fn RemoveFromSelection(&self);
+                        fn ScrollIntoView(&self, alignToTop: bool);
+                        fn GetChildren(&self) -> [IRawElementProviderSimple];
+                    }
+                    #[guid(0xd3be3dfb_9f54_4642_a7a5_5c18d5ee2a3f)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ITextRangeProvider2: ITextRangeProvider {
+                        fn ShowContextMenu(&self);
+                    }
+                    #[guid(0x93b88290_656f_44f7_aeaf_78b8f944d062)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IToggleProvider {
+                        #[get]
+                        ToggleState: super::ToggleState;
+                        fn Toggle(&self);
+                    }
+                    #[guid(0x79670fdd_f6a9_4a65_af17_861db799a2da)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface ITransformProvider {
+                        #[get]
+                        CanMove: bool;
+                        #[get]
+                        CanResize: bool;
+                        #[get]
+                        CanRotate: bool;
+                        fn Move(&self, x: f64, y: f64);
+                        fn Resize(&self, width: f64, height: f64);
+                        fn Rotate(&self, degrees: f64);
+                    }
+                    #[guid(0xa8b11756_a39f_4e97_8c7d_c1ea8dd633c5)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface ITransformProvider2: ITransformProvider {
+                        #[get]
+                        CanZoom: bool;
+                        #[get]
+                        ZoomLevel: f64;
+                        #[get]
+                        MaxZoom: f64;
+                        #[get]
+                        MinZoom: f64;
+                        fn Zoom(&self, zoom: f64);
+                        fn ZoomByUnit(&self, zoomUnit: super::ZoomUnit);
+                    }
+                    #[guid(0x2086b7a7_ac0e_47d1_ab9b_2a64292afdf8)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IValueProvider {
+                        #[get]
+                        IsReadOnly: bool;
+                        #[get]
+                        Value: String;
+                        fn SetValue(&self, value: String);
+                    }
+                    #[guid(0x17d4a04b_d658_48e0_a574_5a516c58dfa7)]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    interface IVirtualizedItemProvider {
+                        fn Realize(&self);
+                    }
+                    #[guid(0x1baa8b3d_38cf_415a_85d3_20e43a0ec1b1)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    interface IWindowProvider {
+                        #[get]
+                        IsModal: bool;
+                        #[get]
+                        IsTopmost: bool;
+                        #[get]
+                        Maximizable: bool;
+                        #[get]
+                        Minimizable: bool;
+                        #[get]
+                        InteractionState: super::WindowInteractionState;
+                        #[get]
+                        VisualState: super::WindowVisualState;
+                        fn Close(&self);
+                        fn SetVisualState(&self, state: super::WindowVisualState);
+                        fn WaitForInputIdle(&self, milliseconds: i32) -> bool;
+                    }
+                }
+            }
+        }
+    }
+}

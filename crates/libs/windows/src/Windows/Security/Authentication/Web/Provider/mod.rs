@@ -1427,11 +1427,11 @@ impl WebAccountProviderRetrieveCookiesOperation {
             (windows_core::Interface::vtable(self).Cookies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, uri: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::Uri>,
     {
-        unsafe { (windows_core::Interface::vtable(self).SetUri)(windows_core::Interface::as_raw(self), uri.param().abi()).ok() }
+        unsafe { (windows_core::Interface::vtable(self).SetUri)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     pub fn Uri(&self) -> windows_core::Result<super::super::super::super::Foundation::Uri> {
         unsafe {

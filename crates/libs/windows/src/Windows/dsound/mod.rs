@@ -2881,22 +2881,22 @@ impl windows_core::RuntimeName for IKsPropertySet {}
 windows_core::imp::define_interface!(IReferenceClock, IReferenceClock_Vtbl, 0x56a86897_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IReferenceClock, windows_core::IUnknown);
 impl IReferenceClock {
-    #[cfg(feature = "mediaobj")]
-    pub unsafe fn GetTime(&self) -> windows_core::Result<super::mediaobj::REFERENCE_TIME> {
+    #[cfg(feature = "ksmedia")]
+    pub unsafe fn GetTime(&self) -> windows_core::Result<super::ksmedia::REFERENCE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "mediaobj", feature = "winnt"))]
-    pub unsafe fn AdviseTime(&self, rtbasetime: super::mediaobj::REFERENCE_TIME, rtstreamtime: super::mediaobj::REFERENCE_TIME, hevent: super::winnt::HANDLE) -> windows_core::Result<u32> {
+    #[cfg(all(feature = "ksmedia", feature = "winnt"))]
+    pub unsafe fn AdviseTime(&self, rtbasetime: super::ksmedia::REFERENCE_TIME, rtstreamtime: super::ksmedia::REFERENCE_TIME, hevent: super::winnt::HANDLE) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AdviseTime)(windows_core::Interface::as_raw(self), rtbasetime, rtstreamtime, hevent, &mut result__).map(|| result__)
         }
     }
-    #[cfg(all(feature = "mediaobj", feature = "winnt"))]
-    pub unsafe fn AdvisePeriodic(&self, rtstarttime: super::mediaobj::REFERENCE_TIME, rtperiodtime: super::mediaobj::REFERENCE_TIME, hsemaphore: super::winnt::HANDLE) -> windows_core::Result<u32> {
+    #[cfg(all(feature = "ksmedia", feature = "winnt"))]
+    pub unsafe fn AdvisePeriodic(&self, rtstarttime: super::ksmedia::REFERENCE_TIME, rtperiodtime: super::ksmedia::REFERENCE_TIME, hsemaphore: super::winnt::HANDLE) -> windows_core::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AdvisePeriodic)(windows_core::Interface::as_raw(self), rtstarttime, rtperiodtime, hsemaphore, &mut result__).map(|| result__)
@@ -2910,31 +2910,31 @@ impl IReferenceClock {
 #[doc(hidden)]
 pub struct IReferenceClock_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
-    #[cfg(feature = "mediaobj")]
-    pub GetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::mediaobj::REFERENCE_TIME) -> windows_core::HRESULT,
-    #[cfg(not(feature = "mediaobj"))]
+    #[cfg(feature = "ksmedia")]
+    pub GetTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::ksmedia::REFERENCE_TIME) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ksmedia"))]
     GetTime: usize,
-    #[cfg(all(feature = "mediaobj", feature = "winnt"))]
-    pub AdviseTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::mediaobj::REFERENCE_TIME, super::mediaobj::REFERENCE_TIME, super::winnt::HANDLE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "mediaobj", feature = "winnt")))]
+    #[cfg(all(feature = "ksmedia", feature = "winnt"))]
+    pub AdviseTime: unsafe extern "system" fn(*mut core::ffi::c_void, super::ksmedia::REFERENCE_TIME, super::ksmedia::REFERENCE_TIME, super::winnt::HANDLE, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "ksmedia", feature = "winnt")))]
     AdviseTime: usize,
-    #[cfg(all(feature = "mediaobj", feature = "winnt"))]
-    pub AdvisePeriodic: unsafe extern "system" fn(*mut core::ffi::c_void, super::mediaobj::REFERENCE_TIME, super::mediaobj::REFERENCE_TIME, super::winnt::HANDLE, *mut u32) -> windows_core::HRESULT,
-    #[cfg(not(all(feature = "mediaobj", feature = "winnt")))]
+    #[cfg(all(feature = "ksmedia", feature = "winnt"))]
+    pub AdvisePeriodic: unsafe extern "system" fn(*mut core::ffi::c_void, super::ksmedia::REFERENCE_TIME, super::ksmedia::REFERENCE_TIME, super::winnt::HANDLE, *mut u32) -> windows_core::HRESULT,
+    #[cfg(not(all(feature = "ksmedia", feature = "winnt")))]
     AdvisePeriodic: usize,
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "mediaobj", feature = "winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "winnt"))]
 pub trait IReferenceClock_Impl: windows_core::IUnknownImpl {
-    fn GetTime(&self) -> windows_core::Result<super::mediaobj::REFERENCE_TIME>;
-    fn AdviseTime(&self, rtbasetime: super::mediaobj::REFERENCE_TIME, rtstreamtime: super::mediaobj::REFERENCE_TIME, hevent: super::winnt::HANDLE) -> windows_core::Result<u32>;
-    fn AdvisePeriodic(&self, rtstarttime: super::mediaobj::REFERENCE_TIME, rtperiodtime: super::mediaobj::REFERENCE_TIME, hsemaphore: super::winnt::HANDLE) -> windows_core::Result<u32>;
+    fn GetTime(&self) -> windows_core::Result<super::ksmedia::REFERENCE_TIME>;
+    fn AdviseTime(&self, rtbasetime: super::ksmedia::REFERENCE_TIME, rtstreamtime: super::ksmedia::REFERENCE_TIME, hevent: super::winnt::HANDLE) -> windows_core::Result<u32>;
+    fn AdvisePeriodic(&self, rtstarttime: super::ksmedia::REFERENCE_TIME, rtperiodtime: super::ksmedia::REFERENCE_TIME, hsemaphore: super::winnt::HANDLE) -> windows_core::Result<u32>;
     fn Unadvise(&self, dwadvisecookie: u32) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "mediaobj", feature = "winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "winnt"))]
 impl IReferenceClock_Vtbl {
     pub const fn new<Identity: IReferenceClock_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetTime<Identity: IReferenceClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptime: *mut super::mediaobj::REFERENCE_TIME) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetTime<Identity: IReferenceClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ptime: *mut super::ksmedia::REFERENCE_TIME) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IReferenceClock_Impl::GetTime(this) {
@@ -2946,7 +2946,7 @@ impl IReferenceClock_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AdviseTime<Identity: IReferenceClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rtbasetime: super::mediaobj::REFERENCE_TIME, rtstreamtime: super::mediaobj::REFERENCE_TIME, hevent: super::winnt::HANDLE, pdwadvisecookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AdviseTime<Identity: IReferenceClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rtbasetime: super::ksmedia::REFERENCE_TIME, rtstreamtime: super::ksmedia::REFERENCE_TIME, hevent: super::winnt::HANDLE, pdwadvisecookie: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IReferenceClock_Impl::AdviseTime(this, core::mem::transmute_copy(&rtbasetime), core::mem::transmute_copy(&rtstreamtime), core::mem::transmute_copy(&hevent)) {
@@ -2958,7 +2958,7 @@ impl IReferenceClock_Vtbl {
                 }
             }
         }
-        unsafe extern "system" fn AdvisePeriodic<Identity: IReferenceClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rtstarttime: super::mediaobj::REFERENCE_TIME, rtperiodtime: super::mediaobj::REFERENCE_TIME, hsemaphore: super::winnt::HANDLE, pdwadvisecookie: *mut u32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AdvisePeriodic<Identity: IReferenceClock_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rtstarttime: super::ksmedia::REFERENCE_TIME, rtperiodtime: super::ksmedia::REFERENCE_TIME, hsemaphore: super::winnt::HANDLE, pdwadvisecookie: *mut u32) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IReferenceClock_Impl::AdvisePeriodic(this, core::mem::transmute_copy(&rtstarttime), core::mem::transmute_copy(&rtperiodtime), core::mem::transmute_copy(&hsemaphore)) {
@@ -2988,7 +2988,7 @@ impl IReferenceClock_Vtbl {
         iid == &<IReferenceClock as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "mediaobj", feature = "winnt"))]
+#[cfg(all(feature = "ksmedia", feature = "winnt"))]
 impl windows_core::RuntimeName for IReferenceClock {}
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1;
 pub const KSPROPERTY_SUPPORT_SET: u32 = 2;
@@ -3064,5 +3064,5 @@ pub type LPLPDIRECTSOUNDCAPTURE8 = *mut Option<IDirectSoundCapture>;
 pub type LPLPDIRECTSOUNDCAPTUREBUFFER = *mut Option<IDirectSoundCaptureBuffer>;
 pub type LPLPDIRECTSOUNDCAPTUREBUFFER8 = *mut Option<IDirectSoundCaptureBuffer8>;
 pub type LPLPDIRECTSOUNDNOTIFY = *mut Option<IDirectSoundNotify>;
-#[cfg(feature = "mediaobj")]
-pub type LPREFERENCE_TIME = *mut super::mediaobj::REFERENCE_TIME;
+#[cfg(feature = "ksmedia")]
+pub type LPREFERENCE_TIME = *mut super::ksmedia::REFERENCE_TIME;

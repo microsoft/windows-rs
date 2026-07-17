@@ -1,0 +1,55 @@
+#[winrt]
+mod Windows {
+    mod Graphics {
+        mod DirectX {
+            mod Direct3D11 {
+                #[repr(u32)]
+                #[flags]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum Direct3DBindings {
+                    VertexBuffer = 1,
+                    IndexBuffer = 2,
+                    ConstantBuffer = 4,
+                    ShaderResource = 8,
+                    StreamOutput = 16,
+                    RenderTarget = 32,
+                    DepthStencil = 64,
+                    UnorderedAccess = 128,
+                    Decoder = 512,
+                    VideoEncoder = 1024,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                struct Direct3DMultisampleDescription {
+                    Count: i32,
+                    Quality: i32,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                struct Direct3DSurfaceDescription {
+                    Width: i32,
+                    Height: i32,
+                    Format: super::DirectXPixelFormat,
+                    MultisampleDescription: Direct3DMultisampleDescription,
+                }
+                #[repr(i32)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                enum Direct3DUsage {
+                    Default = 0,
+                    Immutable = 1,
+                    Dynamic = 2,
+                    Staging = 3,
+                }
+                #[guid(0xa37624ab_8d5f_4650_9d3e_9eae3d9bc670)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IDirect3DDevice: super::super::super::Foundation::IClosable {
+                    fn Trim(&self);
+                }
+                #[guid(0x0bf4a146_13c1_4694_bee3_7abf15eaf586)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IDirect3DSurface: super::super::super::Foundation::IClosable {
+                    #[get]
+                    Description: Direct3DSurfaceDescription;
+                }
+            }
+        }
+    }
+}

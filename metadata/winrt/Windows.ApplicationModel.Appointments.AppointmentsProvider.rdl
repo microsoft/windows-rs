@@ -1,0 +1,94 @@
+#[winrt]
+mod Windows {
+    mod ApplicationModel {
+        mod Appointments {
+            mod AppointmentsProvider {
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class AddAppointmentOperation {
+                    IAddAppointmentOperation,
+                }
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IAppointmentsProviderLaunchActionVerbsStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Static(IAppointmentsProviderLaunchActionVerbsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                class AppointmentsProviderLaunchActionVerbs {}
+                #[guid(0xec4a9af3_620d_4c69_add7_9794e918081f)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AddAppointmentOperation)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAddAppointmentOperation {
+                    #[get]
+                    AppointmentInformation: super::Appointment;
+                    #[get]
+                    SourcePackageFamilyName: String;
+                    fn ReportCompleted(&self, itemId: String);
+                    fn ReportCanceled(&self);
+                    fn ReportError(&self, value: String);
+                    fn DismissUI(&self);
+                }
+                #[guid(0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentsProviderLaunchActionVerbs)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IAppointmentsProviderLaunchActionVerbsStatics {
+                    #[get]
+                    AddAppointment: String;
+                    #[get]
+                    ReplaceAppointment: String;
+                    #[get]
+                    RemoveAppointment: String;
+                    #[get]
+                    ShowTimeFrame: String;
+                }
+                #[guid(0xef9049a4_af21_473c_88dc_76cd89f60ca5)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentsProviderLaunchActionVerbs)]
+                interface IAppointmentsProviderLaunchActionVerbsStatics2 {
+                    #[get]
+                    ShowAppointmentDetails: String;
+                }
+                #[guid(0x08b66aba_fe33_46cd_a50c_a8ffb3260537)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RemoveAppointmentOperation)]
+                interface IRemoveAppointmentOperation {
+                    #[get]
+                    AppointmentId: String;
+                    #[get]
+                    InstanceStartDate: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[get]
+                    SourcePackageFamilyName: String;
+                    fn ReportCompleted(&self);
+                    fn ReportCanceled(&self);
+                    fn ReportError(&self, value: String);
+                    fn DismissUI(&self);
+                }
+                #[guid(0xf4903d9b_9e61_4de2_a732_2687c07d1de8)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ReplaceAppointmentOperation)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                interface IReplaceAppointmentOperation {
+                    #[get]
+                    AppointmentId: String;
+                    #[get]
+                    AppointmentInformation: super::Appointment;
+                    #[get]
+                    InstanceStartDate: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
+                    #[get]
+                    SourcePackageFamilyName: String;
+                    fn ReportCompleted(&self, itemId: String);
+                    fn ReportCanceled(&self);
+                    fn ReportError(&self, value: String);
+                    fn DismissUI(&self);
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class RemoveAppointmentOperation {
+                    IRemoveAppointmentOperation,
+                }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                class ReplaceAppointmentOperation {
+                    IReplaceAppointmentOperation,
+                }
+            }
+        }
+    }
+}

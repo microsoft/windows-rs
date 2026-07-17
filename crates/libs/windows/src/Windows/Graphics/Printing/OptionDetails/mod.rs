@@ -2622,31 +2622,31 @@ impl PrintTaskOptionDetails {
             (windows_core::Interface::vtable(self).CreateTextOption)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(optionid), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OptionChanged<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn OptionChanged<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<PrintTaskOptionChangedEventArgs>) + Send + 'static,
     {
-        let eventhandler = <super::super::super::Foundation::TypedEventHandler<Self, PrintTaskOptionChangedEventArgs>>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, PrintTaskOptionChangedEventArgs>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).OptionChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).OptionChanged)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveOptionChanged))
         }
     }
-    pub fn BeginValidation<F>(&self, eventhandler: F) -> windows_core::Result<windows_core::EventRevoker>
+    pub fn BeginValidation<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
     where
         F: Fn(windows_core::Ref<Self>, windows_core::Ref<windows_core::IInspectable>) + Send + 'static,
     {
-        let eventhandler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
-            eventhandler(a0, a1);
+        let handler = <super::super::super::Foundation::TypedEventHandler<Self, windows_core::IInspectable>>::new(move |a0, a1| {
+            handler(a0, a1);
             Ok(())
         });
         unsafe {
             let mut result__ = core::mem::zeroed();
-            let token__ = (windows_core::Interface::vtable(self).BeginValidation)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&eventhandler), &mut result__).map(|| result__)?;
+            let token__ = (windows_core::Interface::vtable(self).BeginValidation)(windows_core::Interface::as_raw(self), windows_core::Interface::as_raw(&handler), &mut result__).map(|| result__)?;
             Ok(windows_core::EventRevoker::new(self.clone(), token__, windows_core::Interface::vtable(self).RemoveBeginValidation))
         }
     }
