@@ -364,15 +364,6 @@ impl Default for OCPFIPARAMS {
     }
 }
 pub const OLEIVERB_PROPERTIES: i32 = -7;
-pub const OLEMISC_ACTSLIKEBUTTON: u32 = 4096;
-pub const OLEMISC_ACTSLIKELABEL: u32 = 8192;
-pub const OLEMISC_ALIGNABLE: u32 = 32768;
-pub const OLEMISC_ALWAYSRUN: u32 = 2048;
-pub const OLEMISC_IMEMODE: u32 = 262144;
-pub const OLEMISC_INVISIBLEATRUNTIME: u32 = 1024;
-pub const OLEMISC_NOUIACTIVATE: u32 = 16384;
-pub const OLEMISC_SETCLIENTSITEFIRST: u32 = 131072;
-pub const OLEMISC_SIMPLEFRAME: u32 = 65536;
 #[cfg(feature = "wtypes")]
 pub type OLE_CANCELBOOL = super::wtypes::VARIANT_BOOL;
 #[cfg(feature = "wtypes")]

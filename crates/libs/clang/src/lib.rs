@@ -1186,6 +1186,42 @@ impl Clang {
             }
         }
 
+        // Drop a top-level integer constant that merely duplicates an enum member of the
+        // same name and value. Legacy Win32 headers expose such values twice: once as a
+        // typed enumerator (`D3DFORMAT::D3DFMT_X8R8G8B8` in d3d9types.h,
+        // `OLEMISC::OLEMISC_ACTSLIKELABEL` in oleidl.h) and once as a loose object-like
+        // macro in an unrelated header (mfapi.h, olectl.h) — the former often a transient
+        // `#define`/`#undef` scaffold that libclang still reports as a macro definition.
+        // The bare `u32` copy is a redundant, weaker-typed duplicate of the canonical
+        // enumerator, so drop it. Constrained to an exact name + value match and to
+        // constants that nothing else references, so a genuinely distinct constant (a name
+        // shared with an unrelated enumerator of a different value) is never removed.
+        let enum_members = enum_member_values(&collectors);
+        if !enum_members.is_empty() {
+            let mut referenced = HashSet::new();
+            for collector in collectors.values() {
+                for item in collector.values() {
+                    item_refs(item, &mut referenced);
+                }
+            }
+            for collector in collectors.values_mut() {
+                collector.retain_items(|name, item| {
+                    let Item::Const(c) = item else {
+                        return true;
+                    };
+                    if referenced.contains(name) {
+                        return true;
+                    }
+                    let (Some(values), Some(value)) =
+                        (enum_members.get(name), const_integer_bits(&c.value))
+                    else {
+                        return true;
+                    };
+                    !values.iter().any(|&member| enum_member_eq(member, value))
+                });
+            }
+        }
+
         let mut outputs = BTreeMap::new();
         for (stem, collector) in &collectors {
             // A partition fully emptied by the sweep is not written (its stale file, if
@@ -1840,6 +1876,52 @@ fn is_midl_user_marshal_stub(cursor: &Cursor) -> bool {
         })
 }
 
+/// Collect every enum member (variant) name across all partitions, mapping each name to
+/// the set of `i64` values it is defined with. Used to detect a top-level constant that
+/// redundantly duplicates an enum member of the same name and value.
+fn enum_member_values(collectors: &BTreeMap<String, Collector>) -> HashMap<String, Vec<i64>> {
+    let mut members: HashMap<String, Vec<i64>> = HashMap::new();
+    for collector in collectors.values() {
+        for item in collector.values() {
+            if let Item::Enum(e) = item {
+                for (name, value) in &e.variants {
+                    members.entry(name.clone()).or_default().push(*value);
+                }
+            }
+        }
+    }
+    members
+}
+
+/// Reinterpret an integer [`metadata::Value`] as an `i128` bit pattern for comparison with
+/// an enum member value. Non-integer constants (floats, strings, type names) return `None`.
+fn const_integer_bits(value: &metadata::Value) -> Option<i128> {
+    Some(match value {
+        metadata::Value::Bool(v) => *v as i128,
+        metadata::Value::U8(v) => *v as i128,
+        metadata::Value::I8(v) => *v as i128,
+        metadata::Value::U16(v) => *v as i128,
+        metadata::Value::I16(v) => *v as i128,
+        metadata::Value::U32(v) => *v as i128,
+        metadata::Value::I32(v) => *v as i128,
+        metadata::Value::U64(v) => *v as i128,
+        metadata::Value::I64(v) => *v as i128,
+        metadata::Value::USize(v) => *v as i128,
+        metadata::Value::ISize(v) => *v as i128,
+        metadata::Value::EnumValue(_, inner) => return const_integer_bits(inner),
+        _ => return None,
+    })
+}
+
+/// Whether an enum member's `i64` value equals a constant's `i128` value. The enum member
+/// carries clang's raw (possibly sign-extended) bit pattern, so a 32-bit-truncated compare
+/// also matches a high-bit flag value (e.g. `0x8000_0000`) that the enum stores signed while
+/// the macro constant stores unsigned. Only the enum side is truncated, so a wide constant is
+/// never spuriously matched to a narrow enum member.
+fn enum_member_eq(member: i64, constant: i128) -> bool {
+    member as i128 == constant || member as u32 as i128 == constant
+}
+
 /// Wraps a collector's items in the nested `mod` path for `namespace`, producing the
 /// RDL source for a single namespace (e.g. `#[win32] mod Windows { mod Win32 { … } }`).
 fn emit_module(namespace: &str, collector: &Collector) -> Result<String, Error> {
@@ -1924,5 +2006,65 @@ mod tests {
             &mut enum_refs,
         );
         assert!(enum_refs.contains("NamedEnum"));
+    }
+
+    #[test]
+    fn const_integer_bits_reads_integers_only() {
+        assert_eq!(const_integer_bits(&metadata::Value::U32(22)), Some(22));
+        assert_eq!(const_integer_bits(&metadata::Value::I32(-1)), Some(-1));
+        assert_eq!(
+            const_integer_bits(&metadata::Value::U32(0x8000_0000)),
+            Some(0x8000_0000)
+        );
+        assert_eq!(
+            const_integer_bits(&metadata::Value::EnumValue(
+                metadata::TypeName::named("", "E"),
+                Box::new(metadata::Value::U16(7)),
+            )),
+            Some(7)
+        );
+        assert_eq!(const_integer_bits(&metadata::Value::F32(1.0)), None);
+        assert_eq!(
+            const_integer_bits(&metadata::Value::Utf8("x".to_string())),
+            None
+        );
+    }
+
+    #[test]
+    fn enum_member_eq_matches_value_and_high_bit_flag() {
+        // Plain equal values match.
+        assert!(enum_member_eq(22, 22));
+        assert!(!enum_member_eq(22, 23));
+        // A high-bit flag the enum stores sign-extended (`int` backing) still matches the
+        // unsigned macro constant via the 32-bit-truncated compare.
+        assert!(enum_member_eq(-2147483648, 0x8000_0000));
+        // A wide constant is never spuriously matched to a narrow enum member sharing its
+        // low 32 bits.
+        assert!(!enum_member_eq(0, 0x1_0000_0000));
+    }
+
+    #[test]
+    fn enum_member_values_collects_variants_across_partitions() {
+        let mut a = Collector::new();
+        a.insert(Item::Enum(Enum {
+            name: "D3DFORMAT".to_string(),
+            repr: "i32",
+            variants: vec![("D3DFMT_X8R8G8B8".to_string(), 22)],
+            flags: false,
+            scoped: false,
+        }));
+        let mut b = Collector::new();
+        b.insert(Item::Const(Const {
+            name: "D3DFMT_X8R8G8B8".to_string(),
+            value: metadata::Value::U32(22),
+        }));
+
+        let collectors: BTreeMap<String, Collector> =
+            [("d3d9types".to_string(), a), ("mfapi".to_string(), b)].into();
+        let members = enum_member_values(&collectors);
+        assert_eq!(
+            members.get("D3DFMT_X8R8G8B8").map(Vec::as_slice),
+            Some([22].as_slice())
+        );
     }
 }

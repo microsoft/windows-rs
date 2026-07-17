@@ -1090,17 +1090,6 @@ pub struct CapturedMetadataWhiteBalanceGains {
     pub G: f32,
     pub B: f32,
 }
-pub const D3DFMT_A16B16G16R16F: u32 = 113;
-pub const D3DFMT_A2B10G10R10: u32 = 31;
-pub const D3DFMT_A8R8G8B8: u32 = 21;
-pub const D3DFMT_D16: u32 = 80;
-pub const D3DFMT_L16: u32 = 81;
-pub const D3DFMT_L8: u32 = 50;
-pub const D3DFMT_P8: u32 = 41;
-pub const D3DFMT_R5G6B5: u32 = 23;
-pub const D3DFMT_R8G8B8: u32 = 20;
-pub const D3DFMT_X1R5G5B5: u32 = 24;
-pub const D3DFMT_X8R8G8B8: u32 = 22;
 #[repr(C)]
 #[cfg(feature = "windef")]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

@@ -356,6 +356,28 @@ The exporting **DLL is kept as a faithful per-function attribute**
 *data*. Any friendlier grouping (the legacy `windows` module layout, per-DLL views)
 becomes an optional downstream map over the flat namespace.
 
+### Redundant constants that duplicate an enumerator are dropped
+
+A handful of legacy headers expose the *same* value twice: once as a typed
+enumerator and once as a loose object-like macro in an unrelated header. The bare
+macro copy is a weaker-typed duplicate of the canonical enumerator, and — because the
+whole corpus shares one flat namespace — the two would collide once both headers are
+in scope. Examples:
+
+- `D3DFORMAT::D3DFMT_X8R8G8B8` (d3d9types.h) vs `#define D3DFMT_X8R8G8B8 22` in
+  mfapi.h — the latter a transient `#define`/`#undef` scaffold for
+  `DEFINE_MEDIATYPE_GUID` that libclang still reports as a macro definition.
+- `OLEMISC::OLEMISC_ACTSLIKELABEL` (oleidl.h) vs the legacy `#define` in olectl.h.
+- `MIB_IPROUTE_TYPE::MIB_IPROUTE_TYPE_DIRECT` vs the same-file `#define` in ipmib.h.
+
+After the reachability sweep, a final pass drops any top-level integer constant whose
+name **and** value match an enumerator defined anywhere in the corpus, provided
+nothing else references the constant (so a genuinely distinct constant that merely
+shares a name with an unrelated enumerator is never removed). The typed enumerator is
+the canonical projection and survives untouched. This keeps names globally unique
+without a curated exclusion list (`enum_member_values` / `const_integer_bits` /
+`enum_member_eq` in `lib.rs`).
+
 ## The in-house corpus: tool_win32
 
 ```text
