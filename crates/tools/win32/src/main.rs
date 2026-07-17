@@ -458,6 +458,7 @@ const SATELLITE_HEADERS: &[&str] = &[
     "batclass.h",
     "hidclass.h",
     "winternl.h",
+    "endpointvolume.h",
 ];
 
 /// Import libraries (resolved against the pinned Windows SDK x64 lib tree) read to recover the

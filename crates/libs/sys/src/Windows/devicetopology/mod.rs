@@ -1,0 +1,16 @@
+pub const Connector: PartType = 0;
+pub type ConnectorType = i32;
+pub const DEVTOPO_HARDWARE_INITIATED_EVENTCONTEXT: u32 = 1685217608;
+pub type DataFlow = i32;
+pub const DeviceTopology: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
+pub const EVENTCONTEXT_VOLUMESLIDER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe2c2e9de_09b1_4b04_84e5_07931225ee04);
+pub const In: DataFlow = 0;
+pub const Network: ConnectorType = 5;
+pub const Out: DataFlow = 1;
+pub type PartType = i32;
+pub const Physical_External: ConnectorType = 2;
+pub const Physical_Internal: ConnectorType = 1;
+pub const Software_Fixed: ConnectorType = 4;
+pub const Software_IO: ConnectorType = 3;
+pub const Subunit: PartType = 1;
+pub const Unknown_Connector: ConnectorType = 0;
