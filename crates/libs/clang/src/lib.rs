@@ -1218,8 +1218,27 @@ impl Clang {
             allow,
             winrt_types,
         } = *pass;
+        // Error-tolerant diagnostics. An error in an *emitted* header — one that is in
+        // scope, so its declarations are scraped into the corpus — is a real defect and
+        // still aborts the whole scrape, preserving the loud-failure guarantee. An error
+        // in a transitive-only include (a header pulled in solely to name a few types but
+        // never itself emitted, e.g. a `winrt\` C++/WinRT projection header an interop
+        // header references) is tolerated: clang's best-effort AST still yields the
+        // in-scope declarations, so the scrape continues past it. When no directory scope
+        // is configured every header is emitted, so any error aborts as before; an error
+        // with no attributable file (a driver/command-line error) also aborts, since it
+        // cannot be proven to originate in a tolerable transitive-only header.
         for diag in tu.diagnostics() {
-            if diag.is_err() {
+            if !diag.is_err() {
+                continue;
+            }
+            let emitted = self.scope.is_empty()
+                || diag.file_name.is_empty()
+                || self
+                    .scope_headers
+                    .contains(&header_stem_to_namespace(&diag.file_name))
+                || header_in_scope(&diag.file_name, &self.scope);
+            if emitted {
                 return Err(Error::new(
                     &diag.message,
                     &diag.file_name,
