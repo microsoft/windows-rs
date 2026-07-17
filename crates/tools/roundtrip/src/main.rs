@@ -12,7 +12,7 @@ const WINRT_RDL: &str = "metadata/winrt";
 
 const WIN32_WINMD: &str = "crates/libs/bindgen/default/Windows.Win32.winmd";
 const WIN32_RDL: &str = "metadata/win32";
-const WIN32_SEED: &str = "metadata.rdl";
+const WIN32_SEED: &str = "metadata/metadata.rdl";
 
 const WDK_WINMD: &str = "crates/libs/bindgen/default/Windows.Wdk.winmd";
 const WDK_RDL: &str = "metadata/wdk";
@@ -53,13 +53,18 @@ fn winrt() {
 /// Win32 and WDK partition their RDL by *defining header*, which the flat winmd does not carry.
 /// The committed corpus is the authority for that layout, so the item-name -> header-stem map is
 /// recovered from it (exactly as `merge_arch_rdl` does), the winmd is decompiled through that
-/// map, and the hand-authored seed (if any) is restored verbatim afterwards (the partition writer
-/// clears every `*.rdl`, seed included). This validates that the winmd's *content* round-trips to
-/// the committed RDL under the committed layout.
+/// map, and the hand-authored seed (if any) is restored verbatim afterwards. The seed lives
+/// outside `rdl_dir` (the partition writer clears every `*.rdl` in it), so restoring it merely
+/// rewrites identical bytes. This validates that the winmd's *content* round-trips to the
+/// committed RDL under the committed layout.
 fn partitioned(label: &str, winmd: &str, rdl_dir: &str, seed: Option<&str>) {
-    let seed_text = seed.map(|name| {
-        let path = format!("{rdl_dir}/{name}");
-        std::fs::read(&path).unwrap_or_else(|e| panic!("failed to read seed `{path}`: {e}"))
+    let seed_name = seed.and_then(|path| {
+        std::path::Path::new(path)
+            .file_name()
+            .and_then(|n| n.to_str())
+    });
+    let seed_text = seed.map(|path| {
+        std::fs::read(path).unwrap_or_else(|e| panic!("failed to read seed `{path}`: {e}"))
     });
 
     // Build the item-name -> header-stem map from the committed corpus. Files are sorted for a
@@ -70,7 +75,7 @@ fn partitioned(label: &str, winmd: &str, rdl_dir: &str, seed: Option<&str>) {
         .flatten()
         .map(|entry| entry.path())
         .filter(|path| path.extension().is_some_and(|ext| ext == "rdl"))
-        .filter(|path| path.file_name().and_then(|n| n.to_str()) != seed)
+        .filter(|path| path.file_name().and_then(|n| n.to_str()) != seed_name)
         .collect();
     rdl_paths.sort();
 
@@ -96,8 +101,8 @@ fn partitioned(label: &str, winmd: &str, rdl_dir: &str, seed: Option<&str>) {
         .write()
         .unwrap_or_else(|e| panic!("{label} roundtrip failed: {e}"));
 
-    if let (Some(name), Some(text)) = (seed, seed_text) {
-        write_to_file(&format!("{rdl_dir}/{name}"), text)
-            .unwrap_or_else(|e| panic!("failed to restore seed `{rdl_dir}/{name}`: {e}"));
+    if let (Some(path), Some(text)) = (seed, seed_text) {
+        write_to_file(path, text)
+            .unwrap_or_else(|e| panic!("failed to restore seed `{path}`: {e}"));
     }
 }

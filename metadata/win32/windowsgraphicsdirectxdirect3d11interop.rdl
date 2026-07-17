@@ -1,0 +1,13 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("d3d11.dll")]
+        extern fn CreateDirect3D11DeviceFromDXGIDevice(dxgiDevice: IDXGIDevice, graphicsDevice: *mut IInspectable) -> HRESULT;
+        #[library("d3d11.dll")]
+        extern fn CreateDirect3D11SurfaceFromDXGISurface(dgxiSurface: IDXGISurface, graphicsSurface: *mut IInspectable) -> HRESULT;
+        #[guid(0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1)]
+        interface IDirect3DDxgiInterfaceAccess: IUnknown {
+            fn GetInterface(&self, iid: *const GUID, #[iid_is] p: *mut *mut void) -> HRESULT;
+        }
+    }
+}

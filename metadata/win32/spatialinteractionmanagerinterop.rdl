@@ -1,0 +1,9 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x5c4ee536_6a98_4b86_a170_587013d6fd4b)]
+        interface ISpatialInteractionManagerInterop: IInspectable {
+            fn GetForWindow(&self, window: HWND, riid: *const GUID, #[retval] #[iid_is] spatialInteractionManager: *mut *mut void) -> HRESULT;
+        }
+    }
+}

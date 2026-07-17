@@ -98,7 +98,8 @@ pub struct ScrapePlan {
     /// these are never an exclusion base: no entity they define is skipped or emitted. Empty for a
     /// scrape that reaches no ABI interop surface (the default).
     pub resolution_winmds: Vec<String>,
-    /// Optional hand-authored metadata seed RDL (full path, living inside `rdl_dir`). Preserved
+    /// Optional hand-authored metadata seed RDL (full path). Typically lives outside `rdl_dir`
+    /// so the generated corpus can be cleared and rebuilt without disturbing it. Preserved
     /// across the `rdl_dir` clear, added to every reader pass, and fed to the arch-merge.
     pub seed: Option<String>,
     /// Scrape the architectures concurrently (large SDK translation units are clang-bound).
@@ -253,6 +254,9 @@ impl Clang {
             let w = std::time::Instant::now();
             let mut reader = reader();
             reader.input(&plan.rdl_dir);
+            if let Some(seed) = &plan.seed {
+                reader.input(seed);
+            }
             for reference in &plan.reference_winmds {
                 reader.input(reference);
             }

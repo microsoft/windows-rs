@@ -27,8 +27,10 @@ const RESOLUTION_WINMDS: &[&str] = &["crates/libs/bindgen/default/Windows.winmd"
 const RDL_DIR: &str = "metadata/win32";
 
 /// Hand-authored metadata vocabulary seed file (not generated from headers). Defines
-/// the `Windows.Win32.Metadata` attribute types the converter emits.
-const METADATA_SEED: &str = "metadata.rdl";
+/// the `Windows.Win32.Metadata` attribute types the converter emits. Lives outside
+/// [`RDL_DIR`] so the generated corpus directory can be freely cleared and rebuilt
+/// without disturbing this prerequisite.
+const METADATA_SEED: &str = "metadata/metadata.rdl";
 
 /// Pinned Windows SDK version. The corpus is generated against the
 /// `Microsoft.Windows.SDK.CPP` (headers) and per-arch `Microsoft.Windows.SDK.CPP.<arch>`
@@ -419,7 +421,40 @@ const HEADERS: &[&str] = &[
     "IntShCut.h",
     "cfapi.h",
     "Windows.Devices.Display.Core.Interop.h",
+    // WinRT interop factory/native bridge headers (`um\` dir). These are the MIDL-generated
+    // C-ABI interop headers whose `HWND`/`REFIID`/`void**` (or DXGI/D2D) bridge interfaces
+    // win32metadata mapped to `Windows.Win32.System.WinRT[.*]`. They include only light COM
+    // headers (`windows.h`, `ole2.h`, `oaidl.h`, `inspectable.h`, `dxgi.h`, …) already in the
+    // main TU — *not* the C++/WinRT projection headers (`windows.*.h`) — so they parse cleanly;
+    // any WinRT type they reach is resolved via the resolution winmd (see [`RESOLUTION_WINMDS`]).
     "UserConsentVerifierInterop.h",
+    "UIViewSettingsInterop.h",
+    "inputpaneinterop.h",
+    "accountssettingspaneinterop.h",
+    "dragdropinterop.h",
+    "PrintManagerInterop.h",
+    "Print3DManagerInterop.h",
+    "PlayToManagerInterop.h",
+    "SystemMediaTransportControlsInterop.h",
+    "SpatialInteractionManagerInterop.h",
+    "HolographicSpaceInterop.h",
+    "WebAuthenticationCoreManagerInterop.h",
+    "useractivityinterop.h",
+    "sharewindowcommandsourceinterop.h",
+    "appserviceinterop.h",
+    "CastingInterop.h",
+    "RadialControllerInterop.h",
+    "RemoteSystemsInterop.h",
+    "windows.security.isolation.isolatedenvironmentinterop.h",
+    "windows.ui.viewmanagement.core.coreframeworkinputviewinterop.h",
+    "windows.graphics.directx.direct3d11.interop.h",
+    "windows.graphics.imaging.interop.h",
+    "windows.media.core.interop.h",
+    "windows.data.pdf.interop.h",
+    "windows.ui.xaml.media.dxinterop.h",
+    "windows.ui.xaml.hosting.desktopwindowxamlsource.h",
+    "windows.ui.xaml.hosting.referencetracker.h",
+    "WindowsStorageCOM.h",
     // WinRT C-ABI interop (winrt\ dir, out of the um/shared scope but named here so
     // scope_headers makes them roots). These are the flat COM/C interop headers that
     // win32metadata maps to Windows.Win32.System.WinRT[.Metadata] — NOT the winmd-generated
@@ -778,7 +813,7 @@ fn main() {
         archs,
         reference_winmds: Vec::new(),
         resolution_winmds: RESOLUTION_WINMDS.iter().map(|s| s.to_string()).collect(),
-        seed: Some(format!("{RDL_DIR}/{METADATA_SEED}")),
+        seed: Some(METADATA_SEED.to_string()),
         parallel: true,
     });
 

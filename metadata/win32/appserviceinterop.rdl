@@ -1,0 +1,14 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x65219584_f9cb_4ae3_81f9_a28a6ca450d9)]
+        interface IAppServiceConnectionExtendedExecution: IUnknown {
+            fn OpenForExtendedExecutionAsync(&self, riid: *const GUID, #[iid_is] operation: *mut *mut void) -> HRESULT;
+        }
+        #[guid(0x152b8a3b_b9b9_4685_b56e_974847bc7545)]
+        interface ICorrelationVectorSource: IUnknown {
+            #[special]
+            fn get_CorrelationVector(&self, #[retval] cv: *mut HSTRING) -> HRESULT;
+        }
+    }
+}

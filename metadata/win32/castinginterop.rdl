@@ -1,0 +1,41 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum CASTING_CONNECTION_ERROR_STATUS {
+            CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED = 0,
+            CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND = 1,
+            CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR = 2,
+            CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED = 3,
+            CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED = 4,
+            CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE = 5,
+            CASTING_CONNECTION_ERROR_STATUS_UNKNOWN = 6,
+        }
+        #[repr(i32)]
+        enum CASTING_CONNECTION_STATE {
+            CASTING_CONNECTION_STATE_DISCONNECTED = 0,
+            CASTING_CONNECTION_STATE_CONNECTED = 1,
+            CASTING_CONNECTION_STATE_RENDERING = 2,
+            CASTING_CONNECTION_STATE_DISCONNECTING = 3,
+            CASTING_CONNECTION_STATE_CONNECTING = 4,
+        }
+        #[guid(0xf0a56423_a664_4fbd_8b43_409a45e8d9a1)]
+        interface ICastingController: IUnknown {
+            fn Initialize(&self, castingEngine: IUnknown, castingSource: IUnknown) -> HRESULT;
+            fn Connect(&self) -> HRESULT;
+            fn Disconnect(&self) -> HRESULT;
+            fn Advise(&self, eventHandler: ICastingEventHandler, cookie: *mut u32) -> HRESULT;
+            fn UnAdvise(&self, cookie: u32) -> HRESULT;
+        }
+        #[guid(0xc79a6cb7_bebd_47a6_a2ad_4d45ad79c7bc)]
+        interface ICastingEventHandler: IUnknown {
+            fn OnStateChanged(&self, newState: CASTING_CONNECTION_STATE) -> HRESULT;
+            fn OnError(&self, errorStatus: CASTING_CONNECTION_ERROR_STATUS, errorMessage: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x45101ab7_7c3a_4bce_9500_12c09024b298)]
+        interface ICastingSourceInfo: IUnknown {
+            fn GetController(&self, controller: *mut ICastingController) -> HRESULT;
+            fn GetProperties(&self, props: *mut INamedPropertyStore) -> HRESULT;
+        }
+    }
+}

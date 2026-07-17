@@ -1,0 +1,10 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0xf4b8e804_811e_4436_b69c_44cb67b72084)]
+        interface IWebAuthenticationCoreManagerInterop: IInspectable {
+            fn RequestTokenForWindowAsync(&self, appWindow: HWND, request: IInspectable, riid: *const GUID, #[retval] #[iid_is] asyncInfo: *mut *mut void) -> HRESULT;
+            fn RequestTokenWithWebAccountForWindowAsync(&self, appWindow: HWND, request: IInspectable, webAccount: IInspectable, riid: *const GUID, #[retval] #[iid_is] asyncInfo: *mut *mut void) -> HRESULT;
+        }
+    }
+}

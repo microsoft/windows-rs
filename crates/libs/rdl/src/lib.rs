@@ -177,9 +177,11 @@ pub fn merge_arch_rdl(
     }
 
     // Preserve the hand-authored seed: the Writer clears `*.rdl` from the output directory
-    // (which is typically the committed corpus that already holds the seed) before writing.
-    // A corpus whose metadata attributes are resolved from an external reference winmd
-    // (the WDK, which references the Win32 winmd) carries no seed of its own.
+    // before writing. When the seed lives inside that directory it would be swept, so it is
+    // captured up front and restored afterwards; when it lives outside (the usual case) the
+    // restore is an idempotent rewrite to its own path. A corpus whose metadata attributes are
+    // resolved from an external reference winmd (the WDK, which references the Win32 winmd)
+    // carries no seed of its own.
     let seed = seed
         .map(|seed| {
             let name = std::path::Path::new(seed)
@@ -189,7 +191,7 @@ pub fn merge_arch_rdl(
                 .to_string();
             let text = std::fs::read(seed)
                 .map_err(|e| writer_err!("failed to read seed `{seed}`: {e}"))?;
-            Ok::<_, Error>((name, text))
+            Ok::<_, Error>((name, seed.to_string(), text))
         })
         .transpose()?;
 
@@ -233,7 +235,7 @@ pub fn merge_arch_rdl(
             let path = entry.path();
             if !path.extension().is_some_and(|x| x == "rdl")
                 || path.file_name().and_then(|n| n.to_str())
-                    == seed.as_ref().map(|(name, _)| name.as_str())
+                    == seed.as_ref().map(|(name, _, _)| name.as_str())
             {
                 continue;
             }
@@ -254,15 +256,11 @@ pub fn merge_arch_rdl(
         .output(output_dir)
         .write()?;
 
-    // 4. Restore the hand-authored seed verbatim (corpora without a seed skip this).
-    if let Some((seed_name, seed_text)) = seed {
-        write_to_file(
-            std::path::Path::new(output_dir)
-                .join(&seed_name)
-                .to_str()
-                .ok_or_else(|| writer_err!("output path contains non-UTF-8 characters"))?,
-            seed_text,
-        )?;
+    // 4. Restore the hand-authored seed verbatim to its own path (corpora without a seed skip
+    //    this). When the seed lives inside `output_dir` this replaces the copy the Writer just
+    //    swept; when it lives outside, it rewrites identical bytes to the committed source.
+    if let Some((_, seed_path, seed_text)) = seed {
+        write_to_file(&seed_path, seed_text)?;
     }
 
     Ok(())

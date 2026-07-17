@@ -1,0 +1,10 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x9ca31010_1484_4587_b26b_dddf9f9caecd)]
+        interface IPrinting3DManagerInterop: IInspectable {
+            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] printManager: *mut *mut void) -> HRESULT;
+            fn ShowPrintUIForWindowAsync(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] asyncOperation: *mut *mut void) -> HRESULT;
+        }
+    }
+}

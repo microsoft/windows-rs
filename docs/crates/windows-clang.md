@@ -199,10 +199,12 @@ OS-version availability, `SetLastError` behaviour, loose-constant→enum promoti
 wrappers) they belong in the hand-written `windows` projection layer, not smuggled
 into the metadata as synthetic attributes.
 
-The **only** hand-authored input is `metadata/win32/metadata.rdl` — the attribute
+The **only** hand-authored input is `metadata/metadata.rdl` — the attribute
 vocabulary (`NativeTypedefAttribute`, `SupportedArchitectureAttribute`,
 `DoesNotReturnAttribute`, …) that exists only in metadata, so no C header can declare
-it. Everything else — including the `Foundation` scalars `BOOL`/`HANDLE`/`HRESULT` —
+it. It lives beside (not inside) the generated `metadata/win32` corpus so that directory
+can be freely cleared and rebuilt without disturbing this prerequisite. Everything else —
+including the `Foundation` scalars `BOOL`/`HANDLE`/`HRESULT` —
 is header-derived. Semantic scalars survive not through a seed list but because
 scalar collapse is *opt-in*: `fundamental_scalar` / `pointer_sized_abi` (`canon.rs`)
 are curated allowlists of names that collapse to a Rust primitive (`DWORD` → `u32`);

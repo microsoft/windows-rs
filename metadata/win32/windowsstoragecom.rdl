@@ -1,0 +1,77 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[repr(i32)]
+        enum CreateProcessMethod {
+            CpCreateProcess = 0,
+            CpCreateProcessAsUser = 1,
+            CpAicLaunchAdminProcess = 2,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum HANDLE_ACCESS_OPTIONS {
+            HAO_NONE = 0,
+            HAO_READ_ATTRIBUTES = 128,
+            HAO_READ = 1179785,
+            HAO_WRITE = 1179926,
+            HAO_DELETE = 65536,
+        }
+        #[repr(i32)]
+        enum HANDLE_CREATION_OPTIONS {
+            HCO_CREATE_NEW = 1,
+            HCO_CREATE_ALWAYS = 2,
+            HCO_OPEN_EXISTING = 3,
+            HCO_OPEN_ALWAYS = 4,
+            HCO_TRUNCATE_EXISTING = 5,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum HANDLE_OPTIONS {
+            HO_NONE = 0,
+            HO_OPEN_REQUIRING_OPLOCK = 262144,
+            HO_DELETE_ON_CLOSE = 67108864,
+            HO_SEQUENTIAL_SCAN = 134217728,
+            HO_RANDOM_ACCESS = 268435456,
+            HO_NO_BUFFERING = 536870912,
+            HO_OVERLAPPED = 1073741824,
+            HO_WRITE_THROUGH = 2147483648,
+        }
+        #[repr(u32)]
+        #[flags]
+        enum HANDLE_SHARING_OPTIONS {
+            HSO_SHARE_NONE = 0,
+            HSO_SHARE_READ = 1,
+            HSO_SHARE_WRITE = 2,
+            HSO_SHARE_DELETE = 4,
+        }
+        #[guid(0x30dc931f_33fc_4ffd_a168_942258cf3ca4)]
+        interface IDDEInitializer: IUnknown {
+            fn Initialize(&self, fileExtensionOrProtocol: PCWSTR, method: CreateProcessMethod, currentDirectory: PCWSTR, execTarget: IShellItem, site: IUnknown, application: PCWSTR, targetFile: PCWSTR, arguments: PCWSTR, verb: PCWSTR) -> HRESULT;
+        }
+        #[guid(0x826abe3d_3acd_47d3_84f2_88aaedcf6304)]
+        interface IOplockBreakingHandler: IUnknown {
+            fn OplockBreaking(&self) -> HRESULT;
+        }
+        #[guid(0x332e5848_2e15_458e_85c4_c911c0c3d6f4)]
+        interface IRandomAccessStreamFileAccessMode: IUnknown {
+            fn GetMode(&self, fileAccessMode: *mut u32) -> HRESULT;
+        }
+        #[guid(0xdf19938f_5462_48a0_be65_d2a3271a08d6)]
+        interface IStorageFolderHandleAccess: IUnknown {
+            fn Create(&self, fileName: PCWSTR, creationOptions: HANDLE_CREATION_OPTIONS, accessOptions: HANDLE_ACCESS_OPTIONS, sharingOptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, #[opt] oplockBreakingHandler: IOplockBreakingHandler, #[retval] interopHandle: *mut HANDLE) -> HRESULT;
+        }
+        #[guid(0x5ca296b2_2c25_4d22_b785_b885c8201e6a)]
+        interface IStorageItemHandleAccess: IUnknown {
+            fn Create(&self, accessOptions: HANDLE_ACCESS_OPTIONS, sharingOptions: HANDLE_SHARING_OPTIONS, options: HANDLE_OPTIONS, #[opt] oplockBreakingHandler: IOplockBreakingHandler, #[retval] interopHandle: *mut HANDLE) -> HRESULT;
+        }
+        #[guid(0xd1019a0e_6243_4329_8497_2e75894d7710)]
+        interface IUnbufferedFileHandleOplockCallback: IUnknown {
+            fn OnBrokenCallback(&self) -> HRESULT;
+        }
+        #[guid(0xa65c9109_42ab_4b94_a7b1_dd2e4e68515e)]
+        interface IUnbufferedFileHandleProvider: IUnknown {
+            fn OpenUnbufferedFileHandle(&self, oplockBreakCallback: IUnbufferedFileHandleOplockCallback, #[retval] fileHandle: *mut usize) -> HRESULT;
+            fn CloseUnbufferedFileHandle(&self) -> HRESULT;
+        }
+    }
+}

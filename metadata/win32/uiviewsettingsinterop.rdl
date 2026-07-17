@@ -1,0 +1,9 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x3694dbf9_8f68_44be_8ff5_195c98ede8a6)]
+        interface IUIViewSettingsInterop: IInspectable {
+            fn GetForWindow(&self, hwnd: HWND, riid: *const GUID, #[retval] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+    }
+}

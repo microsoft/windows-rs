@@ -1,0 +1,9 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[guid(0x5ad8cba7_4c01_4dac_9074_827894292d63)]
+        interface IDragDropManagerInterop: IInspectable {
+            fn GetForWindow(&self, hwnd: HWND, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
+        }
+    }
+}
