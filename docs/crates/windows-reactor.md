@@ -725,13 +725,12 @@ existing `test` feature rather than adding bespoke scaffolding (the engine/
 reconciler/widget inspectors work this way). Don't invent a feature — or a public
 helper — just to test a trivial pure function; leave it private and untested.
 
-### Field-reported friction
+### Known gaps and fixes
 
-Concrete friction hit by an external app built on a pinned reactor rev
-([netmon-rs](https://github.com/damyanp/netmon-rs), a WinUI 3 network monitor;
-see its `reactor-notes.md`). Unlike the C# parity catalog below, these are
-specific bugs/gaps with a known reproduction. Recorded so we can track progress
-and, where possible, close the "had to drop to the raw `windows` crate" cases.
+Specific bugs and gaps with a known reproduction, tracked separately from the C#
+parity catalog below. Recorded so we can track progress and, where possible, close
+the "had to drop to the raw `windows` crate" cases. Items marked *(fixed)* have
+landed; *(gap)* items are still outstanding.
 
 1. **Nested component doesn't re-render from its own `use_state` *(fixed)*.** A
    component that mutates only its own `use_state`, buried under structurally
@@ -779,37 +778,87 @@ and, where possible, close the "had to drop to the raw `windows` crate" cases.
    `Result` error for a missing icon, which is the only architecturally sound place
    to give the caller one. Sample: `cargo run -p reactor_samples --example icon`.
 
-3. **Swapping a canvas out of the tree leaks its render loop *(fixed)*.** A field
-   report described conditionally swapping one keyless subtree for a shorter,
-   differently shaped one (a per-target card `vstack` with a nested
-   `component(spark_view)` → a compact legend `hstack`), which left orphaned
-   sparkline surfaces on screen; adding distinct `.with_key(...)` to each layout
+3. **Swapping a canvas out of the tree leaks its render loop *(fixed)*.**
+   Conditionally swapping one keyless subtree for a shorter, differently shaped one
+   (a `vstack` with a nested `component(...)` → a compact `hstack`) left orphaned
+   rendering surfaces on screen; adding distinct `.with_key(...)` to each layout
    appeared to fix it. Investigation showed the reconciler is **not** at fault —
    keyless positional reconcile correctly unmounts and destroys nested
    `SwapChainPanel`s when a container shrinks (`reconciler/child.rs`; verified
-   against the exact card/legend shape). The real leak was in
+   against the exact shape). The real leak was in
    [`windows-canvas`](windows-canvas.md)'s `animated_canvas`: its per-frame
    `RenderState` holds the `CompositionTarget::Rendering` subscription and the
    swap chain in a **reference cycle** (the rendering callback captures an `Rc`
    back to the cell that owns it), and it registered no `on_unmounted` handler —
    so refcounting alone could never drop it. When the panel left the tree the
-   render loop kept firing and presenting to the detached swap chain (the
-   "leftover mini-charts"). Keying only masked it by reshuffling which panels
-   survived. Fixed by adding an `on_unmounted` teardown that clears the state
-   cell, dropping the `RenderState` in place (revoking the subscription and
-   releasing the swap chain). Regression: `test_canvas::animated_canvas_installs_unmount_teardown`.
+   render loop kept firing and presenting to the detached swap chain. Keying only
+   masked it by reshuffling which panels survived. Fixed by adding an
+   `on_unmounted` teardown that clears the state cell, dropping the `RenderState`
+   in place (revoking the subscription and releasing the swap chain). Regression:
+   `test_canvas::animated_canvas_installs_unmount_teardown`.
 
-4. **On-demand D2D drawing surface pulls in the raw `windows` crate *(gap)*.** The
-   app draws a once-per-second chart into reactor's `SurfaceImageSource` with
-   hand-rolled D3D11/D2D/DXGI/DirectWrite, plus a hand-managed shared `ID2D1Device`.
+4. **On-demand D2D drawing surface pulls in the raw `windows` crate *(gap)*.**
+   Drawing on-demand content (a surface that repaints on a data change rather than
+   every frame) into reactor's `SurfaceImageSource` currently requires hand-rolled
+   D3D11/D2D/DXGI/DirectWrite plus a hand-managed shared `ID2D1Device`.
    [`windows-canvas`](windows-canvas.md) already wraps D2D safely (device, drawing
    session, text) but only targets a continuously-rendered `SwapChainPanel` via
    `animated_canvas` — there is no canvas-backed *on-demand* `SurfaceImageSource`
    path, and reactor's `SurfaceImageSource` widget requires a caller-supplied
-   `ID2D1Device`. For content that redraws on a data change rather than every frame, a
-   continuous swap chain is the wrong tool, so raw D2D was the only option. A
+   `ID2D1Device`. For content that redraws on a data change rather than every frame,
+   a continuous swap chain is the wrong tool, so raw D2D is the only option. A
    canvas-backed on-demand surface (shared device + safe drawing into a
    `SurfaceImageSource`) would let such apps avoid the `windows` crate entirely.
+
+5. **No general composition-interop seam for hosting GPU / Direct2D content
+   *(gap)*.** Hosting GPU-drawn content requires reaching the
+   Windows.UI.Composition layer *under an arbitrary reactor element*: attach a
+   custom `Visual` (`ElementCompositionPreview.SetElementChildVisual`), obtain the
+   `Compositor` that owns the element's visual so it can build *same-compositor*
+   child visuals, and read the element's rasterization (DPI) scale so the
+   composition surface is crisp. Reactor already drives this plumbing internally
+   for its opacity/scale transitions — `ElementCompositionPreview::GetElementVisual`
+   plus `Visual.Compositor()` (`backend/winui/mod.rs:603`, `:612`, `:667`) — but it
+   is `pub(crate)` and single-purpose, and the two other pieces aren't even bound:
+   `SetElementChildVisual` is absent from `bindings.rs` (only `GetElementVisual`
+   is) and `RasterizationScale` is a `usize` vtable stub (`bindings.rs:16313`). The
+   dedicated `SwapChainPanel` widget (`widgets/swap_chain_panel.rs`) already covers
+   the DXGI-swap-chain case via `ISwapChainPanelNative::SetSwapChain`, but there is
+   no seam for the *composition-visual* case — hosting a custom composition island
+   (custom-drawn / off-thread animated content) under a plain host element. Filling
+   this means exposing three `Backend` methods — `element_compositor(host)`,
+   `element_rasterization_scale(host)` (default `1.0`), and
+   `set_element_child_visual(host, visual)` — binding `SetElementChildVisual` and
+   `RasterizationScale`, and returning `E_INVALIDARG` (not `panic!`) for an unknown
+   control id.
+
+6. **Templated list stays blank when it grows from empty *(gap)*.** Eager
+   realization queues `Realize` requests for rows `0..count` only at *mount*
+   (`reconciler/templated.rs:94`). If a list mounts empty (count 0) and later grows
+   to N items — a list that starts empty then receives data — those rows are never
+   queued, so the list stays blank until something forces a
+   re-mount. `update_templated_list` handles a count change only by *unmounting*
+   removed rows on shrink (`templated.rs:147`), and `refresh_realized_rows`
+   (`:175`) revisits only already-realized indices — neither realizes the new rows.
+   Fix: after updating the item count, re-scan for still-unrealized visible rows and
+   push `Realize` requests for them, so a 0→N list renders on first data without a
+   re-mount.
+
+7. **Templated lists aren't actually virtualized *(gap)*.** The
+   realize/recycle contract the reconciler sets up is dropped by the WinUI backend:
+   `attach_templated_realization` (`backend/winui/mod.rs:2056`) and
+   `set_templated_item_count` (`:1816`) are no-ops, and `set_templated_row_content`
+   (`:1817`) materializes *every* row straight into the `Items` vector, padding gaps
+   with placeholder `TextBlock`s. So rows are realized only from the reconciler's
+   eager path (all rows, at mount) — with eager realization off, nothing realizes at
+   all; with it on, the whole list is built up front. Either way there is no
+   scroll-driven virtualization, so large collections materialize in full. The WinUI
+   protocol for this (`ContainerContentChanging` / `ChoosingItemContainer`) isn't
+   wired — those slots are `usize` stubs in the reactor bindings
+   (`bindings.rs:9262`–`:9265`). True virtualization means binding those events and
+   driving the existing `realize`/`recycle` callbacks from container recycling plus
+   a real `ItemsSource` item count, instead of a fully-materialized `Items`
+   collection.
 
 ### Future work — C# reactor parity
 
