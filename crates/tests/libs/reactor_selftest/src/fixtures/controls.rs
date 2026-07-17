@@ -458,19 +458,42 @@ pub fn mount_templated_flip_view(h: Harness) -> FixtureFuture {
 
 pub fn mount_virtual_list_alias(h: Harness) -> FixtureFuture {
     Box::pin(async move {
+        const TOTAL: usize = 300;
         h.mount(cc(|_| {
-            list_view(vec![1i32, 2, 3, 4, 5], |n, _| {
+            list_view((0..TOTAL as i32).collect::<Vec<_>>(), |n, _| {
                 text_block(format!("row #{n}"))
             })
             .height(120.0)
             .build()
         }));
         h.render().await;
-        // list_view creates a WinUI ListView. Item containers are realized
-        // lazily via ContainerContentChanging (same as mount_tab_view
-        // above), so we don't assert on row TextBlocks here — the
-        // presence of the ListView is sufficient to confirm mount.
         assert_present!(h, "Reconciler_Mount_VirtualList", bindings::ListView);
+
+        // Rows realize lazily via ContainerContentChanging once WinUI lays the
+        // ListView out. Wait for the first row's content to appear, proving the
+        // realize→SetContent path works end-to-end.
+        let realized = h
+            .render_until("virtual list first row to realize", |h| {
+                h.find_text("row #0").is_some()
+            })
+            .await;
+        h.check("Reconciler_VirtualList_FirstRowRealized", realized);
+
+        // Virtualization: only the on-screen slice is ever realized, never all
+        // 300 rows. A 120px-tall ListView holds a small fraction of them.
+        let row_count = h
+            .find_all::<bindings::TextBlock>(&|tb| {
+                tb.cast::<bindings::ITextBlock>()
+                    .ok()
+                    .and_then(|t| t.Text().ok())
+                    .is_some_and(|s| s.starts_with("row #"))
+            })
+            .len();
+        h.check_with(
+            "Reconciler_VirtualList_Bounded",
+            row_count > 0 && row_count < TOTAL,
+            || format!("realized {row_count} of {TOTAL} rows"),
+        );
     })
 }
 

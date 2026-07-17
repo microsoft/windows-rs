@@ -35,11 +35,11 @@ pub struct Reconciler<B: Backend> {
     pub error_boundary_fallbacks: rustc_hash::FxHashSet<ControlId>,
     pub templated_lists: FxHashMap<ControlId, TemplatedListState>,
     pub custom_handles: FxHashMap<ControlId, Box<dyn CustomElement>>,
-    pub eager_templated_realization: bool,
     pub defer_templated_unmounts: bool,
     pub deferred_unmounts: Vec<ControlId>,
     pub realization_queue: RealizationQueue,
     pub selection_callbacks: FxHashMap<ControlId, Rc<RefCell<Option<Callback<i32>>>>>,
+    pub reorder_callbacks: FxHashMap<ControlId, Rc<RefCell<Option<Callback<Vec<usize>>>>>>,
     /// Pre-unmount callbacks keyed by control id, invoked with the native
     /// element (or `None`) just before the control is destroyed (see
     /// [`Widget::on_unmounted_callback`]).
@@ -85,10 +85,10 @@ impl<B: Backend + 'static> Reconciler<B> {
             custom_handles: FxHashMap::default(),
             realization_queue: new_realization_queue(),
             selection_callbacks: FxHashMap::default(),
+            reorder_callbacks: FxHashMap::default(),
             unmount_callbacks: FxHashMap::default(),
             header_elements: FxHashMap::default(),
             pane_elements: FxHashMap::default(),
-            eager_templated_realization: false,
             defer_templated_unmounts: false,
             deferred_unmounts: Vec::new(),
             marshaller: None,
@@ -146,6 +146,7 @@ impl<B: Backend + 'static> Reconciler<B> {
         }
         self.templated_lists.remove(&id);
         self.selection_callbacks.remove(&id);
+        self.reorder_callbacks.remove(&id);
         self.error_boundary_fallbacks.remove(&id);
         self.children_mirror.remove(&id);
         self.custom_handles.remove(&id);
@@ -356,6 +357,7 @@ impl<B: Backend + 'static> Reconciler<B> {
             }
 
             self.selection_callbacks.remove(&node);
+            self.reorder_callbacks.remove(&node);
 
             // Let the control tear down resources bound to it (e.g. join a
             // render thread) while the native control still exists, before it

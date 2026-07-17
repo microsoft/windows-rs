@@ -58,18 +58,39 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.backend.attach_templated_selection_changed(id, cb);
         }
 
+        if tl.has_reorder_handler() {
+            let trampoline = self.reorder_callbacks.entry(id).or_default().clone();
+            *trampoline.borrow_mut() = tl.raw_reorder_callback();
+            let trampoline_c = Rc::clone(&trampoline);
+            let cb = Callback::new(move |order: Vec<usize>| {
+                if let Some(inner) = trampoline_c.borrow().as_ref() {
+                    inner.invoke(order);
+                }
+            });
+            self.backend.attach_templated_reorder(id, cb);
+        }
+
+        // WinUI container-recycling events (ContainerContentChanging) fire
+        // during scrolling, outside any render pass. The realize/recycle
+        // closures enqueue work and then ask the host to render, so the queue
+        // is drained on the next UI-thread frame. `request_render` coalesces,
+        // so a burst of scroll events costs about one reconcile per frame.
         let queue_r = Rc::clone(&self.realization_queue);
         let queue_c = Rc::clone(&self.realization_queue);
+        let rerender_r = Rc::clone(&self.request_rerender);
+        let rerender_c = Rc::clone(&self.request_rerender);
         let list_id = id;
         let realize: Rc<dyn Fn(usize)> = Rc::new(move |row_idx: usize| {
             queue_r
                 .borrow_mut()
                 .push(RealizationRequest::Realize { list_id, row_idx });
+            (rerender_r)();
         });
         let recycle: Rc<dyn Fn(usize)> = Rc::new(move |row_idx: usize| {
             queue_c
                 .borrow_mut()
                 .push(RealizationRequest::Recycle { list_id, row_idx });
+            (rerender_c)();
         });
         self.backend
             .attach_templated_realization(id, realize, recycle);
@@ -91,7 +112,10 @@ impl<B: Backend + 'static> Reconciler<B> {
             self.backend.set_templated_selected_index(id, sel);
         }
 
-        if self.eager_templated_realization {
+        // FlipView is not a ListViewBase and has no container-recycling
+        // events, so it can't self-virtualize. Realize every row up front; it
+        // shows one item at a time, so the working set stays tiny anyway.
+        if matches!(tl.kind, TemplatedKind::FlipView) {
             let mut q = self.realization_queue.borrow_mut();
             for row_idx in 0..count {
                 q.push(RealizationRequest::Realize {
@@ -118,6 +142,10 @@ impl<B: Backend + 'static> Reconciler<B> {
 
         if let Some(cell) = self.selection_callbacks.get(&id) {
             *cell.borrow_mut() = new.raw_selection_callback();
+        }
+
+        if let Some(cell) = self.reorder_callbacks.get(&id) {
+            *cell.borrow_mut() = new.raw_reorder_callback();
         }
 
         if old.selected_index() != new.selected_index() {
@@ -165,6 +193,18 @@ impl<B: Backend + 'static> Reconciler<B> {
                 self.unmount(cid);
             }
             self.backend.set_templated_item_count(id, new_count);
+
+            // FlipView doesn't self-virtualize, so realize any rows added by
+            // the growth (ListView/GridView get these from WinUI recycling).
+            if matches!(new.kind, TemplatedKind::FlipView) && new_count > old_count {
+                let mut q = self.realization_queue.borrow_mut();
+                for row_idx in old_count..new_count {
+                    q.push(RealizationRequest::Realize {
+                        list_id: id,
+                        row_idx,
+                    });
+                }
+            }
         }
 
         if !old.same_items_as(new) {

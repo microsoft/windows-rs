@@ -832,33 +832,54 @@ landed; *(gap)* items are still outstanding.
    `RasterizationScale`, and returning `E_INVALIDARG` (not `panic!`) for an unknown
    control id.
 
-6. **Templated list stays blank when it grows from empty *(gap)*.** Eager
-   realization queues `Realize` requests for rows `0..count` only at *mount*
-   (`reconciler/templated.rs:94`). If a list mounts empty (count 0) and later grows
-   to N items — a list that starts empty then receives data — those rows are never
-   queued, so the list stays blank until something forces a
-   re-mount. `update_templated_list` handles a count change only by *unmounting*
-   removed rows on shrink (`templated.rs:147`), and `refresh_realized_rows`
-   (`:175`) revisits only already-realized indices — neither realizes the new rows.
-   Fix: after updating the item count, re-scan for still-unrealized visible rows and
-   push `Realize` requests for them, so a 0→N list renders on first data without a
-   re-mount.
+6. **Templated list stays blank when it grows from empty *(fixed)*.** Previously,
+   eager realization queued `Realize` requests for rows `0..count` only at *mount*,
+   so a list that mounted empty (count 0) and later grew to N items stayed blank
+   until a re-mount. This is now moot for `ListView`/`GridView`: they are driven by
+   WinUI container recycling (see #7), so rows realize when their containers scroll
+   into view regardless of when the data arrives. `update_templated_list`
+   (`reconciler/templated.rs`) resizes the observable `ItemsSource` in place on a
+   count change, so WinUI realizes/recycles the delta. `FlipView` (not a
+   `ListViewBase`, so no recycling events) realizes every row from the reconciler —
+   at mount and for any rows added on growth — so a 0→N `FlipView` also fills in
+   without a re-mount.
 
-7. **Templated lists aren't actually virtualized *(gap)*.** The
-   realize/recycle contract the reconciler sets up is dropped by the WinUI backend:
-   `attach_templated_realization` (`backend/winui/mod.rs:2056`) and
-   `set_templated_item_count` (`:1816`) are no-ops, and `set_templated_row_content`
-   (`:1817`) materializes *every* row straight into the `Items` vector, padding gaps
-   with placeholder `TextBlock`s. So rows are realized only from the reconciler's
-   eager path (all rows, at mount) — with eager realization off, nothing realizes at
-   all; with it on, the whole list is built up front. Either way there is no
-   scroll-driven virtualization, so large collections materialize in full. The WinUI
-   protocol for this (`ContainerContentChanging` / `ChoosingItemContainer`) isn't
-   wired — those slots are `usize` stubs in the reactor bindings
-   (`bindings.rs:9262`–`:9265`). True virtualization means binding those events and
-   driving the existing `realize`/`recycle` callbacks from container recycling plus
-   a real `ItemsSource` item count, instead of a fully-materialized `Items`
-   collection.
+7. **Templated lists aren't actually virtualized *(fixed)*.** `ListView`/`GridView`
+   now use true scroll-driven WinUI virtualization instead of materializing every
+   row. The backend (`backend/winui/mod.rs`) sets the control's `ItemsSource` to an
+   observable vector of boxed `i32` indices `0..count` and subscribes
+   `ContainerContentChanging`. WinUI lazily prepares only the containers on (and
+   near) screen; each realize event records the container's content host and drives
+   the reconciler's existing `realize(row)` callback, each recycle event clears it
+   and drives `recycle(row)`. Because those events fire outside a render pass, the
+   realize/recycle closures enqueue work and call `request_rerender`, so the queue
+   drains on the next UI-thread frame (`request_render` coalesces a scroll burst into
+   ~one reconcile per frame). The reconciler mounts the row subtree and hands the
+   backend a `ControlId`, which the backend places into the container's content host.
+
+   **Why the content host is a `ContentControl`, not the item container.** A
+   `ListViewItem`/`GridViewItem` renders its content through a
+   `ListViewItemPresenter`, which draws *string* content into its own internal
+   `TextBlock` and cannot host an arbitrary `UIElement`. So each container is given a
+   shared `ItemTemplate` — a `DataTemplate` whose root is a plain `ContentControl`
+   (parsed once via `XamlReader`, reused across every list; the parse is off the
+   per-item hot path). The realize event resolves that container's
+   `ContentTemplateRoot` (the `ContentControl`) and the backend sets *its* `Content`
+   to the reactor-built element, which a real `ContentControl` hosts correctly. The
+   per-row cost is just a property set.
+
+   **Reorder mirrors back into state.** Drag-reorder under virtualization reorders
+   *containers*, not the live elements, so the app's data must be updated to match.
+   `on_reorder` (backed by `DragItemsCompleted`) reads the reordered boxed indices
+   back as a `Vec<usize>` permutation and invokes the app callback; the app reorders
+   its own state (see the `list_view`/`grid_view`/`virtual_list` samples). The
+   backend then resets the source to identity so the next drag reads cleanly. The
+   former `eager_templated_realization` flag is removed — `FlipView` realizes all
+   rows unconditionally, `ListView`/`GridView` never do.
+
+   Verified end-to-end by the `Reconciler_Mount_VirtualList` self-test fixture: a
+   300-row `ListView` realizes its first row and keeps the realized set bounded well
+   below the total, proving containers are recycled rather than fully materialized.
 
 ### Future work — C# reactor parity
 
@@ -932,7 +953,11 @@ lists, dialogs).
 
 Missing the C# composite controls built *on top* of WinUI:
 
-- **`VirtualList`** — large-collection virtualization beyond raw `ListView`.
+- **`VirtualList`** — a higher-level convenience wrapper for large collections.
+  Raw `list_view`/`grid_view` now do true UI virtualization (only on-screen
+  containers are realized; see "Known gaps and fixes" #7), so this would add
+  *data* virtualization / incremental loading on top (windowing a data source of
+  millions of rows), not UI virtualization.
 - **`DataGrid`** and **`PropertyGrid`** — tabular / reflection-driven editing
   (`TypeRegistry`, `TypeMetadata`).
 - **`MaskedTextBox` / `AutoSuggest`** input controls and input formatters.
