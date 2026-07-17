@@ -1,5 +1,7 @@
 #[cfg(feature = "accctrl")]
 pub mod accctrl;
+#[cfg(feature = "accountssettingspaneinterop")]
+pub mod accountssettingspaneinterop;
 #[cfg(feature = "aclapi")]
 pub mod aclapi;
 #[cfg(feature = "activation")]
@@ -18,6 +20,8 @@ pub mod amsi;
 pub mod amvideo;
 #[cfg(feature = "appmodel")]
 pub mod appmodel;
+#[cfg(feature = "appserviceinterop")]
+pub mod appserviceinterop;
 #[cfg(feature = "appxpackaging")]
 pub mod appxpackaging;
 #[cfg(feature = "asferr")]
@@ -56,6 +60,8 @@ pub mod bthdef;
 pub mod bthledef;
 #[cfg(feature = "bthsdpdef")]
 pub mod bthsdpdef;
+#[cfg(feature = "castinginterop")]
+pub mod castinginterop;
 #[cfg(feature = "cderr")]
 pub mod cderr;
 #[cfg(feature = "certadm")]
@@ -206,6 +212,8 @@ pub mod docobj;
 pub mod dpa_dsa;
 #[cfg(feature = "dpapi")]
 pub mod dpapi;
+#[cfg(feature = "dragdropinterop")]
+pub mod dragdropinterop;
 #[cfg(feature = "dsgetdc")]
 pub mod dsgetdc;
 #[cfg(feature = "dshow")]
@@ -316,6 +324,8 @@ pub mod hidsdi;
 pub mod hidusage;
 #[cfg(feature = "hlink")]
 pub mod hlink;
+#[cfg(feature = "holographicspaceinterop")]
+pub mod holographicspaceinterop;
 #[cfg(feature = "hstring")]
 pub mod hstring;
 #[cfg(feature = "http")]
@@ -352,6 +362,8 @@ pub mod imm;
 pub mod in6addr;
 #[cfg(feature = "inaddr")]
 pub mod inaddr;
+#[cfg(feature = "inputpaneinterop")]
+pub mod inputpaneinterop;
 #[cfg(feature = "inspectable")]
 pub mod inspectable;
 #[cfg(feature = "interlockedapi")]
@@ -650,6 +662,8 @@ pub mod peninputpanel;
 pub mod pla;
 #[cfg(feature = "playsoundapi")]
 pub mod playsoundapi;
+#[cfg(feature = "playtomanagerinterop")]
+pub mod playtomanagerinterop;
 #[cfg(feature = "poclass")]
 pub mod poclass;
 #[cfg(feature = "portabledevice")]
@@ -664,6 +678,10 @@ pub mod powerbase;
 pub mod powersetting;
 #[cfg(feature = "powrprof")]
 pub mod powrprof;
+#[cfg(feature = "print3dmanagerinterop")]
+pub mod print3dmanagerinterop;
+#[cfg(feature = "printmanagerinterop")]
+pub mod printmanagerinterop;
 #[cfg(feature = "prntvpt")]
 pub mod prntvpt;
 #[cfg(feature = "processenv")]
@@ -698,6 +716,8 @@ pub mod qos;
 pub mod qos2;
 #[cfg(feature = "qosobjs")]
 pub mod qosobjs;
+#[cfg(feature = "radialcontrollerinterop")]
+pub mod radialcontrollerinterop;
 #[cfg(feature = "ras")]
 pub mod ras;
 #[cfg(feature = "rasdlg")]
@@ -710,6 +730,8 @@ pub mod reason;
 pub mod regbag;
 #[cfg(feature = "regstr")]
 pub mod regstr;
+#[cfg(feature = "remotesystemsinterop")]
+pub mod remotesystemsinterop;
 #[cfg(feature = "restartmanager")]
 pub mod restartmanager;
 #[cfg(feature = "restrictederrorinfo")]
@@ -752,6 +774,8 @@ pub mod sensorsapi;
 pub mod servprov;
 #[cfg(feature = "setupapi")]
 pub mod setupapi;
+#[cfg(feature = "sharewindowcommandsourceinterop")]
+pub mod sharewindowcommandsourceinterop;
 #[cfg(feature = "shcore")]
 pub mod shcore;
 #[cfg(feature = "shdeprecated")]
@@ -788,6 +812,8 @@ pub mod spapidef;
 pub mod spatialaudioclient;
 #[cfg(feature = "spatialaudiometadata")]
 pub mod spatialaudiometadata;
+#[cfg(feature = "spatialinteractionmanagerinterop")]
+pub mod spatialinteractionmanagerinterop;
 #[cfg(feature = "spellcheck")]
 pub mod spellcheck;
 #[cfg(feature = "sql")]
@@ -824,6 +850,8 @@ pub mod structuredquerycondition;
 pub mod synchapi;
 #[cfg(feature = "sysinfoapi")]
 pub mod sysinfoapi;
+#[cfg(feature = "systemmediatransportcontrolsinterop")]
+pub mod systemmediatransportcontrolsinterop;
 #[cfg(feature = "systemtopologyapi")]
 pub mod systemtopologyapi;
 #[cfg(feature = "t2embapi")]
@@ -882,6 +910,8 @@ pub mod uianimation;
 pub mod uiautomationclient;
 #[cfg(feature = "uiautomationcore")]
 pub mod uiautomationcore;
+#[cfg(feature = "uiviewsettingsinterop")]
+pub mod uiviewsettingsinterop;
 #[cfg(feature = "unknwnbase")]
 pub mod unknwnbase;
 #[cfg(feature = "urlmon")]
@@ -894,6 +924,8 @@ pub mod usbioctl;
 pub mod usbiodef;
 #[cfg(feature = "usbspec")]
 pub mod usbspec;
+#[cfg(feature = "useractivityinterop")]
+pub mod useractivityinterop;
 #[cfg(feature = "userconsentverifierinterop")]
 pub mod userconsentverifierinterop;
 #[cfg(feature = "userenv")]
@@ -948,6 +980,8 @@ pub mod wdbgexts;
 pub mod wdm;
 #[cfg(feature = "weakreference")]
 pub mod weakreference;
+#[cfg(feature = "webauthenticationcoremanagerinterop")]
+pub mod webauthenticationcoremanagerinterop;
 #[cfg(feature = "webauthn")]
 pub mod webauthn;
 #[cfg(feature = "webservices")]
@@ -984,8 +1018,28 @@ pub mod windef;
 pub mod windns;
 #[cfg(feature = "windot11")]
 pub mod windot11;
+#[cfg(feature = "windowsdatapdfinterop")]
+pub mod windowsdatapdfinterop;
 #[cfg(feature = "windowsdevicesdisplaycoreinterop")]
 pub mod windowsdevicesdisplaycoreinterop;
+#[cfg(feature = "windowsgraphicsdirectxdirect3d11interop")]
+pub mod windowsgraphicsdirectxdirect3d11interop;
+#[cfg(feature = "windowsgraphicsimaginginterop")]
+pub mod windowsgraphicsimaginginterop;
+#[cfg(feature = "windowsmediacoreinterop")]
+pub mod windowsmediacoreinterop;
+#[cfg(feature = "windowssecurityisolationisolatedenvironmentinterop")]
+pub mod windowssecurityisolationisolatedenvironmentinterop;
+#[cfg(feature = "windowsstoragecom")]
+pub mod windowsstoragecom;
+#[cfg(feature = "windowsuiviewmanagementcorecoreframeworkinputviewinterop")]
+pub mod windowsuiviewmanagementcorecoreframeworkinputviewinterop;
+#[cfg(feature = "windowsuixamlhostingdesktopwindowxamlsource")]
+pub mod windowsuixamlhostingdesktopwindowxamlsource;
+#[cfg(feature = "windowsuixamlhostingreferencetracker")]
+pub mod windowsuixamlhostingreferencetracker;
+#[cfg(feature = "windowsuixamlmediadxinterop")]
+pub mod windowsuixamlmediadxinterop;
 #[cfg(feature = "windowsx")]
 pub mod windowsx;
 #[cfg(feature = "winefs")]
