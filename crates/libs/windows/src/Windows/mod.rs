@@ -62,6 +62,8 @@ pub mod audevcod;
 pub mod audioclient;
 #[cfg(feature = "audioclientactivationparams")]
 pub mod audioclientactivationparams;
+#[cfg(feature = "audiopolicy")]
+pub mod audiopolicy;
 #[cfg(feature = "audiosessiontypes")]
 pub mod audiosessiontypes;
 #[cfg(feature = "authz")]
