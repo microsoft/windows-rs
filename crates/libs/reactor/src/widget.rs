@@ -315,6 +315,11 @@ pub struct TemplatedListElement {
     pub allow_drop: bool,
     pub modifiers: Modifiers,
     pub items_impl: Rc<dyn TemplatedListImpl>,
+    /// Invoked after a drag-reorder completes, with the new order expressed
+    /// as the permutation of original item indices (position `i` holds the
+    /// original index now shown there). Apps use it to reorder their own
+    /// data so the change survives the next render.
+    pub on_reorder: Option<Callback<Vec<usize>>>,
 }
 
 impl Clone for TemplatedListElement {
@@ -328,6 +333,7 @@ impl Clone for TemplatedListElement {
             allow_drop: self.allow_drop,
             modifiers: self.modifiers.clone(),
             items_impl: Rc::clone(&self.items_impl),
+            on_reorder: self.on_reorder.clone(),
         }
     }
 }
@@ -385,6 +391,14 @@ impl TemplatedListElement {
         self.items_impl.has_selection_handler()
     }
 
+    pub fn has_reorder_handler(&self) -> bool {
+        self.on_reorder.is_some()
+    }
+
+    pub fn raw_reorder_callback(&self) -> Option<Callback<Vec<usize>>> {
+        self.on_reorder.clone()
+    }
+
     pub fn raw_selection_callback(&self) -> Option<Callback<i32>> {
         self.items_impl.raw_selection_callback()
     }
@@ -421,6 +435,7 @@ pub struct TemplatedListBuilder<T: 'static> {
     allow_drop: bool,
     modifiers: Modifiers,
     element_key: Option<String>,
+    on_reorder: Option<Callback<Vec<usize>>>,
 }
 
 impl<T: 'static> TemplatedListBuilder<T> {
@@ -442,6 +457,7 @@ impl<T: 'static> TemplatedListBuilder<T> {
             allow_drop: false,
             modifiers: Modifiers::default(),
             element_key: None,
+            on_reorder: None,
         }
     }
 
@@ -480,6 +496,16 @@ impl<T: 'static> TemplatedListBuilder<T> {
         self
     }
 
+    /// Handle drag-reorder completion. The callback receives the new order as
+    /// the permutation of original item indices (position `i` holds the
+    /// original index now displayed there). Reorder the backing data
+    /// accordingly and re-render so the change persists. Typically paired with
+    /// `can_drag_items(true)`, `can_reorder_items(true)`, and `allow_drop(true)`.
+    pub fn on_reorder(mut self, cb: impl IntoCallback<Vec<usize>>) -> Self {
+        self.on_reorder = Some(cb.into_callback());
+        self
+    }
+
     pub fn with_key(mut self, k: impl Into<String>) -> Self {
         self.element_key = Some(k.into());
         self
@@ -512,6 +538,7 @@ impl<T: 'static> TemplatedListBuilder<T> {
             allow_drop: self.allow_drop,
             modifiers: self.modifiers,
             items_impl: Rc::new(cell),
+            on_reorder: self.on_reorder,
         })
     }
 }

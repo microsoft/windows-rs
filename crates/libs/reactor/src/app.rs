@@ -25,7 +25,6 @@ pub struct App {
     title: Option<String>,
     inner_size: Option<WindowSize>,
     inner_constraints: InnerConstraints,
-    eager_templated_realization: bool,
     presenter: PresenterKind,
     backdrop: Option<Backdrop>,
     icon: Option<String>,
@@ -44,7 +43,6 @@ impl App {
             title: None,
             inner_size: None,
             inner_constraints: InnerConstraints::default(),
-            eager_templated_realization: false,
             presenter: PresenterKind::Default,
             backdrop: None,
             icon: None,
@@ -64,11 +62,6 @@ impl App {
 
     pub fn inner_constraints(mut self, constraints: InnerConstraints) -> Self {
         self.inner_constraints = constraints;
-        self
-    }
-
-    pub fn eager_templated_realization(mut self, on: bool) -> Self {
-        self.eager_templated_realization = on;
         self
     }
 
@@ -166,7 +159,6 @@ impl App {
     {
         init_app_platform()?;
         let title = self.title.unwrap_or_default();
-        let eager = self.eager_templated_realization;
         let size = self.inner_size;
         let constraints = self.inner_constraints;
         let presenter = self.presenter;
@@ -206,9 +198,7 @@ impl App {
                                 size,
                                 constraints,
                                 root,
-                                |recon| {
-                                    recon.eager_templated_realization = eager;
-                                },
+                                |_recon| {},
                             )?;
                             host.set_presenter(presenter);
                             if let Some(bd) = backdrop {

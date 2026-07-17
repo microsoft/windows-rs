@@ -48,8 +48,5 @@ fn app(cx: &mut RenderCx) -> Element {
 
 fn main() -> Result<()> {
     bootstrap()?;
-    App::new()
-        .title("Sample")
-        .eager_templated_realization(true)
-        .render(app)
+    App::new().title("Sample").render(app)
 }

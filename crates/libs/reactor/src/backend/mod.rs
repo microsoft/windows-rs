@@ -476,6 +476,12 @@ pub trait Backend {
 
     fn attach_templated_selection_changed(&mut self, _id: ControlId, _handler: Callback<i32>) {}
 
+    /// Attach a drag-reorder-completed handler for a templated list. The
+    /// handler receives the new order as the permutation of original item
+    /// indices. Default no-op; the WinUI backend wires it to
+    /// `ListViewBase::DragItemsCompleted`.
+    fn attach_templated_reorder(&mut self, _id: ControlId, _handler: Callback<Vec<usize>>) {}
+
     fn set_theme_bindings(
         &mut self,
         _id: ControlId,
