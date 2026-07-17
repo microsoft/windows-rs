@@ -90,6 +90,14 @@ pub struct ScrapePlan {
     /// These live on the plan rather than on [`Clang::input`](crate::Clang::input) because the reader
     /// passes need them too, not only the clang parse.
     pub reference_winmds: Vec<String>,
+    /// Resolution winmds (e.g. `Windows.winmd`) applied to the per-arch clang parse via
+    /// [`Clang::resolution_input`](crate::Clang::resolution_input) — classifying declarations in
+    /// the `ABI::Windows::*` C++/WinRT projection namespace — and to every RDL reader pass, so a
+    /// captured interop API's cross-winmd reference to a true WinRT type (`Windows.Foundation.*`)
+    /// resolves as an external assembly reference. Unlike [`reference_winmds`](Self::reference_winmds)
+    /// these are never an exclusion base: no entity they define is skipped or emitted. Empty for a
+    /// scrape that reaches no ABI interop surface (the default).
+    pub resolution_winmds: Vec<String>,
     /// Optional hand-authored metadata seed RDL (full path, living inside `rdl_dir`). Preserved
     /// across the `rdl_dir` clear, added to every reader pass, and fed to the arch-merge.
     pub seed: Option<String>,
@@ -248,6 +256,9 @@ impl Clang {
             for reference in &plan.reference_winmds {
                 reader.input(reference);
             }
+            for resolution in &plan.resolution_winmds {
+                reader.input(resolution);
+            }
             reader
                 .output(&plan.winmd)
                 .write()
@@ -301,6 +312,9 @@ impl Clang {
         for reference in &plan.reference_winmds {
             clang.input(reference);
         }
+        for resolution in &plan.resolution_winmds {
+            clang.resolution_input(resolution);
+        }
 
         clang
             .write_by_header(&plan.root, &[], rdl_dir)
@@ -317,6 +331,9 @@ impl Clang {
         reader.inputs(&rdl_paths);
         for reference in &plan.reference_winmds {
             reader.input(reference);
+        }
+        for resolution in &plan.resolution_winmds {
+            reader.input(resolution);
         }
         reader
             .output(winmd)

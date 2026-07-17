@@ -1,0 +1,10 @@
+pub type ActivationType = i32;
+pub const ActivationType_InProcess: ActivationType = 0;
+pub const ActivationType_OutOfProcess: ActivationType = 1;
+pub const ActivationType_RemoteProcess: ActivationType = 2;
+#[cfg(feature = "inspectable")]
+pub type RegisteredTrustLevel = super::inspectable::TrustLevel;
+pub type RegistrationScope = i32;
+pub const RegistrationScope_InboxApp: RegistrationScope = 2;
+pub const RegistrationScope_PerMachine: RegistrationScope = 0;
+pub const RegistrationScope_PerUser: RegistrationScope = 1;

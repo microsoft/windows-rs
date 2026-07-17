@@ -278,6 +278,18 @@ impl Type {
         Remap::None
     }
 
+    /// A WinRT metadata namespace: `Windows.`-prefixed with a PascalCase leaf (e.g.
+    /// `Windows.Foundation.Collections`), as opposed to a flat Win32/WDK header stem
+    /// (`Windows.roregistrationapi`, lowercase leaf) or the `Windows.Win32*` partitions.
+    fn is_winrt_namespace(namespace: &str) -> bool {
+        if namespace == "Windows.Win32" || namespace.starts_with("Windows.Win32.") {
+            return false;
+        }
+        namespace
+            .strip_prefix("Windows.")
+            .is_some_and(|leaf| leaf.starts_with(|c: char| c.is_ascii_uppercase()))
+    }
+
     pub fn generic_placeholders(count: usize) -> Vec<windows_metadata::Type> {
         (0..count)
             .map(|i| windows_metadata::Type::Generic(String::new(), i as u16))
@@ -355,6 +367,19 @@ impl Type {
                     if ns.is_empty() {
                         return Self::CppStruct(outer.nested[n].clone());
                     }
+                }
+                // A WinRT reference type (interface/class/delegate) that the Win32-only
+                // `windows-sys` reader cannot resolve degrades to the opaque COM pointer,
+                // matching how sys renders every interface. This lets the flat Win32 winmd
+                // reference genuine WinRT interop types (e.g. `IActivatableClassRegistration`'s
+                // `IMapView<String, Object>`) while keeping `windows-sys` free of WinRT: the
+                // full `windows` crate loads `Windows.winmd` and resolves them normally.
+                if reader.sys
+                    && matches!(ty, windows_metadata::Type::ClassName(_))
+                    && Self::is_winrt_namespace(ns)
+                    && reader.with_full_name(ns, n).next().is_none()
+                {
+                    return Self::Object;
                 }
                 let mut bindgen_ty = reader.unwrap_full_name(ns, n);
                 if !tn.generics.is_empty() {

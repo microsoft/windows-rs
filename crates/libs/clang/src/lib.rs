@@ -140,6 +140,15 @@ pub(crate) struct Parser<'a> {
     /// lib-less function). Off by default so unit-test fixtures that supply no import
     /// libraries keep emitting their functions; `tool_win32` opts in.
     pub drop_lib_less: bool,
+    /// Per-header mode only: the set of `Namespace.Name` type full-names defined in the
+    /// resolution winmd (`Windows.winmd`), backtick-arity-stripped. Used to classify a
+    /// type declared in the `ABI::Windows::*` C++/WinRT projection namespace: a name present
+    /// here is a *true* WinRT projection of a `Windows.winmd` type and is mapped to a
+    /// cross-winmd reference (never flattened into `Windows.Win32`), while a name *absent*
+    /// here is a Win32 COM interop entity that merely lives in the ABI namespace (e.g.
+    /// `IActivatableClassRegistration`) and is scraped into the flat root. `None`/empty (no
+    /// resolution winmd, the default) leaves the whole `ABI` namespace skipped as before.
+    pub winrt_types: Option<&'a HashSet<String>>,
 }
 
 /// Per-namespace parameters for a single emission pass over a parsed translation
@@ -186,6 +195,7 @@ impl<'a> Parser<'a> {
             macro_defs,
             symbols,
             drop_lib_less: false,
+            winrt_types: None,
         }
     }
 
@@ -677,6 +687,26 @@ pub struct Clang {
     /// the corpus carries no lib-less function (matching the reference metadata); off by default
     /// so unit-test fixtures that supply no import libraries keep emitting their functions.
     drop_lib_less: bool,
+    /// Resolution `.winmd` inputs (e.g. `Windows.winmd`) consulted *only* to classify types
+    /// declared in the `ABI::Windows::*` C++/WinRT projection namespace during a per-header
+    /// scrape. Unlike [`input`](Self::input) winmds — which are an *exclusion* base whose every
+    /// entity is skipped from emission — these are never excluded and never emitted; their type
+    /// names merely tell the scraper which `ABI` declarations are true WinRT projections (mapped
+    /// to a cross-winmd reference) versus Win32 COM interop entities (scraped into flat Win32).
+    /// Empty (the default) leaves the `ABI` namespace skipped entirely.
+    resolution_input: Vec<String>,
+}
+
+/// Read-only inputs shared by every per-header pass of a by-header scrape.
+#[derive(Clone, Copy)]
+struct HeaderPass<'a> {
+    /// Flat namespace root every partition emits into (`Windows.Win32`).
+    root: &'a str,
+    /// Defining-header stems whose partitions are written (empty writes all).
+    allow: &'a HashSet<&'a str>,
+    /// Resolution-winmd type-name membership classifying `ABI::Windows::*` decls;
+    /// empty when no resolution winmd is supplied (the `ABI` namespace is skipped).
+    winrt_types: &'a HashSet<String>,
 }
 
 impl Clang {
@@ -735,6 +765,17 @@ impl Clang {
     /// import libraries are supplied, so every declared function is still emitted.
     pub fn drop_lib_less(&mut self, drop_lib_less: bool) -> &mut Self {
         self.drop_lib_less = drop_lib_less;
+        self
+    }
+
+    /// Adds a resolution `.winmd` input (e.g. `Windows.winmd`) used only to classify types in
+    /// the `ABI::Windows::*` C++/WinRT projection namespace during a per-header scrape. See
+    /// [`resolution_input`](Self::resolution_input). Unlike [`input`](Self::input), the winmd is
+    /// never used as an exclusion base and none of its entities are emitted; supplying one opts
+    /// the scrape into reaching the Win32 COM interop interfaces the SDK declares inside the ABI
+    /// namespace (e.g. `roregistrationapi.h`'s `IActivatableClassRegistration`).
+    pub fn resolution_input(&mut self, input: &str) -> &mut Self {
+        self.resolution_input.push(input.to_string());
         self
     }
 
@@ -1024,16 +1065,28 @@ impl Clang {
         let parsed = self.parse_inputs()?;
         let arg_refs: Vec<&str> = parsed.args.iter().map(String::as_str).collect();
 
+        // Type-name membership of the resolution winmd (`Windows.winmd`), used to classify
+        // declarations found in the `ABI::Windows::*` C++/WinRT projection namespace. Stored as
+        // backtick-arity-stripped `Namespace.Name` so a generic instantiation reached in C++
+        // (`ABI::Windows::Foundation::Collections::IMapView<...>`) matches the winmd's `IMapView`2`
+        // by its bare qualified name. Empty (no resolution winmd) leaves the ABI namespace skipped.
+        let winrt_types = self.load_winrt_types()?;
+
         let mut collectors: BTreeMap<String, Collector> = BTreeMap::new();
         // Per-partition scope flag (defining-header stem → in-scope), accumulated while
         // bucketing so the reachability sweep below knows which partitions are roots.
         let mut scope_in: BTreeMap<String, bool> = BTreeMap::new();
 
+        let pass = HeaderPass {
+            root,
+            allow,
+            winrt_types: &winrt_types,
+        };
+
         for (input, tu) in &parsed.h_tus {
             self.process_tu_by_header(
                 tu,
-                root,
-                allow,
+                &pass,
                 &mut collectors,
                 &mut scope_in,
                 MacroEval {
@@ -1045,8 +1098,7 @@ impl Clang {
         for (content, tu) in &parsed.str_tus {
             self.process_tu_by_header(
                 tu,
-                root,
-                allow,
+                &pass,
                 &mut collectors,
                 &mut scope_in,
                 MacroEval {
@@ -1156,12 +1208,16 @@ impl Clang {
     fn process_tu_by_header(
         &self,
         tu: &TranslationUnit,
-        root: &str,
-        allow: &HashSet<&str>,
+        pass: &HeaderPass<'_>,
         collectors: &mut BTreeMap<String, Collector>,
         scope_in: &mut BTreeMap<String, bool>,
         eval: MacroEval<'_>,
     ) -> Result<(), Error> {
+        let HeaderPass {
+            root,
+            allow,
+            winrt_types,
+        } = *pass;
         for diag in tu.diagnostics() {
             if diag.is_err() {
                 return Err(Error::new(
@@ -1194,7 +1250,11 @@ impl Clang {
         // structs (`<name>__`, the DECLARE_HANDLE idiom) are dropped: they carry no payload
         // and the handle typedef itself emits an opaque `*mut void`.
         let mut decls = Vec::new();
-        flatten_decls(tu.cursor(), false, false, &mut decls);
+        // A resolution winmd opts the scrape into reaching the Win32 COM interop entities the
+        // SDK declares inside the `ABI::Windows::*` C++/WinRT projection namespace (classified by
+        // `winrt_types`); with none supplied the ABI namespace is skipped entirely as before.
+        let abi = (!winrt_types.is_empty()).then_some(winrt_types);
+        flatten_decls(tu.cursor(), false, false, None, abi, &mut decls);
 
         // Deduplicate by canonical identity. For each entity keep the most informative
         // cursor — a definition outranks a forward declaration — so a record routes to the
@@ -1286,6 +1346,7 @@ impl Clang {
             );
             parser.header_root = Some(root);
             parser.drop_lib_less = self.drop_lib_less;
+            parser.winrt_types = abi;
 
             for (child, extern_c) in cursors {
                 parser.process_cursor(child, collector, extern_c)?;
@@ -1363,6 +1424,27 @@ impl Clang {
         }
 
         Ok(metadata::reader::Index::new(winmd_files))
+    }
+
+    /// Loads the [`resolution_input`](Self::resolution_input) winmds and returns the set of every
+    /// type's `Namespace.Name`, backtick-arity-stripped (`IMapView`2` → `IMapView`). This membership
+    /// set classifies declarations in the `ABI::Windows::*` C++/WinRT projection namespace during a
+    /// per-header scrape; empty when no resolution winmd is configured.
+    fn load_winrt_types(&self) -> Result<HashSet<String>, Error> {
+        let mut winmd_files = vec![];
+        for file_name in &self.resolution_input {
+            winmd_files.push(
+                metadata::reader::File::read(file_name)
+                    .ok_or_else(|| Error::new("invalid input", file_name, 0, 0))?,
+            );
+        }
+        let index = metadata::reader::Index::new(winmd_files);
+        let mut set = HashSet::new();
+        for (namespace, name, _) in index.iter() {
+            let bare = name.split('`').next().unwrap_or(name);
+            set.insert(format!("{namespace}.{bare}"));
+        }
+        Ok(set)
     }
 
     /// Parses the configured headers once and emits one RDL string per spec.
@@ -1579,28 +1661,81 @@ struct ParsedInputs {
 /// the block's. `extern_c` tracks whether the declaration sits inside a C linkage
 /// block (matching the per-child language test [`process_cursor`] applies when it
 /// recurses into a `CXCursor_LinkageSpec`).
+///
+/// `abi_ns` is `Some(path)` once inside the `ABI` projection namespace, carrying the
+/// accumulated WinRT namespace path (`ABI` stripped, e.g. `Windows.Foundation`); it is
+/// `None` everywhere else. `winrt_types`, when supplied, opts the walk into descending
+/// into `ABI`: a declaration there is captured only when its `{path}.{name}` is *absent*
+/// from the set (a Win32 COM interop entity such as `IActivatableClassRegistration`), and
+/// a name *present* in the set (a true `Windows.winmd` projection) is left for a
+/// cross-winmd reference. Class/function templates in the ABI namespace (the open generic
+/// interface definitions) are always skipped — only concrete declarations are captured.
 fn flatten_decls(
     parent: Cursor,
     in_linkage: bool,
     in_interop_ns: bool,
+    abi_ns: Option<&str>,
+    winrt_types: Option<&HashSet<String>>,
     out: &mut Vec<(Cursor, bool)>,
 ) {
     for child in parent.children() {
         if child.kind() == CXCursor_LinkageSpec {
-            flatten_decls(child, true, in_interop_ns, out);
+            flatten_decls(child, true, in_interop_ns, abi_ns, winrt_types, out);
         } else if child.kind() == CXCursor_Namespace {
-            // Capture the flat WinRT interop interfaces that the SDK declares inside the
-            // hand-authored `Windows::*` C++ namespaces — e.g.
-            // `Windows::Storage::Streams::IBufferByteAccess` (robuffer.h) and
-            // `Windows::Foundation::IMemoryBufferByteAccess` (memorybuffer.h) — routing them
-            // to their defining-header partition under the flat root (matching how
-            // win32metadata maps them to `Windows.Win32.System.WinRT`). The `ABI` projection
-            // namespace is skipped: `ABI::Windows::*` is the C++/WinRT projection of
-            // `Windows.winmd` and is out of scope. Every other top-level namespace
-            // (`std`/`Concurrency`/`Microsoft` C++ support libraries) is likewise left alone.
-            if in_interop_ns || child.name() == "Windows" {
-                flatten_decls(child, in_linkage, true, out);
+            if let Some(path) = abi_ns {
+                // Already inside `ABI`: accumulate the WinRT namespace path and keep descending.
+                let name = child.name();
+                let child_path = if path.is_empty() {
+                    name
+                } else {
+                    format!("{path}.{name}")
+                };
+                flatten_decls(
+                    child,
+                    in_linkage,
+                    in_interop_ns,
+                    Some(&child_path),
+                    winrt_types,
+                    out,
+                );
+            } else if winrt_types.is_some() && child.name() == "ABI" {
+                // Enter the `ABI::Windows::*` projection namespace to reach the Win32 COM interop
+                // entities the SDK declares there (classified against `winrt_types` below). The
+                // path starts empty; `ABI` itself is stripped from the WinRT namespace.
+                flatten_decls(child, in_linkage, in_interop_ns, Some(""), winrt_types, out);
+            } else if in_interop_ns || child.name() == "Windows" {
+                // The hand-authored `Windows::*` C++ interop namespace — e.g.
+                // `Windows::Storage::Streams::IBufferByteAccess` (robuffer.h) and
+                // `Windows::Foundation::IMemoryBufferByteAccess` (memorybuffer.h) — routed to the
+                // flat root (matching how win32metadata maps them to `Windows.Win32.System.WinRT`).
+                // Every other top-level namespace (`std`/`Concurrency`/`Microsoft` C++ support
+                // libraries) is left alone.
+                flatten_decls(child, in_linkage, true, None, winrt_types, out);
             }
+        } else if let (Some(path), Some(set)) = (abi_ns, winrt_types) {
+            // A declaration inside `ABI`. Skip the open generic templates (their concrete
+            // instantiations are reached through references, not as declarations) and skip any
+            // name that is a true `Windows.winmd` projection — only Win32 COM interop entities
+            // absent from the winmd are captured into the flat root.
+            if matches!(
+                child.kind(),
+                CXCursor_ClassTemplate
+                    | CXCursor_ClassTemplatePartialSpecialization
+                    | CXCursor_FunctionTemplate
+            ) {
+                continue;
+            }
+            let name = child.name();
+            let full = if path.is_empty() {
+                name.clone()
+            } else {
+                format!("{path}.{name}")
+            };
+            if set.contains(&full) {
+                continue;
+            }
+            let extern_c = in_linkage && child.language() == CXLanguage_C;
+            out.push((child, extern_c));
         } else {
             let extern_c = in_linkage && child.language() == CXLanguage_C;
             out.push((child, extern_c));

@@ -40,6 +40,8 @@ pub mod accctrl;
 pub mod aclapi;
 #[cfg(feature = "activation")]
 pub mod activation;
+#[cfg(feature = "activationregistration")]
+pub mod activationregistration;
 #[cfg(feature = "adshlp")]
 pub mod adshlp;
 #[cfg(feature = "adtgen")]

@@ -49,6 +49,15 @@ pub unsafe fn RoFreeParameterizedTypeExtra(extra: ROPARAMIIDHANDLE) {
     windows_core::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoFreeParameterizedTypeExtra(extra : ROPARAMIIDHANDLE));
     unsafe { RoFreeParameterizedTypeExtra(extra) }
 }
+#[cfg(feature = "activationregistration")]
+#[inline]
+pub unsafe fn RoGetActivatableClassRegistration(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<super::activationregistration::IActivatableClassRegistration> {
+    windows_core::link!("api-ms-win-core-winrt-registration-l1-1-0.dll" "system" fn RoGetActivatableClassRegistration(activatableclassid : *mut core::ffi::c_void, activatableclassregistration : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        RoGetActivatableClassRegistration(core::mem::transmute_copy(activatableclassid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+    }
+}
 #[inline]
 pub unsafe fn RoGetActivationFactory<T>(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<T>
 where
@@ -99,6 +108,11 @@ where
 {
     windows_core::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoGetParameterizedTypeInstanceIID(nameelementcount : u32, nameelements : *const windows_core::PCWSTR, metadatalocator : *mut core::ffi::c_void, iid : *mut windows_core::GUID, pextra : *mut ROPARAMIIDHANDLE) -> windows_core::HRESULT);
     unsafe { RoGetParameterizedTypeInstanceIID(nameelements.len().try_into().unwrap(), nameelements.as_ptr(), metadatalocator.param().abi(), iid as _, pextra as _) }
+}
+#[inline]
+pub unsafe fn RoGetServerActivatableClasses(servername: &windows_core::HSTRING, activatableclassids: *mut *mut windows_core::HSTRING, count: *mut u32) -> windows_core::HRESULT {
+    windows_core::link!("api-ms-win-core-winrt-registration-l1-1-0.dll" "system" fn RoGetServerActivatableClasses(servername : *mut core::ffi::c_void, activatableclassids : *mut *mut *mut core::ffi::c_void, count : *mut u32) -> windows_core::HRESULT);
+    unsafe { RoGetServerActivatableClasses(core::mem::transmute_copy(servername), activatableclassids as _, count as _) }
 }
 #[inline]
 pub unsafe fn RoInitialize(inittype: RO_INIT_TYPE) -> windows_core::HRESULT {

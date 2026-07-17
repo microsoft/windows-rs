@@ -7,6 +7,8 @@ windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoCaptu
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoClearError());
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoFailFastWithErrorContext(hrerror : windows_sys::core::HRESULT));
 windows_link::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoFreeParameterizedTypeExtra(extra : ROPARAMIIDHANDLE));
+#[cfg(feature = "activationregistration")]
+windows_link::link!("api-ms-win-core-winrt-registration-l1-1-0.dll" "system" fn RoGetActivatableClassRegistration(activatableclassid : windows_sys::core::HSTRING, activatableclassregistration : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetActivationFactory(activatableclassid : windows_sys::core::HSTRING, iid : *const windows_sys::core::GUID, factory : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetApartmentIdentifier(apartmentidentifier : *mut u64) -> windows_sys::core::HRESULT);
 #[cfg(feature = "objidlbase")]
@@ -15,6 +17,7 @@ windows_link::link!("api-ms-win-core-winrt-error-l1-1-0.dll" "system" fn RoGetEr
 #[cfg(feature = "restrictederrorinfo")]
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoGetMatchingRestrictedErrorInfo(hrin : windows_sys::core::HRESULT, pprestrictederrorinfo : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-roparameterizediid-l1-1-0.dll" "system" fn RoGetParameterizedTypeInstanceIID(nameelementcount : u32, nameelements : *const windows_sys::core::PCWSTR, metadatalocator : *mut core::ffi::c_void, iid : *mut windows_sys::core::GUID, pextra : *mut ROPARAMIIDHANDLE) -> windows_sys::core::HRESULT);
+windows_link::link!("api-ms-win-core-winrt-registration-l1-1-0.dll" "system" fn RoGetServerActivatableClasses(servername : windows_sys::core::HSTRING, activatableclassids : *mut *mut windows_sys::core::HSTRING, count : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoInitialize(inittype : RO_INIT_TYPE) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoInspectCapturedStackBackTrace(targeterrorinfoaddress : usize, machine : u16, readmemorycallback : PINSPECT_MEMORY_CALLBACK, context : *const core::ffi::c_void, framecount : *mut u32, targetbacktraceaddress : *mut usize) -> windows_sys::core::HRESULT);
 windows_link::link!("api-ms-win-core-winrt-error-l1-1-1.dll" "system" fn RoInspectThreadErrorInfo(targettebaddress : usize, machine : u16, readmemorycallback : PINSPECT_MEMORY_CALLBACK, context : *const core::ffi::c_void, targeterrorinfoaddress : *mut usize) -> windows_sys::core::HRESULT);
