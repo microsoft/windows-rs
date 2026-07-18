@@ -8,8 +8,8 @@ use std::sync::OnceLock;
 use std::time::{Duration, Instant};
 
 use windows::core::Result;
-use windows::processthreadsapi::GetCurrentProcess;
-use windows::psapi::{GetProcessMemoryInfo, PROCESS_MEMORY_COUNTERS};
+use windows::Win32::GetCurrentProcess;
+use windows::Win32::{GetProcessMemoryInfo, PROCESS_MEMORY_COUNTERS};
 
 use windows_reactor::*;
 

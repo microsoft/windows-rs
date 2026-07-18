@@ -1,7 +1,7 @@
-use windows::combaseapi::*;
+use windows::Win32::*;
 use windows::core::*;
-use windows::objbase::*;
-use windows::spellcheck::*;
+use windows::Win32::*;
+use windows::Win32::*;
 
 fn main() -> Result<()> {
     let input = std::env::args()

@@ -1,9 +1,8 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
         core::*,
-        handleapi::CloseHandle,
-        synchapi::{CreateEventW, SetEvent, WaitForSingleObject},
-    };
+        Win32::CloseHandle,
+        Win32::{CreateEventW, SetEvent, WaitForSingleObject}};
 
     unsafe {
         let event = CreateEventW(None, true, false, None);

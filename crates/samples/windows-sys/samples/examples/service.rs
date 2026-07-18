@@ -1,5 +1,5 @@
 fn main() {
-    use windows_sys::{core::*, fileapi::*, handleapi::*, winnt::*, winsvc::*};
+    use windows_sys::{core::*, Win32::*};
 
     // Sample logs to this file for illustration purposes.
     const LOG_FILE: PCWSTR = w!("D:\\service.txt");

@@ -1,7 +1,6 @@
 #![cfg(windows)]
 use windows_sys::{
-    bcrypt::*, core::*, handleapi::*, ntstatus::*, synchapi::*, winerror::*, winnt::*, winuser::*,
-};
+    Win32::*, core::*};
 
 #[test]
 fn simple() {

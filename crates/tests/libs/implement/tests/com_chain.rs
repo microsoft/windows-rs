@@ -1,6 +1,6 @@
 #![cfg(windows)]
 use windows::core::*;
-use windows::{objidl::*, objidlbase::*};
+use windows::{Win32::*};
 
 #[implement(IPersistStream)]
 struct Test();

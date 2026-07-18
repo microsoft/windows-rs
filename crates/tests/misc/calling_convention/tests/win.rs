@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{sysinfoapi::*, winerror::*, winldap::*};
+use windows::{Win32::*};
 
 #[test]
 fn calling_convention() {

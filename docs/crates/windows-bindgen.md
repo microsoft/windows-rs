@@ -158,6 +158,15 @@ layout is for *external* consumers generating their own namespace-organized bind
 are the full API surface), and `--package` only ever pairs with default or `--sys` — the
 two crates the repo publishes.
 
+**Empty-module suppression (`--sys` + `--package`).** A namespace whose entire surface is COM
+interfaces (e.g. a WinRT-interop header like `windowsuicompositioninterop`, or a pure-interface
+Win32 header like `servprov`) emits *nothing* in `windows-sys`, since the raw-FFI style renders no
+interfaces. In package mode such a namespace would otherwise leave an empty module file and a dead
+Cargo feature, so `write_package` prunes it: the module declaration, its file, its Cargo feature,
+and every reference to it from other features' dependency lists are all suppressed. Pruning is
+recursive (a parent is pruned only when it and all its descendants are empty) and applies only to
+`--sys`; the full `windows` crate emits interfaces, so no module there is empty.
+
 **Future work — decouple module path from Cargo feature (`--package`).** Today `--package`
 derives the module *and* the feature from the same winmd namespace, a rigid 1:1:1
 (`package_writer::write_package` uses `tree.namespace` for both the directory and

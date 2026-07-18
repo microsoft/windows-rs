@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows_sys::{core::*, threadpoolapiset::*, winnt::*, winreg::*, winuser::*};
+use windows_sys::{core::*, Win32::*};
 
 /// Tests a few APIs that have reserved parameters to ensure they can be called with `None`.
 #[test]

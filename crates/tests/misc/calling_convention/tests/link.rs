@@ -1,9 +1,8 @@
 #![cfg(windows)]
 use windows_sys::{
     core::{PCSTR, PSTR, s},
-    winerror::ERROR_BUSY,
-    winldap::LDAP_BUSY,
-};
+    Win32::ERROR_BUSY,
+    Win32::LDAP_BUSY};
 
 windows_link::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(ldaperror: u32) -> u32);
 windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);

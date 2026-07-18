@@ -226,7 +226,7 @@ fn hstring_osstring_equality_combinations() {
 #[test]
 fn hstring_compat() -> Result<()> {
     unsafe {
-        use windows::winstring::*;
+        use windows::Win32::*;
         let hey = HSTRING::from("Hey");
         let world = HSTRING::from("World");
         assert_eq!(WindowsCompareStringOrdinal(&hey, &world)?, -1);

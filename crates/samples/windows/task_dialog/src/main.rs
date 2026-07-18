@@ -1,5 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{commctrl::*, core::*, minwindef::*, windef::*};
+    use windows::{Win32::*, core::*};
 
     extern "system" fn callback(
         _: HWND,

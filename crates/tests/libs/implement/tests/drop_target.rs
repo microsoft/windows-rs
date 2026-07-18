@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, objidl::*, oleidl::*, windef::*, winuser::*};
+use windows::{core::*, Win32::*};
 
 #[implement(IDataObject)]
 struct DataObject();

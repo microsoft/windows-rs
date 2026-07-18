@@ -2,7 +2,7 @@
 #![expect(non_snake_case)]
 
 use std::sync::*;
-use windows::{ApplicationModel::Background::*, core::*, winerror::*};
+use windows::{ApplicationModel::Background::*, core::*, Win32::*};
 
 #[interface("a563f463-3d23-42cd-a2b5-6d21ee898aae")]
 unsafe trait IBorrowed: IUnknown {

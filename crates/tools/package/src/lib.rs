@@ -19,12 +19,12 @@ pub fn corpora() -> [Corpus; 2] {
         Corpus {
             rdl_dir: "metadata/win32",
             winmd: "crates/libs/bindgen/default/Windows.Win32.winmd",
-            root: "Windows",
+            root: "Windows.Win32",
         },
         Corpus {
             rdl_dir: "metadata/wdk",
             winmd: "crates/libs/bindgen/default/Windows.Wdk.winmd",
-            root: "Windows",
+            root: "Windows.Wdk",
         },
     ]
 }

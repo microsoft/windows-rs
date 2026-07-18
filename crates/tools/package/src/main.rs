@@ -6,17 +6,25 @@ use tool_package::{WINRT_WINMD, corpora};
 const PACKAGE_DIR: &str = "target/package";
 const REMAP_OUTPUT: &str = "target/package/Windows.Win32.winmd";
 
-/// Writes a `name<TAB>feature` map (e.g. `D2D1CreateFactory\tWin32_d2d1`) for every routed item to
+/// Writes a `name<TAB>feature` map (e.g. `D2D1CreateFactory\td2d1`) for every routed item to
 /// `path`, so downstream consumer migration can look up the header feature/module for an API.
 fn dump_routes(corpora: &[Corpus], path: String) {
     let mut lines: Vec<String> = Vec::new();
     for corpus in corpora {
         let (routes, _) = remap::routes(corpus);
         for (name, namespace) in routes {
+            // Mirror bindgen's `namespace_feature`: the `Windows.Win32`/`Windows.Wdk` umbrellas are
+            // stripped to the bare header stem; other namespaces drop the leading `Windows`.
             let feature = namespace
-                .strip_prefix("Windows.")
-                .unwrap_or(&namespace)
-                .replace('.', "_");
+                .strip_prefix("Windows.Win32.")
+                .or_else(|| namespace.strip_prefix("Windows.Wdk."))
+                .map(|stem| stem.replace('.', "_"))
+                .or_else(|| {
+                    namespace
+                        .strip_prefix("Windows.")
+                        .map(|rest| rest.replace('.', "_"))
+                })
+                .unwrap_or_else(|| namespace.clone());
             lines.push(format!("{name}\t{feature}"));
         }
     }
@@ -62,8 +70,8 @@ fn main() {
 }
 
 /// Asserts the header partition took effect (every Win32/WDK header stem lands in its own
-/// crate-root `Windows.<header>` namespace and the flat `Windows.Win32` namespace no longer
-/// holds types directly) and reports the synthesised namespace/item totals.
+/// `Windows.Win32.<header>` / `Windows.Wdk.<header>` namespace and the flat `Windows.Win32`
+/// namespace no longer holds types directly) and reports the synthesised namespace/item totals.
 fn verify(summary: &[(String, usize)]) {
     let index = windows_metadata::reader::Index::read(REMAP_OUTPUT)
         .unwrap_or_else(|| panic!("failed to read remapped winmd `{REMAP_OUTPUT}`"));

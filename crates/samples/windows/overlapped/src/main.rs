@@ -1,8 +1,6 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        core::*, fileapi::*, handleapi::*, ioapiset::*, minwinbase::*, synchapi::*, winbase::*,
-        winerror::*, winnt::*,
-    };
+        core::*, Win32::*};
 
     unsafe {
         let mut filename = std::env::current_dir().unwrap();

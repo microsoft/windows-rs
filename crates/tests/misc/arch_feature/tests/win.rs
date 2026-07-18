@@ -3,10 +3,10 @@
 #[cfg(target_arch = "x86_64")]
 #[expect(clippy::unnecessary_literal_unwrap)] // callback type is intentionally being tested
 fn test() {
-    use windows::ntenclv::{
+    use windows::Win32::{
         PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR, VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD,
     };
-    use windows::winnt::CONTEXT;
+    use windows::Win32::CONTEXT;
 
     assert_eq!(1232, size_of::<CONTEXT>());
 
@@ -24,10 +24,10 @@ fn test() {
 #[cfg(target_arch = "x86")]
 #[expect(clippy::unnecessary_literal_unwrap)] // callback type is intentionally being tested
 fn test() {
-    use windows::ntenclv::{
+    use windows::Win32::{
         PVBS_BASIC_ENCLAVE_THREAD_DESCRIPTOR, VBS_BASIC_ENCLAVE_BASIC_CALL_CREATE_THREAD,
     };
-    use windows::winnt::CONTEXT;
+    use windows::Win32::CONTEXT;
 
     assert_eq!(716, size_of::<CONTEXT>());
 

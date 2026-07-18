@@ -1,9 +1,6 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        bcrypt::*, combaseapi::*, core::*, d2d::*, d3d11::*, d3dcommon::*, dcommon::*, dcomp::*,
-        dwrite::*, dxgi::*, minwindef::*, objbase::*, shellscalingapi::*, shlwapi::*,
-        uianimation::*, wincodec::*, windef::*, winnt::*, winuser::*, wtypesbase::*,
-    };
+        Win32::*, core::*};
 
     use std::cell::RefCell;
     use std::rc::Rc;

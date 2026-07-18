@@ -1,5 +1,5 @@
 fn main() {
-    use windows::{core::*, pdh::*};
+    use windows::{core::*, Win32::*};
 
     unsafe {
         let mut query = PDH_HQUERY::default();

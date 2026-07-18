@@ -1,6 +1,6 @@
 #![cfg(windows)]
 use meta_winerror::{E_INVALIDARG, RPC_S_MAX_CALLS_TOO_SMALL, S_OK};
-use windows::{core::*, ntstatus as meta_ntstatus, rpc as meta_rpc, winerror as meta_winerror};
+use windows::{core::*, Win32 as meta_ntstatus, Win32 as meta_rpc, Win32 as meta_winerror};
 
 const ERROR_SUCCESS: WIN32_ERROR = WIN32_ERROR(meta_winerror::ERROR_SUCCESS);
 const ERROR_BAD_ARGUMENTS: WIN32_ERROR = WIN32_ERROR(meta_winerror::ERROR_BAD_ARGUMENTS);

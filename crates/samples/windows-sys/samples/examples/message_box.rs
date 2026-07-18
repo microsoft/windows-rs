@@ -1,5 +1,5 @@
 fn main() {
-    use windows_sys::{core::*, shellapi::*, winuser::*};
+    use windows_sys::{core::*, Win32::*};
 
     unsafe {
         MessageBoxA(core::ptr::null_mut(), s!("Ansi"), s!("World"), MB_OK);

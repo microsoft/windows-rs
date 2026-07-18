@@ -1,6 +1,6 @@
 #![cfg(windows)]
 use windows::core::{HRESULT, WIN32_ERROR};
-use windows::winerror::*;
+use windows::Win32::*;
 
 #[test]
 fn test_message() {

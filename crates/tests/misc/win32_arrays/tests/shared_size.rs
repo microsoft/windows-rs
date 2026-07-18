@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, wingdi::*, winuser::GetDC};
+use windows::{core::*, Win32::*, Win32::GetDC};
 
 #[test]
 fn test() -> Result<()> {

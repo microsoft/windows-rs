@@ -1,7 +1,6 @@
 fn main() -> windows::core::Result<()> {
     use windows::{
-        Security::Credentials::UI::*, core::*, userconsentverifierinterop::*, windef::*,
-    };
+        Security::Credentials::UI::*, core::*, Win32::*};
 
     use windows_future::*;
 

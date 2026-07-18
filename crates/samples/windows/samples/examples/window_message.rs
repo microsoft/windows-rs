@@ -1,5 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{windef::*, winuser::*};
+    use windows::{Win32::*};
     use windows_window::{Window, run};
 
     // `on_message` exposes every message with the raw `wparam`/`lparam` for apps

@@ -685,6 +685,24 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
 }
 
+/// Collapses a per-header `Windows.Win32.<stem>` / `Windows.Wdk.<stem>` namespace to its
+/// `Windows.Win32` / `Windows.Wdk` umbrella; every other namespace is returned unchanged.
+///
+/// In `--package` output the flat Win32/WDK surface is glob-re-exported from the umbrella module
+/// and each per-header submodule is private, so a reference must resolve to the umbrella (never the
+/// header stem). Used when writing cross-type reference paths.
+fn flat_module_namespace(namespace: &str) -> &str {
+    for umbrella in ["Windows.Win32", "Windows.Wdk"] {
+        if namespace.len() > umbrella.len()
+            && namespace.starts_with(umbrella)
+            && namespace.as_bytes()[umbrella.len()] == b'.'
+        {
+            return umbrella;
+        }
+    }
+    namespace
+}
+
 /// Derives the cargo-feature name for a `--package` namespace.
 ///
 /// Win32/WDK namespaces are flat (`Windows.Win32.<header>`) with globally unique

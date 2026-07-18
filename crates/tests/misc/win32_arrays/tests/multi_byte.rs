@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{stringapiset::*, winnls::*};
+use windows::{Win32::*};
 
 #[test]
 fn test() {

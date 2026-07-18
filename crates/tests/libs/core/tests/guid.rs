@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, winerror::E_INVALIDARG};
+use windows::{core::*, Win32::E_INVALIDARG};
 
 #[test]
 fn test_new() {

@@ -1,9 +1,8 @@
 #![cfg(windows)]
 use windows::{
-    d3d12::*,
-    minwinbase::{OVERLAPPED, OVERLAPPED_0_0},
-    winnt::HANDLE,
-};
+    Win32::*,
+    Win32::{OVERLAPPED, OVERLAPPED_0_0},
+    Win32::HANDLE};
 
 #[test]
 fn test() {

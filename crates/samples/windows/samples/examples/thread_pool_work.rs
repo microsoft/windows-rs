@@ -1,5 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{threadpoolapiset::*, winnt::*};
+    use windows::{Win32::*};
 
     static COUNTER: std::sync::RwLock<i32> = std::sync::RwLock::new(0);
 

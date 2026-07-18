@@ -3,8 +3,7 @@ fn main() -> windows::core::Result<()> {
         Graphics::Imaging::BitmapDecoder,
         Media::Ocr::OcrEngine,
         Storage::{FileAccessMode, StorageFile},
-        core::*,
-    };
+        core::*};
 
     let mut message = std::env::current_dir().unwrap();
     message.push("message.png");

@@ -1,16 +1,11 @@
 #![cfg(windows)]
 use windows::{
-    audioclient::*,
+    Win32::*,
     core::*,
-    errhandlingapi::*,
-    oaidl::*,
-    oleauto::*,
-    ro::{
+    Win32::{
         RO_ERROR_REPORTING_SUPPRESSSETERRORINFO, RO_ERROR_REPORTING_USESETERRORINFO,
         RoSetErrorReportingFlags,
-    },
-    winerror::*,
-};
+    }};
 
 #[test]
 fn display_debug() {

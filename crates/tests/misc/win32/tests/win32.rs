@@ -1,10 +1,6 @@
 #![cfg(windows)]
 use windows::{
-    accctrl::*, combaseapi::*, commdlg::*, core::*, d2d::*, d3d11::*, d3d12::*, d3dcompiler::*,
-    dxgi::*, expandedresources::*, handleapi::*, minidumpapiset::*, objidlbase::*, synchapi::*,
-    uianimation::*, uiautomationcore::*, urlmon::*, windef::*, winerror::*, winldap::*, winnt::*,
-    winuser::*,
-};
+    Win32::*, core::*};
 
 #[test]
 fn signed_enum32() {

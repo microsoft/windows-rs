@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{combaseapi::*, core::*, mfapi::*, mfobjects::*, objbase::*};
+use windows::{Win32::*, core::*};
 
 #[test]
 fn test() -> Result<()> {

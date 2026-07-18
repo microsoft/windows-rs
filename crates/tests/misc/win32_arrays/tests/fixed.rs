@@ -1,6 +1,6 @@
 #![cfg(windows)]
 use windows::core::{PSTR, PWSTR, s, w};
-use windows::{fileapi::*, oleauto::*, shlwapi::*, winuser::*, wtypesbase::OLECHAR};
+use windows::{Win32::*, Win32::OLECHAR};
 
 #[test]
 fn keyboard_state() {

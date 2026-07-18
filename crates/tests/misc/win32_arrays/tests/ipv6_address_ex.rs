@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::ipexport::IPV6_ADDRESS_EX;
+use windows::Win32::IPV6_ADDRESS_EX;
 
 #[test]
 fn test() {

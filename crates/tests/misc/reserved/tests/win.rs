@@ -1,12 +1,11 @@
 #![cfg(windows)]
 use windows::{
     core::*,
-    minwindef::HKEY,
-    threadpoolapiset::CreateThreadpool,
-    winnt::{ACCESS_MASK, KEY_QUERY_VALUE},
-    winreg::{HKEY_CLASSES_ROOT, RegOpenKeyExA, RegQueryValueExA},
-    winuser::*,
-};
+    Win32::HKEY,
+    Win32::CreateThreadpool,
+    Win32::{ACCESS_MASK, KEY_QUERY_VALUE},
+    Win32::{HKEY_CLASSES_ROOT, RegOpenKeyExA, RegQueryValueExA},
+    Win32::*};
 
 /// Tests a few APIs that have reserved parameters to ensure they can be called with `None`.
 #[test]
