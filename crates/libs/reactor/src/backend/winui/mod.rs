@@ -131,6 +131,16 @@ pub struct WinUIBackend {
     controls: RefCell<FxHashMap<ControlId, Handle>>,
     event_revokers: RefCell<FxHashMap<(ControlId, Event), Vec<windows_core::EventRevoker>>>,
     templated_selection_revokers: RefCell<FxHashMap<ControlId, windows_core::EventRevoker>>,
+    /// Per-list virtualization state for templated ListView/GridView/FlipView.
+    templated: RefCell<FxHashMap<ControlId, TemplatedList>>,
+    /// Shared `ItemTemplate` for virtualized ListView/GridView: a
+    /// `DataTemplate` whose root is a plain `ContentControl`. Parsed once and
+    /// reused across every list. WinUI's `ListViewItemPresenter` renders item
+    /// content as a *string*, so it cannot host an arbitrary `UIElement`
+    /// directly; routing through a real `ContentControl` (the template root)
+    /// lets us set `Content` to a reactor-built element and have it render.
+    /// The one-time parse is off the per-item hot path.
+    content_template: RefCell<Option<bindings::DataTemplate>>,
     /// Pointer-handler revokers (separate from `event_revokers` because
     /// pointer events use the universal `IUIElement` event surface).
     pointer_revokers: RefCell<FxHashMap<ControlId, PointerRevokerSet>>,
@@ -168,6 +178,38 @@ struct DragRevokerSet {
     drop: Option<windows_core::EventRevoker>,
 }
 
+/// Interior-mutable state shared between a templated list's WinUI event
+/// handlers (container recycling, drag-reorder) and the backend's
+/// `set_templated_*` methods. The handlers fire outside `&mut self`, so the
+/// pieces they touch live behind `Rc<RefCell<_>>`.
+#[derive(Clone, Default)]
+struct TemplatedShared {
+    /// The observable `ItemsSource` of boxed `i32` indices driving WinUI
+    /// virtualization for ListView/GridView. `None` for FlipView.
+    source: Rc<RefCell<Option<windows_collections::IObservableVector<windows_core::IInspectable>>>>,
+    /// Logical row index → the content host for that row: the inner
+    /// `ContentControl` at the root of the shared item template. Populated
+    /// when WinUI prepares a container, cleared when it recycles.
+    containers: Rc<RefCell<FxHashMap<usize, bindings::IContentControl>>>,
+}
+
+/// Per-list backend bookkeeping for templated (virtualized) lists.
+struct TemplatedList {
+    shared: TemplatedShared,
+    realize_revoker: Option<windows_core::EventRevoker>,
+    reorder_revoker: Option<windows_core::EventRevoker>,
+}
+
+impl TemplatedList {
+    fn new() -> Self {
+        Self {
+            shared: TemplatedShared::default(),
+            realize_revoker: None,
+            reorder_revoker: None,
+        }
+    }
+}
+
 impl Default for WinUIBackend {
     fn default() -> Self {
         Self::new()
@@ -180,6 +222,8 @@ impl WinUIBackend {
             controls: RefCell::new(FxHashMap::default()),
             event_revokers: RefCell::new(FxHashMap::default()),
             templated_selection_revokers: RefCell::new(FxHashMap::default()),
+            templated: RefCell::new(FxHashMap::default()),
+            content_template: RefCell::new(None),
             pointer_revokers: RefCell::new(FxHashMap::default()),
             drag_revokers: RefCell::new(FxHashMap::default()),
             parent_children: RefCell::new(FxHashMap::default()),
@@ -194,6 +238,21 @@ impl WinUIBackend {
             .borrow()
             .get(&id)
             .map(|h| h.as_ui_element().cast().unwrap())
+    }
+    /// Returns the shared virtualization item template, parsing it on first
+    /// use. The XAML is a fixed internal invariant, so a parse/cast failure is
+    /// a bug (not a recoverable condition) and panics rather than degrading to
+    /// a permanently blank list with no diagnostic.
+    fn content_template(&self) -> bindings::DataTemplate {
+        if let Some(t) = self.content_template.borrow().as_ref() {
+            return t.clone();
+        }
+        let template = bindings::XamlReader::Load(CONTENT_TEMPLATE_XAML)
+            .unwrap()
+            .cast::<bindings::DataTemplate>()
+            .unwrap();
+        *self.content_template.borrow_mut() = Some(template.clone());
+        template
     }
     pub fn find_titlebar(&self) -> Option<bindings::TitleBar> {
         self.controls.borrow().values().find_map(|h| match h {
@@ -1112,6 +1171,26 @@ fn str_list_as_ivector(
     vec.into()
 }
 
+/// Boxes an index as an `IReference<i32>` for a virtualized list's
+/// `ItemsSource`. The concrete value is irrelevant to rendering (rows are
+/// driven by container position), but distinct boxed indices let a
+/// drag-reorder be read back as a permutation.
+fn box_index(i: usize) -> windows_core::IInspectable {
+    windows_reference::IReference::<i32>::from(i as i32).into()
+}
+
+/// Reads an index previously stored by [`box_index`] back out, or `None` if
+/// the value isn't the expected boxed `i32`.
+fn unbox_index(value: &windows_core::IInspectable) -> Option<usize> {
+    let r = value.cast::<windows_reference::IReference<i32>>().ok()?;
+    usize::try_from(r.Value().ok()?).ok()
+}
+
+/// The XAML for the shared virtualization item template: a bare
+/// `ContentControl` stretched to fill its container. We populate its `Content`
+/// per row with a reactor-built element.
+const CONTENT_TEMPLATE_XAML: &str = "<DataTemplate xmlns='http://schemas.microsoft.com/winfx/2006/xaml/presentation'><ContentControl HorizontalContentAlignment='Stretch' VerticalContentAlignment='Stretch'/></DataTemplate>";
+
 impl Backend for WinUIBackend {
     fn create(&mut self, kind: ControlKind) -> ControlId {
         let id = self.alloc_id();
@@ -1813,7 +1892,52 @@ impl Backend for WinUIBackend {
             .unwrap_or_else(|| panic!("WinUIBackend::insert_child: {parent} is not a container"));
         container_insert(&cc, v_index, &child_ui);
     }
-    fn set_templated_item_count(&mut self, _id: ControlId, _count: usize) {}
+    fn set_templated_item_count(&mut self, id: ControlId, count: usize) {
+        let map = self.controls.borrow();
+        let Some(handle) = map.get(&id) else { return };
+        // Only ListView/GridView virtualize through an ItemsSource; FlipView
+        // keeps the Items-materialization path in set_templated_row_content.
+        let items_control: bindings::IItemsControl = match handle {
+            Handle::ListView(lv) => lv.cast().unwrap(),
+            Handle::GridView(gv) => gv.cast().unwrap(),
+            _ => return,
+        };
+
+        let mut lists = self.templated.borrow_mut();
+        let entry = lists.entry(id).or_insert_with(TemplatedList::new);
+        let source_slot = &entry.shared.source;
+
+        let mut slot = source_slot.borrow_mut();
+        match slot.as_ref() {
+            None => {
+                // First sizing: install the shared item template (so realized
+                // containers host a real `ContentControl` we can populate),
+                // then build the observable source and hand it to WinUI, which
+                // lazily realizes containers as rows scroll into view.
+                diag::dropped(items_control.SetItemTemplate(&self.content_template()));
+                let values: Vec<Option<windows_core::IInspectable>> =
+                    (0..count).map(|i| Some(box_index(i))).collect();
+                let source: windows_collections::IObservableVector<windows_core::IInspectable> =
+                    values.into();
+                diag::dropped(items_control.SetItemsSource(&source));
+                *slot = Some(source);
+            }
+            Some(source) => {
+                // Resize in place so existing containers/selection survive and
+                // WinUI realizes/recycles only the delta.
+                let current = source.Size().unwrap_or(0) as usize;
+                if count > current {
+                    for i in current..count {
+                        diag::dropped(source.Append(&box_index(i)));
+                    }
+                } else {
+                    for _ in count..current {
+                        diag::dropped(source.RemoveAtEnd());
+                    }
+                }
+            }
+        }
+    }
     fn set_templated_row_content(
         &mut self,
         list_id: ControlId,
@@ -1826,14 +1950,35 @@ impl Backend for WinUIBackend {
             .unwrap_or_else(|| panic!("set_templated_row_content: unknown list {list_id}"));
         let content_ui = content.and_then(|c| map.get(&c).map(Handle::as_ui_element));
 
-        let items_control: bindings::IItemsControl = match list_h {
-            Handle::ListView(lv) => lv.cast().unwrap(),
-            Handle::GridView(gv) => gv.cast().unwrap(),
-            Handle::FlipView(fv) => fv.cast().unwrap(),
+        // ListView/GridView are virtualized: place the element into the item
+        // container WinUI prepared for this row (recorded on the realize event).
+        // FlipView is not virtualized and keeps the Items-materialization path.
+        match list_h {
+            Handle::ListView(_) | Handle::GridView(_) => {
+                let container = self
+                    .templated
+                    .borrow()
+                    .get(&list_id)
+                    .and_then(|t| t.shared.containers.borrow().get(&row_idx).cloned());
+                let Some(container) = container else { return };
+                match content_ui {
+                    Some(ui) => diag::dropped(container.SetContent(&ui)),
+                    None => {
+                        diag::dropped(container.SetContent(None::<&windows_core::IInspectable>));
+                    }
+                }
+                return;
+            }
+            Handle::FlipView(_) => {}
             other => panic!(
                 "set_templated_row_content: {} is not a templated list",
                 describe_kind(other)
             ),
+        }
+
+        let items_control: bindings::IItemsControl = match list_h {
+            Handle::FlipView(fv) => fv.cast().unwrap(),
+            _ => unreachable!(),
         };
         let items = items_control
             .Items()
@@ -2055,14 +2200,131 @@ impl Backend for WinUIBackend {
     }
     fn attach_templated_realization(
         &mut self,
-        _id: ControlId,
-        _realize: Rc<dyn Fn(usize)>,
-        _recycle: Rc<dyn Fn(usize)>,
+        id: ControlId,
+        realize: Rc<dyn Fn(usize)>,
+        recycle: Rc<dyn Fn(usize)>,
     ) {
+        let map = self.controls.borrow();
+        let Some(handle) = map.get(&id) else { return };
+        // Only ListView/GridView drive realization through WinUI's container
+        // recycling. FlipView isn't a ListViewBase and is realized eagerly by
+        // the reconciler.
+        let lvb: bindings::IListViewBase = match handle {
+            Handle::ListView(lv) => lv.cast().unwrap(),
+            Handle::GridView(gv) => gv.cast().unwrap(),
+            _ => return,
+        };
+
+        let mut lists = self.templated.borrow_mut();
+        let entry = lists.entry(id).or_insert_with(TemplatedList::new);
+        let containers = Rc::clone(&entry.shared.containers);
+
+        let revoker = lvb
+            .ContainerContentChanging(move |_sender, args| {
+                let Some(args) = args.as_ref() else { return };
+                let Ok(item_container) = args.ItemContainer() else {
+                    return;
+                };
+                // The item container (a `ListViewItem`/`GridViewItem`) hosts
+                // our shared template, whose root is a plain `ContentControl`.
+                // We populate that inner control — not the item container,
+                // whose `ListViewItemPresenter` only renders string content.
+                let Ok(root) = item_container.cast::<bindings::IContentControl>() else {
+                    return;
+                };
+                let Some(cc) = root
+                    .ContentTemplateRoot()
+                    .ok()
+                    .and_then(|r| r.cast::<bindings::IContentControl>().ok())
+                else {
+                    return;
+                };
+                let recycling = args.InRecycleQueue().unwrap_or(false);
+                if recycling {
+                    // The container is being detached from its row. Drop our
+                    // element synchronously (before the reconciler unmounts it)
+                    // and tell the reconciler to recycle that row.
+                    diag::dropped(cc.SetContent(None::<&windows_core::IInspectable>));
+                    let mut map = containers.borrow_mut();
+                    if let Some(row) = map.iter().find(|(_, c)| **c == cc).map(|(row, _)| *row) {
+                        map.remove(&row);
+                        drop(map);
+                        recycle(row);
+                    }
+                } else {
+                    // A container is being prepared for this row. Record its
+                    // content host so set_templated_row_content can fill it,
+                    // suppress WinUI's default phased rendering, and ask the
+                    // reconciler to render the row.
+                    let row = args.ItemIndex().unwrap_or(-1);
+                    if row < 0 {
+                        return;
+                    }
+                    let row = row as usize;
+                    diag::dropped(args.SetHandled(true));
+                    containers.borrow_mut().insert(row, cc);
+                    realize(row);
+                }
+            })
+            .unwrap_or_else(|e| {
+                panic!(
+                    "WinUIBackend::attach_templated_realization: \
+                     ContainerContentChanging registration failed for control {id}: {e}"
+                )
+            });
+        entry.realize_revoker = Some(revoker);
+    }
+    fn attach_templated_reorder(&mut self, id: ControlId, handler: Callback<Vec<usize>>) {
+        let map = self.controls.borrow();
+        let Some(handle) = map.get(&id) else { return };
+        let lvb: bindings::IListViewBase = match handle {
+            Handle::ListView(lv) => lv.cast().unwrap(),
+            Handle::GridView(gv) => gv.cast().unwrap(),
+            _ => return,
+        };
+
+        let mut lists = self.templated.borrow_mut();
+        let entry = lists.entry(id).or_insert_with(TemplatedList::new);
+        let source = Rc::clone(&entry.shared.source);
+
+        let revoker = lvb
+            .DragItemsCompleted(move |_sender, _args| {
+                // WinUI has already reordered the observable source in place.
+                // Read the boxed indices back as the new order (a permutation
+                // of the pre-drag positions), hand it to the app, then reset
+                // the source to identity so the next drag reads cleanly.
+                let slot = source.borrow();
+                let Some(source) = slot.as_ref() else { return };
+                let len = source.Size().unwrap_or(0) as usize;
+                let mut order = Vec::with_capacity(len);
+                for i in 0..len as u32 {
+                    match source.GetAt(i).ok().as_ref().and_then(unbox_index) {
+                        Some(idx) => order.push(idx),
+                        None => return,
+                    }
+                }
+                let changed = order.iter().enumerate().any(|(i, v)| *v != i);
+                if !changed {
+                    return;
+                }
+                for i in 0..len {
+                    diag::dropped(source.SetAt(i as u32, &box_index(i)));
+                }
+                drop(slot);
+                handler.invoke(order);
+            })
+            .unwrap_or_else(|e| {
+                panic!(
+                    "WinUIBackend::attach_templated_reorder: \
+                     DragItemsCompleted registration failed for control {id}: {e}"
+                )
+            });
+        entry.reorder_revoker = Some(revoker);
     }
     fn destroy(&mut self, id: ControlId) {
         // Drop per-control revokers for templated selection and pointer/tap handlers.
         self.templated_selection_revokers.borrow_mut().remove(&id);
+        self.templated.borrow_mut().remove(&id);
         self.pointer_revokers.borrow_mut().remove(&id);
         self.drag_revokers.borrow_mut().remove(&id);
         self.controls.borrow_mut().remove(&id);

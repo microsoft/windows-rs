@@ -352,3 +352,138 @@ fn updating_to_new_items_refreshes_realized_row_content() {
         "expected row-99 text update, got {text_sets:?}"
     );
 }
+
+#[test]
+fn flip_view_realizes_all_rows_on_mount() {
+    // FlipView isn't a ListViewBase and can't self-virtualize, so the
+    // reconciler realizes every row up front.
+    let el =
+        windows_reactor::flip_view(vec![1i32, 2, 3], |n, _| TextBlock::new(n.to_string())).build();
+    let (r, list_id) = mount_and_drain(el);
+    assert_eq!(
+        r.backend.row_contents_of(list_id).len(),
+        3,
+        "FlipView should realize all rows on mount"
+    );
+}
+
+#[test]
+fn flip_view_growth_realizes_added_rows() {
+    let mk = |items: Vec<i32>| {
+        windows_reactor::flip_view(items, |n, _| TextBlock::new(n.to_string())).build()
+    };
+    let old_el = mk(vec![]);
+    let new_el = mk(vec![0, 1]);
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop_request_rerender())
+        .unwrap();
+    r.drain_realizations();
+    assert_eq!(r.backend.row_contents_of(list_id).len(), 0);
+
+    let _ = r.reconcile(
+        Some(&old_el),
+        &new_el,
+        Some(list_id),
+        noop_request_rerender(),
+    );
+    r.drain_realizations();
+    assert_eq!(
+        r.backend.row_contents_of(list_id).len(),
+        2,
+        "FlipView growth from 0 should realize the two new rows"
+    );
+}
+
+#[test]
+fn list_view_growth_does_not_auto_realize() {
+    // ListView virtualizes: growth only updates the item count; rows realize
+    // when WinUI recycles containers into view (simulated separately).
+    let mk = |items: Vec<i32>| list_view(items, |n, _| TextBlock::new(n.to_string())).build();
+    let old_el = mk(vec![]);
+    let new_el = mk(vec![0, 1, 2]);
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop_request_rerender())
+        .unwrap();
+    r.drain_realizations();
+
+    r.backend.clear_ops();
+    let _ = r.reconcile(
+        Some(&old_el),
+        &new_el,
+        Some(list_id),
+        noop_request_rerender(),
+    );
+    r.drain_realizations();
+
+    assert!(r.backend.ops.iter().any(
+        |op| matches!(op, Op::SetTemplatedItemCount { count: 3, list_id: lid } if *lid == list_id)
+    ));
+    assert!(
+        r.backend.row_contents_of(list_id).is_empty(),
+        "ListView growth must not realize rows before they scroll into view"
+    );
+}
+
+#[test]
+fn reorder_invokes_user_callback_with_permutation() {
+    let sink: Rc<Cell<Option<Vec<usize>>>> = Rc::new(Cell::new(None));
+    let sink_c = Rc::clone(&sink);
+
+    let el = list_view(vec![10i32, 20, 30], |n, _| TextBlock::new(n.to_string()))
+        .can_drag_items(true)
+        .can_reorder_items(true)
+        .allow_drop(true)
+        .on_reorder(move |order| sink_c.set(Some(order)))
+        .build();
+    let (r, list_id) = mount_and_drain(el);
+
+    assert!(
+        r.backend
+            .ops
+            .iter()
+            .any(|op| matches!(op, Op::AttachTemplatedReorder { id } if *id == list_id)),
+        "expected reorder handler attached"
+    );
+
+    r.backend.simulate_reorder(list_id, vec![2, 0, 1]);
+    assert_eq!(sink.take(), Some(vec![2, 0, 1]));
+}
+
+#[test]
+fn reorder_callback_refreshes_on_update() {
+    // After a rebuild, the reorder trampoline must invoke the newest closure.
+    let first: Rc<Cell<bool>> = Rc::new(Cell::new(false));
+    let second: Rc<Cell<Option<Vec<usize>>>> = Rc::new(Cell::new(None));
+    let first_c = Rc::clone(&first);
+    let second_c = Rc::clone(&second);
+
+    let mk = |cb: Box<dyn Fn(Vec<usize>)>| {
+        list_view(vec![1i32, 2], |n, _| TextBlock::new(n.to_string()))
+            .on_reorder(cb)
+            .build()
+    };
+    let old_el = mk(Box::new(move |_| first_c.set(true)));
+    let new_el = mk(Box::new(move |order| second_c.set(Some(order))));
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    let list_id = r
+        .reconcile(None, &old_el, None, noop_request_rerender())
+        .unwrap();
+    r.drain_realizations();
+
+    let _ = r.reconcile(
+        Some(&old_el),
+        &new_el,
+        Some(list_id),
+        noop_request_rerender(),
+    );
+    r.drain_realizations();
+
+    r.backend.simulate_reorder(list_id, vec![1, 0]);
+    assert!(!first.get(), "stale reorder closure must not fire");
+    assert_eq!(second.take(), Some(vec![1, 0]));
+}

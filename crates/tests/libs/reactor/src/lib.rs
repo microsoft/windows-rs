@@ -100,6 +100,9 @@ pub enum Op {
     AttachTemplatedRealization {
         id: ControlId,
     },
+    AttachTemplatedReorder {
+        id: ControlId,
+    },
     ApplyThemeBindings {
         id: ControlId,
         kind: ControlKind,
@@ -154,6 +157,7 @@ pub struct RecordingBackend {
     item_counts: rustc_hash::FxHashMap<ControlId, usize>,
     realization_handlers: rustc_hash::FxHashMap<ControlId, (Rc<dyn Fn(usize)>, Rc<dyn Fn(usize)>)>,
     selection_handlers: rustc_hash::FxHashMap<ControlId, Callback<i32>>,
+    reorder_handlers: rustc_hash::FxHashMap<ControlId, Callback<Vec<usize>>>,
     theme_style_cache: rustc_hash::FxHashSet<(ControlKind, Vec<(Prop, ThemeRef)>)>,
     theme_bindings_live: rustc_hash::FxHashMap<ControlId, Vec<(Prop, ThemeRef)>>,
     /// A stand-in [`IInspectable`] fabricated for every control so that
@@ -276,6 +280,16 @@ impl RecordingBackend {
             .get(&list_id)
             .unwrap_or_else(|| panic!("no selection handler on {list_id}"));
         cb.invoke(index);
+    }
+
+    /// Simulates a completed drag-reorder by invoking the list's reorder
+    /// handler with `order`, the new permutation of original item indices.
+    pub fn simulate_reorder(&self, list_id: ControlId, order: Vec<usize>) {
+        let cb = self
+            .reorder_handlers
+            .get(&list_id)
+            .unwrap_or_else(|| panic!("no reorder handler on {list_id}"));
+        cb.invoke(order);
     }
 
     pub fn theme_cache_size(&self) -> usize {
@@ -473,6 +487,11 @@ impl Backend for RecordingBackend {
     ) {
         self.realization_handlers.insert(id, (realize, recycle));
         self.ops.push(Op::AttachTemplatedRealization { id });
+    }
+
+    fn attach_templated_reorder(&mut self, id: ControlId, handler: Callback<Vec<usize>>) {
+        self.reorder_handlers.insert(id, handler);
+        self.ops.push(Op::AttachTemplatedReorder { id });
     }
 
     fn set_theme_bindings(

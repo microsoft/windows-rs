@@ -5,11 +5,12 @@ use windows_reactor::*;
 fn app(cx: &mut RenderCx) -> Element {
     let (selected, set_selected) = cx.use_state(-1_i32);
     let (mode_idx, set_mode_idx) = cx.use_state(1_i32); // default = Single
-
-    let items: Vec<String> = ["Red", "Green", "Blue", "Yellow", "Magenta"]
-        .iter()
-        .map(|s| (*s).to_string())
-        .collect();
+    let (items, set_items) = cx.use_state(
+        ["Red", "Green", "Blue", "Yellow", "Magenta"]
+            .iter()
+            .map(|s| (*s).to_string())
+            .collect::<Vec<_>>(),
+    );
 
     let modes = [
         SelectionMode::None,
@@ -33,6 +34,11 @@ fn app(cx: &mut RenderCx) -> Element {
         .map(|s| (*s).to_string())
         .collect();
 
+    // Reorder mirrors the drag result back into state so it survives the next
+    // render — essential under virtualization, where WinUI reorders containers
+    // rather than the live elements.
+    let reorder_source = items.clone();
+
     vstack((
         text_block("Selection Mode:").bold(),
         list_view(mode_items, |s, _idx| {
@@ -53,6 +59,10 @@ fn app(cx: &mut RenderCx) -> Element {
         .can_reorder_items(true)
         .allow_drop(true)
         .on_selection_changed(set_selected)
+        .on_reorder(move |order: Vec<usize>| {
+            let next: Vec<String> = order.iter().map(|i| reorder_source[*i].clone()).collect();
+            set_items.call(next);
+        })
         .height(180.0),
         text_block(format!(
             "selected_index = {selected} ({label}) | mode = {mode:?}"
@@ -65,8 +75,5 @@ fn app(cx: &mut RenderCx) -> Element {
 
 fn main() -> Result<()> {
     bootstrap()?;
-    App::new()
-        .title("Sample")
-        .eager_templated_realization(true)
-        .render(app)
+    App::new().title("Sample").render(app)
 }
