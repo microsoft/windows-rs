@@ -1,11 +1,11 @@
 windows_link::link!("ntdll.dll" "system" fn DbgPrompt(prompt : windows_sys::core::PCSTR, response : *mut i8, length : u32) -> u32);
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtOpenProcess(processhandle : *mut super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, objectattributes : *const super::super::Win32::OBJECT_ATTRIBUTES, clientid : *const super::super::Win32::CLIENT_ID) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn NtOpenProcess(processhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, clientid : *const super::CLIENT_ID) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlCompareString(string1 : *const super::super::Win32::STRING, string2 : *const super::super::Win32::STRING, caseinsensitive : bool) -> i32);
+windows_link::link!("ntdll.dll" "system" fn RtlCompareString(string1 : *const super::STRING, string2 : *const super::STRING, caseinsensitive : bool) -> i32);
 windows_link::link!("ntdll.dll" "system" fn RtlContractHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE) -> bool);
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlCopyString(destinationstring : *mut super::super::Win32::STRING, sourcestring : *const super::super::Win32::STRING));
+windows_link::link!("ntdll.dll" "system" fn RtlCopyString(destinationstring : *mut super::STRING, sourcestring : *const super::STRING));
 windows_link::link!("ntdll.dll" "system" fn RtlCreateHashTable(hashtable : *mut PRTL_DYNAMIC_HASH_TABLE, shift : u32, flags : u32) -> bool);
 windows_link::link!("ntdll.dll" "system" fn RtlCreateHashTableEx(hashtable : *mut PRTL_DYNAMIC_HASH_TABLE, initialsize : u32, shift : u32, flags : u32) -> bool);
 windows_link::link!("ntdll.dll" "system" fn RtlDelete(links : *const RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
@@ -36,7 +36,7 @@ windows_link::link!("ntdll.dll" "system" fn RtlEnumerateGenericTableWithoutSplay
 #[cfg(feature = "ntdef")]
 windows_link::link!("ntdll.dll" "system" fn RtlEnumerateGenericTableWithoutSplayingAvl(table : *const RTL_AVL_TABLE, restartkey : *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void);
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlEqualString(string1 : *const super::super::Win32::STRING, string2 : *const super::super::Win32::STRING, caseinsensitive : bool) -> bool);
+windows_link::link!("ntdll.dll" "system" fn RtlEqualString(string1 : *const super::STRING, string2 : *const super::STRING, caseinsensitive : bool) -> bool);
 windows_link::link!("ntdll.dll" "system" fn RtlExpandHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE) -> bool);
 windows_link::link!("ntdll.dll" "system" fn RtlGetActiveConsoleId() -> u32);
 windows_link::link!("ntdll.dll" "system" fn RtlGetCallersAddress(callersaddress : *mut *mut core::ffi::c_void, callerscaller : *mut *mut core::ffi::c_void));
@@ -94,66 +94,66 @@ windows_link::link!("ntdll.dll" "system" fn RtlLookupEntryHashTable(hashtable : 
 #[cfg(feature = "ntdef")]
 windows_link::link!("ntdll.dll" "system" fn RtlLookupFirstMatchingElementGenericTableAvl(table : *const RTL_AVL_TABLE, buffer : *const core::ffi::c_void, restartkey : *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlMapGenericMask(accessmask : *mut super::super::Win32::ACCESS_MASK, genericmapping : *const super::super::Win32::GENERIC_MAPPING));
+windows_link::link!("ntdll.dll" "system" fn RtlMapGenericMask(accessmask : *mut super::ACCESS_MASK, genericmapping : *const super::GENERIC_MAPPING));
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 windows_link::link!("ntdll.dll" "system" fn RtlNumberGenericTableElements(table : *const RTL_GENERIC_TABLE) -> u32);
 #[cfg(feature = "ntdef")]
 windows_link::link!("ntdll.dll" "system" fn RtlNumberGenericTableElementsAvl(table : *const RTL_AVL_TABLE) -> u32);
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn RtlPrefixUnicodeString(string1 : *const super::super::Win32::UNICODE_STRING, string2 : *const super::super::Win32::UNICODE_STRING, caseinsensitive : bool) -> bool);
+windows_link::link!("ntdll.dll" "system" fn RtlPrefixUnicodeString(string1 : *const super::UNICODE_STRING, string2 : *const super::UNICODE_STRING, caseinsensitive : bool) -> bool);
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlQueryRegistryValueWithFallback(primaryhandle : super::super::Win32::HANDLE, fallbackhandle : super::super::Win32::HANDLE, valuename : *const super::super::Win32::UNICODE_STRING, valuelength : u32, valuetype : *mut u32, valuedata : *mut core::ffi::c_void, resultlength : *mut u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn RtlQueryRegistryValueWithFallback(primaryhandle : super::HANDLE, fallbackhandle : super::HANDLE, valuename : *const super::UNICODE_STRING, valuelength : u32, valuetype : *mut u32, valuedata : *mut core::ffi::c_void, resultlength : *mut u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlRealPredecessor(links : *const RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
 windows_link::link!("ntdll.dll" "system" fn RtlRealSuccessor(links : *const RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlRemoveEntryHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE, entry : *const RTL_DYNAMIC_HASH_TABLE_ENTRY, context : *mut RTL_DYNAMIC_HASH_TABLE_CONTEXT) -> bool);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlRunOnceBeginInitialize(runonce : *mut super::super::Win32::RTL_RUN_ONCE, flags : u32, context : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn RtlRunOnceBeginInitialize(runonce : *mut super::RTL_RUN_ONCE, flags : u32, context : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlRunOnceComplete(runonce : *mut super::super::Win32::RTL_RUN_ONCE, flags : u32, context : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn RtlRunOnceComplete(runonce : *mut super::RTL_RUN_ONCE, flags : u32, context : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlRunOnceExecuteOnce(runonce : *mut super::super::Win32::RTL_RUN_ONCE, initfn : PRTL_RUN_ONCE_INIT_FN, parameter : *mut core::ffi::c_void, context : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn RtlRunOnceExecuteOnce(runonce : *mut super::RTL_RUN_ONCE, initfn : PRTL_RUN_ONCE_INIT_FN, parameter : *mut core::ffi::c_void, context : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlRunOnceInitialize(runonce : *mut super::super::Win32::RTL_RUN_ONCE));
+windows_link::link!("ntdll.dll" "system" fn RtlRunOnceInitialize(runonce : *mut super::RTL_RUN_ONCE));
 windows_link::link!("ntdll.dll" "system" fn RtlSplay(links : *mut RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlStronglyEnumerateEntryHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE, enumerator : *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY);
 windows_link::link!("ntdll.dll" "system" fn RtlSubtreePredecessor(links : *const RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
 windows_link::link!("ntdll.dll" "system" fn RtlSubtreeSuccessor(links : *const RTL_SPLAY_LINKS) -> PRTL_SPLAY_LINKS);
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeString(destinationstring : *mut super::super::Win32::UNICODE_STRING, sourcestring : *const super::super::Win32::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlUpperChar(character : i8) -> i8);
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlUpperString(destinationstring : *mut super::super::Win32::STRING, sourcestring : *const super::super::Win32::STRING));
+windows_link::link!("ntdll.dll" "system" fn RtlUpperString(destinationstring : *mut super::STRING, sourcestring : *const super::STRING));
 windows_link::link!("ntdll.dll" "system" fn RtlWalkFrameChain(callers : *mut *mut core::ffi::c_void, count : u32, flags : u32) -> u32);
 #[cfg(feature = "winnt")]
 windows_link::link!("ntdll.dll" "system" fn RtlWeaklyEnumerateEntryHashTable(hashtable : *const RTL_DYNAMIC_HASH_TABLE, enumerator : *mut RTL_DYNAMIC_HASH_TABLE_ENUMERATOR) -> PRTL_DYNAMIC_HASH_TABLE_ENTRY);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwAllocateLocallyUniqueId(luid : *mut super::super::Win32::LUID) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwAllocateLocallyUniqueId(luid : *mut super::LUID) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "C" fn ZwCancelTimer(timerhandle : super::super::Win32::HANDLE, currentstate : *mut bool) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "C" fn ZwCancelTimer(timerhandle : super::HANDLE, currentstate : *mut bool) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "C" fn ZwCreateTimer(timerhandle : *mut super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, objectattributes : *const super::super::Win32::OBJECT_ATTRIBUTES, timertype : super::TIMER_TYPE) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "C" fn ZwCreateTimer(timerhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, timertype : super::TIMER_TYPE) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwDeviceIoControlFile(filehandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, apcroutine : super::super::Win32::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwDeviceIoControlFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, iocontrolcode : u32, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn ZwDisplayString(string : *const super::super::Win32::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwDisplayString(string : *const super::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwOpenProcess(processhandle : *mut super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, objectattributes : *const super::super::Win32::OBJECT_ATTRIBUTES, clientid : *const super::super::Win32::CLIENT_ID) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwOpenProcess(processhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, clientid : *const super::CLIENT_ID) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "C" fn ZwOpenTimer(timerhandle : *mut super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, objectattributes : *const super::super::Win32::OBJECT_ATTRIBUTES) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "C" fn ZwOpenTimer(timerhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwPowerInformation(informationlevel : super::super::Win32::POWER_INFORMATION_LEVEL, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwPowerInformation(informationlevel : super::POWER_INFORMATION_LEVEL, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwQueryVolumeInformationFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fsinformation : *mut core::ffi::c_void, length : u32, fsinformationclass : super::FS_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwQueryVolumeInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fsinformation : *mut core::ffi::c_void, length : u32, fsinformationclass : super::FS_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwSetInformationThread(threadhandle : super::super::Win32::HANDLE, threadinformationclass : super::super::Win32::THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwSetInformationThread(threadhandle : super::HANDLE, threadinformationclass : super::THREADINFOCLASS, threadinformation : *const core::ffi::c_void, threadinformationlength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "C" fn ZwSetTimer(timerhandle : super::super::Win32::HANDLE, duetime : *const i64, timerapcroutine : PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : bool, period : i32, previousstate : *mut bool) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "C" fn ZwSetTimer(timerhandle : super::HANDLE, duetime : *const i64, timerapcroutine : PTIMER_APC_ROUTINE, timercontext : *const core::ffi::c_void, resumetimer : bool, period : i32, previousstate : *mut bool) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "C" fn ZwSetTimerEx(timerhandle : super::super::Win32::HANDLE, timersetinformationclass : TIMER_SET_INFORMATION_CLASS, timersetinformation : *mut core::ffi::c_void, timersetinformationlength : u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "C" fn ZwSetTimerEx(timerhandle : super::HANDLE, timersetinformationclass : TIMER_SET_INFORMATION_CLASS, timersetinformation : *mut core::ffi::c_void, timersetinformationlength : u32) -> windows_sys::core::NTSTATUS);
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwTerminateProcess(processhandle : super::super::Win32::HANDLE, exitstatus : windows_sys::core::NTSTATUS) -> windows_sys::core::NTSTATUS);
+windows_link::link!("ntdll.dll" "system" fn ZwTerminateProcess(processhandle : super::HANDLE, exitstatus : windows_sys::core::NTSTATUS) -> windows_sys::core::NTSTATUS);
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct ACPI_DEBUGGING_DEVICE_IN_USE {
@@ -255,7 +255,7 @@ impl Default for ARBITER_ADD_RESERVED_PARAMETERS {
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct ARBITER_BOOT_ALLOCATION_PARAMETERS {
-    pub ArbitrationList: super::super::Win32::PLIST_ENTRY,
+    pub ArbitrationList: super::PLIST_ENTRY,
 }
 #[cfg(feature = "winnt")]
 impl Default for ARBITER_BOOT_ALLOCATION_PARAMETERS {
@@ -302,7 +302,7 @@ impl Default for ARBITER_INTERFACE {
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct ARBITER_LIST_ENTRY {
-    pub ListEntry: super::super::Win32::LIST_ENTRY,
+    pub ListEntry: super::LIST_ENTRY,
     pub AlternativeCount: u32,
     pub Alternatives: super::PIO_RESOURCE_DESCRIPTOR,
     pub PhysicalDeviceObject: super::PDEVICE_OBJECT,
@@ -369,7 +369,7 @@ impl Default for ARBITER_QUERY_ALLOCATED_RESOURCES_PARAMETERS {
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct ARBITER_QUERY_ARBITRATE_PARAMETERS {
-    pub ArbitrationList: super::super::Win32::PLIST_ENTRY,
+    pub ArbitrationList: super::PLIST_ENTRY,
 }
 #[cfg(feature = "winnt")]
 impl Default for ARBITER_QUERY_ARBITRATE_PARAMETERS {
@@ -383,7 +383,7 @@ impl Default for ARBITER_QUERY_ARBITRATE_PARAMETERS {
 pub struct ARBITER_QUERY_CONFLICT_PARAMETERS {
     pub PhysicalDeviceObject: super::PDEVICE_OBJECT,
     pub ConflictingResource: super::PIO_RESOURCE_DESCRIPTOR,
-    pub ConflictCount: super::super::Win32::PULONG,
+    pub ConflictCount: super::PULONG,
     pub Conflicts: *mut PARBITER_CONFLICT_INFO,
 }
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
@@ -398,7 +398,7 @@ pub type ARBITER_RESULT = i32;
 #[cfg(all(feature = "basetsd", feature = "usb", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ARBITER_RETEST_ALLOCATION_PARAMETERS {
-    pub ArbitrationList: super::super::Win32::PLIST_ENTRY,
+    pub ArbitrationList: super::PLIST_ENTRY,
     pub AllocateFromCount: u32,
     pub AllocateFrom: super::PCM_PARTIAL_RESOURCE_DESCRIPTOR,
 }
@@ -412,7 +412,7 @@ impl Default for ARBITER_RETEST_ALLOCATION_PARAMETERS {
 #[cfg(all(feature = "basetsd", feature = "usb", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct ARBITER_TEST_ALLOCATION_PARAMETERS {
-    pub ArbitrationList: super::super::Win32::PLIST_ENTRY,
+    pub ArbitrationList: super::PLIST_ENTRY,
     pub AllocateFromCount: u32,
     pub AllocateFrom: super::PCM_PARTIAL_RESOURCE_DESCRIPTOR,
 }
@@ -462,10 +462,10 @@ pub const BDCB_IMAGEFLAGS_FAILED_CODE_INTEGRITY: u32 = 1;
 pub struct BDCB_IMAGE_INFORMATION {
     pub Classification: BDCB_CLASSIFICATION,
     pub ImageFlags: u32,
-    pub ImageName: super::super::Win32::UNICODE_STRING,
-    pub RegistryPath: super::super::Win32::UNICODE_STRING,
-    pub CertificatePublisher: super::super::Win32::UNICODE_STRING,
-    pub CertificateIssuer: super::super::Win32::UNICODE_STRING,
+    pub ImageName: super::UNICODE_STRING,
+    pub RegistryPath: super::UNICODE_STRING,
+    pub CertificatePublisher: super::UNICODE_STRING,
+    pub CertificateIssuer: super::UNICODE_STRING,
     pub ImageHash: *mut core::ffi::c_void,
     pub CertificateThumbprint: *mut core::ffi::c_void,
     pub ImageHashAlgorithm: u32,
@@ -607,7 +607,7 @@ pub const CP_GET_SUCCESS: u32 = 0;
 pub struct CREATE_USER_PROCESS_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
-    pub AccessToken: super::super::Win32::PACCESS_TOKEN,
+    pub AccessToken: super::PACCESS_TOKEN,
 }
 #[cfg(feature = "winnt")]
 impl Default for CREATE_USER_PROCESS_ECP_CONTEXT {
@@ -751,7 +751,7 @@ pub struct DEBUG_DEVICE_ADDRESS {
     pub Type: u8,
     pub Valid: bool,
     pub Anonymous: DEBUG_DEVICE_ADDRESS_0,
-    pub TranslatedAddress: super::super::Win32::PUCHAR,
+    pub TranslatedAddress: super::PUCHAR,
     pub Length: u32,
 }
 #[cfg(feature = "minwindef")]
@@ -803,7 +803,7 @@ pub struct DEBUG_DEVICE_DESCRIPTOR {
     pub OemData: *mut core::ffi::c_void,
     pub OemDataLength: u32,
     pub NameSpace: KD_NAMESPACE_ENUM,
-    pub NameSpacePath: super::super::Win32::PWCHAR,
+    pub NameSpacePath: super::PWCHAR,
     pub NameSpacePathLength: u32,
     pub TransportType: u32,
     pub TransportData: DEBUG_TRANSPORT_DATA,
@@ -849,8 +849,8 @@ impl Default for DEBUG_EFI_IOMMU_DATA {
 #[cfg(feature = "usb")]
 #[derive(Clone, Copy)]
 pub struct DEBUG_MEMORY_REQUIREMENTS {
-    pub Start: super::super::Win32::PHYSICAL_ADDRESS,
-    pub MaxEnd: super::super::Win32::PHYSICAL_ADDRESS,
+    pub Start: super::PHYSICAL_ADDRESS,
+    pub MaxEnd: super::PHYSICAL_ADDRESS,
     pub VirtualAddress: *mut core::ffi::c_void,
     pub Length: u32,
     pub Cached: bool,
@@ -1555,7 +1555,7 @@ pub const HAL_UNREGISTER_PMU_NOTIFICATION_INPUT_VERSION: u32 = 1;
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct HARDWARE_COUNTER {
-    pub Type: super::super::Win32::HARDWARE_COUNTER_TYPE,
+    pub Type: super::HARDWARE_COUNTER_TYPE,
     pub Reserved: u32,
     pub Index: u64,
 }
@@ -1661,7 +1661,7 @@ pub const IMAGE_ADDRESSING_MODE_32BIT: u32 = 3;
 #[derive(Clone, Copy)]
 pub struct IMAGE_INFO_EX {
     pub Size: usize,
-    pub ImageInfo: super::super::Win32::IMAGE_INFO,
+    pub ImageInfo: super::IMAGE_INFO,
     pub FileObject: *mut super::FILE_OBJECT,
 }
 #[cfg(all(feature = "basetsd", feature = "filter", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
@@ -1832,7 +1832,7 @@ pub struct KARM64_VFP_STATE {
     pub Link: *mut Self,
     pub Fpcr: u32,
     pub Fpsr: u32,
-    pub V: [super::super::Win32::NEON128; 32],
+    pub V: [super::NEON128; 32],
 }
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "winnt")]
@@ -1882,16 +1882,16 @@ pub struct KEXCEPTION_FRAME {
     pub P4Home: u64,
     pub P5: u64,
     pub Spare1: u64,
-    pub Xmm6: super::super::Win32::M128A,
-    pub Xmm7: super::super::Win32::M128A,
-    pub Xmm8: super::super::Win32::M128A,
-    pub Xmm9: super::super::Win32::M128A,
-    pub Xmm10: super::super::Win32::M128A,
-    pub Xmm11: super::super::Win32::M128A,
-    pub Xmm12: super::super::Win32::M128A,
-    pub Xmm13: super::super::Win32::M128A,
-    pub Xmm14: super::super::Win32::M128A,
-    pub Xmm15: super::super::Win32::M128A,
+    pub Xmm6: super::M128A,
+    pub Xmm7: super::M128A,
+    pub Xmm8: super::M128A,
+    pub Xmm9: super::M128A,
+    pub Xmm10: super::M128A,
+    pub Xmm11: super::M128A,
+    pub Xmm12: super::M128A,
+    pub Xmm13: super::M128A,
+    pub Xmm14: super::M128A,
+    pub Xmm15: super::M128A,
     pub TrapFrame: u64,
     pub OutputBuffer: u64,
     pub OutputLength: u64,
@@ -1991,7 +1991,7 @@ pub struct KPCR {
     pub TSS: *mut _KTSS,
     pub MajorVersion: u16,
     pub MinorVersion: u16,
-    pub SetMember: super::super::Win32::KAFFINITY,
+    pub SetMember: super::KAFFINITY,
     pub StallScaleFactor: u32,
     pub SpareUnused: u8,
     pub Number: u8,
@@ -2014,7 +2014,7 @@ impl Default for KPCR {
 #[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KPCR_0 {
-    pub NtTib: super::super::Win32::NT_TIB,
+    pub NtTib: super::NT_TIB,
     pub Anonymous: KPCR_0_0,
 }
 #[cfg(target_arch = "x86")]
@@ -2029,12 +2029,12 @@ impl Default for KPCR_0 {
 #[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KPCR_0_0 {
-    pub Used_ExceptionList: *mut super::super::Win32::EXCEPTION_REGISTRATION_RECORD,
+    pub Used_ExceptionList: *mut super::EXCEPTION_REGISTRATION_RECORD,
     pub Used_StackBase: *mut core::ffi::c_void,
     pub MxCsr: u32,
     pub TssCopy: *mut core::ffi::c_void,
     pub ContextSwitches: u32,
-    pub SetMemberCopy: super::super::Win32::KAFFINITY,
+    pub SetMemberCopy: super::KAFFINITY,
     pub Used_Self: *mut core::ffi::c_void,
 }
 #[cfg(target_arch = "x86")]
@@ -2081,7 +2081,7 @@ impl Default for KPCR {
 #[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KPCR_0 {
-    pub NtTib: super::super::Win32::NT_TIB,
+    pub NtTib: super::NT_TIB,
     pub Anonymous: KPCR_0_0,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2147,7 +2147,7 @@ impl Default for KPCR {
 #[cfg(all(feature = "basetsd", feature = "excpt", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union KPCR_0 {
-    pub NtTib: super::super::Win32::NT_TIB,
+    pub NtTib: super::NT_TIB,
     pub Anonymous: KPCR_0_0,
 }
 #[cfg(target_arch = "aarch64")]
@@ -2288,12 +2288,12 @@ pub struct KTRAP_FRAME {
     pub R10: u64,
     pub R11: u64,
     pub Anonymous: KTRAP_FRAME_0,
-    pub Xmm0: super::super::Win32::M128A,
-    pub Xmm1: super::super::Win32::M128A,
-    pub Xmm2: super::super::Win32::M128A,
-    pub Xmm3: super::super::Win32::M128A,
-    pub Xmm4: super::super::Win32::M128A,
-    pub Xmm5: super::super::Win32::M128A,
+    pub Xmm0: super::M128A,
+    pub Xmm1: super::M128A,
+    pub Xmm2: super::M128A,
+    pub Xmm3: super::M128A,
+    pub Xmm4: super::M128A,
+    pub Xmm5: super::M128A,
     pub Anonymous2: KTRAP_FRAME_1,
     pub Anonymous3: KTRAP_FRAME_2,
     pub Anonymous4: KTRAP_FRAME_3,
@@ -2645,7 +2645,7 @@ pub struct KUMS_CONTEXT_HEADER {
     pub StackSize: u64,
     pub RspOffset: u64,
     pub Rip: u64,
-    pub FltSave: super::super::Win32::PXMM_SAVE_AREA32,
+    pub FltSave: super::PXMM_SAVE_AREA32,
     pub Anonymous: KUMS_CONTEXT_HEADER_0,
     pub TrapFrame: PKTRAP_FRAME,
     pub ExceptionFrame: PKEXCEPTION_FRAME,
@@ -2767,7 +2767,7 @@ pub struct KUSER_SHARED_DATA {
     pub Anonymous5: KUSER_SHARED_DATA_4,
     pub TimeZoneBiasEffectiveStart: i64,
     pub TimeZoneBiasEffectiveEnd: i64,
-    pub XState: super::super::Win32::XSTATE_CONFIGURATION,
+    pub XState: super::XSTATE_CONFIGURATION,
     pub UserPointerAuthMask: u64,
     pub Reserved10: [u32; 214],
     pub FeatureConfigurationChangeStamp: super::KSYSTEM_TIME,
@@ -2974,9 +2974,9 @@ pub struct KUSER_SHARED_DATA {
     pub Anonymous5: KUSER_SHARED_DATA_4,
     pub TimeZoneBiasEffectiveStart: i64,
     pub TimeZoneBiasEffectiveEnd: i64,
-    pub XState: super::super::Win32::XSTATE_CONFIGURATION,
+    pub XState: super::XSTATE_CONFIGURATION,
     pub UserPointerAuthMask: u64,
-    pub XStateArm64: super::super::Win32::XSTATE_CONFIGURATION,
+    pub XStateArm64: super::XSTATE_CONFIGURATION,
     pub FeatureConfigurationChangeStamp: super::KSYSTEM_TIME,
     pub Spare: u32,
 }
@@ -3298,7 +3298,7 @@ impl Default for MM_COPY_ADDRESS {
 #[derive(Clone, Copy)]
 pub union MM_COPY_ADDRESS_0 {
     pub VirtualAddress: *mut core::ffi::c_void,
-    pub PhysicalAddress: super::super::Win32::PHYSICAL_ADDRESS,
+    pub PhysicalAddress: super::PHYSICAL_ADDRESS,
 }
 #[cfg(feature = "usb")]
 impl Default for MM_COPY_ADDRESS_0 {
@@ -5545,11 +5545,11 @@ pub type PCONTROLLER_OBJECT = *mut CONTROLLER_OBJECT;
 #[cfg(all(feature = "basetsd", feature = "mce", feature = "wdm", feature = "winnt"))]
 pub type PCPE_DRIVER_INFO = *mut CPE_DRIVER_INFO;
 #[cfg(feature = "winnt")]
-pub type PCREATE_PROCESS_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(parentid: super::super::Win32::HANDLE, processid: super::super::Win32::HANDLE, create: bool)>;
+pub type PCREATE_PROCESS_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(parentid: super::HANDLE, processid: super::HANDLE, create: bool)>;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-pub type PCREATE_PROCESS_NOTIFY_ROUTINE_EX = Option<unsafe extern "system" fn(process: *mut super::_KPROCESS, processid: super::super::Win32::HANDLE, createinfo: *mut PS_CREATE_NOTIFY_INFO)>;
+pub type PCREATE_PROCESS_NOTIFY_ROUTINE_EX = Option<unsafe extern "system" fn(process: *mut super::_KPROCESS, processid: super::HANDLE, createinfo: *mut PS_CREATE_NOTIFY_INFO)>;
 #[cfg(feature = "winnt")]
-pub type PCREATE_THREAD_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(processid: super::super::Win32::HANDLE, threadid: super::super::Win32::HANDLE, create: bool)>;
+pub type PCREATE_THREAD_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(processid: super::HANDLE, threadid: super::HANDLE, create: bool)>;
 #[cfg(feature = "winnt")]
 pub type PCREATE_USER_PROCESS_ECP_CONTEXT = *mut CREATE_USER_PROCESS_ECP_CONTEXT;
 #[cfg(target_arch = "aarch64")]
@@ -5655,7 +5655,7 @@ pub type PFNFTH = Option<unsafe extern "C" fn(systemfirmwaretableinfo: *mut SYST
 pub type PFN_IN_USE_PAGE_OFFLINE_NOTIFY = Option<unsafe extern "system" fn(page: super::PFN_NUMBER, poisoned: bool, context: *mut core::ffi::c_void, callbackstatus: *mut windows_sys::core::NTSTATUS) -> bool>;
 pub type PFN_WHEA_HIGH_IRQL_LOG_SEL_EVENT_HANDLER = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, osselrecord: *const IPMI_OS_SEL_RECORD) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type PGET_LOCATION_STRING = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, locationstrings: *mut super::super::Win32::PZZWSTR) -> windows_sys::core::NTSTATUS>;
+pub type PGET_LOCATION_STRING = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, locationstrings: *mut super::PZZWSTR) -> windows_sys::core::NTSTATUS>;
 pub type PHALIOREADWRITEHANDLER = Option<unsafe extern "system" fn(fread: bool, dwaddr: u32, dwsize: u32, pdwdata: *mut u32) -> windows_sys::core::NTSTATUS>;
 pub type PHALMCAINTERFACELOCK = Option<unsafe extern "system" fn()>;
 pub type PHALMCAINTERFACEREADREGISTER = Option<unsafe extern "system" fn(banknumber: u8, exception: *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
@@ -5748,11 +5748,11 @@ impl Default for PHYSICAL_COUNTER_RESOURCE_LIST {
 #[cfg(feature = "usb")]
 #[derive(Clone, Copy, Default)]
 pub struct PHYSICAL_MEMORY_RANGE {
-    pub BaseAddress: super::super::Win32::PHYSICAL_ADDRESS,
+    pub BaseAddress: super::PHYSICAL_ADDRESS,
     pub NumberOfBytes: i64,
 }
 #[cfg(feature = "filter")]
-pub type PIMAGE_INFO = *mut super::super::Win32::IMAGE_INFO;
+pub type PIMAGE_INFO = *mut super::IMAGE_INFO;
 #[cfg(all(feature = "basetsd", feature = "filter", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PIMAGE_INFO_EX = *mut IMAGE_INFO_EX;
 #[cfg(feature = "ntdef")]
@@ -5762,7 +5762,7 @@ pub type PIO_FOEXT_SHADOW_FILE = *mut IO_FOEXT_SHADOW_FILE;
 pub type PIO_FOEXT_SILO_PARAMETERS = *mut IO_FOEXT_SILO_PARAMETERS;
 pub type PIO_QUERY_DEVICE_DATA_FORMAT = *mut IO_QUERY_DEVICE_DATA_FORMAT;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "wdm"))]
-pub type PIO_QUERY_DEVICE_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pathname: *const super::super::Win32::UNICODE_STRING, bustype: super::INTERFACE_TYPE, busnumber: u32, businformation: *const super::PKEY_VALUE_FULL_INFORMATION, controllertype: CONFIGURATION_TYPE, controllernumber: u32, controllerinformation: *const super::PKEY_VALUE_FULL_INFORMATION, peripheraltype: CONFIGURATION_TYPE, peripheralnumber: u32, peripheralinformation: *const super::PKEY_VALUE_FULL_INFORMATION) -> windows_sys::core::NTSTATUS>;
+pub type PIO_QUERY_DEVICE_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, pathname: *const super::UNICODE_STRING, bustype: super::INTERFACE_TYPE, busnumber: u32, businformation: *const super::PKEY_VALUE_FULL_INFORMATION, controllertype: CONFIGURATION_TYPE, controllernumber: u32, controllerinformation: *const super::PKEY_VALUE_FULL_INFORMATION, peripheraltype: CONFIGURATION_TYPE, peripheralnumber: u32, peripheralinformation: *const super::PKEY_VALUE_FULL_INFORMATION) -> windows_sys::core::NTSTATUS>;
 pub type PIPMI_OS_SEL_RECORD = *mut IPMI_OS_SEL_RECORD;
 pub type PIPMI_OS_SEL_RECORD_TYPE = *mut IPMI_OS_SEL_RECORD_TYPE;
 #[cfg(target_arch = "aarch64")]
@@ -5794,7 +5794,7 @@ pub type PKUSER_SHARED_DATA = *mut KUSER_SHARED_DATA;
 pub const PLATFORM_EXTENDED_RAS_SECTION_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc6749ac0_16fb_4868_b976_65a61299834f);
 pub type PLOADER_PARAMETER_BLOCK = *mut _LOADER_PARAMETER_BLOCK;
 #[cfg(all(feature = "filter", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PLOAD_IMAGE_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(fullimagename: *const super::super::Win32::UNICODE_STRING, processid: super::super::Win32::HANDLE, imageinfo: *const super::super::Win32::IMAGE_INFO)>;
+pub type PLOAD_IMAGE_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(fullimagename: *const super::UNICODE_STRING, processid: super::HANDLE, imageinfo: *const super::IMAGE_INFO)>;
 pub type PMAP_REGISTER_ENTRY = *mut MAP_REGISTER_ENTRY;
 #[cfg(all(feature = "basetsd", feature = "mce", feature = "ntdef", feature = "wdm", feature = "winnt"))]
 pub type PMCA_DRIVER_INFO = *mut MCA_DRIVER_INFO;
@@ -6048,9 +6048,9 @@ pub type PPCI_VENDOR_SPECIFIC_CAPABILITY = *mut PCI_VENDOR_SPECIFIC_CAPABILITY;
 #[cfg(feature = "winnt")]
 pub type PPHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION = *mut PHYSICAL_COUNTER_EVENT_BUFFER_CONFIGURATION;
 #[cfg(feature = "winnt")]
-pub type PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER = Option<unsafe extern "system" fn(eventbuffer: *const core::ffi::c_void, entrysize: usize, numberofentries: usize, owninghandle: super::super::Win32::HANDLE)>;
+pub type PPHYSICAL_COUNTER_EVENT_BUFFER_OVERFLOW_HANDLER = Option<unsafe extern "system" fn(eventbuffer: *const core::ffi::c_void, entrysize: usize, numberofentries: usize, owninghandle: super::HANDLE)>;
 #[cfg(feature = "winnt")]
-pub type PPHYSICAL_COUNTER_OVERFLOW_HANDLER = Option<unsafe extern "system" fn(overflowbits: u64, owninghandle: super::super::Win32::HANDLE)>;
+pub type PPHYSICAL_COUNTER_OVERFLOW_HANDLER = Option<unsafe extern "system" fn(overflowbits: u64, owninghandle: super::HANDLE)>;
 #[cfg(feature = "winnt")]
 pub type PPHYSICAL_COUNTER_RESOURCE_DESCRIPTOR = *mut PHYSICAL_COUNTER_RESOURCE_DESCRIPTOR;
 #[cfg(feature = "winnt")]
@@ -6101,8 +6101,8 @@ pub const PROCESSOR_GENERIC_ERROR_SECTION_GUID: windows_sys::core::GUID = window
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_ACCESS_TOKEN {
-    pub Token: super::super::Win32::HANDLE,
-    pub Thread: super::super::Win32::HANDLE,
+    pub Token: super::HANDLE,
+    pub Thread: super::HANDLE,
 }
 #[cfg(feature = "winnt")]
 impl Default for PROCESS_ACCESS_TOKEN {
@@ -6139,7 +6139,7 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_0 {
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_0_0 {
-    pub DirectoryHandle: super::super::Win32::HANDLE,
+    pub DirectoryHandle: super::HANDLE,
 }
 #[cfg(feature = "winnt")]
 impl Default for PROCESS_DEVICEMAP_INFORMATION_0_0 {
@@ -6190,7 +6190,7 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0 {
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
-    pub DirectoryHandle: super::super::Win32::HANDLE,
+    pub DirectoryHandle: super::HANDLE,
 }
 #[cfg(feature = "winnt")]
 impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_0 {
@@ -6215,7 +6215,7 @@ impl Default for PROCESS_DEVICEMAP_INFORMATION_EX_0_1 {
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct PROCESS_EXCEPTION_PORT {
-    pub ExceptionPortHandle: super::super::Win32::HANDLE,
+    pub ExceptionPortHandle: super::HANDLE,
     pub StateFlags: u32,
 }
 #[cfg(feature = "winnt")]
@@ -6231,7 +6231,7 @@ pub const PROCESS_EXCEPTION_PORT_ALL_STATE_FLAGS: u32 = 7;
 #[derive(Clone, Copy)]
 pub struct PROCESS_EXTENDED_BASIC_INFORMATION {
     pub Size: usize,
-    pub BasicInfo: super::super::Win32::PROCESS_BASIC_INFORMATION,
+    pub BasicInfo: super::PROCESS_BASIC_INFORMATION,
     pub Anonymous: PROCESS_EXTENDED_BASIC_INFORMATION_0,
 }
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
@@ -6277,8 +6277,8 @@ pub struct PROCESS_HANDLE_TRACING_ENABLE_EX {
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct PROCESS_HANDLE_TRACING_ENTRY {
-    pub Handle: super::super::Win32::HANDLE,
-    pub ClientId: super::super::Win32::CLIENT_ID,
+    pub Handle: super::HANDLE,
+    pub ClientId: super::CLIENT_ID,
     pub Type: u32,
     pub Stacks: [*mut core::ffi::c_void; 16],
 }
@@ -6293,7 +6293,7 @@ pub const PROCESS_HANDLE_TRACING_MAX_STACKS: u32 = 16;
 #[cfg(all(feature = "winnt", feature = "winternl"))]
 #[derive(Clone, Copy)]
 pub struct PROCESS_HANDLE_TRACING_QUERY {
-    pub Handle: super::super::Win32::HANDLE,
+    pub Handle: super::HANDLE,
     pub TotalTraces: u32,
     pub HandleTrace: [PROCESS_HANDLE_TRACING_ENTRY; 1],
 }
@@ -6319,7 +6319,7 @@ pub struct PROCESS_MEMBERSHIP_INFORMATION {
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[derive(Clone, Copy, Default)]
 pub struct PROCESS_REVOKE_FILE_HANDLES_INFORMATION {
-    pub TargetDevicePath: super::super::Win32::UNICODE_STRING,
+    pub TargetDevicePath: super::UNICODE_STRING,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
@@ -6371,7 +6371,7 @@ pub type PRTL_GENERIC_FREE_ROUTINE = Option<unsafe extern "system" fn(table: *co
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 pub type PRTL_GENERIC_TABLE = *mut RTL_GENERIC_TABLE;
 #[cfg(feature = "winnt")]
-pub type PRTL_RUN_ONCE_INIT_FN = Option<unsafe extern "system" fn(runonce: *mut super::super::Win32::RTL_RUN_ONCE, parameter: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> u32>;
+pub type PRTL_RUN_ONCE_INIT_FN = Option<unsafe extern "system" fn(runonce: *mut super::RTL_RUN_ONCE, parameter: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> u32>;
 pub type PRTL_SPLAY_LINKS = *mut RTL_SPLAY_LINKS;
 pub type PSCREATEPROCESSNOTIFYTYPE = i32;
 pub type PSCREATETHREADNOTIFYTYPE = i32;
@@ -6449,11 +6449,11 @@ pub type PSYSTEM_FIRMWARE_TABLE_INFORMATION = *mut SYSTEM_FIRMWARE_TABLE_INFORMA
 pub struct PS_CREATE_NOTIFY_INFO {
     pub Size: usize,
     pub Anonymous: PS_CREATE_NOTIFY_INFO_0,
-    pub ParentProcessId: super::super::Win32::HANDLE,
-    pub CreatingThreadId: super::super::Win32::CLIENT_ID,
+    pub ParentProcessId: super::HANDLE,
+    pub CreatingThreadId: super::CLIENT_ID,
     pub FileObject: *mut super::FILE_OBJECT,
-    pub ImageFileName: super::super::Win32::PCUNICODE_STRING,
-    pub CommandLine: super::super::Win32::PCUNICODE_STRING,
+    pub ImageFileName: super::PCUNICODE_STRING,
+    pub CommandLine: super::PCUNICODE_STRING,
     pub CreationStatus: windows_sys::core::NTSTATUS,
 }
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
@@ -6980,8 +6980,8 @@ impl Default for RTL_DYNAMIC_HASH_TABLE {
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct RTL_DYNAMIC_HASH_TABLE_CONTEXT {
-    pub ChainHead: super::super::Win32::PLIST_ENTRY,
-    pub PrevLinkage: super::super::Win32::PLIST_ENTRY,
+    pub ChainHead: super::PLIST_ENTRY,
+    pub PrevLinkage: super::PLIST_ENTRY,
     pub Signature: usize,
 }
 #[cfg(feature = "winnt")]
@@ -6994,7 +6994,7 @@ impl Default for RTL_DYNAMIC_HASH_TABLE_CONTEXT {
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct RTL_DYNAMIC_HASH_TABLE_ENTRY {
-    pub Linkage: super::super::Win32::LIST_ENTRY,
+    pub Linkage: super::LIST_ENTRY,
     pub Signature: usize,
 }
 #[repr(C)]
@@ -7002,7 +7002,7 @@ pub struct RTL_DYNAMIC_HASH_TABLE_ENTRY {
 #[derive(Clone, Copy)]
 pub struct RTL_DYNAMIC_HASH_TABLE_ENUMERATOR {
     pub Anonymous: RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0,
-    pub ChainHead: super::super::Win32::PLIST_ENTRY,
+    pub ChainHead: super::PLIST_ENTRY,
     pub BucketIndex: u32,
 }
 #[cfg(feature = "winnt")]
@@ -7016,7 +7016,7 @@ impl Default for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR {
 #[derive(Clone, Copy)]
 pub union RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0 {
     pub HashEntry: RTL_DYNAMIC_HASH_TABLE_ENTRY,
-    pub CurEntry: super::super::Win32::PLIST_ENTRY,
+    pub CurEntry: super::PLIST_ENTRY,
 }
 #[cfg(feature = "winnt")]
 impl Default for RTL_DYNAMIC_HASH_TABLE_ENUMERATOR_0 {
@@ -7036,8 +7036,8 @@ pub type RTL_GENERIC_FREE_ROUTINE = Option<unsafe extern "system" fn(table: *con
 #[derive(Clone, Copy)]
 pub struct RTL_GENERIC_TABLE {
     pub TableRoot: PRTL_SPLAY_LINKS,
-    pub InsertOrderList: super::super::Win32::LIST_ENTRY,
-    pub OrderedPointer: super::super::Win32::PLIST_ENTRY,
+    pub InsertOrderList: super::LIST_ENTRY,
+    pub OrderedPointer: super::PLIST_ENTRY,
     pub WhichOrderedElement: u32,
     pub NumberGenericTableElements: u32,
     pub CompareRoutine: PRTL_GENERIC_COMPARE_ROUTINE,
@@ -7054,7 +7054,7 @@ impl Default for RTL_GENERIC_TABLE {
 pub const RTL_HASH_ALLOCATED_HEADER: u32 = 1;
 pub const RTL_HASH_RESERVED_SIGNATURE: u32 = 0;
 #[cfg(feature = "winnt")]
-pub type RTL_RUN_ONCE_INIT_FN = Option<unsafe extern "system" fn(runonce: *mut super::super::Win32::RTL_RUN_ONCE, parameter: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> u32>;
+pub type RTL_RUN_ONCE_INIT_FN = Option<unsafe extern "system" fn(runonce: *mut super::RTL_RUN_ONCE, parameter: *mut core::ffi::c_void, context: *mut *mut core::ffi::c_void) -> u32>;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct RTL_SPLAY_LINKS {
@@ -7175,8 +7175,8 @@ impl Default for SILO_MONITOR_REGISTRATION {
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 #[derive(Clone, Copy)]
 pub union SILO_MONITOR_REGISTRATION_0 {
-    pub DriverObjectName: super::super::Win32::PUNICODE_STRING,
-    pub ComponentName: super::super::Win32::PUNICODE_STRING,
+    pub DriverObjectName: super::PUNICODE_STRING,
+    pub ComponentName: super::PUNICODE_STRING,
 }
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 impl Default for SILO_MONITOR_REGISTRATION_0 {
@@ -7271,7 +7271,7 @@ pub struct TIMER_SET_COALESCABLE_TIMER_INFO {
     pub WakeContext: *mut super::COUNTED_REASON_CONTEXT,
     pub Period: u32,
     pub TolerableDelay: u32,
-    pub PreviousState: super::super::Win32::PBOOLEAN,
+    pub PreviousState: super::PBOOLEAN,
 }
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
 impl Default for TIMER_SET_COALESCABLE_TIMER_INFO {
@@ -7508,7 +7508,7 @@ impl Default for WHEAP_CREATE_GENERIC_RECORD_EVENT {
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct WHEAP_DEFERRED_EVENT {
-    pub ListEntry: super::super::Win32::LIST_ENTRY,
+    pub ListEntry: super::LIST_ENTRY,
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
 }
 #[cfg(feature = "winnt")]
@@ -8747,13 +8747,13 @@ pub struct WHEA_DEVICE_DRIVER_DESCRIPTOR {
     pub Reserved2: u16,
     pub PacketLength: u32,
     pub PacketCount: u32,
-    pub PacketBuffer: super::super::Win32::PUCHAR,
+    pub PacketBuffer: super::PUCHAR,
     pub Config: WHEA_ERROR_SOURCE_CONFIGURATION_DD,
     pub CreatorId: windows_sys::core::GUID,
     pub PartitionId: windows_sys::core::GUID,
     pub MaxSectionDataLength: u32,
     pub MaxSectionsPerRecord: u32,
-    pub PacketStateBuffer: super::super::Win32::PUCHAR,
+    pub PacketStateBuffer: super::PUCHAR,
     pub OpenHandles: i32,
 }
 #[cfg(feature = "minwindef")]
@@ -8795,11 +8795,11 @@ pub const WHEA_DPC_CAPABILITY_SECTION_GUID: windows_sys::core::GUID = windows_sy
 #[derive(Clone, Copy)]
 pub struct WHEA_DRIVER_BUFFER_SET {
     pub Version: u32,
-    pub Data: super::super::Win32::PUCHAR,
+    pub Data: super::PUCHAR,
     pub DataSize: u32,
-    pub SectionTypeGuid: super::super::Win32::LPGUID,
-    pub SectionFriendlyName: super::super::Win32::PUCHAR,
-    pub Flags: super::super::Win32::PUCHAR,
+    pub SectionTypeGuid: super::LPGUID,
+    pub SectionFriendlyName: super::PUCHAR,
+    pub Flags: super::PUCHAR,
 }
 #[cfg(all(feature = "guiddef", feature = "minwindef"))]
 impl Default for WHEA_DRIVER_BUFFER_SET {
@@ -9037,7 +9037,7 @@ pub struct WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
     pub SectionType: windows_sys::core::GUID,
     pub FRUId: windows_sys::core::GUID,
     pub SectionSeverity: WHEA_ERROR_SEVERITY,
-    pub FRUText: [super::super::Win32::CCHAR; 20],
+    pub FRUText: [super::CCHAR; 20],
 }
 #[cfg(feature = "winnt")]
 impl Default for WHEA_ERROR_RECORD_SECTION_DESCRIPTOR {
@@ -9093,7 +9093,7 @@ pub struct WHEA_ERROR_RECOVERY_INFO_SECTION {
     pub Irql: super::KIRQL,
     pub RecoverySucceeded: bool,
     pub FailureReason: WHEA_RECOVERY_FAILURE_REASON,
-    pub ProcessName: [super::super::Win32::CCHAR; 20],
+    pub ProcessName: [super::CCHAR; 20],
 }
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
 impl Default for WHEA_ERROR_RECOVERY_INFO_SECTION {
@@ -10759,7 +10759,7 @@ impl Default for WHEA_PSHED_PI_SERVER_TYPE_EVENT {
 #[derive(Clone, Copy)]
 pub struct WHEA_PSHED_PI_TRACE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-    pub Buffer: [super::super::Win32::CCHAR; 256],
+    pub Buffer: [super::CCHAR; 256],
 }
 #[cfg(feature = "winnt")]
 impl Default for WHEA_PSHED_PI_TRACE_EVENT {
@@ -11057,7 +11057,7 @@ impl Default for WHEA_REGISTRY_ERROR_EVENT {
 #[derive(Clone, Copy)]
 pub struct WHEA_REGNOTIFY_POLICY_CHANGE_EVENT {
     pub WheaEventLogEntry: WHEA_EVENT_LOG_ENTRY,
-    pub PolicyName: [super::super::Win32::CCHAR; 32],
+    pub PolicyName: [super::CCHAR; 32],
     pub PolicyIndex: u32,
     pub PolicyValue: u32,
 }
@@ -12112,8 +12112,8 @@ pub const XPF_TLB_CHECK_TRANSACTIONTYPE_INSTRUCTION: u32 = 0;
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
 pub struct ZONE_HEADER {
-    pub FreeList: super::super::Win32::SINGLE_LIST_ENTRY,
-    pub SegmentList: super::super::Win32::SINGLE_LIST_ENTRY,
+    pub FreeList: super::SINGLE_LIST_ENTRY,
+    pub SegmentList: super::SINGLE_LIST_ENTRY,
     pub BlockSize: u32,
     pub TotalSegmentSize: u32,
 }
@@ -12121,7 +12121,7 @@ pub struct ZONE_HEADER {
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub struct ZONE_SEGMENT_HEADER {
-    pub SegmentList: super::super::Win32::SINGLE_LIST_ENTRY,
+    pub SegmentList: super::SINGLE_LIST_ENTRY,
     pub Reserved: *mut core::ffi::c_void,
 }
 #[cfg(feature = "winnt")]
@@ -12210,7 +12210,7 @@ pub type _WHEA_ERROR_SOURCE_UNINITIALIZE = Option<unsafe extern "system" fn(cont
 pub type _WHEA_ERROR_SOURCE_UNINITIALIZE_DEVICE_DRIVER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void)>;
 pub type _WHEA_SIGNAL_HANDLER_OVERRIDE_CALLBACK = Option<unsafe extern "system" fn(context: usize) -> bool>;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-pub type pHalAssignSlotResources = Option<unsafe extern "system" fn(registrypath: *const super::super::Win32::UNICODE_STRING, driverclassname: *const super::super::Win32::UNICODE_STRING, driverobject: *const super::DRIVER_OBJECT, deviceobject: *const super::DEVICE_OBJECT, bustype: super::INTERFACE_TYPE, busnumber: u32, slotnumber: u32, allocatedresources: *mut super::PCM_RESOURCE_LIST) -> windows_sys::core::NTSTATUS>;
+pub type pHalAssignSlotResources = Option<unsafe extern "system" fn(registrypath: *const super::UNICODE_STRING, driverclassname: *const super::UNICODE_STRING, driverobject: *const super::DRIVER_OBJECT, deviceobject: *const super::DEVICE_OBJECT, bustype: super::INTERFACE_TYPE, busnumber: u32, slotnumber: u32, allocatedresources: *mut super::PCM_RESOURCE_LIST) -> windows_sys::core::NTSTATUS>;
 pub type pHalEndMirroring = Option<unsafe extern "system" fn(passnumber: u32) -> windows_sys::core::NTSTATUS>;
 pub type pHalEndOfBoot = Option<unsafe extern "system" fn()>;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
@@ -12221,17 +12221,17 @@ pub type pHalFfaRunTarget = Option<unsafe extern "system" fn(inputparameters: *c
 pub type pHalFfaUnregisterNotification = Option<unsafe extern "system" fn(token: *const core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "usb")]
-pub type pHalFindBusAddressTranslation = Option<unsafe extern "system" fn(busaddress: super::super::Win32::PHYSICAL_ADDRESS, addressspace: *mut u32, translatedaddress: *mut i64, context: *mut u32, nextbus: bool) -> bool>;
+pub type pHalFindBusAddressTranslation = Option<unsafe extern "system" fn(busaddress: super::PHYSICAL_ADDRESS, addressspace: *mut u32, translatedaddress: *mut i64, context: *mut u32, nextbus: bool) -> bool>;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "usb")]
-pub type pHalFindBusAddressTranslation = Option<unsafe extern "system" fn(busaddress: super::super::Win32::PHYSICAL_ADDRESS, addressspace: *mut u32, translatedaddress: *mut i64, context: *mut u64, nextbus: bool) -> bool>;
+pub type pHalFindBusAddressTranslation = Option<unsafe extern "system" fn(busaddress: super::PHYSICAL_ADDRESS, addressspace: *mut u32, translatedaddress: *mut i64, context: *mut u64, nextbus: bool) -> bool>;
 pub type pHalGetAcpiTable = Option<unsafe extern "system" fn(signature: u32, oemid: windows_sys::core::PCSTR, oemtableid: windows_sys::core::PCSTR) -> *mut core::ffi::c_void>;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type pHalGetDmaAdapter = Option<unsafe extern "system" fn(physicaldeviceobject: *const core::ffi::c_void, devicedescriptor: *const super::DEVICE_DESCRIPTION, numberofmapregisters: *mut u32) -> *mut super::DMA_ADAPTER>;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type pHalGetInterruptTranslator = Option<unsafe extern "system" fn(parentinterfacetype: super::INTERFACE_TYPE, parentbusnumber: u32, bridgeinterfacetype: super::INTERFACE_TYPE, size: u16, version: u16, translator: *mut TRANSLATOR_INTERFACE, bridgebusnumber: *mut u32) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "winnt")]
-pub type pHalGetPrmCache = Option<unsafe extern "system" fn(firmwarelist: *mut super::super::Win32::PLIST_ENTRY, updatelist: *mut super::super::Win32::PLIST_ENTRY)>;
+pub type pHalGetPrmCache = Option<unsafe extern "system" fn(firmwarelist: *mut super::PLIST_ENTRY, updatelist: *mut super::PLIST_ENTRY)>;
 pub type pHalHaltSystem = Option<unsafe extern "system" fn()>;
 #[cfg(feature = "wdm")]
 pub type pHalHandlerForBus = Option<unsafe extern "system" fn(interfacetype: super::INTERFACE_TYPE, busnumber: u32) -> PBUS_HANDLER>;
@@ -12245,9 +12245,9 @@ pub type pHalIoSetPartitionInformation = Option<unsafe extern "system" fn(device
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type pHalIoWritePartitionTable = Option<unsafe extern "system" fn(deviceobject: *const super::DEVICE_OBJECT, sectorsize: u32, sectorspertrack: u32, numberofheads: u32, partitionbuffer: *const super::_DRIVE_LAYOUT_INFORMATION) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "usb")]
-pub type pHalMirrorPhysicalMemory = Option<unsafe extern "system" fn(physicaladdress: super::super::Win32::PHYSICAL_ADDRESS, numberofbytes: i64) -> windows_sys::core::NTSTATUS>;
+pub type pHalMirrorPhysicalMemory = Option<unsafe extern "system" fn(physicaladdress: super::PHYSICAL_ADDRESS, numberofbytes: i64) -> windows_sys::core::NTSTATUS>;
 #[cfg(feature = "usb")]
-pub type pHalMirrorVerify = Option<unsafe extern "system" fn(physicaladdress: super::super::Win32::PHYSICAL_ADDRESS, numberofbytes: i64) -> windows_sys::core::NTSTATUS>;
+pub type pHalMirrorVerify = Option<unsafe extern "system" fn(physicaladdress: super::PHYSICAL_ADDRESS, numberofbytes: i64) -> windows_sys::core::NTSTATUS>;
 pub type pHalQueryBusSlots = Option<unsafe extern "system" fn(bushandler: *const _BUS_HANDLER, buffersize: u32, slotnumbers: *mut u32, returnedlength: *mut u32) -> windows_sys::core::NTSTATUS>;
 pub type pHalQuerySystemInformation = Option<unsafe extern "system" fn(informationclass: HAL_QUERY_INFORMATION_CLASS, buffersize: u32, buffer: *mut core::ffi::c_void, returnedlength: *mut u32) -> windows_sys::core::NTSTATUS>;
 pub type pHalReferenceBusHandler = Option<unsafe extern "system" fn(bushandler: *const _BUS_HANDLER)>;
@@ -12256,7 +12256,7 @@ pub type pHalSetPciErrorHandlerCallback = Option<unsafe extern "system" fn(callb
 pub type pHalSetSystemInformation = Option<unsafe extern "system" fn(informationclass: HAL_SET_INFORMATION_CLASS, buffersize: u32, buffer: *const core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
 pub type pHalStartMirroring = Option<unsafe extern "system" fn() -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "usb", feature = "wdm"))]
-pub type pHalTranslateBusAddress = Option<unsafe extern "system" fn(interfacetype: super::INTERFACE_TYPE, busnumber: u32, busaddress: super::super::Win32::PHYSICAL_ADDRESS, addressspace: *mut u32, translatedaddress: *mut i64) -> bool>;
+pub type pHalTranslateBusAddress = Option<unsafe extern "system" fn(interfacetype: super::INTERFACE_TYPE, busnumber: u32, busaddress: super::PHYSICAL_ADDRESS, addressspace: *mut u32, translatedaddress: *mut i64) -> bool>;
 pub type pHalVectorToIDTEntry = Option<unsafe extern "system" fn(vector: u32) -> u8>;
 pub type pKdCheckPowerButton = Option<unsafe extern "system" fn()>;
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "winnt"))]
@@ -12264,7 +12264,7 @@ pub type pKdEnumerateDebuggingDevices = Option<unsafe extern "system" fn(loaderb
 pub type pKdGetAcpiTablePhase0 = Option<unsafe extern "system" fn(loaderblock: *const _LOADER_PARAMETER_BLOCK, signature: u32) -> *mut core::ffi::c_void>;
 pub type pKdGetPciDataByOffset = Option<unsafe extern "system" fn(busnumber: u32, slotnumber: u32, buffer: *mut core::ffi::c_void, offset: u32, length: u32) -> u32>;
 #[cfg(feature = "usb")]
-pub type pKdMapPhysicalMemory64 = Option<unsafe extern "system" fn(physicaladdress: super::super::Win32::PHYSICAL_ADDRESS, numberpages: u32, flushcurrenttlb: bool) -> *mut core::ffi::c_void>;
+pub type pKdMapPhysicalMemory64 = Option<unsafe extern "system" fn(physicaladdress: super::PHYSICAL_ADDRESS, numberpages: u32, flushcurrenttlb: bool) -> *mut core::ffi::c_void>;
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "winnt"))]
 pub type pKdReleaseIntegratedDeviceForDebugging = Option<unsafe extern "system" fn(integrateddevice: *mut DEBUG_DEVICE_DESCRIPTOR) -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "winnt"))]

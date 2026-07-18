@@ -687,8 +687,8 @@ they are the practical consequence of the faithfulness philosophy above.
 - **Flat module/feature layout.** Each source-header stem is its own top-level module and
   same-named leaf feature (`windows::winnt`, feature `winnt`) — there is no nested
   `Win32_UI_Shell` editorial feature tree. Each leaf feature's dependency list is *computed*
-  from the type graph, and Win32/WDK feature names carry no `Win32_`/`Wdk_` prefix (the
-  globally-unique header stem is already unambiguous). WinRT keeps its dotted path joined
+  from the type graph, and Win32 (including the folded-in WDK) feature names carry no `Win32_`
+  prefix (the globally-unique header stem is already unambiguous). WinRT keeps its dotted path joined
   with `_` (`Foundation_Collections`).
 - **Unscoped C enums are bare integer aliases** in every style (`pub type X = i32;` plus
   bare `pub const` members); scoped enums (WinRT enums, C++ `enum class`) stay newtypes.
@@ -752,7 +752,7 @@ None of these block use of the crate.
 ## Flat `Windows.Win32` namespace collisions (module flattening)
 
 The module-flattening work (published `windows`/`windows-sys` re-export every per-header stem
-via `pub use <stem>::*` from a single `Win32`/`Wdk` container so the public path is
+via `pub use <stem>::*` from a single `Win32` container so the public path is
 `windows::Win32::<Type>`) collapses ~180,000 top-level Win32/WDK names into one scope. Across
 that whole surface there is exactly **one** cross-stem name collision (`Network`) and **one**
 Rust-prelude shadow (`None`); everything else is unique. This section records how the two are
@@ -789,7 +789,7 @@ handled and why the earlier core-vs-`Win32` collisions no longer exist.
   and `SECURITY_LOGON_TYPE.Network` (`ntsecapi`). Flattening both stems into `Win32` makes
   `windows::Win32::Network` ambiguous; it is intentionally left that way (using it is an error),
   while each stays reachable at its qualified path `Win32::devicetopology::Network` /
-  `Win32::ntsecapi::Network`. The `Win32`/`Wdk` umbrella carries a blanket
+  `Win32::ntsecapi::Network`. The `Win32` umbrella carries a blanket
   `#![allow(ambiguous_glob_reexports)]` to keep the glob re-exports quiet. This is a deliberate
   design decision: because both members are genuinely unrelated, there is no single correct
   `Win32::Network`, and the qualified paths are the intended access. (The trade-off is that the

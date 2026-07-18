@@ -183,13 +183,15 @@ coupled part is the module split. Note the original win32metadata sub-namespaces
 flat winmd dropped them — so the grouping must come from a curated header→module map (a coarser
 sibling of `remap.rs`'s `FOLD_PREFIXES`), not from the original namespaces.
 
-**In progress — flattening the Win32/Wdk module surface (`--package`).** A first step toward the
+**In progress — flattening the Win32 module surface (`--package`).** A first step toward the
 grouping above: rather than ~570 flat lowercase modules directly under `windows::`/`windows_sys::`,
-the per-header stems are nested under a single `Win32` (and `Wdk`) module whose `mod.rs` privately
+the per-header stems are nested under a single `Win32` module whose `mod.rs` privately
 declares each stem (`#[cfg(feature = "<stem>")] mod <stem>;`) and re-exports it flat
-(`pub use <stem>::*;`). The public path collapses to `windows::Win32::*` while per-header Cargo
-features and file layout are preserved. Because every stem is glob-re-exported into one namespace,
-any bare name defined by two stems becomes an ambiguous re-export (`E0659` when a consumer names it).
+(`pub use <stem>::*;`). The kernel-mode WDK headers fold into this same `Win32` module (they are
+additive net-new surface in the global non-WinRT namespace, not a separate `Wdk` module). The
+public path collapses to `windows::Win32::*` while per-header Cargo features and file layout are
+preserved. Because every stem is glob-re-exported into one namespace, any bare name defined by two
+stems becomes an ambiguous re-export (`E0659` when a consumer names it).
 
 Auditing that flat namespace surfaced 21 cross-stem bare-name collisions. 20 were scraper artifacts —
 loose macro constants duplicating a typed enumerator (`D3DFMT_*`, `OLEMISC_*`) — since removed by the

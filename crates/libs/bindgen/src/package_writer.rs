@@ -256,14 +256,14 @@ impl Config<'_> {
 
             let feature = tree.feature();
 
-            // Derive the dependency from the namespace's dot structure. A per-header Win32/WDK
-            // namespace (`Windows.Win32.<stem>` / `Windows.Wdk.<stem>`) pulls in the other header
-            // stems its APIs reference; a nested WinRT namespace depends on its parent root; a WinRT
-            // root depends on the always-on `Foundation` base.
+            // Derive the dependency from the namespace's dot structure. A per-header Win32
+            // namespace (`Windows.Win32.<stem>`) pulls in the other header stems its APIs
+            // reference; a nested WinRT namespace depends on its parent root; a WinRT root depends
+            // on the always-on `Foundation` base.
             let (parent, _leaf) = tree.namespace.rsplit_once('.').unwrap();
 
-            if parent == "Windows.Win32" || parent == "Windows.Wdk" {
-                // A flat Win32/WDK header-stem module. There is no umbrella feature, so the
+            if parent == "Windows.Win32" {
+                // A flat Win32 header-stem module. There is no umbrella feature, so the
                 // stem's cargo feature must pull in exactly the other stems whose types its
                 // APIs reference (the same namespaces that gate its items per `Cfg`), so that
                 // enabling one header's feature makes its whole surface usable. This mirrors
@@ -281,9 +281,8 @@ impl Config<'_> {
                 dependencies.remove(tree.namespace);
 
                 // Sort by the emitted feature name (not the source namespace) so the list stays
-                // stable and readable regardless of how the `Windows.Win32` / `Windows.Wdk`
-                // umbrellas order the underlying namespaces, and so a Win32/WDK stem-name overlap
-                // collapses to a single feature entry.
+                // stable and readable regardless of how the `Windows.Win32` umbrella orders the
+                // underlying namespaces.
                 let list = dependencies
                     .iter()
                     .filter(|namespace| feature_namespaces.contains(*namespace))
@@ -342,10 +341,11 @@ impl Config<'_> {
     }
 }
 
-/// The always-present umbrella modules that group the flat Win32/WDK header stems. They own no
-/// types (their per-header children do) and so carry no Cargo feature and no feature gate.
+/// The always-present umbrella module that groups the flat Win32 header stems (every non-WinRT
+/// type, including the kernel-mode WDK headers). It owns no types (its per-header children do) and
+/// so carries no Cargo feature and no feature gate.
 fn is_flat_container(namespace: &str) -> bool {
-    namespace == "Windows.Win32" || namespace == "Windows.Wdk"
+    namespace == "Windows.Win32"
 }
 
 /// Path to the standard-library item a flat Win32/WDK free constant would shadow if glob-re-exported

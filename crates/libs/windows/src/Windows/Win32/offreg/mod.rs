@@ -15,12 +15,12 @@ pub unsafe fn ORCreateHive(horkey: *mut ORHKEY) -> u32 {
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ORCreateKey<P1, P2>(keyhandle: ORHKEY, lpsubkey: P1, lpclass: P2, dwoptions: Option<u32>, psecuritydescriptor: Option<super::super::Win32::PSECURITY_DESCRIPTOR>, phkresult: *mut ORHKEY, pdwdisposition: Option<*mut u32>) -> u32
+pub unsafe fn ORCreateKey<P1, P2>(keyhandle: ORHKEY, lpsubkey: P1, lpclass: P2, dwoptions: Option<u32>, psecuritydescriptor: Option<super::PSECURITY_DESCRIPTOR>, phkresult: *mut ORHKEY, pdwdisposition: Option<*mut u32>) -> u32
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("offreg.dll" "system" fn ORCreateKey(keyhandle : ORHKEY, lpsubkey : windows_core::PCWSTR, lpclass : windows_core::PCWSTR, dwoptions : u32, psecuritydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, phkresult : *mut ORHKEY, pdwdisposition : *mut u32) -> u32);
+    windows_core::link!("offreg.dll" "system" fn ORCreateKey(keyhandle : ORHKEY, lpsubkey : windows_core::PCWSTR, lpclass : windows_core::PCWSTR, dwoptions : u32, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, phkresult : *mut ORHKEY, pdwdisposition : *mut u32) -> u32);
     unsafe { ORCreateKey(keyhandle, lpsubkey.param().abi(), lpclass.param().abi(), dwoptions.unwrap_or(core::mem::zeroed()) as _, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, phkresult as _, pdwdisposition.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -41,8 +41,8 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn OREnumKey(handle: ORHKEY, dwindex: u32, lpname: windows_core::PWSTR, lpcname: *mut u32, lpclass: Option<windows_core::PWSTR>, lpcclass: Option<*mut u32>, lpftlastwritetime: Option<*mut super::super::Win32::FILETIME>) -> u32 {
-    windows_core::link!("offreg.dll" "system" fn OREnumKey(handle : ORHKEY, dwindex : u32, lpname : windows_core::PWSTR, lpcname : *mut u32, lpclass : windows_core::PWSTR, lpcclass : *mut u32, lpftlastwritetime : *mut super::super::Win32::FILETIME) -> u32);
+pub unsafe fn OREnumKey(handle: ORHKEY, dwindex: u32, lpname: windows_core::PWSTR, lpcname: *mut u32, lpclass: Option<windows_core::PWSTR>, lpcclass: Option<*mut u32>, lpftlastwritetime: Option<*mut super::FILETIME>) -> u32 {
+    windows_core::link!("offreg.dll" "system" fn OREnumKey(handle : ORHKEY, dwindex : u32, lpname : windows_core::PWSTR, lpcname : *mut u32, lpclass : windows_core::PWSTR, lpcclass : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> u32);
     unsafe { OREnumKey(handle, dwindex, lpname, lpcname as _, lpclass.unwrap_or(core::mem::zeroed()) as _, lpcclass.unwrap_or(core::mem::zeroed()) as _, lpftlastwritetime.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
@@ -52,8 +52,8 @@ pub unsafe fn OREnumValue(handle: ORHKEY, dwindex: u32, lpvaluename: windows_cor
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ORGetKeySecurity(handle: ORHKEY, securityinformation: super::super::Win32::SECURITY_INFORMATION, psecuritydescriptor: Option<super::super::Win32::PSECURITY_DESCRIPTOR>, lpcbsecuritydescriptor: *mut u32) -> u32 {
-    windows_core::link!("offreg.dll" "system" fn ORGetKeySecurity(handle : ORHKEY, securityinformation : super::super::Win32::SECURITY_INFORMATION, psecuritydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
+pub unsafe fn ORGetKeySecurity(handle: ORHKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: Option<super::PSECURITY_DESCRIPTOR>, lpcbsecuritydescriptor: *mut u32) -> u32 {
+    windows_core::link!("offreg.dll" "system" fn ORGetKeySecurity(handle : ORHKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> u32);
     unsafe { ORGetKeySecurity(handle, securityinformation, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, lpcbsecuritydescriptor as _) }
 }
 #[inline]
@@ -90,8 +90,8 @@ where
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn OROpenHiveByHandle(filehandle: super::super::Win32::HANDLE, horkey: *mut ORHKEY) -> u32 {
-    windows_core::link!("offreg.dll" "system" fn OROpenHiveByHandle(filehandle : super::super::Win32::HANDLE, horkey : *mut ORHKEY) -> u32);
+pub unsafe fn OROpenHiveByHandle(filehandle: super::HANDLE, horkey: *mut ORHKEY) -> u32 {
+    windows_core::link!("offreg.dll" "system" fn OROpenHiveByHandle(filehandle : super::HANDLE, horkey : *mut ORHKEY) -> u32);
     unsafe { OROpenHiveByHandle(filehandle, horkey as _) }
 }
 #[inline]
@@ -104,8 +104,8 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn ORQueryInfoKey(handle: ORHKEY, lpclass: Option<windows_core::PWSTR>, lpcclass: Option<*mut u32>, lpcsubkeys: Option<*mut u32>, lpcmaxsubkeylen: Option<*mut u32>, lpcmaxclasslen: Option<*mut u32>, lpcvalues: Option<*mut u32>, lpcmaxvaluenamelen: Option<*mut u32>, lpcmaxvaluelen: Option<*mut u32>, lpcbsecuritydescriptor: Option<*mut u32>, lpftlastwritetime: Option<*mut super::super::Win32::FILETIME>) -> u32 {
-    windows_core::link!("offreg.dll" "system" fn ORQueryInfoKey(handle : ORHKEY, lpclass : windows_core::PWSTR, lpcclass : *mut u32, lpcsubkeys : *mut u32, lpcmaxsubkeylen : *mut u32, lpcmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcmaxvaluenamelen : *mut u32, lpcmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut super::super::Win32::FILETIME) -> u32);
+pub unsafe fn ORQueryInfoKey(handle: ORHKEY, lpclass: Option<windows_core::PWSTR>, lpcclass: Option<*mut u32>, lpcsubkeys: Option<*mut u32>, lpcmaxsubkeylen: Option<*mut u32>, lpcmaxclasslen: Option<*mut u32>, lpcvalues: Option<*mut u32>, lpcmaxvaluenamelen: Option<*mut u32>, lpcmaxvaluelen: Option<*mut u32>, lpcbsecuritydescriptor: Option<*mut u32>, lpftlastwritetime: Option<*mut super::FILETIME>) -> u32 {
+    windows_core::link!("offreg.dll" "system" fn ORQueryInfoKey(handle : ORHKEY, lpclass : windows_core::PWSTR, lpcclass : *mut u32, lpcsubkeys : *mut u32, lpcmaxsubkeylen : *mut u32, lpcmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcmaxvaluenamelen : *mut u32, lpcmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> u32);
     unsafe {
         ORQueryInfoKey(
             handle,
@@ -140,8 +140,8 @@ where
 }
 #[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn ORSetKeySecurity(handle: ORHKEY, securityinformation: super::super::Win32::SECURITY_INFORMATION, psecuritydescriptor: super::super::Win32::PSECURITY_DESCRIPTOR) -> u32 {
-    windows_core::link!("offreg.dll" "system" fn ORSetKeySecurity(handle : ORHKEY, securityinformation : super::super::Win32::SECURITY_INFORMATION, psecuritydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR) -> u32);
+pub unsafe fn ORSetKeySecurity(handle: ORHKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR) -> u32 {
+    windows_core::link!("offreg.dll" "system" fn ORSetKeySecurity(handle : ORHKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR) -> u32);
     unsafe { ORSetKeySecurity(handle, securityinformation, psecuritydescriptor) }
 }
 #[inline]

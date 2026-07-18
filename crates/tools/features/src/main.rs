@@ -169,12 +169,12 @@ fn always_on(namespace: &str) -> bool {
 /// Emits a single self-contained, dependency-free `index.html` that searches an
 /// inlined index in the browser. The Cargo feature for each API is derived in
 /// the page from its namespace (mirroring `namespace_feature`: the `Windows.Win32`
-/// and `Windows.Wdk` umbrellas are stripped to the bare header stem, otherwise the
-/// leading `Windows` is dropped and the rest joined with `_`; the two `Foundation`
-/// namespaces are always compiled and need no feature), and a method or function
-/// also lists the extra features its signature pulls in. Inlining keeps it to one
-/// file that works both when hosted and when opened directly from disk (a `file://`
-/// page cannot `fetch` a sibling file).
+/// umbrella is stripped to the bare header stem, otherwise the leading `Windows`
+/// is dropped and the rest joined with `_`; the two `Foundation` namespaces are
+/// always compiled and need no feature), and a method or function also lists the
+/// extra features its signature pulls in. Inlining keeps it to one file that works
+/// both when hosted and when opened directly from disk (a `file://` page cannot
+/// `fetch` a sibling file).
 fn generate_page(dir: &str) {
     let (namespaces, entries) = load();
 
@@ -269,16 +269,15 @@ const results = document.getElementById('results');
 function featureOf(ns) {
   if (ns === 'Windows.Foundation' || ns === 'Windows.Win32.Foundation') return null;
   if (ns.startsWith('Windows.Win32.')) return ns.slice('Windows.Win32.'.length).replaceAll('.', '_');
-  if (ns.startsWith('Windows.Wdk.')) return ns.slice('Windows.Wdk.'.length).replaceAll('.', '_');
   const parts = ns.split('.').slice(1);
   return parts.length ? parts.join('_') : null;
 }
 
-// Win32/WDK types are flattened into a single Win32/Wdk module, so the Rust path drops the
-// per-header stem even though the feature (featureOf) is still per-header.
+// Win32 types (every non-WinRT type, including the kernel-mode WDK headers) are flattened into a
+// single Win32 module, so the Rust path drops the per-header stem even though the feature
+// (featureOf) is still per-header.
 function flatPath(ns) {
   if (ns.startsWith('Windows.Win32.')) return ['Win32'];
-  if (ns.startsWith('Windows.Wdk.')) return ['Wdk'];
   return ns.split('.').slice(1);
 }
 

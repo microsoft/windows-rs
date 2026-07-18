@@ -1,322 +1,1051 @@
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtAccessCheckAndAuditAlarm(subsystemname : *const super::super::Win32::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::Win32::UNICODE_STRING, objectname : *const super::super::Win32::UNICODE_STRING, securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, desiredaccess : super::super::Win32::ACCESS_MASK, genericmapping : *const super::super::Win32::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::super::Win32::ACCESS_MASK, accessstatus : *mut windows_sys::core::NTSTATUS, generateonclose : *mut bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtAccessCheckAndAuditAlarm(subsystemname: *const super::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::UNICODE_STRING, objectname: *const super::UNICODE_STRING, securitydescriptor: super::PSECURITY_DESCRIPTOR, desiredaccess: super::ACCESS_MASK, genericmapping: *const super::GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut super::ACCESS_MASK, accessstatus: *mut windows_core::NTSTATUS, generateonclose: *mut bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtAccessCheckAndAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::UNICODE_STRING, objectname : *const super::UNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, desiredaccess : super::ACCESS_MASK, genericmapping : *const super::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::ACCESS_MASK, accessstatus : *mut windows_core::NTSTATUS, generateonclose : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { NtAccessCheckAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, desiredaccess, genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtAccessCheckByTypeAndAuditAlarm(subsystemname : *const super::super::Win32::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::Win32::UNICODE_STRING, objectname : *const super::super::Win32::UNICODE_STRING, securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, principalselfsid : super::super::Win32::PSID, desiredaccess : super::super::Win32::ACCESS_MASK, audittype : super::super::Win32::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::Win32::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::Win32::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::super::Win32::ACCESS_MASK, accessstatus : *mut windows_sys::core::NTSTATUS, generateonclose : *mut bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtAccessCheckByTypeAndAuditAlarm(subsystemname: *const super::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::UNICODE_STRING, objectname: *const super::UNICODE_STRING, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::ACCESS_MASK, audittype: super::AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<&[super::OBJECT_TYPE_LIST]>, genericmapping: *const super::GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut super::ACCESS_MASK, accessstatus: *mut windows_core::NTSTATUS, generateonclose: *mut bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtAccessCheckByTypeAndAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::UNICODE_STRING, objectname : *const super::UNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, desiredaccess : super::ACCESS_MASK, audittype : super::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::ACCESS_MASK, accessstatus : *mut windows_core::NTSTATUS, generateonclose : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { NtAccessCheckByTypeAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.map_or(core::ptr::null(), |slice| slice.as_ptr()), objecttypelist.map_or(0, |slice| slice.len().try_into().unwrap()), genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname : *const super::super::Win32::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::Win32::UNICODE_STRING, objectname : *const super::super::Win32::UNICODE_STRING, securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, principalselfsid : super::super::Win32::PSID, desiredaccess : super::super::Win32::ACCESS_MASK, audittype : super::super::Win32::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::Win32::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::Win32::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::super::Win32::ACCESS_MASK, accessstatus : *mut windows_sys::core::NTSTATUS, generateonclose : *mut bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname: *const super::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::UNICODE_STRING, objectname: *const super::UNICODE_STRING, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::ACCESS_MASK, audittype: super::AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<*const super::OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const super::GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut super::ACCESS_MASK, accessstatus: *mut windows_core::NTSTATUS, generateonclose: *mut bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::UNICODE_STRING, objectname : *const super::UNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, desiredaccess : super::ACCESS_MASK, audittype : super::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::ACCESS_MASK, accessstatus : *mut windows_core::NTSTATUS, generateonclose : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { NtAccessCheckByTypeResultListAndAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname : *const super::super::Win32::UNICODE_STRING, handleid : *const core::ffi::c_void, clienttoken : super::super::Win32::HANDLE, objecttypename : *const super::super::Win32::UNICODE_STRING, objectname : *const super::super::Win32::UNICODE_STRING, securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, principalselfsid : super::super::Win32::PSID, desiredaccess : super::super::Win32::ACCESS_MASK, audittype : super::super::Win32::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::super::Win32::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::super::Win32::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::super::Win32::ACCESS_MASK, accessstatus : *mut windows_sys::core::NTSTATUS, generateonclose : *mut bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname: *const super::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, clienttoken: super::HANDLE, objecttypename: *const super::UNICODE_STRING, objectname: *const super::UNICODE_STRING, securitydescriptor: super::PSECURITY_DESCRIPTOR, principalselfsid: Option<super::PSID>, desiredaccess: super::ACCESS_MASK, audittype: super::AUDIT_EVENT_TYPE, flags: u32, objecttypelist: Option<*const super::OBJECT_TYPE_LIST>, objecttypelistlength: u32, genericmapping: *const super::GENERIC_MAPPING, objectcreation: bool, grantedaccess: *mut super::ACCESS_MASK, accessstatus: *mut windows_core::NTSTATUS, generateonclose: *mut bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, clienttoken : super::HANDLE, objecttypename : *const super::UNICODE_STRING, objectname : *const super::UNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, principalselfsid : super::PSID, desiredaccess : super::ACCESS_MASK, audittype : super::AUDIT_EVENT_TYPE, flags : u32, objecttypelist : *const super::OBJECT_TYPE_LIST, objecttypelistlength : u32, genericmapping : *const super::GENERIC_MAPPING, objectcreation : bool, grantedaccess : *mut super::ACCESS_MASK, accessstatus : *mut windows_core::NTSTATUS, generateonclose : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { NtAccessCheckByTypeResultListAndAuditAlarmByHandle(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, clienttoken, objecttypename, objectname, securitydescriptor, principalselfsid.unwrap_or(core::mem::zeroed()) as _, desiredaccess, audittype, flags, objecttypelist.unwrap_or(core::mem::zeroed()) as _, objecttypelistlength, genericmapping, objectcreation, grantedaccess as _, accessstatus as _, generateonclose as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtAdjustGroupsToken(tokenhandle : super::super::Win32::HANDLE, resettodefault : bool, newstate : *const super::super::Win32::TOKEN_GROUPS, bufferlength : u32, previousstate : *mut super::super::Win32::TOKEN_GROUPS, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtAdjustGroupsToken(tokenhandle: super::HANDLE, resettodefault: bool, newstate: Option<*const super::TOKEN_GROUPS>, bufferlength: u32, previousstate: Option<*mut super::TOKEN_GROUPS>, returnlength: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtAdjustGroupsToken(tokenhandle : super::HANDLE, resettodefault : bool, newstate : *const super::TOKEN_GROUPS, bufferlength : u32, previousstate : *mut super::TOKEN_GROUPS, returnlength : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { NtAdjustGroupsToken(tokenhandle, resettodefault, newstate.unwrap_or(core::mem::zeroed()) as _, bufferlength, previousstate.unwrap_or(core::mem::zeroed()) as _, returnlength as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtAdjustPrivilegesToken(tokenhandle : super::super::Win32::HANDLE, disableallprivileges : bool, newstate : *const super::super::Win32::TOKEN_PRIVILEGES, bufferlength : u32, previousstate : *mut super::super::Win32::TOKEN_PRIVILEGES, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtAdjustPrivilegesToken(tokenhandle: super::HANDLE, disableallprivileges: bool, newstate: Option<*const super::TOKEN_PRIVILEGES>, bufferlength: u32, previousstate: Option<*mut super::TOKEN_PRIVILEGES>, returnlength: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtAdjustPrivilegesToken(tokenhandle : super::HANDLE, disableallprivileges : bool, newstate : *const super::TOKEN_PRIVILEGES, bufferlength : u32, previousstate : *mut super::TOKEN_PRIVILEGES, returnlength : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { NtAdjustPrivilegesToken(tokenhandle, disableallprivileges, newstate.unwrap_or(core::mem::zeroed()) as _, bufferlength, previousstate.unwrap_or(core::mem::zeroed()) as _, returnlength as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtAllocateVirtualMemory(processhandle : super::super::Win32::HANDLE, baseaddress : *mut *mut core::ffi::c_void, zerobits : usize, regionsize : *mut usize, allocationtype : u32, protect : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtAllocateVirtualMemory(processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, zerobits: usize, regionsize: *mut usize, allocationtype: u32, protect: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtAllocateVirtualMemory(processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, zerobits : usize, regionsize : *mut usize, allocationtype : u32, protect : u32) -> windows_core::NTSTATUS);
+    unsafe { NtAllocateVirtualMemory(processhandle, baseaddress as _, zerobits, regionsize as _, allocationtype, protect) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn NtCloseObjectAuditAlarm(subsystemname : *const super::super::Win32::UNICODE_STRING, handleid : *const core::ffi::c_void, generateonclose : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtCloseObjectAuditAlarm(subsystemname: *const super::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, generateonclose: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCloseObjectAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, generateonclose : bool) -> windows_core::NTSTATUS);
+    unsafe { NtCloseObjectAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, generateonclose) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtCopyFileChunk(sourcehandle : super::super::Win32::HANDLE, desthandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, length : u32, sourceoffset : *const i64, destoffset : *const i64, sourcekey : *const u32, destkey : *const u32, flags : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtCopyFileChunk(sourcehandle: super::HANDLE, desthandle: super::HANDLE, event: Option<super::HANDLE>, iostatusblock: *mut super::IO_STATUS_BLOCK, length: u32, sourceoffset: *const i64, destoffset: *const i64, sourcekey: Option<*const u32>, destkey: Option<*const u32>, flags: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCopyFileChunk(sourcehandle : super::HANDLE, desthandle : super::HANDLE, event : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, length : u32, sourceoffset : *const i64, destoffset : *const i64, sourcekey : *const u32, destkey : *const u32, flags : u32) -> windows_core::NTSTATUS);
+    unsafe { NtCopyFileChunk(sourcehandle, desthandle, event.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, length, sourceoffset, destoffset, sourcekey.unwrap_or(core::mem::zeroed()) as _, destkey.unwrap_or(core::mem::zeroed()) as _, flags) }
+}
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtCreateSection(sectionhandle : *mut super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, objectattributes : *const super::super::Win32::OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::super::Win32::HANDLE) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtCreateSection(sectionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, maximumsize: Option<*const i64>, sectionpageprotection: u32, allocationattributes: u32, filehandle: Option<super::HANDLE>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCreateSection(sectionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { NtCreateSection(sectionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, maximumsize.unwrap_or(core::mem::zeroed()) as _, sectionpageprotection, allocationattributes, filehandle.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtCreateSectionEx(sectionhandle : *mut super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, objectattributes : *const super::super::Win32::OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::super::Win32::HANDLE, extendedparameters : *mut super::super::Win32::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtCreateSectionEx(sectionhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, maximumsize: Option<*const i64>, sectionpageprotection: u32, allocationattributes: u32, filehandle: Option<super::HANDLE>, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtCreateSectionEx(sectionhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, maximumsize : *const i64, sectionpageprotection : u32, allocationattributes : u32, filehandle : super::HANDLE, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_core::NTSTATUS);
+    unsafe { NtCreateSectionEx(sectionhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, maximumsize.unwrap_or(core::mem::zeroed()) as _, sectionpageprotection, allocationattributes, filehandle.unwrap_or(core::mem::zeroed()) as _, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn NtDeleteObjectAuditAlarm(subsystemname : *const super::super::Win32::UNICODE_STRING, handleid : *const core::ffi::c_void, generateonclose : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtDeleteObjectAuditAlarm(subsystemname: *const super::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, generateonclose: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtDeleteObjectAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, generateonclose : bool) -> windows_core::NTSTATUS);
+    unsafe { NtDeleteObjectAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, generateonclose) }
+}
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtDuplicateToken(existingtokenhandle : super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, objectattributes : *const super::super::Win32::OBJECT_ATTRIBUTES, effectiveonly : bool, tokentype : super::super::Win32::TOKEN_TYPE, newtokenhandle : *mut super::super::Win32::HANDLE) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtDuplicateToken(existingtokenhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, effectiveonly: bool, tokentype: super::TOKEN_TYPE, newtokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtDuplicateToken(existingtokenhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, effectiveonly : bool, tokentype : super::TOKEN_TYPE, newtokenhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { NtDuplicateToken(existingtokenhandle, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, effectiveonly, tokentype, newtokenhandle as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtFilterToken(existingtokenhandle : super::super::Win32::HANDLE, flags : u32, sidstodisable : *const super::super::Win32::TOKEN_GROUPS, privilegestodelete : *const super::super::Win32::TOKEN_PRIVILEGES, restrictedsids : *const super::super::Win32::TOKEN_GROUPS, newtokenhandle : *mut super::super::Win32::HANDLE) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtFilterToken(existingtokenhandle: super::HANDLE, flags: u32, sidstodisable: Option<*const super::TOKEN_GROUPS>, privilegestodelete: Option<*const super::TOKEN_PRIVILEGES>, restrictedsids: Option<*const super::TOKEN_GROUPS>, newtokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtFilterToken(existingtokenhandle : super::HANDLE, flags : u32, sidstodisable : *const super::TOKEN_GROUPS, privilegestodelete : *const super::TOKEN_PRIVILEGES, restrictedsids : *const super::TOKEN_GROUPS, newtokenhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { NtFilterToken(existingtokenhandle, flags, sidstodisable.unwrap_or(core::mem::zeroed()) as _, privilegestodelete.unwrap_or(core::mem::zeroed()) as _, restrictedsids.unwrap_or(core::mem::zeroed()) as _, newtokenhandle as _) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtFlushBuffersFileEx(filehandle : super::super::Win32::HANDLE, flags : u32, parameters : *const core::ffi::c_void, parameterssize : u32, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtFlushBuffersFileEx(filehandle: super::HANDLE, flags: u32, parameters: *const core::ffi::c_void, parameterssize: u32, iostatusblock: *mut super::IO_STATUS_BLOCK) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtFlushBuffersFileEx(filehandle : super::HANDLE, flags : u32, parameters : *const core::ffi::c_void, parameterssize : u32, iostatusblock : *mut super::IO_STATUS_BLOCK) -> windows_core::NTSTATUS);
+    unsafe { NtFlushBuffersFileEx(filehandle, flags, parameters, parameterssize, iostatusblock as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtFreeVirtualMemory(processhandle : super::super::Win32::HANDLE, baseaddress : *mut *mut core::ffi::c_void, regionsize : *mut usize, freetype : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtFreeVirtualMemory(processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, freetype: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtFreeVirtualMemory(processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, regionsize : *mut usize, freetype : u32) -> windows_core::NTSTATUS);
+    unsafe { NtFreeVirtualMemory(processhandle, baseaddress as _, regionsize as _, freetype) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtFsControlFile(filehandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, apcroutine : super::super::Win32::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fscontrolcode : u32, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtFsControlFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, fscontrolcode: u32, inputbuffer: Option<*const core::ffi::c_void>, inputbufferlength: u32, outputbuffer: Option<*mut core::ffi::c_void>, outputbufferlength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtFsControlFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, fscontrolcode : u32, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_core::NTSTATUS);
+    unsafe { NtFsControlFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, fscontrolcode, inputbuffer.unwrap_or(core::mem::zeroed()) as _, inputbufferlength, outputbuffer.unwrap_or(core::mem::zeroed()) as _, outputbufferlength) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtImpersonateAnonymousToken(threadhandle : super::super::Win32::HANDLE) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtImpersonateAnonymousToken(threadhandle: super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtImpersonateAnonymousToken(threadhandle : super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { NtImpersonateAnonymousToken(threadhandle) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtLockFile(filehandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, apcroutine : super::super::Win32::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32, failimmediately : bool, exclusivelock : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtLockFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, byteoffset: *const i64, length: *const i64, key: u32, failimmediately: bool, exclusivelock: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtLockFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32, failimmediately : bool, exclusivelock : bool) -> windows_core::NTSTATUS);
+    unsafe { NtLockFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, byteoffset, length, key, failimmediately, exclusivelock) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtOpenObjectAuditAlarm(subsystemname : *const super::super::Win32::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::super::Win32::UNICODE_STRING, objectname : *const super::super::Win32::UNICODE_STRING, securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, clienttoken : super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, grantedaccess : super::super::Win32::ACCESS_MASK, privileges : *const super::super::Win32::PRIVILEGE_SET, objectcreation : bool, accessgranted : bool, generateonclose : *mut bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtOpenObjectAuditAlarm(subsystemname: *const super::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, objecttypename: *const super::UNICODE_STRING, objectname: *const super::UNICODE_STRING, securitydescriptor: Option<super::PSECURITY_DESCRIPTOR>, clienttoken: super::HANDLE, desiredaccess: super::ACCESS_MASK, grantedaccess: super::ACCESS_MASK, privileges: Option<*const super::PRIVILEGE_SET>, objectcreation: bool, accessgranted: bool, generateonclose: *mut bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenObjectAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, objecttypename : *const super::UNICODE_STRING, objectname : *const super::UNICODE_STRING, securitydescriptor : super::PSECURITY_DESCRIPTOR, clienttoken : super::HANDLE, desiredaccess : super::ACCESS_MASK, grantedaccess : super::ACCESS_MASK, privileges : *const super::PRIVILEGE_SET, objectcreation : bool, accessgranted : bool, generateonclose : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { NtOpenObjectAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, objecttypename, objectname, securitydescriptor.unwrap_or(core::mem::zeroed()) as _, clienttoken, desiredaccess, grantedaccess, privileges.unwrap_or(core::mem::zeroed()) as _, objectcreation, accessgranted, generateonclose as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtOpenProcessToken(processhandle : super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, tokenhandle : *mut super::super::Win32::HANDLE) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtOpenProcessToken(processhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, tokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenProcessToken(processhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, tokenhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { NtOpenProcessToken(processhandle, desiredaccess, tokenhandle as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtOpenProcessTokenEx(processhandle : super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, handleattributes : u32, tokenhandle : *mut super::super::Win32::HANDLE) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtOpenProcessTokenEx(processhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, handleattributes: u32, tokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenProcessTokenEx(processhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, handleattributes : u32, tokenhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { NtOpenProcessTokenEx(processhandle, desiredaccess, handleattributes, tokenhandle as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtOpenThreadToken(threadhandle : super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, openasself : bool, tokenhandle : *mut super::super::Win32::HANDLE) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtOpenThreadToken(threadhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, openasself: bool, tokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenThreadToken(threadhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, openasself : bool, tokenhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { NtOpenThreadToken(threadhandle, desiredaccess, openasself, tokenhandle as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtOpenThreadTokenEx(threadhandle : super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, openasself : bool, handleattributes : u32, tokenhandle : *mut super::super::Win32::HANDLE) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtOpenThreadTokenEx(threadhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, openasself: bool, handleattributes: u32, tokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtOpenThreadTokenEx(threadhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, openasself : bool, handleattributes : u32, tokenhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { NtOpenThreadTokenEx(threadhandle, desiredaccess, openasself, handleattributes, tokenhandle as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtPrivilegeCheck(clienttoken : super::super::Win32::HANDLE, requiredprivileges : *mut super::super::Win32::PRIVILEGE_SET, result : *mut bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtPrivilegeCheck(clienttoken: super::HANDLE, requiredprivileges: *mut super::PRIVILEGE_SET, result: *mut bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtPrivilegeCheck(clienttoken : super::HANDLE, requiredprivileges : *mut super::PRIVILEGE_SET, result : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { NtPrivilegeCheck(clienttoken, requiredprivileges as _, result as _) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtPrivilegeObjectAuditAlarm(subsystemname : *const super::super::Win32::UNICODE_STRING, handleid : *const core::ffi::c_void, clienttoken : super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, privileges : *const super::super::Win32::PRIVILEGE_SET, accessgranted : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtPrivilegeObjectAuditAlarm(subsystemname: *const super::UNICODE_STRING, handleid: Option<*const core::ffi::c_void>, clienttoken: super::HANDLE, desiredaccess: super::ACCESS_MASK, privileges: *const super::PRIVILEGE_SET, accessgranted: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtPrivilegeObjectAuditAlarm(subsystemname : *const super::UNICODE_STRING, handleid : *const core::ffi::c_void, clienttoken : super::HANDLE, desiredaccess : super::ACCESS_MASK, privileges : *const super::PRIVILEGE_SET, accessgranted : bool) -> windows_core::NTSTATUS);
+    unsafe { NtPrivilegeObjectAuditAlarm(subsystemname, handleid.unwrap_or(core::mem::zeroed()) as _, clienttoken, desiredaccess, privileges, accessgranted) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn NtPrivilegedServiceAuditAlarm(subsystemname : *const super::super::Win32::UNICODE_STRING, servicename : *const super::super::Win32::UNICODE_STRING, clienttoken : super::super::Win32::HANDLE, privileges : *const super::super::Win32::PRIVILEGE_SET, accessgranted : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtPrivilegedServiceAuditAlarm(subsystemname: *const super::UNICODE_STRING, servicename: *const super::UNICODE_STRING, clienttoken: super::HANDLE, privileges: *const super::PRIVILEGE_SET, accessgranted: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtPrivilegedServiceAuditAlarm(subsystemname : *const super::UNICODE_STRING, servicename : *const super::UNICODE_STRING, clienttoken : super::HANDLE, privileges : *const super::PRIVILEGE_SET, accessgranted : bool) -> windows_core::NTSTATUS);
+    unsafe { NtPrivilegedServiceAuditAlarm(subsystemname, servicename, clienttoken, privileges, accessgranted) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtQueryDirectoryFile(filehandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, apcroutine : super::super::Win32::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::super::Win32::FILE_INFORMATION_CLASS, returnsingleentry : bool, filename : *const super::super::Win32::UNICODE_STRING, restartscan : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtQueryDirectoryFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: super::FILE_INFORMATION_CLASS, returnsingleentry: bool, filename: Option<*const super::UNICODE_STRING>, restartscan: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryDirectoryFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS, returnsingleentry : bool, filename : *const super::UNICODE_STRING, restartscan : bool) -> windows_core::NTSTATUS);
+    unsafe { NtQueryDirectoryFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, fileinformation as _, length, fileinformationclass, returnsingleentry, filename.unwrap_or(core::mem::zeroed()) as _, restartscan) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtQueryDirectoryFileEx(filehandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, apcroutine : super::super::Win32::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::super::Win32::FILE_INFORMATION_CLASS, queryflags : u32, filename : *const super::super::Win32::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtQueryDirectoryFileEx(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: super::FILE_INFORMATION_CLASS, queryflags: u32, filename: Option<*const super::UNICODE_STRING>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryDirectoryFileEx(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS, queryflags : u32, filename : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { NtQueryDirectoryFileEx(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, fileinformation as _, length, fileinformationclass, queryflags, filename.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtQueryInformationByName(objectattributes : *const super::super::Win32::OBJECT_ATTRIBUTES, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::super::Win32::FILE_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtQueryInformationByName(objectattributes: *const super::OBJECT_ATTRIBUTES, iostatusblock: *mut super::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: super::FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationByName(objectattributes : *const super::OBJECT_ATTRIBUTES, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS);
+    unsafe { NtQueryInformationByName(objectattributes, iostatusblock as _, fileinformation as _, length, fileinformationclass) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtQueryInformationFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::super::Win32::FILE_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtQueryInformationFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: super::FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS);
+    unsafe { NtQueryInformationFile(filehandle, iostatusblock as _, fileinformation as _, length, fileinformationclass) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtQueryInformationToken(tokenhandle : super::super::Win32::HANDLE, tokeninformationclass : super::super::Win32::TOKEN_INFORMATION_CLASS, tokeninformation : *mut core::ffi::c_void, tokeninformationlength : u32, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtQueryInformationToken(tokenhandle: super::HANDLE, tokeninformationclass: super::TOKEN_INFORMATION_CLASS, tokeninformation: Option<*mut core::ffi::c_void>, tokeninformationlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryInformationToken(tokenhandle : super::HANDLE, tokeninformationclass : super::TOKEN_INFORMATION_CLASS, tokeninformation : *mut core::ffi::c_void, tokeninformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { NtQueryInformationToken(tokenhandle, tokeninformationclass, tokeninformation.unwrap_or(core::mem::zeroed()) as _, tokeninformationlength, returnlength as _) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtQueryQuotaInformationFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : bool, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : super::super::Win32::PSID, restartscan : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtQueryQuotaInformationFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: bool, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: Option<super::PSID>, restartscan: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryQuotaInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : bool, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : super::PSID, restartscan : bool) -> windows_core::NTSTATUS);
+    unsafe { NtQueryQuotaInformationFile(filehandle, iostatusblock as _, buffer as _, length, returnsingleentry, sidlist.unwrap_or(core::mem::zeroed()) as _, sidlistlength, startsid.unwrap_or(core::mem::zeroed()) as _, restartscan) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtQuerySecurityObject(handle : super::super::Win32::HANDLE, securityinformation : super::super::Win32::SECURITY_INFORMATION, securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, length : u32, lengthneeded : *mut u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtQuerySecurityObject(handle: super::HANDLE, securityinformation: super::SECURITY_INFORMATION, securitydescriptor: Option<super::PSECURITY_DESCRIPTOR>, length: u32, lengthneeded: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQuerySecurityObject(handle : super::HANDLE, securityinformation : super::SECURITY_INFORMATION, securitydescriptor : super::PSECURITY_DESCRIPTOR, length : u32, lengthneeded : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { NtQuerySecurityObject(handle, securityinformation, securitydescriptor.unwrap_or(core::mem::zeroed()) as _, length, lengthneeded as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtQueryVirtualMemory(processhandle : super::super::Win32::HANDLE, baseaddress : *const core::ffi::c_void, memoryinformationclass : MEMORY_INFORMATION_CLASS, memoryinformation : *mut core::ffi::c_void, memoryinformationlength : usize, returnlength : *mut usize) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtQueryVirtualMemory(processhandle: super::HANDLE, baseaddress: Option<*const core::ffi::c_void>, memoryinformationclass: MEMORY_INFORMATION_CLASS, memoryinformation: *mut core::ffi::c_void, memoryinformationlength: usize, returnlength: Option<*mut usize>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryVirtualMemory(processhandle : super::HANDLE, baseaddress : *const core::ffi::c_void, memoryinformationclass : MEMORY_INFORMATION_CLASS, memoryinformation : *mut core::ffi::c_void, memoryinformationlength : usize, returnlength : *mut usize) -> windows_core::NTSTATUS);
+    unsafe { NtQueryVirtualMemory(processhandle, baseaddress.unwrap_or(core::mem::zeroed()) as _, memoryinformationclass, memoryinformation as _, memoryinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtQueryVolumeInformationFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fsinformation : *mut core::ffi::c_void, length : u32, fsinformationclass : super::FS_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtQueryVolumeInformationFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, fsinformation: *mut core::ffi::c_void, length: u32, fsinformationclass: super::FS_INFORMATION_CLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtQueryVolumeInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fsinformation : *mut core::ffi::c_void, length : u32, fsinformationclass : super::FS_INFORMATION_CLASS) -> windows_core::NTSTATUS);
+    unsafe { NtQueryVolumeInformationFile(filehandle, iostatusblock as _, fsinformation as _, length, fsinformationclass) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtReadFile(filehandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, apcroutine : super::super::Win32::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, byteoffset : *const i64, key : *const u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtReadFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, byteoffset: Option<*const i64>, key: Option<*const u32>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtReadFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, byteoffset : *const i64, key : *const u32) -> windows_core::NTSTATUS);
+    unsafe { NtReadFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, buffer as _, length, byteoffset.unwrap_or(core::mem::zeroed()) as _, key.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtSetInformationFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fileinformation : *const core::ffi::c_void, length : u32, fileinformationclass : super::super::Win32::FILE_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtSetInformationFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, fileinformation: *const core::ffi::c_void, length: u32, fileinformationclass: super::FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtSetInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *const core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS) -> windows_core::NTSTATUS);
+    unsafe { NtSetInformationFile(filehandle, iostatusblock as _, fileinformation, length, fileinformationclass) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtSetInformationToken(tokenhandle : super::super::Win32::HANDLE, tokeninformationclass : super::super::Win32::TOKEN_INFORMATION_CLASS, tokeninformation : *const core::ffi::c_void, tokeninformationlength : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtSetInformationToken(tokenhandle: super::HANDLE, tokeninformationclass: super::TOKEN_INFORMATION_CLASS, tokeninformation: *const core::ffi::c_void, tokeninformationlength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtSetInformationToken(tokenhandle : super::HANDLE, tokeninformationclass : super::TOKEN_INFORMATION_CLASS, tokeninformation : *const core::ffi::c_void, tokeninformationlength : u32) -> windows_core::NTSTATUS);
+    unsafe { NtSetInformationToken(tokenhandle, tokeninformationclass, tokeninformation, tokeninformationlength) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtSetInformationVirtualMemory(processhandle : super::super::Win32::HANDLE, vminformationclass : VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries : usize, virtualaddresses : *const MEMORY_RANGE_ENTRY, vminformation : *const core::ffi::c_void, vminformationlength : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtSetInformationVirtualMemory(processhandle: super::HANDLE, vminformationclass: VIRTUAL_MEMORY_INFORMATION_CLASS, virtualaddresses: &[MEMORY_RANGE_ENTRY], vminformation: *const core::ffi::c_void, vminformationlength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtSetInformationVirtualMemory(processhandle : super::HANDLE, vminformationclass : VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries : usize, virtualaddresses : *const MEMORY_RANGE_ENTRY, vminformation : *const core::ffi::c_void, vminformationlength : u32) -> windows_core::NTSTATUS);
+    unsafe { NtSetInformationVirtualMemory(processhandle, vminformationclass, virtualaddresses.len().try_into().unwrap(), virtualaddresses.as_ptr(), vminformation, vminformationlength) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtSetQuotaInformationFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtSetQuotaInformationFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, buffer: *const core::ffi::c_void, length: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtSetQuotaInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32) -> windows_core::NTSTATUS);
+    unsafe { NtSetQuotaInformationFile(filehandle, iostatusblock as _, buffer, length) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn NtSetSecurityObject(handle : super::super::Win32::HANDLE, securityinformation : super::super::Win32::SECURITY_INFORMATION, securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtSetSecurityObject(handle: super::HANDLE, securityinformation: super::SECURITY_INFORMATION, securitydescriptor: super::PSECURITY_DESCRIPTOR) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtSetSecurityObject(handle : super::HANDLE, securityinformation : super::SECURITY_INFORMATION, securitydescriptor : super::PSECURITY_DESCRIPTOR) -> windows_core::NTSTATUS);
+    unsafe { NtSetSecurityObject(handle, securityinformation, securitydescriptor) }
+}
 #[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtSetVolumeInformationFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fsinformation : *const core::ffi::c_void, length : u32, fsinformationclass : super::FS_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtSetVolumeInformationFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, fsinformation: *const core::ffi::c_void, length: u32, fsinformationclass: super::FS_INFORMATION_CLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtSetVolumeInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fsinformation : *const core::ffi::c_void, length : u32, fsinformationclass : super::FS_INFORMATION_CLASS) -> windows_core::NTSTATUS);
+    unsafe { NtSetVolumeInformationFile(filehandle, iostatusblock as _, fsinformation, length, fsinformationclass) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtUnlockFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtUnlockFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, byteoffset: *const i64, length: *const i64, key: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtUnlockFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32) -> windows_core::NTSTATUS);
+    unsafe { NtUnlockFile(filehandle, iostatusblock as _, byteoffset, length, key) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn NtWriteFile(filehandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, apcroutine : super::super::Win32::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32, byteoffset : *const i64, key : *const u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn NtWriteFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, buffer: *const core::ffi::c_void, length: u32, byteoffset: Option<*const i64>, key: Option<*const u32>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtWriteFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32, byteoffset : *const i64, key : *const u32) -> windows_core::NTSTATUS);
+    unsafe { NtWriteFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, buffer, length, byteoffset.unwrap_or(core::mem::zeroed()) as _, key.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn PfxFindPrefix(prefixtable : *const PREFIX_TABLE, fullname : *const super::super::Win32::STRING) -> PPREFIX_TABLE_ENTRY);
+#[inline]
+pub unsafe fn PfxFindPrefix(prefixtable: *const PREFIX_TABLE, fullname: *const super::STRING) -> PPREFIX_TABLE_ENTRY {
+    windows_core::link!("ntdll.dll" "system" fn PfxFindPrefix(prefixtable : *const PREFIX_TABLE, fullname : *const super::STRING) -> PPREFIX_TABLE_ENTRY);
+    unsafe { PfxFindPrefix(prefixtable, fullname) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn PfxInitialize(prefixtable : *mut PREFIX_TABLE));
+#[inline]
+pub unsafe fn PfxInitialize() -> PREFIX_TABLE {
+    windows_core::link!("ntdll.dll" "system" fn PfxInitialize(prefixtable : *mut PREFIX_TABLE));
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        PfxInitialize(&mut result__);
+        result__
+    }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn PfxInsertPrefix(prefixtable : *const PREFIX_TABLE, prefix : *const super::super::Win32::STRING, prefixtableentry : *mut PREFIX_TABLE_ENTRY) -> bool);
+#[inline]
+pub unsafe fn PfxInsertPrefix(prefixtable: *const PREFIX_TABLE, prefix: *const super::STRING, prefixtableentry: *mut PREFIX_TABLE_ENTRY) -> bool {
+    windows_core::link!("ntdll.dll" "system" fn PfxInsertPrefix(prefixtable : *const PREFIX_TABLE, prefix : *const super::STRING, prefixtableentry : *mut PREFIX_TABLE_ENTRY) -> bool);
+    unsafe { PfxInsertPrefix(prefixtable, prefix, prefixtableentry as _) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn PfxRemovePrefix(prefixtable : *const PREFIX_TABLE, prefixtableentry : *const PREFIX_TABLE_ENTRY));
+#[inline]
+pub unsafe fn PfxRemovePrefix(prefixtable: *const PREFIX_TABLE, prefixtableentry: *const PREFIX_TABLE_ENTRY) {
+    windows_core::link!("ntdll.dll" "system" fn PfxRemovePrefix(prefixtable : *const PREFIX_TABLE, prefixtableentry : *const PREFIX_TABLE_ENTRY));
+    unsafe { PfxRemovePrefix(prefixtable, prefixtableentry) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, selfrelativesecuritydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, bufferlength : *mut u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor: super::PSECURITY_DESCRIPTOR, selfrelativesecuritydescriptor: Option<super::PSECURITY_DESCRIPTOR>, bufferlength: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor : super::PSECURITY_DESCRIPTOR, selfrelativesecuritydescriptor : super::PSECURITY_DESCRIPTOR, bufferlength : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { RtlAbsoluteToSelfRelativeSD(absolutesecuritydescriptor, selfrelativesecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, bufferlength as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlAddAccessAllowedAce(acl : *mut super::super::Win32::ACL, acerevision : u32, accessmask : super::super::Win32::ACCESS_MASK, sid : super::super::Win32::PSID) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlAddAccessAllowedAce(acl: *mut super::ACL, acerevision: u32, accessmask: super::ACCESS_MASK, sid: super::PSID) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlAddAccessAllowedAce(acl : *mut super::ACL, acerevision : u32, accessmask : super::ACCESS_MASK, sid : super::PSID) -> windows_core::NTSTATUS);
+    unsafe { RtlAddAccessAllowedAce(acl as _, acerevision, accessmask, sid) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlAddAccessAllowedAceEx(acl : *mut super::super::Win32::ACL, acerevision : u32, aceflags : u32, accessmask : super::super::Win32::ACCESS_MASK, sid : super::super::Win32::PSID) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlAddAccessAllowedAceEx(acl: *mut super::ACL, acerevision: u32, aceflags: u32, accessmask: super::ACCESS_MASK, sid: super::PSID) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlAddAccessAllowedAceEx(acl : *mut super::ACL, acerevision : u32, aceflags : u32, accessmask : super::ACCESS_MASK, sid : super::PSID) -> windows_core::NTSTATUS);
+    unsafe { RtlAddAccessAllowedAceEx(acl as _, acerevision, aceflags, accessmask, sid) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlAddAce(acl : *mut super::super::Win32::ACL, acerevision : u32, startingaceindex : u32, acelist : *const core::ffi::c_void, acelistlength : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlAddAce(acl: *mut super::ACL, acerevision: u32, startingaceindex: u32, acelist: *const core::ffi::c_void, acelistlength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlAddAce(acl : *mut super::ACL, acerevision : u32, startingaceindex : u32, acelist : *const core::ffi::c_void, acelistlength : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlAddAce(acl as _, acerevision, startingaceindex, acelist, acelistlength) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSid(identifierauthority : *const super::super::Win32::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, subauthority0 : u32, subauthority1 : u32, subauthority2 : u32, subauthority3 : u32, subauthority4 : u32, subauthority5 : u32, subauthority6 : u32, subauthority7 : u32, sid : *mut super::super::Win32::PSID) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlAllocateAndInitializeSid(identifierauthority: *const super::SID_IDENTIFIER_AUTHORITY, subauthoritycount: u8, subauthority0: u32, subauthority1: u32, subauthority2: u32, subauthority3: u32, subauthority4: u32, subauthority5: u32, subauthority6: u32, subauthority7: u32, sid: *mut super::PSID) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSid(identifierauthority : *const super::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, subauthority0 : u32, subauthority1 : u32, subauthority2 : u32, subauthority3 : u32, subauthority4 : u32, subauthority5 : u32, subauthority6 : u32, subauthority7 : u32, sid : *mut super::PSID) -> windows_core::NTSTATUS);
+    unsafe { RtlAllocateAndInitializeSid(identifierauthority, subauthoritycount, subauthority0, subauthority1, subauthority2, subauthority3, subauthority4, subauthority5, subauthority6, subauthority7, sid as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSidEx(identifierauthority : *const super::super::Win32::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, subauthorities : *const u32, sid : *mut super::super::Win32::PSID) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlAllocateHeap(heaphandle : *const core::ffi::c_void, flags : u32, size : usize) -> *mut core::ffi::c_void);
+#[inline]
+pub unsafe fn RtlAllocateAndInitializeSidEx(identifierauthority: *const super::SID_IDENTIFIER_AUTHORITY, subauthorities: &[u32], sid: *mut super::PSID) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlAllocateAndInitializeSidEx(identifierauthority : *const super::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, subauthorities : *const u32, sid : *mut super::PSID) -> windows_core::NTSTATUS);
+    unsafe { RtlAllocateAndInitializeSidEx(identifierauthority, subauthorities.len().try_into().unwrap(), subauthorities.as_ptr(), sid as _) }
+}
+#[inline]
+pub unsafe fn RtlAllocateHeap(heaphandle: *const core::ffi::c_void, flags: Option<u32>, size: usize) -> *mut core::ffi::c_void {
+    windows_core::link!("ntdll.dll" "system" fn RtlAllocateHeap(heaphandle : *const core::ffi::c_void, flags : u32, size : usize) -> *mut core::ffi::c_void);
+    unsafe { RtlAllocateHeap(heaphandle, flags.unwrap_or(core::mem::zeroed()) as _, size) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlAppendStringToString(destination : *mut super::super::Win32::STRING, source : *const super::super::Win32::STRING) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlAppendStringToString(destination: *mut super::STRING, source: *const super::STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlAppendStringToString(destination : *mut super::STRING, source : *const super::STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlAppendStringToString(destination as _, source) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn RtlCompareAltitudes(altitude1 : *const super::super::Win32::UNICODE_STRING, altitude2 : *const super::super::Win32::UNICODE_STRING) -> i32);
-windows_link::link!("ntdll.dll" "system" fn RtlCompareMemoryUlong(source : *const core::ffi::c_void, length : usize, pattern : u32) -> usize);
-windows_link::link!("ntdll.dll" "system" fn RtlCompressBuffer(compressionformatandengine : u16, uncompressedbuffer : *const u8, uncompressedbuffersize : u32, compressedbuffer : *mut u8, compressedbuffersize : u32, uncompressedchunksize : u32, finalcompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlCompareAltitudes(altitude1: *const super::UNICODE_STRING, altitude2: *const super::UNICODE_STRING) -> i32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlCompareAltitudes(altitude1 : *const super::UNICODE_STRING, altitude2 : *const super::UNICODE_STRING) -> i32);
+    unsafe { RtlCompareAltitudes(altitude1, altitude2) }
+}
+#[inline]
+pub unsafe fn RtlCompareMemoryUlong(source: *const core::ffi::c_void, length: usize, pattern: u32) -> usize {
+    windows_core::link!("ntdll.dll" "system" fn RtlCompareMemoryUlong(source : *const core::ffi::c_void, length : usize, pattern : u32) -> usize);
+    unsafe { RtlCompareMemoryUlong(source, length, pattern) }
+}
+#[inline]
+pub unsafe fn RtlCompressBuffer(compressionformatandengine: u16, uncompressedbuffer: &[u8], compressedbuffer: &mut [u8], uncompressedchunksize: u32, finalcompressedsize: *mut u32, workspace: *const core::ffi::c_void) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlCompressBuffer(compressionformatandengine : u16, uncompressedbuffer : *const u8, uncompressedbuffersize : u32, compressedbuffer : *mut u8, compressedbuffersize : u32, uncompressedchunksize : u32, finalcompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> windows_core::NTSTATUS);
+    unsafe { RtlCompressBuffer(compressionformatandengine, uncompressedbuffer.as_ptr(), uncompressedbuffer.len().try_into().unwrap(), compressedbuffer.as_mut_ptr(), compressedbuffer.len().try_into().unwrap(), uncompressedchunksize, finalcompressedsize as _, workspace) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlCopyLuid(destinationluid : *mut super::super::Win32::LUID, sourceluid : *const super::super::Win32::LUID));
+#[inline]
+pub unsafe fn RtlCopyLuid(destinationluid: *mut super::LUID, sourceluid: *const super::LUID) {
+    windows_core::link!("ntdll.dll" "system" fn RtlCopyLuid(destinationluid : *mut super::LUID, sourceluid : *const super::LUID));
+    unsafe { RtlCopyLuid(destinationluid as _, sourceluid) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlCopySid(destinationsidlength : u32, destinationsid : super::super::Win32::PSID, sourcesid : super::super::Win32::PSID) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlCopySid(destinationsidlength: u32, destinationsid: super::PSID, sourcesid: super::PSID) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlCopySid(destinationsidlength : u32, destinationsid : super::PSID, sourcesid : super::PSID) -> windows_core::NTSTATUS);
+    unsafe { RtlCopySid(destinationsidlength, destinationsid as _, sourcesid) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlCreateAcl(acl : *mut super::super::Win32::ACL, acllength : u32, aclrevision : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlCreateHeap(flags : u32, heapbase : *const core::ffi::c_void, reservesize : usize, commitsize : usize, lock : *const core::ffi::c_void, parameters : *mut RTL_HEAP_PARAMETERS) -> *mut core::ffi::c_void);
+#[inline]
+pub unsafe fn RtlCreateAcl(acl: *mut super::ACL, acllength: u32, aclrevision: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlCreateAcl(acl : *mut super::ACL, acllength : u32, aclrevision : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlCreateAcl(acl as _, acllength, aclrevision) }
+}
+#[inline]
+pub unsafe fn RtlCreateHeap(flags: u32, heapbase: Option<*const core::ffi::c_void>, reservesize: Option<usize>, commitsize: Option<usize>, lock: Option<*const core::ffi::c_void>, parameters: *mut RTL_HEAP_PARAMETERS) -> *mut core::ffi::c_void {
+    windows_core::link!("ntdll.dll" "system" fn RtlCreateHeap(flags : u32, heapbase : *const core::ffi::c_void, reservesize : usize, commitsize : usize, lock : *const core::ffi::c_void, parameters : *mut RTL_HEAP_PARAMETERS) -> *mut core::ffi::c_void);
+    unsafe { RtlCreateHeap(flags, heapbase.unwrap_or(core::mem::zeroed()) as _, reservesize.unwrap_or(core::mem::zeroed()) as _, commitsize.unwrap_or(core::mem::zeroed()) as _, lock.unwrap_or(core::mem::zeroed()) as _, parameters as _) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlCreateServiceSid(servicename : *const super::super::Win32::UNICODE_STRING, servicesid : super::super::Win32::PSID, servicesidlength : *mut u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlCreateServiceSid(servicename: *const super::UNICODE_STRING, servicesid: Option<super::PSID>, servicesidlength: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlCreateServiceSid(servicename : *const super::UNICODE_STRING, servicesid : super::PSID, servicesidlength : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { RtlCreateServiceSid(servicename, servicesid.unwrap_or(core::mem::zeroed()) as _, servicesidlength as _) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn RtlCreateSystemVolumeInformationFolder(volumerootpath : *const super::super::Win32::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlCreateSystemVolumeInformationFolder(volumerootpath: *const super::UNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlCreateSystemVolumeInformationFolder(volumerootpath : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlCreateSystemVolumeInformationFolder(volumerootpath) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn RtlCreateUnicodeString(destinationstring : *mut super::super::Win32::UNICODE_STRING, sourcestring : windows_sys::core::PCWSTR) -> bool);
+#[inline]
+pub unsafe fn RtlCreateUnicodeString<P1>(destinationstring: *mut super::UNICODE_STRING, sourcestring: P1) -> bool
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("ntdll.dll" "system" fn RtlCreateUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : windows_core::PCWSTR) -> bool);
+    unsafe { RtlCreateUnicodeString(destinationstring as _, sourcestring.param().abi()) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlCreateVirtualAccountSid(name : *const super::super::Win32::UNICODE_STRING, basesubauthority : u32, sid : super::super::Win32::PSID, sidlength : *mut u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlCreateVirtualAccountSid(name: *const super::UNICODE_STRING, basesubauthority: u32, sid: super::PSID, sidlength: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlCreateVirtualAccountSid(name : *const super::UNICODE_STRING, basesubauthority : u32, sid : super::PSID, sidlength : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { RtlCreateVirtualAccountSid(name, basesubauthority, sid as _, sidlength as _) }
+}
 #[cfg(all(feature = "minwindef", feature = "ntnls"))]
-windows_link::link!("ntdll.dll" "system" fn RtlCustomCPToUnicodeN(customcp : *const super::CPTABLEINFO, unicodestring : *mut u16, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, customcpstring : *const i8, bytesincustomcpstring : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlDecompressBuffer(compressionformat : u16, uncompressedbuffer : *mut u8, uncompressedbuffersize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, finaluncompressedsize : *mut u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlDecompressBufferEx(compressionformat : u16, uncompressedbuffer : *mut u8, uncompressedbuffersize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, finaluncompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlDecompressFragment(compressionformat : u16, uncompressedfragment : *mut u8, uncompressedfragmentsize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, fragmentoffset : u32, finaluncompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlCustomCPToUnicodeN(customcp: *const super::CPTABLEINFO, unicodestring: *mut u16, maxbytesinunicodestring: u32, bytesinunicodestring: Option<*mut u32>, customcpstring: &[u8]) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlCustomCPToUnicodeN(customcp : *const super::CPTABLEINFO, unicodestring : *mut u16, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, customcpstring : *const i8, bytesincustomcpstring : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlCustomCPToUnicodeN(customcp, unicodestring as _, maxbytesinunicodestring, bytesinunicodestring.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(customcpstring.as_ptr()), customcpstring.len().try_into().unwrap()) }
+}
+#[inline]
+pub unsafe fn RtlDecompressBuffer(compressionformat: u16, uncompressedbuffer: &mut [u8], compressedbuffer: &[u8], finaluncompressedsize: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlDecompressBuffer(compressionformat : u16, uncompressedbuffer : *mut u8, uncompressedbuffersize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, finaluncompressedsize : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { RtlDecompressBuffer(compressionformat, uncompressedbuffer.as_mut_ptr(), uncompressedbuffer.len().try_into().unwrap(), compressedbuffer.as_ptr(), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize as _) }
+}
+#[inline]
+pub unsafe fn RtlDecompressBufferEx(compressionformat: u16, uncompressedbuffer: &mut [u8], compressedbuffer: &[u8], finaluncompressedsize: *mut u32, workspace: Option<*const core::ffi::c_void>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlDecompressBufferEx(compressionformat : u16, uncompressedbuffer : *mut u8, uncompressedbuffersize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, finaluncompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> windows_core::NTSTATUS);
+    unsafe { RtlDecompressBufferEx(compressionformat, uncompressedbuffer.as_mut_ptr(), uncompressedbuffer.len().try_into().unwrap(), compressedbuffer.as_ptr(), compressedbuffer.len().try_into().unwrap(), finaluncompressedsize as _, workspace.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[inline]
+pub unsafe fn RtlDecompressFragment(compressionformat: u16, uncompressedfragment: &mut [u8], compressedbuffer: &[u8], fragmentoffset: u32, finaluncompressedsize: *mut u32, workspace: *const core::ffi::c_void) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlDecompressFragment(compressionformat : u16, uncompressedfragment : *mut u8, uncompressedfragmentsize : u32, compressedbuffer : *const u8, compressedbuffersize : u32, fragmentoffset : u32, finaluncompressedsize : *mut u32, workspace : *const core::ffi::c_void) -> windows_core::NTSTATUS);
+    unsafe { RtlDecompressFragment(compressionformat, uncompressedfragment.as_mut_ptr(), uncompressedfragment.len().try_into().unwrap(), compressedbuffer.as_ptr(), compressedbuffer.len().try_into().unwrap(), fragmentoffset, finaluncompressedsize as _, workspace) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlDeleteAce(acl : *mut super::super::Win32::ACL, aceindex : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlDestroyHeap(heaphandle : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+#[inline]
+pub unsafe fn RtlDeleteAce(acl: *mut super::ACL, aceindex: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlDeleteAce(acl : *mut super::ACL, aceindex : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlDeleteAce(acl as _, aceindex) }
+}
+#[inline]
+pub unsafe fn RtlDestroyHeap(heaphandle: *const core::ffi::c_void) -> *mut core::ffi::c_void {
+    windows_core::link!("ntdll.dll" "system" fn RtlDestroyHeap(heaphandle : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+    unsafe { RtlDestroyHeap(heaphandle) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn RtlDowncaseUnicodeString(destinationstring : *mut super::super::Win32::UNICODE_STRING, sourcestring : *const super::super::Win32::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlDowncaseUnicodeString(destinationstring: *mut super::UNICODE_STRING, sourcestring: *const super::UNICODE_STRING, allocatedestinationstring: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlDowncaseUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_core::NTSTATUS);
+    unsafe { RtlDowncaseUnicodeString(destinationstring as _, sourcestring, allocatedestinationstring) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn RtlDuplicateUnicodeString(flags : u32, stringin : *const super::super::Win32::UNICODE_STRING, stringout : *mut super::super::Win32::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlDuplicateUnicodeString(flags: u32, stringin: *const super::UNICODE_STRING, stringout: *mut super::UNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlDuplicateUnicodeString(flags : u32, stringin : *const super::UNICODE_STRING, stringout : *mut super::UNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlDuplicateUnicodeString(flags, stringin, stringout as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlEqualPrefixSid(sid1 : super::super::Win32::PSID, sid2 : super::super::Win32::PSID) -> bool);
+#[inline]
+pub unsafe fn RtlEqualPrefixSid(sid1: super::PSID, sid2: super::PSID) -> bool {
+    windows_core::link!("ntdll.dll" "system" fn RtlEqualPrefixSid(sid1 : super::PSID, sid2 : super::PSID) -> bool);
+    unsafe { RtlEqualPrefixSid(sid1, sid2) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlEqualSid(sid1 : super::super::Win32::PSID, sid2 : super::super::Win32::PSID) -> bool);
+#[inline]
+pub unsafe fn RtlEqualSid(sid1: super::PSID, sid2: super::PSID) -> bool {
+    windows_core::link!("ntdll.dll" "system" fn RtlEqualSid(sid1 : super::PSID, sid2 : super::PSID) -> bool);
+    unsafe { RtlEqualSid(sid1, sid2) }
+}
 #[cfg(feature = "ntdef")]
-windows_link::link!("ntdll.dll" "system" fn RtlFreeHeap(heaphandle : *const core::ffi::c_void, flags : u32, baseaddress : *mut core::ffi::c_void) -> super::LOGICAL);
+#[inline]
+pub unsafe fn RtlFreeHeap(heaphandle: *const core::ffi::c_void, flags: Option<u32>, baseaddress: *mut core::ffi::c_void) -> super::LOGICAL {
+    windows_core::link!("ntdll.dll" "system" fn RtlFreeHeap(heaphandle : *const core::ffi::c_void, flags : u32, baseaddress : *mut core::ffi::c_void) -> super::LOGICAL);
+    unsafe { RtlFreeHeap(heaphandle, flags.unwrap_or(core::mem::zeroed()) as _, baseaddress as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlFreeSid(sid : super::super::Win32::PSID) -> *mut core::ffi::c_void);
+#[inline]
+pub unsafe fn RtlFreeSid(sid: super::PSID) -> *mut core::ffi::c_void {
+    windows_core::link!("ntdll.dll" "system" fn RtlFreeSid(sid : super::PSID) -> *mut core::ffi::c_void);
+    unsafe { RtlFreeSid(sid) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn RtlGenerate8dot3Name(name : *const super::super::Win32::UNICODE_STRING, allowextendedcharacters : bool, context : *mut GENERATE_NAME_CONTEXT, name8dot3 : *mut super::super::Win32::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlGenerate8dot3Name(name: *const super::UNICODE_STRING, allowextendedcharacters: bool, context: *mut GENERATE_NAME_CONTEXT, name8dot3: *mut super::UNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlGenerate8dot3Name(name : *const super::UNICODE_STRING, allowextendedcharacters : bool, context : *mut GENERATE_NAME_CONTEXT, name8dot3 : *mut super::UNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlGenerate8dot3Name(name, allowextendedcharacters, context as _, name8dot3 as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlGetAce(acl : *const super::super::Win32::ACL, aceindex : u32, ace : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlGetAce(acl: *const super::ACL, aceindex: u32, ace: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetAce(acl : *const super::ACL, aceindex : u32, ace : *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS);
+    unsafe { RtlGetAce(acl, aceindex, ace as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlGetAcesBufferSize(acl : *const super::super::Win32::ACL, acesbuffersize : *mut u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlGetCompressionWorkSpaceSize(compressionformatandengine : u16, compressbufferworkspacesize : *mut u32, compressfragmentworkspacesize : *mut u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlGetAcesBufferSize(acl: *const super::ACL, acesbuffersize: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetAcesBufferSize(acl : *const super::ACL, acesbuffersize : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { RtlGetAcesBufferSize(acl, acesbuffersize as _) }
+}
+#[inline]
+pub unsafe fn RtlGetCompressionWorkSpaceSize(compressionformatandengine: u16, compressbufferworkspacesize: *mut u32, compressfragmentworkspacesize: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetCompressionWorkSpaceSize(compressionformatandengine : u16, compressbufferworkspacesize : *mut u32, compressfragmentworkspacesize : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { RtlGetCompressionWorkSpaceSize(compressionformatandengine, compressbufferworkspacesize as _, compressfragmentworkspacesize as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlGetDaclSecurityDescriptor(securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, daclpresent : *mut bool, dacl : *mut super::super::Win32::PACL, dacldefaulted : *mut bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlGetDaclSecurityDescriptor(securitydescriptor: super::PSECURITY_DESCRIPTOR, daclpresent: *mut bool, dacl: *mut super::PACL, dacldefaulted: *mut bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetDaclSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR, daclpresent : *mut bool, dacl : *mut super::PACL, dacldefaulted : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { RtlGetDaclSecurityDescriptor(securitydescriptor, daclpresent as _, dacl as _, dacldefaulted as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlGetGroupSecurityDescriptor(securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, group : *mut super::super::Win32::PSID, groupdefaulted : *mut bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlGetGroupSecurityDescriptor(securitydescriptor: super::PSECURITY_DESCRIPTOR, group: *mut super::PSID, groupdefaulted: *mut bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetGroupSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR, group : *mut super::PSID, groupdefaulted : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { RtlGetGroupSecurityDescriptor(securitydescriptor, group as _, groupdefaulted as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlGetOwnerSecurityDescriptor(securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, owner : *mut super::super::Win32::PSID, ownerdefaulted : *mut bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlGetOwnerSecurityDescriptor(securitydescriptor: super::PSECURITY_DESCRIPTOR, owner: *mut super::PSID, ownerdefaulted: *mut bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetOwnerSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR, owner : *mut super::PSID, ownerdefaulted : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { RtlGetOwnerSecurityDescriptor(securitydescriptor, owner as _, ownerdefaulted as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlGetSaclSecurityDescriptor(securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, saclpresent : *mut bool, sacl : *mut super::super::Win32::PACL, sacldefaulted : *mut bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlGetSaclSecurityDescriptor(securitydescriptor: super::PSECURITY_DESCRIPTOR, saclpresent: *mut bool, sacl: *mut super::PACL, sacldefaulted: *mut bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlGetSaclSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR, saclpresent : *mut bool, sacl : *mut super::PACL, sacldefaulted : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { RtlGetSaclSecurityDescriptor(securitydescriptor, saclpresent as _, sacl as _, sacldefaulted as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlIdentifierAuthoritySid(sid : super::super::Win32::PSID) -> super::super::Win32::PSID_IDENTIFIER_AUTHORITY);
-windows_link::link!("ntdll.dll" "system" fn RtlIdnToAscii(flags : u32, sourcestring : windows_sys::core::PCWSTR, sourcestringlength : i32, destinationstring : windows_sys::core::PWSTR, destinationstringlength : *mut i32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlIdnToNameprepUnicode(flags : u32, sourcestring : windows_sys::core::PCWSTR, sourcestringlength : i32, destinationstring : windows_sys::core::PWSTR, destinationstringlength : *mut i32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlIdnToUnicode(flags : u32, sourcestring : windows_sys::core::PCWSTR, sourcestringlength : i32, destinationstring : windows_sys::core::PWSTR, destinationstringlength : *mut i32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlIdentifierAuthoritySid(sid: super::PSID) -> super::PSID_IDENTIFIER_AUTHORITY {
+    windows_core::link!("ntdll.dll" "system" fn RtlIdentifierAuthoritySid(sid : super::PSID) -> super::PSID_IDENTIFIER_AUTHORITY);
+    unsafe { RtlIdentifierAuthoritySid(sid) }
+}
+#[inline]
+pub unsafe fn RtlIdnToAscii<P1>(flags: u32, sourcestring: P1, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> windows_core::NTSTATUS
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("ntdll.dll" "system" fn RtlIdnToAscii(flags : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> windows_core::NTSTATUS);
+    unsafe { RtlIdnToAscii(flags, sourcestring.param().abi(), sourcestringlength, destinationstring, destinationstringlength as _) }
+}
+#[inline]
+pub unsafe fn RtlIdnToNameprepUnicode<P1>(flags: u32, sourcestring: P1, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> windows_core::NTSTATUS
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("ntdll.dll" "system" fn RtlIdnToNameprepUnicode(flags : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> windows_core::NTSTATUS);
+    unsafe { RtlIdnToNameprepUnicode(flags, sourcestring.param().abi(), sourcestringlength, destinationstring, destinationstringlength as _) }
+}
+#[inline]
+pub unsafe fn RtlIdnToUnicode<P1>(flags: u32, sourcestring: P1, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> windows_core::NTSTATUS
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("ntdll.dll" "system" fn RtlIdnToUnicode(flags : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> windows_core::NTSTATUS);
+    unsafe { RtlIdnToUnicode(flags, sourcestring.param().abi(), sourcestringlength, destinationstring, destinationstringlength as _) }
+}
 #[cfg(all(feature = "minwindef", feature = "ntnls"))]
-windows_link::link!("ntdll.dll" "system" fn RtlInitCodePageTable(tablebase : *const u16, codepagetable : *mut super::CPTABLEINFO));
+#[inline]
+pub unsafe fn RtlInitCodePageTable(tablebase: Option<&[u16; 2]>, codepagetable: *mut super::CPTABLEINFO) {
+    windows_core::link!("ntdll.dll" "system" fn RtlInitCodePageTable(tablebase : *const u16, codepagetable : *mut super::CPTABLEINFO));
+    unsafe { RtlInitCodePageTable(tablebase.map_or(core::ptr::null(), |slice| slice.as_ptr()), codepagetable as _) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn RtlInitUnicodeStringEx(destinationstring : *mut super::super::Win32::UNICODE_STRING, sourcestring : windows_sys::core::PCWSTR) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlInitUnicodeStringEx<P1>(destinationstring: *mut super::UNICODE_STRING, sourcestring: P1) -> windows_core::NTSTATUS
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("ntdll.dll" "system" fn RtlInitUnicodeStringEx(destinationstring : *mut super::UNICODE_STRING, sourcestring : windows_core::PCWSTR) -> windows_core::NTSTATUS);
+    unsafe { RtlInitUnicodeStringEx(destinationstring as _, sourcestring.param().abi()) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlInitializeSid(sid : super::super::Win32::PSID, identifierauthority : *const super::super::Win32::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlInitializeSid(sid: super::PSID, identifierauthority: *const super::SID_IDENTIFIER_AUTHORITY, subauthoritycount: u8) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlInitializeSid(sid : super::PSID, identifierauthority : *const super::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> windows_core::NTSTATUS);
+    unsafe { RtlInitializeSid(sid as _, identifierauthority, subauthoritycount) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "C" fn RtlInitializeSidEx(sid : super::super::Win32::PSID, identifierauthority : *const super::super::Win32::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8, ...) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlIsCloudFilesPlaceholder(fileattributes : u32, reparsetag : u32) -> bool);
-windows_link::link!("ntdll.dll" "system" fn RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag : u32) -> bool);
-windows_link::link!("ntdll.dll" "system" fn RtlIsNormalizedString(normform : u32, sourcestring : windows_sys::core::PCWSTR, sourcestringlength : i32, normalized : *mut bool) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlIsPartialPlaceholder(fileattributes : u32, reparsetag : u32) -> bool);
+#[inline]
+pub unsafe fn RtlInitializeSidEx(sid: super::PSID, identifierauthority: *const super::SID_IDENTIFIER_AUTHORITY, subauthoritycount: u8) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "C" fn RtlInitializeSidEx(sid : super::PSID, identifierauthority : *const super::SID_IDENTIFIER_AUTHORITY, subauthoritycount : u8) -> windows_core::NTSTATUS);
+    unsafe { RtlInitializeSidEx(sid as _, identifierauthority, subauthoritycount) }
+}
+#[inline]
+pub unsafe fn RtlIsCloudFilesPlaceholder(fileattributes: u32, reparsetag: u32) -> bool {
+    windows_core::link!("ntdll.dll" "system" fn RtlIsCloudFilesPlaceholder(fileattributes : u32, reparsetag : u32) -> bool);
+    unsafe { RtlIsCloudFilesPlaceholder(fileattributes, reparsetag) }
+}
+#[inline]
+pub unsafe fn RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag: u32) -> bool {
+    windows_core::link!("ntdll.dll" "system" fn RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag : u32) -> bool);
+    unsafe { RtlIsNonEmptyDirectoryReparsePointAllowed(reparsetag) }
+}
+#[inline]
+pub unsafe fn RtlIsNormalizedString<P1>(normform: u32, sourcestring: P1, sourcestringlength: i32, normalized: *mut bool) -> windows_core::NTSTATUS
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("ntdll.dll" "system" fn RtlIsNormalizedString(normform : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, normalized : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { RtlIsNormalizedString(normform, sourcestring.param().abi(), sourcestringlength, normalized as _) }
+}
+#[inline]
+pub unsafe fn RtlIsPartialPlaceholder(fileattributes: u32, reparsetag: u32) -> bool {
+    windows_core::link!("ntdll.dll" "system" fn RtlIsPartialPlaceholder(fileattributes : u32, reparsetag : u32) -> bool);
+    unsafe { RtlIsPartialPlaceholder(fileattributes, reparsetag) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlIsPartialPlaceholderFileHandle(filehandle : super::super::Win32::HANDLE, ispartialplaceholder : *mut bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlIsPartialPlaceholderFileHandle(filehandle: super::HANDLE, ispartialplaceholder: *mut bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlIsPartialPlaceholderFileHandle(filehandle : super::HANDLE, ispartialplaceholder : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { RtlIsPartialPlaceholderFileHandle(filehandle, ispartialplaceholder as _) }
+}
 #[cfg(feature = "winternl")]
-windows_link::link!("ntdll.dll" "system" fn RtlIsPartialPlaceholderFileInfo(infobuffer : *const core::ffi::c_void, infoclass : super::super::Win32::FILE_INFORMATION_CLASS, ispartialplaceholder : *mut bool) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlLengthRequiredSid(subauthoritycount : u32) -> u32);
+#[inline]
+pub unsafe fn RtlIsPartialPlaceholderFileInfo(infobuffer: *const core::ffi::c_void, infoclass: super::FILE_INFORMATION_CLASS, ispartialplaceholder: *mut bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlIsPartialPlaceholderFileInfo(infobuffer : *const core::ffi::c_void, infoclass : super::FILE_INFORMATION_CLASS, ispartialplaceholder : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { RtlIsPartialPlaceholderFileInfo(infobuffer, infoclass, ispartialplaceholder as _) }
+}
+#[inline]
+pub unsafe fn RtlLengthRequiredSid(subauthoritycount: u32) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlLengthRequiredSid(subauthoritycount : u32) -> u32);
+    unsafe { RtlLengthRequiredSid(subauthoritycount) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlLengthSid(sid : super::super::Win32::PSID) -> u32);
-windows_link::link!("ntdll.dll" "system" fn RtlMultiByteToUnicodeN(unicodestring : *mut u16, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, multibytestring : *const i8, bytesinmultibytestring : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlMultiByteToUnicodeSize(bytesinunicodestring : *mut u32, multibytestring : *const i8, bytesinmultibytestring : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlNormalizeString(normform : u32, sourcestring : windows_sys::core::PCWSTR, sourcestringlength : i32, destinationstring : windows_sys::core::PWSTR, destinationstringlength : *mut i32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlNtStatusToDosErrorNoTeb(status : windows_sys::core::NTSTATUS) -> u32);
+#[inline]
+pub unsafe fn RtlLengthSid(sid: super::PSID) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlLengthSid(sid : super::PSID) -> u32);
+    unsafe { RtlLengthSid(sid) }
+}
+#[inline]
+pub unsafe fn RtlMultiByteToUnicodeN(unicodestring: *mut u16, maxbytesinunicodestring: u32, bytesinunicodestring: Option<*mut u32>, multibytestring: &[u8]) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlMultiByteToUnicodeN(unicodestring : *mut u16, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, multibytestring : *const i8, bytesinmultibytestring : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlMultiByteToUnicodeN(unicodestring as _, maxbytesinunicodestring, bytesinunicodestring.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap()) }
+}
+#[inline]
+pub unsafe fn RtlMultiByteToUnicodeSize(bytesinunicodestring: *mut u32, multibytestring: &[u8]) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlMultiByteToUnicodeSize(bytesinunicodestring : *mut u32, multibytestring : *const i8, bytesinmultibytestring : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlMultiByteToUnicodeSize(bytesinunicodestring as _, core::mem::transmute(multibytestring.as_ptr()), multibytestring.len().try_into().unwrap()) }
+}
+#[inline]
+pub unsafe fn RtlNormalizeString<P1>(normform: u32, sourcestring: P1, sourcestringlength: i32, destinationstring: windows_core::PWSTR, destinationstringlength: *mut i32) -> windows_core::NTSTATUS
+where
+    P1: windows_core::Param<windows_core::PCWSTR>,
+{
+    windows_core::link!("ntdll.dll" "system" fn RtlNormalizeString(normform : u32, sourcestring : windows_core::PCWSTR, sourcestringlength : i32, destinationstring : windows_core::PWSTR, destinationstringlength : *mut i32) -> windows_core::NTSTATUS);
+    unsafe { RtlNormalizeString(normform, sourcestring.param().abi(), sourcestringlength, destinationstring, destinationstringlength as _) }
+}
+#[inline]
+pub unsafe fn RtlNtStatusToDosErrorNoTeb(status: windows_core::NTSTATUS) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlNtStatusToDosErrorNoTeb(status : windows_core::NTSTATUS) -> u32);
+    unsafe { RtlNtStatusToDosErrorNoTeb(status) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlOemStringToUnicodeString(destinationstring : *mut super::super::Win32::UNICODE_STRING, sourcestring : *const super::super::Win32::STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlOemToUnicodeN(unicodestring : *mut u16, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, oemstring : *const i8, bytesinoemstring : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlOemStringToUnicodeString(destinationstring: *mut super::UNICODE_STRING, sourcestring: *const super::STRING, allocatedestinationstring: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlOemStringToUnicodeString(destinationstring : *mut super::UNICODE_STRING, sourcestring : *const super::STRING, allocatedestinationstring : bool) -> windows_core::NTSTATUS);
+    unsafe { RtlOemStringToUnicodeString(destinationstring as _, sourcestring, allocatedestinationstring) }
+}
+#[inline]
+pub unsafe fn RtlOemToUnicodeN(unicodestring: *mut u16, maxbytesinunicodestring: u32, bytesinunicodestring: Option<*mut u32>, oemstring: &[u8]) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlOemToUnicodeN(unicodestring : *mut u16, maxbytesinunicodestring : u32, bytesinunicodestring : *mut u32, oemstring : *const i8, bytesinoemstring : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlOemToUnicodeN(unicodestring as _, maxbytesinunicodestring, bytesinunicodestring.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(oemstring.as_ptr()), oemstring.len().try_into().unwrap()) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlPrefixString(string1 : *const super::super::Win32::STRING, string2 : *const super::super::Win32::STRING, caseinsensitive : bool) -> bool);
-windows_link::link!("ntdll.dll" "system" fn RtlQueryPackageIdentity(tokenobject : *const core::ffi::c_void, packagefullname : windows_sys::core::PWSTR, packagesize : *mut usize, appid : windows_sys::core::PWSTR, appidsize : *mut usize, packaged : *mut bool) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlQueryPackageIdentityEx(tokenobject : *const core::ffi::c_void, packagefullname : windows_sys::core::PWSTR, packagesize : *mut usize, appid : windows_sys::core::PWSTR, appidsize : *mut usize, dynamicid : *mut windows_sys::core::GUID, flags : *mut u64) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlQueryProcessPlaceholderCompatibilityMode() -> i8);
-windows_link::link!("ntdll.dll" "system" fn RtlQueryThreadPlaceholderCompatibilityMode() -> i8);
-windows_link::link!("ntdll.dll" "system" fn RtlRandom(seed : *mut u32) -> u32);
-windows_link::link!("ntdll.dll" "system" fn RtlRandomEx(seed : *mut u32) -> u32);
+#[inline]
+pub unsafe fn RtlPrefixString(string1: *const super::STRING, string2: *const super::STRING, caseinsensitive: bool) -> bool {
+    windows_core::link!("ntdll.dll" "system" fn RtlPrefixString(string1 : *const super::STRING, string2 : *const super::STRING, caseinsensitive : bool) -> bool);
+    unsafe { RtlPrefixString(string1, string2, caseinsensitive) }
+}
+#[inline]
+pub unsafe fn RtlQueryPackageIdentity(tokenobject: *const core::ffi::c_void, packagefullname: windows_core::PWSTR, packagesize: *mut usize, appid: Option<windows_core::PWSTR>, appidsize: Option<*mut usize>, packaged: Option<*mut bool>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlQueryPackageIdentity(tokenobject : *const core::ffi::c_void, packagefullname : windows_core::PWSTR, packagesize : *mut usize, appid : windows_core::PWSTR, appidsize : *mut usize, packaged : *mut bool) -> windows_core::NTSTATUS);
+    unsafe { RtlQueryPackageIdentity(tokenobject, packagefullname, packagesize as _, appid.unwrap_or(core::mem::zeroed()) as _, appidsize.unwrap_or(core::mem::zeroed()) as _, packaged.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[inline]
+pub unsafe fn RtlQueryPackageIdentityEx(tokenobject: *const core::ffi::c_void, packagefullname: windows_core::PWSTR, packagesize: *mut usize, appid: Option<windows_core::PWSTR>, appidsize: Option<*mut usize>, dynamicid: Option<*mut windows_core::GUID>, flags: Option<*mut u64>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlQueryPackageIdentityEx(tokenobject : *const core::ffi::c_void, packagefullname : windows_core::PWSTR, packagesize : *mut usize, appid : windows_core::PWSTR, appidsize : *mut usize, dynamicid : *mut windows_core::GUID, flags : *mut u64) -> windows_core::NTSTATUS);
+    unsafe { RtlQueryPackageIdentityEx(tokenobject, packagefullname, packagesize as _, appid.unwrap_or(core::mem::zeroed()) as _, appidsize.unwrap_or(core::mem::zeroed()) as _, dynamicid.unwrap_or(core::mem::zeroed()) as _, flags.unwrap_or(core::mem::zeroed()) as _) }
+}
+#[inline]
+pub unsafe fn RtlQueryProcessPlaceholderCompatibilityMode() -> i8 {
+    windows_core::link!("ntdll.dll" "system" fn RtlQueryProcessPlaceholderCompatibilityMode() -> i8);
+    unsafe { RtlQueryProcessPlaceholderCompatibilityMode() }
+}
+#[inline]
+pub unsafe fn RtlQueryThreadPlaceholderCompatibilityMode() -> i8 {
+    windows_core::link!("ntdll.dll" "system" fn RtlQueryThreadPlaceholderCompatibilityMode() -> i8);
+    unsafe { RtlQueryThreadPlaceholderCompatibilityMode() }
+}
+#[inline]
+pub unsafe fn RtlRandom(seed: *mut u32) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlRandom(seed : *mut u32) -> u32);
+    unsafe { RtlRandom(seed as _) }
+}
+#[inline]
+pub unsafe fn RtlRandomEx(seed: *mut u32) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlRandomEx(seed : *mut u32) -> u32);
+    unsafe { RtlRandomEx(seed as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlReplaceSidInSd(securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, oldsid : super::super::Win32::PSID, newsid : super::super::Win32::PSID, numchanges : *mut u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlSecondsSince1970ToTime(elapsedseconds : u32, time : *mut i64));
-windows_link::link!("ntdll.dll" "system" fn RtlSecondsSince1980ToTime(elapsedseconds : u32, time : *mut i64));
+#[inline]
+pub unsafe fn RtlReplaceSidInSd(securitydescriptor: super::PSECURITY_DESCRIPTOR, oldsid: super::PSID, newsid: super::PSID, numchanges: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlReplaceSidInSd(securitydescriptor : super::PSECURITY_DESCRIPTOR, oldsid : super::PSID, newsid : super::PSID, numchanges : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { RtlReplaceSidInSd(securitydescriptor as _, oldsid, newsid, numchanges as _) }
+}
+#[inline]
+pub unsafe fn RtlSecondsSince1970ToTime(elapsedseconds: u32) -> i64 {
+    windows_core::link!("ntdll.dll" "system" fn RtlSecondsSince1970ToTime(elapsedseconds : u32, time : *mut i64));
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        RtlSecondsSince1970ToTime(elapsedseconds, &mut result__);
+        result__
+    }
+}
+#[inline]
+pub unsafe fn RtlSecondsSince1980ToTime(elapsedseconds: u32) -> i64 {
+    windows_core::link!("ntdll.dll" "system" fn RtlSecondsSince1980ToTime(elapsedseconds : u32, time : *mut i64));
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        RtlSecondsSince1980ToTime(elapsedseconds, &mut result__);
+        result__
+    }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, absolutesecuritydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, absolutesecuritydescriptorsize : *mut u32, dacl : *mut super::super::Win32::ACL, daclsize : *mut u32, sacl : *mut super::super::Win32::ACL, saclsize : *mut u32, owner : super::super::Win32::PSID, ownersize : *mut u32, primarygroup : super::super::Win32::PSID, primarygroupsize : *mut u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor: super::PSECURITY_DESCRIPTOR, absolutesecuritydescriptor: Option<super::PSECURITY_DESCRIPTOR>, absolutesecuritydescriptorsize: *mut u32, dacl: Option<*mut super::ACL>, daclsize: *mut u32, sacl: Option<*mut super::ACL>, saclsize: *mut u32, owner: Option<super::PSID>, ownersize: *mut u32, primarygroup: Option<super::PSID>, primarygroupsize: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor : super::PSECURITY_DESCRIPTOR, absolutesecuritydescriptor : super::PSECURITY_DESCRIPTOR, absolutesecuritydescriptorsize : *mut u32, dacl : *mut super::ACL, daclsize : *mut u32, sacl : *mut super::ACL, saclsize : *mut u32, owner : super::PSID, ownersize : *mut u32, primarygroup : super::PSID, primarygroupsize : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { RtlSelfRelativeToAbsoluteSD(selfrelativesecuritydescriptor, absolutesecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, absolutesecuritydescriptorsize as _, dacl.unwrap_or(core::mem::zeroed()) as _, daclsize as _, sacl.unwrap_or(core::mem::zeroed()) as _, saclsize as _, owner.unwrap_or(core::mem::zeroed()) as _, ownersize as _, primarygroup.unwrap_or(core::mem::zeroed()) as _, primarygroupsize as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlSetGroupSecurityDescriptor(securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, group : super::super::Win32::PSID, groupdefaulted : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlSetGroupSecurityDescriptor(securitydescriptor: super::PSECURITY_DESCRIPTOR, group: Option<super::PSID>, groupdefaulted: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlSetGroupSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR, group : super::PSID, groupdefaulted : bool) -> windows_core::NTSTATUS);
+    unsafe { RtlSetGroupSecurityDescriptor(securitydescriptor as _, group.unwrap_or(core::mem::zeroed()) as _, groupdefaulted) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlSetOwnerSecurityDescriptor(securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, owner : super::super::Win32::PSID, ownerdefaulted : bool) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlSetProcessPlaceholderCompatibilityMode(mode : i8) -> i8);
-windows_link::link!("ntdll.dll" "system" fn RtlSetThreadPlaceholderCompatibilityMode(mode : i8) -> i8);
+#[inline]
+pub unsafe fn RtlSetOwnerSecurityDescriptor(securitydescriptor: super::PSECURITY_DESCRIPTOR, owner: Option<super::PSID>, ownerdefaulted: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlSetOwnerSecurityDescriptor(securitydescriptor : super::PSECURITY_DESCRIPTOR, owner : super::PSID, ownerdefaulted : bool) -> windows_core::NTSTATUS);
+    unsafe { RtlSetOwnerSecurityDescriptor(securitydescriptor as _, owner.unwrap_or(core::mem::zeroed()) as _, ownerdefaulted) }
+}
+#[inline]
+pub unsafe fn RtlSetProcessPlaceholderCompatibilityMode(mode: i8) -> i8 {
+    windows_core::link!("ntdll.dll" "system" fn RtlSetProcessPlaceholderCompatibilityMode(mode : i8) -> i8);
+    unsafe { RtlSetProcessPlaceholderCompatibilityMode(mode) }
+}
+#[inline]
+pub unsafe fn RtlSetThreadPlaceholderCompatibilityMode(mode: i8) -> i8 {
+    windows_core::link!("ntdll.dll" "system" fn RtlSetThreadPlaceholderCompatibilityMode(mode : i8) -> i8);
+    unsafe { RtlSetThreadPlaceholderCompatibilityMode(mode) }
+}
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlSubAuthorityCountSid(sid : super::super::Win32::PSID) -> super::super::Win32::PUCHAR);
+#[inline]
+pub unsafe fn RtlSubAuthorityCountSid(sid: super::PSID) -> super::PUCHAR {
+    windows_core::link!("ntdll.dll" "system" fn RtlSubAuthorityCountSid(sid : super::PSID) -> super::PUCHAR);
+    unsafe { RtlSubAuthorityCountSid(sid) }
+}
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlSubAuthoritySid(sid : super::super::Win32::PSID, subauthority : u32) -> super::super::Win32::PULONG);
-windows_link::link!("ntdll.dll" "system" fn RtlTimeToSecondsSince1980(time : *const i64, elapsedseconds : *mut u32) -> bool);
+#[inline]
+pub unsafe fn RtlSubAuthoritySid(sid: super::PSID, subauthority: u32) -> super::PULONG {
+    windows_core::link!("ntdll.dll" "system" fn RtlSubAuthoritySid(sid : super::PSID, subauthority : u32) -> super::PULONG);
+    unsafe { RtlSubAuthoritySid(sid, subauthority) }
+}
+#[inline]
+pub unsafe fn RtlTimeToSecondsSince1980(time: *const i64, elapsedseconds: *mut u32) -> bool {
+    windows_core::link!("ntdll.dll" "system" fn RtlTimeToSecondsSince1980(time : *const i64, elapsedseconds : *mut u32) -> bool);
+    unsafe { RtlTimeToSecondsSince1980(time, elapsedseconds as _) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn RtlUnicodeStringToCountedOemString(destinationstring : super::super::Win32::POEM_STRING, sourcestring : *const super::super::Win32::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlUnicodeStringToCountedOemString(destinationstring: super::POEM_STRING, sourcestring: *const super::UNICODE_STRING, allocatedestinationstring: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeStringToCountedOemString(destinationstring : super::POEM_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_core::NTSTATUS);
+    unsafe { RtlUnicodeStringToCountedOemString(destinationstring, sourcestring, allocatedestinationstring) }
+}
 #[cfg(all(feature = "minwindef", feature = "ntnls"))]
-windows_link::link!("ntdll.dll" "system" fn RtlUnicodeToCustomCPN(customcp : *const super::CPTABLEINFO, customcpstring : *mut i8, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlUnicodeToMultiByteN(multibytestring : *mut i8, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlUnicodeToOemN(oemstring : *mut i8, maxbytesinoemstring : u32, bytesinoemstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlUnicodeToCustomCPN(customcp: *const super::CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToCustomCPN(customcp : *const super::CPTABLEINFO, customcpstring : *mut i8, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_mut_ptr()), customcpstring.len().try_into().unwrap(), bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+}
+#[inline]
+pub unsafe fn RtlUnicodeToMultiByteN(multibytestring: &mut [u8], bytesinmultibytestring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToMultiByteN(multibytestring : *mut i8, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlUnicodeToMultiByteN(core::mem::transmute(multibytestring.as_mut_ptr()), multibytestring.len().try_into().unwrap(), bytesinmultibytestring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+}
+#[inline]
+pub unsafe fn RtlUnicodeToOemN(oemstring: &mut [u8], bytesinoemstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUnicodeToOemN(oemstring : *mut i8, maxbytesinoemstring : u32, bytesinoemstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlUnicodeToOemN(core::mem::transmute(oemstring.as_mut_ptr()), oemstring.len().try_into().unwrap(), bytesinoemstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeStringToCountedOemString(destinationstring : super::super::Win32::POEM_STRING, sourcestring : *const super::super::Win32::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlUpcaseUnicodeStringToCountedOemString(destinationstring: super::POEM_STRING, sourcestring: *const super::UNICODE_STRING, allocatedestinationstring: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeStringToCountedOemString(destinationstring : super::POEM_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_core::NTSTATUS);
+    unsafe { RtlUpcaseUnicodeStringToCountedOemString(destinationstring, sourcestring, allocatedestinationstring) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeStringToOemString(destinationstring : super::super::Win32::POEM_STRING, sourcestring : *const super::super::Win32::UNICODE_STRING, allocatedestinationstring : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlUpcaseUnicodeStringToOemString(destinationstring: super::POEM_STRING, sourcestring: *const super::UNICODE_STRING, allocatedestinationstring: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeStringToOemString(destinationstring : super::POEM_STRING, sourcestring : *const super::UNICODE_STRING, allocatedestinationstring : bool) -> windows_core::NTSTATUS);
+    unsafe { RtlUpcaseUnicodeStringToOemString(destinationstring, sourcestring, allocatedestinationstring) }
+}
 #[cfg(all(feature = "minwindef", feature = "ntnls"))]
-windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToCustomCPN(customcp : *const super::CPTABLEINFO, customcpstring : *mut i8, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToMultiByteN(multibytestring : *mut i8, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_sys::core::NTSTATUS);
-windows_link::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToOemN(oemstring : *mut i8, maxbytesinoemstring : u32, bytesinoemstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlUpcaseUnicodeToCustomCPN(customcp: *const super::CPTABLEINFO, customcpstring: &mut [u8], bytesincustomcpstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToCustomCPN(customcp : *const super::CPTABLEINFO, customcpstring : *mut i8, maxbytesincustomcpstring : u32, bytesincustomcpstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlUpcaseUnicodeToCustomCPN(customcp, core::mem::transmute(customcpstring.as_mut_ptr()), customcpstring.len().try_into().unwrap(), bytesincustomcpstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+}
+#[inline]
+pub unsafe fn RtlUpcaseUnicodeToMultiByteN(multibytestring: &mut [u8], bytesinmultibytestring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToMultiByteN(multibytestring : *mut i8, maxbytesinmultibytestring : u32, bytesinmultibytestring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlUpcaseUnicodeToMultiByteN(core::mem::transmute(multibytestring.as_mut_ptr()), multibytestring.len().try_into().unwrap(), bytesinmultibytestring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+}
+#[inline]
+pub unsafe fn RtlUpcaseUnicodeToOemN(oemstring: &mut [u8], bytesinoemstring: Option<*mut u32>, unicodestring: *const u16, bytesinunicodestring: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlUpcaseUnicodeToOemN(oemstring : *mut i8, maxbytesinoemstring : u32, bytesinoemstring : *mut u32, unicodestring : *const u16, bytesinunicodestring : u32) -> windows_core::NTSTATUS);
+    unsafe { RtlUpcaseUnicodeToOemN(core::mem::transmute(oemstring.as_mut_ptr()), oemstring.len().try_into().unwrap(), bytesinoemstring.unwrap_or(core::mem::zeroed()) as _, unicodestring, bytesinunicodestring) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn RtlValidSid(sid : super::super::Win32::PSID) -> bool);
+#[inline]
+pub unsafe fn RtlValidSid(sid: super::PSID) -> bool {
+    windows_core::link!("ntdll.dll" "system" fn RtlValidSid(sid : super::PSID) -> bool);
+    unsafe { RtlValidSid(sid) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn RtlValidateUnicodeString(flags : u32, string : *const super::super::Win32::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn RtlValidateUnicodeString(flags: Option<u32>, string: *const super::UNICODE_STRING) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlValidateUnicodeString(flags : u32, string : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { RtlValidateUnicodeString(flags.unwrap_or(core::mem::zeroed()) as _, string) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn RtlxOemStringToUnicodeSize(oemstring : *const super::super::Win32::STRING) -> u32);
+#[inline]
+pub unsafe fn RtlxOemStringToUnicodeSize(oemstring: *const super::STRING) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlxOemStringToUnicodeSize(oemstring : *const super::STRING) -> u32);
+    unsafe { RtlxOemStringToUnicodeSize(oemstring) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-windows_link::link!("ntdll.dll" "system" fn RtlxUnicodeStringToOemSize(unicodestring : *const super::super::Win32::UNICODE_STRING) -> u32);
+#[inline]
+pub unsafe fn RtlxUnicodeStringToOemSize(unicodestring: *const super::UNICODE_STRING) -> u32 {
+    windows_core::link!("ntdll.dll" "system" fn RtlxUnicodeStringToOemSize(unicodestring : *const super::UNICODE_STRING) -> u32);
+    unsafe { RtlxUnicodeStringToOemSize(unicodestring) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwAllocateVirtualMemory(processhandle : super::super::Win32::HANDLE, baseaddress : *mut *mut core::ffi::c_void, zerobits : usize, regionsize : *mut usize, allocationtype : u32, protect : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwAllocateVirtualMemory(processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, zerobits: usize, regionsize: *mut usize, allocationtype: u32, protect: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwAllocateVirtualMemory(processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, zerobits : usize, regionsize : *mut usize, allocationtype : u32, protect : u32) -> windows_core::NTSTATUS);
+    unsafe { ZwAllocateVirtualMemory(processhandle, baseaddress as _, zerobits, regionsize as _, allocationtype, protect) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwAllocateVirtualMemoryEx(processhandle : super::super::Win32::HANDLE, baseaddress : *mut *mut core::ffi::c_void, regionsize : *mut usize, allocationtype : u32, pageprotection : u32, extendedparameters : *mut super::super::Win32::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwAllocateVirtualMemoryEx(processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, allocationtype: u32, pageprotection: u32, extendedparameters: Option<&mut [super::MEM_EXTENDED_PARAMETER]>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwAllocateVirtualMemoryEx(processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, regionsize : *mut usize, allocationtype : u32, pageprotection : u32, extendedparameters : *mut super::MEM_EXTENDED_PARAMETER, extendedparametercount : u32) -> windows_core::NTSTATUS);
+    unsafe { ZwAllocateVirtualMemoryEx(processhandle, baseaddress as _, regionsize as _, allocationtype, pageprotection, extendedparameters.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut()), extendedparameters.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
+}
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn ZwCreateEvent(eventhandle : *mut super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, objectattributes : *const super::super::Win32::OBJECT_ATTRIBUTES, eventtype : super::EVENT_TYPE, initialstate : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwCreateEvent(eventhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, eventtype: super::EVENT_TYPE, initialstate: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwCreateEvent(eventhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, eventtype : super::EVENT_TYPE, initialstate : bool) -> windows_core::NTSTATUS);
+    unsafe { ZwCreateEvent(eventhandle as _, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, eventtype, initialstate) }
+}
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn ZwDeleteFile(objectattributes : *const super::super::Win32::OBJECT_ATTRIBUTES) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwDeleteFile(objectattributes: *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwDeleteFile(objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { ZwDeleteFile(objectattributes) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwDuplicateObject(sourceprocesshandle : super::super::Win32::HANDLE, sourcehandle : super::super::Win32::HANDLE, targetprocesshandle : super::super::Win32::HANDLE, targethandle : *mut super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, handleattributes : u32, options : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwDuplicateObject(sourceprocesshandle: super::HANDLE, sourcehandle: super::HANDLE, targetprocesshandle: Option<super::HANDLE>, targethandle: Option<*mut super::HANDLE>, desiredaccess: super::ACCESS_MASK, handleattributes: u32, options: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwDuplicateObject(sourceprocesshandle : super::HANDLE, sourcehandle : super::HANDLE, targetprocesshandle : super::HANDLE, targethandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, handleattributes : u32, options : u32) -> windows_core::NTSTATUS);
+    unsafe { ZwDuplicateObject(sourceprocesshandle, sourcehandle, targetprocesshandle.unwrap_or(core::mem::zeroed()) as _, targethandle.unwrap_or(core::mem::zeroed()) as _, desiredaccess, handleattributes, options) }
+}
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn ZwDuplicateToken(existingtokenhandle : super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, objectattributes : *const super::super::Win32::OBJECT_ATTRIBUTES, effectiveonly : bool, tokentype : super::super::Win32::TOKEN_TYPE, newtokenhandle : *mut super::super::Win32::HANDLE) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwDuplicateToken(existingtokenhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: Option<*const super::OBJECT_ATTRIBUTES>, effectiveonly: bool, tokentype: super::TOKEN_TYPE, newtokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwDuplicateToken(existingtokenhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES, effectiveonly : bool, tokentype : super::TOKEN_TYPE, newtokenhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { ZwDuplicateToken(existingtokenhandle, desiredaccess, objectattributes.unwrap_or(core::mem::zeroed()) as _, effectiveonly, tokentype, newtokenhandle as _) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "C" fn ZwFlushBuffersFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwFlushBuffersFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "C" fn ZwFlushBuffersFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK) -> windows_core::NTSTATUS);
+    unsafe { ZwFlushBuffersFile(filehandle, iostatusblock as _) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "C" fn ZwFlushBuffersFileEx(filehandle : super::super::Win32::HANDLE, flags : u32, parameters : *const core::ffi::c_void, parameterssize : u32, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwFlushBuffersFileEx(filehandle: super::HANDLE, flags: u32, parameters: *const core::ffi::c_void, parameterssize: u32, iostatusblock: *mut super::IO_STATUS_BLOCK) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "C" fn ZwFlushBuffersFileEx(filehandle : super::HANDLE, flags : u32, parameters : *const core::ffi::c_void, parameterssize : u32, iostatusblock : *mut super::IO_STATUS_BLOCK) -> windows_core::NTSTATUS);
+    unsafe { ZwFlushBuffersFileEx(filehandle, flags, parameters, parameterssize, iostatusblock as _) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwFlushVirtualMemory(processhandle : super::super::Win32::HANDLE, baseaddress : *mut *mut core::ffi::c_void, regionsize : *mut usize, iostatus : *mut super::super::Win32::IO_STATUS_BLOCK) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwFlushVirtualMemory(processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, iostatus: *mut super::IO_STATUS_BLOCK) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwFlushVirtualMemory(processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, regionsize : *mut usize, iostatus : *mut super::IO_STATUS_BLOCK) -> windows_core::NTSTATUS);
+    unsafe { ZwFlushVirtualMemory(processhandle, baseaddress as _, regionsize as _, iostatus as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwFreeVirtualMemory(processhandle : super::super::Win32::HANDLE, baseaddress : *mut *mut core::ffi::c_void, regionsize : *mut usize, freetype : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwFreeVirtualMemory(processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, freetype: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwFreeVirtualMemory(processhandle : super::HANDLE, baseaddress : *mut *mut core::ffi::c_void, regionsize : *mut usize, freetype : u32) -> windows_core::NTSTATUS);
+    unsafe { ZwFreeVirtualMemory(processhandle, baseaddress as _, regionsize as _, freetype) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwFsControlFile(filehandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, apcroutine : super::super::Win32::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fscontrolcode : u32, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwFsControlFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, fscontrolcode: u32, inputbuffer: Option<*const core::ffi::c_void>, inputbufferlength: u32, outputbuffer: Option<*mut core::ffi::c_void>, outputbufferlength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwFsControlFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, fscontrolcode : u32, inputbuffer : *const core::ffi::c_void, inputbufferlength : u32, outputbuffer : *mut core::ffi::c_void, outputbufferlength : u32) -> windows_core::NTSTATUS);
+    unsafe { ZwFsControlFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, fscontrolcode, inputbuffer.unwrap_or(core::mem::zeroed()) as _, inputbufferlength, outputbuffer.unwrap_or(core::mem::zeroed()) as _, outputbufferlength) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwLockFile(filehandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, apcroutine : super::super::Win32::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32, failimmediately : bool, exclusivelock : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwLockFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, byteoffset: *const i64, length: *const i64, key: u32, failimmediately: bool, exclusivelock: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwLockFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32, failimmediately : bool, exclusivelock : bool) -> windows_core::NTSTATUS);
+    unsafe { ZwLockFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, byteoffset, length, key, failimmediately, exclusivelock) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwNotifyChangeKey(keyhandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, apcroutine : super::super::Win32::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, completionfilter : u32, watchtree : bool, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwNotifyChangeKey(keyhandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, completionfilter: u32, watchtree: bool, buffer: Option<*mut core::ffi::c_void>, buffersize: u32, asynchronous: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwNotifyChangeKey(keyhandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, completionfilter : u32, watchtree : bool, buffer : *mut core::ffi::c_void, buffersize : u32, asynchronous : bool) -> windows_core::NTSTATUS);
+    unsafe { ZwNotifyChangeKey(keyhandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, completionfilter, watchtree, buffer.unwrap_or(core::mem::zeroed()) as _, buffersize, asynchronous) }
+}
 #[cfg(all(feature = "d3dkmthk", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-windows_link::link!("ntdll.dll" "system" fn ZwOpenDirectoryObject(directoryhandle : *mut super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, objectattributes : *const super::super::Win32::OBJECT_ATTRIBUTES) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwOpenDirectoryObject(directoryhandle: *mut super::HANDLE, desiredaccess: super::ACCESS_MASK, objectattributes: *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenDirectoryObject(directoryhandle : *mut super::HANDLE, desiredaccess : super::ACCESS_MASK, objectattributes : *const super::OBJECT_ATTRIBUTES) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenDirectoryObject(directoryhandle as _, desiredaccess, objectattributes) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwOpenProcessTokenEx(processhandle : super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, handleattributes : u32, tokenhandle : *mut super::super::Win32::HANDLE) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwOpenProcessTokenEx(processhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, handleattributes: u32, tokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenProcessTokenEx(processhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, handleattributes : u32, tokenhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenProcessTokenEx(processhandle, desiredaccess, handleattributes, tokenhandle as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwOpenThreadTokenEx(threadhandle : super::super::Win32::HANDLE, desiredaccess : super::super::Win32::ACCESS_MASK, openasself : bool, handleattributes : u32, tokenhandle : *mut super::super::Win32::HANDLE) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwOpenThreadTokenEx(threadhandle: super::HANDLE, desiredaccess: super::ACCESS_MASK, openasself: bool, handleattributes: u32, tokenhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwOpenThreadTokenEx(threadhandle : super::HANDLE, desiredaccess : super::ACCESS_MASK, openasself : bool, handleattributes : u32, tokenhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
+    unsafe { ZwOpenThreadTokenEx(threadhandle, desiredaccess, openasself, handleattributes, tokenhandle as _) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwQueryDirectoryFile(filehandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, apcroutine : super::super::Win32::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::super::Win32::FILE_INFORMATION_CLASS, returnsingleentry : bool, filename : *const super::super::Win32::UNICODE_STRING, restartscan : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwQueryDirectoryFile(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: super::FILE_INFORMATION_CLASS, returnsingleentry: bool, filename: Option<*const super::UNICODE_STRING>, restartscan: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryDirectoryFile(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS, returnsingleentry : bool, filename : *const super::UNICODE_STRING, restartscan : bool) -> windows_core::NTSTATUS);
+    unsafe { ZwQueryDirectoryFile(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, fileinformation as _, length, fileinformationclass, returnsingleentry, filename.unwrap_or(core::mem::zeroed()) as _, restartscan) }
+}
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwQueryDirectoryFileEx(filehandle : super::super::Win32::HANDLE, event : super::super::Win32::HANDLE, apcroutine : super::super::Win32::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::super::Win32::FILE_INFORMATION_CLASS, queryflags : u32, filename : *const super::super::Win32::UNICODE_STRING) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwQueryDirectoryFileEx(filehandle: super::HANDLE, event: Option<super::HANDLE>, apcroutine: super::PIO_APC_ROUTINE, apccontext: Option<*const core::ffi::c_void>, iostatusblock: *mut super::IO_STATUS_BLOCK, fileinformation: *mut core::ffi::c_void, length: u32, fileinformationclass: super::FILE_INFORMATION_CLASS, queryflags: u32, filename: Option<*const super::UNICODE_STRING>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryDirectoryFileEx(filehandle : super::HANDLE, event : super::HANDLE, apcroutine : super::PIO_APC_ROUTINE, apccontext : *const core::ffi::c_void, iostatusblock : *mut super::IO_STATUS_BLOCK, fileinformation : *mut core::ffi::c_void, length : u32, fileinformationclass : super::FILE_INFORMATION_CLASS, queryflags : u32, filename : *const super::UNICODE_STRING) -> windows_core::NTSTATUS);
+    unsafe { ZwQueryDirectoryFileEx(filehandle, event.unwrap_or(core::mem::zeroed()) as _, apcroutine, apccontext.unwrap_or(core::mem::zeroed()) as _, iostatusblock as _, fileinformation as _, length, fileinformationclass, queryflags, filename.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "C" fn ZwQueryEaFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : bool, ealist : *const core::ffi::c_void, ealistlength : u32, eaindex : *const u32, restartscan : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwQueryEaFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: bool, ealist: Option<*const core::ffi::c_void>, ealistlength: u32, eaindex: Option<*const u32>, restartscan: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "C" fn ZwQueryEaFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : bool, ealist : *const core::ffi::c_void, ealistlength : u32, eaindex : *const u32, restartscan : bool) -> windows_core::NTSTATUS);
+    unsafe { ZwQueryEaFile(filehandle, iostatusblock as _, buffer as _, length, returnsingleentry, ealist.unwrap_or(core::mem::zeroed()) as _, ealistlength, eaindex.unwrap_or(core::mem::zeroed()) as _, restartscan) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwQueryInformationToken(tokenhandle : super::super::Win32::HANDLE, tokeninformationclass : super::super::Win32::TOKEN_INFORMATION_CLASS, tokeninformation : *mut core::ffi::c_void, tokeninformationlength : u32, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwQueryInformationToken(tokenhandle: super::HANDLE, tokeninformationclass: super::TOKEN_INFORMATION_CLASS, tokeninformation: Option<*mut core::ffi::c_void>, tokeninformationlength: u32, returnlength: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryInformationToken(tokenhandle : super::HANDLE, tokeninformationclass : super::TOKEN_INFORMATION_CLASS, tokeninformation : *mut core::ffi::c_void, tokeninformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { ZwQueryInformationToken(tokenhandle, tokeninformationclass, tokeninformation.unwrap_or(core::mem::zeroed()) as _, tokeninformationlength, returnlength as _) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwQueryObject(handle : super::super::Win32::HANDLE, objectinformationclass : super::super::Win32::OBJECT_INFORMATION_CLASS, objectinformation : *mut core::ffi::c_void, objectinformationlength : u32, returnlength : *mut u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwQueryObject(handle: Option<super::HANDLE>, objectinformationclass: super::OBJECT_INFORMATION_CLASS, objectinformation: Option<*mut core::ffi::c_void>, objectinformationlength: u32, returnlength: Option<*mut u32>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryObject(handle : super::HANDLE, objectinformationclass : super::OBJECT_INFORMATION_CLASS, objectinformation : *mut core::ffi::c_void, objectinformationlength : u32, returnlength : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { ZwQueryObject(handle.unwrap_or(core::mem::zeroed()) as _, objectinformationclass, objectinformation.unwrap_or(core::mem::zeroed()) as _, objectinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwQueryQuotaInformationFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : bool, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : super::super::Win32::PSID, restartscan : bool) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwQueryQuotaInformationFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, buffer: *mut core::ffi::c_void, length: u32, returnsingleentry: bool, sidlist: Option<*const core::ffi::c_void>, sidlistlength: u32, startsid: Option<super::PSID>, restartscan: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryQuotaInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *mut core::ffi::c_void, length : u32, returnsingleentry : bool, sidlist : *const core::ffi::c_void, sidlistlength : u32, startsid : super::PSID, restartscan : bool) -> windows_core::NTSTATUS);
+    unsafe { ZwQueryQuotaInformationFile(filehandle, iostatusblock as _, buffer as _, length, returnsingleentry, sidlist.unwrap_or(core::mem::zeroed()) as _, sidlistlength, startsid.unwrap_or(core::mem::zeroed()) as _, restartscan) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwQuerySecurityObject(handle : super::super::Win32::HANDLE, securityinformation : super::super::Win32::SECURITY_INFORMATION, securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR, length : u32, lengthneeded : *mut u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwQuerySecurityObject(handle: super::HANDLE, securityinformation: super::SECURITY_INFORMATION, securitydescriptor: super::PSECURITY_DESCRIPTOR, length: u32, lengthneeded: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQuerySecurityObject(handle : super::HANDLE, securityinformation : super::SECURITY_INFORMATION, securitydescriptor : super::PSECURITY_DESCRIPTOR, length : u32, lengthneeded : *mut u32) -> windows_core::NTSTATUS);
+    unsafe { ZwQuerySecurityObject(handle, securityinformation, securitydescriptor as _, length, lengthneeded as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwQueryVirtualMemory(processhandle : super::super::Win32::HANDLE, baseaddress : *const core::ffi::c_void, memoryinformationclass : MEMORY_INFORMATION_CLASS, memoryinformation : *mut core::ffi::c_void, memoryinformationlength : usize, returnlength : *mut usize) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwQueryVirtualMemory(processhandle: super::HANDLE, baseaddress: Option<*const core::ffi::c_void>, memoryinformationclass: MEMORY_INFORMATION_CLASS, memoryinformation: *mut core::ffi::c_void, memoryinformationlength: usize, returnlength: Option<*mut usize>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwQueryVirtualMemory(processhandle : super::HANDLE, baseaddress : *const core::ffi::c_void, memoryinformationclass : MEMORY_INFORMATION_CLASS, memoryinformation : *mut core::ffi::c_void, memoryinformationlength : usize, returnlength : *mut usize) -> windows_core::NTSTATUS);
+    unsafe { ZwQueryVirtualMemory(processhandle, baseaddress.unwrap_or(core::mem::zeroed()) as _, memoryinformationclass, memoryinformation as _, memoryinformationlength, returnlength.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "C" fn ZwSetEaFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwSetEaFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, buffer: *const core::ffi::c_void, length: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "C" fn ZwSetEaFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32) -> windows_core::NTSTATUS);
+    unsafe { ZwSetEaFile(filehandle, iostatusblock as _, buffer, length) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwSetEvent(eventhandle : super::super::Win32::HANDLE, previousstate : *mut i32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwSetEvent(eventhandle: super::HANDLE, previousstate: Option<*mut i32>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwSetEvent(eventhandle : super::HANDLE, previousstate : *mut i32) -> windows_core::NTSTATUS);
+    unsafe { ZwSetEvent(eventhandle, previousstate.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwSetInformationToken(tokenhandle : super::super::Win32::HANDLE, tokeninformationclass : super::super::Win32::TOKEN_INFORMATION_CLASS, tokeninformation : *const core::ffi::c_void, tokeninformationlength : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwSetInformationToken(tokenhandle: super::HANDLE, tokeninformationclass: super::TOKEN_INFORMATION_CLASS, tokeninformation: *const core::ffi::c_void, tokeninformationlength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwSetInformationToken(tokenhandle : super::HANDLE, tokeninformationclass : super::TOKEN_INFORMATION_CLASS, tokeninformation : *const core::ffi::c_void, tokeninformationlength : u32) -> windows_core::NTSTATUS);
+    unsafe { ZwSetInformationToken(tokenhandle, tokeninformationclass, tokeninformation, tokeninformationlength) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwSetInformationVirtualMemory(processhandle : super::super::Win32::HANDLE, vminformationclass : VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries : usize, virtualaddresses : *const MEMORY_RANGE_ENTRY, vminformation : *const core::ffi::c_void, vminformationlength : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwSetInformationVirtualMemory(processhandle: super::HANDLE, vminformationclass: VIRTUAL_MEMORY_INFORMATION_CLASS, virtualaddresses: &[MEMORY_RANGE_ENTRY], vminformation: *const core::ffi::c_void, vminformationlength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwSetInformationVirtualMemory(processhandle : super::HANDLE, vminformationclass : VIRTUAL_MEMORY_INFORMATION_CLASS, numberofentries : usize, virtualaddresses : *const MEMORY_RANGE_ENTRY, vminformation : *const core::ffi::c_void, vminformationlength : u32) -> windows_core::NTSTATUS);
+    unsafe { ZwSetInformationVirtualMemory(processhandle, vminformationclass, virtualaddresses.len().try_into().unwrap(), virtualaddresses.as_ptr(), vminformation, vminformationlength) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwSetQuotaInformationFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwSetQuotaInformationFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, buffer: *const core::ffi::c_void, length: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwSetQuotaInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, buffer : *const core::ffi::c_void, length : u32) -> windows_core::NTSTATUS);
+    unsafe { ZwSetQuotaInformationFile(filehandle, iostatusblock as _, buffer, length) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwSetSecurityObject(handle : super::super::Win32::HANDLE, securityinformation : super::super::Win32::SECURITY_INFORMATION, securitydescriptor : super::super::Win32::PSECURITY_DESCRIPTOR) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwSetSecurityObject(handle: super::HANDLE, securityinformation: super::SECURITY_INFORMATION, securitydescriptor: super::PSECURITY_DESCRIPTOR) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwSetSecurityObject(handle : super::HANDLE, securityinformation : super::SECURITY_INFORMATION, securitydescriptor : super::PSECURITY_DESCRIPTOR) -> windows_core::NTSTATUS);
+    unsafe { ZwSetSecurityObject(handle, securityinformation, securitydescriptor) }
+}
 #[cfg(all(feature = "wdm", feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwSetVolumeInformationFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, fsinformation : *const core::ffi::c_void, length : u32, fsinformationclass : super::FS_INFORMATION_CLASS) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwSetVolumeInformationFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, fsinformation: *const core::ffi::c_void, length: u32, fsinformationclass: super::FS_INFORMATION_CLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwSetVolumeInformationFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, fsinformation : *const core::ffi::c_void, length : u32, fsinformationclass : super::FS_INFORMATION_CLASS) -> windows_core::NTSTATUS);
+    unsafe { ZwSetVolumeInformationFile(filehandle, iostatusblock as _, fsinformation, length, fsinformationclass) }
+}
 #[cfg(all(feature = "winnt", feature = "winternl"))]
-windows_link::link!("ntdll.dll" "system" fn ZwUnlockFile(filehandle : super::super::Win32::HANDLE, iostatusblock : *mut super::super::Win32::IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwUnlockFile(filehandle: super::HANDLE, iostatusblock: *mut super::IO_STATUS_BLOCK, byteoffset: *const i64, length: *const i64, key: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwUnlockFile(filehandle : super::HANDLE, iostatusblock : *mut super::IO_STATUS_BLOCK, byteoffset : *const i64, length : *const i64, key : u32) -> windows_core::NTSTATUS);
+    unsafe { ZwUnlockFile(filehandle, iostatusblock as _, byteoffset, length, key) }
+}
 #[cfg(feature = "winnt")]
-windows_link::link!("ntdll.dll" "system" fn ZwWaitForSingleObject(handle : super::super::Win32::HANDLE, alertable : bool, timeout : *const i64) -> windows_sys::core::NTSTATUS);
+#[inline]
+pub unsafe fn ZwWaitForSingleObject(handle: super::HANDLE, alertable: bool, timeout: Option<*const i64>) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn ZwWaitForSingleObject(handle : super::HANDLE, alertable : bool, timeout : *const i64) -> windows_core::NTSTATUS);
+    unsafe { ZwWaitForSingleObject(handle, alertable, timeout.unwrap_or(core::mem::zeroed()) as _) }
+}
 #[cfg(feature = "winnt")]
-pub type ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::super::Win32::HANDLE, processhandle: super::super::Win32::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, allocationtype: u32, pageprotection: u32, extendedparameters: *mut super::super::Win32::MEM_EXTENDED_PARAMETER, extendedparametercount: u32) -> windows_sys::core::NTSTATUS>;
+pub type ALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, allocationtype: u32, pageprotection: u32, extendedparameters: *mut super::MEM_EXTENDED_PARAMETER, extendedparametercount: u32) -> windows_core::NTSTATUS>;
 pub const ANSI_DOS_DOT: u32 = 34;
 pub const ANSI_DOS_QM: u32 = 62;
 pub const ANSI_DOS_STAR: u32 = 60;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ATOMIC_CREATE_ECP_CONTEXT {
     pub Size: u16,
     pub InFlags: u16,
@@ -328,7 +1057,7 @@ pub struct ATOMIC_CREATE_ECP_CONTEXT {
     pub FileTimestamps: PFILE_TIMESTAMPS,
     pub FileAttributes: u32,
     pub UsnSourceInfo: u32,
-    pub Usn: super::super::Win32::USN,
+    pub Usn: super::USN,
     pub SuppressFileAttributeInheritanceMask: u32,
     pub InOpFlags: u32,
     pub OutOpFlags: u32,
@@ -337,12 +1066,6 @@ pub struct ATOMIC_CREATE_ECP_CONTEXT {
     pub CaseSensitiveFlagsMask: u32,
     pub InCaseSensitiveFlags: u32,
     pub OutCaseSensitiveFlags: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for ATOMIC_CREATE_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const ATOMIC_CREATE_ECP_IN_FLAG_BEST_EFFORT: u32 = 256;
 pub const ATOMIC_CREATE_ECP_IN_FLAG_EOF_SPECIFIED: u32 = 4;
@@ -389,7 +1112,7 @@ pub const AuditOpenObjectWithTransaction: SE_AUDIT_OPERATION = 4;
 pub const AuditPrivilegeObject: SE_AUDIT_OPERATION = 0;
 pub const AuditPrivilegeService: SE_AUDIT_OPERATION = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct BASE_MCB {
     pub MaximumPairCount: u32,
     pub PairCount: u32,
@@ -403,7 +1126,7 @@ impl Default for BASE_MCB {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CACHE_MANAGER_CALLBACKS {
     pub AcquireForLazyWrite: PACQUIRE_FOR_LAZY_WRITE,
     pub ReleaseFromLazyWrite: PRELEASE_FROM_LAZY_WRITE,
@@ -411,7 +1134,7 @@ pub struct CACHE_MANAGER_CALLBACKS {
     pub ReleaseFromReadAhead: PRELEASE_FROM_READ_AHEAD,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CACHE_MANAGER_CALLBACKS_EX {
     pub Version: u16,
     pub Size: u16,
@@ -419,7 +1142,7 @@ pub struct CACHE_MANAGER_CALLBACKS_EX {
 }
 pub const CACHE_MANAGER_CALLBACKS_EX_V1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct CACHE_MANAGER_CALLBACK_FUNCTIONS {
     pub AcquireForLazyWriteEx: PACQUIRE_FOR_LAZY_WRITE_EX,
     pub ReleaseFromLazyWrite: PRELEASE_FROM_LAZY_WRITE,
@@ -446,11 +1169,11 @@ pub const CC_ACQUIRE_SUPPORTS_ASYNC_LAZYWRITE: u32 = 1;
 pub const CC_AGGRESSIVE_UNMAP_BEHIND: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "usb", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct CC_ASYNC_READ_CONTEXT {
     pub CompletionRoutine: PASYNC_READ_COMPLETION_CALLBACK,
     pub Context: *mut core::ffi::c_void,
-    pub Mdl: super::super::Win32::PMDL,
+    pub Mdl: super::PMDL,
     pub RequestorMode: super::KPROCESSOR_MODE,
     pub NestingLevel: u32,
 }
@@ -461,7 +1184,7 @@ impl Default for CC_ASYNC_READ_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CC_DIRTY_PAGES_INFO {
     pub Version: u32,
     pub DirtyPageThreshold: i64,
@@ -481,13 +1204,13 @@ pub const CC_ENABLE_CPU_CACHE: u32 = 268435456;
 pub const CC_ENABLE_DISK_IO_ACCOUNTING: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "ntdef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CC_ERROR_CALLBACK_CONTEXT {
     pub NodeByteSize: super::CSHORT,
-    pub ErrorCode: windows_sys::core::NTSTATUS,
+    pub ErrorCode: windows_core::NTSTATUS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CC_FILE_SIZES {
     pub AllocationSize: i64,
     pub FileSize: i64,
@@ -497,7 +1220,7 @@ pub const CC_FLUSH_AND_PURGE_GATHER_DIRTY_BITS: u32 = 2;
 pub const CC_FLUSH_AND_PURGE_NO_PURGE: u32 = 1;
 pub const CC_FLUSH_AND_PURGE_WRITEABLE_VIEWS_NOTSEEN: u32 = 4;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct COMPRESSED_DATA_INFO {
     pub CompressionFormatAndEngine: u16,
     pub CompressionUnitShift: u8,
@@ -520,25 +1243,19 @@ pub const COMPRESSION_FORMAT_MAX: u32 = 8;
 pub const COPY_FILE_CHUNK_DUPLICATE_EXTENTS: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COPY_INFORMATION {
     pub SourceFileObject: super::PFILE_OBJECT,
     pub SourceFileOffset: i64,
 }
-#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-impl Default for COPY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CREATE_REDIRECTION_ECP_CONTEXT {
     pub Size: u16,
     pub Flags: u16,
-    pub FileId: super::super::Win32::FILE_ID_128,
-    pub VolumeGuid: windows_sys::core::GUID,
+    pub FileId: super::FILE_ID_128,
+    pub VolumeGuid: windows_core::GUID,
 }
 pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_LAYER: u32 = 1;
 pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_REGISTERED_LAYER: u32 = 4;
@@ -547,7 +1264,7 @@ pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_SCRATCH: u32 = 2;
 pub const CREATE_REDIRECTION_FLAGS_SERVICED_FROM_USER_MODE: u32 = 16;
 pub type CSV_DOWN_LEVEL_FILE_TYPE = i32;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
     pub Version: u32,
     pub IsResume: bool,
@@ -557,7 +1274,7 @@ pub struct CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT {
 }
 pub const CSV_DOWN_LEVEL_OPEN_ECP_CONTEXT_V1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_QUERY_FILE_REVISION_ECP_CONTEXT {
     pub FileId: i64,
     pub FileRevision: [i64; 3],
@@ -569,9 +1286,9 @@ impl Default for CSV_QUERY_FILE_REVISION_ECP_CONTEXT {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 {
-    pub FileId: super::super::Win32::FILE_ID_128,
+    pub FileId: super::FILE_ID_128,
     pub FileRevision: [i64; 3],
 }
 #[cfg(feature = "winnt")]
@@ -581,7 +1298,7 @@ impl Default for CSV_QUERY_FILE_REVISION_ECP_CONTEXT_FILE_ID_128 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct CSV_SET_HANDLE_PROPERTIES_ECP_CONTEXT {
     pub Size: usize,
     pub PauseTimeoutInSeconds: u32,
@@ -593,7 +1310,7 @@ pub const ChangeImageControlArea: FSRTL_CHANGE_BACKING_TYPE = 1;
 pub const ChangeSharedCacheMap: FSRTL_CHANGE_BACKING_TYPE = 2;
 pub const CsvCsvFsInternalFileObject: CSV_DOWN_LEVEL_FILE_TYPE = 1;
 pub const CsvDownLevelFileObject: CSV_DOWN_LEVEL_FILE_TYPE = 0;
-pub const DD_MUP_DEVICE_NAME: windows_sys::core::PCWSTR = windows_sys::core::w!("\\Device\\Mup");
+pub const DD_MUP_DEVICE_NAME: windows_core::PCWSTR = windows_core::w!("\\Device\\Mup");
 pub const DEVICE_RESET_KEEP_STACK: u32 = 4;
 pub const DEVICE_RESET_RESERVED_0: u32 = 1;
 pub const DEVICE_RESET_RESERVED_1: u32 = 2;
@@ -606,15 +1323,15 @@ pub const DO_SUPPORTS_PERSISTENT_ACLS: u32 = 131072;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type DRIVER_FS_NOTIFICATION = Option<unsafe extern "system" fn(deviceobject: *const super::DEVICE_OBJECT, fsactive: bool)>;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DUAL_OPLOCK_KEY_ECP_CONTEXT {
-    pub ParentOplockKey: windows_sys::core::GUID,
-    pub TargetOplockKey: windows_sys::core::GUID,
+    pub ParentOplockKey: windows_core::GUID,
+    pub TargetOplockKey: windows_core::GUID,
     pub ParentOplockKeySet: bool,
     pub TargetOplockKeySet: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DUPLICATE_CLUSTER_DATA {
     pub SourceLcn: i64,
     pub TargetLcn: i64,
@@ -623,15 +1340,15 @@ pub struct DUPLICATE_CLUSTER_DATA {
     pub Reserved: u32,
 }
 pub const DfsLinkTrackingInformation: LINK_TRACKING_INFORMATION_TYPE = 1;
-pub const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY: windows_sys::core::PCSTR = windows_sys::core::s!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY");
-pub const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY_U: windows_sys::core::PCWSTR = windows_sys::core::w!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY");
-pub const EA_NAME_NETWORK_OPEN_ECP_PRIVACY: windows_sys::core::PCSTR = windows_sys::core::s!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY");
-pub const EA_NAME_NETWORK_OPEN_ECP_PRIVACY_U: windows_sys::core::PCWSTR = windows_sys::core::w!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY");
+pub const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY: windows_core::PCSTR = windows_core::s!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY");
+pub const EA_NAME_NETWORK_OPEN_ECP_INTEGRITY_U: windows_core::PCWSTR = windows_core::w!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-INTEGRITY");
+pub const EA_NAME_NETWORK_OPEN_ECP_PRIVACY: windows_core::PCSTR = windows_core::s!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY");
+pub const EA_NAME_NETWORK_OPEN_ECP_PRIVACY_U: windows_core::PCWSTR = windows_core::w!("ECP{c584edbf-00df-4d28-00b8-8435baca8911e8}-PRIVACY");
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ECP_HEADER(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ECP_OPEN_PARAMETERS {
     pub Size: u16,
     pub Reserved: u16,
@@ -642,14 +1359,14 @@ pub const ECP_OPEN_PARAMETERS_FLAG_IGNORE_DIR_CASE_SENSITIVITY: u32 = 8;
 pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_DELETE: u32 = 4;
 pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_READ: u32 = 1;
 pub const ECP_OPEN_PARAMETERS_FLAG_OPEN_FOR_WRITE: u32 = 2;
-pub const ECP_TYPE_CLFS_CREATE_CONTAINER: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x8650c9fe_0cec_8bf6_bd1e_835956541090);
-pub const ECP_TYPE_IO_STOP_ON_SYMLINK_FILTER_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x940e5d56_1646_4d3c_87b6_577ec36a1466);
-pub const ECP_TYPE_OPEN_REPARSE_GUID: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x323eb6a8_affd_4d95_8230_863bce09d37a);
+pub const ECP_TYPE_CLFS_CREATE_CONTAINER: windows_core::GUID = windows_core::GUID::from_u128(0x8650c9fe_0cec_8bf6_bd1e_835956541090);
+pub const ECP_TYPE_IO_STOP_ON_SYMLINK_FILTER_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x940e5d56_1646_4d3c_87b6_577ec36a1466);
+pub const ECP_TYPE_OPEN_REPARSE_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x323eb6a8_affd_4d95_8230_863bce09d37a);
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct EOF_WAIT_BLOCK {
-    pub EofWaitLinks: super::super::Win32::LIST_ENTRY,
+    pub EofWaitLinks: super::LIST_ENTRY,
     pub Event: super::KEVENT,
 }
 #[cfg(all(feature = "wdm", feature = "winnt"))]
@@ -659,7 +1376,7 @@ impl Default for EOF_WAIT_BLOCK {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EXTENT_READ_CACHE_INFO_BUFFER {
     pub AllocatedCache: i64,
     pub PopulatedCache: i64,
@@ -669,9 +1386,9 @@ pub const EqualTo: FSRTL_COMPARISON_RESULT = 0;
 pub type FAST_IO_POSSIBLE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ACCESS_INFORMATION {
-    pub AccessFlags: super::super::Win32::ACCESS_MASK,
+    pub AccessFlags: super::ACCESS_MASK,
 }
 pub const FILE_ACTION_ADDED_STREAM: u32 = 6;
 pub const FILE_ACTION_ID_NOT_TUNNELLED: u32 = 10;
@@ -680,13 +1397,13 @@ pub const FILE_ACTION_REMOVED_BY_DELETE: u32 = 9;
 pub const FILE_ACTION_REMOVED_STREAM: u32 = 7;
 pub const FILE_ACTION_TUNNELLED_ID_COLLISION: u32 = 11;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ALLOCATION_INFORMATION {
     pub AllocationSize: i64,
 }
 #[repr(C)]
 #[cfg(all(feature = "ntddk", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ALL_INFORMATION {
     pub BasicInformation: super::FILE_BASIC_INFORMATION,
     pub StandardInformation: super::FILE_STANDARD_INFORMATION,
@@ -700,7 +1417,7 @@ pub struct FILE_ALL_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -713,7 +1430,7 @@ pub struct FILE_BOTH_DIR_INFORMATION {
     pub FileAttributes: u32,
     pub FileNameLength: u32,
     pub EaSize: u32,
-    pub ShortNameLength: super::super::Win32::CCHAR,
+    pub ShortNameLength: super::CCHAR,
     pub ShortName: [u16; 12],
     pub FileName: [u16; 1],
 }
@@ -732,9 +1449,9 @@ pub const FILE_CLEANUP_UNKNOWN: u32 = 0;
 pub const FILE_CLEANUP_WRONG_DEVICE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_COMPLETION_INFORMATION {
-    pub Port: super::super::Win32::HANDLE,
+    pub Port: super::HANDLE,
     pub Key: *mut core::ffi::c_void,
 }
 #[cfg(feature = "winnt")]
@@ -744,7 +1461,7 @@ impl Default for FILE_COMPLETION_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_COMPRESSION_INFORMATION {
     pub CompressedFileSize: i64,
     pub CompressionFormat: u16,
@@ -759,7 +1476,7 @@ impl Default for FILE_COMPRESSION_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_DIRECTORY_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -779,7 +1496,7 @@ impl Default for FILE_DIRECTORY_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_EA_INFORMATION {
     pub EaSize: u32,
 }
@@ -794,7 +1511,7 @@ pub const FILE_EA_TYPE_METAFILE: u32 = 65530;
 pub const FILE_EA_TYPE_MVMT: u32 = 65503;
 pub const FILE_EA_TYPE_MVST: u32 = 65502;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_END_OF_FILE_INFORMATION_EX {
     pub EndOfFile: i64,
     pub PagingFileSizeInMM: i64,
@@ -802,7 +1519,7 @@ pub struct FILE_END_OF_FILE_INFORMATION_EX {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_ATTRIBUTE_INFORMATION {
     pub FileSystemAttributes: u32,
     pub MaximumComponentNameLength: i32,
@@ -815,7 +1532,7 @@ impl Default for FILE_FS_ATTRIBUTE_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_FS_CONTROL_INFORMATION {
     pub FreeSpaceStartFiltering: i64,
     pub FreeSpaceThreshold: i64,
@@ -825,12 +1542,12 @@ pub struct FILE_FS_CONTROL_INFORMATION {
     pub FileSystemControlFlags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_FS_DATA_COPY_INFORMATION {
     pub NumberOfCopies: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FS_DRIVER_PATH_INFORMATION {
     pub DriverInPath: bool,
     pub DriverNameLength: u32,
@@ -842,17 +1559,17 @@ impl Default for FILE_FS_DRIVER_PATH_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_FS_GUID_INFORMATION {
-    pub FsGuid: windows_sys::core::GUID,
+    pub FsGuid: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_FS_VOLUME_FLAGS_INFORMATION {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_FULL_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -873,7 +1590,7 @@ impl Default for FILE_FULL_DIR_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_GET_EA_INFORMATION {
     pub NextEntryOffset: u32,
     pub EaNameLength: u8,
@@ -886,15 +1603,15 @@ impl Default for FILE_GET_EA_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_GET_QUOTA_INFORMATION {
     pub NextEntryOffset: u32,
     pub SidLength: u32,
-    pub Sid: super::super::Win32::SID,
+    pub Sid: super::SID,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_64_EXTD_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -909,7 +1626,7 @@ pub struct FILE_ID_64_EXTD_BOTH_DIR_INFORMATION {
     pub EaSize: u32,
     pub ReparsePointTag: u32,
     pub FileId: i64,
-    pub ShortNameLength: super::super::Win32::CCHAR,
+    pub ShortNameLength: super::CCHAR,
     pub ShortName: [u16; 12],
     pub FileName: [u16; 1],
 }
@@ -920,7 +1637,7 @@ impl Default for FILE_ID_64_EXTD_BOTH_DIR_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_64_EXTD_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -944,7 +1661,7 @@ impl Default for FILE_ID_64_EXTD_DIR_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_ALL_EXTD_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -959,8 +1676,8 @@ pub struct FILE_ID_ALL_EXTD_BOTH_DIR_INFORMATION {
     pub EaSize: u32,
     pub ReparsePointTag: u32,
     pub FileId: i64,
-    pub FileId128: super::super::Win32::FILE_ID_128,
-    pub ShortNameLength: super::super::Win32::CCHAR,
+    pub FileId128: super::FILE_ID_128,
+    pub ShortNameLength: super::CCHAR,
     pub ShortName: [u16; 12],
     pub FileName: [u16; 1],
 }
@@ -972,7 +1689,7 @@ impl Default for FILE_ID_ALL_EXTD_BOTH_DIR_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_ALL_EXTD_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -987,7 +1704,7 @@ pub struct FILE_ID_ALL_EXTD_DIR_INFORMATION {
     pub EaSize: u32,
     pub ReparsePointTag: u32,
     pub FileId: i64,
-    pub FileId128: super::super::Win32::FILE_ID_128,
+    pub FileId128: super::FILE_ID_128,
     pub FileName: [u16; 1],
 }
 #[cfg(feature = "winnt")]
@@ -998,7 +1715,7 @@ impl Default for FILE_ID_ALL_EXTD_DIR_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1011,7 +1728,7 @@ pub struct FILE_ID_BOTH_DIR_INFORMATION {
     pub FileAttributes: u32,
     pub FileNameLength: u32,
     pub EaSize: u32,
-    pub ShortNameLength: super::super::Win32::CCHAR,
+    pub ShortNameLength: super::CCHAR,
     pub ShortName: [u16; 12],
     pub FileId: i64,
     pub FileName: [u16; 1],
@@ -1024,7 +1741,7 @@ impl Default for FILE_ID_BOTH_DIR_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_EXTD_BOTH_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1038,8 +1755,8 @@ pub struct FILE_ID_EXTD_BOTH_DIR_INFORMATION {
     pub FileNameLength: u32,
     pub EaSize: u32,
     pub ReparsePointTag: u32,
-    pub FileId: super::super::Win32::FILE_ID_128,
-    pub ShortNameLength: super::super::Win32::CCHAR,
+    pub FileId: super::FILE_ID_128,
+    pub ShortNameLength: super::CCHAR,
     pub ShortName: [u16; 12],
     pub FileName: [u16; 1],
 }
@@ -1051,7 +1768,7 @@ impl Default for FILE_ID_EXTD_BOTH_DIR_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_EXTD_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1065,7 +1782,7 @@ pub struct FILE_ID_EXTD_DIR_INFORMATION {
     pub FileNameLength: u32,
     pub EaSize: u32,
     pub ReparsePointTag: u32,
-    pub FileId: super::super::Win32::FILE_ID_128,
+    pub FileId: super::FILE_ID_128,
     pub FileName: [u16; 1],
 }
 #[cfg(feature = "winnt")]
@@ -1075,7 +1792,7 @@ impl Default for FILE_ID_EXTD_DIR_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_FULL_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1097,7 +1814,7 @@ impl Default for FILE_ID_FULL_DIR_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_ID_GLOBAL_TX_DIR_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1110,7 +1827,7 @@ pub struct FILE_ID_GLOBAL_TX_DIR_INFORMATION {
     pub FileAttributes: u32,
     pub FileNameLength: u32,
     pub FileId: i64,
-    pub LockingTransactionId: windows_sys::core::GUID,
+    pub LockingTransactionId: windows_core::GUID,
     pub TxInfoFlags: u32,
     pub FileName: [u16; 1],
 }
@@ -1124,41 +1841,41 @@ pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_VISIBLE_TO_TX: u32 = 2;
 pub const FILE_ID_GLOBAL_TX_DIR_INFO_FLAG_WRITELOCKED: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_ID_INFORMATION {
     pub VolumeSerialNumber: u64,
-    pub FileId: super::super::Win32::FILE_ID_128,
+    pub FileId: super::FILE_ID_128,
 }
 #[repr(C)]
 #[cfg(feature = "winternl")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_INFORMATION_DEFINITION {
-    pub Class: super::super::Win32::FILE_INFORMATION_CLASS,
+    pub Class: super::FILE_INFORMATION_CLASS,
     pub NextEntryOffset: u32,
     pub FileNameOffset: u32,
     pub FileNameLengthOffset: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_INTERNAL_INFORMATION {
     pub IndexNumber: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_KNOWN_FOLDER_INFORMATION {
     pub Type: FILE_KNOWN_FOLDER_TYPE,
 }
 pub type FILE_KNOWN_FOLDER_TYPE = i32;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_LINKS_FULL_ID_INFORMATION {
     pub BytesNeeded: u32,
     pub EntriesReturned: u32,
     pub Entry: FILE_LINK_ENTRY_FULL_ID_INFORMATION,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_LINKS_INFORMATION {
     pub BytesNeeded: u32,
     pub EntriesReturned: u32,
@@ -1166,10 +1883,10 @@ pub struct FILE_LINKS_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LINK_ENTRY_FULL_ID_INFORMATION {
     pub NextEntryOffset: u32,
-    pub ParentFileId: super::super::Win32::FILE_ID_128,
+    pub ParentFileId: super::FILE_ID_128,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
@@ -1180,7 +1897,7 @@ impl Default for FILE_LINK_ENTRY_FULL_ID_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LINK_ENTRY_INFORMATION {
     pub NextEntryOffset: u32,
     pub ParentFileId: i64,
@@ -1201,7 +1918,7 @@ pub const FILE_LINK_IGNORE_READONLY_ATTRIBUTE: u32 = 64;
 #[derive(Clone, Copy)]
 pub struct FILE_LINK_INFORMATION {
     pub Anonymous: FILE_LINK_INFORMATION_0,
-    pub RootDirectory: super::super::Win32::HANDLE,
+    pub RootDirectory: super::HANDLE,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
@@ -1232,7 +1949,7 @@ pub const FILE_LINK_REPLACE_IF_EXISTS: u32 = 1;
 pub const FILE_LINK_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct FILE_LOCK {
     pub CompleteLockIrpRoutine: PCOMPLETE_LOCK_IRP_ROUTINE,
     pub UnlockRoutine: PUNLOCK_ROUTINE,
@@ -1251,7 +1968,7 @@ impl Default for FILE_LOCK {
 }
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_LOCK_INFO {
     pub StartingByte: i64,
     pub Length: i64,
@@ -1268,7 +1985,7 @@ impl Default for FILE_LOCK_INFO {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_MAILSLOT_QUERY_INFORMATION {
     pub MaximumMessageSize: u32,
     pub MailslotQuota: u32,
@@ -1278,27 +1995,21 @@ pub struct FILE_MAILSLOT_QUERY_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_MAILSLOT_SET_INFORMATION {
-    pub ReadTimeout: super::super::Win32::PLARGE_INTEGER,
-}
-#[cfg(feature = "winnt")]
-impl Default for FILE_MAILSLOT_SET_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+    pub ReadTimeout: super::PLARGE_INTEGER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_MODE_INFORMATION {
     pub Mode: u32,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_MOVE_CLUSTER_INFORMATION {
     pub ClusterCount: u32,
-    pub RootDirectory: super::super::Win32::HANDLE,
+    pub RootDirectory: super::HANDLE,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
@@ -1309,7 +2020,7 @@ impl Default for FILE_MOVE_CLUSTER_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_NAMES_INFORMATION {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -1323,7 +2034,7 @@ impl Default for FILE_NAMES_INFORMATION {
 }
 pub const FILE_NEED_EA: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_NETWORK_PHYSICAL_NAME_INFORMATION {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
@@ -1363,7 +2074,7 @@ impl Default for FILE_OBJECTID_INFORMATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_OBJECTID_INFORMATION_0_0 {
     pub BirthVolumeId: [u8; 16],
     pub BirthObjectId: [u8; 16],
@@ -1380,22 +2091,16 @@ pub const FILE_OPLOCK_BROKEN_TO_NONE: u32 = 8;
 pub const FILE_PIPE_ACCEPT_REMOTE_CLIENTS: u32 = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_ASSIGN_EVENT_BUFFER {
-    pub EventHandle: super::super::Win32::HANDLE,
+    pub EventHandle: super::HANDLE,
     pub KeyValue: u32,
-}
-#[cfg(feature = "winnt")]
-impl Default for FILE_PIPE_ASSIGN_EVENT_BUFFER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const FILE_PIPE_BYTE_STREAM_MODE: u32 = 0;
 pub const FILE_PIPE_BYTE_STREAM_TYPE: u32 = 0;
 pub const FILE_PIPE_CLIENT_END: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER {
     pub ClientSession: *mut core::ffi::c_void,
     pub ClientProcess: *mut core::ffi::c_void,
@@ -1406,7 +2111,7 @@ impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER_EX {
     pub ClientSession: *mut core::ffi::c_void,
     pub ClientProcess: *mut core::ffi::c_void,
@@ -1419,7 +2124,7 @@ impl Default for FILE_PIPE_CLIENT_PROCESS_BUFFER_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_CLIENT_PROCESS_BUFFER_V2 {
     pub ClientSession: u64,
     pub ClientProcess: *mut core::ffi::c_void,
@@ -1434,7 +2139,7 @@ pub const FILE_PIPE_COMPLETE_OPERATION: u32 = 1;
 pub const FILE_PIPE_COMPUTER_NAME_LENGTH: u32 = 15;
 pub const FILE_PIPE_CONNECTED_STATE: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_CREATE_SYMLINK_INPUT {
     pub NameOffset: u16,
     pub NameLength: u16,
@@ -1443,14 +2148,14 @@ pub struct FILE_PIPE_CREATE_SYMLINK_INPUT {
     pub Flags: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_DELETE_SYMLINK_INPUT {
     pub NameOffset: u16,
     pub NameLength: u16,
 }
 pub const FILE_PIPE_DISCONNECTED_STATE: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_EVENT_BUFFER {
     pub NamedPipeState: u32,
     pub EntryType: u32,
@@ -1461,14 +2166,14 @@ pub struct FILE_PIPE_EVENT_BUFFER {
 pub const FILE_PIPE_FULL_DUPLEX: u32 = 2;
 pub const FILE_PIPE_INBOUND: u32 = 0;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_INFORMATION {
     pub ReadMode: u32,
     pub CompletionMode: u32,
 }
 pub const FILE_PIPE_LISTENING_STATE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_LOCAL_INFORMATION {
     pub NamedPipeType: u32,
     pub NamedPipeConfiguration: u32,
@@ -1485,7 +2190,7 @@ pub const FILE_PIPE_MESSAGE_MODE: u32 = 1;
 pub const FILE_PIPE_MESSAGE_TYPE: u32 = 1;
 pub const FILE_PIPE_OUTBOUND: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_PEEK_BUFFER {
     pub NamedPipeState: u32,
     pub ReadDataAvailable: u32,
@@ -1502,7 +2207,7 @@ pub const FILE_PIPE_QUEUE_OPERATION: u32 = 0;
 pub const FILE_PIPE_READ_DATA: u32 = 0;
 pub const FILE_PIPE_REJECT_REMOTE_CLIENTS: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_REMOTE_INFORMATION {
     pub CollectDataTime: i64,
     pub MaximumCollectionCount: u32,
@@ -1510,22 +2215,16 @@ pub struct FILE_PIPE_REMOTE_INFORMATION {
 pub const FILE_PIPE_SERVER_END: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_PIPE_SILO_ARRIVAL_INPUT {
-    pub JobHandle: super::super::Win32::HANDLE,
-}
-#[cfg(feature = "winnt")]
-impl Default for FILE_PIPE_SILO_ARRIVAL_INPUT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+    pub JobHandle: super::HANDLE,
 }
 pub const FILE_PIPE_SYMLINK_FLAG_GLOBAL: u32 = 1;
 pub const FILE_PIPE_SYMLINK_FLAG_RELATIVE: u32 = 2;
 pub const FILE_PIPE_SYMLINK_VALID_FLAGS: u32 = 3;
 pub const FILE_PIPE_TYPE_VALID_MASK: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_PIPE_WAIT_FOR_BUFFER {
     pub Timeout: i64,
     pub NameLength: u32,
@@ -1540,7 +2239,7 @@ impl Default for FILE_PIPE_WAIT_FOR_BUFFER {
 pub const FILE_PIPE_WRITE_SPACE: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_QUOTA_INFORMATION {
     pub NextEntryOffset: u32,
     pub SidLength: u32,
@@ -1548,7 +2247,7 @@ pub struct FILE_QUOTA_INFORMATION {
     pub QuotaUsed: i64,
     pub QuotaThreshold: i64,
     pub QuotaLimit: i64,
-    pub Sid: super::super::Win32::SID,
+    pub Sid: super::SID,
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -1570,7 +2269,7 @@ impl Default for FILE_REMOTE_PROTOCOL_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_0 {
     pub Reserved: [u32; 8],
 }
@@ -1591,18 +2290,18 @@ impl Default for FILE_REMOTE_PROTOCOL_INFORMATION_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0 {
     pub Server: FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0,
     pub Share: FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0_0 {
     pub Capabilities: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_REMOTE_PROTOCOL_INFORMATION_1_0_1 {
     pub Capabilities: u32,
     pub ShareFlags: u32,
@@ -1624,7 +2323,7 @@ pub const FILE_RENAME_IGNORE_READONLY_ATTRIBUTE: u32 = 64;
 #[derive(Clone, Copy)]
 pub struct FILE_RENAME_INFORMATION {
     pub Anonymous: FILE_RENAME_INFORMATION_0,
-    pub RootDirectory: super::super::Win32::HANDLE,
+    pub RootDirectory: super::HANDLE,
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
 }
@@ -1655,13 +2354,13 @@ pub const FILE_RENAME_REPLACE_IF_EXISTS: u32 = 1;
 pub const FILE_RENAME_SUPPRESS_PIN_STATE_INHERITANCE: u32 = 4;
 pub const FILE_RENAME_SUPPRESS_STORAGE_RESERVE_INHERITANCE: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_REPARSE_POINT_INFORMATION {
     pub FileReference: i64,
     pub Tag: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STANDARD_LINK_INFORMATION {
     pub NumberOfAccessibleLinks: u32,
     pub TotalNumberOfLinks: u32,
@@ -1670,12 +2369,12 @@ pub struct FILE_STANDARD_LINK_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winioctl")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STORAGE_RESERVE_ID_INFORMATION {
-    pub StorageReserveId: super::super::Win32::STORAGE_RESERVE_ID,
+    pub StorageReserveId: super::STORAGE_RESERVE_ID,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_STREAM_INFORMATION {
     pub NextEntryOffset: u32,
     pub StreamNameLength: u32,
@@ -1689,13 +2388,13 @@ impl Default for FILE_STREAM_INFORMATION {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_STREAM_RESERVATION_INFORMATION {
     pub TrackedReservation: i64,
     pub EnforcedReservation: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FILE_TIMESTAMPS {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -1704,9 +2403,9 @@ pub struct FILE_TIMESTAMPS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_TRACKING_INFORMATION {
-    pub DestinationFile: super::super::Win32::HANDLE,
+    pub DestinationFile: super::HANDLE,
     pub ObjectInformationLength: u32,
     pub ObjectInformation: [i8; 1],
 }
@@ -1729,7 +2428,7 @@ pub const FILE_VC_QUOTA_NONE: u32 = 0;
 pub const FILE_VC_QUOTA_TRACK: u32 = 1;
 pub const FILE_VC_VALID_MASK: u32 = 1023;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FILE_VOLUME_NAME_INFORMATION {
     pub DeviceNameLength: u32,
     pub DeviceName: [u16; 1],
@@ -1745,13 +2444,13 @@ pub const FLAGS_END_OF_FILE_INFO_EX_EXTEND_PAGING: u32 = 1;
 pub const FLAGS_END_OF_FILE_INFO_EX_NO_EXTRA_PAGING_EXTEND: u32 = 2;
 pub const FLAGS_END_OF_FILE_INFO_EX_TIME_CONSTRAINED: u32 = 4;
 #[cfg(feature = "winnt")]
-pub type FREE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::super::Win32::HANDLE, processhandle: super::super::Win32::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, freetype: u32) -> windows_sys::core::NTSTATUS>;
+pub type FREE_VIRTUAL_MEMORY_EX_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: *mut *mut core::ffi::c_void, regionsize: *mut usize, freetype: u32) -> windows_core::NTSTATUS>;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_GHOST_FILE_EXTENTS_INPUT_BUFFER {
     pub FileOffset: i64,
     pub ByteCount: i64,
-    pub RecallOwnerGuid: windows_sys::core::GUID,
+    pub RecallOwnerGuid: windows_core::GUID,
     pub RecallMetadataBufferSize: u32,
     pub RecallMetadataBuffer: [u8; 1],
 }
@@ -1790,13 +2489,13 @@ pub const FSCTL_PIPE_SILO_ARRIVAL: u32 = 1146952;
 pub const FSCTL_PIPE_TRANSCEIVE: u32 = 1163287;
 pub const FSCTL_PIPE_WAIT: u32 = 1114136;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_QUERY_GHOSTED_FILE_EXTENTS_INPUT_RANGE {
     pub FileOffset: i64,
     pub ByteCount: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT {
     pub ExtentCount: u32,
     pub TotalExtentCount: u32,
@@ -1808,17 +2507,17 @@ impl Default for FSCTL_QUERY_GHOSTED_FILE_EXTENTS_OUTPUT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_QUERY_VOLUME_NUMA_INFO_OUTPUT {
     pub NumaNode: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_UNMAP_SPACE_INPUT_BUFFER {
     pub BytesToUnmap: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSCTL_UNMAP_SPACE_OUTPUT {
     pub BytesUnmapped: i64,
 }
@@ -1830,7 +2529,7 @@ pub const FSRTL_ADD_TC_KEY_BY_SHORT_NAME: u32 = 2;
 pub struct FSRTL_ADVANCED_FCB_HEADER {
     pub Base: FSRTL_COMMON_FCB_HEADER,
     pub FastMutex: super::PFAST_MUTEX,
-    pub FilterContexts: super::super::Win32::LIST_ENTRY,
+    pub FilterContexts: super::LIST_ENTRY,
     pub PushLock: usize,
     pub FileContextSupportPointer: *mut *mut core::ffi::c_void,
     pub Anonymous: FSRTL_ADVANCED_FCB_HEADER_0,
@@ -1857,20 +2556,24 @@ impl Default for FSRTL_ADVANCED_FCB_HEADER_0 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type FSRTL_ALLOCATE_ECPLIST_FLAGS = u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct FSRTL_ALLOCATE_ECPLIST_FLAGS(pub u32);
 pub const FSRTL_ALLOCATE_ECPLIST_FLAG_CHARGE_QUOTA: u32 = 1;
-pub type FSRTL_ALLOCATE_ECP_FLAGS = u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct FSRTL_ALLOCATE_ECP_FLAGS(pub u32);
 pub const FSRTL_ALLOCATE_ECP_FLAG_CHARGE_QUOTA: u32 = 1;
 pub const FSRTL_ALLOCATE_ECP_FLAG_NONPAGED_POOL: u32 = 2;
 pub const FSRTL_ASYNC_CACHED_READ_TOP_LEVEL_IRP: isize = 7;
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_AUXILIARY_BUFFER {
     pub Buffer: *mut core::ffi::c_void,
     pub Length: u32,
     pub Flags: u32,
-    pub Mdl: super::super::Win32::PMDL,
+    pub Mdl: super::PMDL,
 }
 #[cfg(feature = "usb")]
 impl Default for FSRTL_AUXILIARY_BUFFER {
@@ -1885,7 +2588,7 @@ pub const FSRTL_CC_FLUSH_ERROR_FLAG_NO_LOG_ENTRY: u32 = 2;
 pub type FSRTL_CHANGE_BACKING_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_COMMON_FCB_HEADER {
     pub NodeTypeCode: super::CSHORT,
     pub NodeByteSize: super::CSHORT,
@@ -1899,15 +2602,11 @@ pub struct FSRTL_COMMON_FCB_HEADER {
     pub FileSize: i64,
     pub ValidDataLength: i64,
 }
-#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
-impl Default for FSRTL_COMMON_FCB_HEADER {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub type FSRTL_COMPARISON_RESULT = i32;
 pub const FSRTL_DRIVER_BACKING_FLAG_USE_PAGE_FILE: u32 = 1;
-pub type FSRTL_ECP_LOOKASIDE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct FSRTL_ECP_LOOKASIDE_FLAGS(pub u32);
 pub const FSRTL_ECP_LOOKASIDE_FLAG_NONPAGED_POOL: u32 = 2;
 pub const FSRTL_FAST_IO_TOP_LEVEL_IRP: isize = 4;
 pub const FSRTL_FAT_LEGAL: u32 = 1;
@@ -1937,16 +2636,16 @@ pub const FSRTL_HPFS_LEGAL: u32 = 2;
 pub const FSRTL_MAX_TOP_LEVEL_IRP_FLAG: isize = 65535;
 pub const FSRTL_MOD_WRITE_TOP_LEVEL_IRP: isize = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_1 {
     pub ProviderId: u32,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_MUP_PROVIDER_INFO_LEVEL_2 {
     pub ProviderId: u32,
-    pub ProviderName: super::super::Win32::UNICODE_STRING,
+    pub ProviderName: super::UNICODE_STRING,
 }
 pub const FSRTL_NETWORK1_TOP_LEVEL_IRP: isize = 5;
 pub const FSRTL_NETWORK2_TOP_LEVEL_IRP: isize = 6;
@@ -1955,9 +2654,9 @@ pub const FSRTL_NTFS_STREAM_LEGAL: u32 = 20;
 pub const FSRTL_OLE_LEGAL: u32 = 16;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_PER_FILEOBJECT_CONTEXT {
-    pub Links: super::super::Win32::LIST_ENTRY,
+    pub Links: super::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
     pub InstanceId: *mut core::ffi::c_void,
 }
@@ -1969,9 +2668,9 @@ impl Default for FSRTL_PER_FILEOBJECT_CONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_PER_FILE_CONTEXT {
-    pub Links: super::super::Win32::LIST_ENTRY,
+    pub Links: super::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
     pub InstanceId: *mut core::ffi::c_void,
     pub FreeCallback: super::PFREE_FUNCTION,
@@ -1984,9 +2683,9 @@ impl Default for FSRTL_PER_FILE_CONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FSRTL_PER_STREAM_CONTEXT {
-    pub Links: super::super::Win32::LIST_ENTRY,
+    pub Links: super::LIST_ENTRY,
     pub OwnerId: *mut core::ffi::c_void,
     pub InstanceId: *mut core::ffi::c_void,
     pub FreeCallback: super::PFREE_FUNCTION,
@@ -1997,11 +2696,15 @@ impl Default for FSRTL_PER_STREAM_CONTEXT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type FSRTL_UNC_HARDENING_CAPABILITIES = u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct FSRTL_UNC_HARDENING_CAPABILITIES(pub u32);
 pub const FSRTL_UNC_HARDENING_CAPABILITIES_INTEGRITY: u32 = 2;
 pub const FSRTL_UNC_HARDENING_CAPABILITIES_MUTUAL_AUTH: u32 = 1;
 pub const FSRTL_UNC_HARDENING_CAPABILITIES_PRIVACY: u32 = 4;
-pub type FSRTL_UNC_PROVIDER_FLAGS = u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct FSRTL_UNC_PROVIDER_FLAGS(pub u32);
 pub const FSRTL_UNC_PROVIDER_FLAGS_CONTAINER_AWARE: u32 = 8;
 pub const FSRTL_UNC_PROVIDER_FLAGS_CSC_ENABLED: u32 = 2;
 pub const FSRTL_UNC_PROVIDER_FLAGS_DOMAIN_SVC_AWARE: u32 = 4;
@@ -2031,7 +2734,7 @@ impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION_0_0 {
     pub _bitfield: u32,
 }
@@ -2047,7 +2750,7 @@ impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION_1_0 {
     pub _bitfield: u32,
 }
@@ -2077,7 +2780,7 @@ pub const FS_FILTER_ACQUIRE_FOR_MOD_WRITE: u8 = 253;
 pub const FS_FILTER_ACQUIRE_FOR_SECTION_SYNCHRONIZATION: u8 = 255;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default)]
 pub struct FS_FILTER_CALLBACKS {
     pub SizeOfFsFilterCallbacks: u32,
     pub Reserved: u32,
@@ -2131,9 +2834,9 @@ impl Default for FS_FILTER_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_0 {
-    pub EndingOffset: super::super::Win32::PLARGE_INTEGER,
+    pub EndingOffset: super::PLARGE_INTEGER,
     pub ResourceToRelease: *mut super::PERESOURCE,
 }
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
@@ -2144,19 +2847,13 @@ impl Default for FS_FILTER_PARAMETERS_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_1 {
     pub ResourceToRelease: super::PERESOURCE,
 }
-#[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-impl Default for FS_FILTER_PARAMETERS_1 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_2 {
     pub SyncType: FS_FILTER_SECTION_SYNC_TYPE,
     pub PageProtection: u32,
@@ -2164,21 +2861,15 @@ pub struct FS_FILTER_PARAMETERS_2 {
     pub Flags: u32,
     pub AllocationAttributes: u32,
 }
-#[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-impl Default for FS_FILTER_PARAMETERS_2 {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_3 {
-    pub Irp: super::super::Win32::PIRP,
+    pub Irp: super::PIRP,
     pub FileInformation: *mut core::ffi::c_void,
-    pub Length: super::super::Win32::PULONG,
-    pub FileInformationClass: super::super::Win32::FILE_INFORMATION_CLASS,
-    pub CompletionStatus: windows_sys::core::NTSTATUS,
+    pub Length: super::PULONG,
+    pub FileInformationClass: super::FILE_INFORMATION_CLASS,
+    pub CompletionStatus: windows_core::NTSTATUS,
 }
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 impl Default for FS_FILTER_PARAMETERS_3 {
@@ -2188,7 +2879,7 @@ impl Default for FS_FILTER_PARAMETERS_3 {
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FS_FILTER_PARAMETERS_4 {
     pub Argument1: *mut core::ffi::c_void,
     pub Argument2: *mut core::ffi::c_void,
@@ -2210,7 +2901,7 @@ pub const FS_FILTER_SECTION_SYNC_IMAGE_EXTENTS_ARE_NOT_RVA: u32 = 8;
 pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_ACCESS: u32 = 1;
 pub const FS_FILTER_SECTION_SYNC_IN_FLAG_DONT_UPDATE_LAST_WRITE: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FS_FILTER_SECTION_SYNC_OUTPUT {
     pub StructureSize: u32,
     pub SizeReturned: u32,
@@ -2236,7 +2927,7 @@ pub const GCR_USE_OWF_PASSWORD: u32 = 2048;
 pub const GCR_VSM_PROTECTED_PASSWORD: u32 = 16384;
 pub const GENERATE_CLIENT_CHALLENGE: u32 = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GENERATE_NAME_CONTEXT {
     pub Checksum: u16,
     pub ChecksumInserted: bool,
@@ -2252,11 +2943,11 @@ impl Default for GENERATE_NAME_CONTEXT {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct GHOSTED_FILE_EXTENT {
     pub FileOffset: i64,
     pub ByteCount: i64,
-    pub RecallOwnerGuid: windows_sys::core::GUID,
+    pub RecallOwnerGuid: windows_core::GUID,
     pub NextEntryOffset: u32,
     pub RecallMetadataBufferSize: u32,
     pub RecallMetadataBuffer: [u8; 1],
@@ -2266,26 +2957,26 @@ impl Default for GHOSTED_FILE_EXTENT {
         unsafe { core::mem::zeroed() }
     }
 }
-pub const GUID_ECP_ATOMIC_CREATE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4720bd83_52ac_4104_a130_d1ec6a8cc8e5);
-pub const GUID_ECP_CLOUDFILES_ATTRIBUTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x2932ff52_8378_4fc1_8edb_6bdc8f602709);
-pub const GUID_ECP_CREATE_REDIRECTION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x188d6bd6_a126_4fa8_bdf2_1ccdf896f3e0);
-pub const GUID_ECP_CSV_DOWN_LEVEL_OPEN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x4248be44_647f_488f_8be5_a08aaf70f028);
-pub const GUID_ECP_CSV_QUERY_FILE_REVISION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x44aec90b_de65_4d46_8fbf_763f9d970b1d);
-pub const GUID_ECP_CSV_QUERY_FILE_REVISION_FILE_ID_128: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7a3a4aa1_aa74_4bc6_b070_ab56a38c1fed);
-pub const GUID_ECP_CSV_SET_HANDLE_PROPERTIES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7a9fdd94_7b58_42bb_9740_3cb86983a615);
-pub const GUID_ECP_DUAL_OPLOCK_KEY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x41621a14_b08b_4df1_b676_a05ffdf01bea);
-pub const GUID_ECP_IO_DEVICE_HINT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf315b732_ac6b_4d4d_be0c_b3126490e1a3);
-pub const GUID_ECP_NETWORK_APP_INSTANCE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x6aa6bc45_a7ef_4af7_9008_fa462e144d74);
-pub const GUID_ECP_NETWORK_APP_INSTANCE_VERSION: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xb7d082b9_563b_4f07_a07b_524a8116a010);
-pub const GUID_ECP_NETWORK_OPEN_CONTEXT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xc584edbf_00df_4d28_b884_35baca8911e8);
-pub const GUID_ECP_NFS_OPEN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xf326d30c_e5f8_4fe7_ab74_f5a3196d92db);
-pub const GUID_ECP_OPEN_PARAMETERS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xcd0a93c3_3bb7_463d_accb_969d3435a5a5);
-pub const GUID_ECP_OPLOCK_KEY: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x48850596_3050_4be7_9863_fec350ce8d7f);
-pub const GUID_ECP_PREFETCH_OPEN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xe1777b21_847e_4837_aa45_64161d280655);
-pub const GUID_ECP_QUERY_ON_CREATE: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x1aca62e9_abb4_4ff2_bb5c_1c79025e417f);
-pub const GUID_ECP_RKF_BYPASS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x02378cc6_f73c_489c_8282_564d1a99131b);
-pub const GUID_ECP_SRV_OPEN: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xbebfaebc_aabf_489d_9d2c_e9e361102853);
-pub const GUID_ECP_TYPE_VETO_BINDING: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x41778682_63fc_4956_86c5_2a4b79d251af);
+pub const GUID_ECP_ATOMIC_CREATE: windows_core::GUID = windows_core::GUID::from_u128(0x4720bd83_52ac_4104_a130_d1ec6a8cc8e5);
+pub const GUID_ECP_CLOUDFILES_ATTRIBUTION: windows_core::GUID = windows_core::GUID::from_u128(0x2932ff52_8378_4fc1_8edb_6bdc8f602709);
+pub const GUID_ECP_CREATE_REDIRECTION: windows_core::GUID = windows_core::GUID::from_u128(0x188d6bd6_a126_4fa8_bdf2_1ccdf896f3e0);
+pub const GUID_ECP_CSV_DOWN_LEVEL_OPEN: windows_core::GUID = windows_core::GUID::from_u128(0x4248be44_647f_488f_8be5_a08aaf70f028);
+pub const GUID_ECP_CSV_QUERY_FILE_REVISION: windows_core::GUID = windows_core::GUID::from_u128(0x44aec90b_de65_4d46_8fbf_763f9d970b1d);
+pub const GUID_ECP_CSV_QUERY_FILE_REVISION_FILE_ID_128: windows_core::GUID = windows_core::GUID::from_u128(0x7a3a4aa1_aa74_4bc6_b070_ab56a38c1fed);
+pub const GUID_ECP_CSV_SET_HANDLE_PROPERTIES: windows_core::GUID = windows_core::GUID::from_u128(0x7a9fdd94_7b58_42bb_9740_3cb86983a615);
+pub const GUID_ECP_DUAL_OPLOCK_KEY: windows_core::GUID = windows_core::GUID::from_u128(0x41621a14_b08b_4df1_b676_a05ffdf01bea);
+pub const GUID_ECP_IO_DEVICE_HINT: windows_core::GUID = windows_core::GUID::from_u128(0xf315b732_ac6b_4d4d_be0c_b3126490e1a3);
+pub const GUID_ECP_NETWORK_APP_INSTANCE: windows_core::GUID = windows_core::GUID::from_u128(0x6aa6bc45_a7ef_4af7_9008_fa462e144d74);
+pub const GUID_ECP_NETWORK_APP_INSTANCE_VERSION: windows_core::GUID = windows_core::GUID::from_u128(0xb7d082b9_563b_4f07_a07b_524a8116a010);
+pub const GUID_ECP_NETWORK_OPEN_CONTEXT: windows_core::GUID = windows_core::GUID::from_u128(0xc584edbf_00df_4d28_b884_35baca8911e8);
+pub const GUID_ECP_NFS_OPEN: windows_core::GUID = windows_core::GUID::from_u128(0xf326d30c_e5f8_4fe7_ab74_f5a3196d92db);
+pub const GUID_ECP_OPEN_PARAMETERS: windows_core::GUID = windows_core::GUID::from_u128(0xcd0a93c3_3bb7_463d_accb_969d3435a5a5);
+pub const GUID_ECP_OPLOCK_KEY: windows_core::GUID = windows_core::GUID::from_u128(0x48850596_3050_4be7_9863_fec350ce8d7f);
+pub const GUID_ECP_PREFETCH_OPEN: windows_core::GUID = windows_core::GUID::from_u128(0xe1777b21_847e_4837_aa45_64161d280655);
+pub const GUID_ECP_QUERY_ON_CREATE: windows_core::GUID = windows_core::GUID::from_u128(0x1aca62e9_abb4_4ff2_bb5c_1c79025e417f);
+pub const GUID_ECP_RKF_BYPASS: windows_core::GUID = windows_core::GUID::from_u128(0x02378cc6_f73c_489c_8282_564d1a99131b);
+pub const GUID_ECP_SRV_OPEN: windows_core::GUID = windows_core::GUID::from_u128(0xbebfaebc_aabf_489d_9d2c_e9e361102853);
+pub const GUID_ECP_TYPE_VETO_BINDING: windows_core::GUID = windows_core::GUID::from_u128(0x41778682_63fc_4956_86c5_2a4b79d251af);
 pub const GreaterThan: FSRTL_COMPARISON_RESULT = 1;
 pub const HEAP_CLASS_0: u32 = 0;
 pub const HEAP_CLASS_1: u32 = 4096;
@@ -2314,31 +3005,19 @@ pub const IOCTL_VOLSNAP_FLUSH_AND_HOLD_WRITES: u32 = 5488640;
 pub const IO_CREATE_STREAM_FILE_LITE: u32 = 2;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_CREATE_STREAM_FILE_OPTIONS {
     pub Size: u16,
     pub Flags: u16,
     pub TargetDeviceObject: super::PDEVICE_OBJECT,
 }
-#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-impl Default for IO_CREATE_STREAM_FILE_OPTIONS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 pub const IO_CREATE_STREAM_FILE_RAISE_ON_ERROR: u32 = 1;
 #[repr(C)]
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_DEVICE_HINT_ECP_CONTEXT {
     pub TargetDevice: super::PDEVICE_OBJECT,
-    pub RemainingName: super::super::Win32::UNICODE_STRING,
-}
-#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-impl Default for IO_DEVICE_HINT_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+    pub RemainingName: super::UNICODE_STRING,
 }
 pub const IO_FILE_OBJECT_NON_PAGED_POOL_CHARGE: u32 = 64;
 pub const IO_FILE_OBJECT_PAGED_POOL_CHARGE: u32 = 1024;
@@ -2348,7 +3027,7 @@ pub const IO_OPEN_PAGING_FILE: u32 = 2;
 pub const IO_OPEN_TARGET_DIRECTORY: u32 = 4;
 #[repr(C)]
 #[cfg(feature = "wdm")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_PRIORITY_INFO {
     pub Size: u32,
     pub ThreadPriority: u32,
@@ -2464,12 +3143,12 @@ pub const IO_REPARSE_TAG_WISDATA_HSM: u32 = 35;
 pub const IO_REPARSE_TAG_ZLTI_HSM: u32 = 56;
 pub const IO_STOP_ON_SYMLINK: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0 {
     pub Out: IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 {
     pub ReparseCount: u32,
     pub RemainingPathLength: u32,
@@ -2478,7 +3157,7 @@ pub struct IO_STOP_ON_SYMLINK_FILTER_ECP_v0_0 {
 #[cfg(all(feature = "wdm", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct KAPC_STATE {
-    pub ApcListHead: [super::super::Win32::LIST_ENTRY; 2],
+    pub ApcListHead: [super::LIST_ENTRY; 2],
     pub Process: *mut super::_KPROCESS,
     pub Anonymous: KAPC_STATE_0,
     pub KernelApcPending: bool,
@@ -2505,7 +3184,7 @@ impl Default for KAPC_STATE_0 {
 }
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KAPC_STATE_0_0 {
     pub _bitfield: bool,
 }
@@ -2524,7 +3203,7 @@ impl Default for KAPC_STATE_1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KAPC_STATE_1_0 {
     pub _bitfield: bool,
 }
@@ -2536,10 +3215,10 @@ pub const KAPC_STATE_SPECIAL_USER_APC_PENDING_MASK: u32 = 2;
 #[derive(Clone, Copy)]
 pub struct KQUEUE {
     pub Header: super::DISPATCHER_HEADER,
-    pub EntryListHead: super::super::Win32::LIST_ENTRY,
+    pub EntryListHead: super::LIST_ENTRY,
     pub CurrentCount: u32,
     pub MaximumCount: u32,
-    pub ThreadListHead: super::super::Win32::LIST_ENTRY,
+    pub ThreadListHead: super::LIST_ENTRY,
 }
 #[cfg(all(feature = "wdm", feature = "winnt"))]
 impl Default for KQUEUE {
@@ -2558,25 +3237,21 @@ pub const KnownFolderPictures: FILE_KNOWN_FOLDER_TYPE = 5;
 pub const KnownFolderVideos: FILE_KNOWN_FOLDER_TYPE = 6;
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LARGE_MCB {
     pub GuardedMutex: super::PKGUARDED_MUTEX,
     pub BaseMcb: BASE_MCB,
 }
-#[cfg(all(feature = "wdm", feature = "winnt"))]
-impl Default for LARGE_MCB {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub type LBN = u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct LBN(pub u32);
 pub const LCN_CHECKSUM_VALID: LCN_WEAK_REFERENCE_STATE = 4;
 pub const LCN_IS_READ_ONLY: LCN_WEAK_REFERENCE_STATE = 32;
 pub const LCN_IS_STREAM_RESERVED: LCN_WEAK_REFERENCE_STATE = 16;
 pub const LCN_IS_VALID: LCN_WEAK_REFERENCE_STATE = 8;
 pub const LCN_WEAK_REFERENCE_BROKEN: LCN_WEAK_REFERENCE_STATE = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_BUFFER {
     pub Lcn: i64,
     pub LengthInClusters: i64,
@@ -2584,7 +3259,7 @@ pub struct LCN_WEAK_REFERENCE_BUFFER {
     pub State: LCN_WEAK_REFERENCE_STATE,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_CLEAR_INPUT_BUFFER {
     pub RangeCount: u32,
     pub Ranges: [LCN_WEAK_REFERENCE_RANGE; 1],
@@ -2594,9 +3269,11 @@ impl Default for LCN_WEAK_REFERENCE_CLEAR_INPUT_BUFFER {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type LCN_WEAK_REFERENCE_CREATE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct LCN_WEAK_REFERENCE_CREATE_FLAGS(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
     pub Offset: i64,
     pub Length: i64,
@@ -2604,7 +3281,7 @@ pub struct LCN_WEAK_REFERENCE_CREATE_INPUT_BUFFER {
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_CREATE_OUTPUT_BUFFER {
     pub MappingCount: u32,
     pub VcnLcnMappings: [LCN_WEAK_REFERENCE_VCN_MAPPING; 1],
@@ -2615,7 +3292,7 @@ impl Default for LCN_WEAK_REFERENCE_CREATE_OUTPUT_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_RANGE {
     pub StartOfRange: i64,
     pub CountOfRange: i64,
@@ -2623,14 +3300,14 @@ pub struct LCN_WEAK_REFERENCE_RANGE {
 pub type LCN_WEAK_REFERENCE_STATE = u32;
 pub const LCN_WEAK_REFERENCE_VALID: LCN_WEAK_REFERENCE_STATE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct LCN_WEAK_REFERENCE_VCN_MAPPING {
     pub Vcn: i64,
     pub Lcn: i64,
     pub CountOfRange: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LINK_TRACKING_INFORMATION {
     pub Type: LINK_TRACKING_INFORMATION_TYPE,
     pub VolumeId: [u8; 16],
@@ -2641,10 +3318,10 @@ impl Default for LINK_TRACKING_INFORMATION {
     }
 }
 pub type LINK_TRACKING_INFORMATION_TYPE = i32;
-pub const LX_FILE_METADATA_DEVICE_ID_EA_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("$LXDEV");
-pub const LX_FILE_METADATA_GID_EA_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("$LXGID");
-pub const LX_FILE_METADATA_MODE_EA_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("$LXMOD");
-pub const LX_FILE_METADATA_UID_EA_NAME: windows_sys::core::PCSTR = windows_sys::core::s!("$LXUID");
+pub const LX_FILE_METADATA_DEVICE_ID_EA_NAME: windows_core::PCSTR = windows_core::s!("$LXDEV");
+pub const LX_FILE_METADATA_GID_EA_NAME: windows_core::PCSTR = windows_core::s!("$LXGID");
+pub const LX_FILE_METADATA_MODE_EA_NAME: windows_core::PCSTR = windows_core::s!("$LXMOD");
+pub const LX_FILE_METADATA_UID_EA_NAME: windows_core::PCSTR = windows_core::s!("$LXUID");
 pub const LessThan: FSRTL_COMPARISON_RESULT = -1;
 pub const MAP_DISABLE_PAGEFAULT_CLUSTERING: u32 = 256;
 pub const MAP_HIGH_PRIORITY: u32 = 64;
@@ -2653,14 +3330,14 @@ pub const MAP_WAIT: u32 = 1;
 pub const MAX_UNICODE_STACK_BUFFER_LENGTH: u32 = 256;
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MCB {
     pub DummyFieldThatSizesThisStructureCorrectly: LARGE_MCB,
 }
 pub const MCB_FLAG_RAISE_ON_ALLOCATION_FAILURE: u32 = 1;
 pub type MEMORY_INFORMATION_CLASS = i32;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MEMORY_RANGE_ENTRY {
     pub VirtualAddress: *mut core::ffi::c_void,
     pub NumberOfBytes: usize,
@@ -2689,44 +3366,38 @@ impl Default for MM_PREFETCH_FLAGS {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_PREFETCH_FLAGS_0 {
     pub _bitfield: u32,
 }
 pub const MM_PREFETCH_FLAGS_MASK: u32 = 127;
 #[repr(C)]
 #[cfg(feature = "ntsecapi")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_ENUMUSERS_REQUEST {
-    pub MessageType: super::super::Win32::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
 }
 #[repr(C)]
 #[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_ENUMUSERS_RESPONSE {
-    pub MessageType: super::super::Win32::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub NumberOfLoggedOnUsers: u32,
-    pub LogonIds: super::super::Win32::PLUID,
-    pub EnumHandles: super::super::Win32::PULONG,
-}
-#[cfg(all(feature = "minwindef", feature = "ntsecapi", feature = "winnt"))]
-impl Default for MSV1_0_ENUMUSERS_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+    pub LogonIds: super::PLUID,
+    pub EnumHandles: super::PULONG,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_GETCHALLENRESP_REQUEST {
-    pub MessageType: super::super::Win32::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub ParameterControl: u32,
-    pub LogonId: super::super::Win32::LUID,
-    pub Password: super::super::Win32::UNICODE_STRING,
+    pub LogonId: super::LUID,
+    pub Password: super::UNICODE_STRING,
     pub ChallengeToClient: [u8; 8],
-    pub UserName: super::super::Win32::UNICODE_STRING,
-    pub LogonDomainName: super::super::Win32::UNICODE_STRING,
-    pub ServerName: super::super::Win32::UNICODE_STRING,
+    pub UserName: super::UNICODE_STRING,
+    pub LogonDomainName: super::UNICODE_STRING,
+    pub ServerName: super::UNICODE_STRING,
 }
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 impl Default for MSV1_0_GETCHALLENRESP_REQUEST {
@@ -2736,12 +3407,12 @@ impl Default for MSV1_0_GETCHALLENRESP_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_GETCHALLENRESP_REQUEST_V1 {
-    pub MessageType: super::super::Win32::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub ParameterControl: u32,
-    pub LogonId: super::super::Win32::LUID,
-    pub Password: super::super::Win32::UNICODE_STRING,
+    pub LogonId: super::LUID,
+    pub Password: super::UNICODE_STRING,
     pub ChallengeToClient: [u8; 8],
 }
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
@@ -2752,13 +3423,13 @@ impl Default for MSV1_0_GETCHALLENRESP_REQUEST_V1 {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_GETCHALLENRESP_RESPONSE {
-    pub MessageType: super::super::Win32::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub CaseSensitiveChallengeResponse: super::super::Win32::STRING,
-    pub CaseInsensitiveChallengeResponse: super::super::Win32::STRING,
-    pub UserName: super::super::Win32::UNICODE_STRING,
-    pub LogonDomainName: super::super::Win32::UNICODE_STRING,
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub CaseSensitiveChallengeResponse: super::STRING,
+    pub CaseInsensitiveChallengeResponse: super::STRING,
+    pub UserName: super::UNICODE_STRING,
+    pub LogonDomainName: super::UNICODE_STRING,
     pub UserSessionKey: [u8; 16],
     pub LanmanSessionKey: [u8; 8],
 }
@@ -2770,39 +3441,33 @@ impl Default for MSV1_0_GETCHALLENRESP_RESPONSE {
 }
 #[repr(C)]
 #[cfg(all(feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_GETUSERINFO_REQUEST {
-    pub MessageType: super::super::Win32::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub LogonId: super::super::Win32::LUID,
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub LogonId: super::LUID,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_GETUSERINFO_RESPONSE {
-    pub MessageType: super::super::Win32::MSV1_0_PROTOCOL_MESSAGE_TYPE,
-    pub UserSid: super::super::Win32::PSID,
-    pub UserName: super::super::Win32::UNICODE_STRING,
-    pub LogonDomainName: super::super::Win32::UNICODE_STRING,
-    pub LogonServer: super::super::Win32::UNICODE_STRING,
-    pub LogonType: super::super::Win32::SECURITY_LOGON_TYPE,
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-impl Default for MSV1_0_GETUSERINFO_RESPONSE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub UserSid: super::PSID,
+    pub UserName: super::UNICODE_STRING,
+    pub LogonDomainName: super::UNICODE_STRING,
+    pub LogonServer: super::UNICODE_STRING,
+    pub LogonType: super::SECURITY_LOGON_TYPE,
 }
 #[repr(C)]
 #[cfg(feature = "ntsecapi")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MSV1_0_LM20_CHALLENGE_REQUEST {
-    pub MessageType: super::super::Win32::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
 }
 #[repr(C)]
 #[cfg(feature = "ntsecapi")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MSV1_0_LM20_CHALLENGE_RESPONSE {
-    pub MessageType: super::super::Win32::MSV1_0_PROTOCOL_MESSAGE_TYPE,
+    pub MessageType: super::MSV1_0_PROTOCOL_MESSAGE_TYPE,
     pub ChallengeToClient: [u8; 8],
 }
 #[cfg(feature = "ntsecapi")]
@@ -2813,11 +3478,11 @@ impl Default for MSV1_0_LM20_CHALLENGE_RESPONSE {
 }
 #[repr(C)]
 #[cfg(feature = "minwindef")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct MUP_PROVIDER_INFORMATION {
     pub Level: u32,
     pub Buffer: *mut core::ffi::c_void,
-    pub BufferSize: super::super::Win32::PULONG,
+    pub BufferSize: super::PULONG,
 }
 #[cfg(feature = "minwindef")]
 impl Default for MUP_PROVIDER_INFORMATION {
@@ -2836,14 +3501,14 @@ pub const MemoryTypePaged: RTL_MEMORY_TYPE = 0;
 pub const MmFlushForDelete: MMFLUSH_TYPE = 0;
 pub const MmFlushForWrite: MMFLUSH_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_APP_INSTANCE_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
-    pub AppInstanceID: windows_sys::core::GUID,
+    pub AppInstanceID: windows_core::GUID,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
@@ -2851,53 +3516,53 @@ pub struct NETWORK_APP_INSTANCE_VERSION_ECP_CONTEXT {
     pub VersionLow: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT {
     pub Size: u16,
     pub Reserved: u16,
     pub Anonymous: NETWORK_OPEN_ECP_CONTEXT_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_0 {
     pub r#in: NETWORK_OPEN_ECP_CONTEXT_0_0,
     pub out: NETWORK_OPEN_ECP_CONTEXT_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_0_0 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
     pub Flags: NETWORK_OPEN_IN_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_0_1 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
     pub Flags: NETWORK_OPEN_OUT_FLAGS,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0 {
     pub Size: u16,
     pub Reserved: u16,
     pub Anonymous: NETWORK_OPEN_ECP_CONTEXT_V0_0,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0 {
     pub r#in: NETWORK_OPEN_ECP_CONTEXT_V0_0_0,
     pub out: NETWORK_OPEN_ECP_CONTEXT_V0_0_1,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_0 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NETWORK_OPEN_ECP_CONTEXT_V0_0_1 {
     pub Location: NETWORK_OPEN_LOCATION_QUALIFIER,
     pub Integrity: NETWORK_OPEN_INTEGRITY_QUALIFIER,
@@ -2910,21 +3575,19 @@ pub const NETWORK_OPEN_ECP_IN_FLAG_FORCE_MAX_EOF_HACK: u32 = 1073741824;
 pub const NETWORK_OPEN_ECP_IN_FLAG_REQ_MUTUAL_AUTH: u32 = 8;
 pub const NETWORK_OPEN_ECP_OUT_FLAG_RET_MUTUAL_AUTH: u32 = 8;
 pub type NETWORK_OPEN_INTEGRITY_QUALIFIER = i32;
-pub type NETWORK_OPEN_IN_FLAGS = u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct NETWORK_OPEN_IN_FLAGS(pub u32);
 pub type NETWORK_OPEN_LOCATION_QUALIFIER = i32;
-pub type NETWORK_OPEN_OUT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct NETWORK_OPEN_OUT_FLAGS(pub u32);
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NFS_OPEN_ECP_CONTEXT {
-    pub ExportAlias: super::super::Win32::PUNICODE_STRING,
+    pub ExportAlias: super::PUNICODE_STRING,
     pub ClientSocketAddress: PSOCKADDR_STORAGE_NFS,
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for NFS_OPEN_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const NO_8DOT3_NAME_PRESENT: u32 = 1;
 pub const NetworkOpenIntegrityAny: NETWORK_OPEN_INTEGRITY_QUALIFIER = 0;
@@ -2940,18 +3603,18 @@ pub const NotifyTypeRetired: FS_FILTER_STREAM_FO_NOTIFICATION_TYPE = 1;
 pub const NtfsLinkTrackingInformation: LINK_TRACKING_INFORMATION_TYPE = 0;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_REPARSE_LIST {
-    pub OpenReparseList: super::super::Win32::LIST_ENTRY,
+    pub OpenReparseList: super::LIST_ENTRY,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPEN_REPARSE_LIST_ENTRY {
-    pub OpenReparseListEntry: super::super::Win32::LIST_ENTRY,
+    pub OpenReparseListEntry: super::LIST_ENTRY,
     pub ReparseTag: u32,
     pub Flags: u32,
-    pub ReparseGuid: windows_sys::core::GUID,
+    pub ReparseGuid: windows_core::GUID,
     pub Size: u16,
     pub RemainingLength: u16,
 }
@@ -2971,7 +3634,14 @@ pub const OPEN_REPARSE_POINT_REPARSE_IF_NON_FINAL_COMPONENT: u32 = 22;
 pub const OPEN_REPARSE_POINT_RETURN_REPARSE_DATA_BUFFER: u32 = 128;
 pub const OPEN_REPARSE_POINT_TAG_ENCOUNTERED: u32 = 1;
 pub const OPEN_REPARSE_POINT_VERSION_EX: u32 = 2147483648;
-pub type OPLOCK = *mut core::ffi::c_void;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct OPLOCK(pub *mut core::ffi::c_void);
+impl Default for OPLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 pub const OPLOCK_FLAG_BACK_OUT_ATOMIC_OPLOCK: u32 = 4;
 pub const OPLOCK_FLAG_BREAKING_FOR_SHARING_VIOLATION: u32 = 128;
 pub const OPLOCK_FLAG_CLOSING_DELETE_ON_CLOSE: u32 = 32;
@@ -2983,21 +3653,21 @@ pub const OPLOCK_FLAG_REMOVING_FILE_OR_LINK: u32 = 64;
 pub const OPLOCK_FSCTRL_FLAG_ALL_KEYS_MATCH: u32 = 1;
 pub const OPLOCK_FS_FILTER_FLAGS_MASK: u32 = 8;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OPLOCK_KEY_ECP_CONTEXT {
-    pub OplockKey: windows_sys::core::GUID,
+    pub OplockKey: windows_core::GUID,
     pub Reserved: u32,
 }
 pub const OPLOCK_NOTIFY_BREAK_WAIT_INTERIM_TIMEOUT: OPLOCK_NOTIFY_REASON = 0;
 pub const OPLOCK_NOTIFY_BREAK_WAIT_TERMINATED: OPLOCK_NOTIFY_REASON = 1;
 #[repr(C)]
 #[cfg(feature = "usb")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct OPLOCK_NOTIFY_PARAMS {
     pub NotifyReason: OPLOCK_NOTIFY_REASON,
     pub NotifyContext: *mut core::ffi::c_void,
-    pub Irp: super::super::Win32::PIRP,
-    pub Status: windows_sys::core::NTSTATUS,
+    pub Irp: super::PIRP,
+    pub Status: windows_core::NTSTATUS,
 }
 #[cfg(feature = "usb")]
 impl Default for OPLOCK_NOTIFY_PARAMS {
@@ -3032,7 +3702,7 @@ pub type PCC_POST_DEFERRED_WRITE = Option<unsafe extern "system" fn(context1: *c
 #[cfg(all(feature = "wdm", feature = "winnt"))]
 pub type PCHECK_FOR_TRAVERSE_ACCESS = Option<unsafe extern "system" fn(notifycontext: *const core::ffi::c_void, targetcontext: *const core::ffi::c_void, subjectcontext: *const super::SECURITY_SUBJECT_CONTEXT) -> bool>;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-pub type PCOMPLETE_LOCK_IRP_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::IRP) -> windows_sys::core::NTSTATUS>;
+pub type PCOMPLETE_LOCK_IRP_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::IRP) -> windows_core::NTSTATUS>;
 pub type PCOMPRESSED_DATA_INFO = *mut COMPRESSED_DATA_INFO;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PCOPY_INFORMATION = *mut COPY_INFORMATION;
@@ -3169,7 +3839,7 @@ pub type PFSRTL_AUXILIARY_BUFFER = *mut FSRTL_AUXILIARY_BUFFER;
 pub type PFSRTL_CHANGE_BACKING_TYPE = *mut FSRTL_CHANGE_BACKING_TYPE;
 #[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
 pub type PFSRTL_COMMON_FCB_HEADER = *mut FSRTL_COMMON_FCB_HEADER;
-pub type PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(ecpcontext: *mut core::ffi::c_void, ecptype: *const windows_sys::core::GUID)>;
+pub type PFSRTL_EXTRA_CREATE_PARAMETER_CLEANUP_CALLBACK = Option<unsafe extern "system" fn(ecpcontext: *mut core::ffi::c_void, ecptype: *const windows_core::GUID)>;
 pub type PFSRTL_MUP_PROVIDER_INFO_LEVEL_1 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_1;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
 pub type PFSRTL_MUP_PROVIDER_INFO_LEVEL_2 = *mut FSRTL_MUP_PROVIDER_INFO_LEVEL_2;
@@ -3183,13 +3853,13 @@ pub type PFSRTL_PER_STREAM_CONTEXT = *mut FSRTL_PER_STREAM_CONTEXT;
 pub type PFSRTL_STACK_OVERFLOW_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, event: *const super::KEVENT)>;
 pub type PFSRTL_UNC_PROVIDER_REGISTRATION = *mut FSRTL_UNC_PROVIDER_REGISTRATION;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-pub type PFS_FILTER_CALLBACK = Option<unsafe extern "system" fn(data: *const FS_FILTER_CALLBACK_DATA, completioncontext: *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
+pub type PFS_FILTER_CALLBACK = Option<unsafe extern "system" fn(data: *const FS_FILTER_CALLBACK_DATA, completioncontext: *mut *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PFS_FILTER_CALLBACKS = *mut FS_FILTER_CALLBACKS;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PFS_FILTER_CALLBACK_DATA = *mut FS_FILTER_CALLBACK_DATA;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "minwindef", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
-pub type PFS_FILTER_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(data: *const FS_FILTER_CALLBACK_DATA, operationstatus: windows_sys::core::NTSTATUS, completioncontext: *const core::ffi::c_void)>;
+pub type PFS_FILTER_COMPLETION_CALLBACK = Option<unsafe extern "system" fn(data: *const FS_FILTER_CALLBACK_DATA, operationstatus: windows_core::NTSTATUS, completioncontext: *const core::ffi::c_void)>;
 #[cfg(all(feature = "minwindef", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PFS_FILTER_PARAMETERS = *mut FS_FILTER_PARAMETERS;
 pub type PFS_FILTER_SECTION_SYNC_OUTPUT = *mut FS_FILTER_SECTION_SYNC_OUTPUT;
@@ -3207,7 +3877,7 @@ pub const PHCM_EXPOSE_PLACEHOLDERS: i8 = 2;
 pub const PHCM_MAX: i8 = 2;
 #[repr(C)]
 #[cfg(feature = "wdm")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_EXTENTS_DESCRIPTOR {
     pub NumberOfRuns: u32,
     pub NumberOfValidRuns: u32,
@@ -3221,7 +3891,7 @@ impl Default for PHYSICAL_EXTENTS_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(feature = "wdm")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PHYSICAL_MEMORY_DESCRIPTOR {
     pub NumberOfRuns: u32,
     pub NumberOfPages: super::PFN_NUMBER,
@@ -3235,7 +3905,7 @@ impl Default for PHYSICAL_MEMORY_DESCRIPTOR {
 }
 #[repr(C)]
 #[cfg(feature = "wdm")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PHYSICAL_MEMORY_RUN {
     pub BasePage: super::PFN_NUMBER,
     pub PageCount: super::PFN_NUMBER,
@@ -3306,13 +3976,20 @@ pub type PNOTIFY_SYNC = *mut _REAL_NOTIFY_SYNC;
 pub type POPEN_REPARSE_LIST = *mut OPEN_REPARSE_LIST;
 #[cfg(feature = "winnt")]
 pub type POPEN_REPARSE_LIST_ENTRY = *mut OPEN_REPARSE_LIST_ENTRY;
-pub type POPLOCK = *mut *mut core::ffi::c_void;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct POPLOCK(pub *mut *mut core::ffi::c_void);
+impl Default for POPLOCK {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type POPLOCK_FS_PREPOST_IRP = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::IRP)>;
 #[cfg(feature = "usb")]
 pub type POPLOCK_NOTIFY_PARAMS = *mut OPLOCK_NOTIFY_PARAMS;
 #[cfg(feature = "usb")]
-pub type POPLOCK_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(notifyparams: *const OPLOCK_NOTIFY_PARAMS) -> windows_sys::core::NTSTATUS>;
+pub type POPLOCK_NOTIFY_ROUTINE = Option<unsafe extern "system" fn(notifyparams: *const OPLOCK_NOTIFY_PARAMS) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type POPLOCK_WAIT_COMPLETE_ROUTINE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, irp: *const super::IRP)>;
 #[cfg(feature = "wdm")]
@@ -3355,7 +4032,7 @@ pub type PREAD_AHEAD_PARAMETERS = *mut READ_AHEAD_PARAMETERS;
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 pub type PREAD_LIST = *mut READ_LIST;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PREFETCH_OPEN_ECP_CONTEXT {
     pub Context: *mut core::ffi::c_void,
 }
@@ -3366,27 +4043,21 @@ impl Default for PREFETCH_OPEN_ECP_CONTEXT {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PREFIX_TABLE {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
     pub NextPrefixTree: PPREFIX_TABLE_ENTRY,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
-impl Default for PREFIX_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
     pub NextPrefixTree: *mut Self,
     pub Links: super::RTL_SPLAY_LINKS,
-    pub Prefix: super::super::Win32::PSTRING,
+    pub Prefix: super::PSTRING,
 }
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi", feature = "winnt"))]
 impl Default for PREFIX_TABLE_ENTRY {
@@ -3437,7 +4108,7 @@ pub type PRKF_BYPASS_ECP_CONTEXT = *mut RKF_BYPASS_ECP_CONTEXT;
 pub type PRKQUEUE = *mut KQUEUE;
 pub type PRTL_ALLOCATE_STRING_ROUTINE = Option<unsafe extern "system" fn(numberofbytes: usize) -> *mut core::ffi::c_void>;
 pub type PRTL_FREE_STRING_ROUTINE = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void)>;
-pub type PRTL_HEAP_COMMIT_ROUTINE = Option<unsafe extern "system" fn(base: *const core::ffi::c_void, commitaddress: *mut *mut core::ffi::c_void, commitsize: *mut usize) -> windows_sys::core::NTSTATUS>;
+pub type PRTL_HEAP_COMMIT_ROUTINE = Option<unsafe extern "system" fn(base: *const core::ffi::c_void, commitaddress: *mut *mut core::ffi::c_void, commitsize: *mut usize) -> windows_core::NTSTATUS>;
 pub type PRTL_HEAP_MEMORY_LIMIT_DATA = *mut RTL_HEAP_MEMORY_LIMIT_DATA;
 pub type PRTL_HEAP_MEMORY_LIMIT_INFO = *mut RTL_HEAP_MEMORY_LIMIT_INFO;
 pub type PRTL_HEAP_PARAMETERS = *mut RTL_HEAP_PARAMETERS;
@@ -3472,7 +4143,7 @@ pub type PSRV_OPEN_ECP_CONTEXT = *mut SRV_OPEN_ECP_CONTEXT;
 pub type PTUNNEL = *mut TUNNEL;
 #[repr(C)]
 #[cfg(feature = "ntdef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PUBLIC_BCB {
     pub NodeTypeCode: super::CSHORT,
     pub NodeByteSize: super::CSHORT,
@@ -3492,7 +4163,7 @@ pub type PVETO_BINDING_ECP_CONTEXT = *mut VETO_BINDING_ECP_CONTEXT;
 pub type PVOLUME_REFS_INFO_BUFFER = *mut VOLUME_REFS_INFO_BUFFER;
 pub const QUERY_DIRECT_ACCESS_DATA_EXTENTS: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_DIRECT_ACCESS_EXTENTS {
     pub FileOffset: i64,
     pub Length: i64,
@@ -3502,20 +4173,14 @@ pub struct QUERY_DIRECT_ACCESS_EXTENTS {
 pub const QUERY_DIRECT_ACCESS_IMAGE_EXTENTS: u32 = 1;
 #[repr(C)]
 #[cfg(feature = "wdm")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_EA_INFORMATION {
     pub EaBufferSize: u32,
     pub EaBuffer: super::PFILE_FULL_EA_INFORMATION,
 }
-#[cfg(feature = "wdm")]
-impl Default for QUERY_ON_CREATE_EA_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_ECP_CONTEXT {
     pub RequestedClasses: u32,
     pub ClassesProcessed: u32,
@@ -3528,7 +4193,7 @@ pub struct QUERY_ON_CREATE_ECP_CONTEXT {
     pub CommonBufferSize: u32,
     pub CommonBuffer: *mut core::ffi::c_void,
     pub UsnInformation: QUERY_ON_CREATE_USN_INFORMATION,
-    pub SecurityInformationRequested: super::super::Win32::SECURITY_INFORMATION,
+    pub SecurityInformationRequested: super::SECURITY_INFORMATION,
     pub SecurityInformation: QUERY_ON_CREATE_SECURITY_INFORMATION,
 }
 #[cfg(all(feature = "wdm", feature = "winnt"))]
@@ -3557,9 +4222,9 @@ pub const QUERY_ON_CREATE_ECP_CONTEXT_USN_INFO_END: u32 = 160;
 pub const QUERY_ON_CREATE_ECP_CONTEXT_USN_INFO_END: u32 = 176;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_FILE_LX_INFORMATION {
-    pub EffectiveAccess: super::super::Win32::ACCESS_MASK,
+    pub EffectiveAccess: super::ACCESS_MASK,
     pub LxFlags: u32,
     pub LxUid: u32,
     pub LxGid: u32,
@@ -3568,7 +4233,7 @@ pub struct QUERY_ON_CREATE_FILE_LX_INFORMATION {
     pub LxDeviceIdMinor: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_FILE_STAT_INFORMATION {
     pub FileId: i64,
     pub CreationTime: i64,
@@ -3583,28 +4248,22 @@ pub struct QUERY_ON_CREATE_FILE_STAT_INFORMATION {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_SECURITY_INFORMATION {
     pub Reserved: u32,
     pub SecurityDescriptorSize: u32,
-    pub SecurityDescriptor: super::super::Win32::PSECURITY_DESCRIPTOR,
-}
-#[cfg(feature = "winnt")]
-impl Default for QUERY_ON_CREATE_SECURITY_INFORMATION {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+    pub SecurityDescriptor: super::PSECURITY_DESCRIPTOR,
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_ON_CREATE_USN_INFORMATION {
-    pub Usn: super::super::Win32::USN,
-    pub FileReferenceNumber: super::super::Win32::FILE_ID_128,
+    pub Usn: super::USN,
+    pub FileReferenceNumber: super::FILE_ID_128,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_PATH_REQUEST {
     pub PathNameLength: u32,
     pub SecurityContext: super::PIO_SECURITY_CONTEXT,
@@ -3618,13 +4277,13 @@ impl Default for QUERY_PATH_REQUEST {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntsecapi", feature = "wdm", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct QUERY_PATH_REQUEST_EX {
     pub pSecurityContext: super::PIO_SECURITY_CONTEXT,
     pub EaLength: u32,
     pub pEaBuffer: *mut core::ffi::c_void,
-    pub PathName: super::super::Win32::UNICODE_STRING,
-    pub DomainServiceName: super::super::Win32::UNICODE_STRING,
+    pub PathName: super::UNICODE_STRING,
+    pub DomainServiceName: super::UNICODE_STRING,
     pub EcpList: PECP_LIST,
     pub Silo: super::PESILO,
     pub Reserved: usize,
@@ -3636,12 +4295,12 @@ impl Default for QUERY_PATH_REQUEST_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct QUERY_PATH_RESPONSE {
     pub LengthAccepted: u32,
 }
 #[cfg(feature = "winnt")]
-pub type QUERY_VIRTUAL_MEMORY_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::super::Win32::HANDLE, processhandle: super::super::Win32::HANDLE, baseaddress: *const core::ffi::c_void, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: *mut core::ffi::c_void, memoryinformationlength: usize, returnlength: *mut usize) -> windows_sys::core::NTSTATUS>;
+pub type QUERY_VIRTUAL_MEMORY_CALLBACK = Option<unsafe extern "system" fn(callbackcontext: super::HANDLE, processhandle: super::HANDLE, baseaddress: *const core::ffi::c_void, memoryinformationclass: HEAP_MEMORY_INFO_CLASS, memoryinformation: *mut core::ffi::c_void, memoryinformationlength: usize, returnlength: *mut usize) -> windows_core::NTSTATUS>;
 pub const QoCFileEaInformation: u32 = 4;
 pub const QoCFileLxInformation: u32 = 2;
 pub const QoCFileSecurityInformation: u32 = 16;
@@ -3649,7 +4308,7 @@ pub const QoCFileStatInformation: u32 = 1;
 pub const QoCFileUsnInformation: u32 = 8;
 #[repr(C)]
 #[cfg(feature = "ntdef")]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct READ_AHEAD_PARAMETERS {
     pub NodeByteSize: super::CSHORT,
     pub Granularity: u32,
@@ -3663,7 +4322,7 @@ pub struct READ_LIST {
     pub FileObject: super::PFILE_OBJECT,
     pub NumberOfEntries: u32,
     pub IsImage: super::LOGICAL,
-    pub List: [super::super::Win32::FILE_SEGMENT_ELEMENT; 1],
+    pub List: [super::FILE_SEGMENT_ELEMENT; 1],
 }
 #[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntsecapi", feature = "usb", feature = "wdm", feature = "winnt", feature = "winternl"))]
 impl Default for READ_LIST {
@@ -3683,7 +4342,7 @@ pub const REFS_DEALLOCATE_RANGES_ALLOCATOR_MAA: REFS_DEALLOCATE_RANGES_ALLOCATOR
 pub const REFS_DEALLOCATE_RANGES_ALLOCATOR_NONE: REFS_DEALLOCATE_RANGES_ALLOCATOR = 0;
 pub const REFS_DEALLOCATE_RANGES_ALLOCATOR_SAA: REFS_DEALLOCATE_RANGES_ALLOCATOR = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER {
     pub RangeCount: u32,
     pub Ranges: [REFS_DEALLOCATE_RANGES_RANGE; 1],
@@ -3694,7 +4353,7 @@ impl Default for REFS_DEALLOCATE_RANGES_INPUT_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
     pub RangeCount: u32,
     pub Allocator: REFS_DEALLOCATE_RANGES_ALLOCATOR,
@@ -3709,17 +4368,17 @@ impl Default for REFS_DEALLOCATE_RANGES_INPUT_BUFFER_EX {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_DEALLOCATE_RANGES_RANGE {
     pub StartOfRange: u64,
     pub CountOfRange: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_QUERY_ROLLBACK_PROTECTION_INFO_OUTPUT_BUFFER {
     pub Version: u32,
-    pub VolumeGuid: windows_sys::core::GUID,
-    pub RollbackProtectionGuid: windows_sys::core::GUID,
+    pub VolumeGuid: windows_core::GUID,
+    pub RollbackProtectionGuid: windows_core::GUID,
     pub FailMountOnMismatch: bool,
     pub FrozenVirtualClock: u64,
     pub CurrentVirtualClock: u64,
@@ -3734,7 +4393,7 @@ pub type REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS = i32;
 pub const REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS_RUNNING: REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS = 1;
 pub const REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS_STOPPED: REFS_QUERY_VOLUME_COMPRESSION_INFO_FLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
     pub Version: u32,
     pub DefaultCompressionFormat: REFS_COMPRESSION_FORMATS,
@@ -3750,7 +4409,7 @@ pub struct REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
     pub CompressionTuning: u32,
     pub RecompressionTuning: u32,
     pub DecompressionTuning: u32,
-    pub LastCompressionStatus: windows_sys::core::NTSTATUS,
+    pub LastCompressionStatus: windows_core::NTSTATUS,
     pub Reserved: [u32; 8],
 }
 impl Default for REFS_QUERY_VOLUME_COMPRESSION_INFO_OUTPUT_BUFFER {
@@ -3785,7 +4444,7 @@ impl Default for REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_0_0 {
     pub Reserved: [u32; 6],
 }
@@ -3795,7 +4454,7 @@ impl Default for REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_0_1 {
     pub ResumeKeyBlob: [u64; 2],
     pub Reserved: [u32; 6],
@@ -3832,7 +4491,7 @@ impl Default for REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER_0_0 {
     pub GlobalSecondsToTrack: u32,
     pub MetricsPeriodicitySeconds: u32,
@@ -3845,7 +4504,7 @@ impl Default for REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_IO_METRICS_INFO_OUTPUT_BUFFER_0_1 {
     pub EntryCount: u32,
     pub ResumeKeyBlob: [u64; 2],
@@ -3862,19 +4521,19 @@ pub type REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE = i32;
 pub const REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE_METRICS_DATA: REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE = 2;
 pub const REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE_PARAMETERS: REFS_QUERY_VOLUME_IO_METRICS_INFO_QUERY_TYPE = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_IO_METRICS_METRICS_DATA {
     pub PlaceHolder: u64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_QUERY_VOLUME_TOTAL_SHARED_LCNS_OUTPUT_BUFFER {
     pub Version: u32,
     pub TotalSharedLcns: u64,
 }
 pub const REFS_QUERY_VOLUME_TOTAL_SHARED_LCNS_OUTPUT_BUFFER_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_REMOVE_HARDLINK_BACKPOINTER {
     pub ParentDirectory: u64,
     pub Reserved: u64,
@@ -3886,7 +4545,7 @@ impl Default for REFS_REMOVE_HARDLINK_BACKPOINTER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_SET_ROLLBACK_PROTECTION_INFO_INPUT_BUFFER {
     pub Version: u32,
     pub FailMountOnMismatch: bool,
@@ -3904,7 +4563,7 @@ pub const REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_MAX: REFS_SET_VOLUME_COMPRESSION
 pub const REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_START_COMPRESSION: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = 1;
 pub const REFS_SET_VOLUME_COMPRESSION_INFO_FLAG_STOP_COMPRESSION: REFS_SET_VOLUME_COMPRESSION_INFO_FLAGS = 2;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
     pub Version: u32,
     pub CompressionFormat: REFS_COMPRESSION_FORMATS,
@@ -3923,7 +4582,7 @@ impl Default for REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER {
 }
 pub const REFS_SET_VOLUME_COMPRESSION_INFO_INPUT_BUFFER_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER {
     pub Version: u32,
     pub GlobalSecondsToTrack: u32,
@@ -3938,7 +4597,7 @@ impl Default for REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER {
 }
 pub const REFS_SET_VOLUME_IO_METRICS_INFO_INPUT_BUFFER_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_STREAM_EXTENT {
     pub Vcn: i64,
     pub Lcn: i64,
@@ -3954,7 +4613,7 @@ pub const REFS_STREAM_EXTENT_PROPERTY_SPARSE: REFS_STREAM_EXTENT_PROPERTIES = 8;
 pub const REFS_STREAM_EXTENT_PROPERTY_STREAM_RESERVED: REFS_STREAM_EXTENT_PROPERTIES = 32;
 pub const REFS_STREAM_EXTENT_PROPERTY_VALID: REFS_STREAM_EXTENT_PROPERTIES = 16;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER {
     pub EntryCount: u32,
     pub BufferSizeRequiredForQuery: u32,
@@ -3967,7 +4626,7 @@ impl Default for REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY {
     pub NextEntryOffset: u32,
     pub SnapshotNameLength: u16,
@@ -3983,7 +4642,7 @@ impl Default for REFS_STREAM_SNAPSHOT_LIST_OUTPUT_BUFFER_ENTRY {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_MANAGEMENT_INPUT_BUFFER {
     pub Operation: REFS_STREAM_SNAPSHOT_OPERATION,
     pub SnapshotNameLength: u16,
@@ -4006,14 +4665,14 @@ pub const REFS_STREAM_SNAPSHOT_OPERATION_QUERY_DELTAS: REFS_STREAM_SNAPSHOT_OPER
 pub const REFS_STREAM_SNAPSHOT_OPERATION_REVERT: REFS_STREAM_SNAPSHOT_OPERATION = 4;
 pub const REFS_STREAM_SNAPSHOT_OPERATION_SET_SHADOW_BTREE: REFS_STREAM_SNAPSHOT_OPERATION = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_INPUT_BUFFER {
     pub StartingVcn: i64,
     pub Flags: u32,
     pub Reserved: u32,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER {
     pub ExtentCount: u32,
     pub Reserved: [u32; 2],
@@ -4025,12 +4684,12 @@ impl Default for REFS_STREAM_SNAPSHOT_QUERY_DELTAS_OUTPUT_BUFFER {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_VOLUME_COUNTER_INFO_INPUT_BUFFER {
     pub ResetCounters: bool,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER {
     pub Version: u32,
     pub SetDedupState: bool,
@@ -4045,7 +4704,7 @@ pub struct REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER {
 pub const REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER_VERSION: u32 = 2;
 pub const REFS_VOLUME_DEDUP_INFO_INPUT_BUFFER_VERSION_V1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
     pub Version: u32,
     pub Enabled: bool,
@@ -4054,13 +4713,13 @@ pub struct REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER {
     pub WeakRefInconsistent: bool,
     pub IsClustered: bool,
     pub VolumeIdHash: u32,
-    pub VolumeGuid: windows_sys::core::GUID,
-    pub VolumeUniqueGuid: windows_sys::core::GUID,
+    pub VolumeGuid: windows_core::GUID,
+    pub VolumeUniqueGuid: windows_core::GUID,
 }
 pub const REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER_VERSION: u32 = 2;
 pub const REFS_VOLUME_DEDUP_INFO_OUTPUT_BUFFER_VERSION_V1: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REMOTE_LINK_TRACKING_INFORMATION {
     pub TargetFileObject: *mut core::ffi::c_void,
     pub TargetLinkTrackingInformationLength: u32,
@@ -4104,7 +4763,7 @@ impl Default for REPARSE_DATA_BUFFER_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REPARSE_DATA_BUFFER_0_0 {
     pub SubstituteNameOffset: u16,
     pub SubstituteNameLength: u16,
@@ -4119,7 +4778,7 @@ impl Default for REPARSE_DATA_BUFFER_0_0 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REPARSE_DATA_BUFFER_0_1 {
     pub SubstituteNameOffset: u16,
     pub SubstituteNameLength: u16,
@@ -4133,7 +4792,7 @@ impl Default for REPARSE_DATA_BUFFER_0_1 {
     }
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct REPARSE_DATA_BUFFER_0_2 {
     pub DataBuffer: [u8; 1],
 }
@@ -4148,7 +4807,7 @@ impl Default for REPARSE_DATA_BUFFER_0_2 {
 pub struct REPARSE_DATA_BUFFER_EX {
     pub Flags: u32,
     pub ExistingReparseTag: u32,
-    pub ExistingReparseGuid: windows_sys::core::GUID,
+    pub ExistingReparseGuid: windows_core::GUID,
     pub Reserved: u64,
     pub Anonymous: REPARSE_DATA_BUFFER_EX_0,
 }
@@ -4163,7 +4822,7 @@ impl Default for REPARSE_DATA_BUFFER_EX {
 #[derive(Clone, Copy)]
 pub union REPARSE_DATA_BUFFER_EX_0 {
     pub ReparseDataBuffer: REPARSE_DATA_BUFFER,
-    pub ReparseGuidDataBuffer: super::super::Win32::REPARSE_GUID_DATA_BUFFER,
+    pub ReparseGuidDataBuffer: super::REPARSE_GUID_DATA_BUFFER,
 }
 #[cfg(feature = "winnt")]
 impl Default for REPARSE_DATA_BUFFER_EX_0 {
@@ -4186,7 +4845,7 @@ pub const RETURN_PRIMARY_LOGON_DOMAINNAME: u32 = 4;
 pub const RETURN_PRIMARY_USERNAME: u32 = 2;
 pub const RETURN_RESERVED_PARAMETER: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RKF_BYPASS_ECP_CONTEXT {
     pub Reserved: i32,
     pub Version: i32,
@@ -4215,10 +4874,10 @@ pub type RTL_ALLOCATE_STRING_ROUTINE = Option<unsafe extern "system" fn(numberof
 pub const RTL_DUPLICATE_UNICODE_STRING_ALLOCATE_NULL_STRING: u32 = 2;
 pub const RTL_DUPLICATE_UNICODE_STRING_NULL_TERMINATE: u32 = 1;
 pub type RTL_FREE_STRING_ROUTINE = Option<unsafe extern "system" fn(buffer: *const core::ffi::c_void)>;
-pub type RTL_HEAP_COMMIT_ROUTINE = Option<unsafe extern "system" fn(base: *const core::ffi::c_void, commitaddress: *mut *mut core::ffi::c_void, commitsize: *mut usize) -> windows_sys::core::NTSTATUS>;
+pub type RTL_HEAP_COMMIT_ROUTINE = Option<unsafe extern "system" fn(base: *const core::ffi::c_void, commitaddress: *mut *mut core::ffi::c_void, commitsize: *mut usize) -> windows_core::NTSTATUS>;
 pub const RTL_HEAP_MEMORY_LIMIT_CURRENT_VERSION: u32 = 1;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_HEAP_MEMORY_LIMIT_DATA {
     pub CommitLimitBytes: usize,
     pub CommitLimitFailureCode: usize,
@@ -4226,13 +4885,13 @@ pub struct RTL_HEAP_MEMORY_LIMIT_DATA {
     pub AllocationLimitFailureCode: usize,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_HEAP_MEMORY_LIMIT_INFO {
     pub Version: u32,
     pub Data: RTL_HEAP_MEMORY_LIMIT_DATA,
 }
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug)]
 pub struct RTL_HEAP_PARAMETERS {
     pub Length: u32,
     pub SegmentReserve: usize,
@@ -4274,7 +4933,7 @@ impl Default for RTL_SEGMENT_HEAP_MEMORY_SOURCE {
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
 pub union RTL_SEGMENT_HEAP_MEMORY_SOURCE_0 {
-    pub PartitionHandle: super::super::Win32::HANDLE,
+    pub PartitionHandle: super::HANDLE,
     pub Callbacks: *mut RTL_SEGMENT_HEAP_VA_CALLBACKS,
 }
 #[cfg(feature = "winnt")]
@@ -4301,36 +4960,24 @@ impl Default for RTL_SEGMENT_HEAP_PARAMETERS {
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RTL_SEGMENT_HEAP_VA_CALLBACKS {
-    pub CallbackContext: super::super::Win32::HANDLE,
+    pub CallbackContext: super::HANDLE,
     pub AllocateVirtualMemory: PALLOCATE_VIRTUAL_MEMORY_EX_CALLBACK,
     pub FreeVirtualMemory: PFREE_VIRTUAL_MEMORY_EX_CALLBACK,
     pub QueryVirtualMemory: PQUERY_VIRTUAL_MEMORY_CALLBACK,
 }
-#[cfg(feature = "winnt")]
-impl Default for RTL_SEGMENT_HEAP_VA_CALLBACKS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-pub const RTL_SYSTEM_VOLUME_INFORMATION_FOLDER: windows_sys::core::PCWSTR = windows_sys::core::w!("System Volume Information");
+pub const RTL_SYSTEM_VOLUME_INFORMATION_FOLDER: windows_core::PCWSTR = windows_core::w!("System Volume Information");
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SECURITY_CLIENT_CONTEXT {
-    pub SecurityQos: super::super::Win32::SECURITY_QUALITY_OF_SERVICE,
-    pub ClientToken: super::super::Win32::PACCESS_TOKEN,
+    pub SecurityQos: super::SECURITY_QUALITY_OF_SERVICE,
+    pub ClientToken: super::PACCESS_TOKEN,
     pub DirectlyAccessClientToken: bool,
     pub DirectAccessEffectiveOnly: bool,
     pub ServerIsRemote: bool,
-    pub ClientTokenControl: super::super::Win32::TOKEN_CONTROL,
-}
-#[cfg(feature = "winnt")]
-impl Default for SECURITY_CLIENT_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
+    pub ClientTokenControl: super::TOKEN_CONTROL,
 }
 pub const SECURITY_DESCRIPTOR_DO_NOT_FREE: u32 = 67108864;
 pub const SEGMENT_HEAP_FLG_NO_LFH: u32 = 2;
@@ -4338,24 +4985,24 @@ pub const SEGMENT_HEAP_FLG_USE_PAGE_HEAP: u32 = 1;
 pub const SEGMENT_HEAP_PARAMETERS_VERSION: u32 = 3;
 pub const SEGMENT_HEAP_PARAMS_VALID_FLAGS: u32 = 3;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SET_CACHED_RUNS_STATE_INPUT_BUFFER {
     pub Enable: bool,
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SE_AUDIT_INFO {
     pub Size: u32,
-    pub AuditType: super::super::Win32::AUDIT_EVENT_TYPE,
+    pub AuditType: super::AUDIT_EVENT_TYPE,
     pub AuditOperation: SE_AUDIT_OPERATION,
     pub AuditFlags: u32,
-    pub SubsystemName: super::super::Win32::UNICODE_STRING,
-    pub ObjectTypeName: super::super::Win32::UNICODE_STRING,
-    pub ObjectName: super::super::Win32::UNICODE_STRING,
+    pub SubsystemName: super::UNICODE_STRING,
+    pub ObjectTypeName: super::UNICODE_STRING,
+    pub ObjectName: super::UNICODE_STRING,
     pub HandleId: *mut core::ffi::c_void,
-    pub TransactionId: *mut windows_sys::core::GUID,
-    pub OperationId: *mut super::super::Win32::LUID,
+    pub TransactionId: *mut windows_core::GUID,
+    pub OperationId: *mut super::LUID,
     pub ObjectCreation: bool,
     pub GenerateOnClose: bool,
 }
@@ -4370,101 +5017,95 @@ pub const SE_BACKUP_PRIVILEGES_CHECKED: u32 = 256;
 pub const SE_DACL_UNTRUSTED: u32 = 64;
 #[repr(C)]
 #[cfg(feature = "winnt")]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SE_EXPORTS {
-    pub SeCreateTokenPrivilege: super::super::Win32::LUID,
-    pub SeAssignPrimaryTokenPrivilege: super::super::Win32::LUID,
-    pub SeLockMemoryPrivilege: super::super::Win32::LUID,
-    pub SeIncreaseQuotaPrivilege: super::super::Win32::LUID,
-    pub SeUnsolicitedInputPrivilege: super::super::Win32::LUID,
-    pub SeTcbPrivilege: super::super::Win32::LUID,
-    pub SeSecurityPrivilege: super::super::Win32::LUID,
-    pub SeTakeOwnershipPrivilege: super::super::Win32::LUID,
-    pub SeLoadDriverPrivilege: super::super::Win32::LUID,
-    pub SeCreatePagefilePrivilege: super::super::Win32::LUID,
-    pub SeIncreaseBasePriorityPrivilege: super::super::Win32::LUID,
-    pub SeSystemProfilePrivilege: super::super::Win32::LUID,
-    pub SeSystemtimePrivilege: super::super::Win32::LUID,
-    pub SeProfileSingleProcessPrivilege: super::super::Win32::LUID,
-    pub SeCreatePermanentPrivilege: super::super::Win32::LUID,
-    pub SeBackupPrivilege: super::super::Win32::LUID,
-    pub SeRestorePrivilege: super::super::Win32::LUID,
-    pub SeShutdownPrivilege: super::super::Win32::LUID,
-    pub SeDebugPrivilege: super::super::Win32::LUID,
-    pub SeAuditPrivilege: super::super::Win32::LUID,
-    pub SeSystemEnvironmentPrivilege: super::super::Win32::LUID,
-    pub SeChangeNotifyPrivilege: super::super::Win32::LUID,
-    pub SeRemoteShutdownPrivilege: super::super::Win32::LUID,
-    pub SeNullSid: super::super::Win32::PSID,
-    pub SeWorldSid: super::super::Win32::PSID,
-    pub SeLocalSid: super::super::Win32::PSID,
-    pub SeCreatorOwnerSid: super::super::Win32::PSID,
-    pub SeCreatorGroupSid: super::super::Win32::PSID,
-    pub SeNtAuthoritySid: super::super::Win32::PSID,
-    pub SeDialupSid: super::super::Win32::PSID,
-    pub SeNetworkSid: super::super::Win32::PSID,
-    pub SeBatchSid: super::super::Win32::PSID,
-    pub SeInteractiveSid: super::super::Win32::PSID,
-    pub SeLocalSystemSid: super::super::Win32::PSID,
-    pub SeAliasAdminsSid: super::super::Win32::PSID,
-    pub SeAliasUsersSid: super::super::Win32::PSID,
-    pub SeAliasGuestsSid: super::super::Win32::PSID,
-    pub SeAliasPowerUsersSid: super::super::Win32::PSID,
-    pub SeAliasAccountOpsSid: super::super::Win32::PSID,
-    pub SeAliasSystemOpsSid: super::super::Win32::PSID,
-    pub SeAliasPrintOpsSid: super::super::Win32::PSID,
-    pub SeAliasBackupOpsSid: super::super::Win32::PSID,
-    pub SeAuthenticatedUsersSid: super::super::Win32::PSID,
-    pub SeRestrictedSid: super::super::Win32::PSID,
-    pub SeAnonymousLogonSid: super::super::Win32::PSID,
-    pub SeUndockPrivilege: super::super::Win32::LUID,
-    pub SeSyncAgentPrivilege: super::super::Win32::LUID,
-    pub SeEnableDelegationPrivilege: super::super::Win32::LUID,
-    pub SeLocalServiceSid: super::super::Win32::PSID,
-    pub SeNetworkServiceSid: super::super::Win32::PSID,
-    pub SeManageVolumePrivilege: super::super::Win32::LUID,
-    pub SeImpersonatePrivilege: super::super::Win32::LUID,
-    pub SeCreateGlobalPrivilege: super::super::Win32::LUID,
-    pub SeTrustedCredManAccessPrivilege: super::super::Win32::LUID,
-    pub SeRelabelPrivilege: super::super::Win32::LUID,
-    pub SeIncreaseWorkingSetPrivilege: super::super::Win32::LUID,
-    pub SeTimeZonePrivilege: super::super::Win32::LUID,
-    pub SeCreateSymbolicLinkPrivilege: super::super::Win32::LUID,
-    pub SeIUserSid: super::super::Win32::PSID,
-    pub SeUntrustedMandatorySid: super::super::Win32::PSID,
-    pub SeLowMandatorySid: super::super::Win32::PSID,
-    pub SeMediumMandatorySid: super::super::Win32::PSID,
-    pub SeHighMandatorySid: super::super::Win32::PSID,
-    pub SeSystemMandatorySid: super::super::Win32::PSID,
-    pub SeOwnerRightsSid: super::super::Win32::PSID,
-    pub SeAllAppPackagesSid: super::super::Win32::PSID,
-    pub SeUserModeDriversSid: super::super::Win32::PSID,
-    pub SeProcTrustWinTcbSid: super::super::Win32::PSID,
-    pub SeTrustedInstallerSid: super::super::Win32::PSID,
-    pub SeDelegateSessionUserImpersonatePrivilege: super::super::Win32::LUID,
-    pub SeAppSiloSid: super::super::Win32::PSID,
-    pub SeAppSiloVolumeRootMinimalCapabilitySid: super::super::Win32::PSID,
-    pub SeAppSiloProfilesRootMinimalCapabilitySid: super::super::Win32::PSID,
-    pub SeAppSiloPromptForAccessCapabilitySid: super::super::Win32::PSID,
-    pub SeAppSiloAccessToPublisherDirectoryCapabilitySid: super::super::Win32::PSID,
+    pub SeCreateTokenPrivilege: super::LUID,
+    pub SeAssignPrimaryTokenPrivilege: super::LUID,
+    pub SeLockMemoryPrivilege: super::LUID,
+    pub SeIncreaseQuotaPrivilege: super::LUID,
+    pub SeUnsolicitedInputPrivilege: super::LUID,
+    pub SeTcbPrivilege: super::LUID,
+    pub SeSecurityPrivilege: super::LUID,
+    pub SeTakeOwnershipPrivilege: super::LUID,
+    pub SeLoadDriverPrivilege: super::LUID,
+    pub SeCreatePagefilePrivilege: super::LUID,
+    pub SeIncreaseBasePriorityPrivilege: super::LUID,
+    pub SeSystemProfilePrivilege: super::LUID,
+    pub SeSystemtimePrivilege: super::LUID,
+    pub SeProfileSingleProcessPrivilege: super::LUID,
+    pub SeCreatePermanentPrivilege: super::LUID,
+    pub SeBackupPrivilege: super::LUID,
+    pub SeRestorePrivilege: super::LUID,
+    pub SeShutdownPrivilege: super::LUID,
+    pub SeDebugPrivilege: super::LUID,
+    pub SeAuditPrivilege: super::LUID,
+    pub SeSystemEnvironmentPrivilege: super::LUID,
+    pub SeChangeNotifyPrivilege: super::LUID,
+    pub SeRemoteShutdownPrivilege: super::LUID,
+    pub SeNullSid: super::PSID,
+    pub SeWorldSid: super::PSID,
+    pub SeLocalSid: super::PSID,
+    pub SeCreatorOwnerSid: super::PSID,
+    pub SeCreatorGroupSid: super::PSID,
+    pub SeNtAuthoritySid: super::PSID,
+    pub SeDialupSid: super::PSID,
+    pub SeNetworkSid: super::PSID,
+    pub SeBatchSid: super::PSID,
+    pub SeInteractiveSid: super::PSID,
+    pub SeLocalSystemSid: super::PSID,
+    pub SeAliasAdminsSid: super::PSID,
+    pub SeAliasUsersSid: super::PSID,
+    pub SeAliasGuestsSid: super::PSID,
+    pub SeAliasPowerUsersSid: super::PSID,
+    pub SeAliasAccountOpsSid: super::PSID,
+    pub SeAliasSystemOpsSid: super::PSID,
+    pub SeAliasPrintOpsSid: super::PSID,
+    pub SeAliasBackupOpsSid: super::PSID,
+    pub SeAuthenticatedUsersSid: super::PSID,
+    pub SeRestrictedSid: super::PSID,
+    pub SeAnonymousLogonSid: super::PSID,
+    pub SeUndockPrivilege: super::LUID,
+    pub SeSyncAgentPrivilege: super::LUID,
+    pub SeEnableDelegationPrivilege: super::LUID,
+    pub SeLocalServiceSid: super::PSID,
+    pub SeNetworkServiceSid: super::PSID,
+    pub SeManageVolumePrivilege: super::LUID,
+    pub SeImpersonatePrivilege: super::LUID,
+    pub SeCreateGlobalPrivilege: super::LUID,
+    pub SeTrustedCredManAccessPrivilege: super::LUID,
+    pub SeRelabelPrivilege: super::LUID,
+    pub SeIncreaseWorkingSetPrivilege: super::LUID,
+    pub SeTimeZonePrivilege: super::LUID,
+    pub SeCreateSymbolicLinkPrivilege: super::LUID,
+    pub SeIUserSid: super::PSID,
+    pub SeUntrustedMandatorySid: super::PSID,
+    pub SeLowMandatorySid: super::PSID,
+    pub SeMediumMandatorySid: super::PSID,
+    pub SeHighMandatorySid: super::PSID,
+    pub SeSystemMandatorySid: super::PSID,
+    pub SeOwnerRightsSid: super::PSID,
+    pub SeAllAppPackagesSid: super::PSID,
+    pub SeUserModeDriversSid: super::PSID,
+    pub SeProcTrustWinTcbSid: super::PSID,
+    pub SeTrustedInstallerSid: super::PSID,
+    pub SeDelegateSessionUserImpersonatePrivilege: super::LUID,
+    pub SeAppSiloSid: super::PSID,
+    pub SeAppSiloVolumeRootMinimalCapabilitySid: super::PSID,
+    pub SeAppSiloProfilesRootMinimalCapabilitySid: super::PSID,
+    pub SeAppSiloPromptForAccessCapabilitySid: super::PSID,
+    pub SeAppSiloAccessToPublisherDirectoryCapabilitySid: super::PSID,
 }
 #[cfg(feature = "winnt")]
-impl Default for SE_EXPORTS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
-#[cfg(feature = "winnt")]
-pub type SE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn(logonid: *const super::super::Win32::LUID) -> windows_sys::core::NTSTATUS>;
+pub type SE_LOGON_SESSION_TERMINATED_ROUTINE = Option<unsafe extern "system" fn(logonid: *const super::LUID) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "ntddk", feature = "winnt"))]
-pub type SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn(logonid: *const super::super::Win32::LUID, pserversilo: *const super::_EJOB, context: *const core::ffi::c_void) -> windows_sys::core::NTSTATUS>;
+pub type SE_LOGON_SESSION_TERMINATED_ROUTINE_EX = Option<unsafe extern "system" fn(logonid: *const super::LUID, pserversilo: *const super::_EJOB, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub const SE_SERVER_SECURITY: u32 = 128;
 #[repr(C)]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct SOV_RANGE_CHECK_DATA {
     pub RemoveZone: bool,
     pub InRange: [u64; 2],
-    pub ZidForRemoval: windows_sys::core::GUID,
+    pub ZidForRemoval: windows_core::GUID,
     pub Reserved1: u64,
     pub Reserved2: u64,
 }
@@ -4477,21 +5118,15 @@ pub const SPECIAL_ENCRYPTED_OPEN: u32 = 262144;
 pub type SRV_INSTANCE_TYPE = i32;
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SRV_OPEN_ECP_CONTEXT {
-    pub ShareName: super::super::Win32::PUNICODE_STRING,
+    pub ShareName: super::PUNICODE_STRING,
     pub SocketAddress: PSOCKADDR_STORAGE_NFS,
     pub OplockBlockState: bool,
     pub OplockAppState: bool,
     pub OplockFinalState: bool,
     pub Version: u16,
     pub InstanceType: SRV_INSTANCE_TYPE,
-}
-#[cfg(all(feature = "lsalookup", feature = "ntsecapi"))]
-impl Default for SRV_OPEN_ECP_CONTEXT {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
 }
 pub const SRV_OPEN_ECP_CONTEXT_VERSION_2: u32 = 2;
 pub const SUPPORTED_FS_FEATURES_BYPASS_IO: u32 = 8;
@@ -4514,7 +5149,7 @@ pub const SrvInstanceTypeUndefined: SRV_INSTANCE_TYPE = 0;
 pub const SrvInstanceTypeVMLM: SRV_INSTANCE_TYPE = 7;
 pub const SrvInstanceTypeVSMB: SRV_INSTANCE_TYPE = 5;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SspiAsyncContext(pub u8);
 pub type SspiAsyncNotifyCallback = Option<unsafe extern "system" fn(handle: *const SspiAsyncContext, callbackdata: *const core::ffi::c_void)>;
 pub const SyncTypeCreateSection: FS_FILTER_SECTION_SYNC_TYPE = 1;
@@ -4552,7 +5187,7 @@ pub const TOKEN_WRITE_RESTRICTED: u32 = 8;
 pub struct TUNNEL {
     pub Mutex: super::FAST_MUTEX,
     pub Cache: super::PRTL_SPLAY_LINKS,
-    pub TimerQueue: super::super::Win32::LIST_ENTRY,
+    pub TimerQueue: super::LIST_ENTRY,
     pub NumEntries: u16,
 }
 #[cfg(all(feature = "ntddk", feature = "wdm", feature = "winnt"))]
@@ -4563,29 +5198,23 @@ impl Default for TUNNEL {
 }
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UNICODE_PREFIX_TABLE {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
     pub NextPrefixTree: PUNICODE_PREFIX_TABLE_ENTRY,
     pub LastNextEntry: PUNICODE_PREFIX_TABLE_ENTRY,
 }
-#[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi"))]
-impl Default for UNICODE_PREFIX_TABLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
 #[repr(C)]
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi"))]
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct UNICODE_PREFIX_TABLE_ENTRY {
     pub NodeTypeCode: super::CSHORT,
     pub NameLength: super::CSHORT,
     pub NextPrefixTree: *mut Self,
     pub CaseMatch: *mut Self,
     pub Links: super::RTL_SPLAY_LINKS,
-    pub Prefix: super::super::Win32::PUNICODE_STRING,
+    pub Prefix: super::PUNICODE_STRING,
 }
 #[cfg(all(feature = "lsalookup", feature = "ntddk", feature = "ntdef", feature = "ntsecapi"))]
 impl Default for UNICODE_PREFIX_TABLE_ENTRY {
@@ -4598,22 +5227,24 @@ pub const USE_PRIMARY_PASSWORD: u32 = 1;
 pub const VACB_MAPPING_GRANULARITY: u32 = 262144;
 pub const VACB_OFFSET_SHIFT: u32 = 18;
 pub const VALID_COPY_FILE_CHUNK_FLAGS: u32 = 1;
-pub type VBN = u32;
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct VBN(pub u32);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VCN_RANGE_INPUT_BUFFER {
     pub StartingVcn: i64,
     pub ClusterCount: i64,
 }
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VETO_BINDING_ECP_CONTEXT {
     pub ShouldVetoBinding: bool,
 }
 pub type VIRTUAL_MEMORY_INFORMATION_CLASS = i32;
 pub const VOLSNAPCONTROLTYPE: u32 = 83;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VOLUME_REFS_INFO_BUFFER {
     pub CacheSizeInBytes: i64,
     pub AllocatedCacheInBytes: i64,
@@ -4717,8 +5348,8 @@ pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REGISTERED_LAYER: u32 = 4
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_REMOTE_LAYER: u32 = 8;
 pub const WCIFS_REDIRECTION_FLAGS_CREATE_SERVICED_FROM_SCRATCH: u32 = 2;
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct _REAL_NOTIFY_SYNC(pub u8);
 #[repr(C)]
-#[derive(Clone, Copy, Default)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct sockaddr_storage(pub u8);

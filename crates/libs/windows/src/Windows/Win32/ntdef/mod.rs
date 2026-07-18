@@ -18,7 +18,7 @@ pub const NtProductLanManNt: NT_PRODUCT_TYPE = 2;
 pub const NtProductServer: NT_PRODUCT_TYPE = 3;
 pub const NtProductWinNt: NT_PRODUCT_TYPE = 1;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PUTF8_STRING = super::super::Win32::PSTRING;
+pub type PUTF8_STRING = super::PSTRING;
 pub const SynchronizationEvent: EVENT_TYPE = 1;
 pub const SynchronizationTimer: TIMER_TYPE = 1;
 pub type TIMER_TYPE = i32;

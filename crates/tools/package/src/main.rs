@@ -13,11 +13,10 @@ fn dump_routes(corpora: &[Corpus], path: String) {
     for corpus in corpora {
         let (routes, _) = remap::routes(corpus);
         for (name, namespace) in routes {
-            // Mirror bindgen's `namespace_feature`: the `Windows.Win32`/`Windows.Wdk` umbrellas are
-            // stripped to the bare header stem; other namespaces drop the leading `Windows`.
+            // Mirror bindgen's `namespace_feature`: the `Windows.Win32` umbrella is stripped to
+            // the bare header stem; other namespaces drop the leading `Windows`.
             let feature = namespace
                 .strip_prefix("Windows.Win32.")
-                .or_else(|| namespace.strip_prefix("Windows.Wdk."))
                 .map(|stem| stem.replace('.', "_"))
                 .or_else(|| {
                     namespace
@@ -70,8 +69,8 @@ fn main() {
 }
 
 /// Asserts the header partition took effect (every Win32/WDK header stem lands in its own
-/// `Windows.Win32.<header>` / `Windows.Wdk.<header>` namespace and the flat `Windows.Win32`
-/// namespace no longer holds types directly) and reports the synthesised namespace/item totals.
+/// `Windows.Win32.<header>` namespace and the flat `Windows.Win32` namespace no longer holds types
+/// directly) and reports the synthesised namespace/item totals.
 fn verify(summary: &[(String, usize)]) {
     let index = windows_metadata::reader::Index::read(REMAP_OUTPUT)
         .unwrap_or_else(|| panic!("failed to read remapped winmd `{REMAP_OUTPUT}`"));
