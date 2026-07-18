@@ -243,6 +243,11 @@ impl Config<'_> {
             .filter(|namespace| !is_flat_container(namespace))
             .collect();
 
+        // Collect the feature lines and sort them before writing so the generated feature table is
+        // ordered by feature name rather than by namespace-tree traversal, keeping the Cargo.toml
+        // stable and diff-friendly (the dependency list inside each line is already sorted).
+        let mut feature_lines: Vec<String> = Vec::new();
+
         for tree in trees.iter().skip(1) {
             if prunable.contains(tree.namespace) {
                 continue;
@@ -293,20 +298,26 @@ impl Config<'_> {
                     .collect::<Vec<_>>()
                     .join(", ");
 
-                toml.push_str(&format!("{feature} = [{list}]\n"));
+                feature_lines.push(format!("{feature} = [{list}]"));
             } else if parent != "Windows" {
                 // A nested WinRT namespace (e.g. `Foundation.Collections`) depends on its
                 // parent root feature.
                 let dependency = namespace_feature(parent);
 
-                toml.push_str(&format!("{feature} = [\"{dependency}\"]\n"));
+                feature_lines.push(format!("{feature} = [\"{dependency}\"]"));
             } else if tree.namespace == "Windows.Foundation" {
                 // The WinRT `Foundation` base is always available with no dependency.
-                toml.push_str(&format!("{feature} = []\n"));
+                feature_lines.push(format!("{feature} = []"));
             } else {
                 // Other WinRT roots depend on the always-on `Foundation` base.
-                toml.push_str(&format!("{feature} = [\"Foundation\"]\n"));
+                feature_lines.push(format!("{feature} = [\"Foundation\"]"));
             }
+        }
+
+        feature_lines.sort();
+        for line in feature_lines {
+            toml.push_str(&line);
+            toml.push('\n');
         }
 
         write_to_file(&toml_path, toml);
