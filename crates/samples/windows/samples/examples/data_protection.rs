@@ -1,7 +1,8 @@
 fn main() -> std::io::Result<()> {
     use windows::{
         Security::Cryptography::DataProtection::*, Security::Cryptography::*, Storage::Streams::*,
-        core::*, Win32::*};
+        Win32::*, core::*,
+    };
 
     #[expect(clippy::mut_from_ref)]
     unsafe fn as_mut_bytes(buffer: &IBuffer) -> Result<&mut [u8]> {

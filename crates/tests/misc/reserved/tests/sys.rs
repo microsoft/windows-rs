@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows_sys::{core::*, Win32::*};
+use windows_sys::{Win32::*, core::*};
 
 /// Tests a few APIs that have reserved parameters to ensure they can be called with `None`.
 #[test]

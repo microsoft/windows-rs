@@ -1,19 +1,6 @@
 fn main() -> windows::core::Result<()> {
     use windows::Win32::*;
     use windows::core::*;
-    use windows::Win32::*;
-    use windows::Win32::*;
-    use windows::Win32::*;
-    use windows::Win32::*;
-    use windows::Win32::*;
-    use windows::Win32::*;
-    use windows::Win32::*;
-    use windows::Win32::*;
-    use windows::Win32::*;
-    use windows::Win32::*;
-    use windows::Win32::*;
-    use windows::Win32::*;
-    use windows::Win32::*;
 
     use std::cell::RefCell;
     use std::rc::Rc;

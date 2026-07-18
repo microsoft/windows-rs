@@ -21,7 +21,7 @@ features = [
 Make use of any Windows APIs as needed:
 
 ```rust,no_run
-use windows_sys::{core::*, handleapi::*, synchapi::*, winuser::*};
+use windows_sys::{core::*, Win32::*};
 
 unsafe {
     let event = CreateEventW(std::ptr::null(), 1, 0, std::ptr::null());

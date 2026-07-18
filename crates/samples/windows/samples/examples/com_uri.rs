@@ -1,6 +1,6 @@
 fn main() -> windows::core::Result<()> {
-    use windows::core::*;
     use windows::Win32::*;
+    use windows::core::*;
 
     unsafe {
         let uri = CreateUri(w!("http://kennykerr.ca"), 0, None)?;

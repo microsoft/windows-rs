@@ -2,7 +2,7 @@
 
 #![windows_subsystem = "windows"]
 
-use windows::{Win32::*};
+use windows::Win32::*;
 use windows_reactor::*;
 
 struct D3DState {

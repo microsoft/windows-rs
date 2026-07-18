@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows_sys::{core::*, Win32::*};
+use windows_sys::{Win32::*, core::*};
 
 #[test]
 fn calling_convention() {

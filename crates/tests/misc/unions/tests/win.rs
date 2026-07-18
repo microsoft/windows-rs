@@ -1,8 +1,9 @@
 #![cfg(windows)]
 use windows::{
+    Win32::HANDLE,
     Win32::*,
     Win32::{OVERLAPPED, OVERLAPPED_0_0},
-    Win32::HANDLE};
+};
 
 #[test]
 fn test() {

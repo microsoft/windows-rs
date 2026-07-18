@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{Foundation::*, core::*, Win32::*};
+use windows::{Foundation::*, Win32::*, core::*};
 
 #[implement(IStringable)]
 struct Test;

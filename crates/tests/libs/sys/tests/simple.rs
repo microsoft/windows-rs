@@ -1,6 +1,5 @@
 #![cfg(windows)]
-use windows_sys::{
-    Win32::*, core::*};
+use windows_sys::{Win32::*, core::*};
 
 #[test]
 fn simple() {

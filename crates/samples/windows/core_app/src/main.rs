@@ -5,7 +5,8 @@ fn main() -> windows::core::Result<()> {
         ApplicationModel::{Core::*, Package},
         UI::Core::*,
         Win32::*,
-        core::*};
+        core::*,
+    };
 
     #[implement(IFrameworkViewSource)]
     struct CoreApp();

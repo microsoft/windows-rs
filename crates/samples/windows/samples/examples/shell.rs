@@ -1,6 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{
-        Win32::*, core::*};
+    use windows::{Win32::*, core::*};
 
     use std::mem::ManuallyDrop;
 

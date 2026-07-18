@@ -1,6 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{
-        UI::UIAutomation::*, Win32::*, core::*};
+    use windows::{UI::UIAutomation::*, Win32::*, core::*};
 
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED as u32).ok()?;

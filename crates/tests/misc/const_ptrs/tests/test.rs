@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, Win32::*};
+use windows::{Win32::*, core::*};
 
 #[test]
 fn path() {

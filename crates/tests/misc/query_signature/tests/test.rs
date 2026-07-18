@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::Interface, Win32::*};
+use windows::{Win32::*, core::Interface};
 
 #[test]
 fn test() {

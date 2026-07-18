@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows::Foundation::*;
-use windows::core::*;
 use windows::Win32::*;
+use windows::core::*;
 
 #[implement(IClosable, IStringable)]
 struct Object();
@@ -45,10 +45,10 @@ fn test() -> Result<()> {
         let factory: IClassFactory = Factory().into();
         factory.LockServer(true).ok()?;
 
-        let stringable: IStringable = factory.CreateInstance(Option::None)?;
+        let stringable: IStringable = factory.CreateInstance(None)?;
         assert_eq!(stringable.ToString()?, "Object");
 
-        let closable: IClosable = factory.CreateInstance(Option::None)?;
+        let closable: IClosable = factory.CreateInstance(None)?;
         closable.Close()?;
 
         Ok(())

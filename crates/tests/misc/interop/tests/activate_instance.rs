@@ -1,10 +1,11 @@
 #![cfg(windows)]
 use windows::{
     Foundation::Collections::StringMap,
-    Win32::CoInitializeEx,
-    core::{HSTRING, Interface, Result},
     Win32::COINIT_MULTITHREADED,
-    Win32::RoActivateInstance};
+    Win32::CoInitializeEx,
+    Win32::RoActivateInstance,
+    core::{HSTRING, Interface, Result},
+};
 
 // Calling RoActivateInstance is a useful interop test because it is a function defined by Win32 metadata
 // but refers to three types that are intrinsic to WinRT and thus directly mapped to type in the Windows

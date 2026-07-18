@@ -1,7 +1,5 @@
 use windows::Win32::*;
 use windows::core::*;
-use windows::Win32::*;
-use windows::Win32::*;
 
 fn main() -> Result<()> {
     let input = std::env::args()

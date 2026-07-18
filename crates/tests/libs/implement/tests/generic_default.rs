@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows::Foundation::*;
-use windows::core::*;
 use windows::Win32::E_BOUNDS;
+use windows::core::*;
 use windows_collections::*;
 
 #[implement(

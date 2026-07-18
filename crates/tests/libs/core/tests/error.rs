@@ -1,11 +1,5 @@
 #![cfg(windows)]
-use windows::{
-    Win32::*,
-    core::*,
-    Win32::{
-        RO_ERROR_REPORTING_SUPPRESSSETERRORINFO, RO_ERROR_REPORTING_USESETERRORINFO,
-        RoSetErrorReportingFlags,
-    }};
+use windows::{Win32::*, core::WIN32_ERROR, core::*};
 
 #[test]
 fn display_debug() {

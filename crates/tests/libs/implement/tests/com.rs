@@ -1,13 +1,10 @@
 #![cfg(windows)]
 use windows::Foundation::*;
-use windows::core::*;
-use windows::Win32::*;
 use windows::Win32::HANDLE;
+use windows::Win32::*;
+use windows::core::*;
 
-#[implement(
-    windows::Foundation::IStringable,
-    windows::Win32::IDisplayPathInterop
-)]
+#[implement(windows::Foundation::IStringable, windows::Win32::IDisplayPathInterop)]
 struct Mix;
 
 impl IStringable_Impl for Mix_Impl {

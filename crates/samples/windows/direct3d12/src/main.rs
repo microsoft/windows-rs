@@ -1,6 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{
-        core::*, Win32::*};
+    use windows::{Win32::*, core::*};
 
     use std::cell::RefCell;
     use std::rc::Rc;

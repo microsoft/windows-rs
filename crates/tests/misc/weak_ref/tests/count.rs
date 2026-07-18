@@ -1,7 +1,7 @@
 #![cfg(windows)]
+use windows::Win32::IWeakReferenceSource;
 use windows::core::Interface;
 use windows::core::imp::WeakRefCount;
-use windows::Win32::IWeakReferenceSource;
 
 #[test]
 fn test() {
