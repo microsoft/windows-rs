@@ -7,7 +7,7 @@ windows_core::link!("kernel32.dll" "system" fn GetProcAddress(hmodule : HMODULE,
 windows_core::link!("kernel32.dll" "system" fn LoadLibraryExA(lplibfilename : windows_core::PCSTR, hfile : HANDLE, dwflags : u32) -> HMODULE);
 windows_core::link!("api-ms-win-core-winrt-l1-1-0.dll" "system" fn RoGetActivationFactory(activatableclassid : *mut core::ffi::c_void, iid : *const windows_core::GUID, factory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
 windows_core::link!("ole32.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_core::GUID, punk : *mut core::ffi::c_void, ppagilereference : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
-windows_core::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut windows_core::GUID) -> RPC_STATUS);
+windows_core::link!("rpcrt4.dll" "system" fn UuidCreate(uuid : *mut windows_core::GUID) -> windows_core::RPC_STATUS);
 pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = 0;
 pub type AgileReferenceOptions = i32;
 pub const CO_E_NOTINITIALIZED: windows_core::HRESULT = windows_core::HRESULT(0x800401F0_u32 as _);
@@ -244,5 +244,4 @@ pub const JSCRIPT_E_CANTEXECUTE: windows_core::HRESULT = windows_core::HRESULT(0
 pub const LOAD_LIBRARY_SEARCH_DEFAULT_DIRS: u32 = 4096;
 pub const REGDB_E_CLASSNOTREG: windows_core::HRESULT = windows_core::HRESULT(0x80040154_u32 as _);
 pub const RPC_E_DISCONNECTED: windows_core::HRESULT = windows_core::HRESULT(0x80010108_u32 as _);
-pub type RPC_STATUS = i32;
 pub const S_OK: windows_core::HRESULT = windows_core::HRESULT(0x0_u32 as _);

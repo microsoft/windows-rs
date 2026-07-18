@@ -31,100 +31,88 @@ windows_link::link!("advapi32.dll" "system" fn AuditSetPerUserPolicy(psid : supe
 #[cfg(feature = "winnt")]
 windows_link::link!("advapi32.dll" "system" fn AuditSetSecurity(securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR) -> bool);
 windows_link::link!("advapi32.dll" "system" fn AuditSetSystemPolicy(pauditpolicy : PCAUDIT_POLICY_INFORMATION, dwpolicycount : u32) -> bool);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaAddAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, userrights : *const super::LSA_UNICODE_STRING, countofrights : u32) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaCallAuthenticationPackage(lsahandle : super::HANDLE, authenticationpackage : u32, protocolsubmitbuffer : *const core::ffi::c_void, submitbufferlength : u32, protocolreturnbuffer : *mut *mut core::ffi::c_void, returnbufferlength : *mut u32, protocolstatus : *mut i32) -> super::NTSTATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "system" fn LsaClose(objecthandle : LSA_HANDLE) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaConnectUntrusted(lsahandle : *mut super::HANDLE) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaCreateTrustedDomainEx(policyhandle : LSA_HANDLE, trusteddomaininformation : *const TRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation : *const TRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess : super::ACCESS_MASK, trusteddomainhandle : *mut *mut core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaDeleteTrustedDomain(policyhandle : LSA_HANDLE, trusteddomainsid : super::PSID) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaDeregisterLogonProcess(lsahandle : super::HANDLE) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaEnumerateAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, userrights : *mut super::PLSA_UNICODE_STRING, countofrights : *mut u32) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-windows_link::link!("advapi32.dll" "system" fn LsaEnumerateAccountsWithUserRight(policyhandle : LSA_HANDLE, userright : *const super::LSA_UNICODE_STRING, buffer : *mut *mut core::ffi::c_void, countreturned : *mut u32) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaEnumerateLogonSessions(logonsessioncount : *mut u32, logonsessionlist : *mut super::PLUID) -> super::NTSTATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "system" fn LsaEnumerateTrustedDomains(policyhandle : LSA_HANDLE, enumerationcontext : *mut u32, buffer : *mut *mut core::ffi::c_void, preferedmaximumlength : u32, countreturned : *mut u32) -> super::NTSTATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "system" fn LsaEnumerateTrustedDomainsEx(policyhandle : LSA_HANDLE, enumerationcontext : *mut u32, buffer : *mut *mut core::ffi::c_void, preferedmaximumlength : u32, countreturned : *mut u32) -> super::NTSTATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "system" fn LsaFreeMemory(buffer : *const core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("secur32.dll" "system" fn LsaFreeReturnBuffer(buffer : *const core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaGetAppliedCAPIDs(systemname : *const super::LSA_UNICODE_STRING, capids : *mut *mut super::PSID, capidcount : *mut u32) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaGetLogonSessionData(logonid : *const super::LUID, pplogonsessiondata : *mut PSECURITY_LOGON_SESSION_DATA) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaLogonUser(lsahandle : super::HANDLE, originname : *const super::LSA_STRING, logontype : SECURITY_LOGON_TYPE, authenticationpackage : u32, authenticationinformation : *const core::ffi::c_void, authenticationinformationlength : u32, localgroups : *const super::TOKEN_GROUPS, sourcecontext : *const super::TOKEN_SOURCE, profilebuffer : *mut *mut core::ffi::c_void, profilebufferlength : *mut u32, logonid : *mut super::LUID, token : *mut super::HANDLE, quotas : *mut super::QUOTA_LIMITS, substatus : *mut i32) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaLookupAuthenticationPackage(lsahandle : super::HANDLE, packagename : *const super::LSA_STRING, authenticationpackage : *mut u32) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaLookupNames(policyhandle : LSA_HANDLE, count : u32, names : *const super::LSA_UNICODE_STRING, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, sids : *mut PLSA_TRANSLATED_SID) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaLookupNames2(policyhandle : LSA_HANDLE, flags : u32, count : u32, names : *const super::LSA_UNICODE_STRING, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, sids : *mut super::PLSA_TRANSLATED_SID2) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaLookupSids(policyhandle : LSA_HANDLE, count : u32, sids : *const super::PSID, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, names : *mut super::PLSA_TRANSLATED_NAME) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaLookupSids2(policyhandle : LSA_HANDLE, lookupoptions : u32, count : u32, sids : *const super::PSID, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, names : *mut super::PLSA_TRANSLATED_NAME) -> super::NTSTATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "system" fn LsaNtStatusToWinError(status : super::NTSTATUS) -> u32);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaOpenPolicy(systemname : *const super::LSA_UNICODE_STRING, objectattributes : *const super::LSA_OBJECT_ATTRIBUTES, desiredaccess : super::ACCESS_MASK, policyhandle : *mut *mut core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaOpenTrustedDomainByName(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, desiredaccess : super::ACCESS_MASK, trusteddomainhandle : *mut *mut core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaQueryCAPs(capids : *const super::PSID, capidcount : u32, caps : *mut PCENTRAL_ACCESS_POLICY, capcount : *mut u32) -> super::NTSTATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "system" fn LsaQueryDomainInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_DOMAIN_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaQueryForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, foresttrustinfo : *mut PLSA_FOREST_TRUST_INFORMATION) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaQueryForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *mut PLSA_FOREST_TRUST_INFORMATION2) -> super::NTSTATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "system" fn LsaQueryInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaQueryTrustedDomainInfo(policyhandle : LSA_HANDLE, trusteddomainsid : super::PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-windows_link::link!("advapi32.dll" "system" fn LsaQueryTrustedDomainInfoByName(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaRegisterLogonProcess(logonprocessname : *const super::LSA_STRING, lsahandle : *mut super::HANDLE, securitymode : *mut u32) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaRegisterPolicyChangeNotification(informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle : super::HANDLE) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, allrights : bool, userrights : *const super::LSA_UNICODE_STRING, countofrights : u32) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-windows_link::link!("advapi32.dll" "system" fn LsaRetrievePrivateData(policyhandle : LSA_HANDLE, keyname : *const super::LSA_UNICODE_STRING, privatedata : *mut super::PLSA_UNICODE_STRING) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-windows_link::link!("advapi32.dll" "system" fn LsaSetCAPs(capdns : *const super::LSA_UNICODE_STRING, capdncount : u32, flags : u32) -> super::NTSTATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "system" fn LsaSetDomainInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_DOMAIN_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION, checkonly : bool, collisioninfo : *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION2, checkonly : bool, collisioninfo : *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> super::NTSTATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "system" fn LsaSetInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-windows_link::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInfoByName(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-windows_link::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInformation(policyhandle : LSA_HANDLE, trusteddomainsid : super::PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-windows_link::link!("advapi32.dll" "system" fn LsaStorePrivateData(policyhandle : LSA_HANDLE, keyname : *const super::LSA_UNICODE_STRING, privatedata : *const super::LSA_UNICODE_STRING) -> super::NTSTATUS);
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-windows_link::link!("secur32.dll" "system" fn LsaUnregisterPolicyChangeNotification(informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle : super::HANDLE) -> super::NTSTATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "system" "SystemFunction041" fn RtlDecryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::NTSTATUS);
-#[cfg(feature = "bcrypt")]
-windows_link::link!("advapi32.dll" "system" "SystemFunction040" fn RtlEncryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> super::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaAddAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, userrights : *const super::LSA_UNICODE_STRING, countofrights : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("secur32.dll" "system" fn LsaCallAuthenticationPackage(lsahandle : super::HANDLE, authenticationpackage : u32, protocolsubmitbuffer : *const core::ffi::c_void, submitbufferlength : u32, protocolreturnbuffer : *mut *mut core::ffi::c_void, returnbufferlength : *mut u32, protocolstatus : *mut i32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" fn LsaClose(objecthandle : LSA_HANDLE) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("secur32.dll" "system" fn LsaConnectUntrusted(lsahandle : *mut super::HANDLE) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaCreateTrustedDomainEx(policyhandle : LSA_HANDLE, trusteddomaininformation : *const TRUSTED_DOMAIN_INFORMATION_EX, authenticationinformation : *const TRUSTED_DOMAIN_AUTH_INFORMATION, desiredaccess : super::ACCESS_MASK, trusteddomainhandle : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn LsaDeleteTrustedDomain(policyhandle : LSA_HANDLE, trusteddomainsid : super::PSID) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("secur32.dll" "system" fn LsaDeregisterLogonProcess(lsahandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaEnumerateAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, userrights : *mut super::PLSA_UNICODE_STRING, countofrights : *mut u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "lsalookup")]
+windows_link::link!("advapi32.dll" "system" fn LsaEnumerateAccountsWithUserRight(policyhandle : LSA_HANDLE, userright : *const super::LSA_UNICODE_STRING, buffer : *mut *mut core::ffi::c_void, countreturned : *mut u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("secur32.dll" "system" fn LsaEnumerateLogonSessions(logonsessioncount : *mut u32, logonsessionlist : *mut super::PLUID) -> windows_sys::core::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" fn LsaEnumerateTrustedDomains(policyhandle : LSA_HANDLE, enumerationcontext : *mut u32, buffer : *mut *mut core::ffi::c_void, preferedmaximumlength : u32, countreturned : *mut u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" fn LsaEnumerateTrustedDomainsEx(policyhandle : LSA_HANDLE, enumerationcontext : *mut u32, buffer : *mut *mut core::ffi::c_void, preferedmaximumlength : u32, countreturned : *mut u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" fn LsaFreeMemory(buffer : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+windows_link::link!("secur32.dll" "system" fn LsaFreeReturnBuffer(buffer : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaGetAppliedCAPIDs(systemname : *const super::LSA_UNICODE_STRING, capids : *mut *mut super::PSID, capidcount : *mut u32) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("secur32.dll" "system" fn LsaGetLogonSessionData(logonid : *const super::LUID, pplogonsessiondata : *mut PSECURITY_LOGON_SESSION_DATA) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("secur32.dll" "system" fn LsaLogonUser(lsahandle : super::HANDLE, originname : *const super::LSA_STRING, logontype : SECURITY_LOGON_TYPE, authenticationpackage : u32, authenticationinformation : *const core::ffi::c_void, authenticationinformationlength : u32, localgroups : *const super::TOKEN_GROUPS, sourcecontext : *const super::TOKEN_SOURCE, profilebuffer : *mut *mut core::ffi::c_void, profilebufferlength : *mut u32, logonid : *mut super::LUID, token : *mut super::HANDLE, quotas : *mut super::QUOTA_LIMITS, substatus : *mut i32) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("secur32.dll" "system" fn LsaLookupAuthenticationPackage(lsahandle : super::HANDLE, packagename : *const super::LSA_STRING, authenticationpackage : *mut u32) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaLookupNames(policyhandle : LSA_HANDLE, count : u32, names : *const super::LSA_UNICODE_STRING, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, sids : *mut PLSA_TRANSLATED_SID) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaLookupNames2(policyhandle : LSA_HANDLE, flags : u32, count : u32, names : *const super::LSA_UNICODE_STRING, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, sids : *mut super::PLSA_TRANSLATED_SID2) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaLookupSids(policyhandle : LSA_HANDLE, count : u32, sids : *const super::PSID, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, names : *mut super::PLSA_TRANSLATED_NAME) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaLookupSids2(policyhandle : LSA_HANDLE, lookupoptions : u32, count : u32, sids : *const super::PSID, referenceddomains : *mut super::PLSA_REFERENCED_DOMAIN_LIST, names : *mut super::PLSA_TRANSLATED_NAME) -> windows_sys::core::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" fn LsaNtStatusToWinError(status : windows_sys::core::NTSTATUS) -> u32);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaOpenPolicy(systemname : *const super::LSA_UNICODE_STRING, objectattributes : *const super::LSA_OBJECT_ATTRIBUTES, desiredaccess : super::ACCESS_MASK, policyhandle : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaOpenTrustedDomainByName(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, desiredaccess : super::ACCESS_MASK, trusteddomainhandle : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaQueryCAPs(capids : *const super::PSID, capidcount : u32, caps : *mut PCENTRAL_ACCESS_POLICY, capcount : *mut u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" fn LsaQueryDomainInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_DOMAIN_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaQueryForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, foresttrustinfo : *mut PLSA_FOREST_TRUST_INFORMATION) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaQueryForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *mut PLSA_FOREST_TRUST_INFORMATION2) -> windows_sys::core::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" fn LsaQueryInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn LsaQueryTrustedDomainInfo(policyhandle : LSA_HANDLE, trusteddomainsid : super::PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "lsalookup")]
+windows_link::link!("advapi32.dll" "system" fn LsaQueryTrustedDomainInfoByName(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *mut *mut core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("secur32.dll" "system" fn LsaRegisterLogonProcess(logonprocessname : *const super::LSA_STRING, lsahandle : *mut super::HANDLE, securitymode : *mut u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("secur32.dll" "system" fn LsaRegisterPolicyChangeNotification(informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaRemoveAccountRights(policyhandle : LSA_HANDLE, accountsid : super::PSID, allrights : bool, userrights : *const super::LSA_UNICODE_STRING, countofrights : u32) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "lsalookup")]
+windows_link::link!("advapi32.dll" "system" fn LsaRetrievePrivateData(policyhandle : LSA_HANDLE, keyname : *const super::LSA_UNICODE_STRING, privatedata : *mut super::PLSA_UNICODE_STRING) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "lsalookup")]
+windows_link::link!("advapi32.dll" "system" fn LsaSetCAPs(capdns : *const super::LSA_UNICODE_STRING, capdncount : u32, flags : u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" fn LsaSetDomainInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_DOMAIN_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION, checkonly : bool, collisioninfo : *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> windows_sys::core::NTSTATUS);
+#[cfg(all(feature = "lsalookup", feature = "minwindef", feature = "winnt"))]
+windows_link::link!("advapi32.dll" "system" fn LsaSetForestTrustInformation2(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, highestrecordtype : LSA_FOREST_TRUST_RECORD_TYPE, foresttrustinfo : *const LSA_FOREST_TRUST_INFORMATION2, checkonly : bool, collisioninfo : *mut PLSA_FOREST_TRUST_COLLISION_INFORMATION) -> windows_sys::core::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" fn LsaSetInformationPolicy(policyhandle : LSA_HANDLE, informationclass : POLICY_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "lsalookup")]
+windows_link::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInfoByName(policyhandle : LSA_HANDLE, trusteddomainname : *const super::LSA_UNICODE_STRING, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("advapi32.dll" "system" fn LsaSetTrustedDomainInformation(policyhandle : LSA_HANDLE, trusteddomainsid : super::PSID, informationclass : TRUSTED_INFORMATION_CLASS, buffer : *const core::ffi::c_void) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "lsalookup")]
+windows_link::link!("advapi32.dll" "system" fn LsaStorePrivateData(policyhandle : LSA_HANDLE, keyname : *const super::LSA_UNICODE_STRING, privatedata : *const super::LSA_UNICODE_STRING) -> windows_sys::core::NTSTATUS);
+#[cfg(feature = "winnt")]
+windows_link::link!("secur32.dll" "system" fn LsaUnregisterPolicyChangeNotification(informationclass : POLICY_NOTIFICATION_INFORMATION_CLASS, notificationeventhandle : super::HANDLE) -> windows_sys::core::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" "SystemFunction041" fn RtlDecryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> windows_sys::core::NTSTATUS);
+windows_link::link!("advapi32.dll" "system" "SystemFunction040" fn RtlEncryptMemory(memory : *mut core::ffi::c_void, memorysize : u32, optionflags : u32) -> windows_sys::core::NTSTATUS);
 windows_link::link!("advapi32.dll" "system" "SystemFunction036" fn RtlGenRandom(randombuffer : *mut core::ffi::c_void, randombufferlength : u32) -> bool);
 pub const AUDIT_ENUMERATE_USERS: u32 = 16;
 pub const AUDIT_GENERIC_ALL: u32 = 983167;
@@ -850,14 +838,14 @@ pub struct KERB_QUERY_S4U2PROXY_CACHE_REQUEST {
     pub LogonId: super::LUID,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy)]
 pub struct KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     pub MessageType: KERB_PROTOCOL_MESSAGE_TYPE,
     pub CountOfCreds: u32,
     pub Creds: PKERB_S4U2PROXY_CRED,
 }
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
+#[cfg(feature = "lsalookup")]
 impl Default for KERB_QUERY_S4U2PROXY_CACHE_RESPONSE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1006,28 +994,28 @@ pub struct KERB_RETRIEVE_TKT_RESPONSE {
     pub Ticket: KERB_EXTERNAL_TICKET,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy, Default)]
 pub struct KERB_S4U2PROXY_CACHE_ENTRY_INFO {
     pub ServerName: UNICODE_STRING,
     pub Flags: u32,
-    pub LastStatus: super::NTSTATUS,
+    pub LastStatus: windows_sys::core::NTSTATUS,
     pub Expiry: i64,
 }
 pub const KERB_S4U2PROXY_CACHE_ENTRY_INFO_FLAG_NEGATIVE: u32 = 1;
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
+#[cfg(feature = "lsalookup")]
 #[derive(Clone, Copy)]
 pub struct KERB_S4U2PROXY_CRED {
     pub UserName: UNICODE_STRING,
     pub DomainName: UNICODE_STRING,
     pub Flags: u32,
-    pub LastStatus: super::NTSTATUS,
+    pub LastStatus: windows_sys::core::NTSTATUS,
     pub Expiry: i64,
     pub CountOfEntries: u32,
     pub Entries: PKERB_S4U2PROXY_CACHE_ENTRY_INFO,
 }
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
+#[cfg(feature = "lsalookup")]
 impl Default for KERB_S4U2PROXY_CRED {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -2090,7 +2078,7 @@ pub type PKERB_QUERY_KDC_PROXY_CACHE_REQUEST = *mut KERB_QUERY_KDC_PROXY_CACHE_R
 pub type PKERB_QUERY_KDC_PROXY_CACHE_RESPONSE = *mut KERB_QUERY_KDC_PROXY_CACHE_RESPONSE;
 #[cfg(feature = "winnt")]
 pub type PKERB_QUERY_S4U2PROXY_CACHE_REQUEST = *mut KERB_QUERY_S4U2PROXY_CACHE_REQUEST;
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
+#[cfg(feature = "lsalookup")]
 pub type PKERB_QUERY_S4U2PROXY_CACHE_RESPONSE = *mut KERB_QUERY_S4U2PROXY_CACHE_RESPONSE;
 #[cfg(feature = "lsalookup")]
 pub type PKERB_QUERY_TKT_CACHE_EX2_RESPONSE = *mut KERB_QUERY_TKT_CACHE_EX2_RESPONSE;
@@ -2114,9 +2102,9 @@ pub type PKERB_RETRIEVE_KEY_TAB_RESPONSE = *mut KERB_RETRIEVE_KEY_TAB_RESPONSE;
 pub type PKERB_RETRIEVE_TKT_REQUEST = *mut KERB_RETRIEVE_TKT_REQUEST;
 #[cfg(all(feature = "lsalookup", feature = "minwindef"))]
 pub type PKERB_RETRIEVE_TKT_RESPONSE = *mut KERB_RETRIEVE_TKT_RESPONSE;
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
+#[cfg(feature = "lsalookup")]
 pub type PKERB_S4U2PROXY_CACHE_ENTRY_INFO = *mut KERB_S4U2PROXY_CACHE_ENTRY_INFO;
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
+#[cfg(feature = "lsalookup")]
 pub type PKERB_S4U2PROXY_CRED = *mut KERB_S4U2PROXY_CRED;
 #[cfg(feature = "lsalookup")]
 pub type PKERB_S4U_LOGON = *mut KERB_S4U_LOGON;
@@ -2480,8 +2468,8 @@ pub type PPOLICY_REPLICA_SOURCE_INFO = *mut POLICY_REPLICA_SOURCE_INFO;
 pub type PSAM_INIT_NOTIFICATION_ROUTINE = Option<unsafe extern "system" fn() -> bool>;
 #[cfg(feature = "lsalookup")]
 pub type PSAM_PASSWORD_FILTER_ROUTINE = Option<unsafe extern "system" fn(accountname: *const super::LSA_UNICODE_STRING, fullname: *const super::LSA_UNICODE_STRING, password: *const super::LSA_UNICODE_STRING, setoperation: bool) -> bool>;
-#[cfg(all(feature = "bcrypt", feature = "lsalookup"))]
-pub type PSAM_PASSWORD_NOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(username: *mut super::LSA_UNICODE_STRING, relativeid: u32, newpassword: *mut super::LSA_UNICODE_STRING) -> super::NTSTATUS>;
+#[cfg(feature = "lsalookup")]
+pub type PSAM_PASSWORD_NOTIFICATION_ROUTINE = Option<unsafe extern "system" fn(username: *mut super::LSA_UNICODE_STRING, relativeid: u32, newpassword: *mut super::LSA_UNICODE_STRING) -> windows_sys::core::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "winnt"))]
 pub type PSECURITY_LOGON_SESSION_DATA = *mut SECURITY_LOGON_SESSION_DATA;
 pub type PSECURITY_LOGON_TYPE = *mut SECURITY_LOGON_TYPE;

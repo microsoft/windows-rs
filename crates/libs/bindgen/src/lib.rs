@@ -470,15 +470,6 @@ impl Bindgen {
                         "Windows.Foundation.Numerics.Vector4",
                     ][..],
                 ),
-                (
-                    "Windows.Win32.Foundation",
-                    "windows_core",
-                    &[
-                        "Windows.Win32.Foundation.WIN32_ERROR",
-                        "Windows.Win32.Foundation.NTSTATUS",
-                        "Windows.Win32.System.Rpc.RPC_STATUS",
-                    ][..],
-                ),
             ] {
                 if reader.contains_key(probe_namespace) {
                     let filtered: Vec<&str> = paths

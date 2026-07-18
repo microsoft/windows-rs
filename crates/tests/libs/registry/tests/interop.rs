@@ -74,7 +74,7 @@ fn windows_interop() -> Result<()> {
                 None,
                 None,
             )
-            .0,
+            .0 as u32,
         )
         .ok()?;
     };

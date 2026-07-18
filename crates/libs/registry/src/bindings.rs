@@ -4,19 +4,19 @@ windows_link::link!("ktmw32.dll" "system" fn CreateTransaction(lptransactionattr
 windows_link::link!("kernel32.dll" "system" fn GetProcessHeap() -> HANDLE);
 windows_link::link!("kernel32.dll" "system" fn HeapAlloc(hheap : HANDLE, dwflags : u32, dwbytes : usize) -> *mut core::ffi::c_void);
 windows_link::link!("kernel32.dll" "system" fn HeapFree(hheap : HANDLE, dwflags : u32, lpmem : *mut core::ffi::c_void) -> BOOL);
-windows_link::link!("advapi32.dll" "system" fn RegCloseKey(hkey : HKEY) -> WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegCreateKeyExW(hkey : HKEY, lpsubkey : PCWSTR, reserved : u32, lpclass : PCWSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut u32) -> WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegCreateKeyTransactedW(hkey : HKEY, lpsubkey : PCWSTR, reserved : u32, lpclass : PCWSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut u32, htransaction : HANDLE, pextendedparemeter : *const core::ffi::c_void) -> WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegDeleteTreeW(hkey : HKEY, lpsubkey : PCWSTR) -> WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegDeleteValueW(hkey : HKEY, lpvaluename : PCWSTR) -> WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegEnumKeyExW(hkey : HKEY, dwindex : u32, lpname : PWSTR, lpcchname : *mut u32, lpreserved : *const u32, lpclass : PWSTR, lpcchclass : *mut u32, lpftlastwritetime : *mut FILETIME) -> WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegEnumValueW(hkey : HKEY, dwindex : u32, lpvaluename : PWSTR, lpcchvaluename : *mut u32, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegOpenKeyExW(hkey : HKEY, lpsubkey : PCWSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut HKEY) -> WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegOpenKeyTransactedW(hkey : HKEY, lpsubkey : PCWSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut HKEY, htransaction : HANDLE, pextendedparemeter : *const core::ffi::c_void) -> WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegQueryInfoKeyW(hkey : HKEY, lpclass : PWSTR, lpcchclass : *mut u32, lpreserved : *const u32, lpcsubkeys : *mut u32, lpcbmaxsubkeylen : *mut u32, lpcbmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcbmaxvaluenamelen : *mut u32, lpcbmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut FILETIME) -> WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegQueryValueExW(hkey : HKEY, lpvaluename : PCWSTR, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegRenameKey(hkey : HKEY, lpsubkeyname : PCWSTR, lpnewkeyname : PCWSTR) -> WIN32_ERROR);
-windows_link::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : HKEY, lpvaluename : PCWSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> WIN32_ERROR);
+windows_link::link!("advapi32.dll" "system" fn RegCloseKey(hkey : HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegCreateKeyExW(hkey : HKEY, lpsubkey : PCWSTR, reserved : u32, lpclass : PCWSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegCreateKeyTransactedW(hkey : HKEY, lpsubkey : PCWSTR, reserved : u32, lpclass : PCWSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const SECURITY_ATTRIBUTES, phkresult : *mut HKEY, lpdwdisposition : *mut u32, htransaction : HANDLE, pextendedparemeter : *const core::ffi::c_void) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegDeleteTreeW(hkey : HKEY, lpsubkey : PCWSTR) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegDeleteValueW(hkey : HKEY, lpvaluename : PCWSTR) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegEnumKeyExW(hkey : HKEY, dwindex : u32, lpname : PWSTR, lpcchname : *mut u32, lpreserved : *const u32, lpclass : PWSTR, lpcchclass : *mut u32, lpftlastwritetime : *mut FILETIME) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegEnumValueW(hkey : HKEY, dwindex : u32, lpvaluename : PWSTR, lpcchvaluename : *mut u32, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegOpenKeyExW(hkey : HKEY, lpsubkey : PCWSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut HKEY) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegOpenKeyTransactedW(hkey : HKEY, lpsubkey : PCWSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut HKEY, htransaction : HANDLE, pextendedparemeter : *const core::ffi::c_void) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegQueryInfoKeyW(hkey : HKEY, lpclass : PWSTR, lpcchclass : *mut u32, lpreserved : *const u32, lpcsubkeys : *mut u32, lpcbmaxsubkeylen : *mut u32, lpcbmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcbmaxvaluenamelen : *mut u32, lpcbmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut FILETIME) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegQueryValueExW(hkey : HKEY, lpvaluename : PCWSTR, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegRenameKey(hkey : HKEY, lpsubkeyname : PCWSTR, lpnewkeyname : PCWSTR) -> LSTATUS);
+windows_link::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : HKEY, lpvaluename : PCWSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> LSTATUS);
 pub type ACCESS_MASK = u32;
 pub type BOOL = i32;
 pub const ERROR_INVALID_DATA: u32 = 13;
@@ -45,6 +45,7 @@ pub const HKEY_USERS: HKEY = -2147483645 as _;
 pub const INVALID_HANDLE_VALUE: HANDLE = -1 as _;
 pub const KEY_READ: u32 = 131097;
 pub const KEY_WRITE: u32 = 131078;
+pub type LSTATUS = i32;
 pub type PCWSTR = *const u16;
 pub type PWSTR = *mut u16;
 pub type REGSAM = ACCESS_MASK;
@@ -68,4 +69,3 @@ impl Default for SECURITY_ATTRIBUTES {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type WIN32_ERROR = u32;

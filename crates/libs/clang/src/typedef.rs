@@ -19,16 +19,6 @@ impl Typedef {
             return Ok(None);
         }
 
-        // `LSTATUS` is the Win32 error-code domain (signed `LONG` in C, but carrying
-        // `ERROR_*` values); remap it to a plain `type WIN32_ERROR = u32`. See
-        // [`error_code_typedef`]. References are remapped in the same place in `to_type`.
-        if let Some(remapped) = error_code_typedef(&name) {
-            return Ok(Some(Self {
-                name: remapped.to_string(),
-                ty: metadata::Type::U32,
-            }));
-        }
-
         // `IID`/`CLSID`/`FMTID` are `typedef GUID X` synonyms; every reference collapses
         // to `GUID` (see `guid_alias` in `to_type`), so the redundant alias item is never
         // emitted — matching the reference metadata, which carries no such types. This

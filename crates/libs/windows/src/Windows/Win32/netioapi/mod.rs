@@ -1,178 +1,175 @@
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn CancelMibChangeNotify2(notificationhandle: super::HANDLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn CancelMibChangeNotify2(notificationhandle : super::HANDLE) -> super::NTSTATUS);
+pub unsafe fn CancelMibChangeNotify2(notificationhandle: super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn CancelMibChangeNotify2(notificationhandle : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { CancelMibChangeNotify2(notificationhandle) }
 }
-#[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn ConvertCompartmentGuidToId(compartmentguid: *const windows_core::GUID, compartmentid: *mut u32) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertCompartmentGuidToId(compartmentguid : *const windows_core::GUID, compartmentid : *mut u32) -> super::NTSTATUS);
+pub unsafe fn ConvertCompartmentGuidToId(compartmentguid: *const windows_core::GUID, compartmentid: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertCompartmentGuidToId(compartmentguid : *const windows_core::GUID, compartmentid : *mut u32) -> windows_core::NTSTATUS);
     unsafe { ConvertCompartmentGuidToId(compartmentguid, compartmentid as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn ConvertCompartmentIdToGuid(compartmentid: super::NET_IF_COMPARTMENT_ID, compartmentguid: *mut windows_core::GUID) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertCompartmentIdToGuid(compartmentid : super::NET_IF_COMPARTMENT_ID, compartmentguid : *mut windows_core::GUID) -> super::NTSTATUS);
+pub unsafe fn ConvertCompartmentIdToGuid(compartmentid: super::NET_IF_COMPARTMENT_ID, compartmentguid: *mut windows_core::GUID) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertCompartmentIdToGuid(compartmentid : super::NET_IF_COMPARTMENT_ID, compartmentguid : *mut windows_core::GUID) -> windows_core::NTSTATUS);
     unsafe { ConvertCompartmentIdToGuid(compartmentid, compartmentguid as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn ConvertInterfaceAliasToLuid<P0>(interfacealias: P0, interfaceluid: *mut super::NET_LUID) -> super::NTSTATUS
+pub unsafe fn ConvertInterfaceAliasToLuid<P0>(interfacealias: P0, interfaceluid: *mut super::NET_LUID) -> windows_core::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceAliasToLuid(interfacealias : windows_core::PCWSTR, interfaceluid : *mut super::NET_LUID) -> super::NTSTATUS);
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceAliasToLuid(interfacealias : windows_core::PCWSTR, interfaceluid : *mut super::NET_LUID) -> windows_core::NTSTATUS);
     unsafe { ConvertInterfaceAliasToLuid(interfacealias.param().abi(), interfaceluid as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn ConvertInterfaceGuidToLuid(interfaceguid: *const windows_core::GUID, interfaceluid: *mut super::NET_LUID) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceGuidToLuid(interfaceguid : *const windows_core::GUID, interfaceluid : *mut super::NET_LUID) -> super::NTSTATUS);
+pub unsafe fn ConvertInterfaceGuidToLuid(interfaceguid: *const windows_core::GUID, interfaceluid: *mut super::NET_LUID) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceGuidToLuid(interfaceguid : *const windows_core::GUID, interfaceluid : *mut super::NET_LUID) -> windows_core::NTSTATUS);
     unsafe { ConvertInterfaceGuidToLuid(interfaceguid, interfaceluid as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn ConvertInterfaceIndexToLuid(interfaceindex: super::NET_IFINDEX, interfaceluid: *mut super::NET_LUID) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceIndexToLuid(interfaceindex : super::NET_IFINDEX, interfaceluid : *mut super::NET_LUID) -> super::NTSTATUS);
+pub unsafe fn ConvertInterfaceIndexToLuid(interfaceindex: super::NET_IFINDEX, interfaceluid: *mut super::NET_LUID) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceIndexToLuid(interfaceindex : super::NET_IFINDEX, interfaceluid : *mut super::NET_LUID) -> windows_core::NTSTATUS);
     unsafe { ConvertInterfaceIndexToLuid(interfaceindex, interfaceluid as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn ConvertInterfaceLuidToAlias(interfaceluid: *const super::NET_LUID, interfacealias: &mut [u16]) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToAlias(interfaceluid : *const super::NET_LUID, interfacealias : windows_core::PWSTR, length : usize) -> super::NTSTATUS);
+pub unsafe fn ConvertInterfaceLuidToAlias(interfaceluid: *const super::NET_LUID, interfacealias: &mut [u16]) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToAlias(interfaceluid : *const super::NET_LUID, interfacealias : windows_core::PWSTR, length : usize) -> windows_core::NTSTATUS);
     unsafe { ConvertInterfaceLuidToAlias(interfaceluid, core::mem::transmute(interfacealias.as_mut_ptr()), interfacealias.len().try_into().unwrap()) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn ConvertInterfaceLuidToGuid(interfaceluid: *const super::NET_LUID, interfaceguid: *mut windows_core::GUID) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToGuid(interfaceluid : *const super::NET_LUID, interfaceguid : *mut windows_core::GUID) -> super::NTSTATUS);
+pub unsafe fn ConvertInterfaceLuidToGuid(interfaceluid: *const super::NET_LUID, interfaceguid: *mut windows_core::GUID) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToGuid(interfaceluid : *const super::NET_LUID, interfaceguid : *mut windows_core::GUID) -> windows_core::NTSTATUS);
     unsafe { ConvertInterfaceLuidToGuid(interfaceluid, interfaceguid as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn ConvertInterfaceLuidToIndex(interfaceluid: *const super::NET_LUID, interfaceindex: *mut u32) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToIndex(interfaceluid : *const super::NET_LUID, interfaceindex : *mut u32) -> super::NTSTATUS);
+pub unsafe fn ConvertInterfaceLuidToIndex(interfaceluid: *const super::NET_LUID, interfaceindex: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToIndex(interfaceluid : *const super::NET_LUID, interfaceindex : *mut u32) -> windows_core::NTSTATUS);
     unsafe { ConvertInterfaceLuidToIndex(interfaceluid, interfaceindex as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn ConvertInterfaceLuidToNameA(interfaceluid: *const super::NET_LUID, interfacename: &mut [u8]) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameA(interfaceluid : *const super::NET_LUID, interfacename : windows_core::PSTR, length : usize) -> super::NTSTATUS);
+pub unsafe fn ConvertInterfaceLuidToNameA(interfaceluid: *const super::NET_LUID, interfacename: &mut [u8]) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameA(interfaceluid : *const super::NET_LUID, interfacename : windows_core::PSTR, length : usize) -> windows_core::NTSTATUS);
     unsafe { ConvertInterfaceLuidToNameA(interfaceluid, core::mem::transmute(interfacename.as_mut_ptr()), interfacename.len().try_into().unwrap()) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::NET_LUID, interfacename: &mut [u16]) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameW(interfaceluid : *const super::NET_LUID, interfacename : windows_core::PWSTR, length : usize) -> super::NTSTATUS);
+pub unsafe fn ConvertInterfaceLuidToNameW(interfaceluid: *const super::NET_LUID, interfacename: &mut [u16]) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceLuidToNameW(interfaceluid : *const super::NET_LUID, interfacename : windows_core::PWSTR, length : usize) -> windows_core::NTSTATUS);
     unsafe { ConvertInterfaceLuidToNameW(interfaceluid, core::mem::transmute(interfacename.as_mut_ptr()), interfacename.len().try_into().unwrap()) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn ConvertInterfaceNameToLuidA<P0>(interfacename: P0, interfaceluid: *mut super::NET_LUID) -> super::NTSTATUS
+pub unsafe fn ConvertInterfaceNameToLuidA<P0>(interfacename: P0, interfaceluid: *mut super::NET_LUID) -> windows_core::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceNameToLuidA(interfacename : windows_core::PCSTR, interfaceluid : *mut super::NET_LUID) -> super::NTSTATUS);
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceNameToLuidA(interfacename : windows_core::PCSTR, interfaceluid : *mut super::NET_LUID) -> windows_core::NTSTATUS);
     unsafe { ConvertInterfaceNameToLuidA(interfacename.param().abi(), interfaceluid as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn ConvertInterfaceNameToLuidW<P0>(interfacename: P0, interfaceluid: *mut super::NET_LUID) -> super::NTSTATUS
+pub unsafe fn ConvertInterfaceNameToLuidW<P0>(interfacename: P0, interfaceluid: *mut super::NET_LUID) -> windows_core::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceNameToLuidW(interfacename : windows_core::PCWSTR, interfaceluid : *mut super::NET_LUID) -> super::NTSTATUS);
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertInterfaceNameToLuidW(interfacename : windows_core::PCWSTR, interfaceluid : *mut super::NET_LUID) -> windows_core::NTSTATUS);
     unsafe { ConvertInterfaceNameToLuidW(interfacename.param().abi(), interfaceluid as _) }
 }
-#[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn ConvertIpv4MaskToLength(mask: u32, masklength: *mut u8) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertIpv4MaskToLength(mask : u32, masklength : *mut u8) -> super::NTSTATUS);
+pub unsafe fn ConvertIpv4MaskToLength(mask: u32, masklength: *mut u8) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertIpv4MaskToLength(mask : u32, masklength : *mut u8) -> windows_core::NTSTATUS);
     unsafe { ConvertIpv4MaskToLength(mask, masklength as _) }
 }
-#[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn ConvertLengthToIpv4Mask(masklength: u32, mask: *mut u32) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ConvertLengthToIpv4Mask(masklength : u32, mask : *mut u32) -> super::NTSTATUS);
+pub unsafe fn ConvertLengthToIpv4Mask(masklength: u32, mask: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ConvertLengthToIpv4Mask(masklength : u32, mask : *mut u32) -> windows_core::NTSTATUS);
     unsafe { ConvertLengthToIpv4Mask(masklength, mask as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[inline]
-pub unsafe fn CreateAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateAnycastIpAddressEntry(row : *const MIB_ANYCASTIPADDRESS_ROW) -> super::NTSTATUS);
+pub unsafe fn CreateAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateAnycastIpAddressEntry(row : *const MIB_ANYCASTIPADDRESS_ROW) -> windows_core::NTSTATUS);
     unsafe { CreateAnycastIpAddressEntry(row) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ws2"))]
 #[inline]
-pub unsafe fn CreateFlVirtualInterface(row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateFlVirtualInterface(row : *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::NTSTATUS);
+pub unsafe fn CreateFlVirtualInterface(row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateFlVirtualInterface(row : *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> windows_core::NTSTATUS);
     unsafe { CreateFlVirtualInterface(row) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn CreateIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateIpForwardEntry2(row : *const MIB_IPFORWARD_ROW2) -> super::NTSTATUS);
+pub unsafe fn CreateIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateIpForwardEntry2(row : *const MIB_IPFORWARD_ROW2) -> windows_core::NTSTATUS);
     unsafe { CreateIpForwardEntry2(row) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateIpNetEntry2(row : *const MIB_IPNET_ROW2) -> super::NTSTATUS);
+pub unsafe fn CreateIpNetEntry2(row: *const MIB_IPNET_ROW2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateIpNetEntry2(row : *const MIB_IPNET_ROW2) -> windows_core::NTSTATUS);
     unsafe { CreateIpNetEntry2(row) }
 }
-#[cfg(all(feature = "bcrypt", feature = "in6addr", feature = "ws2"))]
+#[cfg(all(feature = "in6addr", feature = "ws2"))]
 #[inline]
-pub unsafe fn CreateSortedAddressPairs(sourceaddresslist: Option<*const super::SOCKADDR_IN6_LH>, sourceaddresscount: u32, destinationaddresslist: *const super::SOCKADDR_IN6_LH, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut super::PSOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateSortedAddressPairs(sourceaddresslist : *const super::SOCKADDR_IN6_LH, sourceaddresscount : u32, destinationaddresslist : *const super::SOCKADDR_IN6_LH, destinationaddresscount : u32, addresssortoptions : u32, sortedaddresspairlist : *mut super::PSOCKADDR_IN6_PAIR, sortedaddresspaircount : *mut u32) -> super::NTSTATUS);
+pub unsafe fn CreateSortedAddressPairs(sourceaddresslist: Option<*const super::SOCKADDR_IN6_LH>, sourceaddresscount: u32, destinationaddresslist: *const super::SOCKADDR_IN6_LH, destinationaddresscount: u32, addresssortoptions: u32, sortedaddresspairlist: *mut super::PSOCKADDR_IN6_PAIR, sortedaddresspaircount: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateSortedAddressPairs(sourceaddresslist : *const super::SOCKADDR_IN6_LH, sourceaddresscount : u32, destinationaddresslist : *const super::SOCKADDR_IN6_LH, destinationaddresscount : u32, addresssortoptions : u32, sortedaddresspairlist : *mut super::PSOCKADDR_IN6_PAIR, sortedaddresspaircount : *mut u32) -> windows_core::NTSTATUS);
     unsafe { CreateSortedAddressPairs(sourceaddresslist.unwrap_or(core::mem::zeroed()) as _, sourceaddresscount, destinationaddresslist, destinationaddresscount, addresssortoptions, sortedaddresspairlist as _, sortedaddresspaircount as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn CreateUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn CreateUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> super::NTSTATUS);
+pub unsafe fn CreateUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn CreateUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> windows_core::NTSTATUS);
     unsafe { CreateUnicastIpAddressEntry(row) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[inline]
-pub unsafe fn DeleteAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn DeleteAnycastIpAddressEntry(row : *const MIB_ANYCASTIPADDRESS_ROW) -> super::NTSTATUS);
+pub unsafe fn DeleteAnycastIpAddressEntry(row: *const MIB_ANYCASTIPADDRESS_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn DeleteAnycastIpAddressEntry(row : *const MIB_ANYCASTIPADDRESS_ROW) -> windows_core::NTSTATUS);
     unsafe { DeleteAnycastIpAddressEntry(row) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ws2"))]
 #[inline]
-pub unsafe fn DeleteFlVirtualInterface(row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn DeleteFlVirtualInterface(row : *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::NTSTATUS);
+pub unsafe fn DeleteFlVirtualInterface(row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn DeleteFlVirtualInterface(row : *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> windows_core::NTSTATUS);
     unsafe { DeleteFlVirtualInterface(row) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn DeleteIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn DeleteIpForwardEntry2(row : *const MIB_IPFORWARD_ROW2) -> super::NTSTATUS);
+pub unsafe fn DeleteIpForwardEntry2(row: *const MIB_IPFORWARD_ROW2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn DeleteIpForwardEntry2(row : *const MIB_IPFORWARD_ROW2) -> windows_core::NTSTATUS);
     unsafe { DeleteIpForwardEntry2(row) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn DeleteIpNetEntry2(row : *const MIB_IPNET_ROW2) -> super::NTSTATUS);
+pub unsafe fn DeleteIpNetEntry2(row: *const MIB_IPNET_ROW2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn DeleteIpNetEntry2(row : *const MIB_IPNET_ROW2) -> windows_core::NTSTATUS);
     unsafe { DeleteIpNetEntry2(row) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn DeleteUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn DeleteUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> super::NTSTATUS);
+pub unsafe fn DeleteUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn DeleteUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> windows_core::NTSTATUS);
     unsafe { DeleteUnicastIpAddressEntry(row) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ws2"))]
 #[inline]
-pub unsafe fn FlushIpNetTable2(family: super::ADDRESS_FAMILY, interfaceindex: super::NET_IFINDEX) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn FlushIpNetTable2(family : super::ADDRESS_FAMILY, interfaceindex : super::NET_IFINDEX) -> super::NTSTATUS);
+pub unsafe fn FlushIpNetTable2(family: super::ADDRESS_FAMILY, interfaceindex: super::NET_IFINDEX) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn FlushIpNetTable2(family : super::ADDRESS_FAMILY, interfaceindex : super::NET_IFINDEX) -> windows_core::NTSTATUS);
     unsafe { FlushIpNetTable2(family, interfaceindex) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ws2"))]
+#[cfg(feature = "ws2")]
 #[inline]
-pub unsafe fn FlushIpPathTable(family: super::ADDRESS_FAMILY) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn FlushIpPathTable(family : super::ADDRESS_FAMILY) -> super::NTSTATUS);
+pub unsafe fn FlushIpPathTable(family: super::ADDRESS_FAMILY) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn FlushIpPathTable(family : super::ADDRESS_FAMILY) -> windows_core::NTSTATUS);
     unsafe { FlushIpPathTable(family) }
 }
 #[inline]
@@ -190,28 +187,28 @@ pub unsafe fn FreeMibTable(memory: *const core::ffi::c_void) {
     windows_core::link!("iphlpapi.dll" "system" fn FreeMibTable(memory : *const core::ffi::c_void));
     unsafe { FreeMibTable(memory) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetAnycastIpAddressEntry(row : *mut MIB_ANYCASTIPADDRESS_ROW) -> super::NTSTATUS);
+pub unsafe fn GetAnycastIpAddressEntry(row: *mut MIB_ANYCASTIPADDRESS_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetAnycastIpAddressEntry(row : *mut MIB_ANYCASTIPADDRESS_ROW) -> windows_core::NTSTATUS);
     unsafe { GetAnycastIpAddressEntry(row as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetAnycastIpAddressTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_ANYCASTIPADDRESS_TABLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetAnycastIpAddressTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_ANYCASTIPADDRESS_TABLE) -> super::NTSTATUS);
+pub unsafe fn GetAnycastIpAddressTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_ANYCASTIPADDRESS_TABLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetAnycastIpAddressTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_ANYCASTIPADDRESS_TABLE) -> windows_core::NTSTATUS);
     unsafe { GetAnycastIpAddressTable(family, table as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ws2"))]
+#[cfg(feature = "ws2")]
 #[inline]
-pub unsafe fn GetBestInterfaceEx(destinationaddress: *const super::SOCKADDR, bestifindex: *mut u32) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetBestInterfaceEx(destinationaddress : *const super::SOCKADDR, bestifindex : *mut u32) -> super::NTSTATUS);
+pub unsafe fn GetBestInterfaceEx(destinationaddress: *const super::SOCKADDR, bestifindex: *mut u32) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetBestInterfaceEx(destinationaddress : *const super::SOCKADDR, bestifindex : *mut u32) -> windows_core::NTSTATUS);
     unsafe { GetBestInterfaceEx(destinationaddress, bestifindex as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetBestRoute2(interfaceluid: Option<*const super::NET_LUID>, interfaceindex: super::NET_IFINDEX, sourceaddress: Option<*const super::SOCKADDR_INET>, destinationaddress: *const super::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::SOCKADDR_INET) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetBestRoute2(interfaceluid : *const super::NET_LUID, interfaceindex : super::NET_IFINDEX, sourceaddress : *const super::SOCKADDR_INET, destinationaddress : *const super::SOCKADDR_INET, addresssortoptions : u32, bestroute : *mut MIB_IPFORWARD_ROW2, bestsourceaddress : *mut super::SOCKADDR_INET) -> super::NTSTATUS);
+pub unsafe fn GetBestRoute2(interfaceluid: Option<*const super::NET_LUID>, interfaceindex: super::NET_IFINDEX, sourceaddress: Option<*const super::SOCKADDR_INET>, destinationaddress: *const super::SOCKADDR_INET, addresssortoptions: u32, bestroute: *mut MIB_IPFORWARD_ROW2, bestsourceaddress: *mut super::SOCKADDR_INET) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetBestRoute2(interfaceluid : *const super::NET_LUID, interfaceindex : super::NET_IFINDEX, sourceaddress : *const super::SOCKADDR_INET, destinationaddress : *const super::SOCKADDR_INET, addresssortoptions : u32, bestroute : *mut MIB_IPFORWARD_ROW2, bestsourceaddress : *mut super::SOCKADDR_INET) -> windows_core::NTSTATUS);
     unsafe { GetBestRoute2(interfaceluid.unwrap_or(core::mem::zeroed()) as _, interfaceindex, sourceaddress.unwrap_or(core::mem::zeroed()) as _, destinationaddress, addresssortoptions, bestroute as _, bestsourceaddress as _) }
 }
 #[cfg(feature = "ifdef")]
@@ -231,118 +228,116 @@ pub unsafe fn GetDefaultCompartmentId() -> super::NET_IF_COMPARTMENT_ID {
     windows_core::link!("iphlpapi.dll" "system" fn GetDefaultCompartmentId() -> super::NET_IF_COMPARTMENT_ID);
     unsafe { GetDefaultCompartmentId() }
 }
-#[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetDnsSettings(settings : *mut DNS_SETTINGS) -> super::NTSTATUS);
+pub unsafe fn GetDnsSettings(settings: *mut DNS_SETTINGS) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetDnsSettings(settings : *mut DNS_SETTINGS) -> windows_core::NTSTATUS);
     unsafe { GetDnsSettings(settings as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetFlVirtualInterface(row: *mut MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetFlVirtualInterface(row : *mut MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::NTSTATUS);
+pub unsafe fn GetFlVirtualInterface(row: *mut MIB_FL_VIRTUAL_INTERFACE_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetFlVirtualInterface(row : *mut MIB_FL_VIRTUAL_INTERFACE_ROW) -> windows_core::NTSTATUS);
     unsafe { GetFlVirtualInterface(row as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetFlVirtualInterfaceTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_FL_VIRTUAL_INTERFACE_TABLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetFlVirtualInterfaceTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_FL_VIRTUAL_INTERFACE_TABLE) -> super::NTSTATUS);
+pub unsafe fn GetFlVirtualInterfaceTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_FL_VIRTUAL_INTERFACE_TABLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetFlVirtualInterfaceTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_FL_VIRTUAL_INTERFACE_TABLE) -> windows_core::NTSTATUS);
     unsafe { GetFlVirtualInterfaceTable(family, table as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
 #[inline]
-pub unsafe fn GetIfEntry2(row: *mut MIB_IF_ROW2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIfEntry2(row : *mut MIB_IF_ROW2) -> super::NTSTATUS);
+pub unsafe fn GetIfEntry2(row: *mut MIB_IF_ROW2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIfEntry2(row : *mut MIB_IF_ROW2) -> windows_core::NTSTATUS);
     unsafe { GetIfEntry2(row as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
 #[inline]
-pub unsafe fn GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: *mut MIB_IF_ROW2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIfEntry2Ex(level : MIB_IF_ENTRY_LEVEL, row : *mut MIB_IF_ROW2) -> super::NTSTATUS);
+pub unsafe fn GetIfEntry2Ex(level: MIB_IF_ENTRY_LEVEL, row: *mut MIB_IF_ROW2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIfEntry2Ex(level : MIB_IF_ENTRY_LEVEL, row : *mut MIB_IF_ROW2) -> windows_core::NTSTATUS);
     unsafe { GetIfEntry2Ex(level, row as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn GetIfStackTable(table: *mut PMIB_IFSTACK_TABLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIfStackTable(table : *mut PMIB_IFSTACK_TABLE) -> super::NTSTATUS);
+pub unsafe fn GetIfStackTable(table: *mut PMIB_IFSTACK_TABLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIfStackTable(table : *mut PMIB_IFSTACK_TABLE) -> windows_core::NTSTATUS);
     unsafe { GetIfStackTable(table as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
 #[inline]
-pub unsafe fn GetIfTable2(table: *mut PMIB_IF_TABLE2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIfTable2(table : *mut PMIB_IF_TABLE2) -> super::NTSTATUS);
+pub unsafe fn GetIfTable2(table: *mut PMIB_IF_TABLE2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIfTable2(table : *mut PMIB_IF_TABLE2) -> windows_core::NTSTATUS);
     unsafe { GetIfTable2(table as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "ntddndis"))]
 #[inline]
-pub unsafe fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut PMIB_IF_TABLE2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIfTable2Ex(level : MIB_IF_TABLE_LEVEL, table : *mut PMIB_IF_TABLE2) -> super::NTSTATUS);
+pub unsafe fn GetIfTable2Ex(level: MIB_IF_TABLE_LEVEL, table: *mut PMIB_IF_TABLE2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIfTable2Ex(level : MIB_IF_TABLE_LEVEL, table : *mut PMIB_IF_TABLE2) -> windows_core::NTSTATUS);
     unsafe { GetIfTable2Ex(level, table as _) }
 }
-#[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn GetInterfaceDnsSettings(interface: windows_core::GUID, settings: *mut DNS_INTERFACE_SETTINGS) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetInterfaceDnsSettings(interface : windows_core::GUID, settings : *mut DNS_INTERFACE_SETTINGS) -> super::NTSTATUS);
+pub unsafe fn GetInterfaceDnsSettings(interface: windows_core::GUID, settings: *mut DNS_INTERFACE_SETTINGS) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetInterfaceDnsSettings(interface : windows_core::GUID, settings : *mut DNS_INTERFACE_SETTINGS) -> windows_core::NTSTATUS);
     unsafe { GetInterfaceDnsSettings(interface, settings as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn GetInvertedIfStackTable(table: *mut PMIB_INVERTEDIFSTACK_TABLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetInvertedIfStackTable(table : *mut PMIB_INVERTEDIFSTACK_TABLE) -> super::NTSTATUS);
+pub unsafe fn GetInvertedIfStackTable(table: *mut PMIB_INVERTEDIFSTACK_TABLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetInvertedIfStackTable(table : *mut PMIB_INVERTEDIFSTACK_TABLE) -> windows_core::NTSTATUS);
     unsafe { GetInvertedIfStackTable(table as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpForwardEntry2(row : *mut MIB_IPFORWARD_ROW2) -> super::NTSTATUS);
+pub unsafe fn GetIpForwardEntry2(row: *mut MIB_IPFORWARD_ROW2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpForwardEntry2(row : *mut MIB_IPFORWARD_ROW2) -> windows_core::NTSTATUS);
     unsafe { GetIpForwardEntry2(row as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetIpForwardTable2(family: super::ADDRESS_FAMILY, table: *mut PMIB_IPFORWARD_TABLE2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpForwardTable2(family : super::ADDRESS_FAMILY, table : *mut PMIB_IPFORWARD_TABLE2) -> super::NTSTATUS);
+pub unsafe fn GetIpForwardTable2(family: super::ADDRESS_FAMILY, table: *mut PMIB_IPFORWARD_TABLE2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpForwardTable2(family : super::ADDRESS_FAMILY, table : *mut PMIB_IPFORWARD_TABLE2) -> windows_core::NTSTATUS);
     unsafe { GetIpForwardTable2(family, table as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpInterfaceEntry(row : *mut MIB_IPINTERFACE_ROW) -> super::NTSTATUS);
+pub unsafe fn GetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpInterfaceEntry(row : *mut MIB_IPINTERFACE_ROW) -> windows_core::NTSTATUS);
     unsafe { GetIpInterfaceEntry(row as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetIpInterfaceTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_IPINTERFACE_TABLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpInterfaceTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_IPINTERFACE_TABLE) -> super::NTSTATUS);
+pub unsafe fn GetIpInterfaceTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_IPINTERFACE_TABLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpInterfaceTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_IPINTERFACE_TABLE) -> windows_core::NTSTATUS);
     unsafe { GetIpInterfaceTable(family, table as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpNetEntry2(row : *mut MIB_IPNET_ROW2) -> super::NTSTATUS);
+pub unsafe fn GetIpNetEntry2(row: *mut MIB_IPNET_ROW2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpNetEntry2(row : *mut MIB_IPNET_ROW2) -> windows_core::NTSTATUS);
     unsafe { GetIpNetEntry2(row as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetIpNetTable2(family: super::ADDRESS_FAMILY, table: *mut PMIB_IPNET_TABLE2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpNetTable2(family : super::ADDRESS_FAMILY, table : *mut PMIB_IPNET_TABLE2) -> super::NTSTATUS);
+pub unsafe fn GetIpNetTable2(family: super::ADDRESS_FAMILY, table: *mut PMIB_IPNET_TABLE2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpNetTable2(family : super::ADDRESS_FAMILY, table : *mut PMIB_IPNET_TABLE2) -> windows_core::NTSTATUS);
     unsafe { GetIpNetTable2(family, table as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex: super::NET_IFINDEX, addressfamily: super::ADDRESS_FAMILY, bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex : super::NET_IFINDEX, addressfamily : super::ADDRESS_FAMILY, bandwidthestimates : *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> super::NTSTATUS);
+pub unsafe fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex: super::NET_IFINDEX, addressfamily: super::ADDRESS_FAMILY, bandwidthestimates: *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpNetworkConnectionBandwidthEstimates(interfaceindex : super::NET_IFINDEX, addressfamily : super::ADDRESS_FAMILY, bandwidthestimates : *mut MIB_IP_NETWORK_CONNECTION_BANDWIDTH_ESTIMATES) -> windows_core::NTSTATUS);
     unsafe { GetIpNetworkConnectionBandwidthEstimates(interfaceindex, addressfamily, bandwidthestimates as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetIpPathEntry(row: *mut MIB_IPPATH_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpPathEntry(row : *mut MIB_IPPATH_ROW) -> super::NTSTATUS);
+pub unsafe fn GetIpPathEntry(row: *mut MIB_IPPATH_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpPathEntry(row : *mut MIB_IPPATH_ROW) -> windows_core::NTSTATUS);
     unsafe { GetIpPathEntry(row as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetIpPathTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_IPPATH_TABLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetIpPathTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_IPPATH_TABLE) -> super::NTSTATUS);
+pub unsafe fn GetIpPathTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_IPPATH_TABLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetIpPathTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_IPPATH_TABLE) -> windows_core::NTSTATUS);
     unsafe { GetIpPathTable(family, table as _) }
 }
 #[cfg(all(feature = "ifdef", feature = "winnt"))]
@@ -351,34 +346,34 @@ pub unsafe fn GetJobCompartmentId(jobhandle: super::HANDLE) -> super::NET_IF_COM
     windows_core::link!("iphlpapi.dll" "system" fn GetJobCompartmentId(jobhandle : super::HANDLE) -> super::NET_IF_COMPARTMENT_ID);
     unsafe { GetJobCompartmentId(jobhandle) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetMulticastIpAddressEntry(row: *mut MIB_MULTICASTIPADDRESS_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetMulticastIpAddressEntry(row : *mut MIB_MULTICASTIPADDRESS_ROW) -> super::NTSTATUS);
+pub unsafe fn GetMulticastIpAddressEntry(row: *mut MIB_MULTICASTIPADDRESS_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetMulticastIpAddressEntry(row : *mut MIB_MULTICASTIPADDRESS_ROW) -> windows_core::NTSTATUS);
     unsafe { GetMulticastIpAddressEntry(row as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetMulticastIpAddressTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_MULTICASTIPADDRESS_TABLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetMulticastIpAddressTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_MULTICASTIPADDRESS_TABLE) -> super::NTSTATUS);
+pub unsafe fn GetMulticastIpAddressTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_MULTICASTIPADDRESS_TABLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetMulticastIpAddressTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_MULTICASTIPADDRESS_TABLE) -> windows_core::NTSTATUS);
     unsafe { GetMulticastIpAddressTable(family, table as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "nldef"))]
+#[cfg(feature = "nldef")]
 #[inline]
-pub unsafe fn GetNetworkConnectivityHint(connectivityhint: *mut super::NL_NETWORK_CONNECTIVITY_HINT) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetNetworkConnectivityHint(connectivityhint : *mut super::NL_NETWORK_CONNECTIVITY_HINT) -> super::NTSTATUS);
+pub unsafe fn GetNetworkConnectivityHint(connectivityhint: *mut super::NL_NETWORK_CONNECTIVITY_HINT) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetNetworkConnectivityHint(connectivityhint : *mut super::NL_NETWORK_CONNECTIVITY_HINT) -> windows_core::NTSTATUS);
     unsafe { GetNetworkConnectivityHint(connectivityhint as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "nldef"))]
+#[cfg(all(feature = "ifdef", feature = "nldef"))]
 #[inline]
-pub unsafe fn GetNetworkConnectivityHintForInterface(interfaceindex: super::NET_IFINDEX, connectivityhint: *mut super::NL_NETWORK_CONNECTIVITY_HINT) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetNetworkConnectivityHintForInterface(interfaceindex : super::NET_IFINDEX, connectivityhint : *mut super::NL_NETWORK_CONNECTIVITY_HINT) -> super::NTSTATUS);
+pub unsafe fn GetNetworkConnectivityHintForInterface(interfaceindex: super::NET_IFINDEX, connectivityhint: *mut super::NL_NETWORK_CONNECTIVITY_HINT) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetNetworkConnectivityHintForInterface(interfaceindex : super::NET_IFINDEX, connectivityhint : *mut super::NL_NETWORK_CONNECTIVITY_HINT) -> windows_core::NTSTATUS);
     unsafe { GetNetworkConnectivityHintForInterface(interfaceindex, connectivityhint as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn GetNetworkInformation(networkguid: *const super::NET_IF_NETWORK_GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: &mut [u16]) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetNetworkInformation(networkguid : *const super::NET_IF_NETWORK_GUID, compartmentid : *mut u32, siteid : *mut u32, networkname : *mut u16, length : u32) -> super::NTSTATUS);
+pub unsafe fn GetNetworkInformation(networkguid: *const super::NET_IF_NETWORK_GUID, compartmentid: *mut u32, siteid: *mut u32, networkname: &mut [u16]) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetNetworkInformation(networkguid : *const super::NET_IF_NETWORK_GUID, compartmentid : *mut u32, siteid : *mut u32, networkname : *mut u16, length : u32) -> windows_core::NTSTATUS);
     unsafe { GetNetworkInformation(networkguid, compartmentid as _, siteid as _, networkname.as_mut_ptr(), networkname.len().try_into().unwrap()) }
 }
 #[cfg(feature = "ifdef")]
@@ -387,22 +382,21 @@ pub unsafe fn GetSessionCompartmentId(sessionid: u32) -> super::NET_IF_COMPARTME
     windows_core::link!("iphlpapi.dll" "system" fn GetSessionCompartmentId(sessionid : u32) -> super::NET_IF_COMPARTMENT_ID);
     unsafe { GetSessionCompartmentId(sessionid) }
 }
-#[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn GetTeredoPort(port: *mut u16) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetTeredoPort(port : *mut u16) -> super::NTSTATUS);
+pub unsafe fn GetTeredoPort(port: *mut u16) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetTeredoPort(port : *mut u16) -> windows_core::NTSTATUS);
     unsafe { GetTeredoPort(port as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressEntry(row : *mut MIB_UNICASTIPADDRESS_ROW) -> super::NTSTATUS);
+pub unsafe fn GetUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressEntry(row : *mut MIB_UNICASTIPADDRESS_ROW) -> windows_core::NTSTATUS);
     unsafe { GetUnicastIpAddressEntry(row as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn GetUnicastIpAddressTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_UNICASTIPADDRESS_TABLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_UNICASTIPADDRESS_TABLE) -> super::NTSTATUS);
+pub unsafe fn GetUnicastIpAddressTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_UNICASTIPADDRESS_TABLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn GetUnicastIpAddressTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_UNICASTIPADDRESS_TABLE) -> windows_core::NTSTATUS);
     unsafe { GetUnicastIpAddressTable(family, table as _) }
 }
 #[cfg(all(feature = "ifdef", feature = "ws2"))]
@@ -429,121 +423,119 @@ pub unsafe fn InitializeUnicastIpAddressEntry(row: *mut MIB_UNICASTIPADDRESS_ROW
     windows_core::link!("iphlpapi.dll" "system" fn InitializeUnicastIpAddressEntry(row : *mut MIB_UNICASTIPADDRESS_ROW));
     unsafe { InitializeUnicastIpAddressEntry(row as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
 #[inline]
-pub unsafe fn NotifyIpInterfaceChange(family: super::ADDRESS_FAMILY, callback: PIPINTERFACE_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: bool, notificationhandle: *mut super::HANDLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyIpInterfaceChange(family : super::ADDRESS_FAMILY, callback : PIPINTERFACE_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::HANDLE) -> super::NTSTATUS);
+pub unsafe fn NotifyIpInterfaceChange(family: super::ADDRESS_FAMILY, callback: PIPINTERFACE_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: bool, notificationhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyIpInterfaceChange(family : super::ADDRESS_FAMILY, callback : PIPINTERFACE_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { NotifyIpInterfaceChange(family, callback, callercontext.unwrap_or(core::mem::zeroed()) as _, initialnotification, notificationhandle as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "nldef", feature = "winnt"))]
+#[cfg(all(feature = "nldef", feature = "winnt"))]
 #[inline]
-pub unsafe fn NotifyNetworkConnectivityHintChange(callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: bool, notificationhandle: *mut super::HANDLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyNetworkConnectivityHintChange(callback : PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::HANDLE) -> super::NTSTATUS);
+pub unsafe fn NotifyNetworkConnectivityHintChange(callback: PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: bool, notificationhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyNetworkConnectivityHintChange(callback : PNETWORK_CONNECTIVITY_HINT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { NotifyNetworkConnectivityHintChange(callback, callercontext.unwrap_or(core::mem::zeroed()) as _, initialnotification, notificationhandle as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "winnt", feature = "ws2"))]
 #[inline]
-pub unsafe fn NotifyRouteChange2(addressfamily: super::ADDRESS_FAMILY, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::HANDLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyRouteChange2(addressfamily : super::ADDRESS_FAMILY, callback : PIPFORWARD_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::HANDLE) -> super::NTSTATUS);
+pub unsafe fn NotifyRouteChange2(addressfamily: super::ADDRESS_FAMILY, callback: PIPFORWARD_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyRouteChange2(addressfamily : super::ADDRESS_FAMILY, callback : PIPFORWARD_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { NotifyRouteChange2(addressfamily, callback, callercontext, initialnotification, notificationhandle as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "winnt", feature = "ws2"))]
 #[inline]
-pub unsafe fn NotifyStableUnicastIpAddressTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_UNICASTIPADDRESS_TABLE, callercallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext: *const core::ffi::c_void, notificationhandle: *mut super::HANDLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyStableUnicastIpAddressTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_UNICASTIPADDRESS_TABLE, callercallback : PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext : *const core::ffi::c_void, notificationhandle : *mut super::HANDLE) -> super::NTSTATUS);
+pub unsafe fn NotifyStableUnicastIpAddressTable(family: super::ADDRESS_FAMILY, table: *mut PMIB_UNICASTIPADDRESS_TABLE, callercallback: PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext: *const core::ffi::c_void, notificationhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyStableUnicastIpAddressTable(family : super::ADDRESS_FAMILY, table : *mut PMIB_UNICASTIPADDRESS_TABLE, callercallback : PSTABLE_UNICAST_IPADDRESS_TABLE_CALLBACK, callercontext : *const core::ffi::c_void, notificationhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { NotifyStableUnicastIpAddressTable(family, table as _, callercallback, callercontext, notificationhandle as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn NotifyTeredoPortChange(callback: PTEREDO_PORT_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::HANDLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyTeredoPortChange(callback : PTEREDO_PORT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::HANDLE) -> super::NTSTATUS);
+pub unsafe fn NotifyTeredoPortChange(callback: PTEREDO_PORT_CHANGE_CALLBACK, callercontext: *const core::ffi::c_void, initialnotification: bool, notificationhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyTeredoPortChange(callback : PTEREDO_PORT_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { NotifyTeredoPortChange(callback, callercontext, initialnotification, notificationhandle as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "winnt", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "winnt", feature = "ws2"))]
 #[inline]
-pub unsafe fn NotifyUnicastIpAddressChange(family: super::ADDRESS_FAMILY, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: bool, notificationhandle: *mut super::HANDLE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn NotifyUnicastIpAddressChange(family : super::ADDRESS_FAMILY, callback : PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::HANDLE) -> super::NTSTATUS);
+pub unsafe fn NotifyUnicastIpAddressChange(family: super::ADDRESS_FAMILY, callback: PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext: Option<*const core::ffi::c_void>, initialnotification: bool, notificationhandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn NotifyUnicastIpAddressChange(family : super::ADDRESS_FAMILY, callback : PUNICAST_IPADDRESS_CHANGE_CALLBACK, callercontext : *const core::ffi::c_void, initialnotification : bool, notificationhandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { NotifyUnicastIpAddressChange(family, callback, callercontext.unwrap_or(core::mem::zeroed()) as _, initialnotification, notificationhandle as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: Option<*const super::SOCKADDR_INET>) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn ResolveIpNetEntry2(row : *mut MIB_IPNET_ROW2, sourceaddress : *const super::SOCKADDR_INET) -> super::NTSTATUS);
+pub unsafe fn ResolveIpNetEntry2(row: *mut MIB_IPNET_ROW2, sourceaddress: Option<*const super::SOCKADDR_INET>) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn ResolveIpNetEntry2(row : *mut MIB_IPNET_ROW2, sourceaddress : *const super::SOCKADDR_INET) -> windows_core::NTSTATUS);
     unsafe { ResolveIpNetEntry2(row as _, sourceaddress.unwrap_or(core::mem::zeroed()) as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn SetCurrentThreadCompartmentId(compartmentid: super::NET_IF_COMPARTMENT_ID) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn SetCurrentThreadCompartmentId(compartmentid : super::NET_IF_COMPARTMENT_ID) -> super::NTSTATUS);
+pub unsafe fn SetCurrentThreadCompartmentId(compartmentid: super::NET_IF_COMPARTMENT_ID) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn SetCurrentThreadCompartmentId(compartmentid : super::NET_IF_COMPARTMENT_ID) -> windows_core::NTSTATUS);
     unsafe { SetCurrentThreadCompartmentId(compartmentid) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn SetCurrentThreadCompartmentScope(compartmentscope: super::NET_IF_COMPARTMENT_SCOPE) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn SetCurrentThreadCompartmentScope(compartmentscope : super::NET_IF_COMPARTMENT_SCOPE) -> super::NTSTATUS);
+pub unsafe fn SetCurrentThreadCompartmentScope(compartmentscope: super::NET_IF_COMPARTMENT_SCOPE) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn SetCurrentThreadCompartmentScope(compartmentscope : super::NET_IF_COMPARTMENT_SCOPE) -> windows_core::NTSTATUS);
     unsafe { SetCurrentThreadCompartmentScope(compartmentscope) }
 }
-#[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn SetDnsSettings(settings: *const DNS_SETTINGS) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn SetDnsSettings(settings : *const DNS_SETTINGS) -> super::NTSTATUS);
+pub unsafe fn SetDnsSettings(settings: *const DNS_SETTINGS) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn SetDnsSettings(settings : *const DNS_SETTINGS) -> windows_core::NTSTATUS);
     unsafe { SetDnsSettings(settings) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "ws2"))]
 #[inline]
-pub unsafe fn SetFlVirtualInterface(row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn SetFlVirtualInterface(row : *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> super::NTSTATUS);
+pub unsafe fn SetFlVirtualInterface(row: *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn SetFlVirtualInterface(row : *const MIB_FL_VIRTUAL_INTERFACE_ROW) -> windows_core::NTSTATUS);
     unsafe { SetFlVirtualInterface(row) }
 }
-#[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn SetInterfaceDnsSettings(interface: windows_core::GUID, settings: *const DNS_INTERFACE_SETTINGS) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn SetInterfaceDnsSettings(interface : windows_core::GUID, settings : *const DNS_INTERFACE_SETTINGS) -> super::NTSTATUS);
+pub unsafe fn SetInterfaceDnsSettings(interface: windows_core::GUID, settings: *const DNS_INTERFACE_SETTINGS) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn SetInterfaceDnsSettings(interface : windows_core::GUID, settings : *const DNS_INTERFACE_SETTINGS) -> windows_core::NTSTATUS);
     unsafe { SetInterfaceDnsSettings(interface, settings) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn SetIpForwardEntry2(route: *const MIB_IPFORWARD_ROW2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn SetIpForwardEntry2(route : *const MIB_IPFORWARD_ROW2) -> super::NTSTATUS);
+pub unsafe fn SetIpForwardEntry2(route: *const MIB_IPFORWARD_ROW2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn SetIpForwardEntry2(route : *const MIB_IPFORWARD_ROW2) -> windows_core::NTSTATUS);
     unsafe { SetIpForwardEntry2(route) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn SetIpInterfaceEntry(row : *mut MIB_IPINTERFACE_ROW) -> super::NTSTATUS);
+pub unsafe fn SetIpInterfaceEntry(row: *mut MIB_IPINTERFACE_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn SetIpInterfaceEntry(row : *mut MIB_IPINTERFACE_ROW) -> windows_core::NTSTATUS);
     unsafe { SetIpInterfaceEntry(row as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn SetIpNetEntry2(row : *const MIB_IPNET_ROW2) -> super::NTSTATUS);
+pub unsafe fn SetIpNetEntry2(row: *const MIB_IPNET_ROW2) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn SetIpNetEntry2(row : *const MIB_IPNET_ROW2) -> windows_core::NTSTATUS);
     unsafe { SetIpNetEntry2(row) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "winnt"))]
+#[cfg(all(feature = "ifdef", feature = "winnt"))]
 #[inline]
-pub unsafe fn SetJobCompartmentId(jobhandle: super::HANDLE, compartmentid: super::NET_IF_COMPARTMENT_ID) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn SetJobCompartmentId(jobhandle : super::HANDLE, compartmentid : super::NET_IF_COMPARTMENT_ID) -> super::NTSTATUS);
+pub unsafe fn SetJobCompartmentId(jobhandle: super::HANDLE, compartmentid: super::NET_IF_COMPARTMENT_ID) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn SetJobCompartmentId(jobhandle : super::HANDLE, compartmentid : super::NET_IF_COMPARTMENT_ID) -> windows_core::NTSTATUS);
     unsafe { SetJobCompartmentId(jobhandle, compartmentid) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn SetNetworkInformation<P2>(networkguid: *const super::NET_IF_NETWORK_GUID, compartmentid: super::NET_IF_COMPARTMENT_ID, networkname: P2) -> super::NTSTATUS
+pub unsafe fn SetNetworkInformation<P2>(networkguid: *const super::NET_IF_NETWORK_GUID, compartmentid: super::NET_IF_COMPARTMENT_ID, networkname: P2) -> windows_core::NTSTATUS
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("iphlpapi.dll" "system" fn SetNetworkInformation(networkguid : *const super::NET_IF_NETWORK_GUID, compartmentid : super::NET_IF_COMPARTMENT_ID, networkname : windows_core::PCWSTR) -> super::NTSTATUS);
+    windows_core::link!("iphlpapi.dll" "system" fn SetNetworkInformation(networkguid : *const super::NET_IF_NETWORK_GUID, compartmentid : super::NET_IF_COMPARTMENT_ID, networkname : windows_core::PCWSTR) -> windows_core::NTSTATUS);
     unsafe { SetNetworkInformation(networkguid, compartmentid, networkname.param().abi()) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef"))]
+#[cfg(feature = "ifdef")]
 #[inline]
-pub unsafe fn SetSessionCompartmentId(sessionid: u32, compartmentid: super::NET_IF_COMPARTMENT_ID) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn SetSessionCompartmentId(sessionid : u32, compartmentid : super::NET_IF_COMPARTMENT_ID) -> super::NTSTATUS);
+pub unsafe fn SetSessionCompartmentId(sessionid: u32, compartmentid: super::NET_IF_COMPARTMENT_ID) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn SetSessionCompartmentId(sessionid : u32, compartmentid : super::NET_IF_COMPARTMENT_ID) -> windows_core::NTSTATUS);
     unsafe { SetSessionCompartmentId(sessionid, compartmentid) }
 }
-#[cfg(all(feature = "bcrypt", feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
+#[cfg(all(feature = "ifdef", feature = "in6addr", feature = "inaddr", feature = "nldef", feature = "ws2"))]
 #[inline]
-pub unsafe fn SetUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> super::NTSTATUS {
-    windows_core::link!("iphlpapi.dll" "system" fn SetUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> super::NTSTATUS);
+pub unsafe fn SetUnicastIpAddressEntry(row: *const MIB_UNICASTIPADDRESS_ROW) -> windows_core::NTSTATUS {
+    windows_core::link!("iphlpapi.dll" "system" fn SetUnicastIpAddressEntry(row : *const MIB_UNICASTIPADDRESS_ROW) -> windows_core::NTSTATUS);
     unsafe { SetUnicastIpAddressEntry(row) }
 }
 #[cfg(all(feature = "ifdef", feature = "winnt"))]

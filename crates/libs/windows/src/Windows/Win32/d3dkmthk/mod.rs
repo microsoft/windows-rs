@@ -1,31 +1,31 @@
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTAcquireKeyedMutex(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTAcquireKeyedMutex(param0 : *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::NTSTATUS);
+pub unsafe fn D3DKMTAcquireKeyedMutex(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTAcquireKeyedMutex(param0 : *mut D3DKMT_ACQUIREKEYEDMUTEX) -> windows_core::NTSTATUS);
     unsafe { D3DKMTAcquireKeyedMutex(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTAcquireKeyedMutex2(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTAcquireKeyedMutex2(param0 : *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTAcquireKeyedMutex2(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTAcquireKeyedMutex2(param0 : *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTAcquireKeyedMutex2(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTAdjustFullscreenGamma(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTAdjustFullscreenGamma(param0 : *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::NTSTATUS);
+pub unsafe fn D3DKMTAdjustFullscreenGamma(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTAdjustFullscreenGamma(param0 : *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> windows_core::NTSTATUS);
     unsafe { D3DKMTAdjustFullscreenGamma(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTCancelPresents(param0: *const D3DKMT_CANCEL_PRESENTS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCancelPresents(param0 : *const D3DKMT_CANCEL_PRESENTS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCancelPresents(param0: *const D3DKMT_CANCEL_PRESENTS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCancelPresents(param0 : *const D3DKMT_CANCEL_PRESENTS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCancelPresents(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTChangeVideoMemoryReservation(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTChangeVideoMemoryReservation(param0 : *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTChangeVideoMemoryReservation(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTChangeVideoMemoryReservation(param0 : *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTChangeVideoMemoryReservation(param0) }
 }
 #[inline]
@@ -33,1078 +33,1077 @@ pub unsafe fn D3DKMTCheckExclusiveOwnership() -> bool {
     windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckExclusiveOwnership() -> bool);
     unsafe { D3DKMTCheckExclusiveOwnership() }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCheckMonitorPowerState(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckMonitorPowerState(param0 : *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCheckMonitorPowerState(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckMonitorPowerState(param0 : *const D3DKMT_CHECKMONITORPOWERSTATE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCheckMonitorPowerState(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCheckMultiPlaneOverlaySupport(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport2(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport2(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport2(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport2(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCheckMultiPlaneOverlaySupport2(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport3(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport3(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCheckMultiPlaneOverlaySupport3(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckMultiPlaneOverlaySupport3(param0 : *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCheckMultiPlaneOverlaySupport3(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "windef"))]
+#[cfg(feature = "windef")]
 #[inline]
-pub unsafe fn D3DKMTCheckOcclusion(param0: *const D3DKMT_CHECKOCCLUSION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckOcclusion(param0 : *const D3DKMT_CHECKOCCLUSION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCheckOcclusion(param0: *const D3DKMT_CHECKOCCLUSION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckOcclusion(param0 : *const D3DKMT_CHECKOCCLUSION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCheckOcclusion(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCheckSharedResourceAccess(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckSharedResourceAccess(param0 : *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCheckSharedResourceAccess(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckSharedResourceAccess(param0 : *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCheckSharedResourceAccess(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCheckVidPnExclusiveOwnership(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckVidPnExclusiveOwnership(param0 : *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCheckVidPnExclusiveOwnership(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCheckVidPnExclusiveOwnership(param0 : *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCheckVidPnExclusiveOwnership(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCloseAdapter(param0: *const D3DKMT_CLOSEADAPTER) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCloseAdapter(param0 : *const D3DKMT_CLOSEADAPTER) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCloseAdapter(param0: *const D3DKMT_CLOSEADAPTER) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCloseAdapter(param0 : *const D3DKMT_CLOSEADAPTER) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCloseAdapter(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTConfigureSharedResource(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTConfigureSharedResource(param0 : *const D3DKMT_CONFIGURESHAREDRESOURCE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTConfigureSharedResource(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTConfigureSharedResource(param0 : *const D3DKMT_CONFIGURESHAREDRESOURCE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTConfigureSharedResource(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTConnectDoorbell(param0: *const D3DKMT_CONNECT_DOORBELL) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTConnectDoorbell(param0 : *const D3DKMT_CONNECT_DOORBELL) -> super::NTSTATUS);
+pub unsafe fn D3DKMTConnectDoorbell(param0: *const D3DKMT_CONNECT_DOORBELL) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTConnectDoorbell(param0 : *const D3DKMT_CONNECT_DOORBELL) -> windows_core::NTSTATUS);
     unsafe { D3DKMTConnectDoorbell(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTCreateAllocation(param0: *mut D3DKMT_CREATEALLOCATION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateAllocation(param0 : *mut D3DKMT_CREATEALLOCATION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateAllocation(param0: *mut D3DKMT_CREATEALLOCATION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateAllocation(param0 : *mut D3DKMT_CREATEALLOCATION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateAllocation(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTCreateAllocation2(param0: *mut D3DKMT_CREATEALLOCATION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateAllocation2(param0 : *mut D3DKMT_CREATEALLOCATION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateAllocation2(param0: *mut D3DKMT_CREATEALLOCATION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateAllocation2(param0 : *mut D3DKMT_CREATEALLOCATION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateAllocation2(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateContext(param0: *mut D3DKMT_CREATECONTEXT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateContext(param0 : *mut D3DKMT_CREATECONTEXT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateContext(param0: *mut D3DKMT_CREATECONTEXT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateContext(param0 : *mut D3DKMT_CREATECONTEXT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateContext(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateContextVirtual(param0: *const D3DKMT_CREATECONTEXTVIRTUAL) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateContextVirtual(param0 : *const D3DKMT_CREATECONTEXTVIRTUAL) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateContextVirtual(param0: *const D3DKMT_CREATECONTEXTVIRTUAL) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateContextVirtual(param0 : *const D3DKMT_CREATECONTEXTVIRTUAL) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateContextVirtual(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "wingdi", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "wingdi", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTCreateDCFromMemory(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateDCFromMemory(param0 : *mut D3DKMT_CREATEDCFROMMEMORY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateDCFromMemory(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateDCFromMemory(param0 : *mut D3DKMT_CREATEDCFROMMEMORY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateDCFromMemory(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateDevice(param0: *mut D3DKMT_CREATEDEVICE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateDevice(param0 : *mut D3DKMT_CREATEDEVICE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateDevice(param0: *mut D3DKMT_CREATEDEVICE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateDevice(param0 : *mut D3DKMT_CREATEDEVICE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateDevice(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateDoorbell(param0: *const D3DKMT_CREATE_DOORBELL) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateDoorbell(param0 : *const D3DKMT_CREATE_DOORBELL) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateDoorbell(param0: *const D3DKMT_CREATE_DOORBELL) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateDoorbell(param0 : *const D3DKMT_CREATE_DOORBELL) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateDoorbell(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateHwContext(param0: *mut D3DKMT_CREATEHWCONTEXT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateHwContext(param0 : *mut D3DKMT_CREATEHWCONTEXT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateHwContext(param0: *mut D3DKMT_CREATEHWCONTEXT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateHwContext(param0 : *mut D3DKMT_CREATEHWCONTEXT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateHwContext(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateHwQueue(param0: *mut D3DKMT_CREATEHWQUEUE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateHwQueue(param0 : *mut D3DKMT_CREATEHWQUEUE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateHwQueue(param0: *mut D3DKMT_CREATEHWQUEUE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateHwQueue(param0 : *mut D3DKMT_CREATEHWQUEUE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateHwQueue(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateHwQueueForUserModeSubmission(param0: *mut D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateHwQueueForUserModeSubmission(param0 : *mut D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateHwQueueForUserModeSubmission(param0: *mut D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateHwQueueForUserModeSubmission(param0 : *mut D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateHwQueueForUserModeSubmission(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateKeyedMutex(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateKeyedMutex(param0 : *mut D3DKMT_CREATEKEYEDMUTEX) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateKeyedMutex(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateKeyedMutex(param0 : *mut D3DKMT_CREATEKEYEDMUTEX) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateKeyedMutex(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateKeyedMutex2(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateKeyedMutex2(param0 : *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateKeyedMutex2(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateKeyedMutex2(param0 : *mut D3DKMT_CREATEKEYEDMUTEX2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateKeyedMutex2(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateNativeFence(param0: *mut D3DKMT_CREATENATIVEFENCE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateNativeFence(param0 : *mut D3DKMT_CREATENATIVEFENCE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateNativeFence(param0: *mut D3DKMT_CREATENATIVEFENCE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateNativeFence(param0 : *mut D3DKMT_CREATENATIVEFENCE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateNativeFence(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTCreateOutputDupl(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateOutputDupl(param0 : *const D3DKMT_CREATE_OUTPUTDUPL) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateOutputDupl(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateOutputDupl(param0 : *const D3DKMT_CREATE_OUTPUTDUPL) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateOutputDupl(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateOverlay(param0: *mut D3DKMT_CREATEOVERLAY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateOverlay(param0 : *mut D3DKMT_CREATEOVERLAY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateOverlay(param0: *mut D3DKMT_CREATEOVERLAY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateOverlay(param0 : *mut D3DKMT_CREATEOVERLAY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateOverlay(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreatePagingQueue(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreatePagingQueue(param0 : *mut D3DKMT_CREATEPAGINGQUEUE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreatePagingQueue(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreatePagingQueue(param0 : *mut D3DKMT_CREATEPAGINGQUEUE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreatePagingQueue(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateProtectedSession(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateProtectedSession(param0 : *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateProtectedSession(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateProtectedSession(param0 : *mut D3DKMT_CREATEPROTECTEDSESSION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateProtectedSession(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTCreateSynchronizationObject(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateSynchronizationObject(param0 : *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateSynchronizationObject(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateSynchronizationObject(param0 : *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateSynchronizationObject(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTCreateSynchronizationObject2(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateSynchronizationObject2(param0 : *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTCreateSynchronizationObject2(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTCreateSynchronizationObject2(param0 : *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTCreateSynchronizationObject2(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroyAllocation(param0: *const D3DKMT_DESTROYALLOCATION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyAllocation(param0 : *const D3DKMT_DESTROYALLOCATION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyAllocation(param0: *const D3DKMT_DESTROYALLOCATION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyAllocation(param0 : *const D3DKMT_DESTROYALLOCATION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyAllocation(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroyAllocation2(param0: *const D3DKMT_DESTROYALLOCATION2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyAllocation2(param0 : *const D3DKMT_DESTROYALLOCATION2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyAllocation2(param0: *const D3DKMT_DESTROYALLOCATION2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyAllocation2(param0 : *const D3DKMT_DESTROYALLOCATION2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyAllocation2(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroyContext(param0: *const D3DKMT_DESTROYCONTEXT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyContext(param0 : *const D3DKMT_DESTROYCONTEXT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyContext(param0: *const D3DKMT_DESTROYCONTEXT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyContext(param0 : *const D3DKMT_DESTROYCONTEXT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyContext(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTDestroyDCFromMemory(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyDCFromMemory(param0 : *const D3DKMT_DESTROYDCFROMMEMORY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyDCFromMemory(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyDCFromMemory(param0 : *const D3DKMT_DESTROYDCFROMMEMORY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyDCFromMemory(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroyDevice(param0: *const D3DKMT_DESTROYDEVICE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyDevice(param0 : *const D3DKMT_DESTROYDEVICE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyDevice(param0: *const D3DKMT_DESTROYDEVICE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyDevice(param0 : *const D3DKMT_DESTROYDEVICE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyDevice(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroyDoorbell(param0: *const D3DKMT_DESTROY_DOORBELL) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyDoorbell(param0 : *const D3DKMT_DESTROY_DOORBELL) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyDoorbell(param0: *const D3DKMT_DESTROY_DOORBELL) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyDoorbell(param0 : *const D3DKMT_DESTROY_DOORBELL) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyDoorbell(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroyHwContext(param0: *const D3DKMT_DESTROYHWCONTEXT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyHwContext(param0 : *const D3DKMT_DESTROYHWCONTEXT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyHwContext(param0: *const D3DKMT_DESTROYHWCONTEXT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyHwContext(param0 : *const D3DKMT_DESTROYHWCONTEXT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyHwContext(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroyHwQueue(param0: *const D3DKMT_DESTROYHWQUEUE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyHwQueue(param0 : *const D3DKMT_DESTROYHWQUEUE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyHwQueue(param0: *const D3DKMT_DESTROYHWQUEUE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyHwQueue(param0 : *const D3DKMT_DESTROYHWQUEUE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyHwQueue(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroyKeyedMutex(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyKeyedMutex(param0 : *const D3DKMT_DESTROYKEYEDMUTEX) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyKeyedMutex(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyKeyedMutex(param0 : *const D3DKMT_DESTROYKEYEDMUTEX) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyKeyedMutex(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroyOutputDupl(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyOutputDupl(param0 : *const D3DKMT_DESTROY_OUTPUTDUPL) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyOutputDupl(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyOutputDupl(param0 : *const D3DKMT_DESTROY_OUTPUTDUPL) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyOutputDupl(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroyOverlay(param0: *const D3DKMT_DESTROYOVERLAY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyOverlay(param0 : *const D3DKMT_DESTROYOVERLAY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyOverlay(param0: *const D3DKMT_DESTROYOVERLAY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyOverlay(param0 : *const D3DKMT_DESTROYOVERLAY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyOverlay(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroyPagingQueue(param0: *mut super::D3DDDI_DESTROYPAGINGQUEUE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyPagingQueue(param0 : *mut super::D3DDDI_DESTROYPAGINGQUEUE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyPagingQueue(param0: *mut super::D3DDDI_DESTROYPAGINGQUEUE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyPagingQueue(param0 : *mut super::D3DDDI_DESTROYPAGINGQUEUE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyPagingQueue(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroyProtectedSession(param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyProtectedSession(param0 : *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroyProtectedSession(param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroyProtectedSession(param0 : *mut D3DKMT_DESTROYPROTECTEDSESSION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroyProtectedSession(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTDestroySynchronizationObject(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroySynchronizationObject(param0 : *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTDestroySynchronizationObject(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTDestroySynchronizationObject(param0 : *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTDestroySynchronizationObject(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTEnumAdapters(param0: *mut D3DKMT_ENUMADAPTERS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTEnumAdapters(param0 : *mut D3DKMT_ENUMADAPTERS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTEnumAdapters(param0: *mut D3DKMT_ENUMADAPTERS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTEnumAdapters(param0 : *mut D3DKMT_ENUMADAPTERS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTEnumAdapters(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTEnumAdapters2(param0: *mut D3DKMT_ENUMADAPTERS2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTEnumAdapters2(param0 : *mut D3DKMT_ENUMADAPTERS2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTEnumAdapters2(param0: *mut D3DKMT_ENUMADAPTERS2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTEnumAdapters2(param0 : *mut D3DKMT_ENUMADAPTERS2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTEnumAdapters2(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTEnumAdapters3(param0: *mut D3DKMT_ENUMADAPTERS3) -> super::NTSTATUS {
-    windows_core::link!("api-ms-win-dx-d3dkmt-l1-1-6.dll" "system" fn D3DKMTEnumAdapters3(param0 : *mut D3DKMT_ENUMADAPTERS3) -> super::NTSTATUS);
+pub unsafe fn D3DKMTEnumAdapters3(param0: *mut D3DKMT_ENUMADAPTERS3) -> windows_core::NTSTATUS {
+    windows_core::link!("api-ms-win-dx-d3dkmt-l1-1-6.dll" "system" fn D3DKMTEnumAdapters3(param0 : *mut D3DKMT_ENUMADAPTERS3) -> windows_core::NTSTATUS);
     unsafe { D3DKMTEnumAdapters3(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTEscape(param0: *const D3DKMT_ESCAPE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTEscape(param0 : *const D3DKMT_ESCAPE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTEscape(param0: *const D3DKMT_ESCAPE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTEscape(param0 : *const D3DKMT_ESCAPE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTEscape(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTEvict(param0: *mut D3DKMT_EVICT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTEvict(param0 : *mut D3DKMT_EVICT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTEvict(param0: *mut D3DKMT_EVICT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTEvict(param0 : *mut D3DKMT_EVICT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTEvict(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTFlipOverlay(param0: *const D3DKMT_FLIPOVERLAY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTFlipOverlay(param0 : *const D3DKMT_FLIPOVERLAY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTFlipOverlay(param0: *const D3DKMT_FLIPOVERLAY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTFlipOverlay(param0 : *const D3DKMT_FLIPOVERLAY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTFlipOverlay(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTFlushHeapTransitions(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTFlushHeapTransitions(param0 : *const D3DKMT_FLUSHHEAPTRANSITIONS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTFlushHeapTransitions(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTFlushHeapTransitions(param0 : *const D3DKMT_FLUSHHEAPTRANSITIONS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTFlushHeapTransitions(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTFreeGpuVirtualAddress(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTFreeGpuVirtualAddress(param0 : *const D3DKMT_FREEGPUVIRTUALADDRESS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTFreeGpuVirtualAddress(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTFreeGpuVirtualAddress(param0 : *const D3DKMT_FREEGPUVIRTUALADDRESS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTFreeGpuVirtualAddress(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetAllocationPriority(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetAllocationPriority(param0 : *const D3DKMT_GETALLOCATIONPRIORITY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetAllocationPriority(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetAllocationPriority(param0 : *const D3DKMT_GETALLOCATIONPRIORITY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetAllocationPriority(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetContextInProcessSchedulingPriority(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetContextInProcessSchedulingPriority(param0 : *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetContextInProcessSchedulingPriority(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetContextInProcessSchedulingPriority(param0 : *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetContextInProcessSchedulingPriority(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetContextSchedulingPriority(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetContextSchedulingPriority(param0 : *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetContextSchedulingPriority(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetContextSchedulingPriority(param0 : *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetContextSchedulingPriority(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTGetDWMVerticalBlankEvent(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetDWMVerticalBlankEvent(param0 : *const D3DKMT_GETVERTICALBLANKEVENT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetDWMVerticalBlankEvent(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetDWMVerticalBlankEvent(param0 : *const D3DKMT_GETVERTICALBLANKEVENT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetDWMVerticalBlankEvent(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt"))]
 #[inline]
-pub unsafe fn D3DKMTGetDeviceState(param0: *mut D3DKMT_GETDEVICESTATE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetDeviceState(param0 : *mut D3DKMT_GETDEVICESTATE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetDeviceState(param0: *mut D3DKMT_GETDEVICESTATE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetDeviceState(param0 : *mut D3DKMT_GETDEVICESTATE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetDeviceState(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetDisplayModeList(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetDisplayModeList(param0 : *mut D3DKMT_GETDISPLAYMODELIST) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetDisplayModeList(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetDisplayModeList(param0 : *mut D3DKMT_GETDISPLAYMODELIST) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetDisplayModeList(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetMultiPlaneOverlayCaps(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetMultiPlaneOverlayCaps(param0 : *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetMultiPlaneOverlayCaps(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetMultiPlaneOverlayCaps(param0 : *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetMultiPlaneOverlayCaps(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetMultisampleMethodList(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetMultisampleMethodList(param0 : *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetMultisampleMethodList(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetMultisampleMethodList(param0 : *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetMultisampleMethodList(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetNativeFenceLogDetail(param0: *mut D3DKMT_GETNATIVEFENCELOGDETAIL) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetNativeFenceLogDetail(param0 : *mut D3DKMT_GETNATIVEFENCELOGDETAIL) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetNativeFenceLogDetail(param0: *mut D3DKMT_GETNATIVEFENCELOGDETAIL) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetNativeFenceLogDetail(param0 : *mut D3DKMT_GETNATIVEFENCELOGDETAIL) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetNativeFenceLogDetail(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetOverlayState(param0: *mut D3DKMT_GETOVERLAYSTATE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetOverlayState(param0 : *mut D3DKMT_GETOVERLAYSTATE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetOverlayState(param0: *mut D3DKMT_GETOVERLAYSTATE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetOverlayState(param0 : *mut D3DKMT_GETOVERLAYSTATE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetOverlayState(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetPostCompositionCaps(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetPostCompositionCaps(param0 : *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetPostCompositionCaps(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetPostCompositionCaps(param0 : *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetPostCompositionCaps(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTGetPresentHistory(param0: *mut D3DKMT_GETPRESENTHISTORY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetPresentHistory(param0 : *mut D3DKMT_GETPRESENTHISTORY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetPresentHistory(param0: *mut D3DKMT_GETPRESENTHISTORY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetPresentHistory(param0 : *mut D3DKMT_GETPRESENTHISTORY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetPresentHistory(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTGetPresentQueueEvent(hadapter: super::D3DKMT_HANDLE, param1: *mut super::HANDLE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetPresentQueueEvent(hadapter : super::D3DKMT_HANDLE, param1 : *mut super::HANDLE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetPresentQueueEvent(hadapter: super::D3DKMT_HANDLE, param1: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetPresentQueueEvent(hadapter : super::D3DKMT_HANDLE, param1 : *mut super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetPresentQueueEvent(hadapter, param1 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn D3DKMTGetProcessDeviceRemovalSupport(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetProcessDeviceRemovalSupport(param0 : *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetProcessDeviceRemovalSupport(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetProcessDeviceRemovalSupport(param0 : *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetProcessDeviceRemovalSupport(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn D3DKMTGetProcessSchedulingPriorityClass(param0: super::HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetProcessSchedulingPriorityClass(param0 : super::HANDLE, param1 : *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetProcessSchedulingPriorityClass(param0: super::HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetProcessSchedulingPriorityClass(param0 : super::HANDLE, param1 : *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetProcessSchedulingPriorityClass(param0, param1 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetResourcePresentPrivateDriverData(param0: *mut super::D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetResourcePresentPrivateDriverData(param0 : *mut super::D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetResourcePresentPrivateDriverData(param0: *mut super::D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetResourcePresentPrivateDriverData(param0 : *mut super::D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetResourcePresentPrivateDriverData(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetRuntimeData(param0: *mut D3DKMT_GETRUNTIMEDATA) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetRuntimeData(param0 : *mut D3DKMT_GETRUNTIMEDATA) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetRuntimeData(param0: *mut D3DKMT_GETRUNTIMEDATA) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetRuntimeData(param0 : *mut D3DKMT_GETRUNTIMEDATA) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetRuntimeData(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetScanLine(param0: *mut D3DKMT_GETSCANLINE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetScanLine(param0 : *mut D3DKMT_GETSCANLINE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetScanLine(param0: *mut D3DKMT_GETSCANLINE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetScanLine(param0 : *mut D3DKMT_GETSCANLINE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetScanLine(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTGetSharedPrimaryHandle(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetSharedPrimaryHandle(param0 : *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetSharedPrimaryHandle(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetSharedPrimaryHandle(param0 : *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetSharedPrimaryHandle(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTGetSharedResourceAdapterLuid(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetSharedResourceAdapterLuid(param0 : *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::NTSTATUS);
+pub unsafe fn D3DKMTGetSharedResourceAdapterLuid(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTGetSharedResourceAdapterLuid(param0 : *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> windows_core::NTSTATUS);
     unsafe { D3DKMTGetSharedResourceAdapterLuid(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTInvalidateActiveVidPn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTInvalidateActiveVidPn(param0 : *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::NTSTATUS);
+pub unsafe fn D3DKMTInvalidateActiveVidPn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTInvalidateActiveVidPn(param0 : *const D3DKMT_INVALIDATEACTIVEVIDPN) -> windows_core::NTSTATUS);
     unsafe { D3DKMTInvalidateActiveVidPn(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTInvalidateCache(param0: *const D3DKMT_INVALIDATECACHE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTInvalidateCache(param0 : *const D3DKMT_INVALIDATECACHE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTInvalidateCache(param0: *const D3DKMT_INVALIDATECACHE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTInvalidateCache(param0 : *const D3DKMT_INVALIDATECACHE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTInvalidateCache(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTIsFeatureEnabled(param0: *mut D3DKMT_ISFEATUREENABLED) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTIsFeatureEnabled(param0 : *mut D3DKMT_ISFEATUREENABLED) -> super::NTSTATUS);
+pub unsafe fn D3DKMTIsFeatureEnabled(param0: *mut D3DKMT_ISFEATUREENABLED) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTIsFeatureEnabled(param0 : *mut D3DKMT_ISFEATUREENABLED) -> windows_core::NTSTATUS);
     unsafe { D3DKMTIsFeatureEnabled(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTLock(param0: *mut D3DKMT_LOCK) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTLock(param0 : *mut D3DKMT_LOCK) -> super::NTSTATUS);
+pub unsafe fn D3DKMTLock(param0: *mut D3DKMT_LOCK) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTLock(param0 : *mut D3DKMT_LOCK) -> windows_core::NTSTATUS);
     unsafe { D3DKMTLock(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTLock2(param0: *mut D3DKMT_LOCK2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTLock2(param0 : *mut D3DKMT_LOCK2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTLock2(param0: *mut D3DKMT_LOCK2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTLock2(param0 : *mut D3DKMT_LOCK2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTLock2(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTMakeResident(param0: *mut super::D3DDDI_MAKERESIDENT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTMakeResident(param0 : *mut super::D3DDDI_MAKERESIDENT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTMakeResident(param0: *mut super::D3DDDI_MAKERESIDENT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTMakeResident(param0 : *mut super::D3DDDI_MAKERESIDENT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTMakeResident(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTMapGpuVirtualAddress(param0: *mut super::D3DDDI_MAPGPUVIRTUALADDRESS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTMapGpuVirtualAddress(param0 : *mut super::D3DDDI_MAPGPUVIRTUALADDRESS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTMapGpuVirtualAddress(param0: *mut super::D3DDDI_MAPGPUVIRTUALADDRESS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTMapGpuVirtualAddress(param0 : *mut super::D3DDDI_MAPGPUVIRTUALADDRESS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTMapGpuVirtualAddress(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTMarkDeviceAsError(param0: *const D3DKMT_MARKDEVICEASERROR) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTMarkDeviceAsError(param0 : *const D3DKMT_MARKDEVICEASERROR) -> super::NTSTATUS);
+pub unsafe fn D3DKMTMarkDeviceAsError(param0: *const D3DKMT_MARKDEVICEASERROR) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTMarkDeviceAsError(param0 : *const D3DKMT_MARKDEVICEASERROR) -> windows_core::NTSTATUS);
     unsafe { D3DKMTMarkDeviceAsError(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTNotifyWorkSubmission(param0: *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTNotifyWorkSubmission(param0 : *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTNotifyWorkSubmission(param0: *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTNotifyWorkSubmission(param0 : *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTNotifyWorkSubmission(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTOfferAllocations(param0: *const D3DKMT_OFFERALLOCATIONS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOfferAllocations(param0 : *const D3DKMT_OFFERALLOCATIONS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOfferAllocations(param0: *const D3DKMT_OFFERALLOCATIONS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOfferAllocations(param0 : *const D3DKMT_OFFERALLOCATIONS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOfferAllocations(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTOpenAdapterFromDeviceName(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromDeviceName(param0 : *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenAdapterFromDeviceName(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromDeviceName(param0 : *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenAdapterFromDeviceName(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTOpenAdapterFromGdiDisplayName(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromGdiDisplayName(param0 : *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenAdapterFromGdiDisplayName(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromGdiDisplayName(param0 : *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenAdapterFromGdiDisplayName(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTOpenAdapterFromHdc(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromHdc(param0 : *mut D3DKMT_OPENADAPTERFROMHDC) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenAdapterFromHdc(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromHdc(param0 : *mut D3DKMT_OPENADAPTERFROMHDC) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenAdapterFromHdc(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTOpenAdapterFromLuid(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromLuid(param0 : *mut D3DKMT_OPENADAPTERFROMLUID) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenAdapterFromLuid(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenAdapterFromLuid(param0 : *mut D3DKMT_OPENADAPTERFROMLUID) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenAdapterFromLuid(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTOpenKeyedMutex(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutex(param0 : *mut D3DKMT_OPENKEYEDMUTEX) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenKeyedMutex(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutex(param0 : *mut D3DKMT_OPENKEYEDMUTEX) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenKeyedMutex(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTOpenKeyedMutex2(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutex2(param0 : *mut D3DKMT_OPENKEYEDMUTEX2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenKeyedMutex2(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutex2(param0 : *mut D3DKMT_OPENKEYEDMUTEX2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenKeyedMutex2(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTOpenKeyedMutexFromNtHandle(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutexFromNtHandle(param0 : *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenKeyedMutexFromNtHandle(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenKeyedMutexFromNtHandle(param0 : *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenKeyedMutexFromNtHandle(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTOpenNativeFenceFromNtHandle(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenNativeFenceFromNtHandle(param0 : *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenNativeFenceFromNtHandle(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenNativeFenceFromNtHandle(param0 : *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenNativeFenceFromNtHandle(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTOpenNtHandleFromName(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenNtHandleFromName(param0 : *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenNtHandleFromName(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenNtHandleFromName(param0 : *mut D3DKMT_OPENNTHANDLEFROMNAME) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenNtHandleFromName(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTOpenProtectedSessionFromNtHandle(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenProtectedSessionFromNtHandle(param0 : *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenProtectedSessionFromNtHandle(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenProtectedSessionFromNtHandle(param0 : *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenProtectedSessionFromNtHandle(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTOpenResource(param0: *mut D3DKMT_OPENRESOURCE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenResource(param0 : *mut D3DKMT_OPENRESOURCE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenResource(param0: *mut D3DKMT_OPENRESOURCE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenResource(param0 : *mut D3DKMT_OPENRESOURCE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenResource(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTOpenResource2(param0: *mut D3DKMT_OPENRESOURCE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenResource2(param0 : *mut D3DKMT_OPENRESOURCE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenResource2(param0: *mut D3DKMT_OPENRESOURCE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenResource2(param0 : *mut D3DKMT_OPENRESOURCE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenResource2(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTOpenResourceFromNtHandle(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenResourceFromNtHandle(param0 : *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenResourceFromNtHandle(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenResourceFromNtHandle(param0 : *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenResourceFromNtHandle(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTOpenSyncObjectFromNtHandle(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenSyncObjectFromNtHandle(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenSyncObjectFromNtHandle(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTOpenSyncObjectFromNtHandle2(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle2(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenSyncObjectFromNtHandle2(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectFromNtHandle2(param0 : *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenSyncObjectFromNtHandle2(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTOpenSyncObjectNtHandleFromName(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectNtHandleFromName(param0 : *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenSyncObjectNtHandleFromName(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenSyncObjectNtHandleFromName(param0 : *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenSyncObjectNtHandleFromName(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTOpenSynchronizationObject(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenSynchronizationObject(param0 : *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOpenSynchronizationObject(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOpenSynchronizationObject(param0 : *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOpenSynchronizationObject(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
 #[inline]
-pub unsafe fn D3DKMTOutputDuplGetFrameInfo(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetFrameInfo(param0 : *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOutputDuplGetFrameInfo(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetFrameInfo(param0 : *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOutputDuplGetFrameInfo(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTOutputDuplGetMetaData(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetMetaData(param0 : *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOutputDuplGetMetaData(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetMetaData(param0 : *mut D3DKMT_OUTPUTDUPL_METADATA) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOutputDuplGetMetaData(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
 #[inline]
-pub unsafe fn D3DKMTOutputDuplGetPointerShapeData(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetPointerShapeData(param0 : *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOutputDuplGetPointerShapeData(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOutputDuplGetPointerShapeData(param0 : *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOutputDuplGetPointerShapeData(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
 #[inline]
-pub unsafe fn D3DKMTOutputDuplPresent(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOutputDuplPresent(param0 : *const D3DKMT_OUTPUTDUPLPRESENT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOutputDuplPresent(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOutputDuplPresent(param0 : *const D3DKMT_OUTPUTDUPLPRESENT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOutputDuplPresent(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
 #[inline]
-pub unsafe fn D3DKMTOutputDuplPresentToHwQueue(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> super::NTSTATUS {
-    windows_core::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTOutputDuplPresentToHwQueue(param0 : *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOutputDuplPresentToHwQueue(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> windows_core::NTSTATUS {
+    windows_core::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTOutputDuplPresentToHwQueue(param0 : *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOutputDuplPresentToHwQueue(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTOutputDuplReleaseFrame(param0: *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTOutputDuplReleaseFrame(param0 : *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::NTSTATUS);
+pub unsafe fn D3DKMTOutputDuplReleaseFrame(param0: *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTOutputDuplReleaseFrame(param0 : *mut D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> windows_core::NTSTATUS);
     unsafe { D3DKMTOutputDuplReleaseFrame(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTPollDisplayChildren(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTPollDisplayChildren(param0 : *const D3DKMT_POLLDISPLAYCHILDREN) -> super::NTSTATUS);
+pub unsafe fn D3DKMTPollDisplayChildren(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTPollDisplayChildren(param0 : *const D3DKMT_POLLDISPLAYCHILDREN) -> windows_core::NTSTATUS);
     unsafe { D3DKMTPollDisplayChildren(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTPresent(param0: *mut D3DKMT_PRESENT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTPresent(param0 : *mut D3DKMT_PRESENT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTPresent(param0: *mut D3DKMT_PRESENT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTPresent(param0 : *mut D3DKMT_PRESENT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTPresent(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
 #[inline]
-pub unsafe fn D3DKMTPresentMultiPlaneOverlay(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTPresentMultiPlaneOverlay(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTPresentMultiPlaneOverlay(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
 #[inline]
-pub unsafe fn D3DKMTPresentMultiPlaneOverlay2(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay2(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTPresentMultiPlaneOverlay2(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay2(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTPresentMultiPlaneOverlay2(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
 #[inline]
-pub unsafe fn D3DKMTPresentMultiPlaneOverlay3(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay3(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> super::NTSTATUS);
+pub unsafe fn D3DKMTPresentMultiPlaneOverlay3(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTPresentMultiPlaneOverlay3(param0 : *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> windows_core::NTSTATUS);
     unsafe { D3DKMTPresentMultiPlaneOverlay3(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTPresentRedirected(param0: *const D3DKMT_PRESENT_REDIRECTED) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTPresentRedirected(param0 : *const D3DKMT_PRESENT_REDIRECTED) -> super::NTSTATUS);
+pub unsafe fn D3DKMTPresentRedirected(param0: *const D3DKMT_PRESENT_REDIRECTED) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTPresentRedirected(param0 : *const D3DKMT_PRESENT_REDIRECTED) -> windows_core::NTSTATUS);
     unsafe { D3DKMTPresentRedirected(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTQueryAdapterInfo(param0: *mut D3DKMT_QUERYADAPTERINFO) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryAdapterInfo(param0 : *mut D3DKMT_QUERYADAPTERINFO) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryAdapterInfo(param0: *mut D3DKMT_QUERYADAPTERINFO) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryAdapterInfo(param0 : *mut D3DKMT_QUERYADAPTERINFO) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryAdapterInfo(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTQueryAllocationResidency(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryAllocationResidency(param0 : *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryAllocationResidency(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryAllocationResidency(param0 : *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryAllocationResidency(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt"))]
 #[inline]
-pub unsafe fn D3DKMTQueryClockCalibration(param0: *mut super::D3DKMT_QUERYCLOCKCALIBRATION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryClockCalibration(param0 : *mut super::D3DKMT_QUERYCLOCKCALIBRATION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryClockCalibration(param0: *mut super::D3DKMT_QUERYCLOCKCALIBRATION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryClockCalibration(param0 : *mut super::D3DKMT_QUERYCLOCKCALIBRATION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryClockCalibration(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTQueryFSEBlock(param0: *mut D3DKMT_QUERYFSEBLOCK) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryFSEBlock(param0 : *mut D3DKMT_QUERYFSEBLOCK) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryFSEBlock(param0: *mut D3DKMT_QUERYFSEBLOCK) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryFSEBlock(param0 : *mut D3DKMT_QUERYFSEBLOCK) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryFSEBlock(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "minwindef"))]
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef"))]
 #[inline]
-pub unsafe fn D3DKMTQueryFeatureInterface(param0: *mut D3DKMT_QUERYFEATUREINTERFACE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryFeatureInterface(param0 : *mut D3DKMT_QUERYFEATUREINTERFACE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryFeatureInterface(param0: *mut D3DKMT_QUERYFEATUREINTERFACE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryFeatureInterface(param0 : *mut D3DKMT_QUERYFEATUREINTERFACE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryFeatureInterface(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn D3DKMTQueryProcessOfferInfo(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryProcessOfferInfo(param0 : *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryProcessOfferInfo(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryProcessOfferInfo(param0 : *mut D3DKMT_QUERYPROCESSOFFERINFO) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryProcessOfferInfo(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn D3DKMTQueryProtectedSessionInfoFromNtHandle(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryProtectedSessionInfoFromNtHandle(param0 : *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryProtectedSessionInfoFromNtHandle(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryProtectedSessionInfoFromNtHandle(param0 : *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryProtectedSessionInfoFromNtHandle(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTQueryProtectedSessionStatus(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryProtectedSessionStatus(param0 : *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryProtectedSessionStatus(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryProtectedSessionStatus(param0 : *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryProtectedSessionStatus(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0 : *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0 : *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryRemoteVidPnSourceFromGdiDisplayName(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTQueryResourceInfo(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryResourceInfo(param0 : *mut D3DKMT_QUERYRESOURCEINFO) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryResourceInfo(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryResourceInfo(param0 : *mut D3DKMT_QUERYRESOURCEINFO) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryResourceInfo(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTQueryResourceInfoFromNtHandle(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryResourceInfoFromNtHandle(param0 : *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryResourceInfoFromNtHandle(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryResourceInfoFromNtHandle(param0 : *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryResourceInfoFromNtHandle(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn D3DKMTQueryStatistics(param0: *const D3DKMT_QUERYSTATISTICS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryStatistics(param0 : *const D3DKMT_QUERYSTATISTICS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryStatistics(param0: *const D3DKMT_QUERYSTATISTICS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryStatistics(param0 : *const D3DKMT_QUERYSTATISTICS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryStatistics(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTQueryVidPnExclusiveOwnership(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryVidPnExclusiveOwnership(param0 : *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryVidPnExclusiveOwnership(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryVidPnExclusiveOwnership(param0 : *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryVidPnExclusiveOwnership(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTQueryVideoMemoryInfo(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryVideoMemoryInfo(param0 : *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::NTSTATUS);
+pub unsafe fn D3DKMTQueryVideoMemoryInfo(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTQueryVideoMemoryInfo(param0 : *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> windows_core::NTSTATUS);
     unsafe { D3DKMTQueryVideoMemoryInfo(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTReclaimAllocations(param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations(param0 : *mut D3DKMT_RECLAIMALLOCATIONS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTReclaimAllocations(param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations(param0 : *mut D3DKMT_RECLAIMALLOCATIONS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTReclaimAllocations(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTReclaimAllocations2(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations2(param0 : *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTReclaimAllocations2(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTReclaimAllocations2(param0 : *mut D3DKMT_RECLAIMALLOCATIONS2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTReclaimAllocations2(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTRegisterTrimNotification(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTRegisterTrimNotification(param0 : *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTRegisterTrimNotification(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTRegisterTrimNotification(param0 : *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTRegisterTrimNotification(param0 as _) }
 }
-#[cfg(feature = "bcrypt")]
 #[inline]
-pub unsafe fn D3DKMTRegisterVailProcess(param0: *const windows_core::GUID) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTRegisterVailProcess(param0 : *const windows_core::GUID) -> super::NTSTATUS);
+pub unsafe fn D3DKMTRegisterVailProcess(param0: *const windows_core::GUID) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTRegisterVailProcess(param0 : *const windows_core::GUID) -> windows_core::NTSTATUS);
     unsafe { D3DKMTRegisterVailProcess(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTReleaseKeyedMutex(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::NTSTATUS);
+pub unsafe fn D3DKMTReleaseKeyedMutex(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX) -> windows_core::NTSTATUS);
     unsafe { D3DKMTReleaseKeyedMutex(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTReleaseKeyedMutex2(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex2(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTReleaseKeyedMutex2(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTReleaseKeyedMutex2(param0 : *mut D3DKMT_RELEASEKEYEDMUTEX2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTReleaseKeyedMutex2(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn D3DKMTReleaseProcessVidPnSourceOwners(param0: super::HANDLE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTReleaseProcessVidPnSourceOwners(param0 : super::HANDLE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTReleaseProcessVidPnSourceOwners(param0: super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTReleaseProcessVidPnSourceOwners(param0 : super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTReleaseProcessVidPnSourceOwners(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTRender(param0: *mut D3DKMT_RENDER) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTRender(param0 : *mut D3DKMT_RENDER) -> super::NTSTATUS);
+pub unsafe fn D3DKMTRender(param0: *mut D3DKMT_RENDER) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTRender(param0 : *mut D3DKMT_RENDER) -> windows_core::NTSTATUS);
     unsafe { D3DKMTRender(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTReserveGpuVirtualAddress(param0: *mut super::D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTReserveGpuVirtualAddress(param0 : *mut super::D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTReserveGpuVirtualAddress(param0: *mut super::D3DDDI_RESERVEGPUVIRTUALADDRESS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTReserveGpuVirtualAddress(param0 : *mut super::D3DDDI_RESERVEGPUVIRTUALADDRESS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTReserveGpuVirtualAddress(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTResizeRingBuffer(param0: *mut D3DKMT_RESIZERINGBUFFER) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTResizeRingBuffer(param0 : *mut D3DKMT_RESIZERINGBUFFER) -> super::NTSTATUS);
+pub unsafe fn D3DKMTResizeRingBuffer(param0: *mut D3DKMT_RESIZERINGBUFFER) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTResizeRingBuffer(param0 : *mut D3DKMT_RESIZERINGBUFFER) -> windows_core::NTSTATUS);
     unsafe { D3DKMTResizeRingBuffer(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetAllocationPriority(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetAllocationPriority(param0 : *const D3DKMT_SETALLOCATIONPRIORITY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetAllocationPriority(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetAllocationPriority(param0 : *const D3DKMT_SETALLOCATIONPRIORITY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetAllocationPriority(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetContextInProcessSchedulingPriority(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetContextInProcessSchedulingPriority(param0 : *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetContextInProcessSchedulingPriority(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetContextInProcessSchedulingPriority(param0 : *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetContextInProcessSchedulingPriority(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetContextSchedulingPriority(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetContextSchedulingPriority(param0 : *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetContextSchedulingPriority(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetContextSchedulingPriority(param0 : *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetContextSchedulingPriority(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetDisplayMode(param0: *mut D3DKMT_SETDISPLAYMODE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetDisplayMode(param0 : *mut D3DKMT_SETDISPLAYMODE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetDisplayMode(param0: *mut D3DKMT_SETDISPLAYMODE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetDisplayMode(param0 : *mut D3DKMT_SETDISPLAYMODE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetDisplayMode(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetDisplayPrivateDriverFormat(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetDisplayPrivateDriverFormat(param0 : *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetDisplayPrivateDriverFormat(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetDisplayPrivateDriverFormat(param0 : *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetDisplayPrivateDriverFormat(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTSetFSEBlock(param0: *const D3DKMT_SETFSEBLOCK) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetFSEBlock(param0 : *const D3DKMT_SETFSEBLOCK) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetFSEBlock(param0: *const D3DKMT_SETFSEBLOCK) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetFSEBlock(param0 : *const D3DKMT_SETFSEBLOCK) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetFSEBlock(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetGammaRamp(param0: *const D3DKMT_SETGAMMARAMP) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetGammaRamp(param0 : *const D3DKMT_SETGAMMARAMP) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetGammaRamp(param0: *const D3DKMT_SETGAMMARAMP) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetGammaRamp(param0 : *const D3DKMT_SETGAMMARAMP) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetGammaRamp(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetHwProtectionTeardownRecovery(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetHwProtectionTeardownRecovery(param0 : *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetHwProtectionTeardownRecovery(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetHwProtectionTeardownRecovery(param0 : *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetHwProtectionTeardownRecovery(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTSetMonitorColorSpaceTransform(param0: *const D3DKMT_SET_COLORSPACE_TRANSFORM) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetMonitorColorSpaceTransform(param0 : *const D3DKMT_SET_COLORSPACE_TRANSFORM) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetMonitorColorSpaceTransform(param0: *const D3DKMT_SET_COLORSPACE_TRANSFORM) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetMonitorColorSpaceTransform(param0 : *const D3DKMT_SET_COLORSPACE_TRANSFORM) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetMonitorColorSpaceTransform(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn D3DKMTSetProcessSchedulingPriorityClass(param0: super::HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetProcessSchedulingPriorityClass(param0 : super::HANDLE, param1 : D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetProcessSchedulingPriorityClass(param0: super::HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetProcessSchedulingPriorityClass(param0 : super::HANDLE, param1 : D3DKMT_SCHEDULINGPRIORITYCLASS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetProcessSchedulingPriorityClass(param0, param1) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetQueuedLimit(param0: *const D3DKMT_SETQUEUEDLIMIT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetQueuedLimit(param0 : *const D3DKMT_SETQUEUEDLIMIT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetQueuedLimit(param0: *const D3DKMT_SETQUEUEDLIMIT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetQueuedLimit(param0 : *const D3DKMT_SETQUEUEDLIMIT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetQueuedLimit(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetStablePowerState(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetStablePowerState(param0 : *const D3DKMT_SETSTABLEPOWERSTATE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetStablePowerState(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetStablePowerState(param0 : *const D3DKMT_SETSTABLEPOWERSTATE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetStablePowerState(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetSyncRefreshCountWaitTarget(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetSyncRefreshCountWaitTarget(param0 : *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetSyncRefreshCountWaitTarget(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetSyncRefreshCountWaitTarget(param0 : *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetSyncRefreshCountWaitTarget(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetVidPnSourceHwProtection(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceHwProtection(param0 : *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetVidPnSourceHwProtection(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceHwProtection(param0 : *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetVidPnSourceHwProtection(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetVidPnSourceOwner(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetVidPnSourceOwner(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetVidPnSourceOwner(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSetVidPnSourceOwner1(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner1(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetVidPnSourceOwner1(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner1(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER1) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetVidPnSourceOwner1(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTSetVidPnSourceOwner2(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner2(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSetVidPnSourceOwner2(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSetVidPnSourceOwner2(param0 : *const D3DKMT_SETVIDPNSOURCEOWNER2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSetVidPnSourceOwner2(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTShareObjects(hobjects: &[super::D3DKMT_HANDLE], pobjectattributes: *const OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::HANDLE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : u32, hobjects : *const super::D3DKMT_HANDLE, pobjectattributes : *const OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::HANDLE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTShareObjects(hobjects: &[super::D3DKMT_HANDLE], pobjectattributes: *const OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::HANDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTShareObjects(cobjects : u32, hobjects : *const super::D3DKMT_HANDLE, pobjectattributes : *const OBJECT_ATTRIBUTES, dwdesiredaccess : u32, phsharednthandle : *mut super::HANDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTShareObjects(hobjects.len().try_into().unwrap(), hobjects.as_ptr(), pobjectattributes, dwdesiredaccess, phsharednthandle as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTSharedPrimaryLockNotification(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSharedPrimaryLockNotification(param0 : *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSharedPrimaryLockNotification(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSharedPrimaryLockNotification(param0 : *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSharedPrimaryLockNotification(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTSharedPrimaryUnLockNotification(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSharedPrimaryUnLockNotification(param0 : *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSharedPrimaryUnLockNotification(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSharedPrimaryUnLockNotification(param0 : *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSharedPrimaryUnLockNotification(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSignalSynchronizationObject(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObject(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSignalSynchronizationObject(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObject(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSignalSynchronizationObject(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTSignalSynchronizationObject2(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObject2(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSignalSynchronizationObject2(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObject2(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSignalSynchronizationObject2(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSignalSynchronizationObjectFromCpu(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromCpu(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSignalSynchronizationObjectFromCpu(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromCpu(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSignalSynchronizationObjectFromCpu(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSignalSynchronizationObjectFromGpu(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromGpu(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSignalSynchronizationObjectFromGpu(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromGpu(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSignalSynchronizationObjectFromGpu(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTSignalSynchronizationObjectFromGpu2(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromGpu2(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSignalSynchronizationObjectFromGpu2(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSignalSynchronizationObjectFromGpu2(param0 : *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSignalSynchronizationObjectFromGpu2(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSubmitCommand(param0: *const D3DKMT_SUBMITCOMMAND) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSubmitCommand(param0 : *const D3DKMT_SUBMITCOMMAND) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSubmitCommand(param0: *const D3DKMT_SUBMITCOMMAND) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSubmitCommand(param0 : *const D3DKMT_SUBMITCOMMAND) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSubmitCommand(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSubmitCommandToHwQueue(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSubmitCommandToHwQueue(param0 : *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSubmitCommandToHwQueue(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSubmitCommandToHwQueue(param0 : *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSubmitCommandToHwQueue(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTSubmitPresentBltToHwQueue(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> super::NTSTATUS {
-    windows_core::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTSubmitPresentBltToHwQueue(param0 : *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSubmitPresentBltToHwQueue(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> windows_core::NTSTATUS {
+    windows_core::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTSubmitPresentBltToHwQueue(param0 : *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSubmitPresentBltToHwQueue(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTSubmitPresentToHwQueue(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::NTSTATUS {
-    windows_core::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTSubmitPresentToHwQueue(param0 : *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSubmitPresentToHwQueue(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> windows_core::NTSTATUS {
+    windows_core::link!("api-ms-win-dx-d3dkmt-l1-1-4.dll" "system" fn D3DKMTSubmitPresentToHwQueue(param0 : *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSubmitPresentToHwQueue(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSubmitSignalSyncObjectsToHwQueue(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSubmitSignalSyncObjectsToHwQueue(param0 : *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSubmitSignalSyncObjectsToHwQueue(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSubmitSignalSyncObjectsToHwQueue(param0 : *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSubmitSignalSyncObjectsToHwQueue(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0 : *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0 : *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTSubmitWaitForSyncObjectsToHwQueue(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[inline]
-pub unsafe fn D3DKMTTrimProcessCommitment(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTTrimProcessCommitment(param0 : *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTTrimProcessCommitment(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTTrimProcessCommitment(param0 : *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTTrimProcessCommitment(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTUnlock(param0: *const D3DKMT_UNLOCK) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTUnlock(param0 : *const D3DKMT_UNLOCK) -> super::NTSTATUS);
+pub unsafe fn D3DKMTUnlock(param0: *const D3DKMT_UNLOCK) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTUnlock(param0 : *const D3DKMT_UNLOCK) -> windows_core::NTSTATUS);
     unsafe { D3DKMTUnlock(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTUnlock2(param0: *const D3DKMT_UNLOCK2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTUnlock2(param0 : *const D3DKMT_UNLOCK2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTUnlock2(param0: *const D3DKMT_UNLOCK2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTUnlock2(param0 : *const D3DKMT_UNLOCK2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTUnlock2(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTUnregisterTrimNotification(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTUnregisterTrimNotification(param0 : *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::NTSTATUS);
+pub unsafe fn D3DKMTUnregisterTrimNotification(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTUnregisterTrimNotification(param0 : *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> windows_core::NTSTATUS);
     unsafe { D3DKMTUnregisterTrimNotification(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTUpdateAllocationProperty(param0: *mut super::D3DDDI_UPDATEALLOCPROPERTY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTUpdateAllocationProperty(param0 : *mut super::D3DDDI_UPDATEALLOCPROPERTY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTUpdateAllocationProperty(param0: *mut super::D3DDDI_UPDATEALLOCPROPERTY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTUpdateAllocationProperty(param0 : *mut super::D3DDDI_UPDATEALLOCPROPERTY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTUpdateAllocationProperty(param0 as _) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTUpdateGpuVirtualAddress(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTUpdateGpuVirtualAddress(param0 : *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::NTSTATUS);
+pub unsafe fn D3DKMTUpdateGpuVirtualAddress(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTUpdateGpuVirtualAddress(param0 : *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> windows_core::NTSTATUS);
     unsafe { D3DKMTUpdateGpuVirtualAddress(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTUpdateOverlay(param0: *const D3DKMT_UPDATEOVERLAY) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTUpdateOverlay(param0 : *const D3DKMT_UPDATEOVERLAY) -> super::NTSTATUS);
+pub unsafe fn D3DKMTUpdateOverlay(param0: *const D3DKMT_UPDATEOVERLAY) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTUpdateOverlay(param0 : *const D3DKMT_UPDATEOVERLAY) -> windows_core::NTSTATUS);
     unsafe { D3DKMTUpdateOverlay(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTWaitForIdle(param0: *const D3DKMT_WAITFORIDLE) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForIdle(param0 : *const D3DKMT_WAITFORIDLE) -> super::NTSTATUS);
+pub unsafe fn D3DKMTWaitForIdle(param0: *const D3DKMT_WAITFORIDLE) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForIdle(param0 : *const D3DKMT_WAITFORIDLE) -> windows_core::NTSTATUS);
     unsafe { D3DKMTWaitForIdle(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTWaitForSynchronizationObject(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObject(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTWaitForSynchronizationObject(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObject(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTWaitForSynchronizationObject(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTWaitForSynchronizationObject2(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObject2(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTWaitForSynchronizationObject2(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObject2(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTWaitForSynchronizationObject2(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTWaitForSynchronizationObjectFromCpu(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObjectFromCpu(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> super::NTSTATUS);
+pub unsafe fn D3DKMTWaitForSynchronizationObjectFromCpu(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObjectFromCpu(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> windows_core::NTSTATUS);
     unsafe { D3DKMTWaitForSynchronizationObjectFromCpu(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTWaitForSynchronizationObjectFromGpu(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObjectFromGpu(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> super::NTSTATUS);
+pub unsafe fn D3DKMTWaitForSynchronizationObjectFromGpu(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForSynchronizationObjectFromGpu(param0 : *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> windows_core::NTSTATUS);
     unsafe { D3DKMTWaitForSynchronizationObjectFromGpu(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[inline]
-pub unsafe fn D3DKMTWaitForVerticalBlankEvent(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForVerticalBlankEvent(param0 : *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> super::NTSTATUS);
+pub unsafe fn D3DKMTWaitForVerticalBlankEvent(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForVerticalBlankEvent(param0 : *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> windows_core::NTSTATUS);
     unsafe { D3DKMTWaitForVerticalBlankEvent(param0) }
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[inline]
-pub unsafe fn D3DKMTWaitForVerticalBlankEvent2(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::NTSTATUS {
-    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForVerticalBlankEvent2(param0 : *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::NTSTATUS);
+pub unsafe fn D3DKMTWaitForVerticalBlankEvent2(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> windows_core::NTSTATUS {
+    windows_core::link!("gdi32.dll" "system" fn D3DKMTWaitForVerticalBlankEvent2(param0 : *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> windows_core::NTSTATUS);
     unsafe { D3DKMTWaitForVerticalBlankEvent2(param0) }
 }
 #[repr(C)]
@@ -7038,20 +7037,20 @@ pub const D3DKMT_VIDMMESCAPETYPE_SUSPEND_PROCESS: D3DKMT_VIDMMESCAPETYPE = 9;
 pub const D3DKMT_VIDMMESCAPETYPE_VALIDATE_INTEGRITY: D3DKMT_VIDMMESCAPETYPE = 17;
 pub const D3DKMT_VIDMMESCAPETYPE_WAKE: D3DKMT_VIDMMESCAPETYPE = 14;
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE {
     pub Type: D3DKMT_VIDMMESCAPETYPE,
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0,
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0 {
     pub SetFault: D3DKMT_VIDMM_ESCAPE_0_0,
@@ -7073,82 +7072,82 @@ pub union D3DKMT_VIDMM_ESCAPE_0 {
     pub CopyContent: D3DKMT_VIDMM_ESCAPE_0_15,
     pub QuerySection: D3DKMT_VIDMM_ESCAPE_0_16,
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_0 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0,
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0_0_0 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_0_0_0,
     pub Value: u32,
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_0_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_1 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_1_0,
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0_1_0 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_1_0_0,
     pub Value: u32,
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_1_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_1_0_0 {
     pub _bitfield: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_10 {
     pub bFlush: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
     pub Operation: D3DKMT_DEFRAG_ESCAPE_OPERATION,
@@ -7159,7 +7158,7 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_11 {
     pub LargestGapAfter: u64,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
     pub hPagingQueue: super::D3DKMT_HANDLE,
@@ -7168,20 +7167,20 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_12 {
     pub PagingFenceValue: u64,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_13 {
     pub PhysicalAdapterIndex: u16,
     pub SegmentId: u16,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_14 {
     pub TimerValue: i64,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_15 {
     pub UserBuffer: *mut core::ffi::c_void,
@@ -7190,21 +7189,21 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_15 {
     pub Offset: u64,
     pub Size: u64,
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_15 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_16 {
     pub hAllocation: super::D3DKMT_HANDLE,
     pub hSection: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
     pub ResourceHandle: super::D3DKMT_HANDLE,
@@ -7212,28 +7211,28 @@ pub struct D3DKMT_VIDMM_ESCAPE_0_2 {
     pub hProcess: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_3 {
     pub NtHandle: u64,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_4 {
     pub Anonymous: D3DKMT_VIDMM_ESCAPE_0_4_0,
     pub Command: D3DKMT_VAD_ESCAPE_COMMAND,
-    pub Status: super::NTSTATUS,
+    pub Status: windows_core::NTSTATUS,
     pub Anonymous2: D3DKMT_VIDMM_ESCAPE_0_4_1,
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0_4_0 {
     pub GetNumVads: D3DKMT_VIDMM_ESCAPE_0_4_0_0,
@@ -7243,58 +7242,58 @@ pub union D3DKMT_VIDMM_ESCAPE_0_4_0 {
     pub GetPte: D3DKMT_GET_PTE,
     pub GetSegmentCaps: D3DKMT_GET_SEGMENT_CAPS,
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_4_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_4_0_0 {
     pub NumVads: u32,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union D3DKMT_VIDMM_ESCAPE_0_4_1 {
     pub GetPteExt: D3DKMT_GET_PTE_EXT,
 }
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 impl Default for D3DKMT_VIDMM_ESCAPE_0_4_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_5 {
     pub LocalMemoryBudget: u64,
     pub SystemMemoryBudget: u64,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_6 {
     pub hProcess: super::HANDLE,
     pub bAllowWakeOnSubmission: windows_core::BOOL,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_7 {
     pub hProcess: super::HANDLE,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_8 {
     pub NumBytesToTrim: u64,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMT_VIDMM_ESCAPE_0_9 {
     pub MinTrimInterval: u32,
@@ -7609,7 +7608,7 @@ impl Default for DXGK_ESCAPE_GPUMMUCAPS {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
+#[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy, Debug, Default)]
 pub struct DXGK_FEATURE_PROCESS_DEBUG_BLOB_COLLECTION_INTERFACE_V1 {
     pub pfnEnableProcessDebugBlobCollection: PFND3DKMT_ENABLEPROCESSDEBUGBLOBCOLLECTION,
@@ -7637,7 +7636,7 @@ impl Default for DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug)]
 pub struct DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     pub DeviceHandle: *mut core::ffi::c_void,
@@ -7645,7 +7644,7 @@ pub struct DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     pub SetSharedPowerComponentStateCb: PDXGK_SET_SHARED_POWER_COMPONENT_STATE,
     pub UnregisterCb: PDXGK_GRAPHICSPOWER_UNREGISTER,
 }
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 impl Default for DXGK_GRAPHICSPOWER_REGISTER_OUTPUT {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -7824,400 +7823,394 @@ pub type PDXGK_FSTATE_NOTIFICATION = Option<unsafe extern "system" fn(graphicsde
 pub type PDXGK_GRAPHICSPOWER_REGISTER_INPUT = *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT;
 #[cfg(feature = "winnt")]
 pub type PDXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2 = *mut DXGK_GRAPHICSPOWER_REGISTER_INPUT_V_1_2;
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
+#[cfg(feature = "winnt")]
 pub type PDXGK_GRAPHICSPOWER_REGISTER_OUTPUT = *mut DXGK_GRAPHICSPOWER_REGISTER_OUTPUT;
-#[cfg(feature = "bcrypt")]
-pub type PDXGK_GRAPHICSPOWER_UNREGISTER = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void) -> super::NTSTATUS>;
+pub type PDXGK_GRAPHICSPOWER_UNREGISTER = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type PDXGK_INITIAL_COMPONENT_STATE = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, isblockingtype: bool, initialfstate: u32, componentguid: windows_core::GUID, powercomponentmappingflag: u32)>;
 #[cfg(feature = "winnt")]
 pub type PDXGK_POWER_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, newgrfxpowerstate: super::DEVICE_POWER_STATE, prenotification: bool, privatehandle: *mut core::ffi::c_void)>;
 pub type PDXGK_REMOVAL_NOTIFICATION = Option<unsafe extern "system" fn(graphicsdevicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void)>;
-#[cfg(feature = "bcrypt")]
-pub type PDXGK_SET_SHARED_POWER_COMPONENT_STATE = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, active: bool) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_ACQUIREKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_ACQUIREKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_ADJUSTFULLSCREENGAMMA = Option<unsafe extern "system" fn(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> super::NTSTATUS>;
+pub type PDXGK_SET_SHARED_POWER_COMPONENT_STATE = Option<unsafe extern "system" fn(devicehandle: *mut core::ffi::c_void, privatehandle: *mut core::ffi::c_void, componentindex: u32, active: bool) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_ACQUIREKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_ACQUIREKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ACQUIREKEYEDMUTEX2) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_ADJUSTFULLSCREENGAMMA = Option<unsafe extern "system" fn(param0: *const D3DKMT_ADJUSTFULLSCREENGAMMA) -> windows_core::NTSTATUS>;
 pub type PFND3DKMT_BUDGETCHANGENOTIFICATIONCALLBACK = Option<unsafe extern "system" fn(param0: *const D3DKMT_BUDGETCHANGENOTIFICATION)>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_CANCELPRESENTS = Option<unsafe extern "system" fn(param0: *const D3DKMT_CANCEL_PRESENTS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "windef", feature = "winnt"))]
-pub type PFND3DKMT_CHANGESURFACEPOINTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> super::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_CANCELPRESENTS = Option<unsafe extern "system" fn(param0: *const D3DKMT_CANCEL_PRESENTS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "windef", feature = "winnt"))]
+pub type PFND3DKMT_CHANGESURFACEPOINTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGESURFACEPOINTER) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_CHANGEVIDEOMEMORYRESERVATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHANGEVIDEOMEMORYRESERVATION) -> windows_core::NTSTATUS>;
 pub type PFND3DKMT_CHECKEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn() -> bool>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CHECKMONITORPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "windef"))]
-pub type PFND3DKMT_CHECKOCCLUSION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKOCCLUSION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CHECKSHAREDRESOURCEACCESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CLOSEADAPTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CLOSEADAPTER) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_CONFIGURESHAREDRESOURCE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CONNECTDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CONNECT_DOORBELL) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_CREATEALLOCATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_CREATEALLOCATION2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATECONTEXT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATECONTEXTVIRTUAL = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXTVIRTUAL) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "wingdi", feature = "winnt"))]
-pub type PFND3DKMT_CREATEDCFROMMEMORY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATEDEVICE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDEVICE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATEDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_DOORBELL) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATEHWQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEHWQUEUE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATEKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATEKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATENATIVEFENCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATENATIVEFENCE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_CREATEOUTPUTDUPL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATEOVERLAY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEOVERLAY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATEPAGINGQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATEPROTECTEDSESSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_DESTROYALLOCATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_DESTROYALLOCATION2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_DESTROYCONTEXT = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYCONTEXT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "windef", feature = "winnt"))]
-pub type PFND3DKMT_DESTROYDCFROMMEMORY = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_DESTROYDEVICE = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDEVICE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_DESTROYDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_DOORBELL) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_DESTROYHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYHWQUEUE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_DESTROYKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_DESTROYOUTPUTDUPL = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_DESTROYOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYOVERLAY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_DESTROYPAGINGQUEUE = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_DESTROYPAGINGQUEUE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_DESTROYPROTECTEDSESSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_DESTROYSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> super::NTSTATUS>;
-#[cfg(feature = "bcrypt")]
-pub type PFND3DKMT_DISABLEPROCESSDEBUGBLOBCOLLECTION = Option<unsafe extern "system" fn() -> super::NTSTATUS>;
-#[cfg(feature = "bcrypt")]
-pub type PFND3DKMT_ENABLEPROCESSDEBUGBLOBCOLLECTION = Option<unsafe extern "system" fn() -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_ENUMADAPTERS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_ENUMADAPTERS2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_ENUMADAPTERS3 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS3) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_ESCAPE = Option<unsafe extern "system" fn(param0: *const D3DKMT_ESCAPE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_EVICT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_EVICT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_FLIPOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_FLIPOVERLAY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_FLUSHHEAPTRANSITIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_FREEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETALLOCATIONPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETCONTEXTSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETDEVICESTATE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDEVICESTATE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETDISPLAYMODELIST = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_GETDWMVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETMULTIPLANEOVERLAYCAPS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETMULTISAMPLEMETHODLIST = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETNATIVEFENCELOGDETAIL = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETNATIVEFENCELOGDETAIL) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETOVERLAYSTATE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETOVERLAYSTATE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETPOSTCOMPOSITIONCAPS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-pub type PFND3DKMT_GETPRESENTHISTORY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPRESENTHISTORY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-pub type PFND3DKMT_GETPROCESSDEVICEREMOVALSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-pub type PFND3DKMT_GETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETRESOURCEPRESENTPRIVATEDRIVERDATA = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETRUNTIMEDATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETRUNTIMEDATA) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETSCANLINE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSCANLINE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_GETSHAREDPRIMARYHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_GETSHAREDRESOURCEADAPTERLUID = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_INVALIDATEACTIVEVIDPN = Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_INVALIDATECACHE = Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATECACHE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_ISFEATUREENABLED = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ISFEATUREENABLED) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_LOCK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_LOCK2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_MAKERESIDENT = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_MAKERESIDENT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_MAPGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_MAPGPUVIRTUALADDRESS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_MAPPROCESSDEBUGBLOB = Option<unsafe extern "system" fn(param0: *mut D3DKMT_MAPPROCESSDEBUGBLOB) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_MARKDEVICEASERROR = Option<unsafe extern "system" fn(param0: *const D3DKMT_MARKDEVICEASERROR) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_NOTIFYWORKSUBMISSION = Option<unsafe extern "system" fn(param0: *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_OFFERALLOCATIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_OFFERALLOCATIONS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_OPENADAPTERFROMDEVICENAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-pub type PFND3DKMT_OPENADAPTERFROMHDC = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_OPENADAPTERFROMLUID = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_OPENKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_OPENKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PFND3DKMT_OPENNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_OPENRESOURCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_OPENRESOURCE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_OPENRESOURCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_OPENSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef"))]
-pub type PFND3DKMT_OUTPUTDUPLGETFRAMEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_OUTPUTDUPLGETMETADATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef"))]
-pub type PFND3DKMT_OUTPUTDUPLGETPOINTERSHAPEDATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
-pub type PFND3DKMT_OUTPUTDUPLPRESENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
-pub type PFND3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_OUTPUTDUPLRELEASEFRAME = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_PINDIRECTFLIPRESOURCES = Option<unsafe extern "system" fn(param0: *const D3DKMT_PINDIRECTFLIPRESOURCES) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_POLLDISPLAYCHILDREN = Option<unsafe extern "system" fn(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-pub type PFND3DKMT_PRESENT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_PRESENT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef"))]
-pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef"))]
-pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef"))]
-pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY3 = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_QUERYADAPTERINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYADAPTERINFO) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_QUERYALLOCATIONRESIDENCY = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_QUERYCLOCKCALIBRATION = Option<unsafe extern "system" fn(param0: *mut super::D3DKMT_QUERYCLOCKCALIBRATION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "minwindef"))]
-pub type PFND3DKMT_QUERYFEATUREINTERFACE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYFEATUREINTERFACE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_QUERYFSEBLOCK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYFSEBLOCK) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-pub type PFND3DKMT_QUERYHYBRIDLISTVALUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-pub type PFND3DKMT_QUERYPROCESSOFFERINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-pub type PFND3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_QUERYPROTECTEDSESSIONSTATUS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_QUERYRESOURCEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_QUERYRESOURCEINFOFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-pub type PFND3DKMT_QUERYSTATISTICS = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYSTATISTICS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_QUERYVIDEOMEMORYINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-pub type PFND3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_RECLAIMALLOCATIONS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_RECLAIMALLOCATIONS2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_REGISTERBUDGETCHANGENOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERBUDGETCHANGENOTIFICATION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_REGISTERTRIMNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_RELEASEKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_RELEASEKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-pub type PFND3DKMT_RELEASEPROCESSVIDPNSOURCEOWNERS = Option<unsafe extern "system" fn(param0: super::HANDLE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_RENDER = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RENDER) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_RESERVEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_RESERVEGPUVIRTUALADDRESS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_RESIZERINGBUFFER = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RESIZERINGBUFFER) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETALLOCATIONPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETCONTEXTSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETDISPLAYMODE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_SETDISPLAYMODE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_SETFSEBLOCK = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETFSEBLOCK) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETGAMMARAMP = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETGAMMARAMP) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-pub type PFND3DKMT_SETHYBRIDLISTVVALUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-pub type PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETQUEUEDLIMIT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETQUEUEDLIMIT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETSTABLEPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> super::NTSTATUS>;
-#[cfg(feature = "bcrypt")]
-pub type PFND3DKMT_SETSTEREOENABLED = Option<unsafe extern "system" fn(param0: windows_core::BOOL) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGET = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETVIDPNSOURCEHWPROTECTION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETVIDPNSOURCEOWNER = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SETVIDPNSOURCEOWNER1 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_SETVIDPNSOURCEOWNER2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
-pub type PFND3DKMT_SHAREOBJECTS = Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const super::D3DKMT_HANDLE, pobjectattributes: *const OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::HANDLE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SUBMITCOMMAND = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMAND) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SUBMITCOMMANDTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-pub type PFND3DKMT_SUBMITPRESENTBLTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
-pub type PFND3DKMT_SUBMITPRESENTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> super::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CHECKMONITORPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKMONITORPOWERSTATE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT2) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+pub type PFND3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CHECKMULTIPLANEOVERLAYSUPPORT3) -> windows_core::NTSTATUS>;
+#[cfg(feature = "windef")]
+pub type PFND3DKMT_CHECKOCCLUSION = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKOCCLUSION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CHECKSHAREDRESOURCEACCESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKSHAREDRESOURCEACCESS) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn(param0: *const D3DKMT_CHECKVIDPNEXCLUSIVEOWNERSHIP) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CLOSEADAPTER = Option<unsafe extern "system" fn(param0: *const D3DKMT_CLOSEADAPTER) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_CONFIGURESHAREDRESOURCE = Option<unsafe extern "system" fn(param0: *const D3DKMT_CONFIGURESHAREDRESOURCE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CONNECTDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CONNECT_DOORBELL) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_CREATEALLOCATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_CREATEALLOCATION2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEALLOCATION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATECONTEXT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXT) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATECONTEXTVIRTUAL = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATECONTEXTVIRTUAL) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "wingdi", feature = "winnt"))]
+pub type PFND3DKMT_CREATEDCFROMMEMORY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDCFROMMEMORY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATEDEVICE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEDEVICE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATEDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_DOORBELL) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATEHWQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEHWQUEUE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEHWQUEUEFORUSERMODESUBMISSION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATEKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATEKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEKEYEDMUTEX2) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATENATIVEFENCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATENATIVEFENCE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_CREATEOUTPUTDUPL = Option<unsafe extern "system" fn(param0: *const D3DKMT_CREATE_OUTPUTDUPL) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATEOVERLAY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEOVERLAY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATEPAGINGQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPAGINGQUEUE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATEPROTECTEDSESSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATEPROTECTEDSESSION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_CREATESYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_CREATESYNCHRONIZATIONOBJECT2) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_DESTROYALLOCATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_DESTROYALLOCATION2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYALLOCATION2) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_DESTROYCONTEXT = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYCONTEXT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "windef", feature = "winnt"))]
+pub type PFND3DKMT_DESTROYDCFROMMEMORY = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDCFROMMEMORY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_DESTROYDEVICE = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYDEVICE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_DESTROYDOORBELL = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_DOORBELL) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_DESTROYHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYHWQUEUE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_DESTROYKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYKEYEDMUTEX) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_DESTROYOUTPUTDUPL = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROY_OUTPUTDUPL) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_DESTROYOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYOVERLAY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_DESTROYPAGINGQUEUE = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_DESTROYPAGINGQUEUE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_DESTROYPROTECTEDSESSION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_DESTROYPROTECTEDSESSION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_DESTROYSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_DESTROYSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS>;
+pub type PFND3DKMT_DISABLEPROCESSDEBUGBLOBCOLLECTION = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
+pub type PFND3DKMT_ENABLEPROCESSDEBUGBLOBCOLLECTION = Option<unsafe extern "system" fn() -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_ENUMADAPTERS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_ENUMADAPTERS2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS2) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_ENUMADAPTERS3 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ENUMADAPTERS3) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_ESCAPE = Option<unsafe extern "system" fn(param0: *const D3DKMT_ESCAPE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_EVICT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_EVICT) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_FLIPOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_FLIPOVERLAY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_FLUSHHEAPTRANSITIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_FLUSHHEAPTRANSITIONS) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_FREEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_FREEGPUVIRTUALADDRESS) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETALLOCATIONPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETALLOCATIONPRIORITY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETCONTEXTSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETCONTEXTSCHEDULINGPRIORITY) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt"))]
+pub type PFND3DKMT_GETDEVICESTATE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDEVICESTATE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETDISPLAYMODELIST = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETDISPLAYMODELIST) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_GETDWMVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_GETVERTICALBLANKEVENT) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETMULTIPLANEOVERLAYCAPS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_MULTIPLANE_OVERLAY_CAPS) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETMULTISAMPLEMETHODLIST = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETMULTISAMPLEMETHODLIST) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETNATIVEFENCELOGDETAIL = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETNATIVEFENCELOGDETAIL) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETOVERLAYSTATE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETOVERLAYSTATE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETPOSTCOMPOSITIONCAPS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GET_POST_COMPOSITION_CAPS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+pub type PFND3DKMT_GETPRESENTHISTORY = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPRESENTHISTORY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PFND3DKMT_GETPROCESSDEVICEREMOVALSUPPORT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETPROCESSDEVICEREMOVALSUPPORT) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PFND3DKMT_GETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: *mut D3DKMT_SCHEDULINGPRIORITYCLASS) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETRESOURCEPRESENTPRIVATEDRIVERDATA = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_GETRESOURCEPRESENTPRIVATEDRIVERDATA) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETRUNTIMEDATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETRUNTIMEDATA) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETSCANLINE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSCANLINE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_GETSHAREDPRIMARYHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDPRIMARYHANDLE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_GETSHAREDRESOURCEADAPTERLUID = Option<unsafe extern "system" fn(param0: *mut D3DKMT_GETSHAREDRESOURCEADAPTERLUID) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_INVALIDATEACTIVEVIDPN = Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATEACTIVEVIDPN) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_INVALIDATECACHE = Option<unsafe extern "system" fn(param0: *const D3DKMT_INVALIDATECACHE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_ISFEATUREENABLED = Option<unsafe extern "system" fn(param0: *mut D3DKMT_ISFEATUREENABLED) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_LOCK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_LOCK2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_LOCK2) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_MAKERESIDENT = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_MAKERESIDENT) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_MAPGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_MAPGPUVIRTUALADDRESS) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_MAPPROCESSDEBUGBLOB = Option<unsafe extern "system" fn(param0: *mut D3DKMT_MAPPROCESSDEBUGBLOB) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_MARKDEVICEASERROR = Option<unsafe extern "system" fn(param0: *const D3DKMT_MARKDEVICEASERROR) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_NOTIFYWORKSUBMISSION = Option<unsafe extern "system" fn(param0: *const D3DKMT_NOTIFY_WORK_SUBMISSION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_OFFERALLOCATIONS = Option<unsafe extern "system" fn(param0: *const D3DKMT_OFFERALLOCATIONS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_OPENADAPTERFROMDEVICENAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMDEVICENAME) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_OPENADAPTERFROMGDIDISPLAYNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMGDIDISPLAYNAME) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+pub type PFND3DKMT_OPENADAPTERFROMHDC = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMHDC) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_OPENADAPTERFROMLUID = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENADAPTERFROMLUID) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_OPENKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_OPENKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEX2) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_OPENKEYEDMUTEXFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENKEYEDMUTEXFROMNTHANDLE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_OPENNATIVEFENCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNATIVEFENCEFROMNTHANDLE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type PFND3DKMT_OPENNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENNTHANDLEFROMNAME) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENPROTECTEDSESSIONFROMNTHANDLE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_OPENRESOURCE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_OPENRESOURCE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_OPENRESOURCEFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENRESOURCEFROMNTHANDLE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_OPENSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_OPENSYNCOBJECTFROMNTHANDLE2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTFROMNTHANDLE2) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type PFND3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OPENSYNCOBJECTNTHANDLEFROMNAME) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+pub type PFND3DKMT_OUTPUTDUPLGETFRAMEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_FRAMEINFO) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_OUTPUTDUPLGETMETADATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_METADATA) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+pub type PFND3DKMT_OUTPUTDUPLGETPOINTERSHAPEDATA = Option<unsafe extern "system" fn(param0: *mut D3DKMT_OUTPUTDUPL_GET_POINTER_SHAPE_DATA) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
+pub type PFND3DKMT_OUTPUTDUPLPRESENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef"))]
+pub type PFND3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPLPRESENTTOHWQUEUE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_OUTPUTDUPLRELEASEFRAME = Option<unsafe extern "system" fn(param0: *const D3DKMT_OUTPUTDUPL_RELEASE_FRAME) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_PINDIRECTFLIPRESOURCES = Option<unsafe extern "system" fn(param0: *const D3DKMT_PINDIRECTFLIPRESOURCES) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_POLLDISPLAYCHILDREN = Option<unsafe extern "system" fn(param0: *const D3DKMT_POLLDISPLAYCHILDREN) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+pub type PFND3DKMT_PRESENT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_PRESENT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY2) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef"))]
+pub type PFND3DKMT_PRESENTMULTIPLANEOVERLAY3 = Option<unsafe extern "system" fn(param0: *const D3DKMT_PRESENT_MULTIPLANE_OVERLAY3) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_QUERYADAPTERINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYADAPTERINFO) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_QUERYALLOCATIONRESIDENCY = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYALLOCATIONRESIDENCY) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt"))]
+pub type PFND3DKMT_QUERYCLOCKCALIBRATION = Option<unsafe extern "system" fn(param0: *mut super::D3DKMT_QUERYCLOCKCALIBRATION) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "minwindef"))]
+pub type PFND3DKMT_QUERYFEATUREINTERFACE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYFEATUREINTERFACE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_QUERYFSEBLOCK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYFSEBLOCK) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PFND3DKMT_QUERYHYBRIDLISTVALUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PFND3DKMT_QUERYPROCESSOFFERINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROCESSOFFERINFO) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PFND3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONINFOFROMNTHANDLE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_QUERYPROTECTEDSESSIONSTATUS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYPROTECTEDSESSIONSTATUS) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYREMOTEVIDPNSOURCEFROMGDIDISPLAYNAME) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_QUERYRESOURCEINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFO) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_QUERYRESOURCEINFOFROMNTHANDLE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYRESOURCEINFOFROMNTHANDLE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PFND3DKMT_QUERYSTATISTICS = Option<unsafe extern "system" fn(param0: *const D3DKMT_QUERYSTATISTICS) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_QUERYVIDEOMEMORYINFO = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDEOMEMORYINFO) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+pub type PFND3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP = Option<unsafe extern "system" fn(param0: *mut D3DKMT_QUERYVIDPNEXCLUSIVEOWNERSHIP) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_RECLAIMALLOCATIONS = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_RECLAIMALLOCATIONS2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RECLAIMALLOCATIONS2) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_REGISTERBUDGETCHANGENOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERBUDGETCHANGENOTIFICATION) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_REGISTERTRIMNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_REGISTERTRIMNOTIFICATION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_RELEASEKEYEDMUTEX = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_RELEASEKEYEDMUTEX2 = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RELEASEKEYEDMUTEX2) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PFND3DKMT_RELEASEPROCESSVIDPNSOURCEOWNERS = Option<unsafe extern "system" fn(param0: super::HANDLE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_RENDER = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RENDER) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_RESERVEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_RESERVEGPUVIRTUALADDRESS) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_RESIZERINGBUFFER = Option<unsafe extern "system" fn(param0: *mut D3DKMT_RESIZERINGBUFFER) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETALLOCATIONPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETALLOCATIONPRIORITY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTINPROCESSSCHEDULINGPRIORITY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETCONTEXTSCHEDULINGPRIORITY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETCONTEXTSCHEDULINGPRIORITY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETDISPLAYMODE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_SETDISPLAYMODE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_SETFSEBLOCK = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETFSEBLOCK) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETGAMMARAMP = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETGAMMARAMP) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETHWPROTECTIONTEARDOWNRECOVERY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PFND3DKMT_SETHYBRIDLISTVVALUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_HYBRID_LIST) -> windows_core::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PFND3DKMT_SETPROCESSSCHEDULINGPRIORITYCLASS = Option<unsafe extern "system" fn(param0: super::HANDLE, param1: D3DKMT_SCHEDULINGPRIORITYCLASS) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETQUEUEDLIMIT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETQUEUEDLIMIT) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETSTABLEPOWERSTATE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSTABLEPOWERSTATE) -> windows_core::NTSTATUS>;
+pub type PFND3DKMT_SETSTEREOENABLED = Option<unsafe extern "system" fn(param0: windows_core::BOOL) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETSYNCREFRESHCOUNTWAITTARGET = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETSYNCREFRESHCOUNTWAITTARGET) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETVIDPNSOURCEHWPROTECTION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEHWPROTECTION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETVIDPNSOURCEOWNER = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SETVIDPNSOURCEOWNER1 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER1) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_SETVIDPNSOURCEOWNER2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SETVIDPNSOURCEOWNER2) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+pub type PFND3DKMT_SHAREDPRIMARYLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYLOCKNOTIFICATION) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION = Option<unsafe extern "system" fn(param0: *const D3DKMT_SHAREDPRIMARYUNLOCKNOTIFICATION) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
+pub type PFND3DKMT_SHAREOBJECTS = Option<unsafe extern "system" fn(cobjects: u32, hobjects: *const super::D3DKMT_HANDLE, pobjectattributes: *const OBJECT_ATTRIBUTES, dwdesiredaccess: u32, phsharednthandle: *mut super::HANDLE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECT2) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMCPU) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_SIGNALSYNCHRONIZATIONOBJECTFROMGPU2) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SUBMITCOMMAND = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMAND) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SUBMITCOMMANDTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITCOMMANDTOHWQUEUE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+pub type PFND3DKMT_SUBMITPRESENTBLTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITPRESENTBLTTOHWQUEUE) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dkmdt", feature = "d3dukmdt", feature = "windef", feature = "winnt"))]
+pub type PFND3DKMT_SUBMITPRESENTTOHWQUEUE = Option<unsafe extern "system" fn(param0: *mut D3DKMT_SUBMITPRESENTTOHWQUEUE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITSIGNALSYNCOBJECTSTOHWQUEUE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE = Option<unsafe extern "system" fn(param0: *const D3DKMT_SUBMITWAITFORSYNCOBJECTSTOHWQUEUE) -> windows_core::NTSTATUS>;
 #[cfg(feature = "d3dukmdt")]
 pub type PFND3DKMT_TRIMNOTIFICATIONCALLBACK = Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMNOTIFICATION)>;
-#[cfg(all(feature = "bcrypt", feature = "winnt"))]
-pub type PFND3DKMT_TRIMPROCESSCOMMITMENT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_UNLOCK = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_UNLOCK2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_UNMAPPROCESSDEBUGBLOB = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNMAPPROCESSDEBUGBLOB) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_UNPINDIRECTFLIPRESOURCES = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNPINDIRECTFLIPRESOURCES) -> super::NTSTATUS>;
-#[cfg(feature = "bcrypt")]
-pub type PFND3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_UNREGISTERTRIMNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_UPDATEALLOCATIONPROPERTY = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_UPDATEALLOCPROPERTY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_UPDATEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_UPDATEOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEOVERLAY) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_WAITFORIDLE = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORIDLE) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt"))]
-pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> super::NTSTATUS>;
-#[cfg(all(feature = "bcrypt", feature = "d3dukmdt", feature = "winnt"))]
-pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> super::NTSTATUS>;
+#[cfg(feature = "winnt")]
+pub type PFND3DKMT_TRIMPROCESSCOMMITMENT = Option<unsafe extern "system" fn(param0: *mut D3DKMT_TRIMPROCESSCOMMITMENT) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_UNLOCK = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_UNLOCK2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNLOCK2) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_UNMAPPROCESSDEBUGBLOB = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNMAPPROCESSDEBUGBLOB) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_UNPINDIRECTFLIPRESOURCES = Option<unsafe extern "system" fn(param0: *const D3DKMT_UNPINDIRECTFLIPRESOURCES) -> windows_core::NTSTATUS>;
+pub type PFND3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERBUDGETCHANGENOTIFICATION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_UNREGISTERTRIMNOTIFICATION = Option<unsafe extern "system" fn(param0: *mut D3DKMT_UNREGISTERTRIMNOTIFICATION) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_UPDATEALLOCATIONPROPERTY = Option<unsafe extern "system" fn(param0: *mut super::D3DDDI_UPDATEALLOCPROPERTY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_UPDATEGPUVIRTUALADDRESS = Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEGPUVIRTUALADDRESS) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_UPDATEOVERLAY = Option<unsafe extern "system" fn(param0: *const D3DKMT_UPDATEOVERLAY) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_WAITFORIDLE = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORIDLE) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECT2) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMCPU) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORSYNCHRONIZATIONOBJECTFROMGPU) -> windows_core::NTSTATUS>;
+#[cfg(feature = "d3dukmdt")]
+pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT) -> windows_core::NTSTATUS>;
+#[cfg(all(feature = "d3dukmdt", feature = "winnt"))]
+pub type PFND3DKMT_WAITFORVERTICALBLANKEVENT2 = Option<unsafe extern "system" fn(param0: *const D3DKMT_WAITFORVERTICALBLANKEVENT2) -> windows_core::NTSTATUS>;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
 pub type POBJECT_ATTRIBUTES = *mut OBJECT_ATTRIBUTES;
 pub const SHARED_ALLOCATION_ALL_ACCESS: u32 = 983041;

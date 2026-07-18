@@ -75,240 +75,240 @@ where
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegCloseKey(hkey: super::HKEY) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegCloseKey(hkey : super::HKEY) -> WIN32_ERROR);
+pub unsafe fn RegCloseKey(hkey: super::HKEY) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegCloseKey(hkey : super::HKEY) -> LSTATUS);
     unsafe { RegCloseKey(hkey) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegConnectRegistryA<P0>(lpmachinename: P0, hkey: super::HKEY, phkresult: *mut super::HKEY) -> WIN32_ERROR
+pub unsafe fn RegConnectRegistryA<P0>(lpmachinename: P0, hkey: super::HKEY, phkresult: *mut super::HKEY) -> LSTATUS
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegConnectRegistryA(lpmachinename : windows_core::PCSTR, hkey : super::HKEY, phkresult : *mut super::HKEY) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegConnectRegistryA(lpmachinename : windows_core::PCSTR, hkey : super::HKEY, phkresult : *mut super::HKEY) -> LSTATUS);
     unsafe { RegConnectRegistryA(lpmachinename.param().abi(), hkey, phkresult as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegConnectRegistryExA<P0>(lpmachinename: P0, hkey: super::HKEY, flags: u32, phkresult: *mut super::HKEY) -> WIN32_ERROR
+pub unsafe fn RegConnectRegistryExA<P0>(lpmachinename: P0, hkey: super::HKEY, flags: u32, phkresult: *mut super::HKEY) -> LSTATUS
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegConnectRegistryExA(lpmachinename : windows_core::PCSTR, hkey : super::HKEY, flags : u32, phkresult : *mut super::HKEY) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegConnectRegistryExA(lpmachinename : windows_core::PCSTR, hkey : super::HKEY, flags : u32, phkresult : *mut super::HKEY) -> LSTATUS);
     unsafe { RegConnectRegistryExA(lpmachinename.param().abi(), hkey, flags, phkresult as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegConnectRegistryExW<P0>(lpmachinename: P0, hkey: super::HKEY, flags: u32, phkresult: *mut super::HKEY) -> WIN32_ERROR
+pub unsafe fn RegConnectRegistryExW<P0>(lpmachinename: P0, hkey: super::HKEY, flags: u32, phkresult: *mut super::HKEY) -> LSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegConnectRegistryExW(lpmachinename : windows_core::PCWSTR, hkey : super::HKEY, flags : u32, phkresult : *mut super::HKEY) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegConnectRegistryExW(lpmachinename : windows_core::PCWSTR, hkey : super::HKEY, flags : u32, phkresult : *mut super::HKEY) -> LSTATUS);
     unsafe { RegConnectRegistryExW(lpmachinename.param().abi(), hkey, flags, phkresult as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegConnectRegistryW<P0>(lpmachinename: P0, hkey: super::HKEY, phkresult: *mut super::HKEY) -> WIN32_ERROR
+pub unsafe fn RegConnectRegistryW<P0>(lpmachinename: P0, hkey: super::HKEY, phkresult: *mut super::HKEY) -> LSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegConnectRegistryW(lpmachinename : windows_core::PCWSTR, hkey : super::HKEY, phkresult : *mut super::HKEY) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegConnectRegistryW(lpmachinename : windows_core::PCWSTR, hkey : super::HKEY, phkresult : *mut super::HKEY) -> LSTATUS);
     unsafe { RegConnectRegistryW(lpmachinename.param().abi(), hkey, phkresult as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegCopyTreeA<P1>(hkeysrc: super::HKEY, lpsubkey: P1, hkeydest: super::HKEY) -> WIN32_ERROR
+pub unsafe fn RegCopyTreeA<P1>(hkeysrc: super::HKEY, lpsubkey: P1, hkeydest: super::HKEY) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegCopyTreeA(hkeysrc : super::HKEY, lpsubkey : windows_core::PCSTR, hkeydest : super::HKEY) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegCopyTreeA(hkeysrc : super::HKEY, lpsubkey : windows_core::PCSTR, hkeydest : super::HKEY) -> LSTATUS);
     unsafe { RegCopyTreeA(hkeysrc, lpsubkey.param().abi(), hkeydest) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegCopyTreeW<P1>(hkeysrc: super::HKEY, lpsubkey: P1, hkeydest: super::HKEY) -> WIN32_ERROR
+pub unsafe fn RegCopyTreeW<P1>(hkeysrc: super::HKEY, lpsubkey: P1, hkeydest: super::HKEY) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegCopyTreeW(hkeysrc : super::HKEY, lpsubkey : windows_core::PCWSTR, hkeydest : super::HKEY) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegCopyTreeW(hkeysrc : super::HKEY, lpsubkey : windows_core::PCWSTR, hkeydest : super::HKEY) -> LSTATUS);
     unsafe { RegCopyTreeW(hkeysrc, lpsubkey.param().abi(), hkeydest) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegCreateKeyA<P1>(hkey: super::HKEY, lpsubkey: P1, phkresult: *mut super::HKEY) -> WIN32_ERROR
+pub unsafe fn RegCreateKeyA<P1>(hkey: super::HKEY, lpsubkey: P1, phkresult: *mut super::HKEY) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegCreateKeyA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, phkresult : *mut super::HKEY) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegCreateKeyA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, phkresult : *mut super::HKEY) -> LSTATUS);
     unsafe { RegCreateKeyA(hkey, lpsubkey.param().abi(), phkresult as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegCreateKeyExA<P1, P3>(hkey: super::HKEY, lpsubkey: P1, reserved: Option<u32>, lpclass: P3, dwoptions: u32, samdesired: REGSAM, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, phkresult: *mut super::HKEY, lpdwdisposition: Option<*mut u32>) -> WIN32_ERROR
+pub unsafe fn RegCreateKeyExA<P1, P3>(hkey: super::HKEY, lpsubkey: P1, reserved: Option<u32>, lpclass: P3, dwoptions: u32, samdesired: REGSAM, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, phkresult: *mut super::HKEY, lpdwdisposition: Option<*mut u32>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegCreateKeyExA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, reserved : u32, lpclass : windows_core::PCSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, phkresult : *mut super::HKEY, lpdwdisposition : *mut u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegCreateKeyExA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, reserved : u32, lpclass : windows_core::PCSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, phkresult : *mut super::HKEY, lpdwdisposition : *mut u32) -> LSTATUS);
     unsafe { RegCreateKeyExA(hkey, lpsubkey.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, lpclass.param().abi(), dwoptions, samdesired, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, phkresult as _, lpdwdisposition.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegCreateKeyExW<P1, P3>(hkey: super::HKEY, lpsubkey: P1, reserved: Option<u32>, lpclass: P3, dwoptions: u32, samdesired: REGSAM, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, phkresult: *mut super::HKEY, lpdwdisposition: Option<*mut u32>) -> WIN32_ERROR
+pub unsafe fn RegCreateKeyExW<P1, P3>(hkey: super::HKEY, lpsubkey: P1, reserved: Option<u32>, lpclass: P3, dwoptions: u32, samdesired: REGSAM, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, phkresult: *mut super::HKEY, lpdwdisposition: Option<*mut u32>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegCreateKeyExW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, reserved : u32, lpclass : windows_core::PCWSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, phkresult : *mut super::HKEY, lpdwdisposition : *mut u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegCreateKeyExW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, reserved : u32, lpclass : windows_core::PCWSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, phkresult : *mut super::HKEY, lpdwdisposition : *mut u32) -> LSTATUS);
     unsafe { RegCreateKeyExW(hkey, lpsubkey.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, lpclass.param().abi(), dwoptions, samdesired, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, phkresult as _, lpdwdisposition.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegCreateKeyTransactedA<P1, P3>(hkey: super::HKEY, lpsubkey: P1, reserved: Option<u32>, lpclass: P3, dwoptions: u32, samdesired: REGSAM, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, phkresult: *mut super::HKEY, lpdwdisposition: Option<*mut u32>, htransaction: super::HANDLE, pextendedparemeter: Option<*const core::ffi::c_void>) -> WIN32_ERROR
+pub unsafe fn RegCreateKeyTransactedA<P1, P3>(hkey: super::HKEY, lpsubkey: P1, reserved: Option<u32>, lpclass: P3, dwoptions: u32, samdesired: REGSAM, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, phkresult: *mut super::HKEY, lpdwdisposition: Option<*mut u32>, htransaction: super::HANDLE, pextendedparemeter: Option<*const core::ffi::c_void>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegCreateKeyTransactedA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, reserved : u32, lpclass : windows_core::PCSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, phkresult : *mut super::HKEY, lpdwdisposition : *mut u32, htransaction : super::HANDLE, pextendedparemeter : *const core::ffi::c_void) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegCreateKeyTransactedA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, reserved : u32, lpclass : windows_core::PCSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, phkresult : *mut super::HKEY, lpdwdisposition : *mut u32, htransaction : super::HANDLE, pextendedparemeter : *const core::ffi::c_void) -> LSTATUS);
     unsafe { RegCreateKeyTransactedA(hkey, lpsubkey.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, lpclass.param().abi(), dwoptions, samdesired, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, phkresult as _, lpdwdisposition.unwrap_or(core::mem::zeroed()) as _, htransaction, pextendedparemeter.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegCreateKeyTransactedW<P1, P3>(hkey: super::HKEY, lpsubkey: P1, reserved: Option<u32>, lpclass: P3, dwoptions: u32, samdesired: REGSAM, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, phkresult: *mut super::HKEY, lpdwdisposition: Option<*mut u32>, htransaction: super::HANDLE, pextendedparemeter: Option<*const core::ffi::c_void>) -> WIN32_ERROR
+pub unsafe fn RegCreateKeyTransactedW<P1, P3>(hkey: super::HKEY, lpsubkey: P1, reserved: Option<u32>, lpclass: P3, dwoptions: u32, samdesired: REGSAM, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, phkresult: *mut super::HKEY, lpdwdisposition: Option<*mut u32>, htransaction: super::HANDLE, pextendedparemeter: Option<*const core::ffi::c_void>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegCreateKeyTransactedW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, reserved : u32, lpclass : windows_core::PCWSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, phkresult : *mut super::HKEY, lpdwdisposition : *mut u32, htransaction : super::HANDLE, pextendedparemeter : *const core::ffi::c_void) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegCreateKeyTransactedW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, reserved : u32, lpclass : windows_core::PCWSTR, dwoptions : u32, samdesired : REGSAM, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, phkresult : *mut super::HKEY, lpdwdisposition : *mut u32, htransaction : super::HANDLE, pextendedparemeter : *const core::ffi::c_void) -> LSTATUS);
     unsafe { RegCreateKeyTransactedW(hkey, lpsubkey.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, lpclass.param().abi(), dwoptions, samdesired, lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, phkresult as _, lpdwdisposition.unwrap_or(core::mem::zeroed()) as _, htransaction, pextendedparemeter.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegCreateKeyW<P1>(hkey: super::HKEY, lpsubkey: P1, phkresult: *mut super::HKEY) -> WIN32_ERROR
+pub unsafe fn RegCreateKeyW<P1>(hkey: super::HKEY, lpsubkey: P1, phkresult: *mut super::HKEY) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegCreateKeyW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, phkresult : *mut super::HKEY) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegCreateKeyW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, phkresult : *mut super::HKEY) -> LSTATUS);
     unsafe { RegCreateKeyW(hkey, lpsubkey.param().abi(), phkresult as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegDeleteKeyA<P1>(hkey: super::HKEY, lpsubkey: P1) -> WIN32_ERROR
+pub unsafe fn RegDeleteKeyA<P1>(hkey: super::HKEY, lpsubkey: P1) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR) -> LSTATUS);
     unsafe { RegDeleteKeyA(hkey, lpsubkey.param().abi()) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegDeleteKeyExA<P1>(hkey: super::HKEY, lpsubkey: P1, samdesired: REGSAM, reserved: Option<u32>) -> WIN32_ERROR
+pub unsafe fn RegDeleteKeyExA<P1>(hkey: super::HKEY, lpsubkey: P1, samdesired: REGSAM, reserved: Option<u32>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyExA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, samdesired : REGSAM, reserved : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyExA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, samdesired : REGSAM, reserved : u32) -> LSTATUS);
     unsafe { RegDeleteKeyExA(hkey, lpsubkey.param().abi(), samdesired, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegDeleteKeyExW<P1>(hkey: super::HKEY, lpsubkey: P1, samdesired: REGSAM, reserved: Option<u32>) -> WIN32_ERROR
+pub unsafe fn RegDeleteKeyExW<P1>(hkey: super::HKEY, lpsubkey: P1, samdesired: REGSAM, reserved: Option<u32>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyExW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, samdesired : REGSAM, reserved : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyExW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, samdesired : REGSAM, reserved : u32) -> LSTATUS);
     unsafe { RegDeleteKeyExW(hkey, lpsubkey.param().abi(), samdesired, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegDeleteKeyTransactedA<P1>(hkey: super::HKEY, lpsubkey: P1, samdesired: REGSAM, reserved: Option<u32>, htransaction: super::HANDLE, pextendedparameter: Option<*const core::ffi::c_void>) -> WIN32_ERROR
+pub unsafe fn RegDeleteKeyTransactedA<P1>(hkey: super::HKEY, lpsubkey: P1, samdesired: REGSAM, reserved: Option<u32>, htransaction: super::HANDLE, pextendedparameter: Option<*const core::ffi::c_void>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyTransactedA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, samdesired : REGSAM, reserved : u32, htransaction : super::HANDLE, pextendedparameter : *const core::ffi::c_void) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyTransactedA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, samdesired : REGSAM, reserved : u32, htransaction : super::HANDLE, pextendedparameter : *const core::ffi::c_void) -> LSTATUS);
     unsafe { RegDeleteKeyTransactedA(hkey, lpsubkey.param().abi(), samdesired, reserved.unwrap_or(core::mem::zeroed()) as _, htransaction, pextendedparameter.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegDeleteKeyTransactedW<P1>(hkey: super::HKEY, lpsubkey: P1, samdesired: REGSAM, reserved: Option<u32>, htransaction: super::HANDLE, pextendedparameter: Option<*const core::ffi::c_void>) -> WIN32_ERROR
+pub unsafe fn RegDeleteKeyTransactedW<P1>(hkey: super::HKEY, lpsubkey: P1, samdesired: REGSAM, reserved: Option<u32>, htransaction: super::HANDLE, pextendedparameter: Option<*const core::ffi::c_void>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyTransactedW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, samdesired : REGSAM, reserved : u32, htransaction : super::HANDLE, pextendedparameter : *const core::ffi::c_void) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyTransactedW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, samdesired : REGSAM, reserved : u32, htransaction : super::HANDLE, pextendedparameter : *const core::ffi::c_void) -> LSTATUS);
     unsafe { RegDeleteKeyTransactedW(hkey, lpsubkey.param().abi(), samdesired, reserved.unwrap_or(core::mem::zeroed()) as _, htransaction, pextendedparameter.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegDeleteKeyValueA<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpvaluename: P2) -> WIN32_ERROR
+pub unsafe fn RegDeleteKeyValueA<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpvaluename: P2) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyValueA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, lpvaluename : windows_core::PCSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyValueA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, lpvaluename : windows_core::PCSTR) -> LSTATUS);
     unsafe { RegDeleteKeyValueA(hkey, lpsubkey.param().abi(), lpvaluename.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegDeleteKeyValueW<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpvaluename: P2) -> WIN32_ERROR
+pub unsafe fn RegDeleteKeyValueW<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpvaluename: P2) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyValueW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpvaluename : windows_core::PCWSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyValueW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpvaluename : windows_core::PCWSTR) -> LSTATUS);
     unsafe { RegDeleteKeyValueW(hkey, lpsubkey.param().abi(), lpvaluename.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegDeleteKeyW<P1>(hkey: super::HKEY, lpsubkey: P1) -> WIN32_ERROR
+pub unsafe fn RegDeleteKeyW<P1>(hkey: super::HKEY, lpsubkey: P1) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegDeleteKeyW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR) -> LSTATUS);
     unsafe { RegDeleteKeyW(hkey, lpsubkey.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegDeleteTreeA<P1>(hkey: super::HKEY, lpsubkey: P1) -> WIN32_ERROR
+pub unsafe fn RegDeleteTreeA<P1>(hkey: super::HKEY, lpsubkey: P1) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegDeleteTreeA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegDeleteTreeA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR) -> LSTATUS);
     unsafe { RegDeleteTreeA(hkey, lpsubkey.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegDeleteTreeW<P1>(hkey: super::HKEY, lpsubkey: P1) -> WIN32_ERROR
+pub unsafe fn RegDeleteTreeW<P1>(hkey: super::HKEY, lpsubkey: P1) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegDeleteTreeW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegDeleteTreeW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR) -> LSTATUS);
     unsafe { RegDeleteTreeW(hkey, lpsubkey.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegDeleteValueA<P1>(hkey: super::HKEY, lpvaluename: P1) -> WIN32_ERROR
+pub unsafe fn RegDeleteValueA<P1>(hkey: super::HKEY, lpvaluename: P1) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegDeleteValueA(hkey : super::HKEY, lpvaluename : windows_core::PCSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegDeleteValueA(hkey : super::HKEY, lpvaluename : windows_core::PCSTR) -> LSTATUS);
     unsafe { RegDeleteValueA(hkey, lpvaluename.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegDeleteValueW<P1>(hkey: super::HKEY, lpvaluename: P1) -> WIN32_ERROR
+pub unsafe fn RegDeleteValueW<P1>(hkey: super::HKEY, lpvaluename: P1) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegDeleteValueW(hkey : super::HKEY, lpvaluename : windows_core::PCWSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegDeleteValueW(hkey : super::HKEY, lpvaluename : windows_core::PCWSTR) -> LSTATUS);
     unsafe { RegDeleteValueW(hkey, lpvaluename.param().abi()) }
 }
 #[inline]
-pub unsafe fn RegDisablePredefinedCache() -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegDisablePredefinedCache() -> WIN32_ERROR);
+pub unsafe fn RegDisablePredefinedCache() -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegDisablePredefinedCache() -> LSTATUS);
     unsafe { RegDisablePredefinedCache() }
 }
 #[inline]
-pub unsafe fn RegDisablePredefinedCacheEx() -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegDisablePredefinedCacheEx() -> WIN32_ERROR);
+pub unsafe fn RegDisablePredefinedCacheEx() -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegDisablePredefinedCacheEx() -> LSTATUS);
     unsafe { RegDisablePredefinedCacheEx() }
 }
 #[cfg(feature = "minwindef")]
@@ -325,212 +325,212 @@ pub unsafe fn RegEnableReflectionKey(hbase: super::HKEY) -> i32 {
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegEnumKeyA(hkey: super::HKEY, dwindex: u32, lpname: Option<&mut [u8]>) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegEnumKeyA(hkey : super::HKEY, dwindex : u32, lpname : windows_core::PSTR, cchname : u32) -> WIN32_ERROR);
+pub unsafe fn RegEnumKeyA(hkey: super::HKEY, dwindex: u32, lpname: Option<&mut [u8]>) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegEnumKeyA(hkey : super::HKEY, dwindex : u32, lpname : windows_core::PSTR, cchname : u32) -> LSTATUS);
     unsafe { RegEnumKeyA(hkey, dwindex, core::mem::transmute(lpname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegEnumKeyExA(hkey: super::HKEY, dwindex: u32, lpname: Option<windows_core::PSTR>, lpcchname: *mut u32, lpreserved: Option<*const u32>, lpclass: Option<windows_core::PSTR>, lpcchclass: Option<*mut u32>, lpftlastwritetime: Option<*mut super::FILETIME>) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegEnumKeyExA(hkey : super::HKEY, dwindex : u32, lpname : windows_core::PSTR, lpcchname : *mut u32, lpreserved : *const u32, lpclass : windows_core::PSTR, lpcchclass : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> WIN32_ERROR);
+pub unsafe fn RegEnumKeyExA(hkey: super::HKEY, dwindex: u32, lpname: Option<windows_core::PSTR>, lpcchname: *mut u32, lpreserved: Option<*const u32>, lpclass: Option<windows_core::PSTR>, lpcchclass: Option<*mut u32>, lpftlastwritetime: Option<*mut super::FILETIME>) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegEnumKeyExA(hkey : super::HKEY, dwindex : u32, lpname : windows_core::PSTR, lpcchname : *mut u32, lpreserved : *const u32, lpclass : windows_core::PSTR, lpcchclass : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> LSTATUS);
     unsafe { RegEnumKeyExA(hkey, dwindex, lpname.unwrap_or(core::mem::zeroed()) as _, lpcchname as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, lpclass.unwrap_or(core::mem::zeroed()) as _, lpcchclass.unwrap_or(core::mem::zeroed()) as _, lpftlastwritetime.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegEnumKeyExW(hkey: super::HKEY, dwindex: u32, lpname: Option<windows_core::PWSTR>, lpcchname: *mut u32, lpreserved: Option<*const u32>, lpclass: Option<windows_core::PWSTR>, lpcchclass: Option<*mut u32>, lpftlastwritetime: Option<*mut super::FILETIME>) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegEnumKeyExW(hkey : super::HKEY, dwindex : u32, lpname : windows_core::PWSTR, lpcchname : *mut u32, lpreserved : *const u32, lpclass : windows_core::PWSTR, lpcchclass : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> WIN32_ERROR);
+pub unsafe fn RegEnumKeyExW(hkey: super::HKEY, dwindex: u32, lpname: Option<windows_core::PWSTR>, lpcchname: *mut u32, lpreserved: Option<*const u32>, lpclass: Option<windows_core::PWSTR>, lpcchclass: Option<*mut u32>, lpftlastwritetime: Option<*mut super::FILETIME>) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegEnumKeyExW(hkey : super::HKEY, dwindex : u32, lpname : windows_core::PWSTR, lpcchname : *mut u32, lpreserved : *const u32, lpclass : windows_core::PWSTR, lpcchclass : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> LSTATUS);
     unsafe { RegEnumKeyExW(hkey, dwindex, lpname.unwrap_or(core::mem::zeroed()) as _, lpcchname as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, lpclass.unwrap_or(core::mem::zeroed()) as _, lpcchclass.unwrap_or(core::mem::zeroed()) as _, lpftlastwritetime.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegEnumKeyW(hkey: super::HKEY, dwindex: u32, lpname: Option<&mut [u16]>) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegEnumKeyW(hkey : super::HKEY, dwindex : u32, lpname : windows_core::PWSTR, cchname : u32) -> WIN32_ERROR);
+pub unsafe fn RegEnumKeyW(hkey: super::HKEY, dwindex: u32, lpname: Option<&mut [u16]>) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegEnumKeyW(hkey : super::HKEY, dwindex : u32, lpname : windows_core::PWSTR, cchname : u32) -> LSTATUS);
     unsafe { RegEnumKeyW(hkey, dwindex, core::mem::transmute(lpname.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), lpname.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegEnumValueA(hkey: super::HKEY, dwindex: u32, lpvaluename: Option<windows_core::PSTR>, lpcchvaluename: *mut u32, lpreserved: Option<*const u32>, lptype: Option<*mut u32>, lpdata: Option<*mut u8>, lpcbdata: Option<*mut u32>) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegEnumValueA(hkey : super::HKEY, dwindex : u32, lpvaluename : windows_core::PSTR, lpcchvaluename : *mut u32, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> WIN32_ERROR);
+pub unsafe fn RegEnumValueA(hkey: super::HKEY, dwindex: u32, lpvaluename: Option<windows_core::PSTR>, lpcchvaluename: *mut u32, lpreserved: Option<*const u32>, lptype: Option<*mut u32>, lpdata: Option<*mut u8>, lpcbdata: Option<*mut u32>) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegEnumValueA(hkey : super::HKEY, dwindex : u32, lpvaluename : windows_core::PSTR, lpcchvaluename : *mut u32, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> LSTATUS);
     unsafe { RegEnumValueA(hkey, dwindex, lpvaluename.unwrap_or(core::mem::zeroed()) as _, lpcchvaluename as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, lptype.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegEnumValueW(hkey: super::HKEY, dwindex: u32, lpvaluename: Option<windows_core::PWSTR>, lpcchvaluename: *mut u32, lpreserved: Option<*const u32>, lptype: Option<*mut u32>, lpdata: Option<*mut u8>, lpcbdata: Option<*mut u32>) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegEnumValueW(hkey : super::HKEY, dwindex : u32, lpvaluename : windows_core::PWSTR, lpcchvaluename : *mut u32, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> WIN32_ERROR);
+pub unsafe fn RegEnumValueW(hkey: super::HKEY, dwindex: u32, lpvaluename: Option<windows_core::PWSTR>, lpcchvaluename: *mut u32, lpreserved: Option<*const u32>, lptype: Option<*mut u32>, lpdata: Option<*mut u8>, lpcbdata: Option<*mut u32>) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegEnumValueW(hkey : super::HKEY, dwindex : u32, lpvaluename : windows_core::PWSTR, lpcchvaluename : *mut u32, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> LSTATUS);
     unsafe { RegEnumValueW(hkey, dwindex, lpvaluename.unwrap_or(core::mem::zeroed()) as _, lpcchvaluename as _, lpreserved.unwrap_or(core::mem::zeroed()) as _, lptype.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegFlushKey(hkey: super::HKEY) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegFlushKey(hkey : super::HKEY) -> WIN32_ERROR);
+pub unsafe fn RegFlushKey(hkey: super::HKEY) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegFlushKey(hkey : super::HKEY) -> LSTATUS);
     unsafe { RegFlushKey(hkey) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegGetKeySecurity(hkey: super::HKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: Option<super::PSECURITY_DESCRIPTOR>, lpcbsecuritydescriptor: *mut u32) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegGetKeySecurity(hkey : super::HKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> WIN32_ERROR);
+pub unsafe fn RegGetKeySecurity(hkey: super::HKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: Option<super::PSECURITY_DESCRIPTOR>, lpcbsecuritydescriptor: *mut u32) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegGetKeySecurity(hkey : super::HKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR, lpcbsecuritydescriptor : *mut u32) -> LSTATUS);
     unsafe { RegGetKeySecurity(hkey, securityinformation, psecuritydescriptor.unwrap_or(core::mem::zeroed()) as _, lpcbsecuritydescriptor as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegGetValueA<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpvalue: P2, dwflags: u32, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>) -> WIN32_ERROR
+pub unsafe fn RegGetValueA<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpvalue: P2, dwflags: u32, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegGetValueA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, lpvalue : windows_core::PCSTR, dwflags : u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegGetValueA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, lpvalue : windows_core::PCSTR, dwflags : u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> LSTATUS);
     unsafe { RegGetValueA(hkey, lpsubkey.param().abi(), lpvalue.param().abi(), dwflags, pdwtype.unwrap_or(core::mem::zeroed()) as _, pvdata.unwrap_or(core::mem::zeroed()) as _, pcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegGetValueW<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpvalue: P2, dwflags: u32, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>) -> WIN32_ERROR
+pub unsafe fn RegGetValueW<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpvalue: P2, dwflags: u32, pdwtype: Option<*mut u32>, pvdata: Option<*mut core::ffi::c_void>, pcbdata: Option<*mut u32>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegGetValueW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpvalue : windows_core::PCWSTR, dwflags : u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegGetValueW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpvalue : windows_core::PCWSTR, dwflags : u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> LSTATUS);
     unsafe { RegGetValueW(hkey, lpsubkey.param().abi(), lpvalue.param().abi(), dwflags, pdwtype.unwrap_or(core::mem::zeroed()) as _, pvdata.unwrap_or(core::mem::zeroed()) as _, pcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegLoadAppKeyA<P0>(lpfile: P0, phkresult: *mut super::HKEY, samdesired: REGSAM, dwoptions: u32, reserved: Option<u32>) -> WIN32_ERROR
+pub unsafe fn RegLoadAppKeyA<P0>(lpfile: P0, phkresult: *mut super::HKEY, samdesired: REGSAM, dwoptions: u32, reserved: Option<u32>) -> LSTATUS
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegLoadAppKeyA(lpfile : windows_core::PCSTR, phkresult : *mut super::HKEY, samdesired : REGSAM, dwoptions : u32, reserved : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegLoadAppKeyA(lpfile : windows_core::PCSTR, phkresult : *mut super::HKEY, samdesired : REGSAM, dwoptions : u32, reserved : u32) -> LSTATUS);
     unsafe { RegLoadAppKeyA(lpfile.param().abi(), phkresult as _, samdesired, dwoptions, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegLoadAppKeyW<P0>(lpfile: P0, phkresult: *mut super::HKEY, samdesired: REGSAM, dwoptions: u32, reserved: Option<u32>) -> WIN32_ERROR
+pub unsafe fn RegLoadAppKeyW<P0>(lpfile: P0, phkresult: *mut super::HKEY, samdesired: REGSAM, dwoptions: u32, reserved: Option<u32>) -> LSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegLoadAppKeyW(lpfile : windows_core::PCWSTR, phkresult : *mut super::HKEY, samdesired : REGSAM, dwoptions : u32, reserved : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegLoadAppKeyW(lpfile : windows_core::PCWSTR, phkresult : *mut super::HKEY, samdesired : REGSAM, dwoptions : u32, reserved : u32) -> LSTATUS);
     unsafe { RegLoadAppKeyW(lpfile.param().abi(), phkresult as _, samdesired, dwoptions, reserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegLoadKeyA<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpfile: P2) -> WIN32_ERROR
+pub unsafe fn RegLoadKeyA<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpfile: P2) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegLoadKeyA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, lpfile : windows_core::PCSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegLoadKeyA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, lpfile : windows_core::PCSTR) -> LSTATUS);
     unsafe { RegLoadKeyA(hkey, lpsubkey.param().abi(), lpfile.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegLoadKeyW<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpfile: P2) -> WIN32_ERROR
+pub unsafe fn RegLoadKeyW<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpfile: P2) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegLoadKeyW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpfile : windows_core::PCWSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegLoadKeyW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpfile : windows_core::PCWSTR) -> LSTATUS);
     unsafe { RegLoadKeyW(hkey, lpsubkey.param().abi(), lpfile.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegLoadMUIStringA<P1, P6>(hkey: super::HKEY, pszvalue: P1, pszoutbuf: Option<&mut [u8]>, pcbdata: Option<*mut u32>, flags: u32, pszdirectory: P6) -> WIN32_ERROR
+pub unsafe fn RegLoadMUIStringA<P1, P6>(hkey: super::HKEY, pszvalue: P1, pszoutbuf: Option<&mut [u8]>, pcbdata: Option<*mut u32>, flags: u32, pszdirectory: P6) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P6: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegLoadMUIStringA(hkey : super::HKEY, pszvalue : windows_core::PCSTR, pszoutbuf : windows_core::PSTR, cboutbuf : u32, pcbdata : *mut u32, flags : u32, pszdirectory : windows_core::PCSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegLoadMUIStringA(hkey : super::HKEY, pszvalue : windows_core::PCSTR, pszoutbuf : windows_core::PSTR, cboutbuf : u32, pcbdata : *mut u32, flags : u32, pszdirectory : windows_core::PCSTR) -> LSTATUS);
     unsafe { RegLoadMUIStringA(hkey, pszvalue.param().abi(), core::mem::transmute(pszoutbuf.as_deref().map_or(core::ptr::null_mut(), |slice| slice.as_ptr().cast_mut())), pszoutbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbdata.unwrap_or(core::mem::zeroed()) as _, flags, pszdirectory.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegLoadMUIStringW<P1, P6>(hkey: super::HKEY, pszvalue: P1, pszoutbuf: Option<windows_core::PWSTR>, cboutbuf: u32, pcbdata: Option<*mut u32>, flags: u32, pszdirectory: P6) -> WIN32_ERROR
+pub unsafe fn RegLoadMUIStringW<P1, P6>(hkey: super::HKEY, pszvalue: P1, pszoutbuf: Option<windows_core::PWSTR>, cboutbuf: u32, pcbdata: Option<*mut u32>, flags: u32, pszdirectory: P6) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P6: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegLoadMUIStringW(hkey : super::HKEY, pszvalue : windows_core::PCWSTR, pszoutbuf : windows_core::PWSTR, cboutbuf : u32, pcbdata : *mut u32, flags : u32, pszdirectory : windows_core::PCWSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegLoadMUIStringW(hkey : super::HKEY, pszvalue : windows_core::PCWSTR, pszoutbuf : windows_core::PWSTR, cboutbuf : u32, pcbdata : *mut u32, flags : u32, pszdirectory : windows_core::PCWSTR) -> LSTATUS);
     unsafe { RegLoadMUIStringW(hkey, pszvalue.param().abi(), pszoutbuf.unwrap_or(core::mem::zeroed()) as _, cboutbuf, pcbdata.unwrap_or(core::mem::zeroed()) as _, flags, pszdirectory.param().abi()) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegNotifyChangeKeyValue(hkey: super::HKEY, bwatchsubtree: bool, dwnotifyfilter: u32, hevent: Option<super::HANDLE>, fasynchronous: bool) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegNotifyChangeKeyValue(hkey : super::HKEY, bwatchsubtree : windows_core::BOOL, dwnotifyfilter : u32, hevent : super::HANDLE, fasynchronous : windows_core::BOOL) -> WIN32_ERROR);
+pub unsafe fn RegNotifyChangeKeyValue(hkey: super::HKEY, bwatchsubtree: bool, dwnotifyfilter: u32, hevent: Option<super::HANDLE>, fasynchronous: bool) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegNotifyChangeKeyValue(hkey : super::HKEY, bwatchsubtree : windows_core::BOOL, dwnotifyfilter : u32, hevent : super::HANDLE, fasynchronous : windows_core::BOOL) -> LSTATUS);
     unsafe { RegNotifyChangeKeyValue(hkey, bwatchsubtree.into(), dwnotifyfilter, hevent.unwrap_or(core::mem::zeroed()) as _, fasynchronous.into()) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegOpenCurrentUser(samdesired: REGSAM, phkresult: *mut super::HKEY) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegOpenCurrentUser(samdesired : REGSAM, phkresult : *mut super::HKEY) -> WIN32_ERROR);
+pub unsafe fn RegOpenCurrentUser(samdesired: REGSAM, phkresult: *mut super::HKEY) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegOpenCurrentUser(samdesired : REGSAM, phkresult : *mut super::HKEY) -> LSTATUS);
     unsafe { RegOpenCurrentUser(samdesired, phkresult as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegOpenKeyA<P1>(hkey: super::HKEY, lpsubkey: P1, phkresult: *mut super::HKEY) -> WIN32_ERROR
+pub unsafe fn RegOpenKeyA<P1>(hkey: super::HKEY, lpsubkey: P1, phkresult: *mut super::HKEY) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegOpenKeyA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, phkresult : *mut super::HKEY) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegOpenKeyA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, phkresult : *mut super::HKEY) -> LSTATUS);
     unsafe { RegOpenKeyA(hkey, lpsubkey.param().abi(), phkresult as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegOpenKeyExA<P1>(hkey: super::HKEY, lpsubkey: P1, uloptions: Option<u32>, samdesired: REGSAM, phkresult: *mut super::HKEY) -> WIN32_ERROR
+pub unsafe fn RegOpenKeyExA<P1>(hkey: super::HKEY, lpsubkey: P1, uloptions: Option<u32>, samdesired: REGSAM, phkresult: *mut super::HKEY) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegOpenKeyExA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegOpenKeyExA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY) -> LSTATUS);
     unsafe { RegOpenKeyExA(hkey, lpsubkey.param().abi(), uloptions.unwrap_or(core::mem::zeroed()) as _, samdesired, phkresult as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegOpenKeyExW<P1>(hkey: super::HKEY, lpsubkey: P1, uloptions: Option<u32>, samdesired: REGSAM, phkresult: *mut super::HKEY) -> WIN32_ERROR
+pub unsafe fn RegOpenKeyExW<P1>(hkey: super::HKEY, lpsubkey: P1, uloptions: Option<u32>, samdesired: REGSAM, phkresult: *mut super::HKEY) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegOpenKeyExW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegOpenKeyExW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY) -> LSTATUS);
     unsafe { RegOpenKeyExW(hkey, lpsubkey.param().abi(), uloptions.unwrap_or(core::mem::zeroed()) as _, samdesired, phkresult as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegOpenKeyTransactedA<P1>(hkey: super::HKEY, lpsubkey: P1, uloptions: Option<u32>, samdesired: REGSAM, phkresult: *mut super::HKEY, htransaction: super::HANDLE, pextendedparemeter: Option<*const core::ffi::c_void>) -> WIN32_ERROR
+pub unsafe fn RegOpenKeyTransactedA<P1>(hkey: super::HKEY, lpsubkey: P1, uloptions: Option<u32>, samdesired: REGSAM, phkresult: *mut super::HKEY, htransaction: super::HANDLE, pextendedparemeter: Option<*const core::ffi::c_void>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegOpenKeyTransactedA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY, htransaction : super::HANDLE, pextendedparemeter : *const core::ffi::c_void) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegOpenKeyTransactedA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY, htransaction : super::HANDLE, pextendedparemeter : *const core::ffi::c_void) -> LSTATUS);
     unsafe { RegOpenKeyTransactedA(hkey, lpsubkey.param().abi(), uloptions.unwrap_or(core::mem::zeroed()) as _, samdesired, phkresult as _, htransaction, pextendedparemeter.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegOpenKeyTransactedW<P1>(hkey: super::HKEY, lpsubkey: P1, uloptions: Option<u32>, samdesired: REGSAM, phkresult: *mut super::HKEY, htransaction: super::HANDLE, pextendedparemeter: Option<*const core::ffi::c_void>) -> WIN32_ERROR
+pub unsafe fn RegOpenKeyTransactedW<P1>(hkey: super::HKEY, lpsubkey: P1, uloptions: Option<u32>, samdesired: REGSAM, phkresult: *mut super::HKEY, htransaction: super::HANDLE, pextendedparemeter: Option<*const core::ffi::c_void>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegOpenKeyTransactedW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY, htransaction : super::HANDLE, pextendedparemeter : *const core::ffi::c_void) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegOpenKeyTransactedW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, uloptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY, htransaction : super::HANDLE, pextendedparemeter : *const core::ffi::c_void) -> LSTATUS);
     unsafe { RegOpenKeyTransactedW(hkey, lpsubkey.param().abi(), uloptions.unwrap_or(core::mem::zeroed()) as _, samdesired, phkresult as _, htransaction, pextendedparemeter.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegOpenKeyW<P1>(hkey: super::HKEY, lpsubkey: P1, phkresult: *mut super::HKEY) -> WIN32_ERROR
+pub unsafe fn RegOpenKeyW<P1>(hkey: super::HKEY, lpsubkey: P1, phkresult: *mut super::HKEY) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegOpenKeyW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, phkresult : *mut super::HKEY) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegOpenKeyW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, phkresult : *mut super::HKEY) -> LSTATUS);
     unsafe { RegOpenKeyW(hkey, lpsubkey.param().abi(), phkresult as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegOpenUserClassesRoot(htoken: super::HANDLE, dwoptions: Option<u32>, samdesired: REGSAM, phkresult: *mut super::HKEY) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegOpenUserClassesRoot(htoken : super::HANDLE, dwoptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY) -> WIN32_ERROR);
+pub unsafe fn RegOpenUserClassesRoot(htoken: super::HANDLE, dwoptions: Option<u32>, samdesired: REGSAM, phkresult: *mut super::HKEY) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegOpenUserClassesRoot(htoken : super::HANDLE, dwoptions : u32, samdesired : REGSAM, phkresult : *mut super::HKEY) -> LSTATUS);
     unsafe { RegOpenUserClassesRoot(htoken, dwoptions.unwrap_or(core::mem::zeroed()) as _, samdesired, phkresult as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegOverridePredefKey(hkey: super::HKEY, hnewhkey: Option<super::HKEY>) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegOverridePredefKey(hkey : super::HKEY, hnewhkey : super::HKEY) -> WIN32_ERROR);
+pub unsafe fn RegOverridePredefKey(hkey: super::HKEY, hnewhkey: Option<super::HKEY>) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegOverridePredefKey(hkey : super::HKEY, hnewhkey : super::HKEY) -> LSTATUS);
     unsafe { RegOverridePredefKey(hkey, hnewhkey.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegQueryInfoKeyA(hkey: super::HKEY, lpclass: Option<windows_core::PSTR>, lpcchclass: Option<*mut u32>, lpreserved: Option<*const u32>, lpcsubkeys: Option<*mut u32>, lpcbmaxsubkeylen: Option<*mut u32>, lpcbmaxclasslen: Option<*mut u32>, lpcvalues: Option<*mut u32>, lpcbmaxvaluenamelen: Option<*mut u32>, lpcbmaxvaluelen: Option<*mut u32>, lpcbsecuritydescriptor: Option<*mut u32>, lpftlastwritetime: Option<*mut super::FILETIME>) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegQueryInfoKeyA(hkey : super::HKEY, lpclass : windows_core::PSTR, lpcchclass : *mut u32, lpreserved : *const u32, lpcsubkeys : *mut u32, lpcbmaxsubkeylen : *mut u32, lpcbmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcbmaxvaluenamelen : *mut u32, lpcbmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> WIN32_ERROR);
+pub unsafe fn RegQueryInfoKeyA(hkey: super::HKEY, lpclass: Option<windows_core::PSTR>, lpcchclass: Option<*mut u32>, lpreserved: Option<*const u32>, lpcsubkeys: Option<*mut u32>, lpcbmaxsubkeylen: Option<*mut u32>, lpcbmaxclasslen: Option<*mut u32>, lpcvalues: Option<*mut u32>, lpcbmaxvaluenamelen: Option<*mut u32>, lpcbmaxvaluelen: Option<*mut u32>, lpcbsecuritydescriptor: Option<*mut u32>, lpftlastwritetime: Option<*mut super::FILETIME>) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegQueryInfoKeyA(hkey : super::HKEY, lpclass : windows_core::PSTR, lpcchclass : *mut u32, lpreserved : *const u32, lpcsubkeys : *mut u32, lpcbmaxsubkeylen : *mut u32, lpcbmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcbmaxvaluenamelen : *mut u32, lpcbmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> LSTATUS);
     unsafe {
         RegQueryInfoKeyA(
             hkey,
@@ -550,8 +550,8 @@ pub unsafe fn RegQueryInfoKeyA(hkey: super::HKEY, lpclass: Option<windows_core::
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegQueryInfoKeyW(hkey: super::HKEY, lpclass: Option<windows_core::PWSTR>, lpcchclass: Option<*mut u32>, lpreserved: Option<*const u32>, lpcsubkeys: Option<*mut u32>, lpcbmaxsubkeylen: Option<*mut u32>, lpcbmaxclasslen: Option<*mut u32>, lpcvalues: Option<*mut u32>, lpcbmaxvaluenamelen: Option<*mut u32>, lpcbmaxvaluelen: Option<*mut u32>, lpcbsecuritydescriptor: Option<*mut u32>, lpftlastwritetime: Option<*mut super::FILETIME>) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegQueryInfoKeyW(hkey : super::HKEY, lpclass : windows_core::PWSTR, lpcchclass : *mut u32, lpreserved : *const u32, lpcsubkeys : *mut u32, lpcbmaxsubkeylen : *mut u32, lpcbmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcbmaxvaluenamelen : *mut u32, lpcbmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> WIN32_ERROR);
+pub unsafe fn RegQueryInfoKeyW(hkey: super::HKEY, lpclass: Option<windows_core::PWSTR>, lpcchclass: Option<*mut u32>, lpreserved: Option<*const u32>, lpcsubkeys: Option<*mut u32>, lpcbmaxsubkeylen: Option<*mut u32>, lpcbmaxclasslen: Option<*mut u32>, lpcvalues: Option<*mut u32>, lpcbmaxvaluenamelen: Option<*mut u32>, lpcbmaxvaluelen: Option<*mut u32>, lpcbsecuritydescriptor: Option<*mut u32>, lpftlastwritetime: Option<*mut super::FILETIME>) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegQueryInfoKeyW(hkey : super::HKEY, lpclass : windows_core::PWSTR, lpcchclass : *mut u32, lpreserved : *const u32, lpcsubkeys : *mut u32, lpcbmaxsubkeylen : *mut u32, lpcbmaxclasslen : *mut u32, lpcvalues : *mut u32, lpcbmaxvaluenamelen : *mut u32, lpcbmaxvaluelen : *mut u32, lpcbsecuritydescriptor : *mut u32, lpftlastwritetime : *mut super::FILETIME) -> LSTATUS);
     unsafe {
         RegQueryInfoKeyW(
             hkey,
@@ -571,14 +571,14 @@ pub unsafe fn RegQueryInfoKeyW(hkey: super::HKEY, lpclass: Option<windows_core::
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegQueryMultipleValuesA(hkey: super::HKEY, val_list: &mut [VALENTA], lpvaluebuf: Option<windows_core::PSTR>, ldwtotsize: Option<*mut u32>) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegQueryMultipleValuesA(hkey : super::HKEY, val_list : *mut VALENTA, num_vals : u32, lpvaluebuf : windows_core::PSTR, ldwtotsize : *mut u32) -> WIN32_ERROR);
+pub unsafe fn RegQueryMultipleValuesA(hkey: super::HKEY, val_list: &mut [VALENTA], lpvaluebuf: Option<windows_core::PSTR>, ldwtotsize: Option<*mut u32>) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegQueryMultipleValuesA(hkey : super::HKEY, val_list : *mut VALENTA, num_vals : u32, lpvaluebuf : windows_core::PSTR, ldwtotsize : *mut u32) -> LSTATUS);
     unsafe { RegQueryMultipleValuesA(hkey, val_list.as_mut_ptr(), val_list.len().try_into().unwrap(), lpvaluebuf.unwrap_or(core::mem::zeroed()) as _, ldwtotsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegQueryMultipleValuesW(hkey: super::HKEY, val_list: &mut [VALENTW], lpvaluebuf: Option<windows_core::PWSTR>, ldwtotsize: Option<*mut u32>) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegQueryMultipleValuesW(hkey : super::HKEY, val_list : *mut VALENTW, num_vals : u32, lpvaluebuf : windows_core::PWSTR, ldwtotsize : *mut u32) -> WIN32_ERROR);
+pub unsafe fn RegQueryMultipleValuesW(hkey: super::HKEY, val_list: &mut [VALENTW], lpvaluebuf: Option<windows_core::PWSTR>, ldwtotsize: Option<*mut u32>) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegQueryMultipleValuesW(hkey : super::HKEY, val_list : *mut VALENTW, num_vals : u32, lpvaluebuf : windows_core::PWSTR, ldwtotsize : *mut u32) -> LSTATUS);
     unsafe { RegQueryMultipleValuesW(hkey, val_list.as_mut_ptr(), val_list.len().try_into().unwrap(), lpvaluebuf.unwrap_or(core::mem::zeroed()) as _, ldwtotsize.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
@@ -589,205 +589,205 @@ pub unsafe fn RegQueryReflectionKey(hbase: super::HKEY, bisreflectiondisabled: *
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegQueryValueA<P1>(hkey: super::HKEY, lpsubkey: P1, lpdata: Option<windows_core::PSTR>, lpcbdata: Option<*mut i32>) -> WIN32_ERROR
+pub unsafe fn RegQueryValueA<P1>(hkey: super::HKEY, lpsubkey: P1, lpdata: Option<windows_core::PSTR>, lpcbdata: Option<*mut i32>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegQueryValueA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, lpdata : windows_core::PSTR, lpcbdata : *mut i32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegQueryValueA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, lpdata : windows_core::PSTR, lpcbdata : *mut i32) -> LSTATUS);
     unsafe { RegQueryValueA(hkey, lpsubkey.param().abi(), lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegQueryValueExA<P1>(hkey: super::HKEY, lpvaluename: P1, lpreserved: Option<*const u32>, lptype: Option<*mut u32>, lpdata: Option<*mut u8>, lpcbdata: *mut u32) -> WIN32_ERROR
+pub unsafe fn RegQueryValueExA<P1>(hkey: super::HKEY, lpvaluename: P1, lpreserved: Option<*const u32>, lptype: Option<*mut u32>, lpdata: Option<*mut u8>, lpcbdata: *mut u32) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegQueryValueExA(hkey : super::HKEY, lpvaluename : windows_core::PCSTR, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegQueryValueExA(hkey : super::HKEY, lpvaluename : windows_core::PCSTR, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> LSTATUS);
     unsafe { RegQueryValueExA(hkey, lpvaluename.param().abi(), lpreserved.unwrap_or(core::mem::zeroed()) as _, lptype.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegQueryValueExW<P1>(hkey: super::HKEY, lpvaluename: P1, lpreserved: Option<*const u32>, lptype: Option<*mut u32>, lpdata: Option<*mut u8>, lpcbdata: *mut u32) -> WIN32_ERROR
+pub unsafe fn RegQueryValueExW<P1>(hkey: super::HKEY, lpvaluename: P1, lpreserved: Option<*const u32>, lptype: Option<*mut u32>, lpdata: Option<*mut u8>, lpcbdata: *mut u32) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegQueryValueExW(hkey : super::HKEY, lpvaluename : windows_core::PCWSTR, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegQueryValueExW(hkey : super::HKEY, lpvaluename : windows_core::PCWSTR, lpreserved : *const u32, lptype : *mut u32, lpdata : *mut u8, lpcbdata : *mut u32) -> LSTATUS);
     unsafe { RegQueryValueExW(hkey, lpvaluename.param().abi(), lpreserved.unwrap_or(core::mem::zeroed()) as _, lptype.unwrap_or(core::mem::zeroed()) as _, lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegQueryValueW<P1>(hkey: super::HKEY, lpsubkey: P1, lpdata: Option<windows_core::PWSTR>, lpcbdata: Option<*mut i32>) -> WIN32_ERROR
+pub unsafe fn RegQueryValueW<P1>(hkey: super::HKEY, lpsubkey: P1, lpdata: Option<windows_core::PWSTR>, lpcbdata: Option<*mut i32>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegQueryValueW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpdata : windows_core::PWSTR, lpcbdata : *mut i32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegQueryValueW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpdata : windows_core::PWSTR, lpcbdata : *mut i32) -> LSTATUS);
     unsafe { RegQueryValueW(hkey, lpsubkey.param().abi(), lpdata.unwrap_or(core::mem::zeroed()) as _, lpcbdata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegRenameKey<P1, P2>(hkey: super::HKEY, lpsubkeyname: P1, lpnewkeyname: P2) -> WIN32_ERROR
+pub unsafe fn RegRenameKey<P1, P2>(hkey: super::HKEY, lpsubkeyname: P1, lpnewkeyname: P2) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegRenameKey(hkey : super::HKEY, lpsubkeyname : windows_core::PCWSTR, lpnewkeyname : windows_core::PCWSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegRenameKey(hkey : super::HKEY, lpsubkeyname : windows_core::PCWSTR, lpnewkeyname : windows_core::PCWSTR) -> LSTATUS);
     unsafe { RegRenameKey(hkey, lpsubkeyname.param().abi(), lpnewkeyname.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegReplaceKeyA<P1, P2, P3>(hkey: super::HKEY, lpsubkey: P1, lpnewfile: P2, lpoldfile: P3) -> WIN32_ERROR
+pub unsafe fn RegReplaceKeyA<P1, P2, P3>(hkey: super::HKEY, lpsubkey: P1, lpnewfile: P2, lpoldfile: P3) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegReplaceKeyA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, lpnewfile : windows_core::PCSTR, lpoldfile : windows_core::PCSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegReplaceKeyA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, lpnewfile : windows_core::PCSTR, lpoldfile : windows_core::PCSTR) -> LSTATUS);
     unsafe { RegReplaceKeyA(hkey, lpsubkey.param().abi(), lpnewfile.param().abi(), lpoldfile.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegReplaceKeyW<P1, P2, P3>(hkey: super::HKEY, lpsubkey: P1, lpnewfile: P2, lpoldfile: P3) -> WIN32_ERROR
+pub unsafe fn RegReplaceKeyW<P1, P2, P3>(hkey: super::HKEY, lpsubkey: P1, lpnewfile: P2, lpoldfile: P3) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegReplaceKeyW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpnewfile : windows_core::PCWSTR, lpoldfile : windows_core::PCWSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegReplaceKeyW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpnewfile : windows_core::PCWSTR, lpoldfile : windows_core::PCWSTR) -> LSTATUS);
     unsafe { RegReplaceKeyW(hkey, lpsubkey.param().abi(), lpnewfile.param().abi(), lpoldfile.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegRestoreKeyA<P1>(hkey: super::HKEY, lpfile: P1, dwflags: u32) -> WIN32_ERROR
+pub unsafe fn RegRestoreKeyA<P1>(hkey: super::HKEY, lpfile: P1, dwflags: u32) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegRestoreKeyA(hkey : super::HKEY, lpfile : windows_core::PCSTR, dwflags : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegRestoreKeyA(hkey : super::HKEY, lpfile : windows_core::PCSTR, dwflags : u32) -> LSTATUS);
     unsafe { RegRestoreKeyA(hkey, lpfile.param().abi(), dwflags) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegRestoreKeyW<P1>(hkey: super::HKEY, lpfile: P1, dwflags: u32) -> WIN32_ERROR
+pub unsafe fn RegRestoreKeyW<P1>(hkey: super::HKEY, lpfile: P1, dwflags: u32) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegRestoreKeyW(hkey : super::HKEY, lpfile : windows_core::PCWSTR, dwflags : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegRestoreKeyW(hkey : super::HKEY, lpfile : windows_core::PCWSTR, dwflags : u32) -> LSTATUS);
     unsafe { RegRestoreKeyW(hkey, lpfile.param().abi(), dwflags) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[inline]
-pub unsafe fn RegSaveKeyA<P1>(hkey: super::HKEY, lpfile: P1, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>) -> WIN32_ERROR
+pub unsafe fn RegSaveKeyA<P1>(hkey: super::HKEY, lpfile: P1, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegSaveKeyA(hkey : super::HKEY, lpfile : windows_core::PCSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegSaveKeyA(hkey : super::HKEY, lpfile : windows_core::PCSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> LSTATUS);
     unsafe { RegSaveKeyA(hkey, lpfile.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[inline]
-pub unsafe fn RegSaveKeyExA<P1>(hkey: super::HKEY, lpfile: P1, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, flags: u32) -> WIN32_ERROR
+pub unsafe fn RegSaveKeyExA<P1>(hkey: super::HKEY, lpfile: P1, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, flags: u32) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegSaveKeyExA(hkey : super::HKEY, lpfile : windows_core::PCSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, flags : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegSaveKeyExA(hkey : super::HKEY, lpfile : windows_core::PCSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, flags : u32) -> LSTATUS);
     unsafe { RegSaveKeyExA(hkey, lpfile.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[inline]
-pub unsafe fn RegSaveKeyExW<P1>(hkey: super::HKEY, lpfile: P1, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, flags: u32) -> WIN32_ERROR
+pub unsafe fn RegSaveKeyExW<P1>(hkey: super::HKEY, lpfile: P1, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>, flags: u32) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegSaveKeyExW(hkey : super::HKEY, lpfile : windows_core::PCWSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, flags : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegSaveKeyExW(hkey : super::HKEY, lpfile : windows_core::PCWSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES, flags : u32) -> LSTATUS);
     unsafe { RegSaveKeyExW(hkey, lpfile.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _, flags) }
 }
 #[cfg(all(feature = "minwinbase", feature = "minwindef"))]
 #[inline]
-pub unsafe fn RegSaveKeyW<P1>(hkey: super::HKEY, lpfile: P1, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>) -> WIN32_ERROR
+pub unsafe fn RegSaveKeyW<P1>(hkey: super::HKEY, lpfile: P1, lpsecurityattributes: Option<*const super::SECURITY_ATTRIBUTES>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegSaveKeyW(hkey : super::HKEY, lpfile : windows_core::PCWSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegSaveKeyW(hkey : super::HKEY, lpfile : windows_core::PCWSTR, lpsecurityattributes : *const super::SECURITY_ATTRIBUTES) -> LSTATUS);
     unsafe { RegSaveKeyW(hkey, lpfile.param().abi(), lpsecurityattributes.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[cfg(all(feature = "minwindef", feature = "winnt"))]
 #[inline]
-pub unsafe fn RegSetKeySecurity(hkey: super::HKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR) -> WIN32_ERROR {
-    windows_core::link!("advapi32.dll" "system" fn RegSetKeySecurity(hkey : super::HKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR) -> WIN32_ERROR);
+pub unsafe fn RegSetKeySecurity(hkey: super::HKEY, securityinformation: super::SECURITY_INFORMATION, psecuritydescriptor: super::PSECURITY_DESCRIPTOR) -> LSTATUS {
+    windows_core::link!("advapi32.dll" "system" fn RegSetKeySecurity(hkey : super::HKEY, securityinformation : super::SECURITY_INFORMATION, psecuritydescriptor : super::PSECURITY_DESCRIPTOR) -> LSTATUS);
     unsafe { RegSetKeySecurity(hkey, securityinformation, psecuritydescriptor) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegSetKeyValueA<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpvaluename: P2, dwtype: u32, lpdata: Option<*const core::ffi::c_void>, cbdata: u32) -> WIN32_ERROR
+pub unsafe fn RegSetKeyValueA<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpvaluename: P2, dwtype: u32, lpdata: Option<*const core::ffi::c_void>, cbdata: u32) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegSetKeyValueA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, lpvaluename : windows_core::PCSTR, dwtype : u32, lpdata : *const core::ffi::c_void, cbdata : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegSetKeyValueA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, lpvaluename : windows_core::PCSTR, dwtype : u32, lpdata : *const core::ffi::c_void, cbdata : u32) -> LSTATUS);
     unsafe { RegSetKeyValueA(hkey, lpsubkey.param().abi(), lpvaluename.param().abi(), dwtype, lpdata.unwrap_or(core::mem::zeroed()) as _, cbdata) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegSetKeyValueW<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpvaluename: P2, dwtype: u32, lpdata: Option<*const core::ffi::c_void>, cbdata: u32) -> WIN32_ERROR
+pub unsafe fn RegSetKeyValueW<P1, P2>(hkey: super::HKEY, lpsubkey: P1, lpvaluename: P2, dwtype: u32, lpdata: Option<*const core::ffi::c_void>, cbdata: u32) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegSetKeyValueW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpvaluename : windows_core::PCWSTR, dwtype : u32, lpdata : *const core::ffi::c_void, cbdata : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegSetKeyValueW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, lpvaluename : windows_core::PCWSTR, dwtype : u32, lpdata : *const core::ffi::c_void, cbdata : u32) -> LSTATUS);
     unsafe { RegSetKeyValueW(hkey, lpsubkey.param().abi(), lpvaluename.param().abi(), dwtype, lpdata.unwrap_or(core::mem::zeroed()) as _, cbdata) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegSetValueA<P1>(hkey: super::HKEY, lpsubkey: P1, dwtype: u32, lpdata: Option<&[u8]>) -> WIN32_ERROR
+pub unsafe fn RegSetValueA<P1>(hkey: super::HKEY, lpsubkey: P1, dwtype: u32, lpdata: Option<&[u8]>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegSetValueA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, dwtype : u32, lpdata : windows_core::PCSTR, cbdata : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegSetValueA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR, dwtype : u32, lpdata : windows_core::PCSTR, cbdata : u32) -> LSTATUS);
     unsafe { RegSetValueA(hkey, lpsubkey.param().abi(), dwtype, core::mem::transmute(lpdata.map_or(core::ptr::null(), |slice| slice.as_ptr())), lpdata.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegSetValueExA<P1>(hkey: super::HKEY, lpvaluename: P1, reserved: Option<u32>, dwtype: u32, lpdata: Option<&[u8]>) -> WIN32_ERROR
+pub unsafe fn RegSetValueExA<P1>(hkey: super::HKEY, lpvaluename: P1, reserved: Option<u32>, dwtype: u32, lpdata: Option<&[u8]>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegSetValueExA(hkey : super::HKEY, lpvaluename : windows_core::PCSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegSetValueExA(hkey : super::HKEY, lpvaluename : windows_core::PCSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> LSTATUS);
     unsafe { RegSetValueExA(hkey, lpvaluename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, dwtype, lpdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpdata.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegSetValueExW<P1>(hkey: super::HKEY, lpvaluename: P1, reserved: Option<u32>, dwtype: u32, lpdata: Option<&[u8]>) -> WIN32_ERROR
+pub unsafe fn RegSetValueExW<P1>(hkey: super::HKEY, lpvaluename: P1, reserved: Option<u32>, dwtype: u32, lpdata: Option<&[u8]>) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : super::HKEY, lpvaluename : windows_core::PCWSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegSetValueExW(hkey : super::HKEY, lpvaluename : windows_core::PCWSTR, reserved : u32, dwtype : u32, lpdata : *const u8, cbdata : u32) -> LSTATUS);
     unsafe { RegSetValueExW(hkey, lpvaluename.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _, dwtype, lpdata.map_or(core::ptr::null(), |slice| slice.as_ptr()), lpdata.map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegSetValueW<P1, P3>(hkey: super::HKEY, lpsubkey: P1, dwtype: u32, lpdata: P3, cbdata: u32) -> WIN32_ERROR
+pub unsafe fn RegSetValueW<P1, P3>(hkey: super::HKEY, lpsubkey: P1, dwtype: u32, lpdata: P3, cbdata: u32) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegSetValueW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, dwtype : u32, lpdata : windows_core::PCWSTR, cbdata : u32) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegSetValueW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR, dwtype : u32, lpdata : windows_core::PCWSTR, cbdata : u32) -> LSTATUS);
     unsafe { RegSetValueW(hkey, lpsubkey.param().abi(), dwtype, lpdata.param().abi(), cbdata) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegUnLoadKeyA<P1>(hkey: super::HKEY, lpsubkey: P1) -> WIN32_ERROR
+pub unsafe fn RegUnLoadKeyA<P1>(hkey: super::HKEY, lpsubkey: P1) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegUnLoadKeyA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegUnLoadKeyA(hkey : super::HKEY, lpsubkey : windows_core::PCSTR) -> LSTATUS);
     unsafe { RegUnLoadKeyA(hkey, lpsubkey.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
 #[inline]
-pub unsafe fn RegUnLoadKeyW<P1>(hkey: super::HKEY, lpsubkey: P1) -> WIN32_ERROR
+pub unsafe fn RegUnLoadKeyW<P1>(hkey: super::HKEY, lpsubkey: P1) -> LSTATUS
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("advapi32.dll" "system" fn RegUnLoadKeyW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR) -> WIN32_ERROR);
+    windows_core::link!("advapi32.dll" "system" fn RegUnLoadKeyW(hkey : super::HKEY, lpsubkey : windows_core::PCWSTR) -> LSTATUS);
     unsafe { RegUnLoadKeyW(hkey, lpsubkey.param().abi()) }
 }
 #[cfg(feature = "minwindef")]
@@ -810,6 +810,9 @@ pub const HKEY_PERFORMANCE_NLSTEXT: super::HKEY = super::HKEY(-2147483552 as _);
 pub const HKEY_PERFORMANCE_TEXT: super::HKEY = super::HKEY(-2147483568 as _);
 #[cfg(feature = "minwindef")]
 pub const HKEY_USERS: super::HKEY = super::HKEY(-2147483645 as _);
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub struct LSTATUS(pub i32);
 pub const MAX_SHUTDOWN_TIMEOUT: u32 = 315360000;
 pub type PPROVIDER = *mut REG_PROVIDER;
 pub type PPVALUE = PPVALUEA;
@@ -932,9 +935,6 @@ pub struct VALENTW {
     pub ve_type: u32,
 }
 pub const WIN31_CLASS: u32 = 0;
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct WIN32_ERROR(pub u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct val_context {

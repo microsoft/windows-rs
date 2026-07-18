@@ -29,7 +29,11 @@ pub use interface::*;
 pub use method::*;
 pub use r#struct::*;
 
-#[expect(clippy::upper_case_acronyms, clippy::enum_variant_names)]
+#[expect(
+    clippy::upper_case_acronyms,
+    clippy::enum_variant_names,
+    non_camel_case_types
+)]
 #[derive(Clone, Debug, PartialEq, Eq, Hash)]
 pub enum Type {
     CppFn(CppFn),
@@ -80,6 +84,8 @@ pub enum Type {
     IUnknown,
     BSTR,
     BOOL,
+    NTSTATUS,
+    RPC_STATUS,
 }
 
 impl Ord for Type {
@@ -232,6 +238,8 @@ impl Type {
                 "CHAR" => return Remap::Type(Self::I8),
                 "BOOLEAN" => return Remap::Type(Self::Bool),
                 "BOOL" => return Remap::Type(Self::BOOL),
+                "NTSTATUS" => return Remap::Type(Self::NTSTATUS),
+                "RPC_STATUS" => return Remap::Type(Self::RPC_STATUS),
                 "EventRegistrationToken" => return Remap::Type(Self::I64),
 
                 // `LARGE_INTEGER` / `ULARGE_INTEGER` are faithfully scraped as unions
@@ -519,6 +527,14 @@ impl Type {
             Self::BOOL => {
                 let core = config.write_core();
                 quote! { #core BOOL }
+            }
+            Self::NTSTATUS => {
+                let core = config.write_core();
+                quote! { #core NTSTATUS }
+            }
+            Self::RPC_STATUS => {
+                let core = config.write_core();
+                quote! { #core RPC_STATUS }
             }
             Self::String => {
                 let core = config.write_core();
@@ -866,6 +882,8 @@ impl Type {
             | Self::USize
             | Self::HRESULT
             | Self::BOOL
+            | Self::NTSTATUS
+            | Self::RPC_STATUS
             | Self::PtrConst(_, _)
             | Self::PtrMut(_, _) => true,
             _ => false,
@@ -934,6 +952,8 @@ impl Type {
             Self::CppStruct(ty) => ty.def.underlying_type_ext(reader),
             Self::HRESULT => Self::I32,
             Self::BOOL => Self::I32,
+            Self::NTSTATUS => Self::I32,
+            Self::RPC_STATUS => Self::I32,
             _ => self.clone(),
         }
     }
@@ -946,6 +966,8 @@ impl Type {
         match self {
             Self::HRESULT => quote! { pub type HRESULT = i32; },
             Self::BOOL => quote! { pub type BOOL = i32; },
+            Self::NTSTATUS => quote! { pub type NTSTATUS = i32; },
+            Self::RPC_STATUS => quote! { pub type RPC_STATUS = i32; },
 
             Self::PWSTR => quote! { pub type PWSTR = *mut u16; },
             Self::PCSTR => quote! { pub type PCSTR = *const u8; },
@@ -1036,6 +1058,8 @@ impl Type {
             Self::GUID => TypeName("", "GUID"),
             Self::HRESULT => TypeName("", "HRESULT"),
             Self::BOOL => TypeName("", "BOOL"),
+            Self::NTSTATUS => TypeName("", "NTSTATUS"),
+            Self::RPC_STATUS => TypeName("", "RPC_STATUS"),
             Self::IUnknown => TypeName("", "IUnknown"),
             Self::BSTR => TypeName("", "BSTR"),
             Self::String => TypeName("", "String"),
@@ -1055,6 +1079,8 @@ impl Type {
                 | Self::GUID
                 | Self::HRESULT
                 | Self::BOOL
+                | Self::NTSTATUS
+                | Self::RPC_STATUS
                 | Self::IUnknown
                 | Self::Object
                 | Self::BSTR

@@ -31,7 +31,7 @@ windows_link::link!("fltlib.dll" "system" fn FilterInstanceFindNext(hfilterinsta
 #[cfg(all(feature = "fltuserstructures", feature = "winnt"))]
 windows_link::link!("fltlib.dll" "system" fn FilterInstanceGetInformation(hinstance : super::HFILTER_INSTANCE, dwinformationclass : super::INSTANCE_INFORMATION_CLASS, lpbuffer : *mut core::ffi::c_void, dwbuffersize : u32, lpbytesreturned : *mut u32) -> windows_sys::core::HRESULT);
 windows_link::link!("fltlib.dll" "system" fn FilterLoad(lpfiltername : windows_sys::core::PCWSTR) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "bcrypt", feature = "fltuserstructures", feature = "winnt"))]
+#[cfg(all(feature = "fltuserstructures", feature = "winnt"))]
 windows_link::link!("fltlib.dll" "system" fn FilterReplyMessage(hport : super::HANDLE, lpreplybuffer : *const super::FILTER_REPLY_HEADER, dwreplybuffersize : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "winnt")]
 windows_link::link!("fltlib.dll" "system" fn FilterSendMessage(hport : super::HANDLE, lpinbuffer : *const core::ffi::c_void, dwinbuffersize : u32, lpoutbuffer : *mut core::ffi::c_void, dwoutbuffersize : u32, lpbytesreturned : *mut u32) -> windows_sys::core::HRESULT);

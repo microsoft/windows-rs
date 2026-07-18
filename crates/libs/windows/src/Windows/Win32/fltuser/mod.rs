@@ -152,7 +152,7 @@ where
     windows_core::link!("fltlib.dll" "system" fn FilterLoad(lpfiltername : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { FilterLoad(lpfiltername.param().abi()) }
 }
-#[cfg(all(feature = "bcrypt", feature = "fltuserstructures", feature = "winnt"))]
+#[cfg(all(feature = "fltuserstructures", feature = "winnt"))]
 #[inline]
 pub unsafe fn FilterReplyMessage(hport: super::HANDLE, lpreplybuffer: *const super::FILTER_REPLY_HEADER, dwreplybuffersize: u32) -> windows_core::HRESULT {
     windows_core::link!("fltlib.dll" "system" fn FilterReplyMessage(hport : super::HANDLE, lpreplybuffer : *const super::FILTER_REPLY_HEADER, dwreplybuffersize : u32) -> windows_core::HRESULT);

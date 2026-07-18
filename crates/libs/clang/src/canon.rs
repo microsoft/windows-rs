@@ -23,7 +23,7 @@
 //! # Precedence (mirrors the ledger)
 //!
 //! Universal (in [`resolve_typedef`], flat scrape unless noted): string-wrapper normalise
-//! ([`normalize_string_alias`]) → error-code domain ([`error_code_typedef`]) → fixed-width
+//! ([`normalize_string_alias`]) → fixed-width
 //! scalar ([`fundamental_scalar`]) → floating ([`floating_typedef`]) → pointer-sized
 //! ([`pointer_sized_abi`]) → `GUID` synonym ([`guid_alias`]) → generic `void*`
 //! ([`void_pointer_alias`]). Parameter overlay (in [`param_metadata_type`]): pointer-alias
@@ -76,10 +76,7 @@ pub(crate) fn resolve_typedef(cursor: &Type, parser: &mut Parser<'_>) -> metadat
         // `type CRM_PROTOCOL_ID = GUID`, …). Whether the typedef is a
         // record's public name or a distinct alias, the reference is by
         // the typedef's name, which resolves within the flat namespace.
-        // (`LSTATUS` is the sole remap — the Win32 error-code domain.)
-        if let Some(remapped) = error_code_typedef(&name) {
-            metadata::Type::value_named(parser.namespace, remapped)
-        } else if let Some(scalar) = fundamental_scalar(&name) {
+        if let Some(scalar) = fundamental_scalar(&name) {
             // A pure fixed-width portability alias (`DWORD` -> u32) carries no
             // semantics beyond its bits; collapse it out of the canon. Every
             // other scalar typedef (`HFILE`, `ATOM`, `COLORREF`, `LRESULT`, …)
@@ -282,9 +279,9 @@ fn is_fundamental_scalar_kind(kind: CXTypeKind) -> bool {
 /// byte-for-byte identical to `DWORD`/`WORD` at the type level, so only the *name*
 /// distinguishes a meaningful domain type — kept as `type HFILE = i32`, `type ATOM = u16`,
 /// `type COLORREF = u32` — from pure portability noise. Pointer-sized aliases
-/// ([`pointer_sized_abi`]) and the error-code domain ([`error_code_typedef`]) are handled
-/// separately; every remaining scalar typedef (`HRESULT`, `BOOL`, `BOOLEAN`, `NTSTATUS`,
-/// the domain handles/ids, …) is preserved by name.
+/// ([`pointer_sized_abi`]) are handled separately; every remaining scalar typedef
+/// (`HRESULT`, `BOOL`, `BOOLEAN`, `NTSTATUS`, `LSTATUS`, the domain handles/ids, …) is
+/// preserved by name.
 ///
 /// The same list backs the const-cast collapse in [`parse_named_cast`], so a typedef and
 /// any constant typed by it never disagree (e.g. `const HFILE_ERROR: HFILE`,
@@ -409,22 +406,6 @@ pub(crate) fn pointer_sized_abi(name: &str) -> Option<metadata::Type> {
         }
         _ => None,
     }
-}
-
-/// Remaps `LSTATUS` to the Win32 error-code domain type `WIN32_ERROR`.
-///
-/// `typedef LONG LSTATUS` is, at the C level, a signed 32-bit integer, but it is
-/// *definitionally* a Win32 error code — the registry (`Reg*`) and `shlwapi` APIs
-/// return `ERROR_*` values through it, exactly the unsigned domain the `WIN32_ERROR`
-/// type (and the `ERROR_*` constants, now `u32`) models. Faithful `i32` would clash
-/// with every consumer that treats the result as an unsigned error code. So the name
-/// is remapped to `WIN32_ERROR` (a plain `type WIN32_ERROR = u32`) at both its
-/// definition ([`Typedef::parse`]) and every reference (`to_type`), matching the
-/// reference metadata's `WIN32_ERROR` without adopting win32metadata's giant synthetic
-/// error *enum*. This is domain typing keyed on one canonical SDK typedef, not
-/// per-symbol curation.
-pub(crate) fn error_code_typedef(name: &str) -> Option<&'static str> {
-    (name == "LSTATUS").then_some("WIN32_ERROR")
 }
 
 /// The single source of truth for the handful of parameter aliases whose treatment

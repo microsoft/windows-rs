@@ -26,8 +26,8 @@ pub unsafe fn IsCharLowerA(ch: i8) -> windows_core::BOOL {
     unsafe { IsCharLowerA(ch) }
 }
 #[inline]
-pub unsafe fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS {
-    windows_core::link!("rpcrt4.dll" "system" fn RpcMgmtEnableIdleCleanup() -> RPC_STATUS);
+pub unsafe fn RpcMgmtEnableIdleCleanup() -> windows_core::RPC_STATUS {
+    windows_core::link!("rpcrt4.dll" "system" fn RpcMgmtEnableIdleCleanup() -> windows_core::RPC_STATUS);
     unsafe { RpcMgmtEnableIdleCleanup() }
 }
 #[inline]
@@ -105,6 +105,3 @@ pub struct IStringable_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct RPC_STATUS(pub i32);

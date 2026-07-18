@@ -102,12 +102,12 @@ pub struct IConnectableCredentialProviderCredential_Vtbl {
     Connect: usize,
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bcrypt", feature = "rpc", feature = "shobjidl_core", feature = "windef"))]
+#[cfg(all(feature = "rpc", feature = "shobjidl_core", feature = "windef"))]
 pub trait IConnectableCredentialProviderCredential_Impl: ICredentialProviderCredential_Impl {
     fn Connect(&self, pqcws: windows_core::Ref<IQueryContinueWithStatus>) -> windows_core::Result<()>;
     fn Disconnect(&self) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bcrypt", feature = "rpc", feature = "shobjidl_core", feature = "windef"))]
+#[cfg(all(feature = "rpc", feature = "shobjidl_core", feature = "windef"))]
 impl IConnectableCredentialProviderCredential_Vtbl {
     pub const fn new<Identity: IConnectableCredentialProviderCredential_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Connect<Identity: IConnectableCredentialProviderCredential_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pqcws: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -132,7 +132,7 @@ impl IConnectableCredentialProviderCredential_Vtbl {
         iid == &<IConnectableCredentialProviderCredential as windows_core::Interface>::IID || iid == &<ICredentialProviderCredential as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bcrypt", feature = "rpc", feature = "shobjidl_core", feature = "windef"))]
+#[cfg(all(feature = "rpc", feature = "shobjidl_core", feature = "windef"))]
 impl windows_core::RuntimeName for IConnectableCredentialProviderCredential {}
 windows_core::imp::define_interface!(ICredentialProvider, ICredentialProvider_Vtbl, 0xd27c3481_5a1c_45b2_8aaa_c20ebbe8229e);
 windows_core::imp::interface_hierarchy!(ICredentialProvider, windows_core::IUnknown);
@@ -363,8 +363,7 @@ impl ICredentialProviderCredential {
     pub unsafe fn GetSerialization(&self, pcpgsr: *mut CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE, pcpcs: *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, ppszoptionalstatustext: *mut windows_core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).GetSerialization)(windows_core::Interface::as_raw(self), pcpgsr as _, pcpcs as _, ppszoptionalstatustext as _, pcpsioptionalstatusicon as _) }
     }
-    #[cfg(feature = "bcrypt")]
-    pub unsafe fn ReportResult(&self, ntsstatus: super::NTSTATUS, ntssubstatus: super::NTSTATUS, ppszoptionalstatustext: *mut windows_core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::HRESULT {
+    pub unsafe fn ReportResult(&self, ntsstatus: windows_core::NTSTATUS, ntssubstatus: windows_core::NTSTATUS, ppszoptionalstatustext: *mut windows_core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::HRESULT {
         unsafe { (windows_core::Interface::vtable(self).ReportResult)(windows_core::Interface::as_raw(self), ntsstatus, ntssubstatus, ppszoptionalstatustext as _, pcpsioptionalstatusicon as _) }
     }
 }
@@ -394,12 +393,9 @@ pub struct ICredentialProviderCredential_Vtbl {
     pub GetSerialization: unsafe extern "system" fn(*mut core::ffi::c_void, *mut CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE, *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, *mut windows_core::PWSTR, *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::HRESULT,
     #[cfg(not(feature = "rpc"))]
     GetSerialization: usize,
-    #[cfg(feature = "bcrypt")]
-    pub ReportResult: unsafe extern "system" fn(*mut core::ffi::c_void, super::NTSTATUS, super::NTSTATUS, *mut windows_core::PWSTR, *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::HRESULT,
-    #[cfg(not(feature = "bcrypt"))]
-    ReportResult: usize,
+    pub ReportResult: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::NTSTATUS, windows_core::NTSTATUS, *mut windows_core::PWSTR, *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bcrypt", feature = "rpc", feature = "windef"))]
+#[cfg(all(feature = "rpc", feature = "windef"))]
 pub trait ICredentialProviderCredential_Impl: windows_core::IUnknownImpl {
     fn Advise(&self, pcpce: windows_core::Ref<ICredentialProviderCredentialEvents>) -> windows_core::Result<()>;
     fn UnAdvise(&self) -> windows_core::Result<()>;
@@ -417,9 +413,9 @@ pub trait ICredentialProviderCredential_Impl: windows_core::IUnknownImpl {
     fn SetComboBoxSelectedValue(&self, dwfieldid: u32, dwselecteditem: u32) -> windows_core::Result<()>;
     fn CommandLinkClicked(&self, dwfieldid: u32) -> windows_core::Result<()>;
     fn GetSerialization(&self, pcpgsr: *mut CREDENTIAL_PROVIDER_GET_SERIALIZATION_RESPONSE, pcpcs: *mut CREDENTIAL_PROVIDER_CREDENTIAL_SERIALIZATION, ppszoptionalstatustext: *mut windows_core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::Result<()>;
-    fn ReportResult(&self, ntsstatus: super::NTSTATUS, ntssubstatus: super::NTSTATUS, ppszoptionalstatustext: *mut windows_core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::Result<()>;
+    fn ReportResult(&self, ntsstatus: windows_core::NTSTATUS, ntssubstatus: windows_core::NTSTATUS, ppszoptionalstatustext: *mut windows_core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::Result<()>;
 }
-#[cfg(all(feature = "bcrypt", feature = "rpc", feature = "windef"))]
+#[cfg(all(feature = "rpc", feature = "windef"))]
 impl ICredentialProviderCredential_Vtbl {
     pub const fn new<Identity: ICredentialProviderCredential_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Advise<Identity: ICredentialProviderCredential_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, pcpce: *mut core::ffi::c_void) -> windows_core::HRESULT {
@@ -548,7 +544,7 @@ impl ICredentialProviderCredential_Vtbl {
                 ICredentialProviderCredential_Impl::GetSerialization(this, core::mem::transmute_copy(&pcpgsr), core::mem::transmute_copy(&pcpcs), core::mem::transmute_copy(&ppszoptionalstatustext), core::mem::transmute_copy(&pcpsioptionalstatusicon)).into()
             }
         }
-        unsafe extern "system" fn ReportResult<Identity: ICredentialProviderCredential_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ntsstatus: super::NTSTATUS, ntssubstatus: super::NTSTATUS, ppszoptionalstatustext: *mut windows_core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReportResult<Identity: ICredentialProviderCredential_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, ntsstatus: windows_core::NTSTATUS, ntssubstatus: windows_core::NTSTATUS, ppszoptionalstatustext: *mut windows_core::PWSTR, pcpsioptionalstatusicon: *mut CREDENTIAL_PROVIDER_STATUS_ICON) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICredentialProviderCredential_Impl::ReportResult(this, core::mem::transmute_copy(&ntsstatus), core::mem::transmute_copy(&ntssubstatus), core::mem::transmute_copy(&ppszoptionalstatustext), core::mem::transmute_copy(&pcpsioptionalstatusicon)).into()
@@ -579,7 +575,7 @@ impl ICredentialProviderCredential_Vtbl {
         iid == &<ICredentialProviderCredential as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bcrypt", feature = "rpc", feature = "windef"))]
+#[cfg(all(feature = "rpc", feature = "windef"))]
 impl windows_core::RuntimeName for ICredentialProviderCredential {}
 windows_core::imp::define_interface!(ICredentialProviderCredential2, ICredentialProviderCredential2_Vtbl, 0xfd672c54_40ea_4d6e_9b49_cfb1a7507bd7);
 impl core::ops::Deref for ICredentialProviderCredential2 {
@@ -603,11 +599,11 @@ pub struct ICredentialProviderCredential2_Vtbl {
     pub base__: ICredentialProviderCredential_Vtbl,
     pub GetUserSid: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
-#[cfg(all(feature = "bcrypt", feature = "rpc", feature = "windef"))]
+#[cfg(all(feature = "rpc", feature = "windef"))]
 pub trait ICredentialProviderCredential2_Impl: ICredentialProviderCredential_Impl {
     fn GetUserSid(&self) -> windows_core::Result<windows_core::PWSTR>;
 }
-#[cfg(all(feature = "bcrypt", feature = "rpc", feature = "windef"))]
+#[cfg(all(feature = "rpc", feature = "windef"))]
 impl ICredentialProviderCredential2_Vtbl {
     pub const fn new<Identity: ICredentialProviderCredential2_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn GetUserSid<Identity: ICredentialProviderCredential2_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, sid: *mut windows_core::PWSTR) -> windows_core::HRESULT {
@@ -628,7 +624,7 @@ impl ICredentialProviderCredential2_Vtbl {
         iid == &<ICredentialProviderCredential2 as windows_core::Interface>::IID || iid == &<ICredentialProviderCredential as windows_core::Interface>::IID
     }
 }
-#[cfg(all(feature = "bcrypt", feature = "rpc", feature = "windef"))]
+#[cfg(all(feature = "rpc", feature = "windef"))]
 impl windows_core::RuntimeName for ICredentialProviderCredential2 {}
 windows_core::imp::define_interface!(ICredentialProviderCredentialEvents, ICredentialProviderCredentialEvents_Vtbl, 0xfa6fa76b_66b7_4b11_95f1_86171118e816);
 windows_core::imp::interface_hierarchy!(ICredentialProviderCredentialEvents, windows_core::IUnknown);

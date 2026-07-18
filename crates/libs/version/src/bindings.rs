@@ -1,7 +1,8 @@
-windows_link::link!("advapi32.dll" "system" fn RegGetValueA(hkey : HKEY, lpsubkey : PCSTR, lpvalue : PCSTR, dwflags : u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> WIN32_ERROR);
+windows_link::link!("advapi32.dll" "system" fn RegGetValueA(hkey : HKEY, lpsubkey : PCSTR, lpvalue : PCSTR, dwflags : u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> LSTATUS);
 windows_link::link!("ntdll.dll" "system" fn RtlGetVersion(lpversioninformation : *mut OSVERSIONINFOW) -> NTSTATUS);
 pub type HKEY = *mut core::ffi::c_void;
 pub const HKEY_LOCAL_MACHINE: HKEY = -2147483646 as _;
+pub type LSTATUS = i32;
 pub type NTSTATUS = i32;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -41,4 +42,3 @@ impl Default for OSVERSIONINFOW {
 pub type PCSTR = *const u8;
 pub const RRF_RT_REG_DWORD: u32 = 16;
 pub const VER_NT_WORKSTATION: u32 = 1;
-pub type WIN32_ERROR = u32;

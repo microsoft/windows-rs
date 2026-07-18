@@ -67,6 +67,8 @@ impl Struct {
                             | Type::USize
                             | Type::HRESULT
                             | Type::BOOL
+                            | Type::NTSTATUS
+                            | Type::RPC_STATUS
                             | Type::GUID
                     )
                 });

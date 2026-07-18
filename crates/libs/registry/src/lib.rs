@@ -61,11 +61,11 @@ pub const LOCAL_MACHINE: &Key = &Key(HKEY_LOCAL_MACHINE);
 /// The predefined `HKEY_USERS` registry key.
 pub const USERS: &Key = &Key(HKEY_USERS);
 
-fn win32_error(result: u32) -> Result<()> {
+fn win32_error(result: i32) -> Result<()> {
     if result == 0 {
         Ok(())
     } else {
-        Err(Error::from_hresult(WIN32_ERROR(result).to_hresult()))
+        Err(Error::from_hresult(WIN32_ERROR(result as u32).to_hresult()))
     }
 }
 

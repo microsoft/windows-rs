@@ -9,7 +9,7 @@ windows_link::link!("cldapi.dll" "system" fn CfCreatePlaceholders(basedirectoryp
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("cldapi.dll" "system" fn CfDehydratePlaceholder(filehandle : super::HANDLE, startingoffset : i64, length : i64, dehydrateflags : CF_DEHYDRATE_FLAGS, overlapped : *mut super::OVERLAPPED) -> windows_sys::core::HRESULT);
 windows_link::link!("cldapi.dll" "system" fn CfDisconnectSyncRoot(connectionkey : CF_CONNECTION_KEY) -> windows_sys::core::HRESULT);
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 windows_link::link!("cldapi.dll" "system" fn CfExecute(opinfo : *const CF_OPERATION_INFO, opparams : *mut CF_OPERATION_PARAMETERS) -> windows_sys::core::HRESULT);
 #[cfg(feature = "winnt")]
 windows_link::link!("cldapi.dll" "system" fn CfGetCorrelationVector(filehandle : super::HANDLE, correlationvector : *mut super::CORRELATION_VECTOR) -> windows_sys::core::HRESULT);
@@ -424,20 +424,20 @@ impl Default for CF_OPERATION_INFO {
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CF_OPERATION_PARAMETERS {
     pub ParamSize: u32,
     pub Anonymous: CF_OPERATION_PARAMETERS_0,
 }
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub union CF_OPERATION_PARAMETERS_0 {
     pub TransferData: CF_OPERATION_PARAMETERS_0_0,
@@ -449,30 +449,30 @@ pub union CF_OPERATION_PARAMETERS_0 {
     pub AckRename: CF_OPERATION_PARAMETERS_0_6,
     pub AckDelete: CF_OPERATION_PARAMETERS_0_7,
 }
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
-    pub CompletionStatus: super::NTSTATUS,
+    pub CompletionStatus: windows_sys::core::NTSTATUS,
     pub Buffer: *const core::ffi::c_void,
     pub Offset: i64,
     pub Length: i64,
 }
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
@@ -481,23 +481,23 @@ pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Length: i64,
     pub ReturnedLength: i64,
 }
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS_0_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Flags: CF_OPERATION_ACK_DATA_FLAGS,
-    pub CompletionStatus: super::NTSTATUS,
+    pub CompletionStatus: windows_sys::core::NTSTATUS,
     pub Offset: i64,
     pub Length: i64,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
@@ -505,57 +505,57 @@ pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub FileIdentity: *const core::ffi::c_void,
     pub FileIdentityLength: u32,
 }
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS_0_3 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS,
-    pub CompletionStatus: super::NTSTATUS,
+    pub CompletionStatus: windows_sys::core::NTSTATUS,
     pub PlaceholderTotalCount: i64,
     pub PlaceholderArray: *mut CF_PLACEHOLDER_CREATE_INFO,
     pub PlaceholderCount: u32,
     pub EntriesProcessed: u32,
 }
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS_0_4 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy)]
 pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
-    pub CompletionStatus: super::NTSTATUS,
+    pub CompletionStatus: windows_sys::core::NTSTATUS,
     pub FileIdentity: *const core::ffi::c_void,
     pub FileIdentityLength: u32,
 }
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 impl Default for CF_OPERATION_PARAMETERS_0_5 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
-    pub CompletionStatus: super::NTSTATUS,
+    pub CompletionStatus: windows_sys::core::NTSTATUS,
 }
 #[repr(C)]
-#[cfg(all(feature = "bcrypt", feature = "winbase", feature = "winnt"))]
+#[cfg(all(feature = "winbase", feature = "winnt"))]
 #[derive(Clone, Copy, Default)]
 pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
-    pub CompletionStatus: super::NTSTATUS,
+    pub CompletionStatus: windows_sys::core::NTSTATUS,
 }
 pub type CF_OPERATION_RESTART_HYDRATION_FLAGS = u32;
 pub const CF_OPERATION_RESTART_HYDRATION_FLAG_MARK_IN_SYNC: CF_OPERATION_RESTART_HYDRATION_FLAGS = 1;

@@ -5,6 +5,8 @@ pub use literals::*;
 
 pub type BOOL = i32;
 pub type HRESULT = i32;
+pub type NTSTATUS = i32;
+pub type RPC_STATUS = i32;
 pub type PSTR = *mut u8;
 pub type PWSTR = *mut u16;
 pub type PCSTR = *const u8;

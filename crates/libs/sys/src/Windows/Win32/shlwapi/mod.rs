@@ -185,9 +185,9 @@ windows_link::link!("shlwapi.dll" "system" fn SHAnsiToUnicode(pszsrc : windows_s
 #[cfg(feature = "windef")]
 windows_link::link!("shlwapi.dll" "system" fn SHAutoComplete(hwndedit : super::HWND, dwflags : u32) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHCopyKeyA(hkeysrc : super::HKEY, pszsrcsubkey : windows_sys::core::PCSTR, hkeydest : super::HKEY, freserved : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHCopyKeyA(hkeysrc : super::HKEY, pszsrcsubkey : windows_sys::core::PCSTR, hkeydest : super::HKEY, freserved : u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHCopyKeyW(hkeysrc : super::HKEY, pszsrcsubkey : windows_sys::core::PCWSTR, hkeydest : super::HKEY, freserved : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHCopyKeyW(hkeysrc : super::HKEY, pszsrcsubkey : windows_sys::core::PCWSTR, hkeydest : super::HKEY, freserved : u32) -> super::LSTATUS);
 #[cfg(feature = "objidlbase")]
 windows_link::link!("shlwapi.dll" "system" fn SHCreateMemStream(pinit : *const u8, cbinit : u32) -> *mut core::ffi::c_void);
 #[cfg(feature = "windef")]
@@ -204,25 +204,25 @@ windows_link::link!("shlwapi.dll" "system" fn SHCreateThreadRef(pcref : *mut i32
 #[cfg(all(feature = "minwinbase", feature = "winnt"))]
 windows_link::link!("shlwapi.dll" "system" fn SHCreateThreadWithHandle(pfnthreadproc : super::LPTHREAD_START_ROUTINE, pdata : *const core::ffi::c_void, flags : SHCT_FLAGS, pfncallback : super::LPTHREAD_START_ROUTINE, phandle : *mut super::HANDLE) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHDeleteEmptyKeyA(hkey : super::HKEY, pszsubkey : windows_sys::core::PCSTR) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHDeleteEmptyKeyA(hkey : super::HKEY, pszsubkey : windows_sys::core::PCSTR) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHDeleteEmptyKeyW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHDeleteEmptyKeyW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHDeleteKeyA(hkey : super::HKEY, pszsubkey : windows_sys::core::PCSTR) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHDeleteKeyA(hkey : super::HKEY, pszsubkey : windows_sys::core::PCSTR) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHDeleteKeyW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHDeleteKeyW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHDeleteValueA(hkey : super::HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHDeleteValueA(hkey : super::HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHDeleteValueW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHDeleteValueW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHEnumKeyExA(hkey : super::HKEY, dwindex : u32, pszname : windows_sys::core::PSTR, pcchname : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHEnumKeyExA(hkey : super::HKEY, dwindex : u32, pszname : windows_sys::core::PSTR, pcchname : *mut u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHEnumKeyExW(hkey : super::HKEY, dwindex : u32, pszname : windows_sys::core::PWSTR, pcchname : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHEnumKeyExW(hkey : super::HKEY, dwindex : u32, pszname : windows_sys::core::PWSTR, pcchname : *mut u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHEnumValueA(hkey : super::HKEY, dwindex : u32, pszvaluename : windows_sys::core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHEnumValueA(hkey : super::HKEY, dwindex : u32, pszvaluename : windows_sys::core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHEnumValueW(hkey : super::HKEY, dwindex : u32, pszvaluename : windows_sys::core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHEnumValueW(hkey : super::HKEY, dwindex : u32, pszvaluename : windows_sys::core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("shlwapi.dll" "system" fn SHFormatDateTimeA(pft : *const super::FILETIME, pdwflags : *mut u32, pszbuf : windows_sys::core::PSTR, cchbuf : u32) -> i32);
 #[cfg(feature = "minwindef")]
@@ -232,9 +232,9 @@ windows_link::link!("shlwapi.dll" "system" fn SHFreeShared(hdata : super::HANDLE
 windows_link::link!("shlwapi.dll" "system" fn SHGetInverseCMAP(pbmap : *mut u8, cbmap : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("shlwapi.dll" "system" fn SHGetThreadRef(ppunk : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHGetValueA(hkey : super::HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHGetValueA(hkey : super::HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHGetValueW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHGetValueW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
 #[cfg(feature = "shtypes")]
 windows_link::link!("shlwapi.dll" "system" fn SHGetViewStatePropertyBag(pidl : *const super::ITEMIDLIST, pszbagname : windows_sys::core::PCWSTR, dwflags : u32, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("shlwapi.dll" "system" fn SHGlobalCounterDecrement(id : SHGLOBALCOUNTER) -> i32);
@@ -257,79 +257,79 @@ windows_link::link!("shlwapi.dll" "system" fn SHOpenRegStreamA(hkey : super::HKE
 #[cfg(all(feature = "minwindef", feature = "objidlbase"))]
 windows_link::link!("shlwapi.dll" "system" fn SHOpenRegStreamW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, grfmode : u32) -> *mut core::ffi::c_void);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHQueryInfoKeyA(hkey : super::HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHQueryInfoKeyA(hkey : super::HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHQueryInfoKeyW(hkey : super::HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHQueryInfoKeyW(hkey : super::HKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHQueryValueExA(hkey : super::HKEY, pszvalue : windows_sys::core::PCSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHQueryValueExA(hkey : super::HKEY, pszvalue : windows_sys::core::PCSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHQueryValueExW(hkey : super::HKEY, pszvalue : windows_sys::core::PCWSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHQueryValueExW(hkey : super::HKEY, pszvalue : windows_sys::core::PCWSTR, pdwreserved : *const u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegCloseUSKey(huskey : HUSKEY) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegCloseUSKey(huskey : HUSKEY) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegCreateUSKeyA(pszpath : windows_sys::core::PCSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : *mut HUSKEY, dwflags : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegCreateUSKeyA(pszpath : windows_sys::core::PCSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : *mut HUSKEY, dwflags : u32) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegCreateUSKeyW(pwzpath : windows_sys::core::PCWSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : *mut HUSKEY, dwflags : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegCreateUSKeyW(pwzpath : windows_sys::core::PCWSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : *mut HUSKEY, dwflags : u32) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegDeleteEmptyUSKeyA(huskey : HUSKEY, pszsubkey : windows_sys::core::PCSTR, delregflags : SHREGDEL_FLAGS) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegDeleteEmptyUSKeyA(huskey : HUSKEY, pszsubkey : windows_sys::core::PCSTR, delregflags : SHREGDEL_FLAGS) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegDeleteEmptyUSKeyW(huskey : HUSKEY, pwzsubkey : windows_sys::core::PCWSTR, delregflags : SHREGDEL_FLAGS) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegDeleteEmptyUSKeyW(huskey : HUSKEY, pwzsubkey : windows_sys::core::PCWSTR, delregflags : SHREGDEL_FLAGS) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegDeleteUSValueA(huskey : HUSKEY, pszvalue : windows_sys::core::PCSTR, delregflags : SHREGDEL_FLAGS) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegDeleteUSValueA(huskey : HUSKEY, pszvalue : windows_sys::core::PCSTR, delregflags : SHREGDEL_FLAGS) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegDeleteUSValueW(huskey : HUSKEY, pwzvalue : windows_sys::core::PCWSTR, delregflags : SHREGDEL_FLAGS) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegDeleteUSValueW(huskey : HUSKEY, pwzvalue : windows_sys::core::PCWSTR, delregflags : SHREGDEL_FLAGS) -> super::LSTATUS);
 #[cfg(feature = "minwindef")]
 windows_link::link!("shlwapi.dll" "system" fn SHRegDuplicateHKey(hkey : super::HKEY) -> super::HKEY);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegEnumUSKeyA(huskey : HUSKEY, dwindex : u32, pszname : windows_sys::core::PSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegEnumUSKeyA(huskey : HUSKEY, dwindex : u32, pszname : windows_sys::core::PSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegEnumUSKeyW(huskey : HUSKEY, dwindex : u32, pwzname : windows_sys::core::PWSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegEnumUSKeyW(huskey : HUSKEY, dwindex : u32, pwzname : windows_sys::core::PWSTR, pcchname : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegEnumUSValueA(huskey : HUSKEY, dwindex : u32, pszvaluename : windows_sys::core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegEnumUSValueA(huskey : HUSKEY, dwindex : u32, pszvaluename : windows_sys::core::PSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegEnumUSValueW(huskey : HUSKEY, dwindex : u32, pszvaluename : windows_sys::core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegEnumUSValueW(huskey : HUSKEY, dwindex : u32, pszvaluename : windows_sys::core::PWSTR, pcchvaluename : *mut u32, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
 windows_link::link!("shlwapi.dll" "system" fn SHRegGetBoolUSValueA(pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, fignorehkcu : windows_sys::core::BOOL, fdefault : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 windows_link::link!("shlwapi.dll" "system" fn SHRegGetBoolUSValueW(pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, fignorehkcu : windows_sys::core::BOOL, fdefault : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(feature = "minwindef")]
 windows_link::link!("shlwapi.dll" "system" fn SHRegGetIntW(hk : super::HKEY, pwzkey : windows_sys::core::PCWSTR, idefault : i32) -> i32);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegGetPathA(hkey : super::HKEY, pcszsubkey : windows_sys::core::PCSTR, pcszvalue : windows_sys::core::PCSTR, pszpath : windows_sys::core::PSTR, dwflags : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegGetPathA(hkey : super::HKEY, pcszsubkey : windows_sys::core::PCSTR, pcszvalue : windows_sys::core::PCSTR, pszpath : windows_sys::core::PSTR, dwflags : u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegGetPathW(hkey : super::HKEY, pcszsubkey : windows_sys::core::PCWSTR, pcszvalue : windows_sys::core::PCWSTR, pszpath : windows_sys::core::PWSTR, dwflags : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegGetPathW(hkey : super::HKEY, pcszsubkey : windows_sys::core::PCWSTR, pcszvalue : windows_sys::core::PCWSTR, pszpath : windows_sys::core::PWSTR, dwflags : u32) -> super::LSTATUS);
 #[cfg(feature = "winreg")]
-windows_link::link!("shlwapi.dll" "system" fn SHRegGetUSValueA(pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : windows_sys::core::BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegGetUSValueA(pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : windows_sys::core::BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::LSTATUS);
 #[cfg(feature = "winreg")]
-windows_link::link!("shlwapi.dll" "system" fn SHRegGetUSValueW(pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : windows_sys::core::BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegGetUSValueW(pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : windows_sys::core::BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegGetValueA(hkey : super::HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, srrfflags : SRRF, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegGetValueA(hkey : super::HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, srrfflags : SRRF, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
 #[cfg(feature = "winreg")]
-windows_link::link!("shlwapi.dll" "system" fn SHRegGetValueFromHKCUHKLM(pwszkey : windows_sys::core::PCWSTR, pwszvalue : windows_sys::core::PCWSTR, srrfflags : SRRF, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegGetValueFromHKCUHKLM(pwszkey : windows_sys::core::PCWSTR, pwszvalue : windows_sys::core::PCWSTR, srrfflags : SRRF, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegGetValueW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, srrfflags : SRRF, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegGetValueW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, srrfflags : SRRF, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegOpenUSKeyA(pszpath : windows_sys::core::PCSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : *mut HUSKEY, fignorehkcu : windows_sys::core::BOOL) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegOpenUSKeyA(pszpath : windows_sys::core::PCSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : *mut HUSKEY, fignorehkcu : windows_sys::core::BOOL) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegOpenUSKeyW(pwzpath : windows_sys::core::PCWSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : *mut HUSKEY, fignorehkcu : windows_sys::core::BOOL) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegOpenUSKeyW(pwzpath : windows_sys::core::PCWSTR, samdesired : super::REGSAM, hrelativeuskey : HUSKEY, phnewuskey : *mut HUSKEY, fignorehkcu : windows_sys::core::BOOL) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegQueryInfoUSKeyA(huskey : HUSKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegQueryInfoUSKeyA(huskey : HUSKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegQueryInfoUSKeyW(huskey : HUSKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegQueryInfoUSKeyW(huskey : HUSKEY, pcsubkeys : *mut u32, pcchmaxsubkeylen : *mut u32, pcvalues : *mut u32, pcchmaxvaluenamelen : *mut u32, enumregflags : SHREGENUM_FLAGS) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegQueryUSValueA(huskey : HUSKEY, pszvalue : windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : windows_sys::core::BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegQueryUSValueA(huskey : HUSKEY, pszvalue : windows_sys::core::PCSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : windows_sys::core::BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegQueryUSValueW(huskey : HUSKEY, pszvalue : windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : windows_sys::core::BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegQueryUSValueW(huskey : HUSKEY, pszvalue : windows_sys::core::PCWSTR, pdwtype : *mut u32, pvdata : *mut core::ffi::c_void, pcbdata : *mut u32, fignorehkcu : windows_sys::core::BOOL, pvdefaultdata : *const core::ffi::c_void, dwdefaultdatasize : u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegSetPathA(hkey : super::HKEY, pcszsubkey : windows_sys::core::PCSTR, pcszvalue : windows_sys::core::PCSTR, pcszpath : windows_sys::core::PCSTR, dwflags : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegSetPathA(hkey : super::HKEY, pcszsubkey : windows_sys::core::PCSTR, pcszvalue : windows_sys::core::PCSTR, pcszpath : windows_sys::core::PCSTR, dwflags : u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegSetPathW(hkey : super::HKEY, pcszsubkey : windows_sys::core::PCWSTR, pcszvalue : windows_sys::core::PCWSTR, pcszpath : windows_sys::core::PCWSTR, dwflags : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegSetPathW(hkey : super::HKEY, pcszsubkey : windows_sys::core::PCWSTR, pcszvalue : windows_sys::core::PCWSTR, pcszpath : windows_sys::core::PCWSTR, dwflags : u32) -> super::LSTATUS);
 #[cfg(feature = "winreg")]
-windows_link::link!("shlwapi.dll" "system" fn SHRegSetUSValueA(pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegSetUSValueA(pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::LSTATUS);
 #[cfg(feature = "winreg")]
-windows_link::link!("shlwapi.dll" "system" fn SHRegSetUSValueW(pwzsubkey : windows_sys::core::PCWSTR, pwzvalue : windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegSetUSValueW(pwzsubkey : windows_sys::core::PCWSTR, pwzvalue : windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegWriteUSValueA(huskey : HUSKEY, pszvalue : windows_sys::core::PCSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegWriteUSValueA(huskey : HUSKEY, pszvalue : windows_sys::core::PCSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::LSTATUS);
 #[cfg(all(feature = "winnt", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHRegWriteUSValueW(huskey : HUSKEY, pwzvalue : windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHRegWriteUSValueW(huskey : HUSKEY, pwzvalue : windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32, dwflags : u32) -> super::LSTATUS);
 windows_link::link!("shlwapi.dll" "system" fn SHReleaseThreadRef() -> windows_sys::core::HRESULT);
 #[cfg(feature = "minwindef")]
 windows_link::link!("shlwapi.dll" "system" fn SHSendMessageBroadcastA(umsg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
@@ -337,9 +337,9 @@ windows_link::link!("shlwapi.dll" "system" fn SHSendMessageBroadcastA(umsg : u32
 windows_link::link!("shlwapi.dll" "system" fn SHSendMessageBroadcastW(umsg : u32, wparam : super::WPARAM, lparam : super::LPARAM) -> super::LRESULT);
 windows_link::link!("shlwapi.dll" "system" fn SHSetThreadRef(punk : *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHSetValueA(hkey : super::HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHSetValueA(hkey : super::HKEY, pszsubkey : windows_sys::core::PCSTR, pszvalue : windows_sys::core::PCSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32) -> super::LSTATUS);
 #[cfg(all(feature = "minwindef", feature = "winreg"))]
-windows_link::link!("shlwapi.dll" "system" fn SHSetValueW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32) -> super::WIN32_ERROR);
+windows_link::link!("shlwapi.dll" "system" fn SHSetValueW(hkey : super::HKEY, pszsubkey : windows_sys::core::PCWSTR, pszvalue : windows_sys::core::PCWSTR, dwtype : u32, pvdata : *const core::ffi::c_void, cbdata : u32) -> super::LSTATUS);
 #[cfg(feature = "objidl")]
 windows_link::link!("shlwapi.dll" "system" fn SHSkipJunction(pbc : *mut core::ffi::c_void, pclsid : *const windows_sys::core::GUID) -> windows_sys::core::BOOL);
 windows_link::link!("shlwapi.dll" "system" fn SHStrDupA(psz : windows_sys::core::PCSTR, ppwsz : *mut windows_sys::core::PWSTR) -> windows_sys::core::HRESULT);

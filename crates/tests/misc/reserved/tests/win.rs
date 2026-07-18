@@ -30,11 +30,11 @@ fn test() -> Result<()> {
                 ACCESS_MASK(KEY_QUERY_VALUE),
                 &mut key,
             )
-            .0,
+            .0 as u32,
         )
         .ok()?;
         let mut len = 0;
-        WIN32_ERROR(RegQueryValueExA(key, s!("Content Type"), None, None, None, &mut len).0)
+        WIN32_ERROR(RegQueryValueExA(key, s!("Content Type"), None, None, None, &mut len).0 as u32)
             .ok()?;
         let mut buffer = vec![0u8; (len) as usize];
         WIN32_ERROR(
@@ -46,7 +46,7 @@ fn test() -> Result<()> {
                 Some(buffer.as_mut_ptr() as _),
                 &mut len,
             )
-            .0,
+            .0 as u32,
         )
         .ok()?;
         assert_eq!(String::from_utf8_lossy(&buffer), "text/plain\0");

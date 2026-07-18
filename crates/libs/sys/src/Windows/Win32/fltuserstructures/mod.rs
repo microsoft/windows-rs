@@ -103,10 +103,9 @@ pub struct FILTER_MESSAGE_HEADER {
 }
 pub const FILTER_NAME_MAX_CHARS: u32 = 255;
 #[repr(C)]
-#[cfg(feature = "bcrypt")]
 #[derive(Clone, Copy, Default)]
 pub struct FILTER_REPLY_HEADER {
-    pub Status: super::NTSTATUS,
+    pub Status: windows_sys::core::NTSTATUS,
     pub MessageId: u64,
 }
 #[repr(C)]
@@ -279,7 +278,6 @@ pub type PFILTER_AGGREGATE_STANDARD_INFORMATION = *mut FILTER_AGGREGATE_STANDARD
 pub type PFILTER_FULL_INFORMATION = *mut FILTER_FULL_INFORMATION;
 pub type PFILTER_INFORMATION_CLASS = *mut FILTER_INFORMATION_CLASS;
 pub type PFILTER_MESSAGE_HEADER = *mut FILTER_MESSAGE_HEADER;
-#[cfg(feature = "bcrypt")]
 pub type PFILTER_REPLY_HEADER = *mut FILTER_REPLY_HEADER;
 pub type PFILTER_VOLUME_BASIC_INFORMATION = *mut FILTER_VOLUME_BASIC_INFORMATION;
 pub type PFILTER_VOLUME_INFORMATION_CLASS = *mut FILTER_VOLUME_INFORMATION_CLASS;

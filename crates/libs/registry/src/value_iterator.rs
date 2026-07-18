@@ -65,7 +65,7 @@ impl Iterator for ValueIterator<'_> {
             };
 
             if result != 0 {
-                debug_assert_eq!(result, ERROR_NO_MORE_ITEMS);
+                debug_assert_eq!(result as u32, ERROR_NO_MORE_ITEMS);
                 None
             } else {
                 let name = String::from_utf16_lossy(&self.name[0..name_len as usize]);

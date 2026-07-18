@@ -743,3 +743,68 @@ None of these block use of the crate.
 - **IDL as the COM source of truth (future direction).** Parsing `.idl` (or `midl` output)
   directly would recover the pointer-shape attributes headers don't express as SAL
   (`[unique]`/`[length_is]`/`[iid_is]`), keeping the header path for flat C APIs.
+
+## Open investigation — flat `Windows.Win32` namespace collisions (module flattening)
+
+The module-flattening work (published `windows`/`windows-sys` re-export every per-header stem
+via `pub use <stem>::*` from a single `Win32`/`Wdk` container so the public path is
+`windows::Win32::<Type>`) surfaced a handful of name collisions that the deep or per-stem
+layout previously kept apart. Full-workspace validation is green, but several of the collisions
+are papered over rather than fixed. This section tracks them for follow-up.
+
+- **`WIN32_ERROR` is a synthetic type we invent, not an SDK type — remove the remnant.** No
+  `WIN32_ERROR` exists in the scraped SDK headers: registry (`Reg*`) and `shlwapi` APIs return
+  `LSTATUS` (`typedef LONG LSTATUS`, i.e. `i32`). `windows-clang` deliberately remaps
+  `LSTATUS` → a synthetic `type WIN32_ERROR = u32` in `canon.rs::error_code_typedef`
+  (`crates/libs/clang/src/canon.rs:414-427`), applied at both the typedef definition
+  (`typedef.rs:22`) and every reference. It lands in the flat `Windows.Win32` namespace
+  (`metadata/win32/winreg.rdl:292 type WIN32_ERROR = u32`, also used across `shlwapi.rdl`). This
+  is a remnant of the old **win32metadata** project's invented error-code domain (the reference
+  it was matching). Because it is a distinct Win32 projection type, it collides by name with the
+  real `windows_core::WIN32_ERROR` (from `windows-result`, the rich newtype with `.ok()` /
+  `.to_hresult()` / `From<_> for Error`). Any `use windows::{core::*, Win32::*};` then hits
+  `error[E0659]: WIN32_ERROR is ambiguous` when the name is referenced. **Action:** drop the
+  `LSTATUS` → `WIN32_ERROR` remap (scrape `LSTATUS` faithfully, or map it to
+  `windows_core::WIN32_ERROR`) so no second `WIN32_ERROR` definition is emitted.
+
+- **`NTSTATUS` / `RPC_STATUS` core-type mapping is broken by the in-house-metadata migration.**
+  These are *real* SDK typedefs (`bcrypt.rdl:1001 type NTSTATUS = i32`,
+  `rpc.rdl:5 type RPC_STATUS = i32`) with rich equivalents in `windows-core`. `windows-bindgen`
+  is supposed to collapse them onto the core types, but the only mapping that still targets them
+  is the *namespace-path* reference remap in `crates/libs/bindgen/src/lib.rs:473-481`, keyed on
+  the **win32metadata** namespaces `Windows.Win32.Foundation.NTSTATUS` and
+  `Windows.Win32.System.Rpc.RPC_STATUS`. The in-house metadata is flat — everything is
+  `Windows.Win32.*` (no `Foundation` / `System.Rpc` sub-namespaces) — so that filter never
+  matches and the types fall through to locally-generated `pub struct NTSTATUS(pub i32)` /
+  `pub struct RPC_STATUS(pub i32)` (in the `bcrypt` / `rpc` stems), colliding with
+  `windows_core::{NTSTATUS, RPC_STATUS}`. Contrast `HRESULT`/`BOOL`/`PWSTR`/`GUID`/etc., which
+  are mapped **by name** (namespace-independent) in `crates/libs/bindgen/src/types/mod.rs:220-235`
+  and therefore still resolve correctly against the flat metadata — `NTSTATUS` and `RPC_STATUS`
+  are simply *missing from that list*. **Action:** add `NTSTATUS` and `RPC_STATUS` to the
+  name-based `remap` in `types/mod.rs`, and delete the now-dead namespace-path block in
+  `lib.rs:473-481`.
+
+- **`#![allow(ambiguous_glob_reexports)]` on `Win32`/`Wdk` hides real bugs — aim to remove it.**
+  The flat container carries a blanket allow so genuine cross-stem duplicate definitions compile.
+  Today it masks exactly **one** real intra-Win32 duplicate: `Network` — a `const` defined in both
+  `devicetopology` (`ConnectorType.Network`) and `ntsecapi` (`SECURITY_LOGON_TYPE.Network`). The
+  flat `windows::Win32::Network` is therefore ambiguous and unreachable (callers must qualify
+  `Win32::devicetopology::Network`). A blanket allow also silently swallows any *future* collision
+  an SDK update introduces. **Action:** resolve `Network` at the source (rename/suppress one, or
+  accept only the stem-qualified path) and drop the allow so the lint again flags real collisions.
+  (The three core-vs-`Win32` collisions above are a separate axis — `allow` does not cover them,
+  since one side lives in `windows-core`; fixing the two bindgen items removes them.)
+
+- **The "injected" `pub use core::option::Option::None;` in `Win32/mod.rs` is a workaround, not
+  a fix.** It exists solely to shadow a top-level `pub const None: RoErrorReportingFlags = 0;`
+  emitted by the `ro` stem (the `RoErrorReportingFlags` enum's `None` member, flattened to a free
+  constant). Without the shadow, `use windows::Win32::*;` would pull that `None` into scope and
+  break every `None` meaning `Option::None`. This is suspicious: a single flattened enum member
+  is silently overriding a prelude name for the entire projection. **Action:** investigate why
+  `RoErrorReportingFlags` members are emitted as free constants at the flat level (vs scoped to
+  the type), and prefer fixing the source over injecting a prelude re-export.
+
+Net: once `WIN32_ERROR` is de-invented and `NTSTATUS`/`RPC_STATUS` are re-mapped to core, the
+only remaining flat-namespace collision is `Network`; resolving that would let the
+`ambiguous_glob_reexports` allow (and, ideally, the `None` shadow) be removed, restoring the flat
+`Windows.Win32` namespace to a genuinely collision-free surface.
