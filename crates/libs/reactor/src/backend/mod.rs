@@ -11,6 +11,12 @@ mod winui;
 
 pub use winui::WinUIBackend;
 
+/// `E_INVALIDARG` — composition-interop calls return this for an unknown control id.
+const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x8007_0057u32 as _);
+
+/// `E_NOTIMPL` — the composition-interop seam's default for backends without it.
+const E_NOTIMPL: windows_core::HRESULT = windows_core::HRESULT(0x8000_4001u32 as _);
+
 /// Opaque, non-zero handle the backend assigns to every live control.
 #[derive(Copy, Clone, Eq, PartialEq, Hash, Debug)]
 pub struct ControlId(pub NonZeroU32);
@@ -534,6 +540,32 @@ pub trait Backend {
     /// Returns `None` on non-WinUI backends or if `id` is invalid.
     fn get_native_element(&self, _id: ControlId) -> Option<windows_core::IInspectable> {
         None
+    }
+
+    /// Composition-interop seam: return the `Compositor` that owns `host`'s
+    /// element visual, wrapped as an `IInspectable` so the caller can cast it and
+    /// build *same-compositor* child visuals. Returns `E_INVALIDARG` for an
+    /// unknown control id (or `E_NOTIMPL` on a backend without composition).
+    fn element_compositor(&self, _host: ControlId) -> Result<windows_core::IInspectable> {
+        Err(Error::from_hresult(E_NOTIMPL))
+    }
+
+    /// Composition-interop seam: the element's rasterization (DPI) scale, so a
+    /// hosted composition surface can be sized crisply. `1.0` when unknown.
+    fn element_rasterization_scale(&self, _host: ControlId) -> f32 {
+        1.0
+    }
+
+    /// Composition-interop seam: attach `visual` as `host`'s child visual
+    /// (hosting a custom composition island under a plain element). Returns
+    /// `E_INVALIDARG` for an unknown control id (or `E_NOTIMPL` on a backend
+    /// without composition).
+    fn set_element_child_visual(
+        &mut self,
+        _host: ControlId,
+        _visual: &windows_core::IInspectable,
+    ) -> Result<()> {
+        Err(Error::from_hresult(E_NOTIMPL))
     }
 }
 

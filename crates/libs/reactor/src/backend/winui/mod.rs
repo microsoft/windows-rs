@@ -3257,6 +3257,44 @@ impl Backend for WinUIBackend {
     fn get_native_element(&self, id: ControlId) -> Option<windows_core::IInspectable> {
         self.get_ui_element(id)
     }
+
+    fn element_compositor(&self, host: ControlId) -> Result<windows_core::IInspectable> {
+        let map = self.controls.borrow();
+        let handle = map
+            .get(&host)
+            .ok_or_else(|| Error::from_hresult(E_INVALIDARG))?;
+        let ui = handle.as_ui_element();
+        let visual = bindings::ElementCompositionPreview::GetElementVisual(&ui)?;
+        let compositor = visual
+            .cast::<bindings::ICompositionObject>()?
+            .Compositor()?;
+        compositor.cast()
+    }
+
+    fn element_rasterization_scale(&self, host: ControlId) -> f32 {
+        let map = self.controls.borrow();
+        let Some(handle) = map.get(&host) else {
+            return 1.0;
+        };
+        handle
+            .as_ui_element()
+            .RasterizationScale()
+            .map_or(1.0, |s| s as f32)
+    }
+
+    fn set_element_child_visual(
+        &mut self,
+        host: ControlId,
+        visual: &windows_core::IInspectable,
+    ) -> Result<()> {
+        let map = self.controls.borrow();
+        let handle = map
+            .get(&host)
+            .ok_or_else(|| Error::from_hresult(E_INVALIDARG))?;
+        let ui = handle.as_ui_element();
+        let visual = visual.cast::<bindings::Visual>()?;
+        bindings::ElementCompositionPreview::SetElementChildVisual(&ui, &visual)
+    }
 }
 
 const FORMAT_TEXT: &str = "Text";

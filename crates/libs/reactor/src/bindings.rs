@@ -7,6 +7,21 @@ windows_core::link!("user32.dll" "system" fn PostMessageW(hwnd : HWND, msg : u32
 windows_core::link!("user32.dll" "system" fn SetProcessDpiAwarenessContext(value : DPI_AWARENESS_CONTEXT) -> windows_core::BOOL);
 windows_core::link!("user32.dll" "system" fn SetWindowPos(hwnd : HWND, hwndinsertafter : HWND, x : i32, y : i32, cx : i32, cy : i32, uflags : u32) -> windows_core::BOOL);
 #[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct AnimationIterationBehavior(pub i32);
+impl AnimationIterationBehavior {
+    pub const Count: Self = Self(0);
+    pub const Forever: Self = Self(1);
+}
+impl windows_core::TypeKind for AnimationIterationBehavior {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for AnimationIterationBehavior {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(
+        b"enum(Microsoft.UI.Composition.AnimationIterationBehavior;i4)",
+    );
+}
+#[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct AppBar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBar, windows_core::IUnknown, windows_core::IInspectable);
@@ -1882,6 +1897,62 @@ unsafe impl Send for CompositionAnimation {}
 unsafe impl Sync for CompositionAnimation {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct CompositionBrush(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    CompositionBrush,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(CompositionBrush, CompositionObject);
+impl windows_core::RuntimeType for CompositionBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ICompositionBrush>();
+}
+unsafe impl windows_core::Interface for CompositionBrush {
+    type Vtable = <ICompositionBrush as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ICompositionBrush as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for CompositionBrush {
+    type Target = ICompositionBrush;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for CompositionBrush {
+    const NAME: &'static str = "Microsoft.UI.Composition.CompositionBrush";
+}
+unsafe impl Send for CompositionBrush {}
+unsafe impl Sync for CompositionBrush {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct CompositionColorBrush(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    CompositionColorBrush,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(CompositionColorBrush, CompositionBrush, CompositionObject);
+impl windows_core::RuntimeType for CompositionColorBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ICompositionColorBrush>();
+}
+unsafe impl windows_core::Interface for CompositionColorBrush {
+    type Vtable = <ICompositionColorBrush as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ICompositionColorBrush as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for CompositionColorBrush {
+    type Target = ICompositionColorBrush;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for CompositionColorBrush {
+    const NAME: &'static str = "Microsoft.UI.Composition.CompositionColorBrush";
+}
+unsafe impl Send for CompositionColorBrush {}
+unsafe impl Sync for CompositionColorBrush {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionEasingFunction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     CompositionEasingFunction,
@@ -2061,6 +2132,34 @@ impl windows_core::RuntimeName for ContainerContentChangingEventArgs {
 }
 unsafe impl Send for ContainerContentChangingEventArgs {}
 unsafe impl Sync for ContainerContentChangingEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ContainerVisual(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ContainerVisual,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(ContainerVisual, Visual, CompositionObject);
+impl windows_core::RuntimeType for ContainerVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IContainerVisual>();
+}
+unsafe impl windows_core::Interface for ContainerVisual {
+    type Vtable = <IContainerVisual as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IContainerVisual as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ContainerVisual {
+    type Target = IContainerVisual;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ContainerVisual {
+    const NAME: &'static str = "Microsoft.UI.Composition.ContainerVisual";
+}
+unsafe impl Send for ContainerVisual {}
+unsafe impl Sync for ContainerVisual {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ContentControl(windows_core::IUnknown);
@@ -2918,6 +3017,20 @@ impl ElementCompositionPreview {
                 &mut result__,
             )
             .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub(crate) fn SetElementChildVisual<P0, P1>(element: P0, visual: P1) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<UIElement>,
+        P1: windows_core::Param<Visual>,
+    {
+        Self::IElementCompositionPreviewStatics(|this| unsafe {
+            (windows_core::Interface::vtable(this).SetElementChildVisual)(
+                windows_core::Interface::as_raw(this),
+                element.param().abi(),
+                visual.param().abi(),
+            )
+            .ok()
         })
     }
     fn IElementCompositionPreviewStatics<
@@ -6267,6 +6380,32 @@ pub struct ICompositionAnimationBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
+    ICompositionBrush,
+    ICompositionBrush_Vtbl,
+    0x483924e7_99a5_5377_968b_dec6d40bbccd
+);
+impl windows_core::RuntimeType for ICompositionBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ICompositionBrush_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    ICompositionColorBrush,
+    ICompositionColorBrush_Vtbl,
+    0x3f8ffb69_3e71_55a7_8e79_f27a214c56ae
+);
+impl windows_core::RuntimeType for ICompositionColorBrush {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ICompositionColorBrush_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
     ICompositionEasingFunction,
     ICompositionEasingFunction_Vtbl,
     0x8e1ecd0d_57d8_5bc9_9bcd_e43d0dd733c4
@@ -6408,6 +6547,20 @@ impl windows_core::RuntimeType for ICompositor {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ICompositor {
+    pub(crate) fn CreateColorBrushWithColor(
+        &self,
+        color: Color,
+    ) -> windows_core::Result<CompositionColorBrush> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateColorBrushWithColor)(
+                windows_core::Interface::as_raw(self),
+                color,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn CreateCubicBezierEasingFunction(
         &self,
         controlpoint1: windows_numerics::Vector2,
@@ -6446,6 +6599,16 @@ impl ICompositor {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub(crate) fn CreateSpriteVisual(&self) -> windows_core::Result<SpriteVisual> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateSpriteVisual)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn CreateVector3KeyFrameAnimation(
         &self,
     ) -> windows_core::Result<Vector3KeyFrameAnimation> {
@@ -6464,7 +6627,11 @@ pub struct ICompositor_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     CreateColorKeyFrameAnimation: usize,
     CreateColorBrush: usize,
-    CreateColorBrushWithColor: usize,
+    pub CreateColorBrushWithColor: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        Color,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CreateContainerVisual: usize,
     pub CreateCubicBezierEasingFunction: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -6489,7 +6656,10 @@ pub struct ICompositor_Vtbl {
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     CreateScopedBatch: usize,
-    CreateSpriteVisual: usize,
+    pub CreateSpriteVisual: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CreateSurfaceBrush: usize,
     CreateSurfaceBrushWithSurface: usize,
     CreateVector2KeyFrameAnimation: usize,
@@ -6600,6 +6770,19 @@ pub struct IContainerContentChangingEventArgs_Vtbl {
     Handled: usize,
     pub SetHandled:
         unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IContainerVisual,
+    IContainerVisual_Vtbl,
+    0xc70dbce1_2c2f_5d8e_91a4_aae1121e6186
+);
+impl windows_core::RuntimeType for IContainerVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IContainerVisual_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
     IContentControl,
@@ -7787,6 +7970,12 @@ pub struct IElementCompositionPreviewStatics_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    GetElementChildVisual: usize,
+    pub SetElementChildVisual: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -9113,6 +9302,18 @@ impl IKeyFrameAnimation {
             .ok()
         }
     }
+    pub(crate) fn SetIterationBehavior(
+        &self,
+        value: AnimationIterationBehavior,
+    ) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIterationBehavior)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn InsertExpressionKeyFrameWithEasingFunction<P2>(
         &self,
         normalizedprogresskey: f32,
@@ -9144,7 +9345,10 @@ pub struct IKeyFrameAnimation_Vtbl {
         windows_time::TimeSpan,
     ) -> windows_core::HRESULT,
     IterationBehavior: usize,
-    SetIterationBehavior: usize,
+    pub SetIterationBehavior: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        AnimationIterationBehavior,
+    ) -> windows_core::HRESULT,
     IterationCount: usize,
     SetIterationCount: usize,
     KeyFrameCount: usize,
@@ -13643,6 +13847,38 @@ pub struct ISplitViewFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    ISpriteVisual,
+    ISpriteVisual_Vtbl,
+    0x7e964632_45e4_5761_806d_5b4022c14f26
+);
+impl windows_core::RuntimeType for ISpriteVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl ISpriteVisual {
+    pub(crate) fn SetBrush<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<CompositionBrush>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetBrush)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ISpriteVisual_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Brush: usize,
+    pub SetBrush: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     IStackPanel,
     IStackPanel_Vtbl,
     0x493ab00b_3a6a_5e4a_9452_407cd5197406
@@ -16182,6 +16418,16 @@ impl IUIElement {
             .ok()
         }
     }
+    pub(crate) fn RasterizationScale(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RasterizationScale)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn DragEnter<F>(
         &self,
         handler: F,
@@ -16642,7 +16888,8 @@ pub struct IUIElement_Vtbl {
     ) -> windows_core::HRESULT,
     Shadow: usize,
     SetShadow: usize,
-    RasterizationScale: usize,
+    pub RasterizationScale:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
     SetRasterizationScale: usize,
     FocusState: usize,
     UseSystemFocusVisuals: usize,
@@ -16902,6 +17149,24 @@ impl IVisual {
             .ok()
         }
     }
+    pub(crate) fn SetOffset(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetOffset)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
+    pub(crate) fn SetRotationAngleInDegrees(&self, value: f32) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetRotationAngleInDegrees)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn Scale(&self) -> windows_core::Result<windows_numerics::Vector3> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -16910,6 +17175,15 @@ impl IVisual {
                 &mut result__,
             )
             .map(|| result__)
+        }
+    }
+    pub(crate) fn SetSize(&self, value: windows_numerics::Vector2) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetSize)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
         }
     }
 }
@@ -16934,7 +17208,10 @@ pub struct IVisual_Vtbl {
     IsVisible: usize,
     SetIsVisible: usize,
     Offset: usize,
-    SetOffset: usize,
+    pub SetOffset: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_numerics::Vector3,
+    ) -> windows_core::HRESULT,
     Opacity: usize,
     SetOpacity: usize,
     Orientation: usize,
@@ -16943,12 +17220,19 @@ pub struct IVisual_Vtbl {
     RotationAngle: usize,
     SetRotationAngle: usize,
     RotationAngleInDegrees: usize,
-    SetRotationAngleInDegrees: usize,
+    pub SetRotationAngleInDegrees:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     RotationAxis: usize,
     SetRotationAxis: usize,
     pub Scale: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut windows_numerics::Vector3,
+    ) -> windows_core::HRESULT,
+    SetScale: usize,
+    Size: usize,
+    pub SetSize: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_numerics::Vector2,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -21657,6 +21941,34 @@ impl windows_core::RuntimeType for SplitViewDisplayMode {
         b"enum(Microsoft.UI.Xaml.Controls.SplitViewDisplayMode;i4)",
     );
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct SpriteVisual(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    SpriteVisual,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(SpriteVisual, ContainerVisual, Visual, CompositionObject);
+impl windows_core::RuntimeType for SpriteVisual {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ISpriteVisual>();
+}
+unsafe impl windows_core::Interface for SpriteVisual {
+    type Vtable = <ISpriteVisual as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ISpriteVisual as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for SpriteVisual {
+    type Target = ISpriteVisual;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for SpriteVisual {
+    const NAME: &'static str = "Microsoft.UI.Composition.SpriteVisual";
+}
+unsafe impl Send for SpriteVisual {}
+unsafe impl Sync for SpriteVisual {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct StackPanel(windows_core::IUnknown);

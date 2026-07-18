@@ -100,3 +100,28 @@ fn control_id_display_includes_hash_prefix() {
 fn control_id_zero_panics() {
     let _ = ControlId::new(0);
 }
+
+// Composition-interop seam (`element_compositor` / `element_rasterization_scale`
+// / `set_element_child_visual`): the live WinUI behavior needs a real element, so
+// this only locks the backend-agnostic *default* contract — an unsupported backend
+// reports a typed error / neutral scale rather than panicking.
+#[test]
+fn composition_interop_seam_default_contract() {
+    let mut b = RecordingBackend::new();
+    let id = b.create(ControlKind::Border);
+
+    assert!(
+        b.element_compositor(id).is_err(),
+        "default element_compositor must be a typed error, not a panic"
+    );
+    assert_eq!(
+        b.element_rasterization_scale(id),
+        1.0,
+        "default rasterization scale must be neutral 1.0"
+    );
+    let visual = test_reactor::stub_native_element();
+    assert!(
+        b.set_element_child_visual(id, &visual).is_err(),
+        "default set_element_child_visual must be a typed error, not a panic"
+    );
+}

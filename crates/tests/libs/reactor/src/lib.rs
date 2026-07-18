@@ -173,7 +173,7 @@ pub struct RecordingBackend {
 /// concrete `IInspectable` works — the reconciler only forwards it opaquely to
 /// mount / unmount callbacks — so a boxed `IReference<i32>` is the cheapest
 /// dependency-free choice (the real WinUI backend returns the XAML element).
-fn stub_native_element() -> windows_core::IInspectable {
+pub fn stub_native_element() -> windows_core::IInspectable {
     windows_reference::IReference::<i32>::from(0).into()
 }
 

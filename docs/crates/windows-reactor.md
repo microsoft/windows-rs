@@ -206,6 +206,8 @@ tree is the best reference:
   `tictactoe`, `dotsweeper`.
 - **`gallery`** — a WinUI-gallery-style shell with navigation across many controls.
 - **`direct2d`** / **`swap_chain_panel`** — hosting Direct2D / Direct3D content.
+- **`composition_island`** — hosting a spinning composition `SpriteVisual` under a
+  reactor element via the composition-interop seam, with no raw `windows` crate use.
 - **`webview`** — hosting a WebView2 browser via `windows-webview`'s `reactor` feature.
 - **`framework_dependent`** / **`self_contained`** — the two deployment models,
   differing only in `build.rs`.
@@ -810,27 +812,76 @@ landed; *(gap)* items are still outstanding.
    canvas-backed on-demand surface (shared device + safe drawing into a
    `SurfaceImageSource`) would let such apps avoid the `windows` crate entirely.
 
-5. **No general composition-interop seam for hosting GPU / Direct2D content
-   *(gap)*.** Hosting GPU-drawn content requires reaching the
-   Windows.UI.Composition layer *under an arbitrary reactor element*: attach a
-   custom `Visual` (`ElementCompositionPreview.SetElementChildVisual`), obtain the
-   `Compositor` that owns the element's visual so it can build *same-compositor*
-   child visuals, and read the element's rasterization (DPI) scale so the
-   composition surface is crisp. Reactor already drives this plumbing internally
-   for its opacity/scale transitions — `ElementCompositionPreview::GetElementVisual`
-   plus `Visual.Compositor()` (`backend/winui/mod.rs:603`, `:612`, `:667`) — but it
-   is `pub(crate)` and single-purpose, and the two other pieces aren't even bound:
-   `SetElementChildVisual` is absent from `bindings.rs` (only `GetElementVisual`
-   is) and `RasterizationScale` is a `usize` vtable stub (`bindings.rs:16313`). The
-   dedicated `SwapChainPanel` widget (`widgets/swap_chain_panel.rs`) already covers
-   the DXGI-swap-chain case via `ISwapChainPanelNative::SetSwapChain`, but there is
-   no seam for the *composition-visual* case — hosting a custom composition island
-   (custom-drawn / off-thread animated content) under a plain host element. Filling
-   this means exposing three `Backend` methods — `element_compositor(host)`,
-   `element_rasterization_scale(host)` (default `1.0`), and
-   `set_element_child_visual(host, visual)` — binding `SetElementChildVisual` and
-   `RasterizationScale`, and returning `E_INVALIDARG` (not `panic!`) for an unknown
-   control id.
+5. **Composition-interop seam for hosting GPU / Direct2D content *(fixed)*.**
+   Hosting GPU-drawn content requires reaching the Windows.UI.Composition layer
+   *under an arbitrary reactor element*: attach a custom `Visual`
+   (`ElementCompositionPreview.SetElementChildVisual`), obtain the `Compositor`
+   that owns the element's visual so it can build *same-compositor* child visuals,
+   and read the element's rasterization (DPI) scale so the composition surface is
+   crisp. Reactor already drove the first piece internally for its opacity/scale
+   transitions (`ElementCompositionPreview::GetElementVisual` plus
+   `Visual.Compositor()` in `backend/winui/mod.rs`), but the other two weren't
+   bound: `SetElementChildVisual` was absent from `bindings.rs` and
+   `RasterizationScale` was a `usize` vtable stub. The dedicated `SwapChainPanel`
+   widget (`widgets/swap_chain_panel.rs`) already covers the DXGI-swap-chain case
+   via `ISwapChainPanelNative::SetSwapChain`, but there was no seam for the
+   *composition-visual* case — hosting a custom composition island (custom-drawn /
+   off-thread animated content) under a plain host element.
+
+   **Engine seam.** `SetElementChildVisual` (on `ElementCompositionPreview`) and
+   `get_RasterizationScale` (on `IUIElement`) are un-stubbed in the reactor
+   bindings filter (`crates/tools/reactor/src/base.txt`), and the `Backend` trait
+   exposes three methods (`backend/mod.rs`) — `element_compositor(host)` (returns
+   the owning `Compositor` as an `IInspectable` the caller casts to build
+   same-compositor child visuals), `element_rasterization_scale(host)` (the
+   element's DPI scale, `1.0` when unknown), and
+   `set_element_child_visual(host, visual)`. The WinUI backend implements them over
+   the existing `GetElementVisual`/`Compositor` plumbing and returns `E_INVALIDARG`
+   (not `panic!`) for an unknown control id; other backends inherit defaults that
+   return `E_NOTIMPL` / `1.0`. The backend-agnostic default contract is covered by
+   `test_reactor::composition_interop_seam_default_contract`.
+
+   **App-facing surface.** The engine seam is keyed by `ControlId`, which apps
+   never hold, so a higher-level handle sits on top. The `CompositionHost` widget
+   (`widgets/composition_host.rs`, mirroring `swap_chain_panel.rs`) is backed by
+   the existing `ControlKind::Canvas` — no new backend `ControlKind`/`Handle` is
+   needed, since mount/unmount dispatch is generic over `Widget` and
+   `get_native_element` returns the native element for any control. Its
+   `on_mounted` callback hands the app a `CompositionHostHandle` wrapping the
+   mounted element, exposing safe methods: `rasterization_scale() -> Result<f32>`
+   and `set_color_island(&ColorIsland)`, which builds a same-compositor
+   `SpriteVisual` + `CompositionColorBrush`, sizes it in DIPs with its rotation
+   pivot at its center, attaches it via
+   `ElementCompositionPreview::SetElementChildVisual`, and — when
+   `ColorIsland::spin` is set — starts a forever `RotationAngleInDegrees` animation
+   (`ScalarKeyFrameAnimation`, linear easing,
+   `AnimationIterationBehavior::Forever`). The `reactor_samples`
+   `composition_island` example demonstrates the whole path with no dependency on
+   the raw `windows` crate.
+
+   **Relationship to `windows-canvas`.** This is the *composition-visual* seam,
+   distinct from the *swap-chain* one:
+   [`windows-canvas`](windows-canvas.md)'s `animated_canvas` hosts a continuously
+   rendered DXGI swap chain via `SwapChainPanel`/`SwapChainPanelHandle::set_swap_chain`
+   (and reads DPI through the panel-specific `CompositionScaleX/Y`), whereas
+   `CompositionHost` attaches a composition `Visual` under a plain element via
+   `SetElementChildVisual` (and reads DPI through `IUIElement::RasterizationScale`).
+   They don't overlap or share bindings — canvas generates its own `bindings.rs`
+   from `canvas.txt`, independent of the reactor filter. Use `animated_canvas` for
+   GPU-drawn frames; use `CompositionHost` to host a custom composition island.
+
+   The composition-visual APIs the handle needs are bound through the
+   `Microsoft::UI::Composition` section of `base.txt`
+   (`ICompositor::{CreateSpriteVisual, CreateColorBrushWithColor}`,
+   `ISpriteVisual::put_Brush`, `IVisual::{put_Size, put_Offset,
+   put_RotationAngleInDegrees}`, `IKeyFrameAnimation::put_IterationBehavior`, plus
+   the `SpriteVisual`, `CompositionColorBrush`, `CompositionBrush`, and
+   `AnimationIterationBehavior` types). Composition types live in
+   `Microsoft.UI.winmd` (already an `--in` input); the visual layer is
+   `Microsoft.UI.Composition`, not `Windows.UI.Composition`, under WinUI 3.
+   Parent-class conversions have no generated `CanInto` impls under `--minimal`, so
+   the handle uses explicit `.cast()` (e.g. `sprite.cast::<Visual>()`,
+   `brush.cast::<CompositionBrush>()`).
 
 6. **Templated list stays blank when it grows from empty *(fixed)*.** Previously,
    eager realization queued `Realize` requests for rows `0..count` only at *mount*,
