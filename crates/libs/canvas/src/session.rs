@@ -1,9 +1,28 @@
 use super::*;
 
 /// Safe wrapper over `ID2D1DeviceContext`.
+///
+/// A session drives either a swap chain (owning the `BeginDraw`/`EndDraw`
+/// bracket) or a borrowed context that is already in a drawing state, such as the
+/// one handed back by a `SurfaceImageSource`. In the borrowed case an `offset`
+/// translation shifts every draw into the shared atlas surface; it composes with
+/// caller transforms so `set_transform`/`with_transform` behave as if the surface
+/// origin were `(0, 0)`.
 pub struct DrawingSession<'a> {
     context: &'a ID2D1DeviceContext,
-    device_lost_flag: &'a Cell<bool>,
+    mode: Mode<'a>,
+}
+
+/// How a [`DrawingSession`] relates to its `ID2D1DeviceContext`.
+enum Mode<'a> {
+    /// The session owns the `BeginDraw`/`EndDraw` bracket (swap-chain path) and
+    /// flags device loss reported by `EndDraw`.
+    Owned { device_lost_flag: &'a Cell<bool> },
+    /// The context is already in a drawing state and is bracketed by its owner
+    /// (e.g. a `SurfaceImageSource`), so the session neither begins nor ends
+    /// drawing. `offset` is a pure translation mapping surface-local coordinates
+    /// onto the shared-atlas position.
+    Borrowed { offset: Matrix3x2 },
 }
 
 impl<'a> DrawingSession<'a> {
@@ -14,8 +33,29 @@ impl<'a> DrawingSession<'a> {
         unsafe { context.BeginDraw() };
         Ok(Self {
             context,
-            device_lost_flag,
+            mode: Mode::Owned { device_lost_flag },
         })
+    }
+
+    /// Wrap an `ID2D1DeviceContext` that is *already in a drawing state* — for
+    /// example the one returned by `ISurfaceImageSourceNativeWithD2D::BeginDraw`
+    /// or a printing/interop context you drive yourself.
+    ///
+    /// The session neither begins nor ends drawing: the caller owns the
+    /// `BeginDraw`/`EndDraw` bracket. `offset` is a pure translation applied
+    /// beneath every draw (composing with caller transforms), so you draw from a
+    /// `(0, 0)` origin even when the target is a sub-region of a shared surface;
+    /// pass `Matrix3x2::translation(0.0, 0.0)` for no offset.
+    pub fn from_borrowed_context(context: &'a ID2D1DeviceContext, offset: Matrix3x2) -> Self {
+        debug_assert!(
+            offset.m11 == 1.0 && offset.m12 == 0.0 && offset.m21 == 0.0 && offset.m22 == 1.0,
+            "offset must be a pure translation: get_transform decomposes it by negating m31/m32"
+        );
+        unsafe { context.SetTransform(&offset) };
+        Self {
+            context,
+            mode: Mode::Borrowed { offset },
+        }
     }
 
     /// Clears the entire session to the given color.
@@ -264,14 +304,25 @@ impl<'a> DrawingSession<'a> {
 
     /// Sets the current transform.
     pub fn set_transform(&self, transform: &Matrix3x2) {
-        unsafe { self.context.SetTransform(transform) };
+        let m = match &self.mode {
+            Mode::Borrowed { offset } => *transform * *offset,
+            Mode::Owned { .. } => *transform,
+        };
+        unsafe { self.context.SetTransform(&m) };
     }
 
     /// Returns the current transform.
     pub fn get_transform(&self) -> Matrix3x2 {
         let mut transform = Matrix3x2::default();
         unsafe { self.context.GetTransform(&mut transform) };
-        transform
+        match &self.mode {
+            // Undo the atlas offset (a pure translation) so callers see the
+            // surface origin as `(0, 0)`.
+            Mode::Borrowed { offset } => {
+                transform * Matrix3x2::translation(-offset.m31, -offset.m32)
+            }
+            Mode::Owned { .. } => transform,
+        }
     }
 
     /// Apply a transform for the duration of the closure, then restore the previous one.
@@ -365,10 +416,14 @@ impl<'a> DrawingSession<'a> {
 
 impl Drop for DrawingSession<'_> {
     fn drop(&mut self) {
+        // A borrowed context is ended by its owner, not here.
+        let Mode::Owned { device_lost_flag } = self.mode else {
+            return;
+        };
         unsafe {
             let result = self.context.EndDraw(None, None);
             if is_device_lost(result) {
-                self.device_lost_flag.set(true);
+                device_lost_flag.set(true);
             }
         }
     }

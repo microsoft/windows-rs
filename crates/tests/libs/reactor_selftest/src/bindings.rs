@@ -8703,6 +8703,33 @@ impl IFrameworkElement {
             .map(|| result__)
         }
     }
+    pub(crate) fn Loaded<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<RoutedEventArgs>)
+            + 'static,
+    {
+        let handler: RoutedEventHandler = {
+            let com = windows_core::imp::DelegateBox::<RoutedEventHandler, F>::new(
+                &RoutedEventHandlerBox::<F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).Loaded)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveLoaded,
+            ))
+        }
+    }
     pub(crate) fn SizeChanged<F>(
         &self,
         handler: F,
@@ -8856,8 +8883,13 @@ pub struct IFrameworkElement_Vtbl {
         *mut core::ffi::c_void,
         *mut ElementTheme,
     ) -> windows_core::HRESULT,
-    Loaded: usize,
-    RemoveLoaded: usize,
+    pub Loaded: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveLoaded:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     Unloaded: usize,
     RemoveUnloaded: usize,
     DataContextChanged: usize,
@@ -18525,8 +18557,74 @@ impl windows_core::RuntimeType for IXamlRoot {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
+impl IXamlRoot {
+    pub(crate) fn RasterizationScale(&self) -> windows_core::Result<f64> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).RasterizationScale)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) fn Changed<F>(&self, handler: F) -> windows_core::Result<windows_core::EventRevoker>
+    where
+        F: Fn(windows_core::Ref<XamlRoot>, windows_core::Ref<XamlRootChangedEventArgs>) + 'static,
+    {
+        let handler: TypedEventHandler<XamlRoot, XamlRootChangedEventArgs> = {
+            let com = windows_core::imp::DelegateBox::<
+                TypedEventHandler<XamlRoot, XamlRootChangedEventArgs>,
+                F,
+            >::new(
+                &TypedEventHandlerBox::<XamlRoot, XamlRootChangedEventArgs, F>::VTABLE,
+                handler,
+            );
+            unsafe { core::mem::transmute(windows_core::imp::box_new(com)) }
+        };
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            let token__ = (windows_core::Interface::vtable(self).Changed)(
+                windows_core::Interface::as_raw(self),
+                windows_core::Interface::as_raw(&handler),
+                &mut result__,
+            )
+            .map(|| result__)?;
+            Ok(windows_core::EventRevoker::new(
+                self.clone(),
+                token__,
+                windows_core::Interface::vtable(self).RemoveChanged,
+            ))
+        }
+    }
+}
 #[repr(C)]
 pub struct IXamlRoot_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Content: usize,
+    Size: usize,
+    pub RasterizationScale:
+        unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
+    IsHostVisible: usize,
+    pub Changed: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+        *mut i64,
+    ) -> windows_core::HRESULT,
+    pub RemoveChanged:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IXamlRootChangedEventArgs,
+    IXamlRootChangedEventArgs_Vtbl,
+    0x61d2c719_f8a1_515a_902c_cfa498ba7a7f
+);
+impl windows_core::RuntimeType for IXamlRootChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IXamlRootChangedEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
@@ -25661,6 +25759,33 @@ impl windows_core::RuntimeName for XamlRoot {
 }
 unsafe impl Send for XamlRoot {}
 unsafe impl Sync for XamlRoot {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct XamlRootChangedEventArgs(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    XamlRootChangedEventArgs,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeType for XamlRootChangedEventArgs {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IXamlRootChangedEventArgs>();
+}
+unsafe impl windows_core::Interface for XamlRootChangedEventArgs {
+    type Vtable = <IXamlRootChangedEventArgs as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IXamlRootChangedEventArgs as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for XamlRootChangedEventArgs {
+    type Target = IXamlRootChangedEventArgs;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for XamlRootChangedEventArgs {
+    const NAME: &'static str = "Microsoft.UI.Xaml.XamlRootChangedEventArgs";
+}
+unsafe impl Send for XamlRootChangedEventArgs {}
+unsafe impl Sync for XamlRootChangedEventArgs {}
 #[repr(C)]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
 pub struct XmlnsDefinition {
