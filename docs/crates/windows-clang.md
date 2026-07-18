@@ -743,10 +743,3 @@ None of these block use of the crate.
 - **IDL as the COM source of truth (future direction).** Parsing `.idl` (or `midl` output)
   directly would recover the pointer-shape attributes headers don't express as SAL
   (`[unique]`/`[length_is]`/`[iid_is]`), keeping the header path for flat C APIs.
-- **Drop the empty `windows-sys` interop modules.** An all-interface interop header
-  (`windowsgraphicscaptureinterop`, `windowsuicompositioninterop`, and the pre-existing
-  `windowsgraphicsimaginginterop`/`windowsmediacoreinterop`/… siblings) projects to an *empty*
-  module in `windows-sys` — the flat crate emits no COM interfaces — yet `tool_package` still
-  writes the file and a dead Cargo feature. These empty modules and their features should be
-  suppressed in the `--sys` package writer (skip a namespace that yields zero `sys`-visible items)
-  so the flat crate carries no inert surface.

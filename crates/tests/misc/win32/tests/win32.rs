@@ -1,6 +1,5 @@
 #![cfg(windows)]
-use windows::{
-    Win32::*, core::*};
+use windows::{Win32::*, core::*};
 
 #[test]
 fn signed_enum32() {

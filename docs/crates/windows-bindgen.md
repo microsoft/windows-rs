@@ -183,6 +183,28 @@ coupled part is the module split. Note the original win32metadata sub-namespaces
 flat winmd dropped them — so the grouping must come from a curated header→module map (a coarser
 sibling of `remap.rs`'s `FOLD_PREFIXES`), not from the original namespaces.
 
+**In progress — flattening the Win32/Wdk module surface (`--package`).** A first step toward the
+grouping above: rather than ~570 flat lowercase modules directly under `windows::`/`windows_sys::`,
+the per-header stems are nested under a single `Win32` (and `Wdk`) module whose `mod.rs` privately
+declares each stem (`#[cfg(feature = "<stem>")] mod <stem>;`) and re-exports it flat
+(`pub use <stem>::*;`). The public path collapses to `windows::Win32::*` while per-header Cargo
+features and file layout are preserved. Because every stem is glob-re-exported into one namespace,
+any bare name defined by two stems becomes an ambiguous re-export (`E0659` when a consumer names it).
+
+Auditing that flat namespace surfaced 21 cross-stem bare-name collisions. 20 were scraper artifacts —
+loose macro constants duplicating a typed enumerator (`D3DFMT_*`, `OLEMISC_*`) — since removed by the
+`windows-clang` const/enum-member dedup pass (see `docs/crates/windows-clang.md`). The **sole**
+remaining flat-`Win32` collision is `Network`: two genuinely distinct enum members that happen to
+share the bare name — `ConnectorType::Network = 5` (`devicetopology`) and
+`SECURITY_LOGON_TYPE::Network = 3` (`ntsecapi`). Options: (a) scope enum members as associated
+constants (`ConnectorType::Network`) instead of free `pub const Network` — eliminates this class of
+collision entirely but is a large projection change; (b) place the two stems under different
+sub-modules via the curated header→module grouping above so the bare name is never in one namespace;
+(c) leave the ambiguous glob (compiles until a consumer names `windows::Win32::Network`). Beyond
+`Network`, the only other names shared between the flat `Win32` surface and the crate root are the
+core types `NTSTATUS`, `WIN32_ERROR`, and `RPC_STATUS`, resolved by routing Win32 references to the
+`windows_core` canonicals (`types/mod.rs::remap`).
+
 Other useful options:
 
 - **`--in` / `.input(..)` / `.inputs(..)`** — add your own `.winmd` files or

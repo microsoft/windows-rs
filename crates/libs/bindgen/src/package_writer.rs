@@ -68,6 +68,7 @@ impl Cfg {
             if dependency.is_empty()
                 || namespace_starts_with(config.namespace, dependency)
                 || dependency == "Windows.Foundation"
+                || config.prunable.contains(dependency)
             {
                 continue;
             }
@@ -117,6 +118,9 @@ impl Config<'_> {
         if self.bindgen.style.is_sys() {
             self.collect_prunable(tree, &mut prunable);
         }
+        // Share the pruned set with every type writer so `Cfg::write` never emits a
+        // `#[cfg(feature = ...)]` gate naming a pruned namespace.
+        let prunable = std::sync::Arc::new(prunable);
 
         for_each(trees.iter(), |tree| {
             if prunable.contains(tree.namespace) {
@@ -125,13 +129,23 @@ impl Config<'_> {
 
             let directory = format!("{output}/src/{}", tree.namespace.replace('.', "/"));
 
-            // Children of a `Win32`/`Wdk` umbrella are private per-header submodules whose contents
-            // are glob-re-exported, so the whole flat Win32/WDK surface is reachable directly under
-            // `Win32`/`Wdk` (e.g. `windows::Win32::CreateFileW`) with no per-header module in the
-            // public path — while each still compiles as its own feature-gated file.
+            // Children of a `Win32`/`Wdk` umbrella are per-header submodules whose contents are
+            // glob-re-exported, so the whole flat Win32/WDK surface is reachable directly under
+            // `Win32`/`Wdk` (e.g. `windows::Win32::CreateFileW`); each is also a `pub mod`, so an
+            // item is still reachable at `Win32::<stem>::Name` (the only way to reach a name the
+            // flat glob leaves ambiguous), and each compiles as its own feature-gated file.
             let flatten_children = is_flat_container(tree.namespace);
 
             let mut tokens = TokenStream::new();
+
+            if flatten_children {
+                // Every per-header stem is glob-re-exported into the flat umbrella, and two headers
+                // can export the same free constant (exactly one across the whole SDK today:
+                // `Network`, in both `devicetopology` and `ntsecapi`). Each stays reachable via its
+                // own `pub mod <stem>` path below; the flat `Win32::Network` is intentionally
+                // ambiguous, so silence the glob-re-export lint on the umbrella.
+                tokens.combine(quote! { #![allow(ambiguous_glob_reexports)] });
+            }
 
             // Free constants under a flattened Win32/WDK umbrella whose names shadow a Rust prelude
             // item (e.g. `None`), mapped to the features that define them, so the glob re-export can
@@ -161,7 +175,7 @@ impl Config<'_> {
 
                     tokens.combine(quote! {
                         #[cfg(feature = #feature)]
-                        mod #name;
+                        pub mod #name;
                         #[cfg(feature = #feature)]
                         pub use #name::*;
                     });
@@ -197,7 +211,9 @@ impl Config<'_> {
                 });
             }
 
-            let config = self.with_namespace(tree.namespace);
+            let config = self
+                .with_namespace(tree.namespace)
+                .with_prunable(prunable.clone());
 
             for ty in &tree.types {
                 tokens.combine(ty.write(&config));

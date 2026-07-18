@@ -560,6 +560,7 @@ impl Bindgen {
             event_only_delegates: &event_only_delegates,
             self_ty: None,
             self_generics: Vec::new(),
+            prunable: std::sync::Arc::new(BTreeSet::new()),
         };
 
         let tree = TypeTree::new(&types);
