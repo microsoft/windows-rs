@@ -28,6 +28,7 @@ fn app(cx: &mut RenderCx) -> Element {
     // The surface and its device are created lazily on the first draw, rebuilt at
     // the new resolution when the scale changes, and recreated if the GPU device
     // is lost.
+    let scale_sub_reset = scale_sub.clone();
     cx.use_effect((count, scale), move || {
         // Rebuild the surface if it was allocated at a different scale.
         if surface
@@ -73,6 +74,8 @@ fn app(cx: &mut RenderCx) -> Element {
                     surface.set(None);
                     device.set(None);
                     set_image.call(None);
+                    // Revoke the old scale subscription with its now-removed Image.
+                    scale_sub_reset.set(None);
                 }
                 Ok(false) => return eprintln!("device lost during redraw"),
                 Err(e) => return eprintln!("failed to redraw surface: {e}"),
