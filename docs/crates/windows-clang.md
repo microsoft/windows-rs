@@ -533,7 +533,6 @@ this table with a rationale.
 |---|-----------|------------------------------------------|-----------------------------------|-------|-----------|
 | 1 | **Non-negative integer constants → `u32`/`u64`** | A `#define` literal's suffix (`L`/`LL`) encodes *width*, not *signedness*; default unsigned, negated → `i32`/`i64`, explicit keyword/named cast wins. | — | `const.rs` | `L` means "at least `long`", never "signed value". Win32 flag/id constants are unsigned domains. |
 | 2 | **`_HRESULT_TYPEDEF_(x)` etc. → typed `HRESULT`** | A hardcoded 3-macro map of the canonical SDK error-typedef cast macros routes through `parse_named_cast`. | 3 SDK macros (`_HRESULT_TYPEDEF_`, `_NDIS_ERROR_TYPEDEF_`, …) | `const.rs` | The macro *is* the author's type annotation; `E_FAIL` is an `HRESULT`, not a bare `i32`. |
-| 3 | **`LSTATUS` → `WIN32_ERROR` (`type WIN32_ERROR = u32`)** | `error_code_typedef` remaps the one canonical error-code typedef at both its definition and every reference. | 1 typedef (`LSTATUS`) | `canon.rs`, `typedef.rs` | `LSTATUS` is definitionally an unsigned `ERROR_*` domain despite its signed `LONG` spelling. Plain `u32` typedef, **not** win32metadata's synthetic enum. |
 | 4 | **Pointer const-ness follows SAL direction (parameters)** | `_In_`/`_In_opt_`/`_Reserved_` (read-only) pointer param → `*const`; `_Out_`/`_Inout_` (writable) → `*mut`. Overrides the C typedef's own mutability. A string wrapper flips its *named* const variant instead (`PWSTR`↔`PCWSTR`, `PSTR`↔`PCSTR`). | — | `canon.rs` (`apply_sal_constness`), from `fn.rs`, `interface.rs` | SAL is the author's read/write contract; `_In_ LPWSTR` is a *read-only* string despite `LPWSTR` being `*mut`. Matches the reference. Parameters only — struct fields keep their C const-ness. |
 | 5 | **`LP*`/`P*` pointer aliases collapse to raw pointers (parameters only)** | At a parameter site, a typedef whose one-level underlying type is a pointer is inlined to the raw pointer it spells, keeping the *named* pointee (`LPDWORD`→`*mut DWORD`, `PHKEY`→`*mut HKEY`). The string wrappers are normalised *everywhere*, not just parameters (see #9). | Kept named: string wrappers (per #9); **`BSTR`** (a length-prefixed, `SysAllocString`-owned COM string, never collapsed to `*const OLECHAR`); handles (`HANDLE` = `void*`, `HWND` = `struct HWND__*`); function-pointer aliases (`FARPROC`); non-pointer aliases. | `canon.rs` (`collapse_pointer_alias_param`; name-keyed cases in `alias_policy`) | These aliases are pure portability spelling (`LPDWORD`=`DWORD*`); the pointer *is* the ABI, and SAL const (#4) cannot be expressed while it is hidden inside an opaque `*mut` alias. Collapsing **only at parameter sites** keeps the change surgical — fields, returns and constants keep their named aliases, so no `type LP* = …` is left dangling. The pointee keeps its Win32 name (`*mut DWORD`): ABI-identical. |
 | 6 | **Fixed-width portability scalar aliases → primitive** (`DWORD`→`u32`, `WORD`→`u16`, `LONG`→`i32`, `WCHAR`→`u16`, the `INTn`/`UINTn` and C99 `intN_t`/`uintN_t`) | A curated name list (`fundamental_scalar`) collapses only the pure width spellings to their primitive at every use site; the list is *shared* with the const-cast collapse so a typedef and any constant typed by it never disagree. | The collapse-list **is** the curation — every other scalar stays named: `HFILE`/`ATOM`/`COLORREF`/`LANGID`/`LCID`/`BOOL`/`BOOLEAN`/`NTSTATUS`/`HRESULT`, and the pointer-sized aliases (`ULONG_PTR`/`SIZE_T` → `usize`, via `pointer_sized_abi`). | `canon.rs` (`fundamental_scalar`), `typedef.rs`, `const.rs` | `DWORD`=`unsigned long` is pure C portability spelling; `HFILE`(`int`)/`DWORD`(`unsigned long`) are *identical* at the type level — only the **name** separates a domain concept from width noise, so the curation must be name-keyed. Collapsing the width spellings matches the reference; the preserved domain names stay faithful to the header. |
@@ -544,6 +543,12 @@ this table with a rationale.
 | 11 | **Direct2D 1.1 `D2D1_X` compatibility synonyms → shared `D2D_X` base (flat scrape)** (the 16 `typedef D2D_X D2D1_X` re-exports) | A `D2D1_`-prefixed synonym collapses to its shared `D2D_` base at **every** reference via `d2d_compat_alias` (curated name-map). The redundant `type D2D1_X = D2D_X` alias *definitions* are suppressed. Flat scrape only. | Kept: every `D2D1_` type without a shared `D2D_` base (the enums, `D2D1_PIXEL_FORMAT`, …). | `canon.rs` (`d2d_compat_alias`), `typedef.rs` | The Direct2D 1.1 headers re-export the shared `D2D_*` primitives under a `D2D1_`-prefixed spelling with no distinct ABI. Keeping them left struct fields spelled `D2D1_MATRIX_3X2_F`, so bindgen's numerics substitution (keyed on the base `D2D_*`) never fired. Collapsing to the base makes the numerics-mapped members reach the substitution table (`D2D_POINT_2F`→`Vector2`, …) — matching the reference-generated canvas bindings. |
 | 13 | **Array *parameters* decay to pointers (C11 §6.7.6.3p7)** | An array *parameter* (`to_type` maps both `T[]` and `T[N]` to `ArrayFixed`) decays to a pointer when it is **unsized** (a flexible array `T[]` → `[T; 0]`, which is a zero-byte by-value drop) **or** carries a SAL count (`_Out_writes_(80) WCHAR szName[80]`): the `NativeArrayInfo` (`#[len_const]`/`#[len_param]`) already encodes the length, so keeping the `[T; N]` *type* too would double-encode it and make bindgen wrap `&mut [[T; N]; N]`. Pointee const-ness follows the array element's C const-ness; SAL (#4) may override. (Caveat: for an **unsized** `const T[]` parameter clang strips the element `const` during array-to-pointer adjustment before we see it, so a bare `const T[]` with no SAL direction decays to `*mut T` rather than `*const T` — ABI-identical and vanishingly rare in the corpus, so left as-is.) | A *plain* fixed-size array parameter with **no** count (`FLOAT ColorRGBA[4]`) stays `[T; N]`, so bindgen projects a length-checked `&[T; N]`. Struct fields, returns and constants keep their array shape. | `canon.rs` (`decay_array_param`), from `param_metadata_type` | An `ArrayFixed` is faithful for a *struct field* but wrong for a *parameter* — a by-value array is not a real ABI. The reference (`_Out_writes_(80) WCHAR szName[80]` → `*mut u16` + count → `&mut [u16; 80]`; `FLOAT BlendFactor[4]` + count → `Option<&[f32; 4]>`) decays counted buffers to pointer+count and keeps uncounted fixed arrays; this rule reproduces both exactly. |
 | 14 | **Mixed-constness pointer chains → uniform (outermost level wins)** | A `PtrMut(PtrConst(T))` / `PtrConst(PtrMut(T))` chain collapses to a uniform chain governed by its *outermost* level (the parameter's real read/write direction, already set by #4): an output `const wchar_t **` retval → `*mut *mut u16`; an input `const wchar_t * const *` → `*const *const u16`. | — (uniform chains are already collapsed to one node by `to_type`, so only a genuinely mixed chain nests here). | `canon.rs` (`normalize_pointer_const_chain`), from `param_metadata_type` | The winmd `Type` model stores a pointer run as a **single** const bit + depth, so it cannot represent `*mut *const T`; serialising one silently corrupts it (the mid-chain `IsConst` modifier is misread and the run degrades to `*const *const T`, a retval the callee cannot `.write()` through). Normalising to the outermost level matches the reference (`ISAXLocator::getPublicId` → `*mut *mut u16`). |
+
+> Ledger row **#3** (`LSTATUS` → `WIN32_ERROR`) is **retired**: that synthetic remap — a
+> win32metadata remnant — was removed, so `LSTATUS` is now scraped faithfully as
+> `type LSTATUS = i32` (see *Flat `Windows.Win32` namespace collisions* below). The `#N`
+> numbering is deliberately left with a gap here so the stable `canon.rs` ledger
+> cross-references don't shift.
 
 **Guard-rails.** The macro deviations (#2, #8) are matched by *name* from the raw
 `#define` body, so a function-like `#define` of the same name is skipped. The
@@ -593,17 +598,16 @@ single `canon.rs` with one declared precedence order: universal rules
 | # | Rule | Helper (`canon.rs`) | Example | Sites |
 |---|------|---------------------|---------|-------|
 | 1 | String-wrapper normalise | `normalize_string_alias` | `LPCWSTR` → `PCWSTR` | all |
-| 2 | Win32 error domain | `error_code_typedef` | `LSTATUS` → `WIN32_ERROR` | all |
-| 3 | Fixed-width scalar collapse | `fundamental_scalar` | `DWORD` → `u32` | all |
-| 4 | Floating collapse | `floating_typedef` | `FLOAT`/`DATE` → `f32`/`f64` | all |
-| 5 | Pointer-sized collapse | `pointer_sized_abi` | `ULONG_PTR` → `usize` | all |
-| 6 | GUID synonym collapse | `guid_alias` | `IID`/`CLSID` → `GUID` | all |
-| 7 | Void-pointer collapse | `void_pointer_alias` | `PVOID` → `*mut c_void` | all |
-| 8 | D2D compat synonym | `d2d_compat_alias` | `D2D1_POINT_2F` → `D2D_POINT_2F` | all |
-| 9 | Pointer-alias collapse | `collapse_pointer_alias_param` | `LPDWORD` → `*mut DWORD` | param |
-| 10 | SAL const flip | `apply_sal_constness` | `_In_ LPWSTR` → `PCWSTR` | param |
-| 11 | `_z_` string promotion | `promote_null_terminated_string` | `_In_z_ WCHAR const*` → `PCWSTR` | param |
-| 12 | Namespace requalify | `requalify_string_alias` | canonical string in namespaced scrapes | param |
+| 2 | Fixed-width scalar collapse | `fundamental_scalar` | `DWORD` → `u32` | all |
+| 3 | Floating collapse | `floating_typedef` | `FLOAT`/`DATE` → `f32`/`f64` | all |
+| 4 | Pointer-sized collapse | `pointer_sized_abi` | `ULONG_PTR` → `usize` | all |
+| 5 | GUID synonym collapse | `guid_alias` | `IID`/`CLSID` → `GUID` | all |
+| 6 | Void-pointer collapse | `void_pointer_alias` | `PVOID` → `*mut c_void` | all |
+| 7 | D2D compat synonym | `d2d_compat_alias` | `D2D1_POINT_2F` → `D2D_POINT_2F` | all |
+| 8 | Pointer-alias collapse | `collapse_pointer_alias_param` | `LPDWORD` → `*mut DWORD` | param |
+| 9 | SAL const flip | `apply_sal_constness` | `_In_ LPWSTR` → `PCWSTR` | param |
+| 10 | `_z_` string promotion | `promote_null_terminated_string` | `_In_z_ WCHAR const*` → `PCWSTR` | param |
+| 11 | Namespace requalify | `requalify_string_alias` | canonical string in namespaced scrapes | param |
 
 Definition suppression (`typedef.rs`) must always stay paired with the reference-site
 collapse, or a use-site dangles. Each row maps onto a precedence rank, so a new
@@ -702,10 +706,11 @@ they are the practical consequence of the faithfulness philosophy above.
   `AgileAttribute`, `CanReturnMultipleSuccessValues`, and the `SupportsLastError` PInvoke
   flag. `MarshalingBehaviorAttribute` (agility) *does* survive the WinRT SDK-contract merge,
   so WinRT types (`Uri`, …) stay `Send`/`Sync`; Win32-scraped COM interfaces do not.
-- **Error ergonomics come from `windows::core`, not a metadata stem.** `WIN32_ERROR` with
-  `to_hresult()`/`From` is the `windows-result` type re-exported through `windows::core`; the
-  bare `winreg::WIN32_ERROR(u32)` newtype the flat metadata emits has none. `GetLastError`/
-  `SetLastError` and `ERROR_*`/`*_E_*` constants are bare integers — wrap them for
+- **Error ergonomics come from `windows::core`, not a metadata stem.** The `WIN32_ERROR`
+  newtype with `to_hresult()`/`From<_> for Error` is the `windows-result` type re-exported
+  through `windows::core`; the flat metadata invents no error-code domain of its own — `Reg*`
+  and `shlwapi` functions return the faithful `LSTATUS` (`i32`). `GetLastError`/`SetLastError`
+  and `ERROR_*`/`*_E_*` constants are bare integers — wrap them in `WIN32_ERROR(_)` for
   `Error::from`.
 - **Hand-authored `windows`-crate extensions are dropped:** the std ↔ WinSock net
   conversions, the `VARIANT`/`PROPVARIANT`/`VARIANT_BOOL` helpers, and the WinRT

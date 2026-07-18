@@ -194,16 +194,16 @@ any bare name defined by two stems becomes an ambiguous re-export (`E0659` when 
 Auditing that flat namespace surfaced 21 cross-stem bare-name collisions. 20 were scraper artifacts —
 loose macro constants duplicating a typed enumerator (`D3DFMT_*`, `OLEMISC_*`) — since removed by the
 `windows-clang` const/enum-member dedup pass (see `docs/crates/windows-clang.md`). The **sole**
-remaining flat-`Win32` collision is `Network`: two genuinely distinct enum members that happen to
-share the bare name — `ConnectorType::Network = 5` (`devicetopology`) and
-`SECURITY_LOGON_TYPE::Network = 3` (`ntsecapi`). Options: (a) scope enum members as associated
-constants (`ConnectorType::Network`) instead of free `pub const Network` — eliminates this class of
-collision entirely but is a large projection change; (b) place the two stems under different
-sub-modules via the curated header→module grouping above so the bare name is never in one namespace;
-(c) leave the ambiguous glob (compiles until a consumer names `windows::Win32::Network`). Beyond
-`Network`, the only other names shared between the flat `Win32` surface and the crate root are the
-core types `NTSTATUS`, `WIN32_ERROR`, and `RPC_STATUS`, resolved by routing Win32 references to the
-`windows_core` canonicals (`types/mod.rs::remap`).
+remaining cross-stem collision is `Network` — two genuinely distinct unscoped-enum members that share
+the bare name (`ConnectorType::Network = 5` in `devicetopology` and `SECURITY_LOGON_TYPE::Network = 3`
+in `ntsecapi`) — left as a deliberately ambiguous glob re-export under a blanket
+`#![allow(ambiguous_glob_reexports)]`; each stays reachable at its qualified path
+(`Win32::devicetopology::Network` / `Win32::ntsecapi::Network`). The one Rust-prelude shadow — `None`
+(the `ro` stem's `RoErrorReportingFlags::None`) — is neutralised by re-injecting
+`pub use core::option::Option::None;` into the `Win32` umbrella. The earlier core-vs-`Win32` name
+clashes are gone: `NTSTATUS` and `RPC_STATUS` are routed to the `windows_core` canonicals by
+`types/mod.rs::remap`, while the synthetic `WIN32_ERROR` is no longer invented at the scraper layer
+(`Reg*`/`shlwapi` return the faithful `LSTATUS`). See `docs/crates/windows-clang.md` for the full record.
 
 Other useful options:
 

@@ -11,9 +11,9 @@
 //! # The two entry points
 //!
 //! - [`resolve_typedef`] — resolves a `CXType_Typedef` reference at *any* site (field, return,
-//!   parameter). It applies the **universal** collapses (string-wrapper normalise, error-code
-//!   domain, fixed-width / floating / pointer-sized scalar collapse, `GUID` synonyms, generic
-//!   `void*`) and then falls back to structural resolution (reference-metadata lookup, local
+//!   parameter). It applies the **universal** collapses (string-wrapper normalise, fixed-width
+//!   / floating / pointer-sized scalar collapse, `GUID` synonyms, generic `void*`) and then
+//!   falls back to structural resolution (reference-metadata lookup, local
 //!   emission, pending-typedef scheduling).
 //! - [`param_metadata_type`] — the **parameter-only** overlay, applied on top of a resolved
 //!   type: collapse `LP*`/`P*` pointer aliases to raw pointers, apply SAL-driven pointer
