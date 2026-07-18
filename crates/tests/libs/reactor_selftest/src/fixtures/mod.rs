@@ -7,6 +7,7 @@ pub mod error_boundary;
 pub mod event_detachment;
 pub mod grid_attached;
 pub mod hooks;
+pub mod image_scale;
 pub mod interactions;
 pub mod layout;
 pub mod pointer_input;

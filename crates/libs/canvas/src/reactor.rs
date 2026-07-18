@@ -283,11 +283,15 @@ impl CanvasImageSource {
         let offset =
             Matrix3x2::translation(offset_x as f32 / self.scale, offset_y as f32 / self.scale);
 
+        // Pair every successful `begin_draw` with an `end_draw`, even if `f`
+        // panics, so the surface is never left mid-draw.
+        let guard = EndDrawGuard(&self.source);
         {
             let session = DrawingSession::from_borrowed_context(&context, offset);
             session.clear(clear);
             f(&session);
         }
+        std::mem::forget(guard);
 
         match self.source.end_draw() {
             Ok(()) => Ok(true),
@@ -310,5 +314,16 @@ impl CanvasImageSource {
     /// The rasterization (DPI) scale the surface was allocated at.
     pub fn scale(&self) -> f32 {
         self.scale
+    }
+}
+
+/// Ends the `SurfaceImageSource` draw on the panic path so a successful
+/// `begin_draw` is never left unpaired. On the normal path the guard is
+/// forgotten and `draw` calls `end_draw` itself to observe the result.
+struct EndDrawGuard<'a>(&'a SurfaceImageSource);
+
+impl Drop for EndDrawGuard<'_> {
+    fn drop(&mut self) {
+        let _ = self.0.end_draw();
     }
 }

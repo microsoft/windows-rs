@@ -47,6 +47,10 @@ impl<'a> DrawingSession<'a> {
     /// `(0, 0)` origin even when the target is a sub-region of a shared surface;
     /// pass `Matrix3x2::translation(0.0, 0.0)` for no offset.
     pub fn from_borrowed_context(context: &'a ID2D1DeviceContext, offset: Matrix3x2) -> Self {
+        debug_assert!(
+            offset.m11 == 1.0 && offset.m12 == 0.0 && offset.m21 == 0.0 && offset.m22 == 1.0,
+            "offset must be a pure translation: get_transform decomposes it by negating m31/m32"
+        );
         unsafe { context.SetTransform(&offset) };
         Self {
             context,

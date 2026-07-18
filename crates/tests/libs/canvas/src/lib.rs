@@ -945,8 +945,10 @@ mod tests {
             let outer = chain.begin_draw().unwrap();
             outer.clear(ColorF::BLACK);
             {
-                let session =
-                    DrawingSession::from_borrowed_context(outer.raw(), Matrix3x2::default());
+                let session = DrawingSession::from_borrowed_context(
+                    outer.raw(),
+                    Matrix3x2::translation(0.0, 0.0),
+                );
                 session.clear(ColorF::CORNFLOWER_BLUE);
             }
             // If the borrowed drop had called EndDraw, the outer session's own

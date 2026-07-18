@@ -1,8 +1,8 @@
 use crate::fixtures::reconciler::FixtureFuture;
 use crate::fixtures::{
     all_layouts, backdrop, controls, controls_extended, dynamic, error_boundary, event_detachment,
-    grid_attached, hooks, interactions, layout, pointer_input, prop_updates, reconciler,
-    reconciler_stress, timers, tooltip, universal_props,
+    grid_attached, hooks, image_scale, interactions, layout, pointer_input, prop_updates,
+    reconciler, reconciler_stress, timers, tooltip, universal_props,
 };
 use crate::harness::Harness;
 
@@ -284,6 +284,11 @@ pub static FIXTURES: &[(&str, FixtureFn)] = &[
     (
         "Reconciler_Mount_TreeView",
         controls_extended::mount_tree_view,
+    ),
+    // ── Image rasterization-scale hook (live XamlRoot) ─────────────────
+    (
+        "Image_RasterizationScale_Delivered",
+        image_scale::rasterization_scale_delivered,
     ),
     // ── Hook fixtures ──────────────────────────────────────────────────
     ("Hook_UseReducer_Increment", hooks::use_reducer_increment),
