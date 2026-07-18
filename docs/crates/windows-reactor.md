@@ -812,7 +812,9 @@ landed; *(gap)* items are still outstanding.
 
 5. **No general composition-interop seam for hosting GPU / Direct2D content
    *(gap)*.** Hosting GPU-drawn content requires reaching the
-   Windows.UI.Composition layer *under an arbitrary reactor element*: attach a
+   `Microsoft.UI.Composition` layer (WinUI 3's own compositor, *not* the system
+   `Windows.UI.Composition` projected by the `windows` crate — the two stacks are
+   non-interoperable) *under an arbitrary reactor element*: attach a
    custom `Visual` (`ElementCompositionPreview.SetElementChildVisual`), obtain the
    `Compositor` that owns the element's visual so it can build *same-compositor*
    child visuals, and read the element's rasterization (DPI) scale so the
@@ -831,6 +833,18 @@ landed; *(gap)* items are still outstanding.
    `set_element_child_visual(host, visual)` — binding `SetElementChildVisual` and
    `RasterizationScale`, and returning `E_INVALIDARG` (not `panic!`) for an unknown
    control id.
+
+   This seam is **blocked on a `Microsoft.UI.Composition` wrapper crate.** The seam
+   is only useful if a caller can *build* a same-compositor child `Visual`, but those
+   types live in `Microsoft.UI.winmd` (WinAppSDK) — they are not in the `windows`
+   crate, and reactor's own flat/minimal composition bindings are `pub(crate)`, so no
+   out-of-crate app can construct one. Rather than bake a demo visual into the
+   library, this work is deferred until a [`windows-composition`](windows-composition.md)
+   crate exists to project `Microsoft.UI.Composition` safely (the same way
+   [`windows-canvas`](windows-canvas.md) projects Direct2D/DXGI). Once that crate
+   lands, reactor exposes the three `Backend` methods above and callers build visuals
+   with `windows-composition`. See [`windows-composition.md`](windows-composition.md)
+   for the plan.
 
 6. **Templated list stays blank when it grows from empty *(fixed)*.** Previously,
    eager realization queued `Realize` requests for rows `0..count` only at *mount*,
