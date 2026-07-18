@@ -33,7 +33,7 @@ pub use device::GpuDevice;
 pub use effect::Effect;
 pub use geometry::*;
 #[cfg(feature = "reactor")]
-pub use reactor::{DrawContext, animated_canvas};
+pub use reactor::{CanvasImageSource, DrawContext, animated_canvas};
 pub use session::DrawingSession;
 pub use swap_chain::SwapChain;
 pub use text::*;

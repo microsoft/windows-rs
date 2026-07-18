@@ -903,4 +903,58 @@ mod tests {
             "animated_canvas must install an on_unmounted teardown"
         );
     }
+
+    // Borrow the already-in-draw context from a swap-chain session so we can
+    // exercise the no-bracket / offset path (the `CanvasImageSource` drawing
+    // path) headlessly on WARP.
+    #[test]
+    fn borrowed_session_offset_composes() {
+        let device = GpuDevice::new_warp().unwrap();
+        let mut chain = device.create_swap_chain(64, 64).unwrap();
+        let outer = chain.begin_draw().unwrap();
+
+        let offset = Matrix3x2::translation(10.0, 20.0);
+        let session = DrawingSession::from_borrowed_context(outer.raw(), offset);
+
+        // The offset is applied to the context but hidden from callers: an
+        // untouched session reports the identity transform even though the
+        // context is really translated by the atlas offset.
+        let seen = session.get_transform();
+        assert_eq!((seen.m31, seen.m32), (0.0, 0.0));
+        assert_eq!((seen.m11, seen.m22), (1.0, 1.0));
+
+        // A caller transform composes on top of the offset and round-trips.
+        session.set_transform(&Matrix3x2::translation(5.0, 0.0));
+        let seen = session.get_transform();
+        assert_eq!((seen.m31, seen.m32), (5.0, 0.0));
+
+        // with_transform restores the previous caller transform (offset intact).
+        session.with_transform(&Matrix3x2::translation(100.0, 100.0), || {});
+        let seen = session.get_transform();
+        assert_eq!((seen.m31, seen.m32), (5.0, 0.0));
+    }
+
+    // Dropping a borrowed session must not end drawing on the borrowed context;
+    // the owning swap-chain session ends it and still presents successfully.
+    #[test]
+    fn borrowed_session_does_not_end_draw() {
+        let device = GpuDevice::new_warp().unwrap();
+        let mut chain = device.create_swap_chain(64, 64).unwrap();
+
+        {
+            let outer = chain.begin_draw().unwrap();
+            outer.clear(ColorF::BLACK);
+            {
+                let session = DrawingSession::from_borrowed_context(
+                    outer.raw(),
+                    Matrix3x2::translation(0.0, 0.0),
+                );
+                session.clear(ColorF::CORNFLOWER_BLUE);
+            }
+            // If the borrowed drop had called EndDraw, the outer session's own
+            // EndDraw would fail; presenting below confirms it did not.
+        }
+
+        chain.present().unwrap();
+    }
 }
