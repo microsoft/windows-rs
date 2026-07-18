@@ -72,6 +72,42 @@ On resize call `chain.resize(width, height)`; `chain.set_dpi(..)` and
 `chain.set_composition_scale(..)` keep rendering crisp. `chain.is_device_lost()`
 reports loss if you want to react explicitly.
 
+## Getting started — on-demand surface (reactor)
+
+`animated_canvas` presents a new frame every vsync — ideal for animation, but
+wasteful for content that is static between updates (a chart, a diagram, a
+rendered document page). For that, enable the `reactor` feature and use
+`CanvasImageSource`, which repaints only when you call `draw`. It is the Rust
+analogue of Win2D's `CanvasImageSource`.
+
+```rust,ignore
+use windows_canvas::*;
+
+// Create once, on the UI thread, from a device you own.
+let surface = CanvasImageSource::new(&device, 320.0, 320.0, scale)?;
+
+// Redraw only when the data changes.
+surface.draw(ColorF::CORNFLOWER_BLUE, |session| {
+    let Ok(brush) = session.create_solid_brush(ColorF::WHITE) else { return };
+    session.fill_ellipse(&Ellipse::circle(Vector2::new(160.0, 160.0), 96.0), &brush);
+})?;
+
+// Display it with the reactor `Image` widget.
+let image = Image::new(surface.image_source());
+```
+
+`new(device, width, height, scale)` takes the size in DIPs and the host element's
+rasterization (DPI) scale, allocating the surface at physical-pixel resolution so
+it stays crisp; drawing inside `draw` is in DIPs with the surface origin at
+`(0, 0)`. `draw` returns `Ok(false)` on device loss — recreate the device
+(`GpuDevice::new_or_warp`), call `set_device`, and draw again.
+
+Obtain the `scale` from the reactor `Image` that displays the surface:
+`Image::on_mounted` yields an `ImageHandle`, and
+`ImageHandle::on_rasterization_scale_changed` reports the host DPI scale once the
+control is loaded and again whenever it changes — rebuild the surface at the new
+scale to stay crisp across monitor moves. See the `image_source` sample.
+
 ## Drawing basics
 
 Everything below is a method on the `DrawingSession` (and therefore on
@@ -148,6 +184,8 @@ tree:
 - **`circles`** — animated circles with brush reuse and a text label.
 - **`clock`** — an animated analog clock combining transforms, stroke styles,
   shadows, bitmap targets, and text.
+- **`image_source`** — an on-demand `CanvasImageSource` displayed with the reactor
+  `Image` widget: it redraws only when the count changes, not every frame.
 - **`hit_test`** — geometry hit-testing: a star recolors only when the pointer is
   inside its *actual filled geometry* (`Path::fill_contains_point`), with its
   bounding box (`compute_bounds`) drawn for contrast.
@@ -173,7 +211,7 @@ Direct3D 11, DXGI, DirectWrite, and WIC, projected from the in-house
 WinRT numerics types). The safe wrappers (`GpuDevice`,
 `SwapChain`, `DrawingSession`, geometry, and text types) are hand-written. The
 optional `reactor` feature integrates with `windows-reactor` through
-`animated_canvas`.
+`animated_canvas` (continuous) and `CanvasImageSource` (on-demand).
 
 ### Design
 
@@ -184,6 +222,14 @@ optional `reactor` feature integrates with `windows-reactor` through
 - **One built-in render loop** — `animated_canvas` (reactor feature) drives frames
   on the UI thread via `CompositionTarget::Rendering`. There is no dedicated
   render-thread variant.
+- **On-demand surface** — `CanvasImageSource` (reactor feature) draws into a
+  WinUI `SurfaceImageSource` only when asked, for content that is static between
+  updates. It reuses `DrawingSession` in a *borrowed* mode: the surface's native
+  `BeginDraw`/`EndDraw` own the draw bracket (the session neither begins nor ends
+  drawing), and the shared-atlas pixel offset returned by `BeginDraw` is applied
+  as an offset transform so callers still draw from a `(0, 0)` origin. This mode
+  is also public as `DrawingSession::from_borrowed_context(context, offset)` for
+  driving a context you bracket yourself (printing, a custom `SurfaceImageSource`).
 - **Automatic device-lost recovery** — `device_lost.rs` classifies the DXGI/D2D
   device-lost codes; `EndDraw`/`Present` set a flag, and the swap chain recreates
   its device and resources on the next frame. The classifier is exported as

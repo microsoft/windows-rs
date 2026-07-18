@@ -205,3 +205,110 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
             }
         })
 }
+
+/// An on-demand Direct2D drawing surface hosted in a reactor UI.
+///
+/// Where [`animated_canvas`] presents a new frame every vsync via a swap chain,
+/// `CanvasImageSource` draws only when you ask — on a data change, a resize, or a
+/// theme switch — into a `SurfaceImageSource`. It is the right tool for content
+/// that is static between updates (charts, diagrams, a rendered document page)
+/// where a continuous render loop would waste power.
+///
+/// Create it on the UI thread with a shared [`GpuDevice`], draw with the safe
+/// canvas API through [`draw`](Self::draw), and display it by handing
+/// [`image_source`](Self::image_source) to `Image::new`. This mirrors Win2D's
+/// `CanvasImageSource`.
+///
+/// ```ignore
+/// let surface = CanvasImageSource::new(&device, 256.0, 256.0, scale)?;
+/// surface.draw(ColorF::CORNFLOWER_BLUE, |session| {
+///     let brush = session.create_solid_brush(ColorF::WHITE).unwrap();
+///     session.fill_ellipse(&Ellipse::circle(Vector2::new(128.0, 128.0), 96.0), &brush);
+/// })?;
+/// let image = Image::new(surface.image_source());
+/// ```
+#[derive(Clone, PartialEq, Debug)]
+pub struct CanvasImageSource {
+    source: SurfaceImageSource,
+    pixel_width: i32,
+    pixel_height: i32,
+    dpi: f32,
+    scale: f32,
+}
+
+impl CanvasImageSource {
+    /// Create a surface `width`×`height` device-independent pixels in size,
+    /// backed by `device`. `scale` is the host element's rasterization (DPI)
+    /// scale — `1.0` at 96 DPI, `2.0` at 192 DPI — so the surface is allocated at
+    /// physical-pixel resolution and stays crisp. Draw into it, then display it at
+    /// the same DIP size.
+    pub fn new(device: &GpuDevice, width: f32, height: f32, scale: f32) -> Result<Self> {
+        let scale = if scale > 0.0 { scale } else { 1.0 };
+        let pixel_width = ((width * scale).round() as i32).max(1);
+        let pixel_height = ((height * scale).round() as i32).max(1);
+        let source = SurfaceImageSource::new(pixel_width, pixel_height)?;
+        source.set_device(device.d2d_device())?;
+        Ok(Self {
+            source,
+            pixel_width,
+            pixel_height,
+            dpi: 96.0 * scale,
+            scale,
+        })
+    }
+
+    /// Redraw the surface: clear it to `clear`, run `f` to draw, and present.
+    ///
+    /// Coordinates in `f` are in device-independent pixels with the surface origin
+    /// at `(0, 0)`; the DPI scale and the shared-atlas offset are handled for you.
+    /// Returns `Ok(false)` if the GPU device was lost — recreate the device
+    /// (e.g. [`GpuDevice::new_or_warp`]), call [`set_device`](Self::set_device),
+    /// and draw again.
+    pub fn draw(&self, clear: ColorF, f: impl FnOnce(&DrawingSession<'_>)) -> Result<bool> {
+        let (context, (offset_x, offset_y)) = match self.source.begin_draw::<ID2D1DeviceContext>(
+            0,
+            0,
+            self.pixel_width,
+            self.pixel_height,
+        ) {
+            Ok(v) => v,
+            Err(e) if is_device_lost(e.code()) => return Ok(false),
+            Err(e) => return Err(e),
+        };
+
+        unsafe { context.SetDpi(self.dpi, self.dpi) };
+
+        // The atlas offset is in physical pixels; the context draws in DIPs, so
+        // scale it back into DIP space before using it as the offset translation.
+        let offset =
+            Matrix3x2::translation(offset_x as f32 / self.scale, offset_y as f32 / self.scale);
+
+        {
+            let session = DrawingSession::from_borrowed_context(&context, offset);
+            session.clear(clear);
+            f(&session);
+        }
+
+        match self.source.end_draw() {
+            Ok(()) => Ok(true),
+            Err(e) if is_device_lost(e.code()) => Ok(false),
+            Err(e) => Err(e),
+        }
+    }
+
+    /// Associate a new device after device loss, then redraw with
+    /// [`draw`](Self::draw).
+    pub fn set_device(&self, device: &GpuDevice) -> Result<()> {
+        self.source.set_device(device.d2d_device())
+    }
+
+    /// The image source to display, for `Image::new`.
+    pub fn image_source(&self) -> ImageSource {
+        self.source.clone().into()
+    }
+
+    /// The rasterization (DPI) scale the surface was allocated at.
+    pub fn scale(&self) -> f32 {
+        self.scale
+    }
+}

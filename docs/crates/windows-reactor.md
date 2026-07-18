@@ -797,18 +797,22 @@ landed; *(gap)* items are still outstanding.
    in place (revoking the subscription and releasing the swap chain). Regression:
    `test_canvas::animated_canvas_installs_unmount_teardown`.
 
-4. **On-demand D2D drawing surface pulls in the raw `windows` crate *(gap)*.**
+4. **On-demand D2D drawing surface pulls in the raw `windows` crate *(fixed)*.**
    Drawing on-demand content (a surface that repaints on a data change rather than
-   every frame) into reactor's `SurfaceImageSource` currently requires hand-rolled
-   D3D11/D2D/DXGI/DirectWrite plus a hand-managed shared `ID2D1Device`.
-   [`windows-canvas`](windows-canvas.md) already wraps D2D safely (device, drawing
-   session, text) but only targets a continuously-rendered `SwapChainPanel` via
-   `animated_canvas` — there is no canvas-backed *on-demand* `SurfaceImageSource`
-   path, and reactor's `SurfaceImageSource` widget requires a caller-supplied
-   `ID2D1Device`. For content that redraws on a data change rather than every frame,
-   a continuous swap chain is the wrong tool, so raw D2D is the only option. A
-   canvas-backed on-demand surface (shared device + safe drawing into a
-   `SurfaceImageSource`) would let such apps avoid the `windows` crate entirely.
+   every frame) into reactor's `SurfaceImageSource` used to require hand-rolled
+   D3D11/D2D/DXGI/DirectWrite plus a hand-managed shared `ID2D1Device`. This is now
+   covered by [`windows-canvas`](windows-canvas.md)'s `CanvasImageSource` (under its
+   `reactor` feature): create it from a canvas `GpuDevice`, draw with the safe
+   canvas `DrawingSession` API, and hand `image_source()` to `Image::new` — no raw
+   `windows` crate. It complements `animated_canvas` (continuous, swap-chain) with
+   an on-demand path that only redraws when you call `draw`. Internally it drives
+   reactor's `SurfaceImageSource` widget through a *borrowed* `DrawingSession` (the
+   surface owns the `BeginDraw`/`EndDraw` bracket). To keep the surface crisp,
+   `Image::on_mounted` yields an `ImageHandle` whose
+   `on_rasterization_scale_changed` reports the host element's DPI scale (read from
+   `XamlRoot.RasterizationScale` after `FrameworkElement.Loaded`, and again on
+   `XamlRoot.Changed`); pass that scale to `CanvasImageSource::new`. See the canvas
+   `image_source` sample.
 
 5. **No general composition-interop seam for hosting GPU / Direct2D content
    *(gap)*.** Hosting GPU-drawn content requires reaching the
@@ -821,18 +825,19 @@ landed; *(gap)* items are still outstanding.
    composition surface is crisp. Reactor already drives this plumbing internally
    for its opacity/scale transitions — `ElementCompositionPreview::GetElementVisual`
    plus `Visual.Compositor()` (`backend/winui/mod.rs:603`, `:612`, `:667`) — but it
-   is `pub(crate)` and single-purpose, and the two other pieces aren't even bound:
-   `SetElementChildVisual` is absent from `bindings.rs` (only `GetElementVisual`
-   is) and `RasterizationScale` is a `usize` vtable stub (`bindings.rs:16313`). The
+   is `pub(crate)` and single-purpose. The composition-visual pieces still aren't
+   bound: `SetElementChildVisual` is absent from `bindings.rs` (only
+   `GetElementVisual` is). The DPI-scale piece, by contrast, is now covered:
+   `IXamlRoot::RasterizationScale` is bound (for the `CanvasImageSource` scale hook
+   above) and reachable from any element via `IUIElement::XamlRoot()`. The
    dedicated `SwapChainPanel` widget (`widgets/swap_chain_panel.rs`) already covers
    the DXGI-swap-chain case via `ISwapChainPanelNative::SetSwapChain`, but there is
    no seam for the *composition-visual* case — hosting a custom composition island
    (custom-drawn / off-thread animated content) under a plain host element. Filling
    this means exposing three `Backend` methods — `element_compositor(host)`,
    `element_rasterization_scale(host)` (default `1.0`), and
-   `set_element_child_visual(host, visual)` — binding `SetElementChildVisual` and
-   `RasterizationScale`, and returning `E_INVALIDARG` (not `panic!`) for an unknown
-   control id.
+   `set_element_child_visual(host, visual)` — binding `SetElementChildVisual`, and
+   returning `E_INVALIDARG` (not `panic!`) for an unknown control id.
 
    This seam is **blocked on a `Microsoft.UI.Composition` wrapper crate.** The seam
    is only useful if a caller can *build* a same-compositor child `Visual`, but those
