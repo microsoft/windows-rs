@@ -491,21 +491,26 @@ mode / pre-interpolation, and HDR color variants.
 #### 7. Hosting surfaces *(medium-low)*
 
 Present: `animated_canvas` — a per-frame UI-thread loop on a `SwapChainPanel`
-(architecturally Win2D's `CanvasAnimatedControl` render model), plus the
+(architecturally Win2D's `CanvasAnimatedControl` render model); `CanvasImageSource`
+— an on-demand `SurfaceImageSource` host (Win2D's `CanvasImageSource`) that redraws
+only when you call `draw`, displayed with the reactor `Image` widget; plus the
 standalone `HWND` swap-chain path.
 
 Missing vs Win2D's XAML controls:
 
-- **Invalidation-only mode** (`CanvasControl`) — redraw on demand instead of every
-  frame; ideal for static or rarely-changing content. This was tracked as a
-  prospective `canvas()` builder.
+- **Auto-resizing on-demand control** (`CanvasControl`) — `CanvasImageSource` covers
+  on-demand redraw, but (like Win2D's own `CanvasImageSource`) it is fixed-size:
+  rebuild it to change size. A `CanvasControl`-style wrapper that tracks the host
+  element's size and reallocates the surface automatically is still missing.
 - **Dedicated game-loop thread** (`CanvasAnimatedControl`'s independent loop with
   `Update`/`Draw`, fixed time step, input source) — a prospective
   `threaded_canvas()`.
 - **Virtualized / tiled surfaces** (`CanvasVirtualControl`,
   `CanvasVirtualImageSource`) for very large content.
-- **XAML image-source targets** (`CanvasImageSource`) and **composition interop**
-  (`CanvasComposition`) for drawing into the visual layer.
+- **Composition interop** (`CanvasComposition`) for drawing into the visual layer —
+  blocked on a `Microsoft.UI.Composition` wrapper crate (see
+  [`windows-reactor`](windows-reactor.md) gap #5 and
+  [`windows-composition`](windows-composition.md)).
 
 #### 8. Lower-priority parity
 
