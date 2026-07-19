@@ -15,6 +15,7 @@ mod app;
 mod app_shim;
 mod backend;
 mod bootstrap;
+mod composition;
 mod diagnostics;
 mod drag;
 mod element;
@@ -54,6 +55,9 @@ pub use bindings::VerticalAlignment;
 pub use bindings::VirtualKey;
 pub use bindings::VirtualKeyModifiers;
 pub use bootstrap::*;
+pub use composition::{
+    CompositionColorBrush, Compositor, ContainerVisual, SpriteVisual, Visual, VisualCollection,
+};
 pub use drag::*;
 pub use element::*;
 pub use engine::*;

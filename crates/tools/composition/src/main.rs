@@ -3,14 +3,15 @@ use windows_bindgen::bindgen;
 fn main() {
     let time = std::time::Instant::now();
 
-    // Microsoft.UI.Composition lives in Microsoft.UI.winmd (staged for the
-    // reactor tool); Windows.winmd supplies the shared Windows.Foundation /
-    // Windows.UI types it references. Flat + minimal keeps the crate's own
-    // surface small and namespace-free (see docs/crates/windows-composition.md).
+    // Windows.UI.Composition (the system stack) lives in Windows.winmd;
+    // Windows.Win32.winmd supplies ICompositorDesktopInterop and the HWND/BOOL
+    // types used to host a visual tree in a plain window. Flat + minimal keeps
+    // the crate's own surface small and namespace-free
+    // (see docs/crates/windows-composition.md).
     let args = [
         "--in",
-        "crates/tools/reactor/winmd/Microsoft.UI.winmd",
         "crates/libs/bindgen/default/Windows.winmd",
+        "crates/libs/bindgen/default/Windows.Win32.winmd",
         "--out",
         "crates/libs/composition/src/bindings.rs",
         "--minimal",

@@ -1,11 +1,15 @@
 //! Tests for `windows-composition`. See `docs/crates/windows-composition.md`.
 //!
-//! Runtime tests that build a live `Compositor` are deferred until a standalone
-//! construction path (dispatcher queue + WinAppSDK bootstrap) lands; a live
-//! compositor otherwise requires a hosting element supplied by the reactor seam.
-//! For now these tests cover the pure-value surface.
+//! The `color` tests below cover the pure-value surface. The `live` module builds
+//! a real `Compositor` on a dispatcher queue created on the test thread and
+//! exercises the visual, brush, shape, and animation wrappers headlessly —
+//! composition objects are constructed synchronously, so no window or message
+//! pump is required. Hosting a tree in a window is exercised by the runnable
+//! `composition/standalone` sample.
 
 #![cfg(test)]
+
+mod live;
 
 use windows_composition::Color;
 

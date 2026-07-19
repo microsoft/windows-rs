@@ -2,15 +2,13 @@
 //!
 //! This is the composition-interop counterpart of the `swap_chain_panel`
 //! sample: [`composition_host`] delivers a [`CompositionHostHandle`], we obtain
-//! its compositor with [`windows_composition::Compositor::from_raw`], build a
-//! `SpriteVisual` tree with the [`windows-composition`](windows_composition)
-//! crate, and attach it with `CompositionHostHandle::set_child_visual`. The
-//! visuals are laid out on the UI thread and re-laid-out on resize — no per-frame
-//! render loop is required.
+//! its [`Compositor`], build a `SpriteVisual` tree with reactor's own lifted
+//! composition API, and attach it with `CompositionHostHandle::set_child_visual`.
+//! The visuals are laid out on the UI thread and re-laid-out on resize — no
+//! per-frame render loop is required.
 
 #![windows_subsystem = "windows"]
 
-use windows_composition::{Color, Compositor, ContainerVisual, SpriteVisual};
 use windows_reactor::*;
 
 /// The composition visual tree hosted inside the reactor element.
@@ -82,9 +80,9 @@ fn app(cx: &mut RenderCx) -> Element {
             let scene = scene.clone();
             move |host| {
                 let init = || -> Result<Scene> {
-                    let compositor = Compositor::from_raw(host.compositor()?)?;
+                    let compositor = host.compositor()?;
                     let built = Scene::build(&compositor)?;
-                    host.set_child_visual(built.root.as_interface())?;
+                    host.set_child_visual(&built.root)?;
                     Ok(built)
                 };
                 match init() {

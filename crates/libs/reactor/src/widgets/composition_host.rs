@@ -1,4 +1,5 @@
 use super::*;
+use crate::composition::{Compositor, Visual};
 use std::cell::RefCell;
 use std::rc::Rc;
 
@@ -6,51 +7,48 @@ use std::rc::Rc;
 /// [`on_mounted`](CompositionHost::on_mounted) callback.
 ///
 /// It exposes the composition-interop seam: obtain the element's [`Compositor`]
-/// and attach a custom composition `Visual` tree via
-/// `ElementCompositionPreview::SetElementChildVisual`. Traffic is in raw
-/// `windows_core::IInspectable` so reactor stays independent of any particular
-/// `Microsoft.UI.Composition` projection — pair it with the
-/// [`windows-composition`](https://docs.rs/windows-composition) crate:
+/// and attach a custom composition [`Visual`] tree via
+/// `ElementCompositionPreview::SetElementChildVisual`. Build the tree from the
+/// lifted composition API on [`windows-reactor`](crate) itself — the system
+/// [`windows-composition`](https://docs.rs/windows-composition) crate wraps a
+/// different, non-interoperable stack and cannot be hosted here:
 ///
 /// ```ignore
 /// # use windows_reactor::*;
 /// # fn demo(host: CompositionHostHandle) -> windows_core::Result<()> {
-/// let compositor = windows_composition::Compositor::from_raw(host.compositor()?)?;
-/// let root = compositor.create_sprite_visual()?;
-/// // ... build the visual tree ...
-/// host.set_child_visual(root.as_interface())?;
+/// let compositor = host.compositor()?;
+/// let root = compositor.create_container_visual()?;
+/// let sprite = compositor.create_sprite_visual()?;
+/// sprite.set_size(200.0, 120.0)?;
+/// sprite.set_brush(&compositor.create_color_brush(Color::rgb(0, 120, 215))?)?;
+/// root.children()?.insert_at_top(&sprite)?;
+/// host.set_child_visual(&root)?;
 /// # Ok(())
 /// # }
 /// ```
-///
-/// [`Compositor`]: https://docs.rs/windows-composition
 #[derive(Clone)]
 pub struct CompositionHostHandle(windows_core::IInspectable);
 
 impl CompositionHostHandle {
-    /// Returns the compositor associated with this host element as a raw
-    /// `IInspectable`, suitable for `windows_composition::Compositor::from_raw`.
+    /// Returns the [`Compositor`] associated with this host element.
     ///
     /// All visuals attached with [`set_child_visual`](Self::set_child_visual)
     /// must be created from this compositor.
-    pub fn compositor(&self) -> Result<windows_core::IInspectable> {
+    pub fn compositor(&self) -> Result<Compositor> {
         let element: bindings::UIElement = self.0.cast()?;
         let visual = bindings::ElementCompositionPreview::GetElementVisual(&element)?;
         let compositor = visual.cast::<bindings::ICompositionObject>()?.Compositor()?;
-        compositor.cast()
+        Ok(Compositor::from_bindings(compositor))
     }
 
     /// Attaches `visual` as this element's child visual, replacing any visual
     /// attached previously.
     ///
-    /// `visual` must be a `Microsoft.UI.Composition.Visual` created from the
-    /// compositor returned by [`compositor`](Self::compositor) — for example
-    /// `windows_composition::Visual::as_interface`. Passing an unrelated COM
-    /// interface fails at the WinUI layer.
-    pub fn set_child_visual(&self, visual: &impl Interface) -> Result<()> {
+    /// `visual` must be created from the [`Compositor`] returned by
+    /// [`compositor`](Self::compositor).
+    pub fn set_child_visual(&self, visual: &Visual) -> Result<()> {
         let element: bindings::UIElement = self.0.cast()?;
-        let visual: bindings::Visual = visual.cast()?;
-        bindings::ElementCompositionPreview::SetElementChildVisual(&element, &visual)
+        bindings::ElementCompositionPreview::SetElementChildVisual(&element, &visual.0)
     }
 
     /// Detaches any child visual previously attached with

@@ -826,12 +826,12 @@ landed; *(gap)* items are still outstanding.
    `XamlRoot.Changed`); pass that scale to `CanvasImageSource::new`. See the canvas
    `image_source` sample.
 
-5. **Composition-interop seam for hosting GPU / composition content *(fixed)*.**
+5. **Composition-interop seam for hosting composition content *(fixed)*.**
    Hosting custom composition content requires reaching the
-   `Microsoft.UI.Composition` layer (WinUI 3's own compositor, *not* the system
-   `Windows.UI.Composition` projected by the `windows` crate — the two stacks are
-   non-interoperable) *under an arbitrary reactor element*: attach a custom
-   `Visual` (`ElementCompositionPreview.SetElementChildVisual`), obtain the
+   `Microsoft.UI.Composition` layer (WinUI 3's own *lifted* compositor, *not* the
+   system `Windows.UI.Composition` projected by the `windows` crate — the two
+   stacks are non-interoperable) *under an arbitrary reactor element*: attach a
+   custom `Visual` (`ElementCompositionPreview.SetElementChildVisual`), obtain the
    `Compositor` that owns the element's visual so it can build *same-compositor*
    child visuals, and read the element's rasterization (DPI) scale so the
    composition surface is crisp. Reactor already drives this plumbing internally
@@ -842,21 +842,31 @@ landed; *(gap)* items are still outstanding.
    widget (`composition_host()`), the composition-visual counterpart of the
    `SwapChainPanel` widget (which covers the DXGI-swap-chain case). Its
    `on_mounted` hands back a `CompositionHostHandle` — an opaque wrapper over the
-   native element's `IInspectable` — with three seam methods:
+   native element's `IInspectable` — with these seam methods:
    `compositor()` (`GetElementVisual` → `ICompositionObject::Compositor`, returned
-   as a raw `IInspectable` for `windows_composition::Compositor::from_raw`),
-   `set_child_visual(&impl Interface)` / `clear_child_visual()`
-   (`SetElementChildVisual`, now bound), and `on_rasterization_scale_changed()`
+   as a reactor [`Compositor`]),
+   `set_child_visual(&Visual)` / `clear_child_visual()`
+   (`SetElementChildVisual`), and `on_rasterization_scale_changed()`
    (via `IUIElement::XamlRoot` → `IXamlRoot::RasterizationScale`, default `1.0`).
-   The handle traffics in raw `windows_core::IInspectable` so reactor stays
-   independent of any particular composition projection; the host is backed by a
-   plain stretching `Grid`, so no new `ControlKind` or native control type is
-   needed. Callers build the visual tree with
-   [`windows-composition`](windows-composition.md) (the `Microsoft.UI.Composition`
-   projection, mirroring how [`windows-canvas`](windows-canvas.md) projects
-   Direct2D/DXGI) and attach it via `set_child_visual`. See the
+   The host is backed by a plain stretching `Grid`, so no new `ControlKind` or
+   native control type is needed.
+
+   Because the lifted stack is only usable *inside* a WinUI element, reactor
+   **owns the lifted composition wrappers** itself — the
+   [`composition`](../../crates/libs/reactor/src/composition.rs) module exposes a
+   safe `Compositor`, `Visual`, `ContainerVisual`, `SpriteVisual`,
+   `VisualCollection`, and `CompositionColorBrush` over the element's own
+   compositor (mirroring how [`windows-canvas`](windows-canvas.md) projects
+   Direct2D/DXGI). Callers build the visual tree with these reactor types and
+   attach it via `set_child_visual`. (The sibling
+   [`windows-composition`](windows-composition.md) crate wraps the *system*
+   `Windows.UI.Composition` stack for **standalone** window hosting — a different,
+   non-interoperable stack, which is why the lifted wrappers live here rather than
+   there.) See the
    [`reactor/composition_host`](../../crates/samples/reactor/composition_host) sample
-   and [`windows-composition.md`](windows-composition.md) for the end-to-end flow.
+   for the end-to-end flow.
+
+   [`Compositor`]: ../../crates/libs/reactor/src/composition.rs
 
 
 6. **Templated list stays blank when it grows from empty *(fixed)*.** Previously,

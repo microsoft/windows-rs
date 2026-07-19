@@ -11,7 +11,9 @@ readme = "readme.md"
 
 [dependencies]
 windows-core = { workspace = true }
+windows-collections = { workspace = true }
 windows-numerics = { workspace = true }
+windows-window = { workspace = true }
 
 [lints]
 workspace = true

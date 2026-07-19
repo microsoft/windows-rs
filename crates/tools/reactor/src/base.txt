@@ -1,25 +1,34 @@
 Microsoft::UI::Composition::CompositionAnimation
+Microsoft::UI::Composition::CompositionBrush
+Microsoft::UI::Composition::CompositionColorBrush
 Microsoft::UI::Composition::CompositionEasingFunction
 Microsoft::UI::Composition::CompositionObject
 Microsoft::UI::Composition::Compositor
+Microsoft::UI::Composition::ContainerVisual
 Microsoft::UI::Composition::CubicBezierEasingFunction
 Microsoft::UI::Composition::ICompositionAnimation2::put_Target
 Microsoft::UI::Composition::ICompositionAnimationBase
+Microsoft::UI::Composition::ICompositionColorBrush::{put_Color, get_Color}
 Microsoft::UI::Composition::ICompositionObject2::put_ImplicitAnimations
 Microsoft::UI::Composition::ICompositionObject::{get_Compositor, StartAnimation}
 Microsoft::UI::Composition::ICompositor2::CreateImplicitAnimationCollection
-Microsoft::UI::Composition::ICompositor::{CreateScalarKeyFrameAnimation, CreateVector3KeyFrameAnimation, CreateLinearEasingFunction, CreateCubicBezierEasingFunction}
+Microsoft::UI::Composition::ICompositor::{CreateScalarKeyFrameAnimation, CreateVector3KeyFrameAnimation, CreateLinearEasingFunction, CreateCubicBezierEasingFunction, CreateContainerVisual, CreateSpriteVisual, CreateColorBrushWithColor}
+Microsoft::UI::Composition::IContainerVisual::get_Children
 Microsoft::UI::Composition::IKeyFrameAnimation::{put_Duration, InsertExpressionKeyFrameWithEasingFunction}
 Microsoft::UI::Composition::IScalarKeyFrameAnimation::InsertKeyFrameWithEasingFunction
+Microsoft::UI::Composition::ISpriteVisual::put_Brush
 Microsoft::UI::Composition::IVector3KeyFrameAnimation::InsertKeyFrameWithEasingFunction
-Microsoft::UI::Composition::IVisual::{put_CenterPoint, get_Scale}
+Microsoft::UI::Composition::IVisual::{put_CenterPoint, get_Scale, put_Offset, get_Offset, put_Size, get_Size, put_Opacity, get_Opacity, put_IsVisible, get_IsVisible}
+Microsoft::UI::Composition::IVisualCollection::{get_Count, InsertAtTop, InsertAtBottom, Remove, RemoveAll}
 Microsoft::UI::Composition::ImplicitAnimationCollection
 Microsoft::UI::Composition::KeyFrameAnimation
 Microsoft::UI::Composition::LinearEasingFunction
 Microsoft::UI::Composition::ScalarKeyFrameAnimation
+Microsoft::UI::Composition::SpriteVisual
 Microsoft::UI::Composition::SystemBackdrops::MicaKind
 Microsoft::UI::Composition::Vector3KeyFrameAnimation
 Microsoft::UI::Composition::Visual
+Microsoft::UI::Composition::VisualCollection
 Microsoft::UI::Dispatching::DispatcherQueue::GetForCurrentThread
 Microsoft::UI::Dispatching::DispatcherQueueHandler
 Microsoft::UI::Dispatching::DispatcherQueuePriority

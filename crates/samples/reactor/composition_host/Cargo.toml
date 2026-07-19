@@ -6,7 +6,6 @@ publish = false
 
 [dependencies]
 windows-reactor = { workspace = true }
-windows-composition = { workspace = true }
 
 [build-dependencies]
 windows-reactor-setup = { workspace = true }
