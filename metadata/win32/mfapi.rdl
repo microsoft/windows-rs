@@ -16,17 +16,6 @@ mod Windows {
             G: f32,
             B: f32,
         }
-        const D3DFMT_A16B16G16R16F: u32 = 113;
-        const D3DFMT_A2B10G10R10: u32 = 31;
-        const D3DFMT_A8R8G8B8: u32 = 21;
-        const D3DFMT_D16: u32 = 80;
-        const D3DFMT_L16: u32 = 81;
-        const D3DFMT_L8: u32 = 50;
-        const D3DFMT_P8: u32 = 41;
-        const D3DFMT_R5G6B5: u32 = 23;
-        const D3DFMT_R8G8B8: u32 = 20;
-        const D3DFMT_X1R5G5B5: u32 = 24;
-        const D3DFMT_X8R8G8B8: u32 = 22;
         struct DIRTYRECT_INFO {
             FrameNumber: u32,
             NumDirtyRects: u32,

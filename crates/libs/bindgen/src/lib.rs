@@ -470,15 +470,6 @@ impl Bindgen {
                         "Windows.Foundation.Numerics.Vector4",
                     ][..],
                 ),
-                (
-                    "Windows.Win32.Foundation",
-                    "windows_core",
-                    &[
-                        "Windows.Win32.Foundation.WIN32_ERROR",
-                        "Windows.Win32.Foundation.NTSTATUS",
-                        "Windows.Win32.System.Rpc.RPC_STATUS",
-                    ][..],
-                ),
             ] {
                 if reader.contains_key(probe_namespace) {
                     let filtered: Vec<&str> = paths
@@ -560,6 +551,7 @@ impl Bindgen {
             event_only_delegates: &event_only_delegates,
             self_ty: None,
             self_generics: Vec::new(),
+            prunable: std::sync::Arc::new(BTreeSet::new()),
         };
 
         let tree = TypeTree::new(&types);
@@ -685,17 +677,32 @@ fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
             || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
 }
 
+/// Collapses a per-header `Windows.Win32.<stem>` namespace to its `Windows.Win32` umbrella; every
+/// other namespace is returned unchanged.
+///
+/// In `--package` output the flat Win32 surface (which carries every non-WinRT type, including the
+/// kernel-mode WDK headers) is glob-re-exported from the umbrella module and each per-header
+/// submodule is private, so a reference must resolve to the umbrella (never the header stem). Used
+/// when writing cross-type reference paths.
+fn flat_module_namespace(namespace: &str) -> &str {
+    const UMBRELLA: &str = "Windows.Win32";
+    if namespace.len() > UMBRELLA.len()
+        && namespace.starts_with(UMBRELLA)
+        && namespace.as_bytes()[UMBRELLA.len()] == b'.'
+    {
+        return UMBRELLA;
+    }
+    namespace
+}
+
 /// Derives the cargo-feature name for a `--package` namespace.
 ///
-/// Win32/WDK namespaces are flat (`Windows.Win32.<header>`) with globally unique
-/// header stems, so the feature is just the stem — the `Win32_`/`Wdk_` prefix
-/// would be redundant. The `Win32`/`Wdk` umbrella modules and the hierarchical
+/// Win32 namespaces are flat (`Windows.Win32.<header>`) with globally unique
+/// header stems, so the feature is just the stem — the `Win32_` prefix
+/// would be redundant. The `Win32` umbrella module and the hierarchical
 /// WinRT namespaces keep their full path (after `Windows.`) joined with `_`.
 fn namespace_feature(namespace: &str) -> String {
-    if let Some(stem) = namespace
-        .strip_prefix("Windows.Win32.")
-        .or_else(|| namespace.strip_prefix("Windows.Wdk."))
-    {
+    if let Some(stem) = namespace.strip_prefix("Windows.Win32.") {
         stem.replace('.', "_")
     } else if let Some((_, rest)) = namespace.split_once('.') {
         rest.replace('.', "_")

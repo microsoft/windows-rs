@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, shlwapi::*};
+use windows::{Win32::*, core::*};
 
 #[test]
 fn convert() {

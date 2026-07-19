@@ -58,7 +58,7 @@ impl Iterator for KeyIterator<'_> {
             };
 
             if result != 0 {
-                debug_assert_eq!(result, ERROR_NO_MORE_ITEMS);
+                debug_assert_eq!(result as u32, ERROR_NO_MORE_ITEMS);
                 None
             } else {
                 Some(String::from_utf16_lossy(&self.name[0..len as usize]))

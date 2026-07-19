@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, pathcch::*, urlmon::*, winstring::*};
+use windows::{Win32::*, core::*};
 
 #[test]
 fn path() -> Result<()> {

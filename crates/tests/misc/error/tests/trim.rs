@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, winerror::*};
+use windows::{Win32::*, core::*};
 
 #[test]
 fn test() {

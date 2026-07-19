@@ -1,5 +1,5 @@
 fn main() {
-    use windows::{core::*, libloaderapi::*};
+    use windows::{Win32::*, core::*};
 
     /// # Safety
     ///

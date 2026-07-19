@@ -26,7 +26,7 @@ impl GUID {
         // `UuidCreate` returns a plain RPC status code. RPC_S_OK (0) is success;
         // RPC_S_UUID_LOCAL_ONLY (1824) indicates a locally-generated UUID, which
         // is fine for our purposes.
-        let status = unsafe { imp::UuidCreate(&mut guid as *mut _ as _) };
+        let status = unsafe { imp::UuidCreate(&mut guid as *mut _ as _) }.0;
         if status == 0 || status == 1824 {
             Ok(guid)
         } else {

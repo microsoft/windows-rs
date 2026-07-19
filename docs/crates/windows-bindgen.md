@@ -158,6 +158,15 @@ layout is for *external* consumers generating their own namespace-organized bind
 are the full API surface), and `--package` only ever pairs with default or `--sys` — the
 two crates the repo publishes.
 
+**Empty-module suppression (`--sys` + `--package`).** A namespace whose entire surface is COM
+interfaces (e.g. a WinRT-interop header like `windowsuicompositioninterop`, or a pure-interface
+Win32 header like `servprov`) emits *nothing* in `windows-sys`, since the raw-FFI style renders no
+interfaces. In package mode such a namespace would otherwise leave an empty module file and a dead
+Cargo feature, so `write_package` prunes it: the module declaration, its file, its Cargo feature,
+and every reference to it from other features' dependency lists are all suppressed. Pruning is
+recursive (a parent is pruned only when it and all its descendants are empty) and applies only to
+`--sys`; the full `windows` crate emits interfaces, so no module there is empty.
+
 **Future work — decouple module path from Cargo feature (`--package`).** Today `--package`
 derives the module *and* the feature from the same winmd namespace, a rigid 1:1:1
 (`package_writer::write_package` uses `tree.namespace` for both the directory and
@@ -173,6 +182,30 @@ coupled part is the module split. Note the original win32metadata sub-namespaces
 (`Win32::Graphics::Direct2D`, `Win32::System::WinRT`, …) are *not* recoverable — the in-house
 flat winmd dropped them — so the grouping must come from a curated header→module map (a coarser
 sibling of `remap.rs`'s `FOLD_PREFIXES`), not from the original namespaces.
+
+**In progress — flattening the Win32 module surface (`--package`).** A first step toward the
+grouping above: rather than ~570 flat lowercase modules directly under `windows::`/`windows_sys::`,
+the per-header stems are nested under a single `Win32` module whose `mod.rs` privately
+declares each stem (`#[cfg(feature = "<stem>")] mod <stem>;`) and re-exports it flat
+(`pub use <stem>::*;`). The kernel-mode WDK headers fold into this same `Win32` module (they are
+additive net-new surface in the global non-WinRT namespace, not a separate `Wdk` module). The
+public path collapses to `windows::Win32::*` while per-header Cargo features and file layout are
+preserved. Because every stem is glob-re-exported into one namespace, any bare name defined by two
+stems becomes an ambiguous re-export (`E0659` when a consumer names it).
+
+Auditing that flat namespace surfaced 21 cross-stem bare-name collisions. 20 were scraper artifacts —
+loose macro constants duplicating a typed enumerator (`D3DFMT_*`, `OLEMISC_*`) — since removed by the
+`windows-clang` const/enum-member dedup pass (see `docs/crates/windows-clang.md`). The **sole**
+remaining cross-stem collision is `Network` — two genuinely distinct unscoped-enum members that share
+the bare name (`ConnectorType::Network = 5` in `devicetopology` and `SECURITY_LOGON_TYPE::Network = 3`
+in `ntsecapi`) — left as a deliberately ambiguous glob re-export under a blanket
+`#![allow(ambiguous_glob_reexports)]`; each stays reachable at its qualified path
+(`Win32::devicetopology::Network` / `Win32::ntsecapi::Network`). The one Rust-prelude shadow — `None`
+(the `ro` stem's `RoErrorReportingFlags::None`) — is neutralised by re-injecting
+`pub use core::option::Option::None;` into the `Win32` umbrella. The earlier core-vs-`Win32` name
+clashes are gone: `NTSTATUS` and `RPC_STATUS` are routed to the `windows_core` canonicals by
+`types/mod.rs::remap`, while the synthetic `WIN32_ERROR` is no longer invented at the scraper layer
+(`Reg*`/`shlwapi` return the faithful `LSTATUS`). See `docs/crates/windows-clang.md` for the full record.
 
 Other useful options:
 

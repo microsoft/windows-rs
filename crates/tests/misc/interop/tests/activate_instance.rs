@@ -1,10 +1,10 @@
 #![cfg(windows)]
 use windows::{
     Foundation::Collections::StringMap,
-    combaseapi::CoInitializeEx,
+    Win32::COINIT_MULTITHREADED,
+    Win32::CoInitializeEx,
+    Win32::RoActivateInstance,
     core::{HSTRING, Interface, Result},
-    objbase::COINIT_MULTITHREADED,
-    ro::RoActivateInstance,
 };
 
 // Calling RoActivateInstance is a useful interop test because it is a function defined by Win32 metadata

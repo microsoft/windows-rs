@@ -559,9 +559,9 @@ mod Windows {
         extern fn SHAutoComplete(hwndEdit: HWND, dwFlags: u32) -> HRESULT;
         type SHCT_FLAGS = u32;
         #[library("SHLWAPI.dll")]
-        extern fn SHCopyKeyA(hkeySrc: HKEY, #[opt] pszSrcSubKey: PCSTR, hkeyDest: HKEY, #[reserved] fReserved: u32) -> WIN32_ERROR;
+        extern fn SHCopyKeyA(hkeySrc: HKEY, #[opt] pszSrcSubKey: PCSTR, hkeyDest: HKEY, #[reserved] fReserved: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHCopyKeyW(hkeySrc: HKEY, #[opt] pszSrcSubKey: PCWSTR, hkeyDest: HKEY, #[reserved] fReserved: u32) -> WIN32_ERROR;
+        extern fn SHCopyKeyW(hkeySrc: HKEY, #[opt] pszSrcSubKey: PCWSTR, hkeyDest: HKEY, #[reserved] fReserved: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
         extern fn SHCreateMemStream(#[size_param(1)] #[opt] pInit: *const u8, cbInit: u32) -> IStream;
         #[library("SHLWAPI.dll")]
@@ -579,25 +579,25 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHCreateThreadWithHandle(pfnThreadProc: LPTHREAD_START_ROUTINE, #[opt] pData: *const void, flags: SHCT_FLAGS, #[opt] pfnCallback: LPTHREAD_START_ROUTINE, #[opt] pHandle: *mut HANDLE) -> BOOL;
         #[library("SHLWAPI.dll")]
-        extern fn SHDeleteEmptyKeyA(hkey: HKEY, #[opt] pszSubKey: PCSTR) -> WIN32_ERROR;
+        extern fn SHDeleteEmptyKeyA(hkey: HKEY, #[opt] pszSubKey: PCSTR) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHDeleteEmptyKeyW(hkey: HKEY, #[opt] pszSubKey: PCWSTR) -> WIN32_ERROR;
+        extern fn SHDeleteEmptyKeyW(hkey: HKEY, #[opt] pszSubKey: PCWSTR) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHDeleteKeyA(hkey: HKEY, #[opt] pszSubKey: PCSTR) -> WIN32_ERROR;
+        extern fn SHDeleteKeyA(hkey: HKEY, #[opt] pszSubKey: PCSTR) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHDeleteKeyW(hkey: HKEY, #[opt] pszSubKey: PCWSTR) -> WIN32_ERROR;
+        extern fn SHDeleteKeyW(hkey: HKEY, #[opt] pszSubKey: PCWSTR) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHDeleteValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, pszValue: PCSTR) -> WIN32_ERROR;
+        extern fn SHDeleteValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, pszValue: PCSTR) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHDeleteValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, pszValue: PCWSTR) -> WIN32_ERROR;
+        extern fn SHDeleteValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, pszValue: PCWSTR) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHEnumKeyExA(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] pszName: PSTR, #[in] #[out] pcchName: *mut u32) -> WIN32_ERROR;
+        extern fn SHEnumKeyExA(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] pszName: PSTR, #[in] #[out] pcchName: *mut u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHEnumKeyExW(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] pszName: PWSTR, #[in] #[out] pcchName: *mut u32) -> WIN32_ERROR;
+        extern fn SHEnumKeyExW(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] pszName: PWSTR, #[in] #[out] pcchName: *mut u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHEnumValueA(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] pszValueName: PSTR, #[in] #[out] #[opt] pcchValueName: *mut u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        extern fn SHEnumValueA(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] pszValueName: PSTR, #[in] #[out] #[opt] pcchValueName: *mut u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHEnumValueW(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] pszValueName: PWSTR, #[in] #[out] #[opt] pcchValueName: *mut u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        extern fn SHEnumValueW(hkey: HKEY, dwIndex: u32, #[len_param(3)] #[out] #[opt] pszValueName: PWSTR, #[in] #[out] #[opt] pcchValueName: *mut u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
         extern fn SHFormatDateTimeA(pft: *const FILETIME, #[in] #[out] #[opt] pdwFlags: *mut u32, #[len_param(3)] #[out] pszBuf: PSTR, cchBuf: u32) -> i32;
         #[library("SHLWAPI.dll")]
@@ -683,9 +683,9 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHGetThreadRef(ppunk: *mut IUnknown) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHGetValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, #[opt] pszValue: PCSTR, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        extern fn SHGetValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, #[opt] pszValue: PCSTR, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHGetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        extern fn SHGetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
         extern fn SHGetViewStatePropertyBag(#[opt] pidl: *const ITEMIDLIST, #[opt] pszBagName: PCWSTR, dwFlags: u32, riid: *const GUID, #[iid_is] ppv: *mut *mut void) -> HRESULT;
         #[library("SHLWAPI.dll")]
@@ -713,13 +713,13 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHOpenRegStreamW(hkey: HKEY, #[opt] pszSubkey: PCWSTR, #[opt] pszValue: PCWSTR, grfMode: u32) -> IStream;
         #[library("SHLWAPI.dll")]
-        extern fn SHQueryInfoKeyA(hkey: HKEY, #[opt] pcSubKeys: *mut u32, #[opt] pcchMaxSubKeyLen: *mut u32, #[opt] pcValues: *mut u32, #[opt] pcchMaxValueNameLen: *mut u32) -> WIN32_ERROR;
+        extern fn SHQueryInfoKeyA(hkey: HKEY, #[opt] pcSubKeys: *mut u32, #[opt] pcchMaxSubKeyLen: *mut u32, #[opt] pcValues: *mut u32, #[opt] pcchMaxValueNameLen: *mut u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHQueryInfoKeyW(hkey: HKEY, #[opt] pcSubKeys: *mut u32, #[opt] pcchMaxSubKeyLen: *mut u32, #[opt] pcValues: *mut u32, #[opt] pcchMaxValueNameLen: *mut u32) -> WIN32_ERROR;
+        extern fn SHQueryInfoKeyW(hkey: HKEY, #[opt] pcSubKeys: *mut u32, #[opt] pcchMaxSubKeyLen: *mut u32, #[opt] pcValues: *mut u32, #[opt] pcchMaxValueNameLen: *mut u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHQueryValueExA(hkey: HKEY, #[opt] pszValue: PCSTR, #[reserved] pdwReserved: *const u32, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        extern fn SHQueryValueExA(hkey: HKEY, #[opt] pszValue: PCSTR, #[reserved] pdwReserved: *const u32, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHQueryValueExW(hkey: HKEY, #[opt] pszValue: PCWSTR, #[reserved] pdwReserved: *const u32, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        extern fn SHQueryValueExW(hkey: HKEY, #[opt] pszValue: PCWSTR, #[reserved] pdwReserved: *const u32, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
         #[repr(i32)]
         enum SHREGDEL_FLAGS {
             SHREGDEL_DEFAULT = 0,
@@ -740,29 +740,29 @@ mod Windows {
         const SHREGSET_HKCU: u32 = 1;
         const SHREGSET_HKLM: u32 = 4;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegCloseUSKey(hUSKey: HUSKEY) -> WIN32_ERROR;
+        extern fn SHRegCloseUSKey(hUSKey: HUSKEY) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegCreateUSKeyA(pszPath: PCSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, phNewUSKey: *mut HUSKEY, dwFlags: u32) -> WIN32_ERROR;
+        extern fn SHRegCreateUSKeyA(pszPath: PCSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, phNewUSKey: *mut HUSKEY, dwFlags: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegCreateUSKeyW(pwzPath: PCWSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, phNewUSKey: *mut HUSKEY, dwFlags: u32) -> WIN32_ERROR;
+        extern fn SHRegCreateUSKeyW(pwzPath: PCWSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, phNewUSKey: *mut HUSKEY, dwFlags: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegDeleteEmptyUSKeyA(hUSKey: HUSKEY, pszSubKey: PCSTR, delRegFlags: SHREGDEL_FLAGS) -> WIN32_ERROR;
+        extern fn SHRegDeleteEmptyUSKeyA(hUSKey: HUSKEY, pszSubKey: PCSTR, delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegDeleteEmptyUSKeyW(hUSKey: HUSKEY, pwzSubKey: PCWSTR, delRegFlags: SHREGDEL_FLAGS) -> WIN32_ERROR;
+        extern fn SHRegDeleteEmptyUSKeyW(hUSKey: HUSKEY, pwzSubKey: PCWSTR, delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegDeleteUSValueA(hUSKey: HUSKEY, pszValue: PCSTR, delRegFlags: SHREGDEL_FLAGS) -> WIN32_ERROR;
+        extern fn SHRegDeleteUSValueA(hUSKey: HUSKEY, pszValue: PCSTR, delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegDeleteUSValueW(hUSKey: HUSKEY, pwzValue: PCWSTR, delRegFlags: SHREGDEL_FLAGS) -> WIN32_ERROR;
+        extern fn SHRegDeleteUSValueW(hUSKey: HUSKEY, pwzValue: PCWSTR, delRegFlags: SHREGDEL_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
         extern fn SHRegDuplicateHKey(hkey: HKEY) -> HKEY;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegEnumUSKeyA(hUSKey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pszName: PSTR, #[in] #[out] pcchName: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> WIN32_ERROR;
+        extern fn SHRegEnumUSKeyA(hUSKey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pszName: PSTR, #[in] #[out] pcchName: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegEnumUSKeyW(hUSKey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pwzName: PWSTR, #[in] #[out] pcchName: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> WIN32_ERROR;
+        extern fn SHRegEnumUSKeyW(hUSKey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pwzName: PWSTR, #[in] #[out] pcchName: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegEnumUSValueA(hUSkey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pszValueName: PSTR, #[in] #[out] pcchValueName: *mut u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> WIN32_ERROR;
+        extern fn SHRegEnumUSValueA(hUSkey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pszValueName: PSTR, #[in] #[out] pcchValueName: *mut u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegEnumUSValueW(hUSkey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pszValueName: PWSTR, #[in] #[out] pcchValueName: *mut u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> WIN32_ERROR;
+        extern fn SHRegEnumUSValueW(hUSkey: HUSKEY, dwIndex: u32, #[len_param(3)] #[out] pszValueName: PWSTR, #[in] #[out] pcchValueName: *mut u32, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
         extern fn SHRegGetBoolUSValueA(pszSubKey: PCSTR, #[opt] pszValue: PCSTR, fIgnoreHKCU: BOOL, fDefault: BOOL) -> BOOL;
         #[library("SHLWAPI.dll")]
@@ -770,43 +770,43 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHRegGetIntW(hk: HKEY, #[opt] pwzKey: PCWSTR, iDefault: i32) -> i32;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetPathA(hKey: HKEY, #[opt] pcszSubKey: PCSTR, #[opt] pcszValue: PCSTR, #[out] pszPath: PSTR, dwFlags: u32) -> WIN32_ERROR;
+        extern fn SHRegGetPathA(hKey: HKEY, #[opt] pcszSubKey: PCSTR, #[opt] pcszValue: PCSTR, #[out] pszPath: PSTR, dwFlags: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetPathW(hKey: HKEY, #[opt] pcszSubKey: PCWSTR, #[opt] pcszValue: PCWSTR, #[out] pszPath: PWSTR, dwFlags: u32) -> WIN32_ERROR;
+        extern fn SHRegGetPathW(hKey: HKEY, #[opt] pcszSubKey: PCWSTR, #[opt] pcszValue: PCWSTR, #[out] pszPath: PWSTR, dwFlags: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetUSValueA(pszSubKey: PCSTR, #[opt] pszValue: PCSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[opt] pvDefaultData: *const void, dwDefaultDataSize: u32) -> WIN32_ERROR;
+        extern fn SHRegGetUSValueA(pszSubKey: PCSTR, #[opt] pszValue: PCSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[opt] pvDefaultData: *const void, dwDefaultDataSize: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetUSValueW(pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[opt] pvDefaultData: *const void, dwDefaultDataSize: u32) -> WIN32_ERROR;
+        extern fn SHRegGetUSValueW(pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[opt] pvDefaultData: *const void, dwDefaultDataSize: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, #[opt] pszValue: PCSTR, srrfFlags: SRRF, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        extern fn SHRegGetValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, #[opt] pszValue: PCSTR, srrfFlags: SRRF, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetValueFromHKCUHKLM(pwszKey: PCWSTR, #[opt] pwszValue: PCWSTR, srrfFlags: SRRF, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        extern fn SHRegGetValueFromHKCUHKLM(pwszKey: PCWSTR, #[opt] pwszValue: PCWSTR, srrfFlags: SRRF, #[opt] pdwType: *mut u32, #[size_param(5)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegGetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, srrfFlags: SRRF, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> WIN32_ERROR;
+        extern fn SHRegGetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, srrfFlags: SRRF, #[opt] pdwType: *mut u32, #[size_param(6)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegOpenUSKeyA(pszPath: PCSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, phNewUSKey: *mut HUSKEY, fIgnoreHKCU: BOOL) -> WIN32_ERROR;
+        extern fn SHRegOpenUSKeyA(pszPath: PCSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, phNewUSKey: *mut HUSKEY, fIgnoreHKCU: BOOL) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegOpenUSKeyW(pwzPath: PCWSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, phNewUSKey: *mut HUSKEY, fIgnoreHKCU: BOOL) -> WIN32_ERROR;
+        extern fn SHRegOpenUSKeyW(pwzPath: PCWSTR, samDesired: REGSAM, #[opt] hRelativeUSKey: HUSKEY, phNewUSKey: *mut HUSKEY, fIgnoreHKCU: BOOL) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegQueryInfoUSKeyA(hUSKey: HUSKEY, #[opt] pcSubKeys: *mut u32, #[opt] pcchMaxSubKeyLen: *mut u32, #[opt] pcValues: *mut u32, #[opt] pcchMaxValueNameLen: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> WIN32_ERROR;
+        extern fn SHRegQueryInfoUSKeyA(hUSKey: HUSKEY, #[opt] pcSubKeys: *mut u32, #[opt] pcchMaxSubKeyLen: *mut u32, #[opt] pcValues: *mut u32, #[opt] pcchMaxValueNameLen: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegQueryInfoUSKeyW(hUSKey: HUSKEY, #[opt] pcSubKeys: *mut u32, #[opt] pcchMaxSubKeyLen: *mut u32, #[opt] pcValues: *mut u32, #[opt] pcchMaxValueNameLen: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> WIN32_ERROR;
+        extern fn SHRegQueryInfoUSKeyW(hUSKey: HUSKEY, #[opt] pcSubKeys: *mut u32, #[opt] pcchMaxSubKeyLen: *mut u32, #[opt] pcValues: *mut u32, #[opt] pcchMaxValueNameLen: *mut u32, enumRegFlags: SHREGENUM_FLAGS) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegQueryUSValueA(hUSKey: HUSKEY, #[opt] pszValue: PCSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[opt] pvDefaultData: *const void, #[opt] dwDefaultDataSize: u32) -> WIN32_ERROR;
+        extern fn SHRegQueryUSValueA(hUSKey: HUSKEY, #[opt] pszValue: PCSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[opt] pvDefaultData: *const void, #[opt] dwDefaultDataSize: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegQueryUSValueW(hUSKey: HUSKEY, #[opt] pszValue: PCWSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[opt] pvDefaultData: *const void, #[opt] dwDefaultDataSize: u32) -> WIN32_ERROR;
+        extern fn SHRegQueryUSValueW(hUSKey: HUSKEY, #[opt] pszValue: PCWSTR, #[in] #[out] #[opt] pdwType: *mut u32, #[size_param(4)] #[opt] pvData: *mut void, #[in] #[out] #[opt] pcbData: *mut u32, fIgnoreHKCU: BOOL, #[size_param(7)] #[opt] pvDefaultData: *const void, #[opt] dwDefaultDataSize: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegSetPathA(hKey: HKEY, #[opt] pcszSubKey: PCSTR, #[opt] pcszValue: PCSTR, pcszPath: PCSTR, dwFlags: u32) -> WIN32_ERROR;
+        extern fn SHRegSetPathA(hKey: HKEY, #[opt] pcszSubKey: PCSTR, #[opt] pcszValue: PCSTR, pcszPath: PCSTR, dwFlags: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegSetPathW(hKey: HKEY, #[opt] pcszSubKey: PCWSTR, #[opt] pcszValue: PCWSTR, pcszPath: PCWSTR, dwFlags: u32) -> WIN32_ERROR;
+        extern fn SHRegSetPathW(hKey: HKEY, #[opt] pcszSubKey: PCWSTR, #[opt] pcszValue: PCWSTR, pcszPath: PCWSTR, dwFlags: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegSetUSValueA(pszSubKey: PCSTR, pszValue: PCSTR, dwType: u32, #[size_param(4)] #[opt] pvData: *const void, #[opt] cbData: u32, #[opt] dwFlags: u32) -> WIN32_ERROR;
+        extern fn SHRegSetUSValueA(pszSubKey: PCSTR, pszValue: PCSTR, dwType: u32, #[size_param(4)] #[opt] pvData: *const void, #[opt] cbData: u32, #[opt] dwFlags: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegSetUSValueW(pwzSubKey: PCWSTR, pwzValue: PCWSTR, dwType: u32, #[size_param(4)] #[opt] pvData: *const void, #[opt] cbData: u32, #[opt] dwFlags: u32) -> WIN32_ERROR;
+        extern fn SHRegSetUSValueW(pwzSubKey: PCWSTR, pwzValue: PCWSTR, dwType: u32, #[size_param(4)] #[opt] pvData: *const void, #[opt] cbData: u32, #[opt] dwFlags: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegWriteUSValueA(hUSKey: HUSKEY, pszValue: PCSTR, dwType: u32, #[size_param(4)] pvData: *const void, cbData: u32, dwFlags: u32) -> WIN32_ERROR;
+        extern fn SHRegWriteUSValueA(hUSKey: HUSKEY, pszValue: PCSTR, dwType: u32, #[size_param(4)] pvData: *const void, cbData: u32, dwFlags: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHRegWriteUSValueW(hUSKey: HUSKEY, pwzValue: PCWSTR, dwType: u32, #[size_param(4)] pvData: *const void, cbData: u32, dwFlags: u32) -> WIN32_ERROR;
+        extern fn SHRegWriteUSValueW(hUSKey: HUSKEY, pwzValue: PCWSTR, dwType: u32, #[size_param(4)] pvData: *const void, cbData: u32, dwFlags: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
         extern fn SHReleaseThreadRef() -> HRESULT;
         #[library("SHLWAPI.dll")]
@@ -816,9 +816,9 @@ mod Windows {
         #[library("SHLWAPI.dll")]
         extern fn SHSetThreadRef(#[opt] punk: IUnknown) -> HRESULT;
         #[library("SHLWAPI.dll")]
-        extern fn SHSetValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, #[opt] pszValue: PCSTR, dwType: u32, #[size_param(5)] #[opt] pvData: *const void, cbData: u32) -> WIN32_ERROR;
+        extern fn SHSetValueA(hkey: HKEY, #[opt] pszSubKey: PCSTR, #[opt] pszValue: PCSTR, dwType: u32, #[size_param(5)] #[opt] pvData: *const void, cbData: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
-        extern fn SHSetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, dwType: u32, #[size_param(5)] #[opt] pvData: *const void, cbData: u32) -> WIN32_ERROR;
+        extern fn SHSetValueW(hkey: HKEY, #[opt] pszSubKey: PCWSTR, #[opt] pszValue: PCWSTR, dwType: u32, #[size_param(5)] #[opt] pvData: *const void, cbData: u32) -> LSTATUS;
         #[library("SHLWAPI.dll")]
         extern fn SHSkipJunction(#[opt] pbc: IBindCtx, pclsid: *const GUID) -> BOOL;
         #[library("SHLWAPI.dll")]

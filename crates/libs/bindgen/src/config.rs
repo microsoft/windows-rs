@@ -24,12 +24,26 @@ pub struct Config<'a> {
     /// The generic arguments of `self_ty`'s enclosing `impl` block, used to ensure
     /// `Self` is only substituted when the referenced generics match exactly.
     pub self_generics: Vec<Type>,
+    /// Namespaces that emit nothing in this package layout and so are pruned (no module,
+    /// no Cargo feature) — see `write_package`. A `#[cfg(feature = ...)]` gate must never
+    /// name one of these, so `Cfg::write` drops them: a type referencing a pruned namespace
+    /// has already degraded (e.g. a `windows-sys` interface pointer becomes `*mut c_void`),
+    /// so there is no real dependency to gate on. Empty (and inert) outside `--sys` package
+    /// output, where nothing is pruned.
+    pub prunable: std::sync::Arc<BTreeSet<&'static str>>,
 }
 
 impl Config<'_> {
     pub fn with_namespace(&self, namespace: &'static str) -> Self {
         let mut clone = self.clone();
         clone.namespace = namespace;
+        clone
+    }
+
+    /// Returns a clone carrying the given set of pruned namespaces (see [`Config::prunable`]).
+    pub fn with_prunable(&self, prunable: std::sync::Arc<BTreeSet<&'static str>>) -> Self {
+        let mut clone = self.clone();
+        clone.prunable = prunable;
         clone
     }
 

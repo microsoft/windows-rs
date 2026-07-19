@@ -84,8 +84,14 @@ impl Config<'_> {
                 return path.parse().unwrap();
             }
 
+            // A Win32/WDK type is re-exported flat under its `Win32`/`Wdk` umbrella (its per-header
+            // submodule is private), so references target the umbrella and never name the header
+            // stem. Collapsing the *target* (but not `self`, which stays at its deeper stem file)
+            // makes every cross-stem reference resolve through the umbrella re-export.
+            let target = flat_module_namespace(type_name.namespace());
+
             let mut relative = self.namespace.split('.').peekable();
-            let mut namespace = type_name.namespace().split('.').peekable();
+            let mut namespace = target.split('.').peekable();
 
             while relative.peek() == namespace.peek() {
                 if relative.next().is_none() {

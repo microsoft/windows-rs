@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::Interface, dbgeng::*};
+use windows::{Win32::*, core::Interface};
 
 #[test]
 fn test() {

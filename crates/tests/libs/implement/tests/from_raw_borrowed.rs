@@ -1,7 +1,7 @@
 #![cfg(windows)]
 #![expect(non_snake_case)]
 
-use windows::{core::*, servprov::*, shobjidl_core::*};
+use windows::{Win32::*, core::*};
 
 #[interface("a563f463-3d23-42cd-a2b5-6d21ee898aae")]
 unsafe trait IBorrowed: IUnknown {

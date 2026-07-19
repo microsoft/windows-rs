@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::w, minwindef::HKEY, winnt::*, winreg::*};
+use windows::{Win32::HKEY, Win32::*, core::w};
 use windows_registry::*;
 
 #[test]
@@ -24,7 +24,7 @@ fn bad_string() -> Result<()> {
                 REG_SZ,
                 Some(&bad_string_bytes),
             )
-            .0,
+            .0 as u32,
         )
         .ok()?;
     }
@@ -66,7 +66,7 @@ fn bad_multi_string_missing_double_null() -> Result<()> {
                 REG_MULTI_SZ,
                 Some(bad_multi_bytes),
             )
-            .0,
+            .0 as u32,
         )
         .ok()?;
     }

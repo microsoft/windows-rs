@@ -1,5 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{combaseapi::*, core::*, shobjidl_core::*, shtypes::*};
+    use windows::{Win32::*, core::*};
 
     unsafe {
         CoIncrementMTAUsage()?;

@@ -3,7 +3,7 @@
 // returning structs where the return value is effectively a trailing out parameter.
 #[test]
 fn test() {
-    use windows::d2d::*;
+    use windows::Win32::*;
 
     let before = D2D_COLOR_F {
         r: 1.0,

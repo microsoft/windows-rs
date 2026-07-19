@@ -1,7 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{
-        core::*, minwinbase::*, processthreadsapi::*, securitybaseapi::*, winbase::*, winnt::*,
-    };
+    use windows::{Win32::*, core::*};
 
     unsafe {
         let mut token = HANDLE::default();

@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{commctrl::*, objidlbase::*, winuser::*};
+use windows::Win32::*;
 
 #[test]
 fn win() {

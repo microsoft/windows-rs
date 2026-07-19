@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{Foundation::*, core::*, objidlbase::*, weakreference::*, winerror::*};
+use windows::{Foundation::*, Win32::*, core::*};
 
 #[implement(IStringable)]
 struct Stringable;

@@ -22,7 +22,7 @@ features = [
 Make use of any Windows APIs as needed:
 
 ```rust,no_run
-use windows::{core::*, Data::Xml::Dom::*, handleapi::*, synchapi::*, winuser::*};
+use windows::{core::*, Data::Xml::Dom::*, Win32::*};
 
 fn main() -> Result<()> {
     let doc = XmlDocument::new()?;

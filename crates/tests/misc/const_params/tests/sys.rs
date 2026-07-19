@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows_sys::{core::*, pathcch::*, winerror::*};
+use windows_sys::{Win32::*, core::*};
 
 unsafe extern "C" {
     fn wcslen(s: PCWSTR) -> usize;

@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{core::*, propvarutil::*, shlwapi::*};
+use windows::{Win32::*, core::*};
 
 #[test]
 fn path() {

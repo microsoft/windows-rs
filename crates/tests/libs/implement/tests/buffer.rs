@@ -1,7 +1,7 @@
 #![cfg(windows)]
 use windows::Storage::Streams::Buffer;
 use windows::core::*;
-use windows::{ro::*, rpc::byte};
+use windows::{Win32::byte, Win32::*};
 
 #[implement(IBufferByteAccess)]
 struct TestBuffer(std::cell::UnsafeCell<Vec<u8>>);

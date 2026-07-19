@@ -4,8 +4,8 @@
 //! every flat/minimal consumer but leaves `--package` generation (which derives file layout and
 //! Cargo features from namespaces) with nothing to partition on. This module synthesises the
 //! "optional downstream map over the flat namespace": it routes every type/function/constant to
-//! a namespace named after its defining header (`wdm.rdl` -> `Windows.wdm`) and rewrites the
-//! flat winmds into that partition via `windows_metadata::remap`.
+//! a namespace named after its defining header under the corpus root (`wdm.rdl` -> `Windows.Win32.wdm`)
+//! and rewrites the flat winmds into that partition via `windows_metadata::remap`.
 //!
 //! The partition is metadata-derived — by default one namespace per `.rdl` file, with a small
 //! curated allowlist of header-name prefixes (`FOLD_PREFIXES`) that fold obviously-related headers
@@ -22,7 +22,7 @@ pub struct Corpus {
     pub rdl_dir: &'static str,
     /// Flat winmd compiled from `rdl_dir`, e.g. `crates/libs/bindgen/default/Windows.Wdk.winmd`.
     pub winmd: &'static str,
-    /// Target namespace root, e.g. `Windows` (headers become `Windows.<stem>`).
+    /// Target namespace root, e.g. `Windows.Win32` (headers become `Windows.Win32.<stem>`).
     pub root: &'static str,
 }
 

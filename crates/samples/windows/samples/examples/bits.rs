@@ -1,5 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{bits::*, combaseapi::*, core::*, objbase::*, wtypesbase::*};
+    use windows::{Win32::*, core::*};
 
     #[implement(IBackgroundCopyCallback)]
     struct Callback;

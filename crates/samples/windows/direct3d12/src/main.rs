@@ -1,8 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{
-        core::*, d3d12::*, d3dcommon::*, d3dcompiler::*, dxgi::*, synchapi::*, winbase::*,
-        windef::*, winnt::*, winuser::*,
-    };
+    use windows::{Win32::*, core::*};
 
     use std::cell::RefCell;
     use std::rc::Rc;

@@ -168,11 +168,13 @@ fn always_on(namespace: &str) -> bool {
 
 /// Emits a single self-contained, dependency-free `index.html` that searches an
 /// inlined index in the browser. The Cargo feature for each API is derived in
-/// the page from its namespace (drop the leading `Windows`, join with `_`; the
-/// two `Foundation` namespaces are always compiled and need no feature), and a
-/// method or function also lists the extra features its signature pulls in.
-/// Inlining keeps it to one file that works both when hosted and when opened
-/// directly from disk (a `file://` page cannot `fetch` a sibling file).
+/// the page from its namespace (mirroring `namespace_feature`: the `Windows.Win32`
+/// umbrella is stripped to the bare header stem, otherwise the leading `Windows`
+/// is dropped and the rest joined with `_`; the two `Foundation` namespaces are
+/// always compiled and need no feature), and a method or function also lists the
+/// extra features its signature pulls in. Inlining keeps it to one file that works
+/// both when hosted and when opened directly from disk (a `file://` page cannot
+/// `fetch` a sibling file).
 fn generate_page(dir: &str) {
     let (namespaces, entries) = load();
 
@@ -266,8 +268,17 @@ const results = document.getElementById('results');
 
 function featureOf(ns) {
   if (ns === 'Windows.Foundation' || ns === 'Windows.Win32.Foundation') return null;
+  if (ns.startsWith('Windows.Win32.')) return ns.slice('Windows.Win32.'.length).replaceAll('.', '_');
   const parts = ns.split('.').slice(1);
   return parts.length ? parts.join('_') : null;
+}
+
+// Win32 types (every non-WinRT type, including the kernel-mode WDK headers) are flattened into a
+// single Win32 module, so the Rust path drops the per-header stem even though the feature
+// (featureOf) is still per-header.
+function flatPath(ns) {
+  if (ns.startsWith('Windows.Win32.')) return ['Win32'];
+  return ns.split('.').slice(1);
 }
 
 function run() {
@@ -280,7 +291,7 @@ function run() {
   const rows = [];
   for (const [name, nsIdx, extras] of DATA.items) {
     const ns = DATA.namespaces[nsIdx];
-    const path = ns.split('.').slice(1);
+    const path = flatPath(ns);
     const full = (path.length ? path.join('::') + '::' : '') + name;
     const hit = re ? re.test(full) : full.toLowerCase().includes(query.toLowerCase());
     if (!hit) continue;

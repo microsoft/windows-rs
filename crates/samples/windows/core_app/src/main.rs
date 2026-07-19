@@ -4,10 +4,8 @@ fn main() -> windows::core::Result<()> {
     use windows::{
         ApplicationModel::{Core::*, Package},
         UI::Core::*,
-        combaseapi::*,
+        Win32::*,
         core::*,
-        objbase::*,
-        winuser::*,
     };
 
     #[implement(IFrameworkViewSource)]

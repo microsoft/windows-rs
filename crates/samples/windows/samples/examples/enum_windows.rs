@@ -1,5 +1,5 @@
 fn main() -> windows::core::Result<()> {
-    use windows::{core::*, minwindef::*, windef::*, winuser::*};
+    use windows::{Win32::*, core::*};
 
     extern "system" fn enum_window(window: HWND, _: LPARAM) -> BOOL {
         unsafe {

@@ -1,5 +1,5 @@
 #![cfg(windows)]
-use windows::{winnt::HANDLE, winspool::*};
+use windows::{Win32::HANDLE, Win32::*};
 
 // Validates that the target libs resolve this function to "winspool.drv"
 

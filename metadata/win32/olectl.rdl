@@ -235,15 +235,6 @@ mod Windows {
             dispidInitialProperty: DISPID,
         }
         const OLEIVERB_PROPERTIES: i32 = -7;
-        const OLEMISC_ACTSLIKEBUTTON: u32 = 4096;
-        const OLEMISC_ACTSLIKELABEL: u32 = 8192;
-        const OLEMISC_ALIGNABLE: u32 = 32768;
-        const OLEMISC_ALWAYSRUN: u32 = 2048;
-        const OLEMISC_IMEMODE: u32 = 262144;
-        const OLEMISC_INVISIBLEATRUNTIME: u32 = 1024;
-        const OLEMISC_NOUIACTIVATE: u32 = 16384;
-        const OLEMISC_SETCLIENTSITEFIRST: u32 = 131072;
-        const OLEMISC_SIMPLEFRAME: u32 = 65536;
         type OLE_CANCELBOOL = VARIANT_BOOL;
         type OLE_ENABLEDEFAULTBOOL = VARIANT_BOOL;
         type OLE_OPTEXCLUSIVE = VARIANT_BOOL;
