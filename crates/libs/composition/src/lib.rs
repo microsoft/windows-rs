@@ -6,11 +6,13 @@ mod bindings;
 mod brush;
 mod color;
 mod compositor;
+mod stack;
 mod visual;
 
 pub use brush::CompositionColorBrush;
 pub use color::Color;
 pub use compositor::Compositor;
+pub use stack::DispatcherQueueController;
 pub use visual::{ContainerVisual, SpriteVisual, Visual, VisualCollection};
 
 pub use windows_core::Result;

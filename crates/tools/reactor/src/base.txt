@@ -236,6 +236,7 @@ Microsoft::UI::Xaml::GridLength
 Microsoft::UI::Xaml::GridUnitType
 Microsoft::UI::Xaml::HorizontalAlignment
 Microsoft::UI::Xaml::Hosting::ElementCompositionPreview::GetElementVisual
+Microsoft::UI::Xaml::Hosting::ElementCompositionPreview::SetElementChildVisual
 Microsoft::UI::Xaml::IApplication::get_Resources
 Microsoft::UI::Xaml::IApplicationOverrides
 Microsoft::UI::Xaml::IDragEventArgs::{put_AcceptedOperation, get_DataView, get_DragUIOverride, GetDeferral}

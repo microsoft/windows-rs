@@ -2,9 +2,14 @@
 
 > **Status: scaffolding landed — early, minimal surface.** The crate exists with
 > a generated binding layer and a first slice of safe wrappers
-> (`Compositor`, `Visual`, `ContainerVisual`, `SpriteVisual`, `VisualCollection`,
-> `CompositionColorBrush`, `Color`). Interop, standalone construction, the canvas
-> bridge, the reactor seam, and samples are still to come — see the checklist below.
+> (`Compositor` with standalone `new()` + `from_raw` adoption,
+> `DispatcherQueueController`, `Visual` with `as_interface` interop,
+> `ContainerVisual`, `SpriteVisual`, `VisualCollection`, `CompositionColorBrush`,
+> `Color`). The reactor seam has landed — the `CompositionHost` widget in
+> [`windows-reactor`](windows-reactor.md) hosts a wrapper-built visual tree (see
+> the [`reactor/composition_host`](../../crates/samples/reactor/composition_host)
+> sample). Interop, the canvas bridge, and standalone samples are still to come —
+> see the checklist below.
 
 - 📦 Not published
 - 🧩 Proposed sibling of [`windows-canvas`](windows-canvas.md) and
@@ -323,7 +328,11 @@ a feature) so reactor consumes the wrapper instead of maintaining a private copy
    test. **(done — a minimal slice; opacity/brush/effect/surface/animation
    wrappers and WARP-backed runtime tests still to come.)**
 5. Add standalone `Compositor::new()` (dispatcher queue + `stack.rs`) so a live
-   compositor can be built for headless/runtime tests.
+   compositor can be built for headless/runtime tests. **(done — `Compositor::new()`
+   activates the lifted compositor; `DispatcherQueueController::create_on_current_thread()`
+   supplies the required per-thread queue. Consumers must bootstrap the Windows App
+   SDK first via `windows-reactor-setup`; WARP-backed runtime tests need that runtime
+   present, so they land with the first sample.)**
 6. Author interop (`extras.rdl`: `ICompositorInterop`,
    `ICompositionGraphicsDeviceInterop`, `ICompositionDrawingSurfaceInterop`,
    `ICompositorDesktopInterop`); add the canvas `composition` feature and the
@@ -331,4 +340,15 @@ a feature) so reactor consumes the wrapper instead of maintaining a private copy
 7. Add `crates/samples/composition/` (minimal, dcomp, minesweeper) on the system
    stack — validating the crate and the swap path with zero bootstrap.
 8. Add the reactor seam (gap #5) and a hosted `reactor`-feature convenience.
+   **(done — the reactor-side seam landed as the `CompositionHost` widget in
+   [`windows-reactor`](windows-reactor.md): `composition_host()` delivers a
+   `CompositionHostHandle` with `compositor()` / `set_child_visual()` /
+   `clear_child_visual()` / `on_rasterization_scale_changed()`, binding
+   `ElementCompositionPreview::SetElementChildVisual`. The handle traffics in raw
+   `IInspectable`, so it pairs with `Compositor::from_raw` / `Visual::as_interface`
+   without reactor depending on this crate. Exercised end-to-end by the
+   [`reactor/composition_host`](../../crates/samples/reactor/composition_host)
+   sample. An optional composition-side `reactor`-feature convenience wrapper is
+   still to come — the raw-`IInspectable` seam already makes it unnecessary for
+   callers.)**
 9. Graduate reactor's private composition plumbing onto the wrapper.

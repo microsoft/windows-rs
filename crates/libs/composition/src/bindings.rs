@@ -104,6 +104,23 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
+impl Compositor {
+    pub(crate) fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<
+        R,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            Compositor,
+            windows_core::imp::IGenericFactory,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
 impl windows_core::RuntimeType for Compositor {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositor>();
@@ -151,6 +168,57 @@ impl windows_core::RuntimeName for ContainerVisual {
 }
 unsafe impl Send for ContainerVisual {}
 unsafe impl Sync for ContainerVisual {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct DispatcherQueueController(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    DispatcherQueueController,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl DispatcherQueueController {
+    pub(crate) fn CreateOnCurrentThread() -> windows_core::Result<Self> {
+        Self::IDispatcherQueueControllerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateOnCurrentThread)(
+                windows_core::Interface::as_raw(this),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IDispatcherQueueControllerStatics<
+        R,
+        F: FnOnce(&IDispatcherQueueControllerStatics) -> windows_core::Result<R>,
+    >(
+        callback: F,
+    ) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<
+            DispatcherQueueController,
+            IDispatcherQueueControllerStatics,
+        > = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for DispatcherQueueController {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IDispatcherQueueController>();
+}
+unsafe impl windows_core::Interface for DispatcherQueueController {
+    type Vtable = <IDispatcherQueueController as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IDispatcherQueueController as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for DispatcherQueueController {
+    type Target = IDispatcherQueueController;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for DispatcherQueueController {
+    const NAME: &'static str = "Microsoft.UI.Dispatching.DispatcherQueueController";
+}
+unsafe impl Send for DispatcherQueueController {}
+unsafe impl Sync for DispatcherQueueController {}
 windows_core::imp::define_interface!(
     ICompositionBrush,
     ICompositionBrush_Vtbl,
@@ -315,6 +383,37 @@ impl IContainerVisual {
 pub struct IContainerVisual_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Children: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    IDispatcherQueueController,
+    IDispatcherQueueController_Vtbl,
+    0xbce8178d_2183_584c_9e5b_f9366f6ae484
+);
+impl windows_core::RuntimeType for IDispatcherQueueController {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDispatcherQueueController_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IDispatcherQueueControllerStatics,
+    IDispatcherQueueControllerStatics_Vtbl,
+    0xf18d6145_722b_593d_bcf2_a61e713f0037
+);
+impl windows_core::RuntimeType for IDispatcherQueueControllerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IDispatcherQueueControllerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    CreateOnDedicatedThread: usize,
+    pub CreateOnCurrentThread: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,

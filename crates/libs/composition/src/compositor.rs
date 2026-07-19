@@ -10,6 +10,34 @@ use windows_core::{Interface, Result};
 pub struct Compositor(pub(crate) bindings::Compositor);
 
 impl Compositor {
+    /// Creates a standalone compositor.
+    ///
+    /// Because this crate targets the **lifted** `Microsoft.UI.Composition`
+    /// stack (a Windows App SDK component, not an OS component), a standalone
+    /// compositor has two prerequisites:
+    ///
+    /// 1. **The Windows App SDK runtime must be bootstrapped** before this call.
+    ///    Add [`windows-reactor-setup`] to your `build.rs` (its staging is
+    ///    generic Windows App SDK setup despite the reactor-centric name).
+    ///    Reactor-hosted apps already satisfy this — there, adopt the element's
+    ///    compositor with [`from_raw`](Self::from_raw) instead of `new`.
+    /// 2. **A dispatcher queue must exist on the current thread.** Create a
+    ///    [`DispatcherQueueController`](crate::DispatcherQueueController) first
+    ///    and keep it alive for the compositor's lifetime.
+    ///
+    /// ```no_run
+    /// use windows_composition::{Compositor, DispatcherQueueController};
+    ///
+    /// let _queue = DispatcherQueueController::create_on_current_thread()?;
+    /// let compositor = Compositor::new()?;
+    /// # windows_core::Result::Ok(())
+    /// ```
+    ///
+    /// [`windows-reactor-setup`]: https://docs.rs/windows-reactor-setup
+    pub fn new() -> Result<Self> {
+        Ok(Self(bindings::Compositor::new()?))
+    }
+
     /// Adopts a compositor obtained from a hosting element (e.g. the reactor
     /// seam's `element_compositor`). The value must be a
     /// `Microsoft.UI.Composition.Compositor`.

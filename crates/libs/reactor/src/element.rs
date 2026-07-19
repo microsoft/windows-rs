@@ -349,6 +349,7 @@ define_element! {
     RelativePanel,
     ToggleButton,
     SwapChainPanel,
+    CompositionHost,
     WebView2,
 }
 
@@ -1222,6 +1223,7 @@ impl_element_ext!(
     RelativePanel,
     ToggleButton,
     SwapChainPanel,
+    CompositionHost,
     WebView2,
 );
 

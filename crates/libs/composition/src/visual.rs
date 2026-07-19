@@ -52,6 +52,13 @@ impl Visual {
     pub fn is_visible(&self) -> Result<bool> {
         self.0.IsVisible()
     }
+
+    /// Borrows this visual as a raw `IInspectable` for interop — for example to
+    /// hand it to a reactor composition host's `set_child_visual`. Symmetric
+    /// with [`Compositor::from_raw`](crate::Compositor::from_raw).
+    pub fn as_interface(&self) -> &windows_core::IInspectable {
+        <&windows_core::IInspectable>::from(&self.0)
+    }
 }
 
 /// A visual that hosts a child visual tree via its [`children`](Self::children).
