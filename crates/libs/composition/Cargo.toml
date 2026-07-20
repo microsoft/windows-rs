@@ -15,9 +15,8 @@ readme = "readme.md"
 # a plain HWND. `lifted` targets the lifted Microsoft.UI.Composition stack for
 # hosting inside a WinUI element: it swaps the generated bindings and drops the
 # standalone-hosting surface. Lifted composition is only ever hosted through
-# reactor, which enables this feature and layers the typed host bridge on top
-# (see windows-reactor's `composition` feature). The two stacks are mutually
-# exclusive.
+# reactor, which requires this crate with `features = ["lifted"]` and layers the
+# typed host bridge on top. The two stacks are mutually exclusive.
 default = ["system"]
 system = ["dep:windows-window"]
 lifted = []

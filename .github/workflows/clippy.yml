@@ -49,7 +49,13 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - name: Check
         # Exclusions (both due to --all-targets feature-unification across the workspace):
-        #   test_no_std       — unification pulls std into its no_std graph (duplicate panic_impl).
-        #   reactor_composition — forces windows-composition's `lifted` stack, which is mutually
-        #                         exclusive with the `system` stack other members select by default.
-        run:  cargo clippy --workspace --all-targets --exclude test_no_std --exclude reactor_composition -- -D warnings
+        #   test_no_std — unification pulls std into its no_std graph (duplicate panic_impl).
+        #   windows-composition and its `system` consumers (test_composition, the composition
+        #     samples) — windows-reactor now requires windows-composition's `lifted` stack, so the
+        #     unified workspace build is lifted-primary. The `system` and `lifted` stacks are
+        #     mutually exclusive (compile_error!), so the `system` side is linted in a separate pass.
+        run:  cargo clippy --workspace --all-targets --exclude test_no_std --exclude windows-composition --exclude test_composition --exclude composition_standalone --exclude composition_minesweeper --exclude composition_canvas -- -D warnings
+      - name: Check composition system stack
+        # windows-composition and its `system` consumers, linted on their own so the `system` stack
+        # is exercised without conflicting with the lifted-primary workspace pass above.
+        run:  cargo clippy -p windows-composition -p test_composition -p composition_standalone -p composition_minesweeper -p composition_canvas --all-targets -- -D warnings

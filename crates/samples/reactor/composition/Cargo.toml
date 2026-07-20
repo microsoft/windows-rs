@@ -6,7 +6,7 @@ publish = false
 
 [dependencies]
 windows-core = { workspace = true }
-windows-reactor = { workspace = true, features = ["composition"] }
+windows-reactor = { workspace = true }
 windows-composition = { workspace = true, default-features = false, features = ["lifted"] }
 windows-numerics = { workspace = true }
 

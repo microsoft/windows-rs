@@ -85,7 +85,9 @@ pub struct CompositionShapeCollection(pub(crate) bindings::CompositionShapeColle
 impl CompositionShapeCollection {
     /// Appends a shape to the end of the collection.
     pub fn append(&self, shape: &impl Shape) {
-        self.0.Append(&shape.as_shape().0).unwrap();
+        let vector: windows_collections::IVector<bindings::CompositionShape> =
+            self.0.cast().unwrap();
+        vector.Append(&shape.as_shape().0).unwrap();
     }
 }
 

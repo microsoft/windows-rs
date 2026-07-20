@@ -60,18 +60,23 @@ of the lifted wrappers inside `windows-reactor`.
 Because the `system` and `lifted` features are mutually exclusive, this crate
 cannot be built for **both** stacks in a single Cargo invocation. Cargo unifies
 features across a build graph, so a `--workspace` / `--all` build that contains
-both a `system` consumer (`test_composition`) and a `lifted` consumer (the
-`reactor_composition` sample, which enables `windows-reactor`'s `composition`
-feature) enables both features at once and trips the
-`compile_error!`. Two consequences for maintainers:
+both a `system` consumer (`test_composition`, the composition samples) and a
+`lifted` consumer (`windows-reactor`, which **requires** this crate's `lifted`
+stack, and everything that depends on reactor) enables both features at once and
+trips the `compile_error!`. Two consequences for maintainers:
 
-- **Unified CI jobs exclude the lifted-stack consumer.** `clippy.yml`
-  (`cargo clippy --workspace`) and `test.yml` (`cargo test --all`) pass
-  `--exclude reactor_composition`, mirroring the existing `--exclude test_no_std`.
-  Any *new* crate that forces the `lifted` stack must be excluded the same way.
-  Per-crate tooling is unaffected — `tool_clippy_all` runs `cargo clippy -p <name>`
-  one crate at a time, and `-p <crate>` builds only pull the features that crate
-  selects.
+- **Unified CI jobs are lifted-primary and exclude the system-stack consumers.**
+  Because reactor — and its whole test/sample subtree — force the `lifted` stack,
+  the unified `clippy.yml` (`cargo clippy --workspace`) and `test.yml`
+  (`cargo test --all`) passes exclude the smaller `system` side instead:
+  `windows-composition` itself (a workspace root that would otherwise default to
+  `system`), `test_composition`, and the `composition_standalone` /
+  `composition_minesweeper` / `composition_canvas` samples. Each CI file then runs a
+  **second** step that lints/tests exactly those `system`-side crates together. Any
+  *new* crate that selects the `system` stack must be added to both the exclusion
+  list and the second step. Per-crate tooling is unaffected — `tool_clippy_all` runs
+  `cargo clippy -p <name>` one crate at a time, and `-p <crate>` builds only pull the
+  features that crate selects.
 - **`tool_yml` special-cases this crate.** The generated `msrv.yml` and
   `no-default-features.yml` matrices otherwise run `cargo check -p <name>
   --all-features` and `--no-default-features`, both invalid here (both stacks /
@@ -84,7 +89,10 @@ feature) enables both features at once and trips the
 - **Dependencies:** [`windows-core`](windows-core.md),
   [`windows-numerics`](windows-numerics.md),
   [`windows-collections`](windows-collections.md) (for the `IVector`-backed shape
-  collection), and — *optional, feature-gated* — [`windows-window`](windows-window.md)
+  collection and the `IMap`-backed implicit-animation collection — these Foundation
+  collection interfaces are *referenced* from `windows-collections`, never
+  re-generated locally, exactly as `Vector2`/`Vector3` come from `windows-numerics`),
+  and — *optional, feature-gated* — [`windows-window`](windows-window.md)
   (the safe `HWND`-hosting target, `system` feature). Never the `windows` crate, and —
   since the dependency flip — never `windows-reactor`: the lifted host bridge now lives
   in reactor, which depends on *this* crate (not the other way around).
@@ -129,7 +137,7 @@ modeling composition's class hierarchies:
 | `visual.rs` | `Visual` (base: offset/size/opacity/scale/anchor/border/relative sizing/`start_animation`), `ContainerVisual` (children), `SpriteVisual` (brush), `VisualCollection`, `BorderMode`. `Visual::as_raw` (lifted) surfaces the interop `IInspectable`. |
 | `shape.rs` | `ShapeVisual`, `CompositionShape`/`Shape`, sprite & container shapes, ellipse geometry, shape collection. |
 | `brush.rs` | `CompositionBrush`/`Brush`, `CompositionColorBrush`, `CompositionNineGridBrush` (surface/effect brushes to come). |
-| `animation.rs` | `CompositionAnimation`/`Animation`, `Vector3KeyFrameAnimation`. |
+| `animation.rs` | `CompositionAnimation`/`Animation`, `Vector3KeyFrameAnimation`, `ScalarKeyFrameAnimation`, `CompositionEasingFunction` (linear / cubic-bezier), and `ImplicitAnimationCollection` — the key-frame, easing, and implicit-transition surface reactor's animation engine drives. Key-frame collections cast to [`windows-collections`](windows-collections.md) `IMap` rather than re-binding it. |
 | `batch.rs` | `CompositionScopedBatch`, `BatchKind`. |
 | `color.rs` | `Color` newtype over `Windows.UI.Color`. |
 
@@ -207,29 +215,28 @@ directly with `windows_core::link!` — a small, stable, self-contained shim.
 
 Lifted composition is hosted inside a WinUI element, and that element tree belongs
 to [`windows-reactor`](windows-reactor.md). Since the dependency flip, **reactor
-depends on this crate** (behind its optional `composition` feature, which turns on
-this crate's `lifted` feature), so the typed host bridge lives in reactor rather
-than here. Reactor's [`CompositionHost`](windows-reactor.md) widget exposes a
-low-level raw `IInspectable` seam on its `CompositionHostHandle`
-(`compositor_raw()`, `set_child_visual_raw()`), and — with reactor's `composition`
-feature — inherent typed methods layered directly on the handle:
+depends on this crate** — as a *required* dependency pinned to this crate's `lifted`
+feature — so the typed host bridge lives in reactor rather than here. Reactor's
+[`CompositionHost`](windows-reactor.md) widget exposes inherent typed methods on its
+`CompositionHostHandle`:
 
 ```rust,ignore
-// no extension trait needed — methods are inherent when reactor's
-// `composition` feature is enabled
-let compositor = host.compositor()?;         // Compositor::from_host(compositor_raw)
+let compositor = host.compositor();          // Compositor::from_host(element's compositor)
 let root = compositor.create_container_visual();
-host.set_child_visual(&root)?;               // set_child_visual_raw(root.as_raw())
+host.set_child_visual(&root);                // set the element's child visual
 ```
 
 This crate's contribution to the bridge is the `lifted` binding set plus the two
 seam helpers reactor consumes: `Compositor::from_host(&IInspectable)` (adopts the
-element's compositor) and `Visual::as_raw()` (surfaces a visual's interop
-`IInspectable`). Because both crates' lifted bindings derive from the same
+element's compositor) and `Visual::{from_host, as_raw}` (adopts / surfaces a visual's
+interop `IInspectable`). Because both crates' lifted bindings derive from the same
 `Microsoft.UI.winmd`, the `IInspectable` handed across the seam has matching IIDs,
 so the `.cast()` inside `from_host` / `as_raw` is zero-overhead and ABI-safe. The
-dependency is one-way (`windows-reactor[composition]` → `windows-composition[lifted]`),
-mirroring how reactor's `canvas` feature depends on `windows-canvas`.
+dependency is one-way (`windows-reactor` → `windows-composition[lifted]`), mirroring
+how reactor's optional `canvas` feature depends on `windows-canvas`. Reactor's
+transition/animation engine also drives this crate's key-frame, easing, and
+implicit-animation wrappers directly — see
+[windows-reactor.md](windows-reactor.md)'s animation section.
 
 ## The canvas bridge (`system` feature)
 
@@ -268,9 +275,11 @@ sit in the filter's `// region: system-only` block and the wrappers are gated
 
 - **Effect & gradient brushes** — `CompositionSurfaceBrush` landed for the canvas
   bridge above; gradient and effect brushes remain.
-- **More animations** — expression animations and additional key-frame value types
-  (scalar/`Vector2`/color), building on the `Vector3` key-frame animation and scoped
-  batch that already landed.
+- **More animations** — the key-frame surface now covers `Vector3` and scalar
+  values, linear / cubic-bezier easing, implicit-animation collections, and
+  expression key frames (added so reactor's animation engine could drop its private
+  binding slice and drive these wrappers directly). Remaining: `Vector2` / color
+  key-frame value types and standalone expression animations.
 - **Scoped-batch completion** — `CompositionScopedBatch` currently exposes only
   `end()`; surfacing its `Completed` event (and a way to await it) would let callers
   sequence work when a batch of animations finishes.

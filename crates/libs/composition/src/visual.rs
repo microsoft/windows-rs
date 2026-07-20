@@ -84,9 +84,27 @@ impl Visual {
         self.0.clone().into()
     }
 
+    /// Adopts a lifted `Microsoft.UI.Composition.Visual` surfaced as a raw
+    /// [`IInspectable`](windows_core::IInspectable), so its properties and
+    /// animations can be driven through this crate's safe API.
+    ///
+    /// This is the interop seam used by the reactor transition engine, which
+    /// obtains an element's backing visual from `ElementCompositionPreview`.
+    /// Lifted composition can only be hosted inside a WinUI element, so this has
+    /// no system-stack counterpart.
+    #[cfg(feature = "lifted")]
+    pub fn from_host(visual: windows_core::IInspectable) -> Result<Self> {
+        Ok(Self(visual.cast()?))
+    }
+
     /// Sets the visual's scale factor about its [center point](Self::set_center_point).
     pub fn set_scale(&self, scale: Vector3) {
         self.0.SetScale(scale).unwrap();
+    }
+
+    /// Returns the visual's current scale factor.
+    pub fn scale(&self) -> Vector3 {
+        self.0.Scale().unwrap()
     }
 
     /// Sets the point, in DIPs, about which rotation and scaling are applied.
@@ -140,6 +158,15 @@ impl Visual {
         let object: bindings::ICompositionObject = self.0.cast().unwrap();
         object
             .StartAnimation(property, &animation.as_animation().0)
+            .unwrap();
+    }
+
+    /// Attaches (or, with `None`, clears) the [`ImplicitAnimationCollection`]
+    /// that animates this visual's properties automatically when they change.
+    pub fn set_implicit_animations(&self, animations: Option<&ImplicitAnimationCollection>) {
+        let object: bindings::ICompositionObject2 = self.0.cast().unwrap();
+        object
+            .SetImplicitAnimations(animations.map(|a| &a.0))
             .unwrap();
     }
 }

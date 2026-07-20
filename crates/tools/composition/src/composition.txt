@@ -23,12 +23,13 @@ Windows.UI.Composition.Compositor
 // activation; a reactor app obtains its compositor from the host element.
 Windows.UI.Composition.Compositor::CreateInstance
 // endregion
-Windows.UI.Composition.ICompositor::{CreateContainerVisual, CreateSpriteVisual, CreateColorBrushWithColor, CreateScopedBatch, CreateVector3KeyFrameAnimation}
-Windows.UI.Composition.ICompositor2::{CreateNineGridBrush}
+Windows.UI.Composition.ICompositor::{CreateContainerVisual, CreateSpriteVisual, CreateColorBrushWithColor, CreateScopedBatch, CreateScalarKeyFrameAnimation, CreateVector3KeyFrameAnimation, CreateLinearEasingFunction, CreateCubicBezierEasingFunction}
+Windows.UI.Composition.ICompositor2::{CreateNineGridBrush, CreateImplicitAnimationCollection}
 Windows.UI.Composition.ICompositor5::{CreateShapeVisual, CreateSpriteShapeWithGeometry, CreateContainerShape, CreateEllipseGeometry}
 
 Windows.UI.Composition.CompositionObject
 Windows.UI.Composition.ICompositionObject::{get_Compositor, StartAnimation}
+Windows.UI.Composition.ICompositionObject2::{put_ImplicitAnimations}
 
 // region: system-only
 // A dispatcher queue must exist on the thread before the compositor is created.
@@ -40,7 +41,7 @@ Windows.System.DispatcherQueueController
 // endregion
 
 Windows.UI.Composition.Visual
-Windows.UI.Composition.IVisual::{put_Offset, get_Offset, put_Size, get_Size, put_Opacity, get_Opacity, put_IsVisible, get_IsVisible, put_AnchorPoint, put_CenterPoint, put_Scale, put_BorderMode, get_Parent}
+Windows.UI.Composition.IVisual::{put_Offset, get_Offset, put_Size, get_Size, put_Opacity, get_Opacity, put_IsVisible, get_IsVisible, put_AnchorPoint, put_CenterPoint, put_Scale, get_Scale, put_BorderMode, get_Parent}
 Windows.UI.Composition.IVisual2::{put_RelativeSizeAdjustment, put_RelativeOffsetAdjustment, put_ParentForTransform}
 Windows.UI.Composition.CompositionBorderMode
 
@@ -66,7 +67,6 @@ Windows.UI.Composition.ShapeVisual
 Windows.UI.Composition.IShapeVisual::{get_Shapes}
 Windows.UI.Composition.CompositionShape
 Windows.UI.Composition.CompositionShapeCollection
-Windows.Foundation.Collections.IVector::{Append}
 Windows.UI.Composition.ICompositionShape::{put_Offset}
 Windows.UI.Composition.CompositionSpriteShape
 Windows.UI.Composition.ICompositionSpriteShape::{put_FillBrush}
@@ -76,13 +76,29 @@ Windows.UI.Composition.CompositionGeometry
 Windows.UI.Composition.CompositionEllipseGeometry
 Windows.UI.Composition.ICompositionEllipseGeometry::{put_Radius}
 
-// Animations: the "reveal" scale bounce played across the mines on game over.
+// Animations: key-frame animations drive both the reactor transition engine
+// (implicit + explicit property animations, with easing and expression key
+// frames) and the composition "reveal" scale bounce.
 Windows.UI.Composition.CompositionAnimation
+Windows.UI.Composition.ICompositionAnimation2::{put_Target}
+Windows.UI.Composition.ICompositionAnimationBase
 Windows.UI.Composition.KeyFrameAnimation
-Windows.UI.Composition.IKeyFrameAnimation::{put_Duration, put_DelayTime, put_IterationBehavior, put_IterationCount}
+Windows.UI.Composition.IKeyFrameAnimation::{put_Duration, put_DelayTime, put_IterationBehavior, put_IterationCount, InsertExpressionKeyFrameWithEasingFunction}
+Windows.UI.Composition.ScalarKeyFrameAnimation
+Windows.UI.Composition.IScalarKeyFrameAnimation::{InsertKeyFrameWithEasingFunction}
 Windows.UI.Composition.Vector3KeyFrameAnimation
-Windows.UI.Composition.IVector3KeyFrameAnimation::{InsertKeyFrame}
+Windows.UI.Composition.IVector3KeyFrameAnimation::{InsertKeyFrame, InsertKeyFrameWithEasingFunction}
 Windows.UI.Composition.AnimationIterationBehavior
+
+// Easing functions shape a key frame's interpolation curve.
+Windows.UI.Composition.CompositionEasingFunction
+Windows.UI.Composition.LinearEasingFunction
+Windows.UI.Composition.CubicBezierEasingFunction
+
+// Implicit animations: a target-name → animation map applied to a visual so
+// property changes animate automatically. The `IMap` projection it exposes is
+// referenced from windows-collections rather than re-generated here.
+Windows.UI.Composition.ImplicitAnimationCollection
 
 // Scoped batch: groups the mine animations so completion could be observed.
 Windows.UI.Composition.CompositionScopedBatch

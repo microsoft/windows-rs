@@ -36,7 +36,11 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(CompositionAnimation, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    CompositionAnimation,
+    ICompositionAnimationBase,
+    CompositionObject
+);
 impl windows_core::RuntimeType for CompositionAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, ICompositionAnimation>();
@@ -211,6 +215,34 @@ impl windows_core::RuntimeName for CompositionContainerShape {
 }
 unsafe impl Send for CompositionContainerShape {}
 unsafe impl Sync for CompositionContainerShape {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct CompositionEasingFunction(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    CompositionEasingFunction,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(CompositionEasingFunction, CompositionObject);
+impl windows_core::RuntimeType for CompositionEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ICompositionEasingFunction>();
+}
+unsafe impl windows_core::Interface for CompositionEasingFunction {
+    type Vtable = <ICompositionEasingFunction as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ICompositionEasingFunction as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for CompositionEasingFunction {
+    type Target = ICompositionEasingFunction;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for CompositionEasingFunction {
+    const NAME: &'static str = "Microsoft.UI.Composition.CompositionEasingFunction";
+}
+unsafe impl Send for CompositionEasingFunction {}
+unsafe impl Sync for CompositionEasingFunction {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct CompositionEllipseGeometry(windows_core::IUnknown);
@@ -393,19 +425,23 @@ windows_core::imp::interface_hierarchy!(
     CompositionShapeCollection,
     windows_core::IUnknown,
     windows_core::IInspectable,
-    IVector<CompositionShape>
+    windows_collections::IVector<CompositionShape>
 );
 windows_core::imp::required_hierarchy!(CompositionShapeCollection, CompositionObject);
 impl windows_core::RuntimeType for CompositionShapeCollection {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::for_class::<Self, IVector<CompositionShape>>();
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<
+        Self,
+        windows_collections::IVector<CompositionShape>,
+    >();
 }
 unsafe impl windows_core::Interface for CompositionShapeCollection {
-    type Vtable = <IVector<CompositionShape> as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVector<CompositionShape> as windows_core::Interface>::IID;
+    type Vtable =
+        <windows_collections::IVector<CompositionShape> as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID =
+        <windows_collections::IVector<CompositionShape> as windows_core::Interface>::IID;
 }
 impl core::ops::Deref for CompositionShapeCollection {
-    type Target = IVector<CompositionShape>;
+    type Target = windows_collections::IVector<CompositionShape>;
     fn deref(&self) -> &Self::Target {
         unsafe { core::mem::transmute(self) }
     }
@@ -498,6 +534,38 @@ impl windows_core::RuntimeName for ContainerVisual {
 }
 unsafe impl Send for ContainerVisual {}
 unsafe impl Sync for ContainerVisual {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct CubicBezierEasingFunction(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    CubicBezierEasingFunction,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    CubicBezierEasingFunction,
+    CompositionEasingFunction,
+    CompositionObject
+);
+impl windows_core::RuntimeType for CubicBezierEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ICubicBezierEasingFunction>();
+}
+unsafe impl windows_core::Interface for CubicBezierEasingFunction {
+    type Vtable = <ICubicBezierEasingFunction as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ICubicBezierEasingFunction as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for CubicBezierEasingFunction {
+    type Target = ICubicBezierEasingFunction;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for CubicBezierEasingFunction {
+    const NAME: &'static str = "Microsoft.UI.Composition.CubicBezierEasingFunction";
+}
+unsafe impl Send for CubicBezierEasingFunction {}
+unsafe impl Sync for CubicBezierEasingFunction {}
 windows_core::imp::define_interface!(
     ICompositionAnimation,
     ICompositionAnimation_Vtbl,
@@ -509,6 +577,72 @@ impl windows_core::RuntimeType for ICompositionAnimation {
 }
 #[repr(C)]
 pub struct ICompositionAnimation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    ICompositionAnimation2,
+    ICompositionAnimation2_Vtbl,
+    0x0926eb58_8965_5c74_bdac_852ebb5e8542
+);
+impl windows_core::RuntimeType for ICompositionAnimation2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl ICompositionAnimation2 {
+    pub(crate) fn SetTarget(&self, value: &str) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetTarget)(
+                windows_core::Interface::as_raw(self),
+                core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICompositionAnimation2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    SetBooleanParameter: usize,
+    Target: usize,
+    pub SetTarget: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICompositionAnimationBase,
+    ICompositionAnimationBase_Vtbl,
+    0xa77c0e5a_f059_4e85_bcef_c068694cec78
+);
+impl windows_core::RuntimeType for ICompositionAnimationBase {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+windows_core::imp::interface_hierarchy!(
+    ICompositionAnimationBase,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+impl windows_core::RuntimeName for ICompositionAnimationBase {
+    const NAME: &'static str = "Microsoft.UI.Composition.ICompositionAnimationBase";
+}
+pub trait ICompositionAnimationBase_Impl: windows_core::IUnknownImpl {}
+impl ICompositionAnimationBase_Vtbl {
+    pub const fn new<Identity: ICompositionAnimationBase_Impl, const OFFSET: isize>() -> Self {
+        Self {
+            base__: windows_core::IInspectable_Vtbl::new::<
+                Identity,
+                ICompositionAnimationBase,
+                OFFSET,
+            >(),
+        }
+    }
+    pub fn matches(iid: &windows_core::GUID) -> bool {
+        iid == &<ICompositionAnimationBase as windows_core::Interface>::IID
+    }
+}
+#[repr(C)]
+pub struct ICompositionAnimationBase_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
@@ -589,6 +723,19 @@ pub struct ICompositionContainerShape_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ICompositionEasingFunction,
+    ICompositionEasingFunction_Vtbl,
+    0x8e1ecd0d_57d8_5bc9_9bcd_e43d0dd733c4
+);
+impl windows_core::RuntimeType for ICompositionEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ICompositionEasingFunction_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
 }
 windows_core::imp::define_interface!(
     ICompositionEllipseGeometry,
@@ -773,6 +920,40 @@ pub struct ICompositionObject_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    ICompositionObject2,
+    ICompositionObject2_Vtbl,
+    0xbcbbfebf_799c_51ce_9c82_b6e49e7e62e1
+);
+impl windows_core::RuntimeType for ICompositionObject2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl ICompositionObject2 {
+    pub(crate) fn SetImplicitAnimations<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ImplicitAnimationCollection>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetImplicitAnimations)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct ICompositionObject2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    Comment: usize,
+    SetComment: usize,
+    ImplicitAnimations: usize,
+    pub SetImplicitAnimations: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
     ICompositionScopedBatch,
     ICompositionScopedBatch_Vtbl,
     0xd31ca572_99ce_5969_b042_6c2d330a3859
@@ -892,6 +1073,44 @@ impl ICompositor {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub(crate) fn CreateCubicBezierEasingFunction(
+        &self,
+        controlpoint1: windows_numerics::Vector2,
+        controlpoint2: windows_numerics::Vector2,
+    ) -> windows_core::Result<CubicBezierEasingFunction> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateCubicBezierEasingFunction)(
+                windows_core::Interface::as_raw(self),
+                controlpoint1,
+                controlpoint2,
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn CreateLinearEasingFunction(&self) -> windows_core::Result<LinearEasingFunction> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateLinearEasingFunction)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub(crate) fn CreateScalarKeyFrameAnimation(
+        &self,
+    ) -> windows_core::Result<ScalarKeyFrameAnimation> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateScalarKeyFrameAnimation)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn CreateScopedBatch(
         &self,
         batchtype: CompositionBatchTypes,
@@ -943,17 +1162,28 @@ pub struct ICompositor_Vtbl {
         *mut core::ffi::c_void,
         *mut *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    CreateCubicBezierEasingFunction: usize,
+    pub CreateCubicBezierEasingFunction: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_numerics::Vector2,
+        windows_numerics::Vector2,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CreateEffectFactory: usize,
     CreateEffectFactoryWithProperties: usize,
     CreateExpressionAnimation: usize,
     CreateExpressionAnimationWithExpression: usize,
     CreateInsetClip: usize,
     CreateInsetClipWithInsets: usize,
-    CreateLinearEasingFunction: usize,
+    pub CreateLinearEasingFunction: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CreatePropertySet: usize,
     CreateQuaternionKeyFrameAnimation: usize,
-    CreateScalarKeyFrameAnimation: usize,
+    pub CreateScalarKeyFrameAnimation: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub CreateScopedBatch: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         CompositionBatchTypes,
@@ -981,6 +1211,18 @@ impl windows_core::RuntimeType for ICompositor2 {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ICompositor2 {
+    pub(crate) fn CreateImplicitAnimationCollection(
+        &self,
+    ) -> windows_core::Result<ImplicitAnimationCollection> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).CreateImplicitAnimationCollection)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub(crate) fn CreateNineGridBrush(&self) -> windows_core::Result<CompositionNineGridBrush> {
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1000,7 +1242,10 @@ pub struct ICompositor2_Vtbl {
     CreateBackdropBrush: usize,
     CreateDistantLight: usize,
     CreateDropShadow: usize,
-    CreateImplicitAnimationCollection: usize,
+    pub CreateImplicitAnimationCollection: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     CreateLayerVisual: usize,
     CreateMaskBrush: usize,
     pub CreateNineGridBrush: unsafe extern "system" fn(
@@ -1131,6 +1376,32 @@ pub struct IContainerVisual_Vtbl {
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
+    ICubicBezierEasingFunction,
+    ICubicBezierEasingFunction_Vtbl,
+    0x35e7fcde_f9ce_590a_8b88_64a82a6b4b48
+);
+impl windows_core::RuntimeType for ICubicBezierEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ICubicBezierEasingFunction_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IImplicitAnimationCollection,
+    IImplicitAnimationCollection_Vtbl,
+    0xc5c0689e_f5ae_5bed_829b_c522cda39717
+);
+impl windows_core::RuntimeType for IImplicitAnimationCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct IImplicitAnimationCollection_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
     IKeyFrameAnimation,
     IKeyFrameAnimation_Vtbl,
     0x5a8f57f0_f059_5b47_b308_c4c80fc71248
@@ -1179,6 +1450,25 @@ impl IKeyFrameAnimation {
             .ok()
         }
     }
+    pub(crate) fn InsertExpressionKeyFrameWithEasingFunction<P2>(
+        &self,
+        normalizedprogresskey: f32,
+        value: &str,
+        easingfunction: P2,
+    ) -> windows_core::Result<()>
+    where
+        P2: windows_core::Param<CompositionEasingFunction>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).InsertExpressionKeyFrameWithEasingFunction)(
+                windows_core::Interface::as_raw(self),
+                normalizedprogresskey,
+                core::mem::transmute_copy(&windows_core::HSTRING::from(value)),
+                easingfunction.param().abi(),
+            )
+            .ok()
+        }
+    }
 }
 #[repr(C)]
 pub struct IKeyFrameAnimation_Vtbl {
@@ -1201,6 +1491,71 @@ pub struct IKeyFrameAnimation_Vtbl {
     IterationCount: usize,
     pub SetIterationCount:
         unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    KeyFrameCount: usize,
+    StopBehavior: usize,
+    SetStopBehavior: usize,
+    InsertExpressionKeyFrame: usize,
+    pub InsertExpressionKeyFrameWithEasingFunction:
+        unsafe extern "system" fn(
+            *mut core::ffi::c_void,
+            f32,
+            *mut core::ffi::c_void,
+            *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(
+    ILinearEasingFunction,
+    ILinearEasingFunction_Vtbl,
+    0x79bfeef6_70c7_50a6_bb3a_0e9636148695
+);
+impl windows_core::RuntimeType for ILinearEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+pub struct ILinearEasingFunction_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+}
+windows_core::imp::define_interface!(
+    IScalarKeyFrameAnimation,
+    IScalarKeyFrameAnimation_Vtbl,
+    0x5a5f8abe_d129_5b25_8aff_8180fd9bfb22
+);
+impl windows_core::RuntimeType for IScalarKeyFrameAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+impl IScalarKeyFrameAnimation {
+    pub(crate) fn InsertKeyFrameWithEasingFunction<P2>(
+        &self,
+        normalizedprogresskey: f32,
+        value: f32,
+        easingfunction: P2,
+    ) -> windows_core::Result<()>
+    where
+        P2: windows_core::Param<CompositionEasingFunction>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).InsertKeyFrameWithEasingFunction)(
+                windows_core::Interface::as_raw(self),
+                normalizedprogresskey,
+                value,
+                easingfunction.param().abi(),
+            )
+            .ok()
+        }
+    }
+}
+#[repr(C)]
+pub struct IScalarKeyFrameAnimation_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    InsertKeyFrame: usize,
+    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        f32,
+        f32,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
     IShapeVisual,
@@ -1263,74 +1618,6 @@ pub struct ISpriteVisual_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct IVector<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
-where
-    T: windows_core::RuntimeType + 'static;
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IUnknown>
-    for IVector<T>
-{
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<windows_core::IInspectable>
-    for IVector<T>
-{
-}
-unsafe impl<T: windows_core::RuntimeType + 'static> windows_core::Interface for IVector<T> {
-    type Vtable = IVector_Vtbl<T>;
-    const IID: windows_core::GUID =
-        windows_core::GUID::from_signature(<Self as windows_core::RuntimeType>::SIGNATURE);
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for IVector<T> {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new()
-        .push_slice(b"pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d}")
-        .push_slice(b";")
-        .push_other(T::SIGNATURE)
-        .push_slice(b")");
-}
-impl<T: windows_core::RuntimeType + 'static>
-    windows_core::imp::CanInto<windows_collections::IIterable<T>> for IVector<T>
-{
-    const QUERY: bool = true;
-}
-impl<T: windows_core::RuntimeType + 'static> IVector<T> {
-    pub(crate) fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<T>,
-    {
-        unsafe {
-            (windows_core::Interface::vtable(self).Append)(
-                windows_core::Interface::as_raw(self),
-                value.param().abi(),
-            )
-            .ok()
-        }
-    }
-}
-impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeName for IVector<T> {
-    const NAME: &'static str = "Windows.Foundation.Collections.IVector";
-    const RUNTIME_CLASS_NAME: windows_core::imp::ConstBuffer =
-        <Self as windows_core::RuntimeType>::NAME;
-}
-#[repr(C)]
-pub struct IVector_Vtbl<T>
-where
-    T: windows_core::RuntimeType + 'static,
-{
-    pub base__: windows_core::IInspectable_Vtbl,
-    GetAt: usize,
-    Size: usize,
-    GetView: usize,
-    IndexOf: usize,
-    SetAt: usize,
-    InsertAt: usize,
-    RemoveAt: usize,
-    pub Append: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::AbiType<T>,
-    ) -> windows_core::HRESULT,
-    T: core::marker::PhantomData<T>,
-}
 windows_core::imp::define_interface!(
     IVector3KeyFrameAnimation,
     IVector3KeyFrameAnimation_Vtbl,
@@ -1355,6 +1642,25 @@ impl IVector3KeyFrameAnimation {
             .ok()
         }
     }
+    pub(crate) fn InsertKeyFrameWithEasingFunction<P2>(
+        &self,
+        normalizedprogresskey: f32,
+        value: windows_numerics::Vector3,
+        easingfunction: P2,
+    ) -> windows_core::Result<()>
+    where
+        P2: windows_core::Param<CompositionEasingFunction>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).InsertKeyFrameWithEasingFunction)(
+                windows_core::Interface::as_raw(self),
+                normalizedprogresskey,
+                value,
+                easingfunction.param().abi(),
+            )
+            .ok()
+        }
+    }
 }
 #[repr(C)]
 pub struct IVector3KeyFrameAnimation_Vtbl {
@@ -1363,6 +1669,12 @@ pub struct IVector3KeyFrameAnimation_Vtbl {
         *mut core::ffi::c_void,
         f32,
         windows_numerics::Vector3,
+    ) -> windows_core::HRESULT,
+    pub InsertKeyFrameWithEasingFunction: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        f32,
+        windows_numerics::Vector3,
+        *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(
@@ -1475,6 +1787,16 @@ impl IVisual {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub(crate) fn Scale(&self) -> windows_core::Result<windows_numerics::Vector3> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Scale)(
+                windows_core::Interface::as_raw(self),
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
     pub(crate) fn SetScale(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetScale)(
@@ -1555,7 +1877,10 @@ pub struct IVisual_Vtbl {
     SetRotationAngleInDegrees: usize,
     RotationAxis: usize,
     SetRotationAxis: usize,
-    Scale: usize,
+    pub Scale: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut windows_numerics::Vector3,
+    ) -> windows_core::HRESULT,
     pub SetScale: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_numerics::Vector3,
@@ -1720,13 +2045,46 @@ pub struct IVisualCollection_Vtbl {
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ImplicitAnimationCollection(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ImplicitAnimationCollection,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(ImplicitAnimationCollection, CompositionObject);
+impl windows_core::RuntimeType for ImplicitAnimationCollection {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IImplicitAnimationCollection>();
+}
+unsafe impl windows_core::Interface for ImplicitAnimationCollection {
+    type Vtable = <IImplicitAnimationCollection as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IImplicitAnimationCollection as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ImplicitAnimationCollection {
+    type Target = IImplicitAnimationCollection;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ImplicitAnimationCollection {
+    const NAME: &'static str = "Microsoft.UI.Composition.ImplicitAnimationCollection";
+}
+unsafe impl Send for ImplicitAnimationCollection {}
+unsafe impl Sync for ImplicitAnimationCollection {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
 pub struct KeyFrameAnimation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(
     KeyFrameAnimation,
     windows_core::IUnknown,
     windows_core::IInspectable
 );
-windows_core::imp::required_hierarchy!(KeyFrameAnimation, CompositionAnimation, CompositionObject);
+windows_core::imp::required_hierarchy!(
+    KeyFrameAnimation,
+    ICompositionAnimationBase,
+    CompositionAnimation,
+    CompositionObject
+);
 impl windows_core::RuntimeType for KeyFrameAnimation {
     const SIGNATURE: windows_core::imp::ConstBuffer =
         windows_core::imp::ConstBuffer::for_class::<Self, IKeyFrameAnimation>();
@@ -1746,6 +2104,72 @@ impl windows_core::RuntimeName for KeyFrameAnimation {
 }
 unsafe impl Send for KeyFrameAnimation {}
 unsafe impl Sync for KeyFrameAnimation {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct LinearEasingFunction(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    LinearEasingFunction,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    LinearEasingFunction,
+    CompositionEasingFunction,
+    CompositionObject
+);
+impl windows_core::RuntimeType for LinearEasingFunction {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, ILinearEasingFunction>();
+}
+unsafe impl windows_core::Interface for LinearEasingFunction {
+    type Vtable = <ILinearEasingFunction as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <ILinearEasingFunction as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for LinearEasingFunction {
+    type Target = ILinearEasingFunction;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for LinearEasingFunction {
+    const NAME: &'static str = "Microsoft.UI.Composition.LinearEasingFunction";
+}
+unsafe impl Send for LinearEasingFunction {}
+unsafe impl Sync for LinearEasingFunction {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ScalarKeyFrameAnimation(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(
+    ScalarKeyFrameAnimation,
+    windows_core::IUnknown,
+    windows_core::IInspectable
+);
+windows_core::imp::required_hierarchy!(
+    ScalarKeyFrameAnimation,
+    ICompositionAnimationBase,
+    KeyFrameAnimation,
+    CompositionAnimation,
+    CompositionObject
+);
+impl windows_core::RuntimeType for ScalarKeyFrameAnimation {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_class::<Self, IScalarKeyFrameAnimation>();
+}
+unsafe impl windows_core::Interface for ScalarKeyFrameAnimation {
+    type Vtable = <IScalarKeyFrameAnimation as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IScalarKeyFrameAnimation as windows_core::Interface>::IID;
+}
+impl core::ops::Deref for ScalarKeyFrameAnimation {
+    type Target = IScalarKeyFrameAnimation;
+    fn deref(&self) -> &Self::Target {
+        unsafe { core::mem::transmute(self) }
+    }
+}
+impl windows_core::RuntimeName for ScalarKeyFrameAnimation {
+    const NAME: &'static str = "Microsoft.UI.Composition.ScalarKeyFrameAnimation";
+}
+unsafe impl Send for ScalarKeyFrameAnimation {}
+unsafe impl Sync for ScalarKeyFrameAnimation {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ShapeVisual(windows_core::IUnknown);
@@ -1812,6 +2236,7 @@ windows_core::imp::interface_hierarchy!(
 );
 windows_core::imp::required_hierarchy!(
     Vector3KeyFrameAnimation,
+    ICompositionAnimationBase,
     KeyFrameAnimation,
     CompositionAnimation,
     CompositionObject

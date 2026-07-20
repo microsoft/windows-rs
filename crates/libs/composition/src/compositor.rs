@@ -152,6 +152,39 @@ impl Compositor {
         Vector3KeyFrameAnimation(self.0.CreateVector3KeyFrameAnimation().unwrap())
     }
 
+    /// Creates a scalar (`f32`) key-frame animation.
+    pub fn create_scalar_key_frame_animation(&self) -> ScalarKeyFrameAnimation {
+        ScalarKeyFrameAnimation(self.0.CreateScalarKeyFrameAnimation().unwrap())
+    }
+
+    /// Creates a linear easing function.
+    pub fn create_linear_easing_function(&self) -> CompositionEasingFunction {
+        CompositionEasingFunction(self.0.CreateLinearEasingFunction().unwrap().cast().unwrap())
+    }
+
+    /// Creates a cubic-bezier easing function through the two control points
+    /// (each in `0.0..=1.0`), matching the CSS `cubic-bezier()` convention.
+    pub fn create_cubic_bezier_easing_function(
+        &self,
+        control1: Vector2,
+        control2: Vector2,
+    ) -> CompositionEasingFunction {
+        CompositionEasingFunction(
+            self.0
+                .CreateCubicBezierEasingFunction(control1, control2)
+                .unwrap()
+                .cast()
+                .unwrap(),
+        )
+    }
+
+    /// Creates an empty implicit-animation collection to attach to a visual
+    /// with [`Visual::set_implicit_animations`](crate::Visual::set_implicit_animations).
+    pub fn create_implicit_animation_collection(&self) -> ImplicitAnimationCollection {
+        let compositor: bindings::ICompositor2 = self.0.cast().unwrap();
+        ImplicitAnimationCollection(compositor.CreateImplicitAnimationCollection().unwrap())
+    }
+
     /// Creates a composition graphics device backed by a Direct2D (or DXGI)
     /// rendering device.
     ///

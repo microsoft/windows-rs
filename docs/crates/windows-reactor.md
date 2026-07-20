@@ -847,11 +847,11 @@ landed; *(gap)* items are still outstanding.
    widget (`composition_host()`), the composition-visual counterpart of the
    `SwapChainPanel` widget (which covers the DXGI-swap-chain case). Its
    `on_mounted` hands back a `CompositionHostHandle` — an opaque wrapper over the
-   native element's `IInspectable`. To keep reactor free of a composition-wrapper
-   dependency, the handle exposes only a **raw `IInspectable` seam**:
-   `compositor_raw()` (`GetElementVisual` → `ICompositionObject::Compositor`),
-   `set_child_visual_raw(&IInspectable)`
-   (`SetElementChildVisual`), and `on_rasterization_scale_changed()`
+   native element's `IInspectable`. Because `windows-composition` is now a required
+   reactor dependency, the handle exposes **typed** methods directly:
+   `compositor() -> Compositor` (`GetElementVisual` → the element's `Compositor`),
+   `set_child_visual(&Visual)` (`SetElementChildVisual`), and
+   `on_rasterization_scale_changed()`
    (via `IUIElement::XamlRoot` → `IXamlRoot::RasterizationScale`, default `1.0`).
    The `ElementCompositionPreview` plumbing stays in reactor (it owns the
    `Microsoft.UI.Xaml` bindings); the host is backed by a plain stretching `Grid`,
@@ -860,28 +860,28 @@ landed; *(gap)* items are still outstanding.
    The **safe, typed** composition API lives in the sibling
    [`windows-composition`](windows-composition.md) crate, whose single wrapper
    surface compiles against *either* the system stack (`system` feature, default)
-   *or* the lifted stack (`lifted` feature). Enable reactor's `composition` feature
-   (which turns on `windows-composition/lifted`) to get typed inherent methods on
-   the handle — `host.compositor() -> Compositor` and
-   `host.set_child_visual(&Visual)` over the raw seam — the same
-   `Compositor`/`Visual`/`SpriteVisual`/… types used for standalone system hosting,
-   so there is only **one** composition wrapper to learn and maintain (reactor no
-   longer carries its own copy, and no extension trait import is needed). See the
-   [`reactor/composition`](../../crates/samples/reactor/composition) samples
+   *or* the lifted stack (`lifted` feature). Reactor requires it with
+   `features = ["lifted"]`, so the handle returns the same
+   `Compositor`/`Visual`/`SpriteVisual`/… types used for standalone system hosting —
+   there is only **one** composition wrapper to learn and maintain (reactor no
+   longer carries its own binding slice, and no extension trait import is needed).
+   See the [`reactor/composition`](../../crates/samples/reactor/composition) samples
    (`circles`, `host`, `animation`, `dpi`, `toggle`) for the end-to-end flow.
 
-   > **Dependency direction (flipped).** `windows-reactor` *optionally* depends on
-   > `windows-composition` and `windows-canvas` behind its `composition` and `canvas`
-   > features, so its handle returns typed `windows_composition::Compositor` /
-   > `windows_composition::Visual` directly and the canvas/composition bridges live
+   > **Dependency direction (flipped).** `windows-reactor` *requires*
+   > `windows-composition` (pinned to its `lifted` stack — its transition/animation
+   > engine is composition-based) and *optionally* depends on `windows-canvas` behind
+   > its `canvas` feature, so its handle returns typed `windows_composition::Compositor`
+   > / `windows_composition::Visual` directly and the canvas/composition bridges live
    > here in reactor rather than in those crates. This replaced an earlier design
    > where the dependency ran the other way (`windows-composition[reactor]` →
    > `windows-reactor`) and callers imported a `CompositionHostExt` trait. The flip
    > lets `windows-composition`/`windows-canvas` drop their `reactor` feature and
    > raw-seam accessors, and makes reactor the single owner of the WinUI element
-   > harness — at the cost of reactor optionally pulling in those two crates. The
-   > mutually-exclusive composition-stack CI constraint is unaffected: a `system`
-   > consumer and a `lifted` consumer still can never share one unified build (see
+   > harness — at the cost of reactor pulling in `windows-composition` unconditionally
+   > (and `windows-canvas` when `canvas` is enabled). The mutually-exclusive
+   > composition-stack CI constraint is unaffected: a `system` consumer and a `lifted`
+   > consumer still can never share one unified build (see
    > [`windows-composition.md`](windows-composition.md)).
 
 6. **Templated list stays blank when it grows from empty *(fixed)*.** Previously,
@@ -1030,25 +1030,20 @@ sampling-based [`windows-animation`](windows-animation.md) is intentionally *not
 the fit here — it targets immediate-mode canvas drawing (see that crate's *Future
 work*).
 
-> **Consolidate the internal composition slice.** Reactor's transition/animation
-> engine (`backend/winui/mod.rs`) drives *lifted* `Microsoft.UI.Composition` types
-> directly — `ElementCompositionPreview.GetElementVisual`, implicit-animation
-> collections, easing functions, and expression key frames — so `tool_reactor`'s
-> [`base.txt`](../../crates/tools/reactor/src/base.txt) carries its own minimal
-> slice of `Microsoft::UI::Composition::*` bindings (Compositor, Visual,
-> KeyFrameAnimation, …). This is *not* the public composition surface — that lives
-> in [`windows-composition`](windows-composition.md) and is hosted through this
-> crate's `CompositionHost` typed methods — and it uses several primitives
-> `windows-composition` doesn't wrap at all (implicit animations, easing
-> functions, expression key frames), so the two only partially overlap. Now that the
-> dependency direction is flipped (reactor optionally depends on
-> `windows-composition`), reactor *could* reuse `windows-composition`'s wrappers for
-> the overlapping types and keep only the animation-engine-specific extras in its own
-> slice. The catch: the internal engine is compiled unconditionally, whereas the
-> `composition` dependency is *optional*, so consolidating would mean either making
-> `windows-composition` a mandatory reactor dependency or widening its public surface
-> to cover the engine-only primitives. Worth doing only if that cost is judged
-> acceptable against the duplicated `base.txt` entries it removes.
+Reactor's transition/animation engine (`backend/winui/mod.rs`) drives *lifted*
+`Microsoft.UI.Composition` types through the safe wrappers in
+[`windows-composition`](windows-composition.md), which is a **required** dependency
+pinned to its `lifted` stack (the only stack reactor can host — see
+[windows-composition.md](windows-composition.md)). The engine gets a backing visual
+from the Xaml seam (`ElementCompositionPreview.GetElementVisual`, still in
+`tool_reactor`'s [`base.txt`](../../crates/tools/reactor/src/base.txt)), wraps it
+with `windows_composition::Visual::from_host`, and then drives implicit-animation
+collections, easing functions, scalar/vector key frames, and expression key frames
+entirely through `windows-composition`'s wrappers. `base.txt` therefore no longer
+carries its own `Microsoft::UI::Composition::*` binding slice — only the Xaml
+seam (`ElementCompositionPreview`, `CompositionTarget::Rendering`) and the boundary
+`Visual` ABI type remain. This removed the ~210-line duplicate binding slice that
+previously lived alongside the public `windows-composition` surface.
 
 #### 7. Navigation framework *(medium)*
 

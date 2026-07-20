@@ -5,20 +5,10 @@ use std::rc::Rc;
 /// Opaque handle to a composition host element, passed to the
 /// [`on_mounted`](CompositionHost::on_mounted) callback.
 ///
-/// It exposes the composition-interop seam as raw
-/// [`IInspectable`](windows_core::IInspectable) values: obtain the element's
-/// lifted `Microsoft.UI.Composition.Compositor` via
-/// [`compositor_raw`](Self::compositor_raw) and attach a child visual via
-/// [`set_child_visual_raw`](Self::set_child_visual_raw) (backed by
-/// `ElementCompositionPreview::SetElementChildVisual`).
-///
-/// Reactor deliberately keeps this seam untyped at the core so the default
-/// build need not depend on a composition wrapper. Enable this crate's
-/// `composition` feature to get a safe, typed API over this seam directly on the
-/// handle — [`compositor`](Self::compositor) returns a typed
-/// [`windows_composition::Compositor`] and
-/// [`set_child_visual`](Self::set_child_visual) takes a typed
-/// [`windows_composition::Visual`]:
+/// Obtain the element's lifted [`Compositor`](windows_composition::Compositor)
+/// via [`compositor`](Self::compositor) and attach a visual tree with
+/// [`set_child_visual`](Self::set_child_visual) (backed by
+/// `ElementCompositionPreview::SetElementChildVisual`):
 ///
 /// ```ignore
 /// # use windows_reactor::CompositionHostHandle;
@@ -33,52 +23,22 @@ use std::rc::Rc;
 pub struct CompositionHostHandle(windows_core::IInspectable);
 
 impl CompositionHostHandle {
-    /// Returns the host element's lifted `Microsoft.UI.Composition.Compositor`
-    /// as a raw [`IInspectable`](windows_core::IInspectable).
-    ///
-    /// This is the low-level interop seam behind the typed
-    /// [`compositor`](Self::compositor) (available with the `composition`
-    /// feature); prefer that typed API. All visuals attached with
-    /// [`set_child_visual_raw`](Self::set_child_visual_raw) must be created from
-    /// this compositor.
-    pub fn compositor_raw(&self) -> Result<windows_core::IInspectable> {
-        let element: bindings::UIElement = self.0.cast()?;
-        let visual = bindings::ElementCompositionPreview::GetElementVisual(&element)?;
-        let compositor = visual.cast::<bindings::ICompositionObject>()?.Compositor()?;
-        Ok(compositor.into())
-    }
-
-    /// Attaches `visual` (a lifted `Microsoft.UI.Composition.Visual` surfaced as
-    /// a raw [`IInspectable`](windows_core::IInspectable)) as this element's
-    /// child visual, replacing any visual attached previously.
-    ///
-    /// This is the low-level interop seam behind the typed
-    /// [`set_child_visual`](Self::set_child_visual) (available with the
-    /// `composition` feature); prefer that typed API. `visual` must be created
-    /// from the compositor returned by [`compositor_raw`](Self::compositor_raw).
-    pub fn set_child_visual_raw(&self, visual: &windows_core::IInspectable) -> Result<()> {
-        let element: bindings::UIElement = self.0.cast()?;
-        let visual: bindings::Visual = visual.cast()?;
-        bindings::ElementCompositionPreview::SetElementChildVisual(&element, &visual)
-    }
-
     /// Returns the host element's lifted composition
     /// [`Compositor`](windows_composition::Compositor). Every visual attached
     /// with [`set_child_visual`](Self::set_child_visual) must be created from it.
-    ///
-    /// Available with the `composition` feature.
-    #[cfg(feature = "composition")]
     pub fn compositor(&self) -> Result<windows_composition::Compositor> {
-        windows_composition::Compositor::from_host(self.compositor_raw()?)
+        let element: bindings::UIElement = self.0.cast()?;
+        let visual = bindings::ElementCompositionPreview::GetElementVisual(&element)?;
+        Ok(windows_composition::Visual::from_host(visual.into())?.compositor())
     }
 
     /// Attaches `visual` as the host element's child visual, replacing any
-    /// visual attached previously.
-    ///
-    /// Available with the `composition` feature.
-    #[cfg(feature = "composition")]
+    /// visual attached previously. `visual` must be created from the compositor
+    /// returned by [`compositor`](Self::compositor).
     pub fn set_child_visual(&self, visual: &windows_composition::Visual) -> Result<()> {
-        self.set_child_visual_raw(&visual.as_raw())
+        let element: bindings::UIElement = self.0.cast()?;
+        let visual: bindings::Visual = visual.as_raw().cast()?;
+        bindings::ElementCompositionPreview::SetElementChildVisual(&element, &visual)
     }
 
     /// Delivers the host's rasterization (DPI) scale to `f`: once the control is
