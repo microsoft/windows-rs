@@ -12,7 +12,7 @@
 > element via the [`windows-reactor`](windows-reactor.md) bridge). See the
 > [`composition/standalone`](../../crates/samples/composition/standalone),
 > [`composition/minesweeper`](../../crates/samples/composition/minesweeper), and
-> [`reactor/composition_host`](../../crates/samples/reactor/composition_host)
+> [`reactor/composition`](../../crates/samples/reactor/composition)
 > samples. Surface/effect brushes and the canvas bridge are still to come — see
 > the checklist below.
 
@@ -289,7 +289,7 @@ the **system** `Windows.UI.Composition` stack via
       (`Windows.UI.Composition`) and `reactor`/lifted (`Microsoft.UI.Composition`)
       bindings, generated from one filter by `tool_composition`.
 - [x] Reactor host bridge (`reactor` feature): `CompositionHostExt` over reactor's
-      raw `CompositionHostHandle` seam; `reactor/composition_host` sample.
+      raw `CompositionHostHandle` seam; `reactor/composition` samples.
 - [ ] Surface & effect brushes.
 - [ ] Canvas ↔ composition bridge (in `windows-canvas`, `composition` feature).
 - [ ] Expression animations and more key-frame value types.

@@ -861,8 +861,8 @@ landed; *(gap)* items are still outstanding.
    raw seam — the same `Compositor`/`Visual`/`SpriteVisual`/… types used for
    standalone system hosting, so there is only **one** composition wrapper to learn
    and maintain (reactor no longer carries its own copy). See the
-   [`reactor/composition_host`](../../crates/samples/reactor/composition_host) sample
-   for the end-to-end flow.
+   [`reactor/composition`](../../crates/samples/reactor/composition) samples
+   (`circles`, `host`, `animation`, `dpi`, `toggle`) for the end-to-end flow.
 
    > **Possible future simplification.** Today the dependency is one-way
    > (`windows-composition[reactor]` → `windows-reactor`), matching how
