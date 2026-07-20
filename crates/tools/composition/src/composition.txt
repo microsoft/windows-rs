@@ -99,4 +99,22 @@ Windows.UI.Composition.Desktop.DesktopWindowTarget
 Windows.Win32.ICompositorDesktopInterop::{CreateDesktopWindowTarget}
 // endregion
 
+// region: system-only
+// Canvas bridge: draw Direct2D content into a composition surface, then paint a
+// visual with it via a surface brush. The graphics-device and drawing-surface
+// interop (ICompositorInterop / ICompositionDrawingSurfaceInterop) exists only on
+// the system stack — lifted Microsoft.UI.Composition has no D2D-surface interop
+// metadata — so the whole bridge is system-only.
+Windows.UI.Composition.ICompositor::{CreateSurfaceBrushWithSurface}
+Windows.UI.Composition.CompositionSurfaceBrush
+Windows.UI.Composition.CompositionGraphicsDevice
+Windows.UI.Composition.ICompositionGraphicsDevice::{CreateDrawingSurface}
+Windows.UI.Composition.CompositionDrawingSurface
+Windows.UI.Composition.ICompositionSurface
+Windows.Graphics.DirectX.DirectXPixelFormat
+Windows.Graphics.DirectX.DirectXAlphaMode
+Windows.Win32.ICompositorInterop::{CreateGraphicsDevice}
+Windows.Win32.ICompositionDrawingSurfaceInterop::{BeginDraw, EndDraw, Resize}
+// endregion
+
 Windows.UI.Color

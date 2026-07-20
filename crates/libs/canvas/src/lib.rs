@@ -10,6 +10,8 @@
 mod bindings;
 mod bitmap;
 mod color;
+#[cfg(feature = "composition")]
+mod composition;
 mod device;
 mod device_lost;
 mod effect;
@@ -29,6 +31,8 @@ use windows_core::*;
 
 pub use bitmap::Bitmap;
 pub use color::ColorF;
+#[cfg(feature = "composition")]
+pub use composition::CanvasCompositionExt;
 pub use device::GpuDevice;
 pub use effect::Effect;
 pub use geometry::*;

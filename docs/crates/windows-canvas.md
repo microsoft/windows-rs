@@ -110,6 +110,42 @@ Obtain the `scale` from the reactor `Image` that displays the surface:
 control is loaded and again whenever it changes — rebuild the surface at the new
 scale to stay crisp across monitor moves. See the `image_source` sample.
 
+## Getting started — into a composition surface
+
+Enable the `composition` feature to draw into a
+[`windows-composition`](windows-composition.md) `CompositionDrawingSurface` and
+paint a visual with it — the Rust analogue of Win2D's `CanvasComposition`. The app
+owns the composition graph; the bridge only lends the Direct2D drawing.
+
+```toml
+[dependencies]
+windows-canvas = { version = "...", features = ["composition"] }
+windows-composition = { version = "...", features = ["system"] }
+```
+
+```rust,ignore
+use windows_canvas::{CanvasCompositionExt, ColorF, Ellipse, GpuDevice, Vector2};
+
+let graphics = device.create_graphics_device(&compositor)?;   // adopt the D2D device
+let surface = graphics.create_drawing_surface(256.0, 256.0)?; // premultiplied BGRA
+sprite.set_brush(&compositor.create_surface_brush(&surface)); // paint a visual
+
+surface.draw(|session| {
+    session.clear(ColorF::CORNFLOWER_BLUE);
+    let Ok(brush) = session.create_solid_brush(ColorF::WHITE) else { return };
+    session.fill_ellipse(&Ellipse::circle(Vector2::new(128.0, 128.0), 96.0), &brush);
+})?;
+```
+
+`draw` runs the closure inside the surface's native `BeginDraw`/`EndDraw` bracket
+and returns `Ok(false)` on device loss (recreate the device, graphics device, and
+surface, then draw again). There is no implicit clear — clear or draw over the whole
+surface yourself, matching Win2D. Coordinates are in pixels with the surface origin
+at `(0, 0)`; the backing-atlas offset is applied for you. This is **system-only**
+(lifted composition has no Direct2D-surface interop). See the
+[`composition/canvas`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/composition/canvas)
+sample.
+
 ## Drawing basics
 
 Everything below is a method on the `DrawingSession` (and therefore on
@@ -213,7 +249,10 @@ Direct3D 11, DXGI, DirectWrite, and WIC, projected from the in-house
 WinRT numerics types). The safe wrappers (`GpuDevice`,
 `SwapChain`, `DrawingSession`, geometry, and text types) are hand-written. The
 optional `reactor` feature integrates with `windows-reactor` through
-`animated_canvas` (continuous) and `CanvasImageSource` (on-demand).
+`animated_canvas` (continuous) and `CanvasImageSource` (on-demand). The optional
+`composition` feature integrates with `windows-composition` (system stack, one-way):
+`CanvasCompositionExt::draw` and `GpuDevice::create_graphics_device` draw Direct2D
+content into a `CompositionDrawingSurface`.
 
 ### Design
 
@@ -232,6 +271,13 @@ optional `reactor` feature integrates with `windows-reactor` through
   as an offset transform so callers still draw from a `(0, 0)` origin. This mode
   is also public as `DrawingSession::from_borrowed_context(context, offset)` for
   driving a context you bracket yourself (printing, a custom `SurfaceImageSource`).
+- **Composition surface bridge** — the `composition` feature (one-way
+  `windows-canvas` → `windows-composition`) draws Direct2D content into a
+  `CompositionDrawingSurface`. `windows-composition` owns the interop and exposes a
+  generic `begin_draw::<ID2D1DeviceContext>()` seam (mirroring reactor's
+  `SurfaceImageSource`); `CanvasCompositionExt::draw` brackets it and reuses the same
+  *borrowed* `DrawingSession` mode as `CanvasImageSource`. System-only, since lifted
+  composition has no Direct2D-surface interop.
 - **Automatic device-lost recovery** — `device_lost.rs` classifies the DXGI/D2D
   device-lost codes; `EndDraw`/`Present` set a flag, and the swap chain recreates
   its device and resources on the next frame. The classifier is exported as

@@ -151,4 +151,36 @@ impl Compositor {
     pub fn create_vector3_key_frame_animation(&self) -> Vector3KeyFrameAnimation {
         Vector3KeyFrameAnimation(self.0.CreateVector3KeyFrameAnimation().unwrap())
     }
+
+    /// Creates a composition graphics device backed by a Direct2D (or DXGI)
+    /// rendering device.
+    ///
+    /// Pass the app's rendering device — for example canvas's `ID2D1Device`. The
+    /// returned [`CompositionGraphicsDevice`](crate::CompositionGraphicsDevice)
+    /// allocates drawing surfaces that Direct2D content can be drawn into and
+    /// shown through a [`CompositionSurfaceBrush`](crate::CompositionSurfaceBrush).
+    /// This is the entry point for the canvas bridge.
+    #[cfg(feature = "system")]
+    pub fn create_graphics_device(
+        &self,
+        rendering_device: &impl Interface,
+    ) -> Result<CompositionGraphicsDevice> {
+        let interop: bindings::ICompositorInterop = self.0.cast()?;
+        let device: windows_core::IUnknown = rendering_device.cast()?;
+        let graphics = unsafe { interop.CreateGraphicsDevice(&device)? };
+        Ok(CompositionGraphicsDevice(graphics.cast()?))
+    }
+
+    /// Creates a brush that paints a visual with a composition drawing surface.
+    #[cfg(feature = "system")]
+    pub fn create_surface_brush(
+        &self,
+        surface: &CompositionDrawingSurface,
+    ) -> CompositionSurfaceBrush {
+        CompositionSurfaceBrush(
+            self.0
+                .CreateSurfaceBrushWithSurface(&surface.as_surface())
+                .unwrap(),
+        )
+    }
 }

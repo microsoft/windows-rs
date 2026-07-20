@@ -228,17 +228,43 @@ Because both crates' lifted bindings derive from the same `Microsoft.UI.winmd`, 
 (`windows-composition[reactor]` → `windows-reactor`), mirroring how
 `windows-canvas` optionally depends on `windows-reactor`.
 
+## The canvas bridge (`system` feature)
+
+Direct2D content can be drawn into a composition surface and painted onto a visual,
+mirroring Win2D's `CanvasComposition`. This crate owns the composition half:
+
+- `Compositor::create_graphics_device(&impl Interface)` wraps
+  `ICompositorInterop::CreateGraphicsDevice`, adopting the app's Direct2D (or DXGI)
+  rendering device into a `CompositionGraphicsDevice`.
+- `CompositionGraphicsDevice::create_drawing_surface(width, height)` allocates a
+  premultiplied-BGRA `CompositionDrawingSurface`.
+- `Compositor::create_surface_brush(&surface)` produces a `CompositionSurfaceBrush`
+  (a [`Brush`]) to paint any visual with the surface.
+- `CompositionDrawingSurface::{begin_draw::<T>, end_draw, resize}` is the interop
+  seam over `ICompositionDrawingSurfaceInterop`. `begin_draw` returns the drawing
+  target `T` (an `ID2D1DeviceContext`) plus the backing-atlas `(x, y)` pixel offset —
+  exactly the shape [`windows-canvas`](windows-canvas.md)'s
+  `DrawingSession::from_borrowed_context(context, offset)` consumes. It mirrors
+  reactor's `SurfaceImageSource::begin_draw::<T>`, so the same generic-`T` pattern
+  keeps this crate free of any Direct2D dependency.
+
+The Direct2D drawing itself lives in `windows-canvas` behind its one-way
+`composition` feature (`windows-canvas` → `windows-composition`): import
+`windows_canvas::CanvasCompositionExt` for `device.create_graphics_device(&compositor)`
+and `surface.draw(|session| …) -> Result<bool>` (device-lost → `Ok(false)`, no implicit
+clear — the Win2D policy). See the
+[`composition/canvas`](../../crates/samples/composition/canvas) sample.
+
+The whole bridge is **system-only**: lifted `Microsoft.UI.Composition` has no
+Direct2D-surface interop metadata (`ICompositorInterop` /
+`ICompositionDrawingSurfaceInterop` exist only in the system winmd), so these entries
+sit in the filter's `// region: system-only` block and the wrappers are gated
+`#[cfg(feature = "system")]`.
+
 ## Future work
 
-- **Surface & effect brushes** — `CompositionSurfaceBrush`, gradients.
-- **The canvas ↔ composition bridge.** Direct2D content drawn into a composition
-  surface (Win2D's `CanvasComposition`). The system interop for this
-  (`ICompositorInterop` / `ICompositionGraphicsDeviceInterop` /
-  `ICompositionDrawingSurfaceInterop`, which return an `ID2D1DeviceContext` + offset
-  `POINT`) maps directly onto canvas's existing
-  `DrawingSession::from_borrowed_context(context, offset)`. To avoid a dependency
-  cycle the bridge would live in `windows-canvas` behind a `composition` feature
-  (`windows-canvas` → `windows-composition`, one-way).
+- **Effect & gradient brushes** — `CompositionSurfaceBrush` landed for the canvas
+  bridge above; gradient and effect brushes remain.
 - **More animations** — expression animations and additional key-frame value types
   (scalar/`Vector2`/color), building on the `Vector3` key-frame animation and scoped
   batch that already landed.

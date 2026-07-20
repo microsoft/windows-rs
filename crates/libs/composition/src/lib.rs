@@ -16,11 +16,21 @@ compile_error!(
 );
 
 #[cfg(feature = "system")]
-#[allow(non_snake_case, non_upper_case_globals, clippy::upper_case_acronyms)]
+#[allow(
+    non_snake_case,
+    non_upper_case_globals,
+    non_camel_case_types,
+    clippy::upper_case_acronyms
+)]
 #[path = "bindings.rs"]
 mod bindings;
 #[cfg(feature = "reactor")]
-#[allow(non_snake_case, non_upper_case_globals, clippy::upper_case_acronyms)]
+#[allow(
+    non_snake_case,
+    non_upper_case_globals,
+    non_camel_case_types,
+    clippy::upper_case_acronyms
+)]
 #[path = "bindings_lifted.rs"]
 mod bindings;
 
@@ -42,6 +52,8 @@ mod reactor;
 // element instead.
 #[cfg(feature = "system")]
 mod stack;
+#[cfg(feature = "system")]
+mod surface;
 #[cfg(feature = "system")]
 mod target;
 
@@ -71,6 +83,8 @@ pub use visual::{BorderMode, ContainerVisual, SpriteVisual, Visual, VisualCollec
 
 #[cfg(feature = "system")]
 pub use stack::DispatcherQueueController;
+#[cfg(feature = "system")]
+pub use surface::{CompositionDrawingSurface, CompositionGraphicsDevice, CompositionSurfaceBrush};
 #[cfg(feature = "system")]
 pub use target::DesktopWindowTarget;
 
