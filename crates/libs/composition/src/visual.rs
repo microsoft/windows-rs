@@ -1,6 +1,6 @@
 use crate::bindings;
 use crate::{Animation, Brush, Compositor};
-use windows_core::{Interface, Result};
+use windows_core::Interface;
 use windows_numerics::{Vector2, Vector3};
 
 /// How a visual's edges are rendered relative to its clip.
@@ -33,46 +33,48 @@ pub struct Visual(pub(crate) bindings::Visual);
 
 impl Visual {
     /// Sets the visual's offset from its parent, in DIPs.
-    pub fn set_offset(&self, x: f32, y: f32, z: f32) -> Result<()> {
-        self.0.SetOffset(Vector3 { x, y, z })
+    pub fn set_offset(&self, x: f32, y: f32, z: f32) {
+        self.0.SetOffset(Vector3 { x, y, z }).unwrap();
     }
 
     /// Returns the visual's offset from its parent.
-    pub fn offset(&self) -> Result<Vector3> {
-        self.0.Offset()
+    pub fn offset(&self) -> Vector3 {
+        self.0.Offset().unwrap()
     }
 
     /// Sets the visual's size, in DIPs.
-    pub fn set_size(&self, width: f32, height: f32) -> Result<()> {
-        self.0.SetSize(Vector2 {
-            x: width,
-            y: height,
-        })
+    pub fn set_size(&self, width: f32, height: f32) {
+        self.0
+            .SetSize(Vector2 {
+                x: width,
+                y: height,
+            })
+            .unwrap();
     }
 
     /// Returns the visual's size.
-    pub fn size(&self) -> Result<Vector2> {
-        self.0.Size()
+    pub fn size(&self) -> Vector2 {
+        self.0.Size().unwrap()
     }
 
     /// Sets the visual's opacity in the range `0.0..=1.0`.
-    pub fn set_opacity(&self, opacity: f32) -> Result<()> {
-        self.0.SetOpacity(opacity)
+    pub fn set_opacity(&self, opacity: f32) {
+        self.0.SetOpacity(opacity).unwrap();
     }
 
     /// Returns the visual's opacity.
-    pub fn opacity(&self) -> Result<f32> {
-        self.0.Opacity()
+    pub fn opacity(&self) -> f32 {
+        self.0.Opacity().unwrap()
     }
 
     /// Sets whether the visual (and its subtree) is rendered.
-    pub fn set_visible(&self, visible: bool) -> Result<()> {
-        self.0.SetIsVisible(visible)
+    pub fn set_visible(&self, visible: bool) {
+        self.0.SetIsVisible(visible).unwrap();
     }
 
     /// Returns whether the visual is visible.
-    pub fn is_visible(&self) -> Result<bool> {
-        self.0.IsVisible()
+    pub fn is_visible(&self) -> bool {
+        self.0.IsVisible().unwrap()
     }
 
     /// Surfaces the underlying visual as an [`IInspectable`](windows_core::IInspectable).
@@ -86,60 +88,62 @@ impl Visual {
     }
 
     /// Sets the visual's scale factor about its [center point](Self::set_center_point).
-    pub fn set_scale(&self, scale: Vector3) -> Result<()> {
-        self.0.SetScale(scale)
+    pub fn set_scale(&self, scale: Vector3) {
+        self.0.SetScale(scale).unwrap();
     }
 
     /// Sets the point, in DIPs, about which rotation and scaling are applied.
-    pub fn set_center_point(&self, point: Vector3) -> Result<()> {
-        self.0.SetCenterPoint(point)
+    pub fn set_center_point(&self, point: Vector3) {
+        self.0.SetCenterPoint(point).unwrap();
     }
 
     /// Sets the normalized anchor point (`0.0..=1.0` per axis) that the visual's
     /// offset positions.
-    pub fn set_anchor_point(&self, point: Vector2) -> Result<()> {
-        self.0.SetAnchorPoint(point)
+    pub fn set_anchor_point(&self, point: Vector2) {
+        self.0.SetAnchorPoint(point).unwrap();
     }
 
     /// Sets how the visual's edges are rendered.
-    pub fn set_border_mode(&self, mode: BorderMode) -> Result<()> {
-        self.0.SetBorderMode(mode.into())
+    pub fn set_border_mode(&self, mode: BorderMode) {
+        self.0.SetBorderMode(mode.into()).unwrap();
     }
 
     /// Returns the visual's parent container, if it has one.
-    pub fn parent(&self) -> Result<ContainerVisual> {
-        ContainerVisual::new(self.0.Parent()?)
+    pub fn parent(&self) -> ContainerVisual {
+        ContainerVisual::new(self.0.Parent().unwrap())
     }
 
     /// Sets the visual's size as a fraction of its parent's size (per axis).
-    pub fn set_relative_size_adjustment(&self, adjustment: Vector2) -> Result<()> {
-        let visual: bindings::IVisual2 = self.0.cast()?;
-        visual.SetRelativeSizeAdjustment(adjustment)
+    pub fn set_relative_size_adjustment(&self, adjustment: Vector2) {
+        let visual: bindings::IVisual2 = self.0.cast().unwrap();
+        visual.SetRelativeSizeAdjustment(adjustment).unwrap();
     }
 
     /// Sets an offset expressed as a fraction of the parent's size (per axis).
-    pub fn set_relative_offset_adjustment(&self, adjustment: Vector3) -> Result<()> {
-        let visual: bindings::IVisual2 = self.0.cast()?;
-        visual.SetRelativeOffsetAdjustment(adjustment)
+    pub fn set_relative_offset_adjustment(&self, adjustment: Vector3) {
+        let visual: bindings::IVisual2 = self.0.cast().unwrap();
+        visual.SetRelativeOffsetAdjustment(adjustment).unwrap();
     }
 
     /// Sets the visual whose coordinate space this visual's transform is
     /// relative to.
-    pub fn set_parent_for_transform(&self, parent: &Self) -> Result<()> {
-        let visual: bindings::IVisual2 = self.0.cast()?;
-        visual.SetParentForTransform(&parent.0)
+    pub fn set_parent_for_transform(&self, parent: &Self) {
+        let visual: bindings::IVisual2 = self.0.cast().unwrap();
+        visual.SetParentForTransform(&parent.0).unwrap();
     }
 
     /// Returns the compositor that created this visual.
-    pub fn compositor(&self) -> Result<Compositor> {
-        let object: bindings::ICompositionObject = self.0.cast()?;
-        Ok(Compositor(object.Compositor()?))
+    pub fn compositor(&self) -> Compositor {
+        let object: bindings::ICompositionObject = self.0.cast().unwrap();
+        Compositor(object.Compositor().unwrap())
     }
 
     /// Starts an animation on the named property (for example `"Scale"`).
-    pub fn start_animation(&self, property: &str, animation: &impl Animation) -> Result<()> {
-        let object: bindings::ICompositionObject = self.0.cast()?;
-        object.StartAnimation(property, &animation.as_animation()?.0)
+    pub fn start_animation(&self, property: &str, animation: &impl Animation) {
+        let object: bindings::ICompositionObject = self.0.cast().unwrap();
+        object
+            .StartAnimation(property, &animation.as_animation().0)
+            .unwrap();
     }
 }
 
@@ -151,16 +155,16 @@ pub struct ContainerVisual {
 }
 
 impl ContainerVisual {
-    pub(crate) fn new(container: bindings::ContainerVisual) -> Result<Self> {
-        Ok(Self {
-            visual: Visual(container.cast()?),
+    pub(crate) fn new(container: bindings::ContainerVisual) -> Self {
+        Self {
+            visual: Visual(container.cast().unwrap()),
             container,
-        })
+        }
     }
 
     /// Returns the collection of child visuals.
-    pub fn children(&self) -> Result<VisualCollection> {
-        Ok(VisualCollection(self.container.Children()?))
+    pub fn children(&self) -> VisualCollection {
+        VisualCollection(self.container.Children().unwrap())
     }
 }
 
@@ -181,16 +185,16 @@ pub struct SpriteVisual {
 }
 
 impl SpriteVisual {
-    pub(crate) fn new(sprite: bindings::SpriteVisual) -> Result<Self> {
-        Ok(Self {
-            container: ContainerVisual::new(sprite.cast()?)?,
+    pub(crate) fn new(sprite: bindings::SpriteVisual) -> Self {
+        Self {
+            container: ContainerVisual::new(sprite.cast().unwrap()),
             sprite,
-        })
+        }
     }
 
     /// Sets the brush that fills the visual's bounds.
-    pub fn set_brush(&self, brush: &impl Brush) -> Result<()> {
-        self.sprite.SetBrush(&brush.as_brush()?.0)
+    pub fn set_brush(&self, brush: &impl Brush) {
+        self.sprite.SetBrush(&brush.as_brush().0).unwrap();
     }
 }
 
@@ -207,27 +211,27 @@ pub struct VisualCollection(pub(crate) bindings::VisualCollection);
 
 impl VisualCollection {
     /// Returns the number of visuals in the collection.
-    pub fn count(&self) -> Result<i32> {
-        self.0.Count()
+    pub fn count(&self) -> i32 {
+        self.0.Count().unwrap()
     }
 
     /// Inserts a visual at the top of the z-order (drawn last, on top).
-    pub fn insert_at_top(&self, visual: &Visual) -> Result<()> {
-        self.0.InsertAtTop(&visual.0)
+    pub fn insert_at_top(&self, visual: &Visual) {
+        self.0.InsertAtTop(&visual.0).unwrap();
     }
 
     /// Inserts a visual at the bottom of the z-order (drawn first, behind).
-    pub fn insert_at_bottom(&self, visual: &Visual) -> Result<()> {
-        self.0.InsertAtBottom(&visual.0)
+    pub fn insert_at_bottom(&self, visual: &Visual) {
+        self.0.InsertAtBottom(&visual.0).unwrap();
     }
 
     /// Removes a visual from the collection.
-    pub fn remove(&self, visual: &Visual) -> Result<()> {
-        self.0.Remove(&visual.0)
+    pub fn remove(&self, visual: &Visual) {
+        self.0.Remove(&visual.0).unwrap();
     }
 
     /// Removes every visual from the collection.
-    pub fn remove_all(&self) -> Result<()> {
-        self.0.RemoveAll()
+    pub fn remove_all(&self) {
+        self.0.RemoveAll().unwrap();
     }
 }

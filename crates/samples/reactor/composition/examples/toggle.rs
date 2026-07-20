@@ -14,8 +14,8 @@ use windows_reactor::*;
 /// Builds a solid-colored visual and attaches it as the host's child visual.
 fn build(host: &CompositionHostHandle) -> Result<SpriteVisual> {
     let compositor = host.compositor()?;
-    let visual = compositor.create_sprite_visual()?;
-    visual.set_brush(&compositor.create_color_brush(Color::rgb(0, 153, 102))?)?;
+    let visual = compositor.create_sprite_visual();
+    visual.set_brush(&compositor.create_color_brush(Color::rgb(0, 153, 102)));
     host.set_child_visual(&visual)?;
     Ok(visual)
 }
@@ -29,7 +29,7 @@ fn app(cx: &mut RenderCx) -> Element {
         let visual = visual.clone();
         cx.use_effect((shown,), move || {
             if let Some(visual) = visual.borrow().as_ref() {
-                visual.set_visible(shown).unwrap();
+                visual.set_visible(shown);
             }
         });
     }
@@ -46,7 +46,7 @@ fn app(cx: &mut RenderCx) -> Element {
                 })
                 .on_resize(move |w, h| {
                     if let Some(visual) = visual.borrow().as_ref() {
-                        visual.set_size(w as f32, h as f32).unwrap();
+                        visual.set_size(w as f32, h as f32);
                     }
                 }),
         )

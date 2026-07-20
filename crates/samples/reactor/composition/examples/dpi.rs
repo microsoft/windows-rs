@@ -16,8 +16,8 @@ use windows_reactor::*;
 
 fn build(host: &CompositionHostHandle) -> Result<SpriteVisual> {
     let compositor = host.compositor()?;
-    let visual = compositor.create_sprite_visual()?;
-    visual.set_brush(&compositor.create_color_brush(Color::rgb(96, 64, 160))?)?;
+    let visual = compositor.create_sprite_visual();
+    visual.set_brush(&compositor.create_color_brush(Color::rgb(96, 64, 160)));
     host.set_child_visual(&visual)?;
     Ok(visual)
 }
@@ -54,7 +54,7 @@ fn app(cx: &mut RenderCx) -> Element {
                 })
                 .on_resize(move |w, h| {
                     if let Some(visual) = visual.borrow().as_ref() {
-                        visual.set_size(w as f32, h as f32).unwrap();
+                        visual.set_size(w as f32, h as f32);
                     }
                 }),
         )

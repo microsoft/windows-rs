@@ -1,7 +1,7 @@
 use crate::bindings;
 use crate::sealed::Sealed;
 use crate::{Brush, Visual};
-use windows_core::{Interface, Result};
+use windows_core::Interface;
 use windows_numerics::Vector2;
 
 /// The base type shared by every composition shape. A [`Shape`] can be turned
@@ -15,7 +15,7 @@ pub struct CompositionShape(pub(crate) bindings::CompositionShape);
 /// This trait is sealed: only the shape types in this crate implement it.
 pub trait Shape: Sealed {
     /// Returns this shape as the shared [`CompositionShape`] base type.
-    fn as_shape(&self) -> Result<CompositionShape>;
+    fn as_shape(&self) -> CompositionShape;
 }
 
 /// The base type shared by every composition geometry.
@@ -28,12 +28,12 @@ pub struct CompositionEllipseGeometry(pub(crate) bindings::CompositionEllipseGeo
 
 impl CompositionEllipseGeometry {
     /// Sets the geometry's x and y radii, in DIPs.
-    pub fn set_radius(&self, radius: Vector2) -> Result<()> {
-        self.0.SetRadius(radius)
+    pub fn set_radius(&self, radius: Vector2) {
+        self.0.SetRadius(radius).unwrap();
     }
 
-    pub(crate) fn as_geometry(&self) -> Result<CompositionGeometry> {
-        Ok(CompositionGeometry(self.0.cast()?))
+    pub(crate) fn as_geometry(&self) -> CompositionGeometry {
+        CompositionGeometry(self.0.cast().unwrap())
     }
 }
 
@@ -43,22 +43,22 @@ pub struct CompositionSpriteShape(pub(crate) bindings::CompositionSpriteShape);
 
 impl CompositionSpriteShape {
     /// Sets the brush used to fill the shape's geometry.
-    pub fn set_fill_brush(&self, brush: &impl Brush) -> Result<()> {
-        self.0.SetFillBrush(&brush.as_brush()?.0)
+    pub fn set_fill_brush(&self, brush: &impl Brush) {
+        self.0.SetFillBrush(&brush.as_brush().0).unwrap();
     }
 
     /// Sets the shape's offset from its parent, in DIPs.
-    pub fn set_offset(&self, offset: Vector2) -> Result<()> {
-        let shape: bindings::ICompositionShape = self.0.cast()?;
-        shape.SetOffset(offset)
+    pub fn set_offset(&self, offset: Vector2) {
+        let shape: bindings::ICompositionShape = self.0.cast().unwrap();
+        shape.SetOffset(offset).unwrap();
     }
 }
 
 impl Sealed for CompositionSpriteShape {}
 
 impl Shape for CompositionSpriteShape {
-    fn as_shape(&self) -> Result<CompositionShape> {
-        Ok(CompositionShape(self.0.cast()?))
+    fn as_shape(&self) -> CompositionShape {
+        CompositionShape(self.0.cast().unwrap())
     }
 }
 
@@ -68,16 +68,16 @@ pub struct CompositionContainerShape(pub(crate) bindings::CompositionContainerSh
 
 impl CompositionContainerShape {
     /// Returns the collection of child shapes.
-    pub fn shapes(&self) -> Result<CompositionShapeCollection> {
-        Ok(CompositionShapeCollection(self.0.Shapes()?))
+    pub fn shapes(&self) -> CompositionShapeCollection {
+        CompositionShapeCollection(self.0.Shapes().unwrap())
     }
 }
 
 impl Sealed for CompositionContainerShape {}
 
 impl Shape for CompositionContainerShape {
-    fn as_shape(&self) -> Result<CompositionShape> {
-        Ok(CompositionShape(self.0.cast()?))
+    fn as_shape(&self) -> CompositionShape {
+        CompositionShape(self.0.cast().unwrap())
     }
 }
 
@@ -88,8 +88,8 @@ pub struct CompositionShapeCollection(pub(crate) bindings::CompositionShapeColle
 
 impl CompositionShapeCollection {
     /// Appends a shape to the end of the collection.
-    pub fn append(&self, shape: &impl Shape) -> Result<()> {
-        self.0.Append(&shape.as_shape()?.0)
+    pub fn append(&self, shape: &impl Shape) {
+        self.0.Append(&shape.as_shape().0).unwrap();
     }
 }
 
@@ -102,16 +102,16 @@ pub struct ShapeVisual {
 }
 
 impl ShapeVisual {
-    pub(crate) fn new(shape_visual: bindings::ShapeVisual) -> Result<Self> {
-        Ok(Self {
-            visual: Visual(shape_visual.cast()?),
+    pub(crate) fn new(shape_visual: bindings::ShapeVisual) -> Self {
+        Self {
+            visual: Visual(shape_visual.cast().unwrap()),
             shape_visual,
-        })
+        }
     }
 
     /// Returns the collection of shapes rendered by the visual.
-    pub fn shapes(&self) -> Result<CompositionShapeCollection> {
-        Ok(CompositionShapeCollection(self.shape_visual.Shapes()?))
+    pub fn shapes(&self) -> CompositionShapeCollection {
+        CompositionShapeCollection(self.shape_visual.Shapes().unwrap())
     }
 }
 

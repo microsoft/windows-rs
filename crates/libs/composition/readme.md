@@ -8,13 +8,13 @@ Windows Composition is a safe, fast Rust wrapper around the Windows composition 
 ```rust,no_run
 use windows_composition::*;
 
-fn build(compositor: &Compositor) -> Result<SpriteVisual> {
-    let visual = compositor.create_sprite_visual()?;
-    visual.set_size(200.0, 120.0)?;
+fn build(compositor: &Compositor) -> SpriteVisual {
+    let visual = compositor.create_sprite_visual();
+    visual.set_size(200.0, 120.0);
 
-    let brush = compositor.create_color_brush(Color::rgb(0, 120, 215))?;
-    visual.set_brush(&brush)?;
-    Ok(visual)
+    let brush = compositor.create_color_brush(Color::rgb(0, 120, 215));
+    visual.set_brush(&brush);
+    visual
 }
 ```
 

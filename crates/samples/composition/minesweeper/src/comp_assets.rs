@@ -16,9 +16,9 @@ fn get_dot_shape(
     brush: &CompositionColorBrush,
     offset: Vector2,
 ) -> Result<CompositionSpriteShape> {
-    let shape = compositor.create_sprite_shape(geometry)?;
-    shape.set_fill_brush(brush)?;
-    shape.set_offset(offset)?;
+    let shape = compositor.create_sprite_shape(geometry);
+    shape.set_fill_brush(brush);
+    shape.set_offset(offset);
     Ok(shape)
 }
 
@@ -31,7 +31,7 @@ pub struct CompAssets {
 
 impl CompAssets {
     pub fn new(compositor: &Compositor, tile_size: &Vector2) -> Result<Self> {
-        let mine_brush = compositor.create_color_brush(colors::RED)?;
+        let mine_brush = compositor.create_color_brush(colors::RED);
 
         let mut result = Self {
             mine_brush,
@@ -68,60 +68,61 @@ impl CompAssets {
         self.mine_state_brushes.clear();
         self.mine_state_brushes.insert(
             MineState::Empty,
-            compositor.create_color_brush(colors::BLUE)?,
+            compositor.create_color_brush(colors::BLUE),
         );
         self.mine_state_brushes.insert(
             MineState::Flag,
-            compositor.create_color_brush(colors::ORANGE)?,
+            compositor.create_color_brush(colors::ORANGE),
         );
         self.mine_state_brushes.insert(
             MineState::Question,
-            compositor.create_color_brush(colors::LIME_GREEN)?,
+            compositor.create_color_brush(colors::LIME_GREEN),
         );
 
         self.mine_count_background_brushes.clear();
         self.mine_count_background_brushes
-            .insert(1, compositor.create_color_brush(colors::LIGHT_BLUE)?);
+            .insert(1, compositor.create_color_brush(colors::LIGHT_BLUE));
         self.mine_count_background_brushes
-            .insert(2, compositor.create_color_brush(colors::LIGHT_GREEN)?);
+            .insert(2, compositor.create_color_brush(colors::LIGHT_GREEN));
         self.mine_count_background_brushes
-            .insert(3, compositor.create_color_brush(colors::LIGHT_SALMON)?);
+            .insert(3, compositor.create_color_brush(colors::LIGHT_SALMON));
         self.mine_count_background_brushes
-            .insert(4, compositor.create_color_brush(colors::LIGHT_STEEL_BLUE)?);
+            .insert(4, compositor.create_color_brush(colors::LIGHT_STEEL_BLUE));
         self.mine_count_background_brushes
-            .insert(5, compositor.create_color_brush(colors::MEDIUM_PURPLE)?);
+            .insert(5, compositor.create_color_brush(colors::MEDIUM_PURPLE));
         self.mine_count_background_brushes
-            .insert(6, compositor.create_color_brush(colors::LIGHT_CYAN)?);
+            .insert(6, compositor.create_color_brush(colors::LIGHT_CYAN));
         self.mine_count_background_brushes
-            .insert(7, compositor.create_color_brush(colors::MAROON)?);
+            .insert(7, compositor.create_color_brush(colors::MAROON));
         self.mine_count_background_brushes
-            .insert(8, compositor.create_color_brush(colors::DARK_SEA_GREEN)?);
+            .insert(8, compositor.create_color_brush(colors::DARK_SEA_GREEN));
         self.mine_count_background_brushes
-            .insert(0, compositor.create_color_brush(colors::WHITE_SMOKE)?);
+            .insert(0, compositor.create_color_brush(colors::WHITE_SMOKE));
 
         self.mine_count_shapes.clear();
-        let circle_geometry = compositor.create_ellipse_geometry()?;
-        circle_geometry.set_radius(*tile_size / 12.0)?;
-        let dot_brush = compositor.create_color_brush(colors::BLACK)?;
+        let circle_geometry = compositor.create_ellipse_geometry();
+        circle_geometry.set_radius(*tile_size / 12.0);
+        let dot_brush = compositor.create_color_brush(colors::BLACK);
 
         let append_dot = |shape: &CompositionContainerShape, offset: Vector2| -> Result<()> {
-            shape.shapes()?.append(&get_dot_shape(
+            shape.shapes().append(&get_dot_shape(
                 compositor,
                 &circle_geometry,
                 &dot_brush,
                 offset,
-            )?)
+            )?);
+            Ok(())
         };
 
         // 1
         {
-            let container_shape = compositor.create_container_shape()?;
+            let container_shape = compositor.create_container_shape();
             append_dot(&container_shape, *tile_size / 2.0)?;
             self.mine_count_shapes.insert(1, container_shape);
         }
         // 2
         {
-            let container_shape = compositor.create_container_shape()?;
+            let container_shape = compositor.create_container_shape();
             let third_x = tile_size.x / 3.0;
             let half_y = tile_size.y / 2.0;
             append_dot(&container_shape, Vector2::new(third_x, half_y))?;
@@ -130,7 +131,7 @@ impl CompAssets {
         }
         // 3
         {
-            let container_shape = compositor.create_container_shape()?;
+            let container_shape = compositor.create_container_shape();
             let fourth_x = tile_size.x / 4.0;
             let fourth_y = tile_size.y / 4.0;
             append_dot(&container_shape, *tile_size / 2.0)?;
@@ -140,7 +141,7 @@ impl CompAssets {
         }
         // 4
         {
-            let container_shape = compositor.create_container_shape()?;
+            let container_shape = compositor.create_container_shape();
             let third_x = tile_size.x / 3.0;
             let third_y = tile_size.y / 3.0;
             append_dot(&container_shape, Vector2::new(third_x, third_y))?;
@@ -151,7 +152,7 @@ impl CompAssets {
         }
         // 5
         {
-            let container_shape = compositor.create_container_shape()?;
+            let container_shape = compositor.create_container_shape();
             let fourth_x = tile_size.x / 4.0;
             let fourth_y = tile_size.y / 4.0;
             append_dot(&container_shape, *tile_size / 2.0)?;
@@ -166,7 +167,7 @@ impl CompAssets {
         }
         // 6
         {
-            let container_shape = compositor.create_container_shape()?;
+            let container_shape = compositor.create_container_shape();
             let fourth_x = tile_size.x / 4.0;
             let fourth_y = tile_size.y / 4.0;
             append_dot(&container_shape, Vector2::new(fourth_x, fourth_y * 2.0))?;
@@ -185,7 +186,7 @@ impl CompAssets {
         }
         // 7
         {
-            let container_shape = compositor.create_container_shape()?;
+            let container_shape = compositor.create_container_shape();
             let fourth_x = tile_size.x / 4.0;
             let fourth_y = tile_size.y / 4.0;
             append_dot(&container_shape, Vector2::new(fourth_x, fourth_y * 2.0))?;
@@ -205,7 +206,7 @@ impl CompAssets {
         }
         // 8
         {
-            let container_shape = compositor.create_container_shape()?;
+            let container_shape = compositor.create_container_shape();
             let fourth_x = tile_size.x / 4.0;
             let fourth_y = tile_size.y / 4.0;
             let half_x = tile_size.x / 2.0;

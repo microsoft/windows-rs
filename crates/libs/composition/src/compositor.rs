@@ -95,77 +95,69 @@ impl Compositor {
     ) -> Result<DesktopWindowTarget> {
         let interop: bindings::ICompositorDesktopInterop = self.0.cast()?;
         let target = unsafe { interop.CreateDesktopWindowTarget(hwnd, is_topmost)? };
-        DesktopWindowTarget::new(target)
+        Ok(DesktopWindowTarget::new(target))
     }
 
     /// Creates an empty container visual that hosts a child visual tree.
-    pub fn create_container_visual(&self) -> Result<ContainerVisual> {
-        ContainerVisual::new(self.0.CreateContainerVisual()?)
+    pub fn create_container_visual(&self) -> ContainerVisual {
+        ContainerVisual::new(self.0.CreateContainerVisual().unwrap())
     }
 
     /// Creates a sprite visual that paints itself with a brush.
-    pub fn create_sprite_visual(&self) -> Result<SpriteVisual> {
-        SpriteVisual::new(self.0.CreateSpriteVisual()?)
+    pub fn create_sprite_visual(&self) -> SpriteVisual {
+        SpriteVisual::new(self.0.CreateSpriteVisual().unwrap())
     }
 
     /// Creates a solid-color brush.
-    pub fn create_color_brush(&self, color: Color) -> Result<CompositionColorBrush> {
-        Ok(CompositionColorBrush(
-            self.0.CreateColorBrushWithColor(color.0)?,
-        ))
+    pub fn create_color_brush(&self, color: Color) -> CompositionColorBrush {
+        CompositionColorBrush(self.0.CreateColorBrushWithColor(color.0).unwrap())
     }
 
     /// Creates a nine-grid brush.
-    pub fn create_nine_grid_brush(&self) -> Result<CompositionNineGridBrush> {
-        let compositor: bindings::ICompositor2 = self.0.cast()?;
-        Ok(CompositionNineGridBrush(compositor.CreateNineGridBrush()?))
+    pub fn create_nine_grid_brush(&self) -> CompositionNineGridBrush {
+        let compositor: bindings::ICompositor2 = self.0.cast().unwrap();
+        CompositionNineGridBrush(compositor.CreateNineGridBrush().unwrap())
     }
 
     /// Creates a shape visual that renders composition shapes.
-    pub fn create_shape_visual(&self) -> Result<ShapeVisual> {
-        let compositor: bindings::ICompositor5 = self.0.cast()?;
-        ShapeVisual::new(compositor.CreateShapeVisual()?)
+    pub fn create_shape_visual(&self) -> ShapeVisual {
+        let compositor: bindings::ICompositor5 = self.0.cast().unwrap();
+        ShapeVisual::new(compositor.CreateShapeVisual().unwrap())
     }
 
     /// Creates an empty container shape that groups child shapes.
-    pub fn create_container_shape(&self) -> Result<CompositionContainerShape> {
-        let compositor: bindings::ICompositor5 = self.0.cast()?;
-        Ok(CompositionContainerShape(
-            compositor.CreateContainerShape()?,
-        ))
+    pub fn create_container_shape(&self) -> CompositionContainerShape {
+        let compositor: bindings::ICompositor5 = self.0.cast().unwrap();
+        CompositionContainerShape(compositor.CreateContainerShape().unwrap())
     }
 
     /// Creates an ellipse geometry.
-    pub fn create_ellipse_geometry(&self) -> Result<CompositionEllipseGeometry> {
-        let compositor: bindings::ICompositor5 = self.0.cast()?;
-        Ok(CompositionEllipseGeometry(
-            compositor.CreateEllipseGeometry()?,
-        ))
+    pub fn create_ellipse_geometry(&self) -> CompositionEllipseGeometry {
+        let compositor: bindings::ICompositor5 = self.0.cast().unwrap();
+        CompositionEllipseGeometry(compositor.CreateEllipseGeometry().unwrap())
     }
 
     /// Creates a sprite shape that fills the given geometry with a brush.
     pub fn create_sprite_shape(
         &self,
         geometry: &CompositionEllipseGeometry,
-    ) -> Result<CompositionSpriteShape> {
-        let compositor: bindings::ICompositor5 = self.0.cast()?;
-        Ok(CompositionSpriteShape(
-            compositor.CreateSpriteShapeWithGeometry(&geometry.as_geometry()?.0)?,
-        ))
+    ) -> CompositionSpriteShape {
+        let compositor: bindings::ICompositor5 = self.0.cast().unwrap();
+        CompositionSpriteShape(
+            compositor
+                .CreateSpriteShapeWithGeometry(&geometry.as_geometry().0)
+                .unwrap(),
+        )
     }
 
     /// Creates a scoped batch that tracks the completion of the given kind of
     /// work.
-    pub fn create_scoped_batch(&self, kind: BatchKind) -> Result<CompositionScopedBatch> {
-        Ok(CompositionScopedBatch(
-            self.0.CreateScopedBatch(kind.into())?,
-        ))
+    pub fn create_scoped_batch(&self, kind: BatchKind) -> CompositionScopedBatch {
+        CompositionScopedBatch(self.0.CreateScopedBatch(kind.into()).unwrap())
     }
 
     /// Creates a `Vector3` key-frame animation.
-    pub fn create_vector3_key_frame_animation(&self) -> Result<Vector3KeyFrameAnimation> {
-        Ok(Vector3KeyFrameAnimation(
-            self.0.CreateVector3KeyFrameAnimation()?,
-        ))
+    pub fn create_vector3_key_frame_animation(&self) -> Vector3KeyFrameAnimation {
+        Vector3KeyFrameAnimation(self.0.CreateVector3KeyFrameAnimation().unwrap())
     }
 }

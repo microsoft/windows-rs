@@ -37,7 +37,7 @@ impl Scene {
     /// Attaches an empty root container to the host element.
     fn new(host: &CompositionHostHandle) -> Result<Self> {
         let compositor = host.compositor()?;
-        let root = compositor.create_container_visual()?;
+        let root = compositor.create_container_visual();
         host.set_child_visual(&root)?;
         Ok(Self {
             compositor,
@@ -50,20 +50,20 @@ impl Scene {
 
     /// Rebuilds the ring so it holds exactly `count` pulsing circles.
     fn set_count(&mut self, count: usize) -> Result<()> {
-        let children = self.root.children()?;
-        children.remove_all()?;
+        let children = self.root.children();
+        children.remove_all();
         self.circles.clear();
         for i in 0..count {
-            let circle = self.compositor.create_sprite_visual()?;
-            circle.set_size(CIRCLE, CIRCLE)?;
+            let circle = self.compositor.create_sprite_visual();
+            circle.set_size(CIRCLE, CIRCLE);
             // Pulse (scale) about the circle's own center, not its top-left.
             circle.set_center_point(Vector3 {
                 x: CIRCLE / 2.0,
                 y: CIRCLE / 2.0,
                 z: 0.0,
-            })?;
-            circle.set_brush(&self.compositor.create_color_brush(ring_color(i, count))?)?;
-            children.insert_at_top(&circle)?;
+            });
+            circle.set_brush(&self.compositor.create_color_brush(ring_color(i, count)));
+            children.insert_at_top(&circle);
             self.start_pulse(&circle, i, count)?;
             self.circles.push(circle);
         }
@@ -72,7 +72,7 @@ impl Scene {
 
     /// Starts an endless scale pulse, staggered so it travels around the ring.
     fn start_pulse(&self, circle: &SpriteVisual, index: usize, count: usize) -> Result<()> {
-        let pulse = self.compositor.create_vector3_key_frame_animation()?;
+        let pulse = self.compositor.create_vector3_key_frame_animation();
         pulse.insert_key_frame(
             0.0,
             Vector3 {
@@ -80,7 +80,7 @@ impl Scene {
                 y: 1.0,
                 z: 1.0,
             },
-        )?;
+        );
         pulse.insert_key_frame(
             0.5,
             Vector3 {
@@ -88,7 +88,7 @@ impl Scene {
                 y: 1.6,
                 z: 1.0,
             },
-        )?;
+        );
         pulse.insert_key_frame(
             1.0,
             Vector3 {
@@ -96,12 +96,13 @@ impl Scene {
                 y: 1.0,
                 z: 1.0,
             },
-        )?;
-        pulse.set_duration(Duration::from_millis(2000))?;
+        );
+        pulse.set_duration(Duration::from_millis(2000));
         let phase = index as f64 / count.max(1) as f64;
-        pulse.set_delay(Duration::from_millis((phase * 1800.0) as u64))?;
-        pulse.set_iterate_forever()?;
-        circle.start_animation("Scale", &pulse)
+        pulse.set_delay(Duration::from_millis((phase * 1800.0) as u64));
+        pulse.set_iterate_forever();
+        circle.start_animation("Scale", &pulse);
+        Ok(())
     }
 
     fn resize(&mut self, width: f32, height: f32) -> Result<()> {
@@ -112,7 +113,7 @@ impl Scene {
 
     /// Positions the circles evenly around a centered ring.
     fn layout(&self) -> Result<()> {
-        self.root.set_size(self.width, self.height)?;
+        self.root.set_size(self.width, self.height);
         let n = self.circles.len();
         if n == 0 {
             return Ok(());
@@ -126,7 +127,7 @@ impl Scene {
                 cx + angle.cos() * radius - CIRCLE / 2.0,
                 cy + angle.sin() * radius - CIRCLE / 2.0,
                 0.0,
-            )?;
+            );
         }
         Ok(())
     }

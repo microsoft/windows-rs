@@ -22,15 +22,15 @@ impl Scene {
     fn build(host: &CompositionHostHandle) -> Result<Self> {
         let compositor = host.compositor()?;
 
-        let root = compositor.create_container_visual()?;
-        let background = compositor.create_sprite_visual()?;
-        background.set_brush(&compositor.create_color_brush(Color::rgb(24, 24, 32))?)?;
-        root.children()?.insert_at_bottom(&background)?;
+        let root = compositor.create_container_visual();
+        let background = compositor.create_sprite_visual();
+        background.set_brush(&compositor.create_color_brush(Color::rgb(24, 24, 32)));
+        root.children().insert_at_bottom(&background);
 
-        let square = compositor.create_sprite_visual()?;
-        square.set_size(160.0, 160.0)?;
-        square.set_brush(&compositor.create_color_brush(Color::rgb(0, 120, 215))?)?;
-        root.children()?.insert_at_top(&square)?;
+        let square = compositor.create_sprite_visual();
+        square.set_size(160.0, 160.0);
+        square.set_brush(&compositor.create_color_brush(Color::rgb(0, 120, 215)));
+        root.children().insert_at_top(&square);
 
         host.set_child_visual(&root)?;
         let scene = Self {
@@ -43,11 +43,12 @@ impl Scene {
     }
 
     fn layout(&self, width: f32, height: f32) -> Result<()> {
-        self.root.set_size(width, height)?;
-        self.background.set_size(width, height)?;
-        let size = self.square.size()?;
+        self.root.set_size(width, height);
+        self.background.set_size(width, height);
+        let size = self.square.size();
         self.square
-            .set_offset((width - size.x) / 2.0, (height - size.y) / 2.0, 0.0)
+            .set_offset((width - size.x) / 2.0, (height - size.y) / 2.0, 0.0);
+        Ok(())
     }
 }
 

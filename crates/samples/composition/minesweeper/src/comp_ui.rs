@@ -31,13 +31,13 @@ impl CompUI {
         parent_size: &Vector2,
         grid_size_in_tiles: &GridSize,
     ) -> Result<Self> {
-        let compositor = parent_visual.compositor()?;
-        let root = compositor.create_sprite_visual()?;
+        let compositor = parent_visual.compositor();
+        let root = compositor.create_sprite_visual();
 
-        root.set_relative_size_adjustment(Vector2::new(1.0, 1.0))?;
-        root.set_brush(&compositor.create_color_brush(colors::WHITE)?)?;
-        root.set_border_mode(BorderMode::Hard)?;
-        parent_visual.children()?.insert_at_top(&root)?;
+        root.set_relative_size_adjustment(Vector2::new(1.0, 1.0));
+        root.set_brush(&compositor.create_color_brush(colors::WHITE));
+        root.set_border_mode(BorderMode::Hard);
+        parent_visual.children().insert_at_top(&root);
 
         let tile_size = Vector2::new(25.0, 25.0);
         let game_board = VisualGrid::new(
@@ -49,12 +49,12 @@ impl CompUI {
         let game_board_margin = Vector2::new(100.0, 100.0);
 
         let game_board_visual = game_board.root();
-        game_board_visual.set_relative_offset_adjustment(Vector3::new(0.5, 0.5, 0.0))?;
-        game_board_visual.set_anchor_point(Vector2::new(0.5, 0.5))?;
-        root.children()?.insert_at_top(game_board_visual)?;
+        game_board_visual.set_relative_offset_adjustment(Vector3::new(0.5, 0.5, 0.0));
+        game_board_visual.set_anchor_point(Vector2::new(0.5, 0.5));
+        root.children().insert_at_top(game_board_visual);
 
         let selection_visual = game_board.selection_visual();
-        root.children()?.insert_at_top(selection_visual)?;
+        root.children().insert_at_top(selection_visual);
 
         let assets = CompAssets::new(&compositor, &tile_size)?;
 
@@ -105,7 +105,7 @@ impl CompUI {
             .get_tile(tile_coordinate.x, tile_coordinate.y)
             .unwrap();
 
-        visual.set_brush(&self.assets.get_color_brush_from_mine_state(mine_state))?;
+        visual.set_brush(&self.assets.get_color_brush_from_mine_state(mine_state));
         Ok(())
     }
 
@@ -118,7 +118,7 @@ impl CompUI {
                 &self
                     .assets
                     .get_color_brush_from_mine_state(MineState::Empty),
-            )?;
+            );
         }
 
         let parent_size = self.parent_size;
@@ -134,7 +134,7 @@ impl CompUI {
             .get_tile(tile_coordinate.x, tile_coordinate.y)
             .unwrap();
 
-        visual.set_brush(&self.assets.get_mine_brush())?;
+        visual.set_brush(&self.assets.get_mine_brush());
         Ok(())
     }
 
@@ -147,15 +147,15 @@ impl CompUI {
             .game_board
             .get_tile(tile_coordinate.x, tile_coordinate.y)
             .unwrap();
-        visual.set_brush(&self.assets.get_color_brush_from_mine_count(num_mines))?;
+        visual.set_brush(&self.assets.get_color_brush_from_mine_count(num_mines));
 
         if num_mines > 0 {
             let shape = self.assets.get_shape_from_mine_count(num_mines);
-            let shape_visual = self.compositor.create_shape_visual()?;
-            shape_visual.set_relative_size_adjustment(Vector2::new(1.0, 1.0))?;
-            shape_visual.shapes()?.append(&shape)?;
-            shape_visual.set_border_mode(BorderMode::Soft)?;
-            visual.children()?.insert_at_top(&shape_visual)?;
+            let shape_visual = self.compositor.create_shape_visual();
+            shape_visual.set_relative_size_adjustment(Vector2::new(1.0, 1.0));
+            shape_visual.shapes().append(&shape);
+            shape_visual.set_border_mode(BorderMode::Soft);
+            visual.children().insert_at_top(&shape_visual);
         }
 
         Ok(())
@@ -168,7 +168,7 @@ impl CompUI {
     ) -> Result<()> {
         // Create an animation batch so that we can know when the animations
         // complete.
-        let batch = self.compositor.create_scoped_batch(BatchKind::Animation)?;
+        let batch = self.compositor.create_scoped_batch(BatchKind::Animation);
 
         let animation_delay_step = Duration::from_millis(100);
         let mut current_delay = Duration::from_millis(0);
@@ -187,7 +187,7 @@ impl CompUI {
             mine_indices.pop_front().unwrap();
         }
 
-        batch.end()?;
+        batch.end();
 
         self.mine_animation_playing = true;
 
@@ -222,7 +222,7 @@ impl CompUI {
         let scale_factor = self.compute_scale_factor_from_size(window_size)?;
         self.game_board
             .root()
-            .set_scale(Vector3::new(scale_factor, scale_factor, 1.0))?;
+            .set_scale(Vector3::new(scale_factor, scale_factor, 1.0));
         Ok(())
     }
 
@@ -236,20 +236,20 @@ impl CompUI {
             .unwrap();
         // First, promote the visual to the top so it animates above its
         // neighbors.
-        let parent_children = visual.parent()?.children()?;
-        parent_children.remove(visual)?;
-        parent_children.insert_at_top(visual)?;
+        let parent_children = visual.parent().children();
+        parent_children.remove(visual);
+        parent_children.insert_at_top(visual);
         // Make sure the visual has the mine brush.
-        visual.set_brush(&self.assets.get_mine_brush())?;
+        visual.set_brush(&self.assets.get_mine_brush());
         // Play the animation.
-        let animation = self.compositor.create_vector3_key_frame_animation()?;
-        animation.insert_key_frame(0.0, Vector3::new(1.0, 1.0, 1.0))?;
-        animation.insert_key_frame(0.7, Vector3::new(2.0, 2.0, 1.0))?;
-        animation.insert_key_frame(1.0, Vector3::new(1.0, 1.0, 1.0))?;
-        animation.set_duration(Duration::from_millis(600))?;
-        animation.set_delay(delay)?;
-        animation.set_iteration_count(1)?;
-        visual.start_animation("Scale", &animation)?;
+        let animation = self.compositor.create_vector3_key_frame_animation();
+        animation.insert_key_frame(0.0, Vector3::new(1.0, 1.0, 1.0));
+        animation.insert_key_frame(0.7, Vector3::new(2.0, 2.0, 1.0));
+        animation.insert_key_frame(1.0, Vector3::new(1.0, 1.0, 1.0));
+        animation.set_duration(Duration::from_millis(600));
+        animation.set_delay(delay);
+        animation.set_iteration_count(1);
+        visual.start_animation("Scale", &animation);
         Ok(())
     }
 }

@@ -1,7 +1,7 @@
 use crate::bindings;
 use crate::sealed::Sealed;
 use std::time::Duration;
-use windows_core::{Interface, Result};
+use windows_core::Interface;
 use windows_numerics::Vector3;
 
 fn to_time_span(duration: Duration) -> bindings::TimeSpan {
@@ -22,7 +22,7 @@ pub struct CompositionAnimation(pub(crate) bindings::CompositionAnimation);
 /// This trait is sealed: only the animation types in this crate implement it.
 pub trait Animation: Sealed {
     /// Returns this animation as the shared [`CompositionAnimation`] base type.
-    fn as_animation(&self) -> Result<CompositionAnimation>;
+    fn as_animation(&self) -> CompositionAnimation;
 }
 
 /// A key-frame animation that interpolates a `Vector3` property (such as a
@@ -32,40 +32,44 @@ pub struct Vector3KeyFrameAnimation(pub(crate) bindings::Vector3KeyFrameAnimatio
 
 impl Vector3KeyFrameAnimation {
     /// Inserts a key frame at `progress` (in `0.0..=1.0`) with the given value.
-    pub fn insert_key_frame(&self, progress: f32, value: Vector3) -> Result<()> {
-        self.0.InsertKeyFrame(progress, value)
+    pub fn insert_key_frame(&self, progress: f32, value: Vector3) {
+        self.0.InsertKeyFrame(progress, value).unwrap();
     }
 
     /// Sets how long one iteration of the animation takes.
-    pub fn set_duration(&self, duration: Duration) -> Result<()> {
-        let animation: bindings::IKeyFrameAnimation = self.0.cast()?;
-        animation.SetDuration(to_time_span(duration))
+    pub fn set_duration(&self, duration: Duration) {
+        let animation: bindings::IKeyFrameAnimation = self.0.cast().unwrap();
+        animation.SetDuration(to_time_span(duration)).unwrap();
     }
 
     /// Sets how long to wait before the animation starts.
-    pub fn set_delay(&self, delay: Duration) -> Result<()> {
-        let animation: bindings::IKeyFrameAnimation = self.0.cast()?;
-        animation.SetDelayTime(to_time_span(delay))
+    pub fn set_delay(&self, delay: Duration) {
+        let animation: bindings::IKeyFrameAnimation = self.0.cast().unwrap();
+        animation.SetDelayTime(to_time_span(delay)).unwrap();
     }
 
     /// Sets the animation to run for a fixed number of iterations.
-    pub fn set_iteration_count(&self, count: i32) -> Result<()> {
-        let animation: bindings::IKeyFrameAnimation = self.0.cast()?;
-        animation.SetIterationBehavior(bindings::AnimationIterationBehavior::Count)?;
-        animation.SetIterationCount(count)
+    pub fn set_iteration_count(&self, count: i32) {
+        let animation: bindings::IKeyFrameAnimation = self.0.cast().unwrap();
+        animation
+            .SetIterationBehavior(bindings::AnimationIterationBehavior::Count)
+            .unwrap();
+        animation.SetIterationCount(count).unwrap();
     }
 
     /// Sets the animation to repeat forever.
-    pub fn set_iterate_forever(&self) -> Result<()> {
-        let animation: bindings::IKeyFrameAnimation = self.0.cast()?;
-        animation.SetIterationBehavior(bindings::AnimationIterationBehavior::Forever)
+    pub fn set_iterate_forever(&self) {
+        let animation: bindings::IKeyFrameAnimation = self.0.cast().unwrap();
+        animation
+            .SetIterationBehavior(bindings::AnimationIterationBehavior::Forever)
+            .unwrap();
     }
 }
 
 impl Sealed for Vector3KeyFrameAnimation {}
 
 impl Animation for Vector3KeyFrameAnimation {
-    fn as_animation(&self) -> Result<CompositionAnimation> {
-        Ok(CompositionAnimation(self.0.cast()?))
+    fn as_animation(&self) -> CompositionAnimation {
+        CompositionAnimation(self.0.cast().unwrap())
     }
 }

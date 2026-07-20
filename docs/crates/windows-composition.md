@@ -151,8 +151,8 @@ fn main() -> Result<()> {
     let compositor = Compositor::new()?;
 
     let target = compositor.create_desktop_window_target(&window, false)?;
-    let root = compositor.create_container_visual()?;
-    target.set_root(&root)?;
+    let root = compositor.create_container_visual();
+    target.set_root(&root);
 
     // ... add sprites to `root.children()` ...
 
@@ -218,7 +218,7 @@ dependency, its [`CompositionHost`](windows-reactor.md) widget exposes only a **
 use windows_composition::CompositionHostExt; // extends reactor's handle
 
 let compositor = host.compositor()?;         // Compositor::from_host(compositor_raw)
-let root = compositor.create_container_visual()?;
+let root = compositor.create_container_visual();
 host.set_child_visual(&root)?;               // set_child_visual_raw(root.as_raw())
 ```
 

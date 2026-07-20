@@ -38,20 +38,20 @@ impl VisualGrid {
         margin: &Vector2,
     ) -> Result<Self> {
         let compositor = compositor.clone();
-        let root = compositor.create_container_visual()?;
+        let root = compositor.create_container_visual();
 
-        let selection_visual = compositor.create_sprite_visual()?;
-        let color_brush = compositor.create_color_brush(colors::RED)?;
-        let nine_grid_brush = compositor.create_nine_grid_brush()?;
-        nine_grid_brush.set_insets(margin.x, margin.y, margin.x, margin.y)?;
-        nine_grid_brush.set_center_hollow(true)?;
-        nine_grid_brush.set_source(&color_brush)?;
-        selection_visual.set_brush(&nine_grid_brush)?;
+        let selection_visual = compositor.create_sprite_visual();
+        let color_brush = compositor.create_color_brush(colors::RED);
+        let nine_grid_brush = compositor.create_nine_grid_brush();
+        nine_grid_brush.set_insets(margin.x, margin.y, margin.x, margin.y);
+        nine_grid_brush.set_center_hollow(true);
+        nine_grid_brush.set_source(&color_brush);
+        selection_visual.set_brush(&nine_grid_brush);
         let offset = *margin * -1.0;
-        selection_visual.set_offset(offset.x, offset.y, 0.0)?;
-        selection_visual.set_visible(false)?;
+        selection_visual.set_offset(offset.x, offset.y, 0.0);
+        selection_visual.set_visible(false);
         let size = *tile_size + *margin * 2.0;
-        selection_visual.set_size(size.x, size.y)?;
+        selection_visual.set_size(size.x, size.y);
 
         let mut result = Self {
             compositor,
@@ -75,8 +75,8 @@ impl VisualGrid {
     }
 
     pub fn reset(&mut self, grid_size_in_tiles: &GridSize) -> Result<()> {
-        let children = self.root.children()?;
-        children.remove_all()?;
+        let children = self.root.children();
+        children.remove_all();
         self.tiles.clear();
 
         self.index_helper = IndexHelper::new(grid_size_in_tiles.width, grid_size_in_tiles.height);
@@ -90,21 +90,21 @@ impl VisualGrid {
                 self.grid_width_in_tiles as f32,
                 self.grid_height_in_tiles as f32,
             );
-        self.root.set_size(root_size.x, root_size.y)?;
+        self.root.set_size(root_size.x, root_size.y);
 
         for x in 0..self.grid_width_in_tiles {
             for y in 0..self.grid_height_in_tiles {
-                let visual = self.compositor.create_sprite_visual()?;
-                visual.set_size(self.tile_size.x, self.tile_size.y)?;
-                visual.set_center_point(from_vector2(self.tile_size / 2.0, 0.0))?;
+                let visual = self.compositor.create_sprite_visual();
+                visual.set_size(self.tile_size.x, self.tile_size.y);
+                visual.set_center_point(from_vector2(self.tile_size / 2.0, 0.0));
                 let offset = from_vector2(
                     (self.margin / 2.0)
                         + ((self.tile_size + self.margin) * Vector2::new(x as f32, y as f32)),
                     0.0,
                 );
-                visual.set_offset(offset.x, offset.y, offset.z)?;
+                visual.set_offset(offset.x, offset.y, offset.z);
 
-                children.insert_at_top(&visual)?;
+                children.insert_at_top(&visual);
                 self.tiles.push(visual);
             }
         }
@@ -125,7 +125,7 @@ impl VisualGrid {
     }
 
     pub fn size(&self) -> Result<Vector2> {
-        self.root.size()
+        Ok(self.root.size())
     }
 
     pub fn hit_test(&self, point: &Vector2) -> Option<TileCoordinate> {
@@ -153,10 +153,10 @@ impl VisualGrid {
             let visual = &self.tiles[self
                 .index_helper
                 .compute_index(tile_coordinate.x, tile_coordinate.y)];
-            self.selection_visual.set_parent_for_transform(visual)?;
-            self.selection_visual.set_visible(true)?;
+            self.selection_visual.set_parent_for_transform(visual);
+            self.selection_visual.set_visible(true);
         } else {
-            self.selection_visual.set_visible(false)?;
+            self.selection_visual.set_visible(false);
         }
 
         Ok(())

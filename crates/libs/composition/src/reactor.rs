@@ -11,7 +11,7 @@
 //! # use windows_reactor::CompositionHostHandle;
 //! # fn demo(host: CompositionHostHandle) -> windows_core::Result<()> {
 //! let compositor = host.compositor()?;
-//! let root = compositor.create_container_visual()?;
+//! let root = compositor.create_container_visual();
 //! host.set_child_visual(&root)?;
 //! # Ok(())
 //! # }

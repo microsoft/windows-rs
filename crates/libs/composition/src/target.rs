@@ -1,6 +1,6 @@
 use crate::Visual;
 use crate::bindings;
-use windows_core::{Interface, Result};
+use windows_core::Interface;
 
 /// A composition target that hosts a visual tree inside a window.
 ///
@@ -11,17 +11,17 @@ use windows_core::{Interface, Result};
 pub struct DesktopWindowTarget(bindings::CompositionTarget);
 
 impl DesktopWindowTarget {
-    pub(crate) fn new(target: bindings::IDesktopWindowTarget) -> Result<Self> {
-        Ok(Self(target.cast()?))
+    pub(crate) fn new(target: bindings::IDesktopWindowTarget) -> Self {
+        Self(target.cast().unwrap())
     }
 
     /// Sets the root visual displayed by the target.
-    pub fn set_root(&self, visual: &Visual) -> Result<()> {
-        self.0.SetRoot(&visual.0)
+    pub fn set_root(&self, visual: &Visual) {
+        self.0.SetRoot(&visual.0).unwrap();
     }
 
     /// Returns the target's current root visual, if any has been set.
-    pub fn root(&self) -> Result<Visual> {
-        Ok(Visual(self.0.Root()?))
+    pub fn root(&self) -> Visual {
+        Visual(self.0.Root().unwrap())
     }
 }

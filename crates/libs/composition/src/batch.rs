@@ -1,5 +1,4 @@
 use crate::bindings;
-use windows_core::Result;
 
 /// The kinds of work a [`CompositionScopedBatch`] can track for completion.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -35,7 +34,7 @@ pub struct CompositionScopedBatch(pub(crate) bindings::CompositionScopedBatch);
 impl CompositionScopedBatch {
     /// Seals the batch. No further work started after this call is tracked by
     /// the batch.
-    pub fn end(&self) -> Result<()> {
-        self.0.End()
+    pub fn end(&self) {
+        self.0.End().unwrap();
     }
 }

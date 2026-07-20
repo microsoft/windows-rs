@@ -34,8 +34,8 @@ fn main() -> Result<()> {
     let _queue = DispatcherQueueController::create_on_current_thread()?;
     let compositor = Compositor::new()?;
 
-    let root = compositor.create_container_visual()?;
-    root.set_relative_size_adjustment(Vector2::new(1.0, 1.0))?;
+    let root = compositor.create_container_visual();
+    root.set_relative_size_adjustment(Vector2::new(1.0, 1.0));
 
     // The game is built after the window so the board can be sized to the
     // window's client area. It is shared with the input closures, which observe
@@ -69,7 +69,7 @@ fn main() -> Result<()> {
     };
 
     let target = compositor.create_desktop_window_target(&window, false)?;
-    target.set_root(&root)?;
+    target.set_root(&root);
 
     let (width, height) = window.client_size();
     *game.borrow_mut() = Some(Minesweeper::new(
