@@ -79,7 +79,7 @@ impl Visual {
     /// This is the interop seam the reactor bridge uses to attach a visual tree
     /// to a WinUI host element via `ElementCompositionPreview`. Most callers
     /// should use the safe visual-tree API instead.
-    #[cfg(feature = "reactor")]
+    #[cfg(feature = "lifted")]
     pub fn as_raw(&self) -> windows_core::IInspectable {
         self.0.clone().into()
     }

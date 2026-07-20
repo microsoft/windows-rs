@@ -23,14 +23,14 @@ pub fn yml() {
             }
 
             if name == "windows-composition" {
-                // The `system` and `reactor` stacks are mutually exclusive, so
+                // The `system` and `lifted` stacks are mutually exclusive, so
                 // `--all-features` won't compile; check each stack on its own.
                 writeln!(
                     yml,
                     r"      - name: Check {name}
         run:  cargo check -p {name}
-      - name: Check {name} (reactor)
-        run:  cargo check -p {name} --no-default-features --features reactor"
+      - name: Check {name} (lifted)
+        run:  cargo check -p {name} --no-default-features --features lifted"
                 )
                 .unwrap();
                 continue;

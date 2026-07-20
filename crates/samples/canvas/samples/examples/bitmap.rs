@@ -7,6 +7,7 @@
 #![windows_subsystem = "windows"]
 
 use windows_canvas::*;
+use windows_reactor::DrawContext;
 
 fn draw(ctx: &DrawContext) {
     ctx.clear(ColorF::new(0.1, 0.1, 0.1, 1.0));

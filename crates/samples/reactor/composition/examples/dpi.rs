@@ -10,7 +10,7 @@
 
 #![windows_subsystem = "windows"]
 
-use windows_composition::{Color, CompositionHostExt, SpriteVisual};
+use windows_composition::{Color, SpriteVisual};
 use windows_core::EventRevoker;
 use windows_reactor::*;
 

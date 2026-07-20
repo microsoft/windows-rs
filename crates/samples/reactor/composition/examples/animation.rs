@@ -10,7 +10,7 @@
 #![windows_subsystem = "windows"]
 
 use std::time::Duration;
-use windows_composition::{Color, CompositionHostExt, SpriteVisual};
+use windows_composition::{Color, SpriteVisual};
 use windows_numerics::Vector3;
 use windows_reactor::*;
 

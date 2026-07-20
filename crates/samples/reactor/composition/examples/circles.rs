@@ -15,7 +15,7 @@
 
 use std::f32::consts::TAU;
 use std::time::Duration;
-use windows_composition::{Color, CompositionHostExt, Compositor, ContainerVisual, SpriteVisual};
+use windows_composition::{Color, Compositor, ContainerVisual, SpriteVisual};
 use windows_numerics::Vector3;
 use windows_reactor::*;
 

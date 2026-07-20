@@ -12,14 +12,15 @@ readme = "readme.md"
 [features]
 # The crate compiles against one composition stack, selected at build time.
 # `system` (default) targets Windows.UI.Composition and can host a visual tree in
-# a plain HWND. `reactor` targets the lifted Microsoft.UI.Composition stack for
-# hosting inside a WinUI element: it swaps the generated bindings, drops the
-# standalone-hosting surface, and pulls in the windows-reactor host bridge.
-# Lifted composition is only ever hosted through reactor, so the stack choice and
-# the bridge are the same feature. The two stacks are mutually exclusive.
+# a plain HWND. `lifted` targets the lifted Microsoft.UI.Composition stack for
+# hosting inside a WinUI element: it swaps the generated bindings and drops the
+# standalone-hosting surface. Lifted composition is only ever hosted through
+# reactor, which enables this feature and layers the typed host bridge on top
+# (see windows-reactor's `composition` feature). The two stacks are mutually
+# exclusive.
 default = ["system"]
 system = ["dep:windows-window"]
-reactor = ["dep:windows-reactor"]
+lifted = []
 
 [dependencies]
 windows-core = { workspace = true }
@@ -28,10 +29,6 @@ windows-numerics = { workspace = true }
 windows-time = { workspace = true }
 
 [dependencies.windows-window]
-workspace = true
-optional = true
-
-[dependencies.windows-reactor]
 workspace = true
 optional = true
 

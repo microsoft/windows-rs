@@ -37,7 +37,7 @@ impl Compositor {
     /// visual tree can be built with this crate's safe API. Lifted composition
     /// can only be hosted inside a WinUI element, so this has no system-stack
     /// counterpart.
-    #[cfg(feature = "reactor")]
+    #[cfg(feature = "lifted")]
     pub fn from_host(compositor: windows_core::IInspectable) -> Result<Self> {
         Ok(Self(compositor.cast()?))
     }

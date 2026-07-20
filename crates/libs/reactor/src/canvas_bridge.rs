@@ -1,7 +1,19 @@
+//! The canvas bridge (feature `canvas`).
+//!
+//! Draws [`windows-canvas`](windows_canvas) Direct2D content inside a reactor UI:
+//! [`animated_canvas`] presents a swap chain every vsync, while
+//! [`CanvasImageSource`] repaints a `SurfaceImageSource` on demand. Both live
+//! here (rather than in windows-canvas) so the canvas crate need not depend on
+//! reactor; enabling reactor's `canvas` feature pulls in windows-canvas and
+//! exposes these types.
+
 use super::*;
-use std::cell::RefCell;
+use std::cell::{Cell, RefCell};
 use std::rc::Rc;
-use windows_reactor::*;
+use windows_canvas::{
+    ColorF, DrawingSession, GpuDevice, ID2D1DeviceContext, Matrix3x2, SwapChain, is_device_lost,
+};
+use windows_core::EventRevoker;
 
 /// Per-frame draw context.
 pub struct DrawContext<'a> {
@@ -276,8 +288,6 @@ impl CanvasImageSource {
             Err(e) => return Err(e),
         };
 
-        unsafe { context.SetDpi(self.dpi, self.dpi) };
-
         // The atlas offset is in physical pixels; the context draws in DIPs, so
         // scale it back into DIP space before using it as the offset translation.
         let offset =
@@ -287,7 +297,8 @@ impl CanvasImageSource {
         // panics, so the surface is never left mid-draw.
         let guard = EndDrawGuard(&self.source);
         {
-            let session = DrawingSession::from_borrowed_context(&context, offset);
+            let session =
+                DrawingSession::from_borrowed_context_with_dpi(&context, offset, self.dpi);
             session.clear(clear);
             f(&session);
         }

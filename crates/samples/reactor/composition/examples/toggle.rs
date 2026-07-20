@@ -8,7 +8,7 @@
 
 #![windows_subsystem = "windows"]
 
-use windows_composition::{Color, CompositionHostExt, SpriteVisual};
+use windows_composition::{Color, SpriteVisual};
 use windows_reactor::*;
 
 /// Builds a solid-colored visual and attaches it as the host's child visual.

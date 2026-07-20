@@ -702,6 +702,25 @@ manually ensuring the Evergreen runtime is installed. This is a developer-experi
 use, and could either extend `windows-reactor-setup` or ship as a small
 `windows-webview-setup` companion.
 
+#### 8. Align the reactor dependency direction with canvas/composition *(low)*
+
+`windows-webview` currently owns its reactor bridge: it *optionally* depends on
+`windows-reactor` behind its own `reactor` feature, and `webview()` lives in
+`src/reactor.rs` here. Since the composition/canvas **dependency flip**, those two
+crates run the opposite way — `windows-reactor` optionally depends on them (behind
+its `composition` / `canvas` features) and owns the bridge, so reactor is the single
+owner of the WinUI element harness (see
+[`windows-reactor.md`](windows-reactor.md) and
+[`windows-composition.md`](windows-composition.md)). Webview is the last family
+member still using the older direction. Flipping it too — moving `webview()` into
+reactor behind a `webview` feature and dropping this crate's `reactor` feature +
+`reactor_bindings.rs`/`WebView2Handle` raw seam — would make all three content
+surfaces consistent (reactor as the hub) and let webview's default build stay lean.
+The catch is webview's *second bindgen pass* (`tool_webview`'s `reactor.txt` →
+`reactor_bindings.rs`): that WinRT slice would have to move to reactor's own bindgen
+inputs, so the flip is more mechanical here than it was for canvas/composition. Worth
+doing for consistency once the canvas/composition flip has settled.
+
 #### How it fits with reactor and canvas
 
 webview is already a first-class reactor content surface (the `reactor` feature),

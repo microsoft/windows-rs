@@ -179,15 +179,17 @@ is shorthand for `move || set.call(value)`:
 ## Graphics integration
 
 For custom 2D drawing, host a [`windows-canvas`](windows-canvas.md) surface with
-`animated_canvas(draw)` (enable the `reactor` feature on `windows-canvas`). It
-returns a `SwapChainPanel` element that redraws every frame and recovers from
-device loss automatically — see the `canvas` samples. For content that is static
-between updates, `CanvasImageSource` instead draws *on demand* into a
+`animated_canvas(draw)` (enable reactor's `canvas` feature, which pulls in
+`windows-canvas`). It returns a `SwapChainPanel` element that redraws every frame
+and recovers from device loss automatically — see the `canvas` samples. For content
+that is static between updates, `CanvasImageSource` instead draws *on demand* into a
 `SurfaceImageSource` shown with the `Image` widget, redrawing only when you call
 `draw`; `Image::on_mounted` yields an `ImageHandle` whose
 `on_rasterization_scale_changed` reports the host DPI scale so the surface stays
-crisp across monitor moves (see the canvas `image_source` sample). For raw
-Direct3D, the `swap_chain_panel` sample drives a `SwapChainPanel` with
+crisp across monitor moves (see the canvas `image_source` sample). Both
+`animated_canvas` and `CanvasImageSource` are reactor exports (they own the WinUI
+element harness), built on the safe drawing surface `windows-canvas` provides. For
+raw Direct3D, the `swap_chain_panel` sample drives a `SwapChainPanel` with
 `on_rendering`.
 
 ## Web content integration
@@ -807,19 +809,22 @@ landed; *(gap)* items are still outstanding.
    masked it by reshuffling which panels survived. Fixed by adding an
    `on_unmounted` teardown that clears the state cell, dropping the `RenderState`
    in place (revoking the subscription and releasing the swap chain). Regression:
-   `test_canvas::animated_canvas_installs_unmount_teardown`.
+   `test_reactor::animated_canvas_installs_unmount_teardown`.
 
 4. **On-demand D2D drawing surface pulls in the raw `windows` crate *(fixed)*.**
    Drawing on-demand content (a surface that repaints on a data change rather than
    every frame) into reactor's `SurfaceImageSource` used to require hand-rolled
    D3D11/D2D/DXGI/DirectWrite plus a hand-managed shared `ID2D1Device`. This is now
-   covered by [`windows-canvas`](windows-canvas.md)'s `CanvasImageSource` (under its
-   `reactor` feature): create it from a canvas `GpuDevice`, draw with the safe
-   canvas `DrawingSession` API, and hand `image_source()` to `Image::new` — no raw
-   `windows` crate. It complements `animated_canvas` (continuous, swap-chain) with
-   an on-demand path that only redraws when you call `draw`. Internally it drives
-   reactor's `SurfaceImageSource` widget through a *borrowed* `DrawingSession` (the
-   surface owns the `BeginDraw`/`EndDraw` bracket). To keep the surface crisp,
+   covered by `CanvasImageSource` (a reactor export under reactor's `canvas`
+   feature, built on [`windows-canvas`](windows-canvas.md)): create it from a canvas
+   `GpuDevice`, draw with the safe canvas `DrawingSession` API, and hand
+   `image_source()` to `Image::new` — no raw `windows` crate. It complements
+   `animated_canvas` (continuous, swap-chain) with an on-demand path that only
+   redraws when you call `draw`. Internally it drives reactor's `SurfaceImageSource`
+   widget through a *borrowed* `DrawingSession` (the surface owns the
+   `BeginDraw`/`EndDraw` bracket, and canvas exposes
+   `DrawingSession::from_borrowed_context_with_dpi` so the private `SetDpi` binding
+   stays inside `windows-canvas`). To keep the surface crisp,
    `Image::on_mounted` yields an `ImageHandle` whose
    `on_rasterization_scale_changed` reports the host element's DPI scale (read from
    `XamlRoot.RasterizationScale` after `FrameworkElement.Loaded`, and again on
@@ -855,27 +860,29 @@ landed; *(gap)* items are still outstanding.
    The **safe, typed** composition API lives in the sibling
    [`windows-composition`](windows-composition.md) crate, whose single wrapper
    surface compiles against *either* the system stack (`system` feature, default)
-   *or* the lifted stack (`reactor` feature). Build the crate with its `reactor`
-   feature and import its `CompositionHostExt` trait to get typed
-   `host.compositor() -> Compositor` and `host.set_child_visual(&Visual)` over the
-   raw seam — the same `Compositor`/`Visual`/`SpriteVisual`/… types used for
-   standalone system hosting, so there is only **one** composition wrapper to learn
-   and maintain (reactor no longer carries its own copy). See the
+   *or* the lifted stack (`lifted` feature). Enable reactor's `composition` feature
+   (which turns on `windows-composition/lifted`) to get typed inherent methods on
+   the handle — `host.compositor() -> Compositor` and
+   `host.set_child_visual(&Visual)` over the raw seam — the same
+   `Compositor`/`Visual`/`SpriteVisual`/… types used for standalone system hosting,
+   so there is only **one** composition wrapper to learn and maintain (reactor no
+   longer carries its own copy, and no extension trait import is needed). See the
    [`reactor/composition`](../../crates/samples/reactor/composition) samples
    (`circles`, `host`, `animation`, `dpi`, `toggle`) for the end-to-end flow.
 
-   > **Possible future simplification.** Today the dependency is one-way
-   > (`windows-composition[reactor]` → `windows-reactor`), matching how
-   > [`windows-canvas`](windows-canvas.md) attaches to reactor, so reactor stays
-   > decoupled and its handle returns a raw seam. If a nicer out-of-the-box reactor
-   > experience is wanted, we could **flip it**: have `windows-reactor` *optionally*
-   > depend on `windows-canvas` and `windows-composition` (behind features), so the
-   > handle could return `windows_composition::Compositor` directly and reactor apps
-   > wouldn't need a separate `use windows_composition::CompositionHostExt;`. That
-   > would also let the canvas/composition bridges drop their `reactor` feature and
-   > raw-seam accessors, simplifying all three crates — at the cost of reactor
-   > pulling in those crates. Worth revisiting once the canvas ↔ composition bridge
-   > lands and the ergonomics of both directions can be compared on real samples.
+   > **Dependency direction (flipped).** `windows-reactor` *optionally* depends on
+   > `windows-composition` and `windows-canvas` behind its `composition` and `canvas`
+   > features, so its handle returns typed `windows_composition::Compositor` /
+   > `windows_composition::Visual` directly and the canvas/composition bridges live
+   > here in reactor rather than in those crates. This replaced an earlier design
+   > where the dependency ran the other way (`windows-composition[reactor]` →
+   > `windows-reactor`) and callers imported a `CompositionHostExt` trait. The flip
+   > lets `windows-composition`/`windows-canvas` drop their `reactor` feature and
+   > raw-seam accessors, and makes reactor the single owner of the WinUI element
+   > harness — at the cost of reactor optionally pulling in those two crates. The
+   > mutually-exclusive composition-stack CI constraint is unaffected: a `system`
+   > consumer and a `lifted` consumer still can never share one unified build (see
+   > [`windows-composition.md`](windows-composition.md)).
 
 6. **Templated list stays blank when it grows from empty *(fixed)*.** Previously,
    eager realization queued `Realize` requests for rows `0..count` only at *mount*,
@@ -1031,14 +1038,17 @@ work*).
 > slice of `Microsoft::UI::Composition::*` bindings (Compositor, Visual,
 > KeyFrameAnimation, …). This is *not* the public composition surface — that lives
 > in [`windows-composition`](windows-composition.md) and is hosted through this
-> crate's `CompositionHost` raw seam — and it uses several primitives
+> crate's `CompositionHost` typed methods — and it uses several primitives
 > `windows-composition` doesn't wrap at all (implicit animations, easing
-> functions, expression key frames), so the two only partially overlap. Once the
-> dependency direction is flipped (see the "Possible future simplification" note
-> under *Known gaps and fixes*), reactor could depend on
-> `windows-composition[reactor]` for the overlapping wrappers and keep only the
-> animation-engine-specific extras in its own slice, removing the duplicated
-> `base.txt` entries rather than maintaining a parallel copy.
+> functions, expression key frames), so the two only partially overlap. Now that the
+> dependency direction is flipped (reactor optionally depends on
+> `windows-composition`), reactor *could* reuse `windows-composition`'s wrappers for
+> the overlapping types and keep only the animation-engine-specific extras in its own
+> slice. The catch: the internal engine is compiled unconditionally, whereas the
+> `composition` dependency is *optional*, so consolidating would mean either making
+> `windows-composition` a mandatory reactor dependency or widening its public surface
+> to cover the engine-only primitives. Worth doing only if that cost is judged
+> acceptable against the duplicated `base.txt` entries it removes.
 
 #### 7. Navigation framework *(medium)*
 

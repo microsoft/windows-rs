@@ -12,6 +12,11 @@ readme = "readme.md"
 [features]
 default = []
 test = []
+# Optional typed bridges to the sibling UI crates. Each pulls in its crate only
+# when enabled, keeping the default reactor build lean. `composition` forces
+# windows-composition into its `lifted` stack (the only stack reactor can host).
+composition = ["dep:windows-composition", "windows-composition/lifted"]
+canvas = ["dep:windows-canvas"]
 
 [dependencies]
 rustc-hash = { workspace = true }
@@ -22,6 +27,14 @@ windows-future = { workspace = true }
 windows-reference = { workspace = true, features = ["std"] }
 windows-threading = { workspace = true }
 windows-time = { workspace = true }
+
+[dependencies.windows-composition]
+workspace = true
+optional = true
+
+[dependencies.windows-canvas]
+workspace = true
+optional = true
 
 [lints]
 workspace = true

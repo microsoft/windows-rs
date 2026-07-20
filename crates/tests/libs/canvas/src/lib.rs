@@ -890,24 +890,6 @@ mod tests {
     }
 
     #[test]
-    fn animated_canvas_installs_unmount_teardown() {
-        // Regression: `animated_canvas` must register an `on_unmounted` handler
-        // so its render loop and swap chain are released when the panel leaves
-        // the tree. Its `RenderState` holds the `CompositionTarget::Rendering`
-        // subscription in a reference cycle, so without unmount teardown it
-        // leaks forever and keeps presenting orphaned surfaces.
-        use windows_reactor::Widget;
-        let panel = animated_canvas(|_| {});
-        assert!(
-            panel.on_unmounted_callback().is_some(),
-            "animated_canvas must install an on_unmounted teardown"
-        );
-    }
-
-    // Borrow the already-in-draw context from a swap-chain session so we can
-    // exercise the no-bracket / offset path (the `CanvasImageSource` drawing
-    // path) headlessly on WARP.
-    #[test]
     fn borrowed_session_offset_composes() {
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(64, 64).unwrap();

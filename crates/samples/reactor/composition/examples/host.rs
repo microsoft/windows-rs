@@ -8,7 +8,7 @@
 
 #![windows_subsystem = "windows"]
 
-use windows_composition::{Color, CompositionHostExt, ContainerVisual, SpriteVisual};
+use windows_composition::{Color, ContainerVisual, SpriteVisual};
 use windows_reactor::*;
 
 /// A background that fills the host and a centered blue square on top.

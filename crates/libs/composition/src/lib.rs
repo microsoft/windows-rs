@@ -1,18 +1,18 @@
 #![doc = include_str!("../readme.md")]
 
 // A single wrapper surface over two composition stacks, forked at compile time.
-// Exactly one of `system` (Windows.UI.Composition, default) or `reactor`
+// Exactly one of `system` (Windows.UI.Composition, default) or `lifted`
 // (the lifted Microsoft.UI.Composition stack) selects the generated bindings.
 // Both are generated from one filter by `tool_composition` and expose the same
 // type and method names, so every wrapper module below compiles unchanged
 // against either.
-#[cfg(all(not(feature = "system"), not(feature = "reactor")))]
+#[cfg(all(not(feature = "system"), not(feature = "lifted")))]
 compile_error!(
-    "enable exactly one composition stack: the `system` feature (default) or the `reactor` feature"
+    "enable exactly one composition stack: the `system` feature (default) or the `lifted` feature"
 );
-#[cfg(all(feature = "system", feature = "reactor"))]
+#[cfg(all(feature = "system", feature = "lifted"))]
 compile_error!(
-    "the `system` and `reactor` composition stacks are mutually exclusive; enable only one"
+    "the `system` and `lifted` composition stacks are mutually exclusive; enable only one"
 );
 
 #[cfg(feature = "system")]
@@ -24,7 +24,7 @@ compile_error!(
 )]
 #[path = "bindings.rs"]
 mod bindings;
-#[cfg(feature = "reactor")]
+#[cfg(feature = "lifted")]
 #[allow(
     non_snake_case,
     non_upper_case_globals,
@@ -41,11 +41,6 @@ mod color;
 mod compositor;
 mod shape;
 mod visual;
-
-// The reactor host bridge: adopts a WinUI element's lifted compositor and
-// attaches a visual tree built with this crate's API.
-#[cfg(feature = "reactor")]
-mod reactor;
 
 // Standalone HWND hosting is a system-stack capability (it also owns the
 // `windows-window` dependency); lifted composition is hosted inside a WinUI
@@ -87,9 +82,6 @@ pub use stack::DispatcherQueueController;
 pub use surface::{CompositionDrawingSurface, CompositionGraphicsDevice, CompositionSurfaceBrush};
 #[cfg(feature = "system")]
 pub use target::DesktopWindowTarget;
-
-#[cfg(feature = "reactor")]
-pub use reactor::CompositionHostExt;
 
 pub use windows_core::Result;
 pub use windows_numerics::{Vector2, Vector3};

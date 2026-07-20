@@ -40,11 +40,12 @@ the stack **at compile time** with a Cargo feature:
 - **`system`** (default) targets `Windows.UI.Composition` and owns the standalone
   HWND-hosting story (`DispatcherQueueController`, `DesktopWindowTarget`, the
   `windows-window` dependency).
-- **`reactor`** targets the lifted `Microsoft.UI.Composition` stack and adds the
-  [`windows-reactor`](windows-reactor.md) host bridge (`CompositionHostExt`). Lifted
-  composition is *only* ever hosted through a WinUI element, so the stack choice and
-  the reactor bridge are deliberately the **same feature** — there is no reason to
-  select the lifted stack without it.
+- **`lifted`** targets the lifted `Microsoft.UI.Composition` stack. It is a pure
+  binding-set selector — it pulls in no extra dependencies. Lifted composition is
+  *only* ever hosted through a WinUI element, so lifted consumers reach this crate
+  **through** [`windows-reactor`](windows-reactor.md): reactor's optional
+  `composition` feature turns this feature on and layers the typed host bridge on top
+  (see [The reactor host bridge](#the-reactor-host-bridge-lifted-feature) below).
 
 The two features are **mutually exclusive** (enabling neither or both is a
 `compile_error!`). Both bindings sets are generated from **one** filter by
@@ -56,17 +57,18 @@ of the lifted wrappers inside `windows-reactor`.
 
 ### Feature unification and CI (maintenance note)
 
-Because the `system` and `reactor` features are mutually exclusive, this crate
+Because the `system` and `lifted` features are mutually exclusive, this crate
 cannot be built for **both** stacks in a single Cargo invocation. Cargo unifies
 features across a build graph, so a `--workspace` / `--all` build that contains
-both a `system` consumer (`test_composition`) and a `reactor` consumer (the
-`reactor_composition` sample) enables both features at once and trips the
+both a `system` consumer (`test_composition`) and a `lifted` consumer (the
+`reactor_composition` sample, which enables `windows-reactor`'s `composition`
+feature) enables both features at once and trips the
 `compile_error!`. Two consequences for maintainers:
 
-- **Unified CI jobs exclude the reactor-stack consumer.** `clippy.yml`
+- **Unified CI jobs exclude the lifted-stack consumer.** `clippy.yml`
   (`cargo clippy --workspace`) and `test.yml` (`cargo test --all`) pass
   `--exclude reactor_composition`, mirroring the existing `--exclude test_no_std`.
-  Any *new* crate that forces the `reactor` stack must be excluded the same way.
+  Any *new* crate that forces the `lifted` stack must be excluded the same way.
   Per-crate tooling is unaffected — `tool_clippy_all` runs `cargo clippy -p <name>`
   one crate at a time, and `-p <crate>` builds only pull the features that crate
   selects.
@@ -83,9 +85,9 @@ both a `system` consumer (`test_composition`) and a `reactor` consumer (the
   [`windows-numerics`](windows-numerics.md),
   [`windows-collections`](windows-collections.md) (for the `IVector`-backed shape
   collection), and — *optional, feature-gated* — [`windows-window`](windows-window.md)
-  (the safe `HWND`-hosting target, `system` feature) and
-  [`windows-reactor`](windows-reactor.md) (the host bridge, `reactor` feature). Never
-  the `windows` crate.
+  (the safe `HWND`-hosting target, `system` feature). Never the `windows` crate, and —
+  since the dependency flip — never `windows-reactor`: the lifted host bridge now lives
+  in reactor, which depends on *this* crate (not the other way around).
 - **Zero-overhead newtypes.** Every safe type is a newtype over exactly one owned
   COM interface — no boxing, no per-call allocation — exactly as
   [`windows-animation`](windows-animation.md) and
@@ -120,17 +122,16 @@ modeling composition's class hierarchies:
 | Module | Contents |
 | --- | --- |
 | `bindings.rs` | Generated flat/minimal **system** `Windows.UI.Composition` + `ICompositorDesktopInterop` (`tool_composition`, `system` feature). |
-| `bindings_lifted.rs` | Generated flat/minimal **lifted** `Microsoft.UI.Composition` (`tool_composition`, `reactor` feature). Same member surface as `bindings.rs`. |
+| `bindings_lifted.rs` | Generated flat/minimal **lifted** `Microsoft.UI.Composition` (`tool_composition`, `lifted` feature). Same member surface as `bindings.rs`. |
 | `stack.rs` *(system)* | `DispatcherQueueController` — the per-thread dispatcher-queue bootstrap the compositor requires. |
-| `compositor.rs` | `Compositor` — the factory: create visuals, brushes, shapes, geometries, animations, scoped batches, and (system) window targets. `from_host` (reactor) adopts a WinUI element's lifted compositor. |
+| `compositor.rs` | `Compositor` — the factory: create visuals, brushes, shapes, geometries, animations, scoped batches, and (system) window targets. `from_host` (lifted) adopts a WinUI element's lifted compositor. |
 | `target.rs` *(system)* | `DesktopWindowTarget` — hosts a root visual inside a window. |
-| `visual.rs` | `Visual` (base: offset/size/opacity/scale/anchor/border/relative sizing/`start_animation`), `ContainerVisual` (children), `SpriteVisual` (brush), `VisualCollection`, `BorderMode`. `Visual::as_raw` (reactor) surfaces the interop `IInspectable`. |
+| `visual.rs` | `Visual` (base: offset/size/opacity/scale/anchor/border/relative sizing/`start_animation`), `ContainerVisual` (children), `SpriteVisual` (brush), `VisualCollection`, `BorderMode`. `Visual::as_raw` (lifted) surfaces the interop `IInspectable`. |
 | `shape.rs` | `ShapeVisual`, `CompositionShape`/`Shape`, sprite & container shapes, ellipse geometry, shape collection. |
 | `brush.rs` | `CompositionBrush`/`Brush`, `CompositionColorBrush`, `CompositionNineGridBrush` (surface/effect brushes to come). |
 | `animation.rs` | `CompositionAnimation`/`Animation`, `Vector3KeyFrameAnimation`. |
 | `batch.rs` | `CompositionScopedBatch`, `BatchKind`. |
 | `color.rs` | `Color` newtype over `Windows.UI.Color`. |
-| `reactor.rs` *(reactor)* | `CompositionHostExt` — extends reactor's `CompositionHostHandle` with the typed `compositor()` / `set_child_visual()` API over its raw `IInspectable` seam. |
 
 ## Hosting a visual tree in a window
 
@@ -194,7 +195,7 @@ either surface by editing the one `composition.txt`, then re-run
 `cargo run -p tool_composition`.
 
 `lib.rs` selects the module at compile time: `#[cfg(feature = "system")]` →
-`bindings.rs`, `#[cfg(feature = "reactor")]` → `bindings_lifted.rs`, with
+`bindings.rs`, `#[cfg(feature = "lifted")]` → `bindings_lifted.rs`, with
 `compile_error!` guards for neither/both.
 
 One interop function is **not** in the repo's Win32 metadata: the CoreMessaging
@@ -202,31 +203,33 @@ One interop function is **not** in the repo's Win32 metadata: the CoreMessaging
 to stand up a dispatcher queue on the *current* thread. `stack.rs` declares it
 directly with `windows_core::link!` — a small, stable, self-contained shim.
 
-## The reactor host bridge (`reactor` feature)
+## The reactor host bridge (`lifted` feature)
 
 Lifted composition is hosted inside a WinUI element, and that element tree belongs
-to [`windows-reactor`](windows-reactor.md). To keep reactor free of a composition
-dependency, its [`CompositionHost`](windows-reactor.md) widget exposes only a **raw
-`IInspectable` seam** on its `CompositionHostHandle` (`compositor_raw()`,
-`set_child_visual_raw()`) — the `ElementCompositionPreview` plumbing lives in reactor
-(it owns the `Microsoft.UI.Xaml` bindings), but no composition *wrapper* does.
-
-`windows-composition`'s `reactor` feature layers the typed API back on top via the
-`CompositionHostExt` extension trait (`reactor.rs`):
+to [`windows-reactor`](windows-reactor.md). Since the dependency flip, **reactor
+depends on this crate** (behind its optional `composition` feature, which turns on
+this crate's `lifted` feature), so the typed host bridge lives in reactor rather
+than here. Reactor's [`CompositionHost`](windows-reactor.md) widget exposes a
+low-level raw `IInspectable` seam on its `CompositionHostHandle`
+(`compositor_raw()`, `set_child_visual_raw()`), and — with reactor's `composition`
+feature — inherent typed methods layered directly on the handle:
 
 ```rust,ignore
-use windows_composition::CompositionHostExt; // extends reactor's handle
-
+// no extension trait needed — methods are inherent when reactor's
+// `composition` feature is enabled
 let compositor = host.compositor()?;         // Compositor::from_host(compositor_raw)
 let root = compositor.create_container_visual();
 host.set_child_visual(&root)?;               // set_child_visual_raw(root.as_raw())
 ```
 
-Because both crates' lifted bindings derive from the same `Microsoft.UI.winmd`, the
-`IInspectable` handed across the seam has matching IIDs, so the `.cast()` inside
-`from_host` / `as_raw` is zero-overhead and ABI-safe. The dependency is one-way
-(`windows-composition[reactor]` → `windows-reactor`), mirroring how
-`windows-canvas` optionally depends on `windows-reactor`.
+This crate's contribution to the bridge is the `lifted` binding set plus the two
+seam helpers reactor consumes: `Compositor::from_host(&IInspectable)` (adopts the
+element's compositor) and `Visual::as_raw()` (surfaces a visual's interop
+`IInspectable`). Because both crates' lifted bindings derive from the same
+`Microsoft.UI.winmd`, the `IInspectable` handed across the seam has matching IIDs,
+so the `.cast()` inside `from_host` / `as_raw` is zero-overhead and ABI-safe. The
+dependency is one-way (`windows-reactor[composition]` → `windows-composition[lifted]`),
+mirroring how reactor's `canvas` feature depends on `windows-canvas`.
 
 ## The canvas bridge (`system` feature)
 
@@ -271,25 +274,16 @@ sit in the filter's `// region: system-only` block and the wrappers are gated
 - **Scoped-batch completion** — `CompositionScopedBatch` currently exposes only
   `end()`; surfacing its `Completed` event (and a way to await it) would let callers
   sequence work when a batch of animations finishes.
-- **Dependency-direction flip** — today the dependency is one-way
-  (`windows-composition[reactor]` → `windows-reactor`), so reactor's handle returns a
-  raw `IInspectable` seam and this crate layers the typed API on top. If reactor
-  instead optionally depended on `windows-composition` (and `windows-canvas`), its
-  handle could return a typed `Compositor` directly and these crates could drop their
-  `reactor` feature and raw seams. See the note in
-  [`windows-reactor.md`](windows-reactor.md) — the trade-off is reactor pulling in
-  those crates. (The mutually-exclusive-stack CI constraint above is unaffected either
-  way: a `system` consumer and a `reactor` consumer can never share one unified build.)
 - **Revisit the explicit `system` feature.** `system` is the default, so naming a
   feature for "the normal build" can look redundant. It stays because Cargo optional
   dependencies can only be turned *on* by a positive feature, never *off*:
   `windows-window` (needed only for the system stack's HWND hosting) is
   `optional = true` and enabled by `system = ["dep:windows-window"]`, so
-  `reactor`-stack consumers don't pull it into their tree. Dropping `system` in favour
-  of gating code with `#[cfg(not(feature = "reactor"))]` would work for the *code* but
+  `lifted`-stack consumers don't pull it into their tree. Dropping `system` in favour
+  of gating code with `#[cfg(not(feature = "lifted"))]` would work for the *code* but
   not the *dependency* — `windows-window` would have to become unconditional (pulled
-  even by reactor consumers) — and it would trade the symmetric
-  `cfg(feature = "system")` / `cfg(feature = "reactor")` gates (and the
+  even by lifted consumers) — and it would trade the symmetric
+  `cfg(feature = "system")` / `cfg(feature = "lifted")` gates (and the
   `compile_error!` on neither/both) for double negatives. Worth simplifying only if the
   optional `windows-window` dependency is removed or made unconditional.
 
@@ -346,10 +340,11 @@ the **system** `Windows.UI.Composition` stack via
 - [x] `composition/standalone` and `composition/minesweeper` samples.
 - [x] Headless live `test_composition` coverage (visuals, brushes, shapes, animations).
 - [x] Dual-stack compile-time fork: single wrapper surface over `system`
-      (`Windows.UI.Composition`) and `reactor`/lifted (`Microsoft.UI.Composition`)
+      (`Windows.UI.Composition`) and `lifted` (`Microsoft.UI.Composition`)
       bindings, generated from one filter by `tool_composition`.
-- [x] Reactor host bridge (`reactor` feature): `CompositionHostExt` over reactor's
-      raw `CompositionHostHandle` seam; `reactor/composition` samples.
+- [x] Reactor host bridge (`lifted` feature): reactor's inherent typed
+      `compositor()` / `set_child_visual()` over its raw `CompositionHostHandle`
+      seam; `reactor/composition` samples.
 - [ ] Surface & effect brushes.
 - [ ] Canvas ↔ composition bridge (in `windows-canvas`, `composition` feature).
 - [ ] Expression animations and more key-frame value types.

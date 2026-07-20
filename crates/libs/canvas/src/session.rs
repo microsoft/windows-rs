@@ -58,6 +58,20 @@ impl<'a> DrawingSession<'a> {
         }
     }
 
+    /// Like [`from_borrowed_context`](Self::from_borrowed_context), but first sets
+    /// the device-context DPI so drawing coordinates are in device-independent
+    /// pixels at `dpi` (96 = 1:1). On-demand surface bridges — such as reactor's
+    /// `CanvasImageSource`, which draws into a physical-pixel atlas — use this so
+    /// content stays crisp at high DPI without exposing the raw context.
+    pub fn from_borrowed_context_with_dpi(
+        context: &'a ID2D1DeviceContext,
+        offset: Matrix3x2,
+        dpi: f32,
+    ) -> Self {
+        unsafe { context.SetDpi(dpi, dpi) };
+        Self::from_borrowed_context(context, offset)
+    }
+
     /// Clears the entire session to the given color.
     pub fn clear(&self, color: ColorF) {
         let c: D2D_COLOR_F = color.into();

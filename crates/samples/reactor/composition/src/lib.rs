@@ -2,8 +2,9 @@
 //!
 //! Each example is a small reactor app that hosts a lifted
 //! `Microsoft.UI.Composition` visual tree via reactor's `composition_host`
-//! widget and the [`windows-composition`](windows_composition) crate's
-//! `reactor` feature (`CompositionHostExt`). Run one with, e.g.:
+//! widget, using reactor's `composition` feature for the typed
+//! [`windows-composition`](windows_composition) API on the host handle. Run one
+//! with, e.g.:
 //!
 //! ```text
 //! cargo run -p reactor_composition --example circles

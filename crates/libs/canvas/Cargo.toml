@@ -11,17 +11,12 @@ readme = "readme.md"
 
 [features]
 default = []
-reactor = ["dep:windows-reactor"]
 composition = ["dep:windows-composition", "windows-composition/system"]
 
 [dependencies]
 windows-core = { workspace = true }
 windows-numerics = { workspace = true }
 windows-window = { workspace = true }
-
-[dependencies.windows-reactor]
-workspace = true
-optional = true
 
 [dependencies.windows-composition]
 workspace = true

@@ -61,8 +61,8 @@ jobs:
         run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-composition
         run:  cargo check -p windows-composition
-      - name: Check windows-composition (reactor)
-        run:  cargo check -p windows-composition --no-default-features --features reactor
+      - name: Check windows-composition (lifted)
+        run:  cargo check -p windows-composition --no-default-features --features lifted
       - name: Rust version
         run: rustup update --no-self-update 1.95 && rustup default 1.95
       - name: Check windows-core
