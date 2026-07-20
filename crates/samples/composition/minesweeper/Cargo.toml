@@ -5,7 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-windows-composition = { workspace = true }
+windows-composition = { workspace = true, features = ["system"] }
 windows-window = { workspace = true }
 
 [lints]

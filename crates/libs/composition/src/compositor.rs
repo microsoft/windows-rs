@@ -2,9 +2,12 @@ use crate::bindings;
 use crate::{
     BatchKind, Color, CompositionColorBrush, CompositionContainerShape, CompositionEllipseGeometry,
     CompositionNineGridBrush, CompositionScopedBatch, CompositionSpriteShape, ContainerVisual,
-    DesktopWindowTarget, ShapeVisual, SpriteVisual, Vector3KeyFrameAnimation,
+    ShapeVisual, SpriteVisual, Vector3KeyFrameAnimation,
 };
 use windows_core::{Interface, Result};
+
+#[cfg(feature = "system")]
+use crate::DesktopWindowTarget;
 
 /// The composition engine — the factory for visuals, brushes, and window
 /// targets.
@@ -30,8 +33,22 @@ impl Compositor {
     /// let compositor = Compositor::new()?;
     /// # windows_core::Result::Ok(())
     /// ```
+    #[cfg(feature = "system")]
     pub fn new() -> Result<Self> {
         Ok(Self(bindings::Compositor::new()?))
+    }
+
+    /// Wraps a lifted compositor obtained from a WinUI host element.
+    ///
+    /// This is the interop seam used by the reactor bridge: a WinUI element's
+    /// `Microsoft.UI.Composition.Compositor` (surfaced as an
+    /// [`IInspectable`](windows_core::IInspectable)) is adopted here so its
+    /// visual tree can be built with this crate's safe API. Lifted composition
+    /// can only be hosted inside a WinUI element, so this has no system-stack
+    /// counterpart.
+    #[cfg(feature = "reactor")]
+    pub fn from_host(compositor: windows_core::IInspectable) -> Result<Self> {
+        Ok(Self(compositor.cast()?))
     }
 
     /// Creates a composition target that hosts a visual tree inside a window.
@@ -50,6 +67,7 @@ impl Compositor {
     /// let target = compositor.create_desktop_window_target(&window, false)?;
     /// # windows_core::Result::Ok(())
     /// ```
+    #[cfg(feature = "system")]
     pub fn create_desktop_window_target(
         &self,
         window: &windows_window::Window,
@@ -69,6 +87,7 @@ impl Compositor {
     /// # Safety
     ///
     /// `hwnd` must be a valid, live window handle owned by the calling thread.
+    #[cfg(feature = "system")]
     pub unsafe fn create_desktop_window_target_for_hwnd(
         &self,
         hwnd: *mut core::ffi::c_void,

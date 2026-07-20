@@ -9,11 +9,30 @@ repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
 readme = "readme.md"
 
+[features]
+# The crate compiles against one composition stack, selected at build time.
+# `system` (default) targets Windows.UI.Composition and can host a visual tree in
+# a plain HWND. `reactor` targets the lifted Microsoft.UI.Composition stack for
+# hosting inside a WinUI element: it swaps the generated bindings, drops the
+# standalone-hosting surface, and pulls in the windows-reactor host bridge.
+# Lifted composition is only ever hosted through reactor, so the stack choice and
+# the bridge are the same feature. The two stacks are mutually exclusive.
+default = ["system"]
+system = ["dep:windows-window"]
+reactor = ["dep:windows-reactor"]
+
 [dependencies]
 windows-core = { workspace = true }
 windows-collections = { workspace = true }
 windows-numerics = { workspace = true }
-windows-window = { workspace = true }
+
+[dependencies.windows-window]
+workspace = true
+optional = true
+
+[dependencies.windows-reactor]
+workspace = true
+optional = true
 
 [lints]
 workspace = true

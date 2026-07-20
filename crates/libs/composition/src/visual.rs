@@ -75,6 +75,16 @@ impl Visual {
         self.0.IsVisible()
     }
 
+    /// Surfaces the underlying visual as an [`IInspectable`](windows_core::IInspectable).
+    ///
+    /// This is the interop seam the reactor bridge uses to attach a visual tree
+    /// to a WinUI host element via `ElementCompositionPreview`. Most callers
+    /// should use the safe visual-tree API instead.
+    #[cfg(feature = "reactor")]
+    pub fn as_raw(&self) -> windows_core::IInspectable {
+        self.0.clone().into()
+    }
+
     /// Sets the visual's scale factor about its [center point](Self::set_center_point).
     pub fn set_scale(&self, scale: Vector3) -> Result<()> {
         self.0.SetScale(scale)

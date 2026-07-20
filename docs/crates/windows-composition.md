@@ -1,15 +1,18 @@
 # windows-composition
 
-> **Status: system composition landed — standalone HWND hosting works.** The
-> crate wraps the **system** `Windows.UI.Composition` stack behind safe Rust
-> types: `Compositor`, `Visual`/`ContainerVisual`/`SpriteVisual`/`ShapeVisual`,
-> shapes and geometries, solid-color and nine-grid brushes, `Vector3` key-frame
-> animations, scoped batches, `Color`, plus the hosting types
-> `DispatcherQueueController` and `DesktopWindowTarget`. A visual tree can be
-> hosted directly in a plain Win32 window — no WinUI 3 / Windows App SDK
-> dependency — as shown by the
-> [`composition/standalone`](../../crates/samples/composition/standalone) and
-> [`composition/minesweeper`](../../crates/samples/composition/minesweeper)
+> **Status: system composition landed; dual-stack + reactor bridge landed.** The
+> crate wraps composition behind safe Rust types: `Compositor`,
+> `Visual`/`ContainerVisual`/`SpriteVisual`/`ShapeVisual`, shapes and geometries,
+> solid-color and nine-grid brushes, `Vector3` key-frame animations, scoped
+> batches, `Color`, plus the hosting types `DispatcherQueueController` and
+> `DesktopWindowTarget`. A **single wrapper surface** compiles against either the
+> **system** `Windows.UI.Composition` stack (`system` feature, default —
+> standalone HWND hosting, no WinUI 3 dependency) or the **lifted**
+> `Microsoft.UI.Composition` stack (`reactor` feature — hosted inside a WinUI
+> element via the [`windows-reactor`](windows-reactor.md) bridge). See the
+> [`composition/standalone`](../../crates/samples/composition/standalone),
+> [`composition/minesweeper`](../../crates/samples/composition/minesweeper), and
+> [`reactor/composition_host`](../../crates/samples/reactor/composition_host)
 > samples. Surface/effect brushes and the canvas bridge are still to come — see
 > the checklist below.
 
@@ -27,7 +30,7 @@ screen. It is to `Windows.UI.Composition` what [`windows-canvas`](windows-canvas
 is to Direct2D/DXGI: a focused, hand-written safe layer over its own minimal, flat
 bindings.
 
-## Two composition stacks — and which crate owns which
+## Two composition stacks — one crate, forked at compile time
 
 There are two distinct composition stacks, and they are **not interoperable** (they
 are separate object graphs with distinct COM interface identities, so a visual from
@@ -36,27 +39,43 @@ one cannot be attached to a host from the other):
 - `Windows.UI.Composition` — the **system** compositor, part of the OS. It can host
   a visual tree in **any window** via
   `ICompositorDesktopInterop::CreateDesktopWindowTarget`, with no Windows App SDK
-  dependency. **This is what `windows-composition` wraps.**
+  dependency.
 - `Microsoft.UI.Composition` — the **lifted** WinUI 3 / Windows App SDK compositor.
   It has **no** standalone HWND target (there is no `ICompositorDesktopInterop` /
   `CreateDesktopWindowTarget` in its metadata *or* its NuGet interop headers); a
   lifted visual tree can only be hosted inside a WinUI element, via
   `Microsoft.UI.Xaml.Hosting.ElementCompositionPreview.SetElementChildVisual`.
 
-Because the lifted stack is only usable *inside* a WinUI element, its safe wrappers
-live in [`windows-reactor`](windows-reactor.md) (which owns the WinUI element tree),
-next to the `CompositionHost` widget that hosts them. `windows-composition` owns the
-**system** stack and the **standalone** hosting story. The two wrapper sets are
-nearly identical because the two stacks are **member-identical** — same class names,
-members, and signatures — so the same idioms (see below) apply to both.
+The two stacks are **member-identical** — same class names, members, and signatures
+— so `windows-composition` presents **a single safe wrapper surface** and selects
+the stack **at compile time** with a Cargo feature:
+
+- **`system`** (default) targets `Windows.UI.Composition` and owns the standalone
+  HWND-hosting story (`DispatcherQueueController`, `DesktopWindowTarget`, the
+  `windows-window` dependency).
+- **`reactor`** targets the lifted `Microsoft.UI.Composition` stack and adds the
+  [`windows-reactor`](windows-reactor.md) host bridge (`CompositionHostExt`). Lifted
+  composition is *only* ever hosted through a WinUI element, so the stack choice and
+  the reactor bridge are deliberately the **same feature** — there is no reason to
+  select the lifted stack without it.
+
+The two features are **mutually exclusive** (enabling neither or both is a
+`compile_error!`). Both bindings sets are generated from **one** filter by
+`tool_composition` (see [windows-clang](windows-clang.md)-style codegen notes
+below), so the shared wrapper modules (`visual.rs`, `shape.rs`, `brush.rs`,
+`animation.rs`, `compositor.rs`, `color.rs`) compile unchanged against either. This
+keeps the crate small and fast to compile while eliminating the previous duplication
+of the lifted wrappers inside `windows-reactor`.
 
 ## Architecture (mirrors windows-canvas / windows-animation)
 
 - **Dependencies:** [`windows-core`](windows-core.md),
   [`windows-numerics`](windows-numerics.md),
   [`windows-collections`](windows-collections.md) (for the `IVector`-backed shape
-  collection), and [`windows-window`](windows-window.md) (for the safe
-  `HWND`-hosting target) — *not* the `windows` crate.
+  collection), and — *optional, feature-gated* — [`windows-window`](windows-window.md)
+  (the safe `HWND`-hosting target, `system` feature) and
+  [`windows-reactor`](windows-reactor.md) (the host bridge, `reactor` feature). Never
+  the `windows` crate.
 - **Zero-overhead newtypes.** Every safe type is a newtype over exactly one owned
   COM interface — no boxing, no per-call allocation — exactly as
   [`windows-animation`](windows-animation.md) and
@@ -90,16 +109,18 @@ modeling composition's class hierarchies:
 
 | Module | Contents |
 | --- | --- |
-| `bindings.rs` | Generated flat/minimal `Windows.UI.Composition` + `ICompositorDesktopInterop` (`tool_composition`). |
-| `stack.rs` | `DispatcherQueueController` — the per-thread dispatcher-queue bootstrap the compositor requires. |
-| `compositor.rs` | `Compositor` — the factory: create visuals, brushes, shapes, geometries, animations, scoped batches, and window targets. |
-| `target.rs` | `DesktopWindowTarget` — hosts a root visual inside a window. |
-| `visual.rs` | `Visual` (base: offset/size/opacity/scale/anchor/border/relative sizing/`start_animation`), `ContainerVisual` (children), `SpriteVisual` (brush), `VisualCollection`, `BorderMode`. |
+| `bindings.rs` | Generated flat/minimal **system** `Windows.UI.Composition` + `ICompositorDesktopInterop` (`tool_composition`, `system` feature). |
+| `bindings_lifted.rs` | Generated flat/minimal **lifted** `Microsoft.UI.Composition` (`tool_composition`, `reactor` feature). Same member surface as `bindings.rs`. |
+| `stack.rs` *(system)* | `DispatcherQueueController` — the per-thread dispatcher-queue bootstrap the compositor requires. |
+| `compositor.rs` | `Compositor` — the factory: create visuals, brushes, shapes, geometries, animations, scoped batches, and (system) window targets. `from_host` (reactor) adopts a WinUI element's lifted compositor. |
+| `target.rs` *(system)* | `DesktopWindowTarget` — hosts a root visual inside a window. |
+| `visual.rs` | `Visual` (base: offset/size/opacity/scale/anchor/border/relative sizing/`start_animation`), `ContainerVisual` (children), `SpriteVisual` (brush), `VisualCollection`, `BorderMode`. `Visual::as_raw` (reactor) surfaces the interop `IInspectable`. |
 | `shape.rs` | `ShapeVisual`, `CompositionShape`/`Shape`, sprite & container shapes, ellipse geometry, shape collection. |
 | `brush.rs` | `CompositionBrush`/`Brush`, `CompositionColorBrush`, `CompositionNineGridBrush` (surface/effect brushes to come). |
 | `animation.rs` | `CompositionAnimation`/`Animation`, `Vector3KeyFrameAnimation`. |
 | `batch.rs` | `CompositionScopedBatch`, `BatchKind`. |
 | `color.rs` | `Color` newtype over `Windows.UI.Color`. |
+| `reactor.rs` *(reactor)* | `CompositionHostExt` — extends reactor's `CompositionHostHandle` with the typed `compositor()` / `set_child_visual()` API over its raw `IInspectable` seam. |
 
 ## Hosting a visual tree in a window
 
@@ -138,23 +159,64 @@ complete one.
 ## Codegen: a dedicated `tool_composition`
 
 Composition gets its own generator tool (rather than a plain entry in the shared
-`tool_bindings`) because it needs a non-default winmd input. `tool_composition`
-runs `windows_bindgen` with:
+`tool_bindings`) because it needs non-default winmd inputs and emits **two**
+bindings modules from **one** filter. `tool_composition` runs `windows_bindgen`
+twice with `--flat --minimal --dead-code`:
 
-- `--in` = `crates/libs/bindgen/default/Windows.winmd` (the `Windows.UI.Composition`
-  and `Windows.System` types) **and**
+- **System** (`bindings.rs`) — `--in` = `crates/libs/bindgen/default/Windows.winmd`
+  (the `Windows.UI.Composition` and `Windows.System` types) **and**
   `crates/libs/bindgen/default/Windows.Win32.winmd` (for `ICompositorDesktopInterop`
-  and the `HWND`/`BOOL` types used to host a tree), and
-- `--flat --minimal --dead-code --filter --etc crates/tools/composition/src/composition.txt`.
+  and the `HWND`/`BOOL` hosting types), filtered by
+  `crates/tools/composition/src/composition.txt`.
+- **Lifted** (`bindings_lifted.rs`) — `--in` =
+  `crates/tools/reactor/winmd/Microsoft.UI.winmd` (for `Microsoft.UI.Composition`)
+  **and** `Windows.winmd` (for the shared `Windows.Foundation` / `Windows.UI.Color`
+  types), filtered by a filter **derived from the same `composition.txt`**.
 
-It emits `crates/libs/composition/src/bindings.rs`. `composition.txt` is the filter
-(the composition analogue of `canvas.txt`) — prune or extend the surface by editing
-one file, then re-run `cargo run -p tool_composition`.
+`composition.txt` is the single source of truth. `// region: system-only` /
+`// endregion` markers delimit the entries that exist only on the system stack
+(`Compositor::CreateInstance`, `Windows.System.DispatcherQueueController`, and the
+`DesktopWindowTarget` / `ICompositorDesktopInterop` block). To produce the lifted
+filter the tool drops those regions and rewrites `Windows.UI.Composition.` →
+`Microsoft.UI.Composition.` (the shared `Windows.Foundation` / `Windows.UI.Color`
+entries are untouched), writing a scratch filter under `target/`. Prune or extend
+either surface by editing the one `composition.txt`, then re-run
+`cargo run -p tool_composition`.
+
+`lib.rs` selects the module at compile time: `#[cfg(feature = "system")]` →
+`bindings.rs`, `#[cfg(feature = "reactor")]` → `bindings_lifted.rs`, with
+`compile_error!` guards for neither/both.
 
 One interop function is **not** in the repo's Win32 metadata: the CoreMessaging
 `CreateDispatcherQueueController` (from `dispatcherqueue.h`), which is the only way
 to stand up a dispatcher queue on the *current* thread. `stack.rs` declares it
 directly with `windows_core::link!` — a small, stable, self-contained shim.
+
+## The reactor host bridge (`reactor` feature)
+
+Lifted composition is hosted inside a WinUI element, and that element tree belongs
+to [`windows-reactor`](windows-reactor.md). To keep reactor free of a composition
+dependency, its [`CompositionHost`](windows-reactor.md) widget exposes only a **raw
+`IInspectable` seam** on its `CompositionHostHandle` (`compositor_raw()`,
+`set_child_visual_raw()`) — the `ElementCompositionPreview` plumbing lives in reactor
+(it owns the `Microsoft.UI.Xaml` bindings), but no composition *wrapper* does.
+
+`windows-composition`'s `reactor` feature layers the typed API back on top via the
+`CompositionHostExt` extension trait (`reactor.rs`):
+
+```rust,ignore
+use windows_composition::CompositionHostExt; // extends reactor's handle
+
+let compositor = host.compositor()?;         // Compositor::from_host(compositor_raw)
+let root = compositor.create_container_visual()?;
+host.set_child_visual(&root)?;               // set_child_visual_raw(root.as_raw())
+```
+
+Because both crates' lifted bindings derive from the same `Microsoft.UI.winmd`, the
+`IInspectable` handed across the seam has matching IIDs, so the `.cast()` inside
+`from_host` / `as_raw` is zero-overhead and ABI-safe. The dependency is one-way
+(`windows-composition[reactor]` → `windows-reactor`), mirroring how
+`windows-canvas` optionally depends on `windows-reactor`.
 
 ## Future work
 
@@ -223,6 +285,11 @@ the **system** `Windows.UI.Composition` stack via
       with a safe `&Window` target over [`windows-window`](windows-window.md).
 - [x] `composition/standalone` and `composition/minesweeper` samples.
 - [x] Headless live `test_composition` coverage (visuals, brushes, shapes, animations).
+- [x] Dual-stack compile-time fork: single wrapper surface over `system`
+      (`Windows.UI.Composition`) and `reactor`/lifted (`Microsoft.UI.Composition`)
+      bindings, generated from one filter by `tool_composition`.
+- [x] Reactor host bridge (`reactor` feature): `CompositionHostExt` over reactor's
+      raw `CompositionHostHandle` seam; `reactor/composition_host` sample.
 - [ ] Surface & effect brushes.
 - [ ] Canvas ↔ composition bridge (in `windows-canvas`, `composition` feature).
 - [ ] Expression animations and more key-frame value types.

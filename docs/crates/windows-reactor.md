@@ -842,32 +842,40 @@ landed; *(gap)* items are still outstanding.
    widget (`composition_host()`), the composition-visual counterpart of the
    `SwapChainPanel` widget (which covers the DXGI-swap-chain case). Its
    `on_mounted` hands back a `CompositionHostHandle` — an opaque wrapper over the
-   native element's `IInspectable` — with these seam methods:
-   `compositor()` (`GetElementVisual` → `ICompositionObject::Compositor`, returned
-   as a reactor [`Compositor`]),
-   `set_child_visual(&Visual)` / `clear_child_visual()`
+   native element's `IInspectable`. To keep reactor free of a composition-wrapper
+   dependency, the handle exposes only a **raw `IInspectable` seam**:
+   `compositor_raw()` (`GetElementVisual` → `ICompositionObject::Compositor`),
+   `set_child_visual_raw(&IInspectable)` / `clear_child_visual()`
    (`SetElementChildVisual`), and `on_rasterization_scale_changed()`
    (via `IUIElement::XamlRoot` → `IXamlRoot::RasterizationScale`, default `1.0`).
-   The host is backed by a plain stretching `Grid`, so no new `ControlKind` or
-   native control type is needed.
+   The `ElementCompositionPreview` plumbing stays in reactor (it owns the
+   `Microsoft.UI.Xaml` bindings); the host is backed by a plain stretching `Grid`,
+   so no new `ControlKind` or native control type is needed.
 
-   Because the lifted stack is only usable *inside* a WinUI element, reactor
-   **owns the lifted composition wrappers** itself — the
-   [`composition`](../../crates/libs/reactor/src/composition.rs) module exposes a
-   safe `Compositor`, `Visual`, `ContainerVisual`, `SpriteVisual`,
-   `VisualCollection`, and `CompositionColorBrush` over the element's own
-   compositor (mirroring how [`windows-canvas`](windows-canvas.md) projects
-   Direct2D/DXGI). Callers build the visual tree with these reactor types and
-   attach it via `set_child_visual`. (The sibling
-   [`windows-composition`](windows-composition.md) crate wraps the *system*
-   `Windows.UI.Composition` stack for **standalone** window hosting — a different,
-   non-interoperable stack, which is why the lifted wrappers live here rather than
-   there.) See the
+   The **safe, typed** composition API lives in the sibling
+   [`windows-composition`](windows-composition.md) crate, whose single wrapper
+   surface compiles against *either* the system stack (`system` feature, default)
+   *or* the lifted stack (`reactor` feature). Build the crate with its `reactor`
+   feature and import its `CompositionHostExt` trait to get typed
+   `host.compositor() -> Compositor` and `host.set_child_visual(&Visual)` over the
+   raw seam — the same `Compositor`/`Visual`/`SpriteVisual`/… types used for
+   standalone system hosting, so there is only **one** composition wrapper to learn
+   and maintain (reactor no longer carries its own copy). See the
    [`reactor/composition_host`](../../crates/samples/reactor/composition_host) sample
    for the end-to-end flow.
 
-   [`Compositor`]: ../../crates/libs/reactor/src/composition.rs
-
+   > **Possible future simplification.** Today the dependency is one-way
+   > (`windows-composition[reactor]` → `windows-reactor`), matching how
+   > [`windows-canvas`](windows-canvas.md) attaches to reactor, so reactor stays
+   > decoupled and its handle returns a raw seam. If a nicer out-of-the-box reactor
+   > experience is wanted, we could **flip it**: have `windows-reactor` *optionally*
+   > depend on `windows-canvas` and `windows-composition` (behind features), so the
+   > handle could return `windows_composition::Compositor` directly and reactor apps
+   > wouldn't need a separate `use windows_composition::CompositionHostExt;`. That
+   > would also let the canvas/composition bridges drop their `reactor` feature and
+   > raw-seam accessors, simplifying all three crates — at the cost of reactor
+   > pulling in those crates. Worth revisiting once the canvas ↔ composition bridge
+   > lands and the ergonomics of both directions can be compared on real samples.
 
 6. **Templated list stays blank when it grows from empty *(fixed)*.** Previously,
    eager realization queued `Realize` requests for rows `0..count` only at *mount*,

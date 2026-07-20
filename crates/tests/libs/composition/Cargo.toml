@@ -6,7 +6,7 @@ rust-version = "1.95"
 publish = false
 
 [dependencies]
-windows-composition = { workspace = true }
+windows-composition = { workspace = true, features = ["system"] }
 windows-core = { workspace = true }
 windows-numerics = { workspace = true }
 
