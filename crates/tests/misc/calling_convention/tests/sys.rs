@@ -24,7 +24,3 @@ fn variadic() {
         assert_eq!(result, "test-123-456!");
     }
 }
-
-#[test]
-#[cfg(windows_raw_dylib)]
-fn raw_dylib() {}

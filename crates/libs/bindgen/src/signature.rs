@@ -8,12 +8,6 @@ pub struct Signature {
 }
 
 impl Signature {
-    pub fn size(&self, reader: &Reader) -> usize {
-        self.params
-            .iter()
-            .fold(0, |sum, param| sum + std::cmp::max(4, param.size(reader)))
-    }
-
     pub fn types(&self) -> impl Iterator<Item = &Type> + '_ {
         std::iter::once(&self.return_type)
             .chain(self.params.iter().map(|param| &param.ty))

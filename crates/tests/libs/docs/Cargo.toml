@@ -59,9 +59,6 @@ workspace = true
 [dependencies.windows-strings]
 workspace = true
 
-[dependencies.windows-targets]
-workspace = true
-
 [dependencies.windows-threading]
 workspace = true
 

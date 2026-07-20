@@ -8,8 +8,7 @@
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/link)
 
 `windows-link` provides the `link!` macro for declaring external Windows
-functions. It uses `raw-dylib`, so — unlike the equivalent macro in
-[`windows-targets`](windows-targets.md) — it does not require import `.lib` files.
+functions. It uses `raw-dylib`, so it does not require import `.lib` files.
 The macro declares the function and also emits a `pub type` alias of the same
 name describing the function-pointer signature.
 
