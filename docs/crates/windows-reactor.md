@@ -1023,6 +1023,23 @@ sampling-based [`windows-animation`](windows-animation.md) is intentionally *not
 the fit here — it targets immediate-mode canvas drawing (see that crate's *Future
 work*).
 
+> **Consolidate the internal composition slice.** Reactor's transition/animation
+> engine (`backend/winui/mod.rs`) drives *lifted* `Microsoft.UI.Composition` types
+> directly — `ElementCompositionPreview.GetElementVisual`, implicit-animation
+> collections, easing functions, and expression key frames — so `tool_reactor`'s
+> [`base.txt`](../../crates/tools/reactor/src/base.txt) carries its own minimal
+> slice of `Microsoft::UI::Composition::*` bindings (Compositor, Visual,
+> KeyFrameAnimation, …). This is *not* the public composition surface — that lives
+> in [`windows-composition`](windows-composition.md) and is hosted through this
+> crate's `CompositionHost` raw seam — and it uses several primitives
+> `windows-composition` doesn't wrap at all (implicit animations, easing
+> functions, expression key frames), so the two only partially overlap. Once the
+> dependency direction is flipped (see the "Possible future simplification" note
+> under *Known gaps and fixes*), reactor could depend on
+> `windows-composition[reactor]` for the overlapping wrappers and keep only the
+> animation-engine-specific extras in its own slice, removing the duplicated
+> `base.txt` entries rather than maintaining a parallel copy.
+
 #### 7. Navigation framework *(medium)*
 
 Present: the `navigation_view` control wrapper.

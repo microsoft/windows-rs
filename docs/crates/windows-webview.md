@@ -733,3 +733,14 @@ objects / IPC (§2) and the app-relevant events — context menus and authentica
 self-contained add-on that can land whenever a concrete need arises, behind the
 same minimal-binding pattern the crate already uses; the DevTools protocol (§3)
 already landed that way.
+
+#### Housekeeping — module import convention
+
+The wrapper modules should follow the family convention of a single `use super::*;`
+per module (globbing crate-root re-exports) rather than `use crate::…` or explicit
+per-type imports — the pattern [`windows-reactor`](windows-reactor.md),
+[`windows-composition`](windows-composition.md), and
+[`windows-canvas`](windows-canvas.md) use throughout. A few `use crate::…`
+stragglers remain here; normalizing them (re-exporting any shared internals at the
+crate root as `pub(crate)` so the glob covers them) would make the crate consistent
+with the rest of the family.
