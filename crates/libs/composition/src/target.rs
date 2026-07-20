@@ -19,7 +19,9 @@ impl DesktopWindowTarget {
     }
 
     /// Returns the target's current root visual, if any has been set.
-    pub fn root(&self) -> Visual {
-        Visual(self.0.Root().unwrap())
+    pub fn root(&self) -> Option<Visual> {
+        // Before `set_root`, the WinRT getter yields a null reference (surfaced
+        // as an error), which maps to `None` rather than a panic.
+        self.0.Root().ok().map(Visual)
     }
 }

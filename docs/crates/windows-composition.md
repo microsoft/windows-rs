@@ -221,9 +221,9 @@ feature — so the typed host bridge lives in reactor rather than here. Reactor'
 `CompositionHostHandle`:
 
 ```rust,ignore
-let compositor = host.compositor();          // Compositor::from_host(element's compositor)
+let compositor = host.compositor()?;         // Compositor::from_host(element's compositor)
 let root = compositor.create_container_visual();
-host.set_child_visual(&root);                // set the element's child visual
+host.set_child_visual(&root)?;               // set the element's child visual
 ```
 
 This crate's contribution to the bridge is the `lifted` binding set plus the two

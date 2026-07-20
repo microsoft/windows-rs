@@ -1,5 +1,4 @@
 use super::*;
-use std::cell::RefCell;
 use std::rc::Rc;
 
 /// Opaque handle to the native `SwapChainPanel` control, passed to the
@@ -119,22 +118,18 @@ impl SwapChainPanel {
             // Subscribe to SizeChanged on the FrameworkElement.
             if let Ok(fe) = native.cast::<bindings::IFrameworkElement>() {
                 let f = f.clone();
-                // Store the revoker so the subscription lives as long as the control.
-                let revoker: Rc<RefCell<Option<windows_core::EventRevoker>>> =
-                    Rc::new(RefCell::new(None));
-                let r = fe.SizeChanged(move |_sender, args| {
+                if let Ok(revoker) = fe.SizeChanged(move |_sender, args| {
                     if let Some(args) = args.as_ref()
                         && let Ok(s) = args.NewSize()
                     {
                         f(s.width as f64, s.height as f64);
                     }
-                });
-                if let Ok(revoker_val) = r {
-                    *revoker.borrow_mut() = Some(revoker_val);
-                    // Leak the Rc so the subscription outlives this scope.
-                    // The revoker prevent leaks — it revokes on Drop when
-                    // the control is destroyed.
-                    std::mem::forget(revoker);
+                }) {
+                    // Fire-and-forget for the element's lifetime. `into_token`
+                    // drops the revoker's strong reference to the element (unlike
+                    // `forget`, which would pin the element alive forever); the
+                    // handler is torn down when WinUI destroys the element.
+                    let _ = revoker.into_token();
                 }
             }
         }));

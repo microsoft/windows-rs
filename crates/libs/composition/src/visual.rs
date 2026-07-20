@@ -124,8 +124,10 @@ impl Visual {
     }
 
     /// Returns the visual's parent container, if it has one.
-    pub fn parent(&self) -> ContainerVisual {
-        ContainerVisual::new(self.0.Parent().unwrap())
+    pub fn parent(&self) -> Option<ContainerVisual> {
+        // A root visual has no parent: the WinRT getter yields a null reference
+        // (surfaced as an error), which maps to `None` rather than a panic.
+        self.0.Parent().ok().map(ContainerVisual::new)
     }
 
     /// Sets the visual's size as a fraction of its parent's size (per axis).
