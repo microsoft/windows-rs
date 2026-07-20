@@ -1,24 +1,11 @@
 # windows-composition
 
-> **Status: system composition landed; dual-stack + reactor bridge landed.** The
-> crate wraps composition behind safe Rust types: `Compositor`,
-> `Visual`/`ContainerVisual`/`SpriteVisual`/`ShapeVisual`, shapes and geometries,
-> solid-color and nine-grid brushes, `Vector3` key-frame animations, scoped
-> batches, `Color`, plus the hosting types `DispatcherQueueController` and
-> `DesktopWindowTarget`. A **single wrapper surface** compiles against either the
-> **system** `Windows.UI.Composition` stack (`system` feature, default —
-> standalone HWND hosting, no WinUI 3 dependency) or the **lifted**
-> `Microsoft.UI.Composition` stack (`reactor` feature — hosted inside a WinUI
-> element via the [`windows-reactor`](windows-reactor.md) bridge). See the
-> [`composition/standalone`](../../crates/samples/composition/standalone),
-> [`composition/minesweeper`](../../crates/samples/composition/minesweeper), and
-> [`reactor/composition`](../../crates/samples/reactor/composition)
-> samples. Surface/effect brushes and the canvas bridge are still to come — see
-> the checklist below.
+> A safe wrapper around the Windows composition engine (`Windows.UI.Composition` and lifted `Microsoft.UI.Composition`) for building and animating retained-mode visual trees.
 
-- 📦 Not published
-- 🧩 Sibling of [`windows-canvas`](windows-canvas.md) and
-  [`windows-reactor`](windows-reactor.md)
+- 📦 Not published to crates.io
+- 🚀 [Getting started](../../crates/libs/composition/readme.md)
+- 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/composition)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/composition)
 
 ## Purpose
 
@@ -66,6 +53,29 @@ below), so the shared wrapper modules (`visual.rs`, `shape.rs`, `brush.rs`,
 `animation.rs`, `compositor.rs`, `color.rs`) compile unchanged against either. This
 keeps the crate small and fast to compile while eliminating the previous duplication
 of the lifted wrappers inside `windows-reactor`.
+
+### Feature unification and CI (maintenance note)
+
+Because the `system` and `reactor` features are mutually exclusive, this crate
+cannot be built for **both** stacks in a single Cargo invocation. Cargo unifies
+features across a build graph, so a `--workspace` / `--all` build that contains
+both a `system` consumer (`test_composition`) and a `reactor` consumer (the
+`reactor_composition` sample) enables both features at once and trips the
+`compile_error!`. Two consequences for maintainers:
+
+- **Unified CI jobs exclude the reactor-stack consumer.** `clippy.yml`
+  (`cargo clippy --workspace`) and `test.yml` (`cargo test --all`) pass
+  `--exclude reactor_composition`, mirroring the existing `--exclude test_no_std`.
+  Any *new* crate that forces the `reactor` stack must be excluded the same way.
+  Per-crate tooling is unaffected — `tool_clippy_all` runs `cargo clippy -p <name>`
+  one crate at a time, and `-p <crate>` builds only pull the features that crate
+  selects.
+- **`tool_yml` special-cases this crate.** The generated `msrv.yml` and
+  `no-default-features.yml` matrices otherwise run `cargo check -p <name>
+  --all-features` and `--no-default-features`, both invalid here (both stacks /
+  neither stack). `crates/tools/yml/src/{msrv,no_default_features}.rs` special-case
+  `windows-composition` to check each stack explicitly instead; re-run
+  `cargo run -p tool_yml` after touching those generators.
 
 ## Architecture (mirrors windows-canvas / windows-animation)
 
@@ -232,6 +242,18 @@ Because both crates' lifted bindings derive from the same `Microsoft.UI.winmd`, 
 - **More animations** — expression animations and additional key-frame value types
   (scalar/`Vector2`/color), building on the `Vector3` key-frame animation and scoped
   batch that already landed.
+- **Scoped-batch completion** — `CompositionScopedBatch` currently exposes only
+  `end()`; surfacing its `Completed` event (and a way to await it) would let callers
+  sequence work when a batch of animations finishes.
+- **Dependency-direction flip** — today the dependency is one-way
+  (`windows-composition[reactor]` → `windows-reactor`), so reactor's handle returns a
+  raw `IInspectable` seam and this crate layers the typed API on top. If reactor
+  instead optionally depended on `windows-composition` (and `windows-canvas`), its
+  handle could return a typed `Compositor` directly and these crates could drop their
+  `reactor` feature and raw seams. See the note in
+  [`windows-reactor.md`](windows-reactor.md) — the trade-off is reactor pulling in
+  those crates. (The mutually-exclusive-stack CI constraint above is unaffected either
+  way: a `system` consumer and a `reactor` consumer can never share one unified build.)
 
 ## Samples
 

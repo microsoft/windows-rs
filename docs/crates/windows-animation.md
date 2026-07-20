@@ -4,8 +4,8 @@
 
 - 📦 Not published to crates.io
 - 🚀 [Getting started](../../crates/libs/animation/readme.md)
-- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/animation)
 - 📁 [Source](https://github.com/microsoft/windows-rs/tree/master/crates/libs/animation)
+- 🧩 [Samples](https://github.com/microsoft/windows-rs/tree/master/crates/samples/animation)
 
 `windows-animation` wraps the Win32 Windows Animation Manager COM APIs in safe
 Rust types. A `Manager` owns animation `Variable`s — each a smoothly animated
