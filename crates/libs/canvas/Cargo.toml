@@ -10,14 +10,15 @@ categories = ["os::windows-apis"]
 readme = "readme.md"
 
 [features]
-default = ["reactor"]
-reactor = ["windows-reactor"]
+default = []
+composition = ["dep:windows-composition", "windows-composition/system"]
 
 [dependencies]
 windows-core = { workspace = true }
 windows-numerics = { workspace = true }
+windows-window = { workspace = true }
 
-[dependencies.windows-reactor]
+[dependencies.windows-composition]
 workspace = true
 optional = true
 

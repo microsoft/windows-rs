@@ -7,7 +7,7 @@ publish = false
 [dependencies]
 rustc-hash = { workspace = true }
 windows-core = { workspace = true }
-windows-reactor = { workspace = true, features = ["test"] }
+windows-reactor = { workspace = true, features = ["test", "canvas"] }
 windows-reference = { workspace = true, features = ["std"] }
 
 [build-dependencies]

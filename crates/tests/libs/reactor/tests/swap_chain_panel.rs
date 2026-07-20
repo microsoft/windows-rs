@@ -6,6 +6,7 @@ use windows_reactor::Element;
 use windows_reactor::Reconciler;
 use windows_reactor::{Backend, ControlId, ControlKind};
 use windows_reactor::{ElementExt, swap_chain_panel, text_block};
+use windows_reactor::{Widget, animated_canvas};
 
 fn noop_request_rerender() -> Rc<dyn Fn()> {
     Rc::new(|| {})
@@ -44,6 +45,20 @@ fn swap_chain_panel_factory_defaults() {
     let w = swap_chain_panel();
     assert!(w.key.is_none());
     assert!(w.modifiers.is_empty());
+}
+
+#[test]
+fn animated_canvas_installs_unmount_teardown() {
+    // Regression: `animated_canvas` must register an `on_unmounted` handler so
+    // its render loop and swap chain are released when the panel leaves the
+    // tree. Its `RenderState` holds the `CompositionTarget::Rendering`
+    // subscription in a reference cycle, so without unmount teardown it leaks
+    // forever and keeps presenting orphaned surfaces.
+    let panel = animated_canvas(|_| {});
+    assert!(
+        panel.on_unmounted_callback().is_some(),
+        "animated_canvas must install an on_unmounted teardown"
+    );
 }
 
 #[test]

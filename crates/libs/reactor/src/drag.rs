@@ -30,11 +30,11 @@ pub struct DragContext {
 }
 
 impl DragContext {
-    pub fn get_text(&self) -> Option<String> {
+    pub fn text(&self) -> Option<String> {
         self.get_text_fn.as_ref().and_then(|f| f())
     }
 
-    pub fn get_storage_items(&self) -> Vec<DroppedItem> {
+    pub fn storage_items(&self) -> Vec<DroppedItem> {
         self.get_storage_items_fn
             .as_ref()
             .map_or_else(Vec::new, |f| f())

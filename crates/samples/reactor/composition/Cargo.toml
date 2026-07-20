@@ -1,0 +1,17 @@
+[package]
+name = "reactor_composition"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-core = { workspace = true }
+windows-reactor = { workspace = true }
+windows-composition = { workspace = true, default-features = false, features = ["lifted"] }
+windows-numerics = { workspace = true }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true

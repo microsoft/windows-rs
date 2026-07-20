@@ -27,13 +27,17 @@ fn main() -> Result<()> {
             webview.on_web_message_received(move |args| {
                 let message = args.web_message_as_json();
                 println!("page sent: {message}");
-                _ = reply.post_web_message_as_string(&format!("echo {message}"));
+                reply
+                    .post_web_message_as_string(&format!("echo {message}"))
+                    .unwrap();
             })?,
             webview.on_navigation_completed(move |args| {
                 if args.is_success() {
-                    _ = script.execute_script("document.title", |result| {
-                        println!("execute_script returned: {result:?}");
-                    });
+                    script
+                        .execute_script("document.title", |result| {
+                            println!("execute_script returned: {result:?}");
+                        })
+                        .unwrap();
                 }
             })?,
         ];

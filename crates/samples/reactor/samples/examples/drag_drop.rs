@@ -59,7 +59,7 @@ fn app(cx: &mut RenderCx) -> Element {
     .drag_drop({
         move |ctx| {
             set_hover.call(HoverKind::None);
-            let items = ctx.get_storage_items();
+            let items = ctx.storage_items();
             if !items.is_empty() {
                 let label = if items.len() == 1 {
                     items[0].path.clone()
@@ -69,7 +69,7 @@ fn app(cx: &mut RenderCx) -> Element {
                 };
                 set_dropped.call(Some(label));
                 DragOperation::Link
-            } else if let Some(text) = ctx.get_text() {
+            } else if let Some(text) = ctx.text() {
                 set_dropped.call(Some(text));
                 DragOperation::Copy
             } else {

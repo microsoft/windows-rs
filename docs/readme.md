@@ -107,6 +107,7 @@ macros to live in a dedicated `proc-macro` crate.
 | --- | --- |
 | [windows-reactor](crates/windows-reactor.md) | Declarative UI library backed by WinUI 3. |
 | [windows-canvas](crates/windows-canvas.md) | 2D graphics built on Direct2D. |
+| [windows-composition](crates/windows-composition.md) | Retained-mode visual layer built on the Windows composition engine. |
 | [windows-webview](crates/windows-webview.md) | Safe wrapper around the WebView2 browser control. |
 | [windows-window](crates/windows-window.md) | Minimal window creation and message loop. |
 | [windows-animation](crates/windows-animation.md) | Wrapper around the Windows Animation Manager. |

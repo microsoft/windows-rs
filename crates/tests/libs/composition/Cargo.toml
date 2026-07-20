@@ -1,0 +1,14 @@
+[package]
+name = "test_composition"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+
+[dependencies]
+windows-composition = { workspace = true, features = ["system"] }
+windows-core = { workspace = true }
+windows-numerics = { workspace = true }
+
+[lints]
+workspace = true

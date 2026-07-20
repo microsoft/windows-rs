@@ -151,7 +151,7 @@ mod tests {
         session.clear(ColorF::BLACK);
 
         // Default is identity.
-        let identity = session.get_transform();
+        let identity = session.transform();
         assert_eq!(identity.m11, 1.0);
         assert_eq!(identity.m22, 1.0);
         assert_eq!(identity.m31, 0.0);
@@ -166,7 +166,7 @@ mod tests {
             m32: 20.0,
         };
         session.set_transform(&translated);
-        let got = session.get_transform();
+        let got = session.transform();
         assert_eq!(got.m31, 10.0);
         assert_eq!(got.m32, 20.0);
 
@@ -180,10 +180,10 @@ mod tests {
             m32: 0.0,
         };
         session.with_transform(&scaled, || {
-            let inside = session.get_transform();
+            let inside = session.transform();
             assert_eq!(inside.m11, 2.0);
         });
-        let after = session.get_transform();
+        let after = session.transform();
         assert_eq!(after.m31, 10.0); // restored to translated
 
         drop(session);
@@ -890,24 +890,6 @@ mod tests {
     }
 
     #[test]
-    fn animated_canvas_installs_unmount_teardown() {
-        // Regression: `animated_canvas` must register an `on_unmounted` handler
-        // so its render loop and swap chain are released when the panel leaves
-        // the tree. Its `RenderState` holds the `CompositionTarget::Rendering`
-        // subscription in a reference cycle, so without unmount teardown it
-        // leaks forever and keeps presenting orphaned surfaces.
-        use windows_reactor::Widget;
-        let panel = animated_canvas(|_| {});
-        assert!(
-            panel.on_unmounted_callback().is_some(),
-            "animated_canvas must install an on_unmounted teardown"
-        );
-    }
-
-    // Borrow the already-in-draw context from a swap-chain session so we can
-    // exercise the no-bracket / offset path (the `CanvasImageSource` drawing
-    // path) headlessly on WARP.
-    #[test]
     fn borrowed_session_offset_composes() {
         let device = GpuDevice::new_warp().unwrap();
         let mut chain = device.create_swap_chain(64, 64).unwrap();
@@ -919,18 +901,18 @@ mod tests {
         // The offset is applied to the context but hidden from callers: an
         // untouched session reports the identity transform even though the
         // context is really translated by the atlas offset.
-        let seen = session.get_transform();
+        let seen = session.transform();
         assert_eq!((seen.m31, seen.m32), (0.0, 0.0));
         assert_eq!((seen.m11, seen.m22), (1.0, 1.0));
 
         // A caller transform composes on top of the offset and round-trips.
         session.set_transform(&Matrix3x2::translation(5.0, 0.0));
-        let seen = session.get_transform();
+        let seen = session.transform();
         assert_eq!((seen.m31, seen.m32), (5.0, 0.0));
 
         // with_transform restores the previous caller transform (offset intact).
         session.with_transform(&Matrix3x2::translation(100.0, 100.0), || {});
-        let seen = session.get_transform();
+        let seen = session.transform();
         assert_eq!((seen.m31, seen.m32), (5.0, 0.0));
     }
 

@@ -18,20 +18,22 @@ window (simplest — recommended), or standalone against your own `HWND`.
 
 ## Getting started — inside a reactor window
 
-Enable the `reactor` feature and call `animated_canvas(draw)`. It returns a
-`SwapChainPanel` element that creates the device and swap chain, handles resize
-and DPI/scale changes, calls `begin_draw`/`present` each frame, and recovers from
-device loss for you. Your closure receives a `DrawContext` that derefs to the
+The reactor integration lives in `windows-reactor` itself: enable reactor's
+`canvas` feature (which pulls in this crate) and call `animated_canvas(draw)`. It
+returns a `SwapChainPanel` element that creates the device and swap chain, handles
+resize and DPI/scale changes, calls `begin_draw`/`present` each frame, and recovers
+from device loss for you. Your closure receives a `DrawContext` that derefs to the
 frame's `DrawingSession`, so every drawing method is available directly.
 
 ```toml
 [dependencies]
-windows-canvas = { version = "...", features = ["reactor"] }
-windows-reactor = "..."
+windows-reactor = { version = "...", features = ["canvas"] }
+windows-canvas = "..."
 ```
 
 ```rust,ignore
-use windows_canvas::*;
+use windows_canvas::*;   // drawing types: ColorF, Ellipse, Vector2, DrawingSession
+use windows_reactor::*;  // the harness: animated_canvas, DrawContext
 
 let panel = animated_canvas(|ctx| {
     ctx.clear(ColorF::CORNFLOWER_BLUE);
@@ -48,14 +50,16 @@ the device is recreated after loss.
 
 ## Getting started — standalone
 
-With your own window handle, create a `GpuDevice`, then a swap chain for the
-`HWND`, and drive the frame loop yourself:
+With a [`windows-window`](windows-window.md) `Window`, create a `GpuDevice`, then
+a swap chain for the window, and drive the frame loop yourself. (For a raw handle
+from another source, `create_swap_chain_for_hwnd` is the `unsafe` escape hatch.)
 
 ```rust,ignore
 use windows_canvas::*;
+use windows_window::Window;
 
 let device = GpuDevice::new()?;                 // or GpuDevice::new_warp()? (software)
-let chain = unsafe { device.create_swap_chain_for_hwnd(hwnd, width, height)? };
+let chain = device.create_swap_chain_for_window(&window, width, height)?;
 
 // each frame / on paint:
 let session = chain.begin_draw()?;
@@ -76,12 +80,13 @@ reports loss if you want to react explicitly.
 
 `animated_canvas` presents a new frame every vsync — ideal for animation, but
 wasteful for content that is static between updates (a chart, a diagram, a
-rendered document page). For that, enable the `reactor` feature and use
+rendered document page). For that, enable reactor's `canvas` feature and use
 `CanvasImageSource`, which repaints only when you call `draw`. It is the Rust
 analogue of Win2D's `CanvasImageSource`.
 
 ```rust,ignore
-use windows_canvas::*;
+use windows_canvas::*;   // ColorF, Ellipse, Vector2, DrawingSession
+use windows_reactor::*;  // CanvasImageSource, Image
 
 // Create once, on the UI thread, from a device you own.
 let surface = CanvasImageSource::new(&device, 320.0, 320.0, scale)?;
@@ -107,6 +112,42 @@ Obtain the `scale` from the reactor `Image` that displays the surface:
 `ImageHandle::on_rasterization_scale_changed` reports the host DPI scale once the
 control is loaded and again whenever it changes — rebuild the surface at the new
 scale to stay crisp across monitor moves. See the `image_source` sample.
+
+## Getting started — into a composition surface
+
+Enable the `composition` feature to draw into a
+[`windows-composition`](windows-composition.md) `CompositionDrawingSurface` and
+paint a visual with it — the Rust analogue of Win2D's `CanvasComposition`. The app
+owns the composition graph; the bridge only lends the Direct2D drawing.
+
+```toml
+[dependencies]
+windows-canvas = { version = "...", features = ["composition"] }
+windows-composition = { version = "...", features = ["system"] }
+```
+
+```rust,ignore
+use windows_canvas::{CanvasCompositionExt, ColorF, Ellipse, GpuDevice, Vector2};
+
+let graphics = device.create_graphics_device(&compositor)?;   // adopt the D2D device
+let surface = graphics.create_drawing_surface(256.0, 256.0)?; // premultiplied BGRA
+sprite.set_brush(&compositor.create_surface_brush(&surface)); // paint a visual
+
+surface.draw(|session| {
+    session.clear(ColorF::CORNFLOWER_BLUE);
+    let Ok(brush) = session.create_solid_brush(ColorF::WHITE) else { return };
+    session.fill_ellipse(&Ellipse::circle(Vector2::new(128.0, 128.0), 96.0), &brush);
+})?;
+```
+
+`draw` runs the closure inside the surface's native `BeginDraw`/`EndDraw` bracket
+and returns `Ok(false)` on device loss (recreate the device, graphics device, and
+surface, then draw again). There is no implicit clear — clear or draw over the whole
+surface yourself, matching Win2D. Coordinates are in pixels with the surface origin
+at `(0, 0)`; the backing-atlas offset is applied for you. This is **system-only**
+(lifted composition has no Direct2D-surface interop). See the
+[`composition/canvas`](https://github.com/microsoft/windows-rs/tree/master/crates/samples/composition/canvas)
+sample.
 
 ## Drawing basics
 
@@ -161,7 +202,7 @@ placement.
 
 ## Transforms, bitmaps, and effects
 
-- **Transforms:** `set_transform(&Matrix3x2)` / `get_transform()`, or the scoped
+- **Transforms:** `set_transform(&Matrix3x2)` / `transform()`, or the scoped
   `with_transform(&matrix, |s| { .. })`. Use `Matrix3x2::translation(..)` and
   `Matrix3x2::rotation(..)` (from `windows-numerics`).
 - **Bitmaps:** `load_bitmap(path)` then `draw_bitmap(&bitmap, &Rect, opacity)` or
@@ -210,8 +251,13 @@ Direct3D 11, DXGI, DirectWrite, and WIC, projected from the in-house
 `crates/libs/bindgen/default/Windows.Win32.winmd` (plus the reference `Windows.winmd` for the
 WinRT numerics types). The safe wrappers (`GpuDevice`,
 `SwapChain`, `DrawingSession`, geometry, and text types) are hand-written. The
-optional `reactor` feature integrates with `windows-reactor` through
-`animated_canvas` (continuous) and `CanvasImageSource` (on-demand).
+reactor integration (`animated_canvas` continuous + `CanvasImageSource` on-demand)
+lives in [`windows-reactor`](windows-reactor.md) behind reactor's `canvas` feature,
+built on this crate's public drawing surface — see *Reactor integration* below. The
+optional `composition` feature integrates with `windows-composition`
+(system stack, one-way): `CanvasCompositionExt::draw` and
+`GpuDevice::create_graphics_device` draw Direct2D content into a
+`CompositionDrawingSurface`.
 
 ### Design
 
@@ -219,17 +265,27 @@ optional `reactor` feature integrates with `windows-reactor` through
   Win2D's WinRT projections.
 - **Single-threaded rendering** — a `SwapChain` owns one D2D device context; there
   is no context pool. Rendering happens on whichever thread owns the swap chain.
-- **One built-in render loop** — `animated_canvas` (reactor feature) drives frames
-  on the UI thread via `CompositionTarget::Rendering`. There is no dedicated
-  render-thread variant.
-- **On-demand surface** — `CanvasImageSource` (reactor feature) draws into a
-  WinUI `SurfaceImageSource` only when asked, for content that is static between
-  updates. It reuses `DrawingSession` in a *borrowed* mode: the surface's native
-  `BeginDraw`/`EndDraw` own the draw bracket (the session neither begins nor ends
-  drawing), and the shared-atlas pixel offset returned by `BeginDraw` is applied
-  as an offset transform so callers still draw from a `(0, 0)` origin. This mode
-  is also public as `DrawingSession::from_borrowed_context(context, offset)` for
-  driving a context you bracket yourself (printing, a custom `SurfaceImageSource`).
+- **One built-in render loop** — `animated_canvas` (a `windows-reactor` export under
+  its `canvas` feature) drives frames on the UI thread via
+  `CompositionTarget::Rendering`. There is no dedicated render-thread variant.
+- **On-demand surface** — `CanvasImageSource` (also a reactor export under the
+  `canvas` feature) draws into a WinUI `SurfaceImageSource` only when asked, for
+  content that is static between updates. It reuses `DrawingSession` in a *borrowed*
+  mode: the surface's native `BeginDraw`/`EndDraw` own the draw bracket (the session
+  neither begins nor ends drawing), and the shared-atlas pixel offset returned by
+  `BeginDraw` is applied as an offset transform so callers still draw from a `(0, 0)`
+  origin. This mode is public as `DrawingSession::from_borrowed_context(context,
+  offset)` (and `from_borrowed_context_with_dpi(context, offset, dpi)`, which sets the
+  context DPI first) for driving a context you bracket yourself (printing, a custom
+  `SurfaceImageSource`) — the reactor bridge uses the DPI variant so the private
+  `SetDpi` binding stays inside this crate.
+- **Composition surface bridge** — the `composition` feature (one-way
+  `windows-canvas` → `windows-composition`) draws Direct2D content into a
+  `CompositionDrawingSurface`. `windows-composition` owns the interop and exposes a
+  generic `begin_draw::<ID2D1DeviceContext>()` seam (mirroring reactor's
+  `SurfaceImageSource`); `CanvasCompositionExt::draw` brackets it and reuses the same
+  *borrowed* `DrawingSession` mode as `CanvasImageSource`. System-only, since lifted
+  composition has no Direct2D-surface interop.
 - **Automatic device-lost recovery** — `device_lost.rs` classifies the DXGI/D2D
   device-lost codes; `EndDraw`/`Present` set a flag, and the swap chain recreates
   its device and resources on the next frame. The classifier is exported as
@@ -240,6 +296,22 @@ optional `reactor` feature integrates with `windows-reactor` through
   (headless sessions, VMs, RDP). `animated_canvas` uses it on both the initial
   mount and device-lost rebuild so the render loop still produces output on
   GPU-less machines instead of silently drawing nothing.
+
+### Reactor integration
+
+The reactor harness — `animated_canvas`, `CanvasImageSource`, and the `DrawContext`
+passed to draw closures — lives in [`windows-reactor`](windows-reactor.md) (module
+`canvas_bridge`, exported under reactor's `canvas` feature), **not** in this crate.
+The dependency runs `windows-reactor[canvas]` → `windows-canvas`: reactor owns the
+WinUI element harness (`SwapChainPanel`, `SurfaceImageSource`, the
+`CompositionTarget::Rendering` loop, unmount teardown) and consumes this crate's
+public drawing surface. That surface is exactly the set of primitives the bridge
+needs: `GpuDevice` (with `d2d_device`, `new_or_warp`, `is_device_lost`), `SwapChain`
+(`raw_swap_chain`, `set_dpi`), the borrowed-`DrawingSession` constructors
+(`from_borrowed_context` / `from_borrowed_context_with_dpi`), and the re-exported
+`ID2D1DeviceContext` interop type. Keeping the harness in reactor means this crate
+has no `windows-reactor` dependency or `reactor` feature at all; any gap the bridge
+needs surfaces as a compile error against this crate's public API.
 
 ### Input and hit-testing
 
@@ -508,9 +580,10 @@ Missing vs Win2D's XAML controls:
 - **Virtualized / tiled surfaces** (`CanvasVirtualControl`,
   `CanvasVirtualImageSource`) for very large content.
 - **Composition interop** (`CanvasComposition`) for drawing into the visual layer —
-  blocked on a `Microsoft.UI.Composition` wrapper crate (see
-  [`windows-reactor`](windows-reactor.md) gap #5 and
-  [`windows-composition`](windows-composition.md)).
+  the **system** stack landed via the `composition` feature
+  (`CanvasCompositionExt::draw` into a `CompositionDrawingSurface`; see
+  [`windows-composition`](windows-composition.md)). The remaining gap is the *lifted*
+  `Microsoft.UI.Composition` path, which has no Direct2D-surface interop metadata.
 
 #### 8. Lower-priority parity
 

@@ -34,12 +34,16 @@ fn main() -> Result<()> {
                 }
 
                 // The injected global exists because the script ran first.
-                _ = reader.execute_script("String(window.injectedAt)", |result| {
-                    println!("injected timestamp read from page: {result:?}");
-                });
+                reader
+                    .execute_script("String(window.injectedAt)", |result| {
+                        println!("injected timestamp read from page: {result:?}");
+                    })
+                    .unwrap();
 
                 // Later navigations should no longer inject the script.
-                _ = remover.remove_script_to_execute_on_document_created(&id);
+                remover
+                    .remove_script_to_execute_on_document_created(&id)
+                    .unwrap();
             })?;
 
             webview.navigate_to_string(PAGE)?;

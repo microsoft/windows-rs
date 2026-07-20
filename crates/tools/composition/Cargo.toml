@@ -1,0 +1,12 @@
+[package]
+name = "tool_composition"
+version = "0.0.0"
+edition = "2024"
+rust-version = "1.95"
+publish = false
+
+[dependencies]
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true

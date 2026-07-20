@@ -1,0 +1,14 @@
+[package]
+name = "composition_canvas"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-canvas = { workspace = true, features = ["composition"] }
+windows-composition = { workspace = true, features = ["system"] }
+windows-core = { workspace = true }
+windows-window = { workspace = true }
+
+[lints]
+workspace = true

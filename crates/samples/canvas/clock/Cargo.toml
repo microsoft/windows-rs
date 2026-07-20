@@ -6,9 +6,9 @@ publish = false
 
 [dependencies]
 windows-animation = { workspace = true }
-windows-canvas = { workspace = true, features = ["reactor"] }
+windows-canvas = { workspace = true }
 windows-numerics = { workspace = true, features = ["std"] }
-windows-reactor = { workspace = true }
+windows-reactor = { workspace = true, features = ["canvas"] }
 windows-time = { workspace = true }
 
 [build-dependencies]

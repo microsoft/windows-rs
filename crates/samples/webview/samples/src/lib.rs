@@ -23,8 +23,8 @@ pub fn run<F>(title: &str, setup: F) -> Result<()>
 where
     F: FnOnce(&Controller, &WebView) -> Result<Vec<EventRegistration>>,
 {
-    run_core(title, setup, |environment, hwnd| unsafe {
-        environment.create_controller(hwnd)
+    run_core(title, setup, |environment, window| {
+        environment.create_controller(window)
     })
 }
 
@@ -34,15 +34,15 @@ pub fn run_with_options<F>(title: &str, options: ControllerOptions, setup: F) ->
 where
     F: FnOnce(&Controller, &WebView) -> Result<Vec<EventRegistration>>,
 {
-    run_core(title, setup, move |environment, hwnd| unsafe {
-        environment.create_controller_with_options(hwnd, &options)
+    run_core(title, setup, move |environment, window| {
+        environment.create_controller_with_options(window, &options)
     })
 }
 
 fn run_core<F, C>(title: &str, setup: F, create: C) -> Result<()>
 where
     F: FnOnce(&Controller, &WebView) -> Result<Vec<EventRegistration>>,
-    C: FnOnce(&Environment, HWND) -> Result<Controller>,
+    C: FnOnce(&Environment, &Window) -> Result<Controller>,
 {
     let controller: Rc<RefCell<Option<Controller>>> = Rc::new(RefCell::new(None));
 
@@ -51,7 +51,7 @@ where
         .size(1024, 768)
         .on_resize(move |width, height| {
             if let Some(controller) = resize.borrow().as_ref() {
-                _ = controller.set_bounds(0, 0, width, height);
+                controller.set_bounds(0, 0, width, height).unwrap();
             }
         })
         .create()?;
@@ -62,7 +62,7 @@ where
         Err(error) if error.code().0 == E_ABORT || error.code().is_ok() => return Ok(()),
         Err(error) => return Err(error),
     };
-    let handle = match create(&environment, window.hwnd()) {
+    let handle = match create(&environment, &window) {
         Ok(handle) => handle,
         // WebView2 reports E_ABORT when its host window is destroyed mid-startup.
         Err(error) if error.code().0 == E_ABORT || error.code().is_ok() => return Ok(()),

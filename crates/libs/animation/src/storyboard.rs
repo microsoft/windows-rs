@@ -5,6 +5,7 @@ use super::*;
 pub struct Keyframe(UI_ANIMATION_KEYFRAME);
 
 /// Sequences one or more transitions on variables.
+#[derive(Clone)]
 pub struct Storyboard(pub(crate) IUIAnimationStoryboard2);
 
 impl Storyboard {
