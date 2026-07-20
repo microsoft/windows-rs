@@ -63,7 +63,7 @@ fn app(cx: &mut RenderCx) -> Element {
         })
         .on_resize(move |w, h| {
             if let Some(scene) = scene.borrow().as_ref() {
-                _ = scene.layout(w as f32, h as f32);
+                scene.layout(w as f32, h as f32).unwrap();
             }
         })
         .into()

@@ -60,13 +60,6 @@ impl CompositionHostHandle {
         bindings::ElementCompositionPreview::SetElementChildVisual(&element, &visual)
     }
 
-    /// Detaches any child visual previously attached with
-    /// [`set_child_visual_raw`](Self::set_child_visual_raw).
-    pub fn clear_child_visual(&self) -> Result<()> {
-        let element: bindings::UIElement = self.0.cast()?;
-        bindings::ElementCompositionPreview::SetElementChildVisual(&element, None)
-    }
-
     /// Delivers the host's rasterization (DPI) scale to `f`: once the control is
     /// loaded into the tree, and again whenever the scale changes (for example
     /// the window moves to a monitor with different scaling).

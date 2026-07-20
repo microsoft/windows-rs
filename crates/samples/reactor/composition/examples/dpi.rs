@@ -54,7 +54,7 @@ fn app(cx: &mut RenderCx) -> Element {
                 })
                 .on_resize(move |w, h| {
                     if let Some(visual) = visual.borrow().as_ref() {
-                        _ = visual.set_size(w as f32, h as f32);
+                        visual.set_size(w as f32, h as f32).unwrap();
                     }
                 }),
         )

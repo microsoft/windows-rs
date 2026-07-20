@@ -161,7 +161,7 @@ fn app(cx: &mut RenderCx) -> Element {
                 return;
             }
             if let Some(scene) = scene.borrow_mut().as_mut() {
-                _ = scene.set_count(count as usize);
+                scene.set_count(count as usize).unwrap();
             }
         });
     }
@@ -184,7 +184,7 @@ fn app(cx: &mut RenderCx) -> Element {
                     let scene = scene.clone();
                     move |host| match Scene::new(&host) {
                         Ok(mut built) => {
-                            _ = built.set_count(count as usize);
+                            built.set_count(count as usize).unwrap();
                             scene.set(Some(built));
                         }
                         Err(e) => eprintln!("composition init failed: {e}"),
@@ -192,7 +192,7 @@ fn app(cx: &mut RenderCx) -> Element {
                 })
                 .on_resize(move |w, h| {
                     if let Some(scene) = scene.borrow_mut().as_mut() {
-                        _ = scene.resize(w as f32, h as f32);
+                        scene.resize(w as f32, h as f32).unwrap();
                     }
                 }),
         )

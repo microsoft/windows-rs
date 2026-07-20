@@ -845,7 +845,7 @@ landed; *(gap)* items are still outstanding.
    native element's `IInspectable`. To keep reactor free of a composition-wrapper
    dependency, the handle exposes only a **raw `IInspectable` seam**:
    `compositor_raw()` (`GetElementVisual` → `ICompositionObject::Compositor`),
-   `set_child_visual_raw(&IInspectable)` / `clear_child_visual()`
+   `set_child_visual_raw(&IInspectable)`
    (`SetElementChildVisual`), and `on_rasterization_scale_changed()`
    (via `IUIElement::XamlRoot` → `IXamlRoot::RasterizationScale`, default `1.0`).
    The `ElementCompositionPreview` plumbing stays in reactor (it owns the

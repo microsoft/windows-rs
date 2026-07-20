@@ -51,7 +51,7 @@ where
         .size(1024, 768)
         .on_resize(move |width, height| {
             if let Some(controller) = resize.borrow().as_ref() {
-                _ = controller.set_bounds(0, 0, width, height);
+                controller.set_bounds(0, 0, width, height).unwrap();
             }
         })
         .create()?;

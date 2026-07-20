@@ -73,7 +73,9 @@ fn app(cx: &mut RenderCx) -> Element {
         })
         .on_resize(move |w, h| {
             if let Some(visual) = visual.borrow().as_ref() {
-                _ = visual.set_offset((w as f32 - SIZE) / 2.0, (h as f32 - SIZE) / 2.0, 0.0);
+                visual
+                    .set_offset((w as f32 - SIZE) / 2.0, (h as f32 - SIZE) / 2.0, 0.0)
+                    .unwrap();
             }
         })
         .into()
