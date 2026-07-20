@@ -48,5 +48,8 @@ jobs:
         shell: bash
       - uses: Swatinem/rust-cache@v2
       - name: Check
-        # test_no_std is excluded because --all-targets feature-unification pulls std into its no_std graph (duplicate panic_impl)
-        run:  cargo clippy --workspace --all-targets --exclude test_no_std -- -D warnings
+        # Exclusions (both due to --all-targets feature-unification across the workspace):
+        #   test_no_std       — unification pulls std into its no_std graph (duplicate panic_impl).
+        #   reactor_composition — forces windows-composition's `reactor` stack, which is mutually
+        #                         exclusive with the `system` stack other members select by default.
+        run:  cargo clippy --workspace --all-targets --exclude test_no_std --exclude reactor_composition -- -D warnings

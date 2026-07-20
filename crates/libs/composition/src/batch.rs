@@ -25,10 +25,11 @@ impl From<BatchKind> for bindings::CompositionBatchTypes {
     }
 }
 
-/// Groups a set of animations so their collective completion can be observed.
+/// Groups the animations started while it is open so they can be sealed
+/// together with [`end`](Self::end).
 ///
-/// Start the animations after creating the batch, then call [`end`](Self::end)
-/// to seal it.
+/// Create the batch, start the animations, then call [`end`](Self::end) to seal
+/// it so no later work is added to the group.
 pub struct CompositionScopedBatch(pub(crate) bindings::CompositionScopedBatch);
 
 impl CompositionScopedBatch {

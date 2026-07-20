@@ -50,7 +50,8 @@ impl Scene {
 
     /// Rebuilds the ring so it holds exactly `count` pulsing circles.
     fn set_count(&mut self, count: usize) -> Result<()> {
-        self.root.children()?.remove_all()?;
+        let children = self.root.children()?;
+        children.remove_all()?;
         self.circles.clear();
         for i in 0..count {
             let circle = self.compositor.create_sprite_visual()?;
@@ -62,7 +63,7 @@ impl Scene {
                 z: 0.0,
             })?;
             circle.set_brush(&self.compositor.create_color_brush(ring_color(i, count))?)?;
-            self.root.children()?.insert_at_top(&circle)?;
+            children.insert_at_top(&circle)?;
             self.start_pulse(&circle, i, count)?;
             self.circles.push(circle);
         }
