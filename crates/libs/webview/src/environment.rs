@@ -32,13 +32,31 @@ impl Environment {
     }
 
     /// Creates a [`Controller`] that hosts a WebView2 browser in the given
-    /// parent window, pumping the calling thread's message loop until it is
+    /// window, pumping the calling thread's message loop until it is ready.
+    ///
+    /// This requires an installed WebView2 runtime and must be called on a UI
+    /// thread with a message loop.
+    pub fn create_controller(&self, window: &windows_window::Window) -> Result<Controller> {
+        // SAFETY: `window` owns a live window handle for as long as the borrow
+        // lasts.
+        unsafe { self.create_controller_for_hwnd(window.hwnd()) }
+    }
+
+    /// Creates a [`Controller`] that hosts a WebView2 browser in the given raw
+    /// window handle, pumping the calling thread's message loop until it is
     /// ready.
+    ///
+    /// This is the escape hatch for callers that own an `HWND` from a source
+    /// other than [`windows_window`]; most callers should prefer the safe
+    /// [`create_controller`](Self::create_controller).
     ///
     /// # Safety
     ///
     /// `parent` must be a valid window handle that outlives the controller.
-    pub unsafe fn create_controller(&self, parent: HWND) -> Result<Controller> {
+    pub unsafe fn create_controller_for_hwnd(
+        &self,
+        parent: *mut core::ffi::c_void,
+    ) -> Result<Controller> {
         let slot = pump::slot();
         unsafe { self.create_controller_async(parent, pump::slot_handler(&slot))? };
         pump::wait(&slot)
@@ -54,15 +72,28 @@ impl Environment {
     }
 
     /// Creates a [`Controller`] configured by `options` (profile, private mode,
-    /// background colour) that hosts a WebView2 browser in the given parent
-    /// window, pumping the calling thread's message loop until it is ready.
+    /// background colour) that hosts a WebView2 browser in the given window,
+    /// pumping the calling thread's message loop until it is ready.
+    pub fn create_controller_with_options(
+        &self,
+        window: &windows_window::Window,
+        options: &ControllerOptions,
+    ) -> Result<Controller> {
+        // SAFETY: `window` owns a live window handle for as long as the borrow
+        // lasts.
+        unsafe { self.create_controller_with_options_for_hwnd(window.hwnd(), options) }
+    }
+
+    /// Creates a [`Controller`] configured by `options` in the given raw window
+    /// handle. Most callers should prefer the safe
+    /// [`create_controller_with_options`](Self::create_controller_with_options).
     ///
     /// # Safety
     ///
     /// `parent` must be a valid window handle that outlives the controller.
-    pub unsafe fn create_controller_with_options(
+    pub unsafe fn create_controller_with_options_for_hwnd(
         &self,
-        parent: HWND,
+        parent: *mut core::ffi::c_void,
         options: &ControllerOptions,
     ) -> Result<Controller> {
         let slot = pump::slot();

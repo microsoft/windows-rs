@@ -95,7 +95,7 @@ fn main() -> Result<()> {
 
 ## DirectComposition integration
 
-`Variable::get_curve` copies a variable's animation curve into a
+`Variable::copy_curve` copies a variable's animation curve into a
 DirectComposition animation object (any `IDCompositionAnimation`), so the
 composition engine can drive the animation on its own thread instead of you
 sampling `value()` each frame.
@@ -170,7 +170,7 @@ or color in a single variable).
 
 #### 3. Variable richness *(medium)*
 
-Present: `value()`, `get_curve()`.
+Present: `value()`, `copy_curve()`.
 
 Missing: final value, previous value, and current **velocity**; min/max **bounds**
 (clamping); rounding mode; **tags** (`GetVariableFromTag`); and `ConnectVariable`
@@ -219,7 +219,7 @@ distinct is the point of this note:
   animate). Reactor's animation gaps (keyframes, stagger, interaction states — see
   the `windows-reactor` *Future work* §6) are best filled with a Composition-based
   layer, not by sampling here.
-- **Bridging caveat.** `Variable::get_curve` targets `IDCompositionAnimation`
+- **Bridging caveat.** `Variable::copy_curve` targets `IDCompositionAnimation`
   (**DirectComposition**, the Win32 composition engine), *not*
   Windows.UI.Composition (the WinRT engine WinUI/reactor uses); the two are
   distinct. So `windows-animation` plugs cleanly into canvas and raw

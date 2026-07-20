@@ -32,7 +32,7 @@ impl Harness {
     pub fn bootstrap(title: &str) -> Result<Self> {
         let window = Window::new(title).size(1024, 768).create()?;
         let environment = Environment::new()?;
-        let controller = unsafe { environment.create_controller(window.hwnd())? };
+        let controller = environment.create_controller(&window)?;
         let (width, height) = window.client_size();
         controller.set_bounds(0, 0, width, height)?;
         let webview = controller.webview()?;

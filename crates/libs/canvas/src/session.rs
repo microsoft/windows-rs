@@ -312,7 +312,7 @@ impl<'a> DrawingSession<'a> {
     }
 
     /// Returns the current transform.
-    pub fn get_transform(&self) -> Matrix3x2 {
+    pub fn transform(&self) -> Matrix3x2 {
         let mut transform = Matrix3x2::default();
         unsafe { self.context.GetTransform(&mut transform) };
         match &self.mode {
@@ -327,7 +327,7 @@ impl<'a> DrawingSession<'a> {
 
     /// Apply a transform for the duration of the closure, then restore the previous one.
     pub fn with_transform(&self, transform: &Matrix3x2, f: impl FnOnce()) {
-        let prev = self.get_transform();
+        let prev = self.transform();
         self.set_transform(transform);
         f();
         self.set_transform(&prev);

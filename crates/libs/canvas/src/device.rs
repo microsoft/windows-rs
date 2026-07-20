@@ -87,6 +87,23 @@ impl GpuDevice {
         SwapChain::new(self, width, height)
     }
 
+    /// Creates a swap chain that renders directly into the given window.
+    ///
+    /// Prefer this over
+    /// [`create_swap_chain_for_hwnd`](Self::create_swap_chain_for_hwnd) when you
+    /// have a [`windows_window::Window`]: it ties the swap chain to the window
+    /// borrow instead of a raw handle, so no `unsafe` is required.
+    pub fn create_swap_chain_for_window(
+        &self,
+        window: &windows_window::Window,
+        width: u32,
+        height: u32,
+    ) -> Result<SwapChain> {
+        // SAFETY: `window` owns a live window handle for as long as the borrow
+        // lasts.
+        unsafe { self.create_swap_chain_for_hwnd(window.hwnd(), width, height) }
+    }
+
     /// Create an HWND swap chain for standalone windowed rendering.
     ///
     /// # Safety

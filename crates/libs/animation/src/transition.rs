@@ -1,9 +1,11 @@
 use super::*;
 
 /// A transition that interpolates a variable's value over time.
+#[derive(Clone)]
 pub struct Transition(pub(crate) IUIAnimationTransition2);
 
 /// Provides factory methods for creating common transition types.
+#[derive(Clone)]
 pub struct TransitionLibrary(IUIAnimationTransitionLibrary2);
 
 impl TransitionLibrary {

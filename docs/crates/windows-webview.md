@@ -29,10 +29,11 @@ multi-threaded apartment. The samples pair this with
 
 ```rust,ignore
 use windows_webview::*;
+use windows_window::Window;
 
-fn host(window: HWND) -> Result<()> {
+fn host(window: &Window) -> Result<()> {
     let environment = Environment::new()?;
-    let controller = unsafe { environment.create_controller(window)? };
+    let controller = environment.create_controller(window)?;
     let webview = controller.webview()?;
     webview.navigate("https://github.com/microsoft/windows-rs")?;
     Ok(())

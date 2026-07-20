@@ -151,7 +151,7 @@ mod tests {
         session.clear(ColorF::BLACK);
 
         // Default is identity.
-        let identity = session.get_transform();
+        let identity = session.transform();
         assert_eq!(identity.m11, 1.0);
         assert_eq!(identity.m22, 1.0);
         assert_eq!(identity.m31, 0.0);
@@ -166,7 +166,7 @@ mod tests {
             m32: 20.0,
         };
         session.set_transform(&translated);
-        let got = session.get_transform();
+        let got = session.transform();
         assert_eq!(got.m31, 10.0);
         assert_eq!(got.m32, 20.0);
 
@@ -180,10 +180,10 @@ mod tests {
             m32: 0.0,
         };
         session.with_transform(&scaled, || {
-            let inside = session.get_transform();
+            let inside = session.transform();
             assert_eq!(inside.m11, 2.0);
         });
-        let after = session.get_transform();
+        let after = session.transform();
         assert_eq!(after.m31, 10.0); // restored to translated
 
         drop(session);
@@ -919,18 +919,18 @@ mod tests {
         // The offset is applied to the context but hidden from callers: an
         // untouched session reports the identity transform even though the
         // context is really translated by the atlas offset.
-        let seen = session.get_transform();
+        let seen = session.transform();
         assert_eq!((seen.m31, seen.m32), (0.0, 0.0));
         assert_eq!((seen.m11, seen.m22), (1.0, 1.0));
 
         // A caller transform composes on top of the offset and round-trips.
         session.set_transform(&Matrix3x2::translation(5.0, 0.0));
-        let seen = session.get_transform();
+        let seen = session.transform();
         assert_eq!((seen.m31, seen.m32), (5.0, 0.0));
 
         // with_transform restores the previous caller transform (offset intact).
         session.with_transform(&Matrix3x2::translation(100.0, 100.0), || {});
-        let seen = session.get_transform();
+        let seen = session.transform();
         assert_eq!((seen.m31, seen.m32), (5.0, 0.0));
     }
 

@@ -48,14 +48,16 @@ the device is recreated after loss.
 
 ## Getting started — standalone
 
-With your own window handle, create a `GpuDevice`, then a swap chain for the
-`HWND`, and drive the frame loop yourself:
+With a [`windows-window`](windows-window.md) `Window`, create a `GpuDevice`, then
+a swap chain for the window, and drive the frame loop yourself. (For a raw handle
+from another source, `create_swap_chain_for_hwnd` is the `unsafe` escape hatch.)
 
 ```rust,ignore
 use windows_canvas::*;
+use windows_window::Window;
 
 let device = GpuDevice::new()?;                 // or GpuDevice::new_warp()? (software)
-let chain = unsafe { device.create_swap_chain_for_hwnd(hwnd, width, height)? };
+let chain = device.create_swap_chain_for_window(&window, width, height)?;
 
 // each frame / on paint:
 let session = chain.begin_draw()?;
@@ -161,7 +163,7 @@ placement.
 
 ## Transforms, bitmaps, and effects
 
-- **Transforms:** `set_transform(&Matrix3x2)` / `get_transform()`, or the scoped
+- **Transforms:** `set_transform(&Matrix3x2)` / `transform()`, or the scoped
   `with_transform(&matrix, |s| { .. })`. Use `Matrix3x2::translation(..)` and
   `Matrix3x2::rotation(..)` (from `windows-numerics`).
 - **Bitmaps:** `load_bitmap(path)` then `draw_bitmap(&bitmap, &Rect, opacity)` or
