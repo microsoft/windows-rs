@@ -1,1 +1,0 @@
-void __stdcall GetPackageGraphRevisionId() {}

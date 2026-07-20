@@ -21,14 +21,12 @@ Cargo workspace (`resolver = "3"`). Members are globbed from:
 - `crates/tests/*/*` — test crates; `crates/tests/libs/<crate>` mirrors each
   library crate (e.g. `test_reactor`, `test_webview`). Crate names are `test_<dir>`.
 - `crates/samples/*/*` — runnable examples.
-- `crates/targets/*` — the per-architecture import-lib crates (`windows_x86_64_msvc`,
-  etc.); `crates/targets/baseline` is excluded from the workspace.
 
 The crates fall into rough groups (see `docs/readme.md` for the authoritative list):
 core & errors (`windows-core`, `windows-result`, `windows-strings`); values &
 collections (`numerics`, `collections`, `reference`, `time`); async & threading
 (`future`, `threading`); system services (`registry`, `services`, `version`); COM
-macros & linking (`implement`, `interface`, `link`, `targets`); UI & graphics
+macros & linking (`implement`, `interface`, `link`); UI & graphics
 (`reactor`, `canvas`, `webview`, `window`, `animation`, `reactor-setup`); codegen &
 metadata tooling (`bindgen`, `metadata`, `rdl`, `riddle`, `cppwinrt`); and the full
 API projection (`windows`, `windows-sys`).

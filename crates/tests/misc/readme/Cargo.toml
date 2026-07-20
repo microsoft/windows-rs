@@ -36,9 +36,6 @@ features = [
 [dev-dependencies.windows-bindgen]
 workspace = true
 
-[dependencies.windows-targets]
-workspace = true
-
 [dependencies.windows-link]
 workspace = true
 
