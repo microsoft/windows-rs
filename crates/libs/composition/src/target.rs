@@ -1,6 +1,4 @@
-use crate::Visual;
-use crate::bindings;
-use windows_core::Interface;
+use super::*;
 
 /// A composition target that hosts a visual tree inside a window.
 ///

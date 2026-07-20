@@ -25,6 +25,7 @@ reactor = ["dep:windows-reactor"]
 windows-core = { workspace = true }
 windows-collections = { workspace = true }
 windows-numerics = { workspace = true }
+windows-time = { workspace = true }
 
 [dependencies.windows-window]
 workspace = true

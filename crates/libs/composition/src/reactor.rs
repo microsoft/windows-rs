@@ -17,8 +17,7 @@
 //! # }
 //! ```
 
-use crate::{Compositor, Visual};
-use windows_core::Result;
+use super::*;
 
 /// Extends reactor's `CompositionHostHandle` with this crate's typed
 /// composition API.

@@ -1140,7 +1140,7 @@ impl windows_core::RuntimeType for IKeyFrameAnimation {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IKeyFrameAnimation {
-    pub(crate) fn SetDelayTime(&self, value: TimeSpan) -> windows_core::Result<()> {
+    pub(crate) fn SetDelayTime(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetDelayTime)(
                 windows_core::Interface::as_raw(self),
@@ -1149,7 +1149,7 @@ impl IKeyFrameAnimation {
             .ok()
         }
     }
-    pub(crate) fn SetDuration(&self, value: TimeSpan) -> windows_core::Result<()> {
+    pub(crate) fn SetDuration(&self, value: windows_time::TimeSpan) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetDuration)(
                 windows_core::Interface::as_raw(self),
@@ -1184,11 +1184,15 @@ impl IKeyFrameAnimation {
 pub struct IKeyFrameAnimation_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     DelayTime: usize,
-    pub SetDelayTime:
-        unsafe extern "system" fn(*mut core::ffi::c_void, TimeSpan) -> windows_core::HRESULT,
+    pub SetDelayTime: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_time::TimeSpan,
+    ) -> windows_core::HRESULT,
     Duration: usize,
-    pub SetDuration:
-        unsafe extern "system" fn(*mut core::ffi::c_void, TimeSpan) -> windows_core::HRESULT,
+    pub SetDuration: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_time::TimeSpan,
+    ) -> windows_core::HRESULT,
     IterationBehavior: usize,
     pub SetIterationBehavior: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -1798,18 +1802,6 @@ impl windows_core::RuntimeName for SpriteVisual {
 }
 unsafe impl Send for SpriteVisual {}
 unsafe impl Sync for SpriteVisual {}
-#[repr(C)]
-#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
-pub struct TimeSpan {
-    pub duration: i64,
-}
-impl windows_core::TypeKind for TimeSpan {
-    type TypeKind = windows_core::CopyType;
-}
-impl windows_core::RuntimeType for TimeSpan {
-    const SIGNATURE: windows_core::imp::ConstBuffer =
-        windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Foundation.TimeSpan;i8)");
-}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct Vector3KeyFrameAnimation(windows_core::IUnknown);

@@ -1,13 +1,4 @@
-use crate::bindings;
-use crate::{
-    BatchKind, Color, CompositionColorBrush, CompositionContainerShape, CompositionEllipseGeometry,
-    CompositionNineGridBrush, CompositionScopedBatch, CompositionSpriteShape, ContainerVisual,
-    ShapeVisual, SpriteVisual, Vector3KeyFrameAnimation,
-};
-use windows_core::{Interface, Result};
-
-#[cfg(feature = "system")]
-use crate::DesktopWindowTarget;
+use super::*;
 
 /// The composition engine — the factory for visuals, brushes, and window
 /// targets.

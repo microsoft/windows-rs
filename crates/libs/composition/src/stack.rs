@@ -1,5 +1,4 @@
-use crate::bindings;
-use windows_core::{Interface, Result};
+use super::*;
 
 // CreateDispatcherQueueController (dispatcherqueue.h / CoreMessaging) is not part
 // of this repo's Win32 metadata, so it is declared here directly. It is the only

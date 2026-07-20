@@ -1,7 +1,4 @@
-use crate::bindings;
-use crate::{Animation, Brush, Compositor};
-use windows_core::Interface;
-use windows_numerics::{Vector2, Vector3};
+use super::*;
 
 /// How a visual's edges are rendered relative to its clip.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

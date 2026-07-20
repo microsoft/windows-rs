@@ -1,4 +1,4 @@
-use crate::bindings;
+use super::*;
 
 /// The kinds of work a [`CompositionScopedBatch`] can track for completion.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]

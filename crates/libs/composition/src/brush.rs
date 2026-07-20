@@ -1,7 +1,4 @@
-use crate::Color;
-use crate::bindings;
-use crate::sealed::Sealed;
-use windows_core::Interface;
+use super::*;
 
 /// The base type shared by every composition brush. A [`Brush`] can be turned
 /// into one via [`Brush::as_brush`] to paint a visual or fill a shape.

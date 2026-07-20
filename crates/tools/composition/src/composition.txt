@@ -89,8 +89,6 @@ Windows.UI.Composition.CompositionScopedBatch
 Windows.UI.Composition.ICompositionScopedBatch::{End}
 Windows.UI.Composition.CompositionBatchTypes
 
-Windows.Foundation.TimeSpan
-
 // region: system-only
 // Standalone HWND hosting: the desktop target and its root visual. Lifted
 // composition has no standalone HWND target; a reactor app attaches its root

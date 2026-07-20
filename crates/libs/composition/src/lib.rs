@@ -52,6 +52,12 @@ mod sealed {
     pub trait Sealed {}
 }
 
+// Re-exported crate-wide so every wrapper module can `use super::*;` instead of
+// naming these explicitly. `Sealed` and `Interface` stay crate-internal; only
+// the wrapper types and `Result` form the public surface.
+pub(crate) use sealed::Sealed;
+pub(crate) use windows_core::Interface;
+
 pub use animation::{Animation, CompositionAnimation, Vector3KeyFrameAnimation};
 pub use batch::{BatchKind, CompositionScopedBatch};
 pub use brush::{Brush, CompositionBrush, CompositionColorBrush, CompositionNineGridBrush};

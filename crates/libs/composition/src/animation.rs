@@ -1,14 +1,10 @@
-use crate::bindings;
-use crate::sealed::Sealed;
+use super::*;
 use std::time::Duration;
-use windows_core::Interface;
-use windows_numerics::Vector3;
+use windows_time::TimeSpan;
 
-fn to_time_span(duration: Duration) -> bindings::TimeSpan {
-    // WinRT TimeSpan is measured in 100-nanosecond ticks.
-    bindings::TimeSpan {
-        duration: (duration.as_nanos() / 100) as i64,
-    }
+fn to_time_span(duration: Duration) -> TimeSpan {
+    // Durations too large for a WinRT `TimeSpan` saturate rather than wrap.
+    TimeSpan::try_from(duration).unwrap_or(TimeSpan::MAX)
 }
 
 /// The base type shared by every composition animation. An [`Animation`] can be

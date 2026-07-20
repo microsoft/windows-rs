@@ -254,6 +254,18 @@ Because both crates' lifted bindings derive from the same `Microsoft.UI.winmd`, 
   [`windows-reactor.md`](windows-reactor.md) — the trade-off is reactor pulling in
   those crates. (The mutually-exclusive-stack CI constraint above is unaffected either
   way: a `system` consumer and a `reactor` consumer can never share one unified build.)
+- **Revisit the explicit `system` feature.** `system` is the default, so naming a
+  feature for "the normal build" can look redundant. It stays because Cargo optional
+  dependencies can only be turned *on* by a positive feature, never *off*:
+  `windows-window` (needed only for the system stack's HWND hosting) is
+  `optional = true` and enabled by `system = ["dep:windows-window"]`, so
+  `reactor`-stack consumers don't pull it into their tree. Dropping `system` in favour
+  of gating code with `#[cfg(not(feature = "reactor"))]` would work for the *code* but
+  not the *dependency* — `windows-window` would have to become unconditional (pulled
+  even by reactor consumers) — and it would trade the symmetric
+  `cfg(feature = "system")` / `cfg(feature = "reactor")` gates (and the
+  `compile_error!` on neither/both) for double negatives. Worth simplifying only if the
+  optional `windows-window` dependency is removed or made unconditional.
 
 ## Samples
 

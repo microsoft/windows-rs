@@ -1,4 +1,4 @@
-use crate::bindings;
+use super::*;
 
 /// A 32-bit sRGB color with premultiplied alpha semantics, matching the
 /// composition `Color` ABI (`Windows.UI.Color`).

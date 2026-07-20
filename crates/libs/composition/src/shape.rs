@@ -1,8 +1,4 @@
-use crate::bindings;
-use crate::sealed::Sealed;
-use crate::{Brush, Visual};
-use windows_core::Interface;
-use windows_numerics::Vector2;
+use super::*;
 
 /// The base type shared by every composition shape. A [`Shape`] can be turned
 /// into one via [`Shape::as_shape`] to append it to a
