@@ -63,7 +63,7 @@ fn container_children_insert_and_remove() {
     assert_eq!(children.count(), 2);
 
     // A sprite visual is itself a container: multi-step Deref lets it pass here.
-    assert_eq!(a.parent().children().count(), 2);
+    assert_eq!(a.parent().unwrap().children().count(), 2);
 
     children.remove(&a);
     assert_eq!(children.count(), 1);

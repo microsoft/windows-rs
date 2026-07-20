@@ -236,7 +236,7 @@ impl CompUI {
             .unwrap();
         // First, promote the visual to the top so it animates above its
         // neighbors.
-        let parent_children = visual.parent().children();
+        let parent_children = visual.parent().unwrap().children();
         parent_children.remove(visual);
         parent_children.insert_at_top(visual);
         // Make sure the visual has the mine brush.
