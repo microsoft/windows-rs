@@ -95,7 +95,7 @@ jobs:
         # are excluded here: windows-reactor now requires windows-composition's `lifted` stack, so the
         # unified `--all` build is lifted-primary and the mutually-exclusive `system` stack is tested
         # in the separate step below.
-        run: cargo test --all --target ${{ matrix.target }} --exclude windows_aarch64_gnullvm --exclude windows_aarch64_msvc --exclude windows_i686_gnu --exclude windows_i686_gnullvm --exclude windows_i686_msvc --exclude windows_x86_64_gnu --exclude windows_x86_64_gnullvm --exclude windows_x86_64_msvc --exclude windows-composition --exclude test_composition --exclude composition_standalone --exclude composition_minesweeper --exclude composition_canvas
+        run: cargo test --all --target ${{ matrix.target }} --exclude windows-composition --exclude test_composition --exclude composition_standalone --exclude composition_minesweeper --exclude composition_canvas
       - name: Test composition system stack
         run: cargo test -p windows-composition -p test_composition -p composition_standalone -p composition_minesweeper -p composition_canvas --target ${{ matrix.target }}
       - name: Check diff

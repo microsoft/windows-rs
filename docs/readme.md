@@ -100,7 +100,6 @@ macros to live in a dedicated `proc-macro` crate.
 | [windows-implement](crates/windows-implement.md) | `#[implement]` proc macro for COM/WinRT — part of `windows-core`. |
 | [windows-interface](crates/windows-interface.md) | `#[interface]` proc macro for COM interfaces — part of `windows-core`. |
 | [windows-link](crates/windows-link.md) | Raw-dylib import support (`link!`). |
-| [windows-targets](crates/windows-targets.md) | Import libs for older compilers. |
 
 ### UI & graphics
 

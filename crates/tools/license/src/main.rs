@@ -1,6 +1,5 @@
 fn main() -> std::io::Result<()> {
     copy("crates/libs")?;
-    copy("crates/targets")?;
 
     Ok(())
 }
