@@ -232,6 +232,9 @@ tree:
   shadows, bitmap targets, and text.
 - **`image_source`** — an on-demand `CanvasImageSource` displayed with the reactor
   `Image` widget: it redraws only when the count changes, not every frame.
+- **`chart`** — an on-demand `CanvasSwapChain` (Gap A): a bar chart hosted on a
+  `SwapChainPanel` that presents through a composition swap chain but redraws only
+  when its data changes, staying idle (no GPU work) otherwise.
 - **`hit_test`** — geometry hit-testing: a star recolors only when the pointer is
   inside its *actual filled geometry* (`Path::fill_contains_point`), with its
   bounding box (`compute_bounds`) drawn for contrast.
@@ -558,7 +561,13 @@ buffer of premultiplied BGRA pixels (`create_bitmap` /
 Missing vs `CanvasBitmap`/`CanvasRenderTarget`/`CanvasImage`:
 
 - **Saving** — `SaveToFile`/`SaveToStream` as PNG/JPEG/BMP/TIFF/GIF/JpegXR.
-- **Pixel access** — get/set pixel bytes/colors, copy regions.
+- **Pixel access** *(**Gap B** — planned)* — get/set pixel bytes/colors, copy
+  regions. In particular a `read_pixels` that renders offscreen and reads the result
+  back to a CPU `Vec<u8>` (BGRA): create a `CPU_READ | CANNOT_DRAW` staging bitmap,
+  `CopyFromBitmap`, `Map` / copy rows honoring the returned pitch / `Unmap`. This is
+  the readback path a CPU consumer (e.g. a tray icon / thumbnail) needs. Requires
+  adding `D2D1_BITMAP_OPTIONS_CPU_READ`, `D2D1_MAP_OPTIONS_READ`, `D2D1_MAPPED_RECT`,
+  and `ID2D1Bitmap::{Map, Unmap, CopyFromBitmap}` to the `tool_bindings` filter.
 - **Construction** — from arbitrary pixel formats (only 32-bit BGRA is supported
   today), from colors, and from a D3D11 / DXGI surface. Construction from a CPU
   BGRA buffer has shipped (`create_bitmap`).
@@ -586,10 +595,24 @@ standalone `HWND` swap-chain path.
 
 Missing vs Win2D's XAML controls:
 
+- **On-demand swap-chain host** *(**Gap A** — shipped)* — reactor now offers all
+  three hosting models: a *continuous* swap-chain host (`animated_canvas`, redraws
+  every vsync), an *on-demand* `SurfaceImageSource` host (`CanvasImageSource`), and
+  an *on-demand swap-chain* host (`CanvasSwapChain`). The last is a
+  `SwapChainPanel`-backed surface, optionally sharing an app `GpuDevice`, that
+  presents only when the app signals a change (not per-vsync) — the model a
+  data-driven view (e.g. a live chart) wants: swap-chain latency without a render
+  loop burning power when idle. `CanvasSwapChain` reuses `SwapChain` (full
+  composition-swap-chain + resize + DPI + device-lost) and `SwapChainPanelHandle`
+  (`set_swap_chain` / composition-scale / resize) behind an imperative `draw` handle
+  (mirroring `CanvasImageSource`). It lives in reactor (which owns the WinUI element
+  harness); see [`windows-reactor`](windows-reactor.md) and the `canvas/chart` sample.
 - **Auto-resizing on-demand control** (`CanvasControl`) — `CanvasImageSource` covers
   on-demand redraw, but (like Win2D's own `CanvasImageSource`) it is fixed-size:
   rebuild it to change size. A `CanvasControl`-style wrapper that tracks the host
-  element's size and reallocates the surface automatically is still missing.
+  element's size and reallocates the surface automatically is still missing. (The
+  Gap A swap-chain host tracks its host size via `resize`, addressing this for the
+  swap-chain case.)
 - **Dedicated game-loop thread** (`CanvasAnimatedControl`'s independent loop with
   `Update`/`Draw`, fixed time step, input source) — a prospective
   `threaded_canvas()`.

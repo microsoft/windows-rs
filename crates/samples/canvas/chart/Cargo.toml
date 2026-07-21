@@ -1,0 +1,17 @@
+[package]
+name = "canvas_chart"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+windows-canvas = { workspace = true }
+windows-core = { workspace = true }
+windows-numerics = { workspace = true, features = ["std"] }
+windows-reactor = { workspace = true, features = ["canvas"] }
+
+[build-dependencies]
+windows-reactor-setup = { workspace = true }
+
+[lints]
+workspace = true

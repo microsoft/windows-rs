@@ -54,6 +54,9 @@ impl Bitmap {
         height: u32,
         alpha: AlphaMode,
     ) -> Result<Self> {
+        if width == 0 || height == 0 {
+            return Err(Error::from_hresult(E_INVALIDARG));
+        }
         let stride = width
             .checked_mul(4)
             .ok_or_else(|| Error::from_hresult(E_INVALIDARG))?;

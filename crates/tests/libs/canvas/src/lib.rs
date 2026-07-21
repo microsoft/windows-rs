@@ -661,6 +661,19 @@ mod tests {
     }
 
     #[test]
+    fn create_bitmap_zero_dimension_errors() {
+        let device = GpuDevice::new_warp().unwrap();
+        let mut chain = device.create_swap_chain(64, 64).unwrap();
+
+        let session = chain.begin_draw().unwrap();
+        assert!(session.create_bitmap(&[], 0, 4).is_err());
+        assert!(session.create_bitmap(&[], 4, 0).is_err());
+
+        drop(session);
+        chain.present().unwrap();
+    }
+
+    #[test]
     fn rect_from_xywh_and_accessors() {
         let rect = Rect::from_xywh(10.0, 20.0, 30.0, 40.0);
         assert_eq!(rect.left, 10.0);

@@ -367,3 +367,216 @@ impl Drop for EndDrawGuard<'_> {
         let _ = self.0.end_draw();
     }
 }
+
+struct SwapChainState {
+    device: GpuDevice,
+    chain: SwapChain,
+    panel: SwapChainPanelHandle,
+    /// Surface size in device-independent pixels.
+    width: f32,
+    height: f32,
+    /// Rasterization (DPI) scale the swap chain is currently allocated at.
+    scale: f32,
+    make_device: Rc<dyn Fn() -> Result<GpuDevice>>,
+}
+
+impl SwapChainState {
+    /// Draws and presents a single frame. Returns `Ok(false)` if the GPU device
+    /// was lost (the caller should [`rebuild`](Self::rebuild) and retry).
+    fn present_frame(&mut self, f: &dyn Fn(&DrawContext<'_>)) -> Result<bool> {
+        if self.width <= 0.0 || self.height <= 0.0 {
+            return Ok(true);
+        }
+        let session = match self.chain.begin_draw() {
+            Ok(session) => session,
+            Err(e) if is_device_lost(e.code()) => return Ok(false),
+            Err(e) => return Err(e),
+        };
+        let ctx = DrawContext {
+            session,
+            device: &self.device,
+            width: self.width,
+            height: self.height,
+            changed: false,
+        };
+        f(&ctx);
+        drop(ctx);
+        self.chain.present()
+    }
+
+    /// Recreates the swap chain (on a fresh device from `make_device`) after
+    /// device loss and re-attaches it to the panel. Returns `false` on failure.
+    fn rebuild(&mut self) -> bool {
+        let Ok(device) = (self.make_device)() else {
+            return false;
+        };
+        let pixel_width = surface_pixels(self.width, self.scale);
+        let pixel_height = surface_pixels(self.height, self.scale);
+        let Ok(mut chain) = device.create_swap_chain(pixel_width, pixel_height) else {
+            return false;
+        };
+        let dpi = 96.0 * self.scale;
+        chain.set_dpi(dpi, dpi);
+        chain.set_composition_scale(self.scale, self.scale);
+        if self.panel.set_swap_chain(chain.raw_swap_chain()).is_err() {
+            return false;
+        }
+        self.device = device;
+        self.chain = chain;
+        true
+    }
+}
+
+/// An on-demand swap-chain surface hosted on a reactor [`SwapChainPanel`].
+///
+/// This is the swap-chain counterpart of [`CanvasImageSource`]. Where
+/// [`animated_canvas`] presents a new frame *every vsync*, `CanvasSwapChain`
+/// presents only when you call [`draw`](Self::draw) — on a data change, a
+/// resize, or a DPI change — while still using a composition swap chain for
+/// low-latency presentation. It is the right tool for a data-driven view (for
+/// example a live chart) that repaints when its data changes but would waste
+/// power running a continuous render loop while idle.
+///
+/// Because it presents to a `SwapChainPanel`'s native control, create it inside
+/// the panel's [`on_mounted`](SwapChainPanel::on_mounted) callback (the control
+/// must exist before a swap chain can be attached). Store the returned handle in
+/// hook state (`use_ref`) so later callbacks and effects can redraw it. Use
+/// [`with_device`](Self::with_device) to share one app-wide [`GpuDevice`] across
+/// several surfaces.
+///
+/// ```ignore
+/// let host = cx.use_ref::<Option<CanvasSwapChain>>(None);
+///
+/// // Redraw when the data (`revision`) changes.
+/// cx.use_effect((revision,), move || {
+///     if let Some(chain) = host.borrow().as_ref() {
+///         let _ = chain.draw(|ctx| draw_chart(ctx, revision));
+///     }
+/// });
+///
+/// swap_chain_panel().on_mounted(move |panel| {
+///     let scale = panel.composition_scale().map_or(1.0, |(x, _)| x);
+///     if let Ok(chain) = CanvasSwapChain::with_device(&panel, &device, 640.0, 360.0, scale) {
+///         let _ = chain.draw(|ctx| draw_chart(ctx, revision));
+///         host.set(Some(chain));
+///     }
+/// })
+/// ```
+#[derive(Clone)]
+pub struct CanvasSwapChain {
+    inner: Rc<RefCell<SwapChainState>>,
+}
+
+impl CanvasSwapChain {
+    /// Creates a `width`×`height` device-independent-pixel surface on `panel`,
+    /// backed by a canvas-owned [`GpuDevice`]. On device loss the device is
+    /// recreated automatically. `scale` is the host element's rasterization
+    /// (DPI) scale (see [`SwapChainPanelHandle::composition_scale`]).
+    pub fn new(panel: &SwapChainPanelHandle, width: f32, height: f32, scale: f32) -> Result<Self> {
+        Self::build(panel, Rc::new(GpuDevice::new_or_warp), width, height, scale)
+    }
+
+    /// Creates a surface on `panel` backed by a caller-provided [`GpuDevice`].
+    ///
+    /// Because `GpuDevice` is [`Clone`] and a clone shares the same underlying
+    /// graphics device, one app-wide device can back many surfaces (an icon
+    /// cache, a wall of charts). Device-lost recovery reuses that same device;
+    /// if you need canvas to recreate the device on loss, use [`new`](Self::new).
+    pub fn with_device(
+        panel: &SwapChainPanelHandle,
+        device: &GpuDevice,
+        width: f32,
+        height: f32,
+        scale: f32,
+    ) -> Result<Self> {
+        let device = device.clone();
+        Self::build(
+            panel,
+            Rc::new(move || Ok(device.clone())),
+            width,
+            height,
+            scale,
+        )
+    }
+
+    fn build(
+        panel: &SwapChainPanelHandle,
+        make_device: Rc<dyn Fn() -> Result<GpuDevice>>,
+        width: f32,
+        height: f32,
+        scale: f32,
+    ) -> Result<Self> {
+        let scale = if scale > 0.0 { scale } else { 1.0 };
+        let device = make_device()?;
+        let pixel_width = surface_pixels(width, scale);
+        let pixel_height = surface_pixels(height, scale);
+        let mut chain = device.create_swap_chain(pixel_width, pixel_height)?;
+        let dpi = 96.0 * scale;
+        chain.set_dpi(dpi, dpi);
+        chain.set_composition_scale(scale, scale);
+        panel.set_swap_chain(chain.raw_swap_chain())?;
+        Ok(Self {
+            inner: Rc::new(RefCell::new(SwapChainState {
+                device,
+                chain,
+                panel: panel.clone(),
+                width,
+                height,
+                scale,
+                make_device,
+            })),
+        })
+    }
+
+    /// Draws one frame with `f` and presents it. Coordinates in `f` are in
+    /// device-independent pixels with the surface origin at `(0, 0)`; clear the
+    /// surface yourself via [`DrawContext::clear`].
+    ///
+    /// If the GPU device is lost the swap chain is rebuilt (on the same shared
+    /// device, or a fresh one for [`new`](Self::new)) and the frame is drawn
+    /// once more, so a single `draw` call recovers transparently.
+    pub fn draw(&self, f: impl Fn(&DrawContext<'_>)) -> Result<()> {
+        let mut state = self.inner.borrow_mut();
+        if !state.present_frame(&f)? && state.rebuild() {
+            let _ = state.present_frame(&f)?;
+        }
+        Ok(())
+    }
+
+    /// Resizes the surface to `width`×`height` device-independent pixels. A
+    /// no-op if the size is unchanged. Redraw with [`draw`](Self::draw) after.
+    pub fn resize(&self, width: f32, height: f32) {
+        let mut state = self.inner.borrow_mut();
+        if state.width == width && state.height == height {
+            return;
+        }
+        state.width = width;
+        state.height = height;
+        let pixel_width = surface_pixels(width, state.scale);
+        let pixel_height = surface_pixels(height, state.scale);
+        let _ = state.chain.resize(pixel_width, pixel_height);
+    }
+
+    /// Updates the rasterization (DPI) scale (for example after the window moves
+    /// to a monitor with different scaling). A no-op if unchanged. Redraw with
+    /// [`draw`](Self::draw) after.
+    pub fn set_scale(&self, scale: f32) {
+        let scale = if scale > 0.0 { scale } else { 1.0 };
+        let mut state = self.inner.borrow_mut();
+        if state.scale == scale {
+            return;
+        }
+        state.scale = scale;
+        let pixel_width = surface_pixels(state.width, scale);
+        let pixel_height = surface_pixels(state.height, scale);
+        let _ = state.chain.resize(pixel_width, pixel_height);
+        let dpi = 96.0 * scale;
+        state.chain.set_dpi(dpi, dpi);
+        state.chain.set_composition_scale(scale, scale);
+    }
+
+    /// The rasterization (DPI) scale the surface is currently allocated at.
+    pub fn scale(&self) -> f32 {
+        self.inner.borrow().scale
+    }
+}
