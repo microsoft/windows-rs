@@ -1,13 +1,12 @@
 //! Order-correctness and move-optimality coverage for keyed child
-//! reconciliation (`reconcile_keyed_middle`), guarding issue #4716: an insert
-//! that coincides with a move must not corrupt the final live child order.
+//! reconciliation (`reconcile_keyed_middle`); see issue #4716.
 //!
 //! The pre-existing `child_reconciler_lis.rs` asserts operation *counts* but
 //! never the resulting child *order*, and never combines an insert with a move
-//! in one frame — which is exactly why the bug slipped through. These tests
-//! assert the live order via `children_of`, and exhaustively brute-force every
-//! small keyed old→new transition, checking both correctness (final order) and
-//! performance (move count never exceeds the LIS-optimal minimum).
+//! in one frame. These tests assert the live order via `children_of`, and
+//! exhaustively brute-force every small keyed old->new transition, checking
+//! both correctness (final order) and move count (never exceeds the
+//! LIS-optimal minimum).
 
 use std::rc::Rc;
 
@@ -138,7 +137,7 @@ fn lis_len(arr: &[i32]) -> usize {
 fn assert_structural(old: &[&str], new: &[&str], o: &Outcome) {
     assert_eq!(
         o.live, new,
-        "reconcile({old:?} -> {new:?}) corrupted live order"
+        "reconcile({old:?} -> {new:?}) produced unexpected live order"
     );
 
     let created: Vec<&&str> = new.iter().filter(|k| !old.contains(k)).collect();

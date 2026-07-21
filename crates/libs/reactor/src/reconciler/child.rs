@@ -373,12 +373,11 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
     // moves during middle reconciliation.
     let suffix_anchor = reconciler.child_at(parent, prefix + matched_count);
 
-    // Right-to-left, anchor-based placement (the Vue/Inferno `patchKeyedChildren`
-    // strategy). Walking from the end lets every item be placed immediately
-    // *before* its already-final successor, so we only ever reason in live
-    // coordinates and never translate a final-model index into a mixed old/new
-    // panel — the defect that corrupted order when an insert coincided with a
-    // move (issue #4716). LIS members keep their slots (minimal backend moves);
+    // Right-to-left, anchor-based placement. Walking from the end lets every
+    // item be placed immediately *before* its already-final successor, so we
+    // only ever reason in live panel coordinates and never translate a
+    // final-model index into a panel still holding mixed old/new positions
+    // (see issue #4716). LIS members keep their slots (minimal backend moves);
     // every other matched item moves to just before its anchor.
     let mut placed: Vec<Option<ControlId>> = vec![None; new_mid_len];
     for i in (0..new_mid_len).rev() {
@@ -422,7 +421,8 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
 
         // Non-LIS matched items move to just before the anchor. `move_child_tracked`
         // removes then re-inserts, so a left-moving item (`from < anchor_idx`)
-        // lands one slot earlier — this is exactly DOM `insertBefore(anchor)`.
+        // lands one slot earlier; account for that when translating the anchor
+        // into the post-removal insertion index.
         if !lis.contains(&i)
             && let Some(from) = live_index(reconciler, parent, ctrl)
         {
