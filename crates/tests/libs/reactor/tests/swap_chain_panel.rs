@@ -1,11 +1,12 @@
 use std::cell::Cell;
+use std::cell::RefCell;
 use std::rc::Rc;
 
 use test_reactor::{Op, RecordingBackend};
 use windows_reactor::Element;
 use windows_reactor::Reconciler;
 use windows_reactor::{Backend, ControlId, ControlKind};
-use windows_reactor::{ElementExt, swap_chain_panel, text_block};
+use windows_reactor::{CanvasSwapChain, ElementExt, swap_chain_panel, text_block};
 use windows_reactor::{Widget, animated_canvas};
 
 fn noop_request_rerender() -> Rc<dyn Fn()> {
@@ -247,4 +248,31 @@ fn on_unmount_callback_removed_on_update() {
     );
 
     assert_eq!(called.get(), 0, "removed callback must not fire");
+}
+
+#[test]
+fn canvas_swap_chain_new_fails_gracefully_without_real_panel() {
+    // `CanvasSwapChain` attaches a composition swap chain to the panel's native
+    // control inside `on_mounted`. The RecordingBackend hands out a *stub*
+    // native element (not a real `SwapChainPanel`), so the attach — or the WARP
+    // device creation on a headless host — must fail by returning an `Err`, not
+    // by panicking. The app relies on this to leave its `host` unset and try
+    // again later, so a clean error here is the contract under test.
+    let result = Rc::new(RefCell::new(None));
+    let result2 = result.clone();
+    let panel: Element = swap_chain_panel()
+        .on_mounted(move |handle| {
+            *result2.borrow_mut() = Some(CanvasSwapChain::new(&handle, 320.0, 200.0, 1.0).is_ok());
+        })
+        .into();
+
+    let mut r = Reconciler::new(RecordingBackend::new());
+    r.reconcile(None, &panel, None, noop_request_rerender())
+        .expect("panel mounts");
+
+    assert_eq!(
+        *result.borrow(),
+        Some(false),
+        "attaching a swap chain to a stub native element must return Err, not panic"
+    );
 }

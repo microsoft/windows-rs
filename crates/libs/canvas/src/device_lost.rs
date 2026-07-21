@@ -22,3 +22,14 @@ pub fn check_device_lost<T>(result: &Result<T>) -> bool {
         Err(e) => is_device_lost(e.code()),
     }
 }
+
+/// Builds an [`Error`] representing device loss, using the canonical
+/// `D2DERR_RECREATE_TARGET` code.
+///
+/// Higher-level bridges return this when a present fails because the graphics
+/// device was lost and the exact underlying code was not surfaced (for example
+/// [`SwapChain::present`](crate::SwapChain::present), which reports device loss
+/// as `Ok(false)`). The resulting error satisfies [`is_device_lost`].
+pub fn device_lost_error() -> Error {
+    Error::from_hresult(D2DERR_RECREATE_TARGET)
+}

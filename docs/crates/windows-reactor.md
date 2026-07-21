@@ -181,15 +181,23 @@ is shorthand for `move || set.call(value)`:
 For custom 2D drawing, host a [`windows-canvas`](windows-canvas.md) surface with
 `animated_canvas(draw)` (enable reactor's `canvas` feature, which pulls in
 `windows-canvas`). It returns a `SwapChainPanel` element that redraws every frame
-and recovers from device loss automatically — see the `canvas` samples. For content
+and recovers from device loss automatically — see the `canvas` samples. To render on
+a device the app already created and shares across many surfaces, use
+`animated_canvas_with_device(device, draw)` with a cloneable
+`windows_canvas::GpuDevice` (a clone shares the same underlying devices). For content
 that is static between updates, `CanvasImageSource` instead draws *on demand* into a
 `SurfaceImageSource` shown with the `Image` widget, redrawing only when you call
 `draw`; `Image::on_mounted` yields an `ImageHandle` whose
 `on_rasterization_scale_changed` reports the host DPI scale so the surface stays
-crisp across monitor moves (see the canvas `image_source` sample). Both
-`animated_canvas` and `CanvasImageSource` are reactor exports (they own the WinUI
-element harness), built on the safe drawing surface `windows-canvas` provides. For
-raw Direct3D, the `swap_chain_panel` sample drives a `SwapChainPanel` with
+crisp across monitor moves (see the canvas `image_source` sample). For an on-demand
+surface that still presents through a *swap chain* (lower latency than a
+`SurfaceImageSource`, but only when the data changes), `CanvasSwapChain` hosts a
+composition swap chain on a `SwapChainPanel`: create it in the panel's `on_mounted`,
+store it in `use_ref`, and `draw` from a `use_effect` on data change — idle when
+nothing changes (see the canvas `chart` sample). `animated_canvas`,
+`CanvasImageSource`, and `CanvasSwapChain` are all reactor exports (they own the
+WinUI element harness), built on the safe drawing surface `windows-canvas` provides.
+For raw Direct3D, the `swap_chain_panel` sample drives a `SwapChainPanel` with
 `on_rendering`.
 
 ## Web content integration
@@ -932,6 +940,40 @@ landed; *(gap)* items are still outstanding.
    Verified end-to-end by the `Reconciler_Mount_VirtualList` self-test fixture: a
    300-row `ListView` realizes its first row and keeps the realized set bounded well
    below the total, proving containers are recycled rather than fully materialized.
+
+8. **On-demand swap-chain host *(fixed — Gap A)*.** Reactor has a *continuous*
+   swap-chain host (`animated_canvas`, presenting every vsync via
+   `CompositionTarget::Rendering`) and an *on-demand* `SurfaceImageSource` host
+   (`CanvasImageSource`, see #4). Previously there was no *on-demand swap-chain*
+   host: a data-driven view — e.g. a live chart that repaints only when its data
+   changes — that wants swap-chain presentation latency **without** a render loop
+   burning power every frame while the data is idle had to fall back to a
+   hand-rolled `SwapChainPanel` + DXGI swap chain on the raw `windows` crate (with
+   the attendant cross-`windows-core` bridging when the rest of the app is on
+   `windows-canvas`).
+
+   This now ships as [`CanvasSwapChain`](../../crates/libs/reactor/src/canvas_bridge.rs)
+   (a reactor export under the `canvas` feature), the swap-chain counterpart of
+   `CanvasImageSource`. It reuses the building blocks that already existed on both
+   sides: [`windows-canvas`](windows-canvas.md)'s `SwapChain` does the full
+   composition-swap-chain lifecycle (`CreateSwapChainForComposition`, `set_target`
+   via `CreateBitmapFromDxgiSurface`, `resize`/`ResizeBuffers`, `set_dpi`,
+   `set_composition_scale`, `begin_draw`/`present`, device-lost flag), and reactor's
+   `SwapChainPanelHandle` exposes `set_swap_chain`, `composition_scale()`,
+   `on_composition_scale_changed`, plus `SwapChainPanel::on_mounted`/`on_unmounted`/
+   `on_resize`. `CanvasSwapChain` ties them together behind an **imperative redraw
+   handle**: create it inside the panel's `on_mounted` (the native control must
+   exist before a swap chain can attach) with `CanvasSwapChain::new` (canvas-owned
+   device) or `with_device` (a shared app-wide `GpuDevice`), store it in hook state
+   (`use_ref`), and present with `draw(|ctx| …)` — from `on_mounted` for the first
+   frame and from a `use_effect((deps,), …)` on later data changes. `resize` and
+   `set_scale` keep the surface sized and crisp; device loss is recovered inside a
+   single `draw` call by rebuilding the swap chain (on the shared device, or a fresh
+   one for `new`), and `draw` returns an error only if that recovery fails or a hard
+   present error occurs — a lost frame is never reported as drawn. When the data is
+   idle nothing is drawn, so an idle surface costs no GPU work. Sample:
+   `cargo run -p canvas_chart`. Tracked from the canvas side in
+   [`windows-canvas` §7](windows-canvas.md).
 
 ### Future work — C# reactor parity
 

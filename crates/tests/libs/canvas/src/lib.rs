@@ -24,6 +24,23 @@ mod tests {
     }
 
     #[test]
+    fn clone_shares_underlying_device() {
+        use windows_core::Interface;
+        // A clone shares the same COM devices, so one GpuDevice can drive many
+        // independent surfaces from a single device instead of one per surface.
+        let device = GpuDevice::new_warp().unwrap();
+        let shared = device.clone();
+
+        assert_eq!(device.d3d_device().as_raw(), shared.d3d_device().as_raw());
+        assert_eq!(device.d2d_device().as_raw(), shared.d2d_device().as_raw());
+
+        let a = device.create_swap_chain(64, 64).unwrap();
+        let b = shared.create_swap_chain(32, 32).unwrap();
+        assert_eq!(a.width(), 64);
+        assert_eq!(b.width(), 32);
+    }
+
+    #[test]
     fn create_swap_chain() {
         let device = GpuDevice::new_warp().unwrap();
         let chain = device.create_swap_chain(64, 64).unwrap();
@@ -584,6 +601,79 @@ mod tests {
     }
 
     #[test]
+    fn create_bitmap_from_bytes() {
+        let device = GpuDevice::new_warp().unwrap();
+        let mut chain = device.create_swap_chain(64, 64).unwrap();
+
+        let session = chain.begin_draw().unwrap();
+        session.clear(ColorF::BLACK);
+
+        // A 2x2 premultiplied-BGRA image (opaque red, green, blue, white).
+        let pixels: [u8; 16] = [
+            0, 0, 255, 255, // red
+            0, 255, 0, 255, // green
+            255, 0, 0, 255, // blue
+            255, 255, 255, 255, // white
+        ];
+        let bitmap = session.create_bitmap(&pixels, 2, 2).unwrap();
+
+        assert_eq!(bitmap.width(), 2.0);
+        assert_eq!(bitmap.height(), 2.0);
+
+        session.draw_bitmap(&bitmap, &Rect::new(0.0, 0.0, 32.0, 32.0), 1.0);
+
+        drop(session);
+        chain.present().unwrap();
+    }
+
+    #[test]
+    fn create_bitmap_with_alpha_modes() {
+        let device = GpuDevice::new_warp().unwrap();
+        let mut chain = device.create_swap_chain(64, 64).unwrap();
+
+        let session = chain.begin_draw().unwrap();
+        let pixels: [u8; 4] = [10, 20, 30, 128];
+
+        for alpha in [AlphaMode::Premultiplied, AlphaMode::Ignore] {
+            let bitmap = session
+                .create_bitmap_with_alpha(&pixels, 1, 1, alpha)
+                .unwrap();
+            assert_eq!(bitmap.width(), 1.0);
+            assert_eq!(bitmap.height(), 1.0);
+        }
+
+        drop(session);
+        chain.present().unwrap();
+    }
+
+    #[test]
+    fn create_bitmap_wrong_length_errors() {
+        let device = GpuDevice::new_warp().unwrap();
+        let mut chain = device.create_swap_chain(64, 64).unwrap();
+
+        let session = chain.begin_draw().unwrap();
+        // 3 bytes is not enough for a 1x1 BGRA pixel (needs 4).
+        let pixels = [0u8, 0, 0];
+        assert!(session.create_bitmap(&pixels, 1, 1).is_err());
+
+        drop(session);
+        chain.present().unwrap();
+    }
+
+    #[test]
+    fn create_bitmap_zero_dimension_errors() {
+        let device = GpuDevice::new_warp().unwrap();
+        let mut chain = device.create_swap_chain(64, 64).unwrap();
+
+        let session = chain.begin_draw().unwrap();
+        assert!(session.create_bitmap(&[], 0, 4).is_err());
+        assert!(session.create_bitmap(&[], 4, 0).is_err());
+
+        drop(session);
+        chain.present().unwrap();
+    }
+
+    #[test]
     fn rect_from_xywh_and_accessors() {
         let rect = Rect::from_xywh(10.0, 20.0, 30.0, 40.0);
         assert_eq!(rect.left, 10.0);
@@ -938,5 +1028,56 @@ mod tests {
         }
 
         chain.present().unwrap();
+    }
+
+    #[test]
+    fn render_target_readback_roundtrip() {
+        let device = GpuDevice::new_warp().unwrap();
+        let target = device.create_render_target(4, 4).unwrap();
+        assert_eq!(target.width(), 4);
+        assert_eq!(target.height(), 4);
+
+        target.draw(|session| session.clear(ColorF::RED)).unwrap();
+
+        let pixels = target.read_pixels().unwrap();
+        // 4x4 BGRA, tightly packed.
+        assert_eq!(pixels.len(), 4 * 4 * 4);
+        // Opaque red, premultiplied BGRA => B=0, G=0, R=255, A=255.
+        #[allow(clippy::chunks_exact_to_as_chunks)]
+        for pixel in pixels.chunks_exact(4) {
+            assert_eq!(pixel, [0, 0, 255, 255]);
+        }
+    }
+
+    #[test]
+    fn render_target_readback_spatial() {
+        let device = GpuDevice::new_warp().unwrap();
+        let target = device.create_render_target(8, 8).unwrap();
+
+        target
+            .draw(|session| {
+                session.clear(ColorF::BLACK);
+                let brush = session.create_solid_brush(ColorF::GREEN).unwrap();
+                // Fill the left half with green, leaving the right half black.
+                session.fill_rect(&Rect::new(0.0, 0.0, 4.0, 8.0), &brush);
+            })
+            .unwrap();
+
+        let pixels = target.read_pixels().unwrap();
+        let pixel_at = |x: usize, y: usize| {
+            let start = (y * 8 + x) * 4;
+            &pixels[start..start + 4]
+        };
+        // Left half: opaque green => B=0, G=255, R=0, A=255.
+        assert_eq!(pixel_at(1, 4), [0, 255, 0, 255]);
+        // Right half: opaque black => B=0, G=0, R=0, A=255.
+        assert_eq!(pixel_at(6, 4), [0, 0, 0, 255]);
+    }
+
+    #[test]
+    fn render_target_zero_dimension_errors() {
+        let device = GpuDevice::new_warp().unwrap();
+        assert!(device.create_render_target(0, 4).is_err());
+        assert!(device.create_render_target(4, 0).is_err());
     }
 }

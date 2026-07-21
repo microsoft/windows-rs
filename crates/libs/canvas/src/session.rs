@@ -316,6 +316,37 @@ impl<'a> DrawingSession<'a> {
         Bitmap::load_from_file(self.context, path.as_ref())
     }
 
+    /// Creates a bitmap from a buffer of 32-bit premultiplied BGRA pixels.
+    ///
+    /// The pixels are laid out row by row with no padding (`width * 4` bytes per
+    /// row, `width * height * 4` bytes total). This is the natural path for
+    /// uploading CPU-generated or decoded images — for example shell icons — into
+    /// a drawable bitmap. Use [`create_bitmap_with_alpha`](Self::create_bitmap_with_alpha)
+    /// to select a different [`AlphaMode`].
+    pub fn create_bitmap(&self, pixels: &[u8], width: u32, height: u32) -> Result<Bitmap> {
+        Bitmap::from_bytes(
+            self.context,
+            pixels,
+            width,
+            height,
+            AlphaMode::Premultiplied,
+        )
+    }
+
+    /// Creates a bitmap from a buffer of 32-bit BGRA pixels with an explicit
+    /// [`AlphaMode`].
+    ///
+    /// See [`create_bitmap`](Self::create_bitmap) for the pixel layout.
+    pub fn create_bitmap_with_alpha(
+        &self,
+        pixels: &[u8],
+        width: u32,
+        height: u32,
+        alpha: AlphaMode,
+    ) -> Result<Bitmap> {
+        Bitmap::from_bytes(self.context, pixels, width, height, alpha)
+    }
+
     /// Sets the current transform.
     pub fn set_transform(&self, transform: &Matrix3x2) {
         let m = match &self.mode {
