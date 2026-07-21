@@ -13,13 +13,9 @@ pub fn menu_flyout_page(_: &(), cx: &mut RenderCx) -> Element {
                 vstack((
                     drop_down_button("Open Menu")
                         .menu_flyout(vec![
-                            MenuItemDef::Item { text: "Cut".into() },
-                            MenuItemDef::Item {
-                                text: "Copy".into(),
-                            },
-                            MenuItemDef::Item {
-                                text: "Paste".into(),
-                            },
+                            menu_item("Cut"),
+                            menu_item("Copy"),
+                            menu_item("Paste"),
                         ])
                         .on_item_clicked({
                             let set_action = set_action.clone();
@@ -29,9 +25,9 @@ pub fn menu_flyout_page(_: &(), cx: &mut RenderCx) -> Element {
                 ))
                 .spacing(8.0),
                 r#"drop_down_button("Open Menu").menu_flyout(vec![
-    MenuItemDef::Item { text: "Cut".into() },
-    MenuItemDef::Item { text: "Copy".into() },
-    MenuItemDef::Item { text: "Paste".into() },
+    menu_item("Cut"),
+    menu_item("Copy"),
+    menu_item("Paste"),
 ]).on_item_clicked(handler)"#,
             ),
             sample_card(
@@ -39,28 +35,20 @@ pub fn menu_flyout_page(_: &(), cx: &mut RenderCx) -> Element {
                 vstack((
                     drop_down_button("Format")
                         .menu_flyout(vec![
-                            MenuItemDef::Item {
-                                text: "Bold".into(),
-                            },
-                            MenuItemDef::Item {
-                                text: "Italic".into(),
-                            },
+                            menu_item("Bold"),
+                            menu_item("Italic"),
                             MenuItemDef::Separator,
-                            MenuItemDef::Item {
-                                text: "Underline".into(),
-                            },
-                            MenuItemDef::Item {
-                                text: "Strikethrough".into(),
-                            },
+                            menu_item("Underline"),
+                            menu_item("Strikethrough"),
                         ])
                         .on_item_clicked(set_action),
                     text_block(format!("Last format: {last_action}")).opacity(0.6),
                 ))
                 .spacing(8.0),
                 r#"drop_down_button("Format").menu_flyout(vec![
-    MenuItemDef::Item { text: "Bold".into() },
+    menu_item("Bold"),
     MenuItemDef::Separator,
-    MenuItemDef::Item { text: "Underline".into() },
+    menu_item("Underline"),
 ])"#,
             ),
         ],
