@@ -317,26 +317,28 @@ mod Windows {
             LogonId: LUID,
         }
         struct KERB_CLOUD_KERBEROS_DEBUG_DATA {
-            #[bitfield("EnabledByPolicy", 0, 1)]
-            #[bitfield("AsRepCallbackPresent", 1, 1)]
-            #[bitfield("AsRepCallbackUsed", 2, 1)]
-            #[bitfield("CloudReferralTgtAvailable", 3, 1)]
-            #[bitfield("SpnOracleConfigured", 4, 1)]
-            #[bitfield("KdcProxyPresent", 5, 1)]
-            #[bitfield("PublicKeyCredsPresent", 6, 1)]
-            #[bitfield("PasswordKeysPresent", 7, 1)]
-            #[bitfield("PasswordPresent", 8, 1)]
-            #[bitfield("AsRepSourceCred", 9, 8)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                EnabledByPolicy: 1,
+                AsRepCallbackPresent: 1,
+                AsRepCallbackUsed: 1,
+                CloudReferralTgtAvailable: 1,
+                SpnOracleConfigured: 1,
+                KdcProxyPresent: 1,
+                PublicKeyCredsPresent: 1,
+                PasswordKeysPresent: 1,
+                PasswordPresent: 1,
+                AsRepSourceCred: 8,
+            },
         }
         struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
-            #[bitfield("EnabledByPolicy", 0, 1)]
-            #[bitfield("AsRepCallbackPresent", 1, 1)]
-            #[bitfield("AsRepCallbackUsed", 2, 1)]
-            #[bitfield("CloudReferralTgtAvailable", 3, 1)]
-            #[bitfield("SpnOracleConfigured", 4, 1)]
-            #[bitfield("KdcProxyPresent", 5, 1)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                EnabledByPolicy: 1,
+                AsRepCallbackPresent: 1,
+                AsRepCallbackUsed: 1,
+                CloudReferralTgtAvailable: 1,
+                SpnOracleConfigured: 1,
+                KdcProxyPresent: 1,
+            },
         }
         const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: u32 = 1;
         struct KERB_CLOUD_KERBEROS_DEBUG_REQUEST {

@@ -26,18 +26,20 @@ mod Windows {
             Anonymous: union {
                 bFiller1: JET_BYTE,
                 Anonymous: struct {
-                    #[bitfield("fTimeIsUTC", 0, 1)]
-                    #[bitfield("bMillisecondsLow", 1, 7)]
-                    _bitfield: JET_BYTE,
+                    _bitfield: JET_BYTE {
+                        fTimeIsUTC: 1,
+                        bMillisecondsLow: 7,
+                    },
                 },
             },
             Anonymous2: union {
                 bFiller2: JET_BYTE,
                 Anonymous: struct {
-                    #[bitfield("fOSSnapshot", 0, 1)]
-                    #[bitfield("bMillisecondsHigh", 1, 3)]
-                    #[bitfield("fReserved", 4, 4)]
-                    _bitfield: JET_BYTE,
+                    _bitfield: JET_BYTE {
+                        fOSSnapshot: 1,
+                        bMillisecondsHigh: 3,
+                        fReserved: 4,
+                    },
                 },
             },
         }
@@ -155,8 +157,9 @@ mod Windows {
             Anonymous: union {
                 fFlags: JET_UINT32,
                 Anonymous: struct {
-                    #[bitfield("fSchemaChangesOnly", 0, 1)]
-                    _bitfield: JET_UINT32,
+                    _bitfield: JET_UINT32 {
+                        fSchemaChangesOnly: 1,
+                    },
                 },
             },
         }
@@ -165,8 +168,9 @@ mod Windows {
             Anonymous: union {
                 fFlags: JET_UINT32,
                 Anonymous: struct {
-                    #[bitfield("fSchemaChangesOnly", 0, 1)]
-                    _bitfield: JET_UINT32,
+                    _bitfield: JET_UINT32 {
+                        fSchemaChangesOnly: 1,
+                    },
                 },
             },
         }
@@ -334,9 +338,10 @@ mod Windows {
             Anonymous: union {
                 ulFlags: JET_UINT32,
                 Anonymous: struct {
-                    #[bitfield("fUpgradable", 0, 1)]
-                    #[bitfield("fAlreadyUpgraded", 1, 1)]
-                    _bitfield: JET_UINT32,
+                    _bitfield: JET_UINT32 {
+                        fUpgradable: 1,
+                        fAlreadyUpgraded: 1,
+                    },
                 },
             },
         }
@@ -671,18 +676,20 @@ mod Windows {
             Anonymous: union {
                 bFiller1: JET_BYTE,
                 Anonymous: struct {
-                    #[bitfield("fTimeIsUTC", 0, 1)]
-                    #[bitfield("bMillisecondsLow", 1, 7)]
-                    _bitfield: JET_BYTE,
+                    _bitfield: JET_BYTE {
+                        fTimeIsUTC: 1,
+                        bMillisecondsLow: 7,
+                    },
                 },
             },
             Anonymous2: union {
                 bFiller2: JET_BYTE,
                 Anonymous: struct {
-                    #[bitfield("fReserved", 0, 1)]
-                    #[bitfield("bMillisecondsHigh", 1, 3)]
-                    #[bitfield("fUnused", 4, 4)]
-                    _bitfield: JET_BYTE,
+                    _bitfield: JET_BYTE {
+                        fReserved: 1,
+                        bMillisecondsHigh: 3,
+                        fUnused: 4,
+                    },
                 },
             },
         }

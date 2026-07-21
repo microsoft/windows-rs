@@ -1089,8 +1089,8 @@ crate (`crates/tests/libs/reactor/src/lib.rs`), not in the published `windows-re
 External consumers who want to unit-test their reactor components headlessly (assert
 "this state change produced these control mutations", à la React's
 `react-test-renderer`) therefore have to reimplement a recording `Backend` from scratch —
-a real consumer hand-rolls exactly that. This is a **library** capability, not a
-tm-only testing convenience: the whole point of the `Backend` trait being public is to
+a real consumer hand-rolls exactly that. This is a **library** capability, not just an
+in-tree testing convenience: the whole point of the `Backend` trait being public is to
 let consumers drive the reconciler without a live WinUI runtime, and a canonical test
 double completes that story.
 

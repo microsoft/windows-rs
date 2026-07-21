@@ -2838,10 +2838,11 @@ mod Windows {
             rcBar: RECT,
             hMenu: HMENU,
             hwndMenu: HWND,
-            #[bitfield("fBarFocused", 0, 1)]
-            #[bitfield("fFocused", 1, 1)]
-            #[bitfield("fUnused", 2, 30)]
-            _bitfield: BOOL,
+            _bitfield: BOOL {
+                fBarFocused: 1,
+                fFocused: 1,
+                fUnused: 30,
+            },
         }
         struct MENUGETOBJECTINFO {
             dwFlags: u32,
@@ -4969,27 +4970,29 @@ mod Windows {
             versionNumber: u32,
             maxSupportedContacts: u32,
             legacyTouchpadFeatures: LEGACY_TOUCHPAD_FEATURES,
-            #[bitfield("touchpadPresent", 0, 1)]
-            #[bitfield("legacyTouchpadPresent", 1, 1)]
-            #[bitfield("externalMousePresent", 2, 1)]
-            #[bitfield("touchpadEnabled", 3, 1)]
-            #[bitfield("touchpadActive", 4, 1)]
-            #[bitfield("feedbackSupported", 5, 1)]
-            #[bitfield("clickForceSupported", 6, 1)]
-            #[bitfield("Reserved1", 7, 25)]
-            _bitfield1: BOOL,
-            #[bitfield("allowActiveWhenMousePresent", 0, 1)]
-            #[bitfield("feedbackEnabled", 1, 1)]
-            #[bitfield("tapEnabled", 2, 1)]
-            #[bitfield("tapAndDragEnabled", 3, 1)]
-            #[bitfield("twoFingerTapEnabled", 4, 1)]
-            #[bitfield("rightClickZoneEnabled", 5, 1)]
-            #[bitfield("mouseAccelSettingHonored", 6, 1)]
-            #[bitfield("panEnabled", 7, 1)]
-            #[bitfield("zoomEnabled", 8, 1)]
-            #[bitfield("scrollDirectionReversed", 9, 1)]
-            #[bitfield("Reserved2", 10, 22)]
-            _bitfield2: BOOL,
+            _bitfield1: BOOL {
+                touchpadPresent: 1,
+                legacyTouchpadPresent: 1,
+                externalMousePresent: 1,
+                touchpadEnabled: 1,
+                touchpadActive: 1,
+                feedbackSupported: 1,
+                clickForceSupported: 1,
+                Reserved1: 25,
+            },
+            _bitfield2: BOOL {
+                allowActiveWhenMousePresent: 1,
+                feedbackEnabled: 1,
+                tapEnabled: 1,
+                tapAndDragEnabled: 1,
+                twoFingerTapEnabled: 1,
+                rightClickZoneEnabled: 1,
+                mouseAccelSettingHonored: 1,
+                panEnabled: 1,
+                zoomEnabled: 1,
+                scrollDirectionReversed: 1,
+                Reserved2: 22,
+            },
             sensitivityLevel: TOUCHPAD_SENSITIVITY_LEVEL,
             cursorSpeed: u32,
             feedbackIntensity: u32,
@@ -4999,11 +5002,12 @@ mod Windows {
         }
         struct TOUCHPAD_PARAMETERS_V2 {
             Base: TOUCHPAD_PARAMETERS_V1,
-            #[bitfield("button1Supported", 0, 1)]
-            #[bitfield("button2Supported", 1, 1)]
-            #[bitfield("button3Supported", 2, 1)]
-            #[bitfield("Reserved3", 3, 29)]
-            _bitfield: BOOL,
+            _bitfield: BOOL {
+                button1Supported: 1,
+                button2Supported: 1,
+                button3Supported: 1,
+                Reserved3: 29,
+            },
         }
         const TOUCHPAD_PARAMETERS_VERSION_1: u32 = 1;
         const TOUCHPAD_PARAMETERS_VERSION_2: u32 = 2;

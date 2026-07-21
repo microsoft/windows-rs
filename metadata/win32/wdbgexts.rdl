@@ -244,13 +244,14 @@ mod Windows {
             FieldOffset: u32,
             BufferSize: u32,
             BitField: FIELD_INFO_1,
-            #[bitfield("fPointer", 0, 2)]
-            #[bitfield("fArray", 2, 1)]
-            #[bitfield("fStruct", 3, 1)]
-            #[bitfield("fConstant", 4, 1)]
-            #[bitfield("fStatic", 5, 1)]
-            #[bitfield("Reserved", 6, 26)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                fPointer: 2,
+                fArray: 1,
+                fStruct: 1,
+                fConstant: 1,
+                fStatic: 1,
+                Reserved: 26,
+            },
         }
         struct FIELD_INFO_1 {
             Position: u16,
@@ -393,8 +394,9 @@ mod Windows {
             ThCallbackStack: u16,
             NextCallback: u16,
             FramePointer: u16,
-            #[bitfield("PaeEnabled", 0, 1)]
-            _bitfield: u16,
+            _bitfield: u16 {
+                PaeEnabled: 1,
+            },
             KiCallUserMode: u32,
             KeUserCallbackDispatcher: u32,
             PsLoadedModuleList: u32,
@@ -462,10 +464,11 @@ mod Windows {
             ThCallbackStack: u16,
             NextCallback: u16,
             FramePointer: u16,
-            #[bitfield("PaeEnabled", 0, 1)]
-            #[bitfield("KiBugCheckRecoveryActive", 1, 1)]
-            #[bitfield("PagingLevels", 2, 4)]
-            _bitfield: u16,
+            _bitfield: u16 {
+                PaeEnabled: 1,
+                KiBugCheckRecoveryActive: 1,
+                PagingLevels: 4,
+            },
             KiCallUserMode: u64,
             KeUserCallbackDispatcher: u64,
             PsLoadedModuleList: u64,
@@ -829,12 +832,13 @@ mod Windows {
             TypeId: u32,
             TypeSize: u32,
             BufferSize: u32,
-            #[bitfield("fPointer", 0, 2)]
-            #[bitfield("fArray", 2, 1)]
-            #[bitfield("fStruct", 3, 1)]
-            #[bitfield("fConstant", 4, 1)]
-            #[bitfield("Reserved", 5, 27)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                fPointer: 2,
+                fArray: 1,
+                fStruct: 1,
+                fConstant: 1,
+                Reserved: 27,
+            },
         }
         struct TRANSLATE_VIRTUAL_TO_PHYSICAL {
             Virtual: u64,

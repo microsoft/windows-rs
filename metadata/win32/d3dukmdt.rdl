@@ -35,11 +35,12 @@ mod Windows {
         struct D3DDDICB_DESTROYALLOCATION2FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("AssumeNotInUse", 0, 1)]
-                    #[bitfield("SynchronousDestroy", 1, 1)]
-                    #[bitfield("Reserved", 2, 29)]
-                    #[bitfield("SystemUseOnly", 31, 1)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        AssumeNotInUse: 1,
+                        SynchronousDestroy: 1,
+                        Reserved: 29,
+                        SystemUseOnly: 1,
+                    },
                 },
                 Value: u32,
             },
@@ -47,8 +48,9 @@ mod Windows {
         struct D3DDDICB_LOCK2FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("Reserved", 0, 32)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Reserved: 32,
+                    },
                 },
                 Value: u32,
             },
@@ -56,19 +58,20 @@ mod Windows {
         struct D3DDDICB_LOCKFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("ReadOnly", 0, 1)]
-                    #[bitfield("WriteOnly", 1, 1)]
-                    #[bitfield("DonotWait", 2, 1)]
-                    #[bitfield("IgnoreSync", 3, 1)]
-                    #[bitfield("LockEntire", 4, 1)]
-                    #[bitfield("DonotEvict", 5, 1)]
-                    #[bitfield("AcquireAperture", 6, 1)]
-                    #[bitfield("Discard", 7, 1)]
-                    #[bitfield("NoExistingReference", 8, 1)]
-                    #[bitfield("UseAlternateVA", 9, 1)]
-                    #[bitfield("IgnoreReadSync", 10, 1)]
-                    #[bitfield("Reserved", 11, 21)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        ReadOnly: 1,
+                        WriteOnly: 1,
+                        DonotWait: 1,
+                        IgnoreSync: 1,
+                        LockEntire: 1,
+                        DonotEvict: 1,
+                        AcquireAperture: 1,
+                        Discard: 1,
+                        NoExistingReference: 1,
+                        UseAlternateVA: 1,
+                        IgnoreReadSync: 1,
+                        Reserved: 21,
+                    },
                 },
                 Value: u32,
             },
@@ -76,12 +79,13 @@ mod Windows {
         struct D3DDDICB_SIGNALFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("SignalAtSubmission", 0, 1)]
-                    #[bitfield("EnqueueCpuEvent", 1, 1)]
-                    #[bitfield("AllowFenceRewind", 2, 1)]
-                    #[bitfield("Reserved", 3, 28)]
-                    #[bitfield("DXGK_SIGNAL_FLAG_INTERNAL0", 31, 1)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SignalAtSubmission: 1,
+                        EnqueueCpuEvent: 1,
+                        AllowFenceRewind: 1,
+                        Reserved: 28,
+                        DXGK_SIGNAL_FLAG_INTERNAL0: 1,
+                    },
                 },
                 Value: u32,
             },
@@ -199,13 +203,14 @@ mod Windows {
         struct D3DDDIGPUVIRTUALADDRESS_PROTECTION_TYPE {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("Write", 0, 1)]
-                    #[bitfield("Execute", 1, 1)]
-                    #[bitfield("Zero", 2, 1)]
-                    #[bitfield("NoAccess", 3, 1)]
-                    #[bitfield("SystemUseOnly", 4, 1)]
-                    #[bitfield("Reserved", 5, 59)]
-                    _bitfield: u64,
+                    _bitfield: u64 {
+                        Write: 1,
+                        Execute: 1,
+                        Zero: 1,
+                        NoAccess: 1,
+                        SystemUseOnly: 1,
+                        Reserved: 59,
+                    },
                 },
                 Value: u64,
             },
@@ -251,10 +256,11 @@ mod Windows {
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             Flags: union {
                 Anonymous: struct {
-                    #[bitfield("Primary", 0, 1)]
-                    #[bitfield("Stereo", 1, 1)]
-                    #[bitfield("Reserved", 2, 30)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Primary: 1,
+                        Stereo: 1,
+                        Reserved: 30,
+                    },
                 },
                 Value: u32,
             },
@@ -270,11 +276,12 @@ mod Windows {
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
             Flags: union {
                 Anonymous: struct {
-                    #[bitfield("Primary", 0, 1)]
-                    #[bitfield("Stereo", 1, 1)]
-                    #[bitfield("OverridePriority", 2, 1)]
-                    #[bitfield("Reserved", 3, 29)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Primary: 1,
+                        Stereo: 1,
+                        OverridePriority: 1,
+                        Reserved: 29,
+                    },
                 },
                 Value: u32,
             },
@@ -289,11 +296,12 @@ mod Windows {
             hAllocation: D3DKMT_HANDLE,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("WriteOperation", 0, 1)]
-                    #[bitfield("DoNotRetireInstance", 1, 1)]
-                    #[bitfield("OfferPriority", 2, 3)]
-                    #[bitfield("Reserved", 5, 27)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        WriteOperation: 1,
+                        DoNotRetireInstance: 1,
+                        OfferPriority: 3,
+                        Reserved: 27,
+                    },
                 },
                 Value: u32,
             },
@@ -306,9 +314,10 @@ mod Windows {
         struct D3DDDI_BUILDTESTCOMMANDBUFFERFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("HardwareQueue", 0, 1)]
-                    #[bitfield("Reserved", 1, 31)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        HardwareQueue: 1,
+                        Reserved: 31,
+                    },
                 },
                 Value: u32,
             },
@@ -346,15 +355,16 @@ mod Windows {
         struct D3DDDI_CREATECONTEXTFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("NullRendering", 0, 1)]
-                    #[bitfield("InitialData", 1, 1)]
-                    #[bitfield("DisableGpuTimeout", 2, 1)]
-                    #[bitfield("SynchronizationOnly", 3, 1)]
-                    #[bitfield("HwQueueSupported", 4, 1)]
-                    #[bitfield("NoKmdAccess", 5, 1)]
-                    #[bitfield("TestContext", 6, 1)]
-                    #[bitfield("Reserved", 7, 25)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        NullRendering: 1,
+                        InitialData: 1,
+                        DisableGpuTimeout: 1,
+                        SynchronizationOnly: 1,
+                        HwQueueSupported: 1,
+                        NoKmdAccess: 1,
+                        TestContext: 1,
+                        Reserved: 25,
+                    },
                 },
                 Value: u32,
             },
@@ -362,8 +372,9 @@ mod Windows {
         struct D3DDDI_CREATEHWCONTEXTFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("Reserved", 0, 32)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Reserved: 32,
+                    },
                 },
                 Value: u32,
             },
@@ -371,15 +382,16 @@ mod Windows {
         struct D3DDDI_CREATEHWQUEUEFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("DisableGpuTimeout", 0, 1)]
-                    #[bitfield("NoBroadcastSignal", 1, 1)]
-                    #[bitfield("NoBroadcastWait", 2, 1)]
-                    #[bitfield("NoKmdAccess", 3, 1)]
-                    #[bitfield("UserModeSubmission", 4, 1)]
-                    #[bitfield("NativeProgressFence", 5, 1)]
-                    #[bitfield("TestQueue", 6, 1)]
-                    #[bitfield("Reserved", 7, 25)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        DisableGpuTimeout: 1,
+                        NoBroadcastSignal: 1,
+                        NoBroadcastWait: 1,
+                        NoKmdAccess: 1,
+                        UserModeSubmission: 1,
+                        NativeProgressFence: 1,
+                        TestQueue: 1,
+                        Reserved: 25,
+                    },
                 },
                 Value: u32,
             },
@@ -387,14 +399,15 @@ mod Windows {
         struct D3DDDI_CREATEHWQUEUEFORUSERMODESUBMISSION_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("DisableGpuTimeout", 0, 1)]
-                    #[bitfield("NoBroadcastSignal", 1, 1)]
-                    #[bitfield("NoBroadcastWait", 2, 1)]
-                    #[bitfield("NoKmdAccess", 3, 1)]
-                    #[bitfield("TestQueue", 4, 1)]
-                    #[bitfield("DoorbellRequiresSecondaryCpuVA", 5, 1)]
-                    #[bitfield("Reserved", 6, 26)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        DisableGpuTimeout: 1,
+                        NoBroadcastSignal: 1,
+                        NoBroadcastWait: 1,
+                        NoKmdAccess: 1,
+                        TestQueue: 1,
+                        DoorbellRequiresSecondaryCpuVA: 1,
+                        Reserved: 26,
+                    },
                 },
                 Value: u32,
             },
@@ -457,16 +470,17 @@ mod Windows {
         struct D3DDDI_ESCAPEFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("HardwareAccess", 0, 1)]
-                    #[bitfield("DeviceStatusQuery", 1, 1)]
-                    #[bitfield("ChangeFrameLatency", 2, 1)]
-                    #[bitfield("NoAdapterSynchronization", 3, 1)]
-                    #[bitfield("Reserved", 4, 1)]
-                    #[bitfield("VirtualMachineData", 5, 1)]
-                    #[bitfield("DriverKnownEscape", 6, 1)]
-                    #[bitfield("DriverCommonEscape", 7, 1)]
-                    #[bitfield("Reserved2", 8, 24)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        HardwareAccess: 1,
+                        DeviceStatusQuery: 1,
+                        ChangeFrameLatency: 1,
+                        NoAdapterSynchronization: 1,
+                        Reserved: 1,
+                        VirtualMachineData: 1,
+                        DriverKnownEscape: 1,
+                        DriverCommonEscape: 1,
+                        Reserved2: 24,
+                    },
                 },
                 Value: u32,
             },
@@ -474,10 +488,11 @@ mod Windows {
         struct D3DDDI_EVICT_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("EvictOnlyIfNecessary", 0, 1)]
-                    #[bitfield("NotWrittenTo", 1, 1)]
-                    #[bitfield("Reserved", 2, 30)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        EvictOnlyIfNecessary: 1,
+                        NotWrittenTo: 1,
+                        Reserved: 30,
+                    },
                 },
                 Value: u32,
             },
@@ -557,10 +572,11 @@ mod Windows {
         struct D3DDDI_MAKERESIDENT_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("CantTrimFurther", 0, 1)]
-                    #[bitfield("MustSucceed", 1, 1)]
-                    #[bitfield("Reserved", 2, 30)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        CantTrimFurther: 1,
+                        MustSucceed: 1,
+                        Reserved: 30,
+                    },
                 },
                 Value: u32,
             },
@@ -622,9 +638,10 @@ mod Windows {
         struct D3DDDI_OFFER_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("AllowDecommit", 0, 1)]
-                    #[bitfield("Reserved", 1, 31)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        AllowDecommit: 1,
+                        Reserved: 31,
+                    },
                 },
                 Value: u32,
             },
@@ -669,9 +686,10 @@ mod Windows {
             AllocationIndex: u32,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("SlotId", 0, 24)]
-                    #[bitfield("Reserved", 24, 8)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SlotId: 24,
+                        Reserved: 8,
+                    },
                 },
                 Value: u32,
             },
@@ -691,10 +709,11 @@ mod Windows {
         struct D3DDDI_QUERYREGISTRY_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("TranslatePath", 0, 1)]
-                    #[bitfield("MutableValue", 1, 1)]
-                    #[bitfield("Reserved", 2, 30)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        TranslatePath: 1,
+                        MutableValue: 1,
+                        Reserved: 30,
+                    },
                 },
                 Value: u32,
             },
@@ -765,39 +784,40 @@ mod Windows {
         struct D3DDDI_RESOURCEFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("RenderTarget", 0, 1)]
-                    #[bitfield("ZBuffer", 1, 1)]
-                    #[bitfield("Dynamic", 2, 1)]
-                    #[bitfield("HintStatic", 3, 1)]
-                    #[bitfield("AutogenMipmap", 4, 1)]
-                    #[bitfield("DMap", 5, 1)]
-                    #[bitfield("WriteOnly", 6, 1)]
-                    #[bitfield("NotLockable", 7, 1)]
-                    #[bitfield("Points", 8, 1)]
-                    #[bitfield("RtPatches", 9, 1)]
-                    #[bitfield("NPatches", 10, 1)]
-                    #[bitfield("SharedResource", 11, 1)]
-                    #[bitfield("DiscardRenderTarget", 12, 1)]
-                    #[bitfield("Video", 13, 1)]
-                    #[bitfield("CaptureBuffer", 14, 1)]
-                    #[bitfield("Primary", 15, 1)]
-                    #[bitfield("Texture", 16, 1)]
-                    #[bitfield("CubeMap", 17, 1)]
-                    #[bitfield("Volume", 18, 1)]
-                    #[bitfield("VertexBuffer", 19, 1)]
-                    #[bitfield("IndexBuffer", 20, 1)]
-                    #[bitfield("DecodeRenderTarget", 21, 1)]
-                    #[bitfield("DecodeCompressedBuffer", 22, 1)]
-                    #[bitfield("VideoProcessRenderTarget", 23, 1)]
-                    #[bitfield("CpuOptimized", 24, 1)]
-                    #[bitfield("MightDrawFromLocked", 25, 1)]
-                    #[bitfield("Overlay", 26, 1)]
-                    #[bitfield("MatchGdiPrimary", 27, 1)]
-                    #[bitfield("InterlacedRefresh", 28, 1)]
-                    #[bitfield("TextApi", 29, 1)]
-                    #[bitfield("RestrictedContent", 30, 1)]
-                    #[bitfield("RestrictSharedAccess", 31, 1)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        RenderTarget: 1,
+                        ZBuffer: 1,
+                        Dynamic: 1,
+                        HintStatic: 1,
+                        AutogenMipmap: 1,
+                        DMap: 1,
+                        WriteOnly: 1,
+                        NotLockable: 1,
+                        Points: 1,
+                        RtPatches: 1,
+                        NPatches: 1,
+                        SharedResource: 1,
+                        DiscardRenderTarget: 1,
+                        Video: 1,
+                        CaptureBuffer: 1,
+                        Primary: 1,
+                        Texture: 1,
+                        CubeMap: 1,
+                        Volume: 1,
+                        VertexBuffer: 1,
+                        IndexBuffer: 1,
+                        DecodeRenderTarget: 1,
+                        DecodeCompressedBuffer: 1,
+                        VideoProcessRenderTarget: 1,
+                        CpuOptimized: 1,
+                        MightDrawFromLocked: 1,
+                        Overlay: 1,
+                        MatchGdiPrimary: 1,
+                        InterlacedRefresh: 1,
+                        TextApi: 1,
+                        RestrictedContent: 1,
+                        RestrictSharedAccess: 1,
+                    },
                 },
                 Value: u32,
             },
@@ -805,12 +825,13 @@ mod Windows {
         struct D3DDDI_RESOURCEFLAGS2 {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("VideoEncoder", 0, 1)]
-                    #[bitfield("UserMemory", 1, 1)]
-                    #[bitfield("CrossAdapter", 2, 1)]
-                    #[bitfield("IsDisplayable", 3, 1)]
-                    #[bitfield("Reserved", 4, 28)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        VideoEncoder: 1,
+                        UserMemory: 1,
+                        CrossAdapter: 1,
+                        IsDisplayable: 1,
+                        Reserved: 28,
+                    },
                 },
                 Value: u32,
             },
@@ -831,18 +852,19 @@ mod Windows {
         struct D3DDDI_SEGMENTPREFERENCE {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("SegmentId0", 0, 5)]
-                    #[bitfield("Direction0", 5, 1)]
-                    #[bitfield("SegmentId1", 6, 5)]
-                    #[bitfield("Direction1", 11, 1)]
-                    #[bitfield("SegmentId2", 12, 5)]
-                    #[bitfield("Direction2", 17, 1)]
-                    #[bitfield("SegmentId3", 18, 5)]
-                    #[bitfield("Direction3", 23, 1)]
-                    #[bitfield("SegmentId4", 24, 5)]
-                    #[bitfield("Direction4", 29, 1)]
-                    #[bitfield("Reserved", 30, 2)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SegmentId0: 5,
+                        Direction0: 1,
+                        SegmentId1: 5,
+                        Direction1: 1,
+                        SegmentId2: 5,
+                        Direction2: 1,
+                        SegmentId3: 5,
+                        Direction3: 1,
+                        SegmentId4: 5,
+                        Direction4: 1,
+                        Reserved: 2,
+                    },
                 },
                 Value: u32,
             },
@@ -912,20 +934,21 @@ mod Windows {
         struct D3DDDI_SYNCHRONIZATIONOBJECT_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("Shared", 0, 1)]
-                    #[bitfield("NtSecuritySharing", 1, 1)]
-                    #[bitfield("CrossAdapter", 2, 1)]
-                    #[bitfield("TopOfPipeline", 3, 1)]
-                    #[bitfield("NoSignal", 4, 1)]
-                    #[bitfield("NoWait", 5, 1)]
-                    #[bitfield("NoSignalMaxValueOnTdr", 6, 1)]
-                    #[bitfield("NoGPUAccess", 7, 1)]
-                    #[bitfield("SignalByKmd", 8, 1)]
-                    #[bitfield("Unused", 9, 1)]
-                    #[bitfield("UnwaitCpuWaitersOnlyOnDestroy", 10, 1)]
-                    #[bitfield("Reserved", 11, 20)]
-                    #[bitfield("Reserved0", 31, 1)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Shared: 1,
+                        NtSecuritySharing: 1,
+                        CrossAdapter: 1,
+                        TopOfPipeline: 1,
+                        NoSignal: 1,
+                        NoWait: 1,
+                        NoSignalMaxValueOnTdr: 1,
+                        NoGPUAccess: 1,
+                        SignalByKmd: 1,
+                        Unused: 1,
+                        UnwaitCpuWaitersOnlyOnDestroy: 1,
+                        Reserved: 20,
+                        Reserved0: 1,
+                    },
                 },
                 Value: u32,
             },
@@ -976,11 +999,12 @@ mod Windows {
         struct D3DDDI_TRIMRESIDENCYSET_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("PeriodicTrim", 0, 1)]
-                    #[bitfield("RestartPeriodicTrim", 1, 1)]
-                    #[bitfield("TrimToBudget", 2, 1)]
-                    #[bitfield("Reserved", 3, 29)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        PeriodicTrim: 1,
+                        RestartPeriodicTrim: 1,
+                        TrimToBudget: 1,
+                        Reserved: 29,
+                    },
                 },
                 Value: u32,
             },
@@ -995,12 +1019,13 @@ mod Windows {
             PagingFenceValue: u64,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("SetAccessedPhysically", 0, 1)]
-                    #[bitfield("SetSupportedSegmentSet", 1, 1)]
-                    #[bitfield("SetPreferredSegment", 2, 1)]
-                    #[bitfield("SetUnmoveable", 3, 1)]
-                    #[bitfield("Reserved", 4, 28)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SetAccessedPhysically: 1,
+                        SetSupportedSegmentSet: 1,
+                        SetPreferredSegment: 1,
+                        SetUnmoveable: 1,
+                        Reserved: 28,
+                    },
                 },
                 PropertyMaskValue: u32,
             },
@@ -1008,10 +1033,11 @@ mod Windows {
         struct D3DDDI_UPDATEALLOCPROPERTY_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("AccessedPhysically", 0, 1)]
-                    #[bitfield("Unmoveable", 1, 1)]
-                    #[bitfield("Reserved", 2, 30)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        AccessedPhysically: 1,
+                        Unmoveable: 1,
+                        Reserved: 30,
+                    },
                 },
                 Value: u32,
             },
@@ -1067,9 +1093,10 @@ mod Windows {
         struct D3DDDI_WAITFORSYNCHRONIZATIONOBJECTFROMCPU_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("WaitAny", 0, 1)]
-                    #[bitfield("Reserved", 1, 31)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        WaitAny: 1,
+                        Reserved: 31,
+                    },
                 },
                 Value: u32,
             },
@@ -1195,8 +1222,9 @@ mod Windows {
             DeviceLuid: LUID,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("GuestVmRunning", 0, 1)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        GuestVmRunning: 1,
+                    },
                 },
                 Flags: u32,
             },
@@ -1239,9 +1267,10 @@ mod Windows {
         }
         union DXGK_DETAILED_FEATURE_ID {
             Anonymous: struct {
-                #[bitfield("Feature", 0, 28)]
-                #[bitfield("Category", 28, 4)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Feature: 28,
+                    Category: 4,
+                },
             },
             Value: DXGK_FEATURE_ID,
         }
@@ -1359,14 +1388,15 @@ mod Windows {
             Version: u16,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("Enabled", 0, 1)]
-                    #[bitfield("KnownFeature", 1, 1)]
-                    #[bitfield("SupportedByDriver", 2, 1)]
-                    #[bitfield("SupportedOnCurrentConfig", 3, 1)]
-                    #[bitfield("Available", 4, 1)]
-                    #[bitfield("Experimental", 5, 1)]
-                    #[bitfield("Reserved", 6, 10)]
-                    _bitfield: u16,
+                    _bitfield: u16 {
+                        Enabled: 1,
+                        KnownFeature: 1,
+                        SupportedByDriver: 1,
+                        SupportedOnCurrentConfig: 1,
+                        Available: 1,
+                        Experimental: 1,
+                        Reserved: 10,
+                    },
                 },
                 Value: DXGK_FEATURE_VERSION,
             },
@@ -1376,9 +1406,10 @@ mod Windows {
         const DXGK_MIN_PAGE_TABLE_LEVEL_COUNT: u32 = 2;
         union DXGK_MIRACAST_CHUNK_ID {
             Anonymous: struct {
-                #[bitfield("FrameNumber", 0, 40)]
-                #[bitfield("PartNumber", 40, 24)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    FrameNumber: 40,
+                    PartNumber: 24,
+                },
             },
             Value: u64,
         }
@@ -1448,19 +1479,20 @@ mod Windows {
         struct DXGK_PTE {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("Valid", 0, 1)]
-                    #[bitfield("Zero", 1, 1)]
-                    #[bitfield("CacheCoherent", 2, 1)]
-                    #[bitfield("ReadOnly", 3, 1)]
-                    #[bitfield("NoExecute", 4, 1)]
-                    #[bitfield("Segment", 5, 5)]
-                    #[bitfield("LargePage", 10, 1)]
-                    #[bitfield("PhysicalAdapterIndex", 11, 6)]
-                    #[bitfield("PageTablePageSize", 17, 2)]
-                    #[bitfield("SystemReserved0", 19, 1)]
-                    #[bitfield("BlockAccessMode", 20, 2)]
-                    #[bitfield("Reserved", 22, 42)]
-                    _bitfield: u64,
+                    _bitfield: u64 {
+                        Valid: 1,
+                        Zero: 1,
+                        CacheCoherent: 1,
+                        ReadOnly: 1,
+                        NoExecute: 1,
+                        Segment: 5,
+                        LargePage: 1,
+                        PhysicalAdapterIndex: 6,
+                        PageTablePageSize: 2,
+                        SystemReserved0: 1,
+                        BlockAccessMode: 2,
+                        Reserved: 42,
+                    },
                 },
                 Flags: u64,
             },

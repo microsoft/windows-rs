@@ -822,11 +822,12 @@ by a two-crate pipeline:
    reading it — and is fully backwards compatible (the raw `_bitfield` field stays, so
    existing hand-masking keeps working).
 
-The RDL spelling of the attribute is the `#[bitfield(name, offset, width)]`
-pseudo-attribute (see [`windows-rdl`](windows-rdl.md)); regenerate the corpus and the
-`windows`/`windows-sys` crates via `tool_win32` + `tool_package`. Test coverage:
-`crates/tests/libs/clang/input/bitfields.h` (scrape → RDL) and
-`crates/tests/libs/bindgen/input/struct_bitfield.rdl` (RDL → accessors).
+The RDL spelling is a C-like bit-field block on the backing field
+(`_bitfield: u8 { HardwareInterface: 1, … }`, see [`windows-rdl`](windows-rdl.md));
+regenerate the corpus and the `windows`/`windows-sys` crates via `tool_win32` +
+`tool_package`. Test coverage: `crates/tests/libs/clang/input/bitfields.h`
+(scrape → RDL) and `crates/tests/libs/bindgen/input/struct_bitfield.rdl`
+(RDL → accessors).
 
 ### Consuming APIs outside the default projection
 

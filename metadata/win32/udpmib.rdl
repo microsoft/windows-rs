@@ -14,8 +14,9 @@ mod Windows {
             liCreateTimestamp: LARGE_INTEGER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("SpecificPortBind", 0, 1)]
-                    _bitfield: i32,
+                    _bitfield: i32 {
+                        SpecificPortBind: 1,
+                    },
                 },
                 dwFlags: i32,
             },
@@ -32,8 +33,9 @@ mod Windows {
             liCreateTimestamp: LARGE_INTEGER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("SpecificPortBind", 0, 1)]
-                    _bitfield: i32,
+                    _bitfield: i32 {
+                        SpecificPortBind: 1,
+                    },
                 },
                 dwFlags: i32,
             },
@@ -72,8 +74,9 @@ mod Windows {
             liCreateTimestamp: LARGE_INTEGER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("SpecificPortBind", 0, 1)]
-                    _bitfield: i32,
+                    _bitfield: i32 {
+                        SpecificPortBind: 1,
+                    },
                 },
                 dwFlags: i32,
             },
@@ -88,8 +91,9 @@ mod Windows {
             liCreateTimestamp: LARGE_INTEGER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("SpecificPortBind", 0, 1)]
-                    _bitfield: i32,
+                    _bitfield: i32 {
+                        SpecificPortBind: 1,
+                    },
                 },
                 dwFlags: i32,
             },

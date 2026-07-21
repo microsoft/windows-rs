@@ -90,17 +90,18 @@ mod Windows {
         struct CABINETSTATE {
             cLength: u16,
             nVersion: u16,
-            #[bitfield("fFullPathTitle", 0, 1)]
-            #[bitfield("fSaveLocalView", 1, 1)]
-            #[bitfield("fNotShell", 2, 1)]
-            #[bitfield("fSimpleDefault", 3, 1)]
-            #[bitfield("fDontShowDescBar", 4, 1)]
-            #[bitfield("fNewWindowMode", 5, 1)]
-            #[bitfield("fShowCompColor", 6, 1)]
-            #[bitfield("fDontPrettyNames", 7, 1)]
-            #[bitfield("fAdminsCreateCommonGroups", 8, 1)]
-            #[bitfield("fUnusedFlags", 9, 7)]
-            _bitfield: BOOL,
+            _bitfield: BOOL {
+                fFullPathTitle: 1,
+                fSaveLocalView: 1,
+                fNotShell: 1,
+                fSimpleDefault: 1,
+                fDontShowDescBar: 1,
+                fNewWindowMode: 1,
+                fShowCompColor: 1,
+                fDontPrettyNames: 1,
+                fAdminsCreateCommonGroups: 1,
+                fUnusedFlags: 7,
+            },
             fMenuEnumFilter: u32,
         }
         const CABINETSTATE_VERSION: u32 = 2;
@@ -1393,97 +1394,102 @@ mod Windows {
         extern fn SHDoDragDrop(#[opt] hwnd: HWND, pdata: IDataObject, #[opt] pdsrc: IDropSource, dwEffect: u32, pdwEffect: *mut u32) -> HRESULT;
         #[packed(1)]
         struct SHELLFLAGSTATE {
-            #[bitfield("fShowAllObjects", 0, 1)]
-            #[bitfield("fShowExtensions", 1, 1)]
-            #[bitfield("fNoConfirmRecycle", 2, 1)]
-            #[bitfield("fShowSysFiles", 3, 1)]
-            #[bitfield("fShowCompColor", 4, 1)]
-            #[bitfield("fDoubleClickInWebView", 5, 1)]
-            #[bitfield("fDesktopHTML", 6, 1)]
-            #[bitfield("fWin95Classic", 7, 1)]
-            #[bitfield("fDontPrettyPath", 8, 1)]
-            #[bitfield("fShowAttribCol", 9, 1)]
-            #[bitfield("fMapNetDrvBtn", 10, 1)]
-            #[bitfield("fShowInfoTip", 11, 1)]
-            #[bitfield("fHideIcons", 12, 1)]
-            #[bitfield("fAutoCheckSelect", 13, 1)]
-            #[bitfield("fIconsOnly", 14, 1)]
-            #[bitfield("fRestFlags", 15, 1)]
-            _bitfield: BOOL,
+            _bitfield: BOOL {
+                fShowAllObjects: 1,
+                fShowExtensions: 1,
+                fNoConfirmRecycle: 1,
+                fShowSysFiles: 1,
+                fShowCompColor: 1,
+                fDoubleClickInWebView: 1,
+                fDesktopHTML: 1,
+                fWin95Classic: 1,
+                fDontPrettyPath: 1,
+                fShowAttribCol: 1,
+                fMapNetDrvBtn: 1,
+                fShowInfoTip: 1,
+                fHideIcons: 1,
+                fAutoCheckSelect: 1,
+                fIconsOnly: 1,
+                fRestFlags: 1,
+            },
         }
         #[packed(1)]
         struct SHELLSTATEA {
-            #[bitfield("fShowAllObjects", 0, 1)]
-            #[bitfield("fShowExtensions", 1, 1)]
-            #[bitfield("fNoConfirmRecycle", 2, 1)]
-            #[bitfield("fShowSysFiles", 3, 1)]
-            #[bitfield("fShowCompColor", 4, 1)]
-            #[bitfield("fDoubleClickInWebView", 5, 1)]
-            #[bitfield("fDesktopHTML", 6, 1)]
-            #[bitfield("fWin95Classic", 7, 1)]
-            #[bitfield("fDontPrettyPath", 8, 1)]
-            #[bitfield("fShowAttribCol", 9, 1)]
-            #[bitfield("fMapNetDrvBtn", 10, 1)]
-            #[bitfield("fShowInfoTip", 11, 1)]
-            #[bitfield("fHideIcons", 12, 1)]
-            #[bitfield("fWebView", 13, 1)]
-            #[bitfield("fFilter", 14, 1)]
-            #[bitfield("fShowSuperHidden", 15, 1)]
-            #[bitfield("fNoNetCrawling", 16, 1)]
-            _bitfield1: BOOL,
+            _bitfield1: BOOL {
+                fShowAllObjects: 1,
+                fShowExtensions: 1,
+                fNoConfirmRecycle: 1,
+                fShowSysFiles: 1,
+                fShowCompColor: 1,
+                fDoubleClickInWebView: 1,
+                fDesktopHTML: 1,
+                fWin95Classic: 1,
+                fDontPrettyPath: 1,
+                fShowAttribCol: 1,
+                fMapNetDrvBtn: 1,
+                fShowInfoTip: 1,
+                fHideIcons: 1,
+                fWebView: 1,
+                fFilter: 1,
+                fShowSuperHidden: 1,
+                fNoNetCrawling: 1,
+            },
             dwWin95Unused: u32,
             uWin95Unused: u32,
             lParamSort: i32,
             iSortDirection: i32,
             version: u32,
             uNotUsed: u32,
-            #[bitfield("fSepProcess", 0, 1)]
-            #[bitfield("fStartPanelOn", 1, 1)]
-            #[bitfield("fShowStartPage", 2, 1)]
-            #[bitfield("fAutoCheckSelect", 3, 1)]
-            #[bitfield("fIconsOnly", 4, 1)]
-            #[bitfield("fShowTypeOverlay", 5, 1)]
-            #[bitfield("fShowStatusBar", 6, 1)]
-            #[bitfield("fSpareFlags", 7, 9)]
-            _bitfield2: BOOL,
+            _bitfield2: BOOL {
+                fSepProcess: 1,
+                fStartPanelOn: 1,
+                fShowStartPage: 1,
+                fAutoCheckSelect: 1,
+                fIconsOnly: 1,
+                fShowTypeOverlay: 1,
+                fShowStatusBar: 1,
+                fSpareFlags: 9,
+            },
         }
         const SHELLSTATEVERSION_IE4: u32 = 9;
         const SHELLSTATEVERSION_WIN2K: u32 = 10;
         #[packed(1)]
         struct SHELLSTATEW {
-            #[bitfield("fShowAllObjects", 0, 1)]
-            #[bitfield("fShowExtensions", 1, 1)]
-            #[bitfield("fNoConfirmRecycle", 2, 1)]
-            #[bitfield("fShowSysFiles", 3, 1)]
-            #[bitfield("fShowCompColor", 4, 1)]
-            #[bitfield("fDoubleClickInWebView", 5, 1)]
-            #[bitfield("fDesktopHTML", 6, 1)]
-            #[bitfield("fWin95Classic", 7, 1)]
-            #[bitfield("fDontPrettyPath", 8, 1)]
-            #[bitfield("fShowAttribCol", 9, 1)]
-            #[bitfield("fMapNetDrvBtn", 10, 1)]
-            #[bitfield("fShowInfoTip", 11, 1)]
-            #[bitfield("fHideIcons", 12, 1)]
-            #[bitfield("fWebView", 13, 1)]
-            #[bitfield("fFilter", 14, 1)]
-            #[bitfield("fShowSuperHidden", 15, 1)]
-            #[bitfield("fNoNetCrawling", 16, 1)]
-            _bitfield1: BOOL,
+            _bitfield1: BOOL {
+                fShowAllObjects: 1,
+                fShowExtensions: 1,
+                fNoConfirmRecycle: 1,
+                fShowSysFiles: 1,
+                fShowCompColor: 1,
+                fDoubleClickInWebView: 1,
+                fDesktopHTML: 1,
+                fWin95Classic: 1,
+                fDontPrettyPath: 1,
+                fShowAttribCol: 1,
+                fMapNetDrvBtn: 1,
+                fShowInfoTip: 1,
+                fHideIcons: 1,
+                fWebView: 1,
+                fFilter: 1,
+                fShowSuperHidden: 1,
+                fNoNetCrawling: 1,
+            },
             dwWin95Unused: u32,
             uWin95Unused: u32,
             lParamSort: i32,
             iSortDirection: i32,
             version: u32,
             uNotUsed: u32,
-            #[bitfield("fSepProcess", 0, 1)]
-            #[bitfield("fStartPanelOn", 1, 1)]
-            #[bitfield("fShowStartPage", 2, 1)]
-            #[bitfield("fAutoCheckSelect", 3, 1)]
-            #[bitfield("fIconsOnly", 4, 1)]
-            #[bitfield("fShowTypeOverlay", 5, 1)]
-            #[bitfield("fShowStatusBar", 6, 1)]
-            #[bitfield("fSpareFlags", 7, 9)]
-            _bitfield2: BOOL,
+            _bitfield2: BOOL {
+                fSepProcess: 1,
+                fStartPanelOn: 1,
+                fShowStartPage: 1,
+                fAutoCheckSelect: 1,
+                fIconsOnly: 1,
+                fShowTypeOverlay: 1,
+                fShowStatusBar: 1,
+                fSpareFlags: 9,
+            },
         }
         const SHELLSTATE_SIZE_IE4: u32 = 24;
         const SHELLSTATE_SIZE_NT4: u32 = 20;

@@ -1838,9 +1838,10 @@ mod Windows {
             SPESF_EMULATED = 2,
         }
         struct SPEVENT {
-            #[bitfield("eEventId", 0, 16)]
-            #[bitfield("elParamType", 16, 16)]
-            _bitfield: SPEVENTENUM,
+            _bitfield: SPEVENTENUM {
+                eEventId: 16,
+                elParamType: 16,
+            },
             ulStreamNum: u32,
             ullAudioStreamOffset: u64,
             wParam: WPARAM,
@@ -1890,9 +1891,10 @@ mod Windows {
             SPEI_RESERVED3 = 63,
         }
         struct SPEVENTEX {
-            #[bitfield("eEventId", 0, 16)]
-            #[bitfield("elParamType", 16, 16)]
-            _bitfield: SPEVENTENUM,
+            _bitfield: SPEVENTENUM {
+                eEventId: 16,
+                elParamType: 16,
+            },
             ulStreamNum: u32,
             ullAudioStreamOffset: u64,
             wParam: WPARAM,
@@ -2238,18 +2240,20 @@ mod Windows {
             SPSMF_SRGS_SEMANTICINTERPRETATION_W3C = 8,
         }
         struct SPSERIALIZEDEVENT {
-            #[bitfield("eEventId", 0, 16)]
-            #[bitfield("elParamType", 16, 16)]
-            _bitfield: SPEVENTENUM,
+            _bitfield: SPEVENTENUM {
+                eEventId: 16,
+                elParamType: 16,
+            },
             ulStreamNum: u32,
             ullAudioStreamOffset: u64,
             SerializedwParam: u32,
             SerializedlParam: i32,
         }
         struct SPSERIALIZEDEVENT64 {
-            #[bitfield("eEventId", 0, 16)]
-            #[bitfield("elParamType", 16, 16)]
-            _bitfield: SPEVENTENUM,
+            _bitfield: SPEVENTENUM {
+                eEventId: 16,
+                elParamType: 16,
+            },
             ulStreamNum: u32,
             ullAudioStreamOffset: u64,
             SerializedwParam: u64,

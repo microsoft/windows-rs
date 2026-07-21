@@ -230,12 +230,13 @@ mod Windows {
             FractionBase: u32,
             CacheSize: u64,
             Attributes: struct {
-                #[bitfield("WriteCacheChangeable", 0, 1)]
-                #[bitfield("WriteThroughIoSupported", 1, 1)]
-                #[bitfield("FlushCacheSupported", 2, 1)]
-                #[bitfield("Removable", 3, 1)]
-                #[bitfield("ReservedBits", 4, 28)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    WriteCacheChangeable: 1,
+                    WriteThroughIoSupported: 1,
+                    FlushCacheSupported: 1,
+                    Removable: 1,
+                    ReservedBits: 28,
+                },
             },
             Priorities: struct {
                 PriorityLevelCount: u8,
@@ -245,13 +246,14 @@ mod Windows {
                 DirtyThresholdLow: u32,
                 DirtyThresholdHigh: u32,
                 SupportedCommands: struct {
-                    #[bitfield("CacheDisable", 0, 1)]
-                    #[bitfield("SetDirtyThreshold", 1, 1)]
-                    #[bitfield("PriorityDemoteBySize", 2, 1)]
-                    #[bitfield("PriorityChangeByLbaRange", 3, 1)]
-                    #[bitfield("Evict", 4, 1)]
-                    #[bitfield("ReservedBits", 5, 27)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        CacheDisable: 1,
+                        SetDirtyThreshold: 1,
+                        PriorityDemoteBySize: 1,
+                        PriorityChangeByLbaRange: 1,
+                        Evict: 1,
+                        ReservedBits: 27,
+                    },
                     MaxEvictCommands: u32,
                     MaxLbaRangeCountForEvict: u32,
                     MaxLbaRangeCountForChangeLba: u32,
@@ -531,12 +533,13 @@ mod Windows {
             Size: u32,
             Flags: union {
                 CacheFlags: struct {
-                    #[bitfield("WriteCacheEnabled", 0, 1)]
-                    #[bitfield("WriteCacheChangeable", 1, 1)]
-                    #[bitfield("WriteThroughIOSupported", 2, 1)]
-                    #[bitfield("FlushCacheSupported", 3, 1)]
-                    #[bitfield("ReservedBits", 4, 4)]
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        WriteCacheEnabled: 1,
+                        WriteCacheChangeable: 1,
+                        WriteThroughIOSupported: 1,
+                        FlushCacheSupported: 1,
+                        ReservedBits: 4,
+                    },
                 },
                 CacheFlagsSet: u8,
             },
@@ -851,9 +854,10 @@ mod Windows {
             ValidFields: u32,
             GroupId: u32,
             Flags: struct {
-                #[bitfield("Shared", 0, 1)]
-                #[bitfield("Reserved", 1, 31)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Shared: 1,
+                    Reserved: 31,
+                },
             },
             LifePercentage: u32,
             BytesReadCount: [u8; 16],

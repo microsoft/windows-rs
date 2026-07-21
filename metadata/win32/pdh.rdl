@@ -13,18 +13,19 @@ mod Windows {
         const MAX_TIME_VALUE: i64 = 9223372036854775807;
         const MIN_TIME_VALUE: i64 = 0;
         struct PDH_BROWSE_DLG_CONFIG_A {
-            #[bitfield("bIncludeInstanceIndex", 0, 1)]
-            #[bitfield("bSingleCounterPerAdd", 1, 1)]
-            #[bitfield("bSingleCounterPerDialog", 2, 1)]
-            #[bitfield("bLocalCountersOnly", 3, 1)]
-            #[bitfield("bWildCardInstances", 4, 1)]
-            #[bitfield("bHideDetailBox", 5, 1)]
-            #[bitfield("bInitializePath", 6, 1)]
-            #[bitfield("bDisableMachineSelection", 7, 1)]
-            #[bitfield("bIncludeCostlyObjects", 8, 1)]
-            #[bitfield("bShowObjectBrowser", 9, 1)]
-            #[bitfield("bReserved", 10, 22)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                bIncludeInstanceIndex: 1,
+                bSingleCounterPerAdd: 1,
+                bSingleCounterPerDialog: 1,
+                bLocalCountersOnly: 1,
+                bWildCardInstances: 1,
+                bHideDetailBox: 1,
+                bInitializePath: 1,
+                bDisableMachineSelection: 1,
+                bIncludeCostlyObjects: 1,
+                bShowObjectBrowser: 1,
+                bReserved: 22,
+            },
             hWndOwner: HWND,
             szDataSource: PSTR,
             szReturnPathBuffer: PSTR,
@@ -36,18 +37,19 @@ mod Windows {
             szDialogBoxCaption: PSTR,
         }
         struct PDH_BROWSE_DLG_CONFIG_HA {
-            #[bitfield("bIncludeInstanceIndex", 0, 1)]
-            #[bitfield("bSingleCounterPerAdd", 1, 1)]
-            #[bitfield("bSingleCounterPerDialog", 2, 1)]
-            #[bitfield("bLocalCountersOnly", 3, 1)]
-            #[bitfield("bWildCardInstances", 4, 1)]
-            #[bitfield("bHideDetailBox", 5, 1)]
-            #[bitfield("bInitializePath", 6, 1)]
-            #[bitfield("bDisableMachineSelection", 7, 1)]
-            #[bitfield("bIncludeCostlyObjects", 8, 1)]
-            #[bitfield("bShowObjectBrowser", 9, 1)]
-            #[bitfield("bReserved", 10, 22)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                bIncludeInstanceIndex: 1,
+                bSingleCounterPerAdd: 1,
+                bSingleCounterPerDialog: 1,
+                bLocalCountersOnly: 1,
+                bWildCardInstances: 1,
+                bHideDetailBox: 1,
+                bInitializePath: 1,
+                bDisableMachineSelection: 1,
+                bIncludeCostlyObjects: 1,
+                bShowObjectBrowser: 1,
+                bReserved: 22,
+            },
             hWndOwner: HWND,
             hDataSource: PDH_HLOG,
             szReturnPathBuffer: PSTR,
@@ -59,18 +61,19 @@ mod Windows {
             szDialogBoxCaption: PSTR,
         }
         struct PDH_BROWSE_DLG_CONFIG_HW {
-            #[bitfield("bIncludeInstanceIndex", 0, 1)]
-            #[bitfield("bSingleCounterPerAdd", 1, 1)]
-            #[bitfield("bSingleCounterPerDialog", 2, 1)]
-            #[bitfield("bLocalCountersOnly", 3, 1)]
-            #[bitfield("bWildCardInstances", 4, 1)]
-            #[bitfield("bHideDetailBox", 5, 1)]
-            #[bitfield("bInitializePath", 6, 1)]
-            #[bitfield("bDisableMachineSelection", 7, 1)]
-            #[bitfield("bIncludeCostlyObjects", 8, 1)]
-            #[bitfield("bShowObjectBrowser", 9, 1)]
-            #[bitfield("bReserved", 10, 22)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                bIncludeInstanceIndex: 1,
+                bSingleCounterPerAdd: 1,
+                bSingleCounterPerDialog: 1,
+                bLocalCountersOnly: 1,
+                bWildCardInstances: 1,
+                bHideDetailBox: 1,
+                bInitializePath: 1,
+                bDisableMachineSelection: 1,
+                bIncludeCostlyObjects: 1,
+                bShowObjectBrowser: 1,
+                bReserved: 22,
+            },
             hWndOwner: HWND,
             hDataSource: PDH_HLOG,
             szReturnPathBuffer: PWSTR,
@@ -82,18 +85,19 @@ mod Windows {
             szDialogBoxCaption: PWSTR,
         }
         struct PDH_BROWSE_DLG_CONFIG_W {
-            #[bitfield("bIncludeInstanceIndex", 0, 1)]
-            #[bitfield("bSingleCounterPerAdd", 1, 1)]
-            #[bitfield("bSingleCounterPerDialog", 2, 1)]
-            #[bitfield("bLocalCountersOnly", 3, 1)]
-            #[bitfield("bWildCardInstances", 4, 1)]
-            #[bitfield("bHideDetailBox", 5, 1)]
-            #[bitfield("bInitializePath", 6, 1)]
-            #[bitfield("bDisableMachineSelection", 7, 1)]
-            #[bitfield("bIncludeCostlyObjects", 8, 1)]
-            #[bitfield("bShowObjectBrowser", 9, 1)]
-            #[bitfield("bReserved", 10, 22)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                bIncludeInstanceIndex: 1,
+                bSingleCounterPerAdd: 1,
+                bSingleCounterPerDialog: 1,
+                bLocalCountersOnly: 1,
+                bWildCardInstances: 1,
+                bHideDetailBox: 1,
+                bInitializePath: 1,
+                bDisableMachineSelection: 1,
+                bIncludeCostlyObjects: 1,
+                bShowObjectBrowser: 1,
+                bReserved: 22,
+            },
             hWndOwner: HWND,
             szDataSource: PWSTR,
             szReturnPathBuffer: PWSTR,

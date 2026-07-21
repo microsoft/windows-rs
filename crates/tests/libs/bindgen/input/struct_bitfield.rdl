@@ -2,22 +2,25 @@
 #[win32]
 mod Test {
     struct Flags {
-        #[bitfield("HardwareInterface", 0, 1)]
-        #[bitfield("FilterInterface", 1, 1)]
-        #[bitfield("ConnectorPresent", 2, 1)]
-        #[bitfield("Kind", 3, 3)]
-        _bitfield: u8,
+        _bitfield: u8 {
+            HardwareInterface: 1,
+            FilterInterface: 1,
+            ConnectorPresent: 1,
+            Kind: 3,
+        },
     }
     struct Wide {
-        #[bitfield("Low", 0, 4)]
-        #[bitfield("Mid", 4, 20)]
-        #[bitfield("High", 24, 8)]
-        _bitfield: u32,
+        _bitfield: u32 {
+            Low: 4,
+            Mid: 20,
+            High: 8,
+        },
     }
     struct Signed {
-        #[bitfield("Delta", 0, 4)]
-        #[bitfield("Flag", 4, 1)]
-        _bitfield: i32,
+        _bitfield: i32 {
+            Delta: 4,
+            Flag: 1,
+        },
     }
 }
 #[win32]

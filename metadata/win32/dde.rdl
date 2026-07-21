@@ -2,52 +2,58 @@
 mod Windows {
     mod Win32 {
         struct DDEACK {
-            #[bitfield("bAppReturnCode", 0, 8)]
-            #[bitfield("reserved", 8, 6)]
-            #[bitfield("fBusy", 14, 1)]
-            #[bitfield("fAck", 15, 1)]
-            _bitfield: u16,
+            _bitfield: u16 {
+                bAppReturnCode: 8,
+                reserved: 6,
+                fBusy: 1,
+                fAck: 1,
+            },
         }
         struct DDEADVISE {
-            #[bitfield("reserved", 0, 14)]
-            #[bitfield("fDeferUpd", 14, 1)]
-            #[bitfield("fAckReq", 15, 1)]
-            _bitfield: u16,
+            _bitfield: u16 {
+                reserved: 14,
+                fDeferUpd: 1,
+                fAckReq: 1,
+            },
             cfFormat: i16,
         }
         struct DDEDATA {
-            #[bitfield("unused", 0, 12)]
-            #[bitfield("fResponse", 12, 1)]
-            #[bitfield("fRelease", 13, 1)]
-            #[bitfield("reserved", 14, 1)]
-            #[bitfield("fAckReq", 15, 1)]
-            _bitfield: u16,
+            _bitfield: u16 {
+                unused: 12,
+                fResponse: 1,
+                fRelease: 1,
+                reserved: 1,
+                fAckReq: 1,
+            },
             cfFormat: i16,
             Value: [u8; 1],
         }
         struct DDELN {
-            #[bitfield("unused", 0, 13)]
-            #[bitfield("fRelease", 13, 1)]
-            #[bitfield("fDeferUpd", 14, 1)]
-            #[bitfield("fAckReq", 15, 1)]
-            _bitfield: u16,
+            _bitfield: u16 {
+                unused: 13,
+                fRelease: 1,
+                fDeferUpd: 1,
+                fAckReq: 1,
+            },
             cfFormat: i16,
         }
         struct DDEPOKE {
-            #[bitfield("unused", 0, 13)]
-            #[bitfield("fRelease", 13, 1)]
-            #[bitfield("fReserved", 14, 2)]
-            _bitfield: u16,
+            _bitfield: u16 {
+                unused: 13,
+                fRelease: 1,
+                fReserved: 2,
+            },
             cfFormat: i16,
             Value: [u8; 1],
         }
         struct DDEUP {
-            #[bitfield("unused", 0, 12)]
-            #[bitfield("fAck", 12, 1)]
-            #[bitfield("fRelease", 13, 1)]
-            #[bitfield("fReserved", 14, 1)]
-            #[bitfield("fAckReq", 15, 1)]
-            _bitfield: u16,
+            _bitfield: u16 {
+                unused: 12,
+                fAck: 1,
+                fRelease: 1,
+                fReserved: 1,
+                fAckReq: 1,
+            },
             cfFormat: i16,
             rgb: [u8; 1],
         }

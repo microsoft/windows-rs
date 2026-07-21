@@ -143,38 +143,41 @@ mod Windows {
         union PSAPI_WORKING_SET_BLOCK {
             Flags: usize,
             Anonymous: struct {
-                #[bitfield("Protection", 0, 5)]
-                #[bitfield("ShareCount", 5, 3)]
-                #[bitfield("Shared", 8, 1)]
-                #[bitfield("Reserved", 9, 3)]
-                #[bitfield("VirtualPage", 12, 52)]
-                _bitfield: usize,
+                _bitfield: usize {
+                    Protection: 5,
+                    ShareCount: 3,
+                    Shared: 1,
+                    Reserved: 3,
+                    VirtualPage: 52,
+                },
             },
         }
         union PSAPI_WORKING_SET_EX_BLOCK {
             Flags: usize,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("Valid", 0, 1)]
-                    #[bitfield("ShareCount", 1, 3)]
-                    #[bitfield("Win32Protection", 4, 11)]
-                    #[bitfield("Shared", 15, 1)]
-                    #[bitfield("Node", 16, 6)]
-                    #[bitfield("Locked", 22, 1)]
-                    #[bitfield("LargePage", 23, 1)]
-                    #[bitfield("Reserved", 24, 7)]
-                    #[bitfield("Bad", 31, 1)]
-                    #[bitfield("ReservedUlong", 32, 32)]
-                    _bitfield: usize,
+                    _bitfield: usize {
+                        Valid: 1,
+                        ShareCount: 3,
+                        Win32Protection: 11,
+                        Shared: 1,
+                        Node: 6,
+                        Locked: 1,
+                        LargePage: 1,
+                        Reserved: 7,
+                        Bad: 1,
+                        ReservedUlong: 32,
+                    },
                 },
                 Invalid: struct {
-                    #[bitfield("Valid", 0, 1)]
-                    #[bitfield("Reserved0", 1, 14)]
-                    #[bitfield("Shared", 15, 1)]
-                    #[bitfield("Reserved1", 16, 15)]
-                    #[bitfield("Bad", 31, 1)]
-                    #[bitfield("ReservedUlong", 32, 32)]
-                    _bitfield: usize,
+                    _bitfield: usize {
+                        Valid: 1,
+                        Reserved0: 14,
+                        Shared: 1,
+                        Reserved1: 15,
+                        Bad: 1,
+                        ReservedUlong: 32,
+                    },
                 },
             },
         }

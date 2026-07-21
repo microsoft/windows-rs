@@ -10,8 +10,9 @@ mod Windows {
             _pautoEDS: IExpDispSupport,
             _pautoSS: IShellService,
             _eSecureLockIcon: i32,
-            #[bitfield("_fCreatingViewWindow", 0, 1)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                _fCreatingViewWindow: 1,
+            },
             _uActivateState: u32,
             _pidlViewState: LPCITEMIDLIST,
             _pctView: IOleCommandTarget,
@@ -40,8 +41,9 @@ mod Windows {
             _pautoEDS: IExpDispSupportXP,
             _pautoSS: IShellService,
             _eSecureLockIcon: i32,
-            #[bitfield("_fCreatingViewWindow", 0, 1)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                _fCreatingViewWindow: 1,
+            },
             _uActivateState: u32,
             _pidlViewState: LPCITEMIDLIST,
             _pctView: IOleCommandTarget,

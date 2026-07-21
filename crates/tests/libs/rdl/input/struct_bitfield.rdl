@@ -1,0 +1,26 @@
+#[win32]
+mod Test {
+    struct Flags {
+        _bitfield: u8 {
+            a: 1,
+            b: 2,
+            c: 5,
+        },
+    }
+    struct Padding {
+        _bitfield: u32 {
+            a: 4,
+            _: 4,
+            b: 8,
+        },
+    }
+    struct Split {
+        _bitfield1: u32 {
+            first: 4,
+        },
+        tag: u32,
+        _bitfield2: u32 {
+            second: 4,
+        },
+    }
+}

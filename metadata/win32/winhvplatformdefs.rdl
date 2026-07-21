@@ -41,10 +41,11 @@ mod Windows {
         union WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS {
             AsUINT32: u32,
             Anonymous: struct {
-                #[bitfield("Prefetch", 0, 1)]
-                #[bitfield("AvoidHardFaults", 1, 1)]
-                #[bitfield("Reserved", 2, 30)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Prefetch: 1,
+                    AvoidHardFaults: 1,
+                    Reserved: 30,
+                },
             },
         }
         #[repr(u32)]
@@ -108,14 +109,15 @@ mod Windows {
         #[arch(Arm64)]
         struct WHV_ARM64_INTERRUPT_STATE {
             Anonymous: struct {
-                #[bitfield("Enabled", 0, 1)]
-                #[bitfield("EdgeTriggered", 1, 1)]
-                #[bitfield("Asserted", 2, 1)]
-                #[bitfield("SetPending", 3, 1)]
-                #[bitfield("Active", 4, 1)]
-                #[bitfield("Direct", 5, 1)]
-                #[bitfield("Reserved0", 6, 2)]
-                _bitfield: u8,
+                _bitfield: u8 {
+                    Enabled: 1,
+                    EdgeTriggered: 1,
+                    Asserted: 1,
+                    SetPending: 1,
+                    Active: 1,
+                    Direct: 1,
+                    Reserved0: 2,
+                },
             },
             GicrIpriorityrConfigured: u8,
             GicrIpriorityrActive: u8,
@@ -144,10 +146,11 @@ mod Windows {
                 Reg1: WHV_UINT128,
             },
             Anonymous2: struct {
-                #[bitfield("EventPending", 0, 1)]
-                #[bitfield("EventType", 1, 3)]
-                #[bitfield("Reserved", 4, 4)]
-                _bitfield: u8,
+                _bitfield: u8 {
+                    EventPending: 1,
+                    EventType: 3,
+                    Reserved: 4,
+                },
                 EventData: [u8; 15],
             },
             Exception: WHV_ARM64_PENDING_EXCEPTION_EVENT,
@@ -163,10 +166,11 @@ mod Windows {
         union WHV_ARM64_PENDING_EXCEPTION_EVENT {
             AsUINT64: [u64; 3],
             Anonymous: struct {
-                #[bitfield("EventPending", 0, 1)]
-                #[bitfield("EventType", 1, 3)]
-                #[bitfield("Reserved", 4, 4)]
-                _bitfield: u8,
+                _bitfield: u8 {
+                    EventPending: 1,
+                    EventType: 3,
+                    Reserved: 4,
+                },
                 Reserved1: u8,
                 Reserved2: u16,
                 Reserved3: u32,
@@ -178,10 +182,11 @@ mod Windows {
         union WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT {
             AsUINT64: [u64; 2],
             Anonymous: struct {
-                #[bitfield("EventPending", 0, 1)]
-                #[bitfield("EventType", 1, 3)]
-                #[bitfield("Reserved", 4, 4)]
-                _bitfield: u8,
+                _bitfield: u8 {
+                    EventPending: 1,
+                    EventType: 3,
+                    Reserved: 4,
+                },
                 Reserved1: u8,
                 Reserved2: u16,
                 ExceptionType: u32,
@@ -348,28 +353,30 @@ mod Windows {
         #[arch(X64 | Arm64)]
         union WHV_CAPABILITY_FEATURES {
             Anonymous: struct {
-                #[bitfield("PartialUnmap", 0, 1)]
-                #[bitfield("LocalApicEmulation", 1, 1)]
-                #[bitfield("Xsave", 2, 1)]
-                #[bitfield("DirtyPageTracking", 3, 1)]
-                #[bitfield("SpeculationControl", 4, 1)]
-                #[bitfield("ApicRemoteRead", 5, 1)]
-                #[bitfield("IdleSuspend", 6, 1)]
-                #[bitfield("VirtualPciDeviceSupport", 7, 1)]
-                #[bitfield("IommuSupport", 8, 1)]
-                #[bitfield("VpHotAddRemove", 9, 1)]
-                #[bitfield("DeviceAccessTracking", 10, 1)]
-                #[bitfield("ReservedX640", 11, 1)]
-                #[bitfield("Reserved", 12, 52)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    PartialUnmap: 1,
+                    LocalApicEmulation: 1,
+                    Xsave: 1,
+                    DirtyPageTracking: 1,
+                    SpeculationControl: 1,
+                    ApicRemoteRead: 1,
+                    IdleSuspend: 1,
+                    VirtualPciDeviceSupport: 1,
+                    IommuSupport: 1,
+                    VpHotAddRemove: 1,
+                    DeviceAccessTracking: 1,
+                    ReservedX640: 1,
+                    Reserved: 52,
+                },
             },
             AsUINT64: u64,
         }
         #[arch(X64 | Arm64)]
         struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
-            #[bitfield("IsSupported", 0, 1)]
-            #[bitfield("Reserved", 1, 31)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                IsSupported: 1,
+                Reserved: 31,
+            },
             HighestFrequencyMhz: u32,
             NominalFrequencyMhz: u32,
             LowestFrequencyMhz: u32,
@@ -396,18 +403,20 @@ mod Windows {
         union WHV_DISABLE_PARTITION_VTL_FLAGS {
             AsUINT8: u8,
             Anonymous: struct {
-                #[bitfield("ScrubOnly", 0, 1)]
-                #[bitfield("Reserved", 1, 7)]
-                _bitfield: u8,
+                _bitfield: u8 {
+                    ScrubOnly: 1,
+                    Reserved: 7,
+                },
             },
         }
         #[arch(X64 | Arm64)]
         union WHV_DISABLE_VP_VTL_FLAGS {
             AsUINT8: u8,
             Anonymous: struct {
-                #[bitfield("ScrubOnly", 0, 1)]
-                #[bitfield("Reserved", 1, 7)]
-                _bitfield: u8,
+                _bitfield: u8 {
+                    ScrubOnly: 1,
+                    Reserved: 7,
+                },
             },
         }
         #[arch(X64 | Arm64)]
@@ -415,20 +424,22 @@ mod Windows {
             GuestAddress: WHV_GUEST_PHYSICAL_ADDRESS,
             Value: u64,
             Length: u32,
-            #[bitfield("MatchOnValue", 0, 1)]
-            #[bitfield("MatchOnLength", 1, 1)]
-            #[bitfield("Reserved", 2, 30)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                MatchOnValue: 1,
+                MatchOnLength: 1,
+                Reserved: 30,
+            },
         }
         #[arch(X64 | Arm64)]
         union WHV_ENABLE_PARTITION_VTL_FLAGS {
             AsUINT8: u8,
             Anonymous: struct {
-                #[bitfield("EnableMbec", 0, 1)]
-                #[bitfield("EnableSupervisorShadowStack", 1, 1)]
-                #[bitfield("EnableHardwareHvpt", 2, 1)]
-                #[bitfield("Reserved", 3, 5)]
-                _bitfield: u8,
+                _bitfield: u8 {
+                    EnableMbec: 1,
+                    EnableSupervisorShadowStack: 1,
+                    EnableHardwareHvpt: 1,
+                    Reserved: 5,
+                },
             },
         }
         #[repr(i32)]
@@ -456,23 +467,24 @@ mod Windows {
         #[arch(X64 | Arm64)]
         union WHV_EXTENDED_VM_EXITS {
             Anonymous: struct {
-                #[bitfield("X64CpuidExit", 0, 1)]
-                #[bitfield("X64MsrExit", 1, 1)]
-                #[bitfield("ExceptionExit", 2, 1)]
-                #[bitfield("X64RdtscExit", 3, 1)]
-                #[bitfield("X64ApicSmiExitTrap", 4, 1)]
-                #[bitfield("HypercallExit", 5, 1)]
-                #[bitfield("X64ApicInitSipiExitTrap", 6, 1)]
-                #[bitfield("X64ApicWriteLint0ExitTrap", 7, 1)]
-                #[bitfield("X64ApicWriteLint1ExitTrap", 8, 1)]
-                #[bitfield("X64ApicWriteSvrExitTrap", 9, 1)]
-                #[bitfield("UnknownSynicConnection", 10, 1)]
-                #[bitfield("RetargetUnknownVpciDevice", 11, 1)]
-                #[bitfield("X64ApicWriteLdrExitTrap", 12, 1)]
-                #[bitfield("X64ApicWriteDfrExitTrap", 13, 1)]
-                #[bitfield("GpaAccessFaultExit", 14, 1)]
-                #[bitfield("Reserved", 15, 49)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    X64CpuidExit: 1,
+                    X64MsrExit: 1,
+                    ExceptionExit: 1,
+                    X64RdtscExit: 1,
+                    X64ApicSmiExitTrap: 1,
+                    HypercallExit: 1,
+                    X64ApicInitSipiExitTrap: 1,
+                    X64ApicWriteLint0ExitTrap: 1,
+                    X64ApicWriteLint1ExitTrap: 1,
+                    X64ApicWriteSvrExitTrap: 1,
+                    UnknownSynicConnection: 1,
+                    RetargetUnknownVpciDevice: 1,
+                    X64ApicWriteLdrExitTrap: 1,
+                    X64ApicWriteDfrExitTrap: 1,
+                    GpaAccessFaultExit: 1,
+                    Reserved: 49,
+                },
             },
             AsUINT64: u64,
         }
@@ -542,10 +554,11 @@ mod Windows {
         union WHV_INPUT_VTL {
             AsUINT8: u8,
             Anonymous: struct {
-                #[bitfield("TargetVtl", 0, 4)]
-                #[bitfield("UseTargetVtl", 4, 1)]
-                #[bitfield("Reserved", 5, 3)]
-                _bitfield: u8,
+                _bitfield: u8 {
+                    TargetVtl: 4,
+                    UseTargetVtl: 1,
+                    Reserved: 3,
+                },
             },
         }
         #[arch(Arm64)]
@@ -560,11 +573,12 @@ mod Windows {
         #[arch(X64 | Arm64)]
         union WHV_INTERNAL_ACTIVITY_REGISTER {
             Anonymous: struct {
-                #[bitfield("StartupSuspend", 0, 1)]
-                #[bitfield("HaltSuspend", 1, 1)]
-                #[bitfield("IdleSuspend", 2, 1)]
-                #[bitfield("Reserved", 3, 61)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    StartupSuspend: 1,
+                    HaltSuspend: 1,
+                    IdleSuspend: 1,
+                    Reserved: 61,
+                },
             },
             AsUINT64: u64,
         }
@@ -580,12 +594,13 @@ mod Windows {
         }
         #[arch(X64)]
         struct WHV_INTERRUPT_CONTROL {
-            #[bitfield("Type", 0, 8)]
-            #[bitfield("DestinationMode", 8, 4)]
-            #[bitfield("TriggerMode", 12, 4)]
-            #[bitfield("TargetVtl", 16, 8)]
-            #[bitfield("Reserved", 24, 40)]
-            _bitfield: u64,
+            _bitfield: u64 {
+                Type: 8,
+                DestinationMode: 4,
+                TriggerMode: 4,
+                TargetVtl: 8,
+                Reserved: 40,
+            },
             Destination: u32,
             Vector: u32,
         }
@@ -594,11 +609,12 @@ mod Windows {
             AsUINT64: u64,
             Anonymous: struct {
                 InterruptType: WHV_INTERRUPT_TYPE,
-                #[bitfield("Reserved1", 0, 2)]
-                #[bitfield("Asserted", 2, 1)]
-                #[bitfield("Retarget", 3, 1)]
-                #[bitfield("Reserved2", 4, 28)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Reserved1: 2,
+                    Asserted: 1,
+                    Retarget: 1,
+                    Reserved2: 28,
+                },
             },
         }
         #[repr(i32)]
@@ -672,21 +688,23 @@ mod Windows {
         union WHV_MEMORY_ACCESS_INFO {
             AsUINT8: u8,
             Anonymous: struct {
-                #[bitfield("GvaValid", 0, 1)]
-                #[bitfield("GvaGpaValid", 1, 1)]
-                #[bitfield("HypercallOutputPending", 2, 1)]
-                #[bitfield("Reserved", 3, 5)]
-                _bitfield: u8,
+                _bitfield: u8 {
+                    GvaValid: 1,
+                    GvaGpaValid: 1,
+                    HypercallOutputPending: 1,
+                    Reserved: 5,
+                },
             },
         }
         #[arch(X64)]
         union WHV_MEMORY_ACCESS_INFO {
             Anonymous: struct {
-                #[bitfield("AccessType", 0, 2)]
-                #[bitfield("GpaUnmapped", 2, 1)]
-                #[bitfield("GvaValid", 3, 1)]
-                #[bitfield("Reserved", 4, 28)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    AccessType: 2,
+                    GpaUnmapped: 1,
+                    GvaValid: 1,
+                    Reserved: 28,
+                },
             },
             AsUINT32: u32,
         }
@@ -721,18 +739,20 @@ mod Windows {
             Features: union {
                 AsUINT32: u32,
                 Anonymous: struct {
-                    #[bitfield("DirectHypercall", 0, 1)]
-                    #[bitfield("VirtualizationException", 1, 1)]
-                    #[bitfield("Reserved", 2, 30)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        DirectHypercall: 1,
+                        VirtualizationException: 1,
+                        Reserved: 30,
+                    },
                 },
             },
             HypercallControls: union {
                 AsUINT32: u32,
                 Anonymous: struct {
-                    #[bitfield("InterPartitionCommunication", 0, 1)]
-                    #[bitfield("Reserved", 1, 31)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        InterPartitionCommunication: 1,
+                        Reserved: 31,
+                    },
                 },
             },
         }
@@ -955,141 +975,143 @@ mod Windows {
         #[arch(X64 | Arm64)]
         union WHV_PROCESSOR_FEATURES {
             Anonymous: struct {
-                #[bitfield("Sse3Support", 0, 1)]
-                #[bitfield("LahfSahfSupport", 1, 1)]
-                #[bitfield("Ssse3Support", 2, 1)]
-                #[bitfield("Sse4_1Support", 3, 1)]
-                #[bitfield("Sse4_2Support", 4, 1)]
-                #[bitfield("Sse4aSupport", 5, 1)]
-                #[bitfield("XopSupport", 6, 1)]
-                #[bitfield("PopCntSupport", 7, 1)]
-                #[bitfield("Cmpxchg16bSupport", 8, 1)]
-                #[bitfield("Altmovcr8Support", 9, 1)]
-                #[bitfield("LzcntSupport", 10, 1)]
-                #[bitfield("MisAlignSseSupport", 11, 1)]
-                #[bitfield("MmxExtSupport", 12, 1)]
-                #[bitfield("Amd3DNowSupport", 13, 1)]
-                #[bitfield("ExtendedAmd3DNowSupport", 14, 1)]
-                #[bitfield("Page1GbSupport", 15, 1)]
-                #[bitfield("AesSupport", 16, 1)]
-                #[bitfield("PclmulqdqSupport", 17, 1)]
-                #[bitfield("PcidSupport", 18, 1)]
-                #[bitfield("Fma4Support", 19, 1)]
-                #[bitfield("F16CSupport", 20, 1)]
-                #[bitfield("RdRandSupport", 21, 1)]
-                #[bitfield("RdWrFsGsSupport", 22, 1)]
-                #[bitfield("SmepSupport", 23, 1)]
-                #[bitfield("EnhancedFastStringSupport", 24, 1)]
-                #[bitfield("Bmi1Support", 25, 1)]
-                #[bitfield("Bmi2Support", 26, 1)]
-                #[bitfield("Reserved1", 27, 2)]
-                #[bitfield("MovbeSupport", 29, 1)]
-                #[bitfield("Npiep1Support", 30, 1)]
-                #[bitfield("DepX87FPUSaveSupport", 31, 1)]
-                #[bitfield("RdSeedSupport", 32, 1)]
-                #[bitfield("AdxSupport", 33, 1)]
-                #[bitfield("IntelPrefetchSupport", 34, 1)]
-                #[bitfield("SmapSupport", 35, 1)]
-                #[bitfield("HleSupport", 36, 1)]
-                #[bitfield("RtmSupport", 37, 1)]
-                #[bitfield("RdtscpSupport", 38, 1)]
-                #[bitfield("ClflushoptSupport", 39, 1)]
-                #[bitfield("ClwbSupport", 40, 1)]
-                #[bitfield("ShaSupport", 41, 1)]
-                #[bitfield("X87PointersSavedSupport", 42, 1)]
-                #[bitfield("InvpcidSupport", 43, 1)]
-                #[bitfield("IbrsSupport", 44, 1)]
-                #[bitfield("StibpSupport", 45, 1)]
-                #[bitfield("IbpbSupport", 46, 1)]
-                #[bitfield("UnrestrictedGuestSupport", 47, 1)]
-                #[bitfield("SsbdSupport", 48, 1)]
-                #[bitfield("FastShortRepMovSupport", 49, 1)]
-                #[bitfield("Reserved3", 50, 1)]
-                #[bitfield("RdclNo", 51, 1)]
-                #[bitfield("IbrsAllSupport", 52, 1)]
-                #[bitfield("Reserved4", 53, 1)]
-                #[bitfield("SsbNo", 54, 1)]
-                #[bitfield("RsbANo", 55, 1)]
-                #[bitfield("Reserved5", 56, 1)]
-                #[bitfield("RdPidSupport", 57, 1)]
-                #[bitfield("UmipSupport", 58, 1)]
-                #[bitfield("MdsNoSupport", 59, 1)]
-                #[bitfield("MdClearSupport", 60, 1)]
-                #[bitfield("TaaNoSupport", 61, 1)]
-                #[bitfield("TsxCtrlSupport", 62, 1)]
-                #[bitfield("Reserved6", 63, 1)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    Sse3Support: 1,
+                    LahfSahfSupport: 1,
+                    Ssse3Support: 1,
+                    Sse4_1Support: 1,
+                    Sse4_2Support: 1,
+                    Sse4aSupport: 1,
+                    XopSupport: 1,
+                    PopCntSupport: 1,
+                    Cmpxchg16bSupport: 1,
+                    Altmovcr8Support: 1,
+                    LzcntSupport: 1,
+                    MisAlignSseSupport: 1,
+                    MmxExtSupport: 1,
+                    Amd3DNowSupport: 1,
+                    ExtendedAmd3DNowSupport: 1,
+                    Page1GbSupport: 1,
+                    AesSupport: 1,
+                    PclmulqdqSupport: 1,
+                    PcidSupport: 1,
+                    Fma4Support: 1,
+                    F16CSupport: 1,
+                    RdRandSupport: 1,
+                    RdWrFsGsSupport: 1,
+                    SmepSupport: 1,
+                    EnhancedFastStringSupport: 1,
+                    Bmi1Support: 1,
+                    Bmi2Support: 1,
+                    Reserved1: 2,
+                    MovbeSupport: 1,
+                    Npiep1Support: 1,
+                    DepX87FPUSaveSupport: 1,
+                    RdSeedSupport: 1,
+                    AdxSupport: 1,
+                    IntelPrefetchSupport: 1,
+                    SmapSupport: 1,
+                    HleSupport: 1,
+                    RtmSupport: 1,
+                    RdtscpSupport: 1,
+                    ClflushoptSupport: 1,
+                    ClwbSupport: 1,
+                    ShaSupport: 1,
+                    X87PointersSavedSupport: 1,
+                    InvpcidSupport: 1,
+                    IbrsSupport: 1,
+                    StibpSupport: 1,
+                    IbpbSupport: 1,
+                    UnrestrictedGuestSupport: 1,
+                    SsbdSupport: 1,
+                    FastShortRepMovSupport: 1,
+                    Reserved3: 1,
+                    RdclNo: 1,
+                    IbrsAllSupport: 1,
+                    Reserved4: 1,
+                    SsbNo: 1,
+                    RsbANo: 1,
+                    Reserved5: 1,
+                    RdPidSupport: 1,
+                    UmipSupport: 1,
+                    MdsNoSupport: 1,
+                    MdClearSupport: 1,
+                    TaaNoSupport: 1,
+                    TsxCtrlSupport: 1,
+                    Reserved6: 1,
+                },
             },
             AsUINT64: u64,
         }
         #[arch(X64 | Arm64)]
         union WHV_PROCESSOR_FEATURES1 {
             Anonymous: struct {
-                #[bitfield("ACountMCountSupport", 0, 1)]
-                #[bitfield("TscInvariantSupport", 1, 1)]
-                #[bitfield("ClZeroSupport", 2, 1)]
-                #[bitfield("RdpruSupport", 3, 1)]
-                #[bitfield("La57Support", 4, 1)]
-                #[bitfield("MbecSupport", 5, 1)]
-                #[bitfield("NestedVirtSupport", 6, 1)]
-                #[bitfield("PsfdSupport", 7, 1)]
-                #[bitfield("CetSsSupport", 8, 1)]
-                #[bitfield("CetIbtSupport", 9, 1)]
-                #[bitfield("VmxExceptionInjectSupport", 10, 1)]
-                #[bitfield("Reserved2", 11, 1)]
-                #[bitfield("UmwaitTpauseSupport", 12, 1)]
-                #[bitfield("MovdiriSupport", 13, 1)]
-                #[bitfield("Movdir64bSupport", 14, 1)]
-                #[bitfield("CldemoteSupport", 15, 1)]
-                #[bitfield("SerializeSupport", 16, 1)]
-                #[bitfield("TscDeadlineTmrSupport", 17, 1)]
-                #[bitfield("TscAdjustSupport", 18, 1)]
-                #[bitfield("FZLRepMovsb", 19, 1)]
-                #[bitfield("FSRepStosb", 20, 1)]
-                #[bitfield("FSRepCmpsb", 21, 1)]
-                #[bitfield("TsxLdTrkSupport", 22, 1)]
-                #[bitfield("VmxInsOutsExitInfoSupport", 23, 1)]
-                #[bitfield("Reserved3", 24, 1)]
-                #[bitfield("SbdrSsdpNoSupport", 25, 1)]
-                #[bitfield("FbsdpNoSupport", 26, 1)]
-                #[bitfield("PsdpNoSupport", 27, 1)]
-                #[bitfield("FbClearSupport", 28, 1)]
-                #[bitfield("BtcNoSupport", 29, 1)]
-                #[bitfield("IbpbRsbFlushSupport", 30, 1)]
-                #[bitfield("StibpAlwaysOnSupport", 31, 1)]
-                #[bitfield("PerfGlobalCtrlSupport", 32, 1)]
-                #[bitfield("NptExecuteOnlySupport", 33, 1)]
-                #[bitfield("NptADFlagsSupport", 34, 1)]
-                #[bitfield("Npt1GbPageSupport", 35, 1)]
-                #[bitfield("Reserved4", 36, 1)]
-                #[bitfield("Reserved5", 37, 1)]
-                #[bitfield("Reserved6", 38, 1)]
-                #[bitfield("Reserved7", 39, 1)]
-                #[bitfield("CmpccxaddSupport", 40, 1)]
-                #[bitfield("Reserved8", 41, 1)]
-                #[bitfield("Reserved9", 42, 1)]
-                #[bitfield("Reserved10", 43, 1)]
-                #[bitfield("Reserved11", 44, 1)]
-                #[bitfield("PrefetchISupport", 45, 1)]
-                #[bitfield("Sha512Support", 46, 1)]
-                #[bitfield("Reserved12", 47, 1)]
-                #[bitfield("Reserved13", 48, 1)]
-                #[bitfield("Reserved14", 49, 1)]
-                #[bitfield("SM3Support", 50, 1)]
-                #[bitfield("SM4Support", 51, 1)]
-                #[bitfield("Reserved15", 52, 1)]
-                #[bitfield("Reserved16", 53, 1)]
-                #[bitfield("SbpbSupported", 54, 1)]
-                #[bitfield("IbpbBrTypeSupported", 55, 1)]
-                #[bitfield("SrsoNoSupported", 56, 1)]
-                #[bitfield("SrsoUserKernelNoSupported", 57, 1)]
-                #[bitfield("Reserved17", 58, 1)]
-                #[bitfield("Reserved18", 59, 1)]
-                #[bitfield("Reserved19", 60, 1)]
-                #[bitfield("LassSupport", 61, 1)]
-                #[bitfield("IdleHltInterceptSupport", 62, 1)]
-                #[bitfield("MsrListSupport", 63, 1)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    ACountMCountSupport: 1,
+                    TscInvariantSupport: 1,
+                    ClZeroSupport: 1,
+                    RdpruSupport: 1,
+                    La57Support: 1,
+                    MbecSupport: 1,
+                    NestedVirtSupport: 1,
+                    PsfdSupport: 1,
+                    CetSsSupport: 1,
+                    CetIbtSupport: 1,
+                    VmxExceptionInjectSupport: 1,
+                    Reserved2: 1,
+                    UmwaitTpauseSupport: 1,
+                    MovdiriSupport: 1,
+                    Movdir64bSupport: 1,
+                    CldemoteSupport: 1,
+                    SerializeSupport: 1,
+                    TscDeadlineTmrSupport: 1,
+                    TscAdjustSupport: 1,
+                    FZLRepMovsb: 1,
+                    FSRepStosb: 1,
+                    FSRepCmpsb: 1,
+                    TsxLdTrkSupport: 1,
+                    VmxInsOutsExitInfoSupport: 1,
+                    Reserved3: 1,
+                    SbdrSsdpNoSupport: 1,
+                    FbsdpNoSupport: 1,
+                    PsdpNoSupport: 1,
+                    FbClearSupport: 1,
+                    BtcNoSupport: 1,
+                    IbpbRsbFlushSupport: 1,
+                    StibpAlwaysOnSupport: 1,
+                    PerfGlobalCtrlSupport: 1,
+                    NptExecuteOnlySupport: 1,
+                    NptADFlagsSupport: 1,
+                    Npt1GbPageSupport: 1,
+                    Reserved4: 1,
+                    Reserved5: 1,
+                    Reserved6: 1,
+                    Reserved7: 1,
+                    CmpccxaddSupport: 1,
+                    Reserved8: 1,
+                    Reserved9: 1,
+                    Reserved10: 1,
+                    Reserved11: 1,
+                    PrefetchISupport: 1,
+                    Sha512Support: 1,
+                    Reserved12: 1,
+                    Reserved13: 1,
+                    Reserved14: 1,
+                    SM3Support: 1,
+                    SM4Support: 1,
+                    Reserved15: 1,
+                    Reserved16: 1,
+                    SbpbSupported: 1,
+                    IbpbBrTypeSupported: 1,
+                    SrsoNoSupported: 1,
+                    SrsoUserKernelNoSupported: 1,
+                    Reserved17: 1,
+                    Reserved18: 1,
+                    Reserved19: 1,
+                    LassSupport: 1,
+                    IdleHltInterceptSupport: 1,
+                    MsrListSupport: 1,
+                },
             },
             AsUINT64: u64,
         }
@@ -1121,10 +1143,11 @@ mod Windows {
         #[arch(X64)]
         union WHV_PROCESSOR_PERFMON_FEATURES {
             Anonymous: struct {
-                #[bitfield("PmuSupport", 0, 1)]
-                #[bitfield("LbrSupport", 1, 1)]
-                #[bitfield("Reserved", 2, 62)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    PmuSupport: 1,
+                    LbrSupport: 1,
+                    Reserved: 62,
+                },
             },
             AsUINT64: u64,
         }
@@ -1153,46 +1176,47 @@ mod Windows {
         #[arch(X64)]
         union WHV_PROCESSOR_XSAVE_FEATURES {
             Anonymous: struct {
-                #[bitfield("XsaveSupport", 0, 1)]
-                #[bitfield("XsaveoptSupport", 1, 1)]
-                #[bitfield("AvxSupport", 2, 1)]
-                #[bitfield("Avx2Support", 3, 1)]
-                #[bitfield("FmaSupport", 4, 1)]
-                #[bitfield("MpxSupport", 5, 1)]
-                #[bitfield("Avx512Support", 6, 1)]
-                #[bitfield("Avx512DQSupport", 7, 1)]
-                #[bitfield("Avx512CDSupport", 8, 1)]
-                #[bitfield("Avx512BWSupport", 9, 1)]
-                #[bitfield("Avx512VLSupport", 10, 1)]
-                #[bitfield("XsaveCompSupport", 11, 1)]
-                #[bitfield("XsaveSupervisorSupport", 12, 1)]
-                #[bitfield("Xcr1Support", 13, 1)]
-                #[bitfield("Avx512BitalgSupport", 14, 1)]
-                #[bitfield("Avx512IfmaSupport", 15, 1)]
-                #[bitfield("Avx512VBmiSupport", 16, 1)]
-                #[bitfield("Avx512VBmi2Support", 17, 1)]
-                #[bitfield("Avx512VnniSupport", 18, 1)]
-                #[bitfield("GfniSupport", 19, 1)]
-                #[bitfield("VaesSupport", 20, 1)]
-                #[bitfield("Avx512VPopcntdqSupport", 21, 1)]
-                #[bitfield("VpclmulqdqSupport", 22, 1)]
-                #[bitfield("Avx512Bf16Support", 23, 1)]
-                #[bitfield("Avx512Vp2IntersectSupport", 24, 1)]
-                #[bitfield("Avx512Fp16Support", 25, 1)]
-                #[bitfield("XfdSupport", 26, 1)]
-                #[bitfield("AmxTileSupport", 27, 1)]
-                #[bitfield("AmxBf16Support", 28, 1)]
-                #[bitfield("AmxInt8Support", 29, 1)]
-                #[bitfield("AvxVnniSupport", 30, 1)]
-                #[bitfield("AvxIfmaSupport", 31, 1)]
-                #[bitfield("AvxNeConvertSupport", 32, 1)]
-                #[bitfield("AvxVnniInt8Support", 33, 1)]
-                #[bitfield("AvxVnniInt16Support", 34, 1)]
-                #[bitfield("Avx10_1_256Support", 35, 1)]
-                #[bitfield("Avx10_1_512Support", 36, 1)]
-                #[bitfield("AmxFp16Support", 37, 1)]
-                #[bitfield("Reserved", 38, 26)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    XsaveSupport: 1,
+                    XsaveoptSupport: 1,
+                    AvxSupport: 1,
+                    Avx2Support: 1,
+                    FmaSupport: 1,
+                    MpxSupport: 1,
+                    Avx512Support: 1,
+                    Avx512DQSupport: 1,
+                    Avx512CDSupport: 1,
+                    Avx512BWSupport: 1,
+                    Avx512VLSupport: 1,
+                    XsaveCompSupport: 1,
+                    XsaveSupervisorSupport: 1,
+                    Xcr1Support: 1,
+                    Avx512BitalgSupport: 1,
+                    Avx512IfmaSupport: 1,
+                    Avx512VBmiSupport: 1,
+                    Avx512VBmi2Support: 1,
+                    Avx512VnniSupport: 1,
+                    GfniSupport: 1,
+                    VaesSupport: 1,
+                    Avx512VPopcntdqSupport: 1,
+                    VpclmulqdqSupport: 1,
+                    Avx512Bf16Support: 1,
+                    Avx512Vp2IntersectSupport: 1,
+                    Avx512Fp16Support: 1,
+                    XfdSupport: 1,
+                    AmxTileSupport: 1,
+                    AmxBf16Support: 1,
+                    AmxInt8Support: 1,
+                    AvxVnniSupport: 1,
+                    AvxIfmaSupport: 1,
+                    AvxNeConvertSupport: 1,
+                    AvxVnniInt8Support: 1,
+                    AvxVnniInt16Support: 1,
+                    Avx10_1_256Support: 1,
+                    Avx10_1_512Support: 1,
+                    AmxFp16Support: 1,
+                    Reserved: 26,
+                },
             },
             AsUINT64: u64,
         }
@@ -1207,9 +1231,10 @@ mod Windows {
         struct WHV_REGISTER_CONTEXT {
             Header: WHV_INTERCEPT_MESSAGE_HEADER,
             Anonymous: struct {
-                #[bitfield("IsMemoryOp", 0, 1)]
-                #[bitfield("Reserved", 1, 7)]
-                _bitfield: u8,
+                _bitfield: u8 {
+                    IsMemoryOp: 1,
+                    Reserved: 7,
+                },
             },
             Reserved8: u8,
             Reserved16: u16,
@@ -2041,13 +2066,14 @@ mod Windows {
         #[arch(X64 | Arm64)]
         union WHV_SCHEDULER_FEATURES {
             Anonymous: struct {
-                #[bitfield("CpuReserve", 0, 1)]
-                #[bitfield("CpuCap", 1, 1)]
-                #[bitfield("CpuWeight", 2, 1)]
-                #[bitfield("CpuGroupId", 3, 1)]
-                #[bitfield("DisableSmt", 4, 1)]
-                #[bitfield("Reserved", 5, 59)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    CpuReserve: 1,
+                    CpuCap: 1,
+                    CpuWeight: 1,
+                    CpuGroupId: 1,
+                    DisableSmt: 1,
+                    Reserved: 59,
+                },
             },
             AsUINT64: u64,
         }
@@ -2110,55 +2136,56 @@ mod Windows {
         #[arch(X64 | Arm64)]
         union WHV_SYNTHETIC_PROCESSOR_FEATURES {
             Anonymous: struct {
-                #[bitfield("HypervisorPresent", 0, 1)]
-                #[bitfield("Hv1", 1, 1)]
-                #[bitfield("AccessVpRunTimeReg", 2, 1)]
-                #[bitfield("AccessPartitionReferenceCounter", 3, 1)]
-                #[bitfield("AccessSynicRegs", 4, 1)]
-                #[bitfield("AccessSyntheticTimerRegs", 5, 1)]
-                #[bitfield("AccessIntrCtrlRegs", 6, 1)]
-                #[bitfield("AccessHypercallRegs", 7, 1)]
-                #[bitfield("AccessVpIndex", 8, 1)]
-                #[bitfield("AccessPartitionReferenceTsc", 9, 1)]
-                #[bitfield("AccessGuestIdleReg", 10, 1)]
-                #[bitfield("AccessFrequencyRegs", 11, 1)]
-                #[bitfield("ReservedZ12", 12, 1)]
-                #[bitfield("ReservedZ13", 13, 1)]
-                #[bitfield("ReservedZ14", 14, 1)]
-                #[bitfield("EnableExtendedGvaRangesForFlushVirtualAddressList", 15, 1)]
-                #[bitfield("ReservedZ16", 16, 1)]
-                #[bitfield("ReservedZ17", 17, 1)]
-                #[bitfield("FastHypercallOutput", 18, 1)]
-                #[bitfield("ReservedZ19", 19, 1)]
-                #[bitfield("ReservedZ20", 20, 1)]
-                #[bitfield("ReservedZ21", 21, 1)]
-                #[bitfield("DirectSyntheticTimers", 22, 1)]
-                #[bitfield("ReservedZ23", 23, 1)]
-                #[bitfield("ExtendedProcessorMasks", 24, 1)]
-                #[bitfield("TbFlushHypercalls", 25, 1)]
-                #[bitfield("SyntheticClusterIpi", 26, 1)]
-                #[bitfield("NotifyLongSpinWait", 27, 1)]
-                #[bitfield("QueryNumaDistance", 28, 1)]
-                #[bitfield("SignalEvents", 29, 1)]
-                #[bitfield("RetargetDeviceInterrupt", 30, 1)]
-                #[bitfield("RestoreTime", 31, 1)]
-                #[bitfield("EnlightenedVmcs", 32, 1)]
-                #[bitfield("NestedDebugCtl", 33, 1)]
-                #[bitfield("SyntheticTimeUnhaltedTimer", 34, 1)]
-                #[bitfield("IdleSpecCtrl", 35, 1)]
-                #[bitfield("ReservedZ36", 36, 1)]
-                #[bitfield("WakeVps", 37, 1)]
-                #[bitfield("AccessVpRegs", 38, 1)]
-                #[bitfield("ReservedZ39", 39, 1)]
-                #[bitfield("ReservedZ40", 40, 1)]
-                #[bitfield("ReservedZ41", 41, 1)]
-                #[bitfield("ReservedZ42", 42, 1)]
-                #[bitfield("ReservedZ43", 43, 1)]
-                #[bitfield("ReservedZ44", 44, 1)]
-                #[bitfield("ReservedZ45", 45, 1)]
-                #[bitfield("ReservedZ46", 46, 1)]
-                #[bitfield("Reserved", 47, 17)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    HypervisorPresent: 1,
+                    Hv1: 1,
+                    AccessVpRunTimeReg: 1,
+                    AccessPartitionReferenceCounter: 1,
+                    AccessSynicRegs: 1,
+                    AccessSyntheticTimerRegs: 1,
+                    AccessIntrCtrlRegs: 1,
+                    AccessHypercallRegs: 1,
+                    AccessVpIndex: 1,
+                    AccessPartitionReferenceTsc: 1,
+                    AccessGuestIdleReg: 1,
+                    AccessFrequencyRegs: 1,
+                    ReservedZ12: 1,
+                    ReservedZ13: 1,
+                    ReservedZ14: 1,
+                    EnableExtendedGvaRangesForFlushVirtualAddressList: 1,
+                    ReservedZ16: 1,
+                    ReservedZ17: 1,
+                    FastHypercallOutput: 1,
+                    ReservedZ19: 1,
+                    ReservedZ20: 1,
+                    ReservedZ21: 1,
+                    DirectSyntheticTimers: 1,
+                    ReservedZ23: 1,
+                    ExtendedProcessorMasks: 1,
+                    TbFlushHypercalls: 1,
+                    SyntheticClusterIpi: 1,
+                    NotifyLongSpinWait: 1,
+                    QueryNumaDistance: 1,
+                    SignalEvents: 1,
+                    RetargetDeviceInterrupt: 1,
+                    RestoreTime: 1,
+                    EnlightenedVmcs: 1,
+                    NestedDebugCtl: 1,
+                    SyntheticTimeUnhaltedTimer: 1,
+                    IdleSpecCtrl: 1,
+                    ReservedZ36: 1,
+                    WakeVps: 1,
+                    AccessVpRegs: 1,
+                    ReservedZ39: 1,
+                    ReservedZ40: 1,
+                    ReservedZ41: 1,
+                    ReservedZ42: 1,
+                    ReservedZ43: 1,
+                    ReservedZ44: 1,
+                    ReservedZ45: 1,
+                    ReservedZ46: 1,
+                    Reserved: 17,
+                },
             },
             AsUINT64: u64,
         }
@@ -2180,17 +2207,18 @@ mod Windows {
         #[arch(X64 | Arm64)]
         union WHV_TRANSLATE_GVA_2_FLAGS {
             Anonymous: struct {
-                #[bitfield("ValidateRead", 0, 1)]
-                #[bitfield("ValidateWrite", 1, 1)]
-                #[bitfield("ValidateExecute", 2, 1)]
-                #[bitfield("PrivilegeExempt", 3, 1)]
-                #[bitfield("SetPageTableBits", 4, 1)]
-                #[bitfield("Reserved1", 5, 3)]
-                #[bitfield("EnforceSmap", 8, 1)]
-                #[bitfield("OverrideSmap", 9, 1)]
-                #[bitfield("Reserved4", 10, 46)]
-                #[bitfield("InputVtl", 56, 8)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    ValidateRead: 1,
+                    ValidateWrite: 1,
+                    ValidateExecute: 1,
+                    PrivilegeExempt: 1,
+                    SetPageTableBits: 1,
+                    Reserved1: 3,
+                    EnforceSmap: 1,
+                    OverrideSmap: 1,
+                    Reserved4: 46,
+                    InputVtl: 8,
+                },
             },
             AsUINT64: u64,
         }
@@ -2430,10 +2458,11 @@ mod Windows {
         #[arch(X64)]
         union WHV_VP_EXCEPTION_INFO {
             Anonymous: struct {
-                #[bitfield("ErrorCodeValid", 0, 1)]
-                #[bitfield("SoftwareException", 1, 1)]
-                #[bitfield("Reserved", 2, 30)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    ErrorCodeValid: 1,
+                    SoftwareException: 1,
+                    Reserved: 30,
+                },
             },
             AsUINT32: u32,
         }
@@ -2441,21 +2470,23 @@ mod Windows {
         union WHV_VP_EXECUTION_STATE {
             AsUINT16: u16,
             Anonymous: struct {
-                #[bitfield("Cpl", 0, 2)]
-                #[bitfield("DebugActive", 2, 1)]
-                #[bitfield("InterruptionPending", 3, 1)]
-                #[bitfield("Vtl", 4, 4)]
-                #[bitfield("VirtualizationFaultActive", 8, 1)]
-                #[bitfield("Reserved", 9, 7)]
-                _bitfield: u16,
+                _bitfield: u16 {
+                    Cpl: 2,
+                    DebugActive: 1,
+                    InterruptionPending: 1,
+                    Vtl: 4,
+                    VirtualizationFaultActive: 1,
+                    Reserved: 7,
+                },
             },
         }
         #[arch(X64)]
         struct WHV_VP_EXIT_CONTEXT {
             ExecutionState: WHV_X64_VP_EXECUTION_STATE,
-            #[bitfield("InstructionLength", 0, 4)]
-            #[bitfield("Cr8", 4, 4)]
-            _bitfield: u8,
+            _bitfield: u8 {
+                InstructionLength: 4,
+                Cr8: 4,
+            },
             Reserved: u8,
             Reserved2: u32,
             Cs: WHV_X64_SEGMENT_REGISTER,
@@ -2539,12 +2570,13 @@ mod Windows {
         #[arch(X64 | Arm64)]
         union WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
             Anonymous: struct {
-                #[bitfield("NmiNotification", 0, 1)]
-                #[bitfield("InterruptNotification", 1, 1)]
-                #[bitfield("InterruptPriority", 2, 4)]
-                #[bitfield("Reserved", 6, 42)]
-                #[bitfield("Sint", 48, 16)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    NmiNotification: 1,
+                    InterruptNotification: 1,
+                    InterruptPriority: 4,
+                    Reserved: 42,
+                    Sint: 16,
+                },
             },
             AsUINT64: u64,
         }
@@ -2571,10 +2603,11 @@ mod Windows {
         union WHV_X64_FP_REGISTER {
             Anonymous: struct {
                 Mantissa: u64,
-                #[bitfield("BiasedExponent", 0, 15)]
-                #[bitfield("Sign", 15, 1)]
-                #[bitfield("Reserved", 16, 48)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    BiasedExponent: 15,
+                    Sign: 1,
+                    Reserved: 48,
+                },
             },
             AsUINT128: WHV_UINT128,
         }
@@ -2587,10 +2620,11 @@ mod Windows {
         #[arch(X64)]
         union WHV_X64_INTERRUPT_STATE_REGISTER {
             Anonymous: struct {
-                #[bitfield("InterruptShadow", 0, 1)]
-                #[bitfield("NmiMasked", 1, 1)]
-                #[bitfield("Reserved", 2, 62)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    InterruptShadow: 1,
+                    NmiMasked: 1,
+                    Reserved: 62,
+                },
             },
             AsUINT64: u64,
         }
@@ -2612,12 +2646,13 @@ mod Windows {
         #[arch(X64)]
         union WHV_X64_IO_PORT_ACCESS_INFO {
             Anonymous: struct {
-                #[bitfield("IsWrite", 0, 1)]
-                #[bitfield("AccessSize", 1, 3)]
-                #[bitfield("StringOp", 4, 1)]
-                #[bitfield("RepPrefix", 5, 1)]
-                #[bitfield("Reserved", 6, 26)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    IsWrite: 1,
+                    AccessSize: 3,
+                    StringOp: 1,
+                    RepPrefix: 1,
+                    Reserved: 26,
+                },
             },
             AsUINT32: u32,
         }
@@ -2638,9 +2673,10 @@ mod Windows {
         #[arch(X64)]
         union WHV_X64_MSR_ACCESS_INFO {
             Anonymous: struct {
-                #[bitfield("IsWrite", 0, 1)]
-                #[bitfield("Reserved", 1, 31)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    IsWrite: 1,
+                    Reserved: 31,
+                },
             },
             AsUINT32: u32,
         }
@@ -2648,24 +2684,26 @@ mod Windows {
         union WHV_X64_MSR_EXIT_BITMAP {
             AsUINT64: u64,
             Anonymous: struct {
-                #[bitfield("UnhandledMsrs", 0, 1)]
-                #[bitfield("TscMsrWrite", 1, 1)]
-                #[bitfield("TscMsrRead", 2, 1)]
-                #[bitfield("ApicBaseMsrWrite", 3, 1)]
-                #[bitfield("MiscEnableMsrRead", 4, 1)]
-                #[bitfield("McUpdatePatchLevelMsrRead", 5, 1)]
-                #[bitfield("Reserved", 6, 58)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    UnhandledMsrs: 1,
+                    TscMsrWrite: 1,
+                    TscMsrRead: 1,
+                    ApicBaseMsrWrite: 1,
+                    MiscEnableMsrRead: 1,
+                    McUpdatePatchLevelMsrRead: 1,
+                    Reserved: 58,
+                },
             },
         }
         #[arch(X64)]
         union WHV_X64_NESTED_GUEST_STATE {
             Anonymous: struct {
-                #[bitfield("NestedVirtActive", 0, 1)]
-                #[bitfield("NestedGuestMode", 1, 1)]
-                #[bitfield("VmEntryPending", 2, 1)]
-                #[bitfield("Reserved0", 3, 61)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    NestedVirtActive: 1,
+                    NestedGuestMode: 1,
+                    VmEntryPending: 1,
+                    Reserved0: 61,
+                },
                 Reserved1: u64,
             },
             AsUINT128: WHV_UINT128,
@@ -2698,13 +2736,14 @@ mod Windows {
         union WHV_X64_PENDING_DEBUG_EXCEPTION {
             AsUINT64: u64,
             Anonymous: struct {
-                #[bitfield("Breakpoint0", 0, 1)]
-                #[bitfield("Breakpoint1", 1, 1)]
-                #[bitfield("Breakpoint2", 2, 1)]
-                #[bitfield("Breakpoint3", 3, 1)]
-                #[bitfield("SingleStep", 4, 1)]
-                #[bitfield("Reserved0", 5, 59)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    Breakpoint0: 1,
+                    Breakpoint1: 1,
+                    Breakpoint2: 1,
+                    Breakpoint3: 1,
+                    SingleStep: 1,
+                    Reserved0: 59,
+                },
             },
         }
         #[repr(i32)]
@@ -2718,13 +2757,14 @@ mod Windows {
         #[arch(X64)]
         union WHV_X64_PENDING_EXCEPTION_EVENT {
             Anonymous: struct {
-                #[bitfield("EventPending", 0, 1)]
-                #[bitfield("EventType", 1, 3)]
-                #[bitfield("Reserved0", 4, 4)]
-                #[bitfield("DeliverErrorCode", 8, 1)]
-                #[bitfield("Reserved1", 9, 7)]
-                #[bitfield("Vector", 16, 16)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    EventPending: 1,
+                    EventType: 3,
+                    Reserved0: 4,
+                    DeliverErrorCode: 1,
+                    Reserved1: 7,
+                    Vector: 16,
+                },
                 ErrorCode: u32,
                 ExceptionParameter: u64,
             },
@@ -2733,12 +2773,13 @@ mod Windows {
         #[arch(X64)]
         union WHV_X64_PENDING_EXT_INT_EVENT {
             Anonymous: struct {
-                #[bitfield("EventPending", 0, 1)]
-                #[bitfield("EventType", 1, 3)]
-                #[bitfield("Reserved0", 4, 4)]
-                #[bitfield("Vector", 8, 8)]
-                #[bitfield("Reserved1", 16, 48)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    EventPending: 1,
+                    EventType: 3,
+                    Reserved0: 4,
+                    Vector: 8,
+                    Reserved1: 48,
+                },
                 Reserved2: u64,
             },
             AsUINT128: WHV_UINT128,
@@ -2746,14 +2787,15 @@ mod Windows {
         #[arch(X64)]
         union WHV_X64_PENDING_INTERRUPTION_REGISTER {
             Anonymous: struct {
-                #[bitfield("InterruptionPending", 0, 1)]
-                #[bitfield("InterruptionType", 1, 3)]
-                #[bitfield("DeliverErrorCode", 4, 1)]
-                #[bitfield("InstructionLength", 5, 4)]
-                #[bitfield("NestedEvent", 9, 1)]
-                #[bitfield("Reserved", 10, 6)]
-                #[bitfield("InterruptionVector", 16, 16)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    InterruptionPending: 1,
+                    InterruptionType: 3,
+                    DeliverErrorCode: 1,
+                    InstructionLength: 4,
+                    NestedEvent: 1,
+                    Reserved: 6,
+                    InterruptionVector: 16,
+                },
                 ErrorCode: u32,
             },
             AsUINT64: u64,
@@ -2768,12 +2810,13 @@ mod Windows {
         #[arch(X64)]
         union WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0 {
             Anonymous: struct {
-                #[bitfield("EventPending", 0, 1)]
-                #[bitfield("EventType", 1, 4)]
-                #[bitfield("Reserved0", 5, 3)]
-                #[bitfield("InstructionBytesValid", 8, 1)]
-                #[bitfield("Reserved1", 9, 55)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    EventPending: 1,
+                    EventType: 4,
+                    Reserved0: 3,
+                    InstructionBytesValid: 1,
+                    Reserved1: 55,
+                },
                 ExitCode: u64,
             },
             AsUINT128: WHV_UINT128,
@@ -2806,10 +2849,11 @@ mod Windows {
         #[arch(X64)]
         union WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0 {
             Anonymous: struct {
-                #[bitfield("EventPending", 0, 1)]
-                #[bitfield("EventType", 1, 4)]
-                #[bitfield("Reserved0", 5, 27)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    EventPending: 1,
+                    EventType: 4,
+                    Reserved0: 27,
+                },
                 ExitReason: u32,
                 ExitQualification: u64,
             },
@@ -2855,9 +2899,10 @@ mod Windows {
         #[arch(X64)]
         union WHV_X64_RDTSC_INFO {
             Anonymous: struct {
-                #[bitfield("IsRdtscp", 0, 1)]
-                #[bitfield("Reserved", 1, 63)]
-                _bitfield: u64,
+                _bitfield: u64 {
+                    IsRdtscp: 1,
+                    Reserved: 63,
+                },
             },
             AsUINT64: u64,
         }
@@ -2868,16 +2913,17 @@ mod Windows {
             Selector: u16,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("SegmentType", 0, 4)]
-                    #[bitfield("NonSystemSegment", 4, 1)]
-                    #[bitfield("DescriptorPrivilegeLevel", 5, 2)]
-                    #[bitfield("Present", 7, 1)]
-                    #[bitfield("Reserved", 8, 4)]
-                    #[bitfield("Available", 12, 1)]
-                    #[bitfield("Long", 13, 1)]
-                    #[bitfield("Default", 14, 1)]
-                    #[bitfield("Granularity", 15, 1)]
-                    _bitfield: u16,
+                    _bitfield: u16 {
+                        SegmentType: 4,
+                        NonSystemSegment: 1,
+                        DescriptorPrivilegeLevel: 2,
+                        Present: 1,
+                        Reserved: 4,
+                        Available: 1,
+                        Long: 1,
+                        Default: 1,
+                        Granularity: 1,
+                    },
                 },
                 Attributes: u16,
             },
@@ -2887,12 +2933,13 @@ mod Windows {
         struct WHV_X64_SVM_NESTED_STATE {
             Vendor: WHV_NESTED_STATE_TYPE,
             Flags: struct {
-                #[bitfield("GuestMode", 0, 1)]
-                #[bitfield("VmEntryPending", 1, 1)]
-                #[bitfield("HostSaveGpaValid", 2, 1)]
-                #[bitfield("CurrentVmcbValid", 3, 1)]
-                #[bitfield("Reserved", 4, 28)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    GuestMode: 1,
+                    VmEntryPending: 1,
+                    HostSaveGpaValid: 1,
+                    CurrentVmcbValid: 1,
+                    Reserved: 28,
+                },
             },
             NestedEnlightenmentsControl: WHV_NESTED_ENLIGHTENMENTS_CONTROL,
             HostSaveGpa: u64,
@@ -2926,14 +2973,15 @@ mod Windows {
         struct WHV_X64_VMX_NESTED_STATE {
             Vendor: WHV_NESTED_STATE_TYPE,
             Flags: struct {
-                #[bitfield("GuestMode", 0, 1)]
-                #[bitfield("Vmxon", 1, 1)]
-                #[bitfield("CurrentVmcsValid", 2, 1)]
-                #[bitfield("VmEntryPending", 3, 1)]
-                #[bitfield("VmcsEnlightened", 4, 1)]
-                #[bitfield("EnlightenedVmEntry", 5, 1)]
-                #[bitfield("Reserved", 6, 26)]
-                _bitfield: u32,
+                _bitfield: u32 {
+                    GuestMode: 1,
+                    Vmxon: 1,
+                    CurrentVmcsValid: 1,
+                    VmEntryPending: 1,
+                    VmcsEnlightened: 1,
+                    EnlightenedVmEntry: 1,
+                    Reserved: 26,
+                },
             },
             NestedEnlightenmentsControl: WHV_NESTED_ENLIGHTENMENTS_CONTROL,
             Pdpt: [u64; 4],
@@ -2954,16 +3002,17 @@ mod Windows {
         #[arch(X64)]
         union WHV_X64_VP_EXECUTION_STATE {
             Anonymous: struct {
-                #[bitfield("Cpl", 0, 2)]
-                #[bitfield("Cr0Pe", 2, 1)]
-                #[bitfield("Cr0Am", 3, 1)]
-                #[bitfield("EferLma", 4, 1)]
-                #[bitfield("DebugActive", 5, 1)]
-                #[bitfield("InterruptionPending", 6, 1)]
-                #[bitfield("Reserved0", 7, 5)]
-                #[bitfield("InterruptShadow", 12, 1)]
-                #[bitfield("Reserved1", 13, 3)]
-                _bitfield: u16,
+                _bitfield: u16 {
+                    Cpl: 2,
+                    Cr0Pe: 1,
+                    Cr0Am: 1,
+                    EferLma: 1,
+                    DebugActive: 1,
+                    InterruptionPending: 1,
+                    Reserved0: 5,
+                    InterruptShadow: 1,
+                    Reserved1: 3,
+                },
             },
             AsUINT16: u16,
         }

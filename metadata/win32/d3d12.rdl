@@ -2405,12 +2405,14 @@ mod Windows {
         }
         struct D3D12_RAYTRACING_INSTANCE_DESC {
             Transform: [[f32; 4]; 3],
-            #[bitfield("InstanceID", 0, 24)]
-            #[bitfield("InstanceMask", 24, 8)]
-            _bitfield1: u32,
-            #[bitfield("InstanceContributionToHitGroupIndex", 0, 24)]
-            #[bitfield("Flags", 24, 8)]
-            _bitfield2: u32,
+            _bitfield1: u32 {
+                InstanceID: 24,
+                InstanceMask: 8,
+            },
+            _bitfield2: u32 {
+                InstanceContributionToHitGroupIndex: 24,
+                Flags: 8,
+            },
             AccelerationStructure: D3D12_GPU_VIRTUAL_ADDRESS,
         }
         const D3D12_RAYTRACING_INSTANCE_DESCS_BYTE_ALIGNMENT: u32 = 16;
@@ -2456,9 +2458,10 @@ mod Windows {
         }
         struct D3D12_RAYTRACING_OPACITY_MICROMAP_DESC {
             ByteOffset: u32,
-            #[bitfield("SubdivisionLevel", 0, 16)]
-            #[bitfield("Format", 16, 16)]
-            _bitfield: u32,
+            _bitfield: u32 {
+                SubdivisionLevel: 16,
+                Format: 16,
+            },
         }
         #[repr(i32)]
         enum D3D12_RAYTRACING_OPACITY_MICROMAP_FORMAT {

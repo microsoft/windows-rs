@@ -369,18 +369,31 @@ impl Struct {
             .iter()
             .map(|field| {
                 let name = write_ident(&field.name);
-                let bitfields = field.bitfields.iter().map(|(member, offset, width)| {
-                    let member = Literal::string(member);
-                    let offset = Literal::u32_unsuffixed(*offset);
-                    let width = Literal::u32_unsuffixed(*width);
-                    quote! { #[bitfield(#member, #offset, #width)] }
-                });
+                // A backing bit-field unit renders as a concise C-like block on the
+                // field (`_bitfield: u8 { a: 1, b: 2 }`). Offsets are implicit, so any
+                // gap between coalesced members becomes anonymous padding (`_: n`).
+                if !field.bitfields.is_empty() {
+                    let ty = write_type(namespace, &field.ty);
+                    let mut members = vec![];
+                    let mut cursor = 0u32;
+                    for (member, offset, width) in &field.bitfields {
+                        if *offset > cursor {
+                            let pad = Literal::u32_unsuffixed(offset - cursor);
+                            members.push(quote! { _: #pad, });
+                        }
+                        let member = write_ident(member);
+                        let width_lit = Literal::u32_unsuffixed(*width);
+                        members.push(quote! { #member: #width_lit, });
+                        cursor = offset + width;
+                    }
+                    return quote! { #name: #ty { #(#members)* }, };
+                }
                 if let Some(nested) = &field.nested {
                     let inner = nested.write_inline(namespace);
-                    quote! { #(#bitfields)* #name: #inner, }
+                    quote! { #name: #inner, }
                 } else {
                     let ty = write_type(namespace, &field.ty);
-                    quote! { #(#bitfields)* #name: #ty, }
+                    quote! { #name: #ty, }
                 }
             })
             .collect()

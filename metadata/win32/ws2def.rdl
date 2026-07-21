@@ -460,9 +460,10 @@ mod Windows {
         struct SCOPE_ID {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("Zone", 0, 28)]
-                    #[bitfield("Level", 28, 4)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Zone: 28,
+                        Level: 4,
+                    },
                 },
                 Value: u32,
             },

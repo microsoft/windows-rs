@@ -599,8 +599,8 @@ Missing vs Win2D's XAML controls:
 
 #### Gaps validated by a real consumer
 
-The priorities above are cross-checked against a real port — a Task Manager–style
-WinUI 3 app built on `windows-reactor` — which is currently forced to hand-roll
+The priorities above are cross-checked against a real port — a data-dense WinUI 3
+desktop app built on `windows-reactor` — which is currently forced to hand-roll
 Direct2D against the raw `windows` crate in two subsystems rather than using
 `windows-canvas`. Each piece it hand-rolls maps to a numbered gap above; listing them
 here records the concrete blocker (and the exact API a consumer needs) so the

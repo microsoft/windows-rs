@@ -620,12 +620,13 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("advancedColorSupported", 0, 1)]
-                    #[bitfield("advancedColorEnabled", 1, 1)]
-                    #[bitfield("wideColorEnforced", 2, 1)]
-                    #[bitfield("advancedColorForceDisabled", 3, 1)]
-                    #[bitfield("reserved", 4, 28)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        advancedColorSupported: 1,
+                        advancedColorEnabled: 1,
+                        wideColorEnforced: 1,
+                        advancedColorForceDisabled: 1,
+                        reserved: 28,
+                    },
                 },
                 value: u32,
             },
@@ -636,16 +637,17 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("advancedColorSupported", 0, 1)]
-                    #[bitfield("advancedColorActive", 1, 1)]
-                    #[bitfield("reserved1", 2, 1)]
-                    #[bitfield("advancedColorLimitedByPolicy", 3, 1)]
-                    #[bitfield("highDynamicRangeSupported", 4, 1)]
-                    #[bitfield("highDynamicRangeUserEnabled", 5, 1)]
-                    #[bitfield("wideColorSupported", 6, 1)]
-                    #[bitfield("wideColorUserEnabled", 7, 1)]
-                    #[bitfield("reserved", 8, 24)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        advancedColorSupported: 1,
+                        advancedColorActive: 1,
+                        reserved1: 1,
+                        advancedColorLimitedByPolicy: 1,
+                        highDynamicRangeSupported: 1,
+                        highDynamicRangeUserEnabled: 1,
+                        wideColorSupported: 1,
+                        wideColorUserEnabled: 1,
+                        reserved: 24,
+                    },
                 },
                 value: u32,
             },
@@ -657,11 +659,12 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("isSpecializationEnabled", 0, 1)]
-                    #[bitfield("isSpecializationAvailableForMonitor", 1, 1)]
-                    #[bitfield("isSpecializationAvailableForSystem", 2, 1)]
-                    #[bitfield("reserved", 3, 29)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        isSpecializationEnabled: 1,
+                        isSpecializationAvailableForMonitor: 1,
+                        isSpecializationAvailableForSystem: 1,
+                        reserved: 29,
+                    },
                 },
                 value: u32,
             },
@@ -701,9 +704,10 @@ mod Windows {
             Anonymous: union {
                 modeInfoIdx: u32,
                 Anonymous: struct {
-                    #[bitfield("cloneGroupId", 0, 16)]
-                    #[bitfield("sourceModeInfoIdx", 16, 16)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        cloneGroupId: 16,
+                        sourceModeInfoIdx: 16,
+                    },
                 },
             },
             statusFlags: u32,
@@ -716,9 +720,10 @@ mod Windows {
             Anonymous: union {
                 modeInfoIdx: u32,
                 Anonymous: struct {
-                    #[bitfield("desktopModeInfoIdx", 0, 16)]
-                    #[bitfield("targetModeInfoIdx", 16, 16)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        desktopModeInfoIdx: 16,
+                        targetModeInfoIdx: 16,
+                    },
                 },
             },
             outputTechnology: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY,
@@ -779,9 +784,10 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("enableAdvancedColor", 0, 1)]
-                    #[bitfield("reserved", 1, 31)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        enableAdvancedColor: 1,
+                        reserved: 31,
+                    },
                 },
                 value: u32,
             },
@@ -790,9 +796,10 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("enableHdr", 0, 1)]
-                    #[bitfield("reserved", 1, 31)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        enableHdr: 1,
+                        reserved: 31,
+                    },
                 },
                 value: u32,
             },
@@ -801,9 +808,10 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("isSpecializationEnabled", 0, 1)]
-                    #[bitfield("reserved", 1, 31)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        isSpecializationEnabled: 1,
+                        reserved: 31,
+                    },
                 },
                 value: u32,
             },
@@ -815,9 +823,10 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("bootPersistenceOn", 0, 1)]
-                    #[bitfield("reserved", 1, 31)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        bootPersistenceOn: 1,
+                        reserved: 31,
+                    },
                 },
                 value: u32,
             },
@@ -826,9 +835,10 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("enableWcg", 0, 1)]
-                    #[bitfield("reserved", 1, 31)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        enableWcg: 1,
+                        reserved: 31,
+                    },
                 },
                 value: u32,
             },
@@ -848,9 +858,10 @@ mod Windows {
             header: DISPLAYCONFIG_DEVICE_INFO_HEADER,
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("disableMonitorVirtualResolution", 0, 1)]
-                    #[bitfield("reserved", 1, 31)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        disableMonitorVirtualResolution: 1,
+                        reserved: 31,
+                    },
                 },
                 value: u32,
             },
@@ -872,11 +883,12 @@ mod Windows {
         struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    #[bitfield("friendlyNameFromEdid", 0, 1)]
-                    #[bitfield("friendlyNameForced", 1, 1)]
-                    #[bitfield("edidIdsValid", 2, 1)]
-                    #[bitfield("reserved", 3, 29)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        friendlyNameFromEdid: 1,
+                        friendlyNameForced: 1,
+                        edidIdsValid: 1,
+                        reserved: 29,
+                    },
                 },
                 value: u32,
             },
@@ -936,10 +948,11 @@ mod Windows {
             totalSize: DISPLAYCONFIG_2DREGION,
             Anonymous: union {
                 AdditionalSignalInfo: struct {
-                    #[bitfield("videoStandard", 0, 16)]
-                    #[bitfield("vSyncFreqDivider", 16, 6)]
-                    #[bitfield("reserved", 22, 10)]
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        videoStandard: 16,
+                        vSyncFreqDivider: 6,
+                        reserved: 10,
+                    },
                 },
                 videoStandard: u32,
             },
