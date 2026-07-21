@@ -1,38 +1,70 @@
 #[win32]
 mod Test {
     struct Flags16 {
-        _bitfield1: u8,
-        _bitfield2: u8,
+        _bitfield1: u8 {
+            low: 8,
+        },
+        _bitfield2: u8 {
+            high: 8,
+        },
     }
     struct Flags8 {
-        _bitfield: u8,
+        _bitfield: u8 {
+            a: 1,
+            b: 2,
+            c: 5,
+        },
     }
     struct Mixed {
-        _bitfield1: u32,
+        _bitfield1: u32 {
+            first: 4,
+        },
         tag: u32,
-        _bitfield2: u32,
+        _bitfield2: u32 {
+            second: 4,
+        },
     }
     union Overlap {
-        _bitfield: u8,
+        _bitfield: u8 {
+            flags_a: 1,
+            flags_b: 2,
+        },
         whole: u64,
     }
     #[packed(1)]
     struct PackedBits {
-        _bitfield: u16,
+        _bitfield: u16 {
+            a: 3,
+        },
         tail: u8,
     }
     struct Padding {
-        _bitfield: u32,
+        _bitfield: u32 {
+            a: 4,
+            _: 4,
+            b: 8,
+        },
     }
     struct Signed {
-        _bitfield: i32,
+        _bitfield: i32 {
+            x: 4,
+            y: 4,
+        },
     }
     struct Widths {
-        _bitfield1: u8,
-        _bitfield2: u32,
+        _bitfield1: u8 {
+            small: 4,
+        },
+        _bitfield2: u32 {
+            large: 4,
+        },
     }
     struct ZeroWidth {
-        _bitfield1: u32,
-        _bitfield2: u32,
+        _bitfield1: u32 {
+            a: 4,
+        },
+        _bitfield2: u32 {
+            b: 4,
+        },
     }
 }

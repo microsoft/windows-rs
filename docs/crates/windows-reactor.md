@@ -1078,6 +1078,29 @@ Missing: a gesture-recognition and drag-and-drop layer (the C# `Reconciler.Gestu
 - **Feature modules** — Markdown rendering, charting, and docking are whole
   optional subsystems in the C# project with no Rust equivalent yet.
 
+#### 11. Public test backend *(medium)*
+
+Present: the crate exposes the `Backend` trait (`backend/mod.rs`) that the reconciler
+drives, and a `test` Cargo feature. A recording backend that captures the reconciler's
+output as an inspectable list of operations — `RecordingBackend` plus an `Op` enum —
+already exists and is exercised in-tree, but it lives in the **internal** `test_reactor`
+crate (`crates/tests/libs/reactor/src/lib.rs`), not in the published `windows-reactor`.
+
+External consumers who want to unit-test their reactor components headlessly (assert
+"this state change produced these control mutations", à la React's
+`react-test-renderer`) therefore have to reimplement a recording `Backend` from scratch —
+a real consumer hand-rolls exactly that. This is a **library** capability, not just an
+in-tree testing convenience: the whole point of the `Backend` trait being public is to
+let consumers drive the reconciler without a live WinUI runtime, and a canonical test
+double completes that story.
+
+The work is to promote `RecordingBackend` + `Op` into the `windows-reactor` crate behind
+the existing `test` feature (matching `RenderCx::for_test`, which is already
+`#[cfg(feature = "test")]`), keeping them out of default builds. The current in-tree copy
+becomes a re-export. While doing so, fix the **stale doc comment** on the `Backend` trait
+(`backend/mod.rs`: "Implemented by `RecordingBackend` for tests") — it references a type
+that does not exist in the crate today, which will become true once the type is promoted.
+
 #### Suggested sequencing
 
 The hook breadth (§1) is the highest-leverage area and decomposes into many small,

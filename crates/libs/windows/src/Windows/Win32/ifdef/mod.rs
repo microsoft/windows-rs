@@ -178,6 +178,26 @@ impl Default for NET_LUID_LH {
 pub struct NET_LUID_LH_0 {
     pub _bitfield: u64,
 }
+impl NET_LUID_LH_0 {
+    pub fn Reserved(&self) -> u64 {
+        (self._bitfield << 40) >> 40
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !16777215) | (value & 16777215);
+    }
+    pub fn NetLuidIndex(&self) -> u64 {
+        (self._bitfield << 16) >> 40
+    }
+    pub fn set_NetLuidIndex(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(16777215 << 24)) | ((value & 16777215) << 24);
+    }
+    pub fn IfType(&self) -> u64 {
+        self._bitfield >> 48
+    }
+    pub fn set_IfType(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(65535 << 48)) | ((value & 65535) << 48);
+    }
+}
 pub type NET_PHYSICAL_LOCATION = NET_PHYSICAL_LOCATION_LH;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

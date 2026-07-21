@@ -244,7 +244,14 @@ mod Windows {
             FieldOffset: u32,
             BufferSize: u32,
             BitField: FIELD_INFO_1,
-            _bitfield: u32,
+            _bitfield: u32 {
+                fPointer: 2,
+                fArray: 1,
+                fStruct: 1,
+                fConstant: 1,
+                fStatic: 1,
+                Reserved: 26,
+            },
         }
         struct FIELD_INFO_1 {
             Position: u16,
@@ -387,7 +394,9 @@ mod Windows {
             ThCallbackStack: u16,
             NextCallback: u16,
             FramePointer: u16,
-            _bitfield: u16,
+            _bitfield: u16 {
+                PaeEnabled: 1,
+            },
             KiCallUserMode: u32,
             KeUserCallbackDispatcher: u32,
             PsLoadedModuleList: u32,
@@ -455,7 +464,11 @@ mod Windows {
             ThCallbackStack: u16,
             NextCallback: u16,
             FramePointer: u16,
-            _bitfield: u16,
+            _bitfield: u16 {
+                PaeEnabled: 1,
+                KiBugCheckRecoveryActive: 1,
+                PagingLevels: 4,
+            },
             KiCallUserMode: u64,
             KeUserCallbackDispatcher: u64,
             PsLoadedModuleList: u64,
@@ -819,7 +832,13 @@ mod Windows {
             TypeId: u32,
             TypeSize: u32,
             BufferSize: u32,
-            _bitfield: u32,
+            _bitfield: u32 {
+                fPointer: 2,
+                fArray: 1,
+                fStruct: 1,
+                fConstant: 1,
+                Reserved: 27,
+            },
         }
         struct TRANSLATE_VIRTUAL_TO_PHYSICAL {
             Virtual: u64,

@@ -2838,7 +2838,11 @@ mod Windows {
             rcBar: RECT,
             hMenu: HMENU,
             hwndMenu: HWND,
-            _bitfield: BOOL,
+            _bitfield: BOOL {
+                fBarFocused: 1,
+                fFocused: 1,
+                fUnused: 30,
+            },
         }
         struct MENUGETOBJECTINFO {
             dwFlags: u32,
@@ -4966,8 +4970,29 @@ mod Windows {
             versionNumber: u32,
             maxSupportedContacts: u32,
             legacyTouchpadFeatures: LEGACY_TOUCHPAD_FEATURES,
-            _bitfield1: BOOL,
-            _bitfield2: BOOL,
+            _bitfield1: BOOL {
+                touchpadPresent: 1,
+                legacyTouchpadPresent: 1,
+                externalMousePresent: 1,
+                touchpadEnabled: 1,
+                touchpadActive: 1,
+                feedbackSupported: 1,
+                clickForceSupported: 1,
+                Reserved1: 25,
+            },
+            _bitfield2: BOOL {
+                allowActiveWhenMousePresent: 1,
+                feedbackEnabled: 1,
+                tapEnabled: 1,
+                tapAndDragEnabled: 1,
+                twoFingerTapEnabled: 1,
+                rightClickZoneEnabled: 1,
+                mouseAccelSettingHonored: 1,
+                panEnabled: 1,
+                zoomEnabled: 1,
+                scrollDirectionReversed: 1,
+                Reserved2: 22,
+            },
             sensitivityLevel: TOUCHPAD_SENSITIVITY_LEVEL,
             cursorSpeed: u32,
             feedbackIntensity: u32,
@@ -4977,7 +5002,12 @@ mod Windows {
         }
         struct TOUCHPAD_PARAMETERS_V2 {
             Base: TOUCHPAD_PARAMETERS_V1,
-            _bitfield: BOOL,
+            _bitfield: BOOL {
+                button1Supported: 1,
+                button2Supported: 1,
+                button3Supported: 1,
+                Reserved3: 29,
+            },
         }
         const TOUCHPAD_PARAMETERS_VERSION_1: u32 = 1;
         const TOUCHPAD_PARAMETERS_VERSION_2: u32 = 2;

@@ -126,6 +126,57 @@ pub struct MCI_STATS_0 {
     pub MsCod: u16,
     pub _bitfield: u32,
 }
+#[cfg(target_arch = "x86")]
+impl MCI_STATS_0 {
+    pub fn OtherInfo(&self) -> u32 {
+        (self._bitfield << 7) >> 7
+    }
+    pub fn set_OtherInfo(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !33554431) | (value & 33554431);
+    }
+    pub fn Damage(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_Damage(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    }
+    pub fn AddressValid(&self) -> bool {
+        (self._bitfield >> 26) & 1 != 0
+    }
+    pub fn set_AddressValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u32) << 26);
+    }
+    pub fn MiscValid(&self) -> bool {
+        (self._bitfield >> 27) & 1 != 0
+    }
+    pub fn set_MiscValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u32) << 27);
+    }
+    pub fn Enabled(&self) -> bool {
+        (self._bitfield >> 28) & 1 != 0
+    }
+    pub fn set_Enabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u32) << 28);
+    }
+    pub fn UnCorrected(&self) -> bool {
+        (self._bitfield >> 29) & 1 != 0
+    }
+    pub fn set_UnCorrected(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u32) << 29);
+    }
+    pub fn OverFlow(&self) -> bool {
+        (self._bitfield >> 30) & 1 != 0
+    }
+    pub fn set_OverFlow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u32) << 30);
+    }
+    pub fn Valid(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_Valid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -146,6 +197,57 @@ pub struct MCI_STATS_0 {
     pub McaErrorCode: u16,
     pub ModelErrorCode: u16,
     pub _bitfield: u32,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl MCI_STATS_0 {
+    pub fn OtherInformation(&self) -> u32 {
+        (self._bitfield << 7) >> 7
+    }
+    pub fn set_OtherInformation(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !33554431) | (value & 33554431);
+    }
+    pub fn ContextCorrupt(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_ContextCorrupt(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    }
+    pub fn AddressValid(&self) -> bool {
+        (self._bitfield >> 26) & 1 != 0
+    }
+    pub fn set_AddressValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u32) << 26);
+    }
+    pub fn MiscValid(&self) -> bool {
+        (self._bitfield >> 27) & 1 != 0
+    }
+    pub fn set_MiscValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u32) << 27);
+    }
+    pub fn ErrorEnabled(&self) -> bool {
+        (self._bitfield >> 28) & 1 != 0
+    }
+    pub fn set_ErrorEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u32) << 28);
+    }
+    pub fn UncorrectedError(&self) -> bool {
+        (self._bitfield >> 29) & 1 != 0
+    }
+    pub fn set_UncorrectedError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u32) << 29);
+    }
+    pub fn StatusOverFlow(&self) -> bool {
+        (self._bitfield >> 30) & 1 != 0
+    }
+    pub fn set_StatusOverFlow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u32) << 30);
+    }
+    pub fn Valid(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_Valid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 pub type PCMC_EXCEPTION = *mut MCA_EXCEPTION;

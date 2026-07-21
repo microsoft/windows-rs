@@ -52,6 +52,44 @@ pub struct DWRITE_CLUSTER_METRICS {
     pub length: u16,
     pub _bitfield: u16,
 }
+impl DWRITE_CLUSTER_METRICS {
+    pub fn canWrapLineAfter(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_canWrapLineAfter(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn isWhitespace(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_isWhitespace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn isNewline(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_isNewline(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn isSoftHyphen(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_isSoftHyphen(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn isRightToLeft(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_isRightToLeft(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn padding(&self) -> u16 {
+        self._bitfield >> 5
+    }
+    pub fn set_padding(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(2047 << 5)) | ((value & 2047) << 5);
+    }
+}
 pub const DWRITE_COLOR_COMPOSITE_CLEAR: DWRITE_COLOR_COMPOSITE_MODE = 0;
 pub const DWRITE_COLOR_COMPOSITE_COLOR_BURN: DWRITE_COLOR_COMPOSITE_MODE = 18;
 pub const DWRITE_COLOR_COMPOSITE_COLOR_DODGE: DWRITE_COLOR_COMPOSITE_MODE = 17;
@@ -505,10 +543,86 @@ pub struct DWRITE_JUSTIFICATION_OPPORTUNITY {
     pub compressionMaximum: f32,
     pub _bitfield: u32,
 }
+impl DWRITE_JUSTIFICATION_OPPORTUNITY {
+    pub fn expansionPriority(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_expansionPriority(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn compressionPriority(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_compressionPriority(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn allowResidualExpansion(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_allowResidualExpansion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn allowResidualCompression(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_allowResidualCompression(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u32) << 17);
+    }
+    pub fn applyToLeadingEdge(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_applyToLeadingEdge(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u32) << 18);
+    }
+    pub fn applyToTrailingEdge(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_applyToTrailingEdge(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 20
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(4095 << 20)) | ((value & 4095) << 20);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_LINE_BREAKPOINT {
     pub _bitfield: u8,
+}
+impl DWRITE_LINE_BREAKPOINT {
+    pub fn breakConditionBefore(&self) -> u8 {
+        (self._bitfield << 6) >> 6
+    }
+    pub fn set_breakConditionBefore(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn breakConditionAfter(&self) -> u8 {
+        (self._bitfield << 4) >> 6
+    }
+    pub fn set_breakConditionAfter(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn isWhitespace(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_isWhitespace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn isSoftHyphen(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_isSoftHyphen(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn padding(&self) -> u8 {
+        self._bitfield >> 6
+    }
+    pub fn set_padding(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -1131,6 +1245,56 @@ pub struct DWRITE_SCRIPT_PROPERTIES {
     pub justificationCharacter: u32,
     pub _bitfield: u32,
 }
+impl DWRITE_SCRIPT_PROPERTIES {
+    pub fn restrictCaretToClusters(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_restrictCaretToClusters(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn usesWordDividers(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_usesWordDividers(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn isDiscreteWriting(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_isDiscreteWriting(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn isBlockWriting(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_isBlockWriting(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn isDistributedWithinCluster(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_isDistributedWithinCluster(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn isConnectedWriting(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_isConnectedWriting(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn isCursiveWriting(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_isCursiveWriting(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 7
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(33554431 << 7)) | ((value & 33554431) << 7);
+    }
+}
 pub type DWRITE_SCRIPT_SHAPES = u32;
 pub const DWRITE_SCRIPT_SHAPES_DEFAULT: DWRITE_SCRIPT_SHAPES = 0;
 pub const DWRITE_SCRIPT_SHAPES_NO_VISUAL: DWRITE_SCRIPT_SHAPES = 1;
@@ -1139,10 +1303,68 @@ pub const DWRITE_SCRIPT_SHAPES_NO_VISUAL: DWRITE_SCRIPT_SHAPES = 1;
 pub struct DWRITE_SHAPING_GLYPH_PROPERTIES {
     pub _bitfield: u16,
 }
+impl DWRITE_SHAPING_GLYPH_PROPERTIES {
+    pub fn justification(&self) -> u16 {
+        (self._bitfield << 12) >> 12
+    }
+    pub fn set_justification(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn isClusterStart(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_isClusterStart(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn isDiacritic(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_isDiacritic(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn isZeroWidthSpace(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_isZeroWidthSpace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn reserved(&self) -> u16 {
+        self._bitfield >> 7
+    }
+    pub fn set_reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(511 << 7)) | ((value & 511) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DWRITE_SHAPING_TEXT_PROPERTIES {
     pub _bitfield: u16,
+}
+impl DWRITE_SHAPING_TEXT_PROPERTIES {
+    pub fn isShapedAlone(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_isShapedAlone(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn reserved1(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn canBreakShapingAfter(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_canBreakShapingAfter(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn reserved(&self) -> u16 {
+        self._bitfield >> 3
+    }
+    pub fn set_reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
+    }
 }
 pub const DWRITE_STANDARD_FONT_AXIS_COUNT: u32 = 5;
 #[repr(C)]

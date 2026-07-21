@@ -1376,6 +1376,21 @@ pub struct AMD_L2_CACHE_INFO_0 {
     pub _bitfield: u8,
     pub Size: u16,
 }
+#[cfg(target_arch = "x86")]
+impl AMD_L2_CACHE_INFO_0 {
+    pub fn LinesPerTag(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_LinesPerTag(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Associativity(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Associativity(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[derive(Clone, Copy)]
@@ -1397,6 +1412,33 @@ pub struct AMD_L3_CACHE_INFO_0 {
     pub _bitfield1: u8,
     pub _bitfield2: u16,
 }
+#[cfg(target_arch = "x86")]
+impl AMD_L3_CACHE_INFO_0 {
+    pub fn LinesPerTag(&self) -> u8 {
+        (self._bitfield1 << 4) >> 4
+    }
+    pub fn set_LinesPerTag(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !15) | (value & 15);
+    }
+    pub fn Associativity(&self) -> u8 {
+        self._bitfield1 >> 4
+    }
+    pub fn set_Associativity(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield2 << 14) >> 14
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield2 = (self._bitfield2 & !3) | (value & 3);
+    }
+    pub fn Size(&self) -> u16 {
+        self._bitfield2 >> 2
+    }
+    pub fn set_Size(&mut self, value: u16) {
+        self._bitfield2 = (self._bitfield2 & !(16383 << 2)) | ((value & 16383) << 2);
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -1417,11 +1459,89 @@ impl Default for ARM64_IDCODE {
 pub struct ARM64_IDCODE_0 {
     pub _bitfield: u64,
 }
+#[cfg(target_arch = "aarch64")]
+impl ARM64_IDCODE_0 {
+    pub fn MinorRevision(&self) -> u64 {
+        (self._bitfield << 60) >> 60
+    }
+    pub fn set_MinorRevision(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Model(&self) -> u64 {
+        (self._bitfield << 48) >> 52
+    }
+    pub fn set_Model(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4095 << 4)) | ((value & 4095) << 4);
+    }
+    pub fn Architecture(&self) -> u64 {
+        (self._bitfield << 44) >> 60
+    }
+    pub fn set_Architecture(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
+    }
+    pub fn Revision(&self) -> u64 {
+        (self._bitfield << 40) >> 60
+    }
+    pub fn set_Revision(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(15 << 20)) | ((value & 15) << 20);
+    }
+    pub fn Implementer(&self) -> u64 {
+        (self._bitfield << 32) >> 56
+    }
+    pub fn set_Implementer(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 32
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4294967295 << 32)) | ((value & 4294967295) << 32);
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ARM64_IDCODE_1 {
     pub _bitfield: u64,
+}
+#[cfg(target_arch = "aarch64")]
+impl ARM64_IDCODE_1 {
+    pub fn Revision(&self) -> u64 {
+        (self._bitfield << 60) >> 60
+    }
+    pub fn set_Revision(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn PartNum(&self) -> u64 {
+        (self._bitfield << 48) >> 52
+    }
+    pub fn set_PartNum(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4095 << 4)) | ((value & 4095) << 4);
+    }
+    pub fn Architecture(&self) -> u64 {
+        (self._bitfield << 44) >> 60
+    }
+    pub fn set_Architecture(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
+    }
+    pub fn Variant(&self) -> u64 {
+        (self._bitfield << 40) >> 60
+    }
+    pub fn set_Variant(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(15 << 20)) | ((value & 15) << 20);
+    }
+    pub fn Implementer(&self) -> u64 {
+        (self._bitfield << 32) >> 56
+    }
+    pub fn set_Implementer(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 32
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4294967295 << 32)) | ((value & 4294967295) << 32);
+    }
 }
 #[cfg(target_arch = "aarch64")]
 pub const ARM64_PCR_RESERVED_MASK: u32 = 4095;
@@ -1518,6 +1638,38 @@ impl Default for BUS_SPECIFIC_RESET_FLAGS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct BUS_SPECIFIC_RESET_FLAGS_0 {
     pub _bitfield: u64,
+}
+impl BUS_SPECIFIC_RESET_FLAGS_0 {
+    pub fn KeepStackReset(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_KeepStackReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn EnablePciHotPlugThroughPcr(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_EnablePciHotPlugThroughPcr(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn EnablePciDllsceThroughPcr(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_EnablePciDllsceThroughPcr(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn DisablePciLinkThroughPcr(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_DisablePciLinkThroughPcr(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(1152921504606846975 << 4)) | ((value & 1152921504606846975) << 4);
+    }
 }
 pub const BackgroundWorkQueue: WORK_QUEUE_TYPE = 4;
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
@@ -2614,10 +2766,86 @@ impl Default for DEVICE_BUS_SPECIFIC_RESET_TYPE {
 pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
     pub _bitfield: u64,
 }
+impl DEVICE_BUS_SPECIFIC_RESET_TYPE_0 {
+    pub fn FunctionLevelDeviceReset(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_FunctionLevelDeviceReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn PlatformLevelDeviceReset(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_PlatformLevelDeviceReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn SecondaryBusReset(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_SecondaryBusReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn PowerControllerReset(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_PowerControllerReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    }
+    pub fn NoOpReset(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_NoOpReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    }
+    pub fn FunctionLevelDeviceResetInPlace(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_FunctionLevelDeviceResetInPlace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    }
+    pub fn SecondaryBusResetInPlace(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_SecondaryBusResetInPlace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
+    }
+    pub fn PowerControllerResetInPlace(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_PowerControllerResetInPlace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 8
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(72057594037927935 << 8)) | ((value & 72057594037927935) << 8);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
     pub _bitfield: u64,
+}
+impl DEVICE_BUS_SPECIFIC_RESET_TYPE_1 {
+    pub fn FunctionLevelDeviceReset(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_FunctionLevelDeviceReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn PlatformLevelDeviceReset(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_PlatformLevelDeviceReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4611686018427387903 << 2)) | ((value & 4611686018427387903) << 2);
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -2634,6 +2862,153 @@ pub struct DEVICE_CAPABILITIES {
     pub D1Latency: u32,
     pub D2Latency: u32,
     pub D3Latency: u32,
+}
+#[cfg(feature = "winnt")]
+impl DEVICE_CAPABILITIES {
+    pub fn DeviceD1(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DeviceD1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn DeviceD2(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DeviceD2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn LockSupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_LockSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn EjectSupported(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_EjectSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Removable(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Removable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn DockDevice(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_DockDevice(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn UniqueID(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_UniqueID(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn SilentInstall(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_SilentInstall(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn RawDeviceOK(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_RawDeviceOK(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn SurpriseRemovalOK(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_SurpriseRemovalOK(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn WakeFromD0(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_WakeFromD0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn WakeFromD1(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_WakeFromD1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn WakeFromD2(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_WakeFromD2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn WakeFromD3(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_WakeFromD3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    }
+    pub fn HardwareDisabled(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_HardwareDisabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    }
+    pub fn NonDynamic(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_NonDynamic(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn WarmEjectSupported(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_WarmEjectSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn NoDisplayInUI(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_NoDisplayInUI(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u32) << 17);
+    }
+    pub fn Reserved1(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_Reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u32) << 18);
+    }
+    pub fn WakeFromInterrupt(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_WakeFromInterrupt(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn SecureDevice(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_SecureDevice(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn ChildOfVgaEnabledBridge(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_ChildOfVgaEnabledBridge(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn DecodeIoOnBoot(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_DecodeIoOnBoot(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 23
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(511 << 23)) | ((value & 511) << 23);
+    }
 }
 #[cfg(feature = "winnt")]
 impl Default for DEVICE_CAPABILITIES {
@@ -2689,6 +3064,50 @@ impl Default for DEVICE_FAULT_CONFIGURATION {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_FLAGS {
     pub _bitfield: u32,
+}
+impl DEVICE_FLAGS {
+    pub fn Failed(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Failed(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn ReadOnly(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ReadOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Removable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Removable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn ConsoleIn(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ConsoleIn(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn ConsoleOut(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_ConsoleOut(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn Input(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Input(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Output(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Output(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
 }
 pub type DEVICE_INSTALL_STATE = i32;
 #[repr(C)]
@@ -2867,6 +3286,26 @@ impl Default for DEVICE_RESET_STATUS_FLAGS {
 pub struct DEVICE_RESET_STATUS_FLAGS_0 {
     pub _bitfield: u64,
 }
+impl DEVICE_RESET_STATUS_FLAGS_0 {
+    pub fn KeepStackReset(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_KeepStackReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn RecoveringFromBusError(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_RecoveringFromBusError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4611686018427387903 << 2)) | ((value & 4611686018427387903) << 2);
+    }
+}
 pub type DEVICE_RESET_TYPE = i32;
 pub type DEVICE_TEXT_TYPE = i32;
 pub type DEVICE_USAGE_NOTIFICATION_TYPE = i32;
@@ -3006,6 +3445,28 @@ impl Default for DISPATCHER_HEADER_0_2_0 {
 pub struct DISPATCHER_HEADER_0_2_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl DISPATCHER_HEADER_0_2_0_0 {
+    pub fn Absolute(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Absolute(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Wake(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Wake(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn EncodedTolerableDelay(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_EncodedTolerableDelay(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
@@ -3027,6 +3488,28 @@ impl Default for DISPATCHER_HEADER_0_2_1 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_2_1_0 {
     pub _bitfield: u8,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl DISPATCHER_HEADER_0_2_1_0 {
+    pub fn Index(&self) -> u8 {
+        (self._bitfield << 2) >> 2
+    }
+    pub fn set_Index(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !63) | (value & 63);
+    }
+    pub fn Inserted(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Inserted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Expired(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Expired(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -3067,6 +3550,52 @@ impl Default for DISPATCHER_HEADER_0_3_0 {
 pub struct DISPATCHER_HEADER_0_3_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl DISPATCHER_HEADER_0_3_0_0 {
+    pub fn Timer2Inserted(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Timer2Inserted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Timer2Expiring(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Timer2Expiring(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Timer2CancelPending(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Timer2CancelPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Timer2SetPending(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Timer2SetPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Timer2Running(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Timer2Running(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Timer2Disabled(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Timer2Disabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn Timer2ReservedFlags(&self) -> u8 {
+        self._bitfield >> 6
+    }
+    pub fn set_Timer2ReservedFlags(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
@@ -3106,6 +3635,28 @@ impl Default for DISPATCHER_HEADER_0_4_0 {
 pub struct DISPATCHER_HEADER_0_4_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl DISPATCHER_HEADER_0_4_0_0 {
+    pub fn Abandoned(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Abandoned(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn DisableIncrement(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DisableIncrement(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn QueueReservedControlFlags(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_QueueReservedControlFlags(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "winnt")]
@@ -3144,6 +3695,58 @@ impl Default for DISPATCHER_HEADER_0_5_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_5_0_0 {
     pub _bitfield: u8,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "winnt")]
+impl DISPATCHER_HEADER_0_5_0_0 {
+    pub fn CycleProfiling(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CycleProfiling(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn CounterProfiling(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CounterProfiling(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn GroupScheduling(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_GroupScheduling(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn AffinitySet(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_AffinitySet(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Tagged(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Tagged(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn EnergyProfiling(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_EnergyProfiling(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn SchedulerAssist(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_SchedulerAssist(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Instrumented(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Instrumented(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]
@@ -3269,6 +3872,28 @@ impl Default for DISPATCHER_HEADER_0_2_0 {
 pub struct DISPATCHER_HEADER_0_2_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl DISPATCHER_HEADER_0_2_0_0 {
+    pub fn Absolute(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Absolute(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Wake(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Wake(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn EncodedTolerableDelay(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_EncodedTolerableDelay(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
@@ -3290,6 +3915,28 @@ impl Default for DISPATCHER_HEADER_0_2_1 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_2_1_0 {
     pub _bitfield: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl DISPATCHER_HEADER_0_2_1_0 {
+    pub fn Index(&self) -> u8 {
+        (self._bitfield << 2) >> 2
+    }
+    pub fn set_Index(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !63) | (value & 63);
+    }
+    pub fn Inserted(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Inserted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Expired(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Expired(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3330,6 +3977,52 @@ impl Default for DISPATCHER_HEADER_0_3_0 {
 pub struct DISPATCHER_HEADER_0_3_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl DISPATCHER_HEADER_0_3_0_0 {
+    pub fn Timer2Inserted(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Timer2Inserted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Timer2Expiring(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Timer2Expiring(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Timer2CancelPending(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Timer2CancelPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Timer2SetPending(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Timer2SetPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Timer2Running(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Timer2Running(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Timer2Disabled(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Timer2Disabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn Timer2ReservedFlags(&self) -> u8 {
+        self._bitfield >> 6
+    }
+    pub fn set_Timer2ReservedFlags(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
@@ -3369,6 +4062,28 @@ impl Default for DISPATCHER_HEADER_0_4_0 {
 pub struct DISPATCHER_HEADER_0_4_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl DISPATCHER_HEADER_0_4_0_0 {
+    pub fn Abandoned(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Abandoned(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn DisableIncrement(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DisableIncrement(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn QueueReservedControlFlags(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_QueueReservedControlFlags(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
@@ -3407,6 +4122,58 @@ impl Default for DISPATCHER_HEADER_0_5_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPATCHER_HEADER_0_5_0_0 {
     pub _bitfield: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "winnt")]
+impl DISPATCHER_HEADER_0_5_0_0 {
+    pub fn CycleProfiling(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CycleProfiling(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn CounterProfiling(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CounterProfiling(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn GroupScheduling(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_GroupScheduling(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn AffinitySet(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_AffinitySet(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Tagged(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Tagged(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn EnergyProfiling(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_EnergyProfiling(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn SchedulerAssist(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_SchedulerAssist(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn ThreadReservedControlFlags(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_ThreadReservedControlFlags(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -3579,10 +4346,62 @@ pub type DMA_COMPLETION_STATUS = i32;
 pub struct DMA_CONFIGURATION_BYTE0 {
     pub _bitfield: u8,
 }
+impl DMA_CONFIGURATION_BYTE0 {
+    pub fn Channel(&self) -> u8 {
+        (self._bitfield << 5) >> 5
+    }
+    pub fn set_Channel(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn Reserved(&self) -> u8 {
+        (self._bitfield << 2) >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 3)) | ((value & 7) << 3);
+    }
+    pub fn Shared(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Shared(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn MoreEntries(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_MoreEntries(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DMA_CONFIGURATION_BYTE1 {
     pub _bitfield: u8,
+}
+impl DMA_CONFIGURATION_BYTE1 {
+    pub fn Reserved0(&self) -> u8 {
+        (self._bitfield << 6) >> 6
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn TransferSize(&self) -> u8 {
+        (self._bitfield << 4) >> 6
+    }
+    pub fn set_TransferSize(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn Timing(&self) -> u8 {
+        (self._bitfield << 2) >> 6
+    }
+    pub fn set_Timing(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
 }
 pub const DMA_FAIL_ON_BOUNCE: u32 = 4;
 #[repr(C)]
@@ -3982,6 +4801,14 @@ impl Default for DRIVER_PROXY_EXTENSION_CREATION_FLAGS {
 pub struct DRIVER_PROXY_EXTENSION_CREATION_FLAGS_0 {
     pub _bitfield: u32,
 }
+impl DRIVER_PROXY_EXTENSION_CREATION_FLAGS_0 {
+    pub fn ReservedZero(&self) -> u32 {
+        self._bitfield
+    }
+    pub fn set_ReservedZero(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !4294967295) | (value & 4294967295);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union DRIVER_PROXY_FEATURE_FLAGS {
@@ -3997,6 +4824,20 @@ impl Default for DRIVER_PROXY_FEATURE_FLAGS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_PROXY_FEATURE_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl DRIVER_PROXY_FEATURE_FLAGS_0 {
+    pub fn Enabled(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Enabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 pub type DRIVER_PROXY_HOTSWAP_CALLBACK = Option<unsafe extern "system" fn(phase: DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE, context: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub type DRIVER_PROXY_HOTSWAP_CALLBACK_PHASE = i32;
@@ -4164,6 +5005,38 @@ pub struct EISA_IRQ_CONFIGURATION {
 pub struct EISA_IRQ_DESCRIPTOR {
     pub _bitfield: u8,
 }
+impl EISA_IRQ_DESCRIPTOR {
+    pub fn Interrupt(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_Interrupt(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Reserved(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Reserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn LevelTriggered(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_LevelTriggered(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn Shared(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Shared(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn MoreEntries(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_MoreEntries(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct EISA_MEMORY_CONFIGURATION {
@@ -4178,6 +5051,50 @@ pub struct EISA_MEMORY_CONFIGURATION {
 pub struct EISA_MEMORY_TYPE {
     pub _bitfield: u8,
 }
+impl EISA_MEMORY_TYPE {
+    pub fn ReadWrite(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ReadWrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Cached(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Cached(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved0(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Reserved0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Type(&self) -> u8 {
+        (self._bitfield << 3) >> 6
+    }
+    pub fn set_Type(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 3)) | ((value & 3) << 3);
+    }
+    pub fn Shared(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Shared(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn Reserved1(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn MoreEntries(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_MoreEntries(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 pub const EISA_MEMORY_TYPE_RAM: u32 = 1;
 pub const EISA_MORE_ENTRIES: u32 = 128;
 #[repr(C, packed(1))]
@@ -4190,6 +5107,32 @@ pub struct EISA_PORT_CONFIGURATION {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EISA_PORT_DESCRIPTOR {
     pub _bitfield: u8,
+}
+impl EISA_PORT_DESCRIPTOR {
+    pub fn NumberPorts(&self) -> u8 {
+        (self._bitfield << 3) >> 3
+    }
+    pub fn set_NumberPorts(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn Reserved(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Reserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn Shared(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Shared(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn MoreEntries(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_MoreEntries(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 pub const EISA_SYSTEM_MEMORY: u32 = 0;
 pub type ENABLE_VIRTUALIZATION = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, numvfs: u16, enablevfmigration: bool, enablemigrationinterrupt: bool, enablevirtualization: bool) -> windows_core::NTSTATUS>;
@@ -4614,6 +5557,38 @@ impl Default for FAULT_INFORMATION_ARM64 {
 pub struct FAULT_INFORMATION_ARM64_FLAGS {
     pub _bitfield: u32,
 }
+impl FAULT_INFORMATION_ARM64_FLAGS {
+    pub fn WriteNotRead(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_WriteNotRead(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn InstructionNotData(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_InstructionNotData(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Privileged(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Privileged(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn FaultAddressValid(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_FaultAddressValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
+}
 pub type FAULT_INFORMATION_ARM64_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -4634,6 +5609,20 @@ impl Default for FAULT_INFORMATION_X64 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FAULT_INFORMATION_X64_FLAGS {
     pub _bitfield: u32,
+}
+impl FAULT_INFORMATION_X64_FLAGS {
+    pub fn FaultAddressValid(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_FaultAddressValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -5559,6 +6548,27 @@ pub struct INTEL_CACHE_INFO_EBX_0 {
     pub _bitfield: u32,
 }
 #[cfg(target_arch = "x86")]
+impl INTEL_CACHE_INFO_EBX_0 {
+    pub fn LineSize(&self) -> u32 {
+        (self._bitfield << 20) >> 20
+    }
+    pub fn set_LineSize(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !4095) | (value & 4095);
+    }
+    pub fn Partitions(&self) -> u32 {
+        (self._bitfield << 10) >> 22
+    }
+    pub fn set_Partitions(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1023 << 12)) | ((value & 1023) << 12);
+    }
+    pub fn Associativity(&self) -> u32 {
+        self._bitfield >> 22
+    }
+    pub fn set_Associativity(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1023 << 22)) | ((value & 1023) << 22);
+    }
+}
+#[cfg(target_arch = "x86")]
 pub type INTEL_CACHE_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
@@ -5660,6 +6670,14 @@ impl Default for IOMMU_DMA_DOMAIN_CREATION_FLAGS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
     pub _bitfield: u64,
+}
+impl IOMMU_DMA_DOMAIN_CREATION_FLAGS_0 {
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !18446744073709551615) | (value & 18446744073709551615);
+    }
 }
 pub type IOMMU_DMA_DOMAIN_TYPE = i32;
 #[repr(transparent)]
@@ -5764,6 +6782,20 @@ impl Default for IOMMU_INTERFACE_STATE_CHANGE_FIELDS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
     pub _bitfield: u32,
+}
+impl IOMMU_INTERFACE_STATE_CHANGE_FIELDS_0 {
+    pub fn AvailableDomainTypes(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_AvailableDomainTypes(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[cfg(feature = "ntdef")]
 pub type IOMMU_MAP_IDENTITY_RANGE = Option<unsafe extern "system" fn(domain: *const IOMMU_DMA_DOMAIN, permissions: u32, mdl: *const MDL) -> windows_core::NTSTATUS>;
@@ -5873,6 +6905,44 @@ impl Default for IO_ATTRIBUTION_INFORMATION_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IO_ATTRIBUTION_INFORMATION_0_0 {
     pub _bitfield: u32,
+}
+impl IO_ATTRIBUTION_INFORMATION_0_0 {
+    pub fn MajorCode(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_MajorCode(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn IoStart(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_IoStart(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn QueueOnly(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_QueueOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn IoFailed(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_IoFailed(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn VirtualDevice(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_VirtualDevice(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn Spare(&self) -> u32 {
+        self._bitfield >> 12
+    }
+    pub fn set_Spare(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1048575 << 12)) | ((value & 1048575) << 12);
+    }
 }
 pub const IO_ATTRIBUTION_INFO_V1: u32 = 1;
 pub const IO_CD_ROM_INCREMENT: u32 = 1;
@@ -8471,6 +9541,22 @@ impl Default for KDEVICE_QUEUE_0 {
 pub struct KDEVICE_QUEUE_0_0 {
     pub _bitfield: i64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(all(feature = "ntdef", feature = "winnt"))]
+impl KDEVICE_QUEUE_0_0 {
+    pub fn Reserved(&self) -> i64 {
+        (self._bitfield << 56) >> 56
+    }
+    pub fn set_Reserved(&mut self, value: i64) {
+        self._bitfield = ((self._bitfield as u64 & !255) | (value as u64 & 255)) as i64;
+    }
+    pub fn Hint(&self) -> i64 {
+        self._bitfield >> 8
+    }
+    pub fn set_Hint(&mut self, value: i64) {
+        self._bitfield = ((self._bitfield as u64 & !(72057594037927935 << 8)) | ((value as u64 & 72057594037927935) << 8)) as i64;
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86"))]
 #[cfg(all(feature = "ntdef", feature = "winnt"))]
@@ -8624,10 +9710,50 @@ impl Default for KEY_NODE_INFORMATION {
 pub struct KEY_SET_VIRTUALIZATION_INFORMATION {
     pub _bitfield: u32,
 }
+impl KEY_SET_VIRTUALIZATION_INFORMATION {
+    pub fn VirtualTarget(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_VirtualTarget(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn VirtualStore(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_VirtualStore(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn VirtualSource(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_VirtualSource(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_TRUST_INFORMATION {
     pub _bitfield: u32,
+}
+impl KEY_TRUST_INFORMATION {
+    pub fn TrustedKey(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_TrustedKey(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -8662,6 +9788,20 @@ pub type KEY_VALUE_INFORMATION_CLASS = i32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KEY_VALUE_LAYER_INFORMATION {
     pub _bitfield: u32,
+}
+impl KEY_VALUE_LAYER_INFORMATION {
+    pub fn IsTombstone(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IsTombstone(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -8799,6 +9939,21 @@ impl Default for KMUTANT_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct KMUTANT_0_0 {
     pub _bitfield: u8,
+}
+#[cfg(feature = "winnt")]
+impl KMUTANT_0_0 {
+    pub fn Abandoned(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Abandoned(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Spare1(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Spare1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 #[cfg(feature = "winnt")]
 pub type KMUTEX = KMUTANT;
@@ -9397,6 +10552,86 @@ impl Default for NPEM_CAPABILITY_STANDARD {
 pub struct NPEM_CAPABILITY_STANDARD_0 {
     pub _bitfield: u32,
 }
+impl NPEM_CAPABILITY_STANDARD_0 {
+    pub fn Capable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Capable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn ResetCapable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ResetCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn OkCapable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_OkCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn LocateCapable(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_LocateCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn FailCapable(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_FailCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn RebuildCapable(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_RebuildCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn PFACapable(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_PFACapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn HotSpareCapable(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_HotSpareCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn InACriticalArrayCapable(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_InACriticalArrayCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn InAFailedArrayCapable(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_InAFailedArrayCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn InvalidDeviceTypeCapable(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_InvalidDeviceTypeCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn DisabledCapable(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_DisabledCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn Rsvd(&self) -> u32 {
+        self._bitfield >> 12
+    }
+    pub fn set_Rsvd(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1048575 << 12)) | ((value & 1048575) << 12);
+    }
+}
 pub type NPEM_CONTROL_ENABLE_DISABLE = Option<unsafe extern "system" fn(context: *const core::ffi::c_void, enablenpem: bool) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
@@ -9550,6 +10785,21 @@ impl Default for OB_POST_OPERATION_INFORMATION_0 {
 pub struct OB_POST_OPERATION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "winnt")]
+impl OB_POST_OPERATION_INFORMATION_0_0 {
+    pub fn KernelHandle(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_KernelHandle(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -9623,6 +10873,21 @@ impl Default for OB_PRE_OPERATION_INFORMATION_0 {
 pub struct OB_PRE_OPERATION_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "winnt")]
+impl OB_PRE_OPERATION_INFORMATION_0_0 {
+    pub fn KernelHandle(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_KernelHandle(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -9673,6 +10938,32 @@ impl Default for OWNER_ENTRY_COUNTS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct OWNER_ENTRY_COUNTS_0 {
     pub _bitfield: u32,
+}
+impl OWNER_ENTRY_COUNTS_0 {
+    pub fn IoPriorityBoosted(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IoPriorityBoosted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn OwnerReferenced(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_OwnerReferenced(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn IoQoSPriorityBoosted(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_IoQoSPriorityBoosted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn OwnerCount(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_OwnerCount(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
 }
 pub const OkControl: NPEM_CONTROL_STANDARD_CONTROL_BIT = 2;
 #[cfg(all(feature = "lsalookup", feature = "ntsecapi", feature = "winnt"))]
@@ -10086,6 +11377,62 @@ impl Default for PCI_EXPRESS_ACS_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0 {
     pub _bitfield: u16,
 }
+impl PCI_EXPRESS_ACS_CAPABILITY_REGISTER_0 {
+    pub fn SourceValidation(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SourceValidation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn TranslationBlocking(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_TranslationBlocking(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn RequestRedirect(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_RequestRedirect(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn CompletionRedirect(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_CompletionRedirect(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn UpstreamForwarding(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_UpstreamForwarding(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn EgressControl(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_EgressControl(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn DirectTranslation(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_DirectTranslation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn EnhancedCapability(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_EnhancedCapability(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn EgressControlVectorSize(&self) -> u16 {
+        self._bitfield >> 8
+    }
+    pub fn set_EgressControlVectorSize(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ACS_CONTROL {
@@ -10101,6 +11448,80 @@ impl Default for PCI_EXPRESS_ACS_CONTROL {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ACS_CONTROL_0 {
     pub _bitfield: u16,
+}
+impl PCI_EXPRESS_ACS_CONTROL_0 {
+    pub fn SourceValidation(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SourceValidation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn TranslationBlocking(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_TranslationBlocking(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn RequestRedirect(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_RequestRedirect(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn CompletionRedirect(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_CompletionRedirect(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn UpstreamForwarding(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_UpstreamForwarding(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn EgressControl(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_EgressControl(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn DirectTranslation(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_DirectTranslation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn IoBlocking(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_IoBlocking(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn DspMemoryControl(&self) -> u16 {
+        (self._bitfield << 6) >> 14
+    }
+    pub fn set_DspMemoryControl(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(3 << 8)) | ((value & 3) << 8);
+    }
+    pub fn UspMemoryControl(&self) -> u16 {
+        (self._bitfield << 4) >> 14
+    }
+    pub fn set_UspMemoryControl(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(3 << 10)) | ((value & 3) << 10);
+    }
+    pub fn UnclaimedRedirect(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_UnclaimedRedirect(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 13
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
+    }
 }
 pub const PCI_EXPRESS_ADVANCED_ERROR_REPORTING_CAP_ID: u32 = 1;
 #[repr(C)]
@@ -10118,6 +11539,86 @@ impl Default for PCI_EXPRESS_AER_CAPABILITIES {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_AER_CAPABILITIES_0 {
     pub _bitfield: u32,
+}
+impl PCI_EXPRESS_AER_CAPABILITIES_0 {
+    pub fn FirstErrorPointer(&self) -> u32 {
+        (self._bitfield << 27) >> 27
+    }
+    pub fn set_FirstErrorPointer(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn ECRCGenerationCapable(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_ECRCGenerationCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn ECRCGenerationEnable(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_ECRCGenerationEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn ECRCCheckCapable(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_ECRCCheckCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn ECRCCheckEnable(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_ECRCCheckEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn MultipleHeaderRecordingCapable(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_MultipleHeaderRecordingCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn MultipleHeaderRecordingEnable(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_MultipleHeaderRecordingEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn TlpPrefixLogPresent(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_TlpPrefixLogPresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn CompletionTimeoutPrefixHeaderLogCapable(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_CompletionTimeoutPrefixHeaderLogCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn HeaderLogSize(&self) -> u32 {
+        (self._bitfield << 14) >> 27
+    }
+    pub fn set_HeaderLogSize(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 13)) | ((value & 31) << 13);
+    }
+    pub fn LoggedTlpWasFlitMode(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_LoggedTlpWasFlitMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u32) << 18);
+    }
+    pub fn LoggedTlpSize(&self) -> u32 {
+        (self._bitfield << 8) >> 27
+    }
+    pub fn set_LoggedTlpSize(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 19)) | ((value & 31) << 19);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10153,11 +11654,69 @@ pub struct PCI_EXPRESS_ARI_CAPABILITY {
 pub struct PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
     pub _bitfield: u16,
 }
+impl PCI_EXPRESS_ARI_CAPABILITY_REGISTER {
+    pub fn MfvcFunctionGroupsCapability(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_MfvcFunctionGroupsCapability(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn AcsFunctionGroupsCapability(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AcsFunctionGroupsCapability(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield << 8) >> 10
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+    pub fn NextFunctionNumber(&self) -> u16 {
+        self._bitfield >> 8
+    }
+    pub fn set_NextFunctionNumber(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+}
 pub const PCI_EXPRESS_ARI_CAP_ID: u32 = 14;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ARI_CONTROL_REGISTER {
     pub _bitfield: u16,
+}
+impl PCI_EXPRESS_ARI_CONTROL_REGISTER {
+    pub fn MfvcFunctionGroupsEnable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_MfvcFunctionGroupsEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn AcsFunctionGroupsEnable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AcsFunctionGroupsEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Reserved1(&self) -> u16 {
+        (self._bitfield << 12) >> 14
+    }
+    pub fn set_Reserved1(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn FunctionGroup(&self) -> u16 {
+        (self._bitfield << 9) >> 13
+    }
+    pub fn set_FunctionGroup(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 4)) | ((value & 7) << 4);
+    }
+    pub fn Reserved2(&self) -> u16 {
+        self._bitfield >> 7
+    }
+    pub fn set_Reserved2(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(511 << 7)) | ((value & 511) << 7);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10176,6 +11735,38 @@ impl Default for PCI_EXPRESS_ATS_CAPABILITY {
 pub struct PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
     pub _bitfield: u16,
 }
+impl PCI_EXPRESS_ATS_CAPABILITY_REGISTER {
+    pub fn InvalidateQueueDepth(&self) -> u16 {
+        (self._bitfield << 11) >> 11
+    }
+    pub fn set_InvalidateQueueDepth(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn PageAlignedRequest(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_PageAlignedRequest(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn GlobalInvalidateSupported(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_GlobalInvalidateSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn RelaxedOrderingSupported(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_RelaxedOrderingSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 8
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+}
 pub const PCI_EXPRESS_ATS_CAP_ID: u32 = 15;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10192,6 +11783,26 @@ impl Default for PCI_EXPRESS_ATS_CONTROL_REGISTER {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ATS_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl PCI_EXPRESS_ATS_CONTROL_REGISTER_0 {
+    pub fn SmallestTransactionUnit(&self) -> u16 {
+        (self._bitfield << 11) >> 11
+    }
+    pub fn set_SmallestTransactionUnit(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield << 1) >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(1023 << 5)) | ((value & 1023) << 5);
+    }
+    pub fn Enable(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_Enable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10232,6 +11843,74 @@ impl Default for PCI_EXPRESS_CORRECTABLE_ERROR_MASK {
 pub struct PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
 }
+impl PCI_EXPRESS_CORRECTABLE_ERROR_MASK_0 {
+    pub fn ReceiverError(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ReceiverError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 26) >> 27
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 1)) | ((value & 31) << 1);
+    }
+    pub fn BadTLP(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_BadTLP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn BadDLLP(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_BadDLLP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn ReplayNumRollover(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_ReplayNumRollover(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn Reserved2(&self) -> u32 {
+        (self._bitfield << 20) >> 29
+    }
+    pub fn set_Reserved2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 9)) | ((value & 7) << 9);
+    }
+    pub fn ReplayTimerTimeout(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_ReplayTimerTimeout(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn AdvisoryNonFatalError(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_AdvisoryNonFatalError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    }
+    pub fn CorrectedInternalError(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_CorrectedInternalError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    }
+    pub fn HeaderLogOverflow(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_HeaderLogOverflow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn Reserved3(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved3(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_CORRECTABLE_ERROR_STATUS {
@@ -10247,6 +11926,74 @@ impl Default for PCI_EXPRESS_CORRECTABLE_ERROR_STATUS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
+}
+impl PCI_EXPRESS_CORRECTABLE_ERROR_STATUS_0 {
+    pub fn ReceiverError(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ReceiverError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 26) >> 27
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 1)) | ((value & 31) << 1);
+    }
+    pub fn BadTLP(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_BadTLP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn BadDLLP(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_BadDLLP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn ReplayNumRollover(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_ReplayNumRollover(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn Reserved2(&self) -> u32 {
+        (self._bitfield << 20) >> 29
+    }
+    pub fn set_Reserved2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 9)) | ((value & 7) << 9);
+    }
+    pub fn ReplayTimerTimeout(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_ReplayTimerTimeout(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn AdvisoryNonFatalError(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_AdvisoryNonFatalError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    }
+    pub fn CorrectedInternalError(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_CorrectedInternalError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    }
+    pub fn HeaderLogOverflow(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_HeaderLogOverflow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn Reserved3(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved3(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 pub const PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_CAP_ID: u32 = 35;
 pub const PCI_EXPRESS_DEVICE_3_CAP_ID: u32 = 47;
@@ -10278,6 +12025,20 @@ impl Default for PCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER {
 pub struct PCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER_0 {
     pub _bitfield: u32,
 }
+impl PCI_EXPRESS_DEVICE_CAPABILITIES_3_REGISTER_0 {
+    pub fn DmwrRequestRoutingSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DmwrRequestRoutingSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Rsvd(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Rsvd(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_DEVICE_CONTROL_3_REGISTER {
@@ -10294,6 +12055,20 @@ impl Default for PCI_EXPRESS_DEVICE_CONTROL_3_REGISTER {
 pub struct PCI_EXPRESS_DEVICE_CONTROL_3_REGISTER_0 {
     pub _bitfield: u32,
 }
+impl PCI_EXPRESS_DEVICE_CONTROL_3_REGISTER_0 {
+    pub fn DmwrRequesterEnable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DmwrRequesterEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Rsvd(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Rsvd(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 pub const PCI_EXPRESS_DEVICE_SERIAL_NUMBER_CAP_ID: u32 = 3;
 pub const PCI_EXPRESS_DOE_CAP_ID: u32 = 46;
 pub const PCI_EXPRESS_DPA_CAP_ID: u32 = 22;
@@ -10303,6 +12078,20 @@ pub const PCI_EXPRESS_DPC_CAP_ID: u32 = 29;
 pub struct PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
     pub CapabilityID: u16,
     pub _bitfield: u16,
+}
+impl PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER {
+    pub fn Version(&self) -> u16 {
+        (self._bitfield << 12) >> 12
+    }
+    pub fn set_Version(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Next(&self) -> u16 {
+        self._bitfield >> 4
+    }
+    pub fn set_Next(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(4095 << 4)) | ((value & 4095) << 4);
+    }
 }
 pub type PCI_EXPRESS_ENTER_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 #[repr(C)]
@@ -10321,6 +12110,44 @@ impl Default for PCI_EXPRESS_ERROR_SOURCE_ID {
 pub struct PCI_EXPRESS_ERROR_SOURCE_ID_0 {
     pub _bitfield1: u16,
     pub _bitfield2: u16,
+}
+impl PCI_EXPRESS_ERROR_SOURCE_ID_0 {
+    pub fn CorrectableSourceIdFun(&self) -> u16 {
+        (self._bitfield1 << 13) >> 13
+    }
+    pub fn set_CorrectableSourceIdFun(&mut self, value: u16) {
+        self._bitfield1 = (self._bitfield1 & !7) | (value & 7);
+    }
+    pub fn CorrectableSourceIdDev(&self) -> u16 {
+        (self._bitfield1 << 8) >> 11
+    }
+    pub fn set_CorrectableSourceIdDev(&mut self, value: u16) {
+        self._bitfield1 = (self._bitfield1 & !(31 << 3)) | ((value & 31) << 3);
+    }
+    pub fn CorrectableSourceIdBus(&self) -> u16 {
+        self._bitfield1 >> 8
+    }
+    pub fn set_CorrectableSourceIdBus(&mut self, value: u16) {
+        self._bitfield1 = (self._bitfield1 & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn UncorrectableSourceIdFun(&self) -> u16 {
+        (self._bitfield2 << 13) >> 13
+    }
+    pub fn set_UncorrectableSourceIdFun(&mut self, value: u16) {
+        self._bitfield2 = (self._bitfield2 & !7) | (value & 7);
+    }
+    pub fn UncorrectableSourceIdDev(&self) -> u16 {
+        (self._bitfield2 << 8) >> 11
+    }
+    pub fn set_UncorrectableSourceIdDev(&mut self, value: u16) {
+        self._bitfield2 = (self._bitfield2 & !(31 << 3)) | ((value & 31) << 3);
+    }
+    pub fn UncorrectableSourceIdBus(&self) -> u16 {
+        self._bitfield2 >> 8
+    }
+    pub fn set_UncorrectableSourceIdBus(&mut self, value: u16) {
+        self._bitfield2 = (self._bitfield2 & !(255 << 8)) | ((value & 255) << 8);
+    }
 }
 pub type PCI_EXPRESS_EXIT_LINK_QUIESCENT_MODE = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void) -> windows_core::NTSTATUS>;
 pub const PCI_EXPRESS_FRS_QUEUEING_CAP_ID: u32 = 33;
@@ -10379,6 +12206,44 @@ impl Default for PCI_EXPRESS_PASID_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
     pub _bitfield: u16,
 }
+impl PCI_EXPRESS_PASID_CAPABILITY_REGISTER_0 {
+    pub fn Rsvd(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Rsvd(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn ExecutePermissionSupported(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ExecutePermissionSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn PrivilegedModeSupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_PrivilegedModeSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Rsvd2(&self) -> u16 {
+        (self._bitfield << 8) >> 11
+    }
+    pub fn set_Rsvd2(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+    pub fn MaxPASIDWidth(&self) -> u16 {
+        (self._bitfield << 3) >> 11
+    }
+    pub fn set_MaxPASIDWidth(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(31 << 8)) | ((value & 31) << 8);
+    }
+    pub fn Rsvd3(&self) -> u16 {
+        self._bitfield >> 13
+    }
+    pub fn set_Rsvd3(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
+    }
+}
 pub const PCI_EXPRESS_PASID_CAP_ID: u32 = 27;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10395,6 +12260,32 @@ impl Default for PCI_EXPRESS_PASID_CONTROL_REGISTER {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PASID_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl PCI_EXPRESS_PASID_CONTROL_REGISTER_0 {
+    pub fn PASIDEnable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PASIDEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn ExecutePermissionEnable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ExecutePermissionEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn PrivilegedModeEnable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_PrivilegedModeEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Rsvd(&self) -> u16 {
+        self._bitfield >> 3
+    }
+    pub fn set_Rsvd(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
+    }
 }
 pub const PCI_EXPRESS_PMUX_CAP_ID: u32 = 26;
 pub const PCI_EXPRESS_POWER_BUDGETING_CAP_ID: u32 = 4;
@@ -10428,6 +12319,26 @@ impl Default for PCI_EXPRESS_PRI_CONTROL_REGISTER {
 pub struct PCI_EXPRESS_PRI_CONTROL_REGISTER_0 {
     pub _bitfield: u16,
 }
+impl PCI_EXPRESS_PRI_CONTROL_REGISTER_0 {
+    pub fn Enable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Enable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Reset(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Reset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Rsvd(&self) -> u16 {
+        self._bitfield >> 2
+    }
+    pub fn set_Rsvd(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_PRI_STATUS_REGISTER {
@@ -10443,6 +12354,44 @@ impl Default for PCI_EXPRESS_PRI_STATUS_REGISTER {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PRI_STATUS_REGISTER_0 {
     pub _bitfield: u16,
+}
+impl PCI_EXPRESS_PRI_STATUS_REGISTER_0 {
+    pub fn ResponseFailure(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ResponseFailure(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn UnexpectedPageRequestGroupIndex(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_UnexpectedPageRequestGroupIndex(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Rsvd(&self) -> u16 {
+        (self._bitfield << 8) >> 10
+    }
+    pub fn set_Rsvd(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+    pub fn Stopped(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_Stopped(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u16) << 8);
+    }
+    pub fn Rsvd2(&self) -> u16 {
+        (self._bitfield << 1) >> 10
+    }
+    pub fn set_Rsvd2(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(63 << 9)) | ((value & 63) << 9);
+    }
+    pub fn PrgResponsePasidRequired(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_PrgResponsePasidRequired(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10472,6 +12421,44 @@ impl Default for PCI_EXPRESS_PTM_CAPABILITY_REGISTER {
 pub struct PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
     pub _bitfield: u32,
 }
+impl PCI_EXPRESS_PTM_CAPABILITY_REGISTER_0 {
+    pub fn RequesterCapable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_RequesterCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn ResponderCapable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ResponderCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn RootCapable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_RootCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Rsvd(&self) -> u32 {
+        (self._bitfield << 24) >> 27
+    }
+    pub fn set_Rsvd(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+    pub fn LocalGranularity(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_LocalGranularity(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn Rsvd2(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Rsvd2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 pub const PCI_EXPRESS_PTM_CAP_ID: u32 = 31;
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10488,6 +12475,38 @@ impl Default for PCI_EXPRESS_PTM_CONTROL_REGISTER {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
     pub _bitfield: u32,
+}
+impl PCI_EXPRESS_PTM_CONTROL_REGISTER_0 {
+    pub fn Enable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Enable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn RootSelect(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_RootSelect(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Rsvd(&self) -> u32 {
+        (self._bitfield << 24) >> 26
+    }
+    pub fn set_Rsvd(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+    pub fn EffectiveGranularity(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_EffectiveGranularity(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn Rsvd2(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Rsvd2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 pub const PCI_EXPRESS_RCRB_HEADER_CAP_ID: u32 = 10;
 pub const PCI_EXPRESS_RC_EVENT_COLLECTOR_ENDPOINT_ASSOCIATION_CAP_ID: u32 = 7;
@@ -10532,6 +12551,32 @@ impl Default for PCI_EXPRESS_ROOT_ERROR_COMMAND {
 pub struct PCI_EXPRESS_ROOT_ERROR_COMMAND_0 {
     pub _bitfield: u32,
 }
+impl PCI_EXPRESS_ROOT_ERROR_COMMAND_0 {
+    pub fn CorrectableErrorReportingEnable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CorrectableErrorReportingEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn NonFatalErrorReportingEnable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_NonFatalErrorReportingEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn FatalErrorReportingEnable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_FatalErrorReportingEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_ROOT_ERROR_STATUS {
@@ -10547,6 +12592,62 @@ impl Default for PCI_EXPRESS_ROOT_ERROR_STATUS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_ROOT_ERROR_STATUS_0 {
     pub _bitfield: u32,
+}
+impl PCI_EXPRESS_ROOT_ERROR_STATUS_0 {
+    pub fn CorrectableErrorReceived(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CorrectableErrorReceived(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn MultipleCorrectableErrorsReceived(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_MultipleCorrectableErrorsReceived(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn UncorrectableErrorReceived(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_UncorrectableErrorReceived(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn MultipleUncorrectableErrorsReceived(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_MultipleUncorrectableErrorsReceived(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn FirstUncorrectableFatal(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_FirstUncorrectableFatal(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn NonFatalErrorMessagesReceived(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_NonFatalErrorMessagesReceived(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn FatalErrorMessagesReceived(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_FatalErrorMessagesReceived(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 5) >> 12
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1048575 << 7)) | ((value & 1048575) << 7);
+    }
+    pub fn AdvancedErrorInterruptMessageNumber(&self) -> u32 {
+        self._bitfield >> 27
+    }
+    pub fn set_AdvancedErrorInterruptMessageNumber(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 27)) | ((value & 31) << 27);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug)]
@@ -10582,6 +12683,20 @@ impl Default for PCI_EXPRESS_SEC_AER_CAPABILITIES {
 pub struct PCI_EXPRESS_SEC_AER_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
+impl PCI_EXPRESS_SEC_AER_CAPABILITIES_0 {
+    pub fn SecondaryUncorrectableFirstErrorPtr(&self) -> u32 {
+        (self._bitfield << 27) >> 27
+    }
+    pub fn set_SecondaryUncorrectableFirstErrorPtr(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {
@@ -10597,6 +12712,98 @@ impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
+}
+impl PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_MASK_0 {
+    pub fn TargetAbortOnSplitCompletion(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_TargetAbortOnSplitCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn MasterAbortOnSplitCompletion(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_MasterAbortOnSplitCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn ReceivedTargetAbort(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ReceivedTargetAbort(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn ReceivedMasterAbort(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ReceivedMasterAbort(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn RsvdZ(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_RsvdZ(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn UnexpectedSplitCompletionError(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_UnexpectedSplitCompletionError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn UncorrectableSplitCompletion(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_UncorrectableSplitCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn UncorrectableDataError(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_UncorrectableDataError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn UncorrectableAttributeError(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_UncorrectableAttributeError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn UncorrectableAddressError(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_UncorrectableAddressError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn DelayedTransactionDiscardTimerExpired(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_DelayedTransactionDiscardTimerExpired(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn PERRAsserted(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_PERRAsserted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn SERRAsserted(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_SERRAsserted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn InternalBridgeError(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_InternalBridgeError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 14
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(262143 << 14)) | ((value & 262143) << 14);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10614,6 +12821,98 @@ impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY {
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 {
     pub _bitfield: u32,
 }
+impl PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_SEVERITY_0 {
+    pub fn TargetAbortOnSplitCompletion(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_TargetAbortOnSplitCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn MasterAbortOnSplitCompletion(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_MasterAbortOnSplitCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn ReceivedTargetAbort(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ReceivedTargetAbort(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn ReceivedMasterAbort(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ReceivedMasterAbort(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn RsvdZ(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_RsvdZ(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn UnexpectedSplitCompletionError(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_UnexpectedSplitCompletionError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn UncorrectableSplitCompletion(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_UncorrectableSplitCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn UncorrectableDataError(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_UncorrectableDataError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn UncorrectableAttributeError(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_UncorrectableAttributeError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn UncorrectableAddressError(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_UncorrectableAddressError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn DelayedTransactionDiscardTimerExpired(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_DelayedTransactionDiscardTimerExpired(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn PERRAsserted(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_PERRAsserted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn SERRAsserted(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_SERRAsserted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn InternalBridgeError(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_InternalBridgeError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 14
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(262143 << 14)) | ((value & 262143) << 14);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {
@@ -10629,6 +12928,98 @@ impl Default for PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
+}
+impl PCI_EXPRESS_SEC_UNCORRECTABLE_ERROR_STATUS_0 {
+    pub fn TargetAbortOnSplitCompletion(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_TargetAbortOnSplitCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn MasterAbortOnSplitCompletion(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_MasterAbortOnSplitCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn ReceivedTargetAbort(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ReceivedTargetAbort(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn ReceivedMasterAbort(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ReceivedMasterAbort(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn RsvdZ(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_RsvdZ(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn UnexpectedSplitCompletionError(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_UnexpectedSplitCompletionError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn UncorrectableSplitCompletion(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_UncorrectableSplitCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn UncorrectableDataError(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_UncorrectableDataError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn UncorrectableAttributeError(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_UncorrectableAttributeError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn UncorrectableAddressError(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_UncorrectableAddressError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn DelayedTransactionDiscardTimerExpired(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_DelayedTransactionDiscardTimerExpired(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn PERRAsserted(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_PERRAsserted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn SERRAsserted(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_SERRAsserted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn InternalBridgeError(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_InternalBridgeError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 14
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(262143 << 14)) | ((value & 262143) << 14);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10680,6 +13071,26 @@ impl Default for PCI_EXPRESS_SRIOV_CAPS {
 pub struct PCI_EXPRESS_SRIOV_CAPS_0 {
     pub _bitfield: u32,
 }
+impl PCI_EXPRESS_SRIOV_CAPS_0 {
+    pub fn VFMigrationCapable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_VFMigrationCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 11) >> 12
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1048575 << 1)) | ((value & 1048575) << 1);
+    }
+    pub fn VFMigrationInterruptNumber(&self) -> u32 {
+        self._bitfield >> 21
+    }
+    pub fn set_VFMigrationInterruptNumber(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2047 << 21)) | ((value & 2047) << 21);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SRIOV_CONTROL {
@@ -10695,6 +13106,44 @@ impl Default for PCI_EXPRESS_SRIOV_CONTROL {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_CONTROL_0 {
     pub _bitfield: u16,
+}
+impl PCI_EXPRESS_SRIOV_CONTROL_0 {
+    pub fn VFEnable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_VFEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn VFMigrationEnable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_VFMigrationEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn VFMigrationInterruptEnable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_VFMigrationInterruptEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn VFMemorySpaceEnable(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_VFMemorySpaceEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn ARICapableHierarchy(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_ARICapableHierarchy(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn Reserved1(&self) -> u16 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved1(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(2047 << 5)) | ((value & 2047) << 5);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10712,6 +13161,20 @@ impl Default for PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY {
 pub struct PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 {
     pub _bitfield: u32,
 }
+impl PCI_EXPRESS_SRIOV_MIGRATION_STATE_ARRAY_0 {
+    pub fn VFMigrationStateBIR(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_VFMigrationStateBIR(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn VFMigrationStateOffset(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_VFMigrationStateOffset(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_SRIOV_STATUS {
@@ -10727,6 +13190,20 @@ impl Default for PCI_EXPRESS_SRIOV_STATUS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_SRIOV_STATUS_0 {
     pub _bitfield: u16,
+}
+impl PCI_EXPRESS_SRIOV_STATUS_0 {
+    pub fn VFMigrationStatus(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_VFMigrationStatus(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Reserved1(&self) -> u16 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(32767 << 1)) | ((value & 32767) << 1);
+    }
 }
 pub const PCI_EXPRESS_TPH_REQUESTER_CAP_ID: u32 = 23;
 #[repr(C)]
@@ -10745,6 +13222,134 @@ impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK {
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 {
     pub _bitfield: u32,
 }
+impl PCI_EXPRESS_UNCORRECTABLE_ERROR_MASK_0 {
+    pub fn Undefined(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Undefined(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 28) >> 29
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn DataLinkProtocolError(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_DataLinkProtocolError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn SurpriseDownError(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_SurpriseDownError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Reserved2(&self) -> u32 {
+        (self._bitfield << 20) >> 26
+    }
+    pub fn set_Reserved2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(63 << 6)) | ((value & 63) << 6);
+    }
+    pub fn PoisonedTLP(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_PoisonedTLP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn FlowControlProtocolError(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_FlowControlProtocolError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    }
+    pub fn CompletionTimeout(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_CompletionTimeout(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    }
+    pub fn CompleterAbort(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_CompleterAbort(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn UnexpectedCompletion(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_UnexpectedCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn ReceiverOverflow(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_ReceiverOverflow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u32) << 17);
+    }
+    pub fn MalformedTLP(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_MalformedTLP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u32) << 18);
+    }
+    pub fn ECRCError(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_ECRCError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn UnsupportedRequestError(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_UnsupportedRequestError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn AcsViolation(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_AcsViolation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn UncorrectableInternalError(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_UncorrectableInternalError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    }
+    pub fn MCBlockedTlp(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_MCBlockedTlp(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn AtomicOpEgressBlocked(&self) -> bool {
+        (self._bitfield >> 24) & 1 != 0
+    }
+    pub fn set_AtomicOpEgressBlocked(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u32) << 24);
+    }
+    pub fn TlpPrefixBlocked(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_TlpPrefixBlocked(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    }
+    pub fn PoisonedTlpEgressBlocked(&self) -> bool {
+        (self._bitfield >> 26) & 1 != 0
+    }
+    pub fn set_PoisonedTlpEgressBlocked(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u32) << 26);
+    }
+    pub fn Reserved3(&self) -> u32 {
+        self._bitfield >> 27
+    }
+    pub fn set_Reserved3(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 27)) | ((value & 31) << 27);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {
@@ -10760,6 +13365,134 @@ impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 {
     pub _bitfield: u32,
+}
+impl PCI_EXPRESS_UNCORRECTABLE_ERROR_SEVERITY_0 {
+    pub fn Undefined(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Undefined(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 28) >> 29
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn DataLinkProtocolError(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_DataLinkProtocolError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn SurpriseDownError(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_SurpriseDownError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Reserved2(&self) -> u32 {
+        (self._bitfield << 20) >> 26
+    }
+    pub fn set_Reserved2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(63 << 6)) | ((value & 63) << 6);
+    }
+    pub fn PoisonedTLP(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_PoisonedTLP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn FlowControlProtocolError(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_FlowControlProtocolError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    }
+    pub fn CompletionTimeout(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_CompletionTimeout(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    }
+    pub fn CompleterAbort(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_CompleterAbort(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn UnexpectedCompletion(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_UnexpectedCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn ReceiverOverflow(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_ReceiverOverflow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u32) << 17);
+    }
+    pub fn MalformedTLP(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_MalformedTLP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u32) << 18);
+    }
+    pub fn ECRCError(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_ECRCError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn UnsupportedRequestError(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_UnsupportedRequestError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn AcsViolation(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_AcsViolation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn UncorrectableInternalError(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_UncorrectableInternalError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    }
+    pub fn MCBlockedTlp(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_MCBlockedTlp(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn AtomicOpEgressBlocked(&self) -> bool {
+        (self._bitfield >> 24) & 1 != 0
+    }
+    pub fn set_AtomicOpEgressBlocked(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u32) << 24);
+    }
+    pub fn TlpPrefixBlocked(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_TlpPrefixBlocked(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    }
+    pub fn PoisonedTlpEgressBlocked(&self) -> bool {
+        (self._bitfield >> 26) & 1 != 0
+    }
+    pub fn set_PoisonedTlpEgressBlocked(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u32) << 26);
+    }
+    pub fn Reserved3(&self) -> u32 {
+        self._bitfield >> 27
+    }
+    pub fn set_Reserved3(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 27)) | ((value & 31) << 27);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10777,6 +13510,134 @@ impl Default for PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS {
 pub struct PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
     pub _bitfield: u32,
 }
+impl PCI_EXPRESS_UNCORRECTABLE_ERROR_STATUS_0 {
+    pub fn Undefined(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Undefined(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 28) >> 29
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn DataLinkProtocolError(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_DataLinkProtocolError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn SurpriseDownError(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_SurpriseDownError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Reserved2(&self) -> u32 {
+        (self._bitfield << 20) >> 26
+    }
+    pub fn set_Reserved2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(63 << 6)) | ((value & 63) << 6);
+    }
+    pub fn PoisonedTLP(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_PoisonedTLP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn FlowControlProtocolError(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_FlowControlProtocolError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u32) << 13);
+    }
+    pub fn CompletionTimeout(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_CompletionTimeout(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    }
+    pub fn CompleterAbort(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_CompleterAbort(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn UnexpectedCompletion(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_UnexpectedCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn ReceiverOverflow(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_ReceiverOverflow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u32) << 17);
+    }
+    pub fn MalformedTLP(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_MalformedTLP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u32) << 18);
+    }
+    pub fn ECRCError(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_ECRCError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn UnsupportedRequestError(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_UnsupportedRequestError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn AcsViolation(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_AcsViolation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn UncorrectableInternalError(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_UncorrectableInternalError(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    }
+    pub fn MCBlockedTlp(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_MCBlockedTlp(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn AtomicOpEgressBlocked(&self) -> bool {
+        (self._bitfield >> 24) & 1 != 0
+    }
+    pub fn set_AtomicOpEgressBlocked(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u32) << 24);
+    }
+    pub fn TlpPrefixBlocked(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_TlpPrefixBlocked(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    }
+    pub fn PoisonedTlpEgressBlocked(&self) -> bool {
+        (self._bitfield >> 26) & 1 != 0
+    }
+    pub fn set_PoisonedTlpEgressBlocked(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u32) << 26);
+    }
+    pub fn Reserved3(&self) -> u32 {
+        self._bitfield >> 27
+    }
+    pub fn set_Reserved3(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 27)) | ((value & 31) << 27);
+    }
+}
 pub const PCI_EXPRESS_VC_AND_MFVC_CAP_ID: u32 = 9;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -10784,6 +13645,20 @@ pub struct PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
     pub Header: PCI_EXPRESS_ENHANCED_CAPABILITY_HEADER,
     pub VsecId: u16,
     pub _bitfield: u16,
+}
+impl PCI_EXPRESS_VENDOR_SPECIFIC_CAPABILITY {
+    pub fn VsecRev(&self) -> u16 {
+        (self._bitfield << 12) >> 12
+    }
+    pub fn set_VsecRev(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn VsecLength(&self) -> u16 {
+        self._bitfield >> 4
+    }
+    pub fn set_VsecLength(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(4095 << 4)) | ((value & 4095) << 4);
+    }
 }
 pub const PCI_EXPRESS_VENDOR_SPECIFIC_CAP_ID: u32 = 11;
 #[repr(C)]
@@ -10845,20 +13720,172 @@ pub struct PCI_PMC {
     pub _bitfield: u8,
     pub Support: PCI_PMC_0,
 }
+impl PCI_PMC {
+    pub fn Version(&self) -> u8 {
+        (self._bitfield << 5) >> 5
+    }
+    pub fn set_Version(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn PMEClock(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_PMEClock(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Rsvd1(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Rsvd1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn DeviceSpecificInitialization(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_DeviceSpecificInitialization(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn Rsvd2(&self) -> u8 {
+        self._bitfield >> 6
+    }
+    pub fn set_Rsvd2(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_PMCSR {
     pub _bitfield: u16,
+}
+impl PCI_PMCSR {
+    pub fn PowerState(&self) -> u16 {
+        (self._bitfield << 14) >> 14
+    }
+    pub fn set_PowerState(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn Rsvd1(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Rsvd1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn NoSoftReset(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_NoSoftReset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn Rsvd2(&self) -> u16 {
+        (self._bitfield << 8) >> 12
+    }
+    pub fn set_Rsvd2(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn PMEEnable(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_PMEEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u16) << 8);
+    }
+    pub fn DataSelect(&self) -> u16 {
+        (self._bitfield << 3) >> 12
+    }
+    pub fn set_DataSelect(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 9)) | ((value & 15) << 9);
+    }
+    pub fn DataScale(&self) -> u16 {
+        (self._bitfield << 1) >> 14
+    }
+    pub fn set_DataScale(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(3 << 13)) | ((value & 3) << 13);
+    }
+    pub fn PMEStatus(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_PMEStatus(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_PMCSR_BSE {
     pub _bitfield: u8,
 }
+impl PCI_PMCSR_BSE {
+    pub fn Rsvd1(&self) -> u8 {
+        (self._bitfield << 2) >> 2
+    }
+    pub fn set_Rsvd1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !63) | (value & 63);
+    }
+    pub fn D3HotSupportsStopClock(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_D3HotSupportsStopClock(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn BusPowerClockControlEnabled(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_BusPowerClockControlEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_PMC_0 {
     pub _bitfield: u8,
+}
+impl PCI_PMC_0 {
+    pub fn Rsvd2(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Rsvd2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn D1(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_D1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn D2(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_D2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn PMED0(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_PMED0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn PMED1(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_PMED1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn PMED2(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_PMED2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn PMED3Hot(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_PMED3Hot(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn PMED3Cold(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_PMED3Cold(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -10979,6 +14006,26 @@ impl Default for PCI_SEGMENT_BUS_NUMBER_0 {
 pub struct PCI_SEGMENT_BUS_NUMBER_0_0 {
     pub _bitfield: u32,
 }
+impl PCI_SEGMENT_BUS_NUMBER_0_0 {
+    pub fn BusNumber(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_BusNumber(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn SegmentNumber(&self) -> u32 {
+        (self._bitfield << 8) >> 16
+    }
+    pub fn set_SegmentNumber(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 8)) | ((value & 65535) << 8);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 pub type PCI_SET_ACS = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, enablesourcevalidation: PCI_ACS_BIT, enabletranslationblocking: PCI_ACS_BIT, enablep2prequestredirect: PCI_ACS_BIT, enablecompletionredirect: PCI_ACS_BIT, enableupstreamforwarding: PCI_ACS_BIT, enableegresscontrol: PCI_ACS_BIT, enabledirecttranslatedp2p: PCI_ACS_BIT) -> windows_core::NTSTATUS>;
 pub type PCI_SET_ACS2 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, scenariostomodify: u32, scenariostate: u32) -> windows_core::NTSTATUS>;
 pub type PCI_SET_ACS3 = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, scenariostomodify: u32, scenariostate: u32, partitionid: u64) -> windows_core::NTSTATUS>;
@@ -11008,6 +14055,26 @@ impl Default for PCI_SLOT_NUMBER_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_SLOT_NUMBER_0_0 {
     pub _bitfield: u32,
+}
+impl PCI_SLOT_NUMBER_0_0 {
+    pub fn DeviceNumber(&self) -> u32 {
+        (self._bitfield << 27) >> 27
+    }
+    pub fn set_DeviceNumber(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn FunctionNumber(&self) -> u32 {
+        (self._bitfield << 24) >> 29
+    }
+    pub fn set_FunctionNumber(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 8
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(16777215 << 8)) | ((value & 16777215) << 8);
+    }
 }
 pub const PCI_STATUS_66MHZ_CAPABLE: u32 = 32;
 pub const PCI_STATUS_CAPABILITIES_LIST: u32 = 16;
@@ -11171,6 +14238,38 @@ impl Default for PCI_X_CAPABILITY_0 {
 pub struct PCI_X_CAPABILITY_0_0 {
     pub _bitfield: u16,
 }
+impl PCI_X_CAPABILITY_0_0 {
+    pub fn DataParityErrorRecoveryEnable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DataParityErrorRecoveryEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn EnableRelaxedOrdering(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_EnableRelaxedOrdering(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn MaxMemoryReadByteCount(&self) -> u16 {
+        (self._bitfield << 12) >> 14
+    }
+    pub fn set_MaxMemoryReadByteCount(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn MaxOutstandingSplitTransactions(&self) -> u16 {
+        (self._bitfield << 9) >> 13
+    }
+    pub fn set_MaxOutstandingSplitTransactions(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 4)) | ((value & 7) << 4);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 7
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(511 << 7)) | ((value & 511) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union PCI_X_CAPABILITY_1 {
@@ -11186,6 +14285,92 @@ impl Default for PCI_X_CAPABILITY_1 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PCI_X_CAPABILITY_1_0 {
     pub _bitfield: u32,
+}
+impl PCI_X_CAPABILITY_1_0 {
+    pub fn FunctionNumber(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_FunctionNumber(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn DeviceNumber(&self) -> u32 {
+        (self._bitfield << 24) >> 27
+    }
+    pub fn set_DeviceNumber(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+    pub fn BusNumber(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_BusNumber(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn Device64Bit(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_Device64Bit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn Capable133MHz(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_Capable133MHz(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u32) << 17);
+    }
+    pub fn SplitCompletionDiscarded(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_SplitCompletionDiscarded(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u32) << 18);
+    }
+    pub fn UnexpectedSplitCompletion(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_UnexpectedSplitCompletion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn DeviceComplexity(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_DeviceComplexity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn DesignedMaxMemoryReadByteCount(&self) -> u32 {
+        (self._bitfield << 9) >> 30
+    }
+    pub fn set_DesignedMaxMemoryReadByteCount(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 21)) | ((value & 3) << 21);
+    }
+    pub fn DesignedMaxOutstandingSplitTransactions(&self) -> u32 {
+        (self._bitfield << 6) >> 29
+    }
+    pub fn set_DesignedMaxOutstandingSplitTransactions(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 23)) | ((value & 7) << 23);
+    }
+    pub fn DesignedMaxCumulativeReadSize(&self) -> u32 {
+        (self._bitfield << 3) >> 29
+    }
+    pub fn set_DesignedMaxCumulativeReadSize(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 26)) | ((value & 7) << 26);
+    }
+    pub fn ReceivedSplitCompletionErrorMessage(&self) -> bool {
+        (self._bitfield >> 29) & 1 != 0
+    }
+    pub fn set_ReceivedSplitCompletionErrorMessage(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u32) << 29);
+    }
+    pub fn CapablePCIX266(&self) -> bool {
+        (self._bitfield >> 30) & 1 != 0
+    }
+    pub fn set_CapablePCIX266(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u32) << 30);
+    }
+    pub fn CapablePCIX533(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_CapablePCIX533(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
 }
 #[cfg(all(feature = "basetsd", feature = "clfs", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
 pub type PCLFS_CLIENT_ADVANCE_TAIL_CALLBACK = Option<unsafe extern "system" fn(logfile: *const FILE_OBJECT, targetlsn: *const super::CLFS_LSN, clientdata: *const core::ffi::c_void) -> windows_core::NTSTATUS>;
@@ -12236,6 +15421,27 @@ impl Default for POOL_EXTENDED_PARAMETER {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct POOL_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
+}
+#[cfg(feature = "winnt")]
+impl POOL_EXTENDED_PARAMETER_0 {
+    pub fn Type(&self) -> u64 {
+        (self._bitfield << 56) >> 56
+    }
+    pub fn set_Type(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn Optional(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_Optional(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 9
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(36028797018963967 << 9)) | ((value & 36028797018963967) << 9);
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -13990,6 +17196,62 @@ impl Default for SYSTEM_POWER_STATE_CONTEXT_0 {
 pub struct SYSTEM_POWER_STATE_CONTEXT_0_0 {
     pub _bitfield: u32,
 }
+impl SYSTEM_POWER_STATE_CONTEXT_0_0 {
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn TargetSystemState(&self) -> u32 {
+        (self._bitfield << 20) >> 28
+    }
+    pub fn set_TargetSystemState(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
+    }
+    pub fn EffectiveSystemState(&self) -> u32 {
+        (self._bitfield << 16) >> 28
+    }
+    pub fn set_EffectiveSystemState(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
+    pub fn CurrentSystemState(&self) -> u32 {
+        (self._bitfield << 12) >> 28
+    }
+    pub fn set_CurrentSystemState(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
+    }
+    pub fn IgnoreHibernationPath(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_IgnoreHibernationPath(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn PseudoTransition(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_PseudoTransition(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn KernelSoftReboot(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_KernelSoftReboot(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    }
+    pub fn DirectedDripsTransition(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_DirectedDripsTransition(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn Reserved2(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_Reserved2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 pub const SeImageTypeAll: SE_IMAGE_TYPE = 4;
 pub const SeImageTypeDriver: SE_IMAGE_TYPE = 1;
 pub const SeImageTypeDynamicCodeFile: SE_IMAGE_TYPE = 3;
@@ -14095,6 +17357,50 @@ impl Default for VIRTUAL_CHANNEL_CAPABILITIES1 {
 pub struct VIRTUAL_CHANNEL_CAPABILITIES1_0 {
     pub _bitfield: u32,
 }
+impl VIRTUAL_CHANNEL_CAPABILITIES1_0 {
+    pub fn ExtendedVCCount(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_ExtendedVCCount(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn RsvdP1(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_RsvdP1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn LowPriorityExtendedVCCount(&self) -> u32 {
+        (self._bitfield << 25) >> 29
+    }
+    pub fn set_LowPriorityExtendedVCCount(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 4)) | ((value & 7) << 4);
+    }
+    pub fn RsvdP2(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_RsvdP2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn ReferenceClock(&self) -> u32 {
+        (self._bitfield << 22) >> 30
+    }
+    pub fn set_ReferenceClock(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 8)) | ((value & 3) << 8);
+    }
+    pub fn PortArbitrationTableEntrySize(&self) -> u32 {
+        (self._bitfield << 20) >> 30
+    }
+    pub fn set_PortArbitrationTableEntrySize(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 10)) | ((value & 3) << 10);
+    }
+    pub fn RsvdP3(&self) -> u32 {
+        self._bitfield >> 12
+    }
+    pub fn set_RsvdP3(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1048575 << 12)) | ((value & 1048575) << 12);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_CHANNEL_CAPABILITIES2 {
@@ -14110,6 +17416,26 @@ impl Default for VIRTUAL_CHANNEL_CAPABILITIES2 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_CHANNEL_CAPABILITIES2_0 {
     pub _bitfield: u32,
+}
+impl VIRTUAL_CHANNEL_CAPABILITIES2_0 {
+    pub fn VCArbitrationCapability(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_VCArbitrationCapability(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn RsvdP(&self) -> u32 {
+        (self._bitfield << 8) >> 16
+    }
+    pub fn set_RsvdP(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 8)) | ((value & 65535) << 8);
+    }
+    pub fn VCArbitrationTableOffset(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_VCArbitrationTableOffset(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14127,6 +17453,26 @@ impl Default for VIRTUAL_CHANNEL_CONTROL {
 pub struct VIRTUAL_CHANNEL_CONTROL_0 {
     pub _bitfield: u16,
 }
+impl VIRTUAL_CHANNEL_CONTROL_0 {
+    pub fn LoadVCArbitrationTable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_LoadVCArbitrationTable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn VCArbitrationSelect(&self) -> u16 {
+        (self._bitfield << 12) >> 13
+    }
+    pub fn set_VCArbitrationSelect(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn RsvdP(&self) -> u16 {
+        self._bitfield >> 4
+    }
+    pub fn set_RsvdP(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(4095 << 4)) | ((value & 4095) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_CHANNEL_STATUS {
@@ -14142,6 +17488,20 @@ impl Default for VIRTUAL_CHANNEL_STATUS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_CHANNEL_STATUS_0 {
     pub _bitfield: u16,
+}
+impl VIRTUAL_CHANNEL_STATUS_0 {
+    pub fn VCArbitrationTableStatus(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_VCArbitrationTableStatus(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn RsvdZ(&self) -> u16 {
+        self._bitfield >> 1
+    }
+    pub fn set_RsvdZ(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(32767 << 1)) | ((value & 32767) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -14172,6 +17532,50 @@ impl Default for VIRTUAL_RESOURCE_CAPABILITY {
 pub struct VIRTUAL_RESOURCE_CAPABILITY_0 {
     pub _bitfield: u32,
 }
+impl VIRTUAL_RESOURCE_CAPABILITY_0 {
+    pub fn PortArbitrationCapability(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_PortArbitrationCapability(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn RsvdP1(&self) -> u32 {
+        (self._bitfield << 18) >> 26
+    }
+    pub fn set_RsvdP1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(63 << 8)) | ((value & 63) << 8);
+    }
+    pub fn Undefined(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_Undefined(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    }
+    pub fn RejectSnoopTransactions(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_RejectSnoopTransactions(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn MaximumTimeSlots(&self) -> u32 {
+        (self._bitfield << 9) >> 25
+    }
+    pub fn set_MaximumTimeSlots(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(127 << 16)) | ((value & 127) << 16);
+    }
+    pub fn RsvdP2(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_RsvdP2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn PortArbitrationTableOffset(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_PortArbitrationTableOffset(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_RESOURCE_CONTROL {
@@ -14188,6 +17592,56 @@ impl Default for VIRTUAL_RESOURCE_CONTROL {
 pub struct VIRTUAL_RESOURCE_CONTROL_0 {
     pub _bitfield: u32,
 }
+impl VIRTUAL_RESOURCE_CONTROL_0 {
+    pub fn TcVcMap(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_TcVcMap(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn RsvdP1(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_RsvdP1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn LoadPortArbitrationTable(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_LoadPortArbitrationTable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn PortArbitrationSelect(&self) -> u32 {
+        (self._bitfield << 12) >> 29
+    }
+    pub fn set_PortArbitrationSelect(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 17)) | ((value & 7) << 17);
+    }
+    pub fn RsvdP2(&self) -> u32 {
+        (self._bitfield << 8) >> 28
+    }
+    pub fn set_RsvdP2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 20)) | ((value & 15) << 20);
+    }
+    pub fn VcID(&self) -> u32 {
+        (self._bitfield << 5) >> 29
+    }
+    pub fn set_VcID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 24)) | ((value & 7) << 24);
+    }
+    pub fn RsvdP3(&self) -> u32 {
+        (self._bitfield << 1) >> 28
+    }
+    pub fn set_RsvdP3(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 27)) | ((value & 15) << 27);
+    }
+    pub fn VcEnable(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_VcEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union VIRTUAL_RESOURCE_STATUS {
@@ -14203,6 +17657,26 @@ impl Default for VIRTUAL_RESOURCE_STATUS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct VIRTUAL_RESOURCE_STATUS_0 {
     pub _bitfield: u16,
+}
+impl VIRTUAL_RESOURCE_STATUS_0 {
+    pub fn PortArbitrationTableStatus(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PortArbitrationTableStatus(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn VcNegotiationPending(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_VcNegotiationPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn RsvdZ(&self) -> u16 {
+        self._bitfield >> 2
+    }
+    pub fn set_RsvdZ(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
+    }
 }
 pub const VMEBus: INTERFACE_TYPE = 6;
 #[repr(C)]
@@ -14274,6 +17748,39 @@ pub struct WAIT_CONTEXT_BLOCK_0_0 {
     pub DmaWaitEntry: super::LIST_ENTRY,
     pub NumberOfChannels: u32,
     pub _bitfield: u32,
+}
+#[cfg(all(feature = "basetsd", feature = "lsalookup", feature = "ntdef", feature = "ntifs", feature = "ntsecapi", feature = "usb", feature = "winnt", feature = "winternl"))]
+impl WAIT_CONTEXT_BLOCK_0_0 {
+    pub fn SyncCallback(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SyncCallback(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn DmaContext(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DmaContext(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn ZeroMapRegisters(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ZeroMapRegisters(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 20) >> 23
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(511 << 3)) | ((value & 511) << 3);
+    }
+    pub fn NumberOfRemapPages(&self) -> u32 {
+        self._bitfield >> 12
+    }
+    pub fn set_NumberOfRemapPages(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1048575 << 12)) | ((value & 1048575) << 12);
+    }
 }
 pub const WDM_MAJORVERSION: u32 = 6;
 pub const WDM_MINORVERSION: u32 = 0;

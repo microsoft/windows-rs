@@ -108,7 +108,11 @@ mod Windows {
         }
         struct NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION {
             Flags: struct {
-                _bitfield: u8,
+                _bitfield: u8 {
+                    MinTransferSizeToAchieveValues: 1,
+                    NonSequentialTransfers: 1,
+                    Reserved: 6,
+                },
             },
             MinTransferSizeInBytes: u64,
         }
@@ -233,7 +237,15 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Private: 1,
+                        MappedDataFile: 1,
+                        MappedImage: 1,
+                        MappedPageFile: 1,
+                        MappedPhysical: 1,
+                        DirectMapped: 1,
+                        Reserved: 26,
+                    },
                 },
             },
             RegionSize: usize,

@@ -158,7 +158,11 @@ mod Windows {
         union NET_LUID_LH {
             Value: u64,
             Info: struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    Reserved: 24,
+                    NetLuidIndex: 24,
+                    IfType: 16,
+                },
             },
         }
         type NET_PHYSICAL_LOCATION = NET_PHYSICAL_LOCATION_LH;

@@ -1026,7 +1026,14 @@ mod Windows {
         const ST_UNICODE: u32 = 8;
         struct TABLECELLPARMS {
             dxWidth: i32,
-            _bitfield: u16,
+            _bitfield: u16 {
+                nVertAlign: 2,
+                fMergeTop: 1,
+                fMergePrev: 1,
+                fVertical: 1,
+                fMergeStart: 1,
+                fMergeCont: 1,
+            },
             wShading: u16,
             dxBrdrLeft: i16,
             dyBrdrTop: i16,
@@ -1047,7 +1054,14 @@ mod Windows {
             dxCellMargin: i32,
             dxIndent: i32,
             dyHeight: i32,
-            _bitfield: u32,
+            _bitfield: u32 {
+                nAlignment: 3,
+                fRTL: 1,
+                fKeep: 1,
+                fKeepFollow: 1,
+                fWrap: 1,
+                fIdentCells: 1,
+            },
             cpStartRow: i32,
             bTableLevel: u8,
             iCell: u8,

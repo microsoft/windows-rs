@@ -578,6 +578,30 @@ impl Encoder<'_> {
         self.encode_named_attribute(target, &attr_ref);
     }
 
+    /// Emit `[NativeBitfieldAttribute(name, offset, length)]`, the winmd encoding of one
+    /// bit-field member packed into a backing integer field. The winmd format has no
+    /// bit-field concept, so each named member of a `_bitfield` block is recorded as an
+    /// instance of this attribute (following Microsoft's win32metadata convention);
+    /// `windows-bindgen` reads them to generate typed get/set accessors. Anonymous
+    /// padding members carry no attribute — they only advance the offset.
+    pub fn emit_bitfield_attribute(
+        &mut self,
+        target: metadata::writer::HasAttribute,
+        name: &str,
+        offset: u32,
+        width: u32,
+    ) {
+        let attr_ref = AttributeRef {
+            type_name: metadata::TypeName::named(METADATA_NAMESPACE, "NativeBitfieldAttribute"),
+            args: vec![
+                (String::new(), metadata::Value::Utf8(name.to_string())),
+                (String::new(), metadata::Value::I64(offset as i64)),
+                (String::new(), metadata::Value::I64(width as i64)),
+            ],
+        };
+        self.encode_named_attribute(target, &attr_ref);
+    }
+
     pub fn is_guid_attribute(&self, attr: &syn::Attribute) -> bool {
         self.find_attribute_type(attr.path())
             .is_some_and(|info| &info.type_name == ("Windows.Foundation.Metadata", "GuidAttribute"))

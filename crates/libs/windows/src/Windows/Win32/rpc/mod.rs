@@ -2881,6 +2881,99 @@ pub struct MIDL_STUB_MESSAGE {
     pub Reserved51_5: isize,
 }
 #[cfg(feature = "objidlbase")]
+impl MIDL_STUB_MESSAGE {
+    pub fn fInDontFree(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_fInDontFree(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn fDontCallFreeInst(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_fDontCallFreeInst(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn fUnused1(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_fUnused1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn fHasReturn(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_fHasReturn(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn fHasExtensions(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_fHasExtensions(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn fHasNewCorrDesc(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_fHasNewCorrDesc(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn fIsIn(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_fIsIn(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn fIsOut(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_fIsOut(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn fIsOicf(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_fIsOicf(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn fBufferValid(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_fBufferValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn fHasMemoryValidateCallback(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_fHasMemoryValidateCallback(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn fInFree(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_fInFree(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn fNeedMCCP(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_fNeedMCCP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn fUnused2(&self) -> u32 {
+        (self._bitfield << 16) >> 29
+    }
+    pub fn set_fUnused2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
+    }
+    pub fn fUnused3(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_fUnused3(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
+#[cfg(feature = "objidlbase")]
 impl Default for MIDL_STUB_MESSAGE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }

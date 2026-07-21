@@ -236,7 +236,11 @@ mod Windows {
         }
         union POWER_ADAPTER_POWER_STATES {
             States: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Online: 1,
+                    RecState: 2,
+                    Reserved: 29,
+                },
             },
             AsUlong: u32,
         }

@@ -12,7 +12,14 @@ mod Windows {
         struct DWRITE_CLUSTER_METRICS {
             width: f32,
             length: u16,
-            _bitfield: u16,
+            _bitfield: u16 {
+                canWrapLineAfter: 1,
+                isWhitespace: 1,
+                isNewline: 1,
+                isSoftHyphen: 1,
+                isRightToLeft: 1,
+                padding: 11,
+            },
         }
         const DWRITE_ERR_BASE: u32 = 20480;
         #[repr(i32)]
@@ -274,7 +281,13 @@ mod Windows {
             supportsSideways: BOOL,
         }
         struct DWRITE_LINE_BREAKPOINT {
-            _bitfield: u8,
+            _bitfield: u8 {
+                breakConditionBefore: 2,
+                breakConditionAfter: 2,
+                isWhitespace: 1,
+                isSoftHyphen: 1,
+                padding: 2,
+            },
         }
         struct DWRITE_LINE_METRICS {
             length: u32,
@@ -356,10 +369,21 @@ mod Windows {
             DWRITE_SCRIPT_SHAPES_NO_VISUAL = 1,
         }
         struct DWRITE_SHAPING_GLYPH_PROPERTIES {
-            _bitfield: u16,
+            _bitfield: u16 {
+                justification: 4,
+                isClusterStart: 1,
+                isDiacritic: 1,
+                isZeroWidthSpace: 1,
+                reserved: 9,
+            },
         }
         struct DWRITE_SHAPING_TEXT_PROPERTIES {
-            _bitfield: u16,
+            _bitfield: u16 {
+                isShapedAlone: 1,
+                reserved1: 1,
+                canBreakShapingAfter: 1,
+                reserved: 13,
+            },
         }
         struct DWRITE_STRIKETHROUGH {
             width: f32,

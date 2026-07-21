@@ -1925,7 +1925,10 @@ mod Windows {
             dot11_wfd_discover_type_forced = -2147483648,
         }
         struct DOT11_WFD_GO_INTENT {
-            _bitfield: u8,
+            _bitfield: u8 {
+                TieBreaker: 1,
+                Intent: 7,
+            },
         }
         type DOT11_WFD_GROUP_CAPABILITY = u8;
         const DOT11_WFD_GROUP_CAPABILITY_CROSS_CONNECTION_SUPPORTED: u32 = 16;
@@ -1977,7 +1980,10 @@ mod Windows {
         }
         const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 1;
         struct DOT11_WFD_INVITATION_FLAGS {
-            _bitfield: u8,
+            _bitfield: u8 {
+                InvitationType: 1,
+                Reserved: 7,
+            },
         }
         type DOT11_WFD_MINOR_REASON_CODE = u8;
         const DOT11_WFD_MINOR_REASON_DISASSOCIATED_FROM_WLAN_CROSS_CONNECTION_POLICY: u32 = 1;

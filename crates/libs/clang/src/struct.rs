@@ -133,6 +133,7 @@ impl Struct {
                     name,
                     ty,
                     nested: None,
+                    bitfields: vec![],
                 });
                 continue;
             }
@@ -169,6 +170,7 @@ impl Struct {
                     name,
                     ty: metadata::Type::Void,
                     nested: Some(Box::new(nested)),
+                    bitfields: vec![],
                 });
                 continue;
             }
@@ -197,6 +199,7 @@ impl Struct {
                     name: child.name(),
                     ty: metadata::Type::Void,
                     nested: Some(Box::new(nested)),
+                    bitfields: vec![],
                 });
                 continue;
             }
@@ -212,19 +215,38 @@ impl Struct {
                 }
 
                 let size = child.ty().size_of();
+                let member = child.name();
                 if size != unit_size || width > remaining_bits {
                     // Open a new storage unit, backed by the bit-field's own
-                    // (possibly signed) declared type.
+                    // (possibly signed) declared type. The member sits at the low
+                    // end of the fresh unit (offset 0).
                     let ty = child.ty().to_type(parser);
                     bitfield_indices.push(fields.len());
+                    // An anonymous padding bit-field (`int : 4;`) consumes bits but
+                    // names no member, so it gets no accessor.
+                    let members = if member.is_empty() {
+                        vec![]
+                    } else {
+                        vec![(member, 0, width as u32)]
+                    };
                     fields.push(Field {
                         name: String::new(),
                         ty,
                         nested: None,
+                        bitfields: members,
                     });
                     unit_size = size;
                     remaining_bits = size * 8 - width;
                 } else {
+                    // Continue filling the open unit: the member's offset is the
+                    // number of bits already consumed in it. Anonymous padding
+                    // bit-fields advance the offset but emit no accessor.
+                    let offset = (unit_size * 8 - remaining_bits) as u32;
+                    if !member.is_empty()
+                        && let Some(&index) = bitfield_indices.last()
+                    {
+                        fields[index].bitfields.push((member, offset, width as u32));
+                    }
                     remaining_bits -= width;
                 }
                 continue;
@@ -240,6 +262,7 @@ impl Struct {
                 name,
                 ty,
                 nested: None,
+                bitfields: vec![],
             });
         }
 
@@ -346,6 +369,25 @@ impl Struct {
             .iter()
             .map(|field| {
                 let name = write_ident(&field.name);
+                // A backing bit-field unit renders as a concise C-like block on the
+                // field (`_bitfield: u8 { a: 1, b: 2 }`). Offsets are implicit, so any
+                // gap between coalesced members becomes anonymous padding (`_: n`).
+                if !field.bitfields.is_empty() {
+                    let ty = write_type(namespace, &field.ty);
+                    let mut members = vec![];
+                    let mut cursor = 0u32;
+                    for (member, offset, width) in &field.bitfields {
+                        if *offset > cursor {
+                            let pad = Literal::u32_unsuffixed(offset - cursor);
+                            members.push(quote! { _: #pad, });
+                        }
+                        let member = write_ident(member);
+                        let width_lit = Literal::u32_unsuffixed(*width);
+                        members.push(quote! { #member: #width_lit, });
+                        cursor = offset + width;
+                    }
+                    return quote! { #name: #ty { #(#members)* }, };
+                }
                 if let Some(nested) = &field.nested {
                     let inner = nested.write_inline(namespace);
                     quote! { #name: #inner, }

@@ -232,8 +232,69 @@ fn write_field_flat(
     let name = write_ident(item.name());
     let resolved_ty = resolve_nested(&item.ty(), namespace, flat_names);
     let ty = write_type(namespace, &resolved_ty);
+
+    // A backing bit-field unit renders in the concise C-like block form
+    // (`_bitfield: u8 { a: 1, b: 2 }`) rather than as a plain field carrying
+    // per-member `NativeBitfieldAttribute`s. Any *other* attributes on the field
+    // (rare) still render normally.
+    let members = collect_bitfield_members(item);
+    if !members.is_empty() {
+        let block = write_bitfield_block(&members);
+        let field_attrs = write_custom_attributes_except(
+            item.attributes(),
+            namespace,
+            item.index(),
+            &["NativeBitfieldAttribute"],
+        )?;
+        return Ok(quote! { #(#field_attrs)* #name: #ty { #(#block)* }, });
+    }
+
     let field_attrs = write_custom_attributes(item.attributes(), namespace, item.index())?;
     Ok(quote! { #(#field_attrs)* #name: #ty, })
+}
+
+/// Collects this field's `NativeBitfieldAttribute` members as `(name, offset, width)`,
+/// sorted by offset. Empty when the field is not a bit-field backing unit.
+fn collect_bitfield_members(item: &metadata::reader::Field) -> Vec<(String, u32, u32)> {
+    let mut members: Vec<(String, u32, u32)> = item
+        .attributes()
+        .filter(|attr| {
+            attr.namespace() == METADATA_NAMESPACE && attr.name() == "NativeBitfieldAttribute"
+        })
+        .filter_map(|attr| {
+            let values = attr.value();
+            let name = match values.first().map(|(_, v)| v) {
+                Some(metadata::Value::Utf8(s)) => s.clone(),
+                _ => return None,
+            };
+            let as_u32 = |v: Option<&(String, metadata::Value)>| match v.map(|(_, v)| v) {
+                Some(metadata::Value::I64(n)) => Some(*n as u32),
+                _ => None,
+            };
+            Some((name, as_u32(values.get(1))?, as_u32(values.get(2))?))
+        })
+        .collect();
+    members.sort_by_key(|(_, offset, _)| *offset);
+    members
+}
+
+/// Renders the members of a bit-field block, inserting anonymous padding (`_: n`)
+/// for any leading or interior gap so the reader recomputes each member's implicit
+/// offset (the cumulative width of the preceding members) faithfully.
+fn write_bitfield_block(members: &[(String, u32, u32)]) -> Vec<TokenStream> {
+    let mut out = vec![];
+    let mut cursor = 0u32;
+    for (name, offset, width) in members {
+        if *offset > cursor {
+            let pad = Literal::u32_unsuffixed(offset - cursor);
+            out.push(quote! { _: #pad, });
+        }
+        let member = write_ident(name);
+        let width_lit = Literal::u32_unsuffixed(*width);
+        out.push(quote! { #member: #width_lit, });
+        cursor = offset + width;
+    }
+    out
 }
 
 /// Recursively replace nested-type references inside `ty` with their flat

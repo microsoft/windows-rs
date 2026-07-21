@@ -326,6 +326,80 @@ impl Default for HIDP_KEYBOARD_MODIFIER_STATE_0 {
 pub struct HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     pub _bitfield: u32,
 }
+impl HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
+    pub fn LeftControl(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_LeftControl(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn LeftShift(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_LeftShift(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn LeftAlt(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_LeftAlt(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn LeftGUI(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_LeftGUI(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn RightControl(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_RightControl(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn RightShift(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_RightShift(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn RightAlt(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_RightAlt(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn RigthGUI(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_RigthGUI(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn CapsLock(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_CapsLock(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn ScollLock(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_ScollLock(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn NumLock(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_NumLock(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 11
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2097151 << 11)) | ((value & 2097151) << 11);
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "hidusage")]
@@ -339,6 +413,28 @@ pub struct HIDP_LINK_COLLECTION_NODE {
     pub FirstChild: u16,
     pub _bitfield: u32,
     pub UserContext: *mut core::ffi::c_void,
+}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "hidusage")]
+impl HIDP_LINK_COLLECTION_NODE {
+    pub fn CollectionType(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_CollectionType(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn IsAlias(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_IsAlias(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 9
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(8388607 << 9)) | ((value & 8388607) << 9);
+    }
 }
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "hidusage")]
@@ -360,6 +456,28 @@ pub struct HIDP_LINK_COLLECTION_NODE {
     pub FirstChild: u16,
     pub _bitfield: u32,
     pub UserContext: *mut core::ffi::c_void,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "hidusage")]
+impl HIDP_LINK_COLLECTION_NODE {
+    pub fn CollectionType(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_CollectionType(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn IsAlias(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_IsAlias(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 9
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(8388607 << 9)) | ((value & 8388607) << 9);
+    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "hidusage")]

@@ -162,6 +162,20 @@ pub struct EVENT_HEADER_EXTENDED_DATA_ITEM {
 pub struct EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
     pub _bitfield: u16,
 }
+impl EVENT_HEADER_EXTENDED_DATA_ITEM_0 {
+    pub fn Linkage(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Linkage(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Reserved2(&self) -> u16 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved2(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(32767 << 1)) | ((value & 32767) << 1);
+    }
+}
 pub const EVENT_HEADER_EXT_TYPE_CONTAINER_ID: u32 = 16;
 pub const EVENT_HEADER_EXT_TYPE_CONTROL_GUID: u32 = 14;
 pub const EVENT_HEADER_EXT_TYPE_EVENT_KEY: u32 = 10;

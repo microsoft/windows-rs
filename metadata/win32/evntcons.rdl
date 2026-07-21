@@ -90,7 +90,10 @@ mod Windows {
             Reserved1: u16,
             ExtType: u16,
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    Linkage: 1,
+                    Reserved2: 15,
+                },
             },
             DataSize: u16,
             DataPtr: u64,

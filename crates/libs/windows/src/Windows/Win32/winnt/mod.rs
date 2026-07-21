@@ -1038,6 +1038,50 @@ impl Default for ARM64_RUNTIME_FUNCTION_0 {
 pub struct ARM64_RUNTIME_FUNCTION_0_0 {
     pub _bitfield: u32,
 }
+impl ARM64_RUNTIME_FUNCTION_0_0 {
+    pub fn Flag(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_Flag(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn FunctionLength(&self) -> u32 {
+        (self._bitfield << 19) >> 21
+    }
+    pub fn set_FunctionLength(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2047 << 2)) | ((value & 2047) << 2);
+    }
+    pub fn RegF(&self) -> u32 {
+        (self._bitfield << 16) >> 29
+    }
+    pub fn set_RegF(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
+    }
+    pub fn RegI(&self) -> u32 {
+        (self._bitfield << 12) >> 28
+    }
+    pub fn set_RegI(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
+    }
+    pub fn H(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_H(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn CR(&self) -> u32 {
+        (self._bitfield << 9) >> 30
+    }
+    pub fn set_CR(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 21)) | ((value & 3) << 21);
+    }
+    pub fn FrameSize(&self) -> u32 {
+        self._bitfield >> 23
+    }
+    pub fn set_FrameSize(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(511 << 23)) | ((value & 511) << 23);
+    }
+}
 #[cfg(target_arch = "aarch64")]
 pub const ARM64_SVCR: u32 = 23058;
 #[cfg(target_arch = "aarch64")]
@@ -1952,6 +1996,32 @@ impl Default for DRIVER_INFO_ENTRY_0 {
 pub struct DRIVER_INFO_ENTRY_0_0 {
     pub _bitfield: u16,
 }
+impl DRIVER_INFO_ENTRY_0_0 {
+    pub fn Unloaded(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Unloaded(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn BootDriver(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_BootDriver(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn HotPatch(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_HotPatch(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
+    }
+}
 pub const DRIVER_REPORT_DIGEST_MAX_SIZE: u32 = 64;
 pub const DRIVER_REPORT_NAME_MAX_LENGTH: u32 = 32;
 #[repr(C)]
@@ -1982,6 +2052,32 @@ impl Default for DRIVER_RUNTIME_REPORT_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DRIVER_RUNTIME_REPORT_0_0 {
     pub _bitfield: u16,
+}
+impl DRIVER_RUNTIME_REPORT_0_0 {
+    pub fn ReportOverflowed(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ReportOverflowed(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn PartialReport(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_PartialReport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn IncludeBootDrivers(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_IncludeBootDrivers(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
+    }
 }
 pub const DUPLICATE_CLOSE_SOURCE: u32 = 1;
 pub const DUPLICATE_SAME_ACCESS: u32 = 2;
@@ -2708,6 +2804,44 @@ pub struct FPO_DATA {
     pub cdwParams: u16,
     pub _bitfield: u16,
 }
+impl FPO_DATA {
+    pub fn cbProlog(&self) -> u16 {
+        (self._bitfield << 8) >> 8
+    }
+    pub fn set_cbProlog(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn cbRegs(&self) -> u16 {
+        (self._bitfield << 5) >> 13
+    }
+    pub fn set_cbRegs(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 8)) | ((value & 7) << 8);
+    }
+    pub fn fHasSEH(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_fHasSEH(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u16) << 11);
+    }
+    pub fn fUseBP(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_fUseBP(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    }
+    pub fn reserved(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_reserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u16) << 13);
+    }
+    pub fn cbFrame(&self) -> u16 {
+        self._bitfield >> 14
+    }
+    pub fn set_cbFrame(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(3 << 14)) | ((value & 3) << 14);
+    }
+}
 pub const FRAME_FPO: u32 = 0;
 pub const FRAME_NONFPO: u32 = 3;
 pub const FRAME_TRAP: u32 = 1;
@@ -3187,6 +3321,20 @@ pub struct IMAGE_ARCHITECTURE_HEADER {
     pub _bitfield: u32,
     pub FirstEntryRVA: u32,
 }
+impl IMAGE_ARCHITECTURE_HEADER {
+    pub fn AmaskValue(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_AmaskValue(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AmaskShift(&self) -> u32 {
+        (self._bitfield << 16) >> 24
+    }
+    pub fn set_AmaskShift(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+}
 pub const IMAGE_ARCHIVE_END: windows_core::PCSTR = windows_core::s!("`\n");
 pub const IMAGE_ARCHIVE_HYBRIDMAP_MEMBER: windows_core::PCSTR = windows_core::s!("/<HYBRIDMAP>/   ");
 pub const IMAGE_ARCHIVE_LINKER_MEMBER: windows_core::PCSTR = windows_core::s!("/               ");
@@ -3227,6 +3375,44 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA {
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
     pub _bitfield: u32,
 }
+impl IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_0 {
+    pub fn FunctionLength(&self) -> u32 {
+        (self._bitfield << 14) >> 14
+    }
+    pub fn set_FunctionLength(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !262143) | (value & 262143);
+    }
+    pub fn Version(&self) -> u32 {
+        (self._bitfield << 12) >> 30
+    }
+    pub fn set_Version(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 18)) | ((value & 3) << 18);
+    }
+    pub fn ExceptionDataPresent(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_ExceptionDataPresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn EpilogInHeader(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_EpilogInHeader(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn EpilogCount(&self) -> u32 {
+        (self._bitfield << 5) >> 27
+    }
+    pub fn set_EpilogCount(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 22)) | ((value & 31) << 22);
+    }
+    pub fn CodeWords(&self) -> u32 {
+        self._bitfield >> 27
+    }
+    pub fn set_CodeWords(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 27)) | ((value & 31) << 27);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE {
@@ -3243,6 +3429,26 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE {
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE_0 {
     pub _bitfield: u32,
 }
+impl IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EPILOG_SCOPE_0 {
+    pub fn EpilogStartOffset(&self) -> u32 {
+        (self._bitfield << 14) >> 14
+    }
+    pub fn set_EpilogStartOffset(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !262143) | (value & 262143);
+    }
+    pub fn Res0(&self) -> u32 {
+        (self._bitfield << 10) >> 28
+    }
+    pub fn set_Res0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 18)) | ((value & 15) << 18);
+    }
+    pub fn EpilogStartIndex(&self) -> u32 {
+        self._bitfield >> 22
+    }
+    pub fn set_EpilogStartIndex(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1023 << 22)) | ((value & 1023) << 22);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED {
@@ -3258,6 +3464,20 @@ impl Default for IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED_0 {
     pub _bitfield: u32,
+}
+impl IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_XDATA_EXTENDED_0 {
+    pub fn ExtendedEpilogCount(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_ExtendedEpilogCount(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn ExtendedCodeWords(&self) -> u32 {
+        (self._bitfield << 8) >> 24
+    }
+    pub fn set_ExtendedCodeWords(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 16)) | ((value & 255) << 16);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3285,6 +3505,62 @@ impl Default for IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
     pub _bitfield: u32,
+}
+impl IMAGE_ARM_RUNTIME_FUNCTION_ENTRY_0_0 {
+    pub fn Flag(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_Flag(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn FunctionLength(&self) -> u32 {
+        (self._bitfield << 19) >> 21
+    }
+    pub fn set_FunctionLength(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2047 << 2)) | ((value & 2047) << 2);
+    }
+    pub fn Ret(&self) -> u32 {
+        (self._bitfield << 17) >> 30
+    }
+    pub fn set_Ret(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 13)) | ((value & 3) << 13);
+    }
+    pub fn H(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_H(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn Reg(&self) -> u32 {
+        (self._bitfield << 13) >> 29
+    }
+    pub fn set_Reg(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 16)) | ((value & 7) << 16);
+    }
+    pub fn R(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_R(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn L(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_L(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn C(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_C(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn StackAdjust(&self) -> u32 {
+        self._bitfield >> 22
+    }
+    pub fn set_StackAdjust(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1023 << 22)) | ((value & 1023) << 22);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -3520,6 +3796,32 @@ pub struct IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
     pub FuncStart: u32,
     pub _bitfield: u32,
 }
+impl IMAGE_CE_RUNTIME_FUNCTION_ENTRY {
+    pub fn PrologLen(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_PrologLen(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn FuncLen(&self) -> u32 {
+        (self._bitfield << 2) >> 10
+    }
+    pub fn set_FuncLen(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(4194303 << 8)) | ((value & 4194303) << 8);
+    }
+    pub fn ThirtyTwoBit(&self) -> bool {
+        (self._bitfield >> 30) & 1 != 0
+    }
+    pub fn set_ThirtyTwoBit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u32) << 30);
+    }
+    pub fn ExceptionFlag(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_ExceptionFlag(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_COFF_SYMBOLS_HEADER {
@@ -3660,6 +3962,20 @@ impl Default for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
+}
+impl IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
+    pub fn RvaBased(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_RvaBased(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn ReservedAttributes(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_ReservedAttributes(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 pub const IMAGE_DIRECTORY_ENTRY_ARCHITECTURE: u32 = 7;
 pub const IMAGE_DIRECTORY_ENTRY_BASERELOC: u32 = 5;
@@ -3927,6 +4243,38 @@ impl Default for IMAGE_FILE_MACHINES_0 {
 pub struct IMAGE_FILE_MACHINES_0_0 {
     pub _bitfield: u32,
 }
+impl IMAGE_FILE_MACHINES_0_0 {
+    pub fn MachineX86(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_MachineX86(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn MachineAmd64(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_MachineAmd64(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn MachineArm(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_MachineArm(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn MachineArm64(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_MachineArm64(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn MachineArm64EC(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_MachineArm64EC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+}
 pub const IMAGE_FILE_MACHINE_ALPHA: u32 = 388;
 pub const IMAGE_FILE_MACHINE_ALPHA64: u32 = 644;
 pub const IMAGE_FILE_MACHINE_AM33: u32 = 467;
@@ -4152,6 +4500,32 @@ pub struct IMAGE_HOT_PATCH_MACHINE {
 pub struct IMAGE_HOT_PATCH_MACHINE_0 {
     pub _bitfield: u32,
 }
+impl IMAGE_HOT_PATCH_MACHINE_0 {
+    pub fn _x86(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set__x86(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Amd64(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Amd64(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Arm64(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Arm64(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Amd64EC(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Amd64EC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+}
 pub const IMAGE_HOT_PATCH_NONE: u32 = 0;
 pub const IMAGE_HOT_PATCH_NO_CALL_TARGET: u32 = 409600;
 pub const IMAGE_HOT_PATCH_REL32: u32 = 245760;
@@ -4172,10 +4546,62 @@ impl Default for IMAGE_IMPORT_BY_NAME {
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_ARM64_RELOCATION {
     pub _bitfield: u32,
 }
+impl IMAGE_IMPORT_CONTROL_TRANSFER_ARM64_RELOCATION {
+    pub fn PageRelativeOffset(&self) -> u32 {
+        (self._bitfield << 22) >> 22
+    }
+    pub fn set_PageRelativeOffset(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !1023) | (value & 1023);
+    }
+    pub fn IndirectCall(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_IndirectCall(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn RegisterIndex(&self) -> u32 {
+        (self._bitfield << 16) >> 27
+    }
+    pub fn set_RegisterIndex(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 11)) | ((value & 31) << 11);
+    }
+    pub fn ImportType(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_ImportType(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn IATIndex(&self) -> u32 {
+        self._bitfield >> 17
+    }
+    pub fn set_IATIndex(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(32767 << 17)) | ((value & 32767) << 17);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u32,
+}
+impl IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
+    pub fn PageRelativeOffset(&self) -> u32 {
+        (self._bitfield << 20) >> 20
+    }
+    pub fn set_PageRelativeOffset(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !4095) | (value & 4095);
+    }
+    pub fn IndirectCall(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_IndirectCall(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u32) << 12);
+    }
+    pub fn IATIndex(&self) -> u32 {
+        self._bitfield >> 13
+    }
+    pub fn set_IATIndex(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(524287 << 13)) | ((value & 524287) << 13);
+    }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type IMAGE_IMPORT_CONTROL_TRANSFER_RELOCATION = IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION;
@@ -4210,6 +4636,38 @@ impl Default for IMAGE_IMPORT_DESCRIPTOR_0 {
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
+}
+impl IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION {
+    pub fn PageRelativeOffset(&self) -> u16 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_PageRelativeOffset(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !4095) | (value & 4095);
+    }
+    pub fn IndirectCall(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_IndirectCall(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    }
+    pub fn RexWPrefix(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_RexWPrefix(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u16) << 13);
+    }
+    pub fn CfgCheck(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_CfgCheck(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u16) << 14);
+    }
+    pub fn Reserved(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_Reserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -4889,6 +5347,20 @@ impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_0 {
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
     pub _bitfield: u32,
 }
+impl IMAGE_RESOURCE_DIRECTORY_ENTRY_0_0 {
+    pub fn NameOffset(&self) -> u32 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_NameOffset(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !2147483647) | (value & 2147483647);
+    }
+    pub fn NameIsString(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_NameIsString(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
@@ -4904,6 +5376,20 @@ impl Default for IMAGE_RESOURCE_DIRECTORY_ENTRY_1 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
     pub _bitfield: u32,
+}
+impl IMAGE_RESOURCE_DIRECTORY_ENTRY_1_0 {
+    pub fn OffsetToDirectory(&self) -> u32 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_OffsetToDirectory(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !2147483647) | (value & 2147483647);
+    }
+    pub fn DataIsDirectory(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_DataIsDirectory(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -5079,6 +5565,20 @@ pub const IMAGE_SUBSYSTEM_XBOX_CODE_CATALOG: u32 = 17;
 #[derive(Clone, Copy, Default)]
 pub struct IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
     pub _bitfield: u16,
+}
+impl IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION {
+    pub fn PageRelativeOffset(&self) -> u16 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_PageRelativeOffset(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !4095) | (value & 4095);
+    }
+    pub fn RegisterNumber(&self) -> u16 {
+        self._bitfield >> 12
+    }
+    pub fn set_RegisterNumber(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -5285,6 +5785,26 @@ impl Default for IMAGE_TLS_DIRECTORY32_0 {
 pub struct IMAGE_TLS_DIRECTORY32_0_0 {
     pub _bitfield: u32,
 }
+impl IMAGE_TLS_DIRECTORY32_0_0 {
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 12) >> 12
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !1048575) | (value & 1048575);
+    }
+    pub fn Alignment(&self) -> u32 {
+        (self._bitfield << 8) >> 28
+    }
+    pub fn set_Alignment(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 20)) | ((value & 15) << 20);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 #[repr(C, packed(4))]
 #[derive(Clone, Copy)]
 pub struct IMAGE_TLS_DIRECTORY64 {
@@ -5315,6 +5835,26 @@ impl Default for IMAGE_TLS_DIRECTORY64_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IMAGE_TLS_DIRECTORY64_0_0 {
     pub _bitfield: u32,
+}
+impl IMAGE_TLS_DIRECTORY64_0_0 {
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 12) >> 12
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !1048575) | (value & 1048575);
+    }
+    pub fn Alignment(&self) -> u32 {
+        (self._bitfield << 8) >> 28
+    }
+    pub fn set_Alignment(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 20)) | ((value & 15) << 20);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
 }
 #[repr(C, packed(2))]
 #[derive(Clone, Copy)]
@@ -5396,6 +5936,26 @@ pub struct IMPORT_OBJECT_HEADER {
     pub SizeOfData: u32,
     pub Anonymous: IMPORT_OBJECT_HEADER_0,
     pub _bitfield: u16,
+}
+impl IMPORT_OBJECT_HEADER {
+    pub fn Type(&self) -> u16 {
+        (self._bitfield << 14) >> 14
+    }
+    pub fn set_Type(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn NameType(&self) -> u16 {
+        (self._bitfield << 11) >> 13
+    }
+    pub fn set_NameType(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 2)) | ((value & 7) << 2);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(2047 << 5)) | ((value & 2047) << 5);
+    }
 }
 impl Default for IMPORT_OBJECT_HEADER {
     fn default() -> Self {
@@ -6062,6 +6622,26 @@ impl Default for KERNEL_CET_CONTEXT_0 {
 pub struct KERNEL_CET_CONTEXT_0_0 {
     pub _bitfield: u16,
 }
+impl KERNEL_CET_CONTEXT_0_0 {
+    pub fn UseWrss(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_UseWrss(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn PopShadowStackOne(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_PopShadowStackOne(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Unused(&self) -> u16 {
+        self._bitfield >> 2
+    }
+    pub fn set_Unused(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
+    }
+}
 pub const KEY_ALL_ACCESS: u32 = 983103;
 pub const KEY_CREATE_LINK: u32 = 32;
 pub const KEY_CREATE_SUB_KEY: u32 = 4;
@@ -6405,6 +6985,68 @@ pub struct LDT_ENTRY_0_0 {
 pub struct LDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
+impl LDT_ENTRY_0_1 {
+    pub fn BaseMid(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_BaseMid(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn Type(&self) -> u32 {
+        (self._bitfield << 19) >> 27
+    }
+    pub fn set_Type(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 8)) | ((value & 31) << 8);
+    }
+    pub fn Dpl(&self) -> u32 {
+        (self._bitfield << 17) >> 30
+    }
+    pub fn set_Dpl(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 13)) | ((value & 3) << 13);
+    }
+    pub fn Pres(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_Pres(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn LimitHi(&self) -> u32 {
+        (self._bitfield << 12) >> 28
+    }
+    pub fn set_LimitHi(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
+    }
+    pub fn Sys(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_Sys(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn Reserved_0(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_Reserved_0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn Default_Big(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_Default_Big(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    }
+    pub fn Granularity(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_Granularity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn BaseHi(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_BaseHi(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct LIST_ENTRY {
@@ -6662,6 +7304,20 @@ impl Default for MEM_EXTENDED_PARAMETER {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MEM_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
+}
+impl MEM_EXTENDED_PARAMETER_0 {
+    pub fn Type(&self) -> u64 {
+        (self._bitfield << 56) >> 56
+    }
+    pub fn set_Type(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 8
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(72057594037927935 << 8)) | ((value & 72057594037927935) << 8);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -7782,6 +8438,20 @@ impl Default for POWER_LIMIT_ATTRIBUTES_0 {
 pub struct POWER_LIMIT_ATTRIBUTES_0_0 {
     pub _bitfield: u32,
 }
+impl POWER_LIMIT_ATTRIBUTES_0_0 {
+    pub fn SupportTimeParameter(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SupportTimeParameter(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 pub type POWER_LIMIT_TYPES = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -8321,6 +8991,26 @@ impl Default for PROCESSOR_IDLESTATE_POLICY_0 {
 pub struct PROCESSOR_IDLESTATE_POLICY_0_0 {
     pub _bitfield: u16,
 }
+impl PROCESSOR_IDLESTATE_POLICY_0_0 {
+    pub fn AllowScaling(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_AllowScaling(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Disabled(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Disabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
+    }
+}
 pub const PROCESSOR_IDLESTATE_POLICY_COUNT: u32 = 3;
 pub const PROCESSOR_INTEL_386: u32 = 386;
 pub const PROCESSOR_INTEL_486: u32 = 486;
@@ -8382,6 +9072,32 @@ impl Default for PROCESSOR_PERFSTATE_POLICY_0_0 {
 pub struct PROCESSOR_PERFSTATE_POLICY_0_0_0 {
     pub _bitfield: u8,
 }
+impl PROCESSOR_PERFSTATE_POLICY_0_0_0 {
+    pub fn NoDomainAccounting(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_NoDomainAccounting(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn IncreasePolicy(&self) -> u8 {
+        (self._bitfield << 5) >> 6
+    }
+    pub fn set_IncreasePolicy(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 1)) | ((value & 3) << 1);
+    }
+    pub fn DecreasePolicy(&self) -> u8 {
+        (self._bitfield << 3) >> 6
+    }
+    pub fn set_DecreasePolicy(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 3)) | ((value & 3) << 3);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+}
 pub const PROCESSOR_PERF_AUTONOMOUS_MODE_DISABLED: u32 = 0;
 pub const PROCESSOR_PERF_AUTONOMOUS_MODE_ENABLED: u32 = 1;
 pub const PROCESSOR_PERF_BOOST_MODE_AGGRESSIVE: u32 = 2;
@@ -8408,6 +9124,20 @@ pub struct PROCESSOR_POWER_POLICY {
     pub PolicyCount: u32,
     pub Policy: [PROCESSOR_POWER_POLICY_INFO; 3],
 }
+impl PROCESSOR_POWER_POLICY {
+    pub fn DisableCStates(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DisableCStates(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 impl Default for PROCESSOR_POWER_POLICY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -8423,6 +9153,26 @@ pub struct PROCESSOR_POWER_POLICY_INFO {
     pub PromotePercent: u8,
     pub Spare: [u8; 2],
     pub _bitfield: u32,
+}
+impl PROCESSOR_POWER_POLICY_INFO {
+    pub fn AllowDemotion(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_AllowDemotion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AllowPromotion(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AllowPromotion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
 }
 impl Default for PROCESSOR_POWER_POLICY_INFO {
     fn default() -> Self {
@@ -8515,6 +9265,38 @@ impl Default for PROCESS_MITIGATION_ASLR_POLICY_0 {
 pub struct PROCESS_MITIGATION_ASLR_POLICY_0_0 {
     pub _bitfield: u32,
 }
+impl PROCESS_MITIGATION_ASLR_POLICY_0_0 {
+    pub fn EnableBottomUpRandomization(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EnableBottomUpRandomization(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn EnableForceRelocateImages(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_EnableForceRelocateImages(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn EnableHighEntropy(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_EnableHighEntropy(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn DisallowStrippedImages(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_DisallowStrippedImages(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY {
@@ -8540,6 +9322,44 @@ impl Default for PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
     pub _bitfield: u32,
+}
+impl PROCESS_MITIGATION_BINARY_SIGNATURE_POLICY_0_0 {
+    pub fn MicrosoftSignedOnly(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_MicrosoftSignedOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn StoreSignedOnly(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_StoreSignedOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn MitigationOptIn(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_MitigationOptIn(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn AuditMicrosoftSignedOnly(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_AuditMicrosoftSignedOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn AuditStoreSignedOnly(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_AuditStoreSignedOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 5
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8567,6 +9387,32 @@ impl Default for PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0 {
 pub struct PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
     pub _bitfield: u32,
 }
+impl PROCESS_MITIGATION_CHILD_PROCESS_POLICY_0_0 {
+    pub fn NoChildProcessCreation(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_NoChildProcessCreation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AuditNoChildProcessCreation(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AuditNoChildProcessCreation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn AllowSecureProcessCreation(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_AllowSecureProcessCreation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY {
@@ -8592,6 +9438,44 @@ impl Default for PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
     pub _bitfield: u32,
+}
+impl PROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY_0_0 {
+    pub fn EnableControlFlowGuard(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EnableControlFlowGuard(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn EnableExportSuppression(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_EnableExportSuppression(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn StrictMode(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_StrictMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn EnableXfg(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_EnableXfg(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn EnableXfgAuditMode(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_EnableXfgAuditMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 5
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8620,6 +9504,26 @@ impl Default for PROCESS_MITIGATION_DEP_POLICY_0 {
 pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
     pub _bitfield: u32,
 }
+impl PROCESS_MITIGATION_DEP_POLICY_0_0 {
+    pub fn Enable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Enable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn DisableAtlThunkEmulation(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DisableAtlThunkEmulation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY {
@@ -8645,6 +9549,38 @@ impl Default for PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
     pub _bitfield: u32,
+}
+impl PROCESS_MITIGATION_DYNAMIC_CODE_POLICY_0_0 {
+    pub fn ProhibitDynamicCode(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ProhibitDynamicCode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AllowThreadOptOut(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AllowThreadOptOut(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn AllowRemoteDowngrade(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_AllowRemoteDowngrade(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn AuditProhibitDynamicCode(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_AuditProhibitDynamicCode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8672,6 +9608,20 @@ impl Default for PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0 {
 pub struct PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
+impl PROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY_0_0 {
+    pub fn DisableExtensionPoints(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DisableExtensionPoints(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY {
@@ -8697,6 +9647,26 @@ impl Default for PROCESS_MITIGATION_FONT_DISABLE_POLICY_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
+}
+impl PROCESS_MITIGATION_FONT_DISABLE_POLICY_0_0 {
+    pub fn DisableNonSystemFonts(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DisableNonSystemFonts(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AuditNonSystemFontLoading(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AuditNonSystemFontLoading(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8724,6 +9694,44 @@ impl Default for PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0 {
 pub struct PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
     pub _bitfield: u32,
 }
+impl PROCESS_MITIGATION_IMAGE_LOAD_POLICY_0_0 {
+    pub fn NoRemoteImages(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_NoRemoteImages(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn NoLowMandatoryLabelImages(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_NoLowMandatoryLabelImages(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn PreferSystem32Images(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_PreferSystem32Images(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn AuditNoRemoteImages(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_AuditNoRemoteImages(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn AuditNoLowMandatoryLabelImages(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_AuditNoLowMandatoryLabelImages(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 5
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY {
@@ -8749,6 +9757,86 @@ impl Default for PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
     pub _bitfield: u32,
+}
+impl PROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY_0_0 {
+    pub fn EnableExportAddressFilter(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EnableExportAddressFilter(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AuditExportAddressFilter(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AuditExportAddressFilter(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn EnableExportAddressFilterPlus(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_EnableExportAddressFilterPlus(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn AuditExportAddressFilterPlus(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_AuditExportAddressFilterPlus(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn EnableImportAddressFilter(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_EnableImportAddressFilter(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn AuditImportAddressFilter(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_AuditImportAddressFilter(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn EnableRopStackPivot(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_EnableRopStackPivot(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn AuditRopStackPivot(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_AuditRopStackPivot(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn EnableRopCallerCheck(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_EnableRopCallerCheck(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn AuditRopCallerCheck(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_AuditRopCallerCheck(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn EnableRopSimExec(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_EnableRopSimExec(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn AuditRopSimExec(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_AuditRopSimExec(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 12
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1048575 << 12)) | ((value & 1048575) << 12);
+    }
 }
 pub type PROCESS_MITIGATION_POLICY = i32;
 #[repr(C)]
@@ -8777,6 +9865,26 @@ impl Default for PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0 {
 pub struct PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
     pub _bitfield: u32,
 }
+impl PROCESS_MITIGATION_REDIRECTION_TRUST_POLICY_0_0 {
+    pub fn EnforceRedirectionTrust(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EnforceRedirectionTrust(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AuditRedirectionTrust(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AuditRedirectionTrust(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_SEHOP_POLICY {
@@ -8802,6 +9910,20 @@ impl Default for PROCESS_MITIGATION_SEHOP_POLICY_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
     pub _bitfield: u32,
+}
+impl PROCESS_MITIGATION_SEHOP_POLICY_0_0 {
+    pub fn EnableSehop(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EnableSehop(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8829,6 +9951,44 @@ impl Default for PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0 {
 pub struct PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
     pub _bitfield: u32,
 }
+impl PROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY_0_0 {
+    pub fn SmtBranchTargetIsolation(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SmtBranchTargetIsolation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn IsolateSecurityDomain(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_IsolateSecurityDomain(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn DisablePageCombine(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_DisablePageCombine(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn SpeculativeStoreBypassDisable(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_SpeculativeStoreBypassDisable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn RestrictCoreSharing(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_RestrictCoreSharing(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 5
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY {
@@ -8854,6 +10014,26 @@ impl Default for PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
     pub _bitfield: u32,
+}
+impl PROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY_0_0 {
+    pub fn RaiseExceptionOnInvalidHandleReference(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_RaiseExceptionOnInvalidHandleReference(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn HandleExceptionsPermanentlyEnabled(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_HandleExceptionsPermanentlyEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8881,6 +10061,38 @@ impl Default for PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0 {
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
     pub _bitfield: u32,
 }
+impl PROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY_0_0 {
+    pub fn DisallowWin32kSystemCalls(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DisallowWin32kSystemCalls(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AuditDisallowWin32kSystemCalls(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AuditDisallowWin32kSystemCalls(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn DisallowFsctlSystemCalls(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_DisallowFsctlSystemCalls(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn AuditDisallowFsctlSystemCalls(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_AuditDisallowFsctlSystemCalls(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY {
@@ -8906,6 +10118,20 @@ impl Default for PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
     pub _bitfield: u32,
+}
+impl PROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY_0_0 {
+    pub fn FilterId(&self) -> u32 {
+        (self._bitfield << 28) >> 28
+    }
+    pub fn set_FilterId(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -8933,6 +10159,20 @@ impl Default for PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0 {
 pub struct PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
     pub _bitfield: u32,
 }
+impl PROCESS_MITIGATION_USER_POINTER_AUTH_POLICY_0_0 {
+    pub fn EnablePointerAuthUserIp(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EnablePointerAuthUserIp(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY {
@@ -8958,6 +10198,74 @@ impl Default for PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
     pub _bitfield: u32,
+}
+impl PROCESS_MITIGATION_USER_SHADOW_STACK_POLICY_0_0 {
+    pub fn EnableUserShadowStack(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EnableUserShadowStack(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AuditUserShadowStack(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AuditUserShadowStack(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn SetContextIpValidation(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_SetContextIpValidation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn AuditSetContextIpValidation(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_AuditSetContextIpValidation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn EnableUserShadowStackStrictMode(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_EnableUserShadowStackStrictMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn BlockNonCetBinaries(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_BlockNonCetBinaries(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn BlockNonCetBinariesNonEhcont(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_BlockNonCetBinariesNonEhcont(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn AuditBlockNonCetBinaries(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_AuditBlockNonCetBinaries(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn CetDynamicApisOutOfProcOnly(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_CetDynamicApisOutOfProcOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn SetContextIpValidationRelaxedMode(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_SetContextIpValidationRelaxedMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 10
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -9573,6 +10881,20 @@ impl Default for RATE_QUOTA_LIMIT {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct RATE_QUOTA_LIMIT_0 {
     pub _bitfield: u32,
+}
+impl RATE_QUOTA_LIMIT_0 {
+    pub fn RatePercent(&self) -> u32 {
+        (self._bitfield << 25) >> 25
+    }
+    pub fn set_RatePercent(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !127) | (value & 127);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 7
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(33554431 << 7)) | ((value & 33554431) << 7);
+    }
 }
 pub const READ_CONTROL: u32 = 131072;
 pub const READ_THREAD_PROFILING_FLAG_DISPATCHING: u32 = 1;
@@ -10699,6 +12021,33 @@ pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl SLIST_HEADER_1 {
+    pub fn Depth(&self) -> u64 {
+        (self._bitfield1 << 48) >> 48
+    }
+    pub fn set_Depth(&mut self, value: u64) {
+        self._bitfield1 = (self._bitfield1 & !65535) | (value & 65535);
+    }
+    pub fn Sequence(&self) -> u64 {
+        self._bitfield1 >> 16
+    }
+    pub fn set_Sequence(&mut self, value: u64) {
+        self._bitfield1 = (self._bitfield1 & !(281474976710655 << 16)) | ((value & 281474976710655) << 16);
+    }
+    pub fn Reserved(&self) -> u64 {
+        (self._bitfield2 << 60) >> 60
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield2 = (self._bitfield2 & !15) | (value & 15);
+    }
+    pub fn NextEntry(&self) -> u64 {
+        self._bitfield2 >> 4
+    }
+    pub fn set_NextEntry(&mut self, value: u64) {
+        self._bitfield2 = (self._bitfield2 & !(1152921504606846975 << 4)) | ((value & 1152921504606846975) << 4);
+    }
+}
 #[repr(C, align(16))]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -10725,6 +12074,33 @@ pub struct SLIST_HEADER_0 {
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
+}
+#[cfg(target_arch = "aarch64")]
+impl SLIST_HEADER_1 {
+    pub fn Depth(&self) -> u64 {
+        (self._bitfield1 << 48) >> 48
+    }
+    pub fn set_Depth(&mut self, value: u64) {
+        self._bitfield1 = (self._bitfield1 & !65535) | (value & 65535);
+    }
+    pub fn Sequence(&self) -> u64 {
+        self._bitfield1 >> 16
+    }
+    pub fn set_Sequence(&mut self, value: u64) {
+        self._bitfield1 = (self._bitfield1 & !(281474976710655 << 16)) | ((value & 281474976710655) << 16);
+    }
+    pub fn Reserved(&self) -> u64 {
+        (self._bitfield2 << 60) >> 60
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield2 = (self._bitfield2 & !15) | (value & 15);
+    }
+    pub fn NextEntry(&self) -> u64 {
+        self._bitfield2 >> 4
+    }
+    pub fn set_NextEntry(&mut self, value: u64) {
+        self._bitfield2 = (self._bitfield2 & !(1152921504606846975 << 4)) | ((value & 1152921504606846975) << 4);
+    }
 }
 pub const SMB_CCF_APP_INSTANCE_EA_NAME: windows_core::PCSTR = windows_core::s!("ClusteredApplicationInstance");
 pub const SMT_UNPARKING_POLICY_CORE: u32 = 0;
@@ -11227,6 +12603,38 @@ impl Default for SYSTEM_CPU_SET_INFORMATION_0_0_0 {
 pub struct SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
     pub _bitfield: u8,
 }
+impl SYSTEM_CPU_SET_INFORMATION_0_0_0_0 {
+    pub fn Parked(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Parked(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Allocated(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Allocated(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn AllocatedToTargetProcess(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_AllocatedToTargetProcess(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn RealTime(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_RealTime(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn ReservedFlags(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_ReservedFlags(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union SYSTEM_CPU_SET_INFORMATION_0_0_1 {
@@ -11468,6 +12876,50 @@ pub const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: u32 = 19;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
     pub _bitfield: u32,
+}
+impl SYSTEM_SUPPORTED_PROCESSOR_ARCHITECTURES_INFORMATION {
+    pub fn Machine(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_Machine(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn KernelMode(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_KernelMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn UserMode(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_UserMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u32) << 17);
+    }
+    pub fn Native(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_Native(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u32) << 18);
+    }
+    pub fn Process(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_Process(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn WoW64Container(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_WoW64Container(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn ReservedZero0(&self) -> u32 {
+        self._bitfield >> 21
+    }
+    pub fn set_ReservedZero0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2047 << 21)) | ((value & 2047) << 21);
+    }
 }
 pub const ScreenOff: POWER_INFORMATION_LEVEL = 73;
 pub const SeImageSignatureCache: SE_IMAGE_SIGNATURE_TYPE = 2;
@@ -11995,6 +13447,26 @@ impl Default for TP_CALLBACK_ENVIRON_V3_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct TP_CALLBACK_ENVIRON_V3_0_0 {
     pub _bitfield: u32,
+}
+impl TP_CALLBACK_ENVIRON_V3_0_0 {
+    pub fn LongFunction(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_LongFunction(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Persistent(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Persistent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Private(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Private(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12528,6 +14000,68 @@ pub struct WOW64_LDT_ENTRY_0_0 {
 pub struct WOW64_LDT_ENTRY_0_1 {
     pub _bitfield: u32,
 }
+impl WOW64_LDT_ENTRY_0_1 {
+    pub fn BaseMid(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_BaseMid(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn Type(&self) -> u32 {
+        (self._bitfield << 19) >> 27
+    }
+    pub fn set_Type(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 8)) | ((value & 31) << 8);
+    }
+    pub fn Dpl(&self) -> u32 {
+        (self._bitfield << 17) >> 30
+    }
+    pub fn set_Dpl(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 13)) | ((value & 3) << 13);
+    }
+    pub fn Pres(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_Pres(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u32) << 15);
+    }
+    pub fn LimitHi(&self) -> u32 {
+        (self._bitfield << 12) >> 28
+    }
+    pub fn set_LimitHi(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
+    }
+    pub fn Sys(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_Sys(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn Reserved_0(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_Reserved_0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn Default_Big(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_Default_Big(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    }
+    pub fn Granularity(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_Granularity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn BaseHi(&self) -> u32 {
+        self._bitfield >> 24
+    }
+    pub fn set_BaseHi(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 pub const WOW64_MAXIMUM_SUPPORTED_EXTENSION: u32 = 512;
 pub const WOW64_SIZE_OF_80387_REGISTERS: u32 = 80;
 pub const WRITE_DAC: u32 = 262144;
@@ -12775,6 +14309,20 @@ impl Default for XSAVE_ARM64_SME_ZA_HEADER_0 {
 pub struct XSAVE_ARM64_SME_ZA_HEADER_0_0 {
     pub _bitfield: u32,
 }
+impl XSAVE_ARM64_SME_ZA_HEADER_0_0 {
+    pub fn Za(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Za(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct XSAVE_ARM64_SME_ZT_HEADER {
@@ -12815,6 +14363,20 @@ impl Default for XSAVE_ARM64_SVE_HEADER_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSAVE_ARM64_SVE_HEADER_0_0 {
     pub _bitfield: u32,
+}
+impl XSAVE_ARM64_SVE_HEADER_0_0 {
+    pub fn Sm(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Sm(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn ReservedFlags(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_ReservedFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -12931,6 +14493,26 @@ impl Default for XSTATE_CONFIGURATION_0 {
 pub struct XSTATE_CONFIGURATION_0_0 {
     pub _bitfield: u32,
 }
+impl XSTATE_CONFIGURATION_0_0 {
+    pub fn OptimizedSave(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_OptimizedSave(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn CompactionEnabled(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CompactionEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn ExtendedFeatureDisable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ExtendedFeatureDisable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union XSTATE_CONFIGURATION_1 {
@@ -12982,6 +14564,14 @@ impl Default for XSTATE_CONFIGURATION_1_1_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct XSTATE_CONFIGURATION_1_1_0_0 {
     pub _bitfield: u16,
+}
+impl XSTATE_CONFIGURATION_1_1_0_0 {
+    pub fn SmeFa64(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SmeFa64(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "x86")]

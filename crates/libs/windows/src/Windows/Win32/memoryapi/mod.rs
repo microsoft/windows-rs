@@ -473,6 +473,26 @@ pub struct NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION {
 pub struct NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION_0 {
     pub _bitfield: u8,
 }
+impl NUMA_NODE_MEMORY_PERFORMANCE_MEASUREMENT_CONDITION_0 {
+    pub fn MinTransferSizeToAchieveValues(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_MinTransferSizeToAchieveValues(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn NonSequentialTransfers(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_NonSequentialTransfers(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 pub type OFFER_PRIORITY = i32;
 pub type PBAD_MEMORY_CALLBACK_ROUTINE = Option<unsafe extern "system" fn()>;
 pub type PWIN32_MEMORY_RANGE_ENTRY = *mut WIN32_MEMORY_RANGE_ENTRY;
@@ -548,4 +568,48 @@ impl Default for WIN32_MEMORY_REGION_INFORMATION_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WIN32_MEMORY_REGION_INFORMATION_0_0 {
     pub _bitfield: u32,
+}
+impl WIN32_MEMORY_REGION_INFORMATION_0_0 {
+    pub fn Private(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Private(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn MappedDataFile(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_MappedDataFile(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn MappedImage(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_MappedImage(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn MappedPageFile(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_MappedPageFile(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn MappedPhysical(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_MappedPhysical(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn DirectMapped(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_DirectMapped(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
+    }
 }

@@ -26,13 +26,20 @@ mod Windows {
             Anonymous: union {
                 bFiller1: JET_BYTE,
                 Anonymous: struct {
-                    _bitfield: JET_BYTE,
+                    _bitfield: JET_BYTE {
+                        fTimeIsUTC: 1,
+                        bMillisecondsLow: 7,
+                    },
                 },
             },
             Anonymous2: union {
                 bFiller2: JET_BYTE,
                 Anonymous: struct {
-                    _bitfield: JET_BYTE,
+                    _bitfield: JET_BYTE {
+                        fOSSnapshot: 1,
+                        bMillisecondsHigh: 3,
+                        fReserved: 4,
+                    },
                 },
             },
         }
@@ -150,7 +157,9 @@ mod Windows {
             Anonymous: union {
                 fFlags: JET_UINT32,
                 Anonymous: struct {
-                    _bitfield: JET_UINT32,
+                    _bitfield: JET_UINT32 {
+                        fSchemaChangesOnly: 1,
+                    },
                 },
             },
         }
@@ -159,7 +168,9 @@ mod Windows {
             Anonymous: union {
                 fFlags: JET_UINT32,
                 Anonymous: struct {
-                    _bitfield: JET_UINT32,
+                    _bitfield: JET_UINT32 {
+                        fSchemaChangesOnly: 1,
+                    },
                 },
             },
         }
@@ -327,7 +338,10 @@ mod Windows {
             Anonymous: union {
                 ulFlags: JET_UINT32,
                 Anonymous: struct {
-                    _bitfield: JET_UINT32,
+                    _bitfield: JET_UINT32 {
+                        fUpgradable: 1,
+                        fAlreadyUpgraded: 1,
+                    },
                 },
             },
         }
@@ -662,13 +676,20 @@ mod Windows {
             Anonymous: union {
                 bFiller1: JET_BYTE,
                 Anonymous: struct {
-                    _bitfield: JET_BYTE,
+                    _bitfield: JET_BYTE {
+                        fTimeIsUTC: 1,
+                        bMillisecondsLow: 7,
+                    },
                 },
             },
             Anonymous2: union {
                 bFiller2: JET_BYTE,
                 Anonymous: struct {
-                    _bitfield: JET_BYTE,
+                    _bitfield: JET_BYTE {
+                        fReserved: 1,
+                        bMillisecondsHigh: 3,
+                        fUnused: 4,
+                    },
                 },
             },
         }

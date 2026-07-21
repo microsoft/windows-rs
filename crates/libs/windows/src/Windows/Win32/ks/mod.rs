@@ -1266,6 +1266,20 @@ impl Default for KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0 {
 pub struct KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
     pub _bitfield: u16,
 }
+impl KSSTREAM_UVC_METADATATYPE_TIMESTAMP_0_0 {
+    pub fn Counter(&self) -> u16 {
+        (self._bitfield << 5) >> 5
+    }
+    pub fn set_Counter(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !2047) | (value & 2047);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 11
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(31 << 11)) | ((value & 31) << 11);
+    }
+}
 pub const KSSTREAM_UVC_SECURE_ATTRIBUTE_SIZE: u32 = 8192;
 pub const KSSTRING_Allocator: windows_core::PCWSTR = windows_core::w!("{642F5D00-4791-11D0-A5D6-28DB04C10000}");
 pub const KSSTRING_AllocatorEx: windows_core::PCWSTR = windows_core::w!("{091BB63B-603F-11D1-B067-00A0C9062802}");

@@ -1332,6 +1332,20 @@ impl Default for SCOPE_ID_0 {
 pub struct SCOPE_ID_0_0 {
     pub _bitfield: u32,
 }
+impl SCOPE_ID_0_0 {
+    pub fn Zone(&self) -> u32 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_Zone(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !268435455) | (value & 268435455);
+    }
+    pub fn Level(&self) -> u32 {
+        self._bitfield >> 28
+    }
+    pub fn set_Level(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 28)) | ((value & 15) << 28);
+    }
+}
 pub type SCOPE_LEVEL = i32;
 pub const SDP_DEFAULT_INQUIRY_MAX_RESPONSES: u32 = 255;
 pub const SDP_DEFAULT_INQUIRY_SECONDS: u32 = 6;

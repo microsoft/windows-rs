@@ -69,7 +69,11 @@ mod Windows {
         }
         struct CDROM_PERFORMANCE_HEADER {
             DataLength: [u8; 4],
-            _bitfield: u8,
+            _bitfield: u8 {
+                Except: 1,
+                Write: 1,
+                Reserved1: 6,
+            },
             Reserved2: [u8; 3],
             Data: [u8; 0],
         }
@@ -103,7 +107,11 @@ mod Windows {
             EndingF: u8,
         }
         struct CDROM_READ_TOC_EX {
-            _bitfield: u8,
+            _bitfield: u8 {
+                Format: 4,
+                Reserved1: 3,
+                Msf: 1,
+            },
             SessionTrack: u8,
             Reserved2: u8,
             Reserved3: u8,
@@ -169,9 +177,25 @@ mod Windows {
             Descriptors: [CDROM_TOC_ATIP_DATA_BLOCK; 0],
         }
         struct CDROM_TOC_ATIP_DATA_BLOCK {
-            _bitfield1: u8,
-            _bitfield2: u8,
-            _bitfield3: u8,
+            _bitfield1: u8 {
+                CdrwReferenceSpeed: 3,
+                Reserved3: 1,
+                WritePower: 3,
+                True1: 1,
+            },
+            _bitfield2: u8 {
+                Reserved4: 6,
+                UnrestrictedUse: 1,
+                Reserved5: 1,
+            },
+            _bitfield3: u8 {
+                A3Valid: 1,
+                A2Valid: 1,
+                A1Valid: 1,
+                DiscSubType: 3,
+                IsCdrw: 1,
+                True2: 1,
+            },
             Reserved7: u8,
             LeadInMsf: [u8; 3],
             Reserved8: u8,
@@ -192,9 +216,16 @@ mod Windows {
         }
         struct CDROM_TOC_CD_TEXT_DATA_BLOCK {
             PackType: u8,
-            _bitfield1: u8,
+            _bitfield1: u8 {
+                TrackNumber: 7,
+                ExtensionFlag: 1,
+            },
             SequenceNumber: u8,
-            _bitfield2: u8,
+            _bitfield2: u8 {
+                CharacterPosition: 4,
+                BlockNumber: 3,
+                Unicode: 1,
+            },
             Anonymous: union {
                 Text: [u8; 12],
                 WText: [u16; 6],
@@ -209,7 +240,10 @@ mod Windows {
         }
         struct CDROM_TOC_FULL_TOC_DATA_BLOCK {
             SessionNumber: u8,
-            _bitfield: u8,
+            _bitfield: u8 {
+                Control: 4,
+                Adr: 4,
+            },
             Reserved1: u8,
             Point: u8,
             MsfExtra: [u8; 3],
@@ -229,7 +263,13 @@ mod Windows {
             TrackData: [TRACK_DATA; 1],
         }
         struct CDROM_WRITE_SPEED_DESCRIPTOR {
-            _bitfield: u8,
+            _bitfield: u8 {
+                MixedReadWrite: 1,
+                Exact: 1,
+                Reserved1: 1,
+                WriteRotationControl: 2,
+                Reserved2: 3,
+            },
             Reserved3: [u8; 3],
             EndLba: [u8; 4],
             ReadSpeed: [u8; 4],
@@ -368,7 +408,10 @@ mod Windows {
         struct SUB_Q_CURRENT_POSITION {
             Header: SUB_Q_HEADER,
             FormatCode: u8,
-            _bitfield: u8,
+            _bitfield: u8 {
+                Control: 4,
+                ADR: 4,
+            },
             TrackNumber: u8,
             IndexNumber: u8,
             AbsoluteAddress: [u8; 4],
@@ -383,7 +426,10 @@ mod Windows {
             Header: SUB_Q_HEADER,
             FormatCode: u8,
             Reserved: [u8; 3],
-            _bitfield: u8,
+            _bitfield: u8 {
+                Reserved1: 7,
+                Mcval: 1,
+            },
             MediaCatalog: [u8; 15],
         }
         struct SUB_Q_TRACK_ISRC {
@@ -392,12 +438,18 @@ mod Windows {
             Reserved0: u8,
             Track: u8,
             Reserved1: u8,
-            _bitfield: u8,
+            _bitfield: u8 {
+                Reserved2: 7,
+                Tcval: 1,
+            },
             TrackIsrc: [u8; 15],
         }
         struct TRACK_DATA {
             Reserved: u8,
-            _bitfield: u8,
+            _bitfield: u8 {
+                Control: 4,
+                Adr: 4,
+            },
             TrackNumber: u8,
             Reserved1: u8,
             Address: [u8; 4],

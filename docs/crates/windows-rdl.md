@@ -124,6 +124,35 @@ mod Example {
 }
 ```
 
+Most attributes name a metadata attribute type directly, but a few have short
+pseudo-attribute spellings that the reader expands to their full metadata attribute
+(`PSEUDO_ATTRS` in `windows-rdl`).
+
+Struct bit-fields have their own dedicated syntax rather than an attribute. A run of
+bit-fields packed into one backing integer is written as a C-like block on that field,
+with each member spelled `Name: width` (anonymous padding is `_: width`):
+
+```text
+struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
+    _bitfield: u32 {
+        Usage: 1,
+        RGB_Range: 1,
+        YCbCr_Matrix: 1,
+        YCbCr_xvYCC: 1,
+        Nominal_Range: 2,
+        Reserved: 26,
+    },
+}
+```
+
+Member offsets are implicit — each member's bit-offset is the cumulative width of the
+members before it (padding included). The reader encodes one
+`Windows.Win32.Metadata.NativeBitfieldAttribute(name, offset, width)` custom attribute
+per named member, and the writer renders that back to the block form on round-trip. See
+[`windows-clang`](windows-clang.md#bit-field-member-scraping) for how the scrape emits
+these and [`windows-bindgen`](windows-bindgen.md#generating-bit-field-accessors) for the
+accessors they drive.
+
 WinRT types use the `#[winrt]` namespace flavor and add runtime-class and
 property syntax:
 

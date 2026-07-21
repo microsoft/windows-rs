@@ -315,6 +315,45 @@ pub struct FIELD_INFO {
     pub _bitfield: u32,
 }
 #[cfg(feature = "minwindef")]
+impl FIELD_INFO {
+    pub fn fPointer(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_fPointer(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn fArray(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_fArray(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn fStruct(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_fStruct(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn fConstant(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_fConstant(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn fStatic(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_fStatic(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
+    }
+}
+#[cfg(feature = "minwindef")]
 impl Default for FIELD_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -572,6 +611,15 @@ pub struct KDDEBUGGER_DATA32 {
     pub KdPrintRolloverCount: u32,
     pub MmLoadedUserImageList: u32,
 }
+#[cfg(feature = "winnt")]
+impl KDDEBUGGER_DATA32 {
+    pub fn PaeEnabled(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PaeEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -740,6 +788,27 @@ pub struct KDDEBUGGER_DATA64 {
     pub PointerAuthMask: u64,
     pub OffsetPrcbExceptionStack: u16,
     pub PointerIgnoreBits: u64,
+}
+#[cfg(feature = "winnt")]
+impl KDDEBUGGER_DATA64 {
+    pub fn PaeEnabled(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PaeEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn KiBugCheckRecoveryActive(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_KiBugCheckRecoveryActive(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn PagingLevels(&self) -> u16 {
+        (self._bitfield << 10) >> 12
+    }
+    pub fn set_PagingLevels(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 2)) | ((value & 15) << 2);
+    }
 }
 pub const KD_SECONDARY_VERSION_AMD64_CONTEXT: u32 = 2;
 pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: u32 = 0;
@@ -1023,6 +1092,39 @@ pub struct SYM_DUMP_PARAM {
     pub TypeSize: u32,
     pub BufferSize: u32,
     pub _bitfield: u32,
+}
+#[cfg(feature = "minwindef")]
+impl SYM_DUMP_PARAM {
+    pub fn fPointer(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_fPointer(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn fArray(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_fArray(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn fStruct(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_fStruct(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn fConstant(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_fConstant(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
+    }
 }
 #[cfg(feature = "minwindef")]
 impl Default for SYM_DUMP_PARAM {

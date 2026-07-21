@@ -242,7 +242,16 @@ mod Windows {
             WriteTotalTimeoutConstant: u32,
         }
         struct COMSTAT {
-            _bitfield: u32,
+            _bitfield: u32 {
+                fCtsHold: 1,
+                fDsrHold: 1,
+                fRlsdHold: 1,
+                fXoffHold: 1,
+                fXoffSent: 1,
+                fEof: 1,
+                fTxim: 1,
+                fReserved: 25,
+            },
             cbInQue: u32,
             cbOutQue: u32,
         }
@@ -544,7 +553,22 @@ mod Windows {
         struct DCB {
             DCBlength: u32,
             BaudRate: u32,
-            _bitfield: u32,
+            _bitfield: u32 {
+                fBinary: 1,
+                fParity: 1,
+                fOutxCtsFlow: 1,
+                fOutxDsrFlow: 1,
+                fDtrControl: 2,
+                fDsrSensitivity: 1,
+                fTXContinueOnXoff: 1,
+                fOutX: 1,
+                fInX: 1,
+                fErrorChar: 1,
+                fNull: 1,
+                fRtsControl: 2,
+                fAbortOnError: 1,
+                fDummy2: 17,
+            },
             wReserved: u16,
             XonLim: u16,
             XoffLim: u16,
@@ -1833,7 +1857,10 @@ mod Windows {
             Anonymous: union {
                 Data: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        VectorLength: 24,
+                        FlagsReserved: 8,
+                    },
                 },
             },
             Reserved: u32,
@@ -1841,7 +1868,10 @@ mod Windows {
         union PROCESS_CREATION_SVE_VECTOR_LENGTH {
             Data: u32,
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    VectorLength: 24,
+                    FlagsReserved: 8,
+                },
             },
         }
         const PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION: u32 = 2;
@@ -2289,7 +2319,10 @@ mod Windows {
             UmsVersion: u32,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        IsUmsSchedulerThread: 1,
+                        IsUmsWorkerThread: 1,
+                    },
                 },
                 ThreadUmsFlags: u32,
             },

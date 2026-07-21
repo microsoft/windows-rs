@@ -141,15 +141,30 @@ mod Windows {
         #[packed(1)]
         struct DNS_HEADER {
             Xid: u16,
-            _bitfield1: u8,
-            _bitfield2: u8,
+            _bitfield1: u8 {
+                RecursionDesired: 1,
+                Truncation: 1,
+                Authoritative: 1,
+                Opcode: 4,
+                IsResponse: 1,
+            },
+            _bitfield2: u8 {
+                ResponseCode: 4,
+                CheckingDisabled: 1,
+                AuthenticatedData: 1,
+                Reserved: 1,
+                RecursionAvailable: 1,
+            },
             QuestionCount: u16,
             AnswerCount: u16,
             NameServerCount: u16,
             AdditionalCount: u16,
         }
         struct DNS_HEADER_EXT {
-            _bitfield: u16,
+            _bitfield: u16 {
+                Reserved: 15,
+                DnssecOk: 1,
+            },
             chRcode: u8,
             chVersion: u8,
         }
@@ -471,7 +486,13 @@ mod Windows {
         #[arch(X86)]
         const DNS_RECORD_FIXED_SIZE: u32 = 24;
         struct DNS_RECORD_FLAGS {
-            _bitfield: u32,
+            _bitfield: u32 {
+                Section: 2,
+                Delete: 1,
+                CharSet: 2,
+                Unused: 3,
+                Reserved: 24,
+            },
         }
         type DNS_RECORD_OPT = DNS_RECORD_OPTA;
         struct DNS_RECORD_OPTA {

@@ -78,7 +78,9 @@ mod Windows {
         struct D3DKMDT_GDISURFACEFLAGS {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Reserved: 32,
+                    },
                 },
                 Value: u32,
             },
@@ -314,7 +316,11 @@ mod Windows {
             PixelRate: usize,
             Anonymous: union {
                 AdditionalSignalInfo: struct {
-                    _bitfield: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
+                    _bitfield: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING {
+                        ScanLineOrdering: 3,
+                        VSyncFreqDivider: 6,
+                        Reserved: 23,
+                    },
                 },
                 ScanLineOrdering: D3DDDI_VIDEO_SIGNAL_SCANLINE_ORDERING,
             },
@@ -356,7 +362,15 @@ mod Windows {
             D3DKMDT_VSS_OTHER = 255,
         }
         struct D3DKMDT_VIDPN_HW_CAPABILITY {
-            _bitfield: u32,
+            _bitfield: u32 {
+                DriverRotation: 1,
+                DriverScaling: 1,
+                DriverCloning: 1,
+                DriverColorConvert: 1,
+                DriverLinkedAdapaterOutput: 1,
+                DriverRemoteDisplay: 1,
+                Reserved: 26,
+            },
         }
         struct D3DKMDT_VIDPN_PRESENT_PATH {
             VidPnSourceId: D3DDDI_VIDEO_PRESENT_SOURCE_ID,
@@ -385,7 +399,12 @@ mod Windows {
             CopyProtectionSupport: D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT,
         }
         struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
-            _bitfield: u32,
+            _bitfield: u32 {
+                NoProtection: 1,
+                MacroVisionApsTrigger: 1,
+                MacroVisionFull: 1,
+                Reserved: 29,
+            },
         }
         #[repr(i32)]
         enum D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE {
@@ -432,7 +451,16 @@ mod Windows {
             D3DKMDT_VPPR_NOTSPECIFIED = 255,
         }
         struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
-            _bitfield: u32,
+            _bitfield: u32 {
+                Identity: 1,
+                Rotate90: 1,
+                Rotate180: 1,
+                Rotate270: 1,
+                Offset0: 1,
+                Offset90: 1,
+                Offset180: 1,
+                Offset270: 1,
+            },
         }
         #[repr(i32)]
         enum D3DKMDT_VIDPN_PRESENT_PATH_SCALING {
@@ -447,7 +475,13 @@ mod Windows {
             D3DKMDT_VPPS_NOTSPECIFIED = 255,
         }
         struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
-            _bitfield: u32,
+            _bitfield: u32 {
+                Identity: 1,
+                Centered: 1,
+                Stretched: 1,
+                AspectRatioCenteredMax: 1,
+                Custom: 1,
+            },
         }
         struct D3DKMDT_VIDPN_PRESENT_PATH_TRANSFORMATION {
             Scaling: D3DKMDT_VIDPN_PRESENT_PATH_SCALING,
@@ -477,7 +511,9 @@ mod Windows {
             Anonymous: union {
                 WireFormatAndPreference: D3DKMDT_WIRE_FORMAT_AND_PREFERENCE,
                 Anonymous: struct {
-                    _bitfield: D3DKMDT_MODE_PREFERENCE,
+                    _bitfield: D3DKMDT_MODE_PREFERENCE {
+                        Preference: 2,
+                    },
                 },
             },
             MinimumVSyncFreq: D3DDDI_RATIONAL,
@@ -490,14 +526,26 @@ mod Windows {
         }
         union D3DKMDT_WIRE_FORMAT_AND_PREFERENCE {
             Anonymous: struct {
-                _bitfield: D3DKMDT_MODE_PREFERENCE,
+                _bitfield: D3DKMDT_MODE_PREFERENCE {
+                    Preference: 2,
+                    Rgb: 6,
+                    YCbCr444: 6,
+                    YCbCr422: 6,
+                    YCbCr420: 6,
+                    Intensity: 6,
+                },
             },
             Value: u32,
         }
         struct D3DKMT_DISPLAY_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u64,
+                    _bitfield: u64 {
+                        PreferPhysicallyContiguous: 1,
+                        CursorScaledWithMultiPlaneOverlayPlane0: 1,
+                        CursorDoesNotSupportXorBlendWithMultiPlaneOverlay: 1,
+                        Reserved: 61,
+                    },
                 },
                 Value: u64,
             },
@@ -505,7 +553,11 @@ mod Windows {
         struct D3DKMT_DRIVERCAPS_EXT {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        VirtualModeSupport: 1,
+                        Usb4MonitorSupport: 1,
+                        Reserved: 30,
+                    },
                 },
                 Value: u32,
             },
@@ -536,7 +588,19 @@ mod Windows {
             PreemptionCaps: D3DKMDT_PREEMPTION_CAPS,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SupportNonVGA: 1,
+                        SupportSmoothRotation: 1,
+                        SupportPerEngineTDR: 1,
+                        SupportKernelModeCommandBuffer: 1,
+                        SupportCCD: 1,
+                        SupportSoftwareDeviceBitmaps: 1,
+                        SupportGammaRamp: 1,
+                        SupportHWCursor: 1,
+                        SupportHWVSync: 1,
+                        SupportSurpriseRemovalInHibernation: 1,
+                        Reserved: 22,
+                    },
                 },
                 Value: u32,
             },
@@ -544,7 +608,15 @@ mod Windows {
         struct D3DKMT_WDDM_1_3_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SupportMiracast: 1,
+                        IsHybridIntegratedGPU: 1,
+                        IsHybridDiscreteGPU: 1,
+                        SupportPowerManagementPStates: 1,
+                        SupportVirtualModes: 1,
+                        SupportCrossAdapterResource: 1,
+                        Reserved: 26,
+                    },
                 },
                 Value: u32,
             },
@@ -552,7 +624,15 @@ mod Windows {
         struct D3DKMT_WDDM_2_0_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Support64BitAtomics: 1,
+                        GpuMmuSupported: 1,
+                        IoMmuSupported: 1,
+                        FlipOverwriteSupported: 1,
+                        SupportContextlessPresent: 1,
+                        SupportSurpriseRemoval: 1,
+                        Reserved: 26,
+                    },
                 },
                 Value: u32,
             },
@@ -560,7 +640,13 @@ mod Windows {
         struct D3DKMT_WDDM_2_7_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        HwSchSupported: 1,
+                        HwSchEnabled: 1,
+                        HwSchEnabledByDefault: 1,
+                        IndependentVidPnVSyncControl: 1,
+                        Reserved: 28,
+                    },
                 },
                 Value: u32,
             },
@@ -568,7 +654,12 @@ mod Windows {
         struct D3DKMT_WDDM_2_9_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        HwSchSupportState: 2,
+                        HwSchEnabled: 1,
+                        SelfRefreshMemorySupported: 1,
+                        Reserved: 28,
+                    },
                 },
                 Value: u32,
             },
@@ -576,7 +667,12 @@ mod Windows {
         struct D3DKMT_WDDM_3_0_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        HwFlipQueueSupportState: 2,
+                        HwFlipQueueEnabled: 1,
+                        DisplayableSupported: 1,
+                        Reserved: 28,
+                    },
                 },
                 Value: u32,
             },
@@ -584,7 +680,10 @@ mod Windows {
         struct D3DKMT_WDDM_3_1_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        NativeGpuFenceSupported: 1,
+                        Reserved: 31,
+                    },
                 },
                 Value: u32,
             },
@@ -592,18 +691,31 @@ mod Windows {
         #[packed(1)]
         struct DISPLAYID_DETAILED_TIMING_TYPE_I {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    PixelClock: 24,
+                    AspectRatio: 3,
+                    Reserved: 1,
+                    ScanningType: 1,
+                    StereoMode: 2,
+                    PreferredTiming: 1,
+                },
             },
             HorizontalActivePixels: u16,
             HorizontalBlankPixels: u16,
             Anonymous2: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    HorizontalFrontPorch: 15,
+                    HorizontalSyncPolarity: 1,
+                },
             },
             HorizontalSyncWidth: u16,
             VerticalActiveLines: u16,
             VerticalBlankLines: u16,
             Anonymous3: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    VerticalFrontPorch: 15,
+                    VerticalSyncPolarity: 1,
+                },
             },
             VerticalSyncWidth: u16,
         }
@@ -973,7 +1085,12 @@ mod Windows {
         struct DXGK_BRIGHTNESS_CAPS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SmoothBrightness: 1,
+                        AdaptiveBrightness: 1,
+                        NitsBrightness: 1,
+                        Reserved: 29,
+                    },
                 },
                 Value: u32,
             },
@@ -1002,7 +1119,12 @@ mod Windows {
             Size: u32,
             Anonymous: #[packed(1)] union {
                 Flags: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        AlsReadingValid: 1,
+                        ChromaticityValid: 1,
+                        ColorTemperatureValid: 1,
+                        Reserved: 29,
+                    },
                 },
                 ValidSensorValues: u32,
             },
@@ -1024,7 +1146,10 @@ mod Windows {
         struct DXGK_BRIGHTNESS_STATE {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SmoothBrightness: 1,
+                        Reserved: 31,
+                    },
                 },
                 Value: u32,
             },
@@ -1109,10 +1234,16 @@ mod Windows {
         struct DXGK_FAULT_ERROR_CODE {
             Anonymous: union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        IsDeviceSpecificCode: 1,
+                        GeneralErrorCode: 31,
+                    },
                 },
                 Anonymous2: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        IsDeviceSpecificCodeReservedBit: 1,
+                        DeviceSpecificCode: 31,
+                    },
                 },
             },
         }
@@ -1135,7 +1266,10 @@ mod Windows {
         struct DXGK_GPUCLOCKDATA_FLAGS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        ContextManagementProcessor: 1,
+                        Reserved: 31,
+                    },
                 },
                 Value: u32,
             },
@@ -1150,14 +1284,32 @@ mod Windows {
         #[packed(1)]
         union DXGK_MONITORLINKINFO_CAPABILITIES {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Stereo: 1,
+                    WideColorSpace: 1,
+                    HighColorSpace: 1,
+                    DynamicColorSpace: 1,
+                    DynamicBitsPerColorChannel: 1,
+                    DynamicColorEncodingFormat: 1,
+                    DedicatedTimingGeneration: 1,
+                    TargetIndependentPrimary: 1,
+                    SyncLockIdentical: 1,
+                    Hdr10Plus: 1,
+                    DolbyVisionLowLatency: 1,
+                    VariableRefresh: 1,
+                    Reserved: 20,
+                },
             },
             Value: u32,
         }
         #[packed(1)]
         union DXGK_MONITORLINKINFO_USAGEHINTS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Hidden: 1,
+                    HeadMounted: 1,
+                    Reserved: 30,
+                },
             },
             Value: u32,
         }
@@ -1172,7 +1324,16 @@ mod Windows {
         struct DXGK_NODEMETADATA_FLAGS {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        ContextSchedulingSupported: 1,
+                        RingBufferFenceRelease: 1,
+                        SupportTrackedWorkload: 1,
+                        UserModeSubmission: 1,
+                        SupportBuildTestCommandBuffer: 1,
+                        SupportFaultAndStall: 1,
+                        Reserved: 10,
+                        MaxInFlightHwQueueBuffers: 16,
+                    },
                 },
                 Value: u32,
             },

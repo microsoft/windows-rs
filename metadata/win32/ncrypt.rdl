@@ -141,7 +141,10 @@ mod Windows {
         struct NCRYPT_EXPORTED_ISOLATED_KEY_HEADER {
             Version: u32,
             KeyUsage: u32,
-            _bitfield: u32,
+            _bitfield: u32 {
+                PerBootKey: 1,
+                Reserved: 31,
+            },
             cbAlgName: u32,
             cbNonce: u32,
             cbAuthTag: u32,

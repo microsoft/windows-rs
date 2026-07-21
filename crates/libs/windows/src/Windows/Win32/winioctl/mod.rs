@@ -1103,6 +1103,45 @@ pub struct DEVICE_LB_PROVISIONING_DESCRIPTOR {
     pub MaxUnmapBlockDescriptorCount: u32,
 }
 #[cfg(feature = "winnt")]
+impl DEVICE_LB_PROVISIONING_DESCRIPTOR {
+    pub fn ThinProvisioningEnabled(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ThinProvisioningEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn ThinProvisioningReadZeros(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ThinProvisioningReadZeros(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn AnchorSupported(&self) -> u8 {
+        (self._bitfield << 3) >> 5
+    }
+    pub fn set_AnchorSupported(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 2)) | ((value & 7) << 2);
+    }
+    pub fn UnmapGranularityAlignmentValid(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_UnmapGranularityAlignmentValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn GetFreeSpaceSupported(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_GetFreeSpaceSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn MapSupported(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_MapSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
+#[cfg(feature = "winnt")]
 impl Default for DEVICE_LB_PROVISIONING_DESCRIPTOR {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -1310,6 +1349,15 @@ impl Default for DEVICE_STORAGE_RANGE_ATTRIBUTES_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
     pub _bitfield: u32,
+}
+#[cfg(feature = "winnt")]
+impl DEVICE_STORAGE_RANGE_ATTRIBUTES_0_0 {
+    pub fn IsRangeBad(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IsRangeBad(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -4156,12 +4204,52 @@ pub struct PERSISTENT_RESERVE_COMMAND_0_0 {
     pub _bitfield: u8,
     pub AllocationLength: u16,
 }
+impl PERSISTENT_RESERVE_COMMAND_0_0 {
+    pub fn ServiceAction(&self) -> u8 {
+        (self._bitfield << 3) >> 3
+    }
+    pub fn set_ServiceAction(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct PERSISTENT_RESERVE_COMMAND_0_1 {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
     pub ParameterList: [u8; 0],
+}
+impl PERSISTENT_RESERVE_COMMAND_0_1 {
+    pub fn ServiceAction(&self) -> u8 {
+        (self._bitfield1 << 3) >> 3
+    }
+    pub fn set_ServiceAction(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !31) | (value & 31);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield1 >> 5
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn Type(&self) -> u8 {
+        (self._bitfield2 << 4) >> 4
+    }
+    pub fn set_Type(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !15) | (value & 15);
+    }
+    pub fn Scope(&self) -> u8 {
+        self._bitfield2 >> 4
+    }
+    pub fn set_Scope(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 impl Default for PERSISTENT_RESERVE_COMMAND_0_1 {
     fn default() -> Self {
@@ -5205,6 +5293,27 @@ pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO {
 pub struct SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "winnt")]
+impl SCM_BUS_DEDICATED_MEMORY_DEVICE_INFO_0 {
+    pub fn ForcedByRegistry(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ForcedByRegistry(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Initialized(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Initialized(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_BUS_DEDICATED_MEMORY_STATE {
@@ -5260,6 +5369,33 @@ pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     pub _bitfield: u32,
+}
+#[cfg(feature = "winnt")]
+impl SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
+    pub fn FwManagedIoQuiesceFwActivationSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_FwManagedIoQuiesceFwActivationSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn OsManagedIoQuiesceFwActivationSupported(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_OsManagedIoQuiesceFwActivationSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn WarmResetBasedFwActivationSupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_WarmResetBasedFwActivationSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
 }
 pub type SCM_BUS_SET_TYPE = i32;
 #[repr(C)]
@@ -5430,6 +5566,20 @@ pub struct SCM_PD_FIRMWARE_SLOT_INFO {
     pub Reserved1: [u8; 6],
     pub Revision: [u8; 32],
 }
+impl SCM_PD_FIRMWARE_SLOT_INFO {
+    pub fn ReadOnly(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ReadOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 impl Default for SCM_PD_FIRMWARE_SLOT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -5583,6 +5733,14 @@ pub struct SCM_PD_REINITIALIZE_MEDIA_INPUT {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
     pub _bitfield: u32,
+}
+impl SCM_PD_REINITIALIZE_MEDIA_INPUT_0 {
+    pub fn Overwrite(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Overwrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -6231,6 +6389,32 @@ impl Default for STORAGE_CRYPTO_KEY_TYPE {
 pub struct STORAGE_CRYPTO_KEY_TYPE_0 {
     pub _bitfield: u8,
 }
+impl STORAGE_CRYPTO_KEY_TYPE_0 {
+    pub fn DirectKey(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DirectKey(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn PlatformWrappedKey(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_PlatformWrappedKey(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn PlutonWrappedKey(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_PlutonWrappedKey(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_DESCRIPTOR_HEADER {
@@ -6681,6 +6865,20 @@ impl Default for STORAGE_HW_ENDURANCE_INFO {
 pub struct STORAGE_HW_ENDURANCE_INFO_0 {
     pub _bitfield: u32,
 }
+impl STORAGE_HW_ENDURANCE_INFO_0 {
+    pub fn Shared(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Shared(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct STORAGE_HW_FIRMWARE_ACTIVATE {
@@ -6750,6 +6948,20 @@ pub struct STORAGE_HW_FIRMWARE_INFO {
     pub ImagePayloadMaxSize: u32,
     pub Slot: [STORAGE_HW_FIRMWARE_SLOT_INFO; 1],
 }
+impl STORAGE_HW_FIRMWARE_INFO {
+    pub fn SupportUpgrade(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SupportUpgrade(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 impl Default for STORAGE_HW_FIRMWARE_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6782,6 +6994,20 @@ pub struct STORAGE_HW_FIRMWARE_SLOT_INFO {
     pub Reserved1: [u8; 6],
     pub Revision: [u8; 16],
 }
+impl STORAGE_HW_FIRMWARE_SLOT_INFO {
+    pub fn ReadOnly(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ReadOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 impl Default for STORAGE_HW_FIRMWARE_SLOT_INFO {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -6813,6 +7039,26 @@ pub struct STORAGE_IDLE_POWER {
     pub _bitfield: u32,
     pub D3IdleTimeout: u32,
 }
+impl STORAGE_IDLE_POWER {
+    pub fn WakeCapableHint(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_WakeCapableHint(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn D3ColdSupported(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_D3ColdSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_IDLE_POWERUP_REASON {
@@ -6834,6 +7080,45 @@ pub struct STORAGE_LB_PROVISIONING_MAP_RESOURCES {
     pub Reserved3: [u8; 3],
     pub AvailableMappingResources: super::DWORDLONG,
     pub UsedMappingResources: super::DWORDLONG,
+}
+#[cfg(feature = "winnt")]
+impl STORAGE_LB_PROVISIONING_MAP_RESOURCES {
+    pub fn AvailableMappingResourcesValid(&self) -> bool {
+        self._bitfield1 & 1 != 0
+    }
+    pub fn set_AvailableMappingResourcesValid(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !1) | (value as u8);
+    }
+    pub fn UsedMappingResourcesValid(&self) -> bool {
+        (self._bitfield1 >> 1) & 1 != 0
+    }
+    pub fn set_UsedMappingResourcesValid(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield1 >> 2
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(63 << 2)) | ((value & 63) << 2);
+    }
+    pub fn AvailableMappingResourcesScope(&self) -> u8 {
+        (self._bitfield2 << 6) >> 6
+    }
+    pub fn set_AvailableMappingResourcesScope(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !3) | (value & 3);
+    }
+    pub fn UsedMappingResourcesScope(&self) -> u8 {
+        (self._bitfield2 << 4) >> 6
+    }
+    pub fn set_UsedMappingResourcesScope(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(3 << 2)) | ((value & 3) << 2);
+    }
+    pub fn Reserved2(&self) -> u8 {
+        self._bitfield2 >> 4
+    }
+    pub fn set_Reserved2(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 #[cfg(feature = "winnt")]
 impl Default for STORAGE_LB_PROVISIONING_MAP_RESOURCES {
@@ -6895,6 +7180,26 @@ impl Default for STORAGE_MINIPORT_DESCRIPTOR_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
+}
+impl STORAGE_MINIPORT_DESCRIPTOR_0_0 {
+    pub fn LogicalPoFxForDisk(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_LogicalPoFxForDisk(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn ForwardIo(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ForwardIo(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
 }
 pub const STORAGE_MINIPORT_DESCRIPTOR_V1_SIZE: u32 = 16;
 pub const STORAGE_OFFLOAD_MAX_TOKEN_LENGTH: u32 = 512;
@@ -7188,6 +7493,38 @@ impl Default for STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
 pub struct STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
     pub _bitfield: u32,
 }
+impl STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE_0 {
+    pub fn RetainAsynEvent(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_RetainAsynEvent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn LogSpecificField(&self) -> u32 {
+        (self._bitfield << 27) >> 28
+    }
+    pub fn set_LogSpecificField(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 1)) | ((value & 15) << 1);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 24) >> 29
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn UUIDIndex(&self) -> u32 {
+        (self._bitfield << 17) >> 25
+    }
+    pub fn set_UUIDIndex(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(127 << 8)) | ((value & 127) << 8);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 15
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(131071 << 15)) | ((value & 131071) << 15);
+    }
+}
 pub type STORAGE_PROTOCOL_NVME_DATA_TYPE = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -7317,6 +7654,26 @@ pub struct STORAGE_REINITIALIZE_MEDIA {
 pub struct STORAGE_REINITIALIZE_MEDIA_0 {
     pub _bitfield: u32,
 }
+impl STORAGE_REINITIALIZE_MEDIA_0 {
+    pub fn SanitizeMethod(&self) -> u32 {
+        (self._bitfield << 28) >> 28
+    }
+    pub fn set_SanitizeMethod(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn DisallowUnrestrictedSanitizeExit(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_DisallowUnrestrictedSanitizeExit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
+    }
+}
 pub type STORAGE_RESERVE_ID = i32;
 pub type STORAGE_RPMB_COMMAND_TYPE = i32;
 #[repr(C)]
@@ -7365,6 +7722,20 @@ impl Default for STORAGE_SECURITY_COMPLIANCE_BITMASK {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_SECURITY_COMPLIANCE_BITMASK_0 {
     pub _bitfield: u8,
+}
+impl STORAGE_SECURITY_COMPLIANCE_BITMASK_0 {
+    pub fn FIPS(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_FIPS(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 pub type STORAGE_SET_TYPE = i32;
 #[repr(C)]

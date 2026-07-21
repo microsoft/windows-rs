@@ -251,6 +251,50 @@ pub struct SCRIPT_ANALYSIS {
     pub _bitfield: u16,
     pub s: SCRIPT_STATE,
 }
+impl SCRIPT_ANALYSIS {
+    pub fn eScript(&self) -> u16 {
+        (self._bitfield << 6) >> 6
+    }
+    pub fn set_eScript(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !1023) | (value & 1023);
+    }
+    pub fn fRTL(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_fRTL(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u16) << 10);
+    }
+    pub fn fLayoutRTL(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_fLayoutRTL(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u16) << 11);
+    }
+    pub fn fLinkBefore(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_fLinkBefore(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    }
+    pub fn fLinkAfter(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_fLinkAfter(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u16) << 13);
+    }
+    pub fn fLogicalOrder(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_fLogicalOrder(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u16) << 14);
+    }
+    pub fn fNoGlyphIndex(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_fNoGlyphIndex(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct SCRIPT_CACHE(pub *mut core::ffi::c_void);
@@ -264,10 +308,98 @@ impl Default for SCRIPT_CACHE {
 pub struct SCRIPT_CHARPROP {
     pub _bitfield: u16,
 }
+impl SCRIPT_CHARPROP {
+    pub fn fCanGlyphAlone(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_fCanGlyphAlone(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn reserved(&self) -> u16 {
+        self._bitfield >> 1
+    }
+    pub fn set_reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(32767 << 1)) | ((value & 32767) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_CONTROL {
     pub _bitfield: u32,
+}
+impl SCRIPT_CONTROL {
+    pub fn uDefaultLanguage(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_uDefaultLanguage(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn fContextDigits(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_fContextDigits(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn fInvertPreBoundDir(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_fInvertPreBoundDir(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u32) << 17);
+    }
+    pub fn fInvertPostBoundDir(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_fInvertPostBoundDir(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u32) << 18);
+    }
+    pub fn fLinkStringBefore(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_fLinkStringBefore(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn fLinkStringAfter(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_fLinkStringAfter(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u32) << 20);
+    }
+    pub fn fNeutralOverride(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_fNeutralOverride(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u32) << 21);
+    }
+    pub fn fNumericOverride(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_fNumericOverride(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u32) << 22);
+    }
+    pub fn fLegacyBidiClass(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_fLegacyBidiClass(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u32) << 23);
+    }
+    pub fn fMergeNeutralItems(&self) -> bool {
+        (self._bitfield >> 24) & 1 != 0
+    }
+    pub fn set_fMergeNeutralItems(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u32) << 24);
+    }
+    pub fn fUseStandardBidi(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_fUseStandardBidi(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u32) << 25);
+    }
+    pub fn fReserved(&self) -> u32 {
+        self._bitfield >> 26
+    }
+    pub fn set_fReserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(63 << 26)) | ((value & 63) << 26);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -275,6 +407,26 @@ pub struct SCRIPT_DIGITSUBSTITUTE {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
     pub dwReserved: u32,
+}
+impl SCRIPT_DIGITSUBSTITUTE {
+    pub fn NationalDigitLanguage(&self) -> u32 {
+        (self._bitfield1 << 16) >> 16
+    }
+    pub fn set_NationalDigitLanguage(&mut self, value: u32) {
+        self._bitfield1 = (self._bitfield1 & !65535) | (value & 65535);
+    }
+    pub fn TraditionalDigitLanguage(&self) -> u32 {
+        self._bitfield1 >> 16
+    }
+    pub fn set_TraditionalDigitLanguage(&mut self, value: u32) {
+        self._bitfield1 = (self._bitfield1 & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+    pub fn DigitSubstitute(&self) -> u32 {
+        (self._bitfield2 << 24) >> 24
+    }
+    pub fn set_DigitSubstitute(&mut self, value: u32) {
+        self._bitfield2 = (self._bitfield2 & !255) | (value & 255);
+    }
 }
 pub const SCRIPT_DIGITSUBSTITUTE_CONTEXT: u32 = 0;
 pub const SCRIPT_DIGITSUBSTITUTE_NATIONAL: u32 = 2;
@@ -324,16 +476,214 @@ pub const SCRIPT_JUSTIFY_RESERVED3: SCRIPT_JUSTIFY = 6;
 pub struct SCRIPT_LOGATTR {
     pub _bitfield: u8,
 }
+impl SCRIPT_LOGATTR {
+    pub fn fSoftBreak(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_fSoftBreak(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn fWhiteSpace(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_fWhiteSpace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn fCharStop(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_fCharStop(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn fWordStop(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_fWordStop(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn fInvalid(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_fInvalid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn fReserved(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_fReserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_PROPERTIES {
     pub _bitfield1: u32,
     pub _bitfield2: u32,
 }
+impl SCRIPT_PROPERTIES {
+    pub fn langid(&self) -> u32 {
+        (self._bitfield1 << 16) >> 16
+    }
+    pub fn set_langid(&mut self, value: u32) {
+        self._bitfield1 = (self._bitfield1 & !65535) | (value & 65535);
+    }
+    pub fn fNumeric(&self) -> bool {
+        (self._bitfield1 >> 16) & 1 != 0
+    }
+    pub fn set_fNumeric(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 16)) | ((value as u32) << 16);
+    }
+    pub fn fComplex(&self) -> bool {
+        (self._bitfield1 >> 17) & 1 != 0
+    }
+    pub fn set_fComplex(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 17)) | ((value as u32) << 17);
+    }
+    pub fn fNeedsWordBreaking(&self) -> bool {
+        (self._bitfield1 >> 18) & 1 != 0
+    }
+    pub fn set_fNeedsWordBreaking(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 18)) | ((value as u32) << 18);
+    }
+    pub fn fNeedsCaretInfo(&self) -> bool {
+        (self._bitfield1 >> 19) & 1 != 0
+    }
+    pub fn set_fNeedsCaretInfo(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 19)) | ((value as u32) << 19);
+    }
+    pub fn bCharSet(&self) -> u32 {
+        (self._bitfield1 << 4) >> 24
+    }
+    pub fn set_bCharSet(&mut self, value: u32) {
+        self._bitfield1 = (self._bitfield1 & !(255 << 20)) | ((value & 255) << 20);
+    }
+    pub fn fControl(&self) -> bool {
+        (self._bitfield1 >> 28) & 1 != 0
+    }
+    pub fn set_fControl(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 28)) | ((value as u32) << 28);
+    }
+    pub fn fPrivateUseArea(&self) -> bool {
+        (self._bitfield1 >> 29) & 1 != 0
+    }
+    pub fn set_fPrivateUseArea(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 29)) | ((value as u32) << 29);
+    }
+    pub fn fNeedsCharacterJustify(&self) -> bool {
+        (self._bitfield1 >> 30) & 1 != 0
+    }
+    pub fn set_fNeedsCharacterJustify(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 30)) | ((value as u32) << 30);
+    }
+    pub fn fInvalidGlyph(&self) -> bool {
+        (self._bitfield1 >> 31) & 1 != 0
+    }
+    pub fn set_fInvalidGlyph(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 31)) | ((value as u32) << 31);
+    }
+    pub fn fInvalidLogAttr(&self) -> bool {
+        self._bitfield2 & 1 != 0
+    }
+    pub fn set_fInvalidLogAttr(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !1) | (value as u32);
+    }
+    pub fn fCDM(&self) -> bool {
+        (self._bitfield2 >> 1) & 1 != 0
+    }
+    pub fn set_fCDM(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn fAmbiguousCharSet(&self) -> bool {
+        (self._bitfield2 >> 2) & 1 != 0
+    }
+    pub fn set_fAmbiguousCharSet(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn fClusterSizeVaries(&self) -> bool {
+        (self._bitfield2 >> 3) & 1 != 0
+    }
+    pub fn set_fClusterSizeVaries(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn fRejectInvalid(&self) -> bool {
+        (self._bitfield2 >> 4) & 1 != 0
+    }
+    pub fn set_fRejectInvalid(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 4)) | ((value as u32) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_STATE {
     pub _bitfield: u16,
+}
+impl SCRIPT_STATE {
+    pub fn uBidiLevel(&self) -> u16 {
+        (self._bitfield << 11) >> 11
+    }
+    pub fn set_uBidiLevel(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn fOverrideDirection(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_fOverrideDirection(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn fInhibitSymSwap(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_fInhibitSymSwap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn fCharShape(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_fCharShape(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn fDigitSubstitute(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_fDigitSubstitute(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u16) << 8);
+    }
+    pub fn fInhibitLigate(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_fInhibitLigate(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u16) << 9);
+    }
+    pub fn fDisplayZWG(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_fDisplayZWG(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u16) << 10);
+    }
+    pub fn fArabicNumContext(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_fArabicNumContext(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u16) << 11);
+    }
+    pub fn fGcpClusters(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_fGcpClusters(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    }
+    pub fn fReserved(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_fReserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u16) << 13);
+    }
+    pub fn fEngineReserved(&self) -> u16 {
+        self._bitfield >> 14
+    }
+    pub fn set_fEngineReserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(3 << 14)) | ((value & 3) << 14);
+    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -362,6 +712,44 @@ pub const SCRIPT_UNDEFINED: u32 = 0;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct SCRIPT_VISATTR {
     pub _bitfield: u16,
+}
+impl SCRIPT_VISATTR {
+    pub fn uJustification(&self) -> u16 {
+        (self._bitfield << 12) >> 12
+    }
+    pub fn set_uJustification(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn fClusterStart(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_fClusterStart(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn fDiacritic(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_fDiacritic(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn fZeroWidth(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_fZeroWidth(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn fReserved(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_fReserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn fShapeReserved(&self) -> u16 {
+        self._bitfield >> 8
+    }
+    pub fn set_fShapeReserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
 }
 pub const SGCM_RTL: u32 = 1;
 pub const SIC_ASCIIDIGIT: u32 = 2;

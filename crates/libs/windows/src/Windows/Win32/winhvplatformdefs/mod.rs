@@ -83,6 +83,27 @@ pub struct WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_ADVISE_GPA_RANGE_POPULATE_FLAGS_0 {
+    pub fn Prefetch(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Prefetch(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AvoidHardFaults(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AvoidHardFaults(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_ALLOCATE_VPCI_RESOURCE_FLAGS = u32;
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_ANY_VP: u32 = 4294967295;
@@ -199,6 +220,51 @@ pub struct WHV_ARM64_INTERRUPT_STATE_0 {
     pub _bitfield: u8,
 }
 #[cfg(target_arch = "aarch64")]
+impl WHV_ARM64_INTERRUPT_STATE_0 {
+    pub fn Enabled(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Enabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn EdgeTriggered(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_EdgeTriggered(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Asserted(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Asserted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn SetPending(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_SetPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Active(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Active(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Direct(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Direct(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+}
+#[cfg(target_arch = "aarch64")]
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct WHV_ARM64_INTERRUPT_VECTOR(pub u32);
@@ -260,6 +326,27 @@ pub struct WHV_ARM64_PENDING_EVENT_1 {
     pub EventData: [u8; 15],
 }
 #[cfg(target_arch = "aarch64")]
+impl WHV_ARM64_PENDING_EVENT_1 {
+    pub fn EventPending(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EventPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn EventType(&self) -> u8 {
+        (self._bitfield << 4) >> 5
+    }
+    pub fn set_EventType(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
+#[cfg(target_arch = "aarch64")]
 impl Default for WHV_ARM64_PENDING_EVENT_1 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -291,6 +378,27 @@ pub struct WHV_ARM64_PENDING_EXCEPTION_EVENT_0 {
     pub EsrElx: u64,
     pub FarElx: u64,
 }
+#[cfg(target_arch = "aarch64")]
+impl WHV_ARM64_PENDING_EXCEPTION_EVENT_0 {
+    pub fn EventPending(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EventPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn EventType(&self) -> u8 {
+        (self._bitfield << 4) >> 5
+    }
+    pub fn set_EventType(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -313,6 +421,27 @@ pub struct WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT_0 {
     pub Reserved2: u16,
     pub ExceptionType: u32,
     pub Context: u64,
+}
+#[cfg(target_arch = "aarch64")]
+impl WHV_ARM64_PENDING_SYNTHETIC_EXCEPTION_EVENT_0 {
+    pub fn EventPending(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EventPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn EventType(&self) -> u8 {
+        (self._bitfield << 4) >> 5
+    }
+    pub fn set_EventType(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 #[cfg(target_arch = "aarch64")]
 pub type WHV_ARM64_PROCESSOR_FEATURES = WHV_PROCESSOR_FEATURES;
@@ -439,6 +568,87 @@ impl Default for WHV_CAPABILITY_FEATURES {
 pub struct WHV_CAPABILITY_FEATURES_0 {
     pub _bitfield: u64,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_CAPABILITY_FEATURES_0 {
+    pub fn PartialUnmap(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PartialUnmap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn LocalApicEmulation(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_LocalApicEmulation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn Xsave(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Xsave(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn DirtyPageTracking(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_DirtyPageTracking(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    }
+    pub fn SpeculationControl(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_SpeculationControl(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    }
+    pub fn ApicRemoteRead(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_ApicRemoteRead(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    }
+    pub fn IdleSuspend(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_IdleSuspend(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
+    }
+    pub fn VirtualPciDeviceSupport(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_VirtualPciDeviceSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
+    }
+    pub fn IommuSupport(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_IommuSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    }
+    pub fn VpHotAddRemove(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_VpHotAddRemove(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
+    }
+    pub fn DeviceAccessTracking(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_DeviceAccessTracking(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
+    }
+    pub fn ReservedX640(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_ReservedX640(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u64) << 11);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 12
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4503599627370495 << 12)) | ((value & 4503599627370495) << 12);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -448,6 +658,21 @@ pub struct WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
     pub NominalFrequencyMhz: u32,
     pub LowestFrequencyMhz: u32,
     pub FrequencyStepMhz: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_CAPABILITY_PROCESSOR_FREQUENCY_CAP {
+    pub fn IsSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IsSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -481,6 +706,21 @@ impl Default for WHV_DISABLE_PARTITION_VTL_FLAGS {
 pub struct WHV_DISABLE_PARTITION_VTL_FLAGS_0 {
     pub _bitfield: u8,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_DISABLE_PARTITION_VTL_FLAGS_0 {
+    pub fn ScrubOnly(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ScrubOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -500,6 +740,21 @@ impl Default for WHV_DISABLE_VP_VTL_FLAGS {
 pub struct WHV_DISABLE_VP_VTL_FLAGS_0 {
     pub _bitfield: u8,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_DISABLE_VP_VTL_FLAGS_0 {
+    pub fn ScrubOnly(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ScrubOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -508,6 +763,27 @@ pub struct WHV_DOORBELL_MATCH_DATA {
     pub Value: u64,
     pub Length: u32,
     pub _bitfield: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_DOORBELL_MATCH_DATA {
+    pub fn MatchOnValue(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_MatchOnValue(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn MatchOnLength(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_MatchOnLength(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -527,6 +803,33 @@ impl Default for WHV_ENABLE_PARTITION_VTL_FLAGS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_ENABLE_PARTITION_VTL_FLAGS_0 {
     pub _bitfield: u8,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_ENABLE_PARTITION_VTL_FLAGS_0 {
+    pub fn EnableMbec(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EnableMbec(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn EnableSupervisorShadowStack(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_EnableSupervisorShadowStack(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn EnableHardwareHvpt(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_EnableHardwareHvpt(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_EXCEPTION_TYPE = i32;
@@ -548,6 +851,105 @@ impl Default for WHV_EXTENDED_VM_EXITS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_EXTENDED_VM_EXITS_0 {
     pub _bitfield: u64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_EXTENDED_VM_EXITS_0 {
+    pub fn X64CpuidExit(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_X64CpuidExit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn X64MsrExit(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_X64MsrExit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn ExceptionExit(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ExceptionExit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn X64RdtscExit(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_X64RdtscExit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    }
+    pub fn X64ApicSmiExitTrap(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_X64ApicSmiExitTrap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    }
+    pub fn HypercallExit(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_HypercallExit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    }
+    pub fn X64ApicInitSipiExitTrap(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_X64ApicInitSipiExitTrap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
+    }
+    pub fn X64ApicWriteLint0ExitTrap(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_X64ApicWriteLint0ExitTrap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
+    }
+    pub fn X64ApicWriteLint1ExitTrap(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_X64ApicWriteLint1ExitTrap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    }
+    pub fn X64ApicWriteSvrExitTrap(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_X64ApicWriteSvrExitTrap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
+    }
+    pub fn UnknownSynicConnection(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_UnknownSynicConnection(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
+    }
+    pub fn RetargetUnknownVpciDevice(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_RetargetUnknownVpciDevice(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u64) << 11);
+    }
+    pub fn X64ApicWriteLdrExitTrap(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_X64ApicWriteLdrExitTrap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u64) << 12);
+    }
+    pub fn X64ApicWriteDfrExitTrap(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_X64ApicWriteDfrExitTrap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u64) << 13);
+    }
+    pub fn GpaAccessFaultExit(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_GpaAccessFaultExit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u64) << 14);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 15
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(562949953421311 << 15)) | ((value & 562949953421311) << 15);
+    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_EXTENDED_VM_EXITS_RESERVED_BITFIELD_COUNT: u32 = 49;
@@ -660,6 +1062,27 @@ impl Default for WHV_INPUT_VTL {
 pub struct WHV_INPUT_VTL_0 {
     pub _bitfield: u8,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_INPUT_VTL_0 {
+    pub fn TargetVtl(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_TargetVtl(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn UseTargetVtl(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_UseTargetVtl(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -696,6 +1119,33 @@ impl Default for WHV_INTERNAL_ACTIVITY_REGISTER {
 pub struct WHV_INTERNAL_ACTIVITY_REGISTER_0 {
     pub _bitfield: u64,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_INTERNAL_ACTIVITY_REGISTER_0 {
+    pub fn StartupSuspend(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_StartupSuspend(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn HaltSuspend(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_HaltSuspend(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn IdleSuspend(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_IdleSuspend(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(2305843009213693951 << 3)) | ((value & 2305843009213693951) << 3);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -703,6 +1153,39 @@ pub struct WHV_INTERRUPT_CONTROL {
     pub _bitfield: u64,
     pub Destination: u32,
     pub Vector: u32,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_INTERRUPT_CONTROL {
+    pub fn Type(&self) -> u64 {
+        (self._bitfield << 56) >> 56
+    }
+    pub fn set_Type(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn DestinationMode(&self) -> u64 {
+        (self._bitfield << 52) >> 60
+    }
+    pub fn set_DestinationMode(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
+    }
+    pub fn TriggerMode(&self) -> u64 {
+        (self._bitfield << 48) >> 60
+    }
+    pub fn set_TriggerMode(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
+    pub fn TargetVtl(&self) -> u64 {
+        (self._bitfield << 40) >> 56
+    }
+    pub fn set_TargetVtl(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(255 << 16)) | ((value & 255) << 16);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 24
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(1099511627775 << 24)) | ((value & 1099511627775) << 24);
+    }
 }
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
@@ -741,6 +1224,33 @@ impl Default for WHV_INTERRUPT_CONTROL2 {
 pub struct WHV_INTERRUPT_CONTROL2_0 {
     pub InterruptType: WHV_INTERRUPT_TYPE,
     pub _bitfield: u32,
+}
+#[cfg(target_arch = "aarch64")]
+impl WHV_INTERRUPT_CONTROL2_0 {
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn Asserted(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Asserted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Retarget(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Retarget(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Reserved2(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_INTERRUPT_DESTINATION_MODE = i32;
@@ -818,6 +1328,33 @@ impl Default for WHV_MEMORY_ACCESS_INFO {
 pub struct WHV_MEMORY_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_MEMORY_ACCESS_INFO_0 {
+    pub fn AccessType(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_AccessType(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn GpaUnmapped(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_GpaUnmapped(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn GvaValid(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_GvaValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -836,6 +1373,33 @@ impl Default for WHV_MEMORY_ACCESS_INFO {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_MEMORY_ACCESS_INFO_0 {
     pub _bitfield: u8,
+}
+#[cfg(target_arch = "aarch64")]
+impl WHV_MEMORY_ACCESS_INFO_0 {
+    pub fn GvaValid(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_GvaValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn GvaGpaValid(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_GvaGpaValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn HypercallOutputPending(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_HypercallOutputPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_MEMORY_ACCESS_TYPE = i32;
@@ -889,6 +1453,27 @@ impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL_0 {
 pub struct WHV_NESTED_ENLIGHTENMENTS_CONTROL_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_NESTED_ENLIGHTENMENTS_CONTROL_0_0 {
+    pub fn DirectHypercall(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DirectHypercall(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn VirtualizationException(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_VirtualizationException(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -907,6 +1492,21 @@ impl Default for WHV_NESTED_ENLIGHTENMENTS_CONTROL_1 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_NESTED_ENLIGHTENMENTS_CONTROL_1_0 {
     pub _bitfield: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_NESTED_ENLIGHTENMENTS_CONTROL_1_0 {
+    pub fn InterPartitionCommunication(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_InterPartitionCommunication(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_NESTED_STATE_TYPE = i32;
@@ -1130,6 +1730,387 @@ impl Default for WHV_PROCESSOR_FEATURES {
 pub struct WHV_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_PROCESSOR_FEATURES_0 {
+    pub fn Sse3Support(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Sse3Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn LahfSahfSupport(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_LahfSahfSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn Ssse3Support(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Ssse3Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn Sse4_1Support(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Sse4_1Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    }
+    pub fn Sse4_2Support(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Sse4_2Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    }
+    pub fn Sse4aSupport(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Sse4aSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    }
+    pub fn XopSupport(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_XopSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
+    }
+    pub fn PopCntSupport(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_PopCntSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
+    }
+    pub fn Cmpxchg16bSupport(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_Cmpxchg16bSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    }
+    pub fn Altmovcr8Support(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_Altmovcr8Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
+    }
+    pub fn LzcntSupport(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_LzcntSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
+    }
+    pub fn MisAlignSseSupport(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_MisAlignSseSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u64) << 11);
+    }
+    pub fn MmxExtSupport(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_MmxExtSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u64) << 12);
+    }
+    pub fn Amd3DNowSupport(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_Amd3DNowSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u64) << 13);
+    }
+    pub fn ExtendedAmd3DNowSupport(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_ExtendedAmd3DNowSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u64) << 14);
+    }
+    pub fn Page1GbSupport(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_Page1GbSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u64) << 15);
+    }
+    pub fn AesSupport(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_AesSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u64) << 16);
+    }
+    pub fn PclmulqdqSupport(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_PclmulqdqSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u64) << 17);
+    }
+    pub fn PcidSupport(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_PcidSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u64) << 18);
+    }
+    pub fn Fma4Support(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_Fma4Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u64) << 19);
+    }
+    pub fn F16CSupport(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_F16CSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u64) << 20);
+    }
+    pub fn RdRandSupport(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_RdRandSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u64) << 21);
+    }
+    pub fn RdWrFsGsSupport(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_RdWrFsGsSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u64) << 22);
+    }
+    pub fn SmepSupport(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_SmepSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u64) << 23);
+    }
+    pub fn EnhancedFastStringSupport(&self) -> bool {
+        (self._bitfield >> 24) & 1 != 0
+    }
+    pub fn set_EnhancedFastStringSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u64) << 24);
+    }
+    pub fn Bmi1Support(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_Bmi1Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u64) << 25);
+    }
+    pub fn Bmi2Support(&self) -> bool {
+        (self._bitfield >> 26) & 1 != 0
+    }
+    pub fn set_Bmi2Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u64) << 26);
+    }
+    pub fn Reserved1(&self) -> u64 {
+        (self._bitfield << 35) >> 62
+    }
+    pub fn set_Reserved1(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(3 << 27)) | ((value & 3) << 27);
+    }
+    pub fn MovbeSupport(&self) -> bool {
+        (self._bitfield >> 29) & 1 != 0
+    }
+    pub fn set_MovbeSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u64) << 29);
+    }
+    pub fn Npiep1Support(&self) -> bool {
+        (self._bitfield >> 30) & 1 != 0
+    }
+    pub fn set_Npiep1Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u64) << 30);
+    }
+    pub fn DepX87FPUSaveSupport(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_DepX87FPUSaveSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u64) << 31);
+    }
+    pub fn RdSeedSupport(&self) -> bool {
+        (self._bitfield >> 32) & 1 != 0
+    }
+    pub fn set_RdSeedSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 32)) | ((value as u64) << 32);
+    }
+    pub fn AdxSupport(&self) -> bool {
+        (self._bitfield >> 33) & 1 != 0
+    }
+    pub fn set_AdxSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 33)) | ((value as u64) << 33);
+    }
+    pub fn IntelPrefetchSupport(&self) -> bool {
+        (self._bitfield >> 34) & 1 != 0
+    }
+    pub fn set_IntelPrefetchSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 34)) | ((value as u64) << 34);
+    }
+    pub fn SmapSupport(&self) -> bool {
+        (self._bitfield >> 35) & 1 != 0
+    }
+    pub fn set_SmapSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 35)) | ((value as u64) << 35);
+    }
+    pub fn HleSupport(&self) -> bool {
+        (self._bitfield >> 36) & 1 != 0
+    }
+    pub fn set_HleSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 36)) | ((value as u64) << 36);
+    }
+    pub fn RtmSupport(&self) -> bool {
+        (self._bitfield >> 37) & 1 != 0
+    }
+    pub fn set_RtmSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 37)) | ((value as u64) << 37);
+    }
+    pub fn RdtscpSupport(&self) -> bool {
+        (self._bitfield >> 38) & 1 != 0
+    }
+    pub fn set_RdtscpSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 38)) | ((value as u64) << 38);
+    }
+    pub fn ClflushoptSupport(&self) -> bool {
+        (self._bitfield >> 39) & 1 != 0
+    }
+    pub fn set_ClflushoptSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 39)) | ((value as u64) << 39);
+    }
+    pub fn ClwbSupport(&self) -> bool {
+        (self._bitfield >> 40) & 1 != 0
+    }
+    pub fn set_ClwbSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 40)) | ((value as u64) << 40);
+    }
+    pub fn ShaSupport(&self) -> bool {
+        (self._bitfield >> 41) & 1 != 0
+    }
+    pub fn set_ShaSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 41)) | ((value as u64) << 41);
+    }
+    pub fn X87PointersSavedSupport(&self) -> bool {
+        (self._bitfield >> 42) & 1 != 0
+    }
+    pub fn set_X87PointersSavedSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 42)) | ((value as u64) << 42);
+    }
+    pub fn InvpcidSupport(&self) -> bool {
+        (self._bitfield >> 43) & 1 != 0
+    }
+    pub fn set_InvpcidSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 43)) | ((value as u64) << 43);
+    }
+    pub fn IbrsSupport(&self) -> bool {
+        (self._bitfield >> 44) & 1 != 0
+    }
+    pub fn set_IbrsSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 44)) | ((value as u64) << 44);
+    }
+    pub fn StibpSupport(&self) -> bool {
+        (self._bitfield >> 45) & 1 != 0
+    }
+    pub fn set_StibpSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 45)) | ((value as u64) << 45);
+    }
+    pub fn IbpbSupport(&self) -> bool {
+        (self._bitfield >> 46) & 1 != 0
+    }
+    pub fn set_IbpbSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 46)) | ((value as u64) << 46);
+    }
+    pub fn UnrestrictedGuestSupport(&self) -> bool {
+        (self._bitfield >> 47) & 1 != 0
+    }
+    pub fn set_UnrestrictedGuestSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 47)) | ((value as u64) << 47);
+    }
+    pub fn SsbdSupport(&self) -> bool {
+        (self._bitfield >> 48) & 1 != 0
+    }
+    pub fn set_SsbdSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 48)) | ((value as u64) << 48);
+    }
+    pub fn FastShortRepMovSupport(&self) -> bool {
+        (self._bitfield >> 49) & 1 != 0
+    }
+    pub fn set_FastShortRepMovSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 49)) | ((value as u64) << 49);
+    }
+    pub fn Reserved3(&self) -> bool {
+        (self._bitfield >> 50) & 1 != 0
+    }
+    pub fn set_Reserved3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 50)) | ((value as u64) << 50);
+    }
+    pub fn RdclNo(&self) -> bool {
+        (self._bitfield >> 51) & 1 != 0
+    }
+    pub fn set_RdclNo(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 51)) | ((value as u64) << 51);
+    }
+    pub fn IbrsAllSupport(&self) -> bool {
+        (self._bitfield >> 52) & 1 != 0
+    }
+    pub fn set_IbrsAllSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 52)) | ((value as u64) << 52);
+    }
+    pub fn Reserved4(&self) -> bool {
+        (self._bitfield >> 53) & 1 != 0
+    }
+    pub fn set_Reserved4(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 53)) | ((value as u64) << 53);
+    }
+    pub fn SsbNo(&self) -> bool {
+        (self._bitfield >> 54) & 1 != 0
+    }
+    pub fn set_SsbNo(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 54)) | ((value as u64) << 54);
+    }
+    pub fn RsbANo(&self) -> bool {
+        (self._bitfield >> 55) & 1 != 0
+    }
+    pub fn set_RsbANo(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 55)) | ((value as u64) << 55);
+    }
+    pub fn Reserved5(&self) -> bool {
+        (self._bitfield >> 56) & 1 != 0
+    }
+    pub fn set_Reserved5(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 56)) | ((value as u64) << 56);
+    }
+    pub fn RdPidSupport(&self) -> bool {
+        (self._bitfield >> 57) & 1 != 0
+    }
+    pub fn set_RdPidSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 57)) | ((value as u64) << 57);
+    }
+    pub fn UmipSupport(&self) -> bool {
+        (self._bitfield >> 58) & 1 != 0
+    }
+    pub fn set_UmipSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 58)) | ((value as u64) << 58);
+    }
+    pub fn MdsNoSupport(&self) -> bool {
+        (self._bitfield >> 59) & 1 != 0
+    }
+    pub fn set_MdsNoSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 59)) | ((value as u64) << 59);
+    }
+    pub fn MdClearSupport(&self) -> bool {
+        (self._bitfield >> 60) & 1 != 0
+    }
+    pub fn set_MdClearSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 60)) | ((value as u64) << 60);
+    }
+    pub fn TaaNoSupport(&self) -> bool {
+        (self._bitfield >> 61) & 1 != 0
+    }
+    pub fn set_TaaNoSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 61)) | ((value as u64) << 61);
+    }
+    pub fn TsxCtrlSupport(&self) -> bool {
+        (self._bitfield >> 62) & 1 != 0
+    }
+    pub fn set_TsxCtrlSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 62)) | ((value as u64) << 62);
+    }
+    pub fn Reserved6(&self) -> bool {
+        (self._bitfield >> 63) & 1 != 0
+    }
+    pub fn set_Reserved6(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 63)) | ((value as u64) << 63);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1148,6 +2129,393 @@ impl Default for WHV_PROCESSOR_FEATURES1 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_PROCESSOR_FEATURES1_0 {
     pub _bitfield: u64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_PROCESSOR_FEATURES1_0 {
+    pub fn ACountMCountSupport(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ACountMCountSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn TscInvariantSupport(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_TscInvariantSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn ClZeroSupport(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ClZeroSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn RdpruSupport(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_RdpruSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    }
+    pub fn La57Support(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_La57Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    }
+    pub fn MbecSupport(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_MbecSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    }
+    pub fn NestedVirtSupport(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_NestedVirtSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
+    }
+    pub fn PsfdSupport(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_PsfdSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
+    }
+    pub fn CetSsSupport(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_CetSsSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    }
+    pub fn CetIbtSupport(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_CetIbtSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
+    }
+    pub fn VmxExceptionInjectSupport(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_VmxExceptionInjectSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
+    }
+    pub fn Reserved2(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_Reserved2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u64) << 11);
+    }
+    pub fn UmwaitTpauseSupport(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_UmwaitTpauseSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u64) << 12);
+    }
+    pub fn MovdiriSupport(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_MovdiriSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u64) << 13);
+    }
+    pub fn Movdir64bSupport(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_Movdir64bSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u64) << 14);
+    }
+    pub fn CldemoteSupport(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_CldemoteSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u64) << 15);
+    }
+    pub fn SerializeSupport(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_SerializeSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u64) << 16);
+    }
+    pub fn TscDeadlineTmrSupport(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_TscDeadlineTmrSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u64) << 17);
+    }
+    pub fn TscAdjustSupport(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_TscAdjustSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u64) << 18);
+    }
+    pub fn FZLRepMovsb(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_FZLRepMovsb(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u64) << 19);
+    }
+    pub fn FSRepStosb(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_FSRepStosb(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u64) << 20);
+    }
+    pub fn FSRepCmpsb(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_FSRepCmpsb(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u64) << 21);
+    }
+    pub fn TsxLdTrkSupport(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_TsxLdTrkSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u64) << 22);
+    }
+    pub fn VmxInsOutsExitInfoSupport(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_VmxInsOutsExitInfoSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u64) << 23);
+    }
+    pub fn Reserved3(&self) -> bool {
+        (self._bitfield >> 24) & 1 != 0
+    }
+    pub fn set_Reserved3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u64) << 24);
+    }
+    pub fn SbdrSsdpNoSupport(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_SbdrSsdpNoSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u64) << 25);
+    }
+    pub fn FbsdpNoSupport(&self) -> bool {
+        (self._bitfield >> 26) & 1 != 0
+    }
+    pub fn set_FbsdpNoSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u64) << 26);
+    }
+    pub fn PsdpNoSupport(&self) -> bool {
+        (self._bitfield >> 27) & 1 != 0
+    }
+    pub fn set_PsdpNoSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u64) << 27);
+    }
+    pub fn FbClearSupport(&self) -> bool {
+        (self._bitfield >> 28) & 1 != 0
+    }
+    pub fn set_FbClearSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u64) << 28);
+    }
+    pub fn BtcNoSupport(&self) -> bool {
+        (self._bitfield >> 29) & 1 != 0
+    }
+    pub fn set_BtcNoSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u64) << 29);
+    }
+    pub fn IbpbRsbFlushSupport(&self) -> bool {
+        (self._bitfield >> 30) & 1 != 0
+    }
+    pub fn set_IbpbRsbFlushSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u64) << 30);
+    }
+    pub fn StibpAlwaysOnSupport(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_StibpAlwaysOnSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u64) << 31);
+    }
+    pub fn PerfGlobalCtrlSupport(&self) -> bool {
+        (self._bitfield >> 32) & 1 != 0
+    }
+    pub fn set_PerfGlobalCtrlSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 32)) | ((value as u64) << 32);
+    }
+    pub fn NptExecuteOnlySupport(&self) -> bool {
+        (self._bitfield >> 33) & 1 != 0
+    }
+    pub fn set_NptExecuteOnlySupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 33)) | ((value as u64) << 33);
+    }
+    pub fn NptADFlagsSupport(&self) -> bool {
+        (self._bitfield >> 34) & 1 != 0
+    }
+    pub fn set_NptADFlagsSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 34)) | ((value as u64) << 34);
+    }
+    pub fn Npt1GbPageSupport(&self) -> bool {
+        (self._bitfield >> 35) & 1 != 0
+    }
+    pub fn set_Npt1GbPageSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 35)) | ((value as u64) << 35);
+    }
+    pub fn Reserved4(&self) -> bool {
+        (self._bitfield >> 36) & 1 != 0
+    }
+    pub fn set_Reserved4(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 36)) | ((value as u64) << 36);
+    }
+    pub fn Reserved5(&self) -> bool {
+        (self._bitfield >> 37) & 1 != 0
+    }
+    pub fn set_Reserved5(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 37)) | ((value as u64) << 37);
+    }
+    pub fn Reserved6(&self) -> bool {
+        (self._bitfield >> 38) & 1 != 0
+    }
+    pub fn set_Reserved6(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 38)) | ((value as u64) << 38);
+    }
+    pub fn Reserved7(&self) -> bool {
+        (self._bitfield >> 39) & 1 != 0
+    }
+    pub fn set_Reserved7(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 39)) | ((value as u64) << 39);
+    }
+    pub fn CmpccxaddSupport(&self) -> bool {
+        (self._bitfield >> 40) & 1 != 0
+    }
+    pub fn set_CmpccxaddSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 40)) | ((value as u64) << 40);
+    }
+    pub fn Reserved8(&self) -> bool {
+        (self._bitfield >> 41) & 1 != 0
+    }
+    pub fn set_Reserved8(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 41)) | ((value as u64) << 41);
+    }
+    pub fn Reserved9(&self) -> bool {
+        (self._bitfield >> 42) & 1 != 0
+    }
+    pub fn set_Reserved9(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 42)) | ((value as u64) << 42);
+    }
+    pub fn Reserved10(&self) -> bool {
+        (self._bitfield >> 43) & 1 != 0
+    }
+    pub fn set_Reserved10(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 43)) | ((value as u64) << 43);
+    }
+    pub fn Reserved11(&self) -> bool {
+        (self._bitfield >> 44) & 1 != 0
+    }
+    pub fn set_Reserved11(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 44)) | ((value as u64) << 44);
+    }
+    pub fn PrefetchISupport(&self) -> bool {
+        (self._bitfield >> 45) & 1 != 0
+    }
+    pub fn set_PrefetchISupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 45)) | ((value as u64) << 45);
+    }
+    pub fn Sha512Support(&self) -> bool {
+        (self._bitfield >> 46) & 1 != 0
+    }
+    pub fn set_Sha512Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 46)) | ((value as u64) << 46);
+    }
+    pub fn Reserved12(&self) -> bool {
+        (self._bitfield >> 47) & 1 != 0
+    }
+    pub fn set_Reserved12(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 47)) | ((value as u64) << 47);
+    }
+    pub fn Reserved13(&self) -> bool {
+        (self._bitfield >> 48) & 1 != 0
+    }
+    pub fn set_Reserved13(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 48)) | ((value as u64) << 48);
+    }
+    pub fn Reserved14(&self) -> bool {
+        (self._bitfield >> 49) & 1 != 0
+    }
+    pub fn set_Reserved14(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 49)) | ((value as u64) << 49);
+    }
+    pub fn SM3Support(&self) -> bool {
+        (self._bitfield >> 50) & 1 != 0
+    }
+    pub fn set_SM3Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 50)) | ((value as u64) << 50);
+    }
+    pub fn SM4Support(&self) -> bool {
+        (self._bitfield >> 51) & 1 != 0
+    }
+    pub fn set_SM4Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 51)) | ((value as u64) << 51);
+    }
+    pub fn Reserved15(&self) -> bool {
+        (self._bitfield >> 52) & 1 != 0
+    }
+    pub fn set_Reserved15(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 52)) | ((value as u64) << 52);
+    }
+    pub fn Reserved16(&self) -> bool {
+        (self._bitfield >> 53) & 1 != 0
+    }
+    pub fn set_Reserved16(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 53)) | ((value as u64) << 53);
+    }
+    pub fn SbpbSupported(&self) -> bool {
+        (self._bitfield >> 54) & 1 != 0
+    }
+    pub fn set_SbpbSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 54)) | ((value as u64) << 54);
+    }
+    pub fn IbpbBrTypeSupported(&self) -> bool {
+        (self._bitfield >> 55) & 1 != 0
+    }
+    pub fn set_IbpbBrTypeSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 55)) | ((value as u64) << 55);
+    }
+    pub fn SrsoNoSupported(&self) -> bool {
+        (self._bitfield >> 56) & 1 != 0
+    }
+    pub fn set_SrsoNoSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 56)) | ((value as u64) << 56);
+    }
+    pub fn SrsoUserKernelNoSupported(&self) -> bool {
+        (self._bitfield >> 57) & 1 != 0
+    }
+    pub fn set_SrsoUserKernelNoSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 57)) | ((value as u64) << 57);
+    }
+    pub fn Reserved17(&self) -> bool {
+        (self._bitfield >> 58) & 1 != 0
+    }
+    pub fn set_Reserved17(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 58)) | ((value as u64) << 58);
+    }
+    pub fn Reserved18(&self) -> bool {
+        (self._bitfield >> 59) & 1 != 0
+    }
+    pub fn set_Reserved18(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 59)) | ((value as u64) << 59);
+    }
+    pub fn Reserved19(&self) -> bool {
+        (self._bitfield >> 60) & 1 != 0
+    }
+    pub fn set_Reserved19(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 60)) | ((value as u64) << 60);
+    }
+    pub fn LassSupport(&self) -> bool {
+        (self._bitfield >> 61) & 1 != 0
+    }
+    pub fn set_LassSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 61)) | ((value as u64) << 61);
+    }
+    pub fn IdleHltInterceptSupport(&self) -> bool {
+        (self._bitfield >> 62) & 1 != 0
+    }
+    pub fn set_IdleHltInterceptSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 62)) | ((value as u64) << 62);
+    }
+    pub fn MsrListSupport(&self) -> bool {
+        (self._bitfield >> 63) & 1 != 0
+    }
+    pub fn set_MsrListSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 63)) | ((value as u64) << 63);
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -1225,6 +2593,27 @@ impl Default for WHV_PROCESSOR_PERFMON_FEATURES {
 pub struct WHV_PROCESSOR_PERFMON_FEATURES_0 {
     pub _bitfield: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_PROCESSOR_PERFMON_FEATURES_0 {
+    pub fn PmuSupport(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PmuSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn LbrSupport(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_LbrSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4611686018427387903 << 2)) | ((value & 4611686018427387903) << 2);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -1264,6 +2653,243 @@ impl Default for WHV_PROCESSOR_XSAVE_FEATURES {
 pub struct WHV_PROCESSOR_XSAVE_FEATURES_0 {
     pub _bitfield: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_PROCESSOR_XSAVE_FEATURES_0 {
+    pub fn XsaveSupport(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_XsaveSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn XsaveoptSupport(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_XsaveoptSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn AvxSupport(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_AvxSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn Avx2Support(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Avx2Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    }
+    pub fn FmaSupport(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_FmaSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    }
+    pub fn MpxSupport(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_MpxSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    }
+    pub fn Avx512Support(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Avx512Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
+    }
+    pub fn Avx512DQSupport(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Avx512DQSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
+    }
+    pub fn Avx512CDSupport(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_Avx512CDSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    }
+    pub fn Avx512BWSupport(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_Avx512BWSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
+    }
+    pub fn Avx512VLSupport(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_Avx512VLSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
+    }
+    pub fn XsaveCompSupport(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_XsaveCompSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u64) << 11);
+    }
+    pub fn XsaveSupervisorSupport(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_XsaveSupervisorSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u64) << 12);
+    }
+    pub fn Xcr1Support(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_Xcr1Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u64) << 13);
+    }
+    pub fn Avx512BitalgSupport(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_Avx512BitalgSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u64) << 14);
+    }
+    pub fn Avx512IfmaSupport(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_Avx512IfmaSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u64) << 15);
+    }
+    pub fn Avx512VBmiSupport(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_Avx512VBmiSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u64) << 16);
+    }
+    pub fn Avx512VBmi2Support(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_Avx512VBmi2Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u64) << 17);
+    }
+    pub fn Avx512VnniSupport(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_Avx512VnniSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u64) << 18);
+    }
+    pub fn GfniSupport(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_GfniSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u64) << 19);
+    }
+    pub fn VaesSupport(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_VaesSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u64) << 20);
+    }
+    pub fn Avx512VPopcntdqSupport(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_Avx512VPopcntdqSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u64) << 21);
+    }
+    pub fn VpclmulqdqSupport(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_VpclmulqdqSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u64) << 22);
+    }
+    pub fn Avx512Bf16Support(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_Avx512Bf16Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u64) << 23);
+    }
+    pub fn Avx512Vp2IntersectSupport(&self) -> bool {
+        (self._bitfield >> 24) & 1 != 0
+    }
+    pub fn set_Avx512Vp2IntersectSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u64) << 24);
+    }
+    pub fn Avx512Fp16Support(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_Avx512Fp16Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u64) << 25);
+    }
+    pub fn XfdSupport(&self) -> bool {
+        (self._bitfield >> 26) & 1 != 0
+    }
+    pub fn set_XfdSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u64) << 26);
+    }
+    pub fn AmxTileSupport(&self) -> bool {
+        (self._bitfield >> 27) & 1 != 0
+    }
+    pub fn set_AmxTileSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u64) << 27);
+    }
+    pub fn AmxBf16Support(&self) -> bool {
+        (self._bitfield >> 28) & 1 != 0
+    }
+    pub fn set_AmxBf16Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u64) << 28);
+    }
+    pub fn AmxInt8Support(&self) -> bool {
+        (self._bitfield >> 29) & 1 != 0
+    }
+    pub fn set_AmxInt8Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u64) << 29);
+    }
+    pub fn AvxVnniSupport(&self) -> bool {
+        (self._bitfield >> 30) & 1 != 0
+    }
+    pub fn set_AvxVnniSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u64) << 30);
+    }
+    pub fn AvxIfmaSupport(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_AvxIfmaSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u64) << 31);
+    }
+    pub fn AvxNeConvertSupport(&self) -> bool {
+        (self._bitfield >> 32) & 1 != 0
+    }
+    pub fn set_AvxNeConvertSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 32)) | ((value as u64) << 32);
+    }
+    pub fn AvxVnniInt8Support(&self) -> bool {
+        (self._bitfield >> 33) & 1 != 0
+    }
+    pub fn set_AvxVnniInt8Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 33)) | ((value as u64) << 33);
+    }
+    pub fn AvxVnniInt16Support(&self) -> bool {
+        (self._bitfield >> 34) & 1 != 0
+    }
+    pub fn set_AvxVnniInt16Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 34)) | ((value as u64) << 34);
+    }
+    pub fn Avx10_1_256Support(&self) -> bool {
+        (self._bitfield >> 35) & 1 != 0
+    }
+    pub fn set_Avx10_1_256Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 35)) | ((value as u64) << 35);
+    }
+    pub fn Avx10_1_512Support(&self) -> bool {
+        (self._bitfield >> 36) & 1 != 0
+    }
+    pub fn set_Avx10_1_512Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 36)) | ((value as u64) << 36);
+    }
+    pub fn AmxFp16Support(&self) -> bool {
+        (self._bitfield >> 37) & 1 != 0
+    }
+    pub fn set_AmxFp16Support(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 37)) | ((value as u64) << 37);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 38
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(67108863 << 38)) | ((value & 67108863) << 38);
+    }
+}
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 pub const WHV_READ_WRITE_GPA_RANGE_MAX_SIZE: u32 = 16;
 #[repr(C)]
@@ -1301,6 +2927,21 @@ impl Default for WHV_REGISTER_CONTEXT {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_REGISTER_CONTEXT_0 {
     pub _bitfield: u8,
+}
+#[cfg(target_arch = "aarch64")]
+impl WHV_REGISTER_CONTEXT_0 {
+    pub fn IsMemoryOp(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IsMemoryOp(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_REGISTER_NAME = i32;
@@ -1471,6 +3112,45 @@ impl Default for WHV_SCHEDULER_FEATURES {
 pub struct WHV_SCHEDULER_FEATURES_0 {
     pub _bitfield: u64,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_SCHEDULER_FEATURES_0 {
+    pub fn CpuReserve(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CpuReserve(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn CpuCap(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CpuCap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn CpuWeight(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_CpuWeight(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn CpuGroupId(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_CpuGroupId(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    }
+    pub fn DisableSmt(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_DisableSmt(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(576460752303423487 << 5)) | ((value & 576460752303423487) << 5);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "winnt")]
@@ -1577,6 +3257,297 @@ impl Default for WHV_SYNTHETIC_PROCESSOR_FEATURES {
 pub struct WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
     pub _bitfield: u64,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_SYNTHETIC_PROCESSOR_FEATURES_0 {
+    pub fn HypervisorPresent(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_HypervisorPresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn Hv1(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Hv1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn AccessVpRunTimeReg(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_AccessVpRunTimeReg(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn AccessPartitionReferenceCounter(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_AccessPartitionReferenceCounter(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    }
+    pub fn AccessSynicRegs(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_AccessSynicRegs(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    }
+    pub fn AccessSyntheticTimerRegs(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_AccessSyntheticTimerRegs(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    }
+    pub fn AccessIntrCtrlRegs(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_AccessIntrCtrlRegs(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u64) << 6);
+    }
+    pub fn AccessHypercallRegs(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_AccessHypercallRegs(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u64) << 7);
+    }
+    pub fn AccessVpIndex(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_AccessVpIndex(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    }
+    pub fn AccessPartitionReferenceTsc(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_AccessPartitionReferenceTsc(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
+    }
+    pub fn AccessGuestIdleReg(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_AccessGuestIdleReg(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u64) << 10);
+    }
+    pub fn AccessFrequencyRegs(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_AccessFrequencyRegs(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u64) << 11);
+    }
+    pub fn ReservedZ12(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_ReservedZ12(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u64) << 12);
+    }
+    pub fn ReservedZ13(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_ReservedZ13(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u64) << 13);
+    }
+    pub fn ReservedZ14(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_ReservedZ14(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u64) << 14);
+    }
+    pub fn EnableExtendedGvaRangesForFlushVirtualAddressList(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_EnableExtendedGvaRangesForFlushVirtualAddressList(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u64) << 15);
+    }
+    pub fn ReservedZ16(&self) -> bool {
+        (self._bitfield >> 16) & 1 != 0
+    }
+    pub fn set_ReservedZ16(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 16)) | ((value as u64) << 16);
+    }
+    pub fn ReservedZ17(&self) -> bool {
+        (self._bitfield >> 17) & 1 != 0
+    }
+    pub fn set_ReservedZ17(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 17)) | ((value as u64) << 17);
+    }
+    pub fn FastHypercallOutput(&self) -> bool {
+        (self._bitfield >> 18) & 1 != 0
+    }
+    pub fn set_FastHypercallOutput(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 18)) | ((value as u64) << 18);
+    }
+    pub fn ReservedZ19(&self) -> bool {
+        (self._bitfield >> 19) & 1 != 0
+    }
+    pub fn set_ReservedZ19(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 19)) | ((value as u64) << 19);
+    }
+    pub fn ReservedZ20(&self) -> bool {
+        (self._bitfield >> 20) & 1 != 0
+    }
+    pub fn set_ReservedZ20(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 20)) | ((value as u64) << 20);
+    }
+    pub fn ReservedZ21(&self) -> bool {
+        (self._bitfield >> 21) & 1 != 0
+    }
+    pub fn set_ReservedZ21(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 21)) | ((value as u64) << 21);
+    }
+    pub fn DirectSyntheticTimers(&self) -> bool {
+        (self._bitfield >> 22) & 1 != 0
+    }
+    pub fn set_DirectSyntheticTimers(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 22)) | ((value as u64) << 22);
+    }
+    pub fn ReservedZ23(&self) -> bool {
+        (self._bitfield >> 23) & 1 != 0
+    }
+    pub fn set_ReservedZ23(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 23)) | ((value as u64) << 23);
+    }
+    pub fn ExtendedProcessorMasks(&self) -> bool {
+        (self._bitfield >> 24) & 1 != 0
+    }
+    pub fn set_ExtendedProcessorMasks(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 24)) | ((value as u64) << 24);
+    }
+    pub fn TbFlushHypercalls(&self) -> bool {
+        (self._bitfield >> 25) & 1 != 0
+    }
+    pub fn set_TbFlushHypercalls(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 25)) | ((value as u64) << 25);
+    }
+    pub fn SyntheticClusterIpi(&self) -> bool {
+        (self._bitfield >> 26) & 1 != 0
+    }
+    pub fn set_SyntheticClusterIpi(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 26)) | ((value as u64) << 26);
+    }
+    pub fn NotifyLongSpinWait(&self) -> bool {
+        (self._bitfield >> 27) & 1 != 0
+    }
+    pub fn set_NotifyLongSpinWait(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u64) << 27);
+    }
+    pub fn QueryNumaDistance(&self) -> bool {
+        (self._bitfield >> 28) & 1 != 0
+    }
+    pub fn set_QueryNumaDistance(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u64) << 28);
+    }
+    pub fn SignalEvents(&self) -> bool {
+        (self._bitfield >> 29) & 1 != 0
+    }
+    pub fn set_SignalEvents(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 29)) | ((value as u64) << 29);
+    }
+    pub fn RetargetDeviceInterrupt(&self) -> bool {
+        (self._bitfield >> 30) & 1 != 0
+    }
+    pub fn set_RetargetDeviceInterrupt(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 30)) | ((value as u64) << 30);
+    }
+    pub fn RestoreTime(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_RestoreTime(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u64) << 31);
+    }
+    pub fn EnlightenedVmcs(&self) -> bool {
+        (self._bitfield >> 32) & 1 != 0
+    }
+    pub fn set_EnlightenedVmcs(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 32)) | ((value as u64) << 32);
+    }
+    pub fn NestedDebugCtl(&self) -> bool {
+        (self._bitfield >> 33) & 1 != 0
+    }
+    pub fn set_NestedDebugCtl(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 33)) | ((value as u64) << 33);
+    }
+    pub fn SyntheticTimeUnhaltedTimer(&self) -> bool {
+        (self._bitfield >> 34) & 1 != 0
+    }
+    pub fn set_SyntheticTimeUnhaltedTimer(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 34)) | ((value as u64) << 34);
+    }
+    pub fn IdleSpecCtrl(&self) -> bool {
+        (self._bitfield >> 35) & 1 != 0
+    }
+    pub fn set_IdleSpecCtrl(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 35)) | ((value as u64) << 35);
+    }
+    pub fn ReservedZ36(&self) -> bool {
+        (self._bitfield >> 36) & 1 != 0
+    }
+    pub fn set_ReservedZ36(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 36)) | ((value as u64) << 36);
+    }
+    pub fn WakeVps(&self) -> bool {
+        (self._bitfield >> 37) & 1 != 0
+    }
+    pub fn set_WakeVps(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 37)) | ((value as u64) << 37);
+    }
+    pub fn AccessVpRegs(&self) -> bool {
+        (self._bitfield >> 38) & 1 != 0
+    }
+    pub fn set_AccessVpRegs(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 38)) | ((value as u64) << 38);
+    }
+    pub fn ReservedZ39(&self) -> bool {
+        (self._bitfield >> 39) & 1 != 0
+    }
+    pub fn set_ReservedZ39(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 39)) | ((value as u64) << 39);
+    }
+    pub fn ReservedZ40(&self) -> bool {
+        (self._bitfield >> 40) & 1 != 0
+    }
+    pub fn set_ReservedZ40(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 40)) | ((value as u64) << 40);
+    }
+    pub fn ReservedZ41(&self) -> bool {
+        (self._bitfield >> 41) & 1 != 0
+    }
+    pub fn set_ReservedZ41(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 41)) | ((value as u64) << 41);
+    }
+    pub fn ReservedZ42(&self) -> bool {
+        (self._bitfield >> 42) & 1 != 0
+    }
+    pub fn set_ReservedZ42(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 42)) | ((value as u64) << 42);
+    }
+    pub fn ReservedZ43(&self) -> bool {
+        (self._bitfield >> 43) & 1 != 0
+    }
+    pub fn set_ReservedZ43(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 43)) | ((value as u64) << 43);
+    }
+    pub fn ReservedZ44(&self) -> bool {
+        (self._bitfield >> 44) & 1 != 0
+    }
+    pub fn set_ReservedZ44(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 44)) | ((value as u64) << 44);
+    }
+    pub fn ReservedZ45(&self) -> bool {
+        (self._bitfield >> 45) & 1 != 0
+    }
+    pub fn set_ReservedZ45(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 45)) | ((value as u64) << 45);
+    }
+    pub fn ReservedZ46(&self) -> bool {
+        (self._bitfield >> 46) & 1 != 0
+    }
+    pub fn set_ReservedZ46(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 46)) | ((value as u64) << 46);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 47
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(131071 << 47)) | ((value & 131071) << 47);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1638,6 +3609,69 @@ impl Default for WHV_TRANSLATE_GVA_2_FLAGS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_TRANSLATE_GVA_2_FLAGS_0 {
     pub _bitfield: u64,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_TRANSLATE_GVA_2_FLAGS_0 {
+    pub fn ValidateRead(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ValidateRead(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn ValidateWrite(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ValidateWrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn ValidateExecute(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ValidateExecute(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn PrivilegeExempt(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_PrivilegeExempt(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    }
+    pub fn SetPageTableBits(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_SetPageTableBits(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    }
+    pub fn Reserved1(&self) -> u64 {
+        (self._bitfield << 56) >> 61
+    }
+    pub fn set_Reserved1(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn EnforceSmap(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_EnforceSmap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    }
+    pub fn OverrideSmap(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_OverrideSmap(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u64) << 9);
+    }
+    pub fn Reserved4(&self) -> u64 {
+        (self._bitfield << 8) >> 18
+    }
+    pub fn set_Reserved4(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(70368744177663 << 10)) | ((value & 70368744177663) << 10);
+    }
+    pub fn InputVtl(&self) -> u64 {
+        self._bitfield >> 56
+    }
+    pub fn set_InputVtl(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(255 << 56)) | ((value & 255) << 56);
+    }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_TRANSLATE_GVA_FLAGS = u32;
@@ -1948,6 +3982,27 @@ impl Default for WHV_VP_EXCEPTION_INFO {
 pub struct WHV_VP_EXCEPTION_INFO_0 {
     pub _bitfield: u32,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_VP_EXCEPTION_INFO_0 {
+    pub fn ErrorCodeValid(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ErrorCodeValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn SoftwareException(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_SoftwareException(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
 #[repr(C)]
 #[cfg(target_arch = "aarch64")]
 #[derive(Clone, Copy)]
@@ -1967,6 +4022,45 @@ impl Default for WHV_VP_EXECUTION_STATE {
 pub struct WHV_VP_EXECUTION_STATE_0 {
     pub _bitfield: u16,
 }
+#[cfg(target_arch = "aarch64")]
+impl WHV_VP_EXECUTION_STATE_0 {
+    pub fn Cpl(&self) -> u16 {
+        (self._bitfield << 14) >> 14
+    }
+    pub fn set_Cpl(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn DebugActive(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_DebugActive(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn InterruptionPending(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_InterruptionPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn Vtl(&self) -> u16 {
+        (self._bitfield << 8) >> 12
+    }
+    pub fn set_Vtl(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn VirtualizationFaultActive(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_VirtualizationFaultActive(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u16) << 8);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 9
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(127 << 9)) | ((value & 127) << 9);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -1978,6 +4072,21 @@ pub struct WHV_VP_EXIT_CONTEXT {
     pub Cs: WHV_X64_SEGMENT_REGISTER,
     pub Rip: u64,
     pub Rflags: u64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_VP_EXIT_CONTEXT {
+    pub fn InstructionLength(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_InstructionLength(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Cr8(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Cr8(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 impl Default for WHV_VP_EXIT_CONTEXT {
@@ -2106,6 +4215,39 @@ impl Default for WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER {
 pub struct WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
     pub _bitfield: u64,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_DELIVERABILITY_NOTIFICATIONS_REGISTER_0 {
+    pub fn NmiNotification(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_NmiNotification(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn InterruptNotification(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_InterruptNotification(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn InterruptPriority(&self) -> u64 {
+        (self._bitfield << 58) >> 60
+    }
+    pub fn set_InterruptPriority(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(15 << 2)) | ((value & 15) << 2);
+    }
+    pub fn Reserved(&self) -> u64 {
+        (self._bitfield << 16) >> 22
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4398046511103 << 6)) | ((value & 4398046511103) << 6);
+    }
+    pub fn Sint(&self) -> u64 {
+        self._bitfield >> 48
+    }
+    pub fn set_Sint(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(65535 << 48)) | ((value & 65535) << 48);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2178,6 +4320,27 @@ pub struct WHV_X64_FP_REGISTER_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_FP_REGISTER_0 {
+    pub fn BiasedExponent(&self) -> u64 {
+        (self._bitfield << 49) >> 49
+    }
+    pub fn set_BiasedExponent(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !32767) | (value & 32767);
+    }
+    pub fn Sign(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_Sign(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u64) << 15);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(281474976710655 << 16)) | ((value & 281474976710655) << 16);
+    }
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_X64_HYPERCALL_CONTEXT = WHV_HYPERCALL_CONTEXT;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2203,6 +4366,27 @@ impl Default for WHV_X64_INTERRUPT_STATE_REGISTER {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_INTERRUPT_STATE_REGISTER_0 {
     pub _bitfield: u64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_INTERRUPT_STATE_REGISTER_0 {
+    pub fn InterruptShadow(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_InterruptShadow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn NmiMasked(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_NmiMasked(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(4611686018427387903 << 2)) | ((value & 4611686018427387903) << 2);
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2247,6 +4431,39 @@ pub struct WHV_X64_IO_PORT_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_IO_PORT_ACCESS_INFO_0 {
+    pub fn IsWrite(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IsWrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AccessSize(&self) -> u32 {
+        (self._bitfield << 28) >> 29
+    }
+    pub fn set_AccessSize(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn StringOp(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_StringOp(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn RepPrefix(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_RepPrefix(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
+    }
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_X64_LOCAL_APIC_EMULATION_MODE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2282,6 +4499,21 @@ impl Default for WHV_X64_MSR_ACCESS_INFO {
 pub struct WHV_X64_MSR_ACCESS_INFO_0 {
     pub _bitfield: u32,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_MSR_ACCESS_INFO_0 {
+    pub fn IsWrite(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IsWrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2300,6 +4532,51 @@ impl Default for WHV_X64_MSR_EXIT_BITMAP {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_MSR_EXIT_BITMAP_0 {
     pub _bitfield: u64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_MSR_EXIT_BITMAP_0 {
+    pub fn UnhandledMsrs(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_UnhandledMsrs(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn TscMsrWrite(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_TscMsrWrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn TscMsrRead(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_TscMsrRead(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn ApicBaseMsrWrite(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ApicBaseMsrWrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    }
+    pub fn MiscEnableMsrRead(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_MiscEnableMsrRead(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    }
+    pub fn McUpdatePatchLevelMsrRead(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_McUpdatePatchLevelMsrRead(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u64) << 5);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(288230376151711743 << 6)) | ((value & 288230376151711743) << 6);
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2320,6 +4597,33 @@ impl Default for WHV_X64_NESTED_GUEST_STATE {
 pub struct WHV_X64_NESTED_GUEST_STATE_0 {
     pub _bitfield: u64,
     pub Reserved1: u64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_NESTED_GUEST_STATE_0 {
+    pub fn NestedVirtActive(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_NestedVirtActive(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn NestedGuestMode(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_NestedGuestMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn VmEntryPending(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_VmEntryPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn Reserved0(&self) -> u64 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved0(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(2305843009213693951 << 3)) | ((value & 2305843009213693951) << 3);
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2409,6 +4713,45 @@ pub struct WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
     pub _bitfield: u64,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_PENDING_DEBUG_EXCEPTION_0 {
+    pub fn Breakpoint0(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Breakpoint0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn Breakpoint1(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Breakpoint1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn Breakpoint2(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Breakpoint2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn Breakpoint3(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Breakpoint3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u64) << 3);
+    }
+    pub fn SingleStep(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_SingleStep(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u64) << 4);
+    }
+    pub fn Reserved0(&self) -> u64 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved0(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(576460752303423487 << 5)) | ((value & 576460752303423487) << 5);
+    }
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_X64_PENDING_EVENT_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2431,6 +4774,45 @@ pub struct WHV_X64_PENDING_EXCEPTION_EVENT_0 {
     pub ErrorCode: u32,
     pub ExceptionParameter: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_PENDING_EXCEPTION_EVENT_0 {
+    pub fn EventPending(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EventPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn EventType(&self) -> u32 {
+        (self._bitfield << 28) >> 29
+    }
+    pub fn set_EventType(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        (self._bitfield << 24) >> 28
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn DeliverErrorCode(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_DeliverErrorCode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 16) >> 25
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(127 << 9)) | ((value & 127) << 9);
+    }
+    pub fn Vector(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Vector(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2450,6 +4832,39 @@ impl Default for WHV_X64_PENDING_EXT_INT_EVENT {
 pub struct WHV_X64_PENDING_EXT_INT_EVENT_0 {
     pub _bitfield: u64,
     pub Reserved2: u64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_PENDING_EXT_INT_EVENT_0 {
+    pub fn EventPending(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EventPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn EventType(&self) -> u64 {
+        (self._bitfield << 60) >> 61
+    }
+    pub fn set_EventType(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn Reserved0(&self) -> u64 {
+        (self._bitfield << 56) >> 60
+    }
+    pub fn set_Reserved0(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn Vector(&self) -> u64 {
+        (self._bitfield << 48) >> 56
+    }
+    pub fn set_Vector(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+    pub fn Reserved1(&self) -> u64 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved1(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(281474976710655 << 16)) | ((value & 281474976710655) << 16);
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2472,6 +4887,51 @@ pub struct WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
     pub ErrorCode: u32,
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_PENDING_INTERRUPTION_REGISTER_0 {
+    pub fn InterruptionPending(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_InterruptionPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn InterruptionType(&self) -> u32 {
+        (self._bitfield << 28) >> 29
+    }
+    pub fn set_InterruptionType(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 1)) | ((value & 7) << 1);
+    }
+    pub fn DeliverErrorCode(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_DeliverErrorCode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn InstructionLength(&self) -> u32 {
+        (self._bitfield << 23) >> 28
+    }
+    pub fn set_InstructionLength(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 5)) | ((value & 15) << 5);
+    }
+    pub fn NestedEvent(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_NestedEvent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 16) >> 26
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(63 << 10)) | ((value & 63) << 10);
+    }
+    pub fn InterruptionVector(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_InterruptionVector(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_X64_PENDING_INTERRUPTION_TYPE = i32;
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2492,6 +4952,39 @@ impl Default for WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0 {
 pub struct WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0_0 {
     pub _bitfield: u64,
     pub ExitCode: u64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_PENDING_SVM_NESTED_EXIT_EVENT0_0 {
+    pub fn EventPending(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EventPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn EventType(&self) -> u64 {
+        (self._bitfield << 59) >> 60
+    }
+    pub fn set_EventType(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(15 << 1)) | ((value & 15) << 1);
+    }
+    pub fn Reserved0(&self) -> u64 {
+        (self._bitfield << 56) >> 61
+    }
+    pub fn set_Reserved0(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn InstructionBytesValid(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_InstructionBytesValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u64) << 8);
+    }
+    pub fn Reserved1(&self) -> u64 {
+        self._bitfield >> 9
+    }
+    pub fn set_Reserved1(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(36028797018963967 << 9)) | ((value & 36028797018963967) << 9);
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2586,6 +5079,27 @@ pub struct WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0_0 {
     pub _bitfield: u32,
     pub ExitReason: u32,
     pub ExitQualification: u64,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_PENDING_VMX_NESTED_EXIT_EVENT0_0 {
+    pub fn EventPending(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_EventPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn EventType(&self) -> u32 {
+        (self._bitfield << 27) >> 28
+    }
+    pub fn set_EventType(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 1)) | ((value & 15) << 1);
+    }
+    pub fn Reserved0(&self) -> u32 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved0(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2687,6 +5201,21 @@ impl Default for WHV_X64_RDTSC_INFO {
 pub struct WHV_X64_RDTSC_INFO_0 {
     pub _bitfield: u64,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_RDTSC_INFO_0 {
+    pub fn IsRdtscp(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IsRdtscp(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(9223372036854775807 << 1)) | ((value & 9223372036854775807) << 1);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2721,6 +5250,63 @@ impl Default for WHV_X64_SEGMENT_REGISTER_0 {
 pub struct WHV_X64_SEGMENT_REGISTER_0_0 {
     pub _bitfield: u16,
 }
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_SEGMENT_REGISTER_0_0 {
+    pub fn SegmentType(&self) -> u16 {
+        (self._bitfield << 12) >> 12
+    }
+    pub fn set_SegmentType(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn NonSystemSegment(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_NonSystemSegment(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn DescriptorPrivilegeLevel(&self) -> u16 {
+        (self._bitfield << 9) >> 14
+    }
+    pub fn set_DescriptorPrivilegeLevel(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(3 << 5)) | ((value & 3) << 5);
+    }
+    pub fn Present(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Present(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield << 4) >> 12
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
+    }
+    pub fn Available(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_Available(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    }
+    pub fn Long(&self) -> bool {
+        (self._bitfield >> 13) & 1 != 0
+    }
+    pub fn set_Long(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 13)) | ((value as u16) << 13);
+    }
+    pub fn Default(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_Default(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u16) << 14);
+    }
+    pub fn Granularity(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_Granularity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
+}
 #[repr(C, align(4096))]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy)]
@@ -2747,6 +5333,39 @@ impl Default for WHV_X64_SVM_NESTED_STATE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_SVM_NESTED_STATE_0 {
     pub _bitfield: u32,
+}
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_SVM_NESTED_STATE_0 {
+    pub fn GuestMode(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_GuestMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn VmEntryPending(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_VmEntryPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn HostSaveGpaValid(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_HostSaveGpaValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn CurrentVmcbValid(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_CurrentVmcbValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
 }
 #[repr(C)]
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
@@ -2799,6 +5418,51 @@ impl Default for WHV_X64_VMX_NESTED_STATE {
 pub struct WHV_X64_VMX_NESTED_STATE_0 {
     pub _bitfield: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_VMX_NESTED_STATE_0 {
+    pub fn GuestMode(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_GuestMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Vmxon(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Vmxon(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn CurrentVmcsValid(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_CurrentVmcsValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn VmEntryPending(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_VmEntryPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn VmcsEnlightened(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_VmcsEnlightened(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn EnlightenedVmEntry(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_EnlightenedVmEntry(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
+    }
+}
 #[repr(C)]
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -2834,6 +5498,63 @@ impl Default for WHV_X64_VP_EXECUTION_STATE {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct WHV_X64_VP_EXECUTION_STATE_0 {
     pub _bitfield: u16,
+}
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
+impl WHV_X64_VP_EXECUTION_STATE_0 {
+    pub fn Cpl(&self) -> u16 {
+        (self._bitfield << 14) >> 14
+    }
+    pub fn set_Cpl(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn Cr0Pe(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Cr0Pe(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Cr0Am(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Cr0Am(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn EferLma(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_EferLma(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn DebugActive(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_DebugActive(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn InterruptionPending(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_InterruptionPending(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn Reserved0(&self) -> u16 {
+        (self._bitfield << 4) >> 11
+    }
+    pub fn set_Reserved0(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(31 << 7)) | ((value & 31) << 7);
+    }
+    pub fn InterruptShadow(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_InterruptShadow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    }
+    pub fn Reserved1(&self) -> u16 {
+        self._bitfield >> 13
+    }
+    pub fn set_Reserved1(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
+    }
 }
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 pub type WHV_X64_VP_EXIT_CONTEXT = WHV_VP_EXIT_CONTEXT;

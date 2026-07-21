@@ -314,6 +314,38 @@ pub struct HYBRID_INFORMATION {
 pub struct HYBRID_INFORMATION_0 {
     pub _bitfield: u32,
 }
+impl HYBRID_INFORMATION_0 {
+    pub fn WriteCacheChangeable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_WriteCacheChangeable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn WriteThroughIoSupported(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_WriteThroughIoSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn FlushCacheSupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_FlushCacheSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Removable(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Removable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn ReservedBits(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_ReservedBits(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct HYBRID_INFORMATION_1 {
@@ -338,6 +370,44 @@ pub struct HYBRID_INFORMATION_1_0 {
     pub MaxEvictCommands: u32,
     pub MaxLbaRangeCountForEvict: u32,
     pub MaxLbaRangeCountForChangeLba: u32,
+}
+impl HYBRID_INFORMATION_1_0 {
+    pub fn CacheDisable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CacheDisable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn SetDirtyThreshold(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_SetDirtyThreshold(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn PriorityDemoteBySize(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_PriorityDemoteBySize(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn PriorityChangeByLbaRange(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_PriorityChangeByLbaRange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Evict(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Evict(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn ReservedBits(&self) -> u32 {
+        self._bitfield >> 5
+    }
+    pub fn set_ReservedBits(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(134217727 << 5)) | ((value & 134217727) << 5);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -662,6 +732,38 @@ impl Default for NV_SEP_CACHE_PARAMETER_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct NV_SEP_CACHE_PARAMETER_0_0 {
     pub _bitfield: u8,
+}
+impl NV_SEP_CACHE_PARAMETER_0_0 {
+    pub fn WriteCacheEnabled(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_WriteCacheEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn WriteCacheChangeable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_WriteCacheChangeable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn WriteThroughIOSupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_WriteThroughIOSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn FlushCacheSupported(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_FlushCacheSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn ReservedBits(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_ReservedBits(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 pub const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1;
 pub const NV_SEP_CACHE_PARAMETER_VERSION_1: u32 = 1;
@@ -1100,6 +1202,20 @@ impl Default for STORAGE_ENDURANCE_INFO {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct STORAGE_ENDURANCE_INFO_0 {
     pub _bitfield: u32,
+}
+impl STORAGE_ENDURANCE_INFO_0 {
+    pub fn Shared(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Shared(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

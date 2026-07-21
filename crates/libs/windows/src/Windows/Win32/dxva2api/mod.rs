@@ -163,6 +163,50 @@ impl Default for DXVA2_ExtendedFormat_0 {
 pub struct DXVA2_ExtendedFormat_0_0 {
     pub _bitfield: u32,
 }
+impl DXVA2_ExtendedFormat_0_0 {
+    pub fn SampleFormat(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_SampleFormat(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+    pub fn VideoChromaSubsampling(&self) -> u32 {
+        (self._bitfield << 20) >> 28
+    }
+    pub fn set_VideoChromaSubsampling(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
+    }
+    pub fn NominalRange(&self) -> u32 {
+        (self._bitfield << 17) >> 29
+    }
+    pub fn set_NominalRange(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 12)) | ((value & 7) << 12);
+    }
+    pub fn VideoTransferMatrix(&self) -> u32 {
+        (self._bitfield << 14) >> 29
+    }
+    pub fn set_VideoTransferMatrix(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 15)) | ((value & 7) << 15);
+    }
+    pub fn VideoLighting(&self) -> u32 {
+        (self._bitfield << 10) >> 28
+    }
+    pub fn set_VideoLighting(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 18)) | ((value & 15) << 18);
+    }
+    pub fn VideoPrimaries(&self) -> u32 {
+        (self._bitfield << 5) >> 27
+    }
+    pub fn set_VideoPrimaries(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 22)) | ((value & 31) << 22);
+    }
+    pub fn VideoTransferFunction(&self) -> u32 {
+        self._bitfield >> 27
+    }
+    pub fn set_VideoTransferFunction(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(31 << 27)) | ((value & 31) << 27);
+    }
+}
 pub const DXVA2_FilmGrainBuffer: i32 = 8;
 #[repr(C)]
 #[derive(Clone, Copy)]

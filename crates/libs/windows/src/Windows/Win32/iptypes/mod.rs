@@ -120,6 +120,69 @@ impl Default for IP_ADAPTER_ADDRESSES_LH_1 {
 pub struct IP_ADAPTER_ADDRESSES_LH_1_0 {
     pub _bitfield: u32,
 }
+#[cfg(all(feature = "ifdef", feature = "ipifcons", feature = "nldef", feature = "winnt", feature = "ws2"))]
+impl IP_ADAPTER_ADDRESSES_LH_1_0 {
+    pub fn DdnsEnabled(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DdnsEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn RegisterAdapterSuffix(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_RegisterAdapterSuffix(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Dhcpv4Enabled(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Dhcpv4Enabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn ReceiveOnly(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ReceiveOnly(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn NoMulticast(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_NoMulticast(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn Ipv6OtherStatefulConfig(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Ipv6OtherStatefulConfig(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn NetbiosOverTcpipEnabled(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_NetbiosOverTcpipEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn Ipv4Enabled(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Ipv4Enabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn Ipv6Enabled(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_Ipv6Enabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn Ipv6ManagedAddressConfigurationSupported(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_Ipv6ManagedAddressConfigurationSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "ifdef", feature = "nldef", feature = "winnt", feature = "ws2"))]
 #[derive(Clone, Copy)]
