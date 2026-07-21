@@ -13,16 +13,10 @@ pub fn drop_down_button_page(_: &(), cx: &mut RenderCx) -> Element {
                 vstack((
                     drop_down_button("File Actions")
                         .menu_flyout(vec![
-                            MenuItemDef::Item {
-                                text: "Open".into(),
-                            },
-                            MenuItemDef::Item {
-                                text: "Save".into(),
-                            },
+                            menu_item("Open"),
+                            menu_item("Save"),
                             MenuItemDef::Separator,
-                            MenuItemDef::Item {
-                                text: "Exit".into(),
-                            },
+                            menu_item("Exit"),
                         ])
                         .on_item_clicked(set_selected),
                     text_block(format!("Last action: {selected}")).opacity(0.6),

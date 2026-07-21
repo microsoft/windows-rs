@@ -13,29 +13,15 @@ pub fn menu_bar_page(_: &(), cx: &mut RenderCx) -> Element {
                 menu_bar(vec![
                     menu_bar_item(
                         "File",
-                        vec![
-                            MenuItemDef::Item { text: "New".into() },
-                            MenuItemDef::Item {
-                                text: "Open".into(),
-                            },
-                            MenuItemDef::Item {
-                                text: "Save".into(),
-                            },
-                        ],
+                        vec![menu_item("New"), menu_item("Open"), menu_item("Save")],
                     ),
                     menu_bar_item(
                         "Edit",
                         vec![
-                            MenuItemDef::Item {
-                                text: "Undo".into(),
-                            },
-                            MenuItemDef::Item { text: "Cut".into() },
-                            MenuItemDef::Item {
-                                text: "Copy".into(),
-                            },
-                            MenuItemDef::Item {
-                                text: "Paste".into(),
-                            },
+                            menu_item("Undo"),
+                            menu_item("Cut"),
+                            menu_item("Copy"),
+                            menu_item("Paste"),
                         ],
                     ),
                 ])

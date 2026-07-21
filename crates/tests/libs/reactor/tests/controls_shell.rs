@@ -7,10 +7,10 @@ use windows_reactor::Reconciler;
 use windows_reactor::text_block;
 use windows_reactor::{
     BreadcrumbBar, CommandBar, CommandBarCommandDef, CommandBarDefaultLabelPosition, ContentDialog,
-    InfoBadge, InfoBar, InfoBarSeverity, MenuBar, MenuBarItemDef, NavViewItem, NavigationView,
-    NavigationViewPaneDisplayMode, Pivot, PivotItem, SelectorBar, SelectorBarItemDef, TabItem,
-    TabView, TeachingTip, TeachingTipPlacementMode, TitleBar, TreeNodeDef, TreeView,
-    TreeViewSelectionMode,
+    InfoBadge, InfoBar, InfoBarSeverity, MenuBar, MenuBarItemDef, MenuItemDef, NavViewItem,
+    NavigationView, NavigationViewPaneDisplayMode, Pivot, PivotItem, SelectorBar,
+    SelectorBarItemDef, TabItem, TabView, TeachingTip, TeachingTipPlacementMode, TitleBar,
+    TreeNodeDef, TreeView, TreeViewSelectionMode,
 };
 use windows_reactor::{ControlKind, Event, Prop, PropValue};
 
@@ -876,6 +876,24 @@ fn menu_bar_mounts_with_menu_items() {
         )
     });
     assert!(saw_items);
+}
+
+#[test]
+fn menu_item_builders_set_enabled_flag() {
+    assert_eq!(
+        windows_reactor::menu_item("Open"),
+        MenuItemDef::Item {
+            text: "Open".into(),
+            is_enabled: true,
+        }
+    );
+    assert_eq!(
+        windows_reactor::menu_item_disabled("Open"),
+        MenuItemDef::Item {
+            text: "Open".into(),
+            is_enabled: false,
+        }
+    );
 }
 
 #[test]

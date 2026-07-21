@@ -8595,6 +8595,15 @@ impl IGrid {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub(crate) fn SetPadding(&self, value: Thickness) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetPadding)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub(crate) fn SetRowSpacing(&self, value: f64) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SetRowSpacing)(
@@ -8634,7 +8643,8 @@ pub struct IGrid_Vtbl {
     CornerRadius: usize,
     SetCornerRadius: usize,
     Padding: usize,
-    SetPadding: usize,
+    pub SetPadding:
+        unsafe extern "system" fn(*mut core::ffi::c_void, Thickness) -> windows_core::HRESULT,
     RowSpacing: usize,
     pub SetRowSpacing:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,

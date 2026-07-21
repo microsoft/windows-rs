@@ -996,6 +996,9 @@ fn set_padding(handle: &Handle, thickness: Thickness) -> Result<bool> {
         Handle::StackPanel(h) => h.SetPadding(thickness)?,
         Handle::TextBlock(h) => h.SetPadding(thickness)?,
         Handle::RichTextBlock(h) => h.SetPadding(thickness)?,
+        // `Grid` is a `Panel`, not a `Control`, so it has no `IControl::SetPadding`;
+        // its padding lives on the `IGrid` interface instead.
+        Handle::Grid(h) => h.cast::<bindings::IGrid>()?.SetPadding(thickness)?,
         _ => {
             if let Ok(ctl) = handle.cast_inner::<bindings::IControl>() {
                 ctl.SetPadding(thickness)?;
