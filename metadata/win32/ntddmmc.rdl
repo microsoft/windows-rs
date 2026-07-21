@@ -2,7 +2,23 @@
 mod Windows {
     mod Win32 {
         struct BD_CLASS_SUPPORT_BITMAP {
+            #[bitfield("Version8", 0, 1)]
+            #[bitfield("Version9", 1, 1)]
+            #[bitfield("Version10", 2, 1)]
+            #[bitfield("Version11", 3, 1)]
+            #[bitfield("Version12", 4, 1)]
+            #[bitfield("Version13", 5, 1)]
+            #[bitfield("Version14", 6, 1)]
+            #[bitfield("Version15", 7, 1)]
             _bitfield1: u8,
+            #[bitfield("Version0", 0, 1)]
+            #[bitfield("Version1", 1, 1)]
+            #[bitfield("Version2", 2, 1)]
+            #[bitfield("Version3", 3, 1)]
+            #[bitfield("Version4", 4, 1)]
+            #[bitfield("Version5", 5, 1)]
+            #[bitfield("Version6", 6, 1)]
+            #[bitfield("Version7", 7, 1)]
             _bitfield2: u8,
         }
         struct FEATURE_BD_READ {
@@ -27,6 +43,8 @@ mod Windows {
         }
         struct FEATURE_BD_WRITE {
             Header: FEATURE_HEADER,
+            #[bitfield("SupportsVerifyNotRequired", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield: u8,
             Reserved2: [u8; 3],
             Class0BitmapBDREWriteSupport: BD_CLASS_SUPPORT_BITMAP,
@@ -42,14 +60,26 @@ mod Windows {
             Header: FEATURE_HEADER,
             Reserved1: u8,
             CDRWMediaSubtypeSupport: struct {
+                #[bitfield("Subtype0", 0, 1)]
+                #[bitfield("Subtype1", 1, 1)]
+                #[bitfield("Subtype2", 2, 1)]
+                #[bitfield("Subtype3", 3, 1)]
+                #[bitfield("Subtype4", 4, 1)]
+                #[bitfield("Subtype5", 5, 1)]
+                #[bitfield("Subtype6", 6, 1)]
+                #[bitfield("Subtype7", 7, 1)]
                 _bitfield: u8,
             },
             Reserved2: [u8; 2],
         }
         struct FEATURE_DATA_AACS {
             Header: FEATURE_HEADER,
+            #[bitfield("BindingNonceGeneration", 0, 1)]
+            #[bitfield("Reserved0", 1, 7)]
             _bitfield1: u8,
             BindingNonceBlockCount: u8,
+            #[bitfield("NumberOfAGIDs", 0, 4)]
+            #[bitfield("Reserved1", 4, 4)]
             _bitfield2: u8,
             AACSVersion: u8,
         }
@@ -59,22 +89,46 @@ mod Windows {
         }
         struct FEATURE_DATA_CD_AUDIO_ANALOG_PLAY {
             Header: FEATURE_HEADER,
+            #[bitfield("SeperateVolume", 0, 1)]
+            #[bitfield("SeperateChannelMute", 1, 1)]
+            #[bitfield("ScanSupported", 2, 1)]
+            #[bitfield("Reserved1", 3, 5)]
             _bitfield: u8,
             Reserved2: u8,
             NumerOfVolumeLevels: [u8; 2],
         }
         struct FEATURE_DATA_CD_MASTERING {
             Header: FEATURE_HEADER,
+            #[bitfield("RWSubchannelsRecordable", 0, 1)]
+            #[bitfield("CdRewritable", 1, 1)]
+            #[bitfield("TestWriteOk", 2, 1)]
+            #[bitfield("RawRecordingOk", 3, 1)]
+            #[bitfield("RawMultiSessionOk", 4, 1)]
+            #[bitfield("SessionAtOnceOk", 5, 1)]
+            #[bitfield("BufferUnderrunFree", 6, 1)]
+            #[bitfield("Reserved1", 7, 1)]
             _bitfield: u8,
             MaximumCueSheetLength: [u8; 3],
         }
         struct FEATURE_DATA_CD_READ {
             Header: FEATURE_HEADER,
+            #[bitfield("CDText", 0, 1)]
+            #[bitfield("C2ErrorData", 1, 1)]
+            #[bitfield("Reserved01", 2, 5)]
+            #[bitfield("DigitalAudioPlay", 7, 1)]
             _bitfield: u8,
             Reserved2: [u8; 3],
         }
         struct FEATURE_DATA_CD_TRACK_AT_ONCE {
             Header: FEATURE_HEADER,
+            #[bitfield("RWSubchannelsRecordable", 0, 1)]
+            #[bitfield("CdRewritable", 1, 1)]
+            #[bitfield("TestWriteOk", 2, 1)]
+            #[bitfield("RWSubchannelPackedOk", 3, 1)]
+            #[bitfield("RWSubchannelRawOk", 4, 1)]
+            #[bitfield("Reserved1", 5, 1)]
+            #[bitfield("BufferUnderrunFree", 6, 1)]
+            #[bitfield("Reserved3", 7, 1)]
             _bitfield: u8,
             Reserved2: u8,
             DataTypeSupported: [u8; 2],
@@ -82,6 +136,9 @@ mod Windows {
         struct FEATURE_DATA_CORE {
             Header: FEATURE_HEADER,
             PhysicalInterface: [u8; 4],
+            #[bitfield("DeviceBusyEvent", 0, 1)]
+            #[bitfield("INQUIRY2", 1, 1)]
+            #[bitfield("Reserved1", 2, 6)]
             _bitfield: u8,
             Reserved2: [u8; 3],
         }
@@ -90,16 +147,24 @@ mod Windows {
         }
         struct FEATURE_DATA_DDCD_RW_WRITE {
             Header: FEATURE_HEADER,
+            #[bitfield("Blank", 0, 1)]
+            #[bitfield("Intermediate", 1, 1)]
+            #[bitfield("Reserved1", 2, 6)]
             _bitfield: u8,
             Reserved2: [u8; 3],
         }
         struct FEATURE_DATA_DDCD_R_WRITE {
             Header: FEATURE_HEADER,
+            #[bitfield("Reserved1", 0, 2)]
+            #[bitfield("TestWrite", 2, 1)]
+            #[bitfield("Reserved2", 3, 5)]
             _bitfield: u8,
             Reserved3: [u8; 3],
         }
         struct FEATURE_DATA_DEFECT_MANAGEMENT {
             Header: FEATURE_HEADER,
+            #[bitfield("Reserved1", 0, 7)]
+            #[bitfield("SupplimentalSpareArea", 7, 1)]
             _bitfield: u8,
             Reserved2: [u8; 3],
         }
@@ -122,47 +187,84 @@ mod Windows {
         }
         struct FEATURE_DATA_DVD_PLUS_R {
             Header: FEATURE_HEADER,
+            #[bitfield("Write", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield: u8,
             Reserved2: [u8; 3],
         }
         struct FEATURE_DATA_DVD_PLUS_RW {
             Header: FEATURE_HEADER,
+            #[bitfield("Write", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield1: u8,
+            #[bitfield("CloseOnly", 0, 1)]
+            #[bitfield("QuickStart", 1, 1)]
+            #[bitfield("Reserved02", 2, 6)]
             _bitfield2: u8,
             Reserved03: [u8; 2],
         }
         struct FEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER {
             Header: FEATURE_HEADER,
+            #[bitfield("Write", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield1: u8,
+            #[bitfield("CloseOnly", 0, 1)]
+            #[bitfield("QuickStart", 1, 1)]
+            #[bitfield("Reserved2", 2, 6)]
             _bitfield2: u8,
             Reserved3: [u8; 2],
         }
         struct FEATURE_DATA_DVD_PLUS_R_DUAL_LAYER {
             Header: FEATURE_HEADER,
+            #[bitfield("Write", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield: u8,
             Reserved2: [u8; 3],
         }
         struct FEATURE_DATA_DVD_READ {
             Header: FEATURE_HEADER,
+            #[bitfield("Multi110", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield1: u8,
             Reserved2: u8,
+            #[bitfield("DualDashR", 0, 1)]
+            #[bitfield("Reserved3", 1, 7)]
             _bitfield2: u8,
             Reserved4: u8,
         }
         struct FEATURE_DATA_DVD_RECORDABLE_WRITE {
             Header: FEATURE_HEADER,
+            #[bitfield("Reserved1", 0, 1)]
+            #[bitfield("DVD_RW", 1, 1)]
+            #[bitfield("TestWrite", 2, 1)]
+            #[bitfield("RDualLayer", 3, 1)]
+            #[bitfield("Reserved02", 4, 2)]
+            #[bitfield("BufferUnderrunFree", 6, 1)]
+            #[bitfield("Reserved3", 7, 1)]
             _bitfield: u8,
             Reserved4: [u8; 3],
         }
         struct FEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE {
             Header: FEATURE_HEADER,
+            #[bitfield("Blank", 0, 1)]
+            #[bitfield("Intermediate", 1, 1)]
+            #[bitfield("DefectStatusDataRead", 2, 1)]
+            #[bitfield("DefectStatusDataGenerate", 3, 1)]
+            #[bitfield("Reserved0", 4, 4)]
             _bitfield: u8,
             Reserved1: [u8; 3],
         }
         struct FEATURE_DATA_EMBEDDED_CHANGER {
             Header: FEATURE_HEADER,
+            #[bitfield("Reserved1", 0, 2)]
+            #[bitfield("SupportsDiscPresent", 2, 1)]
+            #[bitfield("Reserved2", 3, 1)]
+            #[bitfield("SideChangeCapable", 4, 1)]
+            #[bitfield("Reserved3", 5, 3)]
             _bitfield1: u8,
             Reserved4: [u8; 2],
+            #[bitfield("HighestSlotNumber", 0, 5)]
+            #[bitfield("Reserved", 5, 3)]
             _bitfield2: u8,
         }
         struct FEATURE_DATA_FIRMWARE_DATE {
@@ -177,28 +279,47 @@ mod Windows {
         }
         struct FEATURE_DATA_FORMATTABLE {
             Header: FEATURE_HEADER,
+            #[bitfield("FullCertification", 0, 1)]
+            #[bitfield("QuickCertification", 1, 1)]
+            #[bitfield("SpareAreaExpansion", 2, 1)]
+            #[bitfield("RENoSpareAllocated", 3, 1)]
+            #[bitfield("Reserved1", 4, 4)]
             _bitfield1: u8,
             Reserved2: [u8; 3],
+            #[bitfield("RRandomWritable", 0, 1)]
+            #[bitfield("Reserved3", 1, 7)]
             _bitfield2: u8,
             Reserved4: [u8; 3],
         }
         struct FEATURE_DATA_HDDVD_READ {
             Header: FEATURE_HEADER,
+            #[bitfield("Recordable", 0, 1)]
+            #[bitfield("Reserved0", 1, 7)]
             _bitfield1: u8,
             Reserved1: u8,
+            #[bitfield("Rewritable", 0, 1)]
+            #[bitfield("Reserved2", 1, 7)]
             _bitfield2: u8,
             Reserved3: u8,
         }
         struct FEATURE_DATA_HDDVD_WRITE {
             Header: FEATURE_HEADER,
+            #[bitfield("Recordable", 0, 1)]
+            #[bitfield("Reserved0", 1, 7)]
             _bitfield1: u8,
             Reserved1: u8,
+            #[bitfield("Rewritable", 0, 1)]
+            #[bitfield("Reserved2", 1, 7)]
             _bitfield2: u8,
             Reserved3: u8,
         }
         struct FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE {
             Header: FEATURE_HEADER,
             DataTypeSupported: [u8; 2],
+            #[bitfield("BufferUnderrunFree", 0, 1)]
+            #[bitfield("AddressModeReservation", 1, 1)]
+            #[bitfield("TrackRessourceInformation", 2, 1)]
+            #[bitfield("Reserved01", 3, 5)]
             _bitfield: u8,
             NumberOfLinkSizes: u8,
             LinkSize: [u8; 0],
@@ -215,16 +336,25 @@ mod Windows {
         }
         struct FEATURE_DATA_MICROCODE_UPDATE {
             Header: FEATURE_HEADER,
+            #[bitfield("M5", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield: u8,
             Reserved2: [u8; 3],
         }
         struct FEATURE_DATA_MORPHING {
             Header: FEATURE_HEADER,
+            #[bitfield("Asynchronous", 0, 1)]
+            #[bitfield("OCEvent", 1, 1)]
+            #[bitfield("Reserved01", 2, 6)]
             _bitfield: u8,
             Reserved2: [u8; 3],
         }
         struct FEATURE_DATA_MRW {
             Header: FEATURE_HEADER,
+            #[bitfield("Write", 0, 1)]
+            #[bitfield("DvdPlusRead", 1, 1)]
+            #[bitfield("DvdPlusWrite", 2, 1)]
+            #[bitfield("Reserved01", 3, 5)]
             _bitfield: u8,
             Reserved2: [u8; 3],
         }
@@ -240,6 +370,8 @@ mod Windows {
         }
         struct FEATURE_DATA_PROFILE_LIST_EX {
             ProfileNumber: [u8; 2],
+            #[bitfield("Current", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield: u8,
             Reserved2: u8,
         }
@@ -247,6 +379,8 @@ mod Windows {
             Header: FEATURE_HEADER,
             LogicalBlockSize: [u8; 4],
             Blocking: [u8; 2],
+            #[bitfield("ErrorRecoveryPagePresent", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield: u8,
             Reserved2: u8,
         }
@@ -255,16 +389,30 @@ mod Windows {
             LastLBA: [u8; 4],
             LogicalBlockSize: [u8; 4],
             Blocking: [u8; 2],
+            #[bitfield("ErrorRecoveryPagePresent", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield: u8,
             Reserved2: u8,
         }
         struct FEATURE_DATA_REAL_TIME_STREAMING {
             Header: FEATURE_HEADER,
+            #[bitfield("StreamRecording", 0, 1)]
+            #[bitfield("WriteSpeedInGetPerf", 1, 1)]
+            #[bitfield("WriteSpeedInMP2A", 2, 1)]
+            #[bitfield("SetCDSpeed", 3, 1)]
+            #[bitfield("ReadBufferCapacityBlock", 4, 1)]
+            #[bitfield("Reserved1", 5, 3)]
             _bitfield: u8,
             Reserved2: [u8; 3],
         }
         struct FEATURE_DATA_REMOVABLE_MEDIUM {
             Header: FEATURE_HEADER,
+            #[bitfield("Lockable", 0, 1)]
+            #[bitfield("DBML", 1, 1)]
+            #[bitfield("DefaultToPrevent", 2, 1)]
+            #[bitfield("Eject", 3, 1)]
+            #[bitfield("Load", 4, 1)]
+            #[bitfield("LoadingMechanism", 5, 3)]
             _bitfield: u8,
             Reserved3: [u8; 3],
         }
@@ -280,11 +428,15 @@ mod Windows {
         }
         struct FEATURE_DATA_SMART {
             Header: FEATURE_HEADER,
+            #[bitfield("FaultFailureReportingPagePresent", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield: u8,
             Reserved02: [u8; 3],
         }
         struct FEATURE_DATA_TIMEOUT {
             Header: FEATURE_HEADER,
+            #[bitfield("Group3", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield: u8,
             Reserved2: u8,
             UnitLength: [u8; 2],
@@ -297,27 +449,42 @@ mod Windows {
             Header: FEATURE_HEADER,
             LogicalBlockSize: [u8; 4],
             Blocking: [u8; 2],
+            #[bitfield("ErrorRecoveryPagePresent", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield: u8,
             Reserved2: u8,
         }
         struct FEATURE_DATA_WRITE_PROTECT {
             Header: FEATURE_HEADER,
+            #[bitfield("SupportsSWPPBit", 0, 1)]
+            #[bitfield("SupportsPersistentWriteProtect", 1, 1)]
+            #[bitfield("WriteInhibitDCB", 2, 1)]
+            #[bitfield("DiscWriteProtectPAC", 3, 1)]
+            #[bitfield("Reserved01", 4, 4)]
             _bitfield: u8,
             Reserved2: [u8; 3],
         }
         struct FEATURE_ENHANCED_DEFECT_REPORTING {
             Header: FEATURE_HEADER,
+            #[bitfield("DRTDMSupported", 0, 1)]
+            #[bitfield("Reserved0", 1, 7)]
             _bitfield: u8,
             NumberOfDBICacheZones: u8,
             NumberOfEntries: [u8; 2],
         }
         struct FEATURE_HEADER {
             FeatureCode: [u8; 2],
+            #[bitfield("Current", 0, 1)]
+            #[bitfield("Persistent", 1, 1)]
+            #[bitfield("Version", 2, 4)]
+            #[bitfield("Reserved0", 6, 2)]
             _bitfield: u8,
             AdditionalLength: u8,
         }
         struct FEATURE_HYBRID_DISC {
             Header: FEATURE_HEADER,
+            #[bitfield("ResetImmunity", 0, 1)]
+            #[bitfield("Reserved1", 1, 7)]
             _bitfield: u8,
             Reserved2: [u8; 3],
         }

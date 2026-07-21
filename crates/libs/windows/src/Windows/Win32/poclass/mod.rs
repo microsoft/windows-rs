@@ -296,6 +296,26 @@ impl Default for POWER_ADAPTER_POWER_STATES {
 pub struct POWER_ADAPTER_POWER_STATES_0 {
     pub _bitfield: u32,
 }
+impl POWER_ADAPTER_POWER_STATES_0 {
+    pub fn Online(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Online(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn RecState(&self) -> u32 {
+        (self._bitfield << 29) >> 30
+    }
+    pub fn set_RecState(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 1)) | ((value & 3) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
 pub const POWER_ADAPTER_REC_TIME_NOT_AVAILABLE: u64 = 18446744073709551615;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]

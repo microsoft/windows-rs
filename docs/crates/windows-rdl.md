@@ -124,6 +124,16 @@ mod Example {
 }
 ```
 
+Most attributes name a metadata attribute type directly, but a few have short
+pseudo-attribute spellings that the reader expands to their full metadata attribute
+(`PSEUDO_ATTRS` in `windows-rdl`). For example a struct field's bit-field members are
+written `#[bitfield("Name", offset, width)]`, which the reader encodes as the
+`Windows.Win32.Metadata.NativeBitfieldAttribute` custom attribute (and the writer
+renders back to the short form on round-trip). See
+[`windows-clang`](windows-clang.md#bit-field-member-scraping) for how the scrape emits
+these and [`windows-bindgen`](windows-bindgen.md#generating-bit-field-accessors) for the
+accessors they drive.
+
 WinRT types use the `#[winrt]` namespace flavor and add runtime-class and
 property syntax:
 

@@ -3003,6 +3003,39 @@ impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "winnt")]
+impl DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
+    pub fn advancedColorSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_advancedColorSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn advancedColorEnabled(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_advancedColorEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn wideColorEnforced(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_wideColorEnforced(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn advancedColorForceDisabled(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_advancedColorForceDisabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -3038,6 +3071,63 @@ impl Default for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0 {
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "winnt")]
+impl DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_2_0_0 {
+    pub fn advancedColorSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_advancedColorSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn advancedColorActive(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_advancedColorActive(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn reserved1(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn advancedColorLimitedByPolicy(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_advancedColorLimitedByPolicy(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn highDynamicRangeSupported(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_highDynamicRangeSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn highDynamicRangeUserEnabled(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_highDynamicRangeUserEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn wideColorSupported(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_wideColorSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn wideColorUserEnabled(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_wideColorUserEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 8
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(16777215 << 8)) | ((value & 16777215) << 8);
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -3069,6 +3159,33 @@ impl Default for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
+}
+#[cfg(feature = "winnt")]
+impl DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
+    pub fn isSpecializationEnabled(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_isSpecializationEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn isSpecializationAvailableForMonitor(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_isSpecializationAvailableForMonitor(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn isSpecializationAvailableForSystem(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_isSpecializationAvailableForSystem(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
 }
 pub const DISPLAYCONFIG_MAXPATH: u32 = 1024;
 #[repr(C)]
@@ -3180,6 +3297,21 @@ impl Default for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "winnt")]
+impl DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
+    pub fn cloneGroupId(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_cloneGroupId(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn sourceModeInfoIdx(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_sourceModeInfoIdx(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
+}
 pub const DISPLAYCONFIG_PATH_SOURCE_MODE_IDX_INVALID: u32 = 65535;
 pub const DISPLAYCONFIG_PATH_SUPPORT_VIRTUAL_MODE: u32 = 8;
 #[repr(C)]
@@ -3221,6 +3353,21 @@ impl Default for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     pub _bitfield: u32,
+}
+#[cfg(feature = "winnt")]
+impl DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
+    pub fn desktopModeInfoIdx(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_desktopModeInfoIdx(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn targetModeInfoIdx(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_targetModeInfoIdx(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 pub const DISPLAYCONFIG_PATH_TARGET_MODE_IDX_INVALID: u32 = 65535;
 pub const DISPLAYCONFIG_PATH_VALID_FLAGS: u32 = 29;
@@ -3297,6 +3444,21 @@ impl Default for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
 pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "winnt")]
+impl DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
+    pub fn enableAdvancedColor(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_enableAdvancedColor(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -3328,6 +3490,21 @@ impl Default for DISPLAYCONFIG_SET_HDR_STATE_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SET_HDR_STATE_0_0 {
     pub _bitfield: u32,
+}
+#[cfg(feature = "winnt")]
+impl DISPLAYCONFIG_SET_HDR_STATE_0_0 {
+    pub fn enableHdr(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_enableHdr(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -3364,6 +3541,21 @@ impl Default for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "winnt")]
+impl DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
+    pub fn isSpecializationEnabled(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_isSpecializationEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -3396,6 +3588,21 @@ impl Default for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "winnt")]
+impl DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
+    pub fn bootPersistenceOn(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_bootPersistenceOn(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy)]
@@ -3427,6 +3634,21 @@ impl Default for DISPLAYCONFIG_SET_WCG_STATE_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_SET_WCG_STATE_0_0 {
     pub _bitfield: u32,
+}
+#[cfg(feature = "winnt")]
+impl DISPLAYCONFIG_SET_WCG_STATE_0_0 {
+    pub fn enableWcg(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_enableWcg(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 #[repr(C)]
 #[cfg(feature = "winnt")]
@@ -3483,6 +3705,21 @@ impl Default for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "winnt")]
+impl DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
+    pub fn disableMonitorVirtualResolution(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_disableMonitorVirtualResolution(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -3534,6 +3771,32 @@ impl Default for DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS_0_0 {
+    pub fn friendlyNameFromEdid(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_friendlyNameFromEdid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn friendlyNameForced(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_friendlyNameForced(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn edidIdsValid(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_edidIdsValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
 }
 pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_BOOT: u32 = 4;
 pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_PATH: u32 = 8;
@@ -3604,6 +3867,26 @@ impl Default for DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
     pub _bitfield: u32,
+}
+impl DISPLAYCONFIG_VIDEO_SIGNAL_INFO_0_0 {
+    pub fn videoStandard(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_videoStandard(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn vSyncFreqDivider(&self) -> u32 {
+        (self._bitfield << 10) >> 26
+    }
+    pub fn set_vSyncFreqDivider(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(63 << 16)) | ((value & 63) << 16);
+    }
+    pub fn reserved(&self) -> u32 {
+        self._bitfield >> 22
+    }
+    pub fn set_reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1023 << 22)) | ((value & 1023) << 22);
+    }
 }
 pub type DISPLAY_DEVICE = DISPLAY_DEVICEA;
 #[repr(C)]

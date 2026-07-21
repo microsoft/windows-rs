@@ -32,6 +32,15 @@ pub struct BASEBROWSERDATALH {
     pub _hwndFrame: super::HWND,
     pub _lPhishingFilterStatus: i32,
 }
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+impl BASEBROWSERDATALH {
+    pub fn _fCreatingViewWindow(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set__fCreatingViewWindow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
 #[derive(Clone, Debug, Default, Eq, PartialEq)]
@@ -62,6 +71,15 @@ pub struct BASEBROWSERDATAXP {
     pub _clsidView: windows_core::GUID,
     pub _clsidViewPending: windows_core::GUID,
     pub _hwndFrame: super::HWND,
+}
+#[cfg(all(feature = "docobj", feature = "exdisp", feature = "hlink", feature = "oaidl", feature = "oleidl", feature = "shobjidl_core", feature = "shtypes", feature = "windef"))]
+impl BASEBROWSERDATAXP {
+    pub fn _fCreatingViewWindow(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set__fCreatingViewWindow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
 }
 pub type BNSTATE = i32;
 pub const BNS_BEGIN_NAVIGATE: BNSTATE = 1;

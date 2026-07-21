@@ -4,6 +4,19 @@ mod Windows {
         struct ACTIVE_LATENCY_CONFIGURATION {
             Anonymous: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
+                    #[bitfield("Read0", 0, 1)]
+                    #[bitfield("Write0", 1, 1)]
+                    #[bitfield("Trim0", 2, 1)]
+                    #[bitfield("Read1", 3, 1)]
+                    #[bitfield("Write1", 4, 1)]
+                    #[bitfield("Trim1", 5, 1)]
+                    #[bitfield("Read2", 6, 1)]
+                    #[bitfield("Write2", 7, 1)]
+                    #[bitfield("Trim2", 8, 1)]
+                    #[bitfield("Read3", 9, 1)]
+                    #[bitfield("Write3", 10, 1)]
+                    #[bitfield("Trim3", 11, 1)]
+                    #[bitfield("Reserved", 12, 4)]
                     _bitfield: u16,
                 },
                 AsUshort: u16,
@@ -18,9 +31,25 @@ mod Windows {
         }
         #[packed(1)]
         struct DEBUG_BIT_FIELD {
+            #[bitfield("Read0", 0, 1)]
+            #[bitfield("Write0", 1, 1)]
+            #[bitfield("Trim0", 2, 1)]
+            #[bitfield("Read1", 3, 1)]
+            #[bitfield("Write1", 4, 1)]
+            #[bitfield("Trim1", 5, 1)]
+            #[bitfield("Read2", 6, 1)]
+            #[bitfield("Write2", 7, 1)]
+            #[bitfield("Trim2", 8, 1)]
+            #[bitfield("Read3", 9, 1)]
+            #[bitfield("Write3", 10, 1)]
+            #[bitfield("Trim3", 11, 1)]
+            #[bitfield("Reserved", 12, 4)]
             _bitfield: u16,
         }
         struct DSSD_POWER_STATE_DESCRIPTOR {
+            #[bitfield("NvmePowerState", 0, 5)]
+            #[bitfield("Reserved", 5, 2)]
+            #[bitfield("ValidDSSDPowerState", 7, 1)]
             _bitfield: u8,
         }
         #[packed(1)]
@@ -54,11 +83,19 @@ mod Windows {
         const GUID_WCS_DEVICE_ERROR_RECOVERY: GUID = 0x2131d944_30fe_ae34_ab4d_fd3dba83195a;
         const GUID_WCS_DEVICE_SMART_ATTRIBUTES: GUID = 0x2810afc5_bfea_a4f2_9c4f_6f7cc914d5af;
         struct IO_COMMAND_SET_VECTOR {
+            #[bitfield("NVMCommandSet", 0, 1)]
+            #[bitfield("KVCommandSet", 1, 1)]
+            #[bitfield("ZNCommandSet", 2, 1)]
+            #[bitfield("Reserved", 3, 61)]
             _bitfield: u64,
         }
         struct LATENCY_MONITOR_FEATURE_STATUS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("FeatureEnabled", 0, 1)]
+                    #[bitfield("ActiveLatencyMode", 1, 1)]
+                    #[bitfield("ActiveMeasuredLatency", 2, 1)]
+                    #[bitfield("Reserved", 3, 5)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -81,6 +118,19 @@ mod Windows {
         }
         #[packed(1)]
         struct LATENCY_STAMP_UNITS {
+            #[bitfield("Read0", 0, 1)]
+            #[bitfield("Write0", 1, 1)]
+            #[bitfield("Trim0", 2, 1)]
+            #[bitfield("Read1", 3, 1)]
+            #[bitfield("Write1", 4, 1)]
+            #[bitfield("Trim1", 5, 1)]
+            #[bitfield("Read2", 6, 1)]
+            #[bitfield("Write2", 7, 1)]
+            #[bitfield("Trim2", 8, 1)]
+            #[bitfield("Read3", 9, 1)]
+            #[bitfield("Write3", 10, 1)]
+            #[bitfield("Trim3", 11, 1)]
+            #[bitfield("Reserved", 12, 4)]
             _bitfield: u16,
         }
         #[packed(1)]
@@ -286,6 +336,10 @@ mod Windows {
             SQSIZE: u16,
             CATTR: union {
                 Anonymous: struct {
+                    #[bitfield("PriorityClass", 0, 2)]
+                    #[bitfield("SqFlowControlDisable", 2, 1)]
+                    #[bitfield("IoQueueDeletion", 3, 1)]
+                    #[bitfield("Reserved", 4, 4)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -308,6 +362,10 @@ mod Windows {
                     CNTLID: u16,
                     AUTHREQ: union {
                         Anonymous: struct {
+                            #[bitfield("Obsolete", 0, 1)]
+                            #[bitfield("ATR", 1, 1)]
+                            #[bitfield("ASCR", 2, 1)]
+                            #[bitfield("Reserved", 3, 13)]
                             _bitfield: u16,
                         },
                         AsUshort: u16,
@@ -372,6 +430,8 @@ mod Windows {
             FCTYPE: u8,
             Reserved1: [u8; 35],
             ATTRIB: struct {
+                #[bitfield("PropertySize", 0, 3)]
+                #[bitfield("Reserved", 3, 5)]
                 _bitfield: u8,
             },
             Reserved2: [u8; 3],
@@ -398,6 +458,8 @@ mod Windows {
             FCTYPE: u8,
             Reserved1: [u8; 35],
             ATTRIB: struct {
+                #[bitfield("PropertySize", 0, 3)]
+                #[bitfield("Reserved", 3, 5)]
                 _bitfield: u8,
             },
             Reserved2: [u8; 3],
@@ -512,18 +574,26 @@ mod Windows {
         }
         union NVME_ADMIN_COMPLETION_QUEUE_BASE_ADDRESS {
             Anonymous: struct {
+                #[bitfield("Reserved0", 0, 12)]
+                #[bitfield("ACQB", 12, 52)]
                 _bitfield: u64,
             },
             AsUlonglong: u64,
         }
         union NVME_ADMIN_QUEUE_ATTRIBUTES {
             Anonymous: struct {
+                #[bitfield("ASQS", 0, 12)]
+                #[bitfield("Reserved0", 12, 4)]
+                #[bitfield("ACQS", 16, 12)]
+                #[bitfield("Reserved1", 28, 4)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_ADMIN_SUBMISSION_QUEUE_BASE_ADDRESS {
             Anonymous: struct {
+                #[bitfield("Reserved0", 0, 12)]
+                #[bitfield("ASQB", 12, 52)]
                 _bitfield: u64,
             },
             AsUlonglong: u64,
@@ -585,11 +655,19 @@ mod Windows {
             NVME_ASYNC_EVENT_TYPE_VENDOR_SPECIFIC_DEVICE_PANIC = 1,
         }
         struct NVME_AUTO_POWER_STATE_TRANSITION_ENTRY {
+            #[bitfield("Reserved0", 0, 3)]
+            #[bitfield("IdleTransitionPowerState", 3, 5)]
+            #[bitfield("IdleTimePriorToTransition", 8, 24)]
             _bitfield: u32,
             Reserved1: u32,
         }
         union NVME_BOOT_PARTITION_INFORMATION {
             Anonymous: struct {
+                #[bitfield("BPSZ", 0, 15)]
+                #[bitfield("Reserved0", 15, 9)]
+                #[bitfield("BRS", 24, 2)]
+                #[bitfield("Reserved1", 26, 5)]
+                #[bitfield("ABPID", 31, 1)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -609,12 +687,16 @@ mod Windows {
         }
         union NVME_CDW0_FEATURE_DSSD_POWER_STATE {
             Anonymous: struct {
+                #[bitfield("DSSDPowerState", 0, 7)]
+                #[bitfield("Reserved0", 7, 25)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW0_FEATURE_ENABLE_IEEE1667_SILO {
             Anonymous: struct {
+                #[bitfield("Enabled", 0, 3)]
+                #[bitfield("Reserved0", 3, 29)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -622,39 +704,53 @@ mod Windows {
         type NVME_CDW0_FEATURE_ERROR_INJECTION = NVME_CDW11_FEATURE_ERROR_INJECTION;
         union NVME_CDW0_FEATURE_READONLY_WRITETHROUGH_MODE {
             Anonymous: struct {
+                #[bitfield("EOLBehavior", 0, 3)]
+                #[bitfield("Reserved0", 3, 29)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         struct NVME_CDW0_RESERVATION_PERSISTENCE {
+            #[bitfield("PTPL", 0, 1)]
+            #[bitfield("Reserved", 1, 31)]
             _bitfield: u32,
         }
         union NVME_CDW10_ABORT {
             Anonymous: struct {
+                #[bitfield("SQID", 0, 8)]
+                #[bitfield("CID", 8, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_CREATE_IO_QUEUE {
             Anonymous: struct {
+                #[bitfield("QID", 0, 16)]
+                #[bitfield("QSIZE", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_DATASET_MANAGEMENT {
             Anonymous: struct {
+                #[bitfield("NR", 0, 8)]
+                #[bitfield("Reserved", 8, 24)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_DELETE_IO_QUEUE {
             Anonymous: struct {
+                #[bitfield("QID", 0, 16)]
+                #[bitfield("Reserved", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_DEVICE_SELF_TEST {
             Anonymous: struct {
+                #[bitfield("STC", 0, 4)]
+                #[bitfield("Reserved", 4, 28)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -667,12 +763,18 @@ mod Windows {
         }
         union NVME_CDW10_DISCOVERY_INFO_MGMT {
             Anonymous: struct {
+                #[bitfield("TAS", 0, 4)]
+                #[bitfield("Reserved", 4, 28)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_FIRMWARE_ACTIVATE {
             Anonymous: struct {
+                #[bitfield("FS", 0, 3)]
+                #[bitfield("AA", 3, 3)]
+                #[bitfield("Reserved", 6, 25)]
+                #[bitfield("BPID", 31, 1)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -682,42 +784,71 @@ mod Windows {
         }
         union NVME_CDW10_FORMAT_NVM {
             Anonymous: struct {
+                #[bitfield("LBAF", 0, 4)]
+                #[bitfield("MS", 4, 1)]
+                #[bitfield("PI", 5, 3)]
+                #[bitfield("PIL", 8, 1)]
+                #[bitfield("SES", 9, 3)]
+                #[bitfield("ZF", 12, 2)]
+                #[bitfield("Reserved", 14, 18)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_GET_FEATURES {
             Anonymous: struct {
+                #[bitfield("FID", 0, 8)]
+                #[bitfield("SEL", 8, 3)]
+                #[bitfield("Reserved0", 11, 21)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_GET_LOG_PAGE {
             Anonymous: struct {
+                #[bitfield("LID", 0, 8)]
+                #[bitfield("Reserved0", 8, 8)]
+                #[bitfield("NUMD", 16, 12)]
+                #[bitfield("Reserved1", 28, 4)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_GET_LOG_PAGE_V121 {
             Anonymous: struct {
+                #[bitfield("LID", 0, 8)]
+                #[bitfield("Reserved0", 8, 8)]
+                #[bitfield("NUMDL", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_GET_LOG_PAGE_V13 {
             Anonymous: struct {
+                #[bitfield("LID", 0, 8)]
+                #[bitfield("LSP", 8, 4)]
+                #[bitfield("Reserved0", 12, 3)]
+                #[bitfield("RAE", 15, 1)]
+                #[bitfield("NUMDL", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_GET_LOG_PAGE_V20 {
             Anonymous: struct {
+                #[bitfield("LID", 0, 8)]
+                #[bitfield("LSP", 8, 7)]
+                #[bitfield("RAE", 15, 1)]
+                #[bitfield("NUMDL", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_IDENTIFY {
             Anonymous: struct {
+                #[bitfield("CNS", 0, 8)]
+                #[bitfield("Reserved", 8, 8)]
+                #[bitfield("CNTID", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -730,18 +861,32 @@ mod Windows {
         const NVME_CDW10_LSP_BOOT_PARTITION_1: u32 = 1;
         union NVME_CDW10_RESERVATION_ACQUIRE {
             Anonymous: struct {
+                #[bitfield("RACQA", 0, 3)]
+                #[bitfield("IEKEY", 3, 1)]
+                #[bitfield("Reserved", 4, 4)]
+                #[bitfield("RTYPE", 8, 8)]
+                #[bitfield("Reserved1", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_RESERVATION_REGISTER {
             Anonymous: struct {
+                #[bitfield("RREGA", 0, 3)]
+                #[bitfield("IEKEY", 3, 1)]
+                #[bitfield("Reserved", 4, 26)]
+                #[bitfield("CPTPL", 30, 2)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_RESERVATION_RELEASE {
             Anonymous: struct {
+                #[bitfield("RRELA", 0, 3)]
+                #[bitfield("IEKEY", 3, 1)]
+                #[bitfield("Reserved", 4, 4)]
+                #[bitfield("RTYPE", 8, 8)]
+                #[bitfield("Reserved1", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -754,18 +899,30 @@ mod Windows {
         }
         union NVME_CDW10_SANITIZE {
             Anonymous: struct {
+                #[bitfield("SANACT", 0, 3)]
+                #[bitfield("AUSE", 3, 1)]
+                #[bitfield("OWPASS", 4, 4)]
+                #[bitfield("OIPBP", 8, 1)]
+                #[bitfield("NDAS", 9, 1)]
+                #[bitfield("Reserved", 10, 22)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_SECURITY_SEND_RECEIVE {
             Anonymous: struct {
+                #[bitfield("Reserved0", 0, 8)]
+                #[bitfield("SPSP", 8, 16)]
+                #[bitfield("SECP", 24, 8)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW10_SET_FEATURES {
             Anonymous: struct {
+                #[bitfield("FID", 0, 8)]
+                #[bitfield("Reserved0", 8, 23)]
+                #[bitfield("SV", 31, 1)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -781,30 +938,48 @@ mod Windows {
         }
         union NVME_CDW11_CREATE_IO_CQ {
             Anonymous: struct {
+                #[bitfield("PC", 0, 1)]
+                #[bitfield("IEN", 1, 1)]
+                #[bitfield("Reserved0", 2, 14)]
+                #[bitfield("IV", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_CREATE_IO_SQ {
             Anonymous: struct {
+                #[bitfield("PC", 0, 1)]
+                #[bitfield("QPRIO", 1, 2)]
+                #[bitfield("Reserved0", 3, 13)]
+                #[bitfield("CQID", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_DATASET_MANAGEMENT {
             Anonymous: struct {
+                #[bitfield("IDR", 0, 1)]
+                #[bitfield("IDW", 1, 1)]
+                #[bitfield("AD", 2, 1)]
+                #[bitfield("Reserved", 3, 29)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_DIRECTIVE_RECEIVE {
             Anonymous: struct {
+                #[bitfield("DOPER", 0, 8)]
+                #[bitfield("DTYPE", 8, 8)]
+                #[bitfield("DSPEC", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_DIRECTIVE_SEND {
             Anonymous: struct {
+                #[bitfield("DOPER", 0, 8)]
+                #[bitfield("DTYPE", 8, 8)]
+                #[bitfield("DSPEC", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -835,147 +1010,225 @@ mod Windows {
         }
         union NVME_CDW11_FEATURE_ARBITRATION {
             Anonymous: struct {
+                #[bitfield("AB", 0, 3)]
+                #[bitfield("Reserved0", 3, 5)]
+                #[bitfield("LPW", 8, 8)]
+                #[bitfield("MPW", 16, 8)]
+                #[bitfield("HPW", 24, 8)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_ASYNC_EVENT_CONFIG {
             Anonymous: struct {
+                #[bitfield("CriticalWarnings", 0, 8)]
+                #[bitfield("NsAttributeNotices", 8, 1)]
+                #[bitfield("FwActivationNotices", 9, 1)]
+                #[bitfield("TelemetryLogNotices", 10, 1)]
+                #[bitfield("ANAChangeNotices", 11, 1)]
+                #[bitfield("PredictableLogChangeNotices", 12, 1)]
+                #[bitfield("LBAStatusNotices", 13, 1)]
+                #[bitfield("EnduranceEventNotices", 14, 1)]
+                #[bitfield("NormalNVMSubsystemShutdown", 15, 1)]
+                #[bitfield("Reserved0", 16, 11)]
+                #[bitfield("ZoneDescriptorNotices", 27, 1)]
+                #[bitfield("Reserved1", 28, 3)]
+                #[bitfield("DiscoveryLogPageChange", 31, 1)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_AUTO_POWER_STATE_TRANSITION {
             Anonymous: struct {
+                #[bitfield("APSTE", 0, 1)]
+                #[bitfield("Reserved0", 1, 31)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_CLEAR_FW_UPDATE_HISTORY {
             Anonymous: struct {
+                #[bitfield("Reserved0", 0, 31)]
+                #[bitfield("Clear", 31, 1)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_CLEAR_PCIE_CORRECTABLE_ERROR_COUNTERS {
             Anonymous: struct {
+                #[bitfield("Reserved0", 0, 31)]
+                #[bitfield("Clear", 31, 1)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_ENABLE_IEEE1667_SILO {
             Anonymous: struct {
+                #[bitfield("Reserved0", 0, 31)]
+                #[bitfield("Enable", 31, 1)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_ERROR_INJECTION {
             Anonymous: struct {
+                #[bitfield("NUM", 0, 7)]
+                #[bitfield("Reserved0", 7, 25)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_ERROR_RECOVERY {
             Anonymous: struct {
+                #[bitfield("TLER", 0, 16)]
+                #[bitfield("DULBE", 16, 1)]
+                #[bitfield("Reserved0", 17, 15)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_GET_HOST_METADATA {
             Anonymous: struct {
+                #[bitfield("GDHM", 0, 1)]
+                #[bitfield("Reserved", 1, 31)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         struct NVME_CDW11_FEATURE_HOST_IDENTIFIER {
+            #[bitfield("EXHID", 0, 1)]
+            #[bitfield("Reserved", 1, 31)]
             _bitfield: u32,
         }
         union NVME_CDW11_FEATURE_HOST_MEMORY_BUFFER {
             Anonymous: struct {
+                #[bitfield("EHM", 0, 1)]
+                #[bitfield("MR", 1, 1)]
+                #[bitfield("Reserved", 2, 30)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_INTERRUPT_COALESCING {
             Anonymous: struct {
+                #[bitfield("THR", 0, 8)]
+                #[bitfield("TIME", 8, 8)]
+                #[bitfield("Reserved0", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_INTERRUPT_VECTOR_CONFIG {
             Anonymous: struct {
+                #[bitfield("IV", 0, 16)]
+                #[bitfield("CD", 16, 1)]
+                #[bitfield("Reserved0", 17, 15)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_IO_COMMAND_SET_PROFILE {
             Anonymous: struct {
+                #[bitfield("IOCSCI", 0, 8)]
+                #[bitfield("Reserved", 8, 24)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_LBA_RANGE_TYPE {
             Anonymous: struct {
+                #[bitfield("NUM", 0, 6)]
+                #[bitfield("Reserved0", 6, 26)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_NON_OPERATIONAL_POWER_STATE {
             Anonymous: struct {
+                #[bitfield("NOPPME", 0, 1)]
+                #[bitfield("Reserved0", 1, 31)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_NUMBER_OF_QUEUES {
             Anonymous: struct {
+                #[bitfield("NSQ", 0, 16)]
+                #[bitfield("NCQ", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_POWER_MANAGEMENT {
             Anonymous: struct {
+                #[bitfield("PS", 0, 5)]
+                #[bitfield("Reserved0", 5, 27)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_READONLY_WRITETHROUGH_MODE {
             Anonymous: struct {
+                #[bitfield("Reserved0", 0, 30)]
+                #[bitfield("EOLBehavior", 30, 2)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         struct NVME_CDW11_FEATURE_RESERVATION_NOTIFICATION_MASK {
+            #[bitfield("Reserved", 0, 1)]
+            #[bitfield("REGPRE", 1, 1)]
+            #[bitfield("RESREL", 2, 1)]
+            #[bitfield("RESPRE", 3, 1)]
+            #[bitfield("Reserved1", 4, 28)]
             _bitfield: u32,
         }
         struct NVME_CDW11_FEATURE_RESERVATION_PERSISTENCE {
+            #[bitfield("PTPL", 0, 1)]
+            #[bitfield("Reserved", 1, 31)]
             _bitfield: u32,
         }
         union NVME_CDW11_FEATURE_SET_HOST_METADATA {
             Anonymous: struct {
+                #[bitfield("Reserved0", 0, 13)]
+                #[bitfield("EA", 13, 2)]
+                #[bitfield("Reserved1", 15, 17)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_SUPPORTED_CAPABILITY {
             Anonymous: struct {
+                #[bitfield("SAVE", 0, 1)]
+                #[bitfield("NSS", 1, 1)]
+                #[bitfield("MOD", 2, 1)]
+                #[bitfield("Reserved0", 3, 29)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_TEMPERATURE_THRESHOLD {
             Anonymous: struct {
+                #[bitfield("TMPTH", 0, 16)]
+                #[bitfield("TMPSEL", 16, 4)]
+                #[bitfield("THSEL", 20, 2)]
+                #[bitfield("Reserved0", 22, 10)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_VOLATILE_WRITE_CACHE {
             Anonymous: struct {
+                #[bitfield("WCE", 0, 1)]
+                #[bitfield("Reserved0", 1, 31)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_FEATURE_WRITE_ATOMICITY_NORMAL {
             Anonymous: struct {
+                #[bitfield("DN", 0, 1)]
+                #[bitfield("Reserved0", 1, 31)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -985,6 +1238,8 @@ mod Windows {
         }
         union NVME_CDW11_GET_LOG_PAGE {
             Anonymous: struct {
+                #[bitfield("NUMDU", 0, 16)]
+                #[bitfield("LogSpecificIdentifier", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -995,12 +1250,17 @@ mod Windows {
                 Reserved: u16,
             },
             Anonymous2: struct {
+                #[bitfield("CNSID", 0, 16)]
+                #[bitfield("Reserved2", 16, 8)]
+                #[bitfield("CSI", 24, 8)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW11_RESERVATION_REPORT {
             Anonymous: struct {
+                #[bitfield("EDS", 0, 1)]
+                #[bitfield("Reserved", 1, 31)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1023,6 +1283,8 @@ mod Windows {
         }
         union NVME_CDW12_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
             Anonymous: struct {
+                #[bitfield("NSR", 0, 16)]
+                #[bitfield("Reserved", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1033,6 +1295,10 @@ mod Windows {
         }
         union NVME_CDW12_DIRECTIVE_SEND_IDENTIFY_ENABLE_DIRECTIVE {
             Anonymous: struct {
+                #[bitfield("ENDIR", 0, 1)]
+                #[bitfield("Reserved0", 1, 7)]
+                #[bitfield("DTYPE", 8, 8)]
+                #[bitfield("Reserved1", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1053,18 +1319,36 @@ mod Windows {
         }
         union NVME_CDW12_READ_WRITE {
             Anonymous: struct {
+                #[bitfield("NLB", 0, 16)]
+                #[bitfield("Reserved0", 16, 4)]
+                #[bitfield("DTYPE", 20, 4)]
+                #[bitfield("Reserved1", 24, 2)]
+                #[bitfield("PRINFO", 26, 4)]
+                #[bitfield("FUA", 30, 1)]
+                #[bitfield("LR", 31, 1)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW12_VERIFYCOMMAND {
             Anonymous: struct {
+                #[bitfield("NLB", 0, 16)]
+                #[bitfield("Reserved", 16, 10)]
+                #[bitfield("PRINFO", 26, 4)]
+                #[bitfield("FUA", 30, 1)]
+                #[bitfield("LR", 31, 1)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW12_ZONE_APPEND {
             Anonymous: struct {
+                #[bitfield("NLB", 0, 16)]
+                #[bitfield("Reserved", 16, 9)]
+                #[bitfield("PIREMAP", 25, 1)]
+                #[bitfield("PRINFO", 26, 4)]
+                #[bitfield("FUA", 30, 1)]
+                #[bitfield("LR", 31, 1)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1075,6 +1359,8 @@ mod Windows {
         }
         union NVME_CDW13_FEATURE_HOST_MEMORY_BUFFER {
             Anonymous: struct {
+                #[bitfield("Reserved", 0, 4)]
+                #[bitfield("HMDLLA", 4, 28)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1086,6 +1372,10 @@ mod Windows {
         union NVME_CDW13_READ_WRITE {
             Anonymous: struct {
                 DSM: struct {
+                    #[bitfield("AccessFrequency", 0, 4)]
+                    #[bitfield("AccessLatency", 4, 2)]
+                    #[bitfield("SequentialRequest", 6, 1)]
+                    #[bitfield("Incompressible", 7, 1)]
                     _bitfield: u8,
                 },
                 Reserved: u8,
@@ -1095,12 +1385,19 @@ mod Windows {
         }
         union NVME_CDW13_ZONE_MANAGEMENT_RECEIVE {
             Anonymous: struct {
+                #[bitfield("ZRA", 0, 8)]
+                #[bitfield("ZRASpecific", 8, 8)]
+                #[bitfield("Partial", 16, 1)]
+                #[bitfield("Reserved", 17, 15)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW13_ZONE_MANAGEMENT_SEND {
             Anonymous: struct {
+                #[bitfield("ZSA", 0, 8)]
+                #[bitfield("SelectAll", 8, 1)]
+                #[bitfield("Reserved", 9, 23)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1117,18 +1414,28 @@ mod Windows {
         }
         union NVME_CDW14_GET_LOG_PAGE {
             Anonymous: struct {
+                #[bitfield("UUIDIndex", 0, 7)]
+                #[bitfield("Reserved", 7, 16)]
+                #[bitfield("OT", 23, 1)]
+                #[bitfield("CommandSetIdentifier", 24, 8)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW14_GET_LOG_PAGE_V20 {
             Anonymous: struct {
+                #[bitfield("UUIDIndex", 0, 7)]
+                #[bitfield("Reserved", 7, 16)]
+                #[bitfield("OffsetType", 23, 1)]
+                #[bitfield("CommandSetIdentifier", 24, 8)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW14_IDENTIFY {
             Anonymous: struct {
+                #[bitfield("UUIDIndex", 0, 7)]
+                #[bitfield("Reserved", 7, 25)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1145,18 +1452,24 @@ mod Windows {
         }
         union NVME_CDW15_READ_WRITE {
             Anonymous: struct {
+                #[bitfield("ELBAT", 0, 16)]
+                #[bitfield("ELBATM", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW15_VERIFY_COMMAND {
             Anonymous: struct {
+                #[bitfield("ELBAT", 0, 16)]
+                #[bitfield("ELBATM", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CDW15_ZONE_APPEND {
             Anonymous: struct {
+                #[bitfield("LBAT", 0, 16)]
+                #[bitfield("LBATM", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1439,12 +1752,32 @@ mod Windows {
         }
         union NVME_COMMAND_DWORD0 {
             Anonymous: struct {
+                #[bitfield("OPC", 0, 8)]
+                #[bitfield("FUSE", 8, 2)]
+                #[bitfield("Reserved0", 10, 4)]
+                #[bitfield("PSDT", 14, 2)]
+                #[bitfield("CID", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_COMMAND_EFFECTS_DATA {
             Anonymous: struct {
+                #[bitfield("CSUPP", 0, 1)]
+                #[bitfield("LBCC", 1, 1)]
+                #[bitfield("NCC", 2, 1)]
+                #[bitfield("NIC", 3, 1)]
+                #[bitfield("CCC", 4, 1)]
+                #[bitfield("Reserved", 5, 11)]
+                #[bitfield("CSE", 16, 3)]
+                #[bitfield("UUIDSelectionSupported", 19, 1)]
+                #[bitfield("CSPNamespace", 20, 1)]
+                #[bitfield("CSPController", 21, 1)]
+                #[bitfield("CSPNVMSet", 22, 1)]
+                #[bitfield("CSPEnduranceGroup", 23, 1)]
+                #[bitfield("CSPDomain", 24, 1)]
+                #[bitfield("CSPNVMSubsystem", 25, 1)]
+                #[bitfield("CSPReserved", 26, 6)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1468,15 +1801,28 @@ mod Windows {
         }
         union NVME_COMMAND_STATUS {
             Anonymous: struct {
+                #[bitfield("P", 0, 1)]
+                #[bitfield("SC", 1, 8)]
+                #[bitfield("SCT", 9, 3)]
+                #[bitfield("CRD", 12, 2)]
+                #[bitfield("M", 14, 1)]
+                #[bitfield("DNR", 15, 1)]
                 _bitfield: u16,
             },
             AsUshort: u16,
         }
         struct NVME_COMPLETION_DW0_ASYNC_EVENT_REQUEST {
+            #[bitfield("AsyncEventType", 0, 3)]
+            #[bitfield("Reserved0", 3, 5)]
+            #[bitfield("AsyncEventInfo", 8, 8)]
+            #[bitfield("LogPage", 16, 8)]
+            #[bitfield("Reserved1", 24, 8)]
             _bitfield: u32,
         }
         struct NVME_COMPLETION_DW0_DIRECTIVE_RECEIVE_STREAMS_ALLOCATE_RESOURCES {
             Anonymous: struct {
+                #[bitfield("NSA", 0, 16)]
+                #[bitfield("Reserved", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1501,24 +1847,70 @@ mod Windows {
         }
         union NVME_COMPLETION_QUEUE_HEAD_DOORBELL {
             Anonymous: struct {
+                #[bitfield("CQH", 0, 16)]
+                #[bitfield("Reserved0", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CONTEXT_ATTRIBUTES {
             Anonymous: struct {
+                #[bitfield("AccessFrequency", 0, 4)]
+                #[bitfield("AccessLatency", 4, 2)]
+                #[bitfield("Reserved0", 6, 2)]
+                #[bitfield("SequentialReadRange", 8, 1)]
+                #[bitfield("SequentialWriteRange", 9, 1)]
+                #[bitfield("WritePrepare", 10, 1)]
+                #[bitfield("Reserved1", 11, 13)]
+                #[bitfield("CommandAccessSize", 24, 8)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CONTROLLER_CAPABILITIES {
             Anonymous: struct {
+                #[bitfield("MQES", 0, 16)]
+                #[bitfield("CQR", 16, 1)]
+                #[bitfield("AMS_WeightedRoundRobinWithUrgent", 17, 1)]
+                #[bitfield("AMS_VendorSpecific", 18, 1)]
+                #[bitfield("Reserved0", 19, 5)]
+                #[bitfield("TO", 24, 8)]
+                #[bitfield("DSTRD", 32, 4)]
+                #[bitfield("NSSRS", 36, 1)]
+                #[bitfield("CSS_NVM", 37, 1)]
+                #[bitfield("CSS_Reserved0", 38, 1)]
+                #[bitfield("CSS_Reserved1", 39, 1)]
+                #[bitfield("CSS_Reserved2", 40, 1)]
+                #[bitfield("CSS_Reserved3", 41, 1)]
+                #[bitfield("CSS_Reserved4", 42, 1)]
+                #[bitfield("CSS_MultipleIo", 43, 1)]
+                #[bitfield("CSS_AdminOnly", 44, 1)]
+                #[bitfield("BPS", 45, 1)]
+                #[bitfield("CPS", 46, 2)]
+                #[bitfield("MPSMIN", 48, 4)]
+                #[bitfield("MPSMAX", 52, 4)]
+                #[bitfield("PMRS", 56, 1)]
+                #[bitfield("CMBS", 57, 1)]
+                #[bitfield("NSSS", 58, 1)]
+                #[bitfield("CRWMS", 59, 1)]
+                #[bitfield("CRIMS", 60, 1)]
+                #[bitfield("Reserved2", 61, 3)]
                 _bitfield: u64,
             },
             AsUlonglong: u64,
         }
         union NVME_CONTROLLER_CONFIGURATION {
             Anonymous: struct {
+                #[bitfield("EN", 0, 1)]
+                #[bitfield("Reserved0", 1, 3)]
+                #[bitfield("CSS", 4, 3)]
+                #[bitfield("MPS", 7, 4)]
+                #[bitfield("AMS", 11, 3)]
+                #[bitfield("SHN", 14, 2)]
+                #[bitfield("IOSQES", 16, 4)]
+                #[bitfield("IOCQES", 20, 4)]
+                #[bitfield("CRIME", 24, 1)]
+                #[bitfield("Reserved1", 25, 7)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1533,12 +1925,23 @@ mod Windows {
         }
         union NVME_CONTROLLER_MEMORY_BUFFER_LOCATION {
             Anonymous: struct {
+                #[bitfield("BIR", 0, 3)]
+                #[bitfield("Reserved", 3, 9)]
+                #[bitfield("OFST", 12, 20)]
                 _bitfield: u32,
             },
             AsUlong: u32,
         }
         union NVME_CONTROLLER_MEMORY_BUFFER_SIZE {
             Anonymous: struct {
+                #[bitfield("SQS", 0, 1)]
+                #[bitfield("CQS", 1, 1)]
+                #[bitfield("LISTS", 2, 1)]
+                #[bitfield("RDS", 3, 1)]
+                #[bitfield("WDS", 4, 1)]
+                #[bitfield("Reserved", 5, 3)]
+                #[bitfield("SZU", 8, 4)]
+                #[bitfield("SZ", 12, 20)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1593,6 +1996,13 @@ mod Windows {
         }
         union NVME_CONTROLLER_STATUS {
             Anonymous: struct {
+                #[bitfield("RDY", 0, 1)]
+                #[bitfield("CFS", 1, 1)]
+                #[bitfield("SHST", 2, 2)]
+                #[bitfield("NSSRO", 4, 1)]
+                #[bitfield("PP", 5, 1)]
+                #[bitfield("ST", 6, 1)]
+                #[bitfield("Reserved0", 7, 25)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -1633,9 +2043,13 @@ mod Windows {
         }
         struct NVME_DEVICE_SELF_TEST_LOG {
             CurrentOperation: struct {
+                #[bitfield("Status", 0, 4)]
+                #[bitfield("Reserved", 4, 4)]
                 _bitfield: u8,
             },
             CurrentCompletion: struct {
+                #[bitfield("CompletePercent", 0, 7)]
+                #[bitfield("Reserved", 7, 1)]
                 _bitfield: u8,
             },
             Reserved: [u8; 2],
@@ -1644,10 +2058,17 @@ mod Windows {
         #[packed(1)]
         struct NVME_DEVICE_SELF_TEST_RESULT_DATA {
             Status: struct {
+                #[bitfield("Result", 0, 4)]
+                #[bitfield("CodeValue", 4, 4)]
                 _bitfield: u8,
             },
             SegmentNumber: u8,
             ValidDiagnostics: struct {
+                #[bitfield("NSIDValid", 0, 1)]
+                #[bitfield("FLBAValid", 1, 1)]
+                #[bitfield("SCTValid", 2, 1)]
+                #[bitfield("SCValid", 3, 1)]
+                #[bitfield("Reserved", 4, 4)]
                 _bitfield: u8,
             },
             Reserved: u8,
@@ -1655,6 +2076,8 @@ mod Windows {
             NSID: u32,
             FailingLBA: u64,
             StatusCodeType: struct {
+                #[bitfield("AdditionalInfo", 0, 3)]
+                #[bitfield("Reserved", 3, 5)]
                 _bitfield: u8,
             },
             StatusCode: u8,
@@ -1665,6 +2088,9 @@ mod Windows {
             DirectivesEnabled: NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR,
         }
         struct NVME_DIRECTIVE_IDENTIFY_RETURN_PARAMETERS_DESCRIPTOR {
+            #[bitfield("Identify", 0, 1)]
+            #[bitfield("Streams", 1, 1)]
+            #[bitfield("Reserved0", 2, 6)]
             _bitfield: u8,
             Reserved1: [u8; 31],
         }
@@ -1713,6 +2139,11 @@ mod Windows {
             SUBTYPE: u8,
             TREQ: union {
                 Anonymous: struct {
+                    #[bitfield("SecureChannel", 0, 2)]
+                    #[bitfield("SqFlowControlDisable", 2, 1)]
+                    #[bitfield("ZeroHostIdSupport", 3, 1)]
+                    #[bitfield("AuthAndSecureChannel", 4, 2)]
+                    #[bitfield("Reserved", 6, 2)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -1722,6 +2153,10 @@ mod Windows {
             ASQSZ: u16,
             EFLAGS: union {
                 Anonymous: struct {
+                    #[bitfield("DuplicateReturnedInfo", 0, 1)]
+                    #[bitfield("ExplicitPersistentConnectionSupport", 1, 1)]
+                    #[bitfield("NoCDCConnectivity", 2, 1)]
+                    #[bitfield("Reserved", 3, 13)]
                     _bitfield: u16,
                 },
                 AsUshort: u16,
@@ -1739,6 +2174,10 @@ mod Windows {
             RECFMT: u16,
             DLPF: union {
                 Anonymous: struct {
+                    #[bitfield("Extended", 0, 1)]
+                    #[bitfield("PortLocal", 1, 1)]
+                    #[bitfield("AllSubsystems", 2, 1)]
+                    #[bitfield("Reserved", 3, 5)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -1772,6 +2211,14 @@ mod Windows {
             Reserved1: u8,
             EKTYPE: union {
                 Anonymous: struct {
+                    #[bitfield("NQN", 0, 1)]
+                    #[bitfield("TSAS", 1, 1)]
+                    #[bitfield("TRSVCID", 2, 1)]
+                    #[bitfield("ADRFAM", 3, 1)]
+                    #[bitfield("TRTYPE", 4, 1)]
+                    #[bitfield("PORTID", 5, 1)]
+                    #[bitfield("TRADDR", 6, 1)]
+                    #[bitfield("Reserved", 7, 9)]
                     _bitfield: u16,
                 },
                 AsUshort: u16,
@@ -1813,6 +2260,9 @@ mod Windows {
             CMDID: u16,
             Status: NVME_COMMAND_STATUS,
             ParameterErrorLocation: struct {
+                #[bitfield("Byte", 0, 8)]
+                #[bitfield("Bit", 8, 3)]
+                #[bitfield("Reserved", 11, 5)]
                 _bitfield: u16,
             },
             Lba: u64,
@@ -1827,6 +2277,9 @@ mod Windows {
         struct NVME_ERROR_INJECTION_ENTRY {
             Flags: union {
                 Anonymous: struct {
+                    #[bitfield("Enable", 0, 1)]
+                    #[bitfield("SingleInstance", 1, 1)]
+                    #[bitfield("Reserved0", 2, 6)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -1872,6 +2325,11 @@ mod Windows {
             SUBTYPE: u8,
             TREQ: union {
                 Anonymous: struct {
+                    #[bitfield("SecureChannel", 0, 2)]
+                    #[bitfield("SqFlowControlDisable", 2, 1)]
+                    #[bitfield("ZeroHostIdSupport", 3, 1)]
+                    #[bitfield("AuthAndSecureChannel", 4, 2)]
+                    #[bitfield("Reserved", 6, 2)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -1881,6 +2339,10 @@ mod Windows {
             ASQSZ: u16,
             EFLAGS: union {
                 Anonymous: struct {
+                    #[bitfield("DuplicateReturnedInfo", 0, 1)]
+                    #[bitfield("ExplicitPersistentConnectionSupport", 1, 1)]
+                    #[bitfield("NoCDCConnectivity", 2, 1)]
+                    #[bitfield("Reserved", 3, 13)]
                     _bitfield: u16,
                 },
                 AsUshort: u16,
@@ -1973,6 +2435,20 @@ mod Windows {
             NVME_FEATURE_VALUE_SUPPORTED_CAPABILITIES = 3,
         }
         struct NVME_FID_SUPPORTED_AND_EFFECTS {
+            #[bitfield("FSUPP", 0, 1)]
+            #[bitfield("UDCC", 1, 1)]
+            #[bitfield("NCC", 2, 1)]
+            #[bitfield("NIC", 3, 1)]
+            #[bitfield("CCC", 4, 1)]
+            #[bitfield("Reserved", 5, 14)]
+            #[bitfield("UUIDSelectionSupported", 19, 1)]
+            #[bitfield("FSPNamespace", 20, 1)]
+            #[bitfield("FSPController", 21, 1)]
+            #[bitfield("FSPNVMSet", 22, 1)]
+            #[bitfield("FSPEnduranceGroup", 23, 1)]
+            #[bitfield("FSPDomain", 24, 1)]
+            #[bitfield("FSPNVMSubsystem", 25, 1)]
+            #[bitfield("FSPReserved", 26, 6)]
             _bitfield: u32,
         }
         #[repr(i32)]
@@ -1986,6 +2462,10 @@ mod Windows {
         }
         struct NVME_FIRMWARE_SLOT_INFO_LOG {
             AFI: struct {
+                #[bitfield("ActiveSlot", 0, 3)]
+                #[bitfield("Reserved0", 3, 1)]
+                #[bitfield("PendingActivateSlot", 4, 3)]
+                #[bitfield("Reserved1", 7, 1)]
                 _bitfield: u8,
             },
             Reserved0: [u8; 7],
@@ -2000,6 +2480,10 @@ mod Windows {
         }
         struct NVME_GET_FEATURE_TIMESTAMP {
             Anonymous: struct {
+                #[bitfield("Timestamp", 0, 48)]
+                #[bitfield("Synch", 48, 1)]
+                #[bitfield("Origin", 49, 3)]
+                #[bitfield("Reserved", 52, 12)]
                 _bitfield: u64,
             },
             AsUlonglong: u64,
@@ -2007,6 +2491,12 @@ mod Windows {
         struct NVME_HEALTH_INFO_LOG {
             CriticalWarning: union {
                 Anonymous: struct {
+                    #[bitfield("AvailableSpaceLow", 0, 1)]
+                    #[bitfield("TemperatureThreshold", 1, 1)]
+                    #[bitfield("ReliabilityDegraded", 2, 1)]
+                    #[bitfield("ReadOnly", 3, 1)]
+                    #[bitfield("VolatileMemoryBackupDeviceFailed", 4, 1)]
+                    #[bitfield("Reserved", 5, 3)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -2057,6 +2547,11 @@ mod Windows {
             NVME_HOST_METADATA_ADD_ENTRY_MULTIPLE = 2,
         }
         struct NVME_HOST_METADATA_ELEMENT_DESCRIPTOR {
+            #[bitfield("ET", 0, 6)]
+            #[bitfield("Reserved0", 6, 2)]
+            #[bitfield("ER", 8, 4)]
+            #[bitfield("Reserved1", 12, 4)]
+            #[bitfield("ELEN", 16, 16)]
             _bitfield: u32,
             EVAL: [u8; 1],
         }
@@ -2108,6 +2603,11 @@ mod Windows {
             RAB: u8,
             IEEE: [u8; 3],
             CMIC: struct {
+                #[bitfield("MultiPorts", 0, 1)]
+                #[bitfield("MultiControllers", 1, 1)]
+                #[bitfield("SRIOV", 2, 1)]
+                #[bitfield("ANAR", 3, 1)]
+                #[bitfield("Reserved", 4, 4)]
                 _bitfield: u8,
             },
             MDTS: u8,
@@ -2116,12 +2616,58 @@ mod Windows {
             RTD3R: u32,
             RTD3E: u32,
             OAES: struct {
+                #[bitfield("Reserved0", 0, 8)]
+                #[bitfield("NamespaceAttributeChanged", 8, 1)]
+                #[bitfield("FirmwareActivation", 9, 1)]
+                #[bitfield("Reserved1", 10, 1)]
+                #[bitfield("AsymmetricAccessChanged", 11, 1)]
+                #[bitfield("PredictableLatencyAggregateLogChanged", 12, 1)]
+                #[bitfield("LbaStatusChanged", 13, 1)]
+                #[bitfield("EnduranceGroupAggregateLogChanged", 14, 1)]
+                #[bitfield("NormalNvmSubsystemShutdown", 15, 1)]
+                #[bitfield("Reserved2", 16, 11)]
+                #[bitfield("ZoneInformation", 27, 1)]
+                #[bitfield("Reserved3", 28, 3)]
+                #[bitfield("DiscoveryLogChanged", 31, 1)]
                 _bitfield: u32,
             },
             CTRATT: struct {
+                #[bitfield("HostIdentifier128Bit", 0, 1)]
+                #[bitfield("NOPSPMode", 1, 1)]
+                #[bitfield("NVMSets", 2, 1)]
+                #[bitfield("ReadRecoveryLevels", 3, 1)]
+                #[bitfield("EnduranceGroups", 4, 1)]
+                #[bitfield("PredictableLatencyMode", 5, 1)]
+                #[bitfield("TBKAS", 6, 1)]
+                #[bitfield("NamespaceGranularity", 7, 1)]
+                #[bitfield("SQAssociations", 8, 1)]
+                #[bitfield("UUIDList", 9, 1)]
+                #[bitfield("MultiDomainSubsystem", 10, 1)]
+                #[bitfield("FixedCapacityManagement", 11, 1)]
+                #[bitfield("VariableCapacityManagement", 12, 1)]
+                #[bitfield("DeleteEnduranceGroup", 13, 1)]
+                #[bitfield("DeleteNVMSet", 14, 1)]
+                #[bitfield("ELBAS", 15, 1)]
+                #[bitfield("Reserved0", 16, 16)]
                 _bitfield: u32,
             },
             RRLS: struct {
+                #[bitfield("ReadRecoveryLevel0", 0, 1)]
+                #[bitfield("ReadRecoveryLevel1", 1, 1)]
+                #[bitfield("ReadRecoveryLevel2", 2, 1)]
+                #[bitfield("ReadRecoveryLevel3", 3, 1)]
+                #[bitfield("ReadRecoveryLevel4", 4, 1)]
+                #[bitfield("ReadRecoveryLevel5", 5, 1)]
+                #[bitfield("ReadRecoveryLevel6", 6, 1)]
+                #[bitfield("ReadRecoveryLevel7", 7, 1)]
+                #[bitfield("ReadRecoveryLevel8", 8, 1)]
+                #[bitfield("ReadRecoveryLevel9", 9, 1)]
+                #[bitfield("ReadRecoveryLevel10", 10, 1)]
+                #[bitfield("ReadRecoveryLevel11", 11, 1)]
+                #[bitfield("ReadRecoveryLevel12", 12, 1)]
+                #[bitfield("ReadRecoveryLevel13", 13, 1)]
+                #[bitfield("ReadRecoveryLevel14", 14, 1)]
+                #[bitfield("ReadRecoveryLevel15", 15, 1)]
                 _bitfield: u16,
             },
             Reserved0: [u8; 9],
@@ -2136,22 +2682,50 @@ mod Windows {
             VWCI: u8,
             MEC: u8,
             OACS: struct {
+                #[bitfield("SecurityCommands", 0, 1)]
+                #[bitfield("FormatNVM", 1, 1)]
+                #[bitfield("FirmwareCommands", 2, 1)]
+                #[bitfield("NamespaceCommands", 3, 1)]
+                #[bitfield("DeviceSelfTest", 4, 1)]
+                #[bitfield("Directives", 5, 1)]
+                #[bitfield("NVMeMICommands", 6, 1)]
+                #[bitfield("VirtualizationMgmt", 7, 1)]
+                #[bitfield("DoorBellBufferConfig", 8, 1)]
+                #[bitfield("GetLBAStatus", 9, 1)]
+                #[bitfield("CommandFeatureLockdown", 10, 1)]
+                #[bitfield("Reserved", 11, 5)]
                 _bitfield: u16,
             },
             ACL: u8,
             AERL: u8,
             FRMW: struct {
+                #[bitfield("Slot1ReadOnly", 0, 1)]
+                #[bitfield("SlotCount", 1, 3)]
+                #[bitfield("ActivationWithoutReset", 4, 1)]
+                #[bitfield("Reserved", 5, 3)]
                 _bitfield: u8,
             },
             LPA: struct {
+                #[bitfield("SmartPagePerNamespace", 0, 1)]
+                #[bitfield("CommandEffectsLog", 1, 1)]
+                #[bitfield("LogPageExtendedData", 2, 1)]
+                #[bitfield("TelemetrySupport", 3, 1)]
+                #[bitfield("PersistentEventLog", 4, 1)]
+                #[bitfield("SupportedLogPages", 5, 1)]
+                #[bitfield("TelemetryDataArea4", 6, 1)]
+                #[bitfield("Reserved1", 7, 1)]
                 _bitfield: u8,
             },
             ELPE: u8,
             NPSS: u8,
             AVSCC: struct {
+                #[bitfield("CommandFormatInSpec", 0, 1)]
+                #[bitfield("Reserved", 1, 7)]
                 _bitfield: u8,
             },
             APSTA: struct {
+                #[bitfield("Supported", 0, 1)]
+                #[bitfield("Reserved", 1, 7)]
                 _bitfield: u8,
             },
             WCTEMP: u16,
@@ -2162,6 +2736,11 @@ mod Windows {
             TNVMCAP: [u8; 16],
             UNVMCAP: [u8; 16],
             RPMBS: struct {
+                #[bitfield("RPMBUnitCount", 0, 3)]
+                #[bitfield("AuthenticationMethod", 3, 3)]
+                #[bitfield("Reserved0", 6, 10)]
+                #[bitfield("TotalSize", 16, 8)]
+                #[bitfield("AccessSize", 24, 8)]
                 _bitfield: u32,
             },
             EDSTT: u16,
@@ -2169,11 +2748,19 @@ mod Windows {
             FWUG: u8,
             KAS: u16,
             HCTMA: struct {
+                #[bitfield("Supported", 0, 1)]
+                #[bitfield("Reserved", 1, 15)]
                 _bitfield: u16,
             },
             MNTMT: u16,
             MXTMT: u16,
             SANICAP: struct {
+                #[bitfield("CryptoErase", 0, 1)]
+                #[bitfield("BlockErase", 1, 1)]
+                #[bitfield("Overwrite", 2, 1)]
+                #[bitfield("Reserved", 3, 26)]
+                #[bitfield("NDI", 29, 1)]
+                #[bitfield("NODMMAS", 30, 2)]
                 _bitfield: u32,
             },
             HMMINDS: u32,
@@ -2182,6 +2769,14 @@ mod Windows {
             ENDGIDMAX: u16,
             ANATT: u8,
             ANACAP: struct {
+                #[bitfield("OptimizedState", 0, 1)]
+                #[bitfield("NonOptimizedState", 1, 1)]
+                #[bitfield("InaccessibleState", 2, 1)]
+                #[bitfield("PersistentLossState", 3, 1)]
+                #[bitfield("ChangeState", 4, 1)]
+                #[bitfield("Reserved", 5, 1)]
+                #[bitfield("StaticANAGRPID", 6, 1)]
+                #[bitfield("SupportNonZeroANAGRPID", 7, 1)]
                 _bitfield: u8,
             },
             ANAGRPMAX: u32,
@@ -2195,36 +2790,75 @@ mod Windows {
             CQT: u16,
             Reserved4: [u8; 124],
             SQES: struct {
+                #[bitfield("RequiredEntrySize", 0, 4)]
+                #[bitfield("MaxEntrySize", 4, 4)]
                 _bitfield: u8,
             },
             CQES: struct {
+                #[bitfield("RequiredEntrySize", 0, 4)]
+                #[bitfield("MaxEntrySize", 4, 4)]
                 _bitfield: u8,
             },
             MAXCMD: u16,
             NN: u32,
             ONCS: struct {
+                #[bitfield("Compare", 0, 1)]
+                #[bitfield("WriteUncorrectable", 1, 1)]
+                #[bitfield("DatasetManagement", 2, 1)]
+                #[bitfield("WriteZeroes", 3, 1)]
+                #[bitfield("FeatureField", 4, 1)]
+                #[bitfield("Reservations", 5, 1)]
+                #[bitfield("Timestamp", 6, 1)]
+                #[bitfield("Verify", 7, 1)]
+                #[bitfield("Reserved", 8, 8)]
                 _bitfield: u16,
             },
             FUSES: struct {
+                #[bitfield("CompareAndWrite", 0, 1)]
+                #[bitfield("Reserved", 1, 15)]
                 _bitfield: u16,
             },
             FNA: struct {
+                #[bitfield("FormatApplyToAll", 0, 1)]
+                #[bitfield("SecureEraseApplyToAll", 1, 1)]
+                #[bitfield("CryptographicEraseSupported", 2, 1)]
+                #[bitfield("FormatSupportNSIDAllF", 3, 1)]
+                #[bitfield("Reserved", 4, 4)]
                 _bitfield: u8,
             },
             VWC: struct {
+                #[bitfield("Present", 0, 1)]
+                #[bitfield("FlushBehavior", 1, 2)]
+                #[bitfield("Reserved", 3, 5)]
                 _bitfield: u8,
             },
             AWUN: u16,
             AWUPF: u16,
             NVSCC: struct {
+                #[bitfield("CommandFormatInSpec", 0, 1)]
+                #[bitfield("Reserved", 1, 7)]
                 _bitfield: u8,
             },
             NWPC: struct {
+                #[bitfield("WriteProtect", 0, 1)]
+                #[bitfield("UntilPowerCycle", 1, 1)]
+                #[bitfield("Permanent", 2, 1)]
+                #[bitfield("Reserved", 3, 5)]
                 _bitfield: u8,
             },
             ACWU: u16,
             CopyDescFormats: u16,
             SGLS: struct {
+                #[bitfield("SGLSupported", 0, 2)]
+                #[bitfield("KeyedSGLData", 2, 1)]
+                #[bitfield("Reserved0", 3, 13)]
+                #[bitfield("BitBucketDescrSupported", 16, 1)]
+                #[bitfield("ByteAlignedContiguousPhysicalBuffer", 17, 1)]
+                #[bitfield("SGLLengthLargerThanDataLength", 18, 1)]
+                #[bitfield("MPTRSGLDescriptor", 19, 1)]
+                #[bitfield("AddressFieldSGLDataBlock", 20, 1)]
+                #[bitfield("TransportSGLData", 21, 1)]
+                #[bitfield("Reserved1", 22, 10)]
                 _bitfield: u32,
             },
             MNAN: u32,
@@ -2237,10 +2871,14 @@ mod Windows {
             IORCSZ: u32,
             ICDOFF: u16,
             FCATT: struct {
+                #[bitfield("StaticControllerModel", 0, 1)]
+                #[bitfield("Reserved", 1, 7)]
                 _bitfield: u8,
             },
             MSDBD: u8,
             OFCS: struct {
+                #[bitfield("IOQueueDeletion", 0, 1)]
+                #[bitfield("Reserved", 1, 15)]
                 _bitfield: u16,
             },
             DCTYPE: u8,
@@ -2256,29 +2894,59 @@ mod Windows {
             NCAP: u64,
             NUSE: u64,
             NSFEAT: struct {
+                #[bitfield("ThinProvisioning", 0, 1)]
+                #[bitfield("NameSpaceAtomicWriteUnit", 1, 1)]
+                #[bitfield("DeallocatedOrUnwrittenError", 2, 1)]
+                #[bitfield("SkipReuseUI", 3, 1)]
+                #[bitfield("NameSpaceIoOptimization", 4, 1)]
+                #[bitfield("Reserved", 5, 3)]
                 _bitfield: u8,
             },
             NLBAF: u8,
             FLBAS: struct {
+                #[bitfield("LbaFormatIndex", 0, 4)]
+                #[bitfield("MetadataInExtendedDataLBA", 4, 1)]
+                #[bitfield("LbaFormatIndexMS", 5, 2)]
+                #[bitfield("Reserved", 7, 1)]
                 _bitfield: u8,
             },
             MC: struct {
+                #[bitfield("MetadataInExtendedDataLBA", 0, 1)]
+                #[bitfield("MetadataInSeparateBuffer", 1, 1)]
+                #[bitfield("Reserved", 2, 6)]
                 _bitfield: u8,
             },
             DPC: struct {
+                #[bitfield("ProtectionInfoType1", 0, 1)]
+                #[bitfield("ProtectionInfoType2", 1, 1)]
+                #[bitfield("ProtectionInfoType3", 2, 1)]
+                #[bitfield("InfoAtBeginningOfMetadata", 3, 1)]
+                #[bitfield("InfoAtEndOfMetadata", 4, 1)]
+                #[bitfield("Reserved", 5, 3)]
                 _bitfield: u8,
             },
             DPS: struct {
+                #[bitfield("ProtectionInfoTypeEnabled", 0, 3)]
+                #[bitfield("InfoAtBeginningOfMetadata", 3, 1)]
+                #[bitfield("Reserved", 4, 4)]
                 _bitfield: u8,
             },
             NMIC: struct {
+                #[bitfield("SharedNameSpace", 0, 1)]
+                #[bitfield("Reserved", 1, 7)]
                 _bitfield: u8,
             },
             RESCAP: NVM_RESERVATION_CAPABILITIES,
             FPI: struct {
+                #[bitfield("PercentageRemained", 0, 7)]
+                #[bitfield("Supported", 7, 1)]
                 _bitfield: u8,
             },
             DLFEAT: struct {
+                #[bitfield("ReadBehavior", 0, 3)]
+                #[bitfield("WriteZeroes", 3, 1)]
+                #[bitfield("GuardFieldWithCRC", 4, 1)]
+                #[bitfield("Reserved", 5, 3)]
                 _bitfield: u8,
             },
             NAWUN: u16,
@@ -2301,6 +2969,8 @@ mod Windows {
             ANAGRPID: u32,
             Reserved3: [u8; 3],
             NSATTR: struct {
+                #[bitfield("WriteProtected", 0, 1)]
+                #[bitfield("Reserved", 1, 7)]
                 _bitfield: u8,
             },
             NVMSETID: u16,
@@ -2327,9 +2997,14 @@ mod Windows {
         }
         struct NVME_IDENTIFY_SPECIFIC_NAMESPACE_IO_COMMAND_SET {
             ZOC: struct {
+                #[bitfield("VariableZoneCapacity", 0, 1)]
+                #[bitfield("ZoneExcursions", 1, 1)]
+                #[bitfield("Reserved", 2, 14)]
                 _bitfield: u16,
             },
             OZCS: struct {
+                #[bitfield("ReadAcrossZoneBoundaries", 0, 1)]
+                #[bitfield("Reserved", 1, 15)]
                 _bitfield: u16,
             },
             MAR: u32,
@@ -2363,6 +3038,8 @@ mod Windows {
             Anonymous: struct {
                 MS: u16,
                 LBADS: u8,
+                #[bitfield("RP", 0, 2)]
+                #[bitfield("Reserved0", 2, 6)]
                 _bitfield: u8,
             },
             AsUlong: u32,
@@ -2375,6 +3052,9 @@ mod Windows {
         struct NVME_LBA_RANGET_TYPE_ENTRY {
             Type: u8,
             Attributes: struct {
+                #[bitfield("MayOverwritten", 0, 1)]
+                #[bitfield("Hidden", 1, 1)]
+                #[bitfield("Reserved", 2, 6)]
                 _bitfield: u8,
             },
             Reserved0: [u8; 14],
@@ -2397,9 +3077,15 @@ mod Windows {
             Reserved: [u8; 7],
         }
         struct NVME_LID_SPECIFIC_PERSISTENT_EVENT_LOG {
+            #[bitfield("EstablishContextAndRead512BytesOfHeaderSupported", 0, 1)]
+            #[bitfield("Reserved", 1, 15)]
             _bitfield: u16,
         }
         struct NVME_LID_SUPPORTED_AND_EFFECTS {
+            #[bitfield("LSUPP", 0, 1)]
+            #[bitfield("IOS", 1, 1)]
+            #[bitfield("Reserved", 2, 14)]
+            #[bitfield("LIDSpecific", 16, 16)]
             _bitfield: u32,
         }
         #[repr(i32)]
@@ -2459,6 +3145,19 @@ mod Windows {
         const NVME_NUM_NVME_MI_COMMANDS_SUPPORTED: u32 = 256;
         const NVME_NUM_UUID_LIST_ENTRIES: u32 = 128;
         struct NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS {
+            #[bitfield("CSUPP", 0, 1)]
+            #[bitfield("UDCC", 1, 1)]
+            #[bitfield("NCC", 2, 1)]
+            #[bitfield("NIC", 3, 1)]
+            #[bitfield("CCC", 4, 1)]
+            #[bitfield("Reserved", 5, 15)]
+            #[bitfield("CSPNamespace", 20, 1)]
+            #[bitfield("CSPController", 21, 1)]
+            #[bitfield("CSPNVMSet", 22, 1)]
+            #[bitfield("CSPEnduranceGroup", 23, 1)]
+            #[bitfield("CSPDomain", 24, 1)]
+            #[bitfield("CSPNVMSubsystem", 25, 1)]
+            #[bitfield("CSPReserved", 26, 6)]
             _bitfield: u32,
         }
         struct NVME_NVME_MI_COMMANDS_SUPPORTED_AND_EFFECTS_LOG {
@@ -2502,36 +3201,68 @@ mod Windows {
             PciePorts: u16,
             OobMgmtSupport: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
+                    #[bitfield("MctpOverSMBusSupported", 0, 1)]
+                    #[bitfield("MctpOverPcieVDMSupported", 1, 1)]
+                    #[bitfield("BasicMgmtCommandSupported", 2, 1)]
+                    #[bitfield("Reserved", 3, 12)]
+                    #[bitfield("CompliesWithSpec", 15, 1)]
                     _bitfield: u16,
                 },
                 AsUshort: u16,
             },
             WriteZeroesCommand: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
+                    #[bitfield("Supported", 0, 1)]
+                    #[bitfield("DEACBitSupported", 1, 1)]
+                    #[bitfield("FUABitSupported", 2, 1)]
+                    #[bitfield("NvmeIo5Met", 3, 1)]
+                    #[bitfield("NvmeIo6Met", 4, 1)]
+                    #[bitfield("Reserved", 5, 10)]
+                    #[bitfield("CompliesWithSpec", 15, 1)]
                     _bitfield: u16,
                 },
                 AsUshort: u16,
             },
             SanitizeCommand: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
+                    #[bitfield("Supported", 0, 1)]
+                    #[bitfield("CryptoEraseSupported", 1, 1)]
+                    #[bitfield("BlockEraseSupported", 2, 1)]
+                    #[bitfield("OverwriteSupported", 3, 1)]
+                    #[bitfield("DeallocateLbaSupported", 4, 1)]
+                    #[bitfield("Reserved", 5, 10)]
+                    #[bitfield("CompliesWithSpec", 15, 1)]
                     _bitfield: u16,
                 },
                 AsUshort: u16,
             },
             DatasetMgmtCommand: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
+                    #[bitfield("Supported", 0, 1)]
+                    #[bitfield("AttribDeallocateSupported", 1, 1)]
+                    #[bitfield("Reserved", 2, 13)]
+                    #[bitfield("CompliesWithSpec", 15, 1)]
                     _bitfield: u16,
                 },
                 AsUshort: u16,
             },
             WriteUncorrectableCommand: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
+                    #[bitfield("Supported", 0, 1)]
+                    #[bitfield("SingleLBASupported", 1, 1)]
+                    #[bitfield("MaxLBASupported", 2, 1)]
+                    #[bitfield("NvmeIo14Met", 3, 1)]
+                    #[bitfield("Reserved", 4, 11)]
+                    #[bitfield("CompliesWithSpec", 15, 1)]
                     _bitfield: u16,
                 },
                 AsUshort: u16,
             },
             FusedCommand: #[packed(1)] union {
                 Anonymous: #[packed(1)] struct {
+                    #[bitfield("CWFusedSupported", 0, 1)]
+                    #[bitfield("Reserved", 1, 14)]
+                    #[bitfield("CompliesWithSpec", 15, 1)]
                     _bitfield: u16,
                 },
                 AsUshort: u16,
@@ -2612,6 +3343,8 @@ mod Windows {
             DebugCounterTriggerSource: DEBUG_BIT_FIELD,
             DebugLogStampUnits: union {
                 Anonymous: struct {
+                    #[bitfield("BasedOnTimestamp", 0, 1)]
+                    #[bitfield("Reserved", 1, 7)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -2680,6 +3413,11 @@ mod Windows {
         struct NVME_OCP_DEVICE_TCG_CONFIGURATION_LOG {
             State: union {
                 Anonymous: struct {
+                    #[bitfield("CPINSIDValue", 0, 1)]
+                    #[bitfield("CPINSIDBlocked", 1, 1)]
+                    #[bitfield("LockingEnabled", 2, 1)]
+                    #[bitfield("SUMOwner", 3, 1)]
+                    #[bitfield("Reserved", 4, 4)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -2786,17 +3524,33 @@ mod Windows {
         struct NVME_POWER_STATE_DESC {
             MP: u16,
             Reserved0: u8,
+            #[bitfield("MPS", 0, 1)]
+            #[bitfield("NOPS", 1, 1)]
+            #[bitfield("Reserved1", 2, 6)]
             _bitfield1: u8,
             ENLAT: u32,
             EXLAT: u32,
+            #[bitfield("RRT", 0, 5)]
+            #[bitfield("Reserved2", 5, 3)]
             _bitfield2: u8,
+            #[bitfield("RRL", 0, 5)]
+            #[bitfield("Reserved3", 5, 3)]
             _bitfield3: u8,
+            #[bitfield("RWT", 0, 5)]
+            #[bitfield("Reserved4", 5, 3)]
             _bitfield4: u8,
+            #[bitfield("RWL", 0, 5)]
+            #[bitfield("Reserved5", 5, 3)]
             _bitfield5: u8,
             IDLP: u16,
+            #[bitfield("Reserved6", 0, 6)]
+            #[bitfield("IPS", 6, 2)]
             _bitfield6: u8,
             Reserved7: u8,
             ACTP: u16,
+            #[bitfield("APW", 0, 3)]
+            #[bitfield("Reserved8", 3, 3)]
+            #[bitfield("APS", 6, 2)]
             _bitfield7: u8,
             Reserved9: [u8; 9],
         }
@@ -2840,6 +3594,8 @@ mod Windows {
         }
         union NVME_PRP_ENTRY {
             Anonymous: struct {
+                #[bitfield("Reserved0", 0, 2)]
+                #[bitfield("PBAO", 2, 62)]
                 _bitfield: u64,
             },
             AsUlonglong: u64,
@@ -2855,6 +3611,8 @@ mod Windows {
         struct NVME_REGISTERED_CONTROLLER_DATA {
             CNTLID: u16,
             RCSTS: struct {
+                #[bitfield("HoldReservation", 0, 1)]
+                #[bitfield("Reserved", 1, 7)]
                 _bitfield: u8,
             },
             Reserved: [u8; 5],
@@ -2864,6 +3622,8 @@ mod Windows {
         struct NVME_REGISTERED_CONTROLLER_EXTENDED_DATA {
             CNTLID: u16,
             RCSTS: struct {
+                #[bitfield("HoldReservation", 0, 1)]
+                #[bitfield("Reserved", 1, 7)]
                 _bitfield: u8,
             },
             Reserved: [u8; 5],
@@ -2971,6 +3731,10 @@ mod Windows {
             NVME_SANITIZE_OPERATION_SUCCEEDED_WITH_FORCED_DEALLOCATION = 4,
         }
         struct NVME_SANITIZE_STATUS {
+            #[bitfield("MostRecentSanitizeOperationStatus", 0, 3)]
+            #[bitfield("NumberCompletedPassesOfOverwrite", 3, 4)]
+            #[bitfield("GlobalDataErased", 7, 1)]
+            #[bitfield("Reserved", 8, 8)]
             _bitfield: u16,
         }
         struct NVME_SANITIZE_STATUS_LOG {
@@ -3013,6 +3777,8 @@ mod Windows {
             Reserved1: [u8; 3],
             Identifier: union {
                 Anonymous: struct {
+                    #[bitfield("SubType", 0, 4)]
+                    #[bitfield("Type", 4, 4)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -3024,6 +3790,8 @@ mod Windows {
             Reserved0: [u8; 3],
             Identifier: union {
                 Anonymous: struct {
+                    #[bitfield("SubType", 0, 4)]
+                    #[bitfield("Type", 4, 4)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -3033,6 +3801,8 @@ mod Windows {
             Reserved0: [u8; 15],
             Identifier: union {
                 Anonymous: struct {
+                    #[bitfield("SubType", 0, 4)]
+                    #[bitfield("Type", 4, 4)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -3065,6 +3835,8 @@ mod Windows {
             Key: [u8; 4],
             Identifier: union {
                 Anonymous: struct {
+                    #[bitfield("SubType", 0, 4)]
+                    #[bitfield("Type", 4, 4)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -3076,6 +3848,8 @@ mod Windows {
             Reserved0: [u8; 3],
             Identifier: union {
                 Anonymous: struct {
+                    #[bitfield("SubType", 0, 4)]
+                    #[bitfield("Type", 4, 4)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -3087,6 +3861,8 @@ mod Windows {
             Reserved0: [u8; 3],
             Identifier: union {
                 Anonymous: struct {
+                    #[bitfield("SubType", 0, 4)]
+                    #[bitfield("Type", 4, 4)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -3098,6 +3874,8 @@ mod Windows {
             Reserved1: [u8; 3],
             Identifier: union {
                 Anonymous: struct {
+                    #[bitfield("SubType", 0, 4)]
+                    #[bitfield("Type", 4, 4)]
                     _bitfield: u8,
                 },
                 AsUchar: u8,
@@ -3257,6 +4035,8 @@ mod Windows {
         const NVME_STREAMS_ID_MIN: u32 = 1;
         union NVME_SUBMISSION_QUEUE_TAIL_DOORBELL {
             Anonymous: struct {
+                #[bitfield("SQT", 0, 16)]
+                #[bitfield("Reserved0", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -3307,6 +4087,8 @@ mod Windows {
             UUID: [NVME_UUID_LIST_ENTRY; 128],
         }
         struct NVME_UUID_LIST_ENTRY {
+            #[bitfield("IdentifierAssociation", 0, 2)]
+            #[bitfield("Reserved", 2, 6)]
             _bitfield: u8,
             Reserved1: [u8; 15],
             UUID: [u8; 16],
@@ -3332,6 +4114,9 @@ mod Windows {
         const NVME_VENDOR_SPECIFIC_NVM_COMMAND_MIN_OPCODE: u32 = 128;
         union NVME_VERSION {
             Anonymous: struct {
+                #[bitfield("TER", 0, 8)]
+                #[bitfield("MNR", 8, 8)]
+                #[bitfield("MJR", 16, 16)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -3339,6 +4124,9 @@ mod Windows {
         struct NVME_WCS_DEVICE_CAPABILITIES {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("PanicAEN", 0, 1)]
+                    #[bitfield("PanicCFS", 1, 1)]
+                    #[bitfield("Reserved", 2, 30)]
                     _bitfield: u32,
                 },
                 AsULONG: u32,
@@ -3384,6 +4172,13 @@ mod Windows {
         struct NVME_WCS_DEVICE_RESET_ACTION {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("ControllerReset", 0, 1)]
+                    #[bitfield("NVMeSubsystemReset", 1, 1)]
+                    #[bitfield("PCIeFLR", 2, 1)]
+                    #[bitfield("PERST", 3, 1)]
+                    #[bitfield("PowerCycle", 4, 1)]
+                    #[bitfield("PCIeConventionalHotReset", 5, 1)]
+                    #[bitfield("Reserved", 6, 2)]
                     _bitfield: u8,
                 },
                 AsUCHAR: u8,
@@ -3444,12 +4239,21 @@ mod Windows {
         const NVME_WCS_DEVICE_SMART_ATTRIBUTES_LOG_VERSION_2: u32 = 2;
         struct NVME_ZONE_DESCRIPTOR {
             Anonymous: struct {
+                #[bitfield("ZT", 0, 4)]
+                #[bitfield("Reserved1", 4, 4)]
                 _bitfield: u8,
             },
             Anonymous2: struct {
+                #[bitfield("Reserved2", 0, 4)]
+                #[bitfield("ZS", 4, 4)]
                 _bitfield: u8,
             },
             ZA: struct {
+                #[bitfield("ZFC", 0, 1)]
+                #[bitfield("FZR", 1, 1)]
+                #[bitfield("RZR", 2, 1)]
+                #[bitfield("Reserved", 3, 4)]
+                #[bitfield("ZDEV", 7, 1)]
                 _bitfield: u8,
             },
             Reserved3: [u8; 5],
@@ -3492,6 +4296,14 @@ mod Windows {
         }
         union NVM_RESERVATION_CAPABILITIES {
             Anonymous: struct {
+                #[bitfield("PersistThroughPowerLoss", 0, 1)]
+                #[bitfield("WriteExclusiveReservation", 1, 1)]
+                #[bitfield("ExclusiveAccessReservation", 2, 1)]
+                #[bitfield("WriteExclusiveRegistrantsOnlyReservation", 3, 1)]
+                #[bitfield("ExclusiveAccessRegistrantsOnlyReservation", 4, 1)]
+                #[bitfield("WriteExclusiveAllRegistrantsReservation", 5, 1)]
+                #[bitfield("ExclusiveAccessAllRegistrantsReservation", 6, 1)]
+                #[bitfield("Reserved", 7, 1)]
                 _bitfield: u8,
             },
             AsUchar: u8,

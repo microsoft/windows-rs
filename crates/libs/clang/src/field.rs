@@ -11,6 +11,14 @@ pub struct Field {
     /// a hoisted `{Outer}_{n}` sibling. `None` for an ordinary field, whose type
     /// is carried by [`ty`](Self::ty).
     pub nested: Option<Box<Struct>>,
+    /// When this field is a synthetic bit-field storage unit (`_bitfield` /
+    /// `_bitfield1` …), the logical members packed into it, each recorded as
+    /// `(name, offset, width)` where `offset` is the bit position from the low
+    /// end of the backing integer and `width` the member's bit count. Empty for
+    /// an ordinary field. Emitted as `#[bitfield(name, offset, width)]` outer
+    /// attributes (see [`Struct::write`]) so windows-bindgen can generate typed
+    /// accessors; the winmd format itself has no notion of a bit-field.
+    pub bitfields: Vec<(String, u32, u32)>,
 }
 
 /// A function or method parameter with an optional SAL annotation.

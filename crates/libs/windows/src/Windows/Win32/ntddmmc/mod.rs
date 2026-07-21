@@ -4,6 +4,104 @@ pub struct BD_CLASS_SUPPORT_BITMAP {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
 }
+impl BD_CLASS_SUPPORT_BITMAP {
+    pub fn Version8(&self) -> bool {
+        self._bitfield1 & 1 != 0
+    }
+    pub fn set_Version8(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !1) | (value as u8);
+    }
+    pub fn Version9(&self) -> bool {
+        (self._bitfield1 >> 1) & 1 != 0
+    }
+    pub fn set_Version9(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Version10(&self) -> bool {
+        (self._bitfield1 >> 2) & 1 != 0
+    }
+    pub fn set_Version10(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Version11(&self) -> bool {
+        (self._bitfield1 >> 3) & 1 != 0
+    }
+    pub fn set_Version11(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Version12(&self) -> bool {
+        (self._bitfield1 >> 4) & 1 != 0
+    }
+    pub fn set_Version12(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Version13(&self) -> bool {
+        (self._bitfield1 >> 5) & 1 != 0
+    }
+    pub fn set_Version13(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn Version14(&self) -> bool {
+        (self._bitfield1 >> 6) & 1 != 0
+    }
+    pub fn set_Version14(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Version15(&self) -> bool {
+        (self._bitfield1 >> 7) & 1 != 0
+    }
+    pub fn set_Version15(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 7)) | ((value as u8) << 7);
+    }
+    pub fn Version0(&self) -> bool {
+        self._bitfield2 & 1 != 0
+    }
+    pub fn set_Version0(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !1) | (value as u8);
+    }
+    pub fn Version1(&self) -> bool {
+        (self._bitfield2 >> 1) & 1 != 0
+    }
+    pub fn set_Version1(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Version2(&self) -> bool {
+        (self._bitfield2 >> 2) & 1 != 0
+    }
+    pub fn set_Version2(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Version3(&self) -> bool {
+        (self._bitfield2 >> 3) & 1 != 0
+    }
+    pub fn set_Version3(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Version4(&self) -> bool {
+        (self._bitfield2 >> 4) & 1 != 0
+    }
+    pub fn set_Version4(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Version5(&self) -> bool {
+        (self._bitfield2 >> 5) & 1 != 0
+    }
+    pub fn set_Version5(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn Version6(&self) -> bool {
+        (self._bitfield2 >> 6) & 1 != 0
+    }
+    pub fn set_Version6(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Version7(&self) -> bool {
+        (self._bitfield2 >> 7) & 1 != 0
+    }
+    pub fn set_Version7(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_BD_READ {
@@ -53,6 +151,20 @@ pub struct FEATURE_BD_WRITE {
     pub Class2BitmapBDRWriteSupport: BD_CLASS_SUPPORT_BITMAP,
     pub Class3BitmapBDRWriteSupport: BD_CLASS_SUPPORT_BITMAP,
 }
+impl FEATURE_BD_WRITE {
+    pub fn SupportsVerifyNotRequired(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SupportsVerifyNotRequired(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 impl Default for FEATURE_BD_WRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -76,6 +188,56 @@ impl Default for FEATURE_CD_RW_MEDIA_WRITE_SUPPORT {
 pub struct FEATURE_CD_RW_MEDIA_WRITE_SUPPORT_0 {
     pub _bitfield: u8,
 }
+impl FEATURE_CD_RW_MEDIA_WRITE_SUPPORT_0 {
+    pub fn Subtype0(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Subtype0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Subtype1(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Subtype1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Subtype2(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Subtype2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Subtype3(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Subtype3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Subtype4(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Subtype4(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Subtype5(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Subtype5(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn Subtype6(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Subtype6(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Subtype7(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Subtype7(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_DATA_AACS {
@@ -84,6 +246,32 @@ pub struct FEATURE_DATA_AACS {
     pub BindingNonceBlockCount: u8,
     pub _bitfield2: u8,
     pub AACSVersion: u8,
+}
+impl FEATURE_DATA_AACS {
+    pub fn BindingNonceGeneration(&self) -> bool {
+        self._bitfield1 & 1 != 0
+    }
+    pub fn set_BindingNonceGeneration(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !1) | (value as u8);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield1 >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(127 << 1)) | ((value & 127) << 1);
+    }
+    pub fn NumberOfAGIDs(&self) -> u8 {
+        (self._bitfield2 << 4) >> 4
+    }
+    pub fn set_NumberOfAGIDs(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !15) | (value & 15);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield2 >> 4
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -104,6 +292,32 @@ pub struct FEATURE_DATA_CD_AUDIO_ANALOG_PLAY {
     pub Reserved2: u8,
     pub NumerOfVolumeLevels: [u8; 2],
 }
+impl FEATURE_DATA_CD_AUDIO_ANALOG_PLAY {
+    pub fn SeperateVolume(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SeperateVolume(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn SeperateChannelMute(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_SeperateChannelMute(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn ScanSupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ScanSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+}
 impl Default for FEATURE_DATA_CD_AUDIO_ANALOG_PLAY {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -116,6 +330,56 @@ pub struct FEATURE_DATA_CD_MASTERING {
     pub _bitfield: u8,
     pub MaximumCueSheetLength: [u8; 3],
 }
+impl FEATURE_DATA_CD_MASTERING {
+    pub fn RWSubchannelsRecordable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_RWSubchannelsRecordable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn CdRewritable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CdRewritable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn TestWriteOk(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_TestWriteOk(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn RawRecordingOk(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_RawRecordingOk(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn RawMultiSessionOk(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_RawMultiSessionOk(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn SessionAtOnceOk(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_SessionAtOnceOk(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn BufferUnderrunFree(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_BufferUnderrunFree(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Reserved1(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 impl Default for FEATURE_DATA_CD_MASTERING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -127,6 +391,32 @@ pub struct FEATURE_DATA_CD_READ {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
+}
+impl FEATURE_DATA_CD_READ {
+    pub fn CDText(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CDText(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn C2ErrorData(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_C2ErrorData(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved01(&self) -> u8 {
+        (self._bitfield << 1) >> 3
+    }
+    pub fn set_Reserved01(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 2)) | ((value & 31) << 2);
+    }
+    pub fn DigitalAudioPlay(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_DigitalAudioPlay(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 impl Default for FEATURE_DATA_CD_READ {
     fn default() -> Self {
@@ -141,6 +431,56 @@ pub struct FEATURE_DATA_CD_TRACK_AT_ONCE {
     pub Reserved2: u8,
     pub DataTypeSupported: [u8; 2],
 }
+impl FEATURE_DATA_CD_TRACK_AT_ONCE {
+    pub fn RWSubchannelsRecordable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_RWSubchannelsRecordable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn CdRewritable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CdRewritable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn TestWriteOk(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_TestWriteOk(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn RWSubchannelPackedOk(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_RWSubchannelPackedOk(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn RWSubchannelRawOk(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_RWSubchannelRawOk(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Reserved1(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn BufferUnderrunFree(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_BufferUnderrunFree(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Reserved3(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Reserved3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 impl Default for FEATURE_DATA_CD_TRACK_AT_ONCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -153,6 +493,26 @@ pub struct FEATURE_DATA_CORE {
     pub PhysicalInterface: [u8; 4],
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
+}
+impl FEATURE_DATA_CORE {
+    pub fn DeviceBusyEvent(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DeviceBusyEvent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn INQUIRY2(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_INQUIRY2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
 }
 impl Default for FEATURE_DATA_CORE {
     fn default() -> Self {
@@ -171,6 +531,26 @@ pub struct FEATURE_DATA_DDCD_RW_WRITE {
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
 }
+impl FEATURE_DATA_DDCD_RW_WRITE {
+    pub fn Blank(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Blank(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Intermediate(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Intermediate(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 impl Default for FEATURE_DATA_DDCD_RW_WRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -183,6 +563,26 @@ pub struct FEATURE_DATA_DDCD_R_WRITE {
     pub _bitfield: u8,
     pub Reserved3: [u8; 3],
 }
+impl FEATURE_DATA_DDCD_R_WRITE {
+    pub fn Reserved1(&self) -> u8 {
+        (self._bitfield << 6) >> 6
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn TestWrite(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_TestWrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved2(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved2(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+}
 impl Default for FEATURE_DATA_DDCD_R_WRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -194,6 +594,20 @@ pub struct FEATURE_DATA_DEFECT_MANAGEMENT {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
+}
+impl FEATURE_DATA_DEFECT_MANAGEMENT {
+    pub fn Reserved1(&self) -> u8 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !127) | (value & 127);
+    }
+    pub fn SupplimentalSpareArea(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_SupplimentalSpareArea(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 impl Default for FEATURE_DATA_DEFECT_MANAGEMENT {
     fn default() -> Self {
@@ -252,6 +666,20 @@ pub struct FEATURE_DATA_DVD_PLUS_R {
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
 }
+impl FEATURE_DATA_DVD_PLUS_R {
+    pub fn Write(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Write(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 impl Default for FEATURE_DATA_DVD_PLUS_R {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -264,6 +692,38 @@ pub struct FEATURE_DATA_DVD_PLUS_RW {
     pub _bitfield1: u8,
     pub _bitfield2: u8,
     pub Reserved03: [u8; 2],
+}
+impl FEATURE_DATA_DVD_PLUS_RW {
+    pub fn Write(&self) -> bool {
+        self._bitfield1 & 1 != 0
+    }
+    pub fn set_Write(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield1 >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(127 << 1)) | ((value & 127) << 1);
+    }
+    pub fn CloseOnly(&self) -> bool {
+        self._bitfield2 & 1 != 0
+    }
+    pub fn set_CloseOnly(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !1) | (value as u8);
+    }
+    pub fn QuickStart(&self) -> bool {
+        (self._bitfield2 >> 1) & 1 != 0
+    }
+    pub fn set_QuickStart(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved02(&self) -> u8 {
+        self._bitfield2 >> 2
+    }
+    pub fn set_Reserved02(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(63 << 2)) | ((value & 63) << 2);
+    }
 }
 impl Default for FEATURE_DATA_DVD_PLUS_RW {
     fn default() -> Self {
@@ -278,6 +738,38 @@ pub struct FEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER {
     pub _bitfield2: u8,
     pub Reserved3: [u8; 2],
 }
+impl FEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER {
+    pub fn Write(&self) -> bool {
+        self._bitfield1 & 1 != 0
+    }
+    pub fn set_Write(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield1 >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(127 << 1)) | ((value & 127) << 1);
+    }
+    pub fn CloseOnly(&self) -> bool {
+        self._bitfield2 & 1 != 0
+    }
+    pub fn set_CloseOnly(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !1) | (value as u8);
+    }
+    pub fn QuickStart(&self) -> bool {
+        (self._bitfield2 >> 1) & 1 != 0
+    }
+    pub fn set_QuickStart(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved2(&self) -> u8 {
+        self._bitfield2 >> 2
+    }
+    pub fn set_Reserved2(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 impl Default for FEATURE_DATA_DVD_PLUS_RW_DUAL_LAYER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -289,6 +781,20 @@ pub struct FEATURE_DATA_DVD_PLUS_R_DUAL_LAYER {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
+}
+impl FEATURE_DATA_DVD_PLUS_R_DUAL_LAYER {
+    pub fn Write(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Write(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 impl Default for FEATURE_DATA_DVD_PLUS_R_DUAL_LAYER {
     fn default() -> Self {
@@ -304,12 +810,82 @@ pub struct FEATURE_DATA_DVD_READ {
     pub _bitfield2: u8,
     pub Reserved4: u8,
 }
+impl FEATURE_DATA_DVD_READ {
+    pub fn Multi110(&self) -> bool {
+        self._bitfield1 & 1 != 0
+    }
+    pub fn set_Multi110(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield1 >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(127 << 1)) | ((value & 127) << 1);
+    }
+    pub fn DualDashR(&self) -> bool {
+        self._bitfield2 & 1 != 0
+    }
+    pub fn set_DualDashR(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !1) | (value as u8);
+    }
+    pub fn Reserved3(&self) -> u8 {
+        self._bitfield2 >> 1
+    }
+    pub fn set_Reserved3(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_DVD_RECORDABLE_WRITE {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
     pub Reserved4: [u8; 3],
+}
+impl FEATURE_DATA_DVD_RECORDABLE_WRITE {
+    pub fn Reserved1(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn DVD_RW(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DVD_RW(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn TestWrite(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_TestWrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn RDualLayer(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_RDualLayer(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Reserved02(&self) -> u8 {
+        (self._bitfield << 2) >> 6
+    }
+    pub fn set_Reserved02(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn BufferUnderrunFree(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_BufferUnderrunFree(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Reserved3(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Reserved3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 impl Default for FEATURE_DATA_DVD_RECORDABLE_WRITE {
     fn default() -> Self {
@@ -323,6 +899,38 @@ pub struct FEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE {
     pub _bitfield: u8,
     pub Reserved1: [u8; 3],
 }
+impl FEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE {
+    pub fn Blank(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Blank(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Intermediate(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Intermediate(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn DefectStatusDataRead(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_DefectStatusDataRead(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn DefectStatusDataGenerate(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_DefectStatusDataGenerate(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 impl Default for FEATURE_DATA_DVD_RW_RESTRICTED_OVERWRITE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -335,6 +943,50 @@ pub struct FEATURE_DATA_EMBEDDED_CHANGER {
     pub _bitfield1: u8,
     pub Reserved4: [u8; 2],
     pub _bitfield2: u8,
+}
+impl FEATURE_DATA_EMBEDDED_CHANGER {
+    pub fn Reserved1(&self) -> u8 {
+        (self._bitfield1 << 6) >> 6
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !3) | (value & 3);
+    }
+    pub fn SupportsDiscPresent(&self) -> bool {
+        (self._bitfield1 >> 2) & 1 != 0
+    }
+    pub fn set_SupportsDiscPresent(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved2(&self) -> bool {
+        (self._bitfield1 >> 3) & 1 != 0
+    }
+    pub fn set_Reserved2(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn SideChangeCapable(&self) -> bool {
+        (self._bitfield1 >> 4) & 1 != 0
+    }
+    pub fn set_SideChangeCapable(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Reserved3(&self) -> u8 {
+        self._bitfield1 >> 5
+    }
+    pub fn set_Reserved3(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn HighestSlotNumber(&self) -> u8 {
+        (self._bitfield2 << 3) >> 3
+    }
+    pub fn set_HighestSlotNumber(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !31) | (value & 31);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield2 >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(7 << 5)) | ((value & 7) << 5);
+    }
 }
 impl Default for FEATURE_DATA_EMBEDDED_CHANGER {
     fn default() -> Self {
@@ -367,6 +1019,50 @@ pub struct FEATURE_DATA_FORMATTABLE {
     pub _bitfield2: u8,
     pub Reserved4: [u8; 3],
 }
+impl FEATURE_DATA_FORMATTABLE {
+    pub fn FullCertification(&self) -> bool {
+        self._bitfield1 & 1 != 0
+    }
+    pub fn set_FullCertification(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !1) | (value as u8);
+    }
+    pub fn QuickCertification(&self) -> bool {
+        (self._bitfield1 >> 1) & 1 != 0
+    }
+    pub fn set_QuickCertification(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn SpareAreaExpansion(&self) -> bool {
+        (self._bitfield1 >> 2) & 1 != 0
+    }
+    pub fn set_SpareAreaExpansion(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn RENoSpareAllocated(&self) -> bool {
+        (self._bitfield1 >> 3) & 1 != 0
+    }
+    pub fn set_RENoSpareAllocated(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield1 >> 4
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn RRandomWritable(&self) -> bool {
+        self._bitfield2 & 1 != 0
+    }
+    pub fn set_RRandomWritable(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !1) | (value as u8);
+    }
+    pub fn Reserved3(&self) -> u8 {
+        self._bitfield2 >> 1
+    }
+    pub fn set_Reserved3(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 impl Default for FEATURE_DATA_FORMATTABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -381,6 +1077,32 @@ pub struct FEATURE_DATA_HDDVD_READ {
     pub _bitfield2: u8,
     pub Reserved3: u8,
 }
+impl FEATURE_DATA_HDDVD_READ {
+    pub fn Recordable(&self) -> bool {
+        self._bitfield1 & 1 != 0
+    }
+    pub fn set_Recordable(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !1) | (value as u8);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield1 >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(127 << 1)) | ((value & 127) << 1);
+    }
+    pub fn Rewritable(&self) -> bool {
+        self._bitfield2 & 1 != 0
+    }
+    pub fn set_Rewritable(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !1) | (value as u8);
+    }
+    pub fn Reserved2(&self) -> u8 {
+        self._bitfield2 >> 1
+    }
+    pub fn set_Reserved2(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FEATURE_DATA_HDDVD_WRITE {
@@ -390,6 +1112,32 @@ pub struct FEATURE_DATA_HDDVD_WRITE {
     pub _bitfield2: u8,
     pub Reserved3: u8,
 }
+impl FEATURE_DATA_HDDVD_WRITE {
+    pub fn Recordable(&self) -> bool {
+        self._bitfield1 & 1 != 0
+    }
+    pub fn set_Recordable(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !1) | (value as u8);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield1 >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(127 << 1)) | ((value & 127) << 1);
+    }
+    pub fn Rewritable(&self) -> bool {
+        self._bitfield2 & 1 != 0
+    }
+    pub fn set_Rewritable(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !1) | (value as u8);
+    }
+    pub fn Reserved2(&self) -> u8 {
+        self._bitfield2 >> 1
+    }
+    pub fn set_Reserved2(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
 pub struct FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE {
@@ -398,6 +1146,32 @@ pub struct FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE {
     pub _bitfield: u8,
     pub NumberOfLinkSizes: u8,
     pub LinkSize: [u8; 0],
+}
+impl FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE {
+    pub fn BufferUnderrunFree(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_BufferUnderrunFree(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn AddressModeReservation(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AddressModeReservation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn TrackRessourceInformation(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_TrackRessourceInformation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved01(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved01(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
 }
 impl Default for FEATURE_DATA_INCREMENTAL_STREAMING_WRITABLE {
     fn default() -> Self {
@@ -435,6 +1209,20 @@ pub struct FEATURE_DATA_MICROCODE_UPDATE {
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
 }
+impl FEATURE_DATA_MICROCODE_UPDATE {
+    pub fn M5(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_M5(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 impl Default for FEATURE_DATA_MICROCODE_UPDATE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -447,6 +1235,26 @@ pub struct FEATURE_DATA_MORPHING {
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
 }
+impl FEATURE_DATA_MORPHING {
+    pub fn Asynchronous(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Asynchronous(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn OCEvent(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_OCEvent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved01(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved01(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 impl Default for FEATURE_DATA_MORPHING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -458,6 +1266,32 @@ pub struct FEATURE_DATA_MRW {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
+}
+impl FEATURE_DATA_MRW {
+    pub fn Write(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Write(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn DvdPlusRead(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DvdPlusRead(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn DvdPlusWrite(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_DvdPlusWrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved01(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved01(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
 }
 impl Default for FEATURE_DATA_MRW {
     fn default() -> Self {
@@ -492,6 +1326,20 @@ pub struct FEATURE_DATA_PROFILE_LIST_EX {
     pub _bitfield: u8,
     pub Reserved2: u8,
 }
+impl FEATURE_DATA_PROFILE_LIST_EX {
+    pub fn Current(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Current(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 impl Default for FEATURE_DATA_PROFILE_LIST_EX {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -505,6 +1353,20 @@ pub struct FEATURE_DATA_RANDOM_READABLE {
     pub Blocking: [u8; 2],
     pub _bitfield: u8,
     pub Reserved2: u8,
+}
+impl FEATURE_DATA_RANDOM_READABLE {
+    pub fn ErrorRecoveryPagePresent(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ErrorRecoveryPagePresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 impl Default for FEATURE_DATA_RANDOM_READABLE {
     fn default() -> Self {
@@ -521,6 +1383,20 @@ pub struct FEATURE_DATA_RANDOM_WRITABLE {
     pub _bitfield: u8,
     pub Reserved2: u8,
 }
+impl FEATURE_DATA_RANDOM_WRITABLE {
+    pub fn ErrorRecoveryPagePresent(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ErrorRecoveryPagePresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 impl Default for FEATURE_DATA_RANDOM_WRITABLE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -533,6 +1409,44 @@ pub struct FEATURE_DATA_REAL_TIME_STREAMING {
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
 }
+impl FEATURE_DATA_REAL_TIME_STREAMING {
+    pub fn StreamRecording(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_StreamRecording(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn WriteSpeedInGetPerf(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_WriteSpeedInGetPerf(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn WriteSpeedInMP2A(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_WriteSpeedInMP2A(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn SetCDSpeed(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_SetCDSpeed(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn ReadBufferCapacityBlock(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_ReadBufferCapacityBlock(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+}
 impl Default for FEATURE_DATA_REAL_TIME_STREAMING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -544,6 +1458,44 @@ pub struct FEATURE_DATA_REMOVABLE_MEDIUM {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
     pub Reserved3: [u8; 3],
+}
+impl FEATURE_DATA_REMOVABLE_MEDIUM {
+    pub fn Lockable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Lockable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn DBML(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DBML(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn DefaultToPrevent(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_DefaultToPrevent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Eject(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Eject(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Load(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Load(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn LoadingMechanism(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_LoadingMechanism(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
 }
 impl Default for FEATURE_DATA_REMOVABLE_MEDIUM {
     fn default() -> Self {
@@ -578,6 +1530,20 @@ pub struct FEATURE_DATA_SMART {
     pub _bitfield: u8,
     pub Reserved02: [u8; 3],
 }
+impl FEATURE_DATA_SMART {
+    pub fn FaultFailureReportingPagePresent(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_FaultFailureReportingPagePresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 impl Default for FEATURE_DATA_SMART {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -590,6 +1556,20 @@ pub struct FEATURE_DATA_TIMEOUT {
     pub _bitfield: u8,
     pub Reserved2: u8,
     pub UnitLength: [u8; 2],
+}
+impl FEATURE_DATA_TIMEOUT {
+    pub fn Group3(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Group3(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 impl Default for FEATURE_DATA_TIMEOUT {
     fn default() -> Self {
@@ -616,6 +1596,20 @@ pub struct FEATURE_DATA_WRITE_ONCE {
     pub _bitfield: u8,
     pub Reserved2: u8,
 }
+impl FEATURE_DATA_WRITE_ONCE {
+    pub fn ErrorRecoveryPagePresent(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ErrorRecoveryPagePresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 impl Default for FEATURE_DATA_WRITE_ONCE {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -627,6 +1621,38 @@ pub struct FEATURE_DATA_WRITE_PROTECT {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
+}
+impl FEATURE_DATA_WRITE_PROTECT {
+    pub fn SupportsSWPPBit(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SupportsSWPPBit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn SupportsPersistentWriteProtect(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_SupportsPersistentWriteProtect(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn WriteInhibitDCB(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_WriteInhibitDCB(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn DiscWriteProtectPAC(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_DiscWriteProtectPAC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn Reserved01(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved01(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 impl Default for FEATURE_DATA_WRITE_PROTECT {
     fn default() -> Self {
@@ -641,6 +1667,20 @@ pub struct FEATURE_ENHANCED_DEFECT_REPORTING {
     pub NumberOfDBICacheZones: u8,
     pub NumberOfEntries: [u8; 2],
 }
+impl FEATURE_ENHANCED_DEFECT_REPORTING {
+    pub fn DRTDMSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DRTDMSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 impl Default for FEATURE_ENHANCED_DEFECT_REPORTING {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -653,6 +1693,32 @@ pub struct FEATURE_HEADER {
     pub _bitfield: u8,
     pub AdditionalLength: u8,
 }
+impl FEATURE_HEADER {
+    pub fn Current(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Current(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Persistent(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Persistent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Version(&self) -> u8 {
+        (self._bitfield << 2) >> 4
+    }
+    pub fn set_Version(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 2)) | ((value & 15) << 2);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+}
 impl Default for FEATURE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -664,6 +1730,20 @@ pub struct FEATURE_HYBRID_DISC {
     pub Header: FEATURE_HEADER,
     pub _bitfield: u8,
     pub Reserved2: [u8; 3],
+}
+impl FEATURE_HYBRID_DISC {
+    pub fn ResetImmunity(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ResetImmunity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 impl Default for FEATURE_HYBRID_DISC {
     fn default() -> Self {

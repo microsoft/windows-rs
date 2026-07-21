@@ -4904,6 +4904,32 @@ pub struct D3D12_RAYTRACING_INSTANCE_DESC {
     pub _bitfield2: u32,
     pub AccelerationStructure: D3D12_GPU_VIRTUAL_ADDRESS,
 }
+impl D3D12_RAYTRACING_INSTANCE_DESC {
+    pub fn InstanceID(&self) -> u32 {
+        (self._bitfield1 << 8) >> 8
+    }
+    pub fn set_InstanceID(&mut self, value: u32) {
+        self._bitfield1 = (self._bitfield1 & !16777215) | (value & 16777215);
+    }
+    pub fn InstanceMask(&self) -> u32 {
+        self._bitfield1 >> 24
+    }
+    pub fn set_InstanceMask(&mut self, value: u32) {
+        self._bitfield1 = (self._bitfield1 & !(255 << 24)) | ((value & 255) << 24);
+    }
+    pub fn InstanceContributionToHitGroupIndex(&self) -> u32 {
+        (self._bitfield2 << 8) >> 8
+    }
+    pub fn set_InstanceContributionToHitGroupIndex(&mut self, value: u32) {
+        self._bitfield2 = (self._bitfield2 & !16777215) | (value & 16777215);
+    }
+    pub fn Flags(&self) -> u32 {
+        self._bitfield2 >> 24
+    }
+    pub fn set_Flags(&mut self, value: u32) {
+        self._bitfield2 = (self._bitfield2 & !(255 << 24)) | ((value & 255) << 24);
+    }
+}
 impl Default for D3D12_RAYTRACING_INSTANCE_DESC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -4963,6 +4989,20 @@ pub type D3D12_RAYTRACING_OPACITY_MICROMAP_ARRAY_POSTBUILD_INFO_TYPE = i32;
 pub struct D3D12_RAYTRACING_OPACITY_MICROMAP_DESC {
     pub ByteOffset: u32,
     pub _bitfield: u32,
+}
+impl D3D12_RAYTRACING_OPACITY_MICROMAP_DESC {
+    pub fn SubdivisionLevel(&self) -> u32 {
+        (self._bitfield << 16) >> 16
+    }
+    pub fn set_SubdivisionLevel(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !65535) | (value & 65535);
+    }
+    pub fn Format(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Format(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 pub type D3D12_RAYTRACING_OPACITY_MICROMAP_FORMAT = i32;
 pub const D3D12_RAYTRACING_OPACITY_MICROMAP_FORMAT_OC1_2_STATE: D3D12_RAYTRACING_OPACITY_MICROMAP_FORMAT = 1;

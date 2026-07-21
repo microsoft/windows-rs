@@ -23,6 +23,32 @@ impl Default for BM_REQUEST_TYPE {
 pub struct BM_REQUEST_TYPE_0 {
     pub _bitfield: u8,
 }
+impl BM_REQUEST_TYPE_0 {
+    pub fn Recipient(&self) -> u8 {
+        (self._bitfield << 6) >> 6
+    }
+    pub fn set_Recipient(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn Reserved(&self) -> u8 {
+        (self._bitfield << 3) >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 2)) | ((value & 7) << 2);
+    }
+    pub fn Type(&self) -> u8 {
+        (self._bitfield << 1) >> 6
+    }
+    pub fn set_Type(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 5)) | ((value & 3) << 5);
+    }
+    pub fn Dir(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Dir(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct EUSB2_ISOCH_ENDPOINT_COMPANION_DESCRIPTOR {
@@ -112,6 +138,44 @@ impl Default for USB_20_PORT_CHANGE {
 pub struct USB_20_PORT_CHANGE_0 {
     pub _bitfield: u16,
 }
+impl USB_20_PORT_CHANGE_0 {
+    pub fn ConnectStatusChange(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ConnectStatusChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn PortEnableDisableChange(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_PortEnableDisableChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn SuspendChange(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_SuspendChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn OverCurrentIndicatorChange(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_OverCurrentIndicatorChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn ResetChange(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_ResetChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn Reserved2(&self) -> u16 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved2(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(2047 << 5)) | ((value & 2047) << 5);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_20_PORT_STATUS {
@@ -127,6 +191,86 @@ impl Default for USB_20_PORT_STATUS {
 #[derive(Clone, Copy, Default)]
 pub struct USB_20_PORT_STATUS_0 {
     pub _bitfield: u16,
+}
+impl USB_20_PORT_STATUS_0 {
+    pub fn CurrentConnectStatus(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CurrentConnectStatus(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn PortEnabledDisabled(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_PortEnabledDisabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Suspend(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Suspend(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn OverCurrent(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_OverCurrent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn Reset(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Reset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn L1(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_L1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn Reserved0(&self) -> u16 {
+        (self._bitfield << 8) >> 14
+    }
+    pub fn set_Reserved0(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(3 << 6)) | ((value & 3) << 6);
+    }
+    pub fn PortPower(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_PortPower(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u16) << 8);
+    }
+    pub fn LowSpeedDeviceAttached(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_LowSpeedDeviceAttached(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u16) << 9);
+    }
+    pub fn HighSpeedDeviceAttached(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_HighSpeedDeviceAttached(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u16) << 10);
+    }
+    pub fn PortTestMode(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_PortTestMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u16) << 11);
+    }
+    pub fn PortIndicatorControl(&self) -> bool {
+        (self._bitfield >> 12) & 1 != 0
+    }
+    pub fn set_PortIndicatorControl(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 12)) | ((value as u16) << 12);
+    }
+    pub fn Reserved1(&self) -> u16 {
+        self._bitfield >> 13
+    }
+    pub fn set_Reserved1(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
+    }
 }
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_RESERVED_MASK: u32 = 204;
 pub const USB_30_ENDPOINT_TYPE_INTERRUPT_USAGE_MASK: u32 = 48;
@@ -164,6 +308,56 @@ impl Default for USB_30_PORT_CHANGE {
 pub struct USB_30_PORT_CHANGE_0 {
     pub _bitfield: u16,
 }
+impl USB_30_PORT_CHANGE_0 {
+    pub fn ConnectStatusChange(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ConnectStatusChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Reserved2(&self) -> u16 {
+        (self._bitfield << 13) >> 14
+    }
+    pub fn set_Reserved2(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(3 << 1)) | ((value & 3) << 1);
+    }
+    pub fn OverCurrentIndicatorChange(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_OverCurrentIndicatorChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn ResetChange(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_ResetChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn BHResetChange(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_BHResetChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u16) << 5);
+    }
+    pub fn PortLinkStateChange(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_PortLinkStateChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u16) << 6);
+    }
+    pub fn PortConfigErrorChange(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_PortConfigErrorChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u16) << 7);
+    }
+    pub fn Reserved3(&self) -> u16 {
+        self._bitfield >> 8
+    }
+    pub fn set_Reserved3(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(255 << 8)) | ((value & 255) << 8);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_30_PORT_STATUS {
@@ -179,6 +373,62 @@ impl Default for USB_30_PORT_STATUS {
 #[derive(Clone, Copy, Default)]
 pub struct USB_30_PORT_STATUS_0 {
     pub _bitfield: u16,
+}
+impl USB_30_PORT_STATUS_0 {
+    pub fn CurrentConnectStatus(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_CurrentConnectStatus(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn PortEnabledDisabled(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_PortEnabledDisabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Reserved0(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Reserved0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn OverCurrent(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_OverCurrent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn Reset(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Reset(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn PortLinkState(&self) -> u16 {
+        (self._bitfield << 7) >> 12
+    }
+    pub fn set_PortLinkState(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 5)) | ((value & 15) << 5);
+    }
+    pub fn PortPower(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_PortPower(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u16) << 9);
+    }
+    pub fn NegotiatedDeviceSpeed(&self) -> u16 {
+        (self._bitfield << 3) >> 13
+    }
+    pub fn set_NegotiatedDeviceSpeed(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 10)) | ((value & 7) << 10);
+    }
+    pub fn Reserved1(&self) -> u16 {
+        self._bitfield >> 13
+    }
+    pub fn set_Reserved1(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
+    }
 }
 pub const USB_ALLOW_FIRMWARE_UPDATE: u32 = 1;
 #[repr(C, packed(1))]
@@ -327,6 +577,26 @@ impl Default for USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0 {
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0 {
     pub _bitfield: u16,
 }
+impl USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_0_0 {
+    pub fn VConnPowerNeededForFullFunctionality(&self) -> u16 {
+        (self._bitfield << 13) >> 13
+    }
+    pub fn set_VConnPowerNeededForFullFunctionality(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield << 1) >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(4095 << 3)) | ((value & 4095) << 3);
+    }
+    pub fn NoVconnPowerRequired(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_NoVconnPowerRequired(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_BILLBOARD_DESCRIPTOR_1 {
@@ -388,6 +658,26 @@ impl Default for USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0 {
 pub struct USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
+impl USB_DEVICE_CAPABILITY_FIRMWARE_STATUS_DESCRIPTOR_0_0 {
+    pub fn GetFirmwareImageHashSupport(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_GetFirmwareImageHashSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn DisallowFirmwareUpdateSupport(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DisallowFirmwareUpdateSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
 pub const USB_DEVICE_CAPABILITY_MAX_U1_LATENCY: u32 = 10;
 pub const USB_DEVICE_CAPABILITY_MAX_U2_LATENCY: u32 = 2047;
 pub const USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT: u32 = 8;
@@ -426,6 +716,32 @@ impl Default for USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0 {
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
     pub _bitfield: u16,
+}
+impl USB_DEVICE_CAPABILITY_PD_CONSUMER_PORT_DESCRIPTOR_0_0 {
+    pub fn BatteryCharging(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_BatteryCharging(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn USBPowerDelivery(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_USBPowerDelivery(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn USBTypeCCurrent(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_USBTypeCCurrent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(8191 << 3)) | ((value & 8191) << 3);
+    }
 }
 pub const USB_DEVICE_CAPABILITY_PD_PROVIDER_PORT: u32 = 9;
 pub const USB_DEVICE_CAPABILITY_PLATFORM: u32 = 5;
@@ -480,6 +796,92 @@ impl Default for USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0 {
 pub struct USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
+impl USB_DEVICE_CAPABILITY_POWER_DELIVERY_DESCRIPTOR_0_0 {
+    pub fn Reserved1(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn BatteryCharging(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_BatteryCharging(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn USBPowerDelivery(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_USBPowerDelivery(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Provider(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Provider(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Consumer(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Consumer(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn ChargingPolicy(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_ChargingPolicy(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn TypeCCurrent(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_TypeCCurrent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn Reserved2(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Reserved2(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn ACSupply(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_ACSupply(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn Battery(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_Battery(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn Other(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_Other(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn NumBatteries(&self) -> u32 {
+        (self._bitfield << 18) >> 29
+    }
+    pub fn set_NumBatteries(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 11)) | ((value & 7) << 11);
+    }
+    pub fn UsesVbus(&self) -> bool {
+        (self._bitfield >> 14) & 1 != 0
+    }
+    pub fn set_UsesVbus(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 14)) | ((value as u32) << 14);
+    }
+    pub fn Reserved3(&self) -> u32 {
+        self._bitfield >> 15
+    }
+    pub fn set_Reserved3(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(131071 << 15)) | ((value & 131071) << 15);
+    }
+}
 pub const USB_DEVICE_CAPABILITY_PRECISION_TIME_MEASUREMENT: u32 = 11;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -496,6 +898,50 @@ impl Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED {
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
     pub _bitfield: u32,
+}
+impl USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_0 {
+    pub fn SublinkSpeedAttrID(&self) -> u32 {
+        (self._bitfield << 28) >> 28
+    }
+    pub fn set_SublinkSpeedAttrID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn LaneSpeedExponent(&self) -> u32 {
+        (self._bitfield << 26) >> 30
+    }
+    pub fn set_LaneSpeedExponent(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 4)) | ((value & 3) << 4);
+    }
+    pub fn SublinkTypeMode(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_SublinkTypeMode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn SublinkTypeDir(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_SublinkTypeDir(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 18) >> 26
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(63 << 8)) | ((value & 63) << 8);
+    }
+    pub fn LinkProtocol(&self) -> u32 {
+        (self._bitfield << 16) >> 30
+    }
+    pub fn set_LinkProtocol(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 14)) | ((value & 3) << 14);
+    }
+    pub fn LaneSpeedMantissa(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_LaneSpeedMantissa(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_RX: u32 = 0;
 pub const USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_SPEED_DIR_TX: u32 = 1;
@@ -541,6 +987,26 @@ impl Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0 {
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
 }
+impl USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_0_0 {
+    pub fn SublinkSpeedAttrCount(&self) -> u32 {
+        (self._bitfield << 27) >> 27
+    }
+    pub fn set_SublinkSpeedAttrCount(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn SublinkSpeedIDCount(&self) -> u32 {
+        (self._bitfield << 23) >> 28
+    }
+    pub fn set_SublinkSpeedIDCount(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 5)) | ((value & 15) << 5);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 9
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(8388607 << 9)) | ((value & 8388607) << 9);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
@@ -556,6 +1022,32 @@ impl Default for USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1 {
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
     pub _bitfield: u16,
+}
+impl USB_DEVICE_CAPABILITY_SUPERSPEEDPLUS_USB_DESCRIPTOR_1_0 {
+    pub fn SublinkSpeedAttrID(&self) -> u16 {
+        (self._bitfield << 12) >> 12
+    }
+    pub fn set_SublinkSpeedAttrID(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield << 8) >> 12
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn MinRxLaneCount(&self) -> u16 {
+        (self._bitfield << 4) >> 12
+    }
+    pub fn set_MinRxLaneCount(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
+    }
+    pub fn MinTxLaneCount(&self) -> u16 {
+        self._bitfield >> 12
+    }
+    pub fn set_MinTxLaneCount(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
 }
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_LTM_CAPABLE: u32 = 2;
 pub const USB_DEVICE_CAPABILITY_SUPERSPEED_BMATTRIBUTES_RESERVED_MASK: u32 = 253;
@@ -609,6 +1101,62 @@ impl Default for USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0 {
 #[derive(Clone, Copy, Default)]
 pub struct USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
     pub _bitfield: u32,
+}
+impl USB_DEVICE_CAPABILITY_USB20_EXTENSION_DESCRIPTOR_0_0 {
+    pub fn Reserved(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Reserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn LPMCapable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_LPMCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn BESLAndAlternateHIRDSupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_BESLAndAlternateHIRDSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn BaselineBESLValid(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_BaselineBESLValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn DeepBESLValid(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_DeepBESLValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn Reserved1(&self) -> u32 {
+        (self._bitfield << 24) >> 29
+    }
+    pub fn set_Reserved1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn BaselineBESL(&self) -> u32 {
+        (self._bitfield << 20) >> 28
+    }
+    pub fn set_BaselineBESL(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
+    }
+    pub fn DeepBESL(&self) -> u32 {
+        (self._bitfield << 16) >> 28
+    }
+    pub fn set_DeepBESL(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
+    pub fn Reserved2(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved2(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 pub const USB_DEVICE_CAPABILITY_WIRELESS_USB: u32 = 1;
 pub const USB_DEVICE_CLASS_APPLICATION_SPECIFIC: u32 = 254;
@@ -685,6 +1233,44 @@ impl Default for USB_DEVICE_STATUS {
 pub struct USB_DEVICE_STATUS_0 {
     pub _bitfield: u16,
 }
+impl USB_DEVICE_STATUS_0 {
+    pub fn SelfPowered(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SelfPowered(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn RemoteWakeup(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_RemoteWakeup(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn U1Enable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_U1Enable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u16) << 2);
+    }
+    pub fn U2Enable(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_U2Enable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u16) << 3);
+    }
+    pub fn LtmEnable(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_LtmEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u16) << 4);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(2047 << 5)) | ((value & 2047) << 5);
+    }
+}
 pub type USB_DEVICE_TYPE = i32;
 pub const USB_DISALLOW_FIRMWARE_UPDATE: u32 = 0;
 pub const USB_ENDPOINT_ADDRESS_MASK: u32 = 15;
@@ -715,6 +1301,20 @@ impl Default for USB_ENDPOINT_STATUS {
 #[derive(Clone, Copy, Default)]
 pub struct USB_ENDPOINT_STATUS_0 {
     pub _bitfield: u16,
+}
+impl USB_ENDPOINT_STATUS_0 {
+    pub fn Halt(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Halt(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(32767 << 1)) | ((value & 32767) << 1);
+    }
 }
 pub const USB_ENDPOINT_SUPERSPEED_BULK_MAX_PACKET_SIZE: u32 = 1024;
 pub const USB_ENDPOINT_SUPERSPEED_CONTROL_MAX_PACKET_SIZE: u32 = 512;
@@ -770,6 +1370,26 @@ impl Default for USB_FUNCTION_SUSPEND_OPTIONS {
 pub struct USB_FUNCTION_SUSPEND_OPTIONS_0 {
     pub _bitfield: u8,
 }
+impl USB_FUNCTION_SUSPEND_OPTIONS_0 {
+    pub fn PowerState(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PowerState(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn RemoteWakeEnabled(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_RemoteWakeEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 pub const USB_GETSTATUS_LTM_ENABLE: u32 = 16;
 pub const USB_GETSTATUS_REMOTE_WAKEUP_ENABLED: u32 = 2;
 pub const USB_GETSTATUS_SELF_POWERED: u32 = 1;
@@ -794,6 +1414,26 @@ impl Default for USB_HIGH_SPEED_MAXPACKET {
 pub struct USB_HIGH_SPEED_MAXPACKET_0 {
     pub _bitfield: u16,
 }
+impl USB_HIGH_SPEED_MAXPACKET_0 {
+    pub fn MaxPacket(&self) -> u16 {
+        (self._bitfield << 5) >> 5
+    }
+    pub fn set_MaxPacket(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !2047) | (value & 2047);
+    }
+    pub fn HSmux(&self) -> u16 {
+        (self._bitfield << 3) >> 14
+    }
+    pub fn set_HSmux(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(3 << 11)) | ((value & 3) << 11);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 13
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(7 << 13)) | ((value & 7) << 13);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union USB_HUB_30_PORT_REMOTE_WAKE_MASK {
@@ -810,6 +1450,32 @@ impl Default for USB_HUB_30_PORT_REMOTE_WAKE_MASK {
 pub struct USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     pub _bitfield: u8,
 }
+impl USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
+    pub fn ConnectRemoteWakeEnable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ConnectRemoteWakeEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn DisconnectRemoteWakeEnable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DisconnectRemoteWakeEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn OverCurrentRemoteWakeEnable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_OverCurrentRemoteWakeEnable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Reserved0(&self) -> u8 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved0(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 3)) | ((value & 31) << 3);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_HUB_CHANGE {
@@ -825,6 +1491,26 @@ impl Default for USB_HUB_CHANGE {
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_CHANGE_0 {
     pub _bitfield: u16,
+}
+impl USB_HUB_CHANGE_0 {
+    pub fn LocalPowerChange(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_LocalPowerChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn OverCurrentChange(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_OverCurrentChange(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -857,6 +1543,26 @@ impl Default for USB_HUB_STATUS {
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_STATUS_0 {
     pub _bitfield: u16,
+}
+impl USB_HUB_STATUS_0 {
+    pub fn LocalPowerLost(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_LocalPowerLost(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn OverCurrent(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_OverCurrent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -940,6 +1646,26 @@ impl Default for USB_INTERFACE_STATUS {
 pub struct USB_INTERFACE_STATUS_0 {
     pub _bitfield: u16,
 }
+impl USB_INTERFACE_STATUS_0 {
+    pub fn RemoteWakeupCapable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_RemoteWakeupCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u16);
+    }
+    pub fn RemoteWakeupEnabled(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_RemoteWakeupEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u16) << 1);
+    }
+    pub fn Reserved(&self) -> u16 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !(16383 << 2)) | ((value & 16383) << 2);
+    }
+}
 pub const USB_OTG_DESCRIPTOR_TYPE: u32 = 9;
 pub const USB_OTHER_SPEED_CONFIGURATION_DESCRIPTOR_TYPE: u32 = 7;
 #[repr(C, packed(1))]
@@ -969,6 +1695,38 @@ impl Default for USB_PORT_EXT_STATUS {
 #[derive(Clone, Copy, Default)]
 pub struct USB_PORT_EXT_STATUS_0 {
     pub _bitfield: u32,
+}
+impl USB_PORT_EXT_STATUS_0 {
+    pub fn RxSublinkSpeedID(&self) -> u32 {
+        (self._bitfield << 28) >> 28
+    }
+    pub fn set_RxSublinkSpeedID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn TxSublinkSpeedID(&self) -> u32 {
+        (self._bitfield << 24) >> 28
+    }
+    pub fn set_TxSublinkSpeedID(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn RxLaneCount(&self) -> u32 {
+        (self._bitfield << 20) >> 28
+    }
+    pub fn set_RxLaneCount(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
+    }
+    pub fn TxLaneCount(&self) -> u32 {
+        (self._bitfield << 16) >> 28
+    }
+    pub fn set_TxLaneCount(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1115,10 +1873,44 @@ impl Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0 {
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
+impl USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
+    pub fn MaxStreams(&self) -> u8 {
+        (self._bitfield << 3) >> 3
+    }
+    pub fn set_MaxStreams(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !31) | (value & 31);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
     pub _bitfield: u8,
+}
+impl USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
+    pub fn Mult(&self) -> u8 {
+        (self._bitfield << 6) >> 6
+    }
+    pub fn set_Mult(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn Reserved2(&self) -> u8 {
+        (self._bitfield << 1) >> 3
+    }
+    pub fn set_Reserved2(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(31 << 2)) | ((value & 31) << 2);
+    }
+    pub fn SspCompanion(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_SspCompanion(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 pub const USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_TYPE: u32 = 48;
 pub const USB_SUPERSPEED_ISOCHRONOUS_MAX_MULTIPLIER: u32 = 2;

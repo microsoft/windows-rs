@@ -3102,9 +3102,17 @@ mod Windows {
         const KS_CC_SUBSTREAM_SERVICE_T4: u32 = 2048;
         const KS_CC_SUBSTREAM_SERVICE_XDS: u32 = 4096;
         struct KS_COLCON {
+            #[bitfield("emph1col", 0, 4)]
+            #[bitfield("emph2col", 4, 4)]
             _bitfield1: u8,
+            #[bitfield("backcol", 0, 4)]
+            #[bitfield("patcol", 4, 4)]
             _bitfield2: u8,
+            #[bitfield("emph1con", 0, 4)]
+            #[bitfield("emph2con", 4, 4)]
             _bitfield3: u8,
+            #[bitfield("backcon", 0, 4)]
+            #[bitfield("patcon", 4, 4)]
             _bitfield4: u8,
         }
         const KS_COPYPROTECT_RestrictDuplication: u32 = 1;

@@ -2,7 +2,16 @@
 mod Windows {
     mod Win32 {
         struct D3DKMDT_DISPLAYMODE_FLAGS {
+            #[bitfield("ValidatedAgainstMonitorCaps", 0, 1)]
+            #[bitfield("RoundedFakeMode", 1, 1)]
             _bitfield1: u32,
+            #[bitfield("ModePruningReason", 0, 4)]
+            #[bitfield("Stereo", 4, 1)]
+            #[bitfield("AdvancedScanCapable", 5, 1)]
+            #[bitfield("PreferredTiming", 6, 1)]
+            #[bitfield("PhysicalModeSupported", 7, 1)]
+            #[bitfield("VirtualRefreshRate", 8, 1)]
+            #[bitfield("Reserved", 9, 23)]
             _bitfield2: D3DKMDT_MODE_PRUNING_REASON,
         }
         #[repr(i32)]
@@ -432,6 +441,23 @@ mod Windows {
         struct D3DKMT_ADAPTERTYPE {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("RenderSupported", 0, 1)]
+                    #[bitfield("DisplaySupported", 1, 1)]
+                    #[bitfield("SoftwareDevice", 2, 1)]
+                    #[bitfield("PostDevice", 3, 1)]
+                    #[bitfield("HybridDiscrete", 4, 1)]
+                    #[bitfield("HybridIntegrated", 5, 1)]
+                    #[bitfield("IndirectDisplayDevice", 6, 1)]
+                    #[bitfield("Paravirtualized", 7, 1)]
+                    #[bitfield("ACGSupported", 8, 1)]
+                    #[bitfield("SupportSetTimingsFromVidPn", 9, 1)]
+                    #[bitfield("Detachable", 10, 1)]
+                    #[bitfield("ComputeOnly", 11, 1)]
+                    #[bitfield("Prototype", 12, 1)]
+                    #[bitfield("RuntimePowerManagement", 13, 1)]
+                    #[bitfield("TestOnly", 14, 1)]
+                    #[bitfield("SingleAdapterHybridMode", 15, 1)]
+                    #[bitfield("Reserved", 16, 16)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -475,6 +501,33 @@ mod Windows {
         }
         union D3DKMT_ADAPTER_VERIFIER_VIDMM_FLAGS {
             Anonymous: struct {
+                #[bitfield("AlwaysRepatch", 0, 1)]
+                #[bitfield("FailSharedPrimary", 1, 1)]
+                #[bitfield("FailProbeAndLock", 2, 1)]
+                #[bitfield("AlwaysDiscardOffer", 3, 1)]
+                #[bitfield("NeverDiscardOffer", 4, 1)]
+                #[bitfield("ForceComplexLock", 5, 1)]
+                #[bitfield("NeverPrepatch", 6, 1)]
+                #[bitfield("ExpectPreparationFailure", 7, 1)]
+                #[bitfield("TakeSplitPoint", 8, 1)]
+                #[bitfield("FailAcquireSwizzlingRange", 9, 1)]
+                #[bitfield("PagingPathLockSubrange", 10, 1)]
+                #[bitfield("PagingPathLockMinrange", 11, 1)]
+                #[bitfield("FailVaRotation", 12, 1)]
+                #[bitfield("NoDemotion", 13, 1)]
+                #[bitfield("FailDefragPass", 14, 1)]
+                #[bitfield("AlwaysProcessOfferList", 15, 1)]
+                #[bitfield("AlwaysDecommitOffer", 16, 1)]
+                #[bitfield("NeverMoveDefrag", 17, 1)]
+                #[bitfield("AlwaysRelocateDisplayableResources", 18, 1)]
+                #[bitfield("AlwaysFailGrowVPRMoves", 19, 1)]
+                #[bitfield("NeverFlushTemporaryResources", 20, 1)]
+                #[bitfield("AllocateTemporaryResourcesInAperture", 21, 1)]
+                #[bitfield("AlwaysUseAperture", 22, 1)]
+                #[bitfield("DisableMigration", 23, 1)]
+                #[bitfield("ForceDiscardCpuHostApertureRange", 24, 1)]
+                #[bitfield("PeriodicTrimNeverIdle", 25, 1)]
+                #[bitfield("Reserved", 26, 6)]
                 _bitfield: u32,
             },
             Value: u32,
@@ -584,6 +637,8 @@ mod Windows {
         struct D3DKMT_CANCEL_PRESENTS_FLAGS {
             Anonymous: union {
                 ReprogramInterrupt: struct {
+                    #[bitfield("NewVSyncInterruptState", 0, 1)]
+                    #[bitfield("Reserved", 1, 31)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -673,6 +728,9 @@ mod Windows {
         struct D3DKMT_CHECK_MULTIPLANE_OVERLAY_SUPPORT_RETURN_INFO {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("FailingPlane", 0, 4)]
+                    #[bitfield("TryAgain", 4, 1)]
+                    #[bitfield("Reserved", 5, 27)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -734,6 +792,7 @@ mod Windows {
         struct D3DKMT_CONNECT_DOORBELL_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Reserved", 0, 32)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -762,6 +821,30 @@ mod Windows {
             hPrivateRuntimeResourceHandle: HANDLE,
         }
         struct D3DKMT_CREATEALLOCATIONFLAGS {
+            #[bitfield("CreateResource", 0, 1)]
+            #[bitfield("CreateShared", 1, 1)]
+            #[bitfield("NonSecure", 2, 1)]
+            #[bitfield("CreateProtected", 3, 1)]
+            #[bitfield("RestrictSharedAccess", 4, 1)]
+            #[bitfield("ExistingSysMem", 5, 1)]
+            #[bitfield("NtSecuritySharing", 6, 1)]
+            #[bitfield("ReadOnly", 7, 1)]
+            #[bitfield("CreateWriteCombined", 8, 1)]
+            #[bitfield("CreateCached", 9, 1)]
+            #[bitfield("SwapChainBackBuffer", 10, 1)]
+            #[bitfield("CrossAdapter", 11, 1)]
+            #[bitfield("OpenCrossAdapter", 12, 1)]
+            #[bitfield("PartialSharedCreation", 13, 1)]
+            #[bitfield("Zeroed", 14, 1)]
+            #[bitfield("WriteWatch", 15, 1)]
+            #[bitfield("StandardAllocation", 16, 1)]
+            #[bitfield("ExistingSection", 17, 1)]
+            #[bitfield("AllowNotZeroed", 18, 1)]
+            #[bitfield("PhysicallyContiguous", 19, 1)]
+            #[bitfield("NoKmdAccess", 20, 1)]
+            #[bitfield("SharedDisplayable", 21, 1)]
+            #[bitfield("NoImplicitSynchronization", 22, 1)]
+            #[bitfield("Reserved", 23, 9)]
             _bitfield: u32,
         }
         struct D3DKMT_CREATECONTEXT {
@@ -817,6 +900,11 @@ mod Windows {
             PatchLocationListSize: u32,
         }
         struct D3DKMT_CREATEDEVICEFLAGS {
+            #[bitfield("LegacyMode", 0, 1)]
+            #[bitfield("RequestVSync", 1, 1)]
+            #[bitfield("DisableGpuTimeout", 2, 1)]
+            #[bitfield("TestDevice", 3, 1)]
+            #[bitfield("Reserved", 4, 28)]
             _bitfield: u32,
         }
         struct D3DKMT_CREATEHWCONTEXT {
@@ -868,6 +956,8 @@ mod Windows {
         struct D3DKMT_CREATEKEYEDMUTEX2_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("NtSecuritySharing", 0, 1)]
+                    #[bitfield("Reserved", 1, 31)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -884,6 +974,7 @@ mod Windows {
         struct D3DKMT_CREATENATIVEFENCE_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Reserved", 0, 32)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -922,6 +1013,7 @@ mod Windows {
         struct D3DKMT_CREATESTANDARDALLOCATIONFLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Reserved", 0, 32)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -959,6 +1051,9 @@ mod Windows {
         struct D3DKMT_CREATE_DOORBELL_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("RequireSecondaryCpuVA", 0, 1)]
+                    #[bitfield("ResizeRingBufferOperation", 1, 1)]
+                    #[bitfield("Reserved", 2, 30)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -1086,6 +1181,8 @@ mod Windows {
         struct D3DKMT_DEVICERESET_STATE {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("DesktopSwitched", 0, 1)]
+                    #[bitfield("Reserved", 1, 31)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -1256,6 +1353,11 @@ mod Windows {
         }
         union D3DKMT_ENUMADAPTERS_FILTER {
             Anonymous: struct {
+                #[bitfield("IncludeComputeOnly", 0, 1)]
+                #[bitfield("IncludeDisplayOnly", 1, 1)]
+                #[bitfield("IncludeVirtualGpuOnly", 2, 1)]
+                #[bitfield("IncludeTestOnly", 3, 1)]
+                #[bitfield("Reserved", 4, 60)]
                 _bitfield: u64,
             },
             Value: u64,
@@ -1359,6 +1461,8 @@ mod Windows {
             Anonymous: struct {
                 Anonymous: union {
                     Flags: struct {
+                        #[bitfield("Primary", 0, 1)]
+                        #[bitfield("Reserved", 1, 31)]
                         _bitfield: u32,
                     },
                     Value: u32,
@@ -1369,6 +1473,8 @@ mod Windows {
             Key: u64,
         }
         struct D3DKMT_FLIPINFOFLAGS {
+            #[bitfield("FlipInterval", 0, 1)]
+            #[bitfield("Reserved", 1, 31)]
             _bitfield: u32,
         }
         struct D3DKMT_FLIPMANAGER_AUXILIARYPRESENTINFO {
@@ -1389,6 +1495,10 @@ mod Windows {
             PresentAtQpc: u64,
             Flags: union {
                 Anonymous: struct {
+                    #[bitfield("Discard", 0, 1)]
+                    #[bitfield("PresentAt", 1, 1)]
+                    #[bitfield("hPrivateDataIsPointer", 2, 1)]
+                    #[bitfield("Reserved", 3, 29)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -1443,6 +1553,32 @@ mod Windows {
         struct D3DKMT_FLIPMODEL_PRESENTHISTORYTOKENFLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Video", 0, 1)]
+                    #[bitfield("RestrictedContent", 1, 1)]
+                    #[bitfield("ClipToView", 2, 1)]
+                    #[bitfield("StereoPreferRight", 3, 1)]
+                    #[bitfield("TemporaryMono", 4, 1)]
+                    #[bitfield("FlipRestart", 5, 1)]
+                    #[bitfield("HDRMetaDataChanged", 6, 1)]
+                    #[bitfield("AlphaMode", 7, 2)]
+                    #[bitfield("SignalLimitOnTokenCompletion", 9, 1)]
+                    #[bitfield("YCbCrFlags", 10, 3)]
+                    #[bitfield("IndependentFlip", 13, 1)]
+                    #[bitfield("IndependentFlipStage", 14, 2)]
+                    #[bitfield("IndependentFlipReleaseCount", 16, 2)]
+                    #[bitfield("IndependentFlipForceNotifyDwm", 18, 1)]
+                    #[bitfield("UseCustomDuration", 19, 1)]
+                    #[bitfield("IndependentFlipRequestDwmConfirm", 20, 1)]
+                    #[bitfield("IndependentFlipCandidate", 21, 1)]
+                    #[bitfield("IndependentFlipCheckNeeded", 22, 1)]
+                    #[bitfield("IndependentFlipTrueImmediate", 23, 1)]
+                    #[bitfield("IndependentFlipRequestDwmExit", 24, 1)]
+                    #[bitfield("CompSurfaceNotifiedEarly", 25, 1)]
+                    #[bitfield("IndependentFlipDoNotFlip", 26, 1)]
+                    #[bitfield("RequirePairedToken", 27, 1)]
+                    #[bitfield("VariableRefreshOverrideEligible", 28, 1)]
+                    #[bitfield("VailToken", 29, 1)]
+                    #[bitfield("Reserved", 30, 2)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -1535,6 +1671,7 @@ mod Windows {
         struct D3DKMT_GETNATIVEFENCELOGDETAIL_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Reserved", 0, 32)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -1632,6 +1769,10 @@ mod Windows {
         struct D3DKMT_GPUMMU_CAPS {
             Flags: union {
                 Anonymous: struct {
+                    #[bitfield("ReadOnlyMemorySupported", 0, 1)]
+                    #[bitfield("NoExecuteMemorySupported", 1, 1)]
+                    #[bitfield("CacheCoherentMemorySupported", 2, 1)]
+                    #[bitfield("Reserved", 3, 29)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -1730,6 +1871,7 @@ mod Windows {
         struct D3DKMT_MAPPROCESSDEBUGBLOB_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Reserved", 0, 32)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -1913,6 +2055,19 @@ mod Windows {
         struct D3DKMT_MULTIPLANE_OVERLAY_CAPS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Rotation", 0, 1)]
+                    #[bitfield("RotationWithoutIndependentFlip", 1, 1)]
+                    #[bitfield("VerticalFlip", 2, 1)]
+                    #[bitfield("HorizontalFlip", 3, 1)]
+                    #[bitfield("StretchRGB", 4, 1)]
+                    #[bitfield("StretchYUV", 5, 1)]
+                    #[bitfield("BilinearFilter", 6, 1)]
+                    #[bitfield("HighFilter", 7, 1)]
+                    #[bitfield("Shared", 8, 1)]
+                    #[bitfield("Immediate", 9, 1)]
+                    #[bitfield("Plane0ForVirtualModeOnly", 10, 1)]
+                    #[bitfield("Version3DDISupport", 11, 1)]
+                    #[bitfield("Reserved", 12, 20)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -1933,6 +2088,9 @@ mod Windows {
         struct D3DKMT_MULTIPLANE_OVERLAY_POST_COMPOSITION_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("VerticalFlip", 0, 1)]
+                    #[bitfield("HorizontalFlip", 1, 1)]
+                    #[bitfield("Reserved", 2, 30)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -1989,6 +2147,7 @@ mod Windows {
         struct D3DKMT_NOTIFY_WORK_SUBMISSION_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Reserved", 0, 32)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -2005,6 +2164,9 @@ mod Windows {
         struct D3DKMT_OFFER_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("OfferImmediately", 0, 1)]
+                    #[bitfield("AllowDecommit", 1, 1)]
+                    #[bitfield("Reserved", 2, 30)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -2167,6 +2329,8 @@ mod Windows {
         struct D3DKMT_OUTPUTDUPLCREATIONFLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("CompositionUiCaptureOnly", 0, 1)]
+                    #[bitfield("Reserved", 1, 31)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -2185,6 +2349,11 @@ mod Windows {
         struct D3DKMT_OUTPUTDUPLPRESENTFLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("ProtectedContentBlankedOut", 0, 1)]
+                    #[bitfield("RemoteSession", 1, 1)]
+                    #[bitfield("FullScreenPresent", 2, 1)]
+                    #[bitfield("PresentIndirect", 3, 1)]
+                    #[bitfield("Reserved", 4, 28)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -2280,6 +2449,8 @@ mod Windows {
         struct D3DKMT_PLANE_SPECIFIC_INPUT_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Enabled", 0, 1)]
+                    #[bitfield("Reserved", 1, 31)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -2288,6 +2459,8 @@ mod Windows {
         struct D3DKMT_PLANE_SPECIFIC_OUTPUT_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("FlipConvertedToImmediate", 0, 1)]
+                    #[bitfield("Reserved", 1, 31)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -2300,6 +2473,12 @@ mod Windows {
         }
         struct D3DKMT_POLLDISPLAYCHILDREN {
             hAdapter: D3DKMT_HANDLE,
+            #[bitfield("NonDestructiveOnly", 0, 1)]
+            #[bitfield("SynchronousPolling", 1, 1)]
+            #[bitfield("DisableModeReset", 2, 1)]
+            #[bitfield("PollAllAdapters", 3, 1)]
+            #[bitfield("PollInterruptible", 4, 1)]
+            #[bitfield("Reserved", 5, 27)]
             _bitfield: u32,
         }
         struct D3DKMT_PRESENT {
@@ -2338,6 +2517,37 @@ mod Windows {
         struct D3DKMT_PRESENTFLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Blt", 0, 1)]
+                    #[bitfield("ColorFill", 1, 1)]
+                    #[bitfield("Flip", 2, 1)]
+                    #[bitfield("FlipDoNotFlip", 3, 1)]
+                    #[bitfield("FlipDoNotWait", 4, 1)]
+                    #[bitfield("FlipRestart", 5, 1)]
+                    #[bitfield("DstRectValid", 6, 1)]
+                    #[bitfield("SrcRectValid", 7, 1)]
+                    #[bitfield("RestrictVidPnSource", 8, 1)]
+                    #[bitfield("SrcColorKey", 9, 1)]
+                    #[bitfield("DstColorKey", 10, 1)]
+                    #[bitfield("LinearToSrgb", 11, 1)]
+                    #[bitfield("PresentCountValid", 12, 1)]
+                    #[bitfield("Rotate", 13, 1)]
+                    #[bitfield("PresentToBitmap", 14, 1)]
+                    #[bitfield("RedirectedFlip", 15, 1)]
+                    #[bitfield("RedirectedBlt", 16, 1)]
+                    #[bitfield("FlipStereo", 17, 1)]
+                    #[bitfield("FlipStereoTemporaryMono", 18, 1)]
+                    #[bitfield("FlipStereoPreferRight", 19, 1)]
+                    #[bitfield("BltStereoUseRight", 20, 1)]
+                    #[bitfield("PresentHistoryTokenOnly", 21, 1)]
+                    #[bitfield("PresentRegionsValid", 22, 1)]
+                    #[bitfield("PresentDDA", 23, 1)]
+                    #[bitfield("ProtectedContentBlankedOut", 24, 1)]
+                    #[bitfield("RemoteSession", 25, 1)]
+                    #[bitfield("CrossAdapter", 26, 1)]
+                    #[bitfield("DurationValid", 27, 1)]
+                    #[bitfield("PresentIndirect", 28, 1)]
+                    #[bitfield("PresentHMD", 29, 1)]
+                    #[bitfield("Reserved", 30, 2)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -2424,6 +2634,19 @@ mod Windows {
         struct D3DKMT_PRESENT_MULTIPLANE_OVERLAY_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("FlipStereo", 0, 1)]
+                    #[bitfield("FlipStereoTemporaryMono", 1, 1)]
+                    #[bitfield("FlipStereoPreferRight", 2, 1)]
+                    #[bitfield("FlipDoNotWait", 3, 1)]
+                    #[bitfield("FlipDoNotFlip", 4, 1)]
+                    #[bitfield("FlipRestart", 5, 1)]
+                    #[bitfield("DurationValid", 6, 1)]
+                    #[bitfield("HDRMetaDataValid", 7, 1)]
+                    #[bitfield("HMD", 8, 1)]
+                    #[bitfield("TrueImmediate", 9, 1)]
+                    #[bitfield("FromDDisplay", 10, 1)]
+                    #[bitfield("IndirectDisplay", 11, 1)]
+                    #[bitfield("Reserved", 12, 20)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -2442,6 +2665,7 @@ mod Windows {
         struct D3DKMT_PRESENT_REDIRECTED_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Reserved", 0, 32)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -2500,6 +2724,16 @@ mod Windows {
         }
         union D3DKMT_PROCESS_VERIFIER_VIDMM_FLAGS {
             Anonymous: struct {
+                #[bitfield("ForceSynchronousEvict", 0, 1)]
+                #[bitfield("NeverDeferEvictions", 1, 1)]
+                #[bitfield("AlwaysFailCommitOnReclaim", 2, 1)]
+                #[bitfield("AlwaysPlaceInDemotedLocation", 3, 1)]
+                #[bitfield("IgnoreBudgetCap", 4, 1)]
+                #[bitfield("AlwaysCreateLocalAlloc", 5, 1)]
+                #[bitfield("DisablePermanentUmVaUpgrade", 6, 1)]
+                #[bitfield("AlwaysUseSystemHeap", 7, 1)]
+                #[bitfield("SynchronousDeferredCommands", 8, 1)]
+                #[bitfield("Reserved", 9, 23)]
                 _bitfield: u32,
             },
             Value: u32,
@@ -2541,6 +2775,8 @@ mod Windows {
         }
         union D3DKMT_QUERYFSEBLOCKFLAGS {
             Anonymous: struct {
+                #[bitfield("Blocked", 0, 1)]
+                #[bitfield("Reserved", 1, 31)]
                 _bitfield: u32,
             },
             Value: u32,
@@ -2653,6 +2889,9 @@ mod Windows {
         struct D3DKMT_QUERYSTATISTICS_ADAPTER_INFORMATION_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("NumberOfMemoryGroups", 0, 2)]
+                    #[bitfield("SupportsDemotion", 2, 1)]
+                    #[bitfield("Reserved", 3, 61)]
                     _bitfield: u64,
                 },
                 Value: u64,
@@ -2870,9 +3109,19 @@ mod Windows {
             TotalBytesEvictedByPriority: [u64; 5],
             SystemMemoryEndAddress: u64,
             PowerFlags: struct {
+                #[bitfield("PreservedDuringStandby", 0, 1)]
+                #[bitfield("PreservedDuringHibernate", 1, 1)]
+                #[bitfield("PartiallyPreservedDuringHibernate", 2, 1)]
+                #[bitfield("Reserved", 3, 61)]
                 _bitfield: u64,
             },
             SegmentProperties: struct {
+                #[bitfield("SystemMemory", 0, 1)]
+                #[bitfield("PopulatedByReservedDDRByFirmware", 1, 1)]
+                #[bitfield("SegmentType", 2, 4)]
+                #[bitfield("SegmentGroup", 6, 2)]
+                #[bitfield("FullyCPUVisible", 8, 1)]
+                #[bitfield("Reserved", 9, 55)]
                 _bitfield: u64,
             },
             Reserved: [u64; 5],
@@ -3148,6 +3397,14 @@ mod Windows {
             PrivateDriverDataSize: u32,
         }
         struct D3DKMT_RENDERFLAGS {
+            #[bitfield("ResizeCommandBuffer", 0, 1)]
+            #[bitfield("ResizeAllocationList", 1, 1)]
+            #[bitfield("ResizePatchLocationList", 2, 1)]
+            #[bitfield("NullRendering", 3, 1)]
+            #[bitfield("PresentRedirected", 4, 1)]
+            #[bitfield("RenderKm", 5, 1)]
+            #[bitfield("RenderKmReadback", 6, 1)]
+            #[bitfield("Reserved", 7, 25)]
             _bitfield: u32,
         }
         struct D3DKMT_REQUEST_MACHINE_CRASH_ESCAPE {
@@ -3166,6 +3423,7 @@ mod Windows {
         struct D3DKMT_RESIZERINGBUFFER_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Reserved", 0, 32)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -3236,7 +3494,9 @@ mod Windows {
             Flags: D3DKMT_SETDISPLAYMODE_FLAGS,
         }
         struct D3DKMT_SETDISPLAYMODE_FLAGS {
+            #[bitfield("PreserveVidPn", 0, 1)]
             _bitfield1: BOOLEAN,
+            #[bitfield("Reserved", 0, 31)]
             _bitfield2: u32,
         }
         struct D3DKMT_SETDISPLAYPRIVATEDRIVERFORMAT {
@@ -3252,6 +3512,8 @@ mod Windows {
         }
         union D3DKMT_SETFSEBLOCKFLAGS {
             Anonymous: struct {
+                #[bitfield("Block", 0, 1)]
+                #[bitfield("Reserved", 1, 31)]
                 _bitfield: u32,
             },
             Value: u32,
@@ -3412,6 +3674,10 @@ mod Windows {
             HistoryBufferArray: *mut D3DKMT_HANDLE,
         }
         struct D3DKMT_SUBMITCOMMANDFLAGS {
+            #[bitfield("NullRendering", 0, 1)]
+            #[bitfield("PresentRedirected", 1, 1)]
+            #[bitfield("NoKmdAccess", 2, 1)]
+            #[bitfield("Reserved", 3, 29)]
             _bitfield: u32,
         }
         struct D3DKMT_SUBMITCOMMANDTOHWQUEUE {
@@ -3482,6 +3748,9 @@ mod Windows {
         }
         union D3DKMT_TRIMPROCESSCOMMITMENT_FLAGS {
             Anonymous: struct {
+                #[bitfield("Lazy", 0, 1)]
+                #[bitfield("OnlyRepurposed", 1, 1)]
+                #[bitfield("Reserved", 2, 30)]
                 _bitfield: u32,
             },
             Value: u32,
@@ -3510,6 +3779,7 @@ mod Windows {
         struct D3DKMT_UNMAPPROCESSDEBUGBLOB_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Reserved", 0, 32)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -3538,6 +3808,8 @@ mod Windows {
             FenceValue: u64,
             Flags: union {
                 Anonymous: struct {
+                    #[bitfield("DoNotWait", 0, 1)]
+                    #[bitfield("Reserved", 1, 31)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -3617,6 +3889,22 @@ mod Windows {
                 SetFault: struct {
                     Anonymous: union {
                         Anonymous: struct {
+                            #[bitfield("ProbeAndLock", 0, 1)]
+                            #[bitfield("SplitPoint", 1, 1)]
+                            #[bitfield("NoDemotion", 2, 1)]
+                            #[bitfield("SwizzlingAperture", 3, 1)]
+                            #[bitfield("PagingPathLockSubRange", 4, 1)]
+                            #[bitfield("PagingPathLockMinRange", 5, 1)]
+                            #[bitfield("ComplexLock", 6, 1)]
+                            #[bitfield("FailVARotation", 7, 1)]
+                            #[bitfield("NoWriteCombined", 8, 1)]
+                            #[bitfield("NoPrePatching", 9, 1)]
+                            #[bitfield("AlwaysRepatch", 10, 1)]
+                            #[bitfield("ExpectPreparationFailure", 11, 1)]
+                            #[bitfield("FailUserModeVAMapping", 12, 1)]
+                            #[bitfield("NeverDiscardOfferedAllocation", 13, 1)]
+                            #[bitfield("AlwaysDiscardOfferedAllocation", 14, 1)]
+                            #[bitfield("Reserved", 15, 17)]
                             _bitfield: u32,
                         },
                         Value: u32,
@@ -3625,6 +3913,8 @@ mod Windows {
                 Debug: struct {
                     Anonymous: union {
                         Anonymous: struct {
+                            #[bitfield("TestNativeFence", 0, 1)]
+                            #[bitfield("Reserved", 1, 31)]
                             _bitfield: u32,
                         },
                         Value: u32,
@@ -3715,6 +4005,10 @@ mod Windows {
         struct D3DKMT_VIDPNSOURCEOWNER_FLAGS {
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("AllowOutputDuplication", 0, 1)]
+                    #[bitfield("DisableDWMVirtualMode", 1, 1)]
+                    #[bitfield("UseNtHandles", 2, 1)]
+                    #[bitfield("Reserved", 3, 29)]
                     _bitfield: u32,
                 },
                 Value: u32,
@@ -3763,6 +4057,8 @@ mod Windows {
             VirtualRefreshRateControl: D3DKMT_ESCAPE_VIRTUAL_REFRESH_RATE,
         }
         struct D3DKMT_VIRTUALADDRESSFLAGS {
+            #[bitfield("VirtualAddressSupported", 0, 1)]
+            #[bitfield("Reserved", 1, 31)]
             _bitfield: u32,
         }
         struct D3DKMT_VIRTUALADDRESSINFO {
@@ -3824,6 +4120,8 @@ mod Windows {
             Reserved: u32,
         }
         struct D3DKMT_WORKINGSETFLAGS {
+            #[bitfield("UseDefault", 0, 1)]
+            #[bitfield("Reserved", 1, 31)]
             _bitfield: u32,
         }
         struct D3DKMT_WORKINGSETINFO {
@@ -3861,6 +4159,8 @@ mod Windows {
             LargePageSupported: BOOLEAN,
             DualPteSupported: BOOLEAN,
             AllowNonAlignedLargePageAddress: BOOLEAN,
+            #[bitfield("PageTable64KSupported", 0, 1)]
+            #[bitfield("Reserved", 1, 7)]
             _bitfield: BOOLEAN,
             VirtualAddressBitCount: u32,
             PageTableLevelCount: u32,

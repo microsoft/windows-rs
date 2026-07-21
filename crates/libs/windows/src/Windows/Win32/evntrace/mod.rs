@@ -992,6 +992,15 @@ impl Default for EVENT_TRACE_PROPERTIES_V2_1 {
 pub struct EVENT_TRACE_PROPERTIES_V2_1_0 {
     pub _bitfield: u32,
 }
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
+impl EVENT_TRACE_PROPERTIES_V2_1_0 {
+    pub fn VersionNumber(&self) -> u32 {
+        (self._bitfield << 24) >> 24
+    }
+    pub fn set_VersionNumber(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !255) | (value & 255);
+    }
+}
 #[repr(C)]
 #[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
 #[derive(Clone, Copy)]
@@ -1010,6 +1019,33 @@ impl Default for EVENT_TRACE_PROPERTIES_V2_2 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct EVENT_TRACE_PROPERTIES_V2_2_0 {
     pub _bitfield: u32,
+}
+#[cfg(all(feature = "evntprov", feature = "winnt", feature = "wmistr"))]
+impl EVENT_TRACE_PROPERTIES_V2_2_0 {
+    pub fn Wow(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Wow(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn QpcDeltaTracking(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_QpcDeltaTracking(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn LargeMdlPages(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_LargeMdlPages(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn ExcludeKernelStack(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ExcludeKernelStack(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
 }
 pub const EVENT_TRACE_REAL_TIME_MODE: u32 = 256;
 pub const EVENT_TRACE_RELOG_MODE: u32 = 65536;

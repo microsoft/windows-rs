@@ -1925,6 +1925,8 @@ mod Windows {
             dot11_wfd_discover_type_forced = -2147483648,
         }
         struct DOT11_WFD_GO_INTENT {
+            #[bitfield("TieBreaker", 0, 1)]
+            #[bitfield("Intent", 1, 7)]
             _bitfield: u8,
         }
         type DOT11_WFD_GROUP_CAPABILITY = u8;
@@ -1977,6 +1979,8 @@ mod Windows {
         }
         const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 1;
         struct DOT11_WFD_INVITATION_FLAGS {
+            #[bitfield("InvitationType", 0, 1)]
+            #[bitfield("Reserved", 1, 7)]
             _bitfield: u8,
         }
         type DOT11_WFD_MINOR_REASON_CODE = u8;

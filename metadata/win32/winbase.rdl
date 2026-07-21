@@ -242,6 +242,14 @@ mod Windows {
             WriteTotalTimeoutConstant: u32,
         }
         struct COMSTAT {
+            #[bitfield("fCtsHold", 0, 1)]
+            #[bitfield("fDsrHold", 1, 1)]
+            #[bitfield("fRlsdHold", 2, 1)]
+            #[bitfield("fXoffHold", 3, 1)]
+            #[bitfield("fXoffSent", 4, 1)]
+            #[bitfield("fEof", 5, 1)]
+            #[bitfield("fTxim", 6, 1)]
+            #[bitfield("fReserved", 7, 25)]
             _bitfield: u32,
             cbInQue: u32,
             cbOutQue: u32,
@@ -544,6 +552,20 @@ mod Windows {
         struct DCB {
             DCBlength: u32,
             BaudRate: u32,
+            #[bitfield("fBinary", 0, 1)]
+            #[bitfield("fParity", 1, 1)]
+            #[bitfield("fOutxCtsFlow", 2, 1)]
+            #[bitfield("fOutxDsrFlow", 3, 1)]
+            #[bitfield("fDtrControl", 4, 2)]
+            #[bitfield("fDsrSensitivity", 6, 1)]
+            #[bitfield("fTXContinueOnXoff", 7, 1)]
+            #[bitfield("fOutX", 8, 1)]
+            #[bitfield("fInX", 9, 1)]
+            #[bitfield("fErrorChar", 10, 1)]
+            #[bitfield("fNull", 11, 1)]
+            #[bitfield("fRtsControl", 12, 2)]
+            #[bitfield("fAbortOnError", 14, 1)]
+            #[bitfield("fDummy2", 15, 17)]
             _bitfield: u32,
             wReserved: u16,
             XonLim: u16,
@@ -1833,6 +1855,8 @@ mod Windows {
             Anonymous: union {
                 Data: u32,
                 Anonymous: struct {
+                    #[bitfield("VectorLength", 0, 24)]
+                    #[bitfield("FlagsReserved", 24, 8)]
                     _bitfield: u32,
                 },
             },
@@ -1841,6 +1865,8 @@ mod Windows {
         union PROCESS_CREATION_SVE_VECTOR_LENGTH {
             Data: u32,
             Anonymous: struct {
+                #[bitfield("VectorLength", 0, 24)]
+                #[bitfield("FlagsReserved", 24, 8)]
                 _bitfield: u32,
             },
         }
@@ -2289,6 +2315,8 @@ mod Windows {
             UmsVersion: u32,
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("IsUmsSchedulerThread", 0, 1)]
+                    #[bitfield("IsUmsWorkerThread", 1, 1)]
                     _bitfield: u32,
                 },
                 ThreadUmsFlags: u32,

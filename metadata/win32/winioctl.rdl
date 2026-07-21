@@ -680,6 +680,12 @@ mod Windows {
         struct DEVICE_LB_PROVISIONING_DESCRIPTOR {
             Version: u32,
             Size: u32,
+            #[bitfield("ThinProvisioningEnabled", 0, 1)]
+            #[bitfield("ThinProvisioningReadZeros", 1, 1)]
+            #[bitfield("AnchorSupported", 2, 3)]
+            #[bitfield("UnmapGranularityAlignmentValid", 5, 1)]
+            #[bitfield("GetFreeSpaceSupported", 6, 1)]
+            #[bitfield("MapSupported", 7, 1)]
             _bitfield: u8,
             Reserved1: [u8; 7],
             OptimalUnmapGranularity: DWORDLONG,
@@ -785,6 +791,7 @@ mod Windows {
             Anonymous: union {
                 AllFlags: u32,
                 Anonymous: struct {
+                    #[bitfield("IsRangeBad", 0, 1)]
                     _bitfield: u32,
                 },
             },
@@ -2826,11 +2833,17 @@ mod Windows {
             Size: u32,
             Anonymous: union {
                 PR_IN: struct {
+                    #[bitfield("ServiceAction", 0, 5)]
+                    #[bitfield("Reserved1", 5, 3)]
                     _bitfield: u8,
                     AllocationLength: u16,
                 },
                 PR_OUT: struct {
+                    #[bitfield("ServiceAction", 0, 5)]
+                    #[bitfield("Reserved1", 5, 3)]
                     _bitfield1: u8,
+                    #[bitfield("Type", 0, 4)]
+                    #[bitfield("Scope", 4, 4)]
                     _bitfield2: u8,
                     ParameterList: [u8; 0],
                 },
@@ -3570,6 +3583,9 @@ mod Windows {
             DeviceGuid: GUID,
             DeviceNumber: u32,
             Flags: struct {
+                #[bitfield("ForcedByRegistry", 0, 1)]
+                #[bitfield("Initialized", 1, 1)]
+                #[bitfield("Reserved", 2, 30)]
                 _bitfield: u32,
             },
             DeviceSize: DWORDLONG,
@@ -3616,6 +3632,10 @@ mod Windows {
             RuntimeFwActivationSupported: BOOLEAN,
             FirmwareActivationState: SCM_BUS_FIRMWARE_ACTIVATION_STATE,
             FirmwareActivationCapability: struct {
+                #[bitfield("FwManagedIoQuiesceFwActivationSupported", 0, 1)]
+                #[bitfield("OsManagedIoQuiesceFwActivationSupported", 1, 1)]
+                #[bitfield("WarmResetBasedFwActivationSupported", 2, 1)]
+                #[bitfield("Reserved", 3, 29)]
                 _bitfield: u32,
             },
             EstimatedFirmwareActivationTimeInUSecs: DWORDLONG,
@@ -3732,6 +3752,8 @@ mod Windows {
             Version: u32,
             Size: u32,
             SlotNumber: u8,
+            #[bitfield("ReadOnly", 0, 1)]
+            #[bitfield("Reserved0", 1, 7)]
             _bitfield: u8,
             Reserved1: [u8; 6],
             Revision: [u8; 32],
@@ -3889,6 +3911,7 @@ mod Windows {
             Version: u32,
             Size: u32,
             Options: struct {
+                #[bitfield("Overwrite", 0, 1)]
                 _bitfield: u32,
             },
         }
@@ -4384,6 +4407,10 @@ mod Windows {
         }
         union STORAGE_CRYPTO_KEY_TYPE {
             Anonymous: struct {
+                #[bitfield("DirectKey", 0, 1)]
+                #[bitfield("PlatformWrappedKey", 1, 1)]
+                #[bitfield("PlutonWrappedKey", 2, 1)]
+                #[bitfield("Reserved", 3, 5)]
                 _bitfield: u8,
             },
             AsUchar: u8,
@@ -4620,6 +4647,8 @@ mod Windows {
             Version: u32,
             Flags: union {
                 Anonymous: struct {
+                    #[bitfield("StorMQMiniportsSupported", 0, 1)]
+                    #[bitfield("Reserved", 1, 63)]
                     _bitfield: DWORDLONG,
                 },
                 AsUlonglong: DWORDLONG,
@@ -4713,6 +4742,8 @@ mod Windows {
             ValidFields: u32,
             GroupId: u32,
             Flags: struct {
+                #[bitfield("Shared", 0, 1)]
+                #[bitfield("Reserved", 1, 31)]
                 _bitfield: u32,
             },
             LifePercentage: u32,
@@ -4751,6 +4782,8 @@ mod Windows {
         struct STORAGE_HW_FIRMWARE_INFO {
             Version: u32,
             Size: u32,
+            #[bitfield("SupportUpgrade", 0, 1)]
+            #[bitfield("Reserved0", 1, 7)]
             _bitfield: u8,
             SlotCount: u8,
             ActiveSlot: u8,
@@ -4780,6 +4813,8 @@ mod Windows {
             Version: u32,
             Size: u32,
             SlotNumber: u8,
+            #[bitfield("ReadOnly", 0, 1)]
+            #[bitfield("Reserved0", 1, 7)]
             _bitfield: u8,
             Reserved1: [u8; 6],
             Revision: [u8; 16],
@@ -4820,6 +4855,9 @@ mod Windows {
         struct STORAGE_IDLE_POWER {
             Version: u32,
             Size: u32,
+            #[bitfield("WakeCapableHint", 0, 1)]
+            #[bitfield("D3ColdSupported", 1, 1)]
+            #[bitfield("Reserved", 2, 30)]
             _bitfield: u32,
             D3IdleTimeout: u32,
         }
@@ -4838,8 +4876,14 @@ mod Windows {
         struct STORAGE_LB_PROVISIONING_MAP_RESOURCES {
             Size: u32,
             Version: u32,
+            #[bitfield("AvailableMappingResourcesValid", 0, 1)]
+            #[bitfield("UsedMappingResourcesValid", 1, 1)]
+            #[bitfield("Reserved0", 2, 6)]
             _bitfield1: u8,
             Reserved1: [u8; 3],
+            #[bitfield("AvailableMappingResourcesScope", 0, 2)]
+            #[bitfield("UsedMappingResourcesScope", 2, 2)]
+            #[bitfield("Reserved2", 4, 4)]
             _bitfield2: u8,
             Reserved3: [u8; 3],
             AvailableMappingResources: DWORDLONG,
@@ -4931,6 +4975,9 @@ mod Windows {
             ExtraIoInfoSupported: BOOLEAN,
             Flags: union {
                 Anonymous: struct {
+                    #[bitfield("LogicalPoFxForDisk", 0, 1)]
+                    #[bitfield("ForwardIo", 1, 1)]
+                    #[bitfield("Reserved", 2, 6)]
                     _bitfield: u8,
                 },
                 AsBYTE: u8,
@@ -5176,6 +5223,11 @@ mod Windows {
         const STORAGE_PROTOCOL_DATA_DESCRIPTOR_EXT_VERSION: u32 = 1;
         union STORAGE_PROTOCOL_DATA_SUBVALUE_GET_LOG_PAGE {
             Anonymous: struct {
+                #[bitfield("RetainAsynEvent", 0, 1)]
+                #[bitfield("LogSpecificField", 1, 4)]
+                #[bitfield("Reserved0", 5, 3)]
+                #[bitfield("UUIDIndex", 8, 7)]
+                #[bitfield("Reserved", 15, 17)]
                 _bitfield: u32,
             },
             AsUlong: u32,
@@ -5302,6 +5354,9 @@ mod Windows {
             Size: u32,
             TimeoutInSeconds: u32,
             SanitizeOption: struct {
+                #[bitfield("SanitizeMethod", 0, 4)]
+                #[bitfield("DisallowUnrestrictedSanitizeExit", 4, 1)]
+                #[bitfield("Reserved", 5, 27)]
                 _bitfield: u32,
             },
         }
@@ -5357,6 +5412,8 @@ mod Windows {
         }
         union STORAGE_SECURITY_COMPLIANCE_BITMASK {
             Anonymous: struct {
+                #[bitfield("FIPS", 0, 1)]
+                #[bitfield("Reserved", 1, 7)]
                 _bitfield: u8,
             },
             AsUchar: u8,

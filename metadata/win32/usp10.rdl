@@ -11,18 +11,42 @@ mod Windows {
         }
         type OPENTYPE_TAG = u32;
         struct SCRIPT_ANALYSIS {
+            #[bitfield("eScript", 0, 10)]
+            #[bitfield("fRTL", 10, 1)]
+            #[bitfield("fLayoutRTL", 11, 1)]
+            #[bitfield("fLinkBefore", 12, 1)]
+            #[bitfield("fLinkAfter", 13, 1)]
+            #[bitfield("fLogicalOrder", 14, 1)]
+            #[bitfield("fNoGlyphIndex", 15, 1)]
             _bitfield: u16,
             s: SCRIPT_STATE,
         }
         type SCRIPT_CACHE = *mut void;
         struct SCRIPT_CHARPROP {
+            #[bitfield("fCanGlyphAlone", 0, 1)]
+            #[bitfield("reserved", 1, 15)]
             _bitfield: u16,
         }
         struct SCRIPT_CONTROL {
+            #[bitfield("uDefaultLanguage", 0, 16)]
+            #[bitfield("fContextDigits", 16, 1)]
+            #[bitfield("fInvertPreBoundDir", 17, 1)]
+            #[bitfield("fInvertPostBoundDir", 18, 1)]
+            #[bitfield("fLinkStringBefore", 19, 1)]
+            #[bitfield("fLinkStringAfter", 20, 1)]
+            #[bitfield("fNeutralOverride", 21, 1)]
+            #[bitfield("fNumericOverride", 22, 1)]
+            #[bitfield("fLegacyBidiClass", 23, 1)]
+            #[bitfield("fMergeNeutralItems", 24, 1)]
+            #[bitfield("fUseStandardBidi", 25, 1)]
+            #[bitfield("fReserved", 26, 6)]
             _bitfield: u32,
         }
         struct SCRIPT_DIGITSUBSTITUTE {
+            #[bitfield("NationalDigitLanguage", 0, 16)]
+            #[bitfield("TraditionalDigitLanguage", 16, 16)]
             _bitfield1: u32,
+            #[bitfield("DigitSubstitute", 0, 8)]
             _bitfield2: u32,
             dwReserved: u32,
         }
@@ -66,13 +90,45 @@ mod Windows {
             SCRIPT_JUSTIFY_ARABIC_SEEN_M = 15,
         }
         struct SCRIPT_LOGATTR {
+            #[bitfield("fSoftBreak", 0, 1)]
+            #[bitfield("fWhiteSpace", 1, 1)]
+            #[bitfield("fCharStop", 2, 1)]
+            #[bitfield("fWordStop", 3, 1)]
+            #[bitfield("fInvalid", 4, 1)]
+            #[bitfield("fReserved", 5, 3)]
             _bitfield: u8,
         }
         struct SCRIPT_PROPERTIES {
+            #[bitfield("langid", 0, 16)]
+            #[bitfield("fNumeric", 16, 1)]
+            #[bitfield("fComplex", 17, 1)]
+            #[bitfield("fNeedsWordBreaking", 18, 1)]
+            #[bitfield("fNeedsCaretInfo", 19, 1)]
+            #[bitfield("bCharSet", 20, 8)]
+            #[bitfield("fControl", 28, 1)]
+            #[bitfield("fPrivateUseArea", 29, 1)]
+            #[bitfield("fNeedsCharacterJustify", 30, 1)]
+            #[bitfield("fInvalidGlyph", 31, 1)]
             _bitfield1: u32,
+            #[bitfield("fInvalidLogAttr", 0, 1)]
+            #[bitfield("fCDM", 1, 1)]
+            #[bitfield("fAmbiguousCharSet", 2, 1)]
+            #[bitfield("fClusterSizeVaries", 3, 1)]
+            #[bitfield("fRejectInvalid", 4, 1)]
             _bitfield2: u32,
         }
         struct SCRIPT_STATE {
+            #[bitfield("uBidiLevel", 0, 5)]
+            #[bitfield("fOverrideDirection", 5, 1)]
+            #[bitfield("fInhibitSymSwap", 6, 1)]
+            #[bitfield("fCharShape", 7, 1)]
+            #[bitfield("fDigitSubstitute", 8, 1)]
+            #[bitfield("fInhibitLigate", 9, 1)]
+            #[bitfield("fDisplayZWG", 10, 1)]
+            #[bitfield("fArabicNumContext", 11, 1)]
+            #[bitfield("fGcpClusters", 12, 1)]
+            #[bitfield("fReserved", 13, 1)]
+            #[bitfield("fEngineReserved", 14, 2)]
             _bitfield: u16,
         }
         type SCRIPT_STRING_ANALYSIS = *mut void;
@@ -85,6 +141,12 @@ mod Windows {
         const SCRIPT_TAG_UNKNOWN: u32 = 0;
         const SCRIPT_UNDEFINED: u32 = 0;
         struct SCRIPT_VISATTR {
+            #[bitfield("uJustification", 0, 4)]
+            #[bitfield("fClusterStart", 4, 1)]
+            #[bitfield("fDiacritic", 5, 1)]
+            #[bitfield("fZeroWidth", 6, 1)]
+            #[bitfield("fReserved", 7, 1)]
+            #[bitfield("fShapeReserved", 8, 8)]
             _bitfield: u16,
         }
         const SGCM_RTL: u32 = 1;

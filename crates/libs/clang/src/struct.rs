@@ -133,6 +133,7 @@ impl Struct {
                     name,
                     ty,
                     nested: None,
+                    bitfields: vec![],
                 });
                 continue;
             }
@@ -169,6 +170,7 @@ impl Struct {
                     name,
                     ty: metadata::Type::Void,
                     nested: Some(Box::new(nested)),
+                    bitfields: vec![],
                 });
                 continue;
             }
@@ -197,6 +199,7 @@ impl Struct {
                     name: child.name(),
                     ty: metadata::Type::Void,
                     nested: Some(Box::new(nested)),
+                    bitfields: vec![],
                 });
                 continue;
             }
@@ -212,19 +215,38 @@ impl Struct {
                 }
 
                 let size = child.ty().size_of();
+                let member = child.name();
                 if size != unit_size || width > remaining_bits {
                     // Open a new storage unit, backed by the bit-field's own
-                    // (possibly signed) declared type.
+                    // (possibly signed) declared type. The member sits at the low
+                    // end of the fresh unit (offset 0).
                     let ty = child.ty().to_type(parser);
                     bitfield_indices.push(fields.len());
+                    // An anonymous padding bit-field (`int : 4;`) consumes bits but
+                    // names no member, so it gets no accessor.
+                    let members = if member.is_empty() {
+                        vec![]
+                    } else {
+                        vec![(member, 0, width as u32)]
+                    };
                     fields.push(Field {
                         name: String::new(),
                         ty,
                         nested: None,
+                        bitfields: members,
                     });
                     unit_size = size;
                     remaining_bits = size * 8 - width;
                 } else {
+                    // Continue filling the open unit: the member's offset is the
+                    // number of bits already consumed in it. Anonymous padding
+                    // bit-fields advance the offset but emit no accessor.
+                    let offset = (unit_size * 8 - remaining_bits) as u32;
+                    if !member.is_empty()
+                        && let Some(&index) = bitfield_indices.last()
+                    {
+                        fields[index].bitfields.push((member, offset, width as u32));
+                    }
                     remaining_bits -= width;
                 }
                 continue;
@@ -240,6 +262,7 @@ impl Struct {
                 name,
                 ty,
                 nested: None,
+                bitfields: vec![],
             });
         }
 
@@ -346,12 +369,18 @@ impl Struct {
             .iter()
             .map(|field| {
                 let name = write_ident(&field.name);
+                let bitfields = field.bitfields.iter().map(|(member, offset, width)| {
+                    let member = Literal::string(member);
+                    let offset = Literal::u32_unsuffixed(*offset);
+                    let width = Literal::u32_unsuffixed(*width);
+                    quote! { #[bitfield(#member, #offset, #width)] }
+                });
                 if let Some(nested) = &field.nested {
                     let inner = nested.write_inline(namespace);
-                    quote! { #name: #inner, }
+                    quote! { #(#bitfields)* #name: #inner, }
                 } else {
                     let ty = write_type(namespace, &field.ty);
-                    quote! { #name: #ty, }
+                    quote! { #(#bitfields)* #name: #ty, }
                 }
             })
             .collect()

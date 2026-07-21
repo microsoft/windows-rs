@@ -158,6 +158,9 @@ mod Windows {
         union NET_LUID_LH {
             Value: u64,
             Info: struct {
+                #[bitfield("Reserved", 0, 24)]
+                #[bitfield("NetLuidIndex", 24, 24)]
+                #[bitfield("IfType", 48, 16)]
                 _bitfield: u64,
             },
         }

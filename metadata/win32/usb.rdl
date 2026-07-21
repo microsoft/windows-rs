@@ -131,7 +131,15 @@ mod Windows {
             EndpointAddress: u16,
             ResourceId: u32,
             Mode: USBD_ENDPOINT_OFFLOAD_MODE,
+            #[bitfield("RootHubPortNumber", 0, 8)]
+            #[bitfield("RouteString", 8, 20)]
+            #[bitfield("Speed", 28, 4)]
             _bitfield1: u32,
+            #[bitfield("UsbDeviceAddress", 0, 8)]
+            #[bitfield("SlotId", 8, 8)]
+            #[bitfield("MultiTT", 16, 1)]
+            #[bitfield("LSOrFSDeviceConnectedToTTHub", 17, 1)]
+            #[bitfield("Reserved0", 18, 14)]
             _bitfield2: u32,
             TransferSegmentLA: PHYSICAL_ADDRESS,
             TransferSegmentVA: *mut void,
@@ -155,7 +163,15 @@ mod Windows {
             EndpointAddress: u16,
             ResourceId: u32,
             Mode: USBD_ENDPOINT_OFFLOAD_MODE,
+            #[bitfield("RootHubPortNumber", 0, 8)]
+            #[bitfield("RouteString", 8, 20)]
+            #[bitfield("Speed", 28, 4)]
             _bitfield1: u32,
+            #[bitfield("UsbDeviceAddress", 0, 8)]
+            #[bitfield("SlotId", 8, 8)]
+            #[bitfield("MultiTT", 16, 1)]
+            #[bitfield("LSOrFSDeviceConnectedToTTHub", 17, 1)]
+            #[bitfield("Reserved0", 18, 14)]
             _bitfield2: u32,
             TransferSegmentLA: PHYSICAL_ADDRESS,
             TransferSegmentVA: *mut void,
@@ -512,6 +528,8 @@ mod Windows {
             TransferBufferMDL: PMDL,
             UrbLink: *mut URB,
             hca: _URB_HCD_AREA,
+            #[bitfield("Recipient", 0, 5)]
+            #[bitfield("Reserved1", 5, 3)]
             _bitfield: u8,
             Reserved2: u8,
             InterfaceNumber: u8,

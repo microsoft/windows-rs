@@ -2838,6 +2838,9 @@ mod Windows {
             rcBar: RECT,
             hMenu: HMENU,
             hwndMenu: HWND,
+            #[bitfield("fBarFocused", 0, 1)]
+            #[bitfield("fFocused", 1, 1)]
+            #[bitfield("fUnused", 2, 30)]
             _bitfield: BOOL,
         }
         struct MENUGETOBJECTINFO {
@@ -4966,7 +4969,26 @@ mod Windows {
             versionNumber: u32,
             maxSupportedContacts: u32,
             legacyTouchpadFeatures: LEGACY_TOUCHPAD_FEATURES,
+            #[bitfield("touchpadPresent", 0, 1)]
+            #[bitfield("legacyTouchpadPresent", 1, 1)]
+            #[bitfield("externalMousePresent", 2, 1)]
+            #[bitfield("touchpadEnabled", 3, 1)]
+            #[bitfield("touchpadActive", 4, 1)]
+            #[bitfield("feedbackSupported", 5, 1)]
+            #[bitfield("clickForceSupported", 6, 1)]
+            #[bitfield("Reserved1", 7, 25)]
             _bitfield1: BOOL,
+            #[bitfield("allowActiveWhenMousePresent", 0, 1)]
+            #[bitfield("feedbackEnabled", 1, 1)]
+            #[bitfield("tapEnabled", 2, 1)]
+            #[bitfield("tapAndDragEnabled", 3, 1)]
+            #[bitfield("twoFingerTapEnabled", 4, 1)]
+            #[bitfield("rightClickZoneEnabled", 5, 1)]
+            #[bitfield("mouseAccelSettingHonored", 6, 1)]
+            #[bitfield("panEnabled", 7, 1)]
+            #[bitfield("zoomEnabled", 8, 1)]
+            #[bitfield("scrollDirectionReversed", 9, 1)]
+            #[bitfield("Reserved2", 10, 22)]
             _bitfield2: BOOL,
             sensitivityLevel: TOUCHPAD_SENSITIVITY_LEVEL,
             cursorSpeed: u32,
@@ -4977,6 +4999,10 @@ mod Windows {
         }
         struct TOUCHPAD_PARAMETERS_V2 {
             Base: TOUCHPAD_PARAMETERS_V1,
+            #[bitfield("button1Supported", 0, 1)]
+            #[bitfield("button2Supported", 1, 1)]
+            #[bitfield("button3Supported", 2, 1)]
+            #[bitfield("Reserved3", 3, 29)]
             _bitfield: BOOL,
         }
         const TOUCHPAD_PARAMETERS_VERSION_1: u32 = 1;

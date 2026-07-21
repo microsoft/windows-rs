@@ -570,6 +570,15 @@ mod Windows {
             LanguageExtension: DVD_SUBPICTURE_LANG_EXT,
         }
         struct DVD_TIMECODE {
+            #[bitfield("Hours1", 0, 4)]
+            #[bitfield("Hours10", 4, 4)]
+            #[bitfield("Minutes1", 8, 4)]
+            #[bitfield("Minutes10", 12, 4)]
+            #[bitfield("Seconds1", 16, 4)]
+            #[bitfield("Seconds10", 20, 4)]
+            #[bitfield("Frames1", 24, 4)]
+            #[bitfield("Frames10", 28, 2)]
+            #[bitfield("FrameRateCode", 30, 2)]
             _bitfield: u32,
         }
         #[repr(i32)]

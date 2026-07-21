@@ -317,9 +317,25 @@ mod Windows {
             LogonId: LUID,
         }
         struct KERB_CLOUD_KERBEROS_DEBUG_DATA {
+            #[bitfield("EnabledByPolicy", 0, 1)]
+            #[bitfield("AsRepCallbackPresent", 1, 1)]
+            #[bitfield("AsRepCallbackUsed", 2, 1)]
+            #[bitfield("CloudReferralTgtAvailable", 3, 1)]
+            #[bitfield("SpnOracleConfigured", 4, 1)]
+            #[bitfield("KdcProxyPresent", 5, 1)]
+            #[bitfield("PublicKeyCredsPresent", 6, 1)]
+            #[bitfield("PasswordKeysPresent", 7, 1)]
+            #[bitfield("PasswordPresent", 8, 1)]
+            #[bitfield("AsRepSourceCred", 9, 8)]
             _bitfield: u32,
         }
         struct KERB_CLOUD_KERBEROS_DEBUG_DATA_V0 {
+            #[bitfield("EnabledByPolicy", 0, 1)]
+            #[bitfield("AsRepCallbackPresent", 1, 1)]
+            #[bitfield("AsRepCallbackUsed", 2, 1)]
+            #[bitfield("CloudReferralTgtAvailable", 3, 1)]
+            #[bitfield("SpnOracleConfigured", 4, 1)]
+            #[bitfield("KdcProxyPresent", 5, 1)]
             _bitfield: u32,
         }
         const KERB_CLOUD_KERBEROS_DEBUG_DATA_VERSION: u32 = 1;

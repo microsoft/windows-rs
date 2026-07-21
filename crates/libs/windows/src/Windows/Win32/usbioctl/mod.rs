@@ -451,6 +451,20 @@ impl Default for USB_DEVICE_PERFORMANCE_INFO {
 pub struct USB_DEVICE_STATE {
     pub _bitfield: u32,
 }
+impl USB_DEVICE_STATE {
+    pub fn DeviceConnected(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DeviceConnected(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn DeviceStarted(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DeviceStarted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+}
 #[repr(C, packed(1))]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Default)]
@@ -483,6 +497,14 @@ impl Default for USB_HCD_DRIVERKEY_NAME {
 pub struct USB_HUB_CAPABILITIES {
     pub _bitfield: u32,
 }
+impl USB_HUB_CAPABILITIES {
+    pub fn HubIs2xCapable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_HubIs2xCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct USB_HUB_CAPABILITIES_EX {
@@ -508,6 +530,56 @@ impl Default for USB_HUB_CAP_FLAGS {
 #[derive(Clone, Copy, Default)]
 pub struct USB_HUB_CAP_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl USB_HUB_CAP_FLAGS_0 {
+    pub fn HubIsHighSpeedCapable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_HubIsHighSpeedCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn HubIsHighSpeed(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_HubIsHighSpeed(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn HubIsMultiTtCapable(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_HubIsMultiTtCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn HubIsMultiTt(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_HubIsMultiTt(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn HubIsRoot(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_HubIsRoot(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn HubIsArmedWakeOnConnect(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_HubIsArmedWakeOnConnect(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn HubIsBusPowered(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_HubIsBusPowered(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn ReservedMBZ(&self) -> u32 {
+        self._bitfield >> 7
+    }
+    pub fn set_ReservedMBZ(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(33554431 << 7)) | ((value & 33554431) << 7);
+    }
 }
 #[repr(C, packed(1))]
 #[cfg(feature = "usbspec")]
@@ -702,6 +774,38 @@ impl Default for USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
 pub struct USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0 {
     pub _bitfield: u32,
 }
+impl USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS_0 {
+    pub fn DeviceIsOperatingAtSuperSpeedOrHigher(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DeviceIsOperatingAtSuperSpeedOrHigher(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn DeviceIsSuperSpeedCapableOrHigher(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DeviceIsSuperSpeedCapableOrHigher(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn DeviceIsOperatingAtSuperSpeedPlusOrHigher(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_DeviceIsOperatingAtSuperSpeedPlusOrHigher(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn DeviceIsSuperSpeedPlusCapableOrHigher(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_DeviceIsSuperSpeedPlusCapableOrHigher(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn ReservedMBZ(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_ReservedMBZ(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct USB_NODE_CONNECTION_NAME {
@@ -802,6 +906,38 @@ impl Default for USB_PORT_PROPERTIES {
 pub struct USB_PORT_PROPERTIES_0 {
     pub _bitfield: u32,
 }
+impl USB_PORT_PROPERTIES_0 {
+    pub fn PortIsUserConnectable(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PortIsUserConnectable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn PortIsDebugCapable(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_PortIsDebugCapable(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn PortHasMultipleCompanions(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_PortHasMultipleCompanions(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn PortConnectorIsTypeC(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_PortConnectorIsTypeC(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn ReservedMBZ(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_ReservedMBZ(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union USB_PROTOCOLS {
@@ -817,6 +953,32 @@ impl Default for USB_PROTOCOLS {
 #[derive(Clone, Copy, Default)]
 pub struct USB_PROTOCOLS_0 {
     pub _bitfield: u32,
+}
+impl USB_PROTOCOLS_0 {
+    pub fn Usb110(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Usb110(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Usb200(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Usb200(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Usb300(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Usb300(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn ReservedMBZ(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_ReservedMBZ(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
 }
 pub const USB_REGISTER_FOR_TRANSPORT_BANDWIDTH_CHANGE: u32 = 2;
 pub const USB_REGISTER_FOR_TRANSPORT_LATENCY_CHANGE: u32 = 1;

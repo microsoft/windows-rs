@@ -97,6 +97,26 @@ pub struct CDROM_PERFORMANCE_HEADER {
     pub Reserved2: [u8; 3],
     pub Data: [u8; 0],
 }
+impl CDROM_PERFORMANCE_HEADER {
+    pub fn Except(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Except(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Write(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Write(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(63 << 2)) | ((value & 63) << 2);
+    }
+}
 impl Default for CDROM_PERFORMANCE_HEADER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -131,6 +151,26 @@ pub struct CDROM_READ_TOC_EX {
     pub SessionTrack: u8,
     pub Reserved2: u8,
     pub Reserved3: u8,
+}
+impl CDROM_READ_TOC_EX {
+    pub fn Format(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_Format(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Reserved1(&self) -> u8 {
+        (self._bitfield << 1) >> 5
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 4)) | ((value & 7) << 4);
+    }
+    pub fn Msf(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Msf(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 pub const CDROM_READ_TOC_EX_FORMAT_ATIP: u32 = 4;
 pub const CDROM_READ_TOC_EX_FORMAT_CDTEXT: u32 = 5;
@@ -232,6 +272,86 @@ pub struct CDROM_TOC_ATIP_DATA_BLOCK {
     pub A3Values: [u8; 3],
     pub Reserved12: u8,
 }
+impl CDROM_TOC_ATIP_DATA_BLOCK {
+    pub fn CdrwReferenceSpeed(&self) -> u8 {
+        (self._bitfield1 << 5) >> 5
+    }
+    pub fn set_CdrwReferenceSpeed(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !7) | (value & 7);
+    }
+    pub fn Reserved3(&self) -> bool {
+        (self._bitfield1 >> 3) & 1 != 0
+    }
+    pub fn set_Reserved3(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 3)) | ((value as u8) << 3);
+    }
+    pub fn WritePower(&self) -> u8 {
+        (self._bitfield1 << 1) >> 5
+    }
+    pub fn set_WritePower(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(7 << 4)) | ((value & 7) << 4);
+    }
+    pub fn True1(&self) -> bool {
+        (self._bitfield1 >> 7) & 1 != 0
+    }
+    pub fn set_True1(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 7)) | ((value as u8) << 7);
+    }
+    pub fn Reserved4(&self) -> u8 {
+        (self._bitfield2 << 2) >> 2
+    }
+    pub fn set_Reserved4(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !63) | (value & 63);
+    }
+    pub fn UnrestrictedUse(&self) -> bool {
+        (self._bitfield2 >> 6) & 1 != 0
+    }
+    pub fn set_UnrestrictedUse(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn Reserved5(&self) -> bool {
+        (self._bitfield2 >> 7) & 1 != 0
+    }
+    pub fn set_Reserved5(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 7)) | ((value as u8) << 7);
+    }
+    pub fn A3Valid(&self) -> bool {
+        self._bitfield3 & 1 != 0
+    }
+    pub fn set_A3Valid(&mut self, value: bool) {
+        self._bitfield3 = (self._bitfield3 & !1) | (value as u8);
+    }
+    pub fn A2Valid(&self) -> bool {
+        (self._bitfield3 >> 1) & 1 != 0
+    }
+    pub fn set_A2Valid(&mut self, value: bool) {
+        self._bitfield3 = (self._bitfield3 & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn A1Valid(&self) -> bool {
+        (self._bitfield3 >> 2) & 1 != 0
+    }
+    pub fn set_A1Valid(&mut self, value: bool) {
+        self._bitfield3 = (self._bitfield3 & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn DiscSubType(&self) -> u8 {
+        (self._bitfield3 << 2) >> 5
+    }
+    pub fn set_DiscSubType(&mut self, value: u8) {
+        self._bitfield3 = (self._bitfield3 & !(7 << 3)) | ((value & 7) << 3);
+    }
+    pub fn IsCdrw(&self) -> bool {
+        (self._bitfield3 >> 6) & 1 != 0
+    }
+    pub fn set_IsCdrw(&mut self, value: bool) {
+        self._bitfield3 = (self._bitfield3 & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn True2(&self) -> bool {
+        (self._bitfield3 >> 7) & 1 != 0
+    }
+    pub fn set_True2(&mut self, value: bool) {
+        self._bitfield3 = (self._bitfield3 & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 impl Default for CDROM_TOC_ATIP_DATA_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -259,6 +379,38 @@ pub struct CDROM_TOC_CD_TEXT_DATA_BLOCK {
     pub _bitfield2: u8,
     pub Anonymous: CDROM_TOC_CD_TEXT_DATA_BLOCK_0,
     pub CRC: [u8; 2],
+}
+impl CDROM_TOC_CD_TEXT_DATA_BLOCK {
+    pub fn TrackNumber(&self) -> u8 {
+        (self._bitfield1 << 1) >> 1
+    }
+    pub fn set_TrackNumber(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !127) | (value & 127);
+    }
+    pub fn ExtensionFlag(&self) -> bool {
+        (self._bitfield1 >> 7) & 1 != 0
+    }
+    pub fn set_ExtensionFlag(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 7)) | ((value as u8) << 7);
+    }
+    pub fn CharacterPosition(&self) -> u8 {
+        (self._bitfield2 << 4) >> 4
+    }
+    pub fn set_CharacterPosition(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !15) | (value & 15);
+    }
+    pub fn BlockNumber(&self) -> u8 {
+        (self._bitfield2 << 1) >> 5
+    }
+    pub fn set_BlockNumber(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(7 << 4)) | ((value & 7) << 4);
+    }
+    pub fn Unicode(&self) -> bool {
+        (self._bitfield2 >> 7) & 1 != 0
+    }
+    pub fn set_Unicode(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 7)) | ((value as u8) << 7);
+    }
 }
 impl Default for CDROM_TOC_CD_TEXT_DATA_BLOCK {
     fn default() -> Self {
@@ -300,6 +452,20 @@ pub struct CDROM_TOC_FULL_TOC_DATA_BLOCK {
     pub Zero: u8,
     pub Msf: [u8; 3],
 }
+impl CDROM_TOC_FULL_TOC_DATA_BLOCK {
+    pub fn Control(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_Control(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Adr(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Adr(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 impl Default for CDROM_TOC_FULL_TOC_DATA_BLOCK {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -339,6 +505,38 @@ pub struct CDROM_WRITE_SPEED_DESCRIPTOR {
     pub EndLba: [u8; 4],
     pub ReadSpeed: [u8; 4],
     pub WriteSpeed: [u8; 4],
+}
+impl CDROM_WRITE_SPEED_DESCRIPTOR {
+    pub fn MixedReadWrite(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_MixedReadWrite(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Exact(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Exact(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Reserved1(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Reserved1(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn WriteRotationControl(&self) -> u8 {
+        (self._bitfield << 3) >> 6
+    }
+    pub fn set_WriteRotationControl(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(3 << 3)) | ((value & 3) << 3);
+    }
+    pub fn Reserved2(&self) -> u8 {
+        self._bitfield >> 5
+    }
+    pub fn set_Reserved2(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
 }
 impl Default for CDROM_WRITE_SPEED_DESCRIPTOR {
     fn default() -> Self {
@@ -506,6 +704,20 @@ pub struct SUB_Q_CURRENT_POSITION {
     pub AbsoluteAddress: [u8; 4],
     pub TrackRelativeAddress: [u8; 4],
 }
+impl SUB_Q_CURRENT_POSITION {
+    pub fn Control(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_Control(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn ADR(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_ADR(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 impl Default for SUB_Q_CURRENT_POSITION {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -532,6 +744,20 @@ pub struct SUB_Q_MEDIA_CATALOG_NUMBER {
     pub _bitfield: u8,
     pub MediaCatalog: [u8; 15],
 }
+impl SUB_Q_MEDIA_CATALOG_NUMBER {
+    pub fn Reserved1(&self) -> u8 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_Reserved1(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !127) | (value & 127);
+    }
+    pub fn Mcval(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Mcval(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 impl Default for SUB_Q_MEDIA_CATALOG_NUMBER {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -548,6 +774,20 @@ pub struct SUB_Q_TRACK_ISRC {
     pub _bitfield: u8,
     pub TrackIsrc: [u8; 15],
 }
+impl SUB_Q_TRACK_ISRC {
+    pub fn Reserved2(&self) -> u8 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_Reserved2(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !127) | (value & 127);
+    }
+    pub fn Tcval(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Tcval(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 impl Default for SUB_Q_TRACK_ISRC {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
@@ -562,6 +802,20 @@ pub struct TRACK_DATA {
     pub TrackNumber: u8,
     pub Reserved1: u8,
     pub Address: [u8; 4],
+}
+impl TRACK_DATA {
+    pub fn Control(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_Control(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Adr(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Adr(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
 }
 impl Default for TRACK_DATA {
     fn default() -> Self {

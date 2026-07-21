@@ -69,6 +69,9 @@ mod Windows {
         }
         struct CDROM_PERFORMANCE_HEADER {
             DataLength: [u8; 4],
+            #[bitfield("Except", 0, 1)]
+            #[bitfield("Write", 1, 1)]
+            #[bitfield("Reserved1", 2, 6)]
             _bitfield: u8,
             Reserved2: [u8; 3],
             Data: [u8; 0],
@@ -103,6 +106,9 @@ mod Windows {
             EndingF: u8,
         }
         struct CDROM_READ_TOC_EX {
+            #[bitfield("Format", 0, 4)]
+            #[bitfield("Reserved1", 4, 3)]
+            #[bitfield("Msf", 7, 1)]
             _bitfield: u8,
             SessionTrack: u8,
             Reserved2: u8,
@@ -169,8 +175,21 @@ mod Windows {
             Descriptors: [CDROM_TOC_ATIP_DATA_BLOCK; 0],
         }
         struct CDROM_TOC_ATIP_DATA_BLOCK {
+            #[bitfield("CdrwReferenceSpeed", 0, 3)]
+            #[bitfield("Reserved3", 3, 1)]
+            #[bitfield("WritePower", 4, 3)]
+            #[bitfield("True1", 7, 1)]
             _bitfield1: u8,
+            #[bitfield("Reserved4", 0, 6)]
+            #[bitfield("UnrestrictedUse", 6, 1)]
+            #[bitfield("Reserved5", 7, 1)]
             _bitfield2: u8,
+            #[bitfield("A3Valid", 0, 1)]
+            #[bitfield("A2Valid", 1, 1)]
+            #[bitfield("A1Valid", 2, 1)]
+            #[bitfield("DiscSubType", 3, 3)]
+            #[bitfield("IsCdrw", 6, 1)]
+            #[bitfield("True2", 7, 1)]
             _bitfield3: u8,
             Reserved7: u8,
             LeadInMsf: [u8; 3],
@@ -192,8 +211,13 @@ mod Windows {
         }
         struct CDROM_TOC_CD_TEXT_DATA_BLOCK {
             PackType: u8,
+            #[bitfield("TrackNumber", 0, 7)]
+            #[bitfield("ExtensionFlag", 7, 1)]
             _bitfield1: u8,
             SequenceNumber: u8,
+            #[bitfield("CharacterPosition", 0, 4)]
+            #[bitfield("BlockNumber", 4, 3)]
+            #[bitfield("Unicode", 7, 1)]
             _bitfield2: u8,
             Anonymous: union {
                 Text: [u8; 12],
@@ -209,6 +233,8 @@ mod Windows {
         }
         struct CDROM_TOC_FULL_TOC_DATA_BLOCK {
             SessionNumber: u8,
+            #[bitfield("Control", 0, 4)]
+            #[bitfield("Adr", 4, 4)]
             _bitfield: u8,
             Reserved1: u8,
             Point: u8,
@@ -229,6 +255,11 @@ mod Windows {
             TrackData: [TRACK_DATA; 1],
         }
         struct CDROM_WRITE_SPEED_DESCRIPTOR {
+            #[bitfield("MixedReadWrite", 0, 1)]
+            #[bitfield("Exact", 1, 1)]
+            #[bitfield("Reserved1", 2, 1)]
+            #[bitfield("WriteRotationControl", 3, 2)]
+            #[bitfield("Reserved2", 5, 3)]
             _bitfield: u8,
             Reserved3: [u8; 3],
             EndLba: [u8; 4],
@@ -368,6 +399,8 @@ mod Windows {
         struct SUB_Q_CURRENT_POSITION {
             Header: SUB_Q_HEADER,
             FormatCode: u8,
+            #[bitfield("Control", 0, 4)]
+            #[bitfield("ADR", 4, 4)]
             _bitfield: u8,
             TrackNumber: u8,
             IndexNumber: u8,
@@ -383,6 +416,8 @@ mod Windows {
             Header: SUB_Q_HEADER,
             FormatCode: u8,
             Reserved: [u8; 3],
+            #[bitfield("Reserved1", 0, 7)]
+            #[bitfield("Mcval", 7, 1)]
             _bitfield: u8,
             MediaCatalog: [u8; 15],
         }
@@ -392,11 +427,15 @@ mod Windows {
             Reserved0: u8,
             Track: u8,
             Reserved1: u8,
+            #[bitfield("Reserved2", 0, 7)]
+            #[bitfield("Tcval", 7, 1)]
             _bitfield: u8,
             TrackIsrc: [u8; 15],
         }
         struct TRACK_DATA {
             Reserved: u8,
+            #[bitfield("Control", 0, 4)]
+            #[bitfield("Adr", 4, 4)]
             _bitfield: u8,
             TrackNumber: u8,
             Reserved1: u8,

@@ -54,6 +54,7 @@ mod Windows {
             Anonymous4: union {
                 Reserved: u32,
                 Anonymous: struct {
+                    #[bitfield("Tags", 0, 28)]
                     _bitfield: u32,
                 },
             },
@@ -220,6 +221,8 @@ mod Windows {
             Anonymous3: union {
                 Flags: TEMPLATE_FLAGS,
                 Anonymous: struct {
+                    #[bitfield("Reserved", 0, 4)]
+                    #[bitfield("Tags", 4, 28)]
                     _bitfield: u32,
                 },
             },

@@ -47,6 +47,14 @@ impl Default for MIB_UDP6ROW2_0 {
 pub struct MIB_UDP6ROW2_0_0 {
     pub _bitfield: i32,
 }
+impl MIB_UDP6ROW2_0_0 {
+    pub fn SpecificPortBind(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SpecificPortBind(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as i32);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIB_UDP6ROW_OWNER_MODULE {
@@ -78,6 +86,14 @@ impl Default for MIB_UDP6ROW_OWNER_MODULE_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_UDP6ROW_OWNER_MODULE_0_0 {
     pub _bitfield: i32,
+}
+impl MIB_UDP6ROW_OWNER_MODULE_0_0 {
+    pub fn SpecificPortBind(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SpecificPortBind(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as i32);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Eq, PartialEq)]
@@ -177,6 +193,14 @@ impl Default for MIB_UDPROW2_0 {
 pub struct MIB_UDPROW2_0_0 {
     pub _bitfield: i32,
 }
+impl MIB_UDPROW2_0_0 {
+    pub fn SpecificPortBind(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SpecificPortBind(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as i32);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct MIB_UDPROW_OWNER_MODULE {
@@ -207,6 +231,14 @@ impl Default for MIB_UDPROW_OWNER_MODULE_0 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MIB_UDPROW_OWNER_MODULE_0_0 {
     pub _bitfield: i32,
+}
+impl MIB_UDPROW_OWNER_MODULE_0_0 {
+    pub fn SpecificPortBind(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SpecificPortBind(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as i32);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

@@ -472,9 +472,23 @@ mod Windows {
                 Flags: u32,
             },
             IPv4AH: struct {
+                #[bitfield("Md5", 0, 2)]
+                #[bitfield("Sha_1", 2, 2)]
+                #[bitfield("Transport", 4, 2)]
+                #[bitfield("Tunnel", 6, 2)]
+                #[bitfield("Send", 8, 2)]
+                #[bitfield("Receive", 10, 2)]
                 _bitfield: u32,
             },
             IPv4ESP: struct {
+                #[bitfield("Des", 0, 2)]
+                #[bitfield("Reserved", 2, 2)]
+                #[bitfield("TripleDes", 4, 2)]
+                #[bitfield("NullEsp", 6, 2)]
+                #[bitfield("Transport", 8, 2)]
+                #[bitfield("Tunnel", 10, 2)]
+                #[bitfield("Send", 12, 2)]
+                #[bitfield("Receive", 14, 2)]
                 _bitfield: u32,
             },
         }
@@ -979,6 +993,10 @@ mod Windows {
         struct NDIS_TCP_CONNECTION_OFFLOAD {
             Header: NDIS_OBJECT_HEADER,
             Encapsulation: u32,
+            #[bitfield("SupportIPv4", 0, 2)]
+            #[bitfield("SupportIPv6", 2, 2)]
+            #[bitfield("SupportIPv6ExtensionHeaders", 4, 2)]
+            #[bitfield("SupportSack", 6, 2)]
             _bitfield: u32,
             TcpConnectionOffloadCapacity: u32,
             Flags: u32,
@@ -987,18 +1005,36 @@ mod Windows {
         struct NDIS_TCP_IP_CHECKSUM_OFFLOAD {
             IPv4Transmit: struct {
                 Encapsulation: u32,
+                #[bitfield("IpOptionsSupported", 0, 2)]
+                #[bitfield("TcpOptionsSupported", 2, 2)]
+                #[bitfield("TcpChecksum", 4, 2)]
+                #[bitfield("UdpChecksum", 6, 2)]
+                #[bitfield("IpChecksum", 8, 2)]
                 _bitfield: u32,
             },
             IPv4Receive: struct {
                 Encapsulation: u32,
+                #[bitfield("IpOptionsSupported", 0, 2)]
+                #[bitfield("TcpOptionsSupported", 2, 2)]
+                #[bitfield("TcpChecksum", 4, 2)]
+                #[bitfield("UdpChecksum", 6, 2)]
+                #[bitfield("IpChecksum", 8, 2)]
                 _bitfield: u32,
             },
             IPv6Transmit: struct {
                 Encapsulation: u32,
+                #[bitfield("IpExtensionHeadersSupported", 0, 2)]
+                #[bitfield("TcpOptionsSupported", 2, 2)]
+                #[bitfield("TcpChecksum", 4, 2)]
+                #[bitfield("UdpChecksum", 6, 2)]
                 _bitfield: u32,
             },
             IPv6Receive: struct {
                 Encapsulation: u32,
+                #[bitfield("IpExtensionHeadersSupported", 0, 2)]
+                #[bitfield("TcpOptionsSupported", 2, 2)]
+                #[bitfield("TcpChecksum", 4, 2)]
+                #[bitfield("UdpChecksum", 6, 2)]
                 _bitfield: u32,
             },
         }
@@ -1007,6 +1043,8 @@ mod Windows {
                 Encapsulation: u32,
                 MaxOffLoadSize: u32,
                 MinSegmentCount: u32,
+                #[bitfield("TcpOptions", 0, 2)]
+                #[bitfield("IpOptions", 2, 2)]
                 _bitfield: u32,
             },
         }
@@ -1020,6 +1058,8 @@ mod Windows {
                 Encapsulation: u32,
                 MaxOffLoadSize: u32,
                 MinSegmentCount: u32,
+                #[bitfield("IpExtensionHeadersSupported", 0, 2)]
+                #[bitfield("TcpOptionsSupported", 2, 2)]
                 _bitfield: u32,
             },
         }

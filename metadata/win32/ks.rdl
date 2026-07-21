@@ -706,6 +706,8 @@ mod Windows {
             SourceClockReference: u32,
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("Counter", 0, 11)]
+                    #[bitfield("Reserved", 11, 5)]
                     _bitfield: u16,
                 },
                 SCRToken: u16,

@@ -71,6 +71,18 @@ mod Windows {
             attribute ScopedEnumAttribute {
                 fn();
             }
+            // Records a bit-field member packed into a backing integer field. The C
+            // bit-field concept has no winmd representation, so consecutive bit-fields
+            // are coalesced into a single backing integer field (`_bitfield` /
+            // `_bitfield1` / …) and each logical member is recorded here — one
+            // attribute instance per member — carrying the member's name, its bit
+            // offset within the backing field, and its width in bits. bindgen reads
+            // these to generate typed get/set accessors. Signedness of a multi-bit
+            // member is taken from the backing field's own type.
+            // RDL: `#[bitfield("Name", offset, length)]` (repeatable).
+            attribute NativeBitfieldAttribute {
+                fn(name: String, offset: i64, length: i64);
+            }
         }
     }
 }

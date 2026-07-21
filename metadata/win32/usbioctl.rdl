@@ -328,6 +328,8 @@ mod Windows {
         }
         #[packed(1)]
         struct USB_DEVICE_STATE {
+            #[bitfield("DeviceConnected", 0, 1)]
+            #[bitfield("DeviceStarted", 1, 1)]
             _bitfield: u32,
         }
         #[packed(1)]
@@ -351,6 +353,7 @@ mod Windows {
         }
         #[packed(1)]
         struct USB_HUB_CAPABILITIES {
+            #[bitfield("HubIs2xCapable", 0, 1)]
             _bitfield: u32,
         }
         struct USB_HUB_CAPABILITIES_EX {
@@ -360,6 +363,14 @@ mod Windows {
         union USB_HUB_CAP_FLAGS {
             ul: u32,
             Anonymous: #[packed(1)] struct {
+                #[bitfield("HubIsHighSpeedCapable", 0, 1)]
+                #[bitfield("HubIsHighSpeed", 1, 1)]
+                #[bitfield("HubIsMultiTtCapable", 2, 1)]
+                #[bitfield("HubIsMultiTt", 3, 1)]
+                #[bitfield("HubIsRoot", 4, 1)]
+                #[bitfield("HubIsArmedWakeOnConnect", 5, 1)]
+                #[bitfield("HubIsBusPowered", 6, 1)]
+                #[bitfield("ReservedMBZ", 7, 25)]
                 _bitfield: u32,
             },
         }
@@ -479,6 +490,11 @@ mod Windows {
         union USB_NODE_CONNECTION_INFORMATION_EX_V2_FLAGS {
             ul: u32,
             Anonymous: #[packed(1)] struct {
+                #[bitfield("DeviceIsOperatingAtSuperSpeedOrHigher", 0, 1)]
+                #[bitfield("DeviceIsSuperSpeedCapableOrHigher", 1, 1)]
+                #[bitfield("DeviceIsOperatingAtSuperSpeedPlusOrHigher", 2, 1)]
+                #[bitfield("DeviceIsSuperSpeedPlusCapableOrHigher", 3, 1)]
+                #[bitfield("ReservedMBZ", 4, 28)]
                 _bitfield: u32,
             },
         }
@@ -543,6 +559,11 @@ mod Windows {
         union USB_PORT_PROPERTIES {
             ul: u32,
             Anonymous: #[packed(1)] struct {
+                #[bitfield("PortIsUserConnectable", 0, 1)]
+                #[bitfield("PortIsDebugCapable", 1, 1)]
+                #[bitfield("PortHasMultipleCompanions", 2, 1)]
+                #[bitfield("PortConnectorIsTypeC", 3, 1)]
+                #[bitfield("ReservedMBZ", 4, 28)]
                 _bitfield: u32,
             },
         }
@@ -550,6 +571,10 @@ mod Windows {
         union USB_PROTOCOLS {
             ul: u32,
             Anonymous: #[packed(1)] struct {
+                #[bitfield("Usb110", 0, 1)]
+                #[bitfield("Usb200", 1, 1)]
+                #[bitfield("Usb300", 2, 1)]
+                #[bitfield("ReservedMBZ", 3, 29)]
                 _bitfield: u32,
             },
         }

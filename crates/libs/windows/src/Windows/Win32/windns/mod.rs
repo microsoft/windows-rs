@@ -861,12 +861,88 @@ pub struct DNS_HEADER {
     pub NameServerCount: u16,
     pub AdditionalCount: u16,
 }
+impl DNS_HEADER {
+    pub fn RecursionDesired(&self) -> bool {
+        self._bitfield1 & 1 != 0
+    }
+    pub fn set_RecursionDesired(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !1) | (value as u8);
+    }
+    pub fn Truncation(&self) -> bool {
+        (self._bitfield1 >> 1) & 1 != 0
+    }
+    pub fn set_Truncation(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 1)) | ((value as u8) << 1);
+    }
+    pub fn Authoritative(&self) -> bool {
+        (self._bitfield1 >> 2) & 1 != 0
+    }
+    pub fn set_Authoritative(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 2)) | ((value as u8) << 2);
+    }
+    pub fn Opcode(&self) -> u8 {
+        (self._bitfield1 << 1) >> 4
+    }
+    pub fn set_Opcode(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(15 << 3)) | ((value & 15) << 3);
+    }
+    pub fn IsResponse(&self) -> bool {
+        (self._bitfield1 >> 7) & 1 != 0
+    }
+    pub fn set_IsResponse(&mut self, value: bool) {
+        self._bitfield1 = (self._bitfield1 & !(1 << 7)) | ((value as u8) << 7);
+    }
+    pub fn ResponseCode(&self) -> u8 {
+        (self._bitfield2 << 4) >> 4
+    }
+    pub fn set_ResponseCode(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !15) | (value & 15);
+    }
+    pub fn CheckingDisabled(&self) -> bool {
+        (self._bitfield2 >> 4) & 1 != 0
+    }
+    pub fn set_CheckingDisabled(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 4)) | ((value as u8) << 4);
+    }
+    pub fn AuthenticatedData(&self) -> bool {
+        (self._bitfield2 >> 5) & 1 != 0
+    }
+    pub fn set_AuthenticatedData(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 5)) | ((value as u8) << 5);
+    }
+    pub fn Reserved(&self) -> bool {
+        (self._bitfield2 >> 6) & 1 != 0
+    }
+    pub fn set_Reserved(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 6)) | ((value as u8) << 6);
+    }
+    pub fn RecursionAvailable(&self) -> bool {
+        (self._bitfield2 >> 7) & 1 != 0
+    }
+    pub fn set_RecursionAvailable(&mut self, value: bool) {
+        self._bitfield2 = (self._bitfield2 & !(1 << 7)) | ((value as u8) << 7);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_HEADER_EXT {
     pub _bitfield: u16,
     pub chRcode: u8,
     pub chVersion: u8,
+}
+impl DNS_HEADER_EXT {
+    pub fn Reserved(&self) -> u16 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !32767) | (value & 32767);
+    }
+    pub fn DnssecOk(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_DnssecOk(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
 }
 pub const DNS_IP4_REVERSE_DOMAIN_STRING_A: windows_core::PCSTR = windows_core::s!("in-addr.arpa.");
 pub const DNS_IP4_REVERSE_DOMAIN_STRING_W: windows_core::PCWSTR = windows_core::w!("in-addr.arpa.");
@@ -1585,6 +1661,38 @@ pub const DNS_RECORD_FIXED_SIZE: u32 = 32;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DNS_RECORD_FLAGS {
     pub _bitfield: u32,
+}
+impl DNS_RECORD_FLAGS {
+    pub fn Section(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_Section(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn Delete(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Delete(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn CharSet(&self) -> u32 {
+        (self._bitfield << 27) >> 30
+    }
+    pub fn set_CharSet(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 3)) | ((value & 3) << 3);
+    }
+    pub fn Unused(&self) -> u32 {
+        (self._bitfield << 24) >> 29
+    }
+    pub fn set_Unused(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 5)) | ((value & 7) << 5);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 8
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(16777215 << 8)) | ((value & 16777215) << 8);
+    }
 }
 #[cfg(feature = "minwindef")]
 pub type DNS_RECORD_OPT = DNS_RECORD_OPTA;

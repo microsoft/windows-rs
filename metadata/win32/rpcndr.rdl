@@ -151,6 +151,21 @@ mod Windows {
             FullPtrXlatTables: *mut FULL_PTR_XLAT_TABLES,
             FullPtrRefId: u32,
             PointerLength: u32,
+            #[bitfield("fInDontFree", 0, 1)]
+            #[bitfield("fDontCallFreeInst", 1, 1)]
+            #[bitfield("fUnused1", 2, 1)]
+            #[bitfield("fHasReturn", 3, 1)]
+            #[bitfield("fHasExtensions", 4, 1)]
+            #[bitfield("fHasNewCorrDesc", 5, 1)]
+            #[bitfield("fIsIn", 6, 1)]
+            #[bitfield("fIsOut", 7, 1)]
+            #[bitfield("fIsOicf", 8, 1)]
+            #[bitfield("fBufferValid", 9, 1)]
+            #[bitfield("fHasMemoryValidateCallback", 10, 1)]
+            #[bitfield("fInFree", 11, 1)]
+            #[bitfield("fNeedMCCP", 12, 1)]
+            #[bitfield("fUnused2", 13, 3)]
+            #[bitfield("fUnused3", 16, 16)]
             _bitfield: u32,
             dwDestContext: u32,
             pvDestContext: *mut void,

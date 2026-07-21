@@ -5117,6 +5117,56 @@ pub struct KS_COLCON {
     pub _bitfield3: u8,
     pub _bitfield4: u8,
 }
+impl KS_COLCON {
+    pub fn emph1col(&self) -> u8 {
+        (self._bitfield1 << 4) >> 4
+    }
+    pub fn set_emph1col(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !15) | (value & 15);
+    }
+    pub fn emph2col(&self) -> u8 {
+        self._bitfield1 >> 4
+    }
+    pub fn set_emph2col(&mut self, value: u8) {
+        self._bitfield1 = (self._bitfield1 & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn backcol(&self) -> u8 {
+        (self._bitfield2 << 4) >> 4
+    }
+    pub fn set_backcol(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !15) | (value & 15);
+    }
+    pub fn patcol(&self) -> u8 {
+        self._bitfield2 >> 4
+    }
+    pub fn set_patcol(&mut self, value: u8) {
+        self._bitfield2 = (self._bitfield2 & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn emph1con(&self) -> u8 {
+        (self._bitfield3 << 4) >> 4
+    }
+    pub fn set_emph1con(&mut self, value: u8) {
+        self._bitfield3 = (self._bitfield3 & !15) | (value & 15);
+    }
+    pub fn emph2con(&self) -> u8 {
+        self._bitfield3 >> 4
+    }
+    pub fn set_emph2con(&mut self, value: u8) {
+        self._bitfield3 = (self._bitfield3 & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn backcon(&self) -> u8 {
+        (self._bitfield4 << 4) >> 4
+    }
+    pub fn set_backcon(&mut self, value: u8) {
+        self._bitfield4 = (self._bitfield4 & !15) | (value & 15);
+    }
+    pub fn patcon(&self) -> u8 {
+        self._bitfield4 >> 4
+    }
+    pub fn set_patcon(&mut self, value: u8) {
+        self._bitfield4 = (self._bitfield4 & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 pub const KS_COPYPROTECT_RestrictDuplication: u32 = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

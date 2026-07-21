@@ -136,6 +136,14 @@ impl Default for D3DKMDT_GDISURFACEFLAGS_0 {
 pub struct D3DKMDT_GDISURFACEFLAGS_0_0 {
     pub _bitfield: u32,
 }
+impl D3DKMDT_GDISURFACEFLAGS_0_0 {
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !4294967295) | (value & 4294967295);
+    }
+}
 pub type D3DKMDT_GDISURFACETYPE = i32;
 pub const D3DKMDT_GDISURFACE_EXISTINGSYSMEM: D3DKMDT_GDISURFACETYPE = 5;
 pub const D3DKMDT_GDISURFACE_INVALID: D3DKMDT_GDISURFACETYPE = 0;
@@ -479,6 +487,50 @@ pub type D3DKMDT_VIDEO_SIGNAL_STANDARD = i32;
 pub struct D3DKMDT_VIDPN_HW_CAPABILITY {
     pub _bitfield: u32,
 }
+impl D3DKMDT_VIDPN_HW_CAPABILITY {
+    pub fn DriverRotation(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_DriverRotation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn DriverScaling(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_DriverScaling(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn DriverCloning(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_DriverCloning(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn DriverColorConvert(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_DriverColorConvert(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn DriverLinkedAdapaterOutput(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_DriverLinkedAdapaterOutput(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn DriverRemoteDisplay(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_DriverRemoteDisplay(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
+    }
+}
 #[repr(C)]
 #[cfg(feature = "d3dukmdt")]
 #[derive(Clone, Copy)]
@@ -520,6 +572,32 @@ impl Default for D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION {
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
     pub _bitfield: u32,
 }
+impl D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_SUPPORT {
+    pub fn NoProtection(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_NoProtection(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn MacroVisionApsTrigger(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_MacroVisionApsTrigger(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn MacroVisionFull(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_MacroVisionFull(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
 pub type D3DKMDT_VIDPN_PRESENT_PATH_COPYPROTECTION_TYPE = i32;
 pub type D3DKMDT_VIDPN_PRESENT_PATH_IMPORTANCE = i32;
 #[repr(transparent)]
@@ -531,11 +609,93 @@ pub type D3DKMDT_VIDPN_PRESENT_PATH_ROTATION = i32;
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
     pub _bitfield: u32,
 }
+impl D3DKMDT_VIDPN_PRESENT_PATH_ROTATION_SUPPORT {
+    pub fn Identity(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Identity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Rotate90(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Rotate90(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Rotate180(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Rotate180(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Rotate270(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_Rotate270(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Offset0(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Offset0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn Offset90(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_Offset90(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Offset180(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_Offset180(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn Offset270(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_Offset270(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+}
 pub type D3DKMDT_VIDPN_PRESENT_PATH_SCALING = i32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
     pub _bitfield: u32,
+}
+impl D3DKMDT_VIDPN_PRESENT_PATH_SCALING_SUPPORT {
+    pub fn Identity(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Identity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Centered(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Centered(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Stretched(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_Stretched(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn AspectRatioCenteredMax(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_AspectRatioCenteredMax(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Custom(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_Custom(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
@@ -761,6 +921,32 @@ impl Default for D3DKMT_DISPLAY_CAPS_0 {
 pub struct D3DKMT_DISPLAY_CAPS_0_0 {
     pub _bitfield: u64,
 }
+impl D3DKMT_DISPLAY_CAPS_0_0 {
+    pub fn PreferPhysicallyContiguous(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_PreferPhysicallyContiguous(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u64);
+    }
+    pub fn CursorScaledWithMultiPlaneOverlayPlane0(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CursorScaledWithMultiPlaneOverlayPlane0(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u64) << 1);
+    }
+    pub fn CursorDoesNotSupportXorBlendWithMultiPlaneOverlay(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_CursorDoesNotSupportXorBlendWithMultiPlaneOverlay(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u64) << 2);
+    }
+    pub fn Reserved(&self) -> u64 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u64) {
+        self._bitfield = (self._bitfield & !(2305843009213693951 << 3)) | ((value & 2305843009213693951) << 3);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_DRIVERCAPS_EXT {
@@ -786,6 +972,26 @@ impl Default for D3DKMT_DRIVERCAPS_EXT_0 {
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_DRIVERCAPS_EXT_0_0 {
     pub _bitfield: u32,
+}
+impl D3DKMT_DRIVERCAPS_EXT_0_0 {
+    pub fn VirtualModeSupport(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_VirtualModeSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Usb4MonitorSupport(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_Usb4MonitorSupport(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
 }
 #[repr(C)]
 #[cfg(feature = "windef")]
@@ -854,6 +1060,74 @@ impl Default for D3DKMT_WDDM_1_2_CAPS_0 {
 pub struct D3DKMT_WDDM_1_2_CAPS_0_0 {
     pub _bitfield: u32,
 }
+impl D3DKMT_WDDM_1_2_CAPS_0_0 {
+    pub fn SupportNonVGA(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SupportNonVGA(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn SupportSmoothRotation(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_SupportSmoothRotation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn SupportPerEngineTDR(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_SupportPerEngineTDR(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn SupportKernelModeCommandBuffer(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_SupportKernelModeCommandBuffer(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn SupportCCD(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_SupportCCD(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn SupportSoftwareDeviceBitmaps(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_SupportSoftwareDeviceBitmaps(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn SupportGammaRamp(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_SupportGammaRamp(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn SupportHWCursor(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_SupportHWCursor(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn SupportHWVSync(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_SupportHWVSync(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn SupportSurpriseRemovalInHibernation(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_SupportSurpriseRemovalInHibernation(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 10
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(4194303 << 10)) | ((value & 4194303) << 10);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_1_3_CAPS {
@@ -879,6 +1153,50 @@ impl Default for D3DKMT_WDDM_1_3_CAPS_0 {
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_1_3_CAPS_0_0 {
     pub _bitfield: u32,
+}
+impl D3DKMT_WDDM_1_3_CAPS_0_0 {
+    pub fn SupportMiracast(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SupportMiracast(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn IsHybridIntegratedGPU(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_IsHybridIntegratedGPU(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn IsHybridDiscreteGPU(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_IsHybridDiscreteGPU(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn SupportPowerManagementPStates(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_SupportPowerManagementPStates(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn SupportVirtualModes(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_SupportVirtualModes(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn SupportCrossAdapterResource(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_SupportCrossAdapterResource(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -906,6 +1224,50 @@ impl Default for D3DKMT_WDDM_2_0_CAPS_0 {
 pub struct D3DKMT_WDDM_2_0_CAPS_0_0 {
     pub _bitfield: u32,
 }
+impl D3DKMT_WDDM_2_0_CAPS_0_0 {
+    pub fn Support64BitAtomics(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Support64BitAtomics(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn GpuMmuSupported(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_GpuMmuSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn IoMmuSupported(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_IoMmuSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn FlipOverwriteSupported(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_FlipOverwriteSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn SupportContextlessPresent(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_SupportContextlessPresent(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn SupportSurpriseRemoval(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_SupportSurpriseRemoval(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 6
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(67108863 << 6)) | ((value & 67108863) << 6);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_2_7_CAPS {
@@ -931,6 +1293,38 @@ impl Default for D3DKMT_WDDM_2_7_CAPS_0 {
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_2_7_CAPS_0_0 {
     pub _bitfield: u32,
+}
+impl D3DKMT_WDDM_2_7_CAPS_0_0 {
+    pub fn HwSchSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_HwSchSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn HwSchEnabled(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_HwSchEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn HwSchEnabledByDefault(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_HwSchEnabledByDefault(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn IndependentVidPnVSyncControl(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_IndependentVidPnVSyncControl(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
@@ -958,6 +1352,32 @@ impl Default for D3DKMT_WDDM_2_9_CAPS_0 {
 pub struct D3DKMT_WDDM_2_9_CAPS_0_0 {
     pub _bitfield: u32,
 }
+impl D3DKMT_WDDM_2_9_CAPS_0_0 {
+    pub fn HwSchSupportState(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_HwSchSupportState(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn HwSchEnabled(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_HwSchEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn SelfRefreshMemorySupported(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_SelfRefreshMemorySupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_3_0_CAPS {
@@ -984,6 +1404,32 @@ impl Default for D3DKMT_WDDM_3_0_CAPS_0 {
 pub struct D3DKMT_WDDM_3_0_CAPS_0_0 {
     pub _bitfield: u32,
 }
+impl D3DKMT_WDDM_3_0_CAPS_0_0 {
+    pub fn HwFlipQueueSupportState(&self) -> u32 {
+        (self._bitfield << 30) >> 30
+    }
+    pub fn set_HwFlipQueueSupportState(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !3) | (value & 3);
+    }
+    pub fn HwFlipQueueEnabled(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_HwFlipQueueEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn DisplayableSupported(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_DisplayableSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(268435455 << 4)) | ((value & 268435455) << 4);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct D3DKMT_WDDM_3_1_CAPS {
@@ -1009,6 +1455,20 @@ impl Default for D3DKMT_WDDM_3_1_CAPS_0 {
 #[derive(Clone, Copy, Default)]
 pub struct D3DKMT_WDDM_3_1_CAPS_0_0 {
     pub _bitfield: u32,
+}
+impl D3DKMT_WDDM_3_1_CAPS_0_0 {
+    pub fn NativeGpuFenceSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_NativeGpuFenceSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 pub const DIDDT1_AspectRatio_15x9: _DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = 3;
 pub const DIDDT1_AspectRatio_16x10: _DISPLAYID_DETAILED_TIMING_TYPE_I_ASPECT_RATIO = 5;
@@ -1041,15 +1501,81 @@ pub struct DISPLAYID_DETAILED_TIMING_TYPE_I {
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
     pub _bitfield: u32,
 }
+impl DISPLAYID_DETAILED_TIMING_TYPE_I_0 {
+    pub fn PixelClock(&self) -> u32 {
+        (self._bitfield << 8) >> 8
+    }
+    pub fn set_PixelClock(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !16777215) | (value & 16777215);
+    }
+    pub fn AspectRatio(&self) -> u32 {
+        (self._bitfield << 5) >> 29
+    }
+    pub fn set_AspectRatio(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 24)) | ((value & 7) << 24);
+    }
+    pub fn Reserved(&self) -> bool {
+        (self._bitfield >> 27) & 1 != 0
+    }
+    pub fn set_Reserved(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 27)) | ((value as u32) << 27);
+    }
+    pub fn ScanningType(&self) -> bool {
+        (self._bitfield >> 28) & 1 != 0
+    }
+    pub fn set_ScanningType(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 28)) | ((value as u32) << 28);
+    }
+    pub fn StereoMode(&self) -> u32 {
+        (self._bitfield << 1) >> 30
+    }
+    pub fn set_StereoMode(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 29)) | ((value & 3) << 29);
+    }
+    pub fn PreferredTiming(&self) -> bool {
+        (self._bitfield >> 31) & 1 != 0
+    }
+    pub fn set_PreferredTiming(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 31)) | ((value as u32) << 31);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
     pub _bitfield: u16,
 }
+impl DISPLAYID_DETAILED_TIMING_TYPE_I_1 {
+    pub fn HorizontalFrontPorch(&self) -> u16 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_HorizontalFrontPorch(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !32767) | (value & 32767);
+    }
+    pub fn HorizontalSyncPolarity(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_HorizontalSyncPolarity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
     pub _bitfield: u16,
+}
+impl DISPLAYID_DETAILED_TIMING_TYPE_I_2 {
+    pub fn VerticalFrontPorch(&self) -> u16 {
+        (self._bitfield << 1) >> 1
+    }
+    pub fn set_VerticalFrontPorch(&mut self, value: u16) {
+        self._bitfield = (self._bitfield & !32767) | (value & 32767);
+    }
+    pub fn VerticalSyncPolarity(&self) -> bool {
+        (self._bitfield >> 15) & 1 != 0
+    }
+    pub fn set_VerticalSyncPolarity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 15)) | ((value as u16) << 15);
+    }
 }
 pub const DISPLAYID_DETAILED_TIMING_TYPE_I_SIZE: u32 = 20;
 pub type DXGKARG_CALIBRATEGPUCLOCK = DXGK_GPUCLOCKDATA;
@@ -1485,6 +2011,32 @@ impl Default for DXGK_BRIGHTNESS_CAPS_0 {
 pub struct DXGK_BRIGHTNESS_CAPS_0_0 {
     pub _bitfield: u32,
 }
+impl DXGK_BRIGHTNESS_CAPS_0_0 {
+    pub fn SmoothBrightness(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SmoothBrightness(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn AdaptiveBrightness(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_AdaptiveBrightness(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn NitsBrightness(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_NitsBrightness(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_BRIGHTNESS_GET_NIT_RANGES_OUT {
@@ -1542,6 +2094,32 @@ impl Default for DXGK_BRIGHTNESS_SENSOR_DATA_0 {
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
     pub _bitfield: u32,
 }
+impl DXGK_BRIGHTNESS_SENSOR_DATA_0_0 {
+    pub fn AlsReadingValid(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_AlsReadingValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn ChromaticityValid(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_ChromaticityValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn ColorTemperatureValid(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_ColorTemperatureValid(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 3
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(536870911 << 3)) | ((value & 536870911) << 3);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_SENSOR_DATA_CHROMATICITY {
@@ -1585,6 +2163,20 @@ impl Default for DXGK_BRIGHTNESS_STATE_0 {
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_BRIGHTNESS_STATE_0_0 {
     pub _bitfield: u32,
+}
+impl DXGK_BRIGHTNESS_STATE_0_0 {
+    pub fn SmoothBrightness(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SmoothBrightness(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 pub type DXGK_CHILD_DEVICE_HPD_AWARENESS = i32;
 pub const DXGK_DDT_DISPLAYID: DXGK_DISPLAY_DESCRIPTOR_TYPE = 2;
@@ -1680,10 +2272,38 @@ impl Default for DXGK_FAULT_ERROR_CODE_0 {
 pub struct DXGK_FAULT_ERROR_CODE_0_0 {
     pub _bitfield: u32,
 }
+impl DXGK_FAULT_ERROR_CODE_0_0 {
+    pub fn IsDeviceSpecificCode(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IsDeviceSpecificCode(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn GeneralErrorCode(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_GeneralErrorCode(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_FAULT_ERROR_CODE_0_1 {
     pub _bitfield: u32,
+}
+impl DXGK_FAULT_ERROR_CODE_0_1 {
+    pub fn IsDeviceSpecificCodeReservedBit(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_IsDeviceSpecificCodeReservedBit(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn DeviceSpecificCode(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_DeviceSpecificCode(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
 }
 pub const DXGK_FEATURE_SUPPORT_ALWAYS_OFF: u32 = 0;
 pub const DXGK_FEATURE_SUPPORT_ALWAYS_ON: u32 = 3;
@@ -1731,6 +2351,20 @@ impl Default for DXGK_GPUCLOCKDATA_FLAGS_0 {
 pub struct DXGK_GPUCLOCKDATA_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+impl DXGK_GPUCLOCKDATA_FLAGS_0_0 {
+    pub fn ContextManagementProcessor(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ContextManagementProcessor(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(2147483647 << 1)) | ((value & 2147483647) << 1);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct DXGK_GPUVERSION {
@@ -1760,6 +2394,86 @@ impl Default for DXGK_MONITORLINKINFO_CAPABILITIES {
 pub struct DXGK_MONITORLINKINFO_CAPABILITIES_0 {
     pub _bitfield: u32,
 }
+impl DXGK_MONITORLINKINFO_CAPABILITIES_0 {
+    pub fn Stereo(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Stereo(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn WideColorSpace(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_WideColorSpace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn HighColorSpace(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_HighColorSpace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn DynamicColorSpace(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_DynamicColorSpace(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn DynamicBitsPerColorChannel(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_DynamicBitsPerColorChannel(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn DynamicColorEncodingFormat(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_DynamicColorEncodingFormat(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn DedicatedTimingGeneration(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_DedicatedTimingGeneration(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn TargetIndependentPrimary(&self) -> bool {
+        (self._bitfield >> 7) & 1 != 0
+    }
+    pub fn set_TargetIndependentPrimary(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 7)) | ((value as u32) << 7);
+    }
+    pub fn SyncLockIdentical(&self) -> bool {
+        (self._bitfield >> 8) & 1 != 0
+    }
+    pub fn set_SyncLockIdentical(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 8)) | ((value as u32) << 8);
+    }
+    pub fn Hdr10Plus(&self) -> bool {
+        (self._bitfield >> 9) & 1 != 0
+    }
+    pub fn set_Hdr10Plus(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 9)) | ((value as u32) << 9);
+    }
+    pub fn DolbyVisionLowLatency(&self) -> bool {
+        (self._bitfield >> 10) & 1 != 0
+    }
+    pub fn set_DolbyVisionLowLatency(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 10)) | ((value as u32) << 10);
+    }
+    pub fn VariableRefresh(&self) -> bool {
+        (self._bitfield >> 11) & 1 != 0
+    }
+    pub fn set_VariableRefresh(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 11)) | ((value as u32) << 11);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 12
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1048575 << 12)) | ((value & 1048575) << 12);
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub union DXGK_MONITORLINKINFO_USAGEHINTS {
@@ -1775,6 +2489,26 @@ impl Default for DXGK_MONITORLINKINFO_USAGEHINTS {
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_MONITORLINKINFO_USAGEHINTS_0 {
     pub _bitfield: u32,
+}
+impl DXGK_MONITORLINKINFO_USAGEHINTS_0 {
+    pub fn Hidden(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_Hidden(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn HeadMounted(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_HeadMounted(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
@@ -1815,6 +2549,56 @@ impl Default for DXGK_NODEMETADATA_FLAGS_0 {
 #[derive(Clone, Copy, Default)]
 pub struct DXGK_NODEMETADATA_FLAGS_0_0 {
     pub _bitfield: u32,
+}
+impl DXGK_NODEMETADATA_FLAGS_0_0 {
+    pub fn ContextSchedulingSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ContextSchedulingSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn RingBufferFenceRelease(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_RingBufferFenceRelease(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn SupportTrackedWorkload(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_SupportTrackedWorkload(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn UserModeSubmission(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_UserModeSubmission(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+    pub fn SupportBuildTestCommandBuffer(&self) -> bool {
+        (self._bitfield >> 4) & 1 != 0
+    }
+    pub fn set_SupportBuildTestCommandBuffer(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 4)) | ((value as u32) << 4);
+    }
+    pub fn SupportFaultAndStall(&self) -> bool {
+        (self._bitfield >> 5) & 1 != 0
+    }
+    pub fn set_SupportFaultAndStall(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 5)) | ((value as u32) << 5);
+    }
+    pub fn Reserved(&self) -> u32 {
+        (self._bitfield << 16) >> 22
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1023 << 6)) | ((value & 1023) << 6);
+    }
+    pub fn MaxInFlightHwQueueBuffers(&self) -> u32 {
+        self._bitfield >> 16
+    }
+    pub fn set_MaxInFlightHwQueueBuffers(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(65535 << 16)) | ((value & 65535) << 16);
+    }
 }
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]

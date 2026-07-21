@@ -702,6 +702,62 @@ pub const DVD_TC_FLAG_Interpolated: DVD_TIMECODE_FLAGS = 8;
 pub struct DVD_TIMECODE {
     pub _bitfield: u32,
 }
+impl DVD_TIMECODE {
+    pub fn Hours1(&self) -> u32 {
+        (self._bitfield << 28) >> 28
+    }
+    pub fn set_Hours1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Hours10(&self) -> u32 {
+        (self._bitfield << 24) >> 28
+    }
+    pub fn set_Hours10(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+    pub fn Minutes1(&self) -> u32 {
+        (self._bitfield << 20) >> 28
+    }
+    pub fn set_Minutes1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 8)) | ((value & 15) << 8);
+    }
+    pub fn Minutes10(&self) -> u32 {
+        (self._bitfield << 16) >> 28
+    }
+    pub fn set_Minutes10(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 12)) | ((value & 15) << 12);
+    }
+    pub fn Seconds1(&self) -> u32 {
+        (self._bitfield << 12) >> 28
+    }
+    pub fn set_Seconds1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 16)) | ((value & 15) << 16);
+    }
+    pub fn Seconds10(&self) -> u32 {
+        (self._bitfield << 8) >> 28
+    }
+    pub fn set_Seconds10(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 20)) | ((value & 15) << 20);
+    }
+    pub fn Frames1(&self) -> u32 {
+        (self._bitfield << 4) >> 28
+    }
+    pub fn set_Frames1(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(15 << 24)) | ((value & 15) << 24);
+    }
+    pub fn Frames10(&self) -> u32 {
+        (self._bitfield << 2) >> 30
+    }
+    pub fn set_Frames10(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 28)) | ((value & 3) << 28);
+    }
+    pub fn FrameRateCode(&self) -> u32 {
+        self._bitfield >> 30
+    }
+    pub fn set_FrameRateCode(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 30)) | ((value & 3) << 30);
+    }
+}
 pub type DVD_TIMECODE_FLAGS = i32;
 pub type DVD_TITLE_APPMODE = i32;
 pub const DVD_TITLE_MENU: u32 = 0;

@@ -217,6 +217,26 @@ impl Default for D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0 {
 pub struct D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
     pub _bitfield: u32,
 }
+impl D3DAUTHENTICATEDCHANNEL_PROTECTION_FLAGS_0_0 {
+    pub fn ProtectionEnabled(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_ProtectionEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn OverlayOrFullscreenRequired(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_OverlayOrFullscreenRequired(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn Reserved(&self) -> u32 {
+        self._bitfield >> 2
+    }
+    pub fn set_Reserved(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(1073741823 << 2)) | ((value & 1073741823) << 2);
+    }
+}
 #[repr(C)]
 #[cfg(feature = "winnt")]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

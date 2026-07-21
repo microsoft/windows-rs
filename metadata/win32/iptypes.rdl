@@ -51,6 +51,16 @@ mod Windows {
             Anonymous2: union {
                 Flags: u32,
                 Anonymous: struct {
+                    #[bitfield("DdnsEnabled", 0, 1)]
+                    #[bitfield("RegisterAdapterSuffix", 1, 1)]
+                    #[bitfield("Dhcpv4Enabled", 2, 1)]
+                    #[bitfield("ReceiveOnly", 3, 1)]
+                    #[bitfield("NoMulticast", 4, 1)]
+                    #[bitfield("Ipv6OtherStatefulConfig", 5, 1)]
+                    #[bitfield("NetbiosOverTcpipEnabled", 6, 1)]
+                    #[bitfield("Ipv4Enabled", 7, 1)]
+                    #[bitfield("Ipv6Enabled", 8, 1)]
+                    #[bitfield("Ipv6ManagedAddressConfigurationSupported", 9, 1)]
                     _bitfield: u32,
                 },
             },

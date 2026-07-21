@@ -44,6 +44,14 @@ mod Windows {
             NlincCategoryStateMax = 4,
         }
         struct NL_INTERFACE_OFFLOAD_ROD {
+            #[bitfield("NlChecksumSupported", 0, 1)]
+            #[bitfield("NlOptionsSupported", 1, 1)]
+            #[bitfield("TlDatagramChecksumSupported", 2, 1)]
+            #[bitfield("TlStreamChecksumSupported", 3, 1)]
+            #[bitfield("TlStreamOptionsSupported", 4, 1)]
+            #[bitfield("FastPathCompatible", 5, 1)]
+            #[bitfield("TlLargeSendOffloadSupported", 6, 1)]
+            #[bitfield("TlGiantSendOffloadSupported", 7, 1)]
             _bitfield: BOOLEAN,
         }
         #[repr(i32)]

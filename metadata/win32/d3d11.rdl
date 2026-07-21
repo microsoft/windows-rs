@@ -139,6 +139,9 @@ mod Windows {
             Value: u32,
         }
         struct D3D11_AUTHENTICATED_PROTECTION_FLAGS_0 {
+            #[bitfield("ProtectionEnabled", 0, 1)]
+            #[bitfield("OverlayOrFullscreenRequired", 1, 1)]
+            #[bitfield("Reserved", 2, 30)]
             _bitfield: u32,
         }
         const D3D11_AUTHENTICATED_QUERY_ACCESSIBILITY_ATTRIBUTES: GUID = 0x6214d9d2_432c_4abb_9fce_216eea269e3b;
@@ -1793,6 +1796,12 @@ mod Windows {
             MaxStreamStates: u32,
         }
         struct D3D11_VIDEO_PROCESSOR_COLOR_SPACE {
+            #[bitfield("Usage", 0, 1)]
+            #[bitfield("RGB_Range", 1, 1)]
+            #[bitfield("YCbCr_Matrix", 2, 1)]
+            #[bitfield("YCbCr_xvYCC", 3, 1)]
+            #[bitfield("Nominal_Range", 4, 2)]
+            #[bitfield("Reserved", 6, 26)]
             _bitfield: u32,
         }
         struct D3D11_VIDEO_PROCESSOR_CONTENT_DESC {

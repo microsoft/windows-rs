@@ -2980,6 +2980,20 @@ pub type DOT11_WFD_DISCOVER_TYPE = i32;
 pub struct DOT11_WFD_GO_INTENT {
     pub _bitfield: u8,
 }
+impl DOT11_WFD_GO_INTENT {
+    pub fn TieBreaker(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_TieBreaker(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Intent(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Intent(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub struct DOT11_WFD_GROUP_CAPABILITY(pub u8);
@@ -3056,6 +3070,20 @@ pub const DOT11_WFD_GROUP_START_PARAMETERS_REVISION_1: u32 = 1;
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct DOT11_WFD_INVITATION_FLAGS {
     pub _bitfield: u8,
+}
+impl DOT11_WFD_INVITATION_FLAGS {
+    pub fn InvitationType(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_InvitationType(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u8);
+    }
+    pub fn Reserved(&self) -> u8 {
+        self._bitfield >> 1
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(127 << 1)) | ((value & 127) << 1);
+    }
 }
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]

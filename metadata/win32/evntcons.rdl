@@ -90,6 +90,8 @@ mod Windows {
             Reserved1: u16,
             ExtType: u16,
             Anonymous: struct {
+                #[bitfield("Linkage", 0, 1)]
+                #[bitfield("Reserved2", 1, 15)]
                 _bitfield: u16,
             },
             DataSize: u16,

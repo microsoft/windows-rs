@@ -93,6 +93,11 @@ pub(crate) const PSEUDO_ATTRS: &[PseudoAttr] = &[
         metadata: "NativeEncodingAttribute",
         prop: None,
     },
+    PseudoAttr {
+        short: "bitfield",
+        metadata: "NativeBitfieldAttribute",
+        prop: None,
+    },
 ];
 
 pub(crate) fn pseudo_by_short(short: &str) -> Option<&'static PseudoAttr> {

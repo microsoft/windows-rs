@@ -1026,6 +1026,12 @@ mod Windows {
         const ST_UNICODE: u32 = 8;
         struct TABLECELLPARMS {
             dxWidth: i32,
+            #[bitfield("nVertAlign", 0, 2)]
+            #[bitfield("fMergeTop", 2, 1)]
+            #[bitfield("fMergePrev", 3, 1)]
+            #[bitfield("fVertical", 4, 1)]
+            #[bitfield("fMergeStart", 5, 1)]
+            #[bitfield("fMergeCont", 6, 1)]
             _bitfield: u16,
             wShading: u16,
             dxBrdrLeft: i16,
@@ -1047,6 +1053,12 @@ mod Windows {
             dxCellMargin: i32,
             dxIndent: i32,
             dyHeight: i32,
+            #[bitfield("nAlignment", 0, 3)]
+            #[bitfield("fRTL", 3, 1)]
+            #[bitfield("fKeep", 4, 1)]
+            #[bitfield("fKeepFollow", 5, 1)]
+            #[bitfield("fWrap", 6, 1)]
+            #[bitfield("fIdentCells", 7, 1)]
             _bitfield: u32,
             cpStartRow: i32,
             bTableLevel: u8,

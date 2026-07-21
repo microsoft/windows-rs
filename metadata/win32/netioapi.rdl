@@ -370,6 +370,14 @@ mod Windows {
             AccessType: NET_IF_ACCESS_TYPE,
             DirectionType: NET_IF_DIRECTION_TYPE,
             InterfaceAndOperStatusFlags: struct {
+                #[bitfield("HardwareInterface", 0, 1)]
+                #[bitfield("FilterInterface", 1, 1)]
+                #[bitfield("ConnectorPresent", 2, 1)]
+                #[bitfield("NotAuthenticated", 3, 1)]
+                #[bitfield("NotMediaConnected", 4, 1)]
+                #[bitfield("Paused", 5, 1)]
+                #[bitfield("LowPower", 6, 1)]
+                #[bitfield("EndPointInterface", 7, 1)]
                 _bitfield: BOOLEAN,
             },
             OperStatus: IF_OPER_STATUS,
@@ -488,6 +496,8 @@ mod Windows {
             State: NL_NEIGHBOR_STATE,
             Anonymous: union {
                 Anonymous: struct {
+                    #[bitfield("IsRouter", 0, 1)]
+                    #[bitfield("IsUnreachable", 1, 1)]
                     _bitfield: BOOLEAN,
                 },
                 Flags: u8,

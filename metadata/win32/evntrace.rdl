@@ -407,6 +407,7 @@ mod Windows {
             LoggerNameOffset: u32,
             Anonymous2: union {
                 Anonymous: struct {
+                    #[bitfield("VersionNumber", 0, 8)]
                     _bitfield: u32,
                 },
                 V2Control: u32,
@@ -415,6 +416,10 @@ mod Windows {
             FilterDesc: PEVENT_FILTER_DESCRIPTOR,
             Anonymous3: union {
                 Anonymous: struct {
+                    #[bitfield("Wow", 0, 1)]
+                    #[bitfield("QpcDeltaTracking", 1, 1)]
+                    #[bitfield("LargeMdlPages", 2, 1)]
+                    #[bitfield("ExcludeKernelStack", 3, 1)]
                     _bitfield: u32,
                 },
                 V2Options: u64,

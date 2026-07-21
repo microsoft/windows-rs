@@ -45,6 +45,13 @@ mod Windows {
             expansionMinimum: f32,
             expansionMaximum: f32,
             compressionMaximum: f32,
+            #[bitfield("expansionPriority", 0, 8)]
+            #[bitfield("compressionPriority", 8, 8)]
+            #[bitfield("allowResidualExpansion", 16, 1)]
+            #[bitfield("allowResidualCompression", 17, 1)]
+            #[bitfield("applyToLeadingEdge", 18, 1)]
+            #[bitfield("applyToTrailingEdge", 19, 1)]
+            #[bitfield("reserved", 20, 12)]
             _bitfield: u32,
         }
         #[repr(i32)]
@@ -469,6 +476,14 @@ mod Windows {
             isoScriptNumber: u32,
             clusterLookahead: u32,
             justificationCharacter: u32,
+            #[bitfield("restrictCaretToClusters", 0, 1)]
+            #[bitfield("usesWordDividers", 1, 1)]
+            #[bitfield("isDiscreteWriting", 2, 1)]
+            #[bitfield("isBlockWriting", 3, 1)]
+            #[bitfield("isDistributedWithinCluster", 4, 1)]
+            #[bitfield("isConnectedWriting", 5, 1)]
+            #[bitfield("isCursiveWriting", 6, 1)]
+            #[bitfield("reserved", 7, 25)]
             _bitfield: u32,
         }
         #[repr(i32)]
