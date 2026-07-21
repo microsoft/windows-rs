@@ -24,6 +24,55 @@ fn update_child_tracked<B: Backend + 'static>(
     }
 }
 
+/// Update a matched keyed child in place, preserving the middle-region skip
+/// accounting (`debug_elements_skipped`) used by the reconciler's tests. Split
+/// out so the keyed placement loop can update a control at whatever live index
+/// it currently occupies.
+fn update_matched<B: Backend + 'static>(
+    reconciler: &mut Reconciler<B>,
+    parent: ControlId,
+    index: usize,
+    old_el: &Element,
+    new_el: &Element,
+) {
+    if reconciler.child_at(parent, index).is_none() {
+        return;
+    }
+    if can_skip_update(old_el, new_el) {
+        let child_id = reconciler.child_at(parent, index);
+        let state_dirty = child_id.is_some_and(|cid| reconciler.is_component_state_dirty(cid));
+        if state_dirty {
+            update_child_tracked(reconciler, parent, index, old_el, new_el);
+        } else {
+            reconciler.debug_elements_skipped += 1;
+        }
+    } else {
+        update_child_tracked(reconciler, parent, index, old_el, new_el);
+    }
+}
+
+/// Current live index of `ctrl` among `parent`'s children, read from the
+/// authoritative children mirror. Returns `None` if the control is not a child
+/// of `parent` (it was removed or never inserted).
+fn live_index<B: Backend + 'static>(
+    reconciler: &Reconciler<B>,
+    parent: ControlId,
+    ctrl: ControlId,
+) -> Option<usize> {
+    reconciler
+        .children_mirror
+        .get(&parent)
+        .and_then(|v| v.iter().position(|&c| c == ctrl))
+}
+
+/// Number of live children currently tracked for `parent`.
+fn live_len<B: Backend + 'static>(reconciler: &Reconciler<B>, parent: ControlId) -> usize {
+    reconciler
+        .children_mirror
+        .get(&parent)
+        .map_or(0, |v| v.len())
+}
+
 pub fn reconcile<B: Backend + 'static>(
     reconciler: &mut Reconciler<B>,
     parent: ControlId,
@@ -299,97 +348,94 @@ fn reconcile_keyed_middle<B: Backend + 'static>(
         }
     }
 
-    let mut key_to_panel: FxHashMap<Cow<'_, str>, usize> = FxHashMap::default();
+    // Capture the live control backing each matched old-middle item, plus the
+    // anchor marking the right edge of the middle. After the removal pass above,
+    // the surviving matched controls occupy `[prefix .. prefix + matched_count)`
+    // in their original relative order, immediately followed by the untouched
+    // suffix region.
+    let mut old_ctrl: FxHashMap<usize, ControlId> = FxHashMap::default();
+    old_ctrl.reserve(old_mid_len);
+    let mut matched_count = 0usize;
     {
         let mut panel_idx = prefix;
-        for i in 0..old_mid_len {
-            if matched[i] {
-                let key = effective_key(old.get(old_start + i).unwrap(), old_start + i);
-                key_to_panel.insert(key, panel_idx);
+        for oi in 0..old_mid_len {
+            if matched[oi] {
+                if let Some(id) = reconciler.child_at(parent, panel_idx) {
+                    old_ctrl.insert(oi, id);
+                }
                 panel_idx += 1;
+                matched_count += 1;
             }
         }
     }
+    // First control of the suffix region, or `None` to append at the tail. This
+    // is the stable right-edge anchor for the last middle item; the suffix never
+    // moves during middle reconciliation.
+    let suffix_anchor = reconciler.child_at(parent, prefix + matched_count);
 
-    for i in 0..new_mid_len {
-        let target_panel_idx = prefix + i;
+    // Right-to-left, anchor-based placement (the Vue/Inferno `patchKeyedChildren`
+    // strategy). Walking from the end lets every item be placed immediately
+    // *before* its already-final successor, so we only ever reason in live
+    // coordinates and never translate a final-model index into a mixed old/new
+    // panel — the defect that corrupted order when an insert coincided with a
+    // move (issue #4716). LIS members keep their slots (minimal backend moves);
+    // every other matched item moves to just before its anchor.
+    let mut placed: Vec<Option<ControlId>> = vec![None; new_mid_len];
+    for i in (0..new_mid_len).rev() {
         let new_el = new.get(new_start + i).unwrap();
 
-        if new_to_old[i] == -1 {
-            if let Some(ctrl) = reconciler.mount(new_el) {
-                reconciler.insert_child_tracked(parent, target_panel_idx, ctrl);
-
-                for v in key_to_panel.values_mut() {
-                    if *v >= target_panel_idx {
-                        *v += 1;
-                    }
-                }
-            }
-        } else if lis.contains(&i) {
-            let old_rel = new_to_old[i] as usize;
-            let old_el = old.get(old_start + old_rel).unwrap();
-            // LIS items don't need to move, but earlier non-LIS moves in
-            // this same loop may have shifted them to a different actual
-            // panel slot. Use `key_to_panel` for the LIS element's current
-            // position so we update the right control. (Using
-            // `target_panel_idx` would update whichever control happens to
-            // have been displaced into that slot — see the keyed-shuffle
-            // regression test in this module.)
-            let key = effective_key(old_el, old_start + old_rel);
-            let actual_pos = *key_to_panel.get(key.as_ref()).unwrap();
-            if reconciler.child_at(parent, actual_pos).is_some() {
-                if can_skip_update(old_el, new_el) {
-                    let child_id = reconciler.child_at(parent, actual_pos);
-                    let state_dirty =
-                        child_id.is_some_and(|cid| reconciler.is_component_state_dirty(cid));
-                    if state_dirty {
-                        update_child_tracked(reconciler, parent, actual_pos, old_el, new_el);
-                    } else {
-                        reconciler.debug_elements_skipped += 1;
-                    }
-                } else {
-                    update_child_tracked(reconciler, parent, actual_pos, old_el, new_el);
-                }
-            }
+        // The successor this item must sit immediately before. `placed[i + 1]`
+        // is already in its final slot (we came from the right); the last item
+        // anchors on the suffix's first control (or the tail when there is none).
+        let anchor = if i + 1 < new_mid_len {
+            placed[i + 1]
         } else {
-            let old_rel = new_to_old[i] as usize;
-            let old_el = old.get(old_start + old_rel).unwrap();
-            let key = effective_key(old_el, old_start + old_rel);
-            let current_pos = *key_to_panel.get(key.as_ref()).unwrap();
-            if current_pos != target_panel_idx {
-                reconciler.move_child_tracked(parent, current_pos, target_panel_idx);
-
-                for v in key_to_panel.values_mut() {
-                    if *v == current_pos {
-                        *v = target_panel_idx;
-                    } else if current_pos < target_panel_idx
-                        && *v > current_pos
-                        && *v <= target_panel_idx
-                    {
-                        *v -= 1;
-                    } else if current_pos > target_panel_idx
-                        && *v >= target_panel_idx
-                        && *v < current_pos
-                    {
-                        *v += 1;
-                    }
-                }
+            suffix_anchor
+        };
+        let anchor_idx = match anchor {
+            Some(a) => {
+                live_index(reconciler, parent, a).unwrap_or_else(|| live_len(reconciler, parent))
             }
+            None => live_len(reconciler, parent),
+        };
 
-            if reconciler.child_at(parent, target_panel_idx).is_some() {
-                if can_skip_update(old_el, new_el) {
-                    let child_id = reconciler.child_at(parent, target_panel_idx);
-                    let state_dirty =
-                        child_id.is_some_and(|cid| reconciler.is_component_state_dirty(cid));
-                    if state_dirty {
-                        update_child_tracked(reconciler, parent, target_panel_idx, old_el, new_el);
-                    } else {
-                        reconciler.debug_elements_skipped += 1;
-                    }
-                } else {
-                    update_child_tracked(reconciler, parent, target_panel_idx, old_el, new_el);
+        if new_to_old[i] == -1 {
+            // Brand-new child: mount and insert directly before the anchor.
+            match reconciler.mount(new_el) {
+                Some(ctrl) => {
+                    reconciler.insert_child_tracked(parent, anchor_idx, ctrl);
+                    placed[i] = Some(ctrl);
                 }
+                // No control materialised (e.g. `Empty`); the item to the left
+                // should anchor on this item's own successor instead.
+                None => placed[i] = anchor,
             }
+            continue;
+        }
+
+        let old_rel = new_to_old[i] as usize;
+        let Some(&ctrl) = old_ctrl.get(&old_rel) else {
+            continue;
+        };
+        placed[i] = Some(ctrl);
+        let old_el = old.get(old_start + old_rel).unwrap();
+
+        // Non-LIS matched items move to just before the anchor. `move_child_tracked`
+        // removes then re-inserts, so a left-moving item (`from < anchor_idx`)
+        // lands one slot earlier — this is exactly DOM `insertBefore(anchor)`.
+        if !lis.contains(&i)
+            && let Some(from) = live_index(reconciler, parent, ctrl)
+        {
+            let to = if from < anchor_idx {
+                anchor_idx - 1
+            } else {
+                anchor_idx
+            };
+            reconciler.move_child_tracked(parent, from, to);
+        }
+
+        if let Some(cur) = live_index(reconciler, parent, ctrl) {
+            update_matched(reconciler, parent, cur, old_el, new_el);
         }
     }
 }
