@@ -564,34 +564,45 @@ impl CanvasSwapChain {
 
     /// Resizes the surface to `width`×`height` device-independent pixels. A
     /// no-op if the size is unchanged. Redraw with [`draw`](Self::draw) after.
-    pub fn resize(&self, width: f32, height: f32) {
+    ///
+    /// The stored size is updated only after the swap chain resizes
+    /// successfully; if the resize fails the error is returned and the surface
+    /// keeps its previous dimensions so later draws stay consistent.
+    pub fn resize(&self, width: f32, height: f32) -> Result<()> {
         let mut state = self.inner.borrow_mut();
         if state.width == width && state.height == height {
-            return;
+            return Ok(());
         }
-        state.width = width;
-        state.height = height;
         let pixel_width = surface_pixels(width, state.scale);
         let pixel_height = surface_pixels(height, state.scale);
-        let _ = state.chain.resize(pixel_width, pixel_height);
+        state.chain.resize(pixel_width, pixel_height)?;
+        state.width = width;
+        state.height = height;
+        Ok(())
     }
 
     /// Updates the rasterization (DPI) scale (for example after the window moves
     /// to a monitor with different scaling). A no-op if unchanged. Redraw with
     /// [`draw`](Self::draw) after.
-    pub fn set_scale(&self, scale: f32) {
+    ///
+    /// The swap-chain buffers are resized first; the stored scale (and the DPI
+    /// and composition scale on the swap chain) are updated only after that
+    /// succeeds, so a failed resize leaves the surface's scale and buffers
+    /// consistent. The error is returned rather than discarded.
+    pub fn set_scale(&self, scale: f32) -> Result<()> {
         let scale = if scale > 0.0 { scale } else { 1.0 };
         let mut state = self.inner.borrow_mut();
         if state.scale == scale {
-            return;
+            return Ok(());
         }
-        state.scale = scale;
         let pixel_width = surface_pixels(state.width, scale);
         let pixel_height = surface_pixels(state.height, scale);
-        let _ = state.chain.resize(pixel_width, pixel_height);
+        state.chain.resize(pixel_width, pixel_height)?;
+        state.scale = scale;
         let dpi = 96.0 * scale;
         state.chain.set_dpi(dpi, dpi);
         state.chain.set_composition_scale(scale, scale);
+        Ok(())
     }
 
     /// The rasterization (DPI) scale the surface is currently allocated at.

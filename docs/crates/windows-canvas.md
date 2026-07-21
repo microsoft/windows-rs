@@ -683,7 +683,7 @@ shipped canvas/reactor equivalent:
 - **Render off-screen and read the pixels back (the tray-icon gauge).** The tray
   subsystem draws a small gauge to a GPU target, then maps it back to premultiplied
   BGRA bytes to build an `HICON`. → **#5 Pixel access.** *Shipped:* `RenderTarget`
-  (Gap B) — `GpuDevice::create_render_target(w, h)` renders head­lessly and
+  (Gap B) — `GpuDevice::create_render_target(w, h)` renders headlessly and
   `read_pixels()` returns tightly packed BGRA; see the `readback` sample. (Turning
   those bytes into an `HICON` is Win32 shell/GDI work the app owns.)
 - **Recover a shared device across surfaces on loss.** The app maps the full

@@ -48,8 +48,8 @@ fn app(cx: &mut RenderCx) -> Element {
         let host = host.clone();
         cx.use_effect((seed, size, scale), move || {
             if let Some(chain) = host.borrow().as_ref() {
-                chain.set_scale(scale);
-                chain.resize(size.0, size.1);
+                let _ = chain.set_scale(scale);
+                let _ = chain.resize(size.0, size.1);
                 let _ = chain.draw(|ctx| draw_chart(ctx, seed));
             }
         });
