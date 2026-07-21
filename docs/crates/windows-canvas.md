@@ -650,12 +650,13 @@ Missing vs Win2D's XAML controls:
 
 #### Gaps validated by a real consumer
 
-The priorities above are cross-checked against a real port — a data-dense WinUI 3
-desktop app built on `windows-reactor` — which is currently forced to hand-roll
-Direct2D against the raw `windows` crate in two subsystems rather than using
-`windows-canvas`. Each piece it hand-rolls maps to a numbered gap above; listing them
-here records the concrete blocker (and the exact API a consumer needs) so the
-sequencing reflects what actually stops adoption:
+The priorities above were cross-checked against a real port — a data-dense WinUI 3
+desktop app built on `windows-reactor` — whose graphics subsystems originally
+hand-rolled Direct2D against the raw `windows` crate rather than using
+`windows-canvas`. Each piece it hand-rolled mapped to a numbered gap above; the list
+below records the concrete blocker (and the exact API a consumer needed) and its
+current status. An audit of that consumer confirms every graphics touchpoint now has a
+shipped canvas/reactor equivalent:
 
 - **Own its own shared device.** The app creates one Direct3D 11 + Direct2D device
   and reuses it across many small surfaces (a per-process icon cache and the charts).
@@ -673,29 +674,45 @@ sequencing reflects what actually stops adoption:
   subsystem hand-builds the entire stack — `IDXGISwapChain1` on the panel via
   `ISwapChainPanelNative`, D3D11/D2D device, a `ID2D1Bitmap1` render target from the
   DXGI back-buffer surface, brushes, DirectWrite — and redraws when data changes.
-  `animated_canvas` covers the *continuous* per-frame model but there is no
-  consumer-driven swap-chain-on-`SwapChainPanel` host that repaints on demand (Win2D's
-  `CanvasControl` vs `CanvasAnimatedControl` split). → **#7 Hosting surfaces**
-  (auto-resizing on-demand control) plus exposing the `SwapChainPanel` swap-chain setup
-  as reusable API.
+  → **#7 Hosting surfaces.** *Shipped:* reactor's `CanvasSwapChain` (Gap A) hosts a
+  composition swap chain on a `SwapChainPanel` and presents only when the app calls
+  `draw` (a data/resize/DPI change), the consumer-driven counterpart to
+  `animated_canvas`'s per-vsync loop (Win2D's `CanvasControl` vs
+  `CanvasAnimatedControl` split); see the `canvas/chart` sample. *Remaining:* an
+  auto-resizing `CanvasControl`-style wrapper that owns the panel element.
+- **Render off-screen and read the pixels back (the tray-icon gauge).** The tray
+  subsystem draws a small gauge to a GPU target, then maps it back to premultiplied
+  BGRA bytes to build an `HICON`. → **#5 Pixel access.** *Shipped:* `RenderTarget`
+  (Gap B) — `GpuDevice::create_render_target(w, h)` renders head­lessly and
+  `read_pixels()` returns tightly packed BGRA; see the `readback` sample. (Turning
+  those bytes into an `HICON` is Win32 shell/GDI work the app owns.)
 - **Recover a shared device across surfaces on loss.** The app maps the full
   `DXGI_ERROR_DEVICE_REMOVED`/`_HUNG`/`_RESET` set itself and rebuilds. Canvas recovers
-  device loss automatically *within* its hosting surfaces, but offers no `DeviceLost`
-  event or recovery hook for a consumer-owned shared device spanning several surfaces. →
+  device loss automatically *within* its hosting surfaces (including `CanvasSwapChain`,
+  which rebuilds and redraws transparently), but offers no `DeviceLost` event or
+  recovery hook for a consumer-owned shared device spanning several surfaces. →
   **#8 Device management** (a `DeviceLost` event rather than polling).
 - **Text and DirectWrite.** The charts draw axis/label text with DirectWrite directly.
-  → **#2 Text and typography** (already high priority).
+  → **#2 Text and typography.** *Shipped:* `TextFormat` covers font family, size,
+  weight (`with_weight` / `new_bold`), and horizontal/vertical alignment, plus
+  `draw_text` into a layout rect — enough for the charts' labels. *Remaining:* italic
+  style / non-normal stretch, and measured/interactive layout (`IDWriteTextLayout`,
+  hit-testing, metrics).
 
-Taken together these say the near-term canvas priorities for real desktop apps are, in
-order: a **shareable `GpuDevice`** (#8) so one device the app creates can back many
-surfaces instead of one device per surface — now available via `GpuDevice`'s `Clone`
-(with a shared-device *cache* and a `DeviceLost` event still to come);
-**bitmap-from-CPU-memory** (#5) — now available via `create_bitmap` (with arbitrary
-pixel formats still to come); and a **consumer-driven on-demand swap-chain host**
-(#7). The `CanvasImageSource` on-demand path plus CPU-uploaded bitmaps together remove
-the fragile marker-interface / raw-IID dance a consumer otherwise does to draw its own
-images through reactor's `SurfaceImageSource::begin_draw::<T>` — so the remaining
-highest-leverage step for the icon scenario is the on-demand swap-chain host (#7).
+The audit confirms the three graphics subsystems the consumer hand-rolled against the
+raw `windows` crate — the per-process **icon cache** (`GpuDevice` + `create_bitmap` +
+`draw_bitmap` + `CanvasImageSource`), the on-demand **chart panel** (`CanvasSwapChain`),
+and the **tray-icon gauge** (`RenderTarget` + `read_pixels`) — now each map to shipped
+canvas/reactor API, along with every drawing primitive they use (`draw_line`, `Path`
+fills via `fill_geometry`, `fill_rect`, solid brushes, text). The consumer's remaining
+`windows`-crate use is **system/platform** APIs outside the canvas/reactor charter
+(process and network enumeration, performance counters, ETW/trace logging, named pipes,
+power and session notifications, shell/tray integration, window messaging); those are
+served by an app generating its own bindings with `windows-bindgen` / RDL, not by
+canvas. The follow-ons that remain are the lower-priority parity items already listed
+above (shared-device *cache* + `DeviceLost` event; arbitrary pixel formats /
+from-DXGI-surface construction; italic/measured text; a `CanvasControl`-style
+auto-resizing host).
 
 #### Suggested sequencing
 

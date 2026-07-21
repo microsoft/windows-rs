@@ -969,8 +969,10 @@ landed; *(gap)* items are still outstanding.
    frame and from a `use_effect((deps,), …)` on later data changes. `resize` and
    `set_scale` keep the surface sized and crisp; device loss is recovered inside a
    single `draw` call by rebuilding the swap chain (on the shared device, or a fresh
-   one for `new`). When the data is idle nothing is drawn, so an idle surface costs
-   no GPU work. Sample: `cargo run -p canvas_chart`. Tracked from the canvas side in
+   one for `new`), and `draw` returns an error only if that recovery fails or a hard
+   present error occurs — a lost frame is never reported as drawn. When the data is
+   idle nothing is drawn, so an idle surface costs no GPU work. Sample:
+   `cargo run -p canvas_chart`. Tracked from the canvas side in
    [`windows-canvas` §7](windows-canvas.md).
 
 ### Future work — C# reactor parity

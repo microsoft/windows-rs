@@ -1043,6 +1043,7 @@ mod tests {
         // 4x4 BGRA, tightly packed.
         assert_eq!(pixels.len(), 4 * 4 * 4);
         // Opaque red, premultiplied BGRA => B=0, G=0, R=255, A=255.
+        #[allow(clippy::chunks_exact_to_as_chunks)]
         for pixel in pixels.chunks_exact(4) {
             assert_eq!(pixel, [0, 0, 255, 255]);
         }
