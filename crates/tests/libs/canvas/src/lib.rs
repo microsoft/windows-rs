@@ -24,6 +24,23 @@ mod tests {
     }
 
     #[test]
+    fn clone_shares_underlying_device() {
+        use windows_core::Interface;
+        // A clone shares the same COM devices, so one GpuDevice can drive many
+        // independent surfaces from a single device instead of one per surface.
+        let device = GpuDevice::new_warp().unwrap();
+        let shared = device.clone();
+
+        assert_eq!(device.d3d_device().as_raw(), shared.d3d_device().as_raw());
+        assert_eq!(device.d2d_device().as_raw(), shared.d2d_device().as_raw());
+
+        let a = device.create_swap_chain(64, 64).unwrap();
+        let b = shared.create_swap_chain(32, 32).unwrap();
+        assert_eq!(a.width(), 64);
+        assert_eq!(b.width(), 32);
+    }
+
+    #[test]
     fn create_swap_chain() {
         let device = GpuDevice::new_warp().unwrap();
         let chain = device.create_swap_chain(64, 64).unwrap();

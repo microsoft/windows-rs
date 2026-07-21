@@ -1,6 +1,14 @@
 use super::*;
 
 /// Shared GPU device.
+///
+/// A `GpuDevice` bundles the Direct3D 11, Direct2D, DXGI, and DirectWrite
+/// objects that back all canvas rendering. It is cheap to [`Clone`] — a clone
+/// shares the *same* underlying devices (the fields are reference-counted COM
+/// pointers), so cloning is the intended way to drive many independent surfaces
+/// (swap chains, image sources, bitmaps) from one device. Create the device
+/// once and share it across the whole UI rather than creating one per surface.
+#[derive(Clone)]
 pub struct GpuDevice {
     d3d_device: ID3D11Device,
     d2d_factory: ID2D1Factory1,

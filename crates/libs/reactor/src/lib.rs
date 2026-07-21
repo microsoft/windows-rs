@@ -57,7 +57,9 @@ pub use bindings::VirtualKey;
 pub use bindings::VirtualKeyModifiers;
 pub use bootstrap::*;
 #[cfg(feature = "canvas")]
-pub use canvas_bridge::{CanvasImageSource, DrawContext, animated_canvas};
+pub use canvas_bridge::{
+    CanvasImageSource, DrawContext, animated_canvas, animated_canvas_with_device,
+};
 pub use drag::*;
 pub use element::*;
 pub use engine::*;

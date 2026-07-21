@@ -218,6 +218,9 @@ tree:
 
 - **`standalone`** — the HWND path end to end: device, swap chain, draw loop,
   filled ellipse, centered text.
+- **`shared_device`** — one `GpuDevice` shared across many surfaces: a reactor
+  window builds a grid of `CanvasImageSource` tiles that all draw on a single
+  cloned device (the icon-cache shape), with no dependency on the `windows` crate.
 - **`samples`** — `canvas_samples::run()` wraps `animated_canvas` in a reactor
   window, with an `examples/` folder of focused snippets: `hello`, `color`,
   `brush`, `gradient`, `lines`, `stroke`, `shapes`, `path`, `curves`, `text`,
@@ -296,6 +299,13 @@ optional `composition` feature integrates with `windows-composition`
   (headless sessions, VMs, RDP). `animated_canvas` uses it on both the initial
   mount and device-lost rebuild so the render loop still produces output on
   GPU-less machines instead of silently drawing nothing.
+- **Shareable device** — `GpuDevice` creates its own device (`new` / `new_warp` /
+  `new_or_warp`) and is `Clone`, and a clone shares the *same* underlying Direct3D 11
+  / Direct2D / DXGI / DirectWrite objects. One device can therefore drive many
+  independent surfaces — an icon cache, a wall of charts — without each surface
+  spinning up its own device. In a reactor UI, `animated_canvas_with_device(device,
+  draw)` hosts the render loop on a device the app already created and shares with
+  its other surfaces. See the `shared_device` sample.
 
 ### Reactor integration
 
@@ -589,9 +599,13 @@ Missing vs Win2D's XAML controls:
 
 - **Swap chain controls** — rotation, source size, transform matrix, buffer
   count/format/alpha, `WaitForVerticalBlank`.
-- **Device management** — shared-device cache (`GetSharedDevice`), a `DeviceLost`
-  event (today loss is polled), interop from an existing D3D11 device, debug
-  level, capability queries.
+- **Device management** — sharing one device across many surfaces has shipped:
+  `GpuDevice` is `Clone` (a clone shares the same underlying devices), so an app
+  creates one device and drives every surface from it — an icon cache, a wall of
+  charts — instead of one device per surface. The reactor bridge exposes
+  `animated_canvas_with_device` so a swap-chain host can share that same device.
+  Still missing: a built-in shared-device *cache* (`GetSharedDevice`), a
+  `DeviceLost` event (today loss is polled), debug level, and capability queries.
 - **Printing** — `CanvasPrintDocument`.
 - **SVG** — `CanvasSvgDocument` / `CanvasSvgElement`.
 - **Color management / HDR** — ICC profiles, `EffectTransferTable3D`, HDR color
@@ -606,14 +620,12 @@ Direct2D against the raw `windows` crate in two subsystems rather than using
 here records the concrete blocker (and the exact API a consumer needs) so the
 sequencing reflects what actually stops adoption:
 
-- **Own its own shared device.** The app creates one `D3D11CreateDevice` +
-  `D2D1CreateDevice` device and reuses it across many small surfaces (a per-process
-  icon cache and the charts). `windows-canvas` creates devices *internally* per hosting
-  surface and exposes no way to wrap an existing `ID3D11Device`/`ID2D1Device` or to
-  share one `GpuDevice` across independent surfaces. → **#8 Device management** (interop
-  from an existing D3D11 device; shared-device cache). This is the single biggest
-  blocker: without a shareable/importable device the app cannot route *any* of its
-  drawing through canvas.
+- **Own its own shared device.** The app creates one Direct3D 11 + Direct2D device
+  and reuses it across many small surfaces (a per-process icon cache and the charts).
+  → **#8 Device management.** *Shipped:* `GpuDevice` is `Clone` and a clone shares the
+  same underlying devices, so one device can drive many independent surfaces (the
+  reactor bridge adds `animated_canvas_with_device`; see the `shared_device` sample).
+  *Remaining:* a built-in shared-device *cache* (`GetSharedDevice`).
 - **Upload CPU pixels to a bitmap and draw it.** The icon path receives premultiplied
   BGRA bytes and must turn them into a drawable bitmap (`DrawBitmap`). Canvas can load a
   bitmap from a file (WIC) but cannot construct one from a CPU pixel buffer with an
@@ -637,13 +649,15 @@ sequencing reflects what actually stops adoption:
   → **#2 Text and typography** (already high priority).
 
 Taken together these say the near-term canvas priorities for real desktop apps are, in
-order: a **shareable/importable `GpuDevice`** (#8) so canvas can sit on top of an app's
-existing device instead of owning it; **bitmap-from-CPU-memory** (#5); and a
-**consumer-driven on-demand swap-chain host** (#7). The `CanvasImageSource` on-demand
-path already removes the need for the fragile marker-interface / raw-IID dance a
-consumer otherwise does to call reactor's `SurfaceImageSource::begin_draw::<T>` — so
-extending that seam (e.g. accepting CPU-uploaded bitmaps) is the highest-leverage next
-step for the icon scenario specifically.
+order: a **shareable `GpuDevice`** (#8) so one device the app creates can back many
+surfaces instead of one device per surface — now available via `GpuDevice`'s `Clone`
+(with a shared-device *cache* and a `DeviceLost` event still to come);
+**bitmap-from-CPU-memory** (#5); and a **consumer-driven on-demand swap-chain host**
+(#7). The `CanvasImageSource` on-demand path already removes the need for the fragile
+marker-interface / raw-IID dance a consumer otherwise does to call reactor's
+`SurfaceImageSource::begin_draw::<T>` — so extending that seam (e.g. accepting
+CPU-uploaded bitmaps) is the highest-leverage next step for the icon scenario
+specifically.
 
 #### Suggested sequencing
 

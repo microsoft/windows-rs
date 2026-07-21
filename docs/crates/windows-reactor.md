@@ -181,7 +181,10 @@ is shorthand for `move || set.call(value)`:
 For custom 2D drawing, host a [`windows-canvas`](windows-canvas.md) surface with
 `animated_canvas(draw)` (enable reactor's `canvas` feature, which pulls in
 `windows-canvas`). It returns a `SwapChainPanel` element that redraws every frame
-and recovers from device loss automatically — see the `canvas` samples. For content
+and recovers from device loss automatically — see the `canvas` samples. To render on
+a device the app already created and shares across many surfaces, use
+`animated_canvas_with_device(device, draw)` with a cloneable
+`windows_canvas::GpuDevice` (a clone shares the same underlying devices). For content
 that is static between updates, `CanvasImageSource` instead draws *on demand* into a
 `SurfaceImageSource` shown with the `Image` widget, redrawing only when you call
 `draw`; `Image::on_mounted` yields an `ImageHandle` whose

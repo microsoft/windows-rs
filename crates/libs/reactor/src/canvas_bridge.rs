@@ -55,6 +55,7 @@ struct RenderState {
     chain: SwapChain,
     panel: SwapChainPanelHandle,
     scale: f32,
+    make_device: Rc<dyn Fn() -> Result<GpuDevice>>,
     _rendering: Rendering,
     _scale_revoker: Option<EventRevoker>,
 }
@@ -67,7 +68,7 @@ fn surface_pixels(dip: f32, scale: f32) -> u32 {
 
 impl RenderState {
     fn rebuild(&mut self, pixel_width: u32, pixel_height: u32) -> bool {
-        let Ok(device) = GpuDevice::new_or_warp() else {
+        let Ok(device) = (self.make_device)() else {
             return false;
         };
         let Ok(mut chain) = device.create_swap_chain(pixel_width, pixel_height) else {
@@ -95,6 +96,32 @@ impl RenderState {
 /// })
 /// ```
 pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPanel {
+    animated_canvas_impl(Rc::new(GpuDevice::new_or_warp), draw)
+}
+
+/// Create an animated canvas that renders on a caller-provided [`GpuDevice`].
+///
+/// Use this to drive the canvas from a device the app already created — for
+/// example a process-wide device shared across several surfaces. Because
+/// `GpuDevice` is [`Clone`] and a clone shares the same underlying graphics
+/// device, one device can back many surfaces. Each surface built by the loop
+/// (including those rebuilt after a resize) uses a clone of `device`, so they
+/// all share the same underlying graphics device.
+///
+/// Because the device is caller-owned, device-lost recovery reuses that same
+/// device; if you need canvas to recreate the device on loss, use
+/// [`animated_canvas`] (which owns its device) instead.
+pub fn animated_canvas_with_device(
+    device: GpuDevice,
+    draw: impl Fn(&DrawContext<'_>) + 'static,
+) -> SwapChainPanel {
+    animated_canvas_impl(Rc::new(move || Ok(device.clone())), draw)
+}
+
+fn animated_canvas_impl(
+    make_device: Rc<dyn Fn() -> Result<GpuDevice>>,
+    draw: impl Fn(&DrawContext<'_>) + 'static,
+) -> SwapChainPanel {
     let state: Rc<RefCell<Option<RenderState>>> = Rc::new(RefCell::new(None));
     let size: Rc<Cell<(f32, f32)>> = Rc::new(Cell::new((0.0, 0.0)));
     let scale: Rc<Cell<f32>> = Rc::new(Cell::new(1.0));
@@ -105,6 +132,7 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
     let ready_size = size.clone();
     let ready_scale = scale.clone();
     let ready_changed = changed.clone();
+    let ready_make_device = make_device.clone();
     let unmount_state = state.clone();
     swap_chain_panel()
         .on_unmounted(move |_| {
@@ -122,7 +150,7 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
             let pw = surface_pixels(w, s);
             let ph = surface_pixels(h, s);
 
-            let Ok(device) = GpuDevice::new_or_warp() else {
+            let Ok(device) = (ready_make_device)() else {
                 return;
             };
             let Ok(mut chain) = device.create_swap_chain(pw, ph) else {
@@ -201,6 +229,7 @@ pub fn animated_canvas(draw: impl Fn(&DrawContext<'_>) + 'static) -> SwapChainPa
                 chain,
                 panel,
                 scale: s,
+                make_device: ready_make_device.clone(),
                 _rendering: rendering,
                 _scale_revoker: scale_revoker,
             });
