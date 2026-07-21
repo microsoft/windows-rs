@@ -235,6 +235,9 @@ tree:
 - **`chart`** — an on-demand `CanvasSwapChain` (Gap A): a bar chart hosted on a
   `SwapChainPanel` that presents through a composition swap chain but redraws only
   when its data changes, staying idle (no GPU work) otherwise.
+- **`readback`** — off-screen rendering with CPU pixel readback (Gap B): a
+  headless console app renders a disc into a `RenderTarget` and prints an ASCII
+  preview from the pixels returned by `read_pixels` — no window, no file.
 - **`hit_test`** — geometry hit-testing: a star recolors only when the pointer is
   inside its *actual filled geometry* (`Path::fill_contains_point`), with its
   bounding box (`compute_bounds`) drawn for contrast.
@@ -556,22 +559,27 @@ Missing: a real effect graph. Win2D exposes ~54 generated effects
 Present: load a bitmap from a file path (WIC); construct a bitmap from a CPU
 buffer of premultiplied BGRA pixels (`create_bitmap` /
 `create_bitmap_with_alpha`, with an `AlphaMode` of `Premultiplied` or `Ignore`);
-`create_bitmap_target` for off-screen draws; `width`/`height`.
+`create_bitmap_target` for off-screen draws; a first-class off-screen
+`RenderTarget` (`GpuDevice::create_render_target`) with `draw` and CPU
+`read_pixels`; `width`/`height`.
 
 Missing vs `CanvasBitmap`/`CanvasRenderTarget`/`CanvasImage`:
 
 - **Saving** — `SaveToFile`/`SaveToStream` as PNG/JPEG/BMP/TIFF/GIF/JpegXR.
-- **Pixel access** *(**Gap B** — planned)* — get/set pixel bytes/colors, copy
-  regions. In particular a `read_pixels` that renders offscreen and reads the result
-  back to a CPU `Vec<u8>` (BGRA): create a `CPU_READ | CANNOT_DRAW` staging bitmap,
-  `CopyFromBitmap`, `Map` / copy rows honoring the returned pitch / `Unmap`. This is
-  the readback path a CPU consumer (e.g. a tray icon / thumbnail) needs. Requires
-  adding `D2D1_BITMAP_OPTIONS_CPU_READ`, `D2D1_MAP_OPTIONS_READ`, `D2D1_MAPPED_RECT`,
-  and `ID2D1Bitmap::{Map, Unmap, CopyFromBitmap}` to the `tool_bindings` filter.
+- **Pixel access** *(**Gap B** — shipped)* — `RenderTarget::read_pixels` renders
+  off-screen and reads the result back to a CPU `Vec<u8>` (tightly packed BGRA):
+  it creates a `CPU_READ | CANNOT_DRAW` staging bitmap, `CopyFromBitmap`, then
+  `Map` / copies rows honoring the returned pitch / `Unmap`. This is the readback
+  path a CPU consumer (e.g. a tray icon / thumbnail) needs; see the `readback`
+  sample. *Remaining:* get/set individual pixel bytes/colors and copy sub-regions.
 - **Construction** — from arbitrary pixel formats (only 32-bit BGRA is supported
   today), from colors, and from a D3D11 / DXGI surface. Construction from a CPU
   BGRA buffer has shipped (`create_bitmap`).
-- **`CanvasRenderTarget`** — first-class off-screen target with size/DPI/format.
+- **`CanvasRenderTarget`** — *shipped* as `RenderTarget`: a first-class off-screen
+  target (`GpuDevice::create_render_target(width, height)`) that owns its own
+  device context and target bitmap, draws through a normal `DrawingSession`, and
+  reads pixels back to the CPU. *Remaining:* configurable DPI/format (fixed at 96
+  DPI, premultiplied BGRA today) and reuse as a drawable image / brush source.
 - **`CanvasCommandList`** — record drawing commands and replay / use as an effect
   input.
 - **`CanvasVirtualBitmap`** and histogram / `GetBounds` helpers.

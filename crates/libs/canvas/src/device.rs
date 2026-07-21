@@ -95,6 +95,18 @@ impl GpuDevice {
         SwapChain::new(self, width, height)
     }
 
+    /// Creates an off-screen [`RenderTarget`] of the given pixel size.
+    ///
+    /// The target renders headlessly (no window or composition surface) and its
+    /// pixels can be copied back to CPU memory with
+    /// [`RenderTarget::read_pixels`] — the canvas equivalent of Win2D's
+    /// `CanvasRenderTarget`. Use it for thumbnails, tray/notification icons,
+    /// tests, or any pipeline that consumes finished pixels rather than
+    /// presenting on screen.
+    pub fn create_render_target(&self, width: u32, height: u32) -> Result<RenderTarget> {
+        RenderTarget::new(self, width, height)
+    }
+
     /// Creates a swap chain that renders directly into the given window.
     ///
     /// Prefer this over

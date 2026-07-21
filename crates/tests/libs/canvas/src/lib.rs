@@ -1029,4 +1029,54 @@ mod tests {
 
         chain.present().unwrap();
     }
+
+    #[test]
+    fn render_target_readback_roundtrip() {
+        let device = GpuDevice::new_warp().unwrap();
+        let target = device.create_render_target(4, 4).unwrap();
+        assert_eq!(target.width(), 4);
+        assert_eq!(target.height(), 4);
+
+        target.draw(|session| session.clear(ColorF::RED)).unwrap();
+
+        let pixels = target.read_pixels().unwrap();
+        // 4x4 BGRA, tightly packed.
+        assert_eq!(pixels.len(), 4 * 4 * 4);
+        // Opaque red, premultiplied BGRA => B=0, G=0, R=255, A=255.
+        for pixel in pixels.chunks_exact(4) {
+            assert_eq!(pixel, [0, 0, 255, 255]);
+        }
+    }
+
+    #[test]
+    fn render_target_readback_spatial() {
+        let device = GpuDevice::new_warp().unwrap();
+        let target = device.create_render_target(8, 8).unwrap();
+
+        target
+            .draw(|session| {
+                session.clear(ColorF::BLACK);
+                let brush = session.create_solid_brush(ColorF::GREEN).unwrap();
+                // Fill the left half with green, leaving the right half black.
+                session.fill_rect(&Rect::new(0.0, 0.0, 4.0, 8.0), &brush);
+            })
+            .unwrap();
+
+        let pixels = target.read_pixels().unwrap();
+        let pixel_at = |x: usize, y: usize| {
+            let start = (y * 8 + x) * 4;
+            &pixels[start..start + 4]
+        };
+        // Left half: opaque green => B=0, G=255, R=0, A=255.
+        assert_eq!(pixel_at(1, 4), [0, 255, 0, 255]);
+        // Right half: opaque black => B=0, G=0, R=0, A=255.
+        assert_eq!(pixel_at(6, 4), [0, 0, 0, 255]);
+    }
+
+    #[test]
+    fn render_target_zero_dimension_errors() {
+        let device = GpuDevice::new_warp().unwrap();
+        assert!(device.create_render_target(0, 4).is_err());
+        assert!(device.create_render_target(4, 0).is_err());
+    }
 }

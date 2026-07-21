@@ -20,6 +20,7 @@ pub struct D2D1_BEZIER_SEGMENT {
 }
 pub type D2D1_BITMAP_OPTIONS = u32;
 pub const D2D1_BITMAP_OPTIONS_CANNOT_DRAW: D2D1_BITMAP_OPTIONS = 2;
+pub const D2D1_BITMAP_OPTIONS_CPU_READ: D2D1_BITMAP_OPTIONS = 4;
 pub const D2D1_BITMAP_OPTIONS_TARGET: D2D1_BITMAP_OPTIONS = 1;
 #[repr(C)]
 #[derive(Clone, Debug, Default, PartialEq)]
@@ -95,6 +96,19 @@ pub const D2D1_LINE_JOIN_BEVEL: D2D1_LINE_JOIN = 1;
 pub const D2D1_LINE_JOIN_MITER: D2D1_LINE_JOIN = 0;
 pub const D2D1_LINE_JOIN_ROUND: D2D1_LINE_JOIN = 2;
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Eq, PartialEq)]
+pub struct D2D1_MAPPED_RECT {
+    pub pitch: u32,
+    pub bits: *mut u8,
+}
+impl Default for D2D1_MAPPED_RECT {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+pub type D2D1_MAP_OPTIONS = u32;
+pub const D2D1_MAP_OPTIONS_READ: D2D1_MAP_OPTIONS = 1;
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct D2D1_PIXEL_FORMAT {
     pub format: DXGI_FORMAT,
@@ -133,12 +147,26 @@ pub const D2DERR_RECREATE_TARGET: windows_core::HRESULT =
     windows_core::HRESULT(0x8899000C_u32 as _);
 pub type D2D_COLOR_F = D3DCOLORVALUE;
 #[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D_POINT_2U {
+    pub x: u32,
+    pub y: u32,
+}
+#[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct D2D_RECT_F {
     pub left: f32,
     pub top: f32,
     pub right: f32,
     pub bottom: f32,
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct D2D_RECT_U {
+    pub left: u32,
+    pub top: u32,
+    pub right: u32,
+    pub bottom: u32,
 }
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -249,6 +277,7 @@ pub type DXGI_SWAP_EFFECT = i32;
 pub const DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL: DXGI_SWAP_EFFECT = 3;
 pub type DXGI_USAGE = u32;
 pub const DXGI_USAGE_RENDER_TARGET_OUTPUT: u32 = 32;
+pub const E_FAIL: windows_core::HRESULT = windows_core::HRESULT(0x80004005_u32 as _);
 pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
 pub const GENERIC_READ: u32 = 2147483648;
 pub const GUID_WICPixelFormat32bppPBGRA: windows_core::GUID =
@@ -284,6 +313,24 @@ impl ID2D1Bitmap {
             result__
         }
     }
+    pub(crate) unsafe fn CopyFromBitmap<P1>(
+        &self,
+        destpoint: Option<*const D2D_POINT_2U>,
+        bitmap: P1,
+        srcrect: Option<*const D2D_RECT_U>,
+    ) -> windows_core::HRESULT
+    where
+        P1: windows_core::Param<Self>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).CopyFromBitmap)(
+                windows_core::Interface::as_raw(self),
+                destpoint.unwrap_or(core::mem::zeroed()) as _,
+                bitmap.param().abi(),
+                srcrect.unwrap_or(core::mem::zeroed()) as _,
+            )
+        }
+    }
 }
 #[repr(C)]
 pub struct ID2D1Bitmap_Vtbl {
@@ -292,7 +339,12 @@ pub struct ID2D1Bitmap_Vtbl {
     GetPixelSize: usize,
     GetPixelFormat: usize,
     GetDpi: usize,
-    CopyFromBitmap: usize,
+    pub CopyFromBitmap: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *const D2D_POINT_2U,
+        *mut core::ffi::c_void,
+        *const D2D_RECT_U,
+    ) -> windows_core::HRESULT,
     CopyFromRenderTarget: usize,
     CopyFromMemory: usize,
 }
@@ -315,14 +367,39 @@ windows_core::imp::interface_hierarchy!(
     ID2D1Image,
     ID2D1Bitmap
 );
+impl ID2D1Bitmap1 {
+    pub(crate) unsafe fn Map(
+        &self,
+        options: D2D1_MAP_OPTIONS,
+    ) -> windows_core::Result<D2D1_MAPPED_RECT> {
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(self).Map)(
+                windows_core::Interface::as_raw(self),
+                options,
+                &mut result__,
+            )
+            .map(|| result__)
+        }
+    }
+    pub(crate) unsafe fn Unmap(&self) -> windows_core::HRESULT {
+        unsafe {
+            (windows_core::Interface::vtable(self).Unmap)(windows_core::Interface::as_raw(self))
+        }
+    }
+}
 #[repr(C)]
 pub struct ID2D1Bitmap1_Vtbl {
     pub base__: ID2D1Bitmap_Vtbl,
     GetColorContext: usize,
     GetOptions: usize,
     GetSurface: usize,
-    Map: usize,
-    Unmap: usize,
+    pub Map: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        D2D1_MAP_OPTIONS,
+        *mut D2D1_MAPPED_RECT,
+    ) -> windows_core::HRESULT,
+    pub Unmap: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 impl windows_core::RuntimeName for ID2D1Bitmap1 {}
 windows_core::imp::define_interface!(
