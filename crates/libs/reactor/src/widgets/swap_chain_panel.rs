@@ -8,11 +8,11 @@ pub struct SwapChainPanelHandle(windows_core::IInspectable);
 
 impl SwapChainPanelHandle {
     /// Wraps the native `SwapChainPanel` element for a control created outside
-    /// the [`swap_chain_panel`] widget — for example, a [`CustomElement`] that
+    /// the [`swap_chain_panel()`] widget — for example, a [`CustomElement`] that
     /// creates a `ControlKind::SwapChainPanel` and obtains its native object via
     /// [`Backend::get_native_element`](crate::Backend::get_native_element). This
-    /// lets such a host attach a [`CanvasSwapChain`](crate::CanvasSwapChain) or a
-    /// raw DXGI swap chain to the panel.
+    /// lets such a host attach a `windows-canvas` swap chain or a raw DXGI swap
+    /// chain to the panel.
     pub fn from_native(native: windows_core::IInspectable) -> Self {
         Self(native)
     }
