@@ -8,21 +8,43 @@ mod Windows {
         #[packed(1)]
         union AER_BRIDGE_DESCRIPTOR_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    UncorrectableErrorMaskRW: 1,
+                    UncorrectableErrorSeverityRW: 1,
+                    CorrectableErrorMaskRW: 1,
+                    AdvancedCapsAndControlRW: 1,
+                    SecondaryUncorrectableErrorMaskRW: 1,
+                    SecondaryUncorrectableErrorSevRW: 1,
+                    SecondaryCapsAndControlRW: 1,
+                    Reserved: 9,
+                },
             },
             AsUSHORT: u16,
         }
         #[packed(1)]
         union AER_ENDPOINT_DESCRIPTOR_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    UncorrectableErrorMaskRW: 1,
+                    UncorrectableErrorSeverityRW: 1,
+                    CorrectableErrorMaskRW: 1,
+                    AdvancedCapsAndControlRW: 1,
+                    Reserved: 12,
+                },
             },
             AsUSHORT: u16,
         }
         #[packed(1)]
         union AER_ROOTPORT_DESCRIPTOR_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    UncorrectableErrorMaskRW: 1,
+                    UncorrectableErrorSeverityRW: 1,
+                    CorrectableErrorMaskRW: 1,
+                    AdvancedCapsAndControlRW: 1,
+                    RootErrorCommandRW: 1,
+                    Reserved: 11,
+                },
             },
             AsUSHORT: u16,
         }
@@ -302,7 +324,10 @@ mod Windows {
         struct CXL_BUS_OSC_CONTROL_FIELD {
             u: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        MemoryErrorReportingControl: 1,
+                        Reserved: 31,
+                    },
                 },
                 AsULONG: u32,
             },
@@ -311,7 +336,13 @@ mod Windows {
         struct CXL_BUS_OSC_SUPPORT_FIELD {
             u: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        RdcRchPortRegisterAccessSupported: 1,
+                        VhRegisterAccessSupported: 1,
+                        ProtocolErrorReportingSupported: 1,
+                        NativeHotPlugSupported: 1,
+                        Reserved: 28,
+                    },
                 },
                 AsULONG: u32,
             },
@@ -386,7 +417,14 @@ mod Windows {
             Anonymous: union {
                 Flags: u8,
                 Anonymous: struct {
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        DbgHalScratchAllocated: 1,
+                        DbgBarsMapped: 1,
+                        DbgScratchAllocated: 1,
+                        DbgUncachedMemory: 1,
+                        DbgSynthetic: 1,
+                        DbgHostVisibleAllocated: 1,
+                    },
                 },
             },
             Initialized: BOOLEAN,
@@ -427,7 +465,12 @@ mod Windows {
             DevControlPciLocation: union {
                 RawPciLocation: u32,
                 Fields: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Segment: 16,
+                        Bus: 8,
+                        Device: 5,
+                        Function: 3,
+                    },
                 },
             },
         }
@@ -435,13 +478,36 @@ mod Windows {
         const DEVICE_DRIVER_NOTIFY_TYPE_GUID: GUID = 0x0033f803_2e70_4e88_992c_6f26daf3db7a;
         union DIMM_ADDRESS {
             Ddr4: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    SocketId: 4,
+                    MemoryControllerId: 2,
+                    ChannelId: 2,
+                    DimmSlot: 2,
+                    DimmRank: 2,
+                    Device: 5,
+                    ChipSelect: 3,
+                    Bank: 8,
+                    Dq: 4,
+                    Reserved: 32,
+                },
                 Row: u32,
                 Column: u32,
                 Info: u64,
             },
             Ddr5: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    SocketId: 5,
+                    MemoryControllerId: 4,
+                    ChannelId: 3,
+                    SubChannelId: 2,
+                    DimmSlot: 2,
+                    DimmRank: 4,
+                    Device: 6,
+                    ChipId: 4,
+                    Bank: 8,
+                    Dq: 5,
+                    Reserved: 21,
+                },
                 Row: u32,
                 Column: u32,
                 Info: u64,
@@ -455,11 +521,40 @@ mod Windows {
         }
         #[packed(1)]
         struct DIMM_ADDR_VALID_BITS_DDR4 {
-            _bitfield: u32,
+            _bitfield: u32 {
+                SocketId: 1,
+                MemoryControllerId: 1,
+                ChannelId: 1,
+                DimmSlot: 1,
+                DimmRank: 1,
+                Device: 1,
+                ChipSelect: 1,
+                Bank: 1,
+                Dq: 1,
+                Row: 1,
+                Column: 1,
+                Info: 1,
+                Reserved: 20,
+            },
         }
         #[packed(1)]
         struct DIMM_ADDR_VALID_BITS_DDR5 {
-            _bitfield: u32,
+            _bitfield: u32 {
+                SocketId: 1,
+                MemoryControllerId: 1,
+                ChannelId: 1,
+                SubChannelId: 1,
+                DimmSlot: 1,
+                DimmRank: 1,
+                Device: 1,
+                ChipId: 1,
+                Bank: 1,
+                Dq: 1,
+                Row: 1,
+                Column: 1,
+                Info: 1,
+                Reserved: 19,
+            },
         }
         struct DIMM_INFO {
             DimmAddress: DIMM_ADDRESS,
@@ -480,27 +575,44 @@ mod Windows {
         const DOE_DISCOVERY_LENGTH: u32 = 3;
         union DOE_DISCOVERY_REQUEST {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Index: 8,
+                    DoeDiscoveryVersion: 8,
+                    Reserved: 16,
+                },
             },
             AsULONG: u32,
         }
         union DOE_DISCOVERY_RESPONSE {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    DataObjectVendorId: 16,
+                    DataObjectProtocol: 8,
+                    NextIndex: 8,
+                },
             },
             AsULONG: u32,
         }
         union DOE_HEADER_1 {
             Anonymous: struct {
-                _bitfield1: u16,
-                _bitfield2: u8,
-                _bitfield3: u32,
+                _bitfield1: u16 {
+                    DataObjectVendorId: 16,
+                },
+                _bitfield2: u8 {
+                    DataObjectType: 8,
+                },
+                _bitfield3: u32 {
+                    Reserved: 8,
+                },
             },
             AsULONG: u32,
         }
         union DOE_HEADER_2 {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Length: 18,
+                    Reserved: 14,
+                },
             },
             AsULONG: u32,
         }
@@ -1040,7 +1152,10 @@ mod Windows {
             Length: u32,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        HasHardReference: 1,
+                        SpareFlags: 31,
+                    },
                 },
                 Flags: u32,
             },
@@ -1219,14 +1334,27 @@ mod Windows {
             NameLength: u32,
         }
         struct KEY_LAYER_INFORMATION {
-            _bitfield: u32,
+            _bitfield: u32 {
+                IsTombstone: 1,
+                IsSupersedeLocal: 1,
+                IsSupersedeTree: 1,
+                ClassIsInherited: 1,
+                Reserved: 28,
+            },
         }
         struct KEY_NAME_INFORMATION {
             NameLength: u32,
             Name: [u16; 1],
         }
         struct KEY_VIRTUALIZATION_INFORMATION {
-            _bitfield: u32,
+            _bitfield: u32 {
+                VirtualizationCandidate: 1,
+                VirtualizationEnabled: 1,
+                VirtualTarget: 1,
+                VirtualStore: 1,
+                VirtualSource: 1,
+                Reserved: 27,
+            },
         }
         #[arch(X64)]
         struct KFRED_TRAP_FRAME {
@@ -1265,20 +1393,34 @@ mod Windows {
             Anonymous3: union {
                 BtiMitigation: u8,
                 Anonymous: struct {
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        KvaVbar: 1,
+                        BtiVbar: 3,
+                        BtiCswapHvc: 1,
+                        BtiCswapSmc: 1,
+                    },
                 },
             },
             Anonymous4: union {
                 SsbMitigationFlags: u8,
                 Anonymous: struct {
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        SsbMitigationFirmware: 1,
+                        SsbMitigationDynamic: 1,
+                        SsbMitigationKernel: 1,
+                        SsbMitigationUser: 1,
+                        SsbMitigationReserved: 4,
+                    },
                 },
             },
             BhbMitigation: u8,
             Anonymous5: union {
                 CachePrefetcherMitigationFlags: u8,
                 Anonymous: struct {
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        CachePrefetcherMitigation: 1,
+                        Pad2: 7,
+                    },
                 },
             },
             PanicStorage: [u64; 6],
@@ -1483,7 +1625,12 @@ mod Windows {
                     Fill1: [u16; 2],
                 },
                 Anonymous2: struct {
-                    _bitfield: u64,
+                    _bitfield: u64 {
+                        FredCsRsvdZ1: 45,
+                        KernelModeWaitForEndbranch: 1,
+                        InterruptedCsl: 2,
+                        FredSegCs: 16,
+                    },
                 },
             },
             EFlags: u32,
@@ -1501,10 +1648,26 @@ mod Windows {
                             EventInformation: u32,
                         },
                         Anonymous2: struct {
-                            _bitfield: u32,
+                            _bitfield: u32 {
+                                InstructionLength: 4,
+                                SegSsRsvdZ4: 1,
+                                NestedException: 1,
+                                LongModeInterruption: 1,
+                                EnclaveInterruption: 1,
+                                SegSsRsvdZ3: 4,
+                                FredEventType: 4,
+                                SegSsRsvdZ2: 8,
+                                Vector: 8,
+                            },
                         },
                     },
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SegSsRsvdZ1: 13,
+                        NmiUnblocking: 1,
+                        DbOnTf: 1,
+                        StiBlocking: 1,
+                        FredSegSs: 16,
+                    },
                 },
             },
         }
@@ -1525,7 +1688,10 @@ mod Windows {
             FltSave: PXMM_SAVE_AREA32,
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u64,
+                    _bitfield: u64 {
+                        Volatile: 1,
+                        Reserved: 63,
+                    },
                 },
                 Flags: u64,
             },
@@ -1576,7 +1742,12 @@ mod Windows {
             Anonymous: union {
                 MitigationPolicies: u8,
                 Anonymous: struct {
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        NXSupportPolicy: 2,
+                        SEHValidationPolicy: 2,
+                        CurDirDevicesSkippedForDlls: 2,
+                        Reserved: 2,
+                    },
                 },
             },
             CyclesPerYield: u16,
@@ -1589,14 +1760,30 @@ mod Windows {
             Anonymous2: union {
                 VirtualizationFlags: u8,
                 Anonymous: struct {
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        ArchStartedInEl2: 1,
+                        QcSlIsSupported: 1,
+                    },
                 },
             },
             Reserved12: [u8; 2],
             Anonymous3: union {
                 SharedDataFlags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        DbgErrorPortPresent: 1,
+                        DbgElevationEnabled: 1,
+                        DbgVirtEnabled: 1,
+                        DbgInstallerDetectEnabled: 1,
+                        DbgLkgEnabled: 1,
+                        DbgDynProcessorEnabled: 1,
+                        DbgConsoleBrokerEnabled: 1,
+                        DbgSecureBootEnabled: 1,
+                        DbgMultiSessionSku: 1,
+                        DbgMultiUsersInSessionSku: 1,
+                        DbgStateSeparationEnabled: 1,
+                        SpareBits: 21,
+                    },
                 },
             },
             DataFlagsPad: [u32; 1],
@@ -1689,7 +1876,12 @@ mod Windows {
             Anonymous: union {
                 MitigationPolicies: u8,
                 Anonymous: struct {
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        NXSupportPolicy: 2,
+                        SEHValidationPolicy: 2,
+                        CurDirDevicesSkippedForDlls: 2,
+                        Reserved: 2,
+                    },
                 },
             },
             CyclesPerYield: u16,
@@ -1706,7 +1898,20 @@ mod Windows {
             Anonymous3: union {
                 SharedDataFlags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        DbgErrorPortPresent: 1,
+                        DbgElevationEnabled: 1,
+                        DbgVirtEnabled: 1,
+                        DbgInstallerDetectEnabled: 1,
+                        DbgLkgEnabled: 1,
+                        DbgDynProcessorEnabled: 1,
+                        DbgConsoleBrokerEnabled: 1,
+                        DbgSecureBootEnabled: 1,
+                        DbgMultiSessionSku: 1,
+                        DbgMultiUsersInSessionSku: 1,
+                        DbgStateSeparationEnabled: 1,
+                        SpareBits: 21,
+                    },
                 },
             },
             DataFlagsPad: [u32; 1],
@@ -1786,14 +1991,32 @@ mod Windows {
         #[packed(1)]
         union MCG_CAP {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    CountField: 8,
+                    ControlMsrPresent: 1,
+                    ExtendedMsrsPresent: 1,
+                    SignalingExtensionPresent: 1,
+                    ThresholdErrorStatusPresent: 1,
+                    Reserved: 4,
+                    ExtendedRegisterCount: 8,
+                    SoftwareErrorRecoverySupported: 1,
+                    EnhancedMachineCheckCapability: 1,
+                    ExtendedErrorLogging: 1,
+                    LocalMachineCheckException: 1,
+                },
             },
             QuadPart: u64,
         }
         #[packed(1)]
         union MCG_STATUS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    RestartIpValid: 1,
+                    ErrorIpValid: 1,
+                    MachineCheckInProgress: 1,
+                    LocalMceValid: 1,
+                    Reserved1: 28,
+                },
                 Reserved2: u32,
             },
             QuadPart: u64,
@@ -1807,15 +2030,56 @@ mod Windows {
         }
         #[packed(1)]
         struct MCI_STATUS_AMD_BITS {
-            _bitfield: u64,
+            _bitfield: u64 {
+                McaErrorCode: 16,
+                ModelErrorCode: 16,
+                ImplementationSpecific2: 11,
+                Poison: 1,
+                Deferred: 1,
+                ImplementationSpecific1: 12,
+                ContextCorrupt: 1,
+                AddressValid: 1,
+                MiscValid: 1,
+                ErrorEnabled: 1,
+                UncorrectedError: 1,
+                StatusOverFlow: 1,
+                Valid: 1,
+            },
         }
         #[packed(1)]
         struct MCI_STATUS_BITS_COMMON {
-            _bitfield: u64,
+            _bitfield: u64 {
+                McaErrorCode: 16,
+                ModelErrorCode: 16,
+                Reserved: 25,
+                ContextCorrupt: 1,
+                AddressValid: 1,
+                MiscValid: 1,
+                ErrorEnabled: 1,
+                UncorrectedError: 1,
+                StatusOverFlow: 1,
+                Valid: 1,
+            },
         }
         #[packed(1)]
         struct MCI_STATUS_INTEL_BITS {
-            _bitfield: u64,
+            _bitfield: u64 {
+                McaErrorCode: 16,
+                ModelErrorCode: 16,
+                OtherInfo: 5,
+                FirmwareUpdateError: 1,
+                CorrectedErrorCount: 15,
+                ThresholdErrorStatus: 2,
+                ActionRequired: 1,
+                Signalling: 1,
+                ContextCorrupt: 1,
+                AddressValid: 1,
+                MiscValid: 1,
+                ErrorEnabled: 1,
+                UncorrectedError: 1,
+                StatusOverFlow: 1,
+                Valid: 1,
+            },
         }
         const MEMORY_CORRECTABLE_ERROR_SUMMARY_SECTION_GUID: GUID = 0x0e36c93e_ca15_4a83_ba8a_cbe80f7f0017;
         #[packed(1)]
@@ -1828,7 +2092,10 @@ mod Windows {
         #[packed(1)]
         union MEMORY_DEFECT_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    RepairedDefectEntry: 1,
+                    Reserved: 15,
+                },
             },
             AsUINT16: u16,
         }
@@ -1914,7 +2181,12 @@ mod Windows {
         }
         union PAGE_OFFLINE_VALID_BITS {
             Anonymous: struct {
-                _bitfield: u8,
+                _bitfield: u8 {
+                    PhysicalAddress: 1,
+                    MemDefect: 1,
+                    NumberOfPages: 1,
+                    Reserved: 5,
+                },
             },
             AsUINT8: u8,
         }
@@ -1978,13 +2250,39 @@ mod Windows {
             Header: PCI_CAPABILITIES_HEADER,
             SecondaryStatus: union {
                 Anonymous: struct {
-                    _bitfield: u16,
+                    _bitfield: u16 {
+                        Bus64Bit: 1,
+                        Bus133MHzCapable: 1,
+                        SplitCompletionDiscarded: 1,
+                        UnexpectedSplitCompletion: 1,
+                        SplitCompletionOverrun: 1,
+                        SplitRequestDelayed: 1,
+                        BusModeFrequency: 4,
+                        Rsvd: 2,
+                        Version: 2,
+                        Bus266MHzCapable: 1,
+                        Bus533MHzCapable: 1,
+                    },
                 },
                 AsUSHORT: u16,
             },
             BridgeStatus: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        FunctionNumber: 3,
+                        DeviceNumber: 5,
+                        BusNumber: 8,
+                        Device64Bit: 1,
+                        Device133MHzCapable: 1,
+                        SplitCompletionDiscarded: 1,
+                        UnexpectedSplitCompletion: 1,
+                        SplitCompletionOverrun: 1,
+                        SplitRequestDelayed: 1,
+                        Rsvd: 7,
+                        DIMCapable: 1,
+                        Device266MHzCapable: 1,
+                        Device533MHzCapable: 1,
+                    },
                 },
                 AsULONG: u32,
             },
@@ -1994,7 +2292,22 @@ mod Windows {
             DownstreamSplitTransactionLimit: u16,
             EccControlStatus: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SelectSecondaryRegisters: 1,
+                        ErrorPresentInOtherBank: 1,
+                        AdditionalCorrectableError: 1,
+                        AdditionalUncorrectableError: 1,
+                        ErrorPhase: 3,
+                        ErrorCorrected: 1,
+                        Syndrome: 8,
+                        ErrorFirstCommand: 4,
+                        ErrorSecondCommand: 4,
+                        ErrorUpperAttributes: 4,
+                        ControlUpdateEnable: 1,
+                        Rsvd: 1,
+                        DisableSingleBitCorrection: 1,
+                        EccMode: 1,
+                    },
                 },
                 AsULONG: u32,
             },
@@ -2020,40 +2333,92 @@ mod Windows {
             Length: u8,
             Capabilities: union {
                 Anonymous: struct {
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        FunctionLevelResetSupported: 1,
+                        TransactionsPendingSupported: 1,
+                        Rsvd: 6,
+                    },
                 },
                 AsUCHAR: u8,
             },
             Control: union {
                 Anonymous: struct {
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        InitiateFunctionLevelReset: 1,
+                        Rsvd: 7,
+                    },
                 },
                 AsUCHAR: u8,
             },
             Status: union {
                 Anonymous: struct {
-                    _bitfield: u8,
+                    _bitfield: u8 {
+                        TransactionsPending: 1,
+                        Rsvd: 7,
+                    },
                 },
                 AsUCHAR: u8,
             },
         }
         struct PCI_AGP_APERTURE_PAGE_SIZE {
-            _bitfield: u16,
+            _bitfield: u16 {
+                PageSizeMask: 11,
+                Rsvd1: 1,
+                PageSizeSelect: 4,
+            },
         }
         struct PCI_AGP_CAPABILITY {
             Header: PCI_CAPABILITIES_HEADER,
-            _bitfield: u16,
+            _bitfield: u16 {
+                Minor: 4,
+                Major: 4,
+                Rsvd1: 8,
+            },
             AGPStatus: PCI_AGP_CAPABILITY_0,
             AGPCommand: PCI_AGP_CAPABILITY_1,
         }
         struct PCI_AGP_CAPABILITY_0 {
-            _bitfield: u32,
+            _bitfield: u32 {
+                Rate: 3,
+                Agp3Mode: 1,
+                FastWrite: 1,
+                FourGB: 1,
+                HostTransDisable: 1,
+                Gart64: 1,
+                ITA_Coherent: 1,
+                SideBandAddressing: 1,
+                CalibrationCycle: 3,
+                AsyncRequestSize: 3,
+                Rsvd1: 1,
+                Isoch: 1,
+                Rsvd2: 6,
+                RequestQueueDepthMaximum: 8,
+            },
         }
         struct PCI_AGP_CAPABILITY_1 {
-            _bitfield: u32,
+            _bitfield: u32 {
+                Rate: 3,
+                Rsvd1: 1,
+                FastWriteEnable: 1,
+                FourGBEnable: 1,
+                Rsvd2: 1,
+                Gart64: 1,
+                AGPEnable: 1,
+                SBAEnable: 1,
+                CalibrationCycle: 3,
+                AsyncReqSize: 3,
+                Rsvd3: 8,
+                RequestQueueDepth: 8,
+            },
         }
         struct PCI_AGP_CONTROL {
-            _bitfield: u32,
+            _bitfield: u32 {
+                Rsvd1: 7,
+                GTLB_Enable: 1,
+                AP_Enable: 1,
+                CAL_Disable: 1,
+                Rsvd2: 22,
+            },
         }
         struct PCI_AGP_EXTENDED_CAPABILITY {
             IsochStatus: PCI_AGP_ISOCH_STATUS,
@@ -2065,10 +2430,21 @@ mod Windows {
             IsochCommand: PCI_AGP_ISOCH_COMMAND,
         }
         struct PCI_AGP_ISOCH_COMMAND {
-            _bitfield: u16,
+            _bitfield: u16 {
+                Rsvd1: 6,
+                Isoch_Y: 2,
+                Isoch_N: 8,
+            },
         }
         struct PCI_AGP_ISOCH_STATUS {
-            _bitfield: u32,
+            _bitfield: u32 {
+                ErrorCode: 2,
+                Rsvd1: 1,
+                Isoch_L: 3,
+                Isoch_Y: 2,
+                Isoch_N: 8,
+                Rsvd2: 16,
+            },
         }
         const PCI_AGP_RATE_1X: u32 = 1;
         const PCI_AGP_RATE_2X: u32 = 2;
@@ -2140,7 +2516,14 @@ mod Windows {
         }
         union PCI_EXPRESS_CAPABILITIES_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    CapabilityVersion: 4,
+                    DeviceType: 4,
+                    SlotImplemented: 1,
+                    InterruptMessageNumber: 5,
+                    Rsvd: 1,
+                    FlitModeSupported: 1,
+                },
             },
             AsUSHORT: u16,
         }
@@ -2179,13 +2562,28 @@ mod Windows {
         }
         union PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V11 {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    CacheCapable: 1,
+                    IoCapable: 1,
+                    MemCapable: 1,
+                    MemHwInitMode: 1,
+                    HdmCount: 2,
+                    Reserved0: 8,
+                    ViralCapable: 1,
+                    Reserved1: 1,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_CXL_DVSEC_CAPABILITY_REGISTER_V2 {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    DisableCaching: 1,
+                    InitiateCacheWriteBack: 1,
+                    InitiateCxlReset: 1,
+                    ResetMemClrEnable: 1,
+                    Reserved1: 12,
+                },
             },
             AsUSHORT: u16,
         }
@@ -2211,13 +2609,26 @@ mod Windows {
         }
         union PCI_EXPRESS_CXL_DVSEC_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    CacheEnable: 1,
+                    IoEnable: 1,
+                    MemEnable: 1,
+                    CacheSFCoverage: 5,
+                    CacheSFGranularity: 3,
+                    CacheCleanEviction: 1,
+                    Reserved0: 2,
+                    ViralEnable: 1,
+                    Reserved1: 1,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_CXL_DVSEC_LOCK_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    ConfigLock: 1,
+                    Reserved: 15,
+                },
             },
             AsUSHORT: u16,
         }
@@ -2226,7 +2637,10 @@ mod Windows {
         }
         union PCI_EXPRESS_CXL_DVSEC_RANGE_BASE_LOW_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Reserved: 28,
+                    MemBaseLow: 4,
+                },
             },
             AsULONG: u32,
         }
@@ -2235,13 +2649,25 @@ mod Windows {
         }
         union PCI_EXPRESS_CXL_DVSEC_RANGE_SIZE_LOW_REGISTER_V11 {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    MemInfoValid: 1,
+                    MemActive: 1,
+                    MediaType: 3,
+                    MemClass: 3,
+                    DesiredInterleave: 3,
+                    Reserved: 17,
+                    MemSizeLow: 4,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_CXL_DVSEC_STATUS_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    Reserved0: 14,
+                    ViralStatus: 1,
+                    Reserved1: 1,
+                },
             },
             AsUSHORT: u16,
         }
@@ -2261,52 +2687,131 @@ mod Windows {
         }
         union PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_1 {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    DvsecVendorId: 16,
+                    DvsecVersion: 4,
+                    DvsecLength: 12,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_DESIGNATED_VENDOR_SPECIFIC_HEADER_2 {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    DvsecId: 16,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_DEVICE_CAPABILITIES_2_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    CompletionTimeoutRangesSupported: 4,
+                    CompletionTimeoutDisableSupported: 1,
+                    AriForwardingSupported: 1,
+                    AtomicOpRoutingSupported: 1,
+                    AtomicOpCompleterSupported32Bit: 1,
+                    AtomicOpCompleterSupported64Bit: 1,
+                    CASCompleterSupported128Bit: 1,
+                    NoROEnabledPRPRPassing: 1,
+                    LTRMechanismSupported: 1,
+                    TPHCompleterSupported: 2,
+                    Rsvd: 4,
+                    OBFFSupported: 2,
+                    ExtendedFmtFieldSuported: 1,
+                    EndEndTLPPrefixSupported: 1,
+                    MaxEndEndTLPPrefixes: 2,
+                    Rsvd2: 4,
+                    DmwrCompleterSupported: 1,
+                    DmwrLengthsSupported: 2,
+                    Rsvd3: 1,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_DEVICE_CAPABILITIES_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    MaxPayloadSizeSupported: 3,
+                    PhantomFunctionsSupported: 2,
+                    ExtendedTagSupported: 1,
+                    L0sAcceptableLatency: 3,
+                    L1AcceptableLatency: 3,
+                    Undefined: 3,
+                    RoleBasedErrorReporting: 1,
+                    Rsvd1: 2,
+                    CapturedSlotPowerLimit: 8,
+                    CapturedSlotPowerLimitScale: 2,
+                    FunctionLevelResetCapability: 1,
+                    MixedMpsSupported: 1,
+                    TeeIOSupported: 1,
+                    Rsvd2: 1,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_DEVICE_CONTROL_2_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    CompletionTimeoutValue: 4,
+                    CompletionTimeoutDisable: 1,
+                    AriForwardingEnable: 1,
+                    AtomicOpRequesterEnable: 1,
+                    AtomicOpEgresBlocking: 1,
+                    IDORequestEnable: 1,
+                    IDOCompletionEnable: 1,
+                    LTRMechanismEnable: 1,
+                    Rsvd: 2,
+                    OBFFEnable: 2,
+                    EndEndTLPPrefixBlocking: 1,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_DEVICE_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    CorrectableErrorEnable: 1,
+                    NonFatalErrorEnable: 1,
+                    FatalErrorEnable: 1,
+                    UnsupportedRequestErrorEnable: 1,
+                    EnableRelaxedOrder: 1,
+                    MaxPayloadSize: 3,
+                    ExtendedTagEnable: 1,
+                    PhantomFunctionsEnable: 1,
+                    AuxPowerEnable: 1,
+                    NoSnoopEnable: 1,
+                    MaxReadRequestSize: 3,
+                    BridgeConfigRetryEnable: 1,
+                },
             },
             Anonymous2: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    _: 15,
+                    InitiateFunctionLevelReset: 1,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_DEVICE_STATUS_2_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    Rsvd: 16,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_DEVICE_STATUS_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    CorrectableErrorDetected: 1,
+                    NonFatalErrorDetected: 1,
+                    FatalErrorDetected: 1,
+                    UnsupportedRequestDetected: 1,
+                    AuxPowerDetected: 1,
+                    TransactionsPending: 1,
+                    Rsvd: 10,
+                },
             },
             AsUSHORT: u16,
         }
@@ -2324,13 +2829,26 @@ mod Windows {
         }
         union PCI_EXPRESS_DOE_CAPABILITIES_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    InterruptSupport: 1,
+                    InterruptMessageNumber: 10,
+                    AttentionSupport: 1,
+                    AsyncSupport: 1,
+                    Rsvd: 19,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_DOE_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    DoeAbort: 1,
+                    DoeInterruptEnable: 1,
+                    AttentionNotNeeded: 1,
+                    AsyncEnable: 1,
+                    Rsvd: 27,
+                    DoeGo: 1,
+                },
             },
             AsULONG: u32,
         }
@@ -2339,7 +2857,15 @@ mod Windows {
         }
         union PCI_EXPRESS_DOE_STATUS_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    DoeBusy: 1,
+                    DoeInterruptStatus: 1,
+                    DoeError: 1,
+                    AsyncStatus: 1,
+                    AtAttention: 1,
+                    Rsvd: 26,
+                    DataObjectReady: 1,
+                },
             },
             AsULONG: u32,
         }
@@ -2363,25 +2889,59 @@ mod Windows {
         }
         union PCI_EXPRESS_DPC_CAPS_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    InterruptMsgNumber: 5,
+                    RpExtensionsForDpc: 1,
+                    PoisonedTlpEgressBlockingSupported: 1,
+                    DpcSoftwareTriggeringSupported: 1,
+                    RpPioLogSize: 4,
+                    DlActiveErrCorSignalingSupported: 1,
+                    Reserved: 3,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_DPC_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    TriggerEnable: 2,
+                    CompletionControl: 1,
+                    InterruptEnable: 1,
+                    ErrCorEnable: 1,
+                    PoisonedTlpEgressBlockingEnable: 1,
+                    SoftwareTrigger: 1,
+                    DlActiveErrCorEnable: 1,
+                    Reserved: 8,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_DPC_ERROR_SOURCE_ID {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    Function: 3,
+                    Device: 5,
+                    Bus: 8,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_DPC_RP_PIO_EXCEPTION_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    CfgURCpl: 1,
+                    CfgCACpl: 1,
+                    CfgCTO: 1,
+                    Reserved1: 5,
+                    IoURCpl: 1,
+                    IoCACpl: 1,
+                    IoCTO: 1,
+                    Reserved2: 5,
+                    MemURCpl: 1,
+                    MemCACpl: 1,
+                    MemCTO: 1,
+                    Reserved3: 13,
+                },
             },
             AsULONG: u32,
         }
@@ -2393,25 +2953,78 @@ mod Windows {
         }
         union PCI_EXPRESS_DPC_RP_PIO_MASK_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    CfgURCpl: 1,
+                    CfgCACpl: 1,
+                    CfgCTO: 1,
+                    Reserved1: 5,
+                    IoURCpl: 1,
+                    IoCACpl: 1,
+                    IoCTO: 1,
+                    Reserved2: 5,
+                    MemURCpl: 1,
+                    MemCACpl: 1,
+                    MemCTO: 1,
+                    Reserved3: 13,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_DPC_RP_PIO_SEVERITY_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    CfgURCpl: 1,
+                    CfgCACpl: 1,
+                    CfgCTO: 1,
+                    Reserved1: 5,
+                    IoURCpl: 1,
+                    IoCACpl: 1,
+                    IoCTO: 1,
+                    Reserved2: 5,
+                    MemURCpl: 1,
+                    MemCACpl: 1,
+                    MemCTO: 1,
+                    Reserved3: 13,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_DPC_RP_PIO_STATUS_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    CfgURCpl: 1,
+                    CfgCACpl: 1,
+                    CfgCTO: 1,
+                    Reserved1: 5,
+                    IoURCpl: 1,
+                    IoCACpl: 1,
+                    IoCTO: 1,
+                    Reserved2: 5,
+                    MemURCpl: 1,
+                    MemCACpl: 1,
+                    MemCTO: 1,
+                    Reserved3: 12,
+                    Reserved4: 1,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_DPC_RP_PIO_SYSERR_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    CfgURCpl: 1,
+                    CfgCACpl: 1,
+                    CfgCTO: 1,
+                    Reserved1: 5,
+                    IoURCpl: 1,
+                    IoCACpl: 1,
+                    IoCTO: 1,
+                    Reserved2: 5,
+                    MemURCpl: 1,
+                    MemCACpl: 1,
+                    MemCTO: 1,
+                    Reserved3: 13,
+                },
             },
             AsULONG: u32,
         }
@@ -2420,7 +3033,16 @@ mod Windows {
         }
         union PCI_EXPRESS_DPC_STATUS_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    TriggerStatus: 1,
+                    TriggerReason: 2,
+                    InterruptStatus: 1,
+                    RpBusy: 1,
+                    TriggerReasonExtension: 2,
+                    Reserved1: 1,
+                    PioFirstErrPointer: 5,
+                    Reserved2: 3,
+                },
             },
             AsUSHORT: u16,
         }
@@ -2438,25 +3060,53 @@ mod Windows {
         }
         union PCI_EXPRESS_IDE_CAPABILITY_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    LinkIdeStreamSupported: 1,
+                    SelectiveIdeStreamSupported: 1,
+                    FlowThroughIdeStreamSupported: 1,
+                    PartialHeaderEncryptionSupported: 1,
+                    AggregationSupported: 1,
+                    PcrcSupported: 1,
+                    IdeKmProtocolSupported: 1,
+                    SelectiveIdeForConfigRequestsSupported: 1,
+                    SupportedAlgorithms: 5,
+                    NumTrafficClassesSupportedForLinkIde: 3,
+                    NumSelectiveIdeStreamsSupported: 8,
+                    TeeLimitedStreamSupported: 1,
+                    XtSupported: 1,
+                    Rsvd: 6,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_IDE_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Rsvd0: 2,
+                    FlowThroughIdeStreamEnabled: 1,
+                    Rsvd1: 29,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_IDE_RID_ASSOCIATION_REGISTER_1 {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Rsvd0: 8,
+                    RidLimit: 16,
+                    Rsvd1: 8,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_IDE_RID_ASSOCIATION_REGISTER_2 {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Valid: 1,
+                    Rsvd: 7,
+                    RidBase: 16,
+                    SegmentBase: 8,
+                },
             },
             AsULONG: u32,
         }
@@ -2490,7 +3140,19 @@ mod Windows {
         }
         union PCI_EXPRESS_L1_PM_SS_CAPABILITIES_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    PciPmL12Supported: 1,
+                    PciPmL11Supported: 1,
+                    AspmL12Supported: 1,
+                    AspmL11Supported: 1,
+                    L1PmSsSupported: 1,
+                    Rsvd: 3,
+                    PortCommonModeRestoreTime: 8,
+                    PortTPowerOnScale: 2,
+                    Rsvd2: 1,
+                    PortTPowerOnValue: 5,
+                    Rsvd3: 8,
+                },
             },
             AsULONG: u32,
         }
@@ -2502,13 +3164,28 @@ mod Windows {
         }
         union PCI_EXPRESS_L1_PM_SS_CONTROL_1_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    PciPmL12Enabled: 1,
+                    PciPmL11Enabled: 1,
+                    AspmL12Enabled: 1,
+                    AspmL11Enabled: 1,
+                    Rsvd: 4,
+                    CommonModeRestoreTime: 8,
+                    LtrL12ThresholdValue: 10,
+                    Rsvd2: 3,
+                    LtrL12ThresholdScale: 3,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_L1_PM_SS_CONTROL_2_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    TPowerOnScale: 2,
+                    Rsvd: 1,
+                    TPowerOnValue: 5,
+                    Rsvd2: 24,
+                },
             },
             AsULONG: u32,
         }
@@ -2517,33 +3194,70 @@ mod Windows {
         }
         union PCI_EXPRESS_LINK_CAPABILITIES_2_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Rsvd0: 1,
+                    SupportedLinkSpeedsVector: 7,
+                    Rsvd8_31: 24,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_LINK_CAPABILITIES_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    MaximumLinkSpeed: 4,
+                    MaximumLinkWidth: 6,
+                    ActiveStatePMSupport: 2,
+                    L0sExitLatency: 3,
+                    L1ExitLatency: 3,
+                    ClockPowerManagement: 1,
+                    SurpriseDownErrorReportingCapable: 1,
+                    DataLinkLayerActiveReportingCapable: 1,
+                    LinkBandwidthNotificationCapability: 1,
+                    AspmOptionalityCompliance: 1,
+                    Rsvd: 1,
+                    PortNumber: 8,
+                },
             },
             AsULONG: u32,
         }
         struct PCI_EXPRESS_LINK_CONTROL3 {
             Anonymous: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        PerformEq: 1,
+                        LinkEqIntEn: 1,
+                        Reserved: 30,
+                    },
                 },
                 AsULONG: u32,
             },
         }
         union PCI_EXPRESS_LINK_CONTROL_2_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    TargetLinkSpeed: 4,
+                    Rsvd4_15: 12,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_LINK_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    ActiveStatePMControl: 2,
+                    Rsvd1: 1,
+                    ReadCompletionBoundary: 1,
+                    LinkDisable: 1,
+                    RetrainLink: 1,
+                    CommonClockConfig: 1,
+                    ExtendedSynch: 1,
+                    EnableClockPowerManagement: 1,
+                    Rsvd2: 1,
+                    BandwidthManagementInterrupt: 1,
+                    AutonomousBandwidthInterrupt: 1,
+                    Rsvd3: 4,
+                },
             },
             AsUSHORT: u16,
         }
@@ -2553,25 +3267,53 @@ mod Windows {
         }
         union PCI_EXPRESS_LINK_IDE_STREAM_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Enable: 1,
+                    XtEnable: 1,
+                    TxAggregationModeNpr: 2,
+                    TxAggregationModePr: 2,
+                    TxAggregationModeCpl: 2,
+                    PcrcEnable: 1,
+                    Rsvd0: 1,
+                    PartialHeaderEncryptionMode: 4,
+                    SelectedAlgorithm: 5,
+                    Tc: 3,
+                    Rsvd1: 2,
+                    StreamId: 8,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_LINK_IDE_STREAM_STATUS_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    State: 4,
+                    Rsvd: 27,
+                    ReceivedIdeFailMsg: 1,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_LINK_STATUS_2_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    Rsvd0_15: 16,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_LINK_STATUS_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    LinkSpeed: 4,
+                    LinkWidth: 6,
+                    Undefined: 1,
+                    LinkTraining: 1,
+                    SlotClockConfig: 1,
+                    DataLinkLayerActive: 1,
+                    BandwidthManagementStatus: 1,
+                    AutonomousManagementStatus: 1,
+                },
             },
             AsUSHORT: u16,
         }
@@ -2588,7 +3330,16 @@ mod Windows {
         }
         union PCI_EXPRESS_LTR_MAX_LATENCY_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    MaxSnoopLatencyValue: 10,
+                    MaxSnoopLatencyScale: 3,
+                    Rsvd: 2,
+                    MaxSnoopRequirement: 1,
+                    MaxNoSnoopLatencyValue: 10,
+                    MaxNoSnoopLatencyScale: 3,
+                    Rsvd2: 2,
+                    MaxNoSnoopRequirement: 1,
+                },
             },
             AsULONG: u32,
         }
@@ -2614,25 +3365,63 @@ mod Windows {
         }
         union PCI_EXPRESS_NPEM_CAPABILITY_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Capable: 1,
+                    ResetCapable: 1,
+                    OkCapable: 1,
+                    LocateCapable: 1,
+                    FailCapable: 1,
+                    RebuildCapable: 1,
+                    PFACapable: 1,
+                    HotSpareCapable: 1,
+                    InACriticalArrayCapable: 1,
+                    InAFailedArrayCapable: 1,
+                    InvalidDeviceTypeCapable: 1,
+                    DisabledCapable: 1,
+                    Rsvd: 12,
+                    EnclosureSpecificCapabilities: 8,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_NPEM_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Enable: 1,
+                    InitiateReset: 1,
+                    OkControl: 1,
+                    LocateControl: 1,
+                    FailControl: 1,
+                    RebuildControl: 1,
+                    PFAControl: 1,
+                    HotSpareControl: 1,
+                    InACriticalArrayControl: 1,
+                    InAFailedArrayControl: 1,
+                    InvalidDeviceTypeControl: 1,
+                    DisabledControl: 1,
+                    Rsvd: 12,
+                    EnclosureSpecificControls: 8,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_NPEM_STATUS_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    CommandCompleted: 1,
+                    Rsvd: 23,
+                    EnclosureSpecificStatus: 8,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_PME_REQUESTOR_ID {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    FunctionNumber: 3,
+                    DeviceNumber: 5,
+                    BusNumber: 8,
+                },
             },
             AsUSHORT: u16,
         }
@@ -2652,13 +3441,23 @@ mod Windows {
         }
         union PCI_EXPRESS_RESIZABLE_BAR_CAPABILITY_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Rsvd: 4,
+                    SizesSupported: 20,
+                    Rsvd2: 8,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_RESIZABLE_BAR_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    BarIndex: 3,
+                    Rsvd: 2,
+                    NumberOfResizableBars: 3,
+                    BarSize: 6,
+                    Rsvd2: 18,
+                },
             },
             AsULONG: u32,
         }
@@ -2668,19 +3467,34 @@ mod Windows {
         }
         union PCI_EXPRESS_ROOT_CAPABILITIES_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    CRSSoftwareVisibility: 1,
+                    Rsvd: 15,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_ROOT_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    CorrectableSerrEnable: 1,
+                    NonFatalSerrEnable: 1,
+                    FatalSerrEnable: 1,
+                    PMEInterruptEnable: 1,
+                    CRSSoftwareVisibilityEnable: 1,
+                    Rsvd: 11,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_ROOT_STATUS_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    PMERequestorId: 16,
+                    PMEStatus: 1,
+                    PMEPending: 1,
+                    Rsvd: 14,
+                },
             },
             AsULONG: u32,
         }
@@ -2698,37 +3512,95 @@ mod Windows {
         }
         union PCI_EXPRESS_SELECTIVE_IDE_CAPABILITY_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    NumAddrAssocBlocks: 4,
+                    Rsvd: 28,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_SELECTIVE_IDE_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Enable: 1,
+                    XtEnable: 1,
+                    TxAggregationModeNpr: 2,
+                    TxAggregationModePr: 2,
+                    TxAggregationModeCpl: 2,
+                    PcrcEnable: 1,
+                    ConfigRequestEnable: 1,
+                    PartialHeaderEncryptionMode: 4,
+                    SelectedAlgorithm: 5,
+                    Tc: 3,
+                    DefaultStream: 1,
+                    TeeLimitedStream: 1,
+                    StreamId: 8,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_SELECTIVE_IDE_STATUS_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    State: 4,
+                    Rsvd: 27,
+                    ReceivedIdeFailMsg: 1,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_SLOT_CAPABILITIES_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    AttentionButtonPresent: 1,
+                    PowerControllerPresent: 1,
+                    MRLSensorPresent: 1,
+                    AttentionIndicatorPresent: 1,
+                    PowerIndicatorPresent: 1,
+                    HotPlugSurprise: 1,
+                    HotPlugCapable: 1,
+                    SlotPowerLimit: 8,
+                    SlotPowerLimitScale: 2,
+                    ElectromechanicalLockPresent: 1,
+                    NoCommandCompletedSupport: 1,
+                    PhysicalSlotNumber: 13,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_SLOT_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    AttentionButtonEnable: 1,
+                    PowerFaultDetectEnable: 1,
+                    MRLSensorEnable: 1,
+                    PresenceDetectEnable: 1,
+                    CommandCompletedEnable: 1,
+                    HotPlugInterruptEnable: 1,
+                    AttentionIndicatorControl: 2,
+                    PowerIndicatorControl: 2,
+                    PowerControllerControl: 1,
+                    ElectromechanicalLockControl: 1,
+                    DataLinkStateChangeEnable: 1,
+                    Rsvd: 3,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_SLOT_STATUS_REGISTER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    AttentionButtonPressed: 1,
+                    PowerFaultDetected: 1,
+                    MRLSensorChanged: 1,
+                    PresenceDetectChanged: 1,
+                    CommandCompleted: 1,
+                    MRLSensorState: 1,
+                    PresenceDetectState: 1,
+                    ElectromechanicalLockEngaged: 1,
+                    DataLinkStateChanged: 1,
+                    Rsvd: 7,
+                },
             },
             AsUSHORT: u16,
         }
@@ -2739,13 +3611,28 @@ mod Windows {
         }
         union PCI_EXPRESS_TPH_REQUESTER_CAPABILITY_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    NoStModeSupported: 1,
+                    InteruptVectorModeSupported: 1,
+                    DeviceSpecificModeSupported: 1,
+                    Rsvd: 5,
+                    ExtendedTPHRequesterSupported: 1,
+                    StTableLocation: 2,
+                    Rsvd2: 5,
+                    StTableSize: 11,
+                    Rsvd3: 5,
+                },
             },
             AsULONG: u32,
         }
         union PCI_EXPRESS_TPH_REQUESTER_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    StModeSelect: 3,
+                    Rsvd: 5,
+                    TphRequesterEnable: 2,
+                    Rsvd2: 22,
+                },
             },
             AsULONG: u32,
         }
@@ -2755,7 +3642,10 @@ mod Windows {
         const PCI_EXPRESS_TPH_ST_LOCATION_TPH_CAPABILITY: u32 = 1;
         union PCI_EXPRESS_TPH_ST_TABLE_ENTRY {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    LowerEntry: 8,
+                    UpperEntry: 8,
+                },
             },
             AsUSHORT: u16,
         }
@@ -2768,22 +3658,55 @@ mod Windows {
         }
         union PCI_EXPRESS_USB4_DESIGNATED_VENDOR_SPECIFIC_HEADER {
             Anonymous: struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    PortType: 3,
+                    Reserved: 13,
+                },
             },
             AsUSHORT: u16,
         }
         union PCI_EXPRESS_USB4_DESIGNATED_VENDOR_SPECIFIC_PORT_ATTRIBUTES {
             Anonymous: union {
                 type0: struct {
-                    _bitfield1: u16,
-                    _bitfield2: u32,
+                    _bitfield1: u16 {
+                        NhiInstance: 3,
+                    },
+                    _bitfield2: u32 {
+                        Rsvd: 29,
+                    },
                 },
                 type1: struct {
-                    _bitfield1: u32,
-                    _bitfield2: u32,
+                    _bitfield1: u32 {
+                        PortNhi: 3,
+                        Reserved0: 13,
+                        PortExpandibility: 2,
+                        HostRouterIndication: 2,
+                        D3ColdWakeSupport: 2,
+                        Reserved: 3,
+                    },
+                    _bitfield2: u32 {
+                        BusNumberReservationHint: 8,
+                    },
                 },
                 type2: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        PortNhi1: 3,
+                        Reserved1: 1,
+                        PortNhi2: 3,
+                        Reserved2: 1,
+                        PortNhi3: 3,
+                        Reserved3: 1,
+                        PortNhi4: 3,
+                        Reserved4: 1,
+                        PortNhi5: 3,
+                        Reserved5: 1,
+                        PortNhi6: 3,
+                        Reserved6: 1,
+                        PortNhi7: 3,
+                        Reserved7: 1,
+                        PortNhi8: 3,
+                        Reserved8: 1,
+                    },
                 },
             },
             AsULONG: u32,
@@ -2793,7 +3716,13 @@ mod Windows {
             Type: u16,
             Length: u16,
             Anonymous: struct {
-                _bitfield: u8,
+                _bitfield: u8 {
+                    SixtyFourBitDevice: 1,
+                    PciXMode1EccCapable: 1,
+                    DeviceIdMessagingCapable: 1,
+                    ObffWakeSignalCapable: 1,
+                    Reserved1: 4,
+                },
             },
             CurrentSpeedAndMode: u8,
             SupportedSpeedsAndModesLowByte: u8,
@@ -2809,7 +3738,18 @@ mod Windows {
         }
         union PCI_FPB_CAPABILITIES_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    RidDecodeMechanismSupported: 1,
+                    MemLowDecodeMechanismSupported: 1,
+                    MemHighDecodeMechanismSupported: 1,
+                    NumSecDev: 5,
+                    RidVectorSizeSupported: 3,
+                    Rsvd0: 5,
+                    MemLowVectorSizeSupported: 3,
+                    Rsvd1: 5,
+                    MemHighVectorSizeSupported: 3,
+                    Rsvd2: 5,
+                },
             },
             AsULONG: u32,
         }
@@ -2830,7 +3770,13 @@ mod Windows {
         }
         union PCI_FPB_MEM_HIGH_VECTOR_CONTROL1_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    MemHighDecodeMechanismEnable: 1,
+                    Rsvd0: 3,
+                    MemHighVectorGranularity: 4,
+                    Rsvd1: 20,
+                    MemHighVectorStartLower: 4,
+                },
             },
             AsULONG: u32,
         }
@@ -2839,25 +3785,46 @@ mod Windows {
         }
         union PCI_FPB_MEM_LOW_VECTOR_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    MemLowDecodeMechanismEnable: 1,
+                    Rsvd0: 3,
+                    MemLowVectorGranularity: 4,
+                    Rsvd1: 12,
+                    MemLowVectorStart: 12,
+                },
             },
             AsULONG: u32,
         }
         union PCI_FPB_RID_VECTOR_CONTROL1_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    RidDecodeMechanismEnable: 1,
+                    Rsvd0: 3,
+                    RidVectorGranularity: 4,
+                    Rsvd1: 11,
+                    RidVectorStart: 13,
+                },
             },
             AsULONG: u32,
         }
         union PCI_FPB_RID_VECTOR_CONTROL2_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Rsvd0: 3,
+                    RidSecondaryStart: 13,
+                    Rsvd1: 16,
+                },
             },
             AsULONG: u32,
         }
         union PCI_FPB_VECTOR_ACCESS_CONTROL_REGISTER {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    VectorAccessOffset: 8,
+                    Rsvd0: 6,
+                    VectorSelect: 2,
+                    Rsvd1: 16,
+                },
             },
             AsULONG: u32,
         }
@@ -2886,7 +3853,15 @@ mod Windows {
         struct PCI_LINK_INFORMATION {
             AvailableLinkSpeeds: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        Gts_2_5: 1,
+                        Gts_5_0: 1,
+                        Gts_8_0: 1,
+                        Gts_16_0: 1,
+                        Gts_32_0: 1,
+                        Gts_64_0: 1,
+                        Reserved: 26,
+                    },
                 },
                 AsULONG: u32,
             },
@@ -2953,7 +3928,19 @@ mod Windows {
         struct PCI_ROOT_BUS_OSC_CONTROL_FIELD {
             u: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        ExpressNativeHotPlug: 1,
+                        ShpcNativeHotPlug: 1,
+                        ExpressNativePME: 1,
+                        ExpressAdvancedErrorReporting: 1,
+                        ExpressCapabilityStructure: 1,
+                        LatencyToleranceReporting: 1,
+                        AllOnesMmioInvalidToDrivers: 1,
+                        DownstreamPortContainment: 1,
+                        CompletionTimeout: 1,
+                        FirmwareIntermediaryConfig: 1,
+                        Reserved: 22,
+                    },
                 },
                 AsULONG: u32,
             },
@@ -2962,7 +3949,18 @@ mod Windows {
         struct PCI_ROOT_BUS_OSC_SUPPORT_FIELD {
             u: union {
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        ExtendedConfigOpRegions: 1,
+                        ActiveStatePowerManagement: 1,
+                        ClockPowerManagement: 1,
+                        SegmentGroups: 1,
+                        MessageSignaledInterrupts: 1,
+                        OptimizedBufferFlushAndFill: 1,
+                        AspmOptionality: 1,
+                        ErrorDisconnectRecovery: 1,
+                        HpxDescriptorRecord: 1,
+                        Reserved: 23,
+                    },
                 },
                 AsULONG: u32,
             },
@@ -3451,7 +4449,19 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        IsProtectedProcess: 1,
+                        IsWow64Process: 1,
+                        IsProcessDeleting: 1,
+                        IsCrossSessionCreate: 1,
+                        IsFrozen: 1,
+                        IsBackground: 1,
+                        IsStronglyNamed: 1,
+                        IsSecureProcess: 1,
+                        IsSubsystemProcess: 1,
+                        IsTrustedApp: 1,
+                        SpareBits: 22,
+                    },
                 },
             },
         }
@@ -3540,7 +4550,17 @@ mod Windows {
         }
         #[packed(1)]
         struct PSHED_MEMORY_DETAILS_VALID_BITS {
-            _bitfield: u32,
+            _bitfield: u32 {
+                DdrVersion: 1,
+                IsClosedPaged: 1,
+                ColsPerRow: 1,
+                PagesPerRow: 1,
+                SocketCnt: 1,
+                ChaOnSktCnt: 1,
+                DimmSlotCnt: 1,
+                SubchannelCnt: 1,
+                Reserved: 24,
+            },
         }
         extern fn PSHED_PI_ATTEMPT_ERROR_RECOVERY(#[in] #[out] #[opt] PluginContext: *mut void, BufferLength: u32, #[size_param(1)] ErrorRecord: *const WHEA_ERROR_RECORD) -> NTSTATUS;
         extern fn PSHED_PI_CLEAR_ERROR_RECORD(#[in] #[out] #[opt] PluginContext: *mut void, Flags: u32, ErrorRecordId: u64) -> NTSTATUS;
@@ -3580,7 +4600,10 @@ mod Windows {
         }
         #[packed(1)]
         struct PSHED_PLATFORM_DETAILS_VALID_BITS {
-            _bitfield: u32,
+            _bitfield: u32 {
+                GicRegisterOffset: 1,
+                Reserved: 31,
+            },
         }
         type PSIGNAL_REG_VALUE = *mut SIGNAL_REG_VALUE;
         type PSILO_MONITOR = *mut _SILO_MONITOR;
@@ -3595,7 +4618,11 @@ mod Windows {
             Anonymous: union {
                 Flags: u32,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        FileOpenNameAvailable: 1,
+                        IsSubsystemProcess: 1,
+                        Reserved: 30,
+                    },
                 },
             },
             ParentProcessId: HANDLE,
@@ -4958,31 +5985,84 @@ mod Windows {
         #[packed(1)]
         struct WHEA_ARM_BUS_ERROR {
             ValidationBit: WHEA_ARM_BUS_ERROR_VALID_BITS,
-            _bitfield1: u8,
-            _bitfield2: u8,
-            _bitfield3: u8,
-            _bitfield4: u16,
-            _bitfield5: u8,
-            _bitfield6: u32,
+            _bitfield1: u8 {
+                TransactionType: 2,
+                Operation: 4,
+            },
+            _bitfield2: u8 {
+                Level: 3,
+                ProcessorContextCorrupt: 1,
+                Corrected: 1,
+                PrecisePC: 1,
+                RestartablePC: 1,
+            },
+            _bitfield3: u8 {
+                ParticipationType: 2,
+                TimeOut: 1,
+                AddressSpace: 2,
+            },
+            _bitfield4: u16 {
+                MemoryAccessAttributes: 9,
+            },
+            _bitfield5: u8 {
+                AccessMode: 1,
+            },
+            _bitfield6: u32 {
+                Reserved: 20,
+            },
         }
         #[packed(1)]
         union WHEA_ARM_BUS_ERROR_VALID_BITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    TransactionType: 1,
+                    Operation: 1,
+                    Level: 1,
+                    ProcessorContextCorrupt: 1,
+                    Corrected: 1,
+                    PrecisePC: 1,
+                    RestartablePC: 1,
+                    ParticipationType: 1,
+                    Timeout: 1,
+                    AddressSpace: 1,
+                    MemoryAttributes: 1,
+                    AccessMode: 1,
+                    Reserved: 4,
+                },
             },
             AsUSHORT: u16,
         }
         #[packed(1)]
         struct WHEA_ARM_CACHE_ERROR {
             ValidationBit: WHEA_ARM_CACHE_ERROR_VALID_BITS,
-            _bitfield1: u8,
-            _bitfield2: u8,
-            _bitfield3: u64,
+            _bitfield1: u8 {
+                TransactionType: 2,
+                Operation: 4,
+            },
+            _bitfield2: u8 {
+                Level: 3,
+                ProcessorContextCorrupt: 1,
+                Corrected: 1,
+                PrecisePC: 1,
+                RestartablePC: 1,
+            },
+            _bitfield3: u64 {
+                Reserved: 35,
+            },
         }
         #[packed(1)]
         union WHEA_ARM_CACHE_ERROR_VALID_BITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    TransactionType: 1,
+                    Operation: 1,
+                    Level: 1,
+                    ProcessorContextCorrupt: 1,
+                    Corrected: 1,
+                    PrecisePC: 1,
+                    RestartablePC: 1,
+                    Reserved: 9,
+                },
             },
             AsUSHORT: u16,
         }
@@ -5008,7 +6088,12 @@ mod Windows {
         #[packed(1)]
         union WHEA_ARM_PROCESSOR_ERROR_CONTEXT_INFORMATION_HEADER_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    ExceptionLevel: 1,
+                    NonSecure: 1,
+                    AArch64: 1,
+                    Reserved: 29,
+                },
             },
             AsULONG: u32,
         }
@@ -5027,7 +6112,14 @@ mod Windows {
         #[packed(1)]
         union WHEA_ARM_PROCESSOR_ERROR_INFORMATION_VALID_BITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    MultipleError: 1,
+                    Flags: 1,
+                    ErrorInformation: 1,
+                    VirtualFaultAddress: 1,
+                    PhysicalFaultAddress: 1,
+                    Reserved: 11,
+                },
             },
             AsUSHORT: u16,
         }
@@ -5048,7 +6140,13 @@ mod Windows {
         #[packed(1)]
         union WHEA_ARM_PROCESSOR_ERROR_SECTION_VALID_BITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    MPIDR: 1,
+                    AffinityLevel: 1,
+                    RunningState: 1,
+                    VendorSpecificInfo: 1,
+                    Reserved: 28,
+                },
             },
             AsULONG: u32,
         }
@@ -5077,14 +6175,34 @@ mod Windows {
         #[packed(1)]
         struct WHEA_ARM_TLB_ERROR {
             ValidationBit: WHEA_ARM_TLB_ERROR_VALID_BITS,
-            _bitfield1: u8,
-            _bitfield2: u8,
-            _bitfield3: u64,
+            _bitfield1: u8 {
+                TransactionType: 2,
+                Operation: 4,
+            },
+            _bitfield2: u8 {
+                Level: 3,
+                ProcessorContextCorrupt: 1,
+                Corrected: 1,
+                PrecisePC: 1,
+                RestartablePC: 1,
+            },
+            _bitfield3: u64 {
+                Reserved: 36,
+            },
         }
         #[packed(1)]
         union WHEA_ARM_TLB_ERROR_VALID_BITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    TransactionType: 1,
+                    Operation: 1,
+                    Level: 1,
+                    ProcessorContextCorrupt: 1,
+                    Corrected: 1,
+                    PrecisePC: 1,
+                    RestartablePC: 1,
+                    Reserved: 9,
+                },
             },
             AsUSHORT: u16,
         }
@@ -5173,7 +6291,12 @@ mod Windows {
         #[packed(1)]
         union WHEA_CXL_COMPONENT_EVENTS_SECTION_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    DeviceID: 1,
+                    DeviceSerialNumber: 1,
+                    CxlComponentEventLog: 1,
+                    Reserved: 61,
+                },
             },
             ValidBits: u64,
         }
@@ -5185,7 +6308,10 @@ mod Windows {
             SubsystemDeviceID: u16,
             ClassCode: u16,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    Reserved: 3,
+                    SlotNumber: 13,
+                },
             },
             Reserved2: [u8; 4],
         }
@@ -5206,7 +6332,10 @@ mod Windows {
             BusNumber: u8,
             SegmentNumber: u16,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    Reserved: 3,
+                    SlotNumber: 13,
+                },
             },
             Reserved2: u8,
         }
@@ -5227,7 +6356,16 @@ mod Windows {
         #[packed(1)]
         union WHEA_CXL_PROTOCOL_ERROR_SECTION_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    CxlAgentType: 1,
+                    CxlAgentAddress: 1,
+                    DeviceID: 1,
+                    DeviceSerialNumber: 1,
+                    CapabilityStructure: 1,
+                    CxlDvsec: 1,
+                    CxlErrorLog: 1,
+                    Reserved: 57,
+                },
             },
             ValidBits: u64,
         }
@@ -5288,7 +6426,28 @@ mod Windows {
         const WHEA_ERROR_HANDLE_INVALID: u32 = 0;
         union WHEA_ERROR_INJECTION_CAPABILITIES {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    ProcessorCorrectable: 1,
+                    ProcessorUncorrectableNonFatal: 1,
+                    ProcessorUncorrectableFatal: 1,
+                    MemoryCorrectable: 1,
+                    MemoryUncorrectableNonFatal: 1,
+                    MemoryUncorrectableFatal: 1,
+                    PCIExpressCorrectable: 1,
+                    PCIExpressUncorrectableNonFatal: 1,
+                    PCIExpressUncorrectableFatal: 1,
+                    PlatformCorrectable: 1,
+                    PlatformUncorrectableNonFatal: 1,
+                    PlatformUncorrectableFatal: 1,
+                    CXLCacheProtocolCorrectable: 1,
+                    CXLCacheProtocolUncorrectableNonFatal: 1,
+                    CXLCacheProtocolUncorrectableFatal: 1,
+                    CXLMemProtocolCorrectable: 1,
+                    CXLMemProtocolUncorrectableNonFatal: 1,
+                    CXLMemProtocolUncorrectableFatal: 1,
+                    Reserved: 13,
+                    PlatformVendorDefined: 1,
+                },
             },
             AsULONG: u32,
         }
@@ -5317,7 +6476,18 @@ mod Windows {
         #[packed(1)]
         union WHEA_ERROR_PACKET_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    PreviousError: 1,
+                    CriticalEvent: 1,
+                    HypervisorError: 1,
+                    Simulated: 1,
+                    PlatformPfaControl: 1,
+                    PlatformDirectedOffline: 1,
+                    AddressTranslationRequired: 1,
+                    AddressTranslationCompleted: 1,
+                    RecoveryOptional: 1,
+                    Reserved2: 23,
+                },
             },
             AsULONG: u32,
         }
@@ -5411,14 +6581,30 @@ mod Windows {
         #[packed(1)]
         union WHEA_ERROR_RECORD_HEADER_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Recovered: 1,
+                    PreviousError: 1,
+                    Simulated: 1,
+                    DeviceDriver: 1,
+                    CriticalEvent: 1,
+                    PersistPfn: 1,
+                    SectionsTruncated: 1,
+                    RecoveryInProgress: 1,
+                    Throttle: 1,
+                    Reserved: 23,
+                },
             },
             AsULONG: u32,
         }
         #[packed(1)]
         union WHEA_ERROR_RECORD_HEADER_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    PlatformId: 1,
+                    Timestamp: 1,
+                    PartitionId: 1,
+                    Reserved: 29,
+                },
             },
             AsULONG: u32,
         }
@@ -5439,14 +6625,28 @@ mod Windows {
         #[packed(1)]
         union WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Primary: 1,
+                    ContainmentWarning: 1,
+                    Reset: 1,
+                    ThresholdExceeded: 1,
+                    ResourceNotAvailable: 1,
+                    LatentError: 1,
+                    Propagated: 1,
+                    FruTextByPlugin: 1,
+                    Reserved: 24,
+                },
             },
             AsULONG: u32,
         }
         const WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_REVISION: u32 = 768;
         union WHEA_ERROR_RECORD_SECTION_DESCRIPTOR_VALIDBITS {
             Anonymous: struct {
-                _bitfield: u8,
+                _bitfield: u8 {
+                    FRUId: 1,
+                    FRUText: 1,
+                    Reserved: 6,
+                },
             },
             AsUCHAR: u8,
         }
@@ -5630,7 +6830,18 @@ mod Windows {
         union WHEA_ERROR_STATUS {
             ErrorStatus: u64,
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    Reserved1: 8,
+                    ErrorType: 8,
+                    Address: 1,
+                    Control: 1,
+                    Data: 1,
+                    Responder: 1,
+                    Requester: 1,
+                    FirstError: 1,
+                    Overflow: 1,
+                    Reserved2: 41,
+                },
             },
         }
         const WHEA_ERROR_TEXT_LEN: u32 = 32;
@@ -5657,7 +6868,16 @@ mod Windows {
         #[packed(1)]
         union WHEA_EVENT_LOG_ENTRY_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Reserved1: 1,
+                    LogInternalEtw: 1,
+                    LogBlackbox: 1,
+                    LogSel: 1,
+                    RawSel: 1,
+                    NoFormat: 1,
+                    Driver: 1,
+                    Reserved2: 25,
+                },
             },
             AsULONG: u32,
         }
@@ -5835,7 +7055,14 @@ mod Windows {
         #[packed(1)]
         union WHEA_GENERIC_ERROR_BLOCKSTATUS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    UncorrectableError: 1,
+                    CorrectableError: 1,
+                    MultipleUncorrectableErrors: 1,
+                    MultipleCorrectableErrors: 1,
+                    ErrorDataEntryCount: 10,
+                    Reserved: 18,
+                },
             },
             AsULONG: u32,
         }
@@ -5914,7 +7141,14 @@ mod Windows {
         const WHEA_INVALID_ERR_SRC_ID: u32 = 0;
         union WHEA_IN_USE_PAGE_NOTIFY_FLAGS {
             Bits: struct {
-                _bitfield: u8,
+                _bitfield: u8 {
+                    PlatformDirected: 1,
+                    PageSwapped: 1,
+                    PageDemoted: 1,
+                    Reserved: 3,
+                    NotifyAllOfflines: 1,
+                    PageOfflined: 1,
+                },
             },
             AsUCHAR: u8,
         }
@@ -5980,7 +7214,13 @@ mod Windows {
         #[packed(1)]
         union WHEA_MEMORY_CORRECTABLE_ERROR_SECTION_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    SocketId: 1,
+                    ChannelId: 1,
+                    DimmSlot: 1,
+                    CorrectableErrorCount: 1,
+                    Reserved: 60,
+                },
             },
             ValidBits: u64,
         }
@@ -6001,14 +7241,36 @@ mod Windows {
         #[packed(1)]
         union WHEA_MEMORY_ERROR_EXT_SECTION_AMD_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    SystemPhysicalAddress: 1,
+                    NormalizedAddress: 1,
+                    UmcBankInstanceId: 1,
+                    SocketNumber: 1,
+                    ChipSelect: 1,
+                    BankGroup: 1,
+                    BankAddress: 1,
+                    RowAddress: 1,
+                    ColumnAddress: 1,
+                    RankMultiplier: 1,
+                    SubChannel: 1,
+                    ChannelId: 1,
+                    Reserved: 52,
+                },
             },
             ValidBits: u64,
         }
         #[packed(1)]
         union WHEA_MEMORY_ERROR_EXT_SECTION_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    AddressTranslationByPrmSuccess: 1,
+                    AddressTranslationByPrmFailed: 1,
+                    AddressTranslationByPrmNotSupported: 1,
+                    AddressTranslationByPluginSuccess: 1,
+                    AddressTranslationByPluginFailed: 1,
+                    AddressTranslationByPluginNotSupported: 1,
+                    Reserved: 58,
+                },
             },
             AsUINT64: u64,
         }
@@ -6021,7 +7283,35 @@ mod Windows {
         #[packed(1)]
         union WHEA_MEMORY_ERROR_EXT_SECTION_INTEL_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    MemDef: 1,
+                    SystemAddress: 1,
+                    SpareSystemAddress: 1,
+                    DevicePhysicalAddress: 1,
+                    ChannelAddress: 1,
+                    RankAddress: 1,
+                    ProcessorSocketId: 1,
+                    MemoryControllerId: 1,
+                    TargetId: 1,
+                    LogicalChannelId: 1,
+                    ChannelId: 1,
+                    SubChannelId: 1,
+                    PhysicalRankId: 1,
+                    DimmSlotId: 1,
+                    DimmRankId: 1,
+                    Bank: 1,
+                    BankGroup: 1,
+                    Row: 1,
+                    Column: 1,
+                    LockStepRank: 1,
+                    LockStepPhysicalRank: 1,
+                    LockStepBank: 1,
+                    LockStepBankGroup: 1,
+                    ChipSelect: 1,
+                    Node: 1,
+                    ChipId: 1,
+                    Reserved: 38,
+                },
             },
             ValidBits: u64,
         }
@@ -6051,7 +7341,31 @@ mod Windows {
         #[packed(1)]
         union WHEA_MEMORY_ERROR_SECTION_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    ErrorStatus: 1,
+                    PhysicalAddress: 1,
+                    PhysicalAddressMask: 1,
+                    Node: 1,
+                    Card: 1,
+                    Module: 1,
+                    Bank: 1,
+                    Device: 1,
+                    Row: 1,
+                    Column: 1,
+                    BitPosition: 1,
+                    RequesterId: 1,
+                    ResponderId: 1,
+                    TargetId: 1,
+                    ErrorType: 1,
+                    RankNumber: 1,
+                    CardHandle: 1,
+                    ModuleHandle: 1,
+                    ExtendedRow: 1,
+                    BankGroup: 1,
+                    BankAddress: 1,
+                    ChipIdentification: 1,
+                    Reserved: 42,
+                },
             },
             ValidBits: u64,
         }
@@ -6120,7 +7434,14 @@ mod Windows {
         #[packed(1)]
         union WHEA_MEMORY_RANGE_ERROR_SECTION_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    Version: 1,
+                    DeviceInfo: 1,
+                    DeviceType: 1,
+                    RangeCount: 1,
+                    Ranges: 1,
+                    Reserved: 59,
+                },
             },
             ValidBits: u64,
         }
@@ -6149,7 +7470,10 @@ mod Windows {
         #[packed(1)]
         union WHEA_NMI_ERROR_SECTION_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    HypervisorError: 1,
+                    Reserved: 31,
+                },
             },
             AsULONG: u32,
         }
@@ -6222,7 +7546,14 @@ mod Windows {
         #[packed(1)]
         union WHEA_NOTIFICATION_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u16,
+                _bitfield: u16 {
+                    PollIntervalRW: 1,
+                    SwitchToPollingThresholdRW: 1,
+                    SwitchToPollingWindowRW: 1,
+                    ErrorThresholdRW: 1,
+                    ErrorThresholdWindowRW: 1,
+                    Reserved: 11,
+                },
             },
             AsUSHORT: u16,
         }
@@ -6289,9 +7620,21 @@ mod Windows {
         struct WHEA_PCIEXPRESS_DEVICE_ID {
             VendorID: u16,
             DeviceID: u16,
-            _bitfield1: u32,
-            _bitfield2: u32,
-            _bitfield3: u32,
+            _bitfield1: u32 {
+                ClassCode: 24,
+                FunctionNumber: 8,
+            },
+            _bitfield2: u32 {
+                DeviceNumber: 8,
+                Segment: 16,
+                PrimaryBusNumber: 8,
+            },
+            _bitfield3: u32 {
+                SecondaryBusNumber: 8,
+                Reserved1: 3,
+                SlotNumber: 13,
+                Reserved2: 8,
+            },
         }
         #[repr(i32)]
         enum WHEA_PCIEXPRESS_DEVICE_TYPE {
@@ -6321,7 +7664,17 @@ mod Windows {
         #[packed(1)]
         union WHEA_PCIEXPRESS_ERROR_SECTION_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    PortType: 1,
+                    Version: 1,
+                    CommandStatus: 1,
+                    DeviceId: 1,
+                    DeviceSerialNumber: 1,
+                    BridgeControlStatus: 1,
+                    ExpressCapability: 1,
+                    AerInfo: 1,
+                    Reserved: 56,
+                },
             },
             ValidBits: u64,
         }
@@ -6351,7 +7704,15 @@ mod Windows {
         #[packed(1)]
         union WHEA_PCIE_CORRECTABLE_ERROR_DEVICES_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    Segment: 1,
+                    Bus: 1,
+                    Device: 1,
+                    Function: 1,
+                    Mask: 1,
+                    CorrectableErrorCount: 1,
+                    Reserved: 58,
+                },
             },
             ValidBits: u64,
         }
@@ -6368,7 +7729,11 @@ mod Windows {
         #[packed(1)]
         union WHEA_PCIXBUS_COMMAND {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    Command: 56,
+                    PCIXCommand: 1,
+                    Reserved: 7,
+                },
             },
             AsULONGLONG: u64,
         }
@@ -6389,7 +7754,18 @@ mod Windows {
         #[packed(1)]
         union WHEA_PCIXBUS_ERROR_SECTION_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    ErrorStatus: 1,
+                    ErrorType: 1,
+                    BusId: 1,
+                    BusAddress: 1,
+                    BusData: 1,
+                    BusCommand: 1,
+                    RequesterId: 1,
+                    CompleterId: 1,
+                    TargetId: 1,
+                    Reserved: 55,
+                },
             },
             ValidBits: u64,
         }
@@ -6413,7 +7789,14 @@ mod Windows {
         #[packed(1)]
         union WHEA_PCIXDEVICE_ERROR_SECTION_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    ErrorStatus: 1,
+                    IdInfo: 1,
+                    MemoryNumber: 1,
+                    IoNumber: 1,
+                    RegisterDataPairs: 1,
+                    Reserved: 59,
+                },
             },
             ValidBits: u64,
         }
@@ -6421,8 +7804,16 @@ mod Windows {
         struct WHEA_PCIXDEVICE_ID {
             VendorId: u16,
             DeviceId: u16,
-            _bitfield1: u32,
-            _bitfield2: u32,
+            _bitfield1: u32 {
+                ClassCode: 24,
+                FunctionNumber: 8,
+            },
+            _bitfield2: u32 {
+                DeviceNumber: 8,
+                BusNumber: 8,
+                SegmentNumber: 8,
+                Reserved1: 8,
+            },
             Reserved2: u32,
         }
         #[packed(1)]
@@ -6460,7 +7851,11 @@ mod Windows {
         struct WHEA_PCI_SLOT_NUMBER {
             u: #[packed(1)] union {
                 bits: #[packed(1)] struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        DeviceNumber: 5,
+                        FunctionNumber: 3,
+                        Reserved: 24,
+                    },
                 },
                 AsULONG: u32,
             },
@@ -6469,7 +7864,14 @@ mod Windows {
         #[packed(1)]
         union WHEA_PERSISTENCE_INFO {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    Signature: 16,
+                    Length: 24,
+                    Identifier: 16,
+                    Attributes: 2,
+                    DoNotLog: 1,
+                    Reserved: 5,
+                },
             },
             AsULONGLONG: u64,
         }
@@ -6497,7 +7899,12 @@ mod Windows {
         #[packed(1)]
         union WHEA_PMEM_ERROR_SECTION_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    ErrorStatus: 1,
+                    NFITHandle: 1,
+                    LocationInfo: 1,
+                    Reserved: 61,
+                },
             },
             ValidBits: u64,
         }
@@ -6650,7 +8057,16 @@ mod Windows {
         #[packed(1)]
         union WHEA_PROCESSOR_FAMILY_INFO {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Stepping: 4,
+                    Model: 4,
+                    Family: 4,
+                    ProcessorType: 2,
+                    Reserved1: 2,
+                    ExtendedModel: 4,
+                    ExtendedFamily: 8,
+                    Reserved2: 4,
+                },
                 NativeModelId: u32,
             },
             AsULONGLONG: u64,
@@ -6676,7 +8092,23 @@ mod Windows {
         #[packed(1)]
         union WHEA_PROCESSOR_GENERIC_ERROR_SECTION_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    ProcessorType: 1,
+                    InstructionSet: 1,
+                    ErrorType: 1,
+                    Operation: 1,
+                    Flags: 1,
+                    Level: 1,
+                    CPUVersion: 1,
+                    CPUBrandString: 1,
+                    ProcessorId: 1,
+                    TargetAddress: 1,
+                    RequesterId: 1,
+                    ResponderId: 1,
+                    InstructionPointer: 1,
+                    NativeModelId: 1,
+                    Reserved: 50,
+                },
             },
             ValidBits: u64,
         }
@@ -6819,7 +8251,14 @@ mod Windows {
         #[packed(1)]
         union WHEA_RECOVERY_ACTION {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    NoneAttempted: 1,
+                    TerminateProcess: 1,
+                    ForwardedToVm: 1,
+                    MarkPageBad: 1,
+                    PoisonNotPresent: 1,
+                    Reserved: 59,
+                },
             },
             AsUINT64: u64,
         }
@@ -6855,7 +8294,9 @@ mod Windows {
         #[packed(1)]
         union WHEA_RECOVERY_CONTEXT_ACTION_TAKEN_ADDITIONAL_INFO {
             Bits: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    Reserved: 64,
+                },
             },
             AsULONG64: u64,
         }
@@ -6926,7 +8367,9 @@ mod Windows {
         }
         union WHEA_REPORT_HW_ERROR_DEVICE_DRIVER_FLAGS {
             Anonymous: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Reserved: 32,
+                },
             },
             AsULONG: u32,
         }
@@ -7066,7 +8509,17 @@ mod Windows {
         #[packed(1)]
         union WHEA_TIMESTAMP {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    Seconds: 8,
+                    Minutes: 8,
+                    Hours: 8,
+                    Precise: 1,
+                    Reserved: 7,
+                    Day: 8,
+                    Month: 8,
+                    Year: 8,
+                    Century: 8,
+                },
             },
             AsLARGE_INTEGER: LARGE_INTEGER,
         }
@@ -7153,14 +8606,58 @@ mod Windows {
         #[packed(1)]
         union WHEA_XPF_BUS_CHECK {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    TransactionTypeValid: 1,
+                    OperationValid: 1,
+                    LevelValid: 1,
+                    ProcessorContextCorruptValid: 1,
+                    UncorrectedValid: 1,
+                    PreciseIPValid: 1,
+                    RestartableIPValid: 1,
+                    OverflowValid: 1,
+                    ParticipationValid: 1,
+                    TimeoutValid: 1,
+                    AddressSpaceValid: 1,
+                    ReservedValid: 5,
+                    TransactionType: 2,
+                    Operation: 4,
+                    Level: 3,
+                    ProcessorContextCorrupt: 1,
+                    Uncorrected: 1,
+                    PreciseIP: 1,
+                    RestartableIP: 1,
+                    Overflow: 1,
+                    Participation: 2,
+                    Timeout: 1,
+                    AddressSpace: 2,
+                    Reserved: 29,
+                },
             },
             XpfBusCheck: u64,
         }
         #[packed(1)]
         union WHEA_XPF_CACHE_CHECK {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    TransactionTypeValid: 1,
+                    OperationValid: 1,
+                    LevelValid: 1,
+                    ProcessorContextCorruptValid: 1,
+                    UncorrectedValid: 1,
+                    PreciseIPValid: 1,
+                    RestartableIPValid: 1,
+                    OverflowValid: 1,
+                    ReservedValid: 8,
+                    TransactionType: 2,
+                    Operation: 4,
+                    Level: 3,
+                    ProcessorContextCorrupt: 1,
+                    Uncorrected: 1,
+                    PreciseIP: 1,
+                    RestartableIP: 1,
+                    Overflow: 1,
+                    Reserved: 34,
+                },
             },
             XpfCacheCheck: u64,
         }
@@ -7260,7 +8757,22 @@ mod Windows {
         #[packed(1)]
         union WHEA_XPF_MS_CHECK {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    ErrorTypeValid: 1,
+                    ProcessorContextCorruptValid: 1,
+                    UncorrectedValid: 1,
+                    PreciseIPValid: 1,
+                    RestartableIPValid: 1,
+                    OverflowValid: 1,
+                    ReservedValue: 10,
+                    ErrorType: 3,
+                    ProcessorContextCorrupt: 1,
+                    Uncorrected: 1,
+                    PreciseIP: 1,
+                    RestartableIP: 1,
+                    Overflow: 1,
+                    Reserved: 40,
+                },
             },
             XpfMsCheck: u64,
         }
@@ -7279,7 +8791,13 @@ mod Windows {
         #[packed(1)]
         union WHEA_XPF_PROCESSOR_ERROR_SECTION_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    LocalAPICId: 1,
+                    CpuId: 1,
+                    ProcInfoCount: 6,
+                    ContextInfoCount: 6,
+                    Reserved: 50,
+                },
             },
             ValidBits: u64,
         }
@@ -7302,14 +8820,40 @@ mod Windows {
         #[packed(1)]
         union WHEA_XPF_PROCINFO_VALIDBITS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    CheckInfo: 1,
+                    TargetId: 1,
+                    RequesterId: 1,
+                    ResponderId: 1,
+                    InstructionPointer: 1,
+                    Reserved: 59,
+                },
             },
             ValidBits: u64,
         }
         #[packed(1)]
         union WHEA_XPF_TLB_CHECK {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u64,
+                _bitfield: u64 {
+                    TransactionTypeValid: 1,
+                    OperationValid: 1,
+                    LevelValid: 1,
+                    ProcessorContextCorruptValid: 1,
+                    UncorrectedValid: 1,
+                    PreciseIPValid: 1,
+                    RestartableIPValid: 1,
+                    OverflowValid: 1,
+                    ReservedValid: 8,
+                    TransactionType: 2,
+                    Operation: 4,
+                    Level: 3,
+                    ProcessorContextCorrupt: 1,
+                    Uncorrected: 1,
+                    PreciseIP: 1,
+                    RestartableIP: 1,
+                    Overflow: 1,
+                    Reserved: 34,
+                },
             },
             XpfTLBCheck: u64,
         }
@@ -7355,13 +8899,21 @@ mod Windows {
         #[packed(1)]
         union XPF_MCE_FLAGS {
             Anonymous: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    MCG_CapabilityRW: 1,
+                    MCG_GlobalControlRW: 1,
+                    Reserved: 30,
+                },
             },
             AsULONG: u32,
         }
         union XPF_MC_BANK_FLAGS {
             Anonymous: struct {
-                _bitfield: u8,
+                _bitfield: u8 {
+                    ClearOnInitializationRW: 1,
+                    ControlDataRW: 1,
+                    Reserved: 6,
+                },
             },
             AsUCHAR: u8,
         }
@@ -7375,10 +8927,27 @@ mod Windows {
         #[packed(1)]
         struct XPF_RECOVERY_INFO {
             FailureReason: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    NotSupported: 1,
+                    Overflow: 1,
+                    ContextCorrupt: 1,
+                    RestartIpErrorIpNotValid: 1,
+                    NoRecoveryContext: 1,
+                    MiscOrAddrNotValid: 1,
+                    InvalidAddressMode: 1,
+                    HighIrql: 1,
+                    InterruptsDisabled: 1,
+                    SwapBusy: 1,
+                    StackOverflow: 1,
+                    Reserved: 21,
+                },
             },
             Action: #[packed(1)] struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    RecoveryAttempted: 1,
+                    HvHandled: 1,
+                    Reserved: 30,
+                },
             },
             ActionRequired: BOOLEAN,
             RecoverySucceeded: BOOLEAN,

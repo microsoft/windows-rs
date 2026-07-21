@@ -2602,6 +2602,21 @@ pub struct FSRTL_COMMON_FCB_HEADER {
     pub FileSize: i64,
     pub ValidDataLength: i64,
 }
+#[cfg(all(feature = "ntdef", feature = "wdm", feature = "winnt"))]
+impl FSRTL_COMMON_FCB_HEADER {
+    pub fn Reserved(&self) -> u8 {
+        (self._bitfield << 4) >> 4
+    }
+    pub fn set_Reserved(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !15) | (value & 15);
+    }
+    pub fn Version(&self) -> u8 {
+        self._bitfield >> 4
+    }
+    pub fn set_Version(&mut self, value: u8) {
+        self._bitfield = (self._bitfield & !(15 << 4)) | ((value & 15) << 4);
+    }
+}
 pub type FSRTL_COMPARISON_RESULT = i32;
 pub const FSRTL_DRIVER_BACKING_FLAG_USE_PAGE_FILE: u32 = 1;
 #[repr(transparent)]
@@ -2738,6 +2753,32 @@ impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_0 {
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION_0_0 {
     pub _bitfield: u32,
 }
+impl FSRTL_UNC_PROVIDER_REGISTRATION_0_0 {
+    pub fn MailslotsSupported(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_MailslotsSupported(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn CscEnabled(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_CscEnabled(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn DomainSvcAware(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_DomainSvcAware(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
+    pub fn ContainersAware(&self) -> bool {
+        (self._bitfield >> 3) & 1 != 0
+    }
+    pub fn set_ContainersAware(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 3)) | ((value as u32) << 3);
+    }
+}
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union FSRTL_UNC_PROVIDER_REGISTRATION_1 {
@@ -2753,6 +2794,26 @@ impl Default for FSRTL_UNC_PROVIDER_REGISTRATION_1 {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct FSRTL_UNC_PROVIDER_REGISTRATION_1_0 {
     pub _bitfield: u32,
+}
+impl FSRTL_UNC_PROVIDER_REGISTRATION_1_0 {
+    pub fn SupportsMutualAuth(&self) -> bool {
+        self._bitfield & 1 != 0
+    }
+    pub fn set_SupportsMutualAuth(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !1) | (value as u32);
+    }
+    pub fn SupportsIntegrity(&self) -> bool {
+        (self._bitfield >> 1) & 1 != 0
+    }
+    pub fn set_SupportsIntegrity(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 1)) | ((value as u32) << 1);
+    }
+    pub fn SupportsPrivacy(&self) -> bool {
+        (self._bitfield >> 2) & 1 != 0
+    }
+    pub fn set_SupportsPrivacy(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 2)) | ((value as u32) << 2);
+    }
 }
 pub const FSRTL_UNC_REGISTRATION_CURRENT_VERSION: u32 = 513;
 pub const FSRTL_UNC_REGISTRATION_VERSION_0200: u32 = 512;
@@ -3369,6 +3430,38 @@ impl Default for MM_PREFETCH_FLAGS {
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct MM_PREFETCH_FLAGS_0 {
     pub _bitfield: u32,
+}
+impl MM_PREFETCH_FLAGS_0 {
+    pub fn Priority(&self) -> u32 {
+        (self._bitfield << 29) >> 29
+    }
+    pub fn set_Priority(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !7) | (value & 7);
+    }
+    pub fn RepurposePriority(&self) -> u32 {
+        (self._bitfield << 26) >> 29
+    }
+    pub fn set_RepurposePriority(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(7 << 3)) | ((value & 7) << 3);
+    }
+    pub fn PriorityProtection(&self) -> bool {
+        (self._bitfield >> 6) & 1 != 0
+    }
+    pub fn set_PriorityProtection(&mut self, value: bool) {
+        self._bitfield = (self._bitfield & !(1 << 6)) | ((value as u32) << 6);
+    }
+    pub fn MustBeZero(&self) -> u32 {
+        (self._bitfield << 23) >> 30
+    }
+    pub fn set_MustBeZero(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(3 << 7)) | ((value & 3) << 7);
+    }
+    pub fn CannotBeUsedAsFlags(&self) -> u32 {
+        self._bitfield >> 9
+    }
+    pub fn set_CannotBeUsedAsFlags(&mut self, value: u32) {
+        self._bitfield = (self._bitfield & !(8388607 << 9)) | ((value & 8388607) << 9);
+    }
 }
 pub const MM_PREFETCH_FLAGS_MASK: u32 = 127;
 #[repr(C)]

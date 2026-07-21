@@ -79,7 +79,8 @@ mod Windows {
             // offset within the backing field, and its width in bits. bindgen reads
             // these to generate typed get/set accessors. Signedness of a multi-bit
             // member is taken from the backing field's own type.
-            // RDL: `#[bitfield("Name", offset, length)]` (repeatable).
+            // RDL: written as a C-like block on the backing field, e.g.
+            // `_bitfield: u8 { Name: 1, _: 3, Other: 4 }` (anonymous padding is `_`).
             attribute NativeBitfieldAttribute {
                 fn(name: String, offset: i64, length: i64);
             }

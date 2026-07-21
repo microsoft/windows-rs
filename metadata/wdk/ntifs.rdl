@@ -990,7 +990,10 @@ mod Windows {
             Flags: u8,
             IsFastIoPossible: u8,
             Flags2: u8,
-            _bitfield: u8,
+            _bitfield: u8 {
+                Reserved: 4,
+                Version: 4,
+            },
             Resource: PERESOURCE,
             PagingIoResource: PERESOURCE,
             AllocationSize: LARGE_INTEGER,
@@ -1077,13 +1080,22 @@ mod Windows {
             Anonymous: union {
                 ProviderFlags: FSRTL_UNC_PROVIDER_FLAGS,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        MailslotsSupported: 1,
+                        CscEnabled: 1,
+                        DomainSvcAware: 1,
+                        ContainersAware: 1,
+                    },
                 },
             },
             Anonymous2: union {
                 HardeningCapabilities: FSRTL_UNC_HARDENING_CAPABILITIES,
                 Anonymous: struct {
-                    _bitfield: u32,
+                    _bitfield: u32 {
+                        SupportsMutualAuth: 1,
+                        SupportsIntegrity: 1,
+                        SupportsPrivacy: 1,
+                    },
                 },
             },
         }
@@ -1409,14 +1421,20 @@ mod Windows {
             Anonymous: union {
                 InProgressFlags: u8,
                 Anonymous: struct {
-                    _bitfield: BOOLEAN,
+                    _bitfield: BOOLEAN {
+                        KernelApcInProgress: 1,
+                        SpecialApcInProgress: 1,
+                    },
                 },
             },
             KernelApcPending: BOOLEAN,
             Anonymous2: union {
                 UserApcPendingAll: BOOLEAN,
                 Anonymous: struct {
-                    _bitfield: BOOLEAN,
+                    _bitfield: BOOLEAN {
+                        SpecialUserApcPending: 1,
+                        UserApcPending: 1,
+                    },
                 },
             },
         }
@@ -1521,7 +1539,13 @@ mod Windows {
         const MM_IS_FILE_SECTION_ACTIVE_USER: u32 = 4;
         union MM_PREFETCH_FLAGS {
             Flags: struct {
-                _bitfield: u32,
+                _bitfield: u32 {
+                    Priority: 3,
+                    RepurposePriority: 3,
+                    PriorityProtection: 1,
+                    MustBeZero: 2,
+                    CannotBeUsedAsFlags: 23,
+                },
             },
             AllFlags: u32,
         }

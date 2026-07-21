@@ -768,7 +768,7 @@ bit-fields into a single backing integer field named `_bitfield` (or
 [`windows-clang`](windows-clang.md#known-limitations-and-future-work). The backing
 field is emitted verbatim and kept `pub` for FFI transparency and blitting:
 
-```rust
+```rust,ignore
 pub struct MIB_IF_ROW2 {
     // ...
     pub _bitfield: u8,
@@ -799,7 +799,7 @@ by a two-crate pipeline:
    `NativeBitfieldAttribute` on a field (non-`sys` styles only), emit a getter/setter
    pair alongside the raw backing field:
 
-   ```rust
+   ```rust,ignore
    impl MIB_IF_ROW2 {
        pub fn HardwareInterface(&self) -> bool {
            self._bitfield & 1 != 0
