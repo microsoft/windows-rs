@@ -1,5 +1,27 @@
 use super::*;
 
+/// How the alpha channel of a bitmap's pixels is interpreted.
+///
+/// Only the two modes supported by Direct2D for 32-bit BGRA bitmaps are exposed.
+#[derive(Copy, Clone, Debug, PartialEq, Eq, Default)]
+pub enum AlphaMode {
+    /// Color components are premultiplied by the alpha value. This is the most
+    /// common mode for GPU compositing and the one produced by most drawing.
+    #[default]
+    Premultiplied,
+    /// The alpha channel is ignored and the bitmap is treated as opaque.
+    Ignore,
+}
+
+impl AlphaMode {
+    pub(crate) fn to_abi(self) -> D2D1_ALPHA_MODE {
+        match self {
+            Self::Premultiplied => D2D1_ALPHA_MODE_PREMULTIPLIED,
+            Self::Ignore => D2D1_ALPHA_MODE_IGNORE,
+        }
+    }
+}
+
 /// A rectangle defined by its edges.
 #[derive(Copy, Clone, Debug, PartialEq, Default)]
 pub struct Rect {

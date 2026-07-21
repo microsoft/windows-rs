@@ -205,8 +205,10 @@ placement.
 - **Transforms:** `set_transform(&Matrix3x2)` / `transform()`, or the scoped
   `with_transform(&matrix, |s| { .. })`. Use `Matrix3x2::translation(..)` and
   `Matrix3x2::rotation(..)` (from `windows-numerics`).
-- **Bitmaps:** `load_bitmap(path)` then `draw_bitmap(&bitmap, &Rect, opacity)` or
-  `draw_image(&bitmap)`.
+- **Bitmaps:** `load_bitmap(path)` to decode an image file, or `create_bitmap(pixels,
+  width, height)` to upload a tightly-packed 32-bit premultiplied-BGRA CPU buffer
+  (`create_bitmap_with_alpha` chooses the `AlphaMode`); then `draw_bitmap(&bitmap,
+  &Rect, opacity)` or `draw_image(&bitmap)`.
 - **Off-screen targets:** `create_bitmap_target()` plus
   `with_target(&bitmap, |s| { .. })` render into a bitmap; `create_shadow(&bitmap)`
   and `draw_effect(&effect)` add drop shadows and other effects.
@@ -224,7 +226,7 @@ tree:
 - **`samples`** — `canvas_samples::run()` wraps `animated_canvas` in a reactor
   window, with an `examples/` folder of focused snippets: `hello`, `color`,
   `brush`, `gradient`, `lines`, `stroke`, `shapes`, `path`, `curves`, `text`,
-  `bitmap`, `transform`.
+  `bitmap`, `bitmap_from_bytes`, `transform`.
 - **`circles`** — animated circles with brush reuse and a text label.
 - **`clock`** — an animated analog clock combining transforms, stroke styles,
   shadows, bitmap targets, and text.
@@ -519,7 +521,8 @@ This is consistently Win2D's most-used feature beyond basic drawing.
 #### 3. Drawing session state, layers, and image draw *(medium-high)*
 
 Present: clear; draw/fill of rect, rounded-rect, ellipse, line, path; `draw_text`;
-`draw_bitmap`/`draw_image`; transform get/set/scoped; `with_target`.
+`create_bitmap` (from CPU bytes); `draw_bitmap`/`draw_image`; transform
+get/set/scoped; `with_target`.
 
 Missing vs `CanvasDrawingSession`:
 
@@ -547,15 +550,18 @@ Missing: a real effect graph. Win2D exposes ~54 generated effects
 
 #### 5. Bitmaps, render targets, and I/O *(medium)*
 
-Present: load a bitmap from a file path (WIC); `create_bitmap_target` for
-off-screen draws; `width`/`height`.
+Present: load a bitmap from a file path (WIC); construct a bitmap from a CPU
+buffer of premultiplied BGRA pixels (`create_bitmap` /
+`create_bitmap_with_alpha`, with an `AlphaMode` of `Premultiplied` or `Ignore`);
+`create_bitmap_target` for off-screen draws; `width`/`height`.
 
 Missing vs `CanvasBitmap`/`CanvasRenderTarget`/`CanvasImage`:
 
 - **Saving** — `SaveToFile`/`SaveToStream` as PNG/JPEG/BMP/TIFF/GIF/JpegXR.
 - **Pixel access** — get/set pixel bytes/colors, copy regions.
-- **Construction** — from bytes, from colors, from a D3D11 surface / software
-  bitmap; explicit pixel format and `CanvasAlphaMode`.
+- **Construction** — from arbitrary pixel formats (only 32-bit BGRA is supported
+  today), from colors, and from a D3D11 / DXGI surface. Construction from a CPU
+  BGRA buffer has shipped (`create_bitmap`).
 - **`CanvasRenderTarget`** — first-class off-screen target with size/DPI/format.
 - **`CanvasCommandList`** — record drawing commands and replay / use as an effect
   input.
@@ -627,10 +633,11 @@ sequencing reflects what actually stops adoption:
   reactor bridge adds `animated_canvas_with_device`; see the `shared_device` sample).
   *Remaining:* a built-in shared-device *cache* (`GetSharedDevice`).
 - **Upload CPU pixels to a bitmap and draw it.** The icon path receives premultiplied
-  BGRA bytes and must turn them into a drawable bitmap (`DrawBitmap`). Canvas can load a
-  bitmap from a file (WIC) but cannot construct one from a CPU pixel buffer with an
-  explicit format and `CanvasAlphaMode`. → **#5 Bitmaps — Construction from bytes / a
-  software bitmap.**
+  BGRA bytes and must turn them into a drawable bitmap (`DrawBitmap`). → **#5 Bitmaps —
+  Construction from bytes.** *Shipped:* `DrawingSession::create_bitmap(pixels, width,
+  height)` (and `create_bitmap_with_alpha` for an explicit `AlphaMode`) build a GPU
+  bitmap from a tightly-packed 32-bit BGRA buffer; see the `bitmap_from_bytes` sample.
+  *Remaining:* arbitrary pixel formats and from-a-DXGI-surface construction.
 - **Host a swap chain on a reactor `SwapChainPanel` it drives on demand.** The charts
   subsystem hand-builds the entire stack — `IDXGISwapChain1` on the panel via
   `ISwapChainPanelNative`, D3D11/D2D device, a `ID2D1Bitmap1` render target from the
@@ -652,12 +659,12 @@ Taken together these say the near-term canvas priorities for real desktop apps a
 order: a **shareable `GpuDevice`** (#8) so one device the app creates can back many
 surfaces instead of one device per surface — now available via `GpuDevice`'s `Clone`
 (with a shared-device *cache* and a `DeviceLost` event still to come);
-**bitmap-from-CPU-memory** (#5); and a **consumer-driven on-demand swap-chain host**
-(#7). The `CanvasImageSource` on-demand path already removes the need for the fragile
-marker-interface / raw-IID dance a consumer otherwise does to call reactor's
-`SurfaceImageSource::begin_draw::<T>` — so extending that seam (e.g. accepting
-CPU-uploaded bitmaps) is the highest-leverage next step for the icon scenario
-specifically.
+**bitmap-from-CPU-memory** (#5) — now available via `create_bitmap` (with arbitrary
+pixel formats still to come); and a **consumer-driven on-demand swap-chain host**
+(#7). The `CanvasImageSource` on-demand path plus CPU-uploaded bitmaps together remove
+the fragile marker-interface / raw-IID dance a consumer otherwise does to draw its own
+images through reactor's `SurfaceImageSource::begin_draw::<T>` — so the remaining
+highest-leverage step for the icon scenario is the on-demand swap-chain host (#7).
 
 #### Suggested sequencing
 

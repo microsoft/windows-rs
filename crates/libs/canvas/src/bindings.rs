@@ -9,6 +9,7 @@ pub const CLSID_D2D1Shadow: windows_core::GUID =
 pub const CLSID_WICImagingFactory: windows_core::GUID =
     windows_core::GUID::from_u128(0xcacaf262_9370_4615_a13b_9f5539da4c0a);
 pub type D2D1_ALPHA_MODE = i32;
+pub const D2D1_ALPHA_MODE_IGNORE: D2D1_ALPHA_MODE = 3;
 pub const D2D1_ALPHA_MODE_PREMULTIPLIED: D2D1_ALPHA_MODE = 1;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -248,6 +249,7 @@ pub type DXGI_SWAP_EFFECT = i32;
 pub const DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL: DXGI_SWAP_EFFECT = 3;
 pub type DXGI_USAGE = u32;
 pub const DXGI_USAGE_RENDER_TARGET_OUTPUT: u32 = 32;
+pub const E_INVALIDARG: windows_core::HRESULT = windows_core::HRESULT(0x80070057_u32 as _);
 pub const GENERIC_READ: u32 = 2147483648;
 pub const GUID_WICPixelFormat32bppPBGRA: windows_core::GUID =
     windows_core::GUID::from_u128(0x6fddc324_4e03_4bfe_b185_3d77768dc910);
