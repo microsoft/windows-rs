@@ -11,7 +11,8 @@ use super::*;
 use std::cell::{Cell, RefCell};
 use std::rc::Rc;
 use windows_canvas::{
-    ColorF, DrawingSession, GpuDevice, ID2D1DeviceContext, Matrix3x2, SwapChain, is_device_lost,
+    ColorF, DrawingSession, GpuDevice, ID2D1DeviceContext, Matrix3x2, SwapChain, device_lost_error,
+    is_device_lost,
 };
 use windows_core::EventRevoker;
 
@@ -381,17 +382,17 @@ struct SwapChainState {
 }
 
 impl SwapChainState {
-    /// Draws and presents a single frame. Returns `Ok(false)` if the GPU device
-    /// was lost (the caller should [`rebuild`](Self::rebuild) and retry).
-    fn present_frame(&mut self, f: &dyn Fn(&DrawContext<'_>)) -> Result<bool> {
+    /// Draws and presents a single frame.
+    ///
+    /// Returns an [`Err`] whose code satisfies [`is_device_lost`] if the GPU
+    /// device was lost (the caller should [`rebuild`](Self::rebuild) and retry);
+    /// any other `Err` is a hard failure that should be propagated as-is.
+    fn present_frame(&mut self, f: &dyn Fn(&DrawContext<'_>)) -> Result<()> {
         if self.width <= 0.0 || self.height <= 0.0 {
-            return Ok(true);
+            return Ok(());
         }
-        let session = match self.chain.begin_draw() {
-            Ok(session) => session,
-            Err(e) if is_device_lost(e.code()) => return Ok(false),
-            Err(e) => return Err(e),
-        };
+        // Device loss surfaces here as an `Err` whose code `is_device_lost`.
+        let session = self.chain.begin_draw()?;
         let ctx = DrawContext {
             session,
             device: &self.device,
@@ -401,7 +402,13 @@ impl SwapChainState {
         };
         f(&ctx);
         drop(ctx);
-        self.chain.present()
+        match self.chain.present() {
+            Ok(true) => Ok(()),
+            // `SwapChain::present` reports device loss as `Ok(false)` and does not
+            // surface the original code, so use the canonical device-lost error.
+            Ok(false) => Err(device_lost_error()),
+            Err(e) => Err(e),
+        }
     }
 
     /// Recreates the swap chain (on a fresh device from `make_device`) after
@@ -532,15 +539,27 @@ impl CanvasSwapChain {
     /// device-independent pixels with the surface origin at `(0, 0)`; clear the
     /// surface yourself via [`DrawContext::clear`].
     ///
-    /// If the GPU device is lost the swap chain is rebuilt (on the same shared
-    /// device, or a fresh one for [`new`](Self::new)) and the frame is drawn
-    /// once more, so a single `draw` call recovers transparently.
+    /// If the GPU device is lost the swap chain is rebuilt once (on the same
+    /// shared device, or a fresh one for [`new`](Self::new)) and the frame is
+    /// drawn again, so a single `draw` call recovers transparently. Returns an
+    /// error only if drawing genuinely failed — a hard present error, or device
+    /// loss that could not be recovered (the rebuild failed or the redraw was
+    /// still device-lost) — so a lost frame is never reported as drawn.
     pub fn draw(&self, f: impl Fn(&DrawContext<'_>)) -> Result<()> {
         let mut state = self.inner.borrow_mut();
-        if !state.present_frame(&f)? && state.rebuild() {
-            let _ = state.present_frame(&f)?;
+        match state.present_frame(&f) {
+            Ok(()) => Ok(()),
+            Err(e) if is_device_lost(e.code()) => {
+                // Rebuild once, then redraw; propagate whatever the retry yields
+                // (success, another device-loss, or a hard error).
+                if state.rebuild() {
+                    state.present_frame(&f)
+                } else {
+                    Err(e)
+                }
+            }
+            Err(e) => Err(e),
         }
-        Ok(())
     }
 
     /// Resizes the surface to `width`×`height` device-independent pixels. A

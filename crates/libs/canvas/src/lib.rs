@@ -24,7 +24,7 @@ mod types;
 
 pub use bindings::ID2D1DeviceContext;
 use bindings::*;
-pub use device_lost::{check_device_lost, is_device_lost};
+pub use device_lost::{check_device_lost, device_lost_error, is_device_lost};
 use std::cell::Cell;
 use std::os::windows::ffi::OsStrExt;
 use windows_core::*;
