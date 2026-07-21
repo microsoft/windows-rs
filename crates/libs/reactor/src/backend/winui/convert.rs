@@ -112,9 +112,11 @@ pub(super) fn build_menu_flyout_item_base(
     def: &MenuItemDef,
 ) -> Result<bindings::MenuFlyoutItemBase> {
     match def {
-        MenuItemDef::Item { text } => {
+        MenuItemDef::Item { text, is_enabled } => {
             let item = bindings::MenuFlyoutItem::new()?;
             item.SetText(text)?;
+            item.cast::<bindings::IControl>()?
+                .SetIsEnabled(*is_enabled)?;
             item.cast()
         }
         MenuItemDef::Separator => {

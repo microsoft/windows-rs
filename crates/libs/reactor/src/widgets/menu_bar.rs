@@ -5,7 +5,12 @@ use super::*;
 #[derive(Clone, Debug, PartialEq)]
 pub enum MenuItemDef {
     /// A clickable menu item with a text label.
-    Item { text: String },
+    Item {
+        text: String,
+        /// Whether the item is interactive. Disabled items are greyed out
+        /// and do not raise click events.
+        is_enabled: bool,
+    },
     /// A visual separator line.
     Separator,
     /// A submenu containing nested items.
@@ -15,9 +20,20 @@ pub enum MenuItemDef {
     },
 }
 
-/// Builder for a [`MenuItemDef::Item`].
+/// Builder for an enabled [`MenuItemDef::Item`].
 pub fn menu_item(text: impl Into<String>) -> MenuItemDef {
-    MenuItemDef::Item { text: text.into() }
+    MenuItemDef::Item {
+        text: text.into(),
+        is_enabled: true,
+    }
+}
+
+/// Builder for a disabled (greyed-out) [`MenuItemDef::Item`].
+pub fn menu_item_disabled(text: impl Into<String>) -> MenuItemDef {
+    MenuItemDef::Item {
+        text: text.into(),
+        is_enabled: false,
+    }
 }
 
 /// Builder for a [`MenuItemDef::Separator`].

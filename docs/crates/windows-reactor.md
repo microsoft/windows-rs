@@ -959,7 +959,8 @@ landed; *(gap)* items are still outstanding.
    composition-swap-chain lifecycle (`CreateSwapChainForComposition`, `set_target`
    via `CreateBitmapFromDxgiSurface`, `resize`/`ResizeBuffers`, `set_dpi`,
    `set_composition_scale`, `begin_draw`/`present`, device-lost flag), and reactor's
-   `SwapChainPanelHandle` exposes `set_swap_chain`, `composition_scale()`,
+   `SwapChainPanelHandle` exposes `from_native`, `set_swap_chain`,
+   `clear_swap_chain`, `composition_scale()`,
    `on_composition_scale_changed`, plus `SwapChainPanel::on_mounted`/`on_unmounted`/
    `on_resize`. `CanvasSwapChain` ties them together behind an **imperative redraw
    handle**: create it inside the panel's `on_mounted` (the native control must

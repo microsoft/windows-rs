@@ -84,7 +84,7 @@ Microsoft::UI::Xaml::Controls::IDatePicker::SelectedDateChanged
 Microsoft::UI::Xaml::Controls::IDatePickerSelectedValueChangedEventArgs::get_NewDate
 Microsoft::UI::Xaml::Controls::IExpander::{put_Header, Expanding, Collapsed}
 Microsoft::UI::Xaml::Controls::IFlyout::put_Content
-Microsoft::UI::Xaml::Controls::IGrid::{get_RowDefinitions, get_ColumnDefinitions}
+Microsoft::UI::Xaml::Controls::IGrid::{get_RowDefinitions, get_ColumnDefinitions, put_Padding}
 Microsoft::UI::Xaml::Controls::IHyperlinkButton::put_NavigateUri
 Microsoft::UI::Xaml::Controls::IImage::put_Source
 Microsoft::UI::Xaml::Controls::IInfoBar::Closed
