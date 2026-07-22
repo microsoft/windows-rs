@@ -70,6 +70,34 @@ fn flags() {
     );
 }
 
+#[test]
+fn wow64() {
+    // `wow64_32` and `wow64_64` select the 32-bit / 64-bit registry view.
+    let mut options = CURRENT_USER.options();
+    options.wow64_32();
+    assert_eq!(get_access(&options), KEY_WOW64_32KEY);
+
+    // The two views are mutually exclusive; the last call wins.
+    options.wow64_64();
+    assert_eq!(get_access(&options), KEY_WOW64_64KEY);
+    options.wow64_32();
+    assert_eq!(get_access(&options), KEY_WOW64_32KEY);
+
+    // The view flag is additive with `read`/`write` and other access rights.
+    options.read().write().access(KEY_QUERY_VALUE);
+    assert_eq!(
+        get_access(&options),
+        KEY_WOW64_32KEY | KEY_READ | KEY_WRITE | KEY_QUERY_VALUE
+    );
+
+    // Switching views preserves the other access bits.
+    options.wow64_64();
+    assert_eq!(
+        get_access(&options),
+        KEY_WOW64_64KEY | KEY_READ | KEY_WRITE | KEY_QUERY_VALUE
+    );
+}
+
 fn get_access(options: &OpenOptions) -> u32 {
     regex::Regex::new(r#"access:\s*(\d+)"#)
         .unwrap()
