@@ -32,7 +32,7 @@ jobs:
       - name: Install Windows App Runtime
         shell: pwsh
         run: |
-          $installerUrl = "https://aka.ms/windowsappsdk/2.0/2.0.1/windowsappruntimeinstall-x64.exe"
+          $installerUrl = "https://aka.ms/windowsappsdk/2.1/2.1.3/windowsappruntimeinstall-x64.exe"
           $installerPath = "$env:TEMP\WindowsAppRuntimeInstall.exe"
           Invoke-WebRequest -Uri $installerUrl -OutFile $installerPath
           Start-Process -FilePath $installerPath -ArgumentList "--quiet" -Wait -PassThru | Out-Null

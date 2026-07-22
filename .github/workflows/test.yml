@@ -64,18 +64,9 @@ jobs:
         uses: KyleMayes/install-llvm-action@v2
         with:
           version: "18"
-      - name: Install LLVM and Clang (Linux)
-        if: runner.os == 'Linux'
-        uses: KyleMayes/install-llvm-action@v2
-        with:
-          version: "20"
       - name: Set LIBCLANG_PATH (Windows)
         if: runner.os == 'Windows'
         run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/bin" >> "$GITHUB_ENV"
-        shell: bash
-      - name: Set LIBCLANG_PATH (Linux)
-        if: runner.os == 'Linux'
-        run: echo "LIBCLANG_PATH=${{ env.LLVM_PATH }}/lib" >> "$GITHUB_ENV"
         shell: bash
       - name: Install .NET 9 x86 runtime
         # The windows-2025-vs2026 image ships .NET 9 only for x64/arm64; the

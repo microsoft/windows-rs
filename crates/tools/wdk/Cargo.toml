@@ -6,6 +6,7 @@ rust-version = "1.95"
 publish = false
 
 [dependencies]
+helpers = { workspace = true }
 windows-clang = { workspace = true }
 
 [lints]

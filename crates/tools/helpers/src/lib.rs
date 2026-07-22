@@ -77,6 +77,65 @@ fn find<P: AsRef<Path>>(path: P) -> Vec<Crate> {
     crates
 }
 
+/// Reads the string value of a `const NAME: &str = "…";` (or `pub const`) declaration from a
+/// Rust source file. Panics loudly if the file cannot be read or the constant is not found.
+///
+/// This is the single shared mechanism for the *paired* dependency-pin validators: a pin is
+/// declared as an ordinary constant in exactly one crate (its owner), and any other tool that
+/// must stay in lock-step reads it back from source and asserts agreement — e.g. `tool_wdk`
+/// reads `tool_win32`'s `SDK_VERSION`, and `tool_reactor` reads `windows-reactor-setup`'s
+/// `RUNTIME_VER` / `WEBVIEW2_VER`. Keeping one reader keeps every such check consistent.
+pub fn read_str_const<P: AsRef<Path>>(path: P, name: &str) -> String {
+    let path = path.as_ref();
+    let text = std::fs::read_to_string(path)
+        .unwrap_or_else(|e| panic!("failed to read `{}`: {e}", path.display()));
+    str_const(&text, name).unwrap_or_else(|| {
+        panic!(
+            "`const {name}` (a `&str`) not found in `{}`",
+            path.display()
+        )
+    })
+}
+
+fn str_const(text: &str, name: &str) -> Option<String> {
+    let mut offset = 0;
+    for line in text.split_inclusive('\n') {
+        let head = line.trim_start();
+        let head = head.strip_prefix("pub ").unwrap_or(head);
+        if let Some(rest) = head.strip_prefix("const ").and_then(|r| r.strip_prefix(name))
+            // The declared name must end here (next non-space is the `:` type separator), so
+            // `SDK_VERSION` does not spuriously match `SDK_VERSION_EXTRA`.
+            && rest.trim_start().starts_with(':')
+        {
+            // The string literal may sit on this line or a following one (a multi-line
+            // `const NAME: &str =\n    "value";`), so scan the file tail from here.
+            let tail = &text[offset..];
+            let open = tail.find('"')?;
+            let close = tail[open + 1..].find('"')? + open + 1;
+            return Some(tail[open + 1..close].to_string());
+        }
+        offset += line.len();
+    }
+    None
+}
+
+/// Derives the "marketing" SDK/WDK include-and-lib folder name from a four-part package
+/// version. The NuGet packages nest their headers under a folder that is the version's first
+/// three components with a `.0` fourth component (e.g. `10.0.28000.2270` → `10.0.28000.0`),
+/// regardless of the package's servicing build. Deriving it means the package version is the
+/// single edit needed to bump the SDK/WDK — the folder is never a second constant to keep in
+/// sync. Panics if `version` does not have at least three dot-separated components.
+pub fn marketing_dir(version: &str) -> String {
+    let mut parts = version.split('.');
+    let major = parts.next();
+    let minor = parts.next();
+    let build = parts.next();
+    match (major, minor, build) {
+        (Some(major), Some(minor), Some(build)) => format!("{major}.{minor}.{build}.0"),
+        _ => panic!("`{version}` is not a `major.minor.build[.revision]` version"),
+    }
+}
+
 pub fn set_thread_ui_language() {
     // Enables testing without pulling in a dependency on the `windows` crate.
     windows_link::link!("kernel32.dll" "system" fn SetThreadPreferredUILanguages(flags : u32, language : *const u16, _ : *mut u32) -> i32);
@@ -92,5 +151,41 @@ pub fn set_thread_ui_language() {
                 std::ptr::null_mut()
             )
         );
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::str_const;
+
+    #[test]
+    fn reads_plain_and_pub_and_ignores_prefix_collisions() {
+        let src = "\
+// a comment mentioning const SDK_VERSION
+    const SDK_VERSION_EXTRA: &str = \"nope\";
+pub const SDK_VERSION: &str = \"10.0.28000.2270\";
+const OTHER: u32 = 7;
+const MULTI: &str =
+    \"https://example/clang-1.2.3.tar\";
+";
+        assert_eq!(
+            str_const(src, "SDK_VERSION").as_deref(),
+            Some("10.0.28000.2270")
+        );
+        assert_eq!(str_const(src, "SDK_VERSION_EXTRA").as_deref(), Some("nope"));
+        assert_eq!(
+            str_const(src, "MULTI").as_deref(),
+            Some("https://example/clang-1.2.3.tar")
+        );
+        assert_eq!(str_const(src, "MISSING"), None);
+    }
+
+    #[test]
+    fn marketing_dir_zeroes_the_revision() {
+        use super::marketing_dir;
+        assert_eq!(marketing_dir("10.0.28000.2270"), "10.0.28000.0");
+        assert_eq!(marketing_dir("10.0.28000.1839"), "10.0.28000.0");
+        // A three-part version (no revision) is still normalized to a `.0` fourth component.
+        assert_eq!(marketing_dir("10.0.22621"), "10.0.22621.0");
     }
 }

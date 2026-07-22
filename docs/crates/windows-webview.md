@@ -387,9 +387,10 @@ start from the headers and run the full pipeline. This is driven by a dedicated
 The clang step needs the SDK headers plus `Windows.Win32.winmd` (for the Win32
 types the headers reference), targets `x86_64-pc-windows-msvc` with
 `-fms-extensions`, and emits into the `WebView2` namespace against
-`WebView2Loader.dll`. Regenerate with `cargo run -p tool_webview`. Keeping the
-headers (rather than a checked-in `.rdl`) means SDK updates are a header drop plus a
-regenerate. Never hand-edit `src/bindings.rs`.
+`WebView2Loader.dll`. Regenerate with `cargo run -p tool_webview`. The headers are
+not vendored: `tool_webview` downloads the `Microsoft.Web.WebView2` NuGet package
+pinned by `WEBVIEW2_VERSION` and parses them from it, so an SDK update is a one-line
+version bump plus a regenerate. Never hand-edit `src/bindings.rs`.
 
 Two headers are passed as separate `.input()` calls — `WebView2.h` (the core COM
 API) and `WebView2Interop.h` (the COM ↔ WinRT bridge, see below). They must be

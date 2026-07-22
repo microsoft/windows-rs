@@ -132,3 +132,9 @@ These crates project the entire Windows API surface. For new projects, prefer a 
 | --- | --- |
 | [windows](crates/windows.md) | Safer projection of C-style, COM, and WinRT APIs. |
 | [windows-sys](crates/windows-sys.md) | Zero-overhead raw bindings for C-style Windows APIs. |
+
+## Building & maintenance
+
+- [Dependencies](dependencies.md) — every external SDK, header set, metadata file,
+  and runtime the build and tooling depend on: what version is used, where it is set,
+  how it is obtained, and how to update it.
