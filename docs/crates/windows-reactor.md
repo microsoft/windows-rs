@@ -297,6 +297,15 @@ pattern are all inferred from `.winmd`. TOML keys are WinUI metadata names, and
 only non-standard mappings need overrides. Regenerate with
 `cargo run -p tool_reactor`, then verify with `cargo check -p windows-reactor`.
 
+The WinUI / Windows App SDK `.winmd` corpus under `crates/tools/reactor/winmd/`
+is committed (it is also read by `tool_webview` and `tool_composition`) but
+treated as generated: `tool_reactor` refreshes it on every run from the pinned
+`WINDOWS_APP_SDK_VERSION` — downloading the umbrella `Microsoft.WindowsAppSDK`
+metapackage, resolving the component versions from its nuspec, and copying each
+component's winmd (plus the WebView2 `Core.winmd` at `tool_webview`'s pin) into
+place. So bumping that one constant updates the whole corpus, and `gen.yml`'s
+zero-diff check keeps it honest. See [Dependencies](../dependencies.md).
+
 Generated dispatch falls through to hand-written code in the backend for cases
 too complex to express declaratively (Button icon+text layout, NavigationView
 menu items, ContentDialog modal popup, and similar). Never edit the generated
