@@ -1951,6 +1951,10 @@ pub use wbemtran::*;
 pub mod wcmapi;
 #[cfg(feature = "wcmapi")]
 pub use wcmapi::*;
+#[cfg(feature = "wct")]
+pub mod wct;
+#[cfg(feature = "wct")]
+pub use wct::*;
 #[cfg(feature = "wdbgexts")]
 pub mod wdbgexts;
 #[cfg(feature = "wdbgexts")]
