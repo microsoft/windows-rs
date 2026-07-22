@@ -4,16 +4,16 @@ mod Windows {
         mod Printing {
             mod ProtectedPrint {
                 #[guid(0xa7d212f3_4168_5485_98ab_d89d04603b40)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(WindowsProtectedPrintInfo)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(WindowsProtectedPrintInfo)]
                 interface IWindowsProtectedPrintInfoStatics {
                     #[get]
                     IsProtectedPrintEnabled: bool;
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IWindowsProtectedPrintInfoStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class WindowsProtectedPrintInfo {}
             }
         }

@@ -46,8 +46,8 @@ mod Windows {
                         fn GetGrabbedItems(&self) -> [IRawElementProviderSimple];
                     }
                     #[guid(0x7a245bdd_b458_4fe0_98c8_aac89df56d61)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IDropTargetProvider {
                         #[get]
                         DropEffect: String;
@@ -64,8 +64,8 @@ mod Windows {
                         fn Expand(&self);
                     }
                     #[guid(0xfff3683c_7407_45bb_a936_df3ed6d3837d)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IGridItemProvider {
                         #[get]
                         Column: i32;
@@ -79,8 +79,8 @@ mod Windows {
                         RowSpan: i32;
                     }
                     #[guid(0x8b62b7a0_932c_4490_9a13_02fdb39a8f5b)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IGridProvider {
                         #[get]
                         ColumnCount: i32;
@@ -89,9 +89,9 @@ mod Windows {
                         fn GetItem(&self, row: i32, column: i32) -> IRawElementProviderSimple;
                     }
                     #[guid(0xec752224_9b77_4720_bb21_4ac89fdb1afd)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(IRawElementProviderSimple)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(IRawElementProviderSimple)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IIRawElementProviderSimple {}
                     #[guid(0xf7d1a187_b13c_4540_b09e_6778e2dc9ba5)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
@@ -140,9 +140,9 @@ mod Windows {
                         fn SetValue(&self, value: f64);
                     }
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     class IRawElementProviderSimple: super::super::DependencyObject {
                         IIRawElementProviderSimple,
                     }
@@ -153,8 +153,8 @@ mod Windows {
                         fn ScrollIntoView(&self);
                     }
                     #[guid(0x374bf581_7716_4bbc_82eb_d997006ea999)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IScrollProvider {
                         #[get]
                         HorizontallyScrollable: bool;
@@ -184,8 +184,8 @@ mod Windows {
                         fn Select(&self);
                     }
                     #[guid(0x1f018fca_b944_4395_8de1_88f674af51d3)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ISelectionProvider {
                         #[get]
                         CanSelectMultiple: bool;
@@ -194,8 +194,8 @@ mod Windows {
                         fn GetSelection(&self) -> [IRawElementProviderSimple];
                     }
                     #[guid(0xebde8f92_6015_4826_b719_47521a81c67e)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ISpreadsheetItemProvider {
                         #[get]
                         Formula: String;
@@ -203,14 +203,14 @@ mod Windows {
                         fn GetAnnotationTypes(&self) -> [super::AnnotationType];
                     }
                     #[guid(0x15359093_bd99_4cfd_9f07_3b14b315e23d)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ISpreadsheetProvider {
                         fn GetItemByName(&self, name: String) -> IRawElementProviderSimple;
                     }
                     #[guid(0x1a5b7a17_7c01_4bec_9cd4_2dfa7dc246cd)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IStylesProvider {
                         #[get]
                         ExtendedProperties: String;
@@ -235,8 +235,8 @@ mod Windows {
                         fn StartListening(&self, inputType: super::SynchronizedInputType);
                     }
                     #[guid(0x3b2c49cd_1de2_4ee2_a3e1_fb553559d15d)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ITableItemProvider {
                         fn GetColumnHeaderItems(&self) -> [IRawElementProviderSimple];
                         fn GetRowHeaderItems(&self) -> [IRawElementProviderSimple];
@@ -267,8 +267,8 @@ mod Windows {
                         fn GetConversionTarget(&self) -> ITextRangeProvider;
                     }
                     #[guid(0xdb5bbc9f_4807_4f2a_8678_1b13f3c60e22)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ITextProvider {
                         #[get]
                         DocumentRange: ITextRangeProvider;
@@ -280,8 +280,8 @@ mod Windows {
                         fn RangeFromPoint(&self, screenLocation: super::super::super::super::Foundation::Point) -> ITextRangeProvider;
                     }
                     #[guid(0xdf1d48bc_0487_4e7f_9d5e_f09e77e41246)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ITextProvider2: ITextProvider {
                         fn RangeFromAnnotation(&self, annotationElement: IRawElementProviderSimple) -> ITextRangeProvider;
                         fn GetCaretRange(&self, isActive: &mut bool) -> ITextRangeProvider;
@@ -324,8 +324,8 @@ mod Windows {
                         fn Toggle(&self);
                     }
                     #[guid(0x79670fdd_f6a9_4a65_af17_861db799a2da)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ITransformProvider {
                         #[get]
                         CanMove: bool;
@@ -353,8 +353,8 @@ mod Windows {
                         fn ZoomByUnit(&self, zoomUnit: super::ZoomUnit);
                     }
                     #[guid(0x2086b7a7_ac0e_47d1_ab9b_2a64292afdf8)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IValueProvider {
                         #[get]
                         IsReadOnly: bool;
@@ -369,8 +369,8 @@ mod Windows {
                         fn Realize(&self);
                     }
                     #[guid(0x1baa8b3d_38cf_415a_85d3_20e43a0ec1b1)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IWindowProvider {
                         #[get]
                         IsModal: bool;

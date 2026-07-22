@@ -2,14 +2,14 @@
 mod Windows {
     mod ApplicationModel {
         mod AppService {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IAppServiceCatalogStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AppServiceCatalog {}
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AppServiceClosedEventArgs {
                 IAppServiceClosedEventArgs,
             }
@@ -21,12 +21,12 @@ mod Windows {
                 ResourceLimitsExceeded = 2,
                 Unknown = 3,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IAppServiceConnectionStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AppServiceConnection {
                 IAppServiceConnection,
                 IAppServiceConnection2,
@@ -54,21 +54,21 @@ mod Windows {
             class AppServiceDeferral {
                 IAppServiceDeferral,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AppServiceRequest {
                 IAppServiceRequest,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AppServiceRequestReceivedEventArgs {
                 IAppServiceRequestReceivedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AppServiceResponse {
                 IAppServiceResponse,
             }
@@ -87,9 +87,9 @@ mod Windows {
                 DisabledByPolicy = 9,
                 WebServiceUnavailable = 10,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AppServiceTriggerDetails {
                 IAppServiceTriggerDetails,
                 IAppServiceTriggerDetails2,
@@ -104,8 +104,8 @@ mod Windows {
                 fn FindAppServiceProvidersAsync(&self, appServiceName: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::AppInfo>>;
             }
             #[guid(0xde6016f6_cb03_4d35_ac8d_cc6303239731)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceClosedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceClosedEventArgs)]
             interface IAppServiceClosedEventArgs {
                 #[get]
                 Status: AppServiceClosedStatus;
@@ -124,8 +124,8 @@ mod Windows {
                 event ServiceClosed: super::super::Foundation::TypedEventHandler<AppServiceConnection, AppServiceClosedEventArgs>;
             }
             #[guid(0x8bdfcd5f_2302_4fbd_8061_52511c2f8bf9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceConnection)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceConnection)]
             interface IAppServiceConnection2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn OpenRemoteAsync(&self, remoteSystemConnectionRequest: super::super::System::RemoteSystems::RemoteSystemConnectionRequest) -> super::super::Foundation::IAsyncOperation<AppServiceConnectionStatus>;
@@ -145,8 +145,8 @@ mod Windows {
                 fn Complete(&self);
             }
             #[guid(0x20e58d9d_18de_4b01_80ba_90a76204e3c8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceRequest)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceRequest)]
             interface IAppServiceRequest {
                 #[get]
                 Message: super::super::Foundation::Collections::ValueSet;
@@ -171,8 +171,8 @@ mod Windows {
                 Status: AppServiceResponseStatus;
             }
             #[guid(0x88a2dcac_ad28_41b8_80bb_bdf1b2169e19)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceTriggerDetails)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceTriggerDetails)]
             interface IAppServiceTriggerDetails {
                 #[get]
                 Name: String;
@@ -196,8 +196,8 @@ mod Windows {
                 fn CheckCallerForCapabilityAsync(&self, capabilityName: String) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x1185b180_8861_5e30_ab55_1cf4d08bbf6d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceTriggerDetails)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppServiceTriggerDetails)]
             interface IAppServiceTriggerDetails4 {
                 #[get]
                 CallerRemoteConnectionToken: String;
@@ -211,9 +211,9 @@ mod Windows {
                 #[get]
                 Status: StatelessAppServiceResponseStatus;
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             class StatelessAppServiceResponse {
                 IStatelessAppServiceResponse,
             }

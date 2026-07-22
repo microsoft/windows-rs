@@ -2,9 +2,9 @@
 mod Windows {
     mod Foundation {
         mod Metadata {
+            #[AllowMultiple]
             #[AttributeUsage(RuntimeClass)]
             #[ContractVersion(super::FoundationContract, 65536)]
-            #[AllowMultiple]
             attribute ActivatableAttribute {
                 fn(version: u32);
                 fn(version: u32, r#type: String);
@@ -13,9 +13,9 @@ mod Windows {
                 fn(r#type: Type, version: u32, contractName: String);
                 fn(r#type: Type, version: u32, platform: Platform);
             }
+            #[AttributeName("allowforweb")]
             #[AttributeUsage(RuntimeClass)]
             #[ContractVersion(super::FoundationContract, 65536)]
-            #[AttributeName("allowforweb")]
             attribute AllowForWebAttribute {
                 fn();
             }
@@ -24,19 +24,19 @@ mod Windows {
             attribute AllowMultipleAttribute {
                 fn();
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(Enum)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute ApiContractAttribute {
                 fn();
             }
-            #[Threading(Both)]
-            #[MarshalingBehavior(Agile)]
-            #[DualApiPartition(version = 167772160)]
-            #[Static(IApiInformationStatics, 65536, "Windows.Foundation.FoundationContract")]
             #[ContractVersion(super::FoundationContract, 65536)]
+            #[DualApiPartition(version = 167772160)]
+            #[MarshalingBehavior(Agile)]
+            #[Static(IApiInformationStatics, 65536, "Windows.Foundation.FoundationContract")]
+            #[Threading(Both)]
             class ApiInformation {}
-            #[ContractVersion(super::FoundationContract, 262144)]
             #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 262144)]
             attribute AttributeNameAttribute {
                 fn(A_0: String);
             }
@@ -64,8 +64,8 @@ mod Windows {
                 fn(A_0: AttributeTargets);
             }
             #[AllowMultiple]
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute ComposableAttribute {
                 fn(r#type: Type, compositionType: CompositionType, version: u32);
                 fn(r#type: Type, compositionType: CompositionType, version: u32, platform: Platform);
@@ -77,35 +77,35 @@ mod Windows {
                 Protected = 1,
                 Public = 2,
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AllowMultiple]
             #[AttributeUsage(3967)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute ContractVersionAttribute {
                 fn(version: u32);
                 fn(contract: Type, version: u32);
                 fn(contract: String, version: u32);
             }
-            #[ContractVersion(super::UniversalApiContract, 196608)]
-            #[AttributeUsage(Struct | RuntimeClass)]
-            #[WebHostHidden]
             #[AttributeName("createfromstring")]
+            #[AttributeUsage(Struct | RuntimeClass)]
+            #[ContractVersion(super::UniversalApiContract, 196608)]
+            #[WebHostHidden]
             attribute CreateFromStringAttribute {
                 fn();
                 MethodName: String,
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(InterfaceImpl)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute DefaultAttribute {
                 fn();
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(Method)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute DefaultOverloadAttribute {
                 fn();
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
-            #[AttributeUsage(Struct | RuntimeClass | Property | Method | Interface | Field | Event | Enum | Delegate)]
             #[AllowMultiple]
+            #[AttributeUsage(Struct | RuntimeClass | Property | Method | Interface | Field | Event | Enum | Delegate)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute DeprecatedAttribute {
                 fn(message: String, r#type: DeprecationType, version: u32);
                 fn(message: String, r#type: DeprecationType, version: u32, platform: Platform);
@@ -129,20 +129,20 @@ mod Windows {
             attribute ExclusiveToAttribute {
                 fn(typeName: Type);
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(Struct | RuntimeClass | Interface | Enum | Delegate)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute ExperimentalAttribute {
                 fn();
             }
-            #[ContractVersion(super::FoundationContract, 262144)]
             #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 262144)]
             attribute FastAbiAttribute {
                 fn(version: u32);
                 fn(version: u32, platform: Platform);
                 fn(version: u32, contractName: String);
             }
-            #[ContractVersion(super::FoundationContract, 196608)]
             #[AttributeUsage(InterfaceImpl | Struct | RuntimeClass | Method | Interface | Field | Enum | Delegate)]
+            #[ContractVersion(super::FoundationContract, 196608)]
             attribute FeatureAttribute {
                 fn(featureStage: FeatureStage, validInAllBranches: bool);
             }
@@ -161,9 +161,9 @@ mod Windows {
                 Medium = 1,
                 High = 2,
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
-            #[AttributeUsage(RuntimeClass)]
             #[AttributeName("gc_pressure")]
+            #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute GCPressureAttribute {
                 fn();
                 amount: GCPressureAmount,
@@ -173,8 +173,8 @@ mod Windows {
             attribute GuidAttribute {
                 fn(a: u32, b: u16, c: u16, d: u8, e: u8, f: u8, g: u8, h: u8, i: u8, j: u8, k: u8);
             }
-            #[AttributeUsage(All)]
             #[AttributeName("hasvariant")]
+            #[AttributeUsage(All)]
             #[ContractVersion(super::FoundationContract, 65536)]
             attribute HasVariantAttribute {
                 fn();
@@ -198,18 +198,18 @@ mod Windows {
                 #[Overload("IsApiContractPresentByMajorAndMinor")]
                 fn IsApiContractPresent(&self, contractName: String, majorVersion: u16, minorVersion: u16) -> bool;
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(ApiContract | Struct | RuntimeClass | Interface | Enum | Delegate)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute InternalAttribute {
                 fn();
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(Parameter)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute LengthIsAttribute {
                 fn(indexLengthParameter: i32);
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute MarshalingBehaviorAttribute {
                 fn(behavior: MarshalingType);
             }
@@ -222,26 +222,26 @@ mod Windows {
                 InvalidMarshaling = 0,
             }
             #[AttributeName("metadata_marshal")]
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(RuntimeClass | Interface | Delegate)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute MetadataMarshalAttribute {
                 fn();
             }
+            #[AttributeName("muse")]
             #[AttributeUsage(RuntimeClass)]
             #[ContractVersion(super::FoundationContract, 65536)]
-            #[AttributeName("muse")]
             attribute MuseAttribute {
                 fn();
                 Version: u32,
             }
-            #[AttributeUsage(Property | Method)]
             #[AttributeName("noexcept")]
+            #[AttributeUsage(Property | Method)]
             #[ContractVersion(super::FoundationContract, 262144)]
             attribute NoExceptionAttribute {
                 fn();
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(Method)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute OverloadAttribute {
                 fn(method: String);
             }
@@ -260,38 +260,38 @@ mod Windows {
             attribute PlatformAttribute {
                 fn(platform: Platform);
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
-            #[AttributeUsage(3967)]
             #[AllowMultiple]
+            #[AttributeUsage(3967)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute PreviousContractVersionAttribute {
                 fn(contract: String, versionLow: u32, versionHigh: u32, newContract: String);
                 fn(contract: String, versionLow: u32, versionHigh: u32);
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(InterfaceImpl)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute ProtectedAttribute {
                 fn();
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(Parameter)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute RangeAttribute {
                 fn(minValue: i32, maxValue: i32);
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(RuntimeClass | Method)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute RemoteAsyncAttribute {
                 fn();
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AllowMultiple]
             #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute StaticAttribute {
                 fn(r#type: Type, version: u32);
                 fn(r#type: Type, version: u32, platform: Platform);
                 fn(r#type: Type, version: u32, contractName: String);
             }
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(RuntimeClass)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute ThreadingAttribute {
                 fn(model: ThreadingModel);
             }
@@ -304,14 +304,14 @@ mod Windows {
                 InvalidThreading = 0,
             }
             #[AttributeName("variant")]
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(Property | Parameter)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute VariantAttribute {
                 fn();
             }
             #[AllowMultiple]
-            #[ContractVersion(super::FoundationContract, 65536)]
             #[AttributeUsage(3967)]
+            #[ContractVersion(super::FoundationContract, 65536)]
             attribute VersionAttribute {
                 fn(version: u32);
                 fn(version: u32, platform: Platform);

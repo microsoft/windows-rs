@@ -2,21 +2,21 @@
 mod Windows {
     mod Media {
         mod AppRecording {
-            #[Windows::Foundation::Metadata::ContractVersion(65536)]
             #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct AppRecordingContract {}
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::Static(IAppRecordingManagerStatics, 65536, "Windows.Media.AppRecording.AppRecordingContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IAppRecordingManagerStatics, 65536, "Windows.Media.AppRecording.AppRecordingContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AppRecordingManager {
                 IAppRecordingManager,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
             class AppRecordingResult {
                 IAppRecordingResult,
             }
@@ -26,31 +26,31 @@ mod Windows {
                 None = 0,
                 HdrContentVisible = 1,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AppRecordingSaveScreenshotResult {
                 IAppRecordingSaveScreenshotResult,
             }
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AppRecordingSavedScreenshotInfo {
                 IAppRecordingSavedScreenshotInfo,
             }
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AppRecordingStatus {
                 IAppRecordingStatus,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AppRecordingStatusDetails {
                 IAppRecordingStatusDetails,
             }
@@ -69,14 +69,14 @@ mod Windows {
                 fn SaveScreenshotToFilesAsync(&self, folder: super::super::Storage::StorageFolder, filenamePrefix: String, option: AppRecordingSaveScreenshotOption, requestedFormats: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<AppRecordingSaveScreenshotResult>;
             }
             #[guid(0x50e709f7_38ce_4bd3_9db2_e72bbe9de11d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingManager)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingManager)]
             interface IAppRecordingManagerStatics {
                 fn GetDefault(&self) -> AppRecordingManager;
             }
             #[guid(0x3a900864_c66d_46f9_b2d9_5bc2dad070d7)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingResult)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingResult)]
             interface IAppRecordingResult {
                 #[get]
                 Succeeded: bool;
@@ -88,8 +88,8 @@ mod Windows {
                 IsFileTruncated: bool;
             }
             #[guid(0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingSaveScreenshotResult)]
             #[Windows::Foundation::Metadata::ContractVersion(AppRecordingContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppRecordingSaveScreenshotResult)]
             interface IAppRecordingSaveScreenshotResult {
                 #[get]
                 Succeeded: bool;

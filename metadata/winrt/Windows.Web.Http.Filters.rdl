@@ -3,12 +3,12 @@ mod Windows {
     mod Web {
         mod Http {
             mod Filters {
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IHttpBaseProtocolFilterStatics, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHttpBaseProtocolFilterStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpBaseProtocolFilter {
                     IHttpBaseProtocolFilter,
                     IHttpBaseProtocolFilter2,
@@ -18,9 +18,9 @@ mod Windows {
                     IHttpFilter,
                     super::super::super::Foundation::IClosable,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class HttpCacheControl {
                     IHttpCacheControl,
                 }
@@ -45,14 +45,14 @@ mod Windows {
                     NoCookies = 1,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class HttpServerCustomValidationRequestedEventArgs {
                     IHttpServerCustomValidationRequestedEventArgs,
                 }
                 #[guid(0x71c89b09_e131_4b54_a53c_eb43ff37e9bb)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
                 interface IHttpBaseProtocolFilter {
                     AllowAutoRedirect: bool;
                     AllowUI: bool;
@@ -76,8 +76,8 @@ mod Windows {
                     MaxVersion: super::HttpVersion;
                 }
                 #[guid(0xd43f4d4c_bd42_43ae_8717_ad2c8f4b2937)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
                 interface IHttpBaseProtocolFilter3 {
                     CookieUsageBehavior: HttpCookieUsageBehavior;
                 }
@@ -96,8 +96,8 @@ mod Windows {
                     User: super::super::super::System::User;
                 }
                 #[guid(0x6d4dee0c_e908_494e_b5a3_1263c9b8242a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpBaseProtocolFilter)]
                 interface IHttpBaseProtocolFilterStatics {
                     fn CreateForUser(&self, user: super::super::super::System::User) -> HttpBaseProtocolFilter;
                 }
@@ -115,8 +115,8 @@ mod Windows {
                     fn SendRequestAsync(&self, request: super::HttpRequestMessage) -> super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>;
                 }
                 #[guid(0x3165fe32_e7dd_48b7_a361_939c750e63cc)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpServerCustomValidationRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpServerCustomValidationRequestedEventArgs)]
                 interface IHttpServerCustomValidationRequestedEventArgs {
                     #[get]
                     RequestMessage: super::HttpRequestMessage;

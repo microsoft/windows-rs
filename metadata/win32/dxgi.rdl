@@ -163,7 +163,7 @@ mod Windows {
         }
         #[guid(0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6)]
         interface IDXGIDeviceSubObject: IDXGIObject {
-            fn GetDevice(&self, riid: *const GUID, #[retval] #[iid_is] ppDevice: *mut *mut void) -> HRESULT;
+            fn GetDevice(&self, riid: *const GUID, #[iid_is] #[retval] ppDevice: *mut *mut void) -> HRESULT;
         }
         #[guid(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369)]
         interface IDXGIFactory: IDXGIObject {
@@ -188,7 +188,7 @@ mod Windows {
             fn SetPrivateData(&self, Name: *const GUID, DataSize: u32, #[size_param(1)] pData: *const void) -> HRESULT;
             fn SetPrivateDataInterface(&self, Name: *const GUID, #[opt] pUnknown: IUnknown) -> HRESULT;
             fn GetPrivateData(&self, Name: *const GUID, #[in] #[out] pDataSize: *mut u32, #[size_param(1)] pData: *mut void) -> HRESULT;
-            fn GetParent(&self, riid: *const GUID, #[retval] #[iid_is] ppParent: *mut *mut void) -> HRESULT;
+            fn GetParent(&self, riid: *const GUID, #[iid_is] #[retval] ppParent: *mut *mut void) -> HRESULT;
         }
         #[guid(0xae02eedb_c735_4690_8d52_5a8dc20213aa)]
         interface IDXGIOutput: IDXGIObject {

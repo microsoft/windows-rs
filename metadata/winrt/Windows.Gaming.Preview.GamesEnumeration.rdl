@@ -4,10 +4,10 @@ mod Windows {
         mod Preview {
             mod GamesEnumeration {
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
-                #[Windows::Foundation::Metadata::Static(IGameListStatics2, 131072, "Windows.Gaming.Preview.GamesEnumerationContract")]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Static(IGameListStatics, 65536, "Windows.Gaming.Preview.GamesEnumerationContract")]
+                #[Windows::Foundation::Metadata::Static(IGameListStatics2, 131072, "Windows.Gaming.Preview.GamesEnumerationContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class GameList {}
                 #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
@@ -19,8 +19,8 @@ mod Windows {
                 #[guid(0x25f6a421_d8f5_4d91_b40e_53d5e86fde64)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
                 delegate fn GameListChangedEventHandler(game: GameListEntry);
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class GameListEntry {
                     IGameListEntry,
@@ -37,16 +37,16 @@ mod Windows {
                 #[guid(0x10c5648f_6c8f_4712_9b38_474bc22e76d8)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
                 delegate fn GameListRemovedEventHandler(identifier: String);
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class GameModeConfiguration {
                     IGameModeConfiguration,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IGameModeUserConfigurationStatics, 131072, "Windows.Gaming.Preview.GamesEnumerationContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class GameModeUserConfiguration {
                     IGameModeUserConfiguration,
                 }
@@ -74,11 +74,11 @@ mod Windows {
                     LauncherExecutable: super::super::super::Storage::IStorageFile;
                     #[get]
                     LaunchParameters: String;
-                    #[Windows::Foundation::Metadata::RemoteAsync]
                     #[Windows::Foundation::Metadata::Overload("SetLauncherExecutableFileAsync")]
-                    fn SetLauncherExecutableFileAsync(&self, executableFile: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::RemoteAsync]
+                    fn SetLauncherExecutableFileAsync(&self, executableFile: super::super::super::Storage::IStorageFile) -> super::super::super::Foundation::IAsyncAction;
                     #[Windows::Foundation::Metadata::Overload("SetLauncherExecutableFileWithParamsAsync")]
+                    #[Windows::Foundation::Metadata::RemoteAsync]
                     fn SetLauncherExecutableFileAsync(&self, executableFile: super::super::super::Storage::IStorageFile, launchParams: String) -> super::super::super::Foundation::IAsyncAction;
                     #[get]
                     TitleId: String;
@@ -88,8 +88,8 @@ mod Windows {
                     GameModeConfiguration: GameModeConfiguration;
                 }
                 #[guid(0x2ddd0f6f_9c66_4b05_945c_d6ed78491b8c)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(GameList)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameList)]
                 interface IGameListStatics {
                     #[Windows::Foundation::Metadata::Overload("FindAllAsync")]
                     #[Windows::Foundation::Metadata::RemoteAsync]
@@ -137,8 +137,8 @@ mod Windows {
                     fn SaveAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x6e50d97c_66ea_478e_a4a1_f57c0e8d00e7)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(GameModeUserConfiguration)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamesEnumerationContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GameModeUserConfiguration)]
                 interface IGameModeUserConfigurationStatics {
                     fn GetDefault(&self) -> GameModeUserConfiguration;
                 }

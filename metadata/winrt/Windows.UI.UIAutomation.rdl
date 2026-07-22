@@ -2,21 +2,21 @@
 mod Windows {
     mod UI {
         mod UIAutomation {
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 131072)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class AutomationConnection {
                 IAutomationConnection,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 131072)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class AutomationConnectionBoundObject {
                 IAutomationConnectionBoundObject,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class AutomationElement {
                 IAutomationElement,
             }
@@ -27,8 +27,8 @@ mod Windows {
                 IAutomationTextRange,
             }
             #[guid(0xaad262ed_0ef4_5d43_97be_a834e27b65b9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AutomationConnection)]
             #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AutomationConnection)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAutomationConnection {
                 #[special]
@@ -40,17 +40,17 @@ mod Windows {
                 ExecutableFileName: String;
             }
             #[guid(0x5e8558fb_ca52_5b65_9830_dd2905816093)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AutomationConnectionBoundObject)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAutomationConnectionBoundObject {
                 #[get]
                 Connection: AutomationConnection;
             }
             #[guid(0xa1898370_2c07_56fd_993f_61a72a08058c)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElement)]
             #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AutomationElement)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAutomationElement {
                 #[special]
                 #[Windows::Foundation::Metadata::NoException]
@@ -60,9 +60,9 @@ mod Windows {
                 #[get]
                 ExecutableFileName: String;
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AutomationTextRange)]
             #[Windows::Foundation::Metadata::ContractVersion(UIAutomationContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AutomationTextRange)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAutomationTextRange {}
             #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(131072)]

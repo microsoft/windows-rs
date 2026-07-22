@@ -2,13 +2,13 @@
 mod Windows {
     mod Devices {
         mod Sensors {
-            #[Windows::Foundation::Metadata::Static(IAccelerometerStatics3, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IAccelerometerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IAccelerometerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IAccelerometerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IAccelerometerStatics3, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class Accelerometer {
                 IAccelerometer,
                 IAccelerometerDeviceId,
@@ -17,23 +17,23 @@ mod Windows {
                 IAccelerometer4,
                 IAccelerometer5,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AccelerometerDataThreshold {
                 IAccelerometerDataThreshold,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AccelerometerReading {
                 IAccelerometerReading,
                 IAccelerometerReading2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AccelerometerReadingChangedEventArgs {
                 IAccelerometerReadingChangedEventArgs,
             }
@@ -44,39 +44,39 @@ mod Windows {
                 Linear = 1,
                 Gravity = 2,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AccelerometerShakenEventArgs {
                 IAccelerometerShakenEventArgs,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IActivitySensorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ActivitySensor {
                 IActivitySensor,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ActivitySensorReading {
                 IActivitySensorReading,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ActivitySensorReadingChangeReport {
                 IActivitySensorReadingChangeReport,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ActivitySensorReadingChangedEventArgs {
                 IActivitySensorReadingChangedEventArgs,
             }
@@ -86,9 +86,9 @@ mod Windows {
                 High = 0,
                 Low = 1,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ActivitySensorTriggerDetails {
                 IActivitySensorTriggerDetails,
             }
@@ -104,38 +104,38 @@ mod Windows {
                 InVehicle = 6,
                 Biking = 7,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AdaptiveDimmingOptions {
                 IAdaptiveDimmingOptions,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IAltimeterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IAltimeterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class Altimeter {
                 IAltimeter,
                 IAltimeter2,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class AltimeterReading {
                 IAltimeterReading,
                 IAltimeterReading2,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AltimeterReadingChangedEventArgs {
                 IAltimeterReadingChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IBarometerStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IBarometerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IBarometerStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class Barometer {
                 IBarometer,
@@ -147,27 +147,27 @@ mod Windows {
             class BarometerDataThreshold {
                 IBarometerDataThreshold,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class BarometerReading {
                 IBarometerReading,
                 IBarometerReading2,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class BarometerReadingChangedEventArgs {
                 IBarometerReadingChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(ICompassStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(ICompassStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ICompassStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICompassStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class Compass {
                 ICompass,
                 ICompassDeviceId,
@@ -180,33 +180,33 @@ mod Windows {
             class CompassDataThreshold {
                 ICompassDataThreshold,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class CompassReading {
                 ICompassReading,
                 ICompassReadingHeadingAccuracy,
                 ICompassReading2,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class CompassReadingChangedEventArgs {
                 ICompassReadingChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class DetectedPerson {
                 IDetectedPerson,
             }
-            #[Windows::Foundation::Metadata::Static(IGyrometerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IGyrometerStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IGyrometerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IGyrometerStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class Gyrometer {
                 IGyrometer,
                 IGyrometerDeviceId,
@@ -221,8 +221,8 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class GyrometerReading {
                 IGyrometerReading,
                 IGyrometerReading2,
@@ -234,31 +234,31 @@ mod Windows {
             class GyrometerReadingChangedEventArgs {
                 IGyrometerReadingChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HeadOrientation {
                 IHeadOrientation,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HeadPosition {
                 IHeadPosition,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class HingeAngleReading {
                 IHingeAngleReading,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IHingeAngleSensorStatics, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HingeAngleSensor {
                 IHingeAngleSensor,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class HingeAngleSensorReadingChangedEventArgs {
                 IHingeAngleSensorReadingChangedEventArgs,
@@ -285,38 +285,38 @@ mod Windows {
                 IHumanPresenceFeatures3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IHumanPresenceSensorStatics2, 983040, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IHumanPresenceSensorStatics, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IHumanPresenceSensorStatics2, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class HumanPresenceSensor {
                 IHumanPresenceSensor,
                 IHumanPresenceSensor2,
                 IHumanPresenceSensor3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HumanPresenceSensorReading {
                 IHumanPresenceSensorReading,
                 IHumanPresenceSensorReading2,
                 IHumanPresenceSensorReading3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HumanPresenceSensorReadingChangedEventArgs {
                 IHumanPresenceSensorReadingChangedEventArgs,
             }
             #[Windows::Foundation::Metadata::Activatable(983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             class HumanPresenceSensorReadingUpdate {
                 IHumanPresenceSensorReadingUpdate,
                 IHumanPresenceSensorReadingUpdate2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
-            #[Windows::Foundation::Metadata::Static(IHumanPresenceSettingsStatics, 983040, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IHumanPresenceSettingsStatics, 983040, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class HumanPresenceSettings {
                 IHumanPresenceSettings,
@@ -324,8 +324,8 @@ mod Windows {
                 IHumanPresenceSettings3,
             }
             #[guid(0xdf184548_2711_4da7_8098_4b82205d3c7d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Accelerometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Accelerometer)]
             interface IAccelerometer {
                 fn GetCurrentReading(&self) -> AccelerometerReading;
                 #[get]
@@ -380,15 +380,15 @@ mod Windows {
                 ZAxisInGForce: f64;
             }
             #[guid(0x7eac64a9_97d5_446d_ab5a_917df9b96a2c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Accelerometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Accelerometer)]
             interface IAccelerometerDeviceId {
                 #[get]
                 DeviceId: String;
             }
             #[guid(0xb9fe7acb_d351_40af_8bb6_7aa9ae641fb7)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AccelerometerReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AccelerometerReading)]
             interface IAccelerometerReading {
                 #[get]
                 Timestamp: super::super::Foundation::DateTime;
@@ -400,8 +400,8 @@ mod Windows {
                 AccelerationZ: f64;
             }
             #[guid(0x0a864aa2_15ae_4a40_be55_db58d7de7389)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AccelerometerReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AccelerometerReading)]
             interface IAccelerometerReading2 {
                 #[get]
                 PerformanceCount: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
@@ -416,8 +416,8 @@ mod Windows {
                 Reading: AccelerometerReading;
             }
             #[guid(0x95ff01d1_4a28_4f35_98e8_8178aae4084a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AccelerometerShakenEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AccelerometerShakenEventArgs)]
             interface IAccelerometerShakenEventArgs {
                 #[get]
                 Timestamp: super::super::Foundation::DateTime;
@@ -430,8 +430,8 @@ mod Windows {
                 fn GetDefault(&self) -> Accelerometer;
             }
             #[guid(0xc4c4842f_d86b_4685_b2d7_3396f798d57b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Accelerometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Accelerometer)]
             interface IAccelerometerStatics2 {
                 #[Windows::Foundation::Metadata::Overload("GetDefaultWithAccelerometerReadingType")]
                 fn GetDefault(&self, readingType: AccelerometerReadingType) -> Accelerometer;
@@ -445,8 +445,8 @@ mod Windows {
                 fn GetDeviceSelector(&self, readingType: AccelerometerReadingType) -> String;
             }
             #[guid(0xcd7a630c_fb5f_48eb_b09b_a2708d1c61ef)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ActivitySensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActivitySensor)]
             interface IActivitySensor {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCurrentReadingAsync(&self) -> super::super::Foundation::IAsyncOperation<ActivitySensorReading>;
@@ -474,15 +474,15 @@ mod Windows {
                 Confidence: ActivitySensorReadingConfidence;
             }
             #[guid(0x4f3c2915_d93b_47bd_960a_f20fb2f322b9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ActivitySensorReadingChangeReport)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActivitySensorReadingChangeReport)]
             interface IActivitySensorReadingChangeReport {
                 #[get]
                 Reading: ActivitySensorReading;
             }
             #[guid(0xde386717_aeb6_4ec7_946a_d9cc19b951ec)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ActivitySensorReadingChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ActivitySensorReadingChangedEventArgs)]
             interface IActivitySensorReadingChangedEventArgs {
                 #[get]
                 Reading: ActivitySensorReading;
@@ -496,8 +496,8 @@ mod Windows {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<ActivitySensor>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("GetSystemHistoryAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetSystemHistoryAsync(&self, fromTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ActivitySensorReading>>;
                 #[Windows::Foundation::Metadata::Overload("GetSystemHistoryWithDurationAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -510,14 +510,14 @@ mod Windows {
                 fn ReadReports(&self) -> super::super::Foundation::Collections::IVectorView<ActivitySensorReadingChangeReport>;
             }
             #[guid(0xd3213cf7_89b5_5732_b2a0_aefe324f54e6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveDimmingOptions)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AdaptiveDimmingOptions)]
             interface IAdaptiveDimmingOptions {
                 AllowWhenExternalDisplayConnected: bool;
             }
             #[guid(0x72f057fd_8f04_49f1_b4a7_f4e363b701a2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Altimeter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Altimeter)]
             interface IAltimeter {
                 fn GetCurrentReading(&self) -> AltimeterReading;
                 #[get]
@@ -531,8 +531,8 @@ mod Windows {
                 event ReadingChanged: super::super::Foundation::TypedEventHandler<Altimeter, AltimeterReadingChangedEventArgs>;
             }
             #[guid(0xc9471bf9_2add_48f5_9f08_3d0c7660d938)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Altimeter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Altimeter)]
             interface IAltimeter2 {
                 #[set]
                 ReportLatency: u32;
@@ -551,8 +551,8 @@ mod Windows {
                 AltitudeChangeInMeters: f64;
             }
             #[guid(0x543a1bd9_6d0b_42b2_bd69_bc8fae0f782c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AltimeterReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AltimeterReading)]
             interface IAltimeterReading2 {
                 #[get]
                 PerformanceCount: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
@@ -560,21 +560,21 @@ mod Windows {
                 Properties: super::super::Foundation::Collections::IMapView<String, Object>;
             }
             #[guid(0x7069d077_446d_47f7_998c_ebc23b45e4a2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AltimeterReadingChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AltimeterReadingChangedEventArgs)]
             interface IAltimeterReadingChangedEventArgs {
                 #[get]
                 Reading: AltimeterReading;
             }
             #[guid(0x9eb4d7c3_e5ac_47ce_8eef_d3718168c01f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Altimeter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Altimeter)]
             interface IAltimeterStatics {
                 fn GetDefault(&self) -> Altimeter;
             }
             #[guid(0x934475a8_78bf_452f_b017_f0209ce6dab4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Barometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Barometer)]
             interface IBarometer {
                 fn GetCurrentReading(&self) -> BarometerReading;
                 #[get]
@@ -599,8 +599,8 @@ mod Windows {
                 MaxBatchSize: u32;
             }
             #[guid(0x0e35f0ea_02b5_5a04_b03d_822084863a54)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Barometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Barometer)]
             interface IBarometer3 {
                 #[get]
                 ReportThreshold: BarometerDataThreshold;
@@ -621,8 +621,8 @@ mod Windows {
                 StationPressureInHectopascals: f64;
             }
             #[guid(0x85a244eb_90c5_4875_891c_3865b4c357e7)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BarometerReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BarometerReading)]
             interface IBarometerReading2 {
                 #[get]
                 PerformanceCount: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
@@ -637,8 +637,8 @@ mod Windows {
                 Reading: BarometerReading;
             }
             #[guid(0x286b270a_02e3_4f86_84fc_fdd892b5940f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Barometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Barometer)]
             interface IBarometerStatics {
                 fn GetDefault(&self) -> Barometer;
             }
@@ -651,8 +651,8 @@ mod Windows {
                 fn GetDeviceSelector(&self) -> String;
             }
             #[guid(0x292ffa94_1b45_403c_ba06_b106dba69a64)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Compass)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Compass)]
             interface ICompass {
                 fn GetCurrentReading(&self) -> CompassReading;
                 #[get]
@@ -664,8 +664,8 @@ mod Windows {
                 event ReadingChanged: super::super::Foundation::TypedEventHandler<Compass, CompassReadingChangedEventArgs>;
             }
             #[guid(0x36f26d09_c7d7_434f_b461_979ddfc2322f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Compass)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Compass)]
             interface ICompass2 {
                 #[set]
                 ReadingTransform: super::super::Graphics::Display::DisplayOrientations;
@@ -684,15 +684,15 @@ mod Windows {
                 MaxBatchSize: u32;
             }
             #[guid(0x291e7f11_ec32_5dcc_bfcb_0bb39eba5774)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Compass)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Compass)]
             interface ICompass4 {
                 #[get]
                 ReportThreshold: CompassDataThreshold;
             }
             #[guid(0xd15b52b3_d39d_5ec8_b2e4_f193e6ab34ed)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompassDataThreshold)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompassDataThreshold)]
             interface ICompassDataThreshold {
                 Degrees: f64;
             }
@@ -738,8 +738,8 @@ mod Windows {
                 HeadingAccuracy: MagnetometerAccuracy;
             }
             #[guid(0x9abc97df_56ec_4c25_b54d_40a68bb5b269)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Compass)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Compass)]
             interface ICompassStatics {
                 fn GetDefault(&self) -> Compass;
             }
@@ -767,8 +767,8 @@ mod Windows {
                 PersonId: super::super::Foundation::IReference<i32>;
             }
             #[guid(0xfdb9a9c4_84b1_4ca2_9763_9b589506c70c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Gyrometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Gyrometer)]
             interface IGyrometer {
                 fn GetCurrentReading(&self) -> GyrometerReading;
                 #[get]
@@ -780,8 +780,8 @@ mod Windows {
                 event ReadingChanged: super::super::Foundation::TypedEventHandler<Gyrometer, GyrometerReadingChangedEventArgs>;
             }
             #[guid(0x63df2443_8ce8_41c3_ac44_8698810b557f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Gyrometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Gyrometer)]
             interface IGyrometer2 {
                 #[set]
                 ReadingTransform: super::super::Graphics::Display::DisplayOrientations;
@@ -789,8 +789,8 @@ mod Windows {
                 ReadingTransform: super::super::Graphics::Display::DisplayOrientations;
             }
             #[guid(0x5d6f88d5_8fbc_4484_914b_528adfd947b1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Gyrometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Gyrometer)]
             interface IGyrometer3 {
                 #[set]
                 ReportLatency: u32;
@@ -800,8 +800,8 @@ mod Windows {
                 MaxBatchSize: u32;
             }
             #[guid(0x0628a60c_4c4b_5096_94e6_c356df68bef7)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Gyrometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Gyrometer)]
             interface IGyrometer4 {
                 #[get]
                 ReportThreshold: GyrometerDataThreshold;
@@ -815,15 +815,15 @@ mod Windows {
                 ZAxisInDegreesPerSecond: f64;
             }
             #[guid(0x1ee5e978_89a2_4275_9e95_7126f4708760)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Gyrometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Gyrometer)]
             interface IGyrometerDeviceId {
                 #[get]
                 DeviceId: String;
             }
             #[guid(0xb3d6de5c_1ee4_456f_9de7_e2493b5c8e03)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GyrometerReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GyrometerReading)]
             interface IGyrometerReading {
                 #[get]
                 Timestamp: super::super::Foundation::DateTime;
@@ -835,8 +835,8 @@ mod Windows {
                 AngularVelocityZ: f64;
             }
             #[guid(0x16afe13c_2b89_44bb_822b_d1e1556ff09b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GyrometerReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GyrometerReading)]
             interface IGyrometerReading2 {
                 #[get]
                 PerformanceCount: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
@@ -857,16 +857,16 @@ mod Windows {
                 fn GetDefault(&self) -> Gyrometer;
             }
             #[guid(0xef83f7a1_d700_4204_9613_79c6b161df4e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Gyrometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Gyrometer)]
             interface IGyrometerStatics2 {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Gyrometer>;
             }
             #[guid(0x519f54a9_513e_55e8_9c35_3e8da21dee69)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HeadOrientation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HeadOrientation)]
             interface IHeadOrientation {
                 #[get]
                 RollInDegrees: super::super::Foundation::IReference<f64>;
@@ -876,8 +876,8 @@ mod Windows {
                 YawInDegrees: super::super::Foundation::IReference<f64>;
             }
             #[guid(0x585aeb65_cf35_5e6d_a76a_37db131e17de)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HeadPosition)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HeadPosition)]
             interface IHeadPosition {
                 #[get]
                 AzimuthInDegrees: super::super::Foundation::IReference<f64>;
@@ -896,8 +896,8 @@ mod Windows {
                 Properties: super::super::Foundation::Collections::IMapView<String, Object>;
             }
             #[guid(0xe9d3be02_bfdf_437f_8c29_88c77393d309)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HingeAngleSensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HingeAngleSensor)]
             interface IHingeAngleSensor {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCurrentReadingAsync(&self) -> super::super::Foundation::IAsyncOperation<HingeAngleReading>;
@@ -944,15 +944,15 @@ mod Windows {
                 fn get_IsAttentionAwareDimmingSupported(&self) -> bool;
             }
             #[guid(0x08a9cdda_d929_5ec2_81e2_940bafa089cf)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceFeatures)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceFeatures)]
             interface IHumanPresenceFeatures2 {
                 #[get]
                 IsAdaptiveDimmingSupported: bool;
             }
             #[guid(0xed4e03aa_5ca2_5c02_b783_262e91295619)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceFeatures)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceFeatures)]
             interface IHumanPresenceFeatures3 {
                 #[get]
                 IsOnlookerDetectionSupported: bool;
@@ -980,8 +980,8 @@ mod Windows {
                 IsEngagementSupported: bool;
             }
             #[guid(0x963f006d_090d_532c_9eaf_803a9f69285b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSensor)]
             interface IHumanPresenceSensor3 {
                 #[get]
                 MaxDetectablePersons: i32;
@@ -1035,8 +1035,8 @@ mod Windows {
                 DetectedPersons: super::super::Foundation::Collections::IVectorView<DetectedPerson>;
             }
             #[guid(0xa9dc4583_fd69_5c5e_ab1f_942204eae2db)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSensorReadingChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSensorReadingChangedEventArgs)]
             interface IHumanPresenceSensorReadingChangedEventArgs {
                 #[get]
                 Reading: HumanPresenceSensorReading;
@@ -1051,8 +1051,8 @@ mod Windows {
                 DistanceInMillimeters: super::super::Foundation::IReference<u32>;
             }
             #[guid(0xbb95a033_c688_546a_8e2d_b12642e7efeb)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSensorReadingUpdate)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSensorReadingUpdate)]
             interface IHumanPresenceSensorReadingUpdate2 {
                 OnlookerPresence: super::super::Foundation::IReference<HumanPresence>;
             }
@@ -1067,8 +1067,8 @@ mod Windows {
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<HumanPresenceSensor>;
             }
             #[guid(0x5de35843_d260_5a87_995e_ace91326e1c4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSensor)]
             interface IHumanPresenceSensorStatics2 {
                 fn FromId(&self, sensorId: String) -> HumanPresenceSensor;
                 fn GetDefault(&self) -> HumanPresenceSensor;
@@ -1103,16 +1103,16 @@ mod Windows {
                 LockOptions: LockOnLeaveOptions;
             }
             #[guid(0x89757226_acc1_4f58_81df_47f1d69537f2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSettings)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSettings)]
             interface IHumanPresenceSettings3 {
                 IsOnlookerDetectionEnabled: bool;
                 #[get]
                 OnlookerDetectionOptions: OnlookerDetectionOptions;
             }
             #[guid(0x7f343202_e010_52c4_af0c_04a8f1e033da)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSettings)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HumanPresenceSettings)]
             interface IHumanPresenceSettingsStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCurrentSettingsAsync(&self) -> super::super::Foundation::IAsyncOperation<HumanPresenceSettings>;
@@ -1151,8 +1151,8 @@ mod Windows {
                 ReadingType: SensorReadingType;
             }
             #[guid(0x3a095004_d765_4384_a3d7_0283f3abe6ae)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             interface IInclinometer3 {
                 #[set]
                 ReportLatency: u32;
@@ -1162,8 +1162,8 @@ mod Windows {
                 MaxBatchSize: u32;
             }
             #[guid(0x43852618_8fca_548e_bbf5_5c50412b6aa4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             interface IInclinometer4 {
                 #[get]
                 ReportThreshold: InclinometerDataThreshold;
@@ -1177,8 +1177,8 @@ mod Windows {
                 YawInDegrees: f32;
             }
             #[guid(0x01e91982_41ff_4406_ae83_62210ff16fe3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             interface IInclinometerDeviceId {
                 #[get]
                 DeviceId: String;
@@ -1213,21 +1213,21 @@ mod Windows {
                 Reading: InclinometerReading;
             }
             #[guid(0xb453e880_1fe3_4986_a257_e6ece2723949)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(InclinometerReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(InclinometerReading)]
             interface IInclinometerReadingYawAccuracy {
                 #[get]
                 YawAccuracy: MagnetometerAccuracy;
             }
             #[guid(0xf22ec551_9c30_453a_8b49_3c3eeb33cb61)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             interface IInclinometerStatics {
                 fn GetDefault(&self) -> Inclinometer;
             }
             #[guid(0x043f9775_6a1e_499c_86e0_638c1a864b00)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             interface IInclinometerStatics2 {
                 fn GetDefaultForRelativeReadings(&self) -> Inclinometer;
             }
@@ -1239,8 +1239,8 @@ mod Windows {
                 fn GetDefault(&self, sensorReadingtype: SensorReadingType) -> Inclinometer;
             }
             #[guid(0xe8ba96f9_6e85_4a83_aed0_d7cdcc9856c8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Inclinometer)]
             interface IInclinometerStatics4 {
                 fn GetDeviceSelector(&self, readingType: SensorReadingType) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -1260,8 +1260,8 @@ mod Windows {
                 event ReadingChanged: super::super::Foundation::TypedEventHandler<LightSensor, LightSensorReadingChangedEventArgs>;
             }
             #[guid(0x486b24e8_a94c_4090_8f48_09f782a9f7d5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LightSensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LightSensor)]
             interface ILightSensor2 {
                 #[set]
                 ReportLatency: u32;
@@ -1291,8 +1291,8 @@ mod Windows {
                 AbsoluteLux: f32;
             }
             #[guid(0x6f040fbd_e08b_5b97_8f61_dd4ee66b1733)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LightSensorDataThreshold)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LightSensorDataThreshold)]
             interface ILightSensorDataThreshold2 {
                 Chromaticity: LightSensorChromaticity;
             }
@@ -1304,8 +1304,8 @@ mod Windows {
                 DeviceId: String;
             }
             #[guid(0xffdf6300_227c_4d2b_b302_fc0142485c68)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LightSensorReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LightSensorReading)]
             interface ILightSensorReading {
                 #[get]
                 Timestamp: super::super::Foundation::DateTime;
@@ -1322,8 +1322,8 @@ mod Windows {
                 Properties: super::super::Foundation::Collections::IMapView<String, Object>;
             }
             #[guid(0xf338ee06_96af_4029_b530_61acc05b7cfe)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LightSensorReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LightSensorReading)]
             interface ILightSensorReading3 {
                 #[get]
                 Chromaticity: LightSensorChromaticity;
@@ -1369,8 +1369,8 @@ mod Windows {
                 event ReadingChanged: super::super::Foundation::TypedEventHandler<Magnetometer, MagnetometerReadingChangedEventArgs>;
             }
             #[guid(0xb4656c85_26f6_444b_a9e2_a23f966cd368)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Magnetometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Magnetometer)]
             interface IMagnetometer2 {
                 #[set]
                 ReadingTransform: super::super::Graphics::Display::DisplayOrientations;
@@ -1389,8 +1389,8 @@ mod Windows {
                 MaxBatchSize: u32;
             }
             #[guid(0xdfb17901_3e0f_508f_b24b_f2bb75015f40)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Magnetometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Magnetometer)]
             interface IMagnetometer4 {
                 #[get]
                 ReportThreshold: MagnetometerDataThreshold;
@@ -1411,8 +1411,8 @@ mod Windows {
                 DeviceId: String;
             }
             #[guid(0x0c2cc40d_ebfd_4e5c_bb11_afc29b3cae61)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MagnetometerReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MagnetometerReading)]
             interface IMagnetometerReading {
                 #[get]
                 Timestamp: super::super::Foundation::DateTime;
@@ -1426,8 +1426,8 @@ mod Windows {
                 DirectionalAccuracy: MagnetometerAccuracy;
             }
             #[guid(0xd4c95c61_61d9_404b_a328_066f177a1409)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MagnetometerReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MagnetometerReading)]
             interface IMagnetometerReading2 {
                 #[get]
                 PerformanceCount: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
@@ -1435,8 +1435,8 @@ mod Windows {
                 Properties: super::super::Foundation::Collections::IMapView<String, Object>;
             }
             #[guid(0x17eae872_2eb9_4ee7_8ad0_3127537d949b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MagnetometerReadingChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MagnetometerReadingChangedEventArgs)]
             interface IMagnetometerReadingChangedEventArgs {
                 #[get]
                 Reading: MagnetometerReading;
@@ -1476,8 +1476,8 @@ mod Windows {
                 event ReadingChanged: super::super::Foundation::TypedEventHandler<OrientationSensor, OrientationSensorReadingChangedEventArgs>;
             }
             #[guid(0x0d924cf9_2f1f_49c9_8042_4a1813d67760)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             interface IOrientationSensor2 {
                 #[set]
                 ReadingTransform: super::super::Graphics::Display::DisplayOrientations;
@@ -1498,15 +1498,15 @@ mod Windows {
                 MaxBatchSize: u32;
             }
             #[guid(0x5a69b648_4c29_49ec_b28f_ea1d117b66f0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             interface IOrientationSensorDeviceId {
                 #[get]
                 DeviceId: String;
             }
             #[guid(0x4756c993_6595_4897_bcc6_d537ee757564)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensorReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensorReading)]
             interface IOrientationSensorReading {
                 #[get]
                 Timestamp: super::super::Foundation::DateTime;
@@ -1516,8 +1516,8 @@ mod Windows {
                 Quaternion: SensorQuaternion;
             }
             #[guid(0x00576e5f_49f8_4c05_9e07_24fac79408c3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensorReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensorReading)]
             interface IOrientationSensorReading2 {
                 #[get]
                 PerformanceCount: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
@@ -1532,15 +1532,15 @@ mod Windows {
                 Reading: OrientationSensorReading;
             }
             #[guid(0xd1ac9824_3f5a_49a2_bc7b_1180bc38cd2b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensorReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensorReading)]
             interface IOrientationSensorReadingYawAccuracy {
                 #[get]
                 YawAccuracy: MagnetometerAccuracy;
             }
             #[guid(0x10ef8712_fb4c_428a_898b_2765e409e669)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             interface IOrientationSensorStatics {
                 #[Windows::Foundation::Metadata::Overload("GetDefault")]
                 fn GetDefault(&self) -> OrientationSensor;
@@ -1552,8 +1552,8 @@ mod Windows {
                 fn GetDefaultForRelativeReadings(&self) -> OrientationSensor;
             }
             #[guid(0xd82ce920_2777_40ff_9f59_d654b085f12f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(OrientationSensor)]
             interface IOrientationSensorStatics3 {
                 #[Windows::Foundation::Metadata::Overload("GetDefaultWithSensorReadingType")]
                 fn GetDefault(&self, sensorReadingtype: SensorReadingType) -> OrientationSensor;
@@ -1572,8 +1572,8 @@ mod Windows {
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<OrientationSensor>;
             }
             #[guid(0x9a1e013d_3d98_45f8_8920_8e4ecaca5f97)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Pedometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Pedometer)]
             interface IPedometer {
                 #[get]
                 DeviceId: String;
@@ -1594,14 +1594,14 @@ mod Windows {
                 fn GetCurrentReadings(&self) -> super::super::Foundation::Collections::IMapView<PedometerStepKind, PedometerReading>;
             }
             #[guid(0xcbad8f50_7a54_466b_9010_77a162fca5d7)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PedometerDataThreshold)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PedometerDataThreshold)]
             interface IPedometerDataThresholdFactory {
                 fn Create(&self, sensor: Pedometer, stepGoal: i32) -> PedometerDataThreshold;
             }
             #[guid(0x2245dcf4_a8e1_432f_896a_be0dd9b02d24)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PedometerReading)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PedometerReading)]
             interface IPedometerReading {
                 #[get]
                 StepKind: PedometerStepKind;
@@ -1613,15 +1613,15 @@ mod Windows {
                 CumulativeStepsDuration: super::super::Foundation::TimeSpan;
             }
             #[guid(0xf855e47e_abbc_4456_86a8_25cf2b333742)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PedometerReadingChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PedometerReadingChangedEventArgs)]
             interface IPedometerReadingChangedEventArgs {
                 #[get]
                 Reading: PedometerReading;
             }
             #[guid(0x82980a2f_4083_4dfb_b411_938ea0f4b946)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Pedometer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Pedometer)]
             interface IPedometerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<Pedometer>;
@@ -1631,8 +1631,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("GetSystemHistoryAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetSystemHistoryAsync(&self, fromTime: super::super::Foundation::DateTime) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("GetSystemHistoryWithDurationAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetSystemHistoryAsync(&self, fromTime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PedometerReading>>;
             }
             #[guid(0x79f5c6bb_ce0e_4133_b47e_8627ea72f677)]
@@ -1673,22 +1673,22 @@ mod Windows {
                 DistanceInMillimeters: super::super::Foundation::IReference<u32>;
             }
             #[guid(0xcfc2f366_c3e8_40fd_8cc3_67e289004938)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ProximitySensorReadingChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProximitySensorReadingChangedEventArgs)]
             interface IProximitySensorReadingChangedEventArgs {
                 #[get]
                 Reading: ProximitySensorReading;
             }
             #[guid(0x29186649_6269_4e57_a5ad_82be80813392)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ProximitySensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProximitySensor)]
             interface IProximitySensorStatics {
                 fn GetDeviceSelector(&self) -> String;
                 fn FromId(&self, sensorId: String) -> ProximitySensor;
             }
             #[guid(0xcbf473ae_e9ca_422f_ad67_4c3d25df350c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ProximitySensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProximitySensor)]
             interface IProximitySensorStatics2 {
                 fn GetReadingsFromTriggerDetails(&self, triggerDetails: SensorDataThresholdTriggerDetails) -> super::super::Foundation::Collections::IVectorView<ProximitySensorReading>;
             }
@@ -1696,8 +1696,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             interface ISensorDataThreshold {}
             #[guid(0x9106f1b7_e88d_48b1_bc90_619c7b349391)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SensorDataThresholdTriggerDetails)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SensorDataThresholdTriggerDetails)]
             interface ISensorDataThresholdTriggerDetails {
                 #[get]
                 DeviceId: String;
@@ -1718,8 +1718,8 @@ mod Windows {
                 Z: f32;
             }
             #[guid(0x0a3d5a67_22f4_4392_9538_65d0bd064aa6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SensorRotationMatrix)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SensorRotationMatrix)]
             interface ISensorRotationMatrix {
                 #[get]
                 M11: f32;
@@ -1741,8 +1741,8 @@ mod Windows {
                 M33: f32;
             }
             #[guid(0x5ff53856_214a_4dee_a3f9_616f1ab06ffd)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SimpleOrientationSensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SimpleOrientationSensor)]
             interface ISimpleOrientationSensor {
                 fn GetCurrentOrientation(&self) -> SimpleOrientation;
                 event OrientationChanged: super::super::Foundation::TypedEventHandler<SimpleOrientationSensor, SimpleOrientationSensorOrientationChangedEventArgs>;
@@ -1757,8 +1757,8 @@ mod Windows {
                 ReadingTransform: super::super::Graphics::Display::DisplayOrientations;
             }
             #[guid(0xfbc00acb_3b76_41f6_8091_30efe646d3cf)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SimpleOrientationSensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SimpleOrientationSensor)]
             interface ISimpleOrientationSensorDeviceId {
                 #[get]
                 DeviceId: String;
@@ -1773,14 +1773,14 @@ mod Windows {
                 Orientation: SimpleOrientation;
             }
             #[guid(0x72ed066f_70aa_40c6_9b1b_3433f7459b4e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SimpleOrientationSensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SimpleOrientationSensor)]
             interface ISimpleOrientationSensorStatics {
                 fn GetDefault(&self) -> SimpleOrientationSensor;
             }
             #[guid(0x848f9c7f_b138_4e11_8910_a2a2a3b56d83)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SimpleOrientationSensor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SimpleOrientationSensor)]
             interface ISimpleOrientationSensorStatics2 {
                 fn GetDeviceSelector(&self) -> String;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -1793,14 +1793,14 @@ mod Windows {
                 AllowWhenExternalDisplayConnected: bool;
                 DisableWhenBatterySaverOn: bool;
             }
-            #[Windows::Foundation::Metadata::Static(IInclinometerStatics4, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IInclinometerStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IInclinometerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IInclinometerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IInclinometerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IInclinometerStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IInclinometerStatics4, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class Inclinometer {
                 IInclinometer,
                 IInclinometerDeviceId,
@@ -1813,28 +1813,28 @@ mod Windows {
             class InclinometerDataThreshold {
                 IInclinometerDataThreshold,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class InclinometerReading {
                 IInclinometerReading,
                 IInclinometerReadingYawAccuracy,
                 IInclinometerReading2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class InclinometerReadingChangedEventArgs {
                 IInclinometerReadingChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ILightSensorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(ILightSensorStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             class LightSensor {
                 ILightSensor,
                 ILightSensorDeviceId,
@@ -1853,19 +1853,19 @@ mod Windows {
                 ILightSensorDataThreshold,
                 ILightSensorDataThreshold2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class LightSensorReading {
                 ILightSensorReading,
                 ILightSensorReading2,
                 ILightSensorReading3,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class LightSensorReadingChangedEventArgs {
                 ILightSensorReadingChangedEventArgs,
             }
@@ -1874,12 +1874,12 @@ mod Windows {
             class LockOnLeaveOptions {
                 ILockOnLeaveOptions,
             }
-            #[Windows::Foundation::Metadata::Static(IMagnetometerStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IMagnetometerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMagnetometerStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class Magnetometer {
                 IMagnetometer,
                 IMagnetometerDeviceId,
@@ -1895,23 +1895,23 @@ mod Windows {
                 Approximate = 2,
                 High = 3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class MagnetometerDataThreshold {
                 IMagnetometerDataThreshold,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class MagnetometerReading {
                 IMagnetometerReading,
                 IMagnetometerReading2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MagnetometerReadingChangedEventArgs {
                 IMagnetometerReadingChangedEventArgs,
             }
@@ -1930,28 +1930,28 @@ mod Windows {
                 FourHours = 2,
                 OneDay = 3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class OnlookerDetectionOptions {
                 IOnlookerDetectionOptions,
             }
-            #[Windows::Foundation::Metadata::Static(IOrientationSensorStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IOrientationSensorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IOrientationSensorStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IOrientationSensorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IOrientationSensorStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IOrientationSensorStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IOrientationSensorStatics4, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class OrientationSensor {
                 IOrientationSensor,
                 IOrientationSensorDeviceId,
                 IOrientationSensor2,
                 IOrientationSensor3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class OrientationSensorReading {
                 IOrientationSensorReading,
@@ -1959,37 +1959,37 @@ mod Windows {
                 IOrientationSensorReading2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class OrientationSensorReadingChangedEventArgs {
                 IOrientationSensorReadingChangedEventArgs,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IPedometerStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IPedometerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IPedometerStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
             class Pedometer {
                 IPedometer,
                 IPedometer2,
             }
             #[Windows::Foundation::Metadata::Activatable(IPedometerDataThresholdFactory, 131072, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PedometerDataThreshold {
                 ISensorDataThreshold,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class PedometerReading {
                 IPedometerReading,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PedometerReadingChangedEventArgs {
                 IPedometerReadingChangedEventArgs,
             }
@@ -2000,46 +2000,46 @@ mod Windows {
                 Walking = 1,
                 Running = 2,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IProximitySensorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IProximitySensorStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IProximitySensorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IProximitySensorStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ProximitySensor {
                 IProximitySensor,
             }
+            #[Windows::Foundation::Metadata::Activatable(IProximitySensorDataThresholdFactory, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(IProximitySensorDataThresholdFactory, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ProximitySensorDataThreshold {
                 ISensorDataThreshold,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class ProximitySensorDisplayOnOffController {
                 super::super::Foundation::IClosable,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ProximitySensorReading {
                 IProximitySensorReading,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class ProximitySensorReadingChangedEventArgs {
                 IProximitySensorReadingChangedEventArgs,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             class SensorDataThresholdTriggerDetails {
                 ISensorDataThresholdTriggerDetails,
             }
@@ -2049,10 +2049,10 @@ mod Windows {
                 Precision = 0,
                 PowerEfficiency = 1,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SensorQuaternion {
                 ISensorQuaternion,
             }
@@ -2062,10 +2062,10 @@ mod Windows {
                 Absolute = 0,
                 Relative = 1,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SensorRotationMatrix {
                 ISensorRotationMatrix,
             }
@@ -2097,9 +2097,9 @@ mod Windows {
                 Faceup = 4,
                 Facedown = 5,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ISimpleOrientationSensorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(ISimpleOrientationSensorStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
@@ -2108,10 +2108,10 @@ mod Windows {
                 ISimpleOrientationSensorDeviceId,
                 ISimpleOrientationSensor2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SimpleOrientationSensorOrientationChangedEventArgs {
                 ISimpleOrientationSensorOrientationChangedEventArgs,
             }

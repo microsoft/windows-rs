@@ -2,8 +2,8 @@
 mod Windows {
     mod Networking {
         mod Proximity {
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ConnectionRequestedEventArgs {
                 IConnectionRequestedEventArgs,
             }
@@ -45,23 +45,23 @@ mod Windows {
                 fn ConnectAsync(&self, peerInformation: PeerInformation) -> super::super::Foundation::IAsyncOperation<super::Sockets::StreamSocket>;
             }
             #[guid(0xd6e73c65_fdd0_4b0b_9312_866408935d82)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PeerFinder)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PeerFinder)]
             interface IPeerFinderStatics2 {
                 Role: PeerRole;
                 DiscoveryData: super::super::Storage::Streams::IBuffer;
                 fn CreateWatcher(&self) -> PeerWatcher;
             }
             #[guid(0x20024f08_9fff_45f4_b6e9_408b2ebef373)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PeerInformation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PeerInformation)]
             interface IPeerInformation {
                 #[get]
                 DisplayName: String;
             }
             #[guid(0xb20f612a_dbd0_40f8_95bd_2d4209c7836f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PeerInformation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PeerInformation)]
             interface IPeerInformation3 {
                 #[get]
                 Id: String;
@@ -69,8 +69,8 @@ mod Windows {
                 DiscoveryData: super::super::Storage::Streams::IBuffer;
             }
             #[guid(0xecc7ccad_1b70_4e8b_92db_bbe781419308)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PeerInformation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PeerInformation)]
             interface IPeerInformationWithHostAndService {
                 #[get]
                 HostName: super::HostName;
@@ -120,8 +120,8 @@ mod Windows {
                 DeviceId: String;
             }
             #[guid(0x914ba01d_f6e1_47c4_a14c_148a1903d0c6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ProximityDevice)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProximityDevice)]
             interface IProximityDeviceStatics {
                 fn GetDeviceSelector(&self) -> String;
                 fn GetDefault(&self) -> ProximityDevice;
@@ -141,8 +141,8 @@ mod Windows {
                 DataAsString: String;
             }
             #[guid(0xc6a780ad_f6e1_4d54_96e2_33f620bca88a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TriggeredConnectionStateChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TriggeredConnectionStateChangedEventArgs)]
             interface ITriggeredConnectionStateChangedEventArgs {
                 #[get]
                 State: TriggeredConnectState;
@@ -165,11 +165,11 @@ mod Windows {
                 Browse = 1,
                 Triggered = 2,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IPeerFinderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IPeerFinderStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class PeerFinder {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -185,9 +185,9 @@ mod Windows {
                 Host = 1,
                 Client = 2,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PeerWatcher {
                 IPeerWatcher,
             }
@@ -201,16 +201,16 @@ mod Windows {
                 Stopped = 4,
                 Aborted = 5,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IProximityDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             class ProximityDevice {
                 IProximityDevice,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ProximityMessage {
                 IProximityMessage,
@@ -225,8 +225,8 @@ mod Windows {
                 Canceled = 4,
                 Failed = 5,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class TriggeredConnectionStateChangedEventArgs {
                 ITriggeredConnectionStateChangedEventArgs,
             }

@@ -3,22 +3,22 @@ mod Windows {
     mod UI {
         mod Xaml {
             mod Printing {
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class AddPagesEventArgs {
                     IAddPagesEventArgs,
                 }
                 #[guid(0xd4b57970_57a0_4209_847c_c093b54bc729)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 delegate fn AddPagesEventHandler(sender: Object, e: AddPagesEventArgs);
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class GetPreviewPageEventArgs {
                     IGetPreviewPageEventArgs,
@@ -36,9 +36,9 @@ mod Windows {
                     PrintTaskOptions: super::super::super::Graphics::Printing::PrintTaskOptions;
                 }
                 #[guid(0xa43d703d_dea9_4df6_a7ed_35049cd485c7)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(GetPreviewPageEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GetPreviewPageEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IGetPreviewPageEventArgs {
                     #[get]
                     PageNumber: i32;
@@ -54,9 +54,9 @@ mod Windows {
                     CurrentPreviewPageNumber: i32;
                 }
                 #[guid(0xe44327c3_a999_485b_b1d8_72dc517821e6)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintDocument)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface IPrintDocument {
                     #[get]
                     DocumentSource: super::super::super::Graphics::Printing::IPrintDocumentSource;
@@ -84,10 +84,10 @@ mod Windows {
                     #[get]
                     DocumentSourceProperty: super::DependencyProperty;
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class PaginateEventArgs {
                     IPaginateEventArgs,
@@ -103,10 +103,10 @@ mod Windows {
                     Final = 0,
                     Intermediate = 1,
                 }
+                #[Windows::Foundation::Metadata::Composable(IPrintDocumentFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IPrintDocumentStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Composable(IPrintDocumentFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class PrintDocument: super::DependencyObject {

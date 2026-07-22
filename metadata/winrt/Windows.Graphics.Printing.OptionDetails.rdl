@@ -4,8 +4,8 @@ mod Windows {
         mod Printing {
             mod OptionDetails {
                 #[guid(0xc3f4cc98_9564_4f16_a055_a98b9a49e9d3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintBindingOptionDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintBindingOptionDetails)]
                 interface IPrintBindingOptionDetails {
                     #[set]
                     WarningText: String;
@@ -30,8 +30,8 @@ mod Windows {
                     Description: String;
                 }
                 #[guid(0xd6abb166_a5a6_40dc_acc3_739f28f1e5d3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintCollationOptionDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintCollationOptionDetails)]
                 interface IPrintCollationOptionDetails {
                     #[set]
                     WarningText: String;
@@ -43,8 +43,8 @@ mod Windows {
                     Description: String;
                 }
                 #[guid(0xdba97704_f1d6_4843_a484_9b447cdcf3b6)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintColorModeOptionDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintColorModeOptionDetails)]
                 interface IPrintColorModeOptionDetails {
                     #[set]
                     WarningText: String;
@@ -69,8 +69,8 @@ mod Windows {
                     Description: String;
                 }
                 #[guid(0x5704b637_5c3a_449a_aa36_b3291b1192fd)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomItemDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomItemDetails)]
                 interface IPrintCustomItemDetails {
                     #[get]
                     ItemId: String;
@@ -80,8 +80,8 @@ mod Windows {
                     ItemDisplayName: String;
                 }
                 #[guid(0xa5fafd88_58f2_4ebd_b90f_51e4f2944c5d)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomItemListOptionDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomItemListOptionDetails)]
                 interface IPrintCustomItemListOptionDetails: IPrintItemListOptionDetails + IPrintOptionDetails + IPrintCustomOptionDetails {
                     fn AddItem(&self, itemId: String, displayName: String);
                 }
@@ -122,8 +122,8 @@ mod Windows {
                     MaxCharacters: u32;
                 }
                 #[guid(0xcea70b54_b977_4718_8338_7ed2b0d86fe3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomTextOptionDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintCustomTextOptionDetails)]
                 interface IPrintCustomTextOptionDetails2 {
                     #[set]
                     WarningText: String;
@@ -148,8 +148,8 @@ mod Windows {
                     Description: String;
                 }
                 #[guid(0xfcd94591_d4a4_44fa_b3fe_42e0ba28d5ad)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintDuplexOptionDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintDuplexOptionDetails)]
                 interface IPrintDuplexOptionDetails {
                     #[set]
                     WarningText: String;
@@ -292,8 +292,8 @@ mod Windows {
                     OptionId: Object;
                 }
                 #[guid(0xf5720af1_a89e_42a6_81af_f8e010b38a68)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptionDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptionDetails)]
                 interface IPrintTaskOptionDetails {
                     #[get]
                     Options: super::super::super::Foundation::Collections::IMapView<String, IPrintOptionDetails>;
@@ -303,8 +303,8 @@ mod Windows {
                     event BeginValidation: super::super::super::Foundation::TypedEventHandler<PrintTaskOptionDetails, Object>;
                 }
                 #[guid(0x53730a09_f968_4692_a177_c074597186db)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptionDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintTaskOptionDetails)]
                 interface IPrintTaskOptionDetails2 {
                     fn CreateToggleOption(&self, optionId: String, displayName: String) -> PrintCustomToggleOptionDetails;
                 }
@@ -327,8 +327,8 @@ mod Windows {
                     IPrintItemListOptionDetails,
                     IPrintBindingOptionDetails,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintBorderingOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
@@ -348,8 +348,8 @@ mod Windows {
                     IPrintItemListOptionDetails,
                     IPrintColorModeOptionDetails,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintCopiesOptionDetails {
                     IPrintOptionDetails,
                     IPrintNumberOptionDetails,
@@ -386,8 +386,8 @@ mod Windows {
                     IPrintCustomOptionDetails,
                     IPrintCustomToggleOptionDetails,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintDuplexOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
@@ -400,8 +400,8 @@ mod Windows {
                     IPrintItemListOptionDetails,
                     IPrintHolePunchOptionDetails,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintMediaSizeOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
@@ -444,29 +444,29 @@ mod Windows {
                     IPrintOptionDetails,
                     IPrintPageRangeOptionDetails,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintQualityOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
                     IPrintQualityOptionDetails,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintStapleOptionDetails {
                     IPrintOptionDetails,
                     IPrintItemListOptionDetails,
                     IPrintStapleOptionDetails,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintTaskOptionChangedEventArgs {
                     IPrintTaskOptionChangedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::Static(IPrintTaskOptionDetailsStatic, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+                #[Windows::Foundation::Metadata::Static(IPrintTaskOptionDetailsStatic, 65536, "Windows.Foundation.UniversalApiContract")]
                 class PrintTaskOptionDetails {
                     IPrintTaskOptionDetails,
                     super::IPrintTaskOptionsCore,

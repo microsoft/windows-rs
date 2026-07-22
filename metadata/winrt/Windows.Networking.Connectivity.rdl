@@ -2,8 +2,8 @@
 mod Windows {
     mod Networking {
         mod Connectivity {
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AttributedNetworkUsage {
                 IAttributedNetworkUsage,
             }
@@ -16,23 +16,23 @@ mod Windows {
                 Mschapv2 = 3,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class CellularApnContext {
                 ICellularApnContext,
                 ICellularApnContext2,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class ConnectionCost {
                 IConnectionCost,
                 IConnectionCost2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ConnectionProfile {
                 IConnectionProfile,
                 IConnectionProfile2,
@@ -49,11 +49,11 @@ mod Windows {
                 DeniedBySystem = 2,
                 UnknownError = 3,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ConnectionProfileFilter {
                 IConnectionProfileFilter,
                 IConnectionProfileFilter2,
@@ -66,33 +66,33 @@ mod Windows {
                 IConnectionSession,
                 super::super::Foundation::IClosable,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ConnectivityInterval {
                 IConnectivityInterval,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::Static(IConnectivityManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IConnectivityManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class ConnectivityManager {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class DataPlanStatus {
                 IDataPlanStatus,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class DataPlanUsage {
                 IDataPlanUsage,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("DataUsage may be altered or unavailable for releases after Windows 8.1. Instead, use NetworkUsage.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Deprecated("DataUsage may be altered or unavailable for releases after Windows 8.1. Instead, use NetworkUsage.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class DataUsage {
                 IDataUsage,
             }
@@ -164,15 +164,15 @@ mod Windows {
                 ApproachingDataLimit: bool;
             }
             #[guid(0x8e113a05_e209_4549_bb25_5e0db691cb05)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionCost)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionCost)]
             interface IConnectionCost2 {
                 #[get]
                 BackgroundDataUsageRestricted: bool;
             }
             #[guid(0x71ba143c_598e_49d0_84eb_8febaedcc195)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
             interface IConnectionProfile {
                 #[get]
                 ProfileName: String;
@@ -182,8 +182,8 @@ mod Windows {
                 fn GetDataPlanStatus(&self) -> DataPlanStatus;
                 #[get]
                 NetworkAdapter: NetworkAdapter;
-                #[Windows::Foundation::Metadata::Overload("GetLocalUsage")]
                 #[Windows::Foundation::Metadata::Deprecated("GetLocalUsage may be altered or unavailable for releases after Windows 8.1. Instead, use GetNetworkUsageAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Overload("GetLocalUsage")]
                 fn GetLocalUsage(&self, StartTime: super::super::Foundation::DateTime, EndTime: super::super::Foundation::DateTime) -> DataUsage;
                 #[Windows::Foundation::Metadata::Deprecated("GetLocalUsage may be altered or unavailable for releases after Windows 8.1. Instead, use GetNetworkUsageAsync.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Overload("GetLocalUsagePerRoamingStates")]
@@ -192,8 +192,8 @@ mod Windows {
                 NetworkSecuritySettings: NetworkSecuritySettings;
             }
             #[guid(0xe2045145_4c9f_400c_9150_7ec7d6e2888a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
             interface IConnectionProfile2 {
                 #[get]
                 IsWwanConnectionProfile: bool;
@@ -220,8 +220,8 @@ mod Windows {
                 fn GetAttributedNetworkUsageAsync(&self, startTime: super::super::Foundation::DateTime, endTime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<AttributedNetworkUsage>>;
             }
             #[guid(0x7a2d42cd_81e0_4ae6_abed_ab9ca13eb714)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
             interface IConnectionProfile4 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetProviderNetworkUsageAsync(&self, startTime: super::super::Foundation::DateTime, endTime: super::super::Foundation::DateTime, states: NetworkUsageStates) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ProviderNetworkUsage>>;
@@ -236,8 +236,8 @@ mod Windows {
                 fn TryDeleteAsync(&self) -> super::super::Foundation::IAsyncOperation<ConnectionProfileDeleteStatus>;
             }
             #[guid(0xdc27dfe2_7a6f_5d0e_9589_2fe2e5b6f9aa)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfile)]
             interface IConnectionProfile6 {
                 fn IsDomainAuthenticatedBy(&self, kind: DomainAuthenticationKind) -> bool;
             }
@@ -267,8 +267,8 @@ mod Windows {
                 ServiceProviderGuid: super::super::Foundation::IReference<GUID>;
             }
             #[guid(0xcd068ee1_c3fc_4fad_9ddc_593faa4b7885)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfileFilter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ConnectionProfileFilter)]
             interface IConnectionProfileFilter2 {
                 #[set]
                 IsRoaming: super::super::Foundation::IReference<bool>;
@@ -337,8 +337,8 @@ mod Windows {
                 MaxTransferSizeInMegabytes: super::super::Foundation::IReference<u32>;
             }
             #[guid(0xb921492d_3b44_47ff_b361_be59e69ed1b0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DataPlanUsage)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DataPlanUsage)]
             interface IDataPlanUsage {
                 #[get]
                 MegabytesUsed: u32;
@@ -346,9 +346,9 @@ mod Windows {
                 LastSyncTime: super::super::Foundation::DateTime;
             }
             #[guid(0xc1431dd3_b146_4d39_b959_0c69b096c512)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("IDataUsage may be altered or unavailable for releases after Windows 8.1. Instead, use INetworkUsage.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ExclusiveTo(DataUsage)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IDataUsage {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("IDataUsage may be altered or unavailable for releases after Windows 8.1. Instead, use INetworkUsage.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -387,8 +387,8 @@ mod Windows {
                 Value: super::super::Foundation::Collections::IVectorView<u8>;
             }
             #[guid(0x3b542e03_5388_496c_a8a3_affd39aec2e6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkAdapter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkAdapter)]
             interface INetworkAdapter {
                 #[get]
                 OutboundMaxBitsPerSecond: u64;
@@ -441,8 +441,8 @@ mod Windows {
                 NetworkEncryptionType: NetworkEncryptionType;
             }
             #[guid(0x1f0cf333_d7a6_44dd_a4e9_687c476b903d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkStateChangeEventDetails)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkStateChangeEventDetails)]
             interface INetworkStateChangeEventDetails {
                 #[get]
                 HasNewInternetConnectionProfile: bool;
@@ -467,8 +467,8 @@ mod Windows {
                 HasNewTetheringClientCount: bool;
             }
             #[guid(0x49da8fce_9985_4927_bf5b_072b5c65f8d9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkUsage)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NetworkUsage)]
             interface INetworkUsage {
                 #[get]
                 BytesSent: u64;
@@ -477,15 +477,15 @@ mod Windows {
                 #[get]
                 ConnectionDuration: super::super::Foundation::TimeSpan;
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class IPInformation {
                 IIPInformation,
             }
             #[guid(0x5ec69e04_7931_48c8_b8f3_46300fa42728)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ProviderNetworkUsage)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProviderNetworkUsage)]
             interface IProviderNetworkUsage {
                 #[get]
                 BytesSent: u64;
@@ -495,8 +495,8 @@ mod Windows {
                 ProviderId: String;
             }
             #[guid(0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ProxyConfiguration)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ProxyConfiguration)]
             interface IProxyConfiguration {
                 #[get]
                 ProxyUris: super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>;
@@ -515,8 +515,8 @@ mod Windows {
                 HostNameType: super::DomainNameType;
             }
             #[guid(0x36027933_a18e_4db5_a697_f58fa7364e44)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RoutePolicy)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RoutePolicy)]
             interface IRoutePolicyFactory {
                 fn CreateRoutePolicy(&self, connectionProfile: ConnectionProfile, hostName: super::HostName, r#type: super::DomainNameType) -> RoutePolicy;
             }
@@ -538,23 +538,23 @@ mod Windows {
                 fn GetCurrentDataClass(&self) -> WwanDataClass;
             }
             #[guid(0x7a754ede_a1ed_48b2_8e92_b460033d52e2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WwanConnectionProfileDetails)]
             #[Windows::Foundation::Metadata::ContractVersion(WwanContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WwanConnectionProfileDetails)]
             interface IWwanConnectionProfileDetails2 {
                 #[get]
                 IPKind: WwanNetworkIPKind;
                 #[get]
                 PurposeGuids: super::super::Foundation::Collections::IVectorView<GUID>;
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LanIdentifier {
                 ILanIdentifier,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class LanIdentifierData {
                 ILanIdentifierData,
             }
@@ -615,11 +615,11 @@ mod Windows {
                 Gcmp = 10,
                 Gcmp256 = 11,
             }
-            #[Windows::Foundation::Metadata::Static(INetworkInformationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(INetworkInformationStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(INetworkInformationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(INetworkInformationStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
             class NetworkInformation {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
@@ -628,14 +628,14 @@ mod Windows {
                 INetworkItem,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class NetworkSecuritySettings {
                 INetworkSecuritySettings,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class NetworkStateChangeEventDetails {
                 INetworkStateChangeEventDetails,
                 INetworkStateChangeEventDetails2,
@@ -652,8 +652,8 @@ mod Windows {
                 PrivateNetwork = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class NetworkUsage {
                 INetworkUsage,
             }
@@ -662,15 +662,15 @@ mod Windows {
                 Roaming: TriStates,
                 Shared: TriStates,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ProviderNetworkUsage {
                 IProviderNetworkUsage,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ProxyConfiguration {
                 IProxyConfiguration,
             }
@@ -682,9 +682,9 @@ mod Windows {
                 NotRoaming = 1,
                 Roaming = 2,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(IRoutePolicyFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class RoutePolicy {
                 IRoutePolicy,
@@ -697,8 +697,8 @@ mod Windows {
                 Yes = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class WlanConnectionProfileDetails {
                 IWlanConnectionProfileDetails,
             }

@@ -2,16 +2,16 @@
 mod Windows {
     mod Security {
         mod ExchangeActiveSyncProvisioning {
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class EasClientDeviceInformation {
                 IEasClientDeviceInformation,
                 IEasClientDeviceInformation2,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Security.ExchangeActiveSyncProvisioning.EasContract")]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class EasClientSecurityPolicy {
                 IEasClientSecurityPolicy,
             }
@@ -20,8 +20,8 @@ mod Windows {
                 IEasComplianceResults,
                 IEasComplianceResults2,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(65536)]
             #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct EasContract {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
@@ -166,8 +166,8 @@ mod Windows {
                 SystemFirmwareVersion: String;
             }
             #[guid(0x45b72362_dfba_4a9b_aced_6fe2adcb6420)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(EasClientSecurityPolicy)]
             #[Windows::Foundation::Metadata::ContractVersion(EasContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(EasClientSecurityPolicy)]
             interface IEasClientSecurityPolicy {
                 RequireEncryption: bool;
                 MinPasswordLength: u8;

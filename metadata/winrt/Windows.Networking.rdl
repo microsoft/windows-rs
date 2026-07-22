@@ -7,19 +7,19 @@ mod Windows {
             Suffix = 0,
             FullyQualified = 1,
         }
+        #[Windows::Foundation::Metadata::Activatable(IEndpointPairFactory, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Activatable(IEndpointPairFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class EndpointPair {
             IEndpointPair,
         }
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
         #[Windows::Foundation::Metadata::Activatable(IHostNameFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Static(IHostNameStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class HostName {
             IHostName,
@@ -41,8 +41,8 @@ mod Windows {
             Bluetooth = 3,
         }
         #[guid(0x33a0aa36_f8fa_4b30_b856_76517c3bd06d)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(EndpointPair)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(EndpointPair)]
         interface IEndpointPair {
             LocalHostName: HostName;
             LocalServiceName: String;
@@ -50,8 +50,8 @@ mod Windows {
             RemoteServiceName: String;
         }
         #[guid(0xb609d971_64e0_442b_aa6f_cc8c8f181f78)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(EndpointPair)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(EndpointPair)]
         interface IEndpointPairFactory {
             fn CreateEndpointPair(&self, localHostName: HostName, localServiceName: String, remoteHostName: HostName, remoteServiceName: String) -> EndpointPair;
         }
@@ -78,8 +78,8 @@ mod Windows {
             fn CreateHostName(&self, hostName: String) -> HostName;
         }
         #[guid(0xf68cd4bf_a388_4e8b_91ea_54dd6dd901c0)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(HostName)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(HostName)]
         interface IHostNameStatics {
             fn Compare(&self, value1: String, value2: String) -> i32;
         }

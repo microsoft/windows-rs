@@ -5,8 +5,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct ActivatedEventsContract {}
-            #[Windows::Foundation::Metadata::ContractVersion(65536)]
             #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct ActivationCameraSettingsContract {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -66,16 +66,16 @@ mod Windows {
                 Terminated = 3,
                 ClosedByUser = 4,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AppointmentsProviderAddAppointmentActivatedEventArgs {
                 IAppointmentsProviderAddAppointmentActivatedEventArgs,
                 IAppointmentsProviderActivatedEventArgs,
                 IActivatedEventArgs,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AppointmentsProviderRemoveAppointmentActivatedEventArgs {
                 IAppointmentsProviderRemoveAppointmentActivatedEventArgs,
                 IAppointmentsProviderActivatedEventArgs,
@@ -90,8 +90,8 @@ mod Windows {
                 IActivatedEventArgs,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
                 IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs,
                 IAppointmentsProviderActivatedEventArgs,
@@ -125,8 +125,8 @@ mod Windows {
                 IActivatedEventArgs,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(ActivationCameraSettingsContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class CameraSettingsActivatedEventArgs {
                 ICameraSettingsActivatedEventArgs,
                 IActivatedEventArgs,
@@ -138,8 +138,8 @@ mod Windows {
                 IActivatedEventArgs,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class CommandLineActivationOperation {
                 ICommandLineActivationOperation,
             }
@@ -153,15 +153,15 @@ mod Windows {
                 IContactActivatedEventArgs,
                 IActivatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(ContactActivatedEventsContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ContactMapActivatedEventArgs {
                 IContactMapActivatedEventArgs,
                 IContactActivatedEventArgs,
                 IActivatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(ContactActivatedEventsContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ContactMessageActivatedEventArgs {
                 IContactMessageActivatedEventArgs,
                 IContactActivatedEventArgs,
@@ -174,28 +174,28 @@ mod Windows {
                 IActivatedEventArgs,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(ContactActivatedEventsContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ContactPickerActivatedEventArgs {
                 IContactPickerActivatedEventArgs,
                 IActivatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(ContactActivatedEventsContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ContactPostActivatedEventArgs {
                 IContactPostActivatedEventArgs,
                 IContactActivatedEventArgs,
                 IActivatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(ContactActivatedEventsContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ContactVideoCallActivatedEventArgs {
                 IContactVideoCallActivatedEventArgs,
                 IContactActivatedEventArgs,
                 IActivatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class DeviceActivatedEventArgs {
                 IDeviceActivatedEventArgs,
                 IActivatedEventArgs,
@@ -203,8 +203,8 @@ mod Windows {
                 IViewSwitcherProvider,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class DevicePairingActivatedEventArgs {
                 IDevicePairingActivatedEventArgs,
                 IActivatedEventArgs,
@@ -239,8 +239,8 @@ mod Windows {
                 IFileOpenPickerActivatedEventArgs2,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::Deprecated("FileOpenPickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("FileOpenPickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class FileOpenPickerContinuationEventArgs {
                 IFileOpenPickerContinuationEventArgs,
@@ -256,18 +256,18 @@ mod Windows {
                 IFileSavePickerActivatedEventArgs2,
                 IActivatedEventArgsWithUser,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("FileSavePickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class FileSavePickerContinuationEventArgs {
                 IFileSavePickerContinuationEventArgs,
                 IContinuationActivatedEventArgs,
                 IActivatedEventArgs,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Deprecated("FolderPickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("FolderPickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class FolderPickerContinuationEventArgs {
                 IFolderPickerContinuationEventArgs,
                 IContinuationActivatedEventArgs,
@@ -371,8 +371,8 @@ mod Windows {
                 Operation: CommandLineActivationOperation;
             }
             #[guid(0x994b2841_c59e_4f69_bcfd_b61ed4e622eb)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CommandLineActivationOperation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CommandLineActivationOperation)]
             interface ICommandLineActivationOperation {
                 #[get]
                 Arguments: String;
@@ -539,8 +539,8 @@ mod Windows {
                 EnterpriseId: String;
             }
             #[guid(0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b)]
-            #[Windows::Foundation::Metadata::Deprecated("IFileSavePickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IFileSavePickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
             interface IFileSavePickerContinuationEventArgs: IContinuationActivatedEventArgs + IActivatedEventArgs {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("IFileSavePickerContinuationEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 655360, "Windows.Foundation.UniversalApiContract")]
@@ -671,8 +671,8 @@ mod Windows {
                 TaskId: String;
             }
             #[guid(0x80e4a3b1_3980_4f17_b738_89194e0b8f65)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TileActivatedInfo)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TileActivatedInfo)]
             interface ITileActivatedInfo {
                 #[get]
                 RecentlyShownNotifications: super::super::Foundation::Collections::IVectorView<super::super::UI::Notifications::ShownTileNotification>;
@@ -704,8 +704,8 @@ mod Windows {
                 Result: super::super::Media::SpeechRecognition::SpeechRecognitionResult;
             }
             #[guid(0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9)]
-            #[Windows::Foundation::Metadata::Deprecated("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Wallet.WalletContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::Wallet::WalletContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Wallet.WalletContract")]
             interface IWalletActionActivatedEventArgs: IActivatedEventArgs {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("IWalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Wallet.WalletContract")]
@@ -729,8 +729,8 @@ mod Windows {
                 #[get]
                 WebAuthenticationResult: super::super::Security::Authentication::Web::WebAuthenticationResult;
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LaunchActivatedEventArgs {
                 ILaunchActivatedEventArgs,
                 IActivatedEventArgs,
@@ -748,8 +748,8 @@ mod Windows {
                 IActivatedEventArgs,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(ActivatedEventsContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LockScreenCallActivatedEventArgs {
                 ILockScreenCallActivatedEventArgs,
                 ILaunchActivatedEventArgs,
@@ -757,8 +757,8 @@ mod Windows {
                 IApplicationViewActivatedEventArgs,
                 IViewSwitcherProvider,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LockScreenComponentActivatedEventArgs {
                 IActivatedEventArgs,
             }
@@ -769,21 +769,21 @@ mod Windows {
                 IActivatedEventArgs,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PickerReturnedActivatedEventArgs {
                 IPickerReturnedActivatedEventArgs,
                 IActivatedEventArgs,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(ActivatedEventsContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(ActivatedEventsContract, 65536)]
             class Print3DWorkflowActivatedEventArgs {
                 IPrint3DWorkflowActivatedEventArgs,
                 IActivatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(ActivatedEventsContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PrintTaskSettingsActivatedEventArgs {
                 IPrintTaskSettingsActivatedEventArgs,
                 IActivatedEventArgs,
@@ -798,8 +798,8 @@ mod Windows {
                 IViewSwitcherProvider,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ProtocolForResultsActivatedEventArgs {
                 IProtocolForResultsActivatedEventArgs,
                 IActivatedEventArgs,
@@ -826,8 +826,8 @@ mod Windows {
                 IViewSwitcherProvider,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ShareTargetActivatedEventArgs {
                 IShareTargetActivatedEventArgs,
                 IActivatedEventArgs,
@@ -837,8 +837,8 @@ mod Windows {
             class SplashScreen {
                 ISplashScreen,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class StartupTaskActivatedEventArgs {
                 IStartupTaskActivatedEventArgs,
                 IActivatedEventArgs,
@@ -857,8 +857,8 @@ mod Windows {
                 IActivatedEventArgsWithUser,
                 IApplicationViewActivatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class UserDataAccountProviderActivatedEventArgs {
                 IUserDataAccountProviderActivatedEventArgs,
                 IActivatedEventArgs,
@@ -870,9 +870,9 @@ mod Windows {
                 IActivatedEventArgs,
                 IActivatedEventArgsWithUser,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::Wallet::WalletContract, 65536)]
             #[Windows::Foundation::Metadata::Deprecated("WalletActionActivatedEventArgs is deprecated and might not work on all platforms. For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Wallet.WalletContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::Wallet::WalletContract, 65536)]
             class WalletActionActivatedEventArgs {
                 IWalletActionActivatedEventArgs,
                 IActivatedEventArgs,
@@ -884,8 +884,8 @@ mod Windows {
                 IActivatedEventArgs,
                 IActivatedEventArgsWithUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class WebAuthenticationBrokerContinuationEventArgs {
                 IWebAuthenticationBrokerContinuationEventArgs,
                 IContinuationActivatedEventArgs,

@@ -1,35 +1,35 @@
 #[winrt]
 mod Windows {
     mod System {
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class AppActivationResult {
             IAppActivationResult,
         }
-        #[Windows::Foundation::Metadata::Static(IAppDiagnosticInfoStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::Static(IAppDiagnosticInfoStatics, 262144, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IAppDiagnosticInfoStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IAppDiagnosticInfoStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class AppDiagnosticInfo {
             IAppDiagnosticInfo,
             IAppDiagnosticInfo2,
             IAppDiagnosticInfo3,
         }
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class AppDiagnosticInfoWatcher {
             IAppDiagnosticInfoWatcher,
         }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
         class AppDiagnosticInfoWatcherEventArgs {
             IAppDiagnosticInfoWatcherEventArgs,
         }
@@ -43,15 +43,15 @@ mod Windows {
             Stopped = 4,
             Aborted = 5,
         }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class AppExecutionStateChangeResult {
             IAppExecutionStateChangeResult,
         }
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class AppMemoryReport {
             IAppMemoryReport,
             IAppMemoryReport2,
@@ -64,15 +64,15 @@ mod Windows {
             High = 2,
             OverLimit = 3,
         }
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class AppMemoryUsageLimitChangingEventArgs {
             IAppMemoryUsageLimitChangingEventArgs,
         }
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class AppResourceGroupBackgroundTaskReport {
             IAppResourceGroupBackgroundTaskReport,
         }
@@ -92,8 +92,8 @@ mod Windows {
             Suspended = 3,
             NotRunning = 4,
         }
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class AppResourceGroupInfo {
@@ -101,23 +101,23 @@ mod Windows {
             IAppResourceGroupInfo2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class AppResourceGroupInfoWatcher {
             IAppResourceGroupInfoWatcher,
         }
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class AppResourceGroupInfoWatcherEventArgs {
             IAppResourceGroupInfoWatcherEventArgs,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
             IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs,
         }
@@ -131,25 +131,25 @@ mod Windows {
             Stopped = 4,
             Aborted = 5,
         }
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class AppResourceGroupMemoryReport {
             IAppResourceGroupMemoryReport,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class AppResourceGroupStateReport {
             IAppResourceGroupStateReport,
         }
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::Activatable(IAppUriHandlerHostFactory, 458752, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 458752)]
         #[Windows::Foundation::Metadata::Activatable(458752, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Activatable(IAppUriHandlerHostFactory, 458752, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 458752)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class AppUriHandlerHost {
             IAppUriHandlerHost,
             IAppUriHandlerHost2,
@@ -160,10 +160,10 @@ mod Windows {
             IAppUriHandlerRegistration,
             IAppUriHandlerRegistration2,
         }
-        #[Windows::Foundation::Metadata::Static(IAppUriHandlerRegistrationManagerStatics, 458752, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 458752)]
-        #[Windows::Foundation::Metadata::Static(IAppUriHandlerRegistrationManagerStatics2, 851968, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IAppUriHandlerRegistrationManagerStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IAppUriHandlerRegistrationManagerStatics2, 851968, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class AppUriHandlerRegistrationManager {
             IAppUriHandlerRegistrationManager,
@@ -177,10 +177,10 @@ mod Windows {
             Failed = 2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 262144)]
-        #[Windows::Foundation::Metadata::Static(IDateTimeSettingsStatics, 262144, "Windows.System.SystemManagementContract")]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IDateTimeSettingsStatics, 262144, "Windows.System.SystemManagementContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class DateTimeSettings {}
         #[repr(i32)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
@@ -191,21 +191,21 @@ mod Windows {
             Allowed = 3,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
-        #[Windows::Foundation::Metadata::Static(IDispatcherQueueStatics, 327680, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IDispatcherQueueStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::WebHostHidden]
         class DispatcherQueue {
             IDispatcherQueue,
             IDispatcherQueue2,
         }
-        #[Windows::Foundation::Metadata::Static(IDispatcherQueueControllerStatics, 327680, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::WebHostHidden]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IDispatcherQueueControllerStatics, 327680, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
         class DispatcherQueueController {
             IDispatcherQueueController,
         }
@@ -229,15 +229,15 @@ mod Windows {
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-        #[Windows::Foundation::Metadata::WebHostHidden]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
         class DispatcherQueueTimer {
             IDispatcherQueueTimer,
         }
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class FolderLauncherOptions {
             IFolderLauncherOptions,
             ILauncherViewOptions,
@@ -280,25 +280,25 @@ mod Windows {
             fn RequestInfoAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>;
         }
         #[guid(0x05b24b86_1000_4c90_bb9f_7235071c50fe)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppDiagnosticInfo)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppDiagnosticInfo)]
         interface IAppDiagnosticInfoStatics2 {
             fn CreateWatcher(&self) -> AppDiagnosticInfoWatcher;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn RequestAccessAsync(&self) -> super::Foundation::IAsyncOperation<DiagnosticAccessStatus>;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn RequestInfoForPackageAsync(&self, packageFamilyName: String) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>;
+            #[Windows::Foundation::Metadata::DefaultOverload]
             #[Windows::Foundation::Metadata::Overload("RequestInfoForAppAsync")]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            #[Windows::Foundation::Metadata::DefaultOverload]
             fn RequestInfoForAppAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>;
             #[Windows::Foundation::Metadata::Overload("RequestInfoForAppUserModelId")]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn RequestInfoForAppAsync(&self, appUserModelId: String) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVector<AppDiagnosticInfo>>;
         }
         #[guid(0x75575070_01d3_489a_9325_52f9cc6ede0a)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppDiagnosticInfoWatcher)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppDiagnosticInfoWatcher)]
         interface IAppDiagnosticInfoWatcher {
             event Added: super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>;
             event Removed: super::Foundation::TypedEventHandler<AppDiagnosticInfoWatcher, AppDiagnosticInfoWatcherEventArgs>;
@@ -324,8 +324,8 @@ mod Windows {
             ExtendedError: HRESULT;
         }
         #[guid(0x6d65339b_4d6f_45bc_9c5e_e49b3ff2758d)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppMemoryReport)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppMemoryReport)]
         interface IAppMemoryReport {
             #[get]
             PrivateCommitUsage: u64;
@@ -337,15 +337,15 @@ mod Windows {
             TotalCommitLimit: u64;
         }
         #[guid(0x5f7f3738_51b7_42dc_b7ed_79ba46d28857)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppMemoryReport)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppMemoryReport)]
         interface IAppMemoryReport2 {
             #[get]
             ExpectedTotalCommitLimit: u64;
         }
         #[guid(0x79f86664_feca_4da5_9e40_2bc63efdc979)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppMemoryUsageLimitChangingEventArgs)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppMemoryUsageLimitChangingEventArgs)]
         interface IAppMemoryUsageLimitChangingEventArgs {
             #[get]
             OldLimit: u64;
@@ -379,8 +379,8 @@ mod Windows {
             fn GetStateReport(&self) -> AppResourceGroupStateReport;
         }
         #[guid(0xee9b236d_d305_4d6b_92f7_6afdad72dedc)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppResourceGroupInfo)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppResourceGroupInfo)]
         interface IAppResourceGroupInfo2 {
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn StartSuspendAsync(&self) -> super::Foundation::IAsyncOperation<AppExecutionStateChangeResult>;
@@ -404,8 +404,8 @@ mod Windows {
             fn Stop(&self);
         }
         #[guid(0x7a787637_6302_4d2f_bf89_1c12d0b2a6b9)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppResourceGroupInfoWatcherEventArgs)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppResourceGroupInfoWatcherEventArgs)]
         interface IAppResourceGroupInfoWatcherEventArgs {
             #[get]
             AppDiagnosticInfos: super::Foundation::Collections::IVectorView<AppDiagnosticInfo>;
@@ -422,8 +422,8 @@ mod Windows {
             AppResourceGroupInfo: AppResourceGroupInfo;
         }
         #[guid(0x2c8c06b1_7db1_4c51_a225_7fae2d49e431)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppResourceGroupMemoryReport)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppResourceGroupMemoryReport)]
         interface IAppResourceGroupMemoryReport {
             #[get]
             CommitUsageLimit: u64;
@@ -450,8 +450,8 @@ mod Windows {
             Name: String;
         }
         #[guid(0x3a0bee95_29e4_51bf_8095_a3c068e3c72a)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerHost)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 851968)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerHost)]
         interface IAppUriHandlerHost2 {
             IsEnabled: bool;
         }
@@ -462,8 +462,8 @@ mod Windows {
             fn CreateInstance(&self, name: String) -> AppUriHandlerHost;
         }
         #[guid(0x6f73aeb1_4569_5c3f_9ba0_99123eea32c3)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerRegistration)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 458752)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerRegistration)]
         interface IAppUriHandlerRegistration {
             #[get]
             Name: String;
@@ -475,8 +475,8 @@ mod Windows {
             fn SetAppAddedHostsAsync(&self, hosts: super::Foundation::Collections::IIterable<AppUriHandlerHost>) -> super::Foundation::IAsyncAction;
         }
         #[guid(0xd54dac97_cb39_5f1f_883e_01853730bd6d)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerRegistration)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 851968)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerRegistration)]
         interface IAppUriHandlerRegistration2 {
             fn GetAllHosts(&self) -> super::Foundation::Collections::IVector<AppUriHandlerHost>;
             fn UpdateHosts(&self, hosts: super::Foundation::Collections::IIterable<AppUriHandlerHost>);
@@ -484,30 +484,30 @@ mod Windows {
             PackageFamilyName: String;
         }
         #[guid(0xe62c9a52_ac94_5750_ac1b_6cfb6f250263)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerRegistrationManager)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 458752)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerRegistrationManager)]
         interface IAppUriHandlerRegistrationManager {
             #[get]
             User: User;
             fn TryGetRegistration(&self, name: String) -> AppUriHandlerRegistration;
         }
         #[guid(0xbddfcaf1_b51a_5e69_aefd_7088d9f2b123)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerRegistrationManager)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 851968)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerRegistrationManager)]
         interface IAppUriHandlerRegistrationManager2 {
             #[get]
             PackageFamilyName: String;
         }
         #[guid(0xd5cedd9f_5729_5b76_a1d4_0285f295c124)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerRegistrationManager)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 458752)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerRegistrationManager)]
         interface IAppUriHandlerRegistrationManagerStatics {
             fn GetDefault(&self) -> AppUriHandlerRegistrationManager;
             fn GetForUser(&self, user: User) -> AppUriHandlerRegistrationManager;
         }
         #[guid(0x14f78379_6890_5080_90a7_98824a7f079e)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerRegistrationManager)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 851968)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(AppUriHandlerRegistrationManager)]
         interface IAppUriHandlerRegistrationManagerStatics2 {
             fn GetForPackage(&self, packageFamilyName: String) -> AppUriHandlerRegistrationManager;
             fn GetForPackageForUser(&self, packageFamilyName: String, user: User) -> AppUriHandlerRegistrationManager;
@@ -519,9 +519,9 @@ mod Windows {
             fn SetSystemDateTime(&self, utcDateTime: super::Foundation::DateTime);
         }
         #[guid(0x603e88e4_a338_4ffe_a457_a5cfb9ceb899)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
         #[Windows::Foundation::Metadata::ExclusiveTo(DispatcherQueue)]
         #[Windows::Foundation::Metadata::WebHostHidden]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
         interface IDispatcherQueue {
             fn CreateTimer(&self) -> DispatcherQueueTimer;
             #[Windows::Foundation::Metadata::Overload("TryEnqueue")]
@@ -532,8 +532,8 @@ mod Windows {
             event ShutdownCompleted: super::Foundation::TypedEventHandler<DispatcherQueue, Object>;
         }
         #[guid(0xc822c647_30ef_506e_bd1e_a647ae6675ff)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(DispatcherQueue)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(DispatcherQueue)]
         #[Windows::Foundation::Metadata::WebHostHidden]
         interface IDispatcherQueue2 {
             #[get]
@@ -541,8 +541,8 @@ mod Windows {
         }
         #[guid(0x22f34e66_50db_4e36_a98d_61c01b384d20)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
-        #[Windows::Foundation::Metadata::WebHostHidden]
         #[Windows::Foundation::Metadata::ExclusiveTo(DispatcherQueueController)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
         interface IDispatcherQueueController {
             #[get]
             DispatcherQueue: DispatcherQueue;
@@ -550,30 +550,30 @@ mod Windows {
             fn ShutdownQueueAsync(&self) -> super::Foundation::IAsyncAction;
         }
         #[guid(0x0a6c98e0_5198_49a2_a313_3f70d1f13c27)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(DispatcherQueueController)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(DispatcherQueueController)]
         #[Windows::Foundation::Metadata::WebHostHidden]
         interface IDispatcherQueueControllerStatics {
             fn CreateOnDedicatedThread(&self) -> DispatcherQueueController;
         }
         #[guid(0xc4724c4c_ff97_40c0_a226_cc0aaa545e89)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
         #[Windows::Foundation::Metadata::ExclusiveTo(DispatcherQueueShutdownStartingEventArgs)]
         #[Windows::Foundation::Metadata::WebHostHidden]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
         interface IDispatcherQueueShutdownStartingEventArgs {
             fn GetDeferral(&self) -> super::Foundation::Deferral;
         }
         #[guid(0xa96d83d7_9371_4517_9245_d0824ac12c74)]
-        #[Windows::Foundation::Metadata::WebHostHidden]
-        #[Windows::Foundation::Metadata::ExclusiveTo(DispatcherQueue)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(DispatcherQueue)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
         interface IDispatcherQueueStatics {
             fn GetForCurrentThread(&self) -> DispatcherQueue;
         }
         #[guid(0x5feabb1d_a31c_4727_b1ac_37454649d56a)]
-        #[Windows::Foundation::Metadata::WebHostHidden]
-        #[Windows::Foundation::Metadata::ExclusiveTo(DispatcherQueueTimer)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(DispatcherQueueTimer)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
         interface IDispatcherQueueTimer {
             Interval: super::Foundation::TimeSpan;
             #[get]
@@ -591,8 +591,8 @@ mod Windows {
             ItemsToSelect: super::Foundation::Collections::IVector<super::Storage::IStorageItem>;
         }
         #[guid(0x7755911a_70c5_48e5_b637_5ba3441e4ee4)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(KnownUserProperties)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(KnownUserProperties)]
         interface IKnownUserPropertiesStatics {
             #[get]
             DisplayName: String;
@@ -621,8 +621,8 @@ mod Windows {
             AgeEnforcementRegion: String;
         }
         #[guid(0xec27a8df_f6d5_45ca_913a_70a40c5c8221)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(LaunchUriResult)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(LaunchUriResult)]
         interface ILaunchUriResult {
             #[get]
             Status: LaunchUriStatus;
@@ -630,8 +630,8 @@ mod Windows {
             Result: super::Foundation::Collections::ValueSet;
         }
         #[guid(0xbafa21d8_b071_4cd8_853e_341203e557d3)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(LauncherOptions)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(LauncherOptions)]
         interface ILauncherOptions {
             TreatAsUntrusted: bool;
             DisplayApplicationPicker: bool;
@@ -643,27 +643,27 @@ mod Windows {
             ContentType: String;
         }
         #[guid(0x3ba08eb4_6e40_4dce_a1a3_2f53950afb49)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(LauncherOptions)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(LauncherOptions)]
         interface ILauncherOptions2 {
             TargetApplicationPackageFamilyName: String;
             NeighboringFilesQuery: super::Storage::Search::StorageFileQueryResult;
         }
         #[guid(0xf0770655_4b63_4e3a_9107_4e687841923a)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(LauncherOptions)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(LauncherOptions)]
         interface ILauncherOptions3 {
             IgnoreAppUriHandlers: bool;
         }
         #[guid(0xef6fd10e_e6fb_4814_a44e_57e8b9d9a01b)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(LauncherOptions)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(LauncherOptions)]
         interface ILauncherOptions4 {
             LimitPickerToCurrentAppAndAppUriHandlers: bool;
         }
         #[guid(0x277151c3_9e3e_42f6_91a4_5dfdeb232451)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(Launcher)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Launcher)]
         interface ILauncherStatics {
             #[Windows::Foundation::Metadata::Overload("LaunchFileAsync")]
             fn LaunchFileAsync(&self, file: super::Storage::IStorageFile) -> super::Foundation::IAsyncOperation<bool>;
@@ -675,8 +675,8 @@ mod Windows {
             fn LaunchUriAsync(&self, uri: super::Foundation::Uri, options: LauncherOptions) -> super::Foundation::IAsyncOperation<bool>;
         }
         #[guid(0x59ba2fbb_24cb_4c02_a4c4_8294569d54f1)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(Launcher)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Launcher)]
         interface ILauncherStatics2 {
             #[Windows::Foundation::Metadata::Overload("LaunchUriForResultsAsync")]
             fn LaunchUriForResultsAsync(&self, uri: super::Foundation::Uri, options: LauncherOptions) -> super::Foundation::IAsyncOperation<LaunchUriResult>;
@@ -684,14 +684,14 @@ mod Windows {
             fn LaunchUriForResultsAsync(&self, uri: super::Foundation::Uri, options: LauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<LaunchUriResult>;
             #[Windows::Foundation::Metadata::Overload("LaunchUriWithDataAsync")]
             fn LaunchUriAsync(&self, uri: super::Foundation::Uri, options: LauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<bool>;
-            #[Windows::Foundation::Metadata::RemoteAsync]
             #[Windows::Foundation::Metadata::Overload("QueryUriSupportAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
             fn QueryUriSupportAsync(&self, uri: super::Foundation::Uri, launchQuerySupportType: LaunchQuerySupportType) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
-            #[Windows::Foundation::Metadata::RemoteAsync]
             #[Windows::Foundation::Metadata::Overload("QueryUriSupportWithPackageFamilyNameAsync")]
-            fn QueryUriSupportAsync(&self, uri: super::Foundation::Uri, launchQuerySupportType: LaunchQuerySupportType, packageFamilyName: String) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
             #[Windows::Foundation::Metadata::RemoteAsync]
+            fn QueryUriSupportAsync(&self, uri: super::Foundation::Uri, launchQuerySupportType: LaunchQuerySupportType, packageFamilyName: String) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
             #[Windows::Foundation::Metadata::Overload("QueryFileSupportAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
             fn QueryFileSupportAsync(&self, file: super::Storage::StorageFile) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
             #[Windows::Foundation::Metadata::Overload("QueryFileSupportWithPackageFamilyNameAsync")]
             #[Windows::Foundation::Metadata::RemoteAsync]
@@ -699,8 +699,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::Overload("FindUriSchemeHandlersAsync")]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn FindUriSchemeHandlersAsync(&self, scheme: String) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>;
-            #[Windows::Foundation::Metadata::RemoteAsync]
             #[Windows::Foundation::Metadata::Overload("FindUriSchemeHandlersWithLaunchUriTypeAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
             fn FindUriSchemeHandlersAsync(&self, scheme: String, launchQuerySupportType: LaunchQuerySupportType) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>;
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn FindFileHandlersAsync(&self, extension: String) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<super::ApplicationModel::AppInfo>>;
@@ -718,8 +718,8 @@ mod Windows {
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
         #[Windows::Foundation::Metadata::ExclusiveTo(Launcher)]
         interface ILauncherStatics4 {
-            #[Windows::Foundation::Metadata::RemoteAsync]
             #[Windows::Foundation::Metadata::Overload("QueryAppUriSupportAsync")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
             fn QueryAppUriSupportAsync(&self, uri: super::Foundation::Uri) -> super::Foundation::IAsyncOperation<LaunchQuerySupportStatus>;
             #[Windows::Foundation::Metadata::Overload("QueryAppUriSupportWithPackageFamilyNameAsync")]
             #[Windows::Foundation::Metadata::RemoteAsync]
@@ -751,8 +751,8 @@ mod Windows {
             fn LaunchFolderPathForUserAsync(&self, user: User, path: String, options: FolderLauncherOptions) -> super::Foundation::IAsyncOperation<bool>;
         }
         #[guid(0x1b25da6e_8aa6_41e9_8251_4165f5985f49)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(LauncherUIOptions)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(LauncherUIOptions)]
         interface ILauncherUIOptions {
             InvocationPoint: super::Foundation::IReference<super::Foundation::Point>;
             SelectionRect: super::Foundation::IReference<super::Foundation::Rect>;
@@ -791,8 +791,8 @@ mod Windows {
             fn TrySetAppMemoryUsageLimit(&self, value: u64) -> bool;
         }
         #[guid(0xc5a94828_e84e_4886_8a0d_44b3190e3b72)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(MemoryManager)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 327680)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MemoryManager)]
         interface IMemoryManagerStatics4 {
             #[get]
             ExpectedAppMemoryUsageLimit: u64;
@@ -814,19 +814,19 @@ mod Windows {
             ExitCode: u32;
         }
         #[guid(0x33ab66e7_2d0e_448b_a6a0_c13c3836d09c)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(ProcessLauncher)]
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 131072)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ProcessLauncher)]
         interface IProcessLauncherStatics {
-            #[Windows::Foundation::Metadata::RemoteAsync]
             #[Windows::Foundation::Metadata::Overload("RunToCompletionAsync")]
-            fn RunToCompletionAsync(&self, fileName: String, args: String) -> super::Foundation::IAsyncOperation<ProcessLauncherResult>;
             #[Windows::Foundation::Metadata::RemoteAsync]
+            fn RunToCompletionAsync(&self, fileName: String, args: String) -> super::Foundation::IAsyncOperation<ProcessLauncherResult>;
             #[Windows::Foundation::Metadata::Overload("RunToCompletionAsyncWithOptions")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
             fn RunToCompletionAsync(&self, fileName: String, args: String, options: ProcessLauncherOptions) -> super::Foundation::IAsyncOperation<ProcessLauncherResult>;
         }
         #[guid(0x087305a8_9b70_4782_8741_3a982b6ce5e4)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(ProcessMemoryReport)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ProcessMemoryReport)]
         interface IProcessMemoryReport {
             #[get]
             PrivateWorkingSetUsage: u64;
@@ -834,14 +834,14 @@ mod Windows {
             TotalWorkingSetUsage: u64;
         }
         #[guid(0xd581293a_6de9_4d28_9378_f86782e182bb)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(ProtocolForResultsOperation)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ProtocolForResultsOperation)]
         interface IProtocolForResultsOperation {
             fn ReportCompleted(&self, data: super::Foundation::Collections::ValueSet);
         }
         #[guid(0x9e3a2788_2891_4cdf_a2d6_9dff7d02e693)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(RemoteLauncherOptions)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(RemoteLauncherOptions)]
         interface IRemoteLauncherOptions {
             FallbackUri: super::Foundation::Uri;
             #[get]
@@ -859,15 +859,15 @@ mod Windows {
             fn LaunchUriAsync(&self, remoteSystemConnectionRequest: RemoteSystems::RemoteSystemConnectionRequest, uri: super::Foundation::Uri, options: RemoteLauncherOptions, inputData: super::Foundation::Collections::ValueSet) -> super::Foundation::IAsyncOperation<RemoteLaunchUriStatus>;
         }
         #[guid(0x72e247ed_dd5b_4d6c_b1d0_c57a7bbb5f94)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(ShutdownManager)]
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ShutdownManager)]
         interface IShutdownManagerStatics {
             fn BeginShutdown(&self, shutdownKind: ShutdownKind, timeout: super::Foundation::TimeSpan);
             fn CancelShutdown(&self);
         }
         #[guid(0x0f69a02f_9c34_43c7_a8c3_70b30a7f7504)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(ShutdownManager)]
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 196608)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ShutdownManager)]
         interface IShutdownManagerStatics2: IShutdownManagerStatics {
             fn IsPowerStateSupported(&self, powerState: PowerState) -> bool;
             #[Windows::Foundation::Metadata::Overload("EnterPowerState")]
@@ -876,8 +876,8 @@ mod Windows {
             fn EnterPowerState(&self, powerState: PowerState, wakeUpAfter: super::Foundation::TimeSpan);
         }
         #[guid(0x9b3b2bea_a101_41ae_9fbd_028728bab73d)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(TimeZoneSettings)]
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(TimeZoneSettings)]
         interface ITimeZoneSettingsStatics {
             #[get]
             CurrentTimeZoneDisplayName: String;
@@ -895,8 +895,8 @@ mod Windows {
             fn AutoUpdateTimeZoneAsync(&self, timeout: super::Foundation::TimeSpan) -> super::Foundation::IAsyncOperation<AutoUpdateTimeZoneStatus>;
         }
         #[guid(0xdf9a26c6_e746_4bcd_b5d4_120103c4209b)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(User)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(User)]
         interface IUser {
             #[get]
             NonRoamableId: String;
@@ -912,8 +912,8 @@ mod Windows {
             fn GetPictureAsync(&self, desiredSize: UserPictureSize) -> super::Foundation::IAsyncOperation<super::Storage::Streams::IRandomAccessStreamReference>;
         }
         #[guid(0x98ba5628_a6e3_518e_89d9_d3b2b1991a10)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(User)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 917504)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(User)]
         interface IUser2 {
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn CheckUserAgeConsentGroupAsync(&self, consentGroup: UserAgeConsentGroup) -> super::Foundation::IAsyncOperation<UserAgeConsentResult>;
@@ -925,8 +925,8 @@ mod Windows {
             fn Complete(&self);
         }
         #[guid(0x8c030f28_a711_4c1e_ab48_04179c15938f)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(UserAuthenticationStatusChangingEventArgs)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(UserAuthenticationStatusChangingEventArgs)]
         interface IUserAuthenticationStatusChangingEventArgs {
             fn GetDeferral(&self) -> UserAuthenticationStatusChangeDeferral;
             #[get]
@@ -944,15 +944,15 @@ mod Windows {
             User: User;
         }
         #[guid(0x6b2ccb44_6f01_560c_97ad_fc7f32ec581f)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(UserChangedEventArgs)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 655360)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(UserChangedEventArgs)]
         interface IUserChangedEventArgs2 {
             #[get]
             ChangedPropertyKinds: super::Foundation::Collections::IVectorView<UserWatcherUpdateKind>;
         }
         #[guid(0xbd1f6f6c_bb5d_4d7b_a5f0_c8cd11a38d42)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(UserDeviceAssociationChangedEventArgs)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(UserDeviceAssociationChangedEventArgs)]
         interface IUserDeviceAssociationChangedEventArgs {
             #[get]
             DeviceId: String;
@@ -977,27 +977,27 @@ mod Windows {
             fn PickSingleUserAsync(&self) -> super::Foundation::IAsyncOperation<User>;
         }
         #[guid(0xde3290dc_7e73_4df6_a1ae_4d7eca82b40d)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(UserPicker)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(UserPicker)]
         interface IUserPickerStatics {
             fn IsSupported(&self) -> bool;
         }
         #[guid(0x155eb23b_242a_45e0_a2e9_3171fc6a7fdd)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(User)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(User)]
         interface IUserStatics {
             fn CreateWatcher(&self) -> UserWatcher;
+            #[Windows::Foundation::Metadata::DefaultOverload]
             #[Windows::Foundation::Metadata::Overload("FindAllAsync")]
             #[Windows::Foundation::Metadata::RemoteAsync]
-            #[Windows::Foundation::Metadata::DefaultOverload]
             fn FindAllAsync(&self) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>;
-            #[Windows::Foundation::Metadata::Overload("FindAllAsyncByType")]
             #[Windows::Foundation::Metadata::Deprecated("FindAllAsyncByType is deprecated and might not function consistently on all platforms. Instead, use FindAllAsync or GetDefault.", Deprecate, 720896, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Overload("FindAllAsyncByType")]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn FindAllAsync(&self, r#type: UserType) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>;
             #[Windows::Foundation::Metadata::Deprecated("FindAllAsyncByTypeAndStatus is deprecated and might not function consistently on all platforms. Instead, use FindAllAsync or GetDefault.", Deprecate, 720896, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::RemoteAsync]
             #[Windows::Foundation::Metadata::Overload("FindAllAsyncByTypeAndStatus")]
+            #[Windows::Foundation::Metadata::RemoteAsync]
             fn FindAllAsync(&self, r#type: UserType, status: UserAuthenticationStatus) -> super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<User>>;
             fn GetFromId(&self, nonRoamableId: String) -> User;
         }
@@ -1008,8 +1008,8 @@ mod Windows {
             fn GetDefault(&self) -> User;
         }
         #[guid(0x155eb23b_242a_45e0_a2e9_3171fc6a7fbb)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(UserWatcher)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(UserWatcher)]
         interface IUserWatcher {
             #[get]
             Status: UserWatcherStatus;
@@ -1023,11 +1023,11 @@ mod Windows {
             event EnumerationCompleted: super::Foundation::TypedEventHandler<UserWatcher, Object>;
             event Stopped: super::Foundation::TypedEventHandler<UserWatcher, Object>;
         }
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-        #[Windows::Foundation::Metadata::Static(IKnownUserPropertiesStatics2, 917504, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Static(IKnownUserPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IKnownUserPropertiesStatics2, 917504, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class KnownUserProperties {}
         #[repr(i32)]
@@ -1054,8 +1054,8 @@ mod Windows {
             Uri = 0,
             UriForResults = 1,
         }
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class LaunchUriResult {
             ILaunchUriResult,
         }
@@ -1068,18 +1068,18 @@ mod Windows {
             Unknown = 3,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::Static(ILauncherStatics, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
-        #[Windows::Foundation::Metadata::Static(ILauncherStatics3, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(ILauncherStatics, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(ILauncherStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(ILauncherStatics3, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(ILauncherStatics4, 196608, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(ILauncherStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class Launcher {}
         #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class LauncherOptions {
             ILauncherOptions,
             ILauncherOptions2,
@@ -1092,11 +1092,11 @@ mod Windows {
         class LauncherUIOptions {
             ILauncherUIOptions,
         }
-        #[Windows::Foundation::Metadata::Static(IMemoryManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Static(IMemoryManagerStatics3, 131072, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Static(IMemoryManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IMemoryManagerStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IMemoryManagerStatics3, 131072, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(IMemoryManagerStatics4, 327680, "Windows.Foundation.UniversalApiContract")]
         class MemoryManager {}
         #[repr(i32)]
@@ -1105,28 +1105,28 @@ mod Windows {
             ConnectedStandby = 0,
             SleepS3 = 1,
         }
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 131072)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
         #[Windows::Foundation::Metadata::Static(IProcessLauncherStatics, 131072, "Windows.System.SystemManagementContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class ProcessLauncher {}
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
         #[Windows::Foundation::Metadata::Activatable(131072, "Windows.System.SystemManagementContract")]
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 131072)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class ProcessLauncherOptions {
             IProcessLauncherOptions,
         }
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 131072)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class ProcessLauncherResult {
             IProcessLauncherResult,
         }
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class ProcessMemoryReport {
             IProcessMemoryReport,
         }
@@ -1163,10 +1163,10 @@ mod Windows {
         #[Windows::Foundation::Metadata::Static(IRemoteLauncherStatics, 196608, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class RemoteLauncher {}
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class RemoteLauncherOptions {
             IRemoteLauncherOptions,
         }
@@ -1176,25 +1176,25 @@ mod Windows {
             Shutdown = 0,
             Restart = 1,
         }
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
         #[Windows::Foundation::Metadata::Static(IShutdownManagerStatics, 65536, "Windows.System.SystemManagementContract")]
         #[Windows::Foundation::Metadata::Static(IShutdownManagerStatics2, 196608, "Windows.System.SystemManagementContract")]
-        class ShutdownManager {}
-        #[Windows::Foundation::Metadata::ContractVersion(458752)]
-        #[Windows::Foundation::Metadata::ApiContract]
-        struct SystemManagementContract {}
         #[Windows::Foundation::Metadata::Threading(Both)]
+        class ShutdownManager {}
+        #[Windows::Foundation::Metadata::ApiContract]
+        #[Windows::Foundation::Metadata::ContractVersion(458752)]
+        struct SystemManagementContract {}
+        #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 65536)]
         #[Windows::Foundation::Metadata::Static(ITimeZoneSettingsStatics, 65536, "Windows.System.SystemManagementContract")]
         #[Windows::Foundation::Metadata::Static(ITimeZoneSettingsStatics2, 327680, "Windows.System.SystemManagementContract")]
-        #[Windows::Foundation::Metadata::ContractVersion(SystemManagementContract, 65536)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class TimeZoneSettings {}
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::Static(IUserStatics2, 720896, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Static(IUserStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IUserStatics2, 720896, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class User {
             IUser,
@@ -1224,43 +1224,43 @@ mod Windows {
             RemotelyAuthenticated = 2,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class UserAuthenticationStatusChangeDeferral {
             IUserAuthenticationStatusChangeDeferral,
         }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         class UserAuthenticationStatusChangingEventArgs {
             IUserAuthenticationStatusChangingEventArgs,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class UserChangedEventArgs {
             IUserChangedEventArgs,
             IUserChangedEventArgs2,
         }
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Static(IUserDeviceAssociationStatics, 196608, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
-        class UserDeviceAssociation {}
         #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        class UserDeviceAssociation {}
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class UserDeviceAssociationChangedEventArgs {
             IUserDeviceAssociationChangedEventArgs,
         }
-        #[Windows::Foundation::Metadata::Static(IUserPickerStatics, 196608, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
         #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IUserPickerStatics, 196608, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class UserPicker {
             IUserPicker,
         }
@@ -1281,9 +1281,9 @@ mod Windows {
             RemoteGuest = 3,
             SystemManaged = 4,
         }
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class UserWatcher {
             IUserWatcher,
         }

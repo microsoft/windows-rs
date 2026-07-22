@@ -2,11 +2,11 @@
 mod Windows {
     mod Devices {
         mod Custom {
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ICustomDeviceStatics, 65536, "Windows.Devices.Custom.CustomDeviceContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
             class CustomDevice {
                 ICustomDevice,
             }
@@ -62,8 +62,8 @@ mod Windows {
                 ControlCode: u32;
             }
             #[guid(0x856a7cf0_4c11_44ae_afc6_b8d4a212788f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(IOControlCode)]
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(IOControlCode)]
             interface IIOControlCodeFactory {
                 fn CreateIOControlCode(&self, deviceType: u16, function: u16, accessMode: IOControlAccessMode, bufferingMethod: IOControlBufferingMethod) -> IOControlCode;
             }
@@ -90,18 +90,18 @@ mod Windows {
                 DirectOutput = 2,
                 Neither = 3,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(IIOControlCodeFactory, 65536, "Windows.Devices.Custom.CustomDeviceContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class IOControlCode {
                 IIOControlCode,
             }
             #[Windows::Foundation::Metadata::ContractVersion(CustomDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::Static(IKnownDeviceTypesStatics, 65536, "Windows.Devices.Custom.CustomDeviceContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IKnownDeviceTypesStatics, 65536, "Windows.Devices.Custom.CustomDeviceContract")]
             class KnownDeviceTypes {}
         }
     }

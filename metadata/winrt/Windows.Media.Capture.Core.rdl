@@ -30,22 +30,22 @@ mod Windows {
                     event Stopped: super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, Object>;
                 }
                 #[guid(0xfe2c62bc_50b0_43e3_917c_e3b92798942f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(VariablePhotoSequenceCapture)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VariablePhotoSequenceCapture)]
                 interface IVariablePhotoSequenceCapture2 {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn UpdateSettingsAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class VariablePhotoCapturedEventArgs {
                     IVariablePhotoCapturedEventArgs,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 #[Windows::Foundation::Metadata::Threading(MTA)]
                 class VariablePhotoSequenceCapture {
                     IVariablePhotoSequenceCapture,

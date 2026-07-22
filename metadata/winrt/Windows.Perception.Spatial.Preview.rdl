@@ -15,8 +15,8 @@ mod Windows {
                     CoordinateSystemToNodeTransform: super::super::super::Foundation::Numerics::Matrix4x4;
                 }
                 #[guid(0xc042644c_20d8_4ed0_aef7_6805b8e53f55)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialGraphInteropPreview)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialGraphInteropPreview)]
                 interface ISpatialGraphInteropPreviewStatics {
                     #[Windows::Foundation::Metadata::Overload("CreateCoordinateSystemForNode")]
                     fn CreateCoordinateSystemForNode(&self, nodeId: GUID) -> super::SpatialCoordinateSystem;
@@ -37,16 +37,16 @@ mod Windows {
                     #[Windows::Foundation::Metadata::Overload("TryCreateFrameOfReferenceWithPositionAndOrientation")]
                     fn TryCreateFrameOfReference(&self, coordinateSystem: super::SpatialCoordinateSystem, relativePosition: super::super::super::Foundation::Numerics::Vector3, relativeOrientation: super::super::super::Foundation::Numerics::Quaternion) -> SpatialGraphInteropFrameOfReferencePreview;
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class SpatialGraphInteropFrameOfReferencePreview {
                     ISpatialGraphInteropFrameOfReferencePreview,
                 }
-                #[Windows::Foundation::Metadata::Static(ISpatialGraphInteropPreviewStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(ISpatialGraphInteropPreviewStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(ISpatialGraphInteropPreviewStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialGraphInteropPreview {}
             }
         }

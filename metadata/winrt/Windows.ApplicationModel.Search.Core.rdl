@@ -8,8 +8,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ExclusiveTo(RequestingFocusOnKeyboardInputEventArgs)]
                 interface IRequestingFocusOnKeyboardInputEventArgs {}
                 #[guid(0x5b5554b0_1527_437b_95c5_8d18d2b8af55)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestion)]
                 #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestion)]
                 interface ISearchSuggestion {
                     #[get]
                     Kind: SearchSuggestionKind;
@@ -25,8 +25,8 @@ mod Windows {
                     ImageAlternateText: String;
                 }
                 #[guid(0x3f0c50a1_cb9d_497b_b500_3c04ac959ad2)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestionManager)]
                 #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SearchSuggestionManager)]
                 interface ISearchSuggestionManager {
                     SearchHistoryEnabled: bool;
                     SearchHistoryContext: String;
@@ -86,8 +86,8 @@ mod Windows {
                 class SearchSuggestionManager {
                     ISearchSuggestionManager,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(SearchCoreContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class SearchSuggestionsRequestedEventArgs {
                     ISearchSuggestionsRequestedEventArgs,
                 }

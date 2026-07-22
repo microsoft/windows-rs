@@ -18,8 +18,8 @@ mod Windows {
                 ExecutablePath: String;
             }
             #[guid(0x7197b9c1_03bb_5693_87c3_6f983cc70fb3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(StartupAppsManagerPreview)]
             #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StartupAppsManagerPreview)]
             interface IStartupAppsManagerPreview {
                 fn GetStartupAppInfos(&self) -> super::super::Foundation::Collections::IVectorView<StartupAppInfoPreview>;
             }
@@ -38,15 +38,15 @@ mod Windows {
                 Medium = 3,
                 High = 4,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class StartupAppInfoPreview {
                 IStartupAppInfoPreview,
             }
-            #[Windows::Foundation::Metadata::Static(IStartupAppsManagerPreviewStatics, 65536, "Windows.ApplicationModel.Preview.StartupAppsPreviewContract")]
             #[Windows::Foundation::Metadata::ContractVersion(StartupAppsPreviewContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IStartupAppsManagerPreviewStatics, 65536, "Windows.ApplicationModel.Preview.StartupAppsPreviewContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class StartupAppsManagerPreview {
                 IStartupAppsManagerPreview,
             }

@@ -3,8 +3,8 @@ mod Windows {
     mod Management {
         mod Policies {
             #[guid(0x38dcb198_95ac_4077_a643_8078cae26400)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(NamedPolicyData)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NamedPolicyData)]
             interface INamedPolicyData {
                 #[get]
                 Area: String;
@@ -32,16 +32,16 @@ mod Windows {
                 fn GetPolicyFromPath(&self, area: String, name: String) -> NamedPolicyData;
                 fn GetPolicyFromPathForUser(&self, user: super::super::System::User, area: String, name: String) -> NamedPolicyData;
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(INamedPolicyStatics, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             class NamedPolicy {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             class NamedPolicyData {
                 INamedPolicyData,
             }

@@ -44,9 +44,9 @@ mod Windows {
                     EepromCorrupt = 5,
                     SafeToUpdate = 6,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IGameControllerProviderInfoStatics, 65536, "Windows.Gaming.Input.GamingInputPreviewContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class GameControllerProviderInfo {}
@@ -84,8 +84,8 @@ mod Windows {
                     fn GetProviderId(&self, provider: super::Custom::IGameControllerProvider) -> String;
                 }
                 #[guid(0x2da3ed52_ffd9_43e2_825c_1d2790e04d14)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(LegacyGipGameControllerProvider)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LegacyGipGameControllerProvider)]
                 interface ILegacyGipGameControllerProvider {
                     #[get]
                     BatteryChargingState: GameControllerBatteryChargingState;
@@ -123,10 +123,10 @@ mod Windows {
                     fn IsCopilot(&self, user: super::super::super::System::User, controllerProviderId: String) -> String;
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::GamingInputPreviewContract, 131072)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772168)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(ILegacyGipGameControllerProviderStatics, 131072, "Windows.Gaming.Input.GamingInputPreviewContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772168)]
                 class LegacyGipGameControllerProvider {
                     ILegacyGipGameControllerProvider,
                 }

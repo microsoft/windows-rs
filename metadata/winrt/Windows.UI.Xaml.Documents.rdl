@@ -3,93 +3,93 @@ mod Windows {
     mod UI {
         mod Xaml {
             mod Documents {
+                #[Windows::Foundation::Metadata::Composable(IBlockFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IBlockStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IBlockStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Composable(IBlockFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class Block: TextElement {
                     IBlock,
                     IBlock2,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class BlockCollection {
                     super::super::super::Foundation::Collections::IVector<Block>,
                     super::super::super::Foundation::Collections::IIterable<Block>,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class Bold: Span {
                     IBold,
                 }
                 #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class ContactContentLinkProvider: ContentLinkProvider {
                     IContactContentLinkProvider,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IContentLinkStatics, 393216, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IContentLinkStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class ContentLink: Inline {
                     IContentLink,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class ContentLinkInvokedEventArgs {
                     IContentLinkInvokedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::Composable(IContentLinkProviderFactory, Protected, 393216, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class ContentLinkProvider: super::DependencyObject {
                     IContentLinkProvider,
                 }
+                #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class ContentLinkProviderCollection {
                     IContentLinkProviderCollection,
                     super::super::super::Foundation::Collections::IVector<ContentLinkProvider>,
                     super::super::super::Foundation::Collections::IIterable<ContentLinkProvider>,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IGlyphsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(IGlyphsStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IGlyphsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IGlyphsStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class Glyphs: super::FrameworkElement {
                     IGlyphs,
                     IGlyphs2,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IHyperlinkStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(IHyperlinkStatics5, 327680, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(IHyperlinkStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(IHyperlinkStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Static(IHyperlinkStatics4, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHyperlinkStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IHyperlinkStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IHyperlinkStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IHyperlinkStatics4, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IHyperlinkStatics5, 327680, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class Hyperlink: Span {
                     IHyperlink,
@@ -98,9 +98,9 @@ mod Windows {
                     IHyperlink4,
                     IHyperlink5,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class HyperlinkClickEventArgs: super::RoutedEventArgs {
                     IHyperlinkClickEventArgs,
@@ -116,16 +116,16 @@ mod Windows {
                     Margin: super::Thickness;
                 }
                 #[guid(0x5ec7bdf3_1333_4a92_8318_6caedc12ef89)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Block)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 interface IBlock2 {
                     HorizontalTextAlignment: super::TextAlignment;
                 }
                 #[guid(0x07110532_4f59_4f3b_9ce5_25784c430507)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(Block)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Block)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IBlockFactory {
                     fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Block;
                 }
@@ -144,27 +144,27 @@ mod Windows {
                     MarginProperty: super::DependencyProperty;
                 }
                 #[guid(0xaf01a4d6_03e3_4cee_9b02_2bfc308b27a9)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Block)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 interface IBlockStatics2 {
                     #[get]
                     HorizontalTextAlignmentProperty: super::DependencyProperty;
                 }
                 #[guid(0xade73784_1b59_4da4_bb23_0f20e885b4bf)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Bold)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface IBold {}
                 #[guid(0xf92fd29b_589b_4abd_9d37_35a1468f021e)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContactContentLinkProvider)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactContentLinkProvider)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IContactContentLinkProvider {}
                 #[guid(0x6c60c3e1_528c_42f8_92be_34b8c68be304)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ContentLink)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 interface IContentLink {
                     Info: super::super::Text::ContentLinkInfo;
                     Background: super::Media::Brush;
@@ -188,8 +188,8 @@ mod Windows {
                     fn Focus(&self, value: super::FocusState) -> bool;
                 }
                 #[guid(0x546717c1_e8df_4593_9639_97595fdf8310)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContentLinkInvokedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContentLinkInvokedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IContentLinkInvokedEventArgs {
                     #[get]
@@ -197,13 +197,13 @@ mod Windows {
                     Handled: bool;
                 }
                 #[guid(0x730587fd_bfdc_4cb3_904d_b65ab339bbf5)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContentLinkProvider)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContentLinkProvider)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IContentLinkProvider {}
                 #[guid(0xf5b84d0c_a9f4_4d1a_a13c_10def1843734)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContentLinkProviderCollection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContentLinkProviderCollection)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IContentLinkProviderCollection {}
                 #[guid(0x57d60d3b_ef1a_4e8e_839b_d36ef3a503e0)]
@@ -262,9 +262,9 @@ mod Windows {
                     Fill: super::Media::Brush;
                 }
                 #[guid(0xaa8bfe5c_3754_4bee_bbe1_4403ee9b86f0)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(Glyphs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Glyphs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IGlyphs2 {
                     IsColorFontEnabled: bool;
                     ColorFontPaletteIndex: i32;
@@ -292,9 +292,9 @@ mod Windows {
                     FillProperty: super::DependencyProperty;
                 }
                 #[guid(0x10489aa7_1615_4a33_aa02_d7ef2aefc739)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Glyphs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IGlyphsStatics2 {
                     #[get]
                     IsColorFontEnabledProperty: super::DependencyProperty;
@@ -302,17 +302,17 @@ mod Windows {
                     ColorFontPaletteIndexProperty: super::DependencyProperty;
                 }
                 #[guid(0x0fe2363b_14e9_4152_9e58_5aea5b21f08d)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IHyperlink {
                     NavigateUri: super::super::super::Foundation::Uri;
                     event Click: super::super::super::Foundation::TypedEventHandler<Hyperlink, HyperlinkClickEventArgs>;
                 }
                 #[guid(0x4ce9da5f_7cff_4291_b78f_dfec72490576)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IHyperlink2 {
                     UnderlineStyle: UnderlineStyle;
                 }
@@ -328,9 +328,9 @@ mod Windows {
                     ElementSoundMode: super::ElementSoundMode;
                 }
                 #[guid(0xf7d02959_82fb_400a_a407_5a4ee677988a)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IHyperlink4 {
                     #[get]
                     FocusState: super::FocusState;
@@ -343,38 +343,38 @@ mod Windows {
                     fn Focus(&self, value: super::FocusState) -> bool;
                 }
                 #[guid(0x607dd7d2_0945_4328_91ee_94ccec2ea6c3)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IHyperlink5 {
                     IsTabStop: bool;
                     TabIndex: i32;
                 }
                 #[guid(0xc755916b_7bdc_4be7_b373_9240a503d870)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ExclusiveTo(HyperlinkClickEventArgs)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IHyperlinkClickEventArgs {}
                 #[guid(0x3a44d3d4_fd41_41db_8c72_3b790acd9fd3)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IHyperlinkStatics {
                     #[get]
                     NavigateUriProperty: super::DependencyProperty;
                 }
                 #[guid(0x5028d8b7_7adf_43ee_a4ae_9c925f755716)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IHyperlinkStatics2 {
                     #[get]
                     UnderlineStyleProperty: super::DependencyProperty;
                 }
                 #[guid(0x3e15dea0_205e_4947_99a5_74e757e8e1b4)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 interface IHyperlinkStatics3 {
                     #[get]
                     XYFocusLeftProperty: super::DependencyProperty;
@@ -389,8 +389,8 @@ mod Windows {
                 }
                 #[guid(0x0476b378_8faa_4e24_b3b6_e9de4d3c708c)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IHyperlinkStatics4 {
                     #[get]
                     FocusStateProperty: super::DependencyProperty;
@@ -404,9 +404,9 @@ mod Windows {
                     XYFocusRightNavigationStrategyProperty: super::DependencyProperty;
                 }
                 #[guid(0x59308cea_1e49_4921_bd88_a2878d07e30e)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Hyperlink)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IHyperlinkStatics5 {
                     #[get]
                     IsTabStopProperty: super::DependencyProperty;
@@ -419,33 +419,33 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IInline {}
                 #[guid(0x4058acd1_2f90_4b8f_99dd_4218ef5f03de)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Inline)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface IInlineFactory {
                     fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Inline;
                 }
                 #[guid(0x1416ce81_28ee_452e_b121_5fc4f60b86a6)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(InlineUIContainer)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InlineUIContainer)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IInlineUIContainer {
                     Child: super::UIElement;
                 }
                 #[guid(0x91f4619c_fcbb_4157_802c_76f63b5fb657)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Italic)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IItalic {}
                 #[guid(0x645589c4_f769_41ed_895b_8a1b2fb31562)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(LineBreak)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LineBreak)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ILineBreak {}
                 #[guid(0xf83ef59a_fa61_4bef_ae33_0b0ad756a84d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Paragraph)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IParagraph {
                     #[get]
                     Inlines: InlineCollection;
@@ -460,14 +460,14 @@ mod Windows {
                     TextIndentProperty: super::DependencyProperty;
                 }
                 #[guid(0x10348a4c_2366_41be_90c8_3258b53b5483)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PlaceContentLinkProvider)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IPlaceContentLinkProvider {}
                 #[guid(0x59553c83_0e14_49bd_b84b_c526f3034349)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(Run)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Run)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IRun {
                     Text: String;
                     FlowDirection: super::FlowDirection;
@@ -481,9 +481,9 @@ mod Windows {
                     FlowDirectionProperty: super::DependencyProperty;
                 }
                 #[guid(0x9839d4a9_02af_4811_aa15_6bef3acac97a)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Span)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface ISpan {
                     Inlines: InlineCollection;
                 }
@@ -495,9 +495,9 @@ mod Windows {
                     fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Span;
                 }
                 #[guid(0xe83b0062_d776_4f92_baea_40e77d4791d5)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextElement)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITextElement {
                     #[get]
                     Name: String;
@@ -520,16 +520,16 @@ mod Windows {
                     fn FindName(&self, name: String) -> Object;
                 }
                 #[guid(0xa8076aa8_f892_49f6_8cd2_89addaf06d2d)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextElement)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface ITextElement2 {
                     IsTextScaleFactorEnabled: bool;
                 }
                 #[guid(0xd1db340f_1bc4_4ca8_bcf7_770bff9b27ab)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextElement)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 interface ITextElement3 {
                     AllowFocusOnInteraction: bool;
                     AccessKey: String;
@@ -551,28 +551,28 @@ mod Windows {
                     event AccessKeyInvoked: super::super::super::Foundation::TypedEventHandler<TextElement, super::Input::AccessKeyInvokedEventArgs>;
                 }
                 #[guid(0xbd9552f3_540d_58bf_b6a8_07556aeda2ea)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextElement)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITextElement5 {
                     XamlRoot: super::XamlRoot;
                 }
                 #[guid(0x35007285_cf47_4bfe_b1bc_39c93af4ae80)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextElement)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface ITextElementFactory {}
                 #[guid(0x0ce21ee7_4f76_4dd9_bf91_163beccf84bc)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(TextElement)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TextElement)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITextElementOverrides {
                     fn OnDisconnectVisualChildren(&self);
                 }
                 #[guid(0x0a2f9b98_6c03_4470_a79b_3298a10482ce)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(TextElement)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TextElement)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITextElementStatics {
                     #[get]
                     FontSizeProperty: super::DependencyProperty;
@@ -592,17 +592,17 @@ mod Windows {
                     LanguageProperty: super::DependencyProperty;
                 }
                 #[guid(0x164297b2_982b_49e1_8c03_ca43bc4d5b6d)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextElement)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface ITextElementStatics2 {
                     #[get]
                     IsTextScaleFactorEnabledProperty: super::DependencyProperty;
                 }
                 #[guid(0xcfefcfaf_0fa1_45ec_9a4e_9b33664dc8b1)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextElement)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITextElementStatics3 {
                     #[get]
                     AllowFocusOnInteractionProperty: super::DependencyProperty;
@@ -630,9 +630,9 @@ mod Windows {
                     KeyTipVerticalOffsetProperty: super::DependencyProperty;
                 }
                 #[guid(0xba6cb54b_7d75_4535_b30d_a81a00b637a4)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextHighlighter)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITextHighlighter {
                     #[get]
                     Ranges: super::super::super::Foundation::Collections::IVector<TextRange>;
@@ -640,26 +640,26 @@ mod Windows {
                     Background: super::Media::Brush;
                 }
                 #[guid(0xd957601a_5f0d_4cdf_9758_97e0eb95c8fa)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextHighlighterBase)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITextHighlighterBase {}
                 #[guid(0x9592b2d0_eadc_4c74_92c8_6e896e22506d)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextHighlighterBase)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITextHighlighterBaseFactory {}
                 #[guid(0x70125461_9a8f_4fa0_b235_8ffaa507bef2)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(TextHighlighter)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(TextHighlighter)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITextHighlighterFactory {
                     fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> TextHighlighter;
                 }
                 #[guid(0xb3b009c4_3a7e_49cc_ab84_29c405488765)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextHighlighter)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITextHighlighterStatics {
                     #[get]
                     ForegroundProperty: super::DependencyProperty;
@@ -668,8 +668,8 @@ mod Windows {
                 }
                 #[guid(0xac687aa1_6a41_43ff_851e_45348aa2cf7b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ExclusiveTo(TextPointer)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITextPointer {
                     #[get]
                     Parent: super::DependencyObject;
@@ -683,14 +683,14 @@ mod Windows {
                     fn GetPositionAtOffset(&self, offset: i32, direction: LogicalDirection) -> TextPointer;
                 }
                 #[guid(0x866f65d5_ea97_42ab_9288_9c01aebc7a97)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(Typography)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Typography)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITypography {}
                 #[guid(0x67b9ec88_6c57_4ce0_95f1_d4b9ed632fb4)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Typography)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ITypographyStatics {
                     #[get]
                     AnnotationAlternatesProperty: super::DependencyProperty;
@@ -866,47 +866,47 @@ mod Windows {
                     fn SetVariants(&self, element: super::DependencyObject, value: super::FontVariants);
                 }
                 #[guid(0xa5fa8202_61c0_47d7_93ef_bc0b577c5f26)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(Underline)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface IUnderline {}
                 #[Windows::Foundation::Metadata::Composable(IInlineFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class Inline: TextElement {
                     IInline,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class InlineCollection {
                     super::super::super::Foundation::Collections::IVector<Inline>,
                     super::super::super::Foundation::Collections::IIterable<Inline>,
                 }
-                #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Child")]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Child")]
                 class InlineUIContainer: Inline {
                     IInlineUIContainer,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class Italic: Span {
                     IItalic,
                 }
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class LineBreak: Inline {
                     ILineBreak,
                 }
@@ -917,51 +917,51 @@ mod Windows {
                     Backward = 0,
                     Forward = 1,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IParagraphStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Inlines")]
-                #[Windows::Foundation::Metadata::Static(IParagraphStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 class Paragraph: Block {
                     IParagraph,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class PlaceContentLinkProvider: ContentLinkProvider {
                     IPlaceContentLinkProvider,
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IRunStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Text")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IRunStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Text")]
                 class Run: Inline {
                     IRun,
                 }
-                #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Inlines")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Composable(ISpanFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Composable(ISpanFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::UI::Xaml::Markup::ContentProperty(Name = "Inlines")]
                 class Span: Inline {
                     ISpan,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Composable(ITextElementFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Static(ITextElementStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(ITextElementStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(ITextElementStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Composable(ITextElementFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(ITextElementStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(ITextElementStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(ITextElementStatics4, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class TextElement: super::DependencyObject {
                     ITextElement,
@@ -971,54 +971,54 @@ mod Windows {
                     ITextElement5,
                     ITextElementOverrides,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::Composable(ITextHighlighterFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(ITextHighlighterStatics, 327680, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
-                #[Windows::Foundation::Metadata::Composable(ITextHighlighterFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class TextHighlighter {
                     ITextHighlighter,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::Composable(ITextHighlighterBaseFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class TextHighlighterBase: super::DependencyObject {
                     ITextHighlighterBase,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class TextPointer {
                     ITextPointer,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 struct TextRange {
                     StartIndex: i32,
                     Length: i32,
                 }
-                #[Windows::Foundation::Metadata::Static(ITypographyStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ITypographyStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class Typography {
                     ITypography,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                 class Underline: Span {
                     IUnderline,
                 }
                 #[repr(i32)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 enum UnderlineStyle {
                     None = 0,
                     Single = 1,

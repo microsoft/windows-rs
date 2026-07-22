@@ -3,8 +3,8 @@ mod Windows {
     mod Devices {
         mod Radios {
             #[guid(0x252118df_b33e_416a_875f_1cf38ae2d83e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Radio)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Radio)]
             interface IRadio {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SetStateAsync(&self, value: RadioState) -> super::super::Foundation::IAsyncOperation<RadioAccessStatus>;
@@ -29,10 +29,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestAccessAsync(&self) -> super::super::Foundation::IAsyncOperation<RadioAccessStatus>;
             }
-            #[Windows::Foundation::Metadata::Static(IRadioStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IRadioStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class Radio {
                 IRadio,
             }

@@ -3,18 +3,18 @@ mod Windows {
     mod Devices {
         mod Sensors {
             mod Custom {
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(ICustomSensorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class CustomSensor {
                     ICustomSensor,
                     ICustomSensor2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class CustomSensorReading {
                     ICustomSensorReading,
@@ -63,8 +63,8 @@ mod Windows {
                     Properties: super::super::super::Foundation::Collections::IMapView<String, Object>;
                 }
                 #[guid(0x223c98ea_bf73_4992_9a48_d3c897594ccb)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensorReading)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CustomSensorReading)]
                 interface ICustomSensorReading2 {
                     #[get]
                     PerformanceCount: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;

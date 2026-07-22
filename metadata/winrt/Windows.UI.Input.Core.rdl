@@ -20,15 +20,15 @@ mod Windows {
                     DispatcherQueue: super::super::super::System::DispatcherQueue;
                 }
                 #[guid(0x3d577ef5_4cee_11e6_b535_001bdc06ab3b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerIndependentInputSource)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RadialControllerIndependentInputSource)]
                 interface IRadialControllerIndependentInputSourceStatics {
                     fn CreateForView(&self, view: super::super::super::ApplicationModel::Core::CoreApplicationView) -> RadialControllerIndependentInputSource;
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
-                #[Windows::Foundation::Metadata::Static(IRadialControllerIndependentInputSourceStatics, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IRadialControllerIndependentInputSourceStatics, 262144, "Windows.Foundation.UniversalApiContract")]
                 class RadialControllerIndependentInputSource {
                     IRadialControllerIndependentInputSource,
                     IRadialControllerIndependentInputSource2,

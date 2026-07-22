@@ -2,11 +2,11 @@
 mod Windows {
     mod Foundation {
         mod Diagnostics {
-            #[Windows::Foundation::Metadata::Static(IAsyncCausalityTracerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
-            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            #[Windows::Foundation::Metadata::Static(IAsyncCausalityTracerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class AsyncCausalityTracer {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
@@ -38,9 +38,9 @@ mod Windows {
                 Important = 1,
                 Verbose = 2,
             }
-            #[Windows::Foundation::Metadata::Static(IErrorDetailsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IErrorDetailsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ErrorDetails {
                 IErrorDetails,
@@ -55,8 +55,8 @@ mod Windows {
                 UseSetErrorInfo = 4,
                 SuppressSetErrorInfo = 8,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(IFileLoggingSessionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class FileLoggingSession {
@@ -113,14 +113,14 @@ mod Windows {
                 event LogFileGenerated: super::TypedEventHandler<IFileLoggingSession, LogFileGeneratedEventArgs>;
             }
             #[guid(0xeea08dce_8447_4daa_9133_12eb46f697d4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(FileLoggingSession)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FileLoggingSession)]
             interface IFileLoggingSessionFactory {
                 fn Create(&self, name: String) -> FileLoggingSession;
             }
             #[guid(0x269e976f_0d38_4c1a_b53f_b395d881df84)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LogFileGeneratedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LogFileGeneratedEventArgs)]
             interface ILogFileGeneratedEventArgs {
                 #[get]
                 File: super::super::Storage::StorageFile;
@@ -135,8 +135,8 @@ mod Windows {
                 Id: GUID;
             }
             #[guid(0x26c29808_6322_456a_af82_80c8642f178b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LoggingActivity)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LoggingActivity)]
             interface ILoggingActivity2: ILoggingActivity + super::IClosable + ILoggingTarget {
                 #[get]
                 Channel: LoggingChannel;
@@ -148,8 +148,8 @@ mod Windows {
                 fn StopActivity(&self, stopEventName: String, fields: LoggingFields, options: LoggingOptions);
             }
             #[guid(0x6b33b483_e10a_4c58_97d5_10fb451074fb)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LoggingActivity)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LoggingActivity)]
             interface ILoggingActivityFactory {
                 fn CreateLoggingActivity(&self, activityName: String, loggingChannel: ILoggingChannel) -> LoggingActivity;
                 fn CreateLoggingActivityWithLevel(&self, activityName: String, loggingChannel: ILoggingChannel, level: LoggingLevel) -> LoggingActivity;
@@ -174,15 +174,15 @@ mod Windows {
                 event LoggingEnabled: super::TypedEventHandler<ILoggingChannel, Object>;
             }
             #[guid(0x9f4c3cf3_0bac_45a5_9e33_baf3f3a246a5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LoggingChannel)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LoggingChannel)]
             interface ILoggingChannel2: ILoggingChannel + super::IClosable + ILoggingTarget {
                 #[get]
                 Id: GUID;
             }
             #[guid(0x4edc5b9c_af80_4a9b_b0dc_398f9ae5207b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LoggingChannel)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LoggingChannel)]
             interface ILoggingChannelFactory {
                 #[Windows::Foundation::Metadata::Deprecated("This constructor creates a LoggingChannel in Windows 8.1 compatibility mode. Prefer the two-parameter constructor.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 fn Create(&self, name: String) -> LoggingChannel;
@@ -195,14 +195,14 @@ mod Windows {
                 fn CreateWithOptionsAndId(&self, name: String, options: LoggingChannelOptions, id: GUID) -> LoggingChannel;
             }
             #[guid(0xc3e847ff_0ebb_4a53_8c54_dec24926cb2c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LoggingChannelOptions)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LoggingChannelOptions)]
             interface ILoggingChannelOptions {
                 Group: GUID;
             }
             #[guid(0xa93151da_7faf_4191_8755_5e86dc65d896)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LoggingChannelOptions)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LoggingChannelOptions)]
             interface ILoggingChannelOptionsFactory {
                 fn Create(&self, group: GUID) -> LoggingChannelOptions;
             }
@@ -502,35 +502,35 @@ mod Windows {
                 fn StartActivity(&self, startEventName: String, fields: LoggingFields, level: LoggingLevel, options: LoggingOptions) -> LoggingActivity;
             }
             #[guid(0x410b7711_ff3b_477f_9c9a_d2efda302dc3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TracingStatusChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TracingStatusChangedEventArgs)]
             interface ITracingStatusChangedEventArgs {
                 #[get]
                 Enabled: bool;
                 #[get]
                 TraceLevel: CausalityTraceLevel;
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class LogFileGeneratedEventArgs {
                 ILogFileGeneratedEventArgs,
             }
             #[Windows::Foundation::Metadata::Activatable(ILoggingActivityFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             class LoggingActivity {
                 ILoggingActivity,
                 super::IClosable,
                 ILoggingActivity2,
                 ILoggingTarget,
             }
+            #[Windows::Foundation::Metadata::Activatable(ILoggingChannelFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(ILoggingChannelFactory2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Activatable(ILoggingChannelFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Activatable(ILoggingChannelFactory2, 65536, "Windows.Foundation.UniversalApiContract")]
             class LoggingChannel {
                 ILoggingChannel,
                 super::IClosable,
@@ -538,10 +538,10 @@ mod Windows {
                 ILoggingTarget,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(ILoggingChannelOptionsFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class LoggingChannelOptions {
                 ILoggingChannelOptions,
             }
@@ -595,27 +595,27 @@ mod Windows {
                 Suspend = 8,
                 Send = 9,
             }
-            #[Windows::Foundation::Metadata::Activatable(ILoggingOptionsFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(ILoggingOptionsFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class LoggingOptions {
                 ILoggingOptions,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(ILoggingSessionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class LoggingSession {
                 ILoggingSession,
                 super::IClosable,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class RuntimeBrokerErrorSettings {
                 IErrorReportingSettings,
             }

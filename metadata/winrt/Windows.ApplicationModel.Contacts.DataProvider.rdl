@@ -10,9 +10,9 @@ mod Windows {
                     IContactDataProviderConnection,
                     IContactDataProviderConnection2,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 class ContactDataProviderTriggerDetails {
                     IContactDataProviderTriggerDetails,
                 }
@@ -28,15 +28,15 @@ mod Windows {
                 class ContactListCreateOrUpdateContactRequestEventArgs {
                     IContactListCreateOrUpdateContactRequestEventArgs,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 class ContactListDeleteContactRequest {
                     IContactListDeleteContactRequest,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class ContactListDeleteContactRequestEventArgs {
                     IContactListDeleteContactRequestEventArgs,
                 }
@@ -46,35 +46,35 @@ mod Windows {
                 class ContactListServerSearchReadBatchRequest {
                     IContactListServerSearchReadBatchRequest,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class ContactListServerSearchReadBatchRequestEventArgs {
                     IContactListServerSearchReadBatchRequestEventArgs,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class ContactListSyncManagerSyncRequest {
                     IContactListSyncManagerSyncRequest,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 class ContactListSyncManagerSyncRequestEventArgs {
                     IContactListSyncManagerSyncRequestEventArgs,
                 }
                 #[guid(0x1a398a52_8c9d_4d6f_a4e0_111e9a125a30)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContactDataProviderConnection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactDataProviderConnection)]
                 interface IContactDataProviderConnection {
                     event SyncRequested: super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListSyncManagerSyncRequestEventArgs>;
                     event ServerSearchReadBatchRequested: super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListServerSearchReadBatchRequestEventArgs>;
                     fn Start(&self);
                 }
                 #[guid(0xa1d327b0_196c_4bfd_8f0f_c68d67f249d3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContactDataProviderConnection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactDataProviderConnection)]
                 interface IContactDataProviderConnection2 {
                     event CreateOrUpdateContactRequested: super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListCreateOrUpdateContactRequestEventArgs>;
                     event DeleteContactRequested: super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListDeleteContactRequestEventArgs>;
@@ -108,8 +108,8 @@ mod Windows {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x5e114687_ce03_4de5_8557_9ccf552d472a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContactListDeleteContactRequest)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactListDeleteContactRequest)]
                 interface IContactListDeleteContactRequest {
                     #[get]
                     ContactListId: String;
@@ -121,16 +121,16 @@ mod Windows {
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xb22054a1_e8fa_4db5_9389_2d12ee7d15ee)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContactListDeleteContactRequestEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactListDeleteContactRequestEventArgs)]
                 interface IContactListDeleteContactRequestEventArgs {
                     #[get]
                     Request: ContactListDeleteContactRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0xba776a97_4030_4925_9fb4_143b295e653b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContactListServerSearchReadBatchRequest)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactListServerSearchReadBatchRequest)]
                 interface IContactListServerSearchReadBatchRequest {
                     #[get]
                     SessionId: String;
@@ -156,8 +156,8 @@ mod Windows {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x3c0e57a4_c4e7_4970_9a8f_9a66a2bb6c1a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContactListSyncManagerSyncRequest)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactListSyncManagerSyncRequest)]
                 interface IContactListSyncManagerSyncRequest {
                     #[get]
                     ContactListId: String;
@@ -167,8 +167,8 @@ mod Windows {
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x158e4dac_446d_4f10_afc2_02683ec533a6)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContactListSyncManagerSyncRequestEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactListSyncManagerSyncRequestEventArgs)]
                 interface IContactListSyncManagerSyncRequestEventArgs {
                     #[get]
                     Request: ContactListSyncManagerSyncRequest;

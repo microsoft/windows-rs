@@ -8,14 +8,14 @@ mod Windows {
                 class AddAppointmentOperation {
                     IAddAppointmentOperation,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Static(IAppointmentsProviderLaunchActionVerbsStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IAppointmentsProviderLaunchActionVerbsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IAppointmentsProviderLaunchActionVerbsStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
                 class AppointmentsProviderLaunchActionVerbs {}
                 #[guid(0xec4a9af3_620d_4c69_add7_9794e918081f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(AddAppointmentOperation)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AddAppointmentOperation)]
                 interface IAddAppointmentOperation {
                     #[get]
                     AppointmentInformation: super::Appointment;
@@ -27,8 +27,8 @@ mod Windows {
                     fn DismissUI(&self);
                 }
                 #[guid(0x36dbba28_9e2e_49c6_8ef7_3ab7a5dcc8b8)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentsProviderLaunchActionVerbs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AppointmentsProviderLaunchActionVerbs)]
                 interface IAppointmentsProviderLaunchActionVerbsStatics {
                     #[get]
                     AddAppointment: String;
@@ -62,8 +62,8 @@ mod Windows {
                     fn DismissUI(&self);
                 }
                 #[guid(0xf4903d9b_9e61_4de2_a732_2687c07d1de8)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ReplaceAppointmentOperation)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ReplaceAppointmentOperation)]
                 interface IReplaceAppointmentOperation {
                     #[get]
                     AppointmentId: String;

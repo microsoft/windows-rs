@@ -4,39 +4,39 @@ mod Windows {
         mod Bluetooth {
             mod Advertisement {
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisement {
                     IBluetoothLEAdvertisement,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::Activatable(IBluetoothLEAdvertisementBytePatternFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisementBytePattern {
                     IBluetoothLEAdvertisementBytePattern,
                 }
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Activatable(IBluetoothLEAdvertisementDataSectionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Activatable(IBluetoothLEAdvertisementDataSectionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                 class BluetoothLEAdvertisementDataSection {
                     IBluetoothLEAdvertisementDataSection,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IBluetoothLEAdvertisementDataTypesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisementDataTypes {}
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
@@ -62,12 +62,12 @@ mod Windows {
                     Uncoded2MPhy = 2,
                     CodedPhy = 3,
                 }
-                #[Windows::Foundation::Metadata::Activatable(IBluetoothLEAdvertisementPublisherFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::Activatable(IBluetoothLEAdvertisementPublisherFactory, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisementPublisher {
                     IBluetoothLEAdvertisementPublisher,
                     IBluetoothLEAdvertisementPublisher2,
@@ -83,27 +83,27 @@ mod Windows {
                     Stopped = 4,
                     Aborted = 5,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
                     IBluetoothLEAdvertisementPublisherStatusChangedEventArgs,
                     IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisementReceivedEventArgs {
                     IBluetoothLEAdvertisementReceivedEventArgs,
                     IBluetoothLEAdvertisementReceivedEventArgs2,
                     IBluetoothLEAdvertisementReceivedEventArgs3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IBluetoothLEAdvertisementScanParametersStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisementScanParameters {
                     IBluetoothLEAdvertisementScanParameters,
@@ -120,10 +120,10 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Activatable(IBluetoothLEAdvertisementWatcherFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisementWatcher {
                     IBluetoothLEAdvertisementWatcher,
                     IBluetoothLEAdvertisementWatcher2,
@@ -138,19 +138,19 @@ mod Windows {
                     Stopped = 3,
                     Aborted = 4,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEAdvertisementWatcherStoppedEventArgs {
                     IBluetoothLEAdvertisementWatcherStoppedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::Activatable(IBluetoothLEManufacturerDataFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class BluetoothLEManufacturerData {
                     IBluetoothLEManufacturerData,
                 }
@@ -191,21 +191,21 @@ mod Windows {
                     fn Create(&self, dataType: u8, offset: i16, data: super::super::super::Storage::Streams::IBuffer) -> BluetoothLEAdvertisementBytePattern;
                 }
                 #[guid(0xd7213314_3a43_40f9_b6f0_92bfefc34ae3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementDataSection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementDataSection)]
                 interface IBluetoothLEAdvertisementDataSection {
                     DataType: u8;
                     Data: super::super::super::Storage::Streams::IBuffer;
                 }
                 #[guid(0xe7a40942_a845_4045_bf7e_3e9971db8a6b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementDataSection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementDataSection)]
                 interface IBluetoothLEAdvertisementDataSectionFactory {
                     fn Create(&self, dataType: u8, data: super::super::super::Storage::Streams::IBuffer) -> BluetoothLEAdvertisementDataSection;
                 }
                 #[guid(0x3bb6472f_0606_434b_a76e_74159f0684d3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementDataTypes)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementDataTypes)]
                 interface IBluetoothLEAdvertisementDataTypesStatics {
                     #[get]
                     Flags: u8;
@@ -261,8 +261,8 @@ mod Windows {
                     BytePatterns: super::super::super::Foundation::Collections::IVector<BluetoothLEAdvertisementBytePattern>;
                 }
                 #[guid(0xcde820f9_d9fa_43d6_a264_ddd8b7da8b78)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisher)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisher)]
                 interface IBluetoothLEAdvertisementPublisher {
                     #[get]
                     Status: BluetoothLEAdvertisementPublisherStatus;
@@ -282,8 +282,8 @@ mod Windows {
                     IncludeTransmitPowerLevel: bool;
                 }
                 #[guid(0x1cff3902_61ec_5776_ab86_9b41f94b1e66)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisher)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisher)]
                 interface IBluetoothLEAdvertisementPublisher3 {
                     PrimaryPhy: BluetoothLEAdvertisementPhyType;
                     SecondaryPhy: BluetoothLEAdvertisementPhyType;
@@ -304,8 +304,8 @@ mod Windows {
                     Error: super::BluetoothError;
                 }
                 #[guid(0x8f62790e_dc88_5c8b_b34e_10b321850f88)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisherStatusChangedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisherStatusChangedEventArgs)]
                 interface IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2 {
                     #[get]
                     SelectedTransmitPowerLevelInDBm: super::super::super::Foundation::IReference<i16>;
@@ -345,8 +345,8 @@ mod Windows {
                     IsScanResponse: bool;
                 }
                 #[guid(0x8d204b54_ff86_5d84_a25a_137dccd96f7a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementReceivedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementReceivedEventArgs)]
                 interface IBluetoothLEAdvertisementReceivedEventArgs3 {
                     #[get]
                     PrimaryPhy: BluetoothLEAdvertisementPhyType;
@@ -354,8 +354,8 @@ mod Windows {
                     SecondaryPhy: BluetoothLEAdvertisementPhyType;
                 }
                 #[guid(0x94f91413_63d9_53bd_af4c_e6b1a6514595)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementScanParameters)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementScanParameters)]
                 interface IBluetoothLEAdvertisementScanParameters {
                     #[get]
                     ScanWindow: u16;
@@ -398,8 +398,8 @@ mod Windows {
                     AllowExtendedAdvertisements: bool;
                 }
                 #[guid(0x14d980be_4002_5dbe_8519_ffca6ca389f0)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementWatcher)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementWatcher)]
                 interface IBluetoothLEAdvertisementWatcher3 {
                     UseUncoded1MPhy: bool;
                     UseCodedPhy: bool;
@@ -413,15 +413,15 @@ mod Windows {
                     fn Create(&self, advertisementFilter: BluetoothLEAdvertisementFilter) -> BluetoothLEAdvertisementWatcher;
                 }
                 #[guid(0xdd40f84d_e7b9_43e3_9c04_0685d085fd8c)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementWatcherStoppedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementWatcherStoppedEventArgs)]
                 interface IBluetoothLEAdvertisementWatcherStoppedEventArgs {
                     #[get]
                     Error: super::BluetoothError;
                 }
                 #[guid(0x912dba18_6963_4533_b061_4694dafb34e5)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEManufacturerData)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEManufacturerData)]
                 interface IBluetoothLEManufacturerData {
                     CompanyId: u16;
                     Data: super::super::super::Storage::Streams::IBuffer;

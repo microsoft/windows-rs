@@ -3,8 +3,8 @@ mod Windows {
     mod Devices {
         mod Usb {
             #[guid(0x3c6e4846_06cf_42a9_9dc2_971c1b14b6e3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbBulkInEndpointDescriptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbBulkInEndpointDescriptor)]
             interface IUsbBulkInEndpointDescriptor {
                 #[get]
                 MaxPacketSize: u32;
@@ -32,8 +32,8 @@ mod Windows {
                 InputStream: super::super::Storage::Streams::IInputStream;
             }
             #[guid(0x2820847a_ffee_4f60_9be1_956cac3ecb65)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbBulkOutEndpointDescriptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbBulkOutEndpointDescriptor)]
             interface IUsbBulkOutEndpointDescriptor {
                 #[get]
                 MaxPacketSize: u32;
@@ -82,8 +82,8 @@ mod Windows {
                 RemoteWakeup: bool;
             }
             #[guid(0x424ced93_e740_40a1_92bd_da120ea04914)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbConfigurationDescriptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbConfigurationDescriptor)]
             interface IUsbConfigurationDescriptorStatics {
                 fn TryParse(&self, descriptor: UsbDescriptor, parsed: &mut UsbConfigurationDescriptor) -> bool;
                 fn Parse(&self, descriptor: UsbDescriptor) -> UsbConfigurationDescriptor;
@@ -98,8 +98,8 @@ mod Windows {
                 AsByte: u8;
             }
             #[guid(0x0a89f216_5f9d_4874_8904_da9ad3f5528f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbDescriptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbDescriptor)]
             interface IUsbDescriptor {
                 #[get]
                 Length: u8;
@@ -108,8 +108,8 @@ mod Windows {
                 fn ReadDescriptorBuffer(&self, buffer: super::super::Storage::Streams::IBuffer);
             }
             #[guid(0x5249b992_c456_44d5_ad5e_24f5a089f63b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbDevice)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbDevice)]
             interface IUsbDevice: super::super::Foundation::IClosable {
                 #[Windows::Foundation::Metadata::Overload("SendControlOutTransferAsync")]
                 fn SendControlOutTransferAsync(&self, setupPacket: UsbSetupPacket, buffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<u32>;
@@ -139,8 +139,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(UsbDeviceClasses)]
             interface IUsbDeviceClasses {}
             #[guid(0xb20b0527_c580_4599_a165_981b4fd03230)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbDeviceClasses)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbDeviceClasses)]
             interface IUsbDeviceClassesStatics {
                 #[get]
                 CdcControl: UsbDeviceClass;
@@ -179,8 +179,8 @@ mod Windows {
                 NumberOfConfigurations: u8;
             }
             #[guid(0x066b85a2_09b7_4446_8502_6fe6dcaa7309)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbDevice)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbDevice)]
             interface IUsbDeviceStatics {
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
                 fn GetDeviceSelector(&self, vendorId: u32, productId: u32, winUsbInterfaceClass: GUID) -> String;
@@ -212,15 +212,15 @@ mod Windows {
                 AsInterruptOutEndpointDescriptor: UsbInterruptOutEndpointDescriptor;
             }
             #[guid(0xc890b201_9a6a_495e_a82c_295b9e708106)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbEndpointDescriptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbEndpointDescriptor)]
             interface IUsbEndpointDescriptorStatics {
                 fn TryParse(&self, descriptor: UsbDescriptor, parsed: &mut UsbEndpointDescriptor) -> bool;
                 fn Parse(&self, descriptor: UsbDescriptor) -> UsbEndpointDescriptor;
             }
             #[guid(0xa0322b95_7f47_48ab_a727_678c25be2112)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbInterface)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbInterface)]
             interface IUsbInterface {
                 #[get]
                 BulkInPipes: super::super::Foundation::Collections::IVectorView<UsbBulkInPipe>;
@@ -260,8 +260,8 @@ mod Windows {
                 fn Parse(&self, descriptor: UsbDescriptor) -> UsbInterfaceDescriptor;
             }
             #[guid(0x1827bba7_8da7_4af7_8f4c_7f3032e781f5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbInterfaceSetting)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbInterfaceSetting)]
             interface IUsbInterfaceSetting {
                 #[get]
                 BulkInEndpoints: super::super::Foundation::Collections::IVectorView<UsbBulkInEndpointDescriptor>;
@@ -281,8 +281,8 @@ mod Windows {
                 Descriptors: super::super::Foundation::Collections::IVectorView<UsbDescriptor>;
             }
             #[guid(0xc0528967_c911_4c3a_86b2_419c2da89039)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbInterruptInEndpointDescriptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbInterruptInEndpointDescriptor)]
             interface IUsbInterruptInEndpointDescriptor {
                 #[get]
                 MaxPacketSize: u32;
@@ -301,8 +301,8 @@ mod Windows {
                 InterruptData: super::super::Storage::Streams::IBuffer;
             }
             #[guid(0xfa007116_84d7_48c7_8a3f_4c0b235f2ea6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbInterruptInPipe)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbInterruptInPipe)]
             interface IUsbInterruptInPipe {
                 #[get]
                 EndpointDescriptor: UsbInterruptInEndpointDescriptor;
@@ -311,8 +311,8 @@ mod Windows {
                 event DataReceived: super::super::Foundation::TypedEventHandler<UsbInterruptInPipe, UsbInterruptInEventArgs>;
             }
             #[guid(0xcc9fed81_10ca_4533_952d_9e278341e80f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbInterruptOutEndpointDescriptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbInterruptOutEndpointDescriptor)]
             interface IUsbInterruptOutEndpointDescriptor {
                 #[get]
                 MaxPacketSize: u32;
@@ -339,8 +339,8 @@ mod Windows {
                 OutputStream: super::super::Storage::Streams::IOutputStream;
             }
             #[guid(0x104ba132_c78f_4c51_b654_e49d02f2cb03)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbSetupPacket)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbSetupPacket)]
             interface IUsbSetupPacket {
                 RequestType: UsbControlRequestType;
                 Request: u8;
@@ -349,45 +349,45 @@ mod Windows {
                 Length: u32;
             }
             #[guid(0xc9257d50_1b2e_4a41_a2a7_338f0cef3c14)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UsbSetupPacket)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UsbSetupPacket)]
             interface IUsbSetupPacketFactory {
                 fn CreateWithEightByteBuffer(&self, eightByteBuffer: super::super::Storage::Streams::IBuffer) -> UsbSetupPacket;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class UsbBulkInEndpointDescriptor {
                 IUsbBulkInEndpointDescriptor,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class UsbBulkInPipe {
                 IUsbBulkInPipe,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class UsbBulkOutEndpointDescriptor {
                 IUsbBulkOutEndpointDescriptor,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class UsbBulkOutPipe {
                 IUsbBulkOutPipe,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class UsbConfiguration {
                 IUsbConfiguration,
             }
-            #[Windows::Foundation::Metadata::Static(IUsbConfigurationDescriptorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IUsbConfigurationDescriptorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class UsbConfigurationDescriptor {
                 IUsbConfigurationDescriptor,
             }
@@ -401,9 +401,9 @@ mod Windows {
                 DefaultInterface = 4,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class UsbControlRequestType {
                 IUsbControlRequestType,
             }
@@ -415,30 +415,30 @@ mod Windows {
                 Vendor = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class UsbDescriptor {
                 IUsbDescriptor,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IUsbDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             class UsbDevice {
                 IUsbDevice,
                 super::super::Foundation::IClosable,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class UsbDeviceClass {
                 IUsbDeviceClass,
             }
-            #[Windows::Foundation::Metadata::Static(IUsbDeviceClassesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IUsbDeviceClassesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class UsbDeviceClasses {
                 IUsbDeviceClasses,
             }
@@ -448,10 +448,10 @@ mod Windows {
             class UsbDeviceDescriptor {
                 IUsbDeviceDescriptor,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::Static(IUsbEndpointDescriptorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IUsbEndpointDescriptorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class UsbEndpointDescriptor {
                 IUsbEndpointDescriptor,
             }
@@ -463,22 +463,22 @@ mod Windows {
                 Bulk = 2,
                 Interrupt = 3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class UsbInterface {
                 IUsbInterface,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::Static(IUsbInterfaceDescriptorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IUsbInterfaceDescriptorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class UsbInterfaceDescriptor {
                 IUsbInterfaceDescriptor,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class UsbInterfaceSetting {
                 IUsbInterfaceSetting,
             }
@@ -488,15 +488,15 @@ mod Windows {
             class UsbInterruptInEndpointDescriptor {
                 IUsbInterruptInEndpointDescriptor,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class UsbInterruptInEventArgs {
                 IUsbInterruptInEventArgs,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class UsbInterruptInPipe {
                 IUsbInterruptInPipe,
             }
@@ -506,8 +506,8 @@ mod Windows {
             class UsbInterruptOutEndpointDescriptor {
                 IUsbInterruptOutEndpointDescriptor,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class UsbInterruptOutPipe {
                 IUsbInterruptOutPipe,
@@ -522,11 +522,11 @@ mod Windows {
                 IgnoreShortPacket = 4,
                 AllowPartialReads = 8,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(IUsbSetupPacketFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class UsbSetupPacket {
                 IUsbSetupPacket,
             }

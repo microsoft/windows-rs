@@ -3,17 +3,17 @@ mod Windows {
     mod Management {
         mod Update {
             mod Cluster {
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(IAcquireEnvironmentInfoResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class AcquireEnvironmentInfoResult {
                     IAcquireEnvironmentInfoResult,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(IAreRebootsPendingResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class AreRebootsPendingResult {
                     IAreRebootsPendingResult,
                 }
@@ -73,14 +73,14 @@ mod Windows {
                     EnvironmentInfo: String;
                 }
                 #[guid(0xbbe87f45_0125_5b6d_b9de_05effc98becb)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(AcquireEnvironmentInfoResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AcquireEnvironmentInfoResult)]
                 interface IAcquireEnvironmentInfoResultFactory {
                     fn CreateInstance(&self, result: UpdateTaskResult, environmentInfo: String) -> AcquireEnvironmentInfoResult;
                 }
                 #[guid(0xa0c93ffd_8409_5fe1_876b_d59d5d9951b5)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(AreRebootsPendingResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AreRebootsPendingResult)]
                 interface IAreRebootsPendingResult {
                     #[get]
                     Result: UpdateOperationResult;
@@ -88,8 +88,8 @@ mod Windows {
                     IsRebootPending: bool;
                 }
                 #[guid(0x801c7304_1fdf_59b4_9ef6_adbd0544d98f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(AreRebootsPendingResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AreRebootsPendingResult)]
                 interface IAreRebootsPendingResultFactory {
                     fn CreateInstance(&self, result: UpdateOperationResult, isRebootPending: bool) -> AreRebootsPendingResult;
                 }
@@ -175,14 +175,14 @@ mod Windows {
                     ShouldRollback: bool;
                 }
                 #[guid(0x07473356_1a87_554d_9c14_489c0d69b258)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(InstallUpdateTaskResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(InstallUpdateTaskResult)]
                 interface IInstallUpdateTaskResultFactory {
                     fn CreateInstance(&self, result: UpdateTaskResult, installRecords: super::super::super::Foundation::Collections::IVectorView<UpdateInstallRecord>, shouldRollback: bool) -> InstallUpdateTaskResult;
                 }
                 #[guid(0x477e2a95_bcb6_5044_ad3d_e4180efcf1be)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(RollbackUpdateTaskResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RollbackUpdateTaskResult)]
                 interface IRollbackUpdateTaskResult {
                     #[get]
                     Result: UpdateTaskResult;
@@ -190,8 +190,8 @@ mod Windows {
                     InstallRecords: super::super::super::Foundation::Collections::IVectorView<UpdateInstallRecord>;
                 }
                 #[guid(0x2dbd5bc3_efdf_5046_8954_78981796f016)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(RollbackUpdateTaskResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RollbackUpdateTaskResult)]
                 interface IRollbackUpdateTaskResultFactory {
                     fn CreateInstance(&self, result: UpdateTaskResult, installRecords: super::super::super::Foundation::Collections::IVectorView<UpdateInstallRecord>) -> RollbackUpdateTaskResult;
                 }
@@ -237,8 +237,8 @@ mod Windows {
                     Password: String;
                 }
                 #[guid(0xe251a298_44b1_5455_8b44_5971bd516f09)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateCredential)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateCredential)]
                 interface IUpdateCredentialFactory {
                     fn CreateInstance(&self, status: ClusterNativeUpdateCredentialStatus, userName: String, password: String) -> UpdateCredential;
                 }
@@ -256,8 +256,8 @@ mod Windows {
                     FailureMessage: String;
                 }
                 #[guid(0x9b6c54b5_d229_5147_9d6e_16e47f2317db)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateInstallRecord)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateInstallRecord)]
                 interface IUpdateInstallRecordFactory {
                     fn CreateInstance(&self, updateId: String, isRebootRequired: bool, status: ClusterNativeUpdateCompletionStatus, failureMessage: String) -> UpdateInstallRecord;
                 }
@@ -302,15 +302,15 @@ mod Windows {
                     ErrorCode: i32;
                 }
                 #[guid(0xff53c580_e92c_50a9_8811_a057d5a2a523)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateOperationResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateOperationResult)]
                 interface IUpdateOperationResultFactory {
                     fn CreateInstance(&self, status: ClusterNativeUpdateOperationStatus, reason: String) -> UpdateOperationResult;
                     fn CreateInstance2(&self, status: ClusterNativeUpdateOperationStatus, reason: String, errorCode: i32) -> UpdateOperationResult;
                 }
                 #[guid(0x0f83b557_e96a_5f19_9492_99fc8bd83c5d)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdatePendingOperationResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdatePendingOperationResult)]
                 interface IUpdatePendingOperationResult {
                     #[get]
                     Result: UpdateOperationResult;
@@ -335,14 +335,14 @@ mod Windows {
                     PatchLevel: u32;
                 }
                 #[guid(0x56bb98ce_543c_59f2_810d_4d2cf84ee40e)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdatePluginVersionInfo)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdatePluginVersionInfo)]
                 interface IUpdatePluginVersionInfoFactory {
                     fn CreateInstance(&self, majorVersion: u32, minorVersion: u32, patchLevel: u32) -> UpdatePluginVersionInfo;
                 }
                 #[guid(0x55dfff15_5556_51c4_80c2_af03f385d429)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateRecipeNodeValidationInfoRecord)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateRecipeNodeValidationInfoRecord)]
                 interface IUpdateRecipeNodeValidationInfoRecord {
                     #[get]
                     NodeName: String;
@@ -352,14 +352,14 @@ mod Windows {
                     ScanResults: super::super::super::Foundation::Collections::IVectorView<UpdateScanRecord>;
                 }
                 #[guid(0xe0fa2776_dd6c_5139_a93e_23e2188921af)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateRecipeNodeValidationInfoRecord)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateRecipeNodeValidationInfoRecord)]
                 interface IUpdateRecipeNodeValidationInfoRecordFactory {
                     fn CreateInstance(&self, nodeName: String, recipeValidationInfo: String, scanResults: super::super::super::Foundation::Collections::IVectorView<UpdateScanRecord>) -> UpdateRecipeNodeValidationInfoRecord;
                 }
                 #[guid(0xc54af4fb_d316_5480_954f_d1eb51961de5)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateScanRecord)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateScanRecord)]
                 interface IUpdateScanRecord {
                     #[get]
                     UpdateId: String;
@@ -373,14 +373,14 @@ mod Windows {
                     PluginSpecificData: String;
                 }
                 #[guid(0xd9a3860e_a05a_58c3_b368_07bb350072d0)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateScanRecord)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateScanRecord)]
                 interface IUpdateScanRecordFactory {
                     fn CreateInstance(&self, updateId: String, updateTitle: String, updateDescription: String, isRebootRequired: bool, pluginSpecificData: String) -> UpdateScanRecord;
                 }
                 #[guid(0x60d8edf9_eb18_59d1_badb_5d862f9352e9)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateStageRecord)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateStageRecord)]
                 interface IUpdateStageRecord {
                     #[get]
                     UpdateId: String;
@@ -399,8 +399,8 @@ mod Windows {
                     fn CreateInstance2(&self, updateId: String, status: ClusterNativeUpdateCompletionStatus, failureMessage: String, updatedPluginSpecificData: String) -> UpdateStageRecord;
                 }
                 #[guid(0x3fdd9274_7686_5cb9_89e4_6d618ed3a47a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateTaskResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateTaskResult)]
                 interface IUpdateTaskResult {
                     #[get]
                     Succeeded: bool;
@@ -410,8 +410,8 @@ mod Windows {
                     ErrorCode: i32;
                 }
                 #[guid(0xc5ae4ce3_7d1e_50bf_a64a_95f34783fc8c)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateTaskResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateTaskResult)]
                 interface IUpdateTaskResultFactory {
                     fn CreateInstance(&self, succeeded: bool, reason: String) -> UpdateTaskResult;
                     fn CreateInstance2(&self, succeeded: bool, reason: String, errorCode: i32) -> UpdateTaskResult;
@@ -426,8 +426,8 @@ mod Windows {
                     Message: String;
                 }
                 #[guid(0x9005a873_4c0b_5c78_a433_be5095b0226e)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateValidationLogMessage)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UpdateValidationLogMessage)]
                 interface IUpdateValidationLogMessageFactory {
                     fn CreateInstance(&self, severity: ClusterNativeUpdateLogLevel, message: String) -> UpdateValidationLogMessage;
                 }
@@ -449,8 +449,8 @@ mod Windows {
                     fn CreateInstance(&self, result: UpdateTaskResult, areUpdatesApproved: bool, validationMessages: super::super::super::Foundation::Collections::IVectorView<UpdateValidationLogMessage>) -> ValidateAllNodesUpdateRecipeResult;
                 }
                 #[guid(0x4df22928_9fde_5c16_961c_aab26f4a7780)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ValidateClusterEnvironmentResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ValidateClusterEnvironmentResult)]
                 interface IValidateClusterEnvironmentResult {
                     #[get]
                     Result: UpdateTaskResult;
@@ -465,114 +465,114 @@ mod Windows {
                 interface IValidateClusterEnvironmentResultFactory {
                     fn CreateInstance(&self, result: UpdateTaskResult, approvalStatus: ClusterNativeUpdateEnvironmentValidationStatus, validationMessages: super::super::super::Foundation::Collections::IVectorView<UpdateValidationLogMessage>) -> ValidateClusterEnvironmentResult;
                 }
+                #[Windows::Foundation::Metadata::Activatable(IInstallUpdateTaskResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Activatable(IInstallUpdateTaskResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 class InstallUpdateTaskResult {
                     IInstallUpdateTaskResult,
                 }
                 #[Windows::Foundation::Metadata::Activatable(IRollbackUpdateTaskResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class RollbackUpdateTaskResult {
                     IRollbackUpdateTaskResult,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(IScanUpdateTaskResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class ScanUpdateTaskResult {
                     IScanUpdateTaskResult,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::Activatable(IStageUpdateTaskResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class StageUpdateTaskResult {
                     IStageUpdateTaskResult,
                 }
                 #[Windows::Foundation::Metadata::Activatable(IUpdateCredentialFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 class UpdateCredential {
                     IUpdateCredential,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(IUpdateInstallRecordFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class UpdateInstallRecord {
                     IUpdateInstallRecord,
                 }
+                #[Windows::Foundation::Metadata::Activatable(IUpdateOperationResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Activatable(IUpdateOperationResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 class UpdateOperationResult {
                     IUpdateOperationResult,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::Activatable(IUpdatePendingOperationResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class UpdatePendingOperationResult {
                     IUpdatePendingOperationResult,
                 }
+                #[Windows::Foundation::Metadata::Activatable(IUpdatePluginVersionInfoFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
-                #[Windows::Foundation::Metadata::Activatable(IUpdatePluginVersionInfoFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 class UpdatePluginVersionInfo {
                     IUpdatePluginVersionInfo,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::Activatable(IUpdateRecipeNodeValidationInfoRecordFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class UpdateRecipeNodeValidationInfoRecord {
                     IUpdateRecipeNodeValidationInfoRecord,
                 }
+                #[Windows::Foundation::Metadata::Activatable(IUpdateScanRecordFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Activatable(IUpdateScanRecordFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class UpdateScanRecord {
                     IUpdateScanRecord,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(IUpdateStageRecordFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class UpdateStageRecord {
                     IUpdateStageRecord,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::Activatable(IUpdateTaskResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class UpdateTaskResult {
                     IUpdateTaskResult,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(IUpdateValidationLogMessageFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class UpdateValidationLogMessage {
                     IUpdateValidationLogMessage,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Activatable(IValidateAllNodesUpdateRecipeResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Activatable(IValidateAllNodesUpdateRecipeResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class ValidateAllNodesUpdateRecipeResult {
                     IValidateAllNodesUpdateRecipeResult,
                 }
                 #[Windows::Foundation::Metadata::Activatable(IValidateClusterEnvironmentResultFactory, 65536, "Windows.Management.Update.Cluster.ClusterNativeUpdatingContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(ClusterNativeUpdatingContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class ValidateClusterEnvironmentResult {
                     IValidateClusterEnvironmentResult,

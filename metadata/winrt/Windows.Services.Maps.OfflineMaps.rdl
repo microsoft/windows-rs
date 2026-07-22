@@ -4,9 +4,9 @@ mod Windows {
         mod Maps {
             mod OfflineMaps {
                 #[guid(0xa797673b_a5b5_4144_b525_e68c8862664b)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OfflineMapPackage)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 interface IOfflineMapPackage {
                     #[get]
                     Status: OfflineMapPackageStatus;
@@ -25,8 +25,8 @@ mod Windows {
                 }
                 #[guid(0x55585411_39e1_4e41_a4e1_5f4872bee199)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OfflineMapPackageQueryResult)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IOfflineMapPackageQueryResult {
                     #[get]
                     Status: OfflineMapPackageQueryStatus;
@@ -35,16 +35,16 @@ mod Windows {
                 }
                 #[guid(0xd965b918_d4d6_4afe_9378_3ec71ef11c3d)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OfflineMapPackageStartDownloadResult)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IOfflineMapPackageStartDownloadResult {
                     #[get]
                     Status: OfflineMapPackageStartDownloadStatus;
                 }
                 #[guid(0x185e7922_a831_4ab0_941f_6998fa929285)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(OfflineMapPackage)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IOfflineMapPackageStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn FindPackagesAsync(&self, queryPoint: super::super::super::Devices::Geolocation::Geopoint) -> super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>;
@@ -53,24 +53,24 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn FindPackagesInGeocircleAsync(&self, queryCircle: super::super::super::Devices::Geolocation::Geocircle) -> super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>;
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IOfflineMapPackageStatics, 262144, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IOfflineMapPackageStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class OfflineMapPackage {
                     IOfflineMapPackage,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class OfflineMapPackageQueryResult {
                     IOfflineMapPackageQueryResult,
                 }
                 #[repr(i32)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 enum OfflineMapPackageQueryStatus {
                     Success = 0,
                     UnknownError = 1,
@@ -78,9 +78,9 @@ mod Windows {
                     NetworkFailure = 3,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class OfflineMapPackageStartDownloadResult {
                     IOfflineMapPackageStartDownloadResult,
                 }

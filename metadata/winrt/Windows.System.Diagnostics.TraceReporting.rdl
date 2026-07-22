@@ -34,8 +34,8 @@ mod Windows {
                     Priority: PlatformDiagnosticTracePriority;
                 }
                 #[guid(0x3d4d5e2d_01d8_4768_8554_1eb1ca610986)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PlatformDiagnosticTraceRuntimeInfo)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PlatformDiagnosticTraceRuntimeInfo)]
                 interface IPlatformDiagnosticTraceRuntimeInfo {
                     #[get]
                     RuntimeFileTime: i64;
@@ -49,11 +49,11 @@ mod Windows {
                     FreeNetworkNotAvailable = 1,
                     ACPowerNotAvailable = 2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IPlatformDiagnosticActionsStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PlatformDiagnosticActions {}
                 #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
@@ -69,10 +69,10 @@ mod Windows {
                     CostDeferred = 2,
                     Realtime = 4,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PlatformDiagnosticTraceInfo {
                     IPlatformDiagnosticTraceInfo,
                 }
@@ -82,10 +82,10 @@ mod Windows {
                     Normal = 0,
                     UserElevated = 1,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PlatformDiagnosticTraceRuntimeInfo {
                     IPlatformDiagnosticTraceRuntimeInfo,
                 }

@@ -3,21 +3,21 @@ mod Windows {
     mod Web {
         mod Http {
             mod Headers {
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class HttpCacheDirectiveHeaderValueCollection {
                     IHttpCacheDirectiveHeaderValueCollection,
                     super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>,
                     super::super::super::Foundation::Collections::IIterable<HttpNameValueHeaderValue>,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IHttpChallengeHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Activatable(IHttpChallengeHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHttpChallengeHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpChallengeHeaderValue {
                     IHttpChallengeHeaderValue,
                     super::super::super::Foundation::IStringable,
@@ -31,31 +31,31 @@ mod Windows {
                     super::super::super::Foundation::Collections::IIterable<HttpChallengeHeaderValue>,
                     super::super::super::Foundation::IStringable,
                 }
+                #[Windows::Foundation::Metadata::Activatable(IHttpConnectionOptionHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IHttpConnectionOptionHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Activatable(IHttpConnectionOptionHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 class HttpConnectionOptionHeaderValue {
                     IHttpConnectionOptionHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class HttpConnectionOptionHeaderValueCollection {
                     IHttpConnectionOptionHeaderValueCollection,
                     super::super::super::Foundation::Collections::IVector<HttpConnectionOptionHeaderValue>,
                     super::super::super::Foundation::Collections::IIterable<HttpConnectionOptionHeaderValue>,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::Static(IHttpContentCodingHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(IHttpContentCodingHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHttpContentCodingHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpContentCodingHeaderValue {
                     IHttpContentCodingHeaderValue,
                     super::super::super::Foundation::IStringable,
@@ -69,68 +69,68 @@ mod Windows {
                     super::super::super::Foundation::Collections::IIterable<HttpContentCodingHeaderValue>,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::Activatable(IHttpContentCodingWithQualityHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Static(IHttpContentCodingWithQualityHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpContentCodingWithQualityHeaderValue {
                     IHttpContentCodingWithQualityHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class HttpContentCodingWithQualityHeaderValueCollection {
                     IHttpContentCodingWithQualityHeaderValueCollection,
                     super::super::super::Foundation::Collections::IVector<HttpContentCodingWithQualityHeaderValue>,
                     super::super::super::Foundation::Collections::IIterable<HttpContentCodingWithQualityHeaderValue>,
                     super::super::super::Foundation::IStringable,
                 }
+                #[Windows::Foundation::Metadata::Activatable(IHttpContentDispositionHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IHttpContentDispositionHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Activatable(IHttpContentDispositionHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 class HttpContentDispositionHeaderValue {
                     IHttpContentDispositionHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpContentHeaderCollection {
                     IHttpContentHeaderCollection,
                     super::super::super::Foundation::Collections::IMap<String, String>,
                     super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, String>>,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Activatable(IHttpContentRangeHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IHttpContentRangeHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpContentRangeHeaderValue {
                     IHttpContentRangeHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::Static(IHttpCookiePairHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(IHttpCookiePairHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHttpCookiePairHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpCookiePairHeaderValue {
                     IHttpCookiePairHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class HttpCookiePairHeaderValueCollection {
                     IHttpCookiePairHeaderValueCollection,
@@ -139,54 +139,54 @@ mod Windows {
                     super::super::super::Foundation::IStringable,
                 }
                 #[Windows::Foundation::Metadata::Activatable(IHttpCredentialsHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IHttpCredentialsHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHttpCredentialsHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpCredentialsHeaderValue {
                     IHttpCredentialsHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::Static(IHttpDateOrDeltaHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHttpDateOrDeltaHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpDateOrDeltaHeaderValue {
                     IHttpDateOrDeltaHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IHttpExpectationHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::Activatable(IHttpExpectationHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHttpExpectationHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpExpectationHeaderValue {
                     IHttpExpectationHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class HttpExpectationHeaderValueCollection {
                     IHttpExpectationHeaderValueCollection,
                     super::super::super::Foundation::Collections::IVector<HttpExpectationHeaderValue>,
                     super::super::super::Foundation::Collections::IIterable<HttpExpectationHeaderValue>,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class HttpLanguageHeaderValueCollection {
                     IHttpLanguageHeaderValueCollection,
                     super::super::super::Foundation::Collections::IVector<super::super::super::Globalization::Language>,
                     super::super::super::Foundation::Collections::IIterable<super::super::super::Globalization::Language>,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Activatable(IHttpLanguageRangeWithQualityHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IHttpLanguageRangeWithQualityHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
@@ -195,123 +195,123 @@ mod Windows {
                     IHttpLanguageRangeWithQualityHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class HttpLanguageRangeWithQualityHeaderValueCollection {
                     IHttpLanguageRangeWithQualityHeaderValueCollection,
                     super::super::super::Foundation::Collections::IVector<HttpLanguageRangeWithQualityHeaderValue>,
                     super::super::super::Foundation::Collections::IIterable<HttpLanguageRangeWithQualityHeaderValue>,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Static(IHttpMediaTypeHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(IHttpMediaTypeHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHttpMediaTypeHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpMediaTypeHeaderValue {
                     IHttpMediaTypeHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
                 #[Windows::Foundation::Metadata::Activatable(IHttpMediaTypeWithQualityHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(IHttpMediaTypeWithQualityHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHttpMediaTypeWithQualityHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpMediaTypeWithQualityHeaderValue {
                     IHttpMediaTypeWithQualityHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class HttpMediaTypeWithQualityHeaderValueCollection {
                     IHttpMediaTypeWithQualityHeaderValueCollection,
                     super::super::super::Foundation::Collections::IVector<HttpMediaTypeWithQualityHeaderValue>,
                     super::super::super::Foundation::Collections::IIterable<HttpMediaTypeWithQualityHeaderValue>,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class HttpMethodHeaderValueCollection {
                     IHttpMethodHeaderValueCollection,
                     super::super::super::Foundation::Collections::IVector<super::HttpMethod>,
                     super::super::super::Foundation::Collections::IIterable<super::HttpMethod>,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Static(IHttpNameValueHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Activatable(IHttpNameValueHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHttpNameValueHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpNameValueHeaderValue {
                     IHttpNameValueHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
                 #[Windows::Foundation::Metadata::Activatable(IHttpProductHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IHttpProductHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IHttpProductHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpProductHeaderValue {
                     IHttpProductHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::Activatable(IHttpProductInfoHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IHttpProductInfoHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class HttpProductInfoHeaderValue {
                     IHttpProductInfoHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class HttpProductInfoHeaderValueCollection {
                     IHttpProductInfoHeaderValueCollection,
                     super::super::super::Foundation::Collections::IVector<HttpProductInfoHeaderValue>,
                     super::super::super::Foundation::Collections::IIterable<HttpProductInfoHeaderValue>,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class HttpRequestHeaderCollection {
                     IHttpRequestHeaderCollection,
                     super::super::super::Foundation::Collections::IMap<String, String>,
                     super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, String>>,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class HttpResponseHeaderCollection {
                     IHttpResponseHeaderCollection,
                     super::super::super::Foundation::Collections::IMap<String, String>,
                     super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<String, String>>,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Activatable(IHttpTransferCodingHeaderValueFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Static(IHttpTransferCodingHeaderValueStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class HttpTransferCodingHeaderValue {
                     IHttpTransferCodingHeaderValue,
                     super::super::super::Foundation::IStringable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class HttpTransferCodingHeaderValueCollection {
                     IHttpTransferCodingHeaderValueCollection,
                     super::super::super::Foundation::Collections::IVector<HttpTransferCodingHeaderValue>,
@@ -348,8 +348,8 @@ mod Windows {
                     fn TryParseAdd(&self, input: String) -> bool;
                 }
                 #[guid(0xc452c451_d99c_40aa_9399_90eeb98fc613)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpChallengeHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpChallengeHeaderValue)]
                 interface IHttpChallengeHeaderValueFactory {
                     fn CreateFromScheme(&self, scheme: String) -> HttpChallengeHeaderValue;
                     fn CreateFromSchemeWithToken(&self, scheme: String, token: String) -> HttpChallengeHeaderValue;
@@ -362,8 +362,8 @@ mod Windows {
                     fn TryParse(&self, input: String, challengeHeaderValue: &mut HttpChallengeHeaderValue) -> bool;
                 }
                 #[guid(0xcb4af27a_4e90_45eb_8dcd_fd1408f4c44f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpConnectionOptionHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpConnectionOptionHeaderValue)]
                 interface IHttpConnectionOptionHeaderValue {
                     #[get]
                     Token: String;
@@ -376,14 +376,14 @@ mod Windows {
                     fn TryParseAdd(&self, input: String) -> bool;
                 }
                 #[guid(0xd93ccc1e_0b7d_4c3f_a58d_a2a1bdeabc0a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpConnectionOptionHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpConnectionOptionHeaderValue)]
                 interface IHttpConnectionOptionHeaderValueFactory {
                     fn Create(&self, token: String) -> HttpConnectionOptionHeaderValue;
                 }
                 #[guid(0xaaa75d37_a946_4b1f_85af_48b68b3c50bd)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpConnectionOptionHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpConnectionOptionHeaderValue)]
                 interface IHttpConnectionOptionHeaderValueStatics {
                     fn Parse(&self, input: String) -> HttpConnectionOptionHeaderValue;
                     fn TryParse(&self, input: String, connectionOptionHeaderValue: &mut HttpConnectionOptionHeaderValue) -> bool;
@@ -409,8 +409,8 @@ mod Windows {
                     fn Create(&self, contentCoding: String) -> HttpContentCodingHeaderValue;
                 }
                 #[guid(0x94d8602e_f9bf_42f7_aa46_ed272a41e212)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentCodingHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentCodingHeaderValue)]
                 interface IHttpContentCodingHeaderValueStatics {
                     fn Parse(&self, input: String) -> HttpContentCodingHeaderValue;
                     fn TryParse(&self, input: String, contentCodingHeaderValue: &mut HttpContentCodingHeaderValue) -> bool;
@@ -432,8 +432,8 @@ mod Windows {
                     fn TryParseAdd(&self, input: String) -> bool;
                 }
                 #[guid(0xc45eee1a_c553_46fc_ade2_d75c1d53df7b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentCodingWithQualityHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentCodingWithQualityHeaderValue)]
                 interface IHttpContentCodingWithQualityHeaderValueFactory {
                     fn CreateFromValue(&self, contentCoding: String) -> HttpContentCodingWithQualityHeaderValue;
                     fn CreateFromValueWithQuality(&self, contentCoding: String, quality: f64) -> HttpContentCodingWithQualityHeaderValue;
@@ -471,8 +471,8 @@ mod Windows {
                     fn TryParse(&self, input: String, contentDispositionHeaderValue: &mut HttpContentDispositionHeaderValue) -> bool;
                 }
                 #[guid(0x40612a44_47ae_4b7e_9124_69628b64aa18)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentHeaderCollection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentHeaderCollection)]
                 interface IHttpContentHeaderCollection {
                     ContentDisposition: HttpContentDispositionHeaderValue;
                     #[get]
@@ -490,8 +490,8 @@ mod Windows {
                     fn TryAppendWithoutValidation(&self, name: String, value: String) -> bool;
                 }
                 #[guid(0x04d967d3_a4f6_495c_9530_8579fcba8aa9)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentRangeHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentRangeHeaderValue)]
                 interface IHttpContentRangeHeaderValue {
                     #[get]
                     FirstBytePosition: super::super::super::Foundation::IReference<u64>;
@@ -502,8 +502,8 @@ mod Windows {
                     Unit: String;
                 }
                 #[guid(0x3f5bd691_a03c_4456_9a6f_ef27ecd03cae)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentRangeHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpContentRangeHeaderValue)]
                 interface IHttpContentRangeHeaderValueFactory {
                     fn CreateFromLength(&self, length: u64) -> HttpContentRangeHeaderValue;
                     fn CreateFromRange(&self, from: u64, to: u64) -> HttpContentRangeHeaderValue;
@@ -517,8 +517,8 @@ mod Windows {
                     fn TryParse(&self, input: String, contentRangeHeaderValue: &mut HttpContentRangeHeaderValue) -> bool;
                 }
                 #[guid(0xcbd46217_4b29_412b_bd90_b3d814ab8e1b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpCookiePairHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpCookiePairHeaderValue)]
                 interface IHttpCookiePairHeaderValue {
                     #[get]
                     Name: String;
@@ -557,8 +557,8 @@ mod Windows {
                     Token: String;
                 }
                 #[guid(0xf21d9e91_4d1c_4182_bfd1_34470a62f950)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpCredentialsHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpCredentialsHeaderValue)]
                 interface IHttpCredentialsHeaderValueFactory {
                     fn CreateFromScheme(&self, scheme: String) -> HttpCredentialsHeaderValue;
                     fn CreateFromSchemeWithToken(&self, scheme: String, token: String) -> HttpCredentialsHeaderValue;
@@ -571,8 +571,8 @@ mod Windows {
                     fn TryParse(&self, input: String, credentialsHeaderValue: &mut HttpCredentialsHeaderValue) -> bool;
                 }
                 #[guid(0xeafcaa6a_c4dc_49e2_a27d_043adf5867a3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpDateOrDeltaHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpDateOrDeltaHeaderValue)]
                 interface IHttpDateOrDeltaHeaderValue {
                     #[get]
                     Date: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
@@ -597,8 +597,8 @@ mod Windows {
                     Parameters: super::super::super::Foundation::Collections::IVector<HttpNameValueHeaderValue>;
                 }
                 #[guid(0xe78521b3_a0e2_4ac4_9e66_79706cb9fd58)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpExpectationHeaderValueCollection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpExpectationHeaderValueCollection)]
                 interface IHttpExpectationHeaderValueCollection {
                     fn ParseAdd(&self, input: String);
                     fn TryParseAdd(&self, input: String) -> bool;
@@ -611,22 +611,22 @@ mod Windows {
                     fn CreateFromNameWithValue(&self, name: String, value: String) -> HttpExpectationHeaderValue;
                 }
                 #[guid(0x3019abe2_cfe5_473b_a57f_fba5b14eb257)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpExpectationHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpExpectationHeaderValue)]
                 interface IHttpExpectationHeaderValueStatics {
                     fn Parse(&self, input: String) -> HttpExpectationHeaderValue;
                     fn TryParse(&self, input: String, expectationHeaderValue: &mut HttpExpectationHeaderValue) -> bool;
                 }
                 #[guid(0x9ebd7ca3_8219_44f6_9902_8c56dfd3340c)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpLanguageHeaderValueCollection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpLanguageHeaderValueCollection)]
                 interface IHttpLanguageHeaderValueCollection {
                     fn ParseAdd(&self, input: String);
                     fn TryParseAdd(&self, input: String) -> bool;
                 }
                 #[guid(0x7256e102_0080_4db4_a083_7de7b2e5ba4c)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpLanguageRangeWithQualityHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpLanguageRangeWithQualityHeaderValue)]
                 interface IHttpLanguageRangeWithQualityHeaderValue {
                     #[get]
                     LanguageRange: String;
@@ -641,15 +641,15 @@ mod Windows {
                     fn TryParseAdd(&self, input: String) -> bool;
                 }
                 #[guid(0x7bb83970_780f_4c83_9fe4_dc3087f6bd55)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpLanguageRangeWithQualityHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpLanguageRangeWithQualityHeaderValue)]
                 interface IHttpLanguageRangeWithQualityHeaderValueFactory {
                     fn CreateFromLanguageRange(&self, languageRange: String) -> HttpLanguageRangeWithQualityHeaderValue;
                     fn CreateFromLanguageRangeWithQuality(&self, languageRange: String, quality: f64) -> HttpLanguageRangeWithQualityHeaderValue;
                 }
                 #[guid(0x2541e146_f308_46f5_b695_42f54024ec68)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpLanguageRangeWithQualityHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpLanguageRangeWithQualityHeaderValue)]
                 interface IHttpLanguageRangeWithQualityHeaderValueStatics {
                     fn Parse(&self, input: String) -> HttpLanguageRangeWithQualityHeaderValue;
                     fn TryParse(&self, input: String, languageRangeWithQualityHeaderValue: &mut HttpLanguageRangeWithQualityHeaderValue) -> bool;
@@ -670,15 +670,15 @@ mod Windows {
                     fn Create(&self, mediaType: String) -> HttpMediaTypeHeaderValue;
                 }
                 #[guid(0xe04d83df_1d41_4d8c_a2de_6fd2ed87399b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpMediaTypeHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpMediaTypeHeaderValue)]
                 interface IHttpMediaTypeHeaderValueStatics {
                     fn Parse(&self, input: String) -> HttpMediaTypeHeaderValue;
                     fn TryParse(&self, input: String, mediaTypeHeaderValue: &mut HttpMediaTypeHeaderValue) -> bool;
                 }
                 #[guid(0x188d5e32_76be_44a0_b1cd_2074bded2dde)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpMediaTypeWithQualityHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpMediaTypeWithQualityHeaderValue)]
                 interface IHttpMediaTypeWithQualityHeaderValue {
                     CharSet: String;
                     MediaType: String;
@@ -701,8 +701,8 @@ mod Windows {
                     fn CreateFromMediaTypeWithQuality(&self, mediaType: String, quality: f64) -> HttpMediaTypeWithQualityHeaderValue;
                 }
                 #[guid(0x5b070cd9_b560_4fc8_9835_7e6c0a657b24)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpMediaTypeWithQualityHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpMediaTypeWithQualityHeaderValue)]
                 interface IHttpMediaTypeWithQualityHeaderValueStatics {
                     fn Parse(&self, input: String) -> HttpMediaTypeWithQualityHeaderValue;
                     fn TryParse(&self, input: String, mediaTypeWithQualityHeaderValue: &mut HttpMediaTypeWithQualityHeaderValue) -> bool;
@@ -715,16 +715,16 @@ mod Windows {
                     fn TryParseAdd(&self, input: String) -> bool;
                 }
                 #[guid(0xd8ba7463_5b9a_4d1b_93f9_aa5b44ecfddf)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpNameValueHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpNameValueHeaderValue)]
                 interface IHttpNameValueHeaderValue {
                     #[get]
                     Name: String;
                     Value: String;
                 }
                 #[guid(0x770e2267_cbf8_4736_a925_93fbe10c7ca8)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpNameValueHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpNameValueHeaderValue)]
                 interface IHttpNameValueHeaderValueFactory {
                     fn CreateFromName(&self, name: String) -> HttpNameValueHeaderValue;
                     fn CreateFromNameWithValue(&self, name: String, value: String) -> HttpNameValueHeaderValue;
@@ -746,8 +746,8 @@ mod Windows {
                     Version: String;
                 }
                 #[guid(0x611aa4f5_82bc_42fb_977b_dc00536e5e86)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpProductHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpProductHeaderValue)]
                 interface IHttpProductHeaderValueFactory {
                     fn CreateFromName(&self, productName: String) -> HttpProductHeaderValue;
                     fn CreateFromNameWithVersion(&self, productName: String, productVersion: String) -> HttpProductHeaderValue;
@@ -769,8 +769,8 @@ mod Windows {
                     Comment: String;
                 }
                 #[guid(0x877df74a_d69b_44f8_ad4f_453af9c42ed0)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpProductInfoHeaderValueCollection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpProductInfoHeaderValueCollection)]
                 interface IHttpProductInfoHeaderValueCollection {
                     fn ParseAdd(&self, input: String);
                     fn TryParseAdd(&self, input: String) -> bool;
@@ -824,8 +824,8 @@ mod Windows {
                     fn TryAppendWithoutValidation(&self, name: String, value: String) -> bool;
                 }
                 #[guid(0x7a990969_fa3f_41ed_aac6_bf957975c16b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpResponseHeaderCollection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpResponseHeaderCollection)]
                 interface IHttpResponseHeaderCollection {
                     Age: super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>;
                     #[get]
@@ -863,14 +863,14 @@ mod Windows {
                     fn TryParseAdd(&self, input: String) -> bool;
                 }
                 #[guid(0xbb62dffc_e361_4f08_8e4f_c9e723de703b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpTransferCodingHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpTransferCodingHeaderValue)]
                 interface IHttpTransferCodingHeaderValueFactory {
                     fn Create(&self, input: String) -> HttpTransferCodingHeaderValue;
                 }
                 #[guid(0x6ab8892a_1a98_4d32_a906_7470a9875ce5)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(HttpTransferCodingHeaderValue)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(HttpTransferCodingHeaderValue)]
                 interface IHttpTransferCodingHeaderValueStatics {
                     fn Parse(&self, input: String) -> HttpTransferCodingHeaderValue;
                     fn TryParse(&self, input: String, transferCodingHeaderValue: &mut HttpTransferCodingHeaderValue) -> bool;

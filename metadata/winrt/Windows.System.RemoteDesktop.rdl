@@ -3,16 +3,16 @@ mod Windows {
     mod System {
         mod RemoteDesktop {
             #[guid(0x60884631_dd3a_4576_9c8d_e8027618bdce)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(InteractiveSession)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(InteractiveSession)]
             interface IInteractiveSessionStatics {
                 #[get]
                 IsRemote: bool;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Static(IInteractiveSessionStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             class InteractiveSession {}
         }
     }

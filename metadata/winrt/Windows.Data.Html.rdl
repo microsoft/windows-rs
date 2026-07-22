@@ -2,15 +2,15 @@
 mod Windows {
     mod Data {
         mod Html {
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Static(IHtmlUtilities, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class HtmlUtilities {}
             #[guid(0xfec00add_2399_4fac_b5a7_05e9acd7181d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HtmlUtilities)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HtmlUtilities)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IHtmlUtilities {
                 fn ConvertToText(&self, html: String) -> String;

@@ -2,20 +2,20 @@
 mod Windows {
     mod UI {
         mod Composition {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class AmbientLight: CompositionLight {
                 IAmbientLight,
                 IAmbientLight2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IAnimationControllerStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class AnimationController: CompositionObject {
                 IAnimationController,
@@ -35,8 +35,8 @@ mod Windows {
                 SetInitialValueBeforeDelay = 1,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum AnimationDirection {
                 Normal = 0,
                 Reverse = 1,
@@ -44,81 +44,81 @@ mod Windows {
                 AlternateReverse = 3,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum AnimationIterationBehavior {
                 Count = 0,
                 Forever = 1,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum AnimationPropertyAccessMode {
                 None = 0,
                 ReadOnly = 1,
                 WriteOnly = 2,
                 ReadWrite = 3,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class AnimationPropertyInfo: CompositionObject {
                 IAnimationPropertyInfo,
                 IAnimationPropertyInfo2,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum AnimationStopBehavior {
                 LeaveCurrentValue = 0,
                 SetToInitialValue = 1,
                 SetToFinalValue = 2,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class BackEasingFunction: CompositionEasingFunction {
                 IBackEasingFunction,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class BooleanKeyFrameAnimation: KeyFrameAnimation {
                 IBooleanKeyFrameAnimation,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class BounceEasingFunction: CompositionEasingFunction {
                 IBounceEasingFunction,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class BounceScalarNaturalMotionAnimation: ScalarNaturalMotionAnimation {
                 IBounceScalarNaturalMotionAnimation,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class BounceVector2NaturalMotionAnimation: Vector2NaturalMotionAnimation {
                 IBounceVector2NaturalMotionAnimation,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class BounceVector3NaturalMotionAnimation: Vector3NaturalMotionAnimation {
                 IBounceVector3NaturalMotionAnimation,
             }
@@ -129,19 +129,19 @@ mod Windows {
             class CircleEasingFunction: CompositionEasingFunction {
                 ICircleEasingFunction,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class ColorKeyFrameAnimation: KeyFrameAnimation {
                 IColorKeyFrameAnimation,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Composable(ICompositionAnimationFactory, Public, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::Composable(ICompositionAnimationFactory, Public, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionAnimation: CompositionObject {
                 ICompositionAnimation,
@@ -150,37 +150,37 @@ mod Windows {
                 ICompositionAnimation4,
                 ICompositionAnimationBase,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionAnimationGroup: CompositionObject {
                 ICompositionAnimationGroup,
                 super::super::Foundation::Collections::IIterable<CompositionAnimation>,
                 ICompositionAnimationBase,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionBackdropBrush: CompositionBrush {
                 ICompositionBackdropBrush,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum CompositionBackfaceVisibility {
                 Inherit = 0,
                 Visible = 1,
                 Hidden = 2,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionBatchCompletedEventArgs: CompositionObject {
                 ICompositionBatchCompletedEventArgs,
             }
@@ -196,8 +196,8 @@ mod Windows {
                 AllAnimations = 5,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum CompositionBitmapInterpolationMode {
                 NearestNeighbor = 0,
                 Linear = 1,
@@ -211,25 +211,25 @@ mod Windows {
                 MagNearestMinNearestMipNearest = 9,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum CompositionBorderMode {
                 Inherit = 0,
                 Soft = 1,
                 Hard = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Composable(ICompositionBrushFactory, Public, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             class CompositionBrush: CompositionObject {
                 ICompositionBrush,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ICompositionCapabilitiesStatics, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
@@ -237,33 +237,33 @@ mod Windows {
                 ICompositionCapabilities,
             }
             #[Windows::Foundation::Metadata::Composable(ICompositionClipFactory, Public, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class CompositionClip: CompositionObject {
                 ICompositionClip,
                 ICompositionClip2,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class CompositionColorBrush: CompositionBrush {
                 ICompositionColorBrush,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionColorGradientStop: CompositionObject {
                 ICompositionColorGradientStop,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             class CompositionColorGradientStopCollection {
                 ICompositionColorGradientStopCollection,
                 super::super::Foundation::Collections::IIterable<CompositionColorGradientStop>,
@@ -279,186 +279,186 @@ mod Windows {
                 HslLinear = 3,
                 RgbLinear = 4,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionCommitBatch: CompositionObject {
                 ICompositionCommitBatch,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum CompositionCompositeMode {
                 Inherit = 0,
                 SourceOver = 1,
                 DestinationInvert = 2,
                 MinBlend = 3,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             class CompositionContainerShape: CompositionShape {
                 ICompositionContainerShape,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Composable(ICompositionDrawingSurfaceFactory, Public, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionDrawingSurface: CompositionObject {
                 ICompositionDrawingSurface,
                 ICompositionDrawingSurface2,
                 ICompositionSurface,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum CompositionDropShadowSourcePolicy {
                 Default = 0,
                 InheritFromVisualContent = 1,
             }
             #[Windows::Foundation::Metadata::Composable(ICompositionEasingFunctionFactory, Public, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ICompositionEasingFunctionStatics, 786432, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionEasingFunction: CompositionObject {
                 ICompositionEasingFunction,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum CompositionEasingFunctionMode {
                 In = 0,
                 Out = 1,
                 InOut = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionEffectBrush: CompositionBrush {
                 ICompositionEffectBrush,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionEffectFactory: CompositionObject {
                 ICompositionEffectFactory,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum CompositionEffectFactoryLoadStatus {
                 Success = 0,
                 EffectTooComplex = 1,
                 Pending = 2,
                 Other = -1,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::Activatable(ICompositionEffectSourceParameterFactory, 131072, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionEffectSourceParameter {
                 ICompositionEffectSourceParameter,
                 super::super::Graphics::Effects::IGraphicsEffectSource,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionEllipseGeometry: CompositionGeometry {
                 ICompositionEllipseGeometry,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionGeometricClip: CompositionClip {
                 ICompositionGeometricClip,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::Composable(ICompositionGeometryFactory, Public, 393216, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionGeometry: CompositionObject {
                 ICompositionGeometry,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum CompositionGetValueStatus {
                 Succeeded = 0,
                 TypeMismatch = 1,
                 NotFound = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::Composable(ICompositionGradientBrushFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionGradientBrush: CompositionBrush {
                 ICompositionGradientBrush,
                 ICompositionGradientBrush2,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum CompositionGradientExtendMode {
                 Clamp = 0,
                 Wrap = 1,
                 Mirror = 2,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             class CompositionGraphicsDevice: CompositionObject {
                 ICompositionGraphicsDevice,
                 ICompositionGraphicsDevice2,
                 ICompositionGraphicsDevice3,
                 ICompositionGraphicsDevice4,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Composable(ICompositionLightFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::Composable(ICompositionLightFactory, Public, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionLight: CompositionObject {
                 ICompositionLight,
                 ICompositionLight2,
                 ICompositionLight3,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionLineGeometry: CompositionGeometry {
                 ICompositionLineGeometry,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionLinearGradientBrush: CompositionGradientBrush {
                 ICompositionLinearGradientBrush,
             }
@@ -469,38 +469,38 @@ mod Windows {
                 Absolute = 0,
                 Relative = 1,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionMaskBrush: CompositionBrush {
                 ICompositionMaskBrush,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             class CompositionMipmapSurface: CompositionObject {
                 ICompositionMipmapSurface,
                 ICompositionSurface,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionNineGridBrush: CompositionBrush {
                 ICompositionNineGridBrush,
             }
-            #[Windows::Foundation::Metadata::Static(ICompositionObjectStatics, 458752, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::Composable(ICompositionObjectFactory, Public, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::Composable(ICompositionObjectFactory, Public, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICompositionObjectStatics, 458752, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionObject {
                 ICompositionObject,
                 ICompositionObject2,
@@ -510,99 +510,99 @@ mod Windows {
                 super::super::Foundation::IClosable,
                 IAnimationObject,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::Activatable(ICompositionPathFactory, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionPath {
                 ICompositionPath,
                 super::super::Graphics::IGeometrySource2D,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionPathGeometry: CompositionGeometry {
                 ICompositionPathGeometry,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             class CompositionProjectedShadow: CompositionObject {
                 ICompositionProjectedShadow,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionProjectedShadowCaster: CompositionObject {
                 ICompositionProjectedShadowCaster,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
-            #[Windows::Foundation::Metadata::Static(ICompositionProjectedShadowCasterCollectionStatics, 524288, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ICompositionProjectedShadowCasterCollectionStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionProjectedShadowCasterCollection: CompositionObject {
                 ICompositionProjectedShadowCasterCollection,
                 super::super::Foundation::Collections::IIterable<CompositionProjectedShadowCaster>,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionProjectedShadowReceiver: CompositionObject {
                 ICompositionProjectedShadowReceiver,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionProjectedShadowReceiverUnorderedCollection: CompositionObject {
                 ICompositionProjectedShadowReceiverUnorderedCollection,
                 super::super::Foundation::Collections::IIterable<CompositionProjectedShadowReceiver>,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionPropertySet: CompositionObject {
                 ICompositionPropertySet,
                 ICompositionPropertySet2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionRadialGradientBrush: CompositionGradientBrush {
                 ICompositionRadialGradientBrush,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             class CompositionRectangleGeometry: CompositionGeometry {
                 ICompositionRectangleGeometry,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionRoundedRectangleGeometry: CompositionGeometry {
                 ICompositionRoundedRectangleGeometry,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionScopedBatch: CompositionObject {
                 ICompositionScopedBatch,
             }
@@ -615,27 +615,27 @@ mod Windows {
             class CompositionShadow: CompositionObject {
                 ICompositionShadow,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::Composable(ICompositionShapeFactory, Public, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionShape: CompositionObject {
                 ICompositionShape,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionShapeCollection: CompositionObject {
                 super::super::Foundation::Collections::IVector<CompositionShape>,
                 super::super::Foundation::Collections::IIterable<CompositionShape>,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionSpriteShape: CompositionShape {
@@ -651,101 +651,101 @@ mod Windows {
                 UniformToFill = 3,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum CompositionStrokeCap {
                 Flat = 0,
                 Square = 1,
                 Round = 2,
                 Triangle = 3,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionStrokeDashArray: CompositionObject {
                 super::super::Foundation::Collections::IVector<f32>,
                 super::super::Foundation::Collections::IIterable<f32>,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum CompositionStrokeLineJoin {
                 Miter = 0,
                 Bevel = 1,
                 Round = 2,
                 MiterOrBevel = 3,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             class CompositionSurfaceBrush: CompositionBrush {
                 ICompositionSurfaceBrush,
                 ICompositionSurfaceBrush2,
                 ICompositionSurfaceBrush3,
             }
+            #[Windows::Foundation::Metadata::Composable(ICompositionTargetFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::Composable(ICompositionTargetFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionTarget: CompositionObject {
                 ICompositionTarget,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::Composable(ICompositionTextureFactory, Public, 983040, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionTexture: CompositionObject {
                 ICompositionTexture,
                 ICompositionSurface,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Composable(ICompositionTransformFactory, Public, 524288, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionTransform: CompositionObject {
                 ICompositionTransform,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionViewBox: CompositionObject {
                 ICompositionViewBox,
             }
             #[Windows::Foundation::Metadata::Composable(ICompositionVirtualDrawingSurfaceFactory, Public, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class CompositionVirtualDrawingSurface: CompositionDrawingSurface {
                 ICompositionVirtualDrawingSurface,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CompositionVisualSurface: CompositionObject {
                 ICompositionVisualSurface,
                 ICompositionSurface,
             }
-            #[Windows::Foundation::Metadata::Static(ICompositorStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICompositorStatics, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class Compositor {
                 ICompositor,
                 ICompositor2,
@@ -761,88 +761,88 @@ mod Windows {
                 ICompositor8,
                 super::super::Foundation::IClosable,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Composable(IContainerVisualFactory, Public, 131072, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class ContainerVisual: Visual {
                 IContainerVisual,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             class CubicBezierEasingFunction: CompositionEasingFunction {
                 ICubicBezierEasingFunction,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Static(IDelegatedInkTrailVisualStatics, 786432, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IDelegatedInkTrailVisualStatics, 786432, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class DelegatedInkTrailVisual: Visual {
                 IDelegatedInkTrailVisual,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class DistantLight: CompositionLight {
                 IDistantLight,
                 IDistantLight2,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class DropShadow: CompositionShadow {
                 IDropShadow,
                 IDropShadow2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class ElasticEasingFunction: CompositionEasingFunction {
                 IElasticEasingFunction,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class ExponentialEasingFunction: CompositionEasingFunction {
                 IExponentialEasingFunction,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class ExpressionAnimation: CompositionAnimation {
                 IExpressionAnimation,
             }
             #[guid(0xa48130a1_b7c4_46f7_b9bf_daf43a44e6ee)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AmbientLight)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAmbientLight {
                 Color: super::Color;
             }
             #[guid(0x3b64a6bf_5f97_4c94_86e5_042dd386b27d)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(AmbientLight)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAmbientLight2 {
                 Intensity: f32;
             }
             #[guid(0xc934efd2_0722_4f5f_a4e2_9510f3d43bf7)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AnimationController)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AnimationController)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAnimationController {
                 PlaybackRate: f32;
@@ -852,8 +852,8 @@ mod Windows {
                 fn Resume(&self);
             }
             #[guid(0xe71164df_651b_4800_b9e5_6a3bcfed3365)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AnimationController)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AnimationController)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAnimationControllerStatics {
                 #[get]
@@ -868,23 +868,23 @@ mod Windows {
                 fn PopulatePropertyInfo(&self, propertyName: String, propertyInfo: AnimationPropertyInfo);
             }
             #[guid(0xf4716f05_ed77_4e3c_b328_5c3985b3738f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AnimationPropertyInfo)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AnimationPropertyInfo)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAnimationPropertyInfo {
                 AccessMode: AnimationPropertyAccessMode;
             }
             #[guid(0x591720b4_7472_5218_8b39_dffe615ae6da)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AnimationPropertyInfo)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AnimationPropertyInfo)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IAnimationPropertyInfo2 {
                 fn GetResolvedCompositionObject(&self) -> CompositionObject;
                 fn GetResolvedCompositionObjectProperty(&self) -> String;
             }
             #[guid(0xb8560da4_5e3c_545d_b263_7987a2bd27cb)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BackEasingFunction)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BackEasingFunction)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IBackEasingFunction {
                 #[get]
@@ -901,8 +901,8 @@ mod Windows {
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: bool);
             }
             #[guid(0xe7fdb44b_aad5_5174_9421_eef8b75a6a43)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BounceEasingFunction)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BounceEasingFunction)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IBounceEasingFunction {
                 #[get]
@@ -937,17 +937,17 @@ mod Windows {
                 Restitution: f32;
             }
             #[guid(0x1e07222a_6f82_5a28_8748_2e92fc46ee2b)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CircleEasingFunction)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICircleEasingFunction {
                 #[get]
                 Mode: CompositionEasingFunctionMode;
             }
             #[guid(0x93adb5e9_8e05_4593_84a3_dca152781e56)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ColorKeyFrameAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             interface IColorKeyFrameAnimation {
                 InterpolationColorSpace: CompositionColorSpace;
                 #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
@@ -973,41 +973,41 @@ mod Windows {
                 fn SetVector4Parameter(&self, key: String, value: super::super::Foundation::Numerics::Vector4);
             }
             #[guid(0x369b603e_a80f_4948_93e3_ed23fb38c6cb)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionAnimation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionAnimation2 {
                 fn SetBooleanParameter(&self, key: String, value: bool);
                 Target: String;
             }
             #[guid(0xd51e030d_7da4_4bd7_bc2d_f4517529f43a)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionAnimation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionAnimation3 {
                 #[get]
                 InitialValueExpressions: InitialValueExpressionCollection;
             }
             #[guid(0x770137be_76bc_4e23_bfed_fe9cc20f6ec9)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionAnimation4 {
                 fn SetExpressionReferenceParameter(&self, parameterName: String, source: IAnimationObject);
             }
             #[guid(0x1c2c2999_e818_48d3_a6dd_d78c82f8ace9)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionAnimationBase {}
             #[guid(0x10f6c4fb_6e51_4c25_bbd3_586a9bec3ef4)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             interface ICompositionAnimationFactory {}
             #[guid(0x5e7cc90c_cd14_4e07_8a55_c72527aabdac)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionAnimationGroup)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionAnimationGroup {
                 #[get]
                 Count: i32;
@@ -1016,50 +1016,50 @@ mod Windows {
                 fn RemoveAll(&self);
             }
             #[guid(0xc5acae58_3898_499e_8d7f_224e91286a5d)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionBackdropBrush)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionBackdropBrush {}
             #[guid(0x0d00dad0_9464_450a_a562_2e2698b0a812)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionBatchCompletedEventArgs)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionBatchCompletedEventArgs {}
             #[guid(0xab0d7608_30c0_40e9_b568_b60a6bd1fb46)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionBrush)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionBrush)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionBrush {}
             #[guid(0xda53fb4c_4650_47c4_ad76_765379607ed6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionBrush)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionBrushFactory {}
             #[guid(0x8253353e_b517_48bc_b1e8_4b3561a2e181)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionCapabilities)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionCapabilities {
                 fn AreEffectsSupported(&self) -> bool;
                 fn AreEffectsFast(&self) -> bool;
                 event Changed: super::super::Foundation::TypedEventHandler<CompositionCapabilities, Object>;
             }
             #[guid(0xf7b7a86e_6416_49e5_8ddf_afe949e20562)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionCapabilities)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionCapabilities)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionCapabilitiesStatics {
                 fn GetForCurrentView(&self) -> CompositionCapabilities;
             }
             #[guid(0x1ccd2a52_cfc7_4ace_9983_146bb8eb6a3c)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionClip)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             interface ICompositionClip {}
             #[guid(0x5893e069_3516_40e1_89e0_5ba924927235)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionClip)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionClip)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionClip2 {
                 AnchorPoint: super::super::Foundation::Numerics::Vector2;
                 CenterPoint: super::super::Foundation::Numerics::Vector2;
@@ -1070,34 +1070,34 @@ mod Windows {
                 TransformMatrix: super::super::Foundation::Numerics::Matrix3x2;
             }
             #[guid(0xb9484caf_20c7_4aed_ac4a_9c78ba1302cf)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionClip)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionClipFactory {}
             #[guid(0x2b264c5e_bf35_4831_8642_cf70c20fff2f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionColorBrush)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionColorBrush)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionColorBrush {
                 Color: super::Color;
             }
             #[guid(0x6f00ca92_c801_4e41_9a8f_a53e20f57778)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionColorGradientStop)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             interface ICompositionColorGradientStop {
                 Color: super::Color;
                 Offset: f32;
             }
             #[guid(0x9f1d20ec_7b04_4b1d_90bc_9fa32c0cfd26)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionColorGradientStopCollection)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionColorGradientStopCollection {}
             #[guid(0x0d00dad0_ca07_4400_8c8e_cb5db08559cc)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionCommitBatch)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionCommitBatch)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionCommitBatch {
                 #[get]
                 IsActive: bool;
@@ -1107,16 +1107,16 @@ mod Windows {
             }
             #[guid(0x4f5e859b_2e5b_44a8_982c_aa0f69c16059)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionContainerShape)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionContainerShape {
                 #[get]
                 Shapes: CompositionShapeCollection;
             }
             #[guid(0xa166c300_fad0_4d11_9e67_e433162ff49e)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionDrawingSurface)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionDrawingSurface {
                 #[get]
                 AlphaMode: super::super::Graphics::DirectX::DirectXAlphaMode;
@@ -1126,9 +1126,9 @@ mod Windows {
                 Size: super::super::Foundation::Size;
             }
             #[guid(0xfad0e88b_e354_44e8_8e3d_c4880d5a213f)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionDrawingSurface)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             interface ICompositionDrawingSurface2 {
                 #[get]
                 SizeInt32: super::super::Graphics::SizeInt32;
@@ -1143,24 +1143,24 @@ mod Windows {
                 fn ScrollWithClip(&self, offset: super::super::Graphics::PointInt32, clipRect: super::super::Graphics::RectInt32, scrollRect: super::super::Graphics::RectInt32);
             }
             #[guid(0x9497b00a_312d_46b9_9db3_412fd79464c8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionDrawingSurface)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionDrawingSurface)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionDrawingSurfaceFactory {}
             #[guid(0x5145e356_bf79_4ea8_8cc2_6b5b472e6c9a)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionEasingFunction)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionEasingFunction {}
             #[guid(0x60840774_3da0_4949_8200_7206c00190a0)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionEasingFunction)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionEasingFunction)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionEasingFunctionFactory {}
             #[guid(0x17a766b6_2936_53ea_b5af_c642f4a61083)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionEasingFunction)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionEasingFunctionStatics {
                 fn CreateCubicBezierEasingFunction(&self, owner: Compositor, controlPoint1: super::super::Foundation::Numerics::Vector2, controlPoint2: super::super::Foundation::Numerics::Vector2) -> CubicBezierEasingFunction;
                 fn CreateLinearEasingFunction(&self, owner: Compositor) -> LinearEasingFunction;
@@ -1178,16 +1178,16 @@ mod Windows {
             }
             #[guid(0xbf7f795e_83cc_44bf_a447_3e3c071789ec)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionEffectBrush)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionEffectBrush {
                 fn GetSourceParameter(&self, name: String) -> CompositionBrush;
                 fn SetSourceParameter(&self, name: String, source: CompositionBrush);
             }
             #[guid(0xbe5624af_ba7e_4510_9850_41c0b4ff74df)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionEffectFactory)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             interface ICompositionEffectFactory {
                 fn CreateBrush(&self) -> CompositionEffectBrush;
                 #[get]
@@ -1196,17 +1196,17 @@ mod Windows {
                 LoadStatus: CompositionEffectFactoryLoadStatus;
             }
             #[guid(0x858ab13a_3292_4e4e_b3bb_2b6c6544a6ee)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionEffectSourceParameter)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionEffectSourceParameter {
                 #[get]
                 Name: String;
             }
             #[guid(0xb3d9f276_aba3_4724_acf3_d0397464db1c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionEffectSourceParameter)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionEffectSourceParameterFactory {
                 fn Create(&self, name: String) -> CompositionEffectSourceParameter;
             }
@@ -1220,15 +1220,15 @@ mod Windows {
             }
             #[guid(0xc840b581_81c9_4444_a2c1_ccaece3a50e5)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionGeometricClip)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionGeometricClip {
                 Geometry: CompositionGeometry;
                 ViewBox: CompositionViewBox;
             }
             #[guid(0xe985217c_6a17_4207_abd8_5fd3dd612a9d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionGeometry)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionGeometry)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionGeometry {
                 TrimEnd: f32;
@@ -1236,13 +1236,13 @@ mod Windows {
                 TrimStart: f32;
             }
             #[guid(0xbffebfe1_8c25_480b_9f56_fed6b288055d)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionGeometry)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionGeometryFactory {}
             #[guid(0x1d9709e0_ffc6_4c0e_a9ab_34144d4c9098)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionGradientBrush)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionGradientBrush)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionGradientBrush {
                 AnchorPoint: super::super::Foundation::Numerics::Vector2;
@@ -1265,9 +1265,9 @@ mod Windows {
                 MappingMode: CompositionMappingMode;
             }
             #[guid(0x56d765d7_f189_48c9_9c8d_94daf1bec010)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionGradientBrush)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionGradientBrush)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionGradientBrushFactory {}
             #[guid(0xfb22c6e1_80a2_4667_9936_dbeaf6eefe95)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -1278,56 +1278,56 @@ mod Windows {
                 event RenderingDeviceReplaced: super::super::Foundation::TypedEventHandler<CompositionGraphicsDevice, RenderingDeviceReplacedEventArgs>;
             }
             #[guid(0x0fb8bdf6_c0f0_4bcc_9fb8_084982490d7d)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionGraphicsDevice)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionGraphicsDevice)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionGraphicsDevice2 {
                 fn CreateDrawingSurface2(&self, sizePixels: super::super::Graphics::SizeInt32, pixelFormat: super::super::Graphics::DirectX::DirectXPixelFormat, alphaMode: super::super::Graphics::DirectX::DirectXAlphaMode) -> CompositionDrawingSurface;
                 fn CreateVirtualDrawingSurface(&self, sizePixels: super::super::Graphics::SizeInt32, pixelFormat: super::super::Graphics::DirectX::DirectXPixelFormat, alphaMode: super::super::Graphics::DirectX::DirectXAlphaMode) -> CompositionVirtualDrawingSurface;
             }
             #[guid(0x37f67514_d3ef_49d1_b69d_0d8eabeb3626)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionGraphicsDevice)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionGraphicsDevice3 {
                 fn CreateMipmapSurface(&self, sizePixels: super::super::Graphics::SizeInt32, pixelFormat: super::super::Graphics::DirectX::DirectXPixelFormat, alphaMode: super::super::Graphics::DirectX::DirectXAlphaMode) -> CompositionMipmapSurface;
                 fn Trim(&self);
             }
             #[guid(0x5a73bff9_a97f_4cf5_ba46_98ef358e71b1)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionGraphicsDevice)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             interface ICompositionGraphicsDevice4 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CaptureAsync(&self, captureVisual: Visual, size: super::super::Graphics::SizeInt32, pixelFormat: super::super::Graphics::DirectX::DirectXPixelFormat, alphaMode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrBoost: f32) -> super::super::Foundation::IAsyncOperation<ICompositionSurface>;
             }
             #[guid(0x41a6d7c2_2e5d_4bc1_b09e_8f0a03e3d8d3)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionLight)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionLight {
                 #[get]
                 Targets: VisualUnorderedCollection;
             }
             #[guid(0xa7bcda72_f35d_425d_9b98_23f4205f6669)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionLight)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             interface ICompositionLight2 {
                 #[get]
                 ExclusionsFromTargets: VisualUnorderedCollection;
             }
             #[guid(0x4b0b00e4_df07_4959_b7a4_4f7e4233f838)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionLight)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             interface ICompositionLight3 {
                 IsEnabled: bool;
             }
             #[guid(0x069cf306_da3c_4b44_838a_5e03d51ace55)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionLight)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionLightFactory {}
             #[guid(0xdd7615a4_0c9a_4b67_8dce_440a5bf9cdec)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -1338,8 +1338,8 @@ mod Windows {
                 End: super::super::Foundation::Numerics::Vector2;
             }
             #[guid(0x983bc519_a9db_413c_a2d8_2a9056fc525e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionLinearGradientBrush)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionLinearGradientBrush)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionLinearGradientBrush {
                 EndPoint: super::super::Foundation::Numerics::Vector2;
@@ -1347,16 +1347,16 @@ mod Windows {
             }
             #[guid(0x522cf09e_be6b_4f41_be49_f9226d471b4a)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionMaskBrush)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionMaskBrush {
                 Mask: CompositionBrush;
                 Source: CompositionBrush;
             }
             #[guid(0x4863675c_cf4a_4b1c_9ece_c5ec0c2b2fe6)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionMipmapSurface)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionMipmapSurface {
                 #[get]
                 LevelCount: u32;
@@ -1370,8 +1370,8 @@ mod Windows {
             }
             #[guid(0xf25154e4_bc8c_4be7_b80f_8685b83c0186)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionNineGridBrush)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionNineGridBrush {
                 BottomInset: f32;
                 BottomInsetScale: f32;
@@ -1393,9 +1393,9 @@ mod Windows {
                 fn SetInsetScales(&self, left: f32, top: f32, right: f32, bottom: f32);
             }
             #[guid(0xbcb4ad45_7609_4550_934f_16002a68fded)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionObject)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionObject {
                 #[get]
                 Compositor: Compositor;
@@ -1408,8 +1408,8 @@ mod Windows {
             }
             #[guid(0xef874ea1_5cff_4b68_9e30_a1519d08ba03)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionObject)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionObject2 {
                 Comment: String;
                 ImplicitAnimations: ImplicitAnimationCollection;
@@ -1425,24 +1425,24 @@ mod Windows {
                 DispatcherQueue: super::super::System::DispatcherQueue;
             }
             #[guid(0x0bb3784c_346b_4a7c_966b_7310966553d5)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionObject)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             interface ICompositionObject4 {
                 fn TryGetAnimationController(&self, propertyName: String) -> AnimationController;
             }
             #[guid(0x1d7f391b_a130_5265_a62b_60b8e668965a)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionObject)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
             interface ICompositionObject5 {
                 #[Windows::Foundation::Metadata::Overload("StartAnimationWithController")]
                 fn StartAnimation(&self, propertyName: String, animation: CompositionAnimation, animationController: AnimationController);
             }
             #[guid(0x51205c5e_558a_4f2a_8d39_37bfe1e20ddd)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionObject)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionObjectFactory {}
             #[guid(0xc1ed052f_1ba2_44ba_a904_6a882a0a5adb)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
@@ -1453,8 +1453,8 @@ mod Windows {
                 fn StartAnimationGroupWithIAnimationObject(&self, target: IAnimationObject, animation: ICompositionAnimationBase);
             }
             #[guid(0x66da1d5f_2e10_4f22_8a06_0a8151919e60)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionPath)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionPath)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionPath {}
             #[guid(0x9c1e8c6a_0f33_4751_9437_eb3fb9d3ab07)]
@@ -1465,16 +1465,16 @@ mod Windows {
                 fn Create(&self, source: super::super::Graphics::IGeometrySource2D) -> CompositionPath;
             }
             #[guid(0x0b6a417e_2c77_4c23_af5e_6304c147bb61)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionPathGeometry)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionPathGeometry)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionPathGeometry {
                 Path: CompositionPath;
             }
             #[guid(0x285b8e72_4328_523f_bcf2_5557c52c3b25)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionProjectedShadow)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionProjectedShadow)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionProjectedShadow {
                 BlurRadiusMultiplier: f32;
                 #[get]
@@ -1494,9 +1494,9 @@ mod Windows {
                 CastingVisual: Visual;
             }
             #[guid(0xd2525c0c_e07f_58a3_ac91_37f73ee91740)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionProjectedShadowCasterCollection)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionProjectedShadowCasterCollection {
                 #[get]
                 Count: i32;
@@ -1508,17 +1508,17 @@ mod Windows {
                 fn RemoveAll(&self);
             }
             #[guid(0x56fbb136_e94f_5299_ab5b_6e15e38bd899)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionProjectedShadowCasterCollection)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             interface ICompositionProjectedShadowCasterCollectionStatics {
                 #[get]
                 MaxRespectedCasters: i32;
             }
             #[guid(0x1377985a_6a49_536a_9be4_a96a8e5298a9)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionProjectedShadowReceiver)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionProjectedShadowReceiver {
                 ReceivingVisual: Visual;
             }
@@ -1535,8 +1535,8 @@ mod Windows {
             }
             #[guid(0xc9d6d202_5f67_4453_9117_9eadd430d3c2)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionPropertySet)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionPropertySet {
                 fn InsertColor(&self, propertyName: String, value: super::Color);
                 fn InsertMatrix3x2(&self, propertyName: String, value: super::super::Foundation::Numerics::Matrix3x2);
@@ -1556,17 +1556,17 @@ mod Windows {
                 fn TryGetVector4(&self, propertyName: String, value: &mut super::super::Foundation::Numerics::Vector4) -> CompositionGetValueStatus;
             }
             #[guid(0xde80731e_a211_4455_8880_7d0f3f6a44fd)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionPropertySet)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionPropertySet)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionPropertySet2 {
                 fn InsertBoolean(&self, propertyName: String, value: bool);
                 fn TryGetBoolean(&self, propertyName: String, value: &mut bool) -> CompositionGetValueStatus;
             }
             #[guid(0x3d3b50c5_e3fa_4ce2_b9fc_3ee12561788f)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionRadialGradientBrush)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionRadialGradientBrush)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionRadialGradientBrush {
                 EllipseCenter: super::super::Foundation::Numerics::Vector2;
                 EllipseRadius: super::super::Foundation::Numerics::Vector2;
@@ -1574,25 +1574,25 @@ mod Windows {
             }
             #[guid(0x0cd51428_5356_4246_aecf_7a0b76975400)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionRectangleGeometry)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionRectangleGeometry {
                 Offset: super::super::Foundation::Numerics::Vector2;
                 Size: super::super::Foundation::Numerics::Vector2;
             }
             #[guid(0x8770c822_1d50_4b8b_b013_7c9a0e46935f)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionRoundedRectangleGeometry)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionRoundedRectangleGeometry {
                 CornerRadius: super::super::Foundation::Numerics::Vector2;
                 Offset: super::super::Foundation::Numerics::Vector2;
                 Size: super::super::Foundation::Numerics::Vector2;
             }
             #[guid(0x0d00dad0_fb07_46fd_8c72_6280d1a3d1dd)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionScopedBatch)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             interface ICompositionScopedBatch {
                 #[get]
                 IsActive: bool;
@@ -1605,18 +1605,18 @@ mod Windows {
             }
             #[guid(0x329e52e2_4335_49cc_b14a_37782d10f0c4)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionShadow)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionShadow {}
             #[guid(0x221f492f_dcba_4b91_999e_1dc217a01530)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionShadow)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionShadow)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionShadowFactory {}
             #[guid(0xb47ce2f7_9a88_42c4_9e87_2e500ca8688c)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionShape)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionShape {
                 CenterPoint: super::super::Foundation::Numerics::Vector2;
                 Offset: super::super::Foundation::Numerics::Vector2;
@@ -1626,9 +1626,9 @@ mod Windows {
                 TransformMatrix: super::super::Foundation::Numerics::Matrix3x2;
             }
             #[guid(0x1dfc36d0_b05a_44ef_82b0_12118bcd4cd0)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionShape)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             interface ICompositionShapeFactory {}
             #[guid(0x401b61bb_0007_4363_b1f3_6bcc003fb83e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
@@ -1650,8 +1650,8 @@ mod Windows {
                 StrokeThickness: f32;
             }
             #[guid(0x397dafe4_b6c2_5bb9_951d_f5707de8b7bc)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionSupportsSystemBackdrop {
                 SystemBackdrop: CompositionBrush;
             }
@@ -1660,9 +1660,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionSurface {}
             #[guid(0xad016d79_1e4c_4c0d_9c29_83338c87c162)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionSurfaceBrush)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             interface ICompositionSurfaceBrush {
                 BitmapInterpolationMode: CompositionBitmapInterpolationMode;
                 HorizontalAlignmentRatio: f32;
@@ -1685,8 +1685,8 @@ mod Windows {
             }
             #[guid(0x550bb289_1fe0_42e5_8195_1eefa87ff08e)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionSurfaceBrush)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionSurfaceBrush3 {
                 SnapToPixels: bool;
             }
@@ -1697,21 +1697,21 @@ mod Windows {
                 fn GetRealSurface(&self) -> ICompositionSurface;
             }
             #[guid(0xa1bea8ba_d726_4663_8129_6b5e7927ffa6)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionTarget)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionTarget)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionTarget {
                 Root: Visual;
             }
             #[guid(0x93cd9d2b_8516_4b14_a8ce_f49e2119ec42)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionTarget)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionTargetFactory {}
             #[guid(0x347d03a0_1c0a_4c0b_b232_8570b2b1a4ea)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionTexture)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 983040)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionTexture)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionTexture {
                 SourceRect: super::super::Graphics::RectInt32;
                 AlphaMode: super::super::Graphics::DirectX::DirectXAlphaMode;
@@ -1726,14 +1726,14 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionTransform)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionTransform {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CompositionTransform)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             interface ICompositionTransformFactory {}
             #[guid(0xb440bf07_068f_4537_84c6_4ecbe019e1f4)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionViewBox)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionViewBox)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionViewBox {
                 HorizontalAlignmentRatio: f32;
                 Offset: super::super::Foundation::Numerics::Vector2;
@@ -1742,9 +1742,9 @@ mod Windows {
                 VerticalAlignmentRatio: f32;
             }
             #[guid(0xa9c384db_8740_4f94_8b9d_b68521e7863d)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionVirtualDrawingSurface)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CompositionVirtualDrawingSurface)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositionVirtualDrawingSurface {
                 fn Trim(&self, rects: [super::super::Graphics::RectInt32]);
             }
@@ -1763,8 +1763,8 @@ mod Windows {
                 SourceSize: super::super::Foundation::Numerics::Vector2;
             }
             #[guid(0xb403ca50_7f8c_4e83_985f_cc45060036d8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositor {
                 fn CreateColorKeyFrameAnimation(&self) -> ColorKeyFrameAnimation;
@@ -1804,8 +1804,8 @@ mod Windows {
             }
             #[guid(0x735081dc_5e24_45da_a38f_e32cc349a9a0)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositor2 {
                 fn CreateAmbientLight(&self) -> AmbientLight;
                 fn CreateAnimationGroup(&self) -> CompositionAnimationGroup;
@@ -1824,16 +1824,16 @@ mod Windows {
                 fn CreateStepEasingFunction(&self, stepCount: i32) -> StepEasingFunction;
             }
             #[guid(0xc9dd8ef0_6eb1_4e3c_a658_675d9c64d4ab)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             interface ICompositor3 {
                 fn CreateHostBackdropBrush(&self) -> CompositionBackdropBrush;
             }
             #[guid(0xae47e78a_7910_4425_a482_a05b758adce9)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositor4 {
                 #[Windows::Foundation::Metadata::Overload("CreateColorGradientStop")]
                 fn CreateColorGradientStop(&self) -> CompositionColorGradientStop;
@@ -1874,9 +1874,9 @@ mod Windows {
                 fn RequestCommitAsync(&self) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x7a38b2bd_cec8_4eeb_830f_d8d07aedebc3)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositor6 {
                 #[Windows::Foundation::Metadata::Overload("CreateGeometricClip")]
                 fn CreateGeometricClip(&self) -> CompositionGeometricClip;
@@ -1889,9 +1889,9 @@ mod Windows {
                 fn CreateBooleanKeyFrameAnimation(&self) -> BooleanKeyFrameAnimation;
             }
             #[guid(0xd3483fad_9a12_53ba_bfc8_88b7ff7977c6)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositor7 {
                 #[get]
                 DispatcherQueue: super::super::System::DispatcherQueue;
@@ -1911,9 +1911,9 @@ mod Windows {
                 fn CreateAnimationController(&self) -> AnimationController;
             }
             #[guid(0x080db93e_121e_4d97_8b74_1dfcf91987ea)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             interface ICompositorStatics {
                 #[get]
                 MaxGlobalPlaybackRate: f32;
@@ -1921,9 +1921,9 @@ mod Windows {
                 MinGlobalPlaybackRate: f32;
             }
             #[guid(0x0d8fb190_f122_5b8d_9fdd_543b0d8eb7f3)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 851968)]
             interface ICompositorWithBlurredWallpaperBackdropBrush {
                 fn TryCreateBlurredWallpaperBackdropBrush(&self) -> CompositionBackdropBrush;
             }
@@ -1937,36 +1937,36 @@ mod Windows {
                 fn CreateProjectedShadowReceiver(&self) -> CompositionProjectedShadowReceiver;
             }
             #[guid(0x98b9c1a7_8e71_4b53_b4a8_69ba5d19dc5b)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositorWithRadialGradient {
                 fn CreateRadialGradientBrush(&self) -> CompositionRadialGradientBrush;
             }
             #[guid(0xcfa1658b_0123_4551_8891_89bdcc40322b)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(Compositor)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICompositorWithVisualSurface {
                 fn CreateVisualSurface(&self) -> CompositionVisualSurface;
             }
             #[guid(0x02f6bc74_ed20_4773_afe6_d49b4a93db32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ContainerVisual)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContainerVisual)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IContainerVisual {
                 #[get]
                 Children: VisualCollection;
             }
             #[guid(0x0363a65b_c7da_4d9a_95f4_69b5c8df670b)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ContainerVisual)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContainerVisual)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IContainerVisualFactory {}
             #[guid(0x32350666_c1e8_44f9_96b8_c98acf0ae698)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CubicBezierEasingFunction)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             interface ICubicBezierEasingFunction {
                 #[get]
                 ControlPoint1: super::super::Foundation::Numerics::Vector2;
@@ -1975,8 +1975,8 @@ mod Windows {
             }
             #[guid(0x856e60b1_e1ab_5b23_8e3d_d513f221c998)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(DelegatedInkTrailVisual)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IDelegatedInkTrailVisual {
                 fn AddTrailPoints(&self, inkPoints: [InkTrailPoint]) -> u32;
                 fn AddTrailPointsWithPrediction(&self, inkPoints: [InkTrailPoint], predictedInkPoints: [InkTrailPoint]) -> u32;
@@ -1984,33 +1984,33 @@ mod Windows {
                 fn StartNewTrail(&self, color: super::Color);
             }
             #[guid(0x0daf6bd5_42c6_555c_9267_e0ac663af836)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DelegatedInkTrailVisual)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IDelegatedInkTrailVisualStatics {
                 fn Create(&self, compositor: Compositor) -> DelegatedInkTrailVisual;
                 fn CreateForSwapChain(&self, compositor: Compositor, swapChain: ICompositionSurface) -> DelegatedInkTrailVisual;
             }
             #[guid(0x318cfafc_5ce3_4b55_ab5d_07a00353ac99)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DistantLight)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DistantLight)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IDistantLight {
                 Color: super::Color;
                 CoordinateSpace: Visual;
                 Direction: super::super::Foundation::Numerics::Vector3;
             }
             #[guid(0xdbcdaa1c_294b_48d7_b60e_76df64aa392b)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DistantLight)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DistantLight)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IDistantLight2 {
                 Intensity: f32;
             }
             #[guid(0xcb977c07_a154_4851_85e7_a8924c84fad8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(DropShadow)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IDropShadow {
                 BlurRadius: f32;
                 Color: super::Color;
@@ -2019,15 +2019,15 @@ mod Windows {
                 Opacity: f32;
             }
             #[guid(0x6c4218bc_15b9_4c2d_8d4a_0767df11977a)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(DropShadow)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             interface IDropShadow2 {
                 SourcePolicy: CompositionDropShadowSourcePolicy;
             }
             #[guid(0x66de6285_054e_5594_8475_c22cb51f1bd5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ElasticEasingFunction)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ElasticEasingFunction)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IElasticEasingFunction {
                 #[get]
@@ -2038,9 +2038,9 @@ mod Windows {
                 Springiness: f32;
             }
             #[guid(0x6f7d1a51_98d2_5638_a34a_00486554c750)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ExponentialEasingFunction)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IExponentialEasingFunction {
                 #[get]
                 Mode: CompositionEasingFunctionMode;
@@ -2048,16 +2048,16 @@ mod Windows {
                 Exponent: f32;
             }
             #[guid(0x6acc5431_7d3d_4bf3_abb6_f44bdc4888c1)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ExpressionAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IExpressionAnimation {
                 Expression: String;
             }
             #[guid(0x0598a3ff_0a92_4c9d_a427_b25519250dbf)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ImplicitAnimationCollection)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IImplicitAnimationCollection {}
             #[guid(0x1e73e647_84c7_477a_b474_5880e0442e15)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
@@ -2070,9 +2070,9 @@ mod Windows {
                 TopInset: f32;
             }
             #[guid(0x126e7f22_3ae9_4540_9a8a_deae8a4a4a84)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(KeyFrameAnimation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(KeyFrameAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IKeyFrameAnimation {
                 DelayTime: super::super::Foundation::TimeSpan;
                 Duration: super::super::Foundation::TimeSpan;
@@ -2088,60 +2088,60 @@ mod Windows {
             }
             #[guid(0xf4b488bb_2940_4ec0_a41a_eb6d801a2f18)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(KeyFrameAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IKeyFrameAnimation2 {
                 Direction: AnimationDirection;
             }
             #[guid(0x845bf0b4_d8de_462f_8753_c80d43c6ff5a)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(KeyFrameAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IKeyFrameAnimation3 {
                 DelayBehavior: AnimationDelayBehavior;
             }
             #[guid(0xbf0803f8_712a_4fc1_8c87_970859ed8d2e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(KeyFrameAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             interface IKeyFrameAnimationFactory {}
             #[guid(0xaf843985_0444_4887_8e83_b40b253f822c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(LayerVisual)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ILayerVisual {
                 Effect: CompositionEffectBrush;
             }
             #[guid(0x98f9aeeb_6f23_49f1_90b1_1f59a14fbce3)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LayerVisual)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LayerVisual)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ILayerVisual2 {
                 Shadow: CompositionShadow;
             }
             #[guid(0x9400975a_c7a6_46b3_acf7_1a268a0a117d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LinearEasingFunction)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LinearEasingFunction)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ILinearEasingFunction {}
             #[guid(0x438de12d_769b_4821_a949_284a6547e873)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(NaturalMotionAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface INaturalMotionAnimation {
                 DelayBehavior: AnimationDelayBehavior;
                 DelayTime: super::super::Foundation::TimeSpan;
                 StopBehavior: AnimationStopBehavior;
             }
             #[guid(0xf53acb06_cf6a_4387_a3fe_5221f3e7e0e0)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(NaturalMotionAnimation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NaturalMotionAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface INaturalMotionAnimationFactory {}
             #[guid(0x9d0d18c9_1576_4b3f_be60_1d5031f5e71b)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PathKeyFrameAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IPathKeyFrameAnimation {
                 #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, path: CompositionPath);
@@ -2149,8 +2149,8 @@ mod Windows {
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, path: CompositionPath, easingFunction: CompositionEasingFunction);
             }
             #[guid(0xb18545b3_0c5a_4ab0_bedc_4f3546948272)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PointLight)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PointLight)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IPointLight {
                 Color: super::Color;
@@ -2162,15 +2162,15 @@ mod Windows {
             }
             #[guid(0xefe98f2c_0678_4f69_b164_a810d995bcb7)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(PointLight)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IPointLight2 {
                 Intensity: f32;
             }
             #[guid(0x4c0a8367_d4e9_468a_87ae_7ba43ab29485)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(PointLight)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IPointLight3 {
                 MinAttenuationCutoff: f32;
                 MaxAttenuationCutoff: f32;
@@ -2187,8 +2187,8 @@ mod Windows {
             }
             #[guid(0x404e5835_ecf6_4240_8520_671279cf36bc)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(QuaternionKeyFrameAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IQuaternionKeyFrameAnimation {
                 #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Quaternion);
@@ -2197,8 +2197,8 @@ mod Windows {
             }
             #[guid(0xb3e7549e_00b4_5b53_8be8_353f6c433101)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(RectangleClip)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IRectangleClip {
                 Bottom: f32;
                 BottomLeftRadius: super::super::Foundation::Numerics::Vector2;
@@ -2210,24 +2210,24 @@ mod Windows {
                 TopRightRadius: super::super::Foundation::Numerics::Vector2;
             }
             #[guid(0x8cc6e340_8b75_5422_b06f_09ffe9f8617e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RedirectVisual)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             interface IRedirectVisual {
                 Source: Visual;
             }
             #[guid(0x3a31ac7d_28bf_4e7a_8524_71679d480f38)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RenderingDeviceReplacedEventArgs)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             interface IRenderingDeviceReplacedEventArgs {
                 #[get]
                 GraphicsDevice: CompositionGraphicsDevice;
             }
             #[guid(0xae288fa9_252c_4b95_a725_bf85e38000a1)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(ScalarKeyFrameAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IScalarKeyFrameAnimation {
                 #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: f32);
@@ -2236,21 +2236,21 @@ mod Windows {
             }
             #[guid(0x94a94581_bf92_495b_b5bd_d2c659430737)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(ScalarNaturalMotionAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IScalarNaturalMotionAnimation {
                 FinalValue: super::super::Foundation::IReference<f32>;
                 InitialValue: super::super::Foundation::IReference<f32>;
                 InitialVelocity: f32;
             }
             #[guid(0x835aa4fc_671c_41dd_af48_ae8def8b1529)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ScalarNaturalMotionAnimation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ScalarNaturalMotionAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IScalarNaturalMotionAnimationFactory {}
             #[guid(0xf2bd13c3_ba7e_4b0f_9126_ffb7536b8176)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ShapeVisual)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ShapeVisual)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IShapeVisual {
                 #[get]
@@ -2266,9 +2266,9 @@ mod Windows {
                 Mode: CompositionEasingFunctionMode;
             }
             #[guid(0x5a9fe273_44a1_4f95_a422_8fa5116bdb44)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpotLight)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             interface ISpotLight {
                 ConstantAttenuation: f32;
                 CoordinateSpace: Visual;
@@ -2284,16 +2284,16 @@ mod Windows {
                 QuadraticAttenuation: f32;
             }
             #[guid(0x64ee615e_0686_4dea_a9e8_bc3a8c701459)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpotLight)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpotLight)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ISpotLight2 {
                 InnerConeIntensity: f32;
                 OuterConeIntensity: f32;
             }
             #[guid(0xe4d03eea_131f_480e_859e_b82705b74360)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpotLight)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpotLight)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ISpotLight3 {
                 MinAttenuationCutoff: f32;
@@ -2308,39 +2308,39 @@ mod Windows {
                 Period: super::super::Foundation::TimeSpan;
             }
             #[guid(0x23f494b5_ee73_4f0f_a423_402b946df4b3)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpringVector2NaturalMotionAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             interface ISpringVector2NaturalMotionAnimation {
                 DampingRatio: f32;
                 Period: super::super::Foundation::TimeSpan;
             }
             #[guid(0x6c8749df_d57b_4794_8e2d_cecb11e194e5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpringVector3NaturalMotionAnimation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpringVector3NaturalMotionAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ISpringVector3NaturalMotionAnimation {
                 DampingRatio: f32;
                 Period: super::super::Foundation::TimeSpan;
             }
             #[guid(0x08e05581_1ad1_4f97_9757_402d76e4233b)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(SpriteVisual)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ISpriteVisual {
                 Brush: CompositionBrush;
             }
             #[guid(0x588c9664_997a_4850_91fe_53cb58f81ce9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpriteVisual)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpriteVisual)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ISpriteVisual2 {
                 Shadow: CompositionShadow;
             }
             #[guid(0xd0caa74b_560c_4a0b_a5f6_206ca8c3ecd6)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(StepEasingFunction)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IStepEasingFunction {
                 FinalStep: i32;
                 InitialStep: i32;
@@ -2349,9 +2349,9 @@ mod Windows {
                 StepCount: i32;
             }
             #[guid(0xdf414515_4e29_4f11_b55e_bf2a6eb36294)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Vector2KeyFrameAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             interface IVector2KeyFrameAnimation {
                 #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector2);
@@ -2359,9 +2359,9 @@ mod Windows {
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector2, easingFunction: CompositionEasingFunction);
             }
             #[guid(0x0f3e0b7d_e512_479d_a00c_77c93a30a395)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Vector2NaturalMotionAnimation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Vector2NaturalMotionAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVector2NaturalMotionAnimation {
                 FinalValue: super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>;
                 InitialValue: super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector2>;
@@ -2369,13 +2369,13 @@ mod Windows {
             }
             #[guid(0x8c74ff61_0761_48a2_bddb_6afcc52b89d8)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(Vector2NaturalMotionAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVector2NaturalMotionAnimationFactory {}
             #[guid(0xc8039daa_a281_43c2_a73d_b68e3c533c40)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Vector3KeyFrameAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVector3KeyFrameAnimation {
                 #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector3);
@@ -2383,22 +2383,22 @@ mod Windows {
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector3, easingFunction: CompositionEasingFunction);
             }
             #[guid(0x9c17042c_e2ca_45ad_969e_4e78b7b9ad41)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Vector3NaturalMotionAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVector3NaturalMotionAnimation {
                 FinalValue: super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>;
                 InitialValue: super::super::Foundation::IReference<super::super::Foundation::Numerics::Vector3>;
                 InitialVelocity: super::super::Foundation::Numerics::Vector3;
             }
             #[guid(0x21a81d2f_0880_457b_ac87_b609018c876d)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Vector3NaturalMotionAnimation)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVector3NaturalMotionAnimationFactory {}
             #[guid(0x2457945b_addd_4385_9606_b6a3d5e4e1b9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Vector4KeyFrameAnimation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Vector4KeyFrameAnimation)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVector4KeyFrameAnimation {
                 #[Windows::Foundation::Metadata::Overload("InsertKeyFrame")]
@@ -2407,9 +2407,9 @@ mod Windows {
                 fn InsertKeyFrame(&self, normalizedProgressKey: f32, value: super::super::Foundation::Numerics::Vector4, easingFunction: CompositionEasingFunction);
             }
             #[guid(0x117e202d_a859_4c89_873b_c2aa566788e3)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Visual)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVisual {
                 AnchorPoint: super::super::Foundation::Numerics::Vector2;
                 BackfaceVisibility: CompositionBackfaceVisibility;
@@ -2431,8 +2431,8 @@ mod Windows {
                 TransformMatrix: super::super::Foundation::Numerics::Matrix4x4;
             }
             #[guid(0x3052b611_56c3_4c3e_8bf3_f6e1ad473f06)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Visual)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Visual)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVisual2 {
                 ParentForTransform: Visual;
@@ -2441,22 +2441,22 @@ mod Windows {
             }
             #[guid(0x30be580d_f4b6_4ab7_80dd_3738cbac9f2c)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 720896)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(Visual)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVisual3 {
                 IsHitTestVisible: bool;
             }
             #[guid(0x9476bf11_e24b_5bf9_9ebe_6274109b2711)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Visual)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Visual)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVisual4 {
                 IsPixelSnappingEnabled: bool;
             }
             #[guid(0x8b745505_fd3e_4a98_84a8_e949468c6bcb)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(VisualCollection)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVisualCollection {
                 #[get]
                 Count: i32;
@@ -2468,8 +2468,8 @@ mod Windows {
                 fn RemoveAll(&self);
             }
             #[guid(0x01e64612_1d82_42f4_8e3f_a722ded33fc7)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVisualElement {}
             #[guid(0x993ae8a0_6057_5e40_918c_e06e0b7e7c64)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
@@ -2478,9 +2478,9 @@ mod Windows {
                 fn GetVisualInternal(&self) -> Visual;
             }
             #[guid(0xad0ff93e_b502_4eb5_87b4_9a38a71d0137)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Visual)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IVisualFactory {}
             #[guid(0x338faa70_54c8_40a7_8029_c9ceeb0aa250)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -2493,21 +2493,21 @@ mod Windows {
                 fn Remove(&self, visual: Visual);
                 fn RemoveAll(&self);
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class ImplicitAnimationCollection: CompositionObject {
                 IImplicitAnimationCollection,
                 super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, ICompositionAnimationBase>>,
                 super::super::Foundation::Collections::IMap<String, ICompositionAnimationBase>,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class InitialValueExpressionCollection: CompositionObject {
                 super::super::Foundation::Collections::IMap<String, String>,
                 super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, String>>,
@@ -2517,17 +2517,17 @@ mod Windows {
                 Point: super::super::Foundation::Point,
                 Radius: f32,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class InsetClip: CompositionClip {
                 IInsetClip,
             }
             #[Windows::Foundation::Metadata::Composable(IKeyFrameAnimationFactory, Public, 131072, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
@@ -2536,238 +2536,238 @@ mod Windows {
                 IKeyFrameAnimation2,
                 IKeyFrameAnimation3,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class LayerVisual: ContainerVisual {
                 ILayerVisual,
                 ILayerVisual2,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class LinearEasingFunction: CompositionEasingFunction {
                 ILinearEasingFunction,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Composable(INaturalMotionAnimationFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class NaturalMotionAnimation: CompositionAnimation {
                 INaturalMotionAnimation,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             class PathKeyFrameAnimation: KeyFrameAnimation {
                 IPathKeyFrameAnimation,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class PointLight: CompositionLight {
                 IPointLight,
                 IPointLight2,
                 IPointLight3,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class PowerEasingFunction: CompositionEasingFunction {
                 IPowerEasingFunction,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class QuaternionKeyFrameAnimation: KeyFrameAnimation {
                 IQuaternionKeyFrameAnimation,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class RectangleClip: CompositionClip {
                 IRectangleClip,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class RedirectVisual: ContainerVisual {
                 IRedirectVisual,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class RenderingDeviceReplacedEventArgs: CompositionObject {
                 IRenderingDeviceReplacedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class ScalarKeyFrameAnimation: KeyFrameAnimation {
                 IScalarKeyFrameAnimation,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::Composable(IScalarNaturalMotionAnimationFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class ScalarNaturalMotionAnimation: NaturalMotionAnimation {
                 IScalarNaturalMotionAnimation,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class ShapeVisual: ContainerVisual {
                 IShapeVisual,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class SineEasingFunction: CompositionEasingFunction {
                 ISineEasingFunction,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class SpotLight: CompositionLight {
                 ISpotLight,
                 ISpotLight2,
                 ISpotLight3,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class SpringScalarNaturalMotionAnimation: ScalarNaturalMotionAnimation {
                 ISpringScalarNaturalMotionAnimation,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class SpringVector2NaturalMotionAnimation: Vector2NaturalMotionAnimation {
                 ISpringVector2NaturalMotionAnimation,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             class SpringVector3NaturalMotionAnimation: Vector3NaturalMotionAnimation {
                 ISpringVector3NaturalMotionAnimation,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class SpriteVisual: ContainerVisual {
                 ISpriteVisual,
                 ISpriteVisual2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class StepEasingFunction: CompositionEasingFunction {
                 IStepEasingFunction,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class Vector2KeyFrameAnimation: KeyFrameAnimation {
                 IVector2KeyFrameAnimation,
             }
             #[Windows::Foundation::Metadata::Composable(IVector2NaturalMotionAnimationFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class Vector2NaturalMotionAnimation: NaturalMotionAnimation {
                 IVector2NaturalMotionAnimation,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class Vector3KeyFrameAnimation: KeyFrameAnimation {
                 IVector3KeyFrameAnimation,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Composable(IVector3NaturalMotionAnimationFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class Vector3NaturalMotionAnimation: NaturalMotionAnimation {
                 IVector3NaturalMotionAnimation,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class Vector4KeyFrameAnimation: KeyFrameAnimation {
                 IVector4KeyFrameAnimation,
             }
+            #[Windows::Foundation::Metadata::Composable(IVisualFactory, Public, 131072, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Composable(IVisualFactory, Public, 131072, "Windows.Foundation.UniversalApiContract")]
             class Visual: CompositionObject {
                 IVisual,
                 IVisual2,
                 IVisual3,
                 IVisual4,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class VisualCollection: CompositionObject {
                 IVisualCollection,
                 super::super::Foundation::Collections::IIterable<Visual>,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class VisualUnorderedCollection: CompositionObject {
                 IVisualUnorderedCollection,

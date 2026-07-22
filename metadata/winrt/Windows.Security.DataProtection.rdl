@@ -3,8 +3,8 @@ mod Windows {
     mod Security {
         mod DataProtection {
             #[guid(0xa76582c9_06a2_4273_a803_834c9f87fbeb)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAvailabilityStateChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAvailabilityStateChangedEventArgs)]
             interface IUserDataAvailabilityStateChangedEventArgs {
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
@@ -40,8 +40,8 @@ mod Windows {
                 fn TryGetForUser(&self, user: super::super::System::User) -> UserDataProtectionManager;
             }
             #[guid(0x5b6680f6_e87f_40a1_b19d_a6187a0c662f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataStorageItemProtectionInfo)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataStorageItemProtectionInfo)]
             interface IUserDataStorageItemProtectionInfo {
                 #[get]
                 Availability: UserDataAvailability;
@@ -53,8 +53,8 @@ mod Windows {
                 AfterFirstUnlock = 1,
                 WhileUnlocked = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataAvailabilityStateChangedEventArgs {
                 IUserDataAvailabilityStateChangedEventArgs,
@@ -71,16 +71,16 @@ mod Windows {
                 Succeeded = 0,
                 Unavailable = 1,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IUserDataProtectionManagerStatics, 524288, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IUserDataProtectionManagerStatics, 524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataProtectionManager {
                 IUserDataProtectionManager,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataStorageItemProtectionInfo {
                 IUserDataStorageItemProtectionInfo,
             }

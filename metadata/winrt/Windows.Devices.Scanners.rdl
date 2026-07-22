@@ -52,8 +52,8 @@ mod Windows {
                 fn IsFormatSupported(&self, value: ImageScannerFormat) -> bool;
             }
             #[guid(0x08b7fe8e_8891_441d_be9c_176fa109c8bb)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ImageScannerPreviewResult)]
             #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageScannerPreviewResult)]
             interface IImageScannerPreviewResult {
                 #[get]
                 Succeeded: bool;
@@ -61,8 +61,8 @@ mod Windows {
                 Format: ImageScannerFormat;
             }
             #[guid(0xc91624cd_9037_4e48_84c1_ac0975076bc5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ImageScannerScanResult)]
             #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageScannerScanResult)]
             interface IImageScannerScanResult {
                 #[get]
                 ScannedFiles: super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>;
@@ -110,25 +110,25 @@ mod Windows {
                 Contrast: i32;
             }
             #[guid(0xbc57e70e_d804_4477_9fb5_b911b5473897)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ImageScanner)]
             #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageScanner)]
             interface IImageScannerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<ImageScanner>;
                 fn GetDeviceSelector(&self) -> String;
             }
-            #[Windows::Foundation::Metadata::Static(IImageScannerStatics, 65536, "Windows.Devices.Scanners.ScannerDeviceContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IImageScannerStatics, 65536, "Windows.Devices.Scanners.ScannerDeviceContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ImageScanner {
                 IImageScanner,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ImageScannerAutoConfiguration {
                 IImageScannerFormatConfiguration,
             }
@@ -156,10 +156,10 @@ mod Windows {
                 IImageScannerSourceConfiguration,
                 IImageScannerFeederConfiguration,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ImageScannerFlatbedConfiguration {
                 IImageScannerFormatConfiguration,
                 IImageScannerSourceConfiguration,
@@ -175,10 +175,10 @@ mod Windows {
                 OpenXps = 5,
                 Pdf = 6,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
             class ImageScannerPreviewResult {
                 IImageScannerPreviewResult,
             }
@@ -187,9 +187,9 @@ mod Windows {
                 DpiX: f32,
                 DpiY: f32,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(ScannerDeviceContract, 65536)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ImageScannerScanResult {
                 IImageScannerScanResult,

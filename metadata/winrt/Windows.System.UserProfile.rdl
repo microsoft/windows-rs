@@ -3,17 +3,17 @@ mod Windows {
     mod System {
         mod UserProfile {
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
             #[Windows::Foundation::Metadata::ContractVersion(UserProfileContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
             enum AccountPictureKind {
                 SmallImage = 0,
                 LargeImage = 1,
                 Video = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IAdvertisingManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IAdvertisingManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Static(IAdvertisingManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IAdvertisingManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
             class AdvertisingManager {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
@@ -22,48 +22,48 @@ mod Windows {
             class AdvertisingManagerForUser {
                 IAdvertisingManagerForUser,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IAssignedAccessSettingsStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AssignedAccessSettings {
                 IAssignedAccessSettings,
             }
-            #[Windows::Foundation::Metadata::Static(IDiagnosticsSettingsStatics, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IDiagnosticsSettingsStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class DiagnosticsSettings {
                 IDiagnosticsSettings,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Static(IFirstSignInSettingsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IFirstSignInSettingsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class FirstSignInSettings {
                 IFirstSignInSettings,
                 super::super::Foundation::Collections::IMapView<String, Object>,
                 super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<String, Object>>,
             }
-            #[Windows::Foundation::Metadata::Static(IGlobalizationPreferencesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IGlobalizationPreferencesStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IGlobalizationPreferencesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IGlobalizationPreferencesStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IGlobalizationPreferencesStatics3, 393216, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class GlobalizationPreferences {}
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772165)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class GlobalizationPreferencesForUser {
                 IGlobalizationPreferencesForUser,
             }
             #[guid(0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AdvertisingManagerForUser)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AdvertisingManagerForUser)]
             interface IAdvertisingManagerForUser {
                 #[get]
                 AdvertisingId: String;
@@ -71,21 +71,21 @@ mod Windows {
                 User: super::User;
             }
             #[guid(0xadd3468c_a273_48cb_b346_3544522d5581)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AdvertisingManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AdvertisingManager)]
             interface IAdvertisingManagerStatics {
                 #[get]
                 AdvertisingId: String;
             }
             #[guid(0xdd0947af_1a6d_46b0_95bc_f3f9d6beb9fb)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AdvertisingManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AdvertisingManager)]
             interface IAdvertisingManagerStatics2 {
                 fn GetForUser(&self, user: super::User) -> AdvertisingManagerForUser;
             }
             #[guid(0x1bc57f1c_e971_5757_b8e0_512f8b8c46d2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AssignedAccessSettings)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AssignedAccessSettings)]
             interface IAssignedAccessSettings {
                 #[get]
                 IsEnabled: bool;
@@ -128,8 +128,8 @@ mod Windows {
                 fn GetDefault(&self) -> FirstSignInSettings;
             }
             #[guid(0x150f0795_4f6e_40ba_a010_e27d81bda7f5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GlobalizationPreferencesForUser)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GlobalizationPreferencesForUser)]
             interface IGlobalizationPreferencesForUser {
                 #[get]
                 User: super::User;
@@ -147,8 +147,8 @@ mod Windows {
                 WeekStartsOn: super::super::Globalization::DayOfWeek;
             }
             #[guid(0x01bf4326_ed37_4e96_b0e9_c1340d1ea158)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GlobalizationPreferences)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GlobalizationPreferences)]
             interface IGlobalizationPreferencesStatics {
                 #[get]
                 Calendars: super::super::Foundation::Collections::IVectorView<String>;
@@ -164,15 +164,15 @@ mod Windows {
                 WeekStartsOn: super::super::Globalization::DayOfWeek;
             }
             #[guid(0xfcce85f1_4300_4cd0_9cac_1a8e7b7e18f4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GlobalizationPreferences)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GlobalizationPreferences)]
             interface IGlobalizationPreferencesStatics2 {
                 fn TrySetHomeGeographicRegion(&self, region: String) -> bool;
                 fn TrySetLanguages(&self, languageTags: super::super::Foundation::Collections::IIterable<String>) -> bool;
             }
             #[guid(0x1e059733_35f5_40d8_b9e8_aef3ef856fce)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GlobalizationPreferences)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GlobalizationPreferences)]
             interface IGlobalizationPreferencesStatics3 {
                 fn GetForUser(&self, user: super::User) -> GlobalizationPreferencesForUser;
             }
@@ -185,8 +185,8 @@ mod Windows {
                 fn TryRemoveImageFeed(&self) -> bool;
             }
             #[guid(0x3ee9d3ad_b607_40ae_b426_7631d9821269)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LockScreen)]
             #[Windows::Foundation::Metadata::ContractVersion(UserProfileLockScreenContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LockScreen)]
             interface ILockScreenStatics {
                 #[get]
                 OriginalImageFile: super::super::Foundation::Uri;
@@ -197,9 +197,9 @@ mod Windows {
                 fn SetImageStreamAsync(&self, value: super::super::Storage::Streams::IRandomAccessStream) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x77f3a910_48fa_489c_934e_2ae85ba8f772)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UserInformation)]
-            #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
             #[Windows::Foundation::Metadata::ContractVersion(UserProfileContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserInformation)]
             interface IUserInformationStatics {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
@@ -223,28 +223,28 @@ mod Windows {
                 #[special]
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
                 fn remove_AccountPictureChanged(&self, token: super::super::Foundation::EventRegistrationToken);
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDisplayNameAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFirstNameAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetLastNameAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetPrincipalNameAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetSessionInitiationProtocolUriAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Uri>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDomainNameAsync(&self) -> super::super::Foundation::IAsyncOperation<String>;
             }
             #[guid(0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UserProfilePersonalizationSettings)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserProfilePersonalizationSettings)]
             interface IUserProfilePersonalizationSettings {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TrySetLockScreenImageAsync(&self, imageFile: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<bool>;
@@ -259,8 +259,8 @@ mod Windows {
                 Current: UserProfilePersonalizationSettings;
                 fn IsSupported(&self) -> bool;
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(UserProfileLockScreenContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::Static(ILockScreenImageFeedStatics, 65536, "Windows.System.UserProfile.UserProfileLockScreenContract")]
             #[Windows::Foundation::Metadata::Static(ILockScreenStatics, 65536, "Windows.System.UserProfile.UserProfileLockScreenContract")]
             class LockScreen {}
@@ -282,21 +282,21 @@ mod Windows {
                 ChangeDisabled = 1,
                 UserCanceled = 2,
             }
-            #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
             #[Windows::Foundation::Metadata::ContractVersion(UserProfileContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IUserInformationStatics, 65536, "Windows.System.UserProfile.UserProfileContract")]
+            #[Windows::Foundation::Metadata::Deprecated("Use User instead of UserInformation. For more info, see MSDN.", Deprecate, 131072, "Windows.System.UserProfile.UserProfileContract")]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::Static(IUserInformationStatics, 65536, "Windows.System.UserProfile.UserProfileContract")]
             class UserInformation {}
+            #[Windows::Foundation::Metadata::ApiContract]
             #[Windows::Foundation::Metadata::ContractVersion(131072)]
-            #[Windows::Foundation::Metadata::ApiContract]
             struct UserProfileContract {}
-            #[Windows::Foundation::Metadata::ContractVersion(65536)]
             #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct UserProfileLockScreenContract {}
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Static(IUserProfilePersonalizationSettingsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IUserProfilePersonalizationSettingsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UserProfilePersonalizationSettings {
                 IUserProfilePersonalizationSettings,

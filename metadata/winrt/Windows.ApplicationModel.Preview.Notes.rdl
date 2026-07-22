@@ -39,8 +39,8 @@ mod Windows {
                     event NoteVisibilityChanged: super::super::super::Foundation::TypedEventHandler<NotesWindowManagerPreview, NoteVisibilityChangedPreviewEventArgs>;
                 }
                 #[guid(0xedfe864a_1f54_4b09_9823_ff477f6fa3bc)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(NotesWindowManagerPreview)]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(NotesWindowManagerPreview)]
                 interface INotesWindowManagerPreview2 {
                     #[Windows::Foundation::Metadata::Overload("ShowNoteRelativeToWithOptions")]
                     fn ShowNoteRelativeTo(&self, noteViewId: i32, anchorNoteViewId: i32, options: NotesWindowManagerPreviewShowNoteOptions);
@@ -51,46 +51,46 @@ mod Windows {
                     fn SetThumbnailImageForTaskSwitcherAsync(&self, bitmap: super::super::super::Graphics::Imaging::SoftwareBitmap) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x886b09d6_a6ae_4007_a56d_1ca70c84c0d2)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(NotesWindowManagerPreviewShowNoteOptions)]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(NotesWindowManagerPreviewShowNoteOptions)]
                 interface INotesWindowManagerPreviewShowNoteOptions {
                     ShowWithFocus: bool;
                 }
                 #[guid(0x6668cc88_0a8e_4127_a38e_995445868a78)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(NotesWindowManagerPreview)]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(NotesWindowManagerPreview)]
                 interface INotesWindowManagerPreviewStatics {
                     fn GetForCurrentApp(&self) -> NotesWindowManagerPreview;
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class NotePlacementChangedPreviewEventArgs {
                     INotePlacementChangedPreviewEventArgs,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 65536)]
                 class NoteVisibilityChangedPreviewEventArgs {
                     INoteVisibilityChangedPreviewEventArgs,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 65536)]
-                #[Windows::Foundation::Metadata::Static(INotesWindowManagerPreviewStatics, 65536, "Windows.ApplicationModel.Preview.Notes.PreviewNotesContract")]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(INotesWindowManagerPreviewStatics, 65536, "Windows.ApplicationModel.Preview.Notes.PreviewNotesContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class NotesWindowManagerPreview {
                     INotesWindowManagerPreview,
                     INotesWindowManagerPreview2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(131072, "Windows.ApplicationModel.Preview.Notes.PreviewNotesContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(PreviewNotesContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class NotesWindowManagerPreviewShowNoteOptions {
                     INotesWindowManagerPreviewShowNoteOptions,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(131072)]
                 #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(131072)]
                 struct PreviewNotesContract {}
             }
         }

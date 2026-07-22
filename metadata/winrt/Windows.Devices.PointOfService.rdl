@@ -2,18 +2,18 @@
 mod Windows {
     mod Devices {
         mod PointOfService {
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IBarcodeScannerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IBarcodeScannerStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BarcodeScanner {
                 IBarcodeScanner,
                 IBarcodeScanner2,
                 super::super::Foundation::IClosable,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class BarcodeScannerCapabilities {
                 IBarcodeScannerCapabilities,
                 IBarcodeScannerCapabilities1,
@@ -29,15 +29,15 @@ mod Windows {
             class BarcodeScannerErrorOccurredEventArgs {
                 IBarcodeScannerErrorOccurredEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class BarcodeScannerImagePreviewReceivedEventArgs {
                 IBarcodeScannerImagePreviewReceivedEventArgs,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(IBarcodeScannerReportFactory, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class BarcodeScannerReport {
                 IBarcodeScannerReport,
             }
@@ -56,14 +56,14 @@ mod Windows {
                 IBarcodeScannerStatusUpdatedEventArgs,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IBarcodeSymbologiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IBarcodeSymbologiesStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class BarcodeSymbologies {}
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             class BarcodeSymbologyAttributes {
                 IBarcodeSymbologyAttributes,
             }
@@ -74,12 +74,12 @@ mod Windows {
                 Discrete = 1,
                 Range = 2,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ICashDrawerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(ICashDrawerStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class CashDrawer {
                 ICashDrawer,
                 super::super::Foundation::IClosable,
@@ -90,33 +90,33 @@ mod Windows {
             class CashDrawerCapabilities {
                 ICashDrawerCapabilities,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class CashDrawerCloseAlarm {
                 ICashDrawerCloseAlarm,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class CashDrawerClosedEventArgs {
                 ICashDrawerEventSourceEventArgs,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class CashDrawerEventSource {
                 ICashDrawerEventSource,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class CashDrawerOpenedEventArgs {
                 ICashDrawerEventSourceEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class CashDrawerStatus {
                 ICashDrawerStatus,
             }
@@ -129,14 +129,14 @@ mod Windows {
                 OffOrOffline = 3,
                 Extended = 4,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class CashDrawerStatusUpdatedEventArgs {
                 ICashDrawerStatusUpdatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ClaimedBarcodeScanner {
                 IClaimedBarcodeScanner,
                 IClaimedBarcodeScanner1,
@@ -150,9 +150,9 @@ mod Windows {
             class ClaimedBarcodeScannerClosedEventArgs {
                 IClaimedBarcodeScannerClosedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ClaimedCashDrawer {
                 IClaimedCashDrawer,
                 IClaimedCashDrawer2,
@@ -171,8 +171,8 @@ mod Windows {
                 ICommonClaimedPosPrinterStation,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IClaimedLineDisplayStatics, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ClaimedLineDisplay {
@@ -181,13 +181,13 @@ mod Windows {
                 IClaimedLineDisplay3,
                 super::super::Foundation::IClosable,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ClaimedLineDisplayClosedEventArgs {
                 IClaimedLineDisplayClosedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ClaimedMagneticStripeReader {
                 IClaimedMagneticStripeReader,
                 IClaimedMagneticStripeReader2,
@@ -198,28 +198,28 @@ mod Windows {
             class ClaimedMagneticStripeReaderClosedEventArgs {
                 IClaimedMagneticStripeReaderClosedEventArgs,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ClaimedPosPrinter {
                 IClaimedPosPrinter,
                 IClaimedPosPrinter2,
                 super::super::Foundation::IClosable,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ClaimedPosPrinterClosedEventArgs {
                 IClaimedPosPrinterClosedEventArgs,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ClaimedReceiptPrinter {
                 IClaimedReceiptPrinter,
                 ICommonClaimedPosPrinterStation,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ClaimedSlipPrinter {
                 IClaimedSlipPrinter,
@@ -289,8 +289,8 @@ mod Windows {
                 Report: BarcodeScannerReport;
             }
             #[guid(0x2cd2602f_cf3a_4002_a75a_c5ec468f0a20)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerErrorOccurredEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerErrorOccurredEventArgs)]
             interface IBarcodeScannerErrorOccurredEventArgs {
                 #[get]
                 PartialInputData: BarcodeScannerReport;
@@ -300,15 +300,15 @@ mod Windows {
                 ErrorData: UnifiedPosErrorData;
             }
             #[guid(0xf3b7de85_6e8b_434e_9f58_06ef26bc4baf)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerImagePreviewReceivedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerImagePreviewReceivedEventArgs)]
             interface IBarcodeScannerImagePreviewReceivedEventArgs {
                 #[get]
                 Preview: super::super::Storage::Streams::IRandomAccessStreamWithContentType;
             }
             #[guid(0x5ce4d8b0_a489_4b96_86c4_f0bf8a37753d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerReport)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerReport)]
             interface IBarcodeScannerReport {
                 #[get]
                 ScanDataType: u32;
@@ -324,8 +324,8 @@ mod Windows {
                 fn CreateInstance(&self, scanDataType: u32, scanData: super::super::Storage::Streams::IBuffer, scanDataLabel: super::super::Storage::Streams::IBuffer) -> BarcodeScannerReport;
             }
             #[guid(0x5d115f6f_da49_41e8_8c8c_f0cb62a9c4fc)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScanner)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScanner)]
             interface IBarcodeScannerStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<BarcodeScanner>;
@@ -334,15 +334,15 @@ mod Windows {
                 fn GetDeviceSelector(&self) -> String;
             }
             #[guid(0xb8652473_a36f_4007_b1d0_279ebe92a656)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScanner)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScanner)]
             interface IBarcodeScannerStatics2 {
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorWithConnectionTypes")]
                 fn GetDeviceSelector(&self, connectionTypes: PosConnectionTypes) -> String;
             }
             #[guid(0x355d8586_9c43_462b_a91a_816dc97f452c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerStatusUpdatedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BarcodeScannerStatusUpdatedEventArgs)]
             interface IBarcodeScannerStatusUpdatedEventArgs {
                 #[get]
                 Status: BarcodeScannerStatus;
@@ -565,8 +565,8 @@ mod Windows {
                 IsDecodeLengthSupported: bool;
             }
             #[guid(0x9f88f5c8_de54_4aee_a890_920bcbfe30fc)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CashDrawer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CashDrawer)]
             interface ICashDrawer {
                 #[get]
                 DeviceId: String;
@@ -587,8 +587,8 @@ mod Windows {
                 event StatusUpdated: super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs>;
             }
             #[guid(0x0bc6de0b_e8e7_4b1f_b1d1_3e501ad08247)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CashDrawerCapabilities)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CashDrawerCapabilities)]
             interface ICashDrawerCapabilities {
                 #[get]
                 PowerReportingType: UnifiedPosPowerReportingType;
@@ -651,15 +651,15 @@ mod Windows {
                 fn GetDeviceSelector(&self) -> String;
             }
             #[guid(0x3e818121_8c42_40e8_9c0e_40297048104c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CashDrawer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CashDrawer)]
             interface ICashDrawerStatics2 {
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorWithConnectionTypes")]
                 fn GetDeviceSelector(&self, connectionTypes: PosConnectionTypes) -> String;
             }
             #[guid(0x6bbd78bf_dca1_4e06_99eb_5af6a5aec108)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CashDrawerStatus)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CashDrawerStatus)]
             interface ICashDrawerStatus {
                 #[get]
                 StatusKind: CashDrawerStatusKind;
@@ -667,15 +667,15 @@ mod Windows {
                 ExtendedStatus: u32;
             }
             #[guid(0x30aae98a_0d70_459c_9553_87e124c52488)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CashDrawerStatusUpdatedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CashDrawerStatusUpdatedEventArgs)]
             interface ICashDrawerStatusUpdatedEventArgs {
                 #[get]
                 Status: CashDrawerStatus;
             }
             #[guid(0x4a63b49c_8fa4_4332_bb26_945d11d81e0f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedBarcodeScanner)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedBarcodeScanner)]
             interface IClaimedBarcodeScanner {
                 #[get]
                 DeviceId: String;
@@ -728,8 +728,8 @@ mod Windows {
                 fn SetSymbologyAttributesAsync(&self, barcodeSymbology: u32, attributes: BarcodeSymbologyAttributes) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0xe6ceb430_712e_45fc_8b86_cd55f5aef79d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedBarcodeScanner)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedBarcodeScanner)]
             interface IClaimedBarcodeScanner3 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ShowVideoPreviewAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
@@ -740,8 +740,8 @@ mod Windows {
                 IsVideoPreviewShownOnEnable: bool;
             }
             #[guid(0x5d501f97_376a_41a8_a230_2f37c1949dde)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedBarcodeScanner)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedBarcodeScanner)]
             interface IClaimedBarcodeScanner4 {
                 event Closed: super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>;
             }
@@ -750,8 +750,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedBarcodeScannerClosedEventArgs)]
             interface IClaimedBarcodeScannerClosedEventArgs {}
             #[guid(0xca3f99af_abb8_42c1_8a84_5c66512f5a75)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedCashDrawer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedCashDrawer)]
             interface IClaimedCashDrawer {
                 #[get]
                 DeviceId: String;
@@ -776,8 +776,8 @@ mod Windows {
                 event ReleaseDeviceRequested: super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, Object>;
             }
             #[guid(0x9cbab5a2_de42_4d5b_b0c1_9b57a2ba89c3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedCashDrawer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedCashDrawer)]
             interface IClaimedCashDrawer2 {
                 event Closed: super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>;
             }
@@ -786,8 +786,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedCashDrawerClosedEventArgs)]
             interface IClaimedCashDrawerClosedEventArgs {}
             #[guid(0x67ea0630_517d_487f_9fdf_d2e0a0a264a5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedJournalPrinter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedJournalPrinter)]
             interface IClaimedJournalPrinter {
                 fn CreateJob(&self) -> JournalPrintJob;
             }
@@ -848,13 +848,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("TryStoreStorageFileBitmapWithAlignmentAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryStoreStorageFileBitmapAsync(&self, bitmap: super::super::Storage::StorageFile, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment) -> super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("TryStoreStorageFileBitmapWithAlignmentAndWidthAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryStoreStorageFileBitmapAsync(&self, bitmap: super::super::Storage::StorageFile, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, widthInPixels: i32) -> super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>;
             }
             #[guid(0x642ecd92_e9d4_4ecc_af75_329c274cd18f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedLineDisplay)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedLineDisplay)]
             interface IClaimedLineDisplay3 {
                 event Closed: super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>;
             }
@@ -863,8 +863,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedLineDisplayClosedEventArgs)]
             interface IClaimedLineDisplayClosedEventArgs {}
             #[guid(0x78ca98fb_8b6b_4973_86f0_3e570c351825)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedLineDisplay)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedLineDisplay)]
             interface IClaimedLineDisplayStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>;
@@ -938,8 +938,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedMagneticStripeReaderClosedEventArgs)]
             interface IClaimedMagneticStripeReaderClosedEventArgs {}
             #[guid(0x6d64ce0c_e03e_4b14_a38e_c28c34b86353)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedPosPrinter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedPosPrinter)]
             interface IClaimedPosPrinter {
                 #[get]
                 DeviceId: String;
@@ -978,8 +978,8 @@ mod Windows {
                 event ReleaseDeviceRequested: super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs>;
             }
             #[guid(0x5bf7a3d5_5198_437a_82df_589993fa77e1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedPosPrinter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedPosPrinter)]
             interface IClaimedPosPrinter2 {
                 event Closed: super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>;
             }
@@ -1004,8 +1004,8 @@ mod Windows {
                 fn CreateJob(&self) -> ReceiptPrintJob;
             }
             #[guid(0xbd5deff2_af90_4e8a_b77b_e3ae9ca63a7f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedSlipPrinter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ClaimedSlipPrinter)]
             interface IClaimedSlipPrinter {
                 #[get]
                 SidewaysMaxLines: u32;
@@ -1174,15 +1174,15 @@ mod Windows {
                 fn ClaimAsync(&self) -> super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>;
             }
             #[guid(0xc296a628_ef44_40f3_bd1c_b04c6a5cdc7d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplay)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplay)]
             interface ILineDisplay2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CheckPowerStatusAsync(&self) -> super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>;
             }
             #[guid(0xc17de99c_229a_4c14_a6f1_b4e4b1fead92)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayAttributes)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayAttributes)]
             interface ILineDisplayAttributes {
                 IsPowerNotifyEnabled: bool;
                 Brightness: i32;
@@ -1193,8 +1193,8 @@ mod Windows {
                 CurrentWindow: LineDisplayWindow;
             }
             #[guid(0x5a15b5d1_8dc5_4b9c_9172_303e47b70c55)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayCapabilities)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayCapabilities)]
             interface ILineDisplayCapabilities {
                 #[get]
                 IsStatisticsReportingSupported: bool;
@@ -1234,8 +1234,8 @@ mod Windows {
                 SupportedWindows: u32;
             }
             #[guid(0xecdffc45_754a_4e3b_ab2b_151181085605)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayCursor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayCursor)]
             interface ILineDisplayCursor {
                 #[get]
                 CanCustomize: bool;
@@ -1256,8 +1256,8 @@ mod Windows {
                 fn TryUpdateAttributesAsync(&self, attributes: LineDisplayCursorAttributes) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x4e2d54fe_4ffd_4190_aae1_ce285f20c896)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayCursorAttributes)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayCursorAttributes)]
             interface ILineDisplayCursorAttributes {
                 IsBlinkEnabled: bool;
                 CursorType: LineDisplayCursorType;
@@ -1265,8 +1265,8 @@ mod Windows {
                 Position: super::super::Foundation::Point;
             }
             #[guid(0x2257f63c_f263_44f1_a1a0_e750a6a0ec54)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayCustomGlyphs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayCustomGlyphs)]
             interface ILineDisplayCustomGlyphs {
                 #[get]
                 SizeInPixels: super::super::Foundation::Size;
@@ -1276,8 +1276,8 @@ mod Windows {
                 fn TryRedefineAsync(&self, glyphCode: u32, glyphData: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0xa3d33e3e_f46a_4b7a_bc21_53eb3b57f8b4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayMarquee)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayMarquee)]
             interface ILineDisplayMarquee {
                 Format: LineDisplayMarqueeFormat;
                 RepeatWaitInterval: super::super::Foundation::TimeSpan;
@@ -1288,8 +1288,8 @@ mod Windows {
                 fn TryStopScrollingAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x022dc0b6_11b0_4690_9547_0b39c5af2114)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplay)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplay)]
             interface ILineDisplayStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<LineDisplay>;
@@ -1301,8 +1301,8 @@ mod Windows {
                 fn GetDeviceSelector(&self, connectionTypes: PosConnectionTypes) -> String;
             }
             #[guid(0x600c3f1c_77ab_4968_a7de_c02ff169f2cc)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplay)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplay)]
             interface ILineDisplayStatics2 {
                 #[get]
                 StatisticsCategorySelector: LineDisplayStatisticsCategorySelector;
@@ -1319,15 +1319,15 @@ mod Windows {
                 ManufacturerStatistics: String;
             }
             #[guid(0xddd57c1a_86fb_4eba_93d1_6f5eda52b752)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayStatusUpdatedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayStatusUpdatedEventArgs)]
             interface ILineDisplayStatusUpdatedEventArgs {
                 #[get]
                 Status: LineDisplayPowerStatus;
             }
             #[guid(0xf621515b_d81e_43ba_bf1b_bcfa3c785ba0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayStoredBitmap)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayStoredBitmap)]
             interface ILineDisplayStoredBitmap {
                 #[get]
                 EscapeSequence: String;
@@ -1335,16 +1335,16 @@ mod Windows {
                 fn TryDeleteAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0xd21feef4_2364_4be5_bee1_851680af4964)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayWindow)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayWindow)]
             interface ILineDisplayWindow {
                 #[get]
                 SizeInCharacters: super::super::Foundation::Size;
                 InterCharacterWaitInterval: super::super::Foundation::TimeSpan;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryRefreshAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("TryDisplayTextAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryDisplayTextAsync(&self, text: String, displayAttribute: LineDisplayTextAttribute) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("TryDisplayTextAtPositionAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -1358,8 +1358,8 @@ mod Windows {
                 fn TryClearTextAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0xa95ce2e6_bdd8_4365_8e11_de94de8dff02)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayWindow)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LineDisplayWindow)]
             interface ILineDisplayWindow2 {
                 #[get]
                 Cursor: LineDisplayCursor;
@@ -1369,25 +1369,25 @@ mod Windows {
                 fn ReadCharacterAtCursorAsync(&self) -> super::super::Foundation::IAsyncOperation<u32>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryDisplayStoredBitmapAtCursorAsync(&self, bitmap: LineDisplayStoredBitmap) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("TryDisplayStorageFileBitmapAtCursorAsync")]
-                fn TryDisplayStorageFileBitmapAtCursorAsync(&self, bitmap: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryDisplayStorageFileBitmapAtCursorAsync(&self, bitmap: super::super::Storage::StorageFile) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryDisplayStorageFileBitmapAtCursorAsync(&self, bitmap: super::super::Storage::StorageFile, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryDisplayStorageFileBitmapAtCursorAsync(&self, bitmap: super::super::Storage::StorageFile, horizontalAlignment: LineDisplayHorizontalAlignment, verticalAlignment: LineDisplayVerticalAlignment, widthInPixels: i32) -> super::super::Foundation::IAsyncOperation<bool>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("TryDisplayStorageFileBitmapAtPointAsync")]
-                fn TryDisplayStorageFileBitmapAtPointAsync(&self, bitmap: super::super::Storage::StorageFile, offsetInPixels: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
+                fn TryDisplayStorageFileBitmapAtPointAsync(&self, bitmap: super::super::Storage::StorageFile, offsetInPixels: super::super::Foundation::Point) -> super::super::Foundation::IAsyncOperation<bool>;
                 #[Windows::Foundation::Metadata::Overload("TryDisplayStorageFileBitmapAtPointWithWidthAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TryDisplayStorageFileBitmapAtPointAsync(&self, bitmap: super::super::Storage::StorageFile, offsetInPixels: super::super::Foundation::Point, widthInPixels: i32) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x1a92b015_47c3_468a_9333_0c6517574883)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReader)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReader)]
             interface IMagneticStripeReader {
                 #[get]
                 DeviceId: String;
@@ -1450,8 +1450,8 @@ mod Windows {
                 PostalCode: String;
             }
             #[guid(0x2e958823_a31a_4763_882c_23725e39b08e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReaderBankCardDataReceivedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReaderBankCardDataReceivedEventArgs)]
             interface IMagneticStripeReaderBankCardDataReceivedEventArgs {
                 #[get]
                 Report: MagneticStripeReaderReport;
@@ -1473,8 +1473,8 @@ mod Windows {
                 Suffix: String;
             }
             #[guid(0x7128809c_c440_44a2_a467_469175d02896)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReaderCapabilities)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReaderCapabilities)]
             interface IMagneticStripeReaderCapabilities {
                 #[get]
                 CardAuthentication: String;
@@ -1500,8 +1500,8 @@ mod Windows {
                 IsTransmitSentinelsSupported: bool;
             }
             #[guid(0x528f2c5d_2986_474f_8454_7ccd05928d5f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReaderCardTypes)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReaderCardTypes)]
             interface IMagneticStripeReaderCardTypesStatics {
                 #[get]
                 Unknown: u32;
@@ -1541,8 +1541,8 @@ mod Windows {
                 PartialInputData: MagneticStripeReaderReport;
             }
             #[guid(0x6a5b6047_99b0_4188_bef1_eddf79f78fe6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReaderReport)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReaderReport)]
             interface IMagneticStripeReaderReport {
                 #[get]
                 CardType: u32;
@@ -1564,8 +1564,8 @@ mod Windows {
                 AdditionalSecurityInformation: super::super::Storage::Streams::IBuffer;
             }
             #[guid(0xc45fab4a_efd7_4760_a5ce_15b0e47e94eb)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReader)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReader)]
             interface IMagneticStripeReaderStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<MagneticStripeReader>;
@@ -1574,15 +1574,15 @@ mod Windows {
                 fn GetDeviceSelector(&self) -> String;
             }
             #[guid(0x8cadc362_d667_48fa_86bc_f5ae1189262b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReader)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReader)]
             interface IMagneticStripeReaderStatics2 {
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelectorWithConnectionTypes")]
                 fn GetDeviceSelector(&self, connectionTypes: PosConnectionTypes) -> String;
             }
             #[guid(0x09cc6bb0_3262_401d_9e8a_e80d6358906b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReaderStatusUpdatedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReaderStatusUpdatedEventArgs)]
             interface IMagneticStripeReaderStatusUpdatedEventArgs {
                 #[get]
                 Status: MagneticStripeReaderStatus;
@@ -1601,8 +1601,8 @@ mod Windows {
                 EncryptedData: super::super::Storage::Streams::IBuffer;
             }
             #[guid(0xaf0a5514_59cc_4a60_99e8_99a53dace5aa)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs)]
             interface IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
                 #[get]
                 Report: MagneticStripeReaderReport;
@@ -1630,8 +1630,8 @@ mod Windows {
                 event StatusUpdated: super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs>;
             }
             #[guid(0x248475e8_8b98_5517_8e48_760e86f68987)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PosPrinter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PosPrinter)]
             interface IPosPrinter2 {
                 #[get]
                 SupportedBarcodeSymbologies: super::super::Foundation::Collections::IVectorView<u32>;
@@ -1718,8 +1718,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(PosPrinterReleaseDeviceRequestedEventArgs)]
             interface IPosPrinterReleaseDeviceRequestedEventArgs {}
             #[guid(0x8ce0d4ea_132f_4cdf_a64a_2d0d7c96a85b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PosPrinter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PosPrinter)]
             interface IPosPrinterStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<PosPrinter>;
@@ -1744,8 +1744,8 @@ mod Windows {
                 ExtendedStatus: u32;
             }
             #[guid(0x2edb87df_13a6_428d_ba81_b0e7c3e5a3cd)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PosPrinterStatusUpdatedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PosPrinterStatusUpdatedEventArgs)]
             interface IPosPrinterStatusUpdatedEventArgs {
                 #[get]
                 Status: PosPrinterStatus;
@@ -1788,8 +1788,8 @@ mod Windows {
                 fn CutPaper(&self);
             }
             #[guid(0x0cbc12e3_9e29_5179_bcd8_1811d3b9a10e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ReceiptPrintJob)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ReceiptPrintJob)]
             interface IReceiptPrintJob2 {
                 fn StampPaper(&self);
                 fn Print(&self, data: String, printOptions: PosPrinterPrintOptions);
@@ -1797,8 +1797,8 @@ mod Windows {
                 fn FeedPaperByMapModeUnit(&self, distance: i32);
             }
             #[guid(0xb8f0b58f_51a8_43fc_9bd5_8de272a6415b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ReceiptPrinterCapabilities)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ReceiptPrinterCapabilities)]
             interface IReceiptPrinterCapabilities {
                 #[get]
                 CanCutPaper: bool;
@@ -1833,8 +1833,8 @@ mod Windows {
                 fn FeedPaperByMapModeUnit(&self, distance: i32);
             }
             #[guid(0x99b16399_488c_4157_8ac2_9f57f708d3db)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SlipPrinterCapabilities)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SlipPrinterCapabilities)]
             interface ISlipPrinterCapabilities {
                 #[get]
                 IsFullLengthSupported: bool;
@@ -1842,8 +1842,8 @@ mod Windows {
                 IsBothSidesPrintingSupported: bool;
             }
             #[guid(0x6ff89671_2d1a_5000_87c2_b0851bfdf07e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SlipPrinterCapabilities)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SlipPrinterCapabilities)]
             interface ISlipPrinterCapabilities2 {
                 #[get]
                 IsReverseVideoSupported: bool;
@@ -1877,16 +1877,16 @@ mod Windows {
             interface IUnifiedPosErrorDataFactory {
                 fn CreateInstance(&self, message: String, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedReason: u32) -> UnifiedPosErrorData;
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class JournalPrintJob {
                 IPosPrinterJob,
                 IJournalPrintJob,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class JournalPrinterCapabilities {
                 IJournalPrinterCapabilities,
                 IJournalPrinterCapabilities2,
@@ -1894,36 +1894,36 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
-            #[Windows::Foundation::Metadata::Static(ILineDisplayStatics, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Static(ILineDisplayStatics, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(ILineDisplayStatics2, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class LineDisplay {
                 ILineDisplay,
                 ILineDisplay2,
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LineDisplayAttributes {
                 ILineDisplayAttributes,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LineDisplayCapabilities {
                 ILineDisplayCapabilities,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             class LineDisplayCursor {
                 ILineDisplayCursor,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             class LineDisplayCursorAttributes {
                 ILineDisplayCursorAttributes,
             }
@@ -1937,9 +1937,9 @@ mod Windows {
                 Reverse = 4,
                 Other = 5,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LineDisplayCustomGlyphs {
                 ILineDisplayCustomGlyphs,
             }
@@ -1957,9 +1957,9 @@ mod Windows {
                 Center = 1,
                 Right = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LineDisplayMarquee {
                 ILineDisplayMarquee,
             }
@@ -1987,21 +1987,21 @@ mod Windows {
                 Left = 2,
                 Right = 3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LineDisplayStatisticsCategorySelector {
                 ILineDisplayStatisticsCategorySelector,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             class LineDisplayStatusUpdatedEventArgs {
                 ILineDisplayStatusUpdatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LineDisplayStoredBitmap {
                 ILineDisplayStoredBitmap,
             }
@@ -2028,15 +2028,15 @@ mod Windows {
                 Bottom = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LineDisplayWindow {
                 ILineDisplayWindow,
                 ILineDisplayWindow2,
                 super::super::Foundation::IClosable,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IMagneticStripeReaderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IMagneticStripeReaderStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
@@ -2044,8 +2044,8 @@ mod Windows {
                 IMagneticStripeReader,
                 super::super::Foundation::IClosable,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class MagneticStripeReaderAamvaCardDataReceivedEventArgs {
                 IMagneticStripeReaderAamvaCardDataReceivedEventArgs,
             }
@@ -2067,20 +2067,20 @@ mod Windows {
             class MagneticStripeReaderBankCardDataReceivedEventArgs {
                 IMagneticStripeReaderBankCardDataReceivedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class MagneticStripeReaderCapabilities {
                 IMagneticStripeReaderCapabilities,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IMagneticStripeReaderCardTypesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MagneticStripeReaderCardTypes {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Static(IMagneticStripeReaderEncryptionAlgorithmsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MagneticStripeReaderEncryptionAlgorithms {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -2093,8 +2093,8 @@ mod Windows {
                 CardLevel = 0,
                 TrackLevel = 1,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class MagneticStripeReaderReport {
                 IMagneticStripeReaderReport,
             }
@@ -2110,8 +2110,8 @@ mod Windows {
             class MagneticStripeReaderStatusUpdatedEventArgs {
                 IMagneticStripeReaderStatusUpdatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class MagneticStripeReaderTrackData {
                 IMagneticStripeReaderTrackData,
             }
@@ -2148,12 +2148,12 @@ mod Windows {
                 Bluetooth = 4,
                 All = 4294967295,
             }
-            #[Windows::Foundation::Metadata::Static(IPosPrinterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IPosPrinterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IPosPrinterStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PosPrinter {
                 IPosPrinter,
                 IPosPrinter2,
@@ -2173,9 +2173,9 @@ mod Windows {
                 Above = 1,
                 Below = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PosPrinterCapabilities {
                 IPosPrinterCapabilities,
             }
@@ -2190,10 +2190,10 @@ mod Windows {
                 NearEnd = 8,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IPosPrinterCharacterSetIdsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IPosPrinterCharacterSetIdsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PosPrinterCharacterSetIds {}
             #[repr(u32)]
             #[flags]
@@ -2227,8 +2227,8 @@ mod Windows {
                 Magenta = 9,
                 Yellow = 10,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PosPrinterFontProperty {
                 IPosPrinterFontProperty,
@@ -2273,8 +2273,8 @@ mod Windows {
                 ToCurrentTopOfForm = 2,
                 ToNextTopOfForm = 3,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::Activatable(524288, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 524288)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
@@ -2289,8 +2289,8 @@ mod Windows {
                 Side2 = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PosPrinterReleaseDeviceRequestedEventArgs {
                 IPosPrinterReleaseDeviceRequestedEventArgs,
             }
@@ -2310,9 +2310,9 @@ mod Windows {
                 Horizontal = 1,
                 Vertical = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class PosPrinterStatus {
                 IPosPrinterStatus,
             }
@@ -2331,18 +2331,18 @@ mod Windows {
             class PosPrinterStatusUpdatedEventArgs {
                 IPosPrinterStatusUpdatedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ReceiptPrintJob {
                 IReceiptPrintJob,
                 IReceiptPrintJob2,
                 IReceiptOrSlipJob,
                 IPosPrinterJob,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ReceiptPrinterCapabilities {
                 IReceiptPrinterCapabilities,
                 IReceiptPrinterCapabilities2,
@@ -2362,17 +2362,17 @@ mod Windows {
                 ISlipPrintJob,
                 IPosPrinterJob,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SlipPrinterCapabilities {
                 ISlipPrinterCapabilities,
                 ISlipPrinterCapabilities2,
                 ICommonReceiptSlipCapabilities,
                 ICommonPosPrintStationCapabilities,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(IUnifiedPosErrorDataFactory, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UnifiedPosErrorData {

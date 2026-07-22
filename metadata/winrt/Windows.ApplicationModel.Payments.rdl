@@ -3,8 +3,8 @@ mod Windows {
     mod ApplicationModel {
         mod Payments {
             #[guid(0x5f2264e9_6f3a_4166_a018_0a0b06bb32b5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentAddress)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentAddress)]
             interface IPaymentAddress {
                 Country: String;
                 AddressLines: super::super::Foundation::Collections::IVectorView<String>;
@@ -21,15 +21,15 @@ mod Windows {
                 Properties: super::super::Foundation::Collections::ValueSet;
             }
             #[guid(0x7696fe55_d5d3_4d3d_b345_45591759c510)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentCanMakePaymentResult)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentCanMakePaymentResult)]
             interface IPaymentCanMakePaymentResult {
                 #[get]
                 Status: PaymentCanMakePaymentResultStatus;
             }
             #[guid(0xbbdcaa3e_7d49_4f69_aa53_2a0f8164b7c9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentCanMakePaymentResult)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentCanMakePaymentResult)]
             interface IPaymentCanMakePaymentResultFactory {
                 fn Create(&self, value: PaymentCanMakePaymentResultStatus) -> PaymentCanMakePaymentResult;
             }
@@ -65,8 +65,8 @@ mod Windows {
                 fn CreateWithDisplayItems(&self, total: PaymentItem, displayItems: super::super::Foundation::Collections::IIterable<PaymentItem>) -> PaymentDetails;
             }
             #[guid(0xbe1c7d65_4323_41d7_b305_dfcb765f69de)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentDetailsModifier)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentDetailsModifier)]
             interface IPaymentDetailsModifier {
                 #[get]
                 JsonData: String;
@@ -78,8 +78,8 @@ mod Windows {
                 AdditionalDisplayItems: super::super::Foundation::Collections::IVectorView<PaymentItem>;
             }
             #[guid(0x79005286_54de_429c_9e4f_5dce6e10ebce)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentDetailsModifier)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentDetailsModifier)]
             interface IPaymentDetailsModifierFactory {
                 fn Create(&self, supportedMethodIds: super::super::Foundation::Collections::IIterable<String>, total: PaymentItem) -> PaymentDetailsModifier;
                 fn CreateWithAdditionalDisplayItems(&self, supportedMethodIds: super::super::Foundation::Collections::IIterable<String>, total: PaymentItem, additionalDisplayItems: super::super::Foundation::Collections::IIterable<PaymentItem>) -> PaymentDetailsModifier;
@@ -100,16 +100,16 @@ mod Windows {
                 fn Create(&self, label: String, amount: PaymentCurrencyAmount) -> PaymentItem;
             }
             #[guid(0xfb0ee829_ec0c_449a_83da_7ae3073365a2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentMediator)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentMediator)]
             interface IPaymentMediator {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetSupportedMethodIdsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("SubmitPaymentRequestAsync")]
-                fn SubmitPaymentRequestAsync(&self, paymentRequest: PaymentRequest) -> super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
+                fn SubmitPaymentRequestAsync(&self, paymentRequest: PaymentRequest) -> super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>;
                 #[Windows::Foundation::Metadata::Overload("SubmitPaymentRequestWithChangeHandlerAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SubmitPaymentRequestAsync(&self, paymentRequest: PaymentRequest, changeHandler: PaymentRequestChangedHandler) -> super::super::Foundation::IAsyncOperation<PaymentRequestSubmitResult>;
             }
             #[guid(0xceef98f1_e407_4128_8e73_d93d5f822786)]
@@ -129,14 +129,14 @@ mod Windows {
                 Uri: super::super::Foundation::Uri;
             }
             #[guid(0x9e89ced3_ccb7_4167_a8ec_e10ae96dbcd1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentMerchantInfo)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentMerchantInfo)]
             interface IPaymentMerchantInfoFactory {
                 fn Create(&self, uri: super::super::Foundation::Uri) -> PaymentMerchantInfo;
             }
             #[guid(0xd1d3caf4_de98_4129_b1b7_c3ad86237bf4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentMethodData)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentMethodData)]
             interface IPaymentMethodData {
                 #[get]
                 SupportedMethodIds: super::super::Foundation::Collections::IVectorView<String>;
@@ -181,8 +181,8 @@ mod Windows {
                 Id: String;
             }
             #[guid(0xc6145e44_cd8b_4be4_b555_27c99194c0c5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentRequestChangedArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentRequestChangedArgs)]
             interface IPaymentRequestChangedArgs {
                 #[get]
                 ChangeKind: PaymentRequestChangeKind;
@@ -231,8 +231,8 @@ mod Windows {
                 Response: PaymentResponse;
             }
             #[guid(0xe1389457_8bd2_4888_9fa8_97985545108e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentResponse)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentResponse)]
             interface IPaymentResponse {
                 #[get]
                 PaymentToken: PaymentToken;
@@ -250,8 +250,8 @@ mod Windows {
                 fn CompleteAsync(&self, status: PaymentRequestCompletionStatus) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x13372ada_9753_4574_8966_93145a76c7f9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentShippingOption)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentShippingOption)]
             interface IPaymentShippingOption {
                 Label: String;
                 Amount: PaymentCurrencyAmount;
@@ -259,8 +259,8 @@ mod Windows {
                 IsSelected: bool;
             }
             #[guid(0x5de5f917_b2d7_446b_9d73_6123fbca3bc6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentShippingOption)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentShippingOption)]
             interface IPaymentShippingOptionFactory {
                 fn Create(&self, label: String, amount: PaymentCurrencyAmount) -> PaymentShippingOption;
                 fn CreateWithSelected(&self, label: String, amount: PaymentCurrencyAmount, selected: bool) -> PaymentShippingOption;
@@ -276,22 +276,22 @@ mod Windows {
                 JsonDetails: String;
             }
             #[guid(0x988cd7aa_4753_4904_8373_dd7b08b995c1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentToken)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PaymentToken)]
             interface IPaymentTokenFactory {
                 fn Create(&self, paymentMethodId: String) -> PaymentToken;
                 fn CreateWithJsonDetails(&self, paymentMethodId: String, jsonDetails: String) -> PaymentToken;
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentAddress {
                 IPaymentAddress,
             }
             #[Windows::Foundation::Metadata::Activatable(IPaymentCanMakePaymentResultFactory, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentCanMakePaymentResult {
                 IPaymentCanMakePaymentResult,
@@ -307,56 +307,56 @@ mod Windows {
                 SpecifiedPaymentMethodIdsNotSupported = 5,
                 NoQualifyingCardOnFile = 6,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(IPaymentCurrencyAmountFactory, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentCurrencyAmount {
                 IPaymentCurrencyAmount,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::Activatable(IPaymentDetailsFactory, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IPaymentDetailsFactory, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentDetails {
                 IPaymentDetails,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(IPaymentDetailsModifierFactory, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentDetailsModifier {
                 IPaymentDetailsModifier,
             }
             #[Windows::Foundation::Metadata::Activatable(IPaymentItemFactory, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentItem {
                 IPaymentItem,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentMediator {
                 IPaymentMediator,
                 IPaymentMediator2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(IPaymentMerchantInfoFactory, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentMerchantInfo {
                 IPaymentMerchantInfo,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::Activatable(IPaymentMethodDataFactory, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentMethodData {
                 IPaymentMethodData,
             }
@@ -367,18 +367,18 @@ mod Windows {
                 Optional = 1,
                 Required = 2,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentOptions {
                 IPaymentOptions,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::Activatable(IPaymentRequestFactory, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(IPaymentRequestFactory2, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentRequest {
                 IPaymentRequest,
                 IPaymentRequest2,
@@ -389,8 +389,8 @@ mod Windows {
                 ShippingOption = 0,
                 ShippingAddress = 1,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentRequestChangedArgs {
                 IPaymentRequestChangedArgs,
@@ -399,9 +399,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             delegate fn PaymentRequestChangedHandler(paymentRequest: PaymentRequest, args: PaymentRequestChangedArgs);
             #[Windows::Foundation::Metadata::Activatable(IPaymentRequestChangedResultFactory, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentRequestChangedResult {
                 IPaymentRequestChangedResult,
             }
@@ -419,9 +419,9 @@ mod Windows {
                 Failed = 1,
                 Canceled = 2,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentRequestSubmitResult {
                 IPaymentRequestSubmitResult,
             }
@@ -431,10 +431,10 @@ mod Windows {
             class PaymentResponse {
                 IPaymentResponse,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(IPaymentShippingOptionFactory, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PaymentShippingOption {
                 IPaymentShippingOption,
             }
@@ -446,9 +446,9 @@ mod Windows {
                 Pickup = 2,
             }
             #[Windows::Foundation::Metadata::Activatable(IPaymentTokenFactory, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             class PaymentToken {
                 IPaymentToken,
             }

@@ -4,8 +4,8 @@ mod Windows {
         mod Implementation {
             mod FileExplorer {
                 #[guid(0xe132d1b9_7b9d_5820_9728_4262b5289142)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SysStorageProviderEventReceivedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Storage::Provider::CloudFilesContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SysStorageProviderEventReceivedEventArgs)]
                 interface ISysStorageProviderEventReceivedEventArgs {
                     #[get]
                     Json: String;
@@ -33,10 +33,10 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn SendRequestAsync(&self, request: super::super::super::Web::Http::HttpRequestMessage) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>;
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Storage::Provider::CloudFilesContract, 327680)]
                 #[Windows::Foundation::Metadata::Activatable(ISysStorageProviderEventReceivedEventArgsFactory, 327680, "Windows.Storage.Provider.CloudFilesContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Storage::Provider::CloudFilesContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class SysStorageProviderEventReceivedEventArgs {
                     ISysStorageProviderEventReceivedEventArgs,
                 }

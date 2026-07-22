@@ -18,8 +18,8 @@ mod Windows {
             SystemRelativeTargetTime: super::Foundation::TimeSpan;
         }
         #[guid(0x47a611d4_a9df_4edc_855d_f4d339d967ac)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionTimestampHelper)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 131072)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(PerceptionTimestampHelper)]
         interface IPerceptionTimestampHelperStatics {
             fn FromHistoricalTargetTime(&self, targetTime: super::Foundation::DateTime) -> PerceptionTimestamp;
         }
@@ -29,19 +29,19 @@ mod Windows {
         interface IPerceptionTimestampHelperStatics2 {
             fn FromSystemRelativeTargetTime(&self, targetTime: super::Foundation::TimeSpan) -> PerceptionTimestamp;
         }
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 131072)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class PerceptionTimestamp {
             IPerceptionTimestamp,
             IPerceptionTimestamp2,
         }
-        #[Windows::Foundation::Metadata::Static(IPerceptionTimestampHelperStatics, 131072, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::Static(IPerceptionTimestampHelperStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 131072)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IPerceptionTimestampHelperStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IPerceptionTimestampHelperStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class PerceptionTimestampHelper {}
     }
 }

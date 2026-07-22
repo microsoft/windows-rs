@@ -3,8 +3,8 @@ mod Windows {
     mod Devices {
         mod Spi {
             #[guid(0x9929444a_54f2_48c6_b952_9c32fc02c669)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpiBusInfo)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpiBusInfo)]
             interface ISpiBusInfo {
                 #[get]
                 ChipSelectLineCount: i32;
@@ -26,14 +26,14 @@ mod Windows {
                 SharingMode: SpiSharingMode;
             }
             #[guid(0xff99081e_10c4_44b7_9fea_a748b5a46f31)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpiConnectionSettings)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpiConnectionSettings)]
             interface ISpiConnectionSettingsFactory {
                 fn Create(&self, chipSelectLine: i32) -> SpiConnectionSettings;
             }
             #[guid(0xa8d3c829_9895_4159_a934_8741f1ee6d27)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpiController)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpiController)]
             interface ISpiController {
                 fn GetDevice(&self, settings: SpiConnectionSettings) -> SpiDevice;
             }
@@ -47,8 +47,8 @@ mod Windows {
                 fn GetControllersAsync(&self, provider: Provider::ISpiProvider) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<SpiController>>;
             }
             #[guid(0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpiDevice)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpiDevice)]
             interface ISpiDevice: super::super::Foundation::IClosable {
                 #[get]
                 DeviceId: String;
@@ -70,30 +70,30 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FromIdAsync(&self, busId: String, settings: SpiConnectionSettings) -> super::super::Foundation::IAsyncOperation<SpiDevice>;
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpiBusInfo {
                 ISpiBusInfo,
             }
+            #[Windows::Foundation::Metadata::Activatable(ISpiConnectionSettingsFactory, 65536, "Windows.Devices.DevicesLowLevelContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(ISpiConnectionSettingsFactory, 65536, "Windows.Devices.DevicesLowLevelContract")]
             class SpiConnectionSettings {
                 ISpiConnectionSettings,
             }
-            #[Windows::Foundation::Metadata::Static(ISpiControllerStatics, 131072, "Windows.Devices.DevicesLowLevelContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 131072)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ISpiControllerStatics, 131072, "Windows.Devices.DevicesLowLevelContract")]
             class SpiController {
                 ISpiController,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ISpiDeviceStatics, 65536, "Windows.Devices.DevicesLowLevelContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             class SpiDevice {
                 ISpiDevice,
                 super::super::Foundation::IClosable,

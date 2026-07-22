@@ -4,8 +4,8 @@ mod Windows {
         mod RemoteDesktop {
             mod Input {
                 #[guid(0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(RemoteTextConnection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RemoteTextConnection)]
                 interface IRemoteTextConnection {
                     IsEnabled: bool;
                     fn RegisterThread(&self, threadId: u32);
@@ -41,10 +41,10 @@ mod Windows {
                     Extended1 = 8,
                 }
                 #[Windows::Foundation::Metadata::Activatable(IRemoteTextConnectionFactory, 851968, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Activatable(IRemoteTextConnectionFactory2, 1048576, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Activatable(IRemoteTextConnectionFactory2, 1048576, "Windows.Foundation.UniversalApiContract")]
                 class RemoteTextConnection {
                     IRemoteTextConnection,
                     IRemoteTextConnection2,

@@ -20,8 +20,8 @@ mod Windows {
                     fn TryComputeLatestMeshAsync(&self, maxTrianglesPerCubicMeter: f64, options: SpatialSurfaceMeshOptions) -> super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>;
                 }
                 #[guid(0x108f57d9_df0d_3950_a0fd_f972c77c27b4)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialSurfaceMesh)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialSurfaceMesh)]
                 interface ISpatialSurfaceMesh {
                     #[get]
                     SurfaceInfo: SpatialSurfaceInfo;
@@ -37,8 +37,8 @@ mod Windows {
                     VertexNormals: SpatialSurfaceMeshBuffer;
                 }
                 #[guid(0x93cf59e0_871f_33f8_98b2_03d101458f6f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialSurfaceMeshBuffer)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialSurfaceMeshBuffer)]
                 interface ISpatialSurfaceMeshBuffer {
                     #[get]
                     Format: super::super::super::Graphics::DirectX::DirectXPixelFormat;
@@ -50,8 +50,8 @@ mod Windows {
                     Data: super::super::super::Storage::Streams::IBuffer;
                 }
                 #[guid(0xd2759f89_3572_3d2d_a10d_5fee9394aa37)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialSurfaceMeshOptions)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialSurfaceMeshOptions)]
                 interface ISpatialSurfaceMeshOptions {
                     VertexPositionFormat: super::super::super::Graphics::DirectX::DirectXPixelFormat;
                     TriangleIndexFormat: super::super::super::Graphics::DirectX::DirectXPixelFormat;
@@ -70,8 +70,8 @@ mod Windows {
                     SupportedVertexNormalFormats: super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>;
                 }
                 #[guid(0x10b69819_ddca_3483_ac3a_748fe8c86df5)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialSurfaceObserver)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SpatialSurfaceObserver)]
                 interface ISpatialSurfaceObserver {
                     fn GetObservedSurfaces(&self) -> super::super::super::Foundation::Collections::IMapView<GUID, SpatialSurfaceInfo>;
                     fn SetBoundingVolume(&self, bounds: super::SpatialBoundingVolume);
@@ -91,42 +91,42 @@ mod Windows {
                 interface ISpatialSurfaceObserverStatics2: ISpatialSurfaceObserverStatics {
                     fn IsSupported(&self) -> bool;
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialSurfaceInfo {
                     ISpatialSurfaceInfo,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::GCPressure(amount = Medium)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::GCPressure(amount = Medium)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 class SpatialSurfaceMesh {
                     ISpatialSurfaceMesh,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::GCPressure(amount = Medium)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 class SpatialSurfaceMeshBuffer {
                     ISpatialSurfaceMeshBuffer,
                 }
                 #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
-                #[Windows::Foundation::Metadata::Static(ISpatialSurfaceMeshOptionsStatics, 131072, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ISpatialSurfaceMeshOptionsStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialSurfaceMeshOptions {
                     ISpatialSurfaceMeshOptions,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Static(ISpatialSurfaceObserverStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(ISpatialSurfaceObserverStatics, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(ISpatialSurfaceObserverStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class SpatialSurfaceObserver {
                     ISpatialSurfaceObserver,
                 }

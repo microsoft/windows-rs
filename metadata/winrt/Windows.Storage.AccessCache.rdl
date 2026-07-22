@@ -30,8 +30,8 @@ mod Windows {
                 RemovedEntry: AccessListEntry;
             }
             #[guid(0x4391dfaa_d033_48f9_8060_3ec847d2e3f1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(StorageApplicationPermissions)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageApplicationPermissions)]
             interface IStorageApplicationPermissionsStatics {
                 #[get]
                 FutureAccessList: StorageItemAccessList;
@@ -78,8 +78,8 @@ mod Windows {
                 MaximumItemsAllowed: u32;
             }
             #[guid(0x016239d5_510d_411e_8cf1_c3d1effa4c33)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemMostRecentlyUsedList)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageItemMostRecentlyUsedList)]
             interface IStorageItemMostRecentlyUsedList: IStorageItemAccessList {
                 event ItemRemoved: super::super::Foundation::TypedEventHandler<StorageItemMostRecentlyUsedList, ItemRemovedEventArgs>;
             }
@@ -103,8 +103,8 @@ mod Windows {
                 AppAndSystem = 1,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IStorageApplicationPermissionsStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IStorageApplicationPermissionsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IStorageApplicationPermissionsStatics2, 524288, "Windows.Foundation.UniversalApiContract")]
             class StorageApplicationPermissions {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class StorageItemAccessList {

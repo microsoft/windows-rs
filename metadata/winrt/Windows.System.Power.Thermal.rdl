@@ -4,8 +4,8 @@ mod Windows {
         mod Power {
             mod Thermal {
                 #[guid(0xad8383fa_172d_5d82_b29d_81d93710fb45)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PowerThermalChannelConfiguration)]
                 #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PowerThermalChannelConfiguration)]
                 interface IPowerThermalChannelConfiguration {
                     #[get]
                     Id: PowerThermalChannelId;
@@ -14,8 +14,8 @@ mod Windows {
                     fn GetConfigurationNumericParameters(&self) -> [i32];
                 }
                 #[guid(0x47cca211_7348_5026_898c_b1873123760d)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PowerThermalChannelDataConsumer)]
                 #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PowerThermalChannelDataConsumer)]
                 interface IPowerThermalChannelDataConsumer {
                     fn GetChannelIds(&self) -> [PowerThermalChannelId];
                     fn GetChannelConfigurations(&self) -> super::super::super::Foundation::Collections::IMapView<PowerThermalChannelId, PowerThermalChannelConfiguration>;
@@ -47,8 +47,8 @@ mod Windows {
                     event BackEndStatusChanged: super::super::super::Foundation::TypedEventHandler<PowerThermalChannelDataProducer, Object>;
                 }
                 #[guid(0xd2d380cd_e09d_5472_ad62_70061e630067)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PowerThermalChannelDataProducer)]
                 #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PowerThermalChannelDataProducer)]
                 interface IPowerThermalChannelDataProducerFactory {
                     fn CreateInstance(&self, channelIds: [PowerThermalChannelId]) -> PowerThermalChannelDataProducer;
                 }
@@ -58,12 +58,12 @@ mod Windows {
                 interface IPowerThermalChannelDataReceivedEventArgs {
                     fn GetData(&self) -> [PowerThermalChannelData];
                 }
-                #[Windows::Foundation::Metadata::ExclusiveTo(PowerThermalChannelDiagnostics)]
                 #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PowerThermalChannelDiagnostics)]
                 interface IPowerThermalChannelDiagnostics {}
                 #[guid(0xa86ec393_b684_5633_a6ca_dfa1c7eecf87)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PowerThermalChannelDiagnostics)]
                 #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PowerThermalChannelDiagnostics)]
                 interface IPowerThermalChannelDiagnosticsStatics {
                     #[get]
                     Current: PowerThermalChannelDiagnostics;
@@ -75,8 +75,8 @@ mod Windows {
                 interface IPowerThermalChannelFinderStatics {
                     fn FindChannels(&self, channelInterfaceType: GUID) -> [PowerThermalChannelId];
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(65536)]
                 #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(65536)]
                 struct PowerThermalApiContract {}
                 #[repr(i32)]
                 #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
@@ -94,18 +94,18 @@ mod Windows {
                     Id: PowerThermalChannelId,
                     Value: i32,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(IPowerThermalChannelDataConsumerFactory, 65536, "Windows.System.Power.Thermal.PowerThermalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PowerThermalChannelDataConsumer {
                     IPowerThermalChannelDataConsumer,
                     super::super::super::Foundation::IClosable,
                 }
                 #[Windows::Foundation::Metadata::Activatable(IPowerThermalChannelDataProducerFactory, 65536, "Windows.System.Power.Thermal.PowerThermalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
                 class PowerThermalChannelDataProducer {
                     IPowerThermalChannelDataProducer,
                     super::super::super::Foundation::IClosable,
@@ -115,16 +115,16 @@ mod Windows {
                 class PowerThermalChannelDataReceivedEventArgs {
                     IPowerThermalChannelDataReceivedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::Static(IPowerThermalChannelDiagnosticsStatics, 65536, "Windows.System.Power.Thermal.PowerThermalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IPowerThermalChannelDiagnosticsStatics, 65536, "Windows.System.Power.Thermal.PowerThermalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PowerThermalChannelDiagnostics {
                     IPowerThermalChannelDiagnostics,
                 }
-                #[Windows::Foundation::Metadata::Static(IPowerThermalChannelFinderStatics, 65536, "Windows.System.Power.Thermal.PowerThermalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IPowerThermalChannelFinderStatics, 65536, "Windows.System.Power.Thermal.PowerThermalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class PowerThermalChannelFinder {}
                 #[Windows::Foundation::Metadata::ContractVersion(PowerThermalApiContract, 65536)]

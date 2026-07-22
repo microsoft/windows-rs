@@ -2,10 +2,10 @@
 mod Windows {
     mod Globalization {
         mod NumberFormatting {
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(ICurrencyFormatterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CurrencyFormatter {
                 ICurrencyFormatter,
@@ -24,12 +24,12 @@ mod Windows {
                 UseSymbol = 0,
                 UseCurrencyCode = 1,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(IDecimalFormatterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class DecimalFormatter {
                 INumberFormatter,
                 INumberFormatterOptions,
@@ -50,15 +50,15 @@ mod Windows {
                 fn put_Currency(&self, value: String);
             }
             #[guid(0x072c2f1d_e7ba_4197_920e_247c92f7dea6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyFormatter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyFormatter)]
             interface ICurrencyFormatter2 {
                 Mode: CurrencyFormatterMode;
                 fn ApplyRoundingForCurrency(&self, roundingAlgorithm: RoundingAlgorithm);
             }
             #[guid(0x86c7537e_b938_4aa2_84b0_2c33dc5b1450)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyFormatter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyFormatter)]
             interface ICurrencyFormatterFactory {
                 fn CreateCurrencyFormatterCode(&self, currencyCode: String) -> CurrencyFormatter;
                 fn CreateCurrencyFormatterCodeContext(&self, currencyCode: String, languages: super::super::Foundation::Collections::IIterable<String>, geographicRegion: String) -> CurrencyFormatter;
@@ -83,8 +83,8 @@ mod Windows {
                 fn Format(&self, value: i64) -> String;
                 #[Windows::Foundation::Metadata::Overload("FormatUInt")]
                 fn Format(&self, value: u64) -> String;
-                #[Windows::Foundation::Metadata::Overload("FormatDouble")]
                 #[Windows::Foundation::Metadata::DefaultOverload]
+                #[Windows::Foundation::Metadata::Overload("FormatDouble")]
                 fn Format(&self, value: f64) -> String;
             }
             #[guid(0xd4a8c1f0_80d0_4b0d_a89e_882c1e8f8310)]
@@ -134,8 +134,8 @@ mod Windows {
                 NumberRounder: INumberRounder;
             }
             #[guid(0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(NumeralSystemTranslator)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(NumeralSystemTranslator)]
             interface INumeralSystemTranslator {
                 #[get]
                 Languages: super::super::Foundation::Collections::IVectorView<String>;
@@ -151,8 +151,8 @@ mod Windows {
                 fn Create(&self, languages: super::super::Foundation::Collections::IIterable<String>) -> NumeralSystemTranslator;
             }
             #[guid(0xb7828aef_fed4_4018_a6e2_e09961e03765)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(PercentFormatter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(PercentFormatter)]
             interface IPercentFormatterFactory {
                 fn CreatePercentFormatter(&self, languages: super::super::Foundation::Collections::IIterable<String>, geographicRegion: String) -> PercentFormatter;
             }
@@ -168,8 +168,8 @@ mod Windows {
                 IsZeroSigned: bool;
             }
             #[guid(0xf5941bca_6646_4913_8c76_1b191ff94dfd)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SignificantDigitsNumberRounder)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SignificantDigitsNumberRounder)]
             interface ISignificantDigitsNumberRounder {
                 RoundingAlgorithm: RoundingAlgorithm;
                 SignificantDigits: u32;
@@ -179,30 +179,30 @@ mod Windows {
             interface ISignificantDigitsOption {
                 SignificantDigits: i32;
             }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class IncrementNumberRounder {
                 INumberRounder,
                 IIncrementNumberRounder,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(INumeralSystemTranslatorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class NumeralSystemTranslator {
                 INumeralSystemTranslator,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::Activatable(IPercentFormatterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(IPercentFormatterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PercentFormatter {
                 INumberFormatter,
                 INumberFormatterOptions,
@@ -212,12 +212,12 @@ mod Windows {
                 INumberRounderOption,
                 ISignedZeroOption,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(IPermilleFormatterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class PermilleFormatter {
                 INumberFormatter,
                 INumberFormatterOptions,
@@ -243,10 +243,10 @@ mod Windows {
                 RoundHalfToOdd = 10,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SignificantDigitsNumberRounder {
                 INumberRounder,
                 ISignificantDigitsNumberRounder,

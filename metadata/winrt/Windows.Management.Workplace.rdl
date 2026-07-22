@@ -12,24 +12,24 @@ mod Windows {
                 fn IsStoreAllowed(&self) -> bool;
             }
             #[guid(0xc99c7526_03d4_49f9_a993_43efccd265c4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MdmPolicy)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MdmPolicy)]
             interface IMdmPolicyStatics2 {
                 fn GetMessagingSyncPolicy(&self) -> MessagingSyncPolicy;
             }
             #[guid(0xe4676ffd_2d92_4c08_bad4_f6590b54a6d3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WorkplaceSettings)]
             #[Windows::Foundation::Metadata::ContractVersion(WorkplaceSettingsContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WorkplaceSettings)]
             interface IWorkplaceSettingsStatics {
                 #[get]
                 IsMicrosoftAccountOptional: bool;
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
-            #[Windows::Foundation::Metadata::Static(IMdmPolicyStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IMdmAllowPolicyStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IMdmPolicyStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MdmPolicy {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
@@ -39,8 +39,8 @@ mod Windows {
                 Required = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(WorkplaceSettingsContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IWorkplaceSettingsStatics, 65536, "Windows.Management.Workplace.WorkplaceSettingsContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IWorkplaceSettingsStatics, 65536, "Windows.Management.Workplace.WorkplaceSettingsContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class WorkplaceSettings {}
             #[Windows::Foundation::Metadata::ApiContract]

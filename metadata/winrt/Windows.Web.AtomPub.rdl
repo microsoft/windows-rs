@@ -2,19 +2,19 @@
 mod Windows {
     mod Web {
         mod AtomPub {
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(IAtomPubClientFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class AtomPubClient {
                 IAtomPubClient,
                 super::Syndication::ISyndicationClient,
             }
             #[guid(0x35392c38_cded_4d4c_9637_05f15c1c9406)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AtomPubClient)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AtomPubClient)]
             interface IAtomPubClient: super::Syndication::ISyndicationClient {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RetrieveServiceDocumentAsync(&self, uri: super::super::Foundation::Uri) -> super::super::Foundation::IAsyncOperationWithProgress<ServiceDocument, super::Syndication::RetrievalProgress>;
@@ -45,8 +45,8 @@ mod Windows {
                 fn CreateAtomPubClientWithCredentials(&self, serverCredential: super::super::Security::Credentials::PasswordCredential) -> AtomPubClient;
             }
             #[guid(0x7f5fd609_bc88_41d4_88fa_3de6704d428e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceCollection)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceCollection)]
             interface IResourceCollection: super::Syndication::ISyndicationNode {
                 #[get]
                 Title: super::Syndication::ISyndicationText;
@@ -58,8 +58,8 @@ mod Windows {
                 Accepts: super::super::Foundation::Collections::IVectorView<String>;
             }
             #[guid(0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ServiceDocument)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ServiceDocument)]
             interface IServiceDocument: super::Syndication::ISyndicationNode {
                 #[get]
                 Workspaces: super::super::Foundation::Collections::IVectorView<Workspace>;
@@ -73,23 +73,23 @@ mod Windows {
                 #[get]
                 Collections: super::super::Foundation::Collections::IVectorView<ResourceCollection>;
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ResourceCollection {
                 IResourceCollection,
                 super::Syndication::ISyndicationNode,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ServiceDocument {
                 IServiceDocument,
                 super::Syndication::ISyndicationNode,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class Workspace {
                 IWorkspace,
                 super::Syndication::ISyndicationNode,

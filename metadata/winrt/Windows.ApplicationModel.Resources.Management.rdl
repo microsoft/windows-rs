@@ -21,9 +21,9 @@ mod Windows {
                     fn GetQualifierValue(&self, qualifierName: String) -> String;
                 }
                 #[guid(0xdae3bb9b_d304_497f_a168_a340042c8adb)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(ResourceIndexerContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(IndexedResourceQualifier)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IIndexedResourceQualifier {
                     #[get]
                     QualifierName: String;
@@ -31,10 +31,10 @@ mod Windows {
                     QualifierValue: String;
                 }
                 #[guid(0x2d4cf9a5_e32f_4ab2_8748_96350a016da3)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::Deprecated("Use IndexFilePath in mrmsupport.dll instead of IResourceIndexer.  For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Resources.Management.ResourceIndexerContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(ResourceIndexerContract, 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("Use IndexFilePath in mrmsupport.dll instead of IResourceIndexer.  For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Resources.Management.ResourceIndexerContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ResourceIndexer)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IResourceIndexer {
                     #[Windows::Foundation::Metadata::Deprecated("Use IndexFilePath in mrmsupport.dll instead of IResourceIndexer.  For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Resources.Management.ResourceIndexerContract")]
                     fn IndexFilePath(&self, filePath: super::super::super::Foundation::Uri) -> IndexedResourceCandidate;
@@ -43,32 +43,32 @@ mod Windows {
                     fn IndexFileContentsAsync(&self, file: super::super::super::Foundation::Uri) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<IndexedResourceCandidate>>;
                 }
                 #[guid(0xb8de3f09_31cd_4d97_bd30_8d39f742bc61)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::Deprecated("Use CreateResourceIndexer in mrmsupport.dll instead of IResourceIndexerFactory.  For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Resources.Management.ResourceIndexerContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(ResourceIndexerContract, 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("Use CreateResourceIndexer in mrmsupport.dll instead of IResourceIndexerFactory.  For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Resources.Management.ResourceIndexerContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ResourceIndexer)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IResourceIndexerFactory {
                     #[Windows::Foundation::Metadata::Deprecated("Use CreateResourceIndexer in mrmsupport.dll instead of IResourceIndexerFactory.  For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Resources.Management.ResourceIndexerContract")]
                     fn CreateResourceIndexer(&self, projectRoot: super::super::super::Foundation::Uri) -> ResourceIndexer;
                 }
                 #[guid(0x6040f18d_d5e5_4b60_9201_cd279cbcfed9)]
                 #[Windows::Foundation::Metadata::ContractVersion(ResourceIndexerContract, 65536)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::Deprecated("Use CreateResourceIndexer in mrmsupport.dll instead of IResourceIndexerFactory2.  For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Resources.Management.ResourceIndexerContract")]
                 #[Windows::Foundation::Metadata::ExclusiveTo(ResourceIndexer)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IResourceIndexerFactory2 {
                     #[Windows::Foundation::Metadata::Deprecated("Use CreateResourceIndexer in mrmsupport.dll instead of IResourceIndexerFactory2.  For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Resources.Management.ResourceIndexerContract")]
                     fn CreateResourceIndexerWithExtension(&self, projectRoot: super::super::super::Foundation::Uri, extensionDllPath: super::super::super::Foundation::Uri) -> ResourceIndexer;
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(ResourceIndexerContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(ResourceIndexerContract, 65536)]
                 class IndexedResourceCandidate {
                     IIndexedResourceCandidate,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(ResourceIndexerContract, 65536)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class IndexedResourceQualifier {
                     IIndexedResourceQualifier,
                 }
@@ -79,18 +79,18 @@ mod Windows {
                     Path = 1,
                     EmbeddedData = 2,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(ResourceIndexerContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::Activatable(IResourceIndexerFactory, 65536, "Windows.ApplicationModel.Resources.Management.ResourceIndexerContract")]
-                #[Windows::Foundation::Metadata::Deprecated("Use CreateResourceIndexer in mrmsupport.dll instead of ResourceIndexer.  For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Resources.Management.ResourceIndexerContract")]
                 #[Windows::Foundation::Metadata::Activatable(IResourceIndexerFactory2, 65536, "Windows.ApplicationModel.Resources.Management.ResourceIndexerContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(ResourceIndexerContract, 65536)]
+                #[Windows::Foundation::Metadata::Deprecated("Use CreateResourceIndexer in mrmsupport.dll instead of ResourceIndexer.  For more info, see MSDN.", Deprecate, 131072, "Windows.ApplicationModel.Resources.Management.ResourceIndexerContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class ResourceIndexer {
                     IResourceIndexer,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(131072)]
                 #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(131072)]
                 struct ResourceIndexerContract {}
             }
         }

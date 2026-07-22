@@ -8,20 +8,20 @@ mod Windows {
             class CharacterGrouping {
                 ICharacterGrouping,
             }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(ICharacterGroupingsFactory, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class CharacterGroupings {
                 ICharacterGroupings,
                 super::super::Foundation::Collections::IVectorView<CharacterGrouping>,
                 super::super::Foundation::Collections::IIterable<CharacterGrouping>,
             }
             #[guid(0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CharacterGrouping)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CharacterGrouping)]
             interface ICharacterGrouping {
                 #[get]
                 First: String;

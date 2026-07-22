@@ -6,8 +6,8 @@ mod Windows {
                 mod Direct {
                     #[guid(0x5ffa1295_add2_590f_a051_70989b866ade)]
                     #[Windows::Foundation::Metadata::ContractVersion(XamlDirectContract, 65536)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ExclusiveTo(XamlDirect)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IXamlDirect {
                         fn GetObject(&self, xamlDirectObject: IXamlDirectObject) -> Object;
                         fn GetXamlDirectObject(&self, object: Object) -> IXamlDirectObject;
@@ -58,29 +58,29 @@ mod Windows {
                         fn RemoveFromCollection(&self, xamlDirectObject: IXamlDirectObject, value: IXamlDirectObject) -> bool;
                         fn RemoveFromCollectionAt(&self, xamlDirectObject: IXamlDirectObject, index: u32);
                         fn ClearCollection(&self, xamlDirectObject: IXamlDirectObject);
-                        #[Windows::Foundation::Metadata::Overload("AddEventHandler")]
                         #[Windows::Foundation::Metadata::DefaultOverload]
+                        #[Windows::Foundation::Metadata::Overload("AddEventHandler")]
                         fn AddEventHandler(&self, xamlDirectObject: IXamlDirectObject, eventIndex: XamlEventIndex, handler: Object);
                         #[Windows::Foundation::Metadata::Overload("AddEventHandler_HandledEventsToo")]
                         fn AddEventHandler(&self, xamlDirectObject: IXamlDirectObject, eventIndex: XamlEventIndex, handler: Object, handledEventsToo: bool);
                         fn RemoveEventHandler(&self, xamlDirectObject: IXamlDirectObject, eventIndex: XamlEventIndex, handler: Object);
                     }
                     #[guid(0x10614a82_cee4_4645_ba25_d071ce778355)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(XamlDirectContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IXamlDirectObject {}
                     #[guid(0x321887cc_14e4_5c6f_878d_fbb604ad7d17)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(XamlDirectContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(XamlDirect)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IXamlDirectStatics {
                         fn GetDefault(&self) -> XamlDirect;
                     }
-                    #[Windows::Foundation::Metadata::Static(IXamlDirectStatics, 65536, "Windows.UI.Xaml.Core.Direct.XamlDirectContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(XamlDirectContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
+                    #[Windows::Foundation::Metadata::Static(IXamlDirectStatics, 65536, "Windows.UI.Xaml.Core.Direct.XamlDirectContract")]
                     #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     class XamlDirect {
                         IXamlDirect,
                     }
@@ -231,8 +231,8 @@ mod Windows {
                         TimePicker_SelectedTimeChanged = 323,
                     }
                     #[repr(i32)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(XamlDirectContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     enum XamlPropertyIndex {
                         AutomationProperties_AcceleratorKey = 5,
                         AutomationProperties_AccessibilityView = 6,
@@ -1905,8 +1905,8 @@ mod Windows {
                         AutomationProperties_AutomationControlType = 2455,
                     }
                     #[repr(i32)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(XamlDirectContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     enum XamlTypeIndex {
                         AutoSuggestBoxSuggestionChosenEventArgs = 34,
                         AutoSuggestBoxTextChangedEventArgs = 35,

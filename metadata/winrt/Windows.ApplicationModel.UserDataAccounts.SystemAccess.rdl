@@ -10,10 +10,10 @@ mod Windows {
                     OAuth = 1,
                     SingleSignOn = 2,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class DeviceAccountConfiguration {
                     IDeviceAccountConfiguration,
                     IDeviceAccountConfiguration2,
@@ -77,8 +77,8 @@ mod Windows {
                     OutgoingServerUsername: String;
                 }
                 #[guid(0xf2b2e5a6_728d_4a4a_8945_2bf8580136de)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DeviceAccountConfiguration)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DeviceAccountConfiguration)]
                 interface IDeviceAccountConfiguration2 {
                     IncomingServerCredential: super::super::super::Security::Credentials::PasswordCredential;
                     OutgoingServerCredential: super::super::super::Security::Credentials::PasswordCredential;
@@ -113,14 +113,14 @@ mod Windows {
                     IsSyncScheduleManagedBySystem: bool;
                 }
                 #[guid(0x9d6b11b9_cbe5_45f5_822b_c267b81dbdb6)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountSystemAccessManager)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountSystemAccessManager)]
                 interface IUserDataAccountSystemAccessManagerStatics {
                     fn AddAndShowDeviceAccountsAsync(&self, accounts: super::super::super::Foundation::Collections::IIterable<DeviceAccountConfiguration>) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<String>>;
                 }
                 #[guid(0x943f854d_4b4e_439f_83d3_979b27c05ac7)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountSystemAccessManager)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataAccountSystemAccessManager)]
                 interface IUserDataAccountSystemAccessManagerStatics2 {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn SuppressLocalAccountWithAccountAsync(&self, userDataAccountId: String) -> super::super::super::Foundation::IAsyncAction;
@@ -131,11 +131,11 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetDeviceAccountConfigurationAsync(&self, accountId: String) -> super::super::super::Foundation::IAsyncOperation<DeviceAccountConfiguration>;
                 }
-                #[Windows::Foundation::Metadata::Static(IUserDataAccountSystemAccessManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IUserDataAccountSystemAccessManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IUserDataAccountSystemAccessManagerStatics2, 196608, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class UserDataAccountSystemAccessManager {}
             }
         }

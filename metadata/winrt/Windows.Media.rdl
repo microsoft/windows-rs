@@ -1,11 +1,11 @@
 #[winrt]
 mod Windows {
     mod Media {
-        #[Windows::Foundation::Metadata::GCPressure(amount = Low)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::GCPressure(amount = Low)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class AudioBuffer {
             IAudioBuffer,
             super::Foundation::IMemoryBuffer,
@@ -18,10 +18,10 @@ mod Windows {
             ReadWrite = 1,
             Write = 2,
         }
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Activatable(IAudioFrameFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class AudioFrame {
             IAudioFrame,
@@ -68,8 +68,8 @@ mod Windows {
             RequestedAutoRepeatMode: MediaPlaybackAutoRepeatMode;
         }
         #[guid(0xcd0bc7ef_54e7_411f_9933_f0e98b0a96d2)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(ImageDisplayProperties)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ImageDisplayProperties)]
         interface IImageDisplayProperties {
             Title: String;
             Subtitle: String;
@@ -269,15 +269,15 @@ mod Windows {
             Markers: super::Foundation::Collections::IVectorView<IMediaMarker>;
         }
         #[guid(0xeb8564ac_a351_4f4e_b4f0_9bf2408993db)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(MediaProcessingTriggerDetails)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MediaProcessingTriggerDetails)]
         interface IMediaProcessingTriggerDetails {
             #[get]
             Arguments: super::Foundation::Collections::ValueSet;
         }
         #[guid(0x8ed361f3_0b78_4360_bf71_0c841999ea1b)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(MediaTimelineController)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MediaTimelineController)]
         interface IMediaTimelineController {
             fn Start(&self);
             fn Resume(&self);
@@ -290,8 +290,8 @@ mod Windows {
             event StateChanged: super::Foundation::TypedEventHandler<MediaTimelineController, Object>;
         }
         #[guid(0xef74ea38_9e72_4df9_8355_6e90c81bbadd)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(MediaTimelineController)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MediaTimelineController)]
         interface IMediaTimelineController2 {
             Duration: super::Foundation::IReference<super::Foundation::TimeSpan>;
             IsLoopingEnabled: bool;
@@ -299,15 +299,15 @@ mod Windows {
             event Ended: super::Foundation::TypedEventHandler<MediaTimelineController, Object>;
         }
         #[guid(0x8821f81d_3e77_43fb_be26_4fc87a044834)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(MediaTimelineControllerFailedEventArgs)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MediaTimelineControllerFailedEventArgs)]
         interface IMediaTimelineControllerFailedEventArgs {
             #[get]
             ExtendedError: HRESULT;
         }
         #[guid(0x6bbf0c59_d0a0_4d26_92a0_f978e1d18e7b)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(MusicDisplayProperties)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(MusicDisplayProperties)]
         interface IMusicDisplayProperties {
             Title: String;
             AlbumArtist: String;
@@ -329,15 +329,15 @@ mod Windows {
             AlbumTrackCount: u32;
         }
         #[guid(0xb4493f88_eb28_4961_9c14_335e44f3e125)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackPositionChangeRequestedEventArgs)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackPositionChangeRequestedEventArgs)]
         interface IPlaybackPositionChangeRequestedEventArgs {
             #[get]
             RequestedPlaybackPosition: super::Foundation::TimeSpan;
         }
         #[guid(0x2ce2c41f_3cd6_4f77_9ba7_eb27c26a2140)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackRateChangeRequestedEventArgs)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(PlaybackRateChangeRequestedEventArgs)]
         interface IPlaybackRateChangeRequestedEventArgs {
             #[get]
             RequestedPlaybackRate: f64;
@@ -386,8 +386,8 @@ mod Windows {
             event AutoRepeatModeChangeRequested: super::Foundation::TypedEventHandler<SystemMediaTransportControls, AutoRepeatModeChangeRequestedEventArgs>;
         }
         #[guid(0xb7f47116_a56f_4dc8_9e11_92031f4a87c2)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(SystemMediaTransportControlsButtonPressedEventArgs)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(SystemMediaTransportControlsButtonPressedEventArgs)]
         interface ISystemMediaTransportControlsButtonPressedEventArgs {
             #[get]
             Button: SystemMediaTransportControlsButton;
@@ -448,8 +448,8 @@ mod Windows {
             Genres: super::Foundation::Collections::IVector<String>;
         }
         #[guid(0x1fcda5e8_baf1_4521_980c_3bcebb44cf38)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(VideoEffects)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(VideoEffects)]
         interface IVideoEffectsStatics {
             #[get]
             VideoStabilization: String;
@@ -466,23 +466,23 @@ mod Windows {
             Direct3DSurface: super::Graphics::DirectX::Direct3D11::IDirect3DSurface;
         }
         #[guid(0x3837840d_336c_4366_8d46_060798736c5d)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(VideoFrame)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(VideoFrame)]
         interface IVideoFrame2 {
             #[Windows::Foundation::Metadata::Overload("CopyToWithBoundsAsync")]
             #[Windows::Foundation::Metadata::RemoteAsync]
             fn CopyToAsync(&self, frame: VideoFrame, sourceBounds: super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>, destinationBounds: super::Foundation::IReference<super::Graphics::Imaging::BitmapBounds>) -> super::Foundation::IAsyncAction;
         }
         #[guid(0x014b6d69_2228_4c92_92ff_50c380d3e776)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(VideoFrame)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(VideoFrame)]
         interface IVideoFrameFactory {
             fn Create(&self, format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32) -> VideoFrame;
             fn CreateWithAlpha(&self, format: super::Graphics::Imaging::BitmapPixelFormat, width: i32, height: i32, alpha: super::Graphics::Imaging::BitmapAlphaMode) -> VideoFrame;
         }
         #[guid(0xab2a556f_6111_4b33_8ec3_2b209a02e17a)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(VideoFrame)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(VideoFrame)]
         interface IVideoFrameStatics {
             #[Windows::Foundation::Metadata::Overload("CreateAsDirect3D11SurfaceBacked")]
             fn CreateAsDirect3D11SurfaceBacked(&self, format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32) -> VideoFrame;
@@ -491,18 +491,18 @@ mod Windows {
             fn CreateWithSoftwareBitmap(&self, bitmap: super::Graphics::Imaging::SoftwareBitmap) -> VideoFrame;
             fn CreateWithDirect3D11Surface(&self, surface: super::Graphics::DirectX::Direct3D11::IDirect3DSurface) -> VideoFrame;
         }
-        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class ImageDisplayProperties {
             IImageDisplayProperties,
         }
-        #[Windows::Foundation::Metadata::Threading(MTA)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
         #[Windows::Foundation::Metadata::ContractVersion(MediaControlContract, 65536)]
+        #[Windows::Foundation::Metadata::Deprecated("MediaControl may be altered or unavailable for releases after Windows 8.1. Instead, use SystemMediaTransportControls.", Deprecate, 65536, "Windows.Media.MediaControlContract")]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Static(IMediaControl, 65536, "Windows.Media.MediaControlContract")]
+        #[Windows::Foundation::Metadata::Threading(MTA)]
         class MediaControl {}
         #[Windows::Foundation::Metadata::ApiContract]
         #[Windows::Foundation::Metadata::ContractVersion(65536)]
@@ -515,10 +515,10 @@ mod Windows {
             IMediaExtensionManager,
             IMediaExtensionManager2,
         }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Static(IMediaMarkerTypesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         class MediaMarkerTypes {}
         #[repr(i32)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -544,9 +544,9 @@ mod Windows {
             Video = 2,
             Image = 3,
         }
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class MediaProcessingTriggerDetails {
             IMediaProcessingTriggerDetails,
         }
@@ -556,18 +556,18 @@ mod Windows {
             End: super::Foundation::TimeSpan,
         }
         #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
         class MediaTimelineController {
             IMediaTimelineController,
             IMediaTimelineController2,
         }
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 262144)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class MediaTimelineControllerFailedEventArgs {
             IMediaTimelineControllerFailedEventArgs,
         }
@@ -588,15 +588,15 @@ mod Windows {
             IMusicDisplayProperties2,
             IMusicDisplayProperties3,
         }
-        #[Windows::Foundation::Metadata::Muse(Version = 167772160)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Muse(Version = 167772160)]
         class PlaybackPositionChangeRequestedEventArgs {
             IPlaybackPositionChangeRequestedEventArgs,
         }
-        #[Windows::Foundation::Metadata::Muse(Version = 167772160)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Muse(Version = 167772160)]
         class PlaybackRateChangeRequestedEventArgs {
             IPlaybackRateChangeRequestedEventArgs,
         }
@@ -613,11 +613,11 @@ mod Windows {
             Low = 1,
             Full = 2,
         }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
-        #[Windows::Foundation::Metadata::Threading(MTA)]
         #[Windows::Foundation::Metadata::Static(ISystemMediaTransportControlsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::Threading(MTA)]
         class SystemMediaTransportControls {
             ISystemMediaTransportControls,
             ISystemMediaTransportControls2,
@@ -636,15 +636,15 @@ mod Windows {
             ChannelUp = 8,
             ChannelDown = 9,
         }
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         class SystemMediaTransportControlsButtonPressedEventArgs {
             ISystemMediaTransportControlsButtonPressedEventArgs,
         }
-        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class SystemMediaTransportControlsDisplayUpdater {
             ISystemMediaTransportControlsDisplayUpdater,
@@ -654,40 +654,40 @@ mod Windows {
         enum SystemMediaTransportControlsProperty {
             SoundLevel = 0,
         }
-        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
         class SystemMediaTransportControlsPropertyChangedEventArgs {
             ISystemMediaTransportControlsPropertyChangedEventArgs,
         }
+        #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Muse(Version = 167772160)]
-        #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class SystemMediaTransportControlsTimelineProperties {
             ISystemMediaTransportControlsTimelineProperties,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class VideoDisplayProperties {
             IVideoDisplayProperties,
             IVideoDisplayProperties2,
         }
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-        #[Windows::Foundation::Metadata::Static(IVideoEffectsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-        class VideoEffects {}
-        #[Windows::Foundation::Metadata::Static(IVideoFrameStatics, 393216, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::GCPressure(amount = High)]
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::Activatable(IVideoFrameFactory, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IVideoEffectsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
+        class VideoEffects {}
+        #[Windows::Foundation::Metadata::Activatable(IVideoFrameFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::GCPressure(amount = High)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IVideoFrameStatics, 393216, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
         class VideoFrame {
             IVideoFrame,

@@ -2,10 +2,10 @@
 mod Windows {
     mod Management {
         mod Core {
-            #[Windows::Foundation::Metadata::Threading(MTA)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IApplicationDataManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(MTA)]
             class ApplicationDataManager {
                 IApplicationDataManager,
             }
@@ -14,8 +14,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationDataManager)]
             interface IApplicationDataManager {}
             #[guid(0x1e1862e3_698e_49a1_9752_dee94925b9b3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationDataManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationDataManager)]
             interface IApplicationDataManagerStatics {
                 fn CreateForPackageFamily(&self, packageFamilyName: String) -> super::super::Storage::ApplicationData;
             }

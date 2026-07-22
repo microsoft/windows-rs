@@ -26,8 +26,8 @@ mod Windows {
                 StartDate: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
             }
             #[guid(0x382da5fe_20b5_431c_8f42_a5d292ec930c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskBatch)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskBatch)]
             interface IUserDataTaskBatch {
                 #[get]
                 Tasks: super::super::Foundation::Collections::IVectorView<UserDataTask>;
@@ -91,8 +91,8 @@ mod Windows {
                 event SyncStatusChanged: super::super::Foundation::TypedEventHandler<UserDataTaskListSyncManager, Object>;
             }
             #[guid(0x8451c914_e60b_48a9_9211_7fb8a56cb84c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskManager)]
             interface IUserDataTaskManager {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestStoreAsync(&self, accessType: UserDataTaskStoreAccessType) -> super::super::Foundation::IAsyncOperation<UserDataTaskStore>;
@@ -100,8 +100,8 @@ mod Windows {
                 User: super::super::System::User;
             }
             #[guid(0xb35539f8_c502_47fc_a81e_100883719d55)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskManager)]
             interface IUserDataTaskManagerStatics {
                 fn GetDefault(&self) -> UserDataTaskManager;
                 fn GetForUser(&self, user: super::super::System::User) -> UserDataTaskManager;
@@ -114,15 +114,15 @@ mod Windows {
                 Kind: UserDataTaskQueryKind;
             }
             #[guid(0x03e688b1_4ccf_4500_883b_e76290cfed63)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskReader)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskReader)]
             interface IUserDataTaskReader {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<UserDataTaskBatch>;
             }
             #[guid(0x73df80b0_27c6_40ce_b149_9cd41485a69e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskRecurrenceProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskRecurrenceProperties)]
             interface IUserDataTaskRecurrenceProperties {
                 Unit: UserDataTaskRecurrenceUnit;
                 Occurrences: super::super::Foundation::IReference<i32>;
@@ -134,8 +134,8 @@ mod Windows {
                 Day: super::super::Foundation::IReference<i32>;
             }
             #[guid(0x92ab0007_090e_4704_bb5c_84fc0b0d9c31)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskRegenerationProperties)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskRegenerationProperties)]
             interface IUserDataTaskRegenerationProperties {
                 Unit: UserDataTaskRegenerationUnit;
                 Occurrences: super::super::Foundation::IReference<i32>;
@@ -146,8 +146,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskStore)]
             interface IUserDataTaskStore {
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("CreateListAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateListAsync(&self, name: String) -> super::super::Foundation::IAsyncOperation<UserDataTaskList>;
                 #[Windows::Foundation::Metadata::Overload("CreateListInAccountAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -157,10 +157,10 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetListAsync(&self, taskListId: String) -> super::super::Foundation::IAsyncOperation<UserDataTaskList>;
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataTask {
                 IUserDataTask,
             }
@@ -196,15 +196,15 @@ mod Windows {
                 Recurring = 1,
                 Regenerating = 2,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             class UserDataTaskList {
                 IUserDataTaskList,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataTaskListLimitedWriteOperations {
                 IUserDataTaskListLimitedWriteOperations,
             }
@@ -221,8 +221,8 @@ mod Windows {
                 Limited = 0,
                 None = 1,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataTaskListSyncManager {
                 IUserDataTaskListSyncManager,
@@ -237,10 +237,10 @@ mod Windows {
                 PolicyError = 4,
                 UnknownError = 5,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IUserDataTaskManagerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataTaskManager {
                 IUserDataTaskManager,
             }
@@ -258,9 +258,9 @@ mod Windows {
                 Incomplete = 1,
                 Complete = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataTaskQueryOptions {
                 IUserDataTaskQueryOptions,
@@ -270,15 +270,15 @@ mod Windows {
             enum UserDataTaskQuerySortProperty {
                 DueDate = 0,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataTaskReader {
                 IUserDataTaskReader,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataTaskRecurrenceProperties {
                 IUserDataTaskRecurrenceProperties,
@@ -293,9 +293,9 @@ mod Windows {
                 Yearly = 4,
                 YearlyOnDay = 5,
             }
+            #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class UserDataTaskRegenerationProperties {
                 IUserDataTaskRegenerationProperties,
@@ -314,9 +314,9 @@ mod Windows {
                 Public = 0,
                 Private = 1,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             class UserDataTaskStore {
                 IUserDataTaskStore,
             }

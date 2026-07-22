@@ -3,18 +3,18 @@ mod Windows {
     mod UI {
         mod Xaml {
             mod Markup {
+                #[Windows::Foundation::Metadata::AttributeName("contentproperty")]
+                #[Windows::Foundation::Metadata::AttributeUsage(RuntimeClass)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::AttributeUsage(RuntimeClass)]
-                #[Windows::Foundation::Metadata::AttributeName("contentproperty")]
                 attribute ContentPropertyAttribute {
                     fn();
                     Name: String,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::AttributeUsage(RuntimeClass)]
                 #[Windows::Foundation::Metadata::AttributeName("fullxamlmetadataprovider")]
+                #[Windows::Foundation::Metadata::AttributeUsage(RuntimeClass)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 attribute FullXamlMetadataProviderAttribute {
                     fn();
                 }
@@ -25,8 +25,8 @@ mod Windows {
                     fn Connect(&self, connectionId: i32, target: Object);
                 }
                 #[guid(0xdc8f368b_eccc_498e_b139_91142254d7ae)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IComponentConnector2 {
                     fn GetBindingConnector(&self, connectionId: i32, target: Object) -> IComponentConnector;
                 }
@@ -38,33 +38,33 @@ mod Windows {
                     fn ProcessBindings(&self, item: Object, itemIndex: i32, phase: i32, nextPhase: &mut i32);
                 }
                 #[guid(0x1ee3416d_562b_486e_9ee5_0f0cbcc8048c)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(MarkupExtension)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 interface IMarkupExtension {}
                 #[guid(0x65329c05_fb5a_4567_9d55_5cdfbada2739)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(MarkupExtension)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 interface IMarkupExtensionFactory {
                     fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> MarkupExtension;
                 }
                 #[guid(0x393779bf_b9c0_4ffb_a57f_58e7356e425f)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(MarkupExtension)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 interface IMarkupExtensionOverrides {
                     fn ProvideValue(&self) -> Object;
                 }
                 #[guid(0x829d2ad3_620a_46f6_845d_436a05927100)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XamlBinaryWriter)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlBinaryWriter {}
                 #[guid(0x0d8ed07a_9b82_4aa8_b68b_026f2de1cc86)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XamlBinaryWriter)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlBinaryWriterStatics {
                     fn Write(&self, inputStreams: super::super::super::Foundation::Collections::IVector<super::super::super::Storage::Streams::IRandomAccessStream>, outputStreams: super::super::super::Foundation::Collections::IVector<super::super::super::Storage::Streams::IRandomAccessStream>, xamlMetadataProvider: IXamlMetadataProvider) -> XamlBinaryWriterErrorInformation;
                 }
@@ -75,14 +75,14 @@ mod Windows {
                     fn Disable(&self, lineNumber: i32, columnNumber: i32);
                 }
                 #[guid(0xfaa6fb06_8ab9_4ef7_8ae7_fbd30bbfd06d)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XamlBindingHelper)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlBindingHelper {}
                 #[guid(0xf65cfb71_c80c_4ffa_86ee_558754ee336d)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(XamlBindingHelper)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(XamlBindingHelper)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlBindingHelperStatics {
                     #[get]
                     DataTemplateComponentProperty: super::DependencyProperty;
@@ -116,8 +116,8 @@ mod Windows {
                 interface IXamlMarkupHelper {}
                 #[guid(0xc9bc3725_f34f_445c_81a2_6b72a5e8f072)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XamlMarkupHelper)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlMarkupHelperStatics {
                     fn UnloadObject(&self, element: super::DependencyObject);
                 }
@@ -144,8 +144,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlMetadataProvider {
-                    #[Windows::Foundation::Metadata::Overload("GetXamlType")]
                     #[Windows::Foundation::Metadata::DefaultOverload]
+                    #[Windows::Foundation::Metadata::Overload("GetXamlType")]
                     fn GetXamlType(&self, r#type: super::Interop::TypeName) -> IXamlType;
                     #[Windows::Foundation::Metadata::Overload("GetXamlTypeByFullName")]
                     fn GetXamlType(&self, fullName: String) -> IXamlType;
@@ -153,13 +153,13 @@ mod Windows {
                 }
                 #[guid(0x24374cf1_cceb_48bf_a514_41b0186f84c2)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XamlReader)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlReader {}
                 #[guid(0x9891c6bd_534f_4955_b85a_8a8dc0dca602)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(XamlReader)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlReaderStatics {
                     fn Load(&self, xaml: String) -> Object;
                     fn LoadWithInitialTemplateValidation(&self, xaml: String) -> Object;
@@ -200,17 +200,17 @@ mod Windows {
                     fn RunInitializer(&self);
                 }
                 #[guid(0x9f0c6e3b_433b_56ad_8f69_78a4dd3e64f9)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IXamlType2: IXamlType {
                     #[get]
                     BoxedType: IXamlType;
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::Composable(IMarkupExtensionFactory, Public, 327680, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class MarkupExtension {
                     IMarkupExtension,
                     IMarkupExtensionOverrides,
@@ -224,10 +224,10 @@ mod Windows {
                     ReturnType: Type,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::Static(IXamlBinaryWriterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IXamlBinaryWriterStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class XamlBinaryWriter {
                     IXamlBinaryWriter,
                 }
@@ -238,32 +238,32 @@ mod Windows {
                     LineNumber: u32,
                     LinePosition: u32,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IXamlBindingHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Static(IXamlBindingHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class XamlBindingHelper {
                     IXamlBindingHelper,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IXamlMarkupHelperStatics, 262144, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class XamlMarkupHelper {
                     IXamlMarkupHelper,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IXamlReaderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class XamlReader {
                     IXamlReader,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 struct XmlnsDefinition {
                     XmlNamespace: String,
                     Namespace: String,
