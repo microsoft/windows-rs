@@ -1,0 +1,74 @@
+#[win32]
+mod Windows {
+    mod Win32 {
+        #[library("ADVAPI32.dll")]
+        extern fn CloseThreadWaitChainSession(WctHandle: HWCT);
+        #[library("ADVAPI32.dll")]
+        extern fn GetThreadWaitChain(WctHandle: HWCT, #[opt] Context: usize, Flags: u32, ThreadId: u32, #[in] #[out] NodeCount: *mut u32, #[len_param(4)] NodeInfoArray: *mut WAITCHAIN_NODE_INFO, IsCycle: *mut BOOL) -> BOOL;
+        type HWCT = *mut void;
+        #[library("ADVAPI32.dll")]
+        extern fn OpenThreadWaitChainSession(Flags: u32, #[opt] callback: PWAITCHAINCALLBACK) -> HWCT;
+        extern fn PCOGETACTIVATIONSTATE(param0: GUID, param1: u32, param2: *mut u32) -> HRESULT;
+        extern fn PCOGETCALLSTATE(param0: i32, param1: *mut u32) -> HRESULT;
+        extern fn PWAITCHAINCALLBACK(WctHandle: HWCT, Context: usize, CallbackStatus: u32, NodeCount: *mut u32, NodeInfoArray: *mut WAITCHAIN_NODE_INFO, IsCycle: *mut BOOL);
+        type PWAITCHAIN_NODE_INFO = *mut WAITCHAIN_NODE_INFO;
+        #[library("ADVAPI32.dll")]
+        extern fn RegisterWaitChainCOMCallback(CallStateCallback: PCOGETCALLSTATE, ActivationStateCallback: PCOGETACTIVATIONSTATE);
+        struct WAITCHAIN_NODE_INFO {
+            ObjectType: WCT_OBJECT_TYPE,
+            ObjectStatus: WCT_OBJECT_STATUS,
+            Anonymous: union {
+                LockObject: struct {
+                    ObjectName: [u16; 128],
+                    Timeout: LARGE_INTEGER,
+                    Alertable: BOOL,
+                },
+                ThreadObject: struct {
+                    ProcessId: u32,
+                    ThreadId: u32,
+                    WaitTime: u32,
+                    ContextSwitches: u32,
+                },
+            },
+        }
+        const WCTP_GETINFO_ALL_FLAGS: u32 = 7;
+        const WCTP_OPEN_ALL_FLAGS: u32 = 1;
+        const WCT_ASYNC_OPEN_FLAG: u32 = 1;
+        const WCT_MAX_NODE_COUNT: u32 = 16;
+        const WCT_NETWORK_IO_FLAG: u32 = 8;
+        #[repr(i32)]
+        enum WCT_OBJECT_STATUS {
+            WctStatusNoAccess = 1,
+            WctStatusRunning = 2,
+            WctStatusBlocked = 3,
+            WctStatusPidOnly = 4,
+            WctStatusPidOnlyRpcss = 5,
+            WctStatusOwned = 6,
+            WctStatusNotOwned = 7,
+            WctStatusAbandoned = 8,
+            WctStatusUnknown = 9,
+            WctStatusError = 10,
+            WctStatusMax = 11,
+        }
+        #[repr(i32)]
+        enum WCT_OBJECT_TYPE {
+            WctCriticalSectionType = 1,
+            WctSendMessageType = 2,
+            WctMutexType = 3,
+            WctAlpcType = 4,
+            WctComType = 5,
+            WctThreadWaitType = 6,
+            WctProcessWaitType = 7,
+            WctThreadType = 8,
+            WctComActivationType = 9,
+            WctUnknownType = 10,
+            WctSocketIoType = 11,
+            WctSmbIoType = 12,
+            WctMaxType = 13,
+        }
+        const WCT_OBJNAME_LENGTH: u32 = 128;
+        const WCT_OUT_OF_PROC_COM_FLAG: u32 = 2;
+        const WCT_OUT_OF_PROC_CS_FLAG: u32 = 4;
+        const WCT_OUT_OF_PROC_FLAG: u32 = 1;
+    }
+}

@@ -423,6 +423,7 @@ const HEADERS: &[&str] = &[
     "iiscnfg.h",
     "IntShCut.h",
     "cfapi.h",
+    "wct.h",
     "Windows.Devices.Display.Core.Interop.h",
     // WinRT interop factory/native bridge headers (`um\` dir). These are the MIDL-generated
     // C-ABI interop headers whose `HWND`/`REFIID`/`void**` (or DXGI/D2D) bridge interfaces
