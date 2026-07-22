@@ -119,16 +119,19 @@ release, tied to a single number.
 `Microsoft.WindowsAppSDK` metapackage at that version, reads the exact component versions
 (Foundation / InteractiveExperiences / WinUI) pinned in its nuspec, downloads each component,
 and copies their `.winmd` — plus `Microsoft.Web.WebView2.Core.winmd` at `WEBVIEW2_VERSION` —
-into the committed corpus at `crates/tools/reactor/winmd/`. `gen.yml` re-runs the tool and fails
-on any diff, so the corpus provably matches the pin. (`extras.winmd` in that directory is
-*generated* by `tool_reactor` from `Windows.Win32.winmd`, not a package.) The corpus stays
-committed because `tool_webview` and `tool_composition` also read it.
+into the committed corpus at `crates/tools/reactor/winmd/`. It also refreshes the committed
+bootstrap DLLs (`crates/libs/reactor-setup/bootstrap/<arch>/`) from that same Foundation
+package's `runtimes/<rid>/native/`, so metadata and staged runtime provably come from one pin.
+`gen.yml` re-runs the tool and fails on any diff, so both provably match the pin.
+(`extras.winmd` in that directory is *generated* by `tool_reactor` from `Windows.Win32.winmd`,
+not a package.) The corpus stays committed because `tool_webview` and `tool_composition` also
+read it.
 
 | Artifact | Owner / location | Used by |
 | --- | --- | --- |
 | WinUI / Windows App SDK `.winmd` + `WebView2.Core.winmd` | regenerated into `crates/tools/reactor/winmd/` at `WINDOWS_APP_SDK_VERSION` | `tool_reactor`, `tool_webview`, `tool_composition` |
 | `Microsoft.WindowsAppSDK.Runtime`, `RUNTIME_VER` | `crates/libs/reactor-setup/src/lib.rs` | app runtime deploy |
-| Bootstrap DLLs (x86/x64/arm64) | `crates/libs/reactor-setup/bootstrap/` (committed) | framework-dependent apps |
+| Bootstrap DLLs (x86/x64/arm64) | regenerated into `crates/libs/reactor-setup/bootstrap/` at `WINDOWS_APP_SDK_VERSION` | framework-dependent apps |
 | `resources.pri`, `app.manifest`, `runtime.txt` | `crates/libs/reactor-setup/assets/` (committed) | runtime staging |
 | Runtime installer | `.github/workflows/reactor.yml` | CI test host |
 
@@ -143,10 +146,9 @@ loudly on drift) that:
   so CI's self-tests exercise the runtime apps ship.
 
 - **To update metadata + runtime:** bump `WINDOWS_APP_SDK_VERSION` (`tool_reactor`) and
-  `RUNTIME_VER` (`reactor-setup`) together, refresh the committed bootstrap DLLs from the target
-  build's Foundation package, update the `reactor.yml` installer URL, then run
-  `cargo run -p tool_reactor` and commit the refreshed corpus. The guard enforces the version
-  agreement; the regen enforces the corpus.
+  `RUNTIME_VER` (`reactor-setup`) together, update the `reactor.yml` installer URL, then run
+  `cargo run -p tool_reactor` and commit the refreshed corpus and bootstrap DLLs. The guard
+  enforces the version agreement; the regen enforces the corpus and the bootstrap binaries.
 - `assets/app.manifest` / `assets/resources.pri` are **generated activation assets with no
   committed generator** — `app.manifest` transforms the App SDK `package.appxfragment` files
   into SxS fusion format (source versions in its header). They are forward-compatible, so
@@ -177,7 +179,7 @@ Two independent NuGet paths, both using `https://www.nuget.org/api/v2/package/{i
 | `tool_winrt` | `CONTRACTS_VERSION` | zero-diff regen of `Windows.winmd` |
 | `tool_webview` | `WEBVIEW2_VERSION` | zero-diff regen of `webview/src/bindings.rs` |
 | `tool_clang` | `LIBCLANG_VERSION` ↔ URLs ↔ CI LLVM | pure-check assertions |
-| `tool_reactor` | `WINDOWS_APP_SDK_VERSION`; reactor-setup sync | zero-diff regen of the winmd corpus + bindings; guard reads reactor-setup constants |
+| `tool_reactor` | `WINDOWS_APP_SDK_VERSION`; reactor-setup sync | zero-diff regen of the winmd corpus + bindings + bootstrap DLLs; guard reads reactor-setup constants |
 
 All cross-file reads go through `helpers::read_str_const`, so each pin is declared once by its
 owner and read back everywhere else.

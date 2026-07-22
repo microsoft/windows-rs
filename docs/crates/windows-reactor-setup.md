@@ -45,6 +45,11 @@ Bundling it unconditionally keeps reactor apps that host a WebView2 working with
 no extra build step. The allow-list of WindowsAppSDK runtime files lives in
 `assets/runtime.txt`.
 
+The framework-dependent bootstrap DLLs committed under `bootstrap/<arch>/` are
+**not hand-copied** — `tool_reactor` refreshes them from the same pinned
+`Microsoft.WindowsAppSDK.Foundation` package it uses for the `.winmd` corpus, and
+`gen.yml` fails on any drift. See [dependencies](../dependencies.md#winui--windows-app-sdk).
+
 ### Testing
 
 Run `cargo test -p windows-reactor-setup`; see also the workspace test crates.

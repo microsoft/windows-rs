@@ -174,10 +174,8 @@ fn refresh_winmd() {
     // Foundation and WinUI keep their `.winmd` directly under `metadata/`; InteractiveExperiences
     // nests them under a Windows-SDK-version folder (e.g. `metadata/10.0.18362.0/`) — take the
     // highest, which is the newest API baseline.
-    copy_winmd(
-        &nuget_package("microsoft.windowsappsdk.foundation", &foundation).join("metadata"),
-        dir,
-    );
+    let foundation_pkg = nuget_package("microsoft.windowsappsdk.foundation", &foundation);
+    copy_winmd(&foundation_pkg.join("metadata"), dir);
     copy_winmd(
         &nuget_package("microsoft.windowsappsdk.winui", &winui).join("metadata"),
         dir,
@@ -194,6 +192,46 @@ fn refresh_winmd() {
         .join("Microsoft.Web.WebView2.Core.winmd");
     std::fs::copy(&core, dir.join("Microsoft.Web.WebView2.Core.winmd"))
         .unwrap_or_else(|e| panic!("cannot copy `{}`: {e}", core.display()));
+
+    refresh_bootstrap(&foundation_pkg);
+}
+
+/// The committed Windows App Runtime bootstrap DLLs `windows-reactor-setup` stages next to a
+/// framework-dependent app. Treated as *generated* like [`WINMD_DIR`]: refreshed here from the
+/// same pinned Foundation package so `gen.yml`'s zero-diff check proves they match
+/// [`WINDOWS_APP_SDK_VERSION`] instead of being hand-copied from a local SDK install.
+const BOOTSTRAP_DIR: &str = "crates/libs/reactor-setup/bootstrap";
+
+/// The bootstrap DLL every arch folder holds. reactor-setup ships `arm64`/`x64`/`x86` (no
+/// `arm64ec`), each copied from the Foundation package's `runtimes/<rid>/native/`.
+const BOOTSTRAP_DLL: &str = "Microsoft.WindowsAppRuntime.Bootstrap.dll";
+const BOOTSTRAP_ARCHES: &[(&str, &str)] = &[
+    ("arm64", "win-arm64"),
+    ("x64", "win-x64"),
+    ("x86", "win-x86"),
+];
+
+/// Refresh the committed `windows-reactor-setup` bootstrap DLLs from the pinned Foundation
+/// package so they cannot silently drift from the runtime `reactor-setup` stages. The `.winmd`
+/// corpus and these DLLs are two faces of one Windows App SDK release, tied to a single pin.
+fn refresh_bootstrap(foundation_pkg: &Path) {
+    for (arch, rid) in BOOTSTRAP_ARCHES {
+        let src = foundation_pkg
+            .join("runtimes")
+            .join(rid)
+            .join("native")
+            .join(BOOTSTRAP_DLL);
+        let dest_dir = Path::new(BOOTSTRAP_DIR).join(arch);
+        std::fs::create_dir_all(&dest_dir)
+            .unwrap_or_else(|e| panic!("cannot create `{}`: {e}", dest_dir.display()));
+        std::fs::copy(&src, dest_dir.join(BOOTSTRAP_DLL)).unwrap_or_else(|e| {
+            panic!(
+                "cannot copy `{}` -> `{}`: {e}",
+                src.display(),
+                dest_dir.display()
+            )
+        });
+    }
 }
 
 /// Reads the single `*.nuspec` at the root of an extracted NuGet package.
