@@ -745,6 +745,24 @@ None of these block use of the crate.
   and the per-arch clang parse of the SDK translation unit dominates wall time; import-lib
   resolution is parsed once on the builder and cloned per arch. No cheap, low-risk speedup
   remains.
+- **Orphan named types (declared-but-unreferenced) are dropped — reachability has no
+  header-scoped retention.** The emit set is the reachability closure of the emitted
+  functions/interfaces, so a named `struct`/`enum` that a header declares but that no emitted
+  signature references is dropped, even when its defining header is in `HEADERS`. This bites APIs
+  that pass such types through an opaque buffer: `CallNtPowerInformation` (`powrprof.h`) takes a
+  `#[size_param]` `void*`, so `PROCESSOR_POWER_INFORMATION` is never referenced and never emitted;
+  `GetSystemFirmwareTable` (`sysinfoapi.h`) takes a `u32` provider, so the `FIRMWARE_TABLE_PROVIDER`
+  enum and its `RSMB` `#define` are dropped; `IsProcessorFeaturePresent` takes a `u32`, so
+  `PROCESSOR_FEATURE_ID` is dropped (its `PF_*` constants survive, as `u32`, because they are
+  top-level `#define`s). The reference win32metadata carries these because it manually curates the
+  parameter↔type association the C headers don't express. Consumers currently hand-declare the
+  orphan structs (e.g. taskman-rs's `tm-win32/src/glue.rs`). Worth investigating: an opt-in
+  *header-scoped retention* pass that keeps named records/enums *defined in an in-scope emitted
+  header* even when unreferenced (bounded by the header list, so it doesn't drag in the whole SDK),
+  and/or a small hand-authored `#[size_param]`→type association seed for the handful of
+  buffer-through-`void*` APIs. Distinct from the editorial *flag-type* names win32metadata invents
+  (`WINDOW_STYLE`, `FILE_FLAGS_AND_ATTRIBUTES`, …), which are intentionally not synthesized — those
+  constants already exist as `u32`.
 - **IDL as the COM source of truth (future direction).** Parsing `.idl` (or `midl` output)
   directly would recover the pointer-shape attributes headers don't express as SAL
   (`[unique]`/`[length_is]`/`[iid_is]`), keeping the header path for flat C APIs.
