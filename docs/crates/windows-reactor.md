@@ -568,6 +568,11 @@ Both stacks are framework-dependent and bootstrap into the **same** installed
 WinAppSDK 2.0 runtime (`Microsoft.WindowsAppRuntime.2`), so the XAML/WinUI layer is
 identical — only the language runtime above it (native Rust vs .NET CoreCLR) differs.
 
+**Memory stability.** A 120 s soak (`--percent 50`, 1117 renders) held
+`Avg Memory 190.0 MB` / `Peak 190.8 MB` — a 0.8 MB spread across two minutes — with
+`Avg Elements Created: 0`, confirming the reconciler reuses every control in steady
+state and leaks nothing per render.
+
 #### Event-handler rebind (why there is no trampoline)
 
 Inline handlers (`button("x").on_click(|| …)`) allocate a fresh `Callback` every
@@ -656,19 +661,46 @@ measurement on representative trees before investing.
    (the un-memoized reducer + dispatch `Rc`s). `use_callback` is now only needed
    for handlers that close over render-derived data (where deps must gate the
    rebuild).
-3. **`diff_props` is O(n²) per control *(low–medium)*.** `find_prop`/`find_event`
-   (`widget.rs`) are linear scans called inside the per-binding loop. Fine for the
-   handful of bindings most controls carry; profile the binding-count distribution
-   on real trees before considering sorted bindings / a small-map.
-4. **Silently-dropped props *(partly fixed)*.** Unsupported `(prop, control)`
-   combos hit `diag::unhandled_modifier` (`backend/winui/diag.rs`), which both
-   floods debug output per control creation and silently no-ops a prop the author
-   thinks applies. The `Padding`-on-`TextBlock`/`StackPanel` case was a real gap —
+3. **`diff_props` is O(n²) per control *(measured — negligible, closed)*.**
+   `find_prop`/`find_event` (`widget.rs`) are linear scans called inside the
+   per-binding loop, so `diff_props` is O(n²) in a control's binding count.
+   Instrumenting the call with a binding-count histogram over the
+   `test_reactor_perf` grid (`--percent 100`, ~150k calls) settled the question:
+   **99.8 % of calls carry exactly 4 bindings, mean 4.00, max 6.** That is at
+   most ~36 `Prop`/`Event` enum comparisons per control — nanoseconds, three-plus
+   orders of magnitude below the ~2.4 µs COM property set that dominates each
+   diffed element (item 5). The macro numbers agree: diff time scales *linearly*
+   with the diffed-element count (~3.3–5.4 µs/element across 10/50/100 %), with no
+   superlinear term. Sorted bindings / a small-map would add complexity for no
+   measurable gain, so the lead is closed; revisit only if a control type ever
+   grows a large, dynamically-sized binding list.
+4. **Silently-dropped props *(audited — no reachable gap, closed)*.** Unsupported
+   `(prop, control)` combos hit `diag::unhandled_modifier` /
+   `diag::unhandled_prop` (`backend/winui/diag.rs`), which warn in debug and no-op
+   in release. The `Padding`-on-`TextBlock`/`StackPanel` case was a real gap —
    both types own a `Padding` property WinUI supports, but the bindings filter and
    `set_padding` only covered `Control`/`Border`; `set_padding` now also casts to
-   `ITextBlock`/`IRichTextBlock`/`IStackPanel`. Remaining work: audit the rest of
-   the dropped set and either support each combo or surface it once rather than
-   per-control.
+   `ITextBlock`/`IRichTextBlock`/`IStackPanel`. The remaining drop set was then
+   audited exhaustively (every `set_*` modifier fallback plus the catch-all
+   `unhandled_prop` arm cross-referenced against which widgets actually emit each
+   prop):
+   - **Every reachable drop is semantically correct.** `Background`/`Padding` are
+     the only props a user can attach to an arbitrary element via shared
+     `Modifiers`; `set_background`/`set_padding` cover every element WinUI gives
+     that property (`Border`/`Panel`/`Control`/`TextBlock`/`Grid`), so a drop only
+     fires on an element that genuinely lacks it (e.g. `.padding()` on a `Canvas`
+     or a shape) — the correct no-op, surfaced by the debug diagnostic.
+   - **`BorderBrush`/`BorderThickness`** are emitted only by `border.rs` (→ `Border`)
+     and `text_box.rs` (→ `TextBox`, a `Control`), so they never reach the drop.
+   - The one dispatch inconsistency — `set_font_weight` omits `RichTextBlock` while
+     `set_font_size`/`set_font_family` include it — is **unreachable**: the
+     `RichTextBlock` widget never emits `Prop::FontWeight`, and the minimal
+     `IRichTextBlock` binding does not even expose `SetFontWeight`. Not fixable
+     without a filter change, and there is no demand.
+
+   This is why the full self-test (127 fixtures) emits zero reactor warnings under
+   `check_no_reactor_warnings`: no widget can route a prop to a control that drops
+   it. The `unhandled_*` branches are defense-in-depth, not a latent-bug backlog.
 5. **Per-prop WinUI set cost *(measured — no steady-state lever)*.** `set_prop`
    was instrumented to time each call keyed by `Prop` and run against the
    `test_reactor_perf` grid (the headless self-test does not commit to the WinUI
