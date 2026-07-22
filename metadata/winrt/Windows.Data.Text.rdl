@@ -11,10 +11,10 @@ mod Windows {
                 Date = 4,
                 Time = 5,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AlternateWordForm {
                 IAlternateWordForm,
             }
@@ -39,8 +39,8 @@ mod Windows {
                 SourceTextSegment: TextSegment;
             }
             #[guid(0xf6dc31e7_4b13_45c5_8897_7d71269e085d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SelectableWordsSegmenter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SelectableWordsSegmenter)]
             interface ISelectableWordsSegmenter {
                 #[get]
                 ResolvedLanguage: String;
@@ -49,8 +49,8 @@ mod Windows {
                 fn Tokenize(&self, text: String, startIndex: u32, handler: SelectableWordSegmentsTokenizingHandler);
             }
             #[guid(0x8c7a7648_6057_4339_bc70_f210010a4150)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SelectableWordsSegmenter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SelectableWordsSegmenter)]
             interface ISelectableWordsSegmenterFactory {
                 fn CreateWithLanguage(&self, language: String) -> SelectableWordsSegmenter;
             }
@@ -62,8 +62,8 @@ mod Windows {
                 fn FindInProperty(&self, propertyContent: String, propertyName: String) -> super::super::Foundation::Collections::IVectorView<TextSegment>;
             }
             #[guid(0x238c0503_f995_4587_8777_a2b7d80acfef)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SemanticTextQuery)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SemanticTextQuery)]
             interface ISemanticTextQueryFactory {
                 fn Create(&self, aqsFilter: String) -> SemanticTextQuery;
                 fn CreateWithLanguage(&self, aqsFilter: String, filterLanguage: String) -> SemanticTextQuery;
@@ -79,8 +79,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("GetCandidatesAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCandidatesAsync(&self, input: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("GetCandidatesWithMaxCountAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCandidatesAsync(&self, input: String, maxCandidates: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
             }
             #[guid(0xfcaa3781_3083_49ab_be15_56dfbbb74d6f)]
@@ -99,18 +99,18 @@ mod Windows {
                 ReadingText: String;
             }
             #[guid(0x5eacab07_abf1_4cb6_9d9e_326f2b468756)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TextPredictionGenerator)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TextPredictionGenerator)]
             interface ITextPredictionGenerator {
                 #[get]
                 ResolvedLanguage: String;
                 #[get]
                 LanguageAvailableButNotInstalled: bool;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("GetCandidatesAsync")]
-                fn GetCandidatesAsync(&self, input: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetCandidatesAsync(&self, input: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
                 #[Windows::Foundation::Metadata::Overload("GetCandidatesWithMaxCountAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCandidatesAsync(&self, input: String, maxCandidates: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<String>>;
             }
             #[guid(0xb84723b8_2c77_486a_900a_a3453eedc15d)]
@@ -125,8 +125,8 @@ mod Windows {
                 InputScope: super::super::UI::Text::Core::CoreTextInputScope;
             }
             #[guid(0x7257b416_8ba2_4751_9d30_9d85435653a2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TextPredictionGenerator)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TextPredictionGenerator)]
             interface ITextPredictionGeneratorFactory {
                 fn Create(&self, languageTag: String) -> TextPredictionGenerator;
             }
@@ -149,8 +149,8 @@ mod Windows {
                 fn GetPhonemesAsync(&self, input: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<TextPhoneme>>;
             }
             #[guid(0x63bed326_1fda_41f6_89d5_23ddea3c729a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TextReverseConversionGenerator)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TextReverseConversionGenerator)]
             interface ITextReverseConversionGeneratorFactory {
                 fn Create(&self, languageTag: String) -> TextReverseConversionGenerator;
             }
@@ -188,8 +188,8 @@ mod Windows {
                 AlternateForms: super::super::Foundation::Collections::IVectorView<AlternateWordForm>;
             }
             #[guid(0x86b4d4d1_b2fe_4e34_a81d_66640300454f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WordsSegmenter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WordsSegmenter)]
             interface IWordsSegmenter {
                 #[get]
                 ResolvedLanguage: String;
@@ -198,53 +198,53 @@ mod Windows {
                 fn Tokenize(&self, text: String, startIndex: u32, handler: WordSegmentsTokenizingHandler);
             }
             #[guid(0xe6977274_fc35_455c_8bfb_6d7f4653ca97)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WordsSegmenter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WordsSegmenter)]
             interface IWordsSegmenterFactory {
                 fn CreateWithLanguage(&self, language: String) -> WordsSegmenter;
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SelectableWordSegment {
                 ISelectableWordSegment,
             }
             #[guid(0x3a3dfc9c_aede_4dc7_9e6c_41c044bd3592)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             delegate fn SelectableWordSegmentsTokenizingHandler(precedingWords: super::super::Foundation::Collections::IIterable<SelectableWordSegment>, words: super::super::Foundation::Collections::IIterable<SelectableWordSegment>);
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(ISelectableWordsSegmenterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SelectableWordsSegmenter {
                 ISelectableWordsSegmenter,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(ISemanticTextQueryFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SemanticTextQuery {
                 ISemanticTextQuery,
             }
+            #[Windows::Foundation::Metadata::Activatable(ITextConversionGeneratorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(ITextConversionGeneratorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TextConversionGenerator {
                 ITextConversionGenerator,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TextPhoneme {
                 ITextPhoneme,
             }
             #[Windows::Foundation::Metadata::Activatable(ITextPredictionGeneratorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TextPredictionGenerator {
                 ITextPredictionGenerator,
                 ITextPredictionGenerator2,
@@ -257,10 +257,10 @@ mod Windows {
                 Predictions = 1,
                 Corrections = 2,
             }
+            #[Windows::Foundation::Metadata::Activatable(ITextReverseConversionGeneratorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Activatable(ITextReverseConversionGeneratorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             class TextReverseConversionGenerator {
                 ITextReverseConversionGenerator,
                 ITextReverseConversionGenerator2,
@@ -270,11 +270,11 @@ mod Windows {
                 StartPosition: u32,
                 Length: u32,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IUnicodeCharactersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IUnicodeCharactersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class UnicodeCharacters {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -318,21 +318,21 @@ mod Windows {
                 Digit = 2,
                 Numeric = 3,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class WordSegment {
                 IWordSegment,
             }
             #[guid(0xa5dd6357_bf2a_4c4f_a31f_29e71c6f8b35)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             delegate fn WordSegmentsTokenizingHandler(precedingWords: super::super::Foundation::Collections::IIterable<WordSegment>, words: super::super::Foundation::Collections::IIterable<WordSegment>);
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::Activatable(IWordsSegmenterFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class WordsSegmenter {
                 IWordsSegmenter,
             }

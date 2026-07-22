@@ -3,11 +3,11 @@ mod Windows {
     mod Devices {
         mod Gpio {
             mod Provider {
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::Activatable(IGpioPinProviderValueChangedEventArgsFactory, 131072, "Windows.Devices.DevicesLowLevelContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class GpioPinProviderValueChangedEventArgs {
                     IGpioPinProviderValueChangedEventArgs,
                 }
@@ -34,8 +34,8 @@ mod Windows {
                     fn Read(&self) -> ProviderGpioPinValue;
                 }
                 #[guid(0x32a6d6f2_3d5b_44cd_8fbe_13a69f2edb24)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(GpioPinProviderValueChangedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GpioPinProviderValueChangedEventArgs)]
                 interface IGpioPinProviderValueChangedEventArgs {
                     #[get]
                     Edge: ProviderGpioPinEdge;

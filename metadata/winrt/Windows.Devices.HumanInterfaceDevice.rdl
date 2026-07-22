@@ -2,15 +2,15 @@
 mod Windows {
     mod Devices {
         mod HumanInterfaceDevice {
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HidBooleanControl {
                 IHidBooleanControl,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HidBooleanControlDescription {
                 IHidBooleanControlDescription,
                 IHidBooleanControlDescription2,
@@ -34,46 +34,46 @@ mod Windows {
                 Other = 7,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IHidDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class HidDevice {
                 IHidDevice,
                 super::super::Foundation::IClosable,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HidFeatureReport {
                 IHidFeatureReport,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HidInputReport {
                 IHidInputReport,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HidInputReportReceivedEventArgs {
                 IHidInputReportReceivedEventArgs,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HidNumericControl {
                 IHidNumericControl,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HidNumericControlDescription {
                 IHidNumericControlDescription,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class HidOutputReport {
                 IHidOutputReport,
             }
@@ -99,8 +99,8 @@ mod Windows {
                 ControlDescription: HidBooleanControlDescription;
             }
             #[guid(0x6196e543_29d8_4a2a_8683_849e207bbe31)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HidBooleanControlDescription)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidBooleanControlDescription)]
             interface IHidBooleanControlDescription {
                 #[get]
                 Id: u32;
@@ -152,11 +152,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("GetInputReportAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetInputReportAsync(&self) -> super::super::Foundation::IAsyncOperation<HidInputReport>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("GetInputReportByIdAsync")]
-                fn GetInputReportAsync(&self, reportId: u16) -> super::super::Foundation::IAsyncOperation<HidInputReport>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetInputReportAsync(&self, reportId: u16) -> super::super::Foundation::IAsyncOperation<HidInputReport>;
                 #[Windows::Foundation::Metadata::Overload("GetFeatureReportAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFeatureReportAsync(&self) -> super::super::Foundation::IAsyncOperation<HidFeatureReport>;
                 #[Windows::Foundation::Metadata::Overload("GetFeatureReportByIdAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -199,8 +199,8 @@ mod Windows {
                 fn GetNumericControlByDescription(&self, controlDescription: HidNumericControlDescription) -> HidNumericControl;
             }
             #[guid(0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HidInputReport)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HidInputReport)]
             interface IHidInputReport {
                 #[get]
                 Id: u16;

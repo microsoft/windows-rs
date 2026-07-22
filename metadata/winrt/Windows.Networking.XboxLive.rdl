@@ -19,8 +19,8 @@ mod Windows {
                 NetworkAccessKind: XboxLiveNetworkAccessKind;
             }
             #[guid(0x5954a819_4a79_4931_827c_7f503e963263)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(XboxLiveDeviceAddress)]
             #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(XboxLiveDeviceAddress)]
             interface IXboxLiveDeviceAddressStatics {
                 fn CreateFromSnapshotBase64(&self, base64: String) -> XboxLiveDeviceAddress;
                 fn CreateFromSnapshotBuffer(&self, buffer: super::super::Storage::Streams::IBuffer) -> XboxLiveDeviceAddress;
@@ -54,8 +54,8 @@ mod Windows {
                 LocalPort: String;
             }
             #[guid(0xd9a8bb95_2aab_4d1e_9794_33ecc0dcf0fe)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(XboxLiveEndpointPairCreationResult)]
             #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(XboxLiveEndpointPairCreationResult)]
             interface IXboxLiveEndpointPairCreationResult {
                 #[get]
                 DeviceAddress: XboxLiveDeviceAddress;
@@ -76,8 +76,8 @@ mod Windows {
                 NewState: XboxLiveEndpointPairState;
             }
             #[guid(0x64316b30_217a_4243_8ee1_6729281d27db)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(XboxLiveEndpointPair)]
             #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(XboxLiveEndpointPair)]
             interface IXboxLiveEndpointPairStatics {
                 fn FindEndpointPairBySocketAddressBytes(&self, localSocketAddress: [u8], remoteSocketAddress: [u8]) -> XboxLiveEndpointPair;
                 fn FindEndpointPairByHostNamesAndPorts(&self, localHostName: super::HostName, localPort: String, remoteHostName: super::HostName, remotePort: String) -> XboxLiveEndpointPair;
@@ -87,21 +87,21 @@ mod Windows {
             #[Windows::Foundation::Metadata::ExclusiveTo(XboxLiveEndpointPairTemplate)]
             interface IXboxLiveEndpointPairTemplate {
                 event InboundEndpointPairCreated: super::super::Foundation::TypedEventHandler<XboxLiveEndpointPairTemplate, XboxLiveInboundEndpointPairCreatedEventArgs>;
+                #[Windows::Foundation::Metadata::DefaultOverload]
                 #[Windows::Foundation::Metadata::Overload("CreateEndpointPairDefaultAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                #[Windows::Foundation::Metadata::DefaultOverload]
                 fn CreateEndpointPairAsync(&self, deviceAddress: XboxLiveDeviceAddress) -> super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
-                #[Windows::Foundation::Metadata::Overload("CreateEndpointPairWithBehaviorsAsync")]
                 #[Windows::Foundation::Metadata::DefaultOverload]
+                #[Windows::Foundation::Metadata::Overload("CreateEndpointPairWithBehaviorsAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateEndpointPairAsync(&self, deviceAddress: XboxLiveDeviceAddress, behaviors: XboxLiveEndpointPairCreationBehaviors) -> super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>;
+                #[Windows::Foundation::Metadata::DefaultOverload]
                 #[Windows::Foundation::Metadata::Overload("CreateEndpointPairForPortsDefaultAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                #[Windows::Foundation::Metadata::DefaultOverload]
                 fn CreateEndpointPairForPortsAsync(&self, deviceAddress: XboxLiveDeviceAddress, initiatorPort: String, acceptorPort: String) -> super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>;
+                #[Windows::Foundation::Metadata::DefaultOverload]
                 #[Windows::Foundation::Metadata::Overload("CreateEndpointPairForPortsWithBehaviorsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
-                #[Windows::Foundation::Metadata::DefaultOverload]
                 fn CreateEndpointPairForPortsAsync(&self, deviceAddress: XboxLiveDeviceAddress, initiatorPort: String, acceptorPort: String, behaviors: XboxLiveEndpointPairCreationBehaviors) -> super::super::Foundation::IAsyncOperation<XboxLiveEndpointPairCreationResult>;
                 #[get]
                 Name: String;
@@ -184,8 +184,8 @@ mod Windows {
                 Value: u64;
             }
             #[guid(0x5a6302ae_6f38_41c0_9fcc_ea6cb978cafc)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(XboxLiveQualityOfServicePrivatePayloadResult)]
             #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(XboxLiveQualityOfServicePrivatePayloadResult)]
             interface IXboxLiveQualityOfServicePrivatePayloadResult {
                 #[get]
                 Status: XboxLiveQualityOfServiceMeasurementStatus;
@@ -194,18 +194,18 @@ mod Windows {
                 #[get]
                 Value: super::super::Storage::Streams::IBuffer;
             }
+            #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IXboxLiveDeviceAddressStatics, 65536, "Windows.Networking.XboxLive.XboxLiveSecureSocketsContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             class XboxLiveDeviceAddress {
                 IXboxLiveDeviceAddress,
             }
             #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IXboxLiveEndpointPairStatics, 65536, "Windows.Networking.XboxLive.XboxLiveSecureSocketsContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IXboxLiveEndpointPairStatics, 65536, "Windows.Networking.XboxLive.XboxLiveSecureSocketsContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class XboxLiveEndpointPair {
                 IXboxLiveEndpointPair,
@@ -218,9 +218,9 @@ mod Windows {
                 ReevaluatePath = 1,
             }
             #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class XboxLiveEndpointPairCreationResult {
                 IXboxLiveEndpointPairCreationResult,
             }
@@ -248,25 +248,25 @@ mod Windows {
                 RemoteEndpointTerminating = 5,
                 Deleted = 6,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class XboxLiveEndpointPairStateChangedEventArgs {
                 IXboxLiveEndpointPairStateChangedEventArgs,
             }
             #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IXboxLiveEndpointPairTemplateStatics, 65536, "Windows.Networking.XboxLive.XboxLiveSecureSocketsContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class XboxLiveEndpointPairTemplate {
                 IXboxLiveEndpointPairTemplate,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class XboxLiveInboundEndpointPairCreatedEventArgs {
                 IXboxLiveInboundEndpointPairCreatedEventArgs,
             }
@@ -277,12 +277,12 @@ mod Windows {
                 Moderate = 1,
                 Strict = 2,
             }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Networking.XboxLive.XboxLiveSecureSocketsContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Networking.XboxLive.XboxLiveSecureSocketsContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
             #[Windows::Foundation::Metadata::Static(IXboxLiveQualityOfServiceMeasurementStatics, 65536, "Windows.Networking.XboxLive.XboxLiveSecureSocketsContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class XboxLiveQualityOfServiceMeasurement {
                 IXboxLiveQualityOfServiceMeasurement,
             }
@@ -315,22 +315,22 @@ mod Windows {
                 MinInboundBitsPerSecond = 7,
                 MaxInboundBitsPerSecond = 8,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class XboxLiveQualityOfServiceMetricResult {
                 IXboxLiveQualityOfServiceMetricResult,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class XboxLiveQualityOfServicePrivatePayloadResult {
                 IXboxLiveQualityOfServicePrivatePayloadResult,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(65536)]
             #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct XboxLiveSecureSocketsContract {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(XboxLiveSecureSocketsContract, 65536)]

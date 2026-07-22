@@ -2,32 +2,32 @@
 mod Windows {
     mod Graphics {
         mod Capture {
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class Direct3D11CaptureFrame {
                 IDirect3D11CaptureFrame,
                 IDirect3D11CaptureFrame2,
                 IDirect3D11CaptureFrame3,
                 super::super::Foundation::IClosable,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IDirect3D11CaptureFramePoolStatics, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IDirect3D11CaptureFramePoolStatics, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IDirect3D11CaptureFramePoolStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class Direct3D11CaptureFramePool {
                 IDirect3D11CaptureFramePool,
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Static(IGraphicsCaptureAccessStatics, 786432, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IGraphicsCaptureAccessStatics, 786432, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class GraphicsCaptureAccess {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
@@ -42,30 +42,30 @@ mod Windows {
                 ReportAndRender = 1,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IGraphicsCaptureItemStatics2, 786432, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(IGraphicsCaptureItemStatics, 458752, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IGraphicsCaptureItemStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IGraphicsCaptureItemStatics2, 786432, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class GraphicsCaptureItem {
                 IGraphicsCaptureItem,
             }
+            #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::Activatable(393216, "Windows.Foundation.UniversalApiContract")]
             class GraphicsCapturePicker {
                 IGraphicsCapturePicker,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IGraphicsCaptureSessionStatics, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class GraphicsCaptureSession {
                 IGraphicsCaptureSession,
                 IGraphicsCaptureSession2,
@@ -77,9 +77,9 @@ mod Windows {
                 super::super::Foundation::IClosable,
             }
             #[guid(0xfa50c623_38da_4b32_acf3_fa9734ad800e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Direct3D11CaptureFrame)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             interface IDirect3D11CaptureFrame {
                 #[get]
                 Surface: super::DirectX::Direct3D11::IDirect3DSurface;
@@ -89,9 +89,9 @@ mod Windows {
                 ContentSize: super::SizeInt32;
             }
             #[guid(0x37869cfa_2b48_5ebf_9afb_dffd805defdb)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Direct3D11CaptureFrame)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             interface IDirect3D11CaptureFrame2 {
                 #[get]
                 DirtyRegions: super::super::Foundation::Collections::IVectorView<super::RectInt32>;
@@ -99,9 +99,9 @@ mod Windows {
                 DirtyRegionMode: GraphicsCaptureDirtyRegionMode;
             }
             #[guid(0x71616dc8_fea5_5741_a3d8_591acc39a9ee)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(Direct3D11CaptureFrame)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IDirect3D11CaptureFrame3 {
                 #[get]
                 ConfigurationIteration: u64;
@@ -120,8 +120,8 @@ mod Windows {
             }
             #[guid(0x7784056a_67aa_4d53_ae54_1088d5a8ca21)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(Direct3D11CaptureFramePool)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IDirect3D11CaptureFramePoolStatics {
                 fn Create(&self, device: super::DirectX::Direct3D11::IDirect3DDevice, pixelFormat: super::DirectX::DirectXPixelFormat, numberOfBuffers: i32, size: super::SizeInt32) -> Direct3D11CaptureFramePool;
             }
@@ -148,8 +148,8 @@ mod Windows {
             }
             #[guid(0x79c3f95b_31f7_4ec2_a464_632ef5d30760)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCaptureItem)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IGraphicsCaptureItem {
                 #[get]
                 DisplayName: String;
@@ -165,46 +165,46 @@ mod Windows {
                 fn CreateFromVisual(&self, visual: super::super::UI::Composition::Visual) -> GraphicsCaptureItem;
             }
             #[guid(0x3b92acc9_e584_5862_bf5c_9c316c6d2dbb)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCaptureItem)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCaptureItem)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IGraphicsCaptureItemStatics2 {
                 fn TryCreateFromWindowId(&self, windowId: super::super::UI::WindowId) -> GraphicsCaptureItem;
                 fn TryCreateFromDisplayId(&self, displayId: super::DisplayId) -> GraphicsCaptureItem;
             }
             #[guid(0x5a1711b3_ad79_4b4a_9336_1318fdde3539)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCapturePicker)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IGraphicsCapturePicker {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn PickSingleItemAsync(&self) -> super::super::Foundation::IAsyncOperation<GraphicsCaptureItem>;
             }
             #[guid(0x814e42a9_f70f_4ad7_939b_fddcc6eb880d)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCaptureSession)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             interface IGraphicsCaptureSession {
                 fn StartCapture(&self);
             }
             #[guid(0x2c39ae40_7d2e_5044_804e_8b6799d4cf9e)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCaptureSession)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IGraphicsCaptureSession2 {
                 IsCursorCaptureEnabled: bool;
             }
             #[guid(0xf2cdd966_22ae_5ea1_9596_3a289344c3be)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCaptureSession)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
             interface IGraphicsCaptureSession3 {
                 IsBorderRequired: bool;
             }
             #[guid(0xae99813c_c257_5759_8ed0_668c9b557ed4)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCaptureSession)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IGraphicsCaptureSession4 {
                 DirtyRegionMode: GraphicsCaptureDirtyRegionMode;
             }
@@ -223,17 +223,17 @@ mod Windows {
                 IncludeSecondaryWindows: bool;
             }
             #[guid(0x82d1aa4d_4366_543e_a6d0_a4805e6bcf2c)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 1245184)]
             #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCaptureSession)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IGraphicsCaptureSession7 {
                 #[get]
                 ConfigurationIteration: u64;
             }
             #[guid(0x2224a540_5974_49aa_b232_0882536f4cb5)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCaptureSession)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GraphicsCaptureSession)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IGraphicsCaptureSessionStatics {
                 fn IsSupported(&self) -> bool;
             }

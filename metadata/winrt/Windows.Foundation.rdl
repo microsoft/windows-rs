@@ -31,10 +31,10 @@ mod Windows {
         struct DateTime {
             UniversalTime: i64,
         }
-        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Activatable(IDeferralFactory, 65536, "Windows.Foundation.FoundationContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class Deferral {
             IDeferral,
             IClosable,
@@ -49,13 +49,13 @@ mod Windows {
         struct EventRegistrationToken {
             Value: i64,
         }
-        #[Windows::Foundation::Metadata::ContractVersion(262144)]
         #[Windows::Foundation::Metadata::ApiContract]
+        #[Windows::Foundation::Metadata::ContractVersion(262144)]
         struct FoundationContract {}
         #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 458752)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Static(IGuidHelperStatics, 458752, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         class GuidHelper {}
         #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
         struct HResult {
@@ -123,8 +123,8 @@ mod Windows {
             fn Close(&self);
         }
         #[guid(0xd6269732_3b7f_46a7_b40b_4fdca2a2c693)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(Deferral)]
         #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Deferral)]
         interface IDeferral: IClosable {
             fn Complete(&self);
         }
@@ -141,8 +141,8 @@ mod Windows {
             fn GetActivationFactory(&self, activatableClassId: String) -> Object;
         }
         #[guid(0x59c7966b_ae52_5283_ad7f_a1b9e9678add)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(GuidHelper)]
         #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 458752)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(GuidHelper)]
         interface IGuidHelperStatics {
             fn CreateNewGuid(&self) -> GUID;
             #[get]
@@ -213,8 +213,8 @@ mod Windows {
             fn GetRectArray(&self, value: &mut [Rect]);
         }
         #[guid(0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(PropertyValue)]
         #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(PropertyValue)]
         #[Windows::Foundation::Metadata::WebHostHidden]
         interface IPropertyValueStatics {
             fn CreateEmpty(&self) -> Object;
@@ -282,8 +282,8 @@ mod Windows {
             fn EscapeComponent(&self, toEscape: String) -> String;
         }
         #[guid(0x9e365e57_48b2_4160_956f_c7385120bbfc)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(Uri)]
         #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Uri)]
         interface IUriRuntimeClass {
             #[get]
             AbsoluteUri: String;
@@ -343,8 +343,8 @@ mod Windows {
             Value: String;
         }
         #[guid(0xd45a0451_f225_4542_9296_0e1df5d254df)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(WwwFormUrlDecoder)]
         #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(WwwFormUrlDecoder)]
         interface IWwwFormUrlDecoderRuntimeClass: Collections::IIterable<IWwwFormUrlDecoderEntry> + Collections::IVectorView<IWwwFormUrlDecoderEntry> {
             fn GetFirstValueByName(&self, name: String) -> String;
         }
@@ -354,11 +354,11 @@ mod Windows {
         interface IWwwFormUrlDecoderRuntimeClassFactory {
             fn CreateWwwFormUrlDecoder(&self, query: String) -> WwwFormUrlDecoder;
         }
+        #[Windows::Foundation::Metadata::Activatable(IMemoryBufferFactory, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 167772166)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::Activatable(IMemoryBufferFactory, 65536, "Windows.Foundation.UniversalApiContract")]
         class MemoryBuffer {
             IMemoryBuffer,
             IClosable,
@@ -413,12 +413,12 @@ mod Windows {
             RectArray = 1043,
             OtherTypeArray = 1044,
         }
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-        #[Windows::Foundation::Metadata::WebHostHidden]
         #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
-        #[Windows::Foundation::Metadata::Static(IPropertyValueStatics, 65536, "Windows.Foundation.FoundationContract")]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IPropertyValueStatics, 65536, "Windows.Foundation.FoundationContract")]
         #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
         class PropertyValue {}
         #[Windows::Foundation::Metadata::ContractVersion(FoundationContract, 65536)]
         struct Rect {
@@ -442,31 +442,31 @@ mod Windows {
         #[Windows::Foundation::Metadata::ApiContract]
         #[Windows::Foundation::Metadata::ContractVersion(1310720)]
         struct UniversalApiContract {}
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::Static(IUriEscapeStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
         #[Windows::Foundation::Metadata::Activatable(IUriRuntimeClassFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IUriEscapeStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class Uri {
             IUriRuntimeClass,
             IUriRuntimeClassWithAbsoluteCanonicalUri,
             IStringable,
         }
         #[Windows::Foundation::Metadata::Activatable(IWwwFormUrlDecoderRuntimeClassFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class WwwFormUrlDecoder {
             IWwwFormUrlDecoderRuntimeClass,
             Collections::IVectorView<IWwwFormUrlDecoderEntry>,
             Collections::IIterable<IWwwFormUrlDecoderEntry>,
         }
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::ContractVersion(UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class WwwFormUrlDecoderEntry {
             IWwwFormUrlDecoderEntry,
         }

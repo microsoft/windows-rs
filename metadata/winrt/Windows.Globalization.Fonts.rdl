@@ -3,8 +3,8 @@ mod Windows {
     mod Globalization {
         mod Fonts {
             #[guid(0xb12e5c3a_b76d_459b_beeb_901151cd77d1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LanguageFont)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LanguageFont)]
             interface ILanguageFont {
                 #[get]
                 FontFamily: String;
@@ -18,8 +18,8 @@ mod Windows {
                 ScaleFactor: f64;
             }
             #[guid(0xf33a7fc3_3a5c_4aea_b9ff_b39fb242f7f6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LanguageFontGroup)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LanguageFontGroup)]
             interface ILanguageFontGroup {
                 #[get]
                 UITextFont: LanguageFont;
@@ -50,17 +50,17 @@ mod Windows {
             interface ILanguageFontGroupFactory {
                 fn CreateLanguageFontGroup(&self, languageTag: String) -> LanguageFontGroup;
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class LanguageFont {
                 ILanguageFont,
             }
+            #[Windows::Foundation::Metadata::Activatable(ILanguageFontGroupFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(MTA)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Activatable(ILanguageFontGroupFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             class LanguageFontGroup {
                 ILanguageFontGroup,
             }

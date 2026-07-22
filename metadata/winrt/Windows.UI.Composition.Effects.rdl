@@ -15,18 +15,18 @@ mod Windows {
                     SpecularShine: f32;
                 }
                 #[guid(0x9e270e81_72f0_4c5c_95f8_8a6e0024f409)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SceneLightingEffect)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SceneLightingEffect)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ISceneLightingEffect2 {
                     ReflectanceModel: SceneLightingEffectReflectanceModel;
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::Activatable(196608, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class SceneLightingEffect {
                     ISceneLightingEffect,
                     ISceneLightingEffect2,
@@ -34,8 +34,8 @@ mod Windows {
                     super::super::super::Graphics::Effects::IGraphicsEffectSource,
                 }
                 #[repr(i32)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 enum SceneLightingEffectReflectanceModel {
                     BlinnPhong = 0,
                     PhysicallyBasedBlinnPhong = 1,

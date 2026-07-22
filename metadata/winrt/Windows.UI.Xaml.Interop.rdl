@@ -8,8 +8,8 @@ mod Windows {
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 delegate fn BindableVectorChangedEventHandler(vector: IBindableObservableVector, e: Object);
                 #[guid(0x036d2c08_df29_41af_8aa2_d774be62ba6f)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IBindableIterable {
                     fn First(&self) -> IBindableIterator;
                 }
@@ -46,8 +46,8 @@ mod Windows {
                     fn Clear(&self);
                 }
                 #[guid(0x346dd6e7_976e_4bc3_815d_ece243bc0f33)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface IBindableVectorView: IBindableIterable {
                     fn GetAt(&self, index: u32) -> Object;
                     #[get]
@@ -55,15 +55,15 @@ mod Windows {
                     fn IndexOf(&self, value: Object, index: &mut u32) -> bool;
                 }
                 #[guid(0x28b167d5_1a31_465b_9b25_d5c3ae686c40)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface INotifyCollectionChanged {
                     event CollectionChanged: NotifyCollectionChangedEventHandler;
                 }
                 #[guid(0x4cf68d33_e3f2_4964_b85e_945b4f7e2f21)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(NotifyCollectionChangedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface INotifyCollectionChangedEventArgs {
                     #[get]
                     Action: NotifyCollectionChangedAction;
@@ -77,9 +77,9 @@ mod Windows {
                     OldStartingIndex: i32;
                 }
                 #[guid(0xb30c3e3a_df8d_44a5_9a38_7ac0d08ce63d)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(NotifyCollectionChangedEventArgs)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 interface INotifyCollectionChangedEventArgsFactory {
                     fn CreateInstanceWithAllParameters(&self, action: NotifyCollectionChangedAction, newItems: IBindableVector, oldItems: IBindableVector, newIndex: i32, oldIndex: i32, baseInterface: Object, innerInterface: &mut Object) -> NotifyCollectionChangedEventArgs;
                 }
@@ -93,11 +93,11 @@ mod Windows {
                     Move = 3,
                     Reset = 4,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::Composable(INotifyCollectionChangedEventArgsFactory, Public, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class NotifyCollectionChangedEventArgs {
                     INotifyCollectionChangedEventArgs,
                 }

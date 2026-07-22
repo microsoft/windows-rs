@@ -3,31 +3,31 @@ mod Windows {
     mod UI {
         mod Shell {
             mod Tasks {
+                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
                 #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IAppTaskContentStatics, 65536, "Windows.UI.Shell.Tasks.AppTaskContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class AppTaskContent {
                     IAppTaskContent,
                 }
                 #[Windows::Foundation::Metadata::ApiContract]
                 #[Windows::Foundation::Metadata::ContractVersion(131072)]
                 struct AppTaskContract {}
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
+                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IAppTaskInfoStatics, 65536, "Windows.UI.Shell.Tasks.AppTaskContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class AppTaskInfo {
                     IAppTaskInfo,
                     IAppTaskInfo2,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(IAppTaskResultAssetFactory, 65536, "Windows.UI.Shell.Tasks.AppTaskContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
+                #[Windows::Foundation::Metadata::Experimental]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class AppTaskResultAsset {
                     IAppTaskResultAsset,
                 }
@@ -43,8 +43,8 @@ mod Windows {
                 }
                 #[guid(0x2411bf59_1b2d_5b63_8181_03d6c2248a68)]
                 #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskContent)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IAppTaskContent {
                     fn AddButton(&self, text: String, actionUri: super::super::super::Foundation::Uri);
                     fn SetTextInput(&self, placeholderText: String, actionUriTemplate: String);
@@ -89,9 +89,9 @@ mod Windows {
                     EndTime: super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>;
                 }
                 #[guid(0xad724d71_f137_51c0_8111_3552436bf447)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 131072)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskInfo)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IAppTaskInfo2 {
                     #[get]
                     Id: String;
@@ -100,9 +100,9 @@ mod Windows {
                     fn UpdateDeepLink(&self, deepLink: super::super::super::Foundation::Uri);
                 }
                 #[guid(0xa0b0434f_c640_5800_88c9_d7691ac2f48f)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskInfo)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IAppTaskInfoStatics {
                     fn IsSupported(&self) -> bool;
                     fn FindAll(&self) -> [AppTaskInfo];
@@ -114,8 +114,8 @@ mod Windows {
                 interface IAppTaskResultAsset {}
                 #[guid(0x0334d9df_0e06_5999_ba41_85d72e980085)]
                 #[Windows::Foundation::Metadata::ContractVersion(AppTaskContract, 65536)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ExclusiveTo(AppTaskResultAsset)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IAppTaskResultAssetFactory {
                     fn CreateInstance(&self, name: String, context: String, iconUri: super::super::super::Foundation::Uri, assetUri: super::super::super::Foundation::Uri) -> AppTaskResultAsset;
                 }

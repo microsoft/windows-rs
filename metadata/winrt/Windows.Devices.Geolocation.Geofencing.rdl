@@ -3,15 +3,15 @@ mod Windows {
     mod Devices {
         mod Geolocation {
             mod Geofencing {
+                #[Windows::Foundation::Metadata::Activatable(IGeofenceFactory, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Activatable(IGeofenceFactory, 65536, "Windows.Foundation.UniversalApiContract")]
                 class Geofence {
                     IGeofence,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Static(IGeofenceMonitorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IGeofenceMonitorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
                 class GeofenceMonitor {
                     IGeofenceMonitor,
                 }
@@ -40,8 +40,8 @@ mod Windows {
                     Exited = 2,
                     Removed = 4,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class GeofenceStateChangeReport {
                     IGeofenceStateChangeReport,
                 }
@@ -88,15 +88,15 @@ mod Windows {
                     event StatusChanged: super::super::super::Foundation::TypedEventHandler<GeofenceMonitor, Object>;
                 }
                 #[guid(0x2dd32fcf_7e75_4899_ace3_2bd0a65cce06)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(GeofenceMonitor)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GeofenceMonitor)]
                 interface IGeofenceMonitorStatics {
                     #[get]
                     Current: GeofenceMonitor;
                 }
                 #[guid(0x9a243c18_2464_4c89_be05_b3ffff5babc5)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(GeofenceStateChangeReport)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GeofenceStateChangeReport)]
                 interface IGeofenceStateChangeReport {
                     #[get]
                     NewState: GeofenceState;

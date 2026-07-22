@@ -1,51 +1,51 @@
 #[winrt]
 mod Windows {
     mod Globalization {
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::Static(IApplicationLanguagesStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::Static(IApplicationLanguagesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IApplicationLanguagesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IApplicationLanguagesStatics2, 393216, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class ApplicationLanguages {}
         #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Activatable(ICalendarFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::Activatable(ICalendarFactory2, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class Calendar {
             ICalendar,
             ITimeZoneOnCalendar,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
-        #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(ICalendarIdentifiersStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class CalendarIdentifiers {}
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::Static(IClockIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class ClockIdentifiers {}
+        #[Windows::Foundation::Metadata::Activatable(ICurrencyAmountFactory, 524288, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
-        #[Windows::Foundation::Metadata::Activatable(ICurrencyAmountFactory, 524288, "Windows.Foundation.UniversalApiContract")]
         class CurrencyAmount {
             ICurrencyAmount,
         }
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::Static(ICurrencyIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Static(ICurrencyIdentifiersStatics3, 458752, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(ICurrencyIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(ICurrencyIdentifiersStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(ICurrencyIdentifiersStatics3, 458752, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class CurrencyIdentifiers {}
         #[repr(i32)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -59,17 +59,17 @@ mod Windows {
             Saturday = 6,
         }
         #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::Activatable(IGeographicRegionFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Static(IGeographicRegionStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class GeographicRegion {
             IGeographicRegion,
         }
-        #[Windows::Foundation::Metadata::ContractVersion(65536)]
         #[Windows::Foundation::Metadata::ApiContract]
+        #[Windows::Foundation::Metadata::ContractVersion(65536)]
         struct GlobalizationJapanesePhoneticAnalyzerContract {}
         #[guid(0x75b40847_0a4c_4a92_9565_fd63c95f7aed)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
@@ -82,8 +82,8 @@ mod Windows {
             ManifestLanguages: super::Foundation::Collections::IVectorView<String>;
         }
         #[guid(0x1df0de4f_072b_4d7b_8f06_cb2db40f2bb5)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationLanguages)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 393216)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ApplicationLanguages)]
         interface IApplicationLanguagesStatics2 {
             fn GetLanguagesForUser(&self, user: super::System::User) -> super::Foundation::Collections::IVectorView<String>;
         }
@@ -221,21 +221,21 @@ mod Windows {
             IsDaylightSavingTime: bool;
         }
         #[guid(0x83f58412_e56b_4c75_a66e_0f63d57758a6)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(Calendar)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Calendar)]
         interface ICalendarFactory {
             fn CreateCalendarDefaultCalendarAndClock(&self, languages: super::Foundation::Collections::IIterable<String>) -> Calendar;
             fn CreateCalendar(&self, languages: super::Foundation::Collections::IIterable<String>, calendar: String, clock: String) -> Calendar;
         }
         #[guid(0xb44b378c_ca7e_4590_9e72_ea2bec1a5115)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(Calendar)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Calendar)]
         interface ICalendarFactory2 {
             fn CreateCalendarWithTimeZone(&self, languages: super::Foundation::Collections::IIterable<String>, calendar: String, clock: String, timeZoneId: String) -> Calendar;
         }
         #[guid(0x80653f68_2cb2_4c1f_b590_f0f52bf4fd1a)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(CalendarIdentifiers)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CalendarIdentifiers)]
         interface ICalendarIdentifiersStatics {
             #[get]
             Gregorian: String;
@@ -257,15 +257,15 @@ mod Windows {
             UmAlQura: String;
         }
         #[guid(0x7df4d488_5fd0_42a7_95b5_7d98d823075f)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(CalendarIdentifiers)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CalendarIdentifiers)]
         interface ICalendarIdentifiersStatics2 {
             #[get]
             Persian: String;
         }
         #[guid(0x2c225423_1fad_40c0_9334_a8eb90db04f5)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(CalendarIdentifiers)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 196608)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CalendarIdentifiers)]
         interface ICalendarIdentifiersStatics3 {
             #[get]
             ChineseLunar: String;
@@ -288,8 +288,8 @@ mod Windows {
             TwentyFourHour: String;
         }
         #[guid(0x74b49942_eb75_443a_95b3_7d723f56f93c)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyAmount)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyAmount)]
         interface ICurrencyAmount {
             #[get]
             Amount: String;
@@ -297,8 +297,8 @@ mod Windows {
             Currency: String;
         }
         #[guid(0x48d7168f_ef3b_4aee_a6a1_4b036fe03ff0)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyAmount)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(CurrencyAmount)]
         interface ICurrencyAmountFactory {
             fn Create(&self, amount: String, currency: String) -> CurrencyAmount;
         }
@@ -642,8 +642,8 @@ mod Windows {
             VES: String;
         }
         #[guid(0x01e9a621_4a64_4ed9_954f_9edeb07bd903)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(GeographicRegion)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(GeographicRegion)]
         interface IGeographicRegion {
             #[get]
             Code: String;
@@ -661,20 +661,20 @@ mod Windows {
             CurrenciesInUse: super::Foundation::Collections::IVectorView<String>;
         }
         #[guid(0x53425270_77b4_426b_859f_81e19d512546)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(GeographicRegion)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(GeographicRegion)]
         interface IGeographicRegionFactory {
             fn CreateGeographicRegion(&self, geographicRegionCode: String) -> GeographicRegion;
         }
         #[guid(0x29e28974_7ad9_4ef4_8799_b3b44fadec08)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(GeographicRegion)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(GeographicRegion)]
         interface IGeographicRegionStatics {
             fn IsSupported(&self, geographicRegionCode: String) -> bool;
         }
         #[guid(0x2f6a9300_e85b_43e6_897d_5d82f862df21)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(JapanesePhoneme)]
         #[Windows::Foundation::Metadata::ContractVersion(GlobalizationJapanesePhoneticAnalyzerContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(JapanesePhoneme)]
         interface IJapanesePhoneme {
             #[get]
             DisplayText: String;
@@ -713,8 +713,8 @@ mod Windows {
             LayoutDirection: LanguageLayoutDirection;
         }
         #[guid(0xc6af3d10_641a_5ba4_bb43_5e12aed75954)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 655360)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
         interface ILanguage3 {
             #[get]
             AbbreviatedName: String;
@@ -726,14 +726,14 @@ mod Windows {
             fn GetExtensionSubtags(&self, singleton: String) -> super::Foundation::Collections::IVectorView<String>;
         }
         #[guid(0x9b0252ac_0c27_44f8_b792_9793fb66c63e)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
         interface ILanguageFactory {
             fn CreateLanguage(&self, languageTag: String) -> Language;
         }
         #[guid(0xb23cd557_0865_46d4_89b8_d59be8990f0d)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(Language)]
         interface ILanguageStatics {
             fn IsWellFormed(&self, languageTag: String) -> bool;
             #[get]
@@ -752,8 +752,8 @@ mod Windows {
             fn GetMuiCompatibleLanguageListFromLanguageTags(&self, languageTags: super::Foundation::Collections::IIterable<String>) -> super::Foundation::Collections::IVector<String>;
         }
         #[guid(0xa5c662c3_68c9_4d3d_b765_972029e21dec)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(NumeralSystemIdentifiers)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(NumeralSystemIdentifiers)]
         interface INumeralSystemIdentifiersStatics {
             #[get]
             Arab: String;
@@ -829,8 +829,8 @@ mod Windows {
             Vaii: String;
         }
         #[guid(0x7f003228_9ddb_4a34_9104_0260c091a7c7)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(NumeralSystemIdentifiers)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(NumeralSystemIdentifiers)]
         interface INumeralSystemIdentifiersStatics2 {
             #[get]
             Brah: String;
@@ -868,25 +868,25 @@ mod Windows {
             #[Windows::Foundation::Metadata::Overload("TimeZoneAsString")]
             fn TimeZoneAsString(&self, idealLength: i32) -> String;
         }
-        #[Windows::Foundation::Metadata::Threading(STA)]
         #[Windows::Foundation::Metadata::ContractVersion(GlobalizationJapanesePhoneticAnalyzerContract, 65536)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+        #[Windows::Foundation::Metadata::Threading(STA)]
         class JapanesePhoneme {
             IJapanesePhoneme,
         }
-        #[Windows::Foundation::Metadata::Threading(STA)]
         #[Windows::Foundation::Metadata::ContractVersion(GlobalizationJapanesePhoneticAnalyzerContract, 65536)]
-        #[Windows::Foundation::Metadata::Static(IJapanesePhoneticAnalyzerStatics, 65536, "Windows.Globalization.GlobalizationJapanesePhoneticAnalyzerContract")]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+        #[Windows::Foundation::Metadata::Static(IJapanesePhoneticAnalyzerStatics, 65536, "Windows.Globalization.GlobalizationJapanesePhoneticAnalyzerContract")]
+        #[Windows::Foundation::Metadata::Threading(STA)]
         class JapanesePhoneticAnalyzer {}
-        #[Windows::Foundation::Metadata::Static(ILanguageStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::Activatable(ILanguageFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
         #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(ILanguageStatics, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::Static(ILanguageStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::Static(ILanguageStatics3, 655360, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class Language {
             ILanguage,
             ILanguageExtensionSubtags,
@@ -901,12 +901,12 @@ mod Windows {
             TtbLtr = 2,
             TtbRtl = 3,
         }
-        #[Windows::Foundation::Metadata::Static(INumeralSystemIdentifiersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Static(INumeralSystemIdentifiersStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(INumeralSystemIdentifiersStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class NumeralSystemIdentifiers {}
     }
 }

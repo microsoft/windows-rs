@@ -4,19 +4,19 @@ mod Windows {
         mod Xaml {
             mod Media {
                 mod Media3D {
-                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::Static(ICompositeTransform3DStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     class CompositeTransform3D: Transform3D {
                         ICompositeTransform3D,
                     }
                     #[guid(0x8977cb01_af8d_4af5_b084_c08eb9704abe)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::ExclusiveTo(CompositeTransform3D)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ICompositeTransform3D {
                         CenterX: f64;
                         CenterY: f64;
@@ -75,13 +75,13 @@ mod Windows {
                     }
                     #[guid(0xe48c10ef_9927_4c9b_8213_07775512ba04)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ExclusiveTo(Matrix3DHelper)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMatrix3DHelper {}
                     #[guid(0x9264545e_e158_4e74_8899_689160bd2f8c)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ExclusiveTo(Matrix3DHelper)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IMatrix3DHelperStatics {
                         #[get]
                         Identity: Matrix3D;
@@ -92,18 +92,18 @@ mod Windows {
                         fn Invert(&self, target: Matrix3D) -> Matrix3D;
                     }
                     #[guid(0x9a7b532a_30f9_40a1_96c9_c59d87f95ac3)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(PerspectiveTransform3D)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PerspectiveTransform3D)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IPerspectiveTransform3D {
                         Depth: f64;
                         OffsetX: f64;
                         OffsetY: f64;
                     }
                     #[guid(0x8e6f6400_620c_48c7_844d_3f0984da5b17)]
-                    #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(PerspectiveTransform3D)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(PerspectiveTransform3D)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     interface IPerspectiveTransform3DStatics {
                         #[get]
                         DepthProperty: super::super::DependencyProperty;
@@ -113,8 +113,8 @@ mod Windows {
                         OffsetYProperty: super::super::DependencyProperty;
                     }
                     #[guid(0xae3ed43a_a9fc_4c31_86cd_56d9ca251a69)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(Transform3D)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(Transform3D)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     interface ITransform3D {}
                     #[guid(0x052c1f7a_8d73_48cd_bbb8_d00434caae5d)]
@@ -124,8 +124,8 @@ mod Windows {
                     interface ITransform3DFactory {
                         fn CreateInstance(&self, baseInterface: Object, innerInterface: &mut Object) -> Transform3D;
                     }
-                    #[Windows::Foundation::Metadata::WebHostHidden]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     struct Matrix3D {
                         M11: f64,
                         M12: f64,
@@ -144,27 +144,27 @@ mod Windows {
                         OffsetZ: f64,
                         M44: f64,
                     }
-                    #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
-                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::Static(IMatrix3DHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     class Matrix3DHelper {
                         IMatrix3DHelper,
                     }
                     #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-                    #[Windows::Foundation::Metadata::Static(IPerspectiveTransform3DStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                    #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IPerspectiveTransform3DStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class PerspectiveTransform3D: Transform3D {
                         IPerspectiveTransform3D,
                     }
-                    #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::Composable(ITransform3DFactory, Protected, 65536, "Windows.Foundation.UniversalApiContract")]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::WebHostHidden]
                     class Transform3D: super::super::DependencyObject {
                         ITransform3D,

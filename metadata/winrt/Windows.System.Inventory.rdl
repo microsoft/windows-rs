@@ -16,16 +16,16 @@ mod Windows {
                 DisplayVersion: String;
             }
             #[guid(0x264cf74e_21cd_5f9b_6056_7866ad72489a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(InstalledDesktopApp)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(InstalledDesktopApp)]
             interface IInstalledDesktopAppStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetInventoryAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<InstalledDesktopApp>>;
             }
-            #[Windows::Foundation::Metadata::Static(IInstalledDesktopAppStatics, 393216, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IInstalledDesktopAppStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class InstalledDesktopApp {
                 IInstalledDesktopApp,
                 super::super::Foundation::IStringable,

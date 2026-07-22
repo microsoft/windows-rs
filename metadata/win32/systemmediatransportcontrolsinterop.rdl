@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         #[guid(0xddb0472d_c911_4a1f_86d9_dc3d71a95f5a)]
         interface ISystemMediaTransportControlsInterop: IInspectable {
-            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] mediaTransportControl: *mut *mut void) -> HRESULT;
+            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[iid_is] #[retval] mediaTransportControl: *mut *mut void) -> HRESULT;
         }
     }
 }

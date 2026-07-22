@@ -8,28 +8,28 @@ mod Windows {
             G: u8,
             B: u8,
         }
-        #[Windows::Foundation::Metadata::Static(IColorHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::Static(IColorHelperStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IColorHelperStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Static(IColorHelperStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class ColorHelper {
             IColorHelper,
         }
-        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::Threading(Both)]
-        #[Windows::Foundation::Metadata::Static(IColorsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+        #[Windows::Foundation::Metadata::Static(IColorsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+        #[Windows::Foundation::Metadata::Threading(Both)]
         class Colors {
             IColors,
         }
         #[guid(0x193cfbe7_65c7_4540_ad08_6283ba76879a)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
         interface IColorHelper {}
         #[guid(0x8504dbea_fb6a_4144_a6c2_33499c9284f5)]
-        #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 65536)]
+        #[Windows::Foundation::Metadata::ExclusiveTo(ColorHelper)]
         interface IColorHelperStatics {
             fn FromArgb(&self, a: u8, r: u8, g: u8, b: u8) -> Color;
         }
@@ -331,9 +331,9 @@ mod Windows {
             YellowGreen: Color;
         }
         #[guid(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378)]
-        #[Windows::Foundation::Metadata::WebHostHidden]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
         #[Windows::Foundation::Metadata::ExclusiveTo(UIContentRoot)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
         interface IUIContentRoot {
             #[get]
             UIContext: UIContext;
@@ -343,21 +343,21 @@ mod Windows {
         #[Windows::Foundation::Metadata::WebHostHidden]
         interface IUIContext {}
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
-        #[Windows::Foundation::Metadata::WebHostHidden]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
         #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
         class UIContentRoot {
             IUIContentRoot,
         }
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 524288)]
         #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-        #[Windows::Foundation::Metadata::WebHostHidden]
         #[Windows::Foundation::Metadata::Threading(Both)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
         class UIContext {
             IUIContext,
         }
-        #[Windows::Foundation::Metadata::WebHostHidden]
         #[Windows::Foundation::Metadata::ContractVersion(super::Foundation::UniversalApiContract, 786432)]
+        #[Windows::Foundation::Metadata::WebHostHidden]
         struct WindowId {
             Value: u64,
         }

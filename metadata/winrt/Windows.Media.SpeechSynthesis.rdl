@@ -12,8 +12,8 @@ mod Windows {
                 DefaultVoice: VoiceInformation;
             }
             #[guid(0x64255f2e_358d_4058_be9a_fd3fcb423530)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizer)]
             interface IInstalledVoicesStatic2 {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn TrySetDefaultVoiceAsync(&self, voice: VoiceInformation) -> super::super::Foundation::IAsyncOperation<bool>;
@@ -26,8 +26,8 @@ mod Windows {
                 Markers: super::super::Foundation::Collections::IVectorView<super::IMediaMarker>;
             }
             #[guid(0xce9f7c76_97f4_4ced_ad68_d51c458e45c6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizer)]
             interface ISpeechSynthesizer {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn SynthesizeTextToStreamAsync(&self, text: String) -> super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>;
@@ -39,8 +39,8 @@ mod Windows {
                 Voice: VoiceInformation;
             }
             #[guid(0xa7c5ecb2_4339_4d6a_bbf8_c7a4f1544c2e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizer)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizer)]
             interface ISpeechSynthesizer2 {
                 #[get]
                 Options: SpeechSynthesizerOptions;
@@ -53,8 +53,8 @@ mod Windows {
                 IncludeSentenceBoundaryMetadata: bool;
             }
             #[guid(0x1cbef60e_119c_4bed_b118_d250c3a25793)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizerOptions)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SpeechSynthesizerOptions)]
             interface ISpeechSynthesizerOptions2 {
                 AudioVolume: f64;
                 SpeakingRate: f64;
@@ -68,8 +68,8 @@ mod Windows {
                 PunctuationSilence: SpeechPunctuationSilence;
             }
             #[guid(0xb127d6a4_1291_4604_aa9c_83134083352c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceInformation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VoiceInformation)]
             interface IVoiceInformation {
                 #[get]
                 DisplayName: String;
@@ -95,8 +95,8 @@ mod Windows {
                 Min = 1,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpeechSynthesisStream {
                 ISpeechSynthesisStream,
                 super::super::Storage::Streams::IRandomAccessStreamWithContentType,
@@ -107,20 +107,20 @@ mod Windows {
                 super::super::Storage::Streams::IInputStream,
                 super::Core::ITimedMetadataTrackProvider,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IInstalledVoicesStatic2, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Static(IInstalledVoicesStatic, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IInstalledVoicesStatic, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IInstalledVoicesStatic2, 327680, "Windows.Foundation.UniversalApiContract")]
             class SpeechSynthesizer {
                 ISpeechSynthesizer,
                 super::super::Foundation::IClosable,
                 ISpeechSynthesizer2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class SpeechSynthesizerOptions {
                 ISpeechSynthesizerOptions,
                 ISpeechSynthesizerOptions2,
@@ -132,9 +132,9 @@ mod Windows {
                 Male = 0,
                 Female = 1,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class VoiceInformation {
                 IVoiceInformation,
             }

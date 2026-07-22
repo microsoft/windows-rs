@@ -3,17 +3,17 @@ mod Windows {
     mod Perception {
         mod Automation {
             mod Core {
-                #[Windows::Foundation::Metadata::WebHostHidden]
+                #[Windows::Foundation::Metadata::ContractVersion(PerceptionAutomationCoreContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(ICorePerceptionAutomationStatics, 65536, "Windows.Perception.Automation.Core.PerceptionAutomationCoreContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
-                #[Windows::Foundation::Metadata::ContractVersion(PerceptionAutomationCoreContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 class CorePerceptionAutomation {}
                 #[guid(0x0bb04541_4ce2_4923_9a76_8187ecc59112)]
-                #[Windows::Foundation::Metadata::WebHostHidden]
                 #[Windows::Foundation::Metadata::ContractVersion(PerceptionAutomationCoreContract, 65536)]
                 #[Windows::Foundation::Metadata::ExclusiveTo(CorePerceptionAutomation)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICorePerceptionAutomationStatics {
                     fn SetActivationFactoryProvider(&self, provider: super::super::super::Foundation::IGetActivationFactory);
                 }

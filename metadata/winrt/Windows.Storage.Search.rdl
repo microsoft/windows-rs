@@ -29,15 +29,15 @@ mod Windows {
                 GroupByAuthor = 110,
                 GroupByType = 111,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IContentIndexerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class ContentIndexer {
                 IContentIndexer,
                 IContentIndexerQueryOperations,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ContentIndexerQuery {
                 IContentIndexerQuery,
             }
@@ -70,13 +70,13 @@ mod Windows {
                 Revision: u64;
             }
             #[guid(0x70e3b0f8_4bfc_428a_8889_cc51da9a7b9d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ContentIndexerQuery)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContentIndexerQuery)]
             interface IContentIndexerQuery {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCountAsync(&self) -> super::super::Foundation::IAsyncOperation<u32>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("GetPropertiesAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetPropertiesAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Collections::IMapView<String, Object>>>;
                 #[Windows::Foundation::Metadata::Overload("GetPropertiesRangeAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -150,15 +150,15 @@ mod Windows {
                 IncludeCloudProviders: bool;
             }
             #[guid(0x032e1f8c_a9c1_4e71_8011_0dee9d4811a3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(QueryOptions)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(QueryOptions)]
             interface IQueryOptionsFactory {
                 fn CreateCommonFileQuery(&self, query: CommonFileQuery, fileTypeFilter: super::super::Foundation::Collections::IIterable<String>) -> QueryOptions;
                 fn CreateCommonFolderQuery(&self, query: CommonFolderQuery) -> QueryOptions;
             }
             #[guid(0x5b9d1026_15c4_44dd_b89a_47a59b7d7c4f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(QueryOptions)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(QueryOptions)]
             interface IQueryOptionsWithProviderFilter {
                 #[get]
                 StorageProviderIdFilter: super::super::Foundation::Collections::IVector<String>;
@@ -203,11 +203,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("GetFilesAsyncOverloadDefaultStartAndCount")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFilesAsync(&self, query: CommonFileQuery) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("GetFoldersAsync")]
-                fn GetFoldersAsync(&self, query: CommonFolderQuery, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>;
                 #[Windows::Foundation::Metadata::RemoteAsync]
+                fn GetFoldersAsync(&self, query: CommonFolderQuery, startIndex: u32, maxItemsToRetrieve: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>;
                 #[Windows::Foundation::Metadata::Overload("GetFoldersAsyncOverloadDefaultStartAndCount")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFoldersAsync(&self, query: CommonFolderQuery) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>;
                 #[Windows::Foundation::Metadata::Overload("GetItemsAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -217,14 +217,14 @@ mod Windows {
                 fn IsCommonFileQuerySupported(&self, query: CommonFileQuery) -> bool;
             }
             #[guid(0x6654c911_7d66_46fa_aecf_e4a4baa93ab8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(StorageFolderQueryResult)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageFolderQueryResult)]
             interface IStorageFolderQueryResult: IStorageQueryResultBase {
                 #[Windows::Foundation::Metadata::Overload("GetFoldersAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFoldersAsync(&self, startIndex: u32, maxNumberOfItems: u32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("GetFoldersAsyncDefaultStartAndCount")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetFoldersAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFolder>>;
             }
             #[guid(0xe8948079_9d58_47b8_b2b2_41b07f4795f9)]
@@ -239,8 +239,8 @@ mod Windows {
                 fn GetItemsAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::IStorageItem>>;
             }
             #[guid(0x1dc7a369_b7a3_4df2_9d61_eba85a0343d2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryChangeTrackerTriggerDetails)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryChangeTrackerTriggerDetails)]
             interface IStorageLibraryChangeTrackerTriggerDetails {
                 #[get]
                 Folder: super::StorageFolder;
@@ -248,8 +248,8 @@ mod Windows {
                 ChangeTracker: super::StorageLibraryChangeTracker;
             }
             #[guid(0x2a371977_abbf_4e1d_8aa5_6385d8884799)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryContentChangedTriggerDetails)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StorageLibraryContentChangedTriggerDetails)]
             interface IStorageLibraryContentChangedTriggerDetails {
                 #[get]
                 Folder: super::StorageFolder;
@@ -276,8 +276,8 @@ mod Windows {
                 Language: String;
                 Value: Object;
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class IndexableContent {
                 IIndexableContent,
@@ -298,10 +298,10 @@ mod Windows {
                 DoNotUseIndexer = 2,
                 OnlyUseIndexerAndOptimizeForIndexedProperties = 3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Activatable(IQueryOptionsFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IQueryOptionsFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class QueryOptions {
                 IQueryOptions,
                 IQueryOptionsWithProviderFilter,

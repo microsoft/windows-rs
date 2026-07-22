@@ -3,8 +3,8 @@ mod Windows {
     mod Devices {
         mod WiFiDirect {
             #[guid(0xab511a2d_2a06_49a1_a584_61435c7905a6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectAdvertisement)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectAdvertisement)]
             interface IWiFiDirectAdvertisement {
                 InformationElements: super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>;
                 ListenStateDiscoverability: WiFiDirectAdvertisementListenStateDiscoverability;
@@ -13,8 +13,8 @@ mod Windows {
                 LegacySettings: WiFiDirectLegacySettings;
             }
             #[guid(0xb759aa46_d816_491b_917a_b40d7dc403a2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectAdvertisement)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectAdvertisement)]
             interface IWiFiDirectAdvertisement2 {
                 #[get]
                 SupportedConfigurationMethods: super::super::Foundation::Collections::IVector<WiFiDirectConfigurationMethod>;
@@ -53,8 +53,8 @@ mod Windows {
                 GroupOwnerIntent: i16;
             }
             #[guid(0xab3b0fbe_aa82_44b4_88c8_e3056b89801d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectConnectionParameters)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectConnectionParameters)]
             interface IWiFiDirectConnectionParameters2 {
                 #[get]
                 PreferenceOrderedConfigurationMethods: super::super::Foundation::Collections::IVector<WiFiDirectConfigurationMethod>;
@@ -80,8 +80,8 @@ mod Windows {
                 fn GetConnectionRequest(&self) -> WiFiDirectConnectionRequest;
             }
             #[guid(0x72deaaa8_72eb_4dae_8a28_8513355d2777)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectDevice)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectDevice)]
             interface IWiFiDirectDevice: super::super::Foundation::IClosable {
                 #[get]
                 ConnectionStatus: WiFiDirectConnectionStatus;
@@ -91,8 +91,8 @@ mod Windows {
                 fn GetConnectionEndpointPairs(&self) -> super::super::Foundation::Collections::IVectorView<super::super::Networking::EndpointPair>;
             }
             #[guid(0xe86cb57c_3aac_4851_a792_482aaf931b04)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectDevice)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectDevice)]
             interface IWiFiDirectDeviceStatics {
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
                 fn GetDeviceSelector(&self) -> String;
@@ -101,8 +101,8 @@ mod Windows {
                 fn FromIdAsync(&self, deviceId: String) -> super::super::Foundation::IAsyncOperation<WiFiDirectDevice>;
             }
             #[guid(0x1a953e49_b103_437e_9226_ab67971342f9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectDevice)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectDevice)]
             interface IWiFiDirectDeviceStatics2 {
                 #[Windows::Foundation::Metadata::Overload("GetDeviceSelector")]
                 fn GetDeviceSelector(&self, r#type: WiFiDirectDeviceSelectorType) -> String;
@@ -118,23 +118,23 @@ mod Windows {
                 Value: super::super::Storage::Streams::IBuffer;
             }
             #[guid(0xdbd02f16_11a5_4e60_8caa_34772148378a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectInformationElement)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectInformationElement)]
             interface IWiFiDirectInformationElementStatics {
                 fn CreateFromBuffer(&self, buffer: super::super::Storage::Streams::IBuffer) -> super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>;
                 fn CreateFromDeviceInformation(&self, deviceInformation: super::Enumeration::DeviceInformation) -> super::super::Foundation::Collections::IVector<WiFiDirectInformationElement>;
             }
             #[guid(0xa64fdbba_f2fd_4567_a91b_f5c2f5321057)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectLegacySettings)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(WiFiDirectLegacySettings)]
             interface IWiFiDirectLegacySettings {
                 IsEnabled: bool;
                 Ssid: String;
                 Passphrase: super::super::Security::Credentials::PasswordCredential;
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class WiFiDirectAdvertisement {
                 IWiFiDirectAdvertisement,
                 IWiFiDirectAdvertisement2,
@@ -147,9 +147,9 @@ mod Windows {
                 Intensive = 2,
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class WiFiDirectAdvertisementPublisher {
                 IWiFiDirectAdvertisementPublisher,
             }
@@ -161,9 +161,9 @@ mod Windows {
                 Stopped = 2,
                 Aborted = 3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
                 IWiFiDirectAdvertisementPublisherStatusChangedEventArgs,
             }
@@ -174,18 +174,18 @@ mod Windows {
                 DisplayPin = 1,
                 PushButton = 2,
             }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             class WiFiDirectConnectionListener {
                 IWiFiDirectConnectionListener,
             }
-            #[Windows::Foundation::Metadata::Static(IWiFiDirectConnectionParametersStatics, 131072, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IWiFiDirectConnectionParametersStatics, 131072, "Windows.Foundation.UniversalApiContract")]
             class WiFiDirectConnectionParameters {
                 IWiFiDirectConnectionParameters,
                 IWiFiDirectConnectionParameters2,
@@ -210,10 +210,10 @@ mod Windows {
                 Disconnected = 0,
                 Connected = 1,
             }
-            #[Windows::Foundation::Metadata::Static(IWiFiDirectDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IWiFiDirectDeviceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IWiFiDirectDeviceStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
             class WiFiDirectDevice {
                 IWiFiDirectDevice,
@@ -232,17 +232,17 @@ mod Windows {
                 RadioNotAvailable = 1,
                 ResourceInUse = 2,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IWiFiDirectInformationElementStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             class WiFiDirectInformationElement {
                 IWiFiDirectInformationElement,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class WiFiDirectLegacySettings {
                 IWiFiDirectLegacySettings,
             }

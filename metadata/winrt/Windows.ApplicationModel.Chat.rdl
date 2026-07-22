@@ -2,17 +2,17 @@
 mod Windows {
     mod ApplicationModel {
         mod Chat {
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatCapabilities {
                 IChatCapabilities,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IChatCapabilitiesManagerStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IChatCapabilitiesManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IChatCapabilitiesManagerStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatCapabilitiesManager {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -28,9 +28,9 @@ mod Windows {
             class ChatConversationReader {
                 IChatConversationReader,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatConversationThreadingInfo {
                 IChatConversationThreadingInfo,
@@ -49,10 +49,10 @@ mod Windows {
                 Message = 0,
                 Conversation = 1,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessage {
                 IChatMessage,
                 IChatMessage2,
@@ -60,18 +60,18 @@ mod Windows {
                 IChatMessage4,
                 IChatItem,
             }
+            #[Windows::Foundation::Metadata::Activatable(IChatMessageAttachmentFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Activatable(IChatMessageAttachmentFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             class ChatMessageAttachment {
                 IChatMessageAttachment,
                 IChatMessageAttachment2,
             }
-            #[Windows::Foundation::Metadata::Static(IChatMessageBlockingStatic, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IChatMessageBlockingStatic, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageBlocking {}
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -85,9 +85,9 @@ mod Windows {
             class ChatMessageChangeReader {
                 IChatMessageChangeReader,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageChangeTracker {
                 IChatMessageChangeTracker,
             }
@@ -99,15 +99,15 @@ mod Windows {
                 MessageDeleted = 2,
                 ChangeTrackingLost = 3,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageChangedDeferral {
                 IChatMessageChangedDeferral,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageChangedEventArgs {
                 IChatMessageChangedEventArgs,
             }
@@ -122,16 +122,16 @@ mod Windows {
                 OtherParticipantJoinedConversation = 5,
                 OtherParticipantLeftConversation = 6,
             }
-            #[Windows::Foundation::Metadata::Static(IChatMessageManager2Statics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IChatMessageManagerStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IChatMessageManager2Statics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IChatMessageManagerStatic, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IChatMessageManagerStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageManager {}
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageNotificationTriggerDetails {
                 IChatMessageNotificationTriggerDetails,
                 IChatMessageNotificationTriggerDetails2,
@@ -145,8 +145,8 @@ mod Windows {
                 Rcs = 3,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageReader {
                 IChatMessageReader,
                 IChatMessageReader2,
@@ -170,29 +170,29 @@ mod Windows {
                 ReceiveRetryNeeded = 13,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageStore {
                 IChatMessageStore,
                 IChatMessageStore2,
                 IChatMessageStore3,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class ChatMessageStoreChangedEventArgs {
                 IChatMessageStoreChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageTransport {
                 IChatMessageTransport,
                 IChatMessageTransport2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageTransportConfiguration {
                 IChatMessageTransportConfiguration,
             }
@@ -204,9 +204,9 @@ mod Windows {
                 Blocked = 2,
                 Custom = 3,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatMessageValidationResult {
                 IChatMessageValidationResult,
             }
@@ -228,17 +228,17 @@ mod Windows {
                 VoiceRoamingRestriction = 12,
                 DataRoamingRestriction = 13,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatQueryOptions {
                 IChatQueryOptions,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatRecipientDeliveryInfo {
                 IChatRecipientDeliveryInfo,
             }
@@ -249,8 +249,8 @@ mod Windows {
                 LastYear = 1,
                 AnyTime = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatSearchReader {
                 IChatSearchReader,
@@ -273,8 +273,8 @@ mod Windows {
             class ChatSyncConfiguration {
                 IChatSyncConfiguration,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChatSyncManager {
                 IChatSyncManager,
@@ -313,8 +313,8 @@ mod Windows {
                 IsIntegratedMessagingCapable: bool;
             }
             #[guid(0xb57a2f30_7041_458e_b0cf_7c0d9fea333a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatCapabilitiesManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatCapabilitiesManager)]
             interface IChatCapabilitiesManagerStatics {
                 #[Windows::Foundation::Metadata::Overload("GetCachedCapabilitiesAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -324,11 +324,11 @@ mod Windows {
                 fn GetCapabilitiesFromNetworkAsync(&self, address: String) -> super::super::Foundation::IAsyncOperation<ChatCapabilities>;
             }
             #[guid(0xe30d4274_d5c1_4ac9_9ffc_40e69184fec8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatCapabilitiesManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatCapabilitiesManager)]
             interface IChatCapabilitiesManagerStatics2 {
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("GetCachedCapabilitiesForTransportAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetCachedCapabilitiesAsync(&self, address: String, transportId: String) -> super::super::Foundation::IAsyncOperation<ChatCapabilities>;
                 #[Windows::Foundation::Metadata::Overload("GetCapabilitiesFromNetworkForTransportAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -378,13 +378,13 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Overload("ReadBatchAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatConversation>>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("ReadBatchWithCountAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ReadBatchAsync(&self, count: i32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatConversation>>;
             }
             #[guid(0x331c21dc_7a07_4422_a32c_24be7c6dab24)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatConversationThreadingInfo)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatConversationThreadingInfo)]
             interface IChatConversationThreadingInfo {
                 ContactId: String;
                 Custom: String;
@@ -433,8 +433,8 @@ mod Windows {
                 TransportId: String;
             }
             #[guid(0x86668332_543f_49f5_ac71_6c2afc6565fd)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessage)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessage)]
             interface IChatMessage2: IChatMessage3 + IChatMessage {
                 EstimatedDownloadSize: u64;
                 #[set]
@@ -477,14 +477,14 @@ mod Windows {
                 RemoteId: String;
             }
             #[guid(0x2d144b0f_d2bf_460c_aa68_6d3f8483c9bf)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessage)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessage)]
             interface IChatMessage4: IChatMessage {
                 SyncId: String;
             }
             #[guid(0xc7c4fd74_bf63_58eb_508c_8b863ff16b67)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageAttachment)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageAttachment)]
             interface IChatMessageAttachment {
                 DataStreamReference: super::super::Storage::Streams::IRandomAccessStreamReference;
                 GroupId: u32;
@@ -500,8 +500,8 @@ mod Windows {
                 OriginalFileName: String;
             }
             #[guid(0x205852a2_a356_5b71_6ca9_66c985b7d0d5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageAttachment)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageAttachment)]
             interface IChatMessageAttachmentFactory {
                 fn CreateChatMessageAttachment(&self, mimeType: String, dataStreamReference: super::super::Storage::Streams::IRandomAccessStreamReference) -> ChatMessageAttachment;
             }
@@ -531,22 +531,22 @@ mod Windows {
                 fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessageChange>>;
             }
             #[guid(0x60b7f066_70a0_5224_508c_242ef7c1d06f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageChangeTracker)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageChangeTracker)]
             interface IChatMessageChangeTracker {
                 fn Enable(&self);
                 fn GetChangeReader(&self) -> ChatMessageChangeReader;
                 fn Reset(&self);
             }
             #[guid(0xfbc6b30c_788c_4dcc_ace7_6282382968cf)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageChangedDeferral)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageChangedDeferral)]
             interface IChatMessageChangedDeferral {
                 fn Complete(&self);
             }
             #[guid(0xb6b73e2d_691c_4edf_8660_6eb9896892e3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageChangedEventArgs)]
             interface IChatMessageChangedEventArgs {
                 fn GetDeferral(&self) -> ChatMessageChangedDeferral;
             }
@@ -571,8 +571,8 @@ mod Windows {
                 fn ShowSmsSettings(&self);
             }
             #[guid(0x208b830d_6755_48cc_9ab3_fd03c463fc92)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageManager)]
             interface IChatMessageManagerStatics3: IChatMessageManagerStatic {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn RequestSyncManagerAsync(&self) -> super::super::Foundation::IAsyncOperation<ChatSyncManager>;
@@ -585,8 +585,8 @@ mod Windows {
                 ChatMessage: ChatMessage;
             }
             #[guid(0x6bb522e0_aa07_4fd1_9471_77934fb75ee6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageNotificationTriggerDetails)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageNotificationTriggerDetails)]
             interface IChatMessageNotificationTriggerDetails2: IChatMessageNotificationTriggerDetails {
                 #[get]
                 ShouldDisplayToast: bool;
@@ -598,8 +598,8 @@ mod Windows {
                 ShouldUpdateActionCenter: bool;
             }
             #[guid(0xb6ea78ce_4489_56f9_76aa_e204682514cf)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageReader)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageReader)]
             interface IChatMessageReader {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ReadBatchAsync(&self) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<ChatMessage>>;
@@ -637,16 +637,16 @@ mod Windows {
                 event MessageChanged: super::super::Foundation::TypedEventHandler<ChatMessageStore, ChatMessageChangedEventArgs>;
             }
             #[guid(0xad4dc4ee_3ad4_491b_b311_abdf9bb22768)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageStore)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageStore)]
             interface IChatMessageStore2: IChatMessageStore {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ForwardMessageAsync(&self, localChatMessageId: String, addresses: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ChatMessage>;
                 #[Windows::Foundation::Metadata::Overload("GetConversationAsync")]
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetConversationAsync(&self, conversationId: String) -> super::super::Foundation::IAsyncOperation<ChatConversation>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("GetConversationForTransportsAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetConversationAsync(&self, conversationId: String, transportIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<ChatConversation>;
                 fn GetConversationFromThreadingInfoAsync(&self, threadingInfo: ChatConversationThreadingInfo) -> super::super::Foundation::IAsyncOperation<ChatConversation>;
                 #[Windows::Foundation::Metadata::Overload("GetConversationReader")]
@@ -655,8 +655,8 @@ mod Windows {
                 fn GetConversationReader(&self, transportIds: super::super::Foundation::Collections::IIterable<String>) -> ChatConversationReader;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetMessageByRemoteIdAsync(&self, transportId: String, remoteId: String) -> super::super::Foundation::IAsyncOperation<ChatMessage>;
-                #[Windows::Foundation::Metadata::RemoteAsync]
                 #[Windows::Foundation::Metadata::Overload("GetUnseenCountAsync")]
+                #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetUnseenCountAsync(&self) -> super::super::Foundation::IAsyncOperation<i32>;
                 #[Windows::Foundation::Metadata::Overload("GetUnseenCountForTransportsReaderAsync")]
                 fn GetUnseenCountAsync(&self, transportIds: super::super::Foundation::Collections::IIterable<String>) -> super::super::Foundation::IAsyncOperation<i32>;
@@ -705,8 +705,8 @@ mod Windows {
                 fn RequestSetAsNotificationProviderAsync(&self) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x90a75622_d84a_4c22_a94d_544444edc8a1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageTransport)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatMessageTransport)]
             interface IChatMessageTransport2: IChatMessageTransport {
                 #[get]
                 Configuration: ChatMessageTransportConfiguration;
@@ -742,14 +742,14 @@ mod Windows {
                 Status: ChatMessageValidationStatus;
             }
             #[guid(0x2fd364a6_bf36_42f7_b7e7_923c0aabfe16)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatQueryOptions)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatQueryOptions)]
             interface IChatQueryOptions {
                 SearchString: String;
             }
             #[guid(0xffc7b2a2_283c_4c0a_8a0e_8c33bdbf0545)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatRecipientDeliveryInfo)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatRecipientDeliveryInfo)]
             interface IChatRecipientDeliveryInfo {
                 TransportAddress: String;
                 DeliveryTime: super::super::Foundation::IReference<super::super::Foundation::DateTime>;
@@ -777,8 +777,8 @@ mod Windows {
                 fn ReadBatchAsync(&self, count: i32) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<IChatItem>>;
             }
             #[guid(0x09f869b2_69f4_4aff_82b6_06992ff402d2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChatSyncConfiguration)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChatSyncConfiguration)]
             interface IChatSyncConfiguration {
                 IsSyncEnabled: bool;
                 RestoreHistorySpan: ChatRestoreHistorySpan;
@@ -799,8 +799,8 @@ mod Windows {
                 fn SetConfigurationAsync(&self, configuration: ChatSyncConfiguration) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RcsEndUserMessage)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RcsEndUserMessage)]
             interface IRcsEndUserMessage {
                 #[get]
                 TransportId: String;
@@ -818,8 +818,8 @@ mod Windows {
                 fn SendResponseWithPinAsync(&self, action: RcsEndUserMessageAction, pin: String) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RcsEndUserMessageAction)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RcsEndUserMessageAction)]
             interface IRcsEndUserMessageAction {
                 #[get]
                 Label: String;
@@ -834,8 +834,8 @@ mod Windows {
                 Message: RcsEndUserMessage;
             }
             #[guid(0x5b97742d_351f_4692_b41e_1b035dc18986)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RcsEndUserMessageAvailableTriggerDetails)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RcsEndUserMessageAvailableTriggerDetails)]
             interface IRcsEndUserMessageAvailableTriggerDetails {
                 #[get]
                 Title: String;
@@ -849,8 +849,8 @@ mod Windows {
                 event MessageAvailableChanged: super::super::Foundation::TypedEventHandler<RcsEndUserMessageManager, RcsEndUserMessageAvailableEventArgs>;
             }
             #[guid(0x7d270ac5_0abd_4f31_9b99_a59e71a7b731)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RcsManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RcsManager)]
             interface IRcsManagerStatics {
                 fn GetEndUserMessageManager(&self) -> RcsEndUserMessageManager;
                 #[Windows::Foundation::Metadata::RemoteAsync]
@@ -860,21 +860,21 @@ mod Windows {
                 fn LeaveConversationAsync(&self, conversation: ChatConversation) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0xcd49ad18_ad8a_42aa_8eeb_a798a8808959)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RcsManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RcsManager)]
             interface IRcsManagerStatics2 {
                 event TransportListChanged: super::super::Foundation::EventHandler<Object>;
             }
             #[guid(0xf47ea244_e783_4866_b3a7_4e5ccf023070)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RcsServiceKindSupportedChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RcsServiceKindSupportedChangedEventArgs)]
             interface IRcsServiceKindSupportedChangedEventArgs {
                 #[get]
                 ServiceKind: RcsServiceKind;
             }
             #[guid(0xfea34759_f37c_4319_8546_ec84d21d30ff)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RcsTransport)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RcsTransport)]
             interface IRcsTransport {
                 #[get]
                 ExtendedProperties: super::super::Foundation::Collections::IMapView<String, Object>;
@@ -908,8 +908,8 @@ mod Windows {
                 WarningFileSizeInKilobytes: i32;
             }
             #[guid(0x1ec045a7_cfc9_45c9_9876_449f2bc180f5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RemoteParticipantComposingChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RemoteParticipantComposingChangedEventArgs)]
             interface IRemoteParticipantComposingChangedEventArgs {
                 #[get]
                 TransportId: String;
@@ -924,35 +924,35 @@ mod Windows {
             class RcsEndUserMessage {
                 IRcsEndUserMessage,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class RcsEndUserMessageAction {
                 IRcsEndUserMessageAction,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class RcsEndUserMessageAvailableEventArgs {
                 IRcsEndUserMessageAvailableEventArgs,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class RcsEndUserMessageAvailableTriggerDetails {
                 IRcsEndUserMessageAvailableTriggerDetails,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class RcsEndUserMessageManager {
                 IRcsEndUserMessageManager,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IRcsManagerStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IRcsManagerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(IRcsManagerStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class RcsManager {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
@@ -962,9 +962,9 @@ mod Windows {
                 FileTransfer = 2,
                 Capability = 3,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class RcsServiceKindSupportedChangedEventArgs {
                 IRcsServiceKindSupportedChangedEventArgs,
             }
@@ -975,14 +975,14 @@ mod Windows {
                 IRcsTransport,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class RcsTransportConfiguration {
                 IRcsTransportConfiguration,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class RemoteParticipantComposingChangedEventArgs {
                 IRemoteParticipantComposingChangedEventArgs,
             }

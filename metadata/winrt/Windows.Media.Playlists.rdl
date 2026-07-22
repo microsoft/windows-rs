@@ -3,8 +3,8 @@ mod Windows {
     mod Media {
         mod Playlists {
             #[guid(0x803736f5_cf44_4d97_83b3_7a089e9ab663)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(Playlist)]
             #[Windows::Foundation::Metadata::ContractVersion(PlaylistsContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(Playlist)]
             interface IPlaylist {
                 #[get]
                 Files: super::super::Foundation::Collections::IVector<super::super::Storage::StorageFile>;
@@ -24,11 +24,11 @@ mod Windows {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn LoadAsync(&self, file: super::super::Storage::IStorageFile) -> super::super::Foundation::IAsyncOperation<Playlist>;
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-            #[Windows::Foundation::Metadata::ContractVersion(PlaylistsContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Media.Playlists.PlaylistsContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(PlaylistsContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
             #[Windows::Foundation::Metadata::Static(IPlaylistStatics, 65536, "Windows.Media.Playlists.PlaylistsContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class Playlist {
                 IPlaylist,
             }

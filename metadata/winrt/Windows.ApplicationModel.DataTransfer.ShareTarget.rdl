@@ -4,8 +4,8 @@ mod Windows {
         mod DataTransfer {
             mod ShareTarget {
                 #[guid(0x603e4308_f0be_4adc_acc9_8b27ab9cf556)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(QuickLink)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(QuickLink)]
                 interface IQuickLink {
                     Title: String;
                     Thumbnail: super::super::super::Storage::Streams::RandomAccessStreamReference;
@@ -34,27 +34,27 @@ mod Windows {
                     fn ReportError(&self, value: String);
                 }
                 #[guid(0x0ffb97c1_9778_4a09_8e5b_cb5e482d0555)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ShareOperation)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ShareOperation)]
                 interface IShareOperation2 {
                     fn DismissUI(&self);
                 }
                 #[guid(0x5ef6b382_b7a7_4571_a2a6_994a034988b2)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ShareOperation)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ShareOperation)]
                 interface IShareOperation3 {
                     #[get]
                     Contacts: super::super::super::Foundation::Collections::IVectorView<super::super::Contacts::Contact>;
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class QuickLink {
                     IQuickLink,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 class ShareOperation {
                     IShareOperation,
                     IShareOperation2,

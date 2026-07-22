@@ -10,9 +10,9 @@ mod Windows {
                     Batch = 1,
                     KeepLatest = 2,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class BluetoothLEAdvertisementPublisherTriggerDetails {
                     IBluetoothLEAdvertisementPublisherTriggerDetails,
                     IBluetoothLEAdvertisementPublisherTriggerDetails2,
@@ -23,25 +23,25 @@ mod Windows {
                 class BluetoothLEAdvertisementWatcherTriggerDetails {
                     IBluetoothLEAdvertisementWatcherTriggerDetails,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class GattCharacteristicNotificationTriggerDetails {
                     IGattCharacteristicNotificationTriggerDetails,
                     IGattCharacteristicNotificationTriggerDetails2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
-                #[Windows::Foundation::Metadata::Static(IGattServiceProviderConnectionStatics, 262144, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IGattServiceProviderConnectionStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class GattServiceProviderConnection {
                     IGattServiceProviderConnection,
                     IGattServiceProviderConnection2,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class GattServiceProviderTriggerDetails {
                     IGattServiceProviderTriggerDetails,
                 }
@@ -55,15 +55,15 @@ mod Windows {
                     Error: super::BluetoothError;
                 }
                 #[guid(0xd4a3d025_c601_42d6_9829_4ccb3f5cd77f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisherTriggerDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 655360)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementPublisherTriggerDetails)]
                 interface IBluetoothLEAdvertisementPublisherTriggerDetails2 {
                     #[get]
                     SelectedTransmitPowerLevelInDBm: super::super::super::Foundation::IReference<i16>;
                 }
                 #[guid(0xa7db5ad7_2257_4e69_9784_fee645c1dce0)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementWatcherTriggerDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(BluetoothLEAdvertisementWatcherTriggerDetails)]
                 interface IBluetoothLEAdvertisementWatcherTriggerDetails {
                     #[get]
                     Error: super::BluetoothError;
@@ -109,8 +109,8 @@ mod Windows {
                     fn UpdateAdvertisingParameters(&self, parameters: super::GenericAttributeProfile::GattServiceProviderAdvertisingParameters);
                 }
                 #[guid(0x3d509f4b_0b0e_4466_b8cd_6ebdda1fa17d)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderConnection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(GattServiceProviderConnection)]
                 interface IGattServiceProviderConnectionStatics {
                     #[get]
                     AllServices: super::super::super::Foundation::Collections::IMapView<String, GattServiceProviderConnection>;
@@ -123,8 +123,8 @@ mod Windows {
                     Connection: GattServiceProviderConnection;
                 }
                 #[guid(0xf922734d_2e3c_4efc_ab59_fc5cf96f97e3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommConnectionTriggerDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(RfcommConnectionTriggerDetails)]
                 interface IRfcommConnectionTriggerDetails {
                     #[get]
                     Socket: super::super::super::Networking::Sockets::StreamSocket;
@@ -147,15 +147,15 @@ mod Windows {
                 interface IRfcommOutboundConnectionInformation {
                     RemoteServiceId: super::Rfcomm::RfcommServiceId;
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class RfcommConnectionTriggerDetails {
                     IRfcommConnectionTriggerDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class RfcommInboundConnectionInformation {
                     IRfcommInboundConnectionInformation,
                 }

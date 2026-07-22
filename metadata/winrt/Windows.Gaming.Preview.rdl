@@ -2,8 +2,8 @@
 mod Windows {
     mod Gaming {
         mod Preview {
-            #[Windows::Foundation::Metadata::ContractVersion(131072)]
             #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(131072)]
             struct GamesEnumerationContract {}
         }
     }

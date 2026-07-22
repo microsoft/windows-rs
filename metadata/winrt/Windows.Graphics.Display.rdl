@@ -16,23 +16,23 @@ mod Windows {
                 HighDynamicRange = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IBrightnessOverrideStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class BrightnessOverride {
                 IBrightnessOverride,
             }
-            #[Windows::Foundation::Metadata::Static(IBrightnessOverrideSettingsStatics, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IBrightnessOverrideSettingsStatics, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class BrightnessOverrideSettings {
                 IBrightnessOverrideSettings,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Static(IColorOverrideSettingsStatics, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ColorOverrideSettings {
                 IColorOverrideSettings,
             }
@@ -64,27 +64,27 @@ mod Windows {
                 Accurate = 0,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::Static(IDisplayEnhancementOverrideStatics, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IDisplayEnhancementOverrideStatics, 393216, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DisplayEnhancementOverride {
                 IDisplayEnhancementOverride,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DisplayEnhancementOverrideCapabilities {
                 IDisplayEnhancementOverrideCapabilities,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
                 IDisplayEnhancementOverrideCapabilitiesChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::Static(IDisplayInformationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IDisplayInformationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class DisplayInformation {
                 IDisplayInformation,
                 IDisplayInformation2,
@@ -102,20 +102,20 @@ mod Windows {
                 LandscapeFlipped = 4,
                 PortraitFlipped = 8,
             }
-            #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
+            #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
             #[Windows::Foundation::Metadata::Static(IDisplayPropertiesStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class DisplayProperties {}
             #[guid(0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980)]
-            #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
             delegate fn DisplayPropertiesEventHandler(sender: Object);
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IDisplayServicesStatics, 786432, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IDisplayServicesStatics, 786432, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class DisplayServices {
                 IDisplayServices,
             }
@@ -170,8 +170,8 @@ mod Windows {
                 event BrightnessLevelChanged: super::super::Foundation::TypedEventHandler<BrightnessOverride, Object>;
             }
             #[guid(0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(BrightnessOverrideSettings)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(BrightnessOverrideSettings)]
             interface IBrightnessOverrideSettings {
                 #[get]
                 DesiredLevel: f64;
@@ -196,15 +196,15 @@ mod Windows {
                 fn SaveForSystemAsync(&self, value: BrightnessOverride) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ColorOverrideSettings)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ColorOverrideSettings)]
             interface IColorOverrideSettings {
                 #[get]
                 DesiredDisplayColorOverrideScenario: DisplayColorOverrideScenario;
             }
             #[guid(0xb068e05f_c41f_4ac9_afab_827ab6248f9a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ColorOverrideSettings)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ColorOverrideSettings)]
             interface IColorOverrideSettingsStatics {
                 fn CreateFromDisplayColorOverrideScenario(&self, overrideScenario: DisplayColorOverrideScenario) -> ColorOverrideSettings;
             }
@@ -226,8 +226,8 @@ mod Windows {
                 event DisplayEnhancementOverrideCapabilitiesChanged: super::super::Foundation::TypedEventHandler<DisplayEnhancementOverride, DisplayEnhancementOverrideCapabilitiesChangedEventArgs>;
             }
             #[guid(0x457060de_ee5a_47b7_9918_1e51e812ccc8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayEnhancementOverrideCapabilities)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayEnhancementOverrideCapabilities)]
             interface IDisplayEnhancementOverrideCapabilities {
                 #[get]
                 IsBrightnessControlSupported: bool;
@@ -281,8 +281,8 @@ mod Windows {
                 RawPixelsPerViewPixel: f64;
             }
             #[guid(0xdb15011d_0f09_4466_8ff3_11de9a3c929a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayInformation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayInformation)]
             interface IDisplayInformation3 {
                 #[get]
                 DiagonalSizeInInches: super::super::Foundation::IReference<f64>;
@@ -304,8 +304,8 @@ mod Windows {
                 event AdvancedColorInfoChanged: super::super::Foundation::TypedEventHandler<DisplayInformation, Object>;
             }
             #[guid(0xc6a02a6c_d452_44dc_ba07_96f3c6adf9d1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayInformation)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayInformation)]
             interface IDisplayInformationStatics {
                 fn GetForCurrentView(&self) -> DisplayInformation;
                 AutoRotationPreferences: DisplayOrientations;
@@ -371,12 +371,12 @@ mod Windows {
                 #[Windows::Foundation::Metadata::Deprecated("DisplayProperties may be altered or unavailable for releases after Windows Phone 8.1. Instead, use DisplayInformation.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 fn remove_DisplayContentsInvalidated(&self, token: super::super::Foundation::EventRegistrationToken);
             }
-            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayServices)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayServices)]
             interface IDisplayServices {}
             #[guid(0xdc2096bf_730a_5560_b461_91c13d692e0c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayServices)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DisplayServices)]
             interface IDisplayServicesStatics {
                 fn FindAll(&self) -> [super::DisplayId];
             }

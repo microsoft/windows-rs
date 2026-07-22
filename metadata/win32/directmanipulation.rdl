@@ -166,7 +166,7 @@ mod Windows {
         interface IDirectManipulationContent: IUnknown {
             fn GetContentRect(&self, contentSize: *mut RECT) -> HRESULT;
             fn SetContentRect(&self, contentSize: *const RECT) -> HRESULT;
-            fn GetViewport(&self, riid: *const GUID, #[retval] #[iid_is] object: *mut *mut void) -> HRESULT;
+            fn GetViewport(&self, riid: *const GUID, #[iid_is] #[retval] object: *mut *mut void) -> HRESULT;
             fn GetTag(&self, riid: *const GUID, #[iid_is] #[opt] object: *mut *mut void, #[opt] id: *mut u32) -> HRESULT;
             fn SetTag(&self, #[opt] object: IUnknown, id: u32) -> HRESULT;
             fn GetOutputTransform(&self, #[len_param(1)] matrix: *mut f32, pointCount: u32) -> HRESULT;
@@ -203,17 +203,17 @@ mod Windows {
             fn Deactivate(&self, window: HWND) -> HRESULT;
             fn RegisterHitTestTarget(&self, window: HWND, #[opt] hitTestWindow: HWND, r#type: DIRECTMANIPULATION_HITTEST_TYPE) -> HRESULT;
             fn ProcessInput(&self, message: *const MSG, handled: *mut BOOL) -> HRESULT;
-            fn GetUpdateManager(&self, riid: *const GUID, #[retval] #[iid_is] object: *mut *mut void) -> HRESULT;
-            fn CreateViewport(&self, #[opt] frameInfo: IDirectManipulationFrameInfoProvider, window: HWND, riid: *const GUID, #[retval] #[iid_is] object: *mut *mut void) -> HRESULT;
-            fn CreateContent(&self, #[opt] frameInfo: IDirectManipulationFrameInfoProvider, clsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] object: *mut *mut void) -> HRESULT;
+            fn GetUpdateManager(&self, riid: *const GUID, #[iid_is] #[retval] object: *mut *mut void) -> HRESULT;
+            fn CreateViewport(&self, #[opt] frameInfo: IDirectManipulationFrameInfoProvider, window: HWND, riid: *const GUID, #[iid_is] #[retval] object: *mut *mut void) -> HRESULT;
+            fn CreateContent(&self, #[opt] frameInfo: IDirectManipulationFrameInfoProvider, clsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] object: *mut *mut void) -> HRESULT;
         }
         #[guid(0xfa1005e9_3d16_484c_bfc9_62b61e56ec4e)]
         interface IDirectManipulationManager2: IDirectManipulationManager {
-            fn CreateBehavior(&self, clsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] object: *mut *mut void) -> HRESULT;
+            fn CreateBehavior(&self, clsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] object: *mut *mut void) -> HRESULT;
         }
         #[guid(0x2cb6b33d_ffe8_488c_b750_fbdfe88dca8c)]
         interface IDirectManipulationManager3: IDirectManipulationManager2 {
-            fn GetService(&self, clsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] object: *mut *mut void) -> HRESULT;
+            fn GetService(&self, clsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] object: *mut *mut void) -> HRESULT;
         }
         struct IDirectManipulationManagerPartner {}
         struct IDirectManipulationParametricMotionBehavior {}
@@ -259,7 +259,7 @@ mod Windows {
             fn ZoomToRect(&self, left: f32, top: f32, right: f32, bottom: f32, animate: BOOL) -> HRESULT;
             fn SetViewportTransform(&self, #[len_param(1)] matrix: *const f32, pointCount: u32) -> HRESULT;
             fn SyncDisplayTransform(&self, #[len_param(1)] matrix: *const f32, pointCount: u32) -> HRESULT;
-            fn GetPrimaryContent(&self, riid: *const GUID, #[retval] #[iid_is] object: *mut *mut void) -> HRESULT;
+            fn GetPrimaryContent(&self, riid: *const GUID, #[iid_is] #[retval] object: *mut *mut void) -> HRESULT;
             fn AddContent(&self, content: IDirectManipulationContent) -> HRESULT;
             fn RemoveContent(&self, content: IDirectManipulationContent) -> HRESULT;
             fn SetViewportOptions(&self, options: DIRECTMANIPULATION_VIEWPORT_OPTIONS) -> HRESULT;

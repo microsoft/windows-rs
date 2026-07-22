@@ -19,16 +19,16 @@ mod Windows {
                     Default = 0,
                     Policy = 1,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::Static(IDeliveryOptimizationSettingsStatics, 458752, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IDeliveryOptimizationSettingsStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class DeliveryOptimizationSettings {
                     IDeliveryOptimizationSettings,
                 }
                 #[guid(0x1810fda0_e853_565e_b874_7a8a7b9a0e0f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DeliveryOptimizationSettings)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DeliveryOptimizationSettings)]
                 interface IDeliveryOptimizationSettings {
                     #[get]
                     DownloadMode: DeliveryOptimizationDownloadMode;
@@ -36,14 +36,14 @@ mod Windows {
                     DownloadModeSource: DeliveryOptimizationDownloadModeSource;
                 }
                 #[guid(0x5c817caf_aed5_5999_b4c9_8c60898bc4f3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DeliveryOptimizationSettings)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DeliveryOptimizationSettings)]
                 interface IDeliveryOptimizationSettingsStatics {
                     fn GetCurrentSettings(&self) -> DeliveryOptimizationSettings;
                 }
                 #[guid(0x728f7fc0_8628_42ec_84a2_07780eb44d8b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(StoreConfiguration)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(StoreConfiguration)]
                 interface IStoreConfigurationStatics {
                     fn SetSystemConfiguration(&self, catalogHardwareManufacturerId: String, catalogStoreContentModifierId: String, systemConfigurationExpiration: super::super::super::Foundation::DateTime, catalogHardwareDescriptor: String);
                     fn SetMobileOperatorConfiguration(&self, mobileOperatorId: String, appDownloadLimitInMegabytes: u32, updateDownloadLimitInMegabytes: u32);
@@ -119,8 +119,8 @@ mod Windows {
                     fn LoadAddOnProductInfosAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<StorePreviewProductInfo>>;
                 }
                 #[guid(0x1937dbb3_6c01_4c9d_85cd_5babaac2b351)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(StorePreviewProductInfo)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(StorePreviewProductInfo)]
                 interface IStorePreviewProductInfo {
                     #[get]
                     ProductId: String;
@@ -134,15 +134,15 @@ mod Windows {
                     SkuInfoList: super::super::super::Foundation::Collections::IVectorView<StorePreviewSkuInfo>;
                 }
                 #[guid(0xb0daaed1_d6c5_4e53_a043_fba0d8e61231)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(StorePreviewPurchaseResults)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(StorePreviewPurchaseResults)]
                 interface IStorePreviewPurchaseResults {
                     #[get]
                     ProductPurchaseStatus: StorePreviewProductPurchaseStatus;
                 }
                 #[guid(0x81fd76e2_0b26_48d9_98ce_27461c669d6c)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(StorePreviewSkuInfo)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(StorePreviewSkuInfo)]
                 interface IStorePreviewSkuInfo {
                     #[get]
                     ProductId: String;
@@ -174,16 +174,16 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn RequestTokenWithUIElementHostingAsync(&self, request: super::super::super::Security::Authentication::Web::Core::WebTokenRequest, webAccount: super::super::super::Security::Credentials::WebAccount, uiElement: super::super::super::UI::Xaml::UIElement) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Security::Authentication::Web::Core::WebTokenRequestResult>;
                 }
-                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics3, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics4, 262144, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Static(IStoreConfigurationStatics5, 458752, "Windows.Foundation.UniversalApiContract")]
                 class StoreConfiguration {}
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class StoreHardwareManufacturerInfo {
                     IStoreHardwareManufacturerInfo,
                 }
@@ -194,13 +194,13 @@ mod Windows {
                     None = 0,
                     TryElevate = 1,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IStorePreview, 65536, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class StorePreview {}
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class StorePreviewProductInfo {
                     IStorePreviewProductInfo,
@@ -213,14 +213,14 @@ mod Windows {
                     NotFulfilled = 2,
                     NotPurchased = 3,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class StorePreviewPurchaseResults {
                     IStorePreviewPurchaseResults,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class StorePreviewSkuInfo {
                     IStorePreviewSkuInfo,

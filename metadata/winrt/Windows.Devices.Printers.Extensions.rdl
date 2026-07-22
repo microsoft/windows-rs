@@ -3,12 +3,12 @@ mod Windows {
     mod Devices {
         mod Printers {
             mod Extensions {
-                #[Windows::Foundation::Metadata::ContractVersion(131072)]
                 #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(131072)]
                 struct ExtensionsContract {}
                 #[guid(0xc56f74bd_3669_4a66_ab42_c8151930cd34)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(Print3DWorkflow)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(Print3DWorkflow)]
                 interface IPrint3DWorkflow {
                     #[get]
                     DeviceID: String;
@@ -40,14 +40,14 @@ mod Windows {
                     NewDeviceId: String;
                 }
                 #[guid(0xe70d9fc1_ff79_4aa4_8c9b_0c93aedfde8a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintExtensionContext)]
                 #[Windows::Foundation::Metadata::ContractVersion(ExtensionsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintExtensionContext)]
                 interface IPrintExtensionContextStatic {
                     fn FromDeviceId(&self, deviceId: String) -> Object;
                 }
                 #[guid(0xe00e4c8a_4828_4da1_8bb8_8672df8515e7)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintNotificationEventDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(ExtensionsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintNotificationEventDetails)]
                 interface IPrintNotificationEventDetails {
                     #[get]
                     PrinterName: String;
@@ -84,9 +84,9 @@ mod Windows {
                     #[get]
                     Request: PrintTaskConfigurationSaveRequest;
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 131072)]
                 class Print3DWorkflow {
                     IPrint3DWorkflow,
                     IPrint3DWorkflow2,
@@ -108,9 +108,9 @@ mod Windows {
                 class Print3DWorkflowPrintRequestedEventArgs {
                     IPrint3DWorkflowPrintRequestedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class Print3DWorkflowPrinterChangedEventArgs {
                     IPrint3DWorkflowPrinterChangedEventArgs,
                 }
@@ -123,12 +123,12 @@ mod Windows {
                     Slicing = 3,
                     Submitted = 4,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(ExtensionsContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(IPrintExtensionContextStatic, 65536, "Windows.Devices.Printers.Extensions.ExtensionsContract")]
-                #[Windows::Foundation::Metadata::ContractVersion(ExtensionsContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintExtensionContext {}
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(ExtensionsContract, 65536)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintNotificationEventDetails {
                     IPrintNotificationEventDetails,
                 }

@@ -18,11 +18,11 @@ mod Windows {
                         #[Windows::Foundation::Metadata::Overload("CreateForVisualWithViewportClip")]
                         fn CreateForVisual(&self, inputPanelVisual: super::super::super::Composition::Visual, inputPanelRect: super::super::super::super::Foundation::Rect, viewportVisual: super::super::super::Composition::Visual, viewportRect: super::super::super::super::Foundation::Rect) -> PalmRejectionDelayZonePreview;
                     }
-                    #[Windows::Foundation::Metadata::WebHostHidden]
-                    #[Windows::Foundation::Metadata::Static(IPalmRejectionDelayZonePreviewStatics, 458752, "Windows.Foundation.UniversalApiContract")]
-                    #[Windows::Foundation::Metadata::Threading(Both)]
                     #[Windows::Foundation::Metadata::ContractVersion(super::super::super::super::Foundation::UniversalApiContract, 458752)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                    #[Windows::Foundation::Metadata::Static(IPalmRejectionDelayZonePreviewStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                    #[Windows::Foundation::Metadata::Threading(Both)]
+                    #[Windows::Foundation::Metadata::WebHostHidden]
                     class PalmRejectionDelayZonePreview {
                         IPalmRejectionDelayZonePreview,
                         super::super::super::super::Foundation::IClosable,

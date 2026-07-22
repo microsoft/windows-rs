@@ -7,7 +7,7 @@ mod Windows {
         }
         #[guid(0x461a191f_8424_43a6_a0fa_3451a22f56ab)]
         interface IShareWindowCommandSourceInterop: IUnknown {
-            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] shareWindowCommandSource: *mut *mut void) -> HRESULT;
+            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[iid_is] #[retval] shareWindowCommandSource: *mut *mut void) -> HRESULT;
         }
     }
 }

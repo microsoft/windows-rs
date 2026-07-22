@@ -5,77 +5,77 @@ mod Windows {
             mod Core {
                 #[Windows::Foundation::Metadata::Activatable(ICameraIntrinsicsFactory, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 class CameraIntrinsics {
                     ICameraIntrinsics,
                     ICameraIntrinsics2,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
                 class DepthCorrelatedCoordinateMapper {
                     IDepthCorrelatedCoordinateMapper,
                     super::super::super::Foundation::IClosable,
                 }
-                #[Windows::Foundation::Metadata::Threading(MTA)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                #[Windows::Foundation::Metadata::Threading(MTA)]
                 class FrameControlCapabilities {
                     IFrameControlCapabilities,
                     IFrameControlCapabilities2,
                 }
+                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-                #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class FrameController {
                     IFrameController,
                     IFrameController2,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 #[Windows::Foundation::Metadata::Threading(MTA)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class FrameExposureCapabilities {
                     IFrameExposureCapabilities,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-                #[Windows::Foundation::Metadata::Threading(MTA)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                #[Windows::Foundation::Metadata::Threading(MTA)]
                 class FrameExposureCompensationCapabilities {
                     IFrameExposureCompensationCapabilities,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-                #[Windows::Foundation::Metadata::Threading(MTA)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                #[Windows::Foundation::Metadata::Threading(MTA)]
                 class FrameExposureCompensationControl {
                     IFrameExposureCompensationControl,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::Threading(MTA)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                #[Windows::Foundation::Metadata::Threading(MTA)]
                 class FrameExposureControl {
                     IFrameExposureControl,
                 }
-                #[Windows::Foundation::Metadata::Threading(MTA)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                #[Windows::Foundation::Metadata::Threading(MTA)]
                 class FrameFlashCapabilities {
                     IFrameFlashCapabilities,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 #[Windows::Foundation::Metadata::Threading(MTA)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class FrameFlashControl {
                     IFrameFlashControl,
                 }
@@ -86,37 +86,37 @@ mod Windows {
                     Enable = 1,
                     Global = 2,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 #[Windows::Foundation::Metadata::Threading(MTA)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class FrameFocusCapabilities {
                     IFrameFocusCapabilities,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 #[Windows::Foundation::Metadata::Threading(MTA)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 class FrameFocusControl {
                     IFrameFocusControl,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
                 #[Windows::Foundation::Metadata::Threading(MTA)]
                 class FrameIsoSpeedCapabilities {
                     IFrameIsoSpeedCapabilities,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
                 #[Windows::Foundation::Metadata::Threading(MTA)]
                 class FrameIsoSpeedControl {
                     IFrameIsoSpeedControl,
                 }
                 #[guid(0x0aa6ed32_6589_49da_afde_594270ca0aac)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(CameraIntrinsics)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CameraIntrinsics)]
                 interface ICameraIntrinsics {
                     #[get]
                     FocalLength: super::super::super::Foundation::Numerics::Vector2;
@@ -136,8 +136,8 @@ mod Windows {
                     fn UnprojectPixelsAtUnitDepth(&self, pixelCoordinates: [super::super::super::Foundation::Point], #[out] results: [super::super::super::Foundation::Numerics::Vector2]);
                 }
                 #[guid(0x0cdaa447_0798_4b4d_839f_c5ec414db27a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(CameraIntrinsics)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CameraIntrinsics)]
                 interface ICameraIntrinsics2 {
                     #[get]
                     UndistortedProjectionTransform: super::super::super::Foundation::Numerics::Matrix4x4;
@@ -153,8 +153,8 @@ mod Windows {
                     fn Create(&self, focalLength: super::super::super::Foundation::Numerics::Vector2, principalPoint: super::super::super::Foundation::Numerics::Vector2, radialDistortion: super::super::super::Foundation::Numerics::Vector3, tangentialDistortion: super::super::super::Foundation::Numerics::Vector2, imageWidth: u32, imageHeight: u32) -> CameraIntrinsics;
                 }
                 #[guid(0xf95d89fb_8af0_4cb0_926d_696866e5046a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DepthCorrelatedCoordinateMapper)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DepthCorrelatedCoordinateMapper)]
                 interface IDepthCorrelatedCoordinateMapper: super::super::super::Foundation::IClosable {
                     fn UnprojectPoint(&self, sourcePoint: super::super::super::Foundation::Point, targetCoordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> super::super::super::Foundation::Numerics::Vector3;
                     fn UnprojectPoints(&self, sourcePoints: [super::super::super::Foundation::Point], targetCoordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem, #[out] results: [super::super::super::Foundation::Numerics::Vector3]);
@@ -177,8 +177,8 @@ mod Windows {
                     PhotoConfirmationSupported: bool;
                 }
                 #[guid(0xce9b0464_4730_440f_bd3e_efe8a8f230a8)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(FrameControlCapabilities)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FrameControlCapabilities)]
                 interface IFrameControlCapabilities2 {
                     #[get]
                     Flash: FrameFlashCapabilities;
@@ -205,8 +205,8 @@ mod Windows {
                     FlashControl: FrameFlashControl;
                 }
                 #[guid(0xbdbe9ce3_3985_4e72_97c2_0590d61307a1)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(FrameExposureCapabilities)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FrameExposureCapabilities)]
                 interface IFrameExposureCapabilities {
                     #[get]
                     Supported: bool;
@@ -255,8 +255,8 @@ mod Windows {
                     PowerSupported: bool;
                 }
                 #[guid(0x75d5f6c7_bd45_4fab_9375_45ac04b332c2)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(FrameFlashControl)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(FrameFlashControl)]
                 interface IFrameFlashControl {
                     Mode: FrameFlashMode;
                     Auto: bool;
@@ -318,10 +318,10 @@ mod Windows {
                     #[get]
                     DesiredFrameControllers: super::super::super::Foundation::Collections::IVector<FrameController>;
                 }
-                #[Windows::Foundation::Metadata::Threading(MTA)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+                #[Windows::Foundation::Metadata::Threading(MTA)]
                 class VariablePhotoSequenceController {
                     IVariablePhotoSequenceController,
                 }

@@ -3,10 +3,10 @@ mod Windows {
     mod UI {
         mod Core {
             mod AnimationMetrics {
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Activatable(IAnimationDescriptionFactory, 65536, "Windows.UI.Core.AnimationMetrics.AnimationMetricsContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
-                #[Windows::Foundation::Metadata::Activatable(IAnimationDescriptionFactory, 65536, "Windows.UI.Core.AnimationMetrics.AnimationMetricsContract")]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class AnimationDescription {
                     IAnimationDescription,
                 }
@@ -74,8 +74,8 @@ mod Windows {
                     Shown = 18,
                     Tapped = 19,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(65536)]
                 #[Windows::Foundation::Metadata::ApiContract]
+                #[Windows::Foundation::Metadata::ContractVersion(65536)]
                 struct AnimationMetricsContract {}
                 #[guid(0x7d11a549_be3d_41de_b081_05c149962f9b)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
@@ -93,14 +93,14 @@ mod Windows {
                     ZOrder: i32;
                 }
                 #[guid(0xc6e27abe_c1fb_48b5_9271_ecc70ac86ef0)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(AnimationDescription)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(AnimationDescription)]
                 interface IAnimationDescriptionFactory {
                     fn CreateInstance(&self, effect: AnimationEffect, target: AnimationEffectTarget) -> AnimationDescription;
                 }
                 #[guid(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(OpacityAnimation)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(OpacityAnimation)]
                 interface IOpacityAnimation: IPropertyAnimation {
                     #[get]
                     InitialOpacity: super::super::super::Foundation::IReference<f32>;
@@ -122,8 +122,8 @@ mod Windows {
                     Control2: super::super::super::Foundation::Point;
                 }
                 #[guid(0x023552c7_71ab_428c_9c9f_d31780964995)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ScaleAnimation)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ScaleAnimation)]
                 interface IScaleAnimation: IPropertyAnimation {
                     #[get]
                     InitialScaleX: super::super::super::Foundation::IReference<f32>;
@@ -136,16 +136,16 @@ mod Windows {
                     #[get]
                     NormalizedOrigin: super::super::super::Foundation::Point;
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
                 class OpacityAnimation {
                     IOpacityAnimation,
                     IPropertyAnimation,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PropertyAnimation {
                     IPropertyAnimation,
                 }
@@ -163,8 +163,8 @@ mod Windows {
                     IScaleAnimation,
                     IPropertyAnimation,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
                 #[Windows::Foundation::Metadata::ContractVersion(AnimationMetricsContract, 65536)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 100794368)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class TranslationAnimation {
                     IPropertyAnimation,

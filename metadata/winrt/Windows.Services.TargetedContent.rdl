@@ -3,8 +3,8 @@ mod Windows {
     mod Services {
         mod TargetedContent {
             #[guid(0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentAction)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentAction)]
             interface ITargetedContentAction {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn InvokeAsync(&self) -> super::super::Foundation::IAsyncAction;
@@ -108,8 +108,8 @@ mod Windows {
                 Value: TargetedContentValue;
             }
             #[guid(0x9a1cef3d_8073_4416_8df2_546835a6414f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentStateChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentStateChangedEventArgs)]
             interface ITargetedContentStateChangedEventArgs {
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
@@ -126,8 +126,8 @@ mod Windows {
                 event StateChanged: super::super::Foundation::TypedEventHandler<TargetedContentSubscription, TargetedContentStateChangedEventArgs>;
             }
             #[guid(0x61ee6ad0_2c83_421b_8467_413eaf1aeb97)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentSubscriptionOptions)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentSubscriptionOptions)]
             interface ITargetedContentSubscriptionOptions {
                 #[get]
                 SubscriptionId: String;
@@ -139,8 +139,8 @@ mod Windows {
                 fn Update(&self);
             }
             #[guid(0xfaddfe80_360d_4916_b53c_7ea27090d02a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentSubscription)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TargetedContentSubscription)]
             interface ITargetedContentSubscriptionStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn GetAsync(&self, subscriptionId: String) -> super::super::Foundation::IAsyncOperation<TargetedContentSubscription>;
@@ -183,8 +183,8 @@ mod Windows {
                 #[get]
                 Actions: super::super::Foundation::Collections::IVectorView<TargetedContentAction>;
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TargetedContentAction {
@@ -204,32 +204,32 @@ mod Windows {
                 Partial = 1,
                 All = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TargetedContentAvailabilityChangedEventArgs {
                 ITargetedContentAvailabilityChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TargetedContentChangedEventArgs {
                 ITargetedContentChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TargetedContentCollection {
                 ITargetedContentCollection,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ITargetedContentContainerStatics, 65536, "Windows.Services.TargetedContent.TargetedContentContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TargetedContentContainer {
                 ITargetedContentContainer,
             }
@@ -237,15 +237,15 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct TargetedContentContract {}
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TargetedContentFile {
                 super::super::Storage::Streams::IRandomAccessStreamReference,
             }
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TargetedContentImage {
                 ITargetedContentImage,
@@ -268,24 +268,24 @@ mod Windows {
                 Conversion = 11,
                 Opportunity = 12,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TargetedContentItem {
                 ITargetedContentItem,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TargetedContentItemState {
                 ITargetedContentItemState,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TargetedContentObject {
                 ITargetedContentObject,
             }
@@ -297,31 +297,31 @@ mod Windows {
                 Value = 2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             class TargetedContentStateChangedEventArgs {
                 ITargetedContentStateChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(ITargetedContentSubscriptionStatics, 65536, "Windows.Services.TargetedContent.TargetedContentContract")]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ITargetedContentSubscriptionStatics, 65536, "Windows.Services.TargetedContent.TargetedContentContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TargetedContentSubscription {
                 ITargetedContentSubscription,
             }
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             class TargetedContentSubscriptionOptions {
                 ITargetedContentSubscriptionOptions,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::ContractVersion(TargetedContentContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TargetedContentValue {
                 ITargetedContentValue,
             }

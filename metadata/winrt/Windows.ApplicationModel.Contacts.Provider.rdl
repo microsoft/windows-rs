@@ -20,8 +20,8 @@ mod Windows {
                     IContactRemovedEventArgs,
                 }
                 #[guid(0xe2cc1366_cf66_43c4_a96a_a5a112db4746)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContactPickerUI)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactPickerUI)]
                 interface IContactPickerUI {
                     #[Windows::Foundation::Metadata::Deprecated("AddContact may be altered or unavailable for releases after Windows 8.1. Instead, use AddContact without the ID.", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                     fn AddContact(&self, id: String, contact: super::Contact) -> AddContactResult;
@@ -35,8 +35,8 @@ mod Windows {
                     event ContactRemoved: super::super::super::Foundation::TypedEventHandler<ContactPickerUI, ContactRemovedEventArgs>;
                 }
                 #[guid(0x6e449e28_7b25_4999_9b0b_875400a1e8c8)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContactPickerUI)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactPickerUI)]
                 interface IContactPickerUI2 {
                     fn AddContact(&self, contact: super::Contact) -> AddContactResult;
                     #[get]
@@ -51,8 +51,8 @@ mod Windows {
                     ContactListId: String;
                 }
                 #[guid(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(ContactRemovedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 65536)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(ContactRemovedEventArgs)]
                 interface IContactRemovedEventArgs {
                     #[get]
                     Id: String;

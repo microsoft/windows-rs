@@ -5,8 +5,8 @@ mod Windows {
             mod PrintSupport {
                 #[guid(0x913cd9e0_cb44_5ae4_b984_f6e80e872320)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportAppInfo)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IPrintSupportAppInfo {
                     #[get]
                     AppInfo: super::super::super::ApplicationModel::AppInfo;
@@ -14,9 +14,9 @@ mod Windows {
                     SupportedContracts: PrintSupportAppContracts;
                 }
                 #[guid(0x3246a41d_2757_544d_aafa_b38461896270)]
-                #[Windows::Foundation::Metadata::Experimental]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportAppInfo)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportAppInfo)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IPrintSupportAppInfoStatics {
                     fn GetPrintJobShowsUI(&self, printerName: String, printTicket: super::PrintTicket::WorkflowPrintTicket) -> super::super::super::Foundation::IReference<bool>;
                     fn FromPrinterName(&self, printerName: String) -> PrintSupportAppInfo;
@@ -41,8 +41,8 @@ mod Windows {
                     Printer: super::super::super::Devices::Printers::IppPrintDevice;
                 }
                 #[guid(0xeea45f1a_f4c6_54b3_a0b8_a559839aa4c3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportExtensionSession)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportExtensionSession)]
                 interface IPrintSupportExtensionSession {
                     #[get]
                     Printer: super::super::super::Devices::Printers::IppPrintDevice;
@@ -83,8 +83,8 @@ mod Windows {
                     IppJobTimeouts: PrintSupportIppCommunicationTimeouts;
                 }
                 #[guid(0xa3b2de71_564c_5806_a1a9_c6043ca5d373)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportIppCommunicationTimeouts)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportIppCommunicationTimeouts)]
                 interface IPrintSupportIppCommunicationTimeouts {
                     ConnectTimeout: super::super::super::Foundation::TimeSpan;
                     SendTimeout: super::super::super::Foundation::TimeSpan;
@@ -103,8 +103,8 @@ mod Windows {
                     FaxOutputQuality: XpsImageQuality;
                 }
                 #[guid(0x15969bf0_9028_5722_8a37_7d7c34b41dd6)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
                 interface IPrintSupportPrintDeviceCapabilitiesChangedEventArgs {
                     fn GetCurrentPrintDeviceCapabilities(&self) -> super::super::super::Data::Xml::Dom::XmlDocument;
                     fn UpdatePrintDeviceCapabilities(&self, updatedPdc: super::super::super::Data::Xml::Dom::XmlDocument);
@@ -122,8 +122,8 @@ mod Windows {
                     fn SetPrintDeviceCapabilitiesUpdatePolicy(&self, updatePolicy: PrintSupportPrintDeviceCapabilitiesUpdatePolicy);
                 }
                 #[guid(0xd4e9b3fc_8094_5cb6_a343_ce7a97187b45)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
                 interface IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3 {
                     #[get]
                     CommunicationConfiguration: PrintSupportIppCommunicationConfiguration;
@@ -136,17 +136,17 @@ mod Windows {
                     MxdcImageQualityConfiguration: PrintSupportMxdcImageQualityConfiguration;
                 }
                 #[guid(0xbc72f631_8177_5ef0_94c1_929080525b5a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesChangedEventArgs)]
                 interface IPrintSupportPrintDeviceCapabilitiesChangedEventArgs5 {
                     fn SetPdlPassthroughWithJobAttributesSupported(&self, supported: bool);
                 }
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesUpdatePolicy)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesUpdatePolicy)]
                 interface IPrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
                 #[guid(0x3d9e1a70_7c39_551f_aa1f_f8ca35b3119e)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesUpdatePolicy)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintDeviceCapabilitiesUpdatePolicy)]
                 interface IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics {
                     fn CreatePeriodicRefresh(&self, updatePeriod: super::super::super::Foundation::TimeSpan) -> PrintSupportPrintDeviceCapabilitiesUpdatePolicy;
                     fn CreatePrintJobRefresh(&self, numberOfJobs: u32) -> PrintSupportPrintDeviceCapabilitiesUpdatePolicy;
@@ -159,8 +159,8 @@ mod Windows {
                     NamespaceUri: String;
                 }
                 #[guid(0x338e4e69_db55_55c7_8338_ef64680a8f90)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintTicketValidationRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintTicketValidationRequestedEventArgs)]
                 interface IPrintSupportPrintTicketValidationRequestedEventArgs {
                     #[get]
                     PrintTicket: super::PrintTicket::WorkflowPrintTicket;
@@ -169,14 +169,14 @@ mod Windows {
                 }
                 #[guid(0x39749075_d02d_5fd1_9c4b_46bb8db7316b)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
-                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrintTicketValidationRequestedEventArgs)]
+                #[Windows::Foundation::Metadata::Experimental]
                 interface IPrintSupportPrintTicketValidationRequestedEventArgs2 {
                     fn SetPrintJobShowsUI(&self, showsUI: bool);
                 }
                 #[guid(0x7b1cb7d9_a8a4_5c09_adb2_66165f817977)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrinterSelectedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportPrinterSelectedEventArgs)]
                 interface IPrintSupportPrinterSelectedEventArgs {
                     #[get]
                     SourceAppInfo: super::super::super::ApplicationModel::AppInfo;
@@ -206,8 +206,8 @@ mod Windows {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0xabe45f6e_dc9d_5403_8107_c864d9276367)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportSettingsActivatedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(PrintSupportSettingsActivatedEventArgs)]
                 interface IPrintSupportSettingsActivatedEventArgs2 {
                     #[get]
                     OwnerWindowId: super::super::super::UI::WindowId;
@@ -256,28 +256,28 @@ mod Windows {
                     VirtualPrinterBackgroundSession = 16,
                     EnterpriseManagementUI = 32,
                 }
-                #[Windows::Foundation::Metadata::Experimental]
-                #[Windows::Foundation::Metadata::Static(IPrintSupportAppInfoStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::Experimental]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IPrintSupportAppInfoStatics, 1245184, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintSupportAppInfo {
                     IPrintSupportAppInfo,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1114112)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintSupportCommunicationErrorDetectedEventArgs {
                     IPrintSupportCommunicationErrorDetectedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 1245184)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintSupportEnterpriseManagementUIEventArgs {
                     IPrintSupportEnterpriseManagementUIEventArgs,
                     super::super::super::ApplicationModel::Activation::IActivatedEventArgs,
                     super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintSupportExtensionSession {
                     IPrintSupportExtensionSession,
                     IPrintSupportExtensionSession2,
@@ -319,10 +319,10 @@ mod Windows {
                 class PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
                     IPrintSupportPrintDeviceCapabilitiesUpdatePolicy,
                 }
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::Activatable(983040, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class PrintSupportPrintTicketElement {
                     IPrintSupportPrintTicketElement,
                 }
@@ -332,13 +332,13 @@ mod Windows {
                     IPrintSupportPrintTicketValidationRequestedEventArgs,
                     IPrintSupportPrintTicketValidationRequestedEventArgs2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 983040)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintSupportPrinterSelectedEventArgs {
                     IPrintSupportPrinterSelectedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintSupportSessionInfo {
                     IPrintSupportSessionInfo,
                 }
@@ -350,8 +350,8 @@ mod Windows {
                     super::super::super::ApplicationModel::Activation::IActivatedEventArgs,
                     super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 851968)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class PrintSupportSettingsUISession {
                     IPrintSupportSettingsUISession,
                 }

@@ -16,13 +16,13 @@ mod Windows {
                 fn FromId(&self, deviceId: String) -> super::super::Storage::StorageFolder;
                 fn GetDeviceSelector(&self) -> String;
             }
-            #[Windows::Foundation::Metadata::ContractVersion(65536)]
             #[Windows::Foundation::Metadata::ApiContract]
+            #[Windows::Foundation::Metadata::ContractVersion(65536)]
             struct PortableDeviceContract {}
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(PortableDeviceContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(IServiceDeviceStatics, 65536, "Windows.Devices.Portable.PortableDeviceContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IServiceDeviceStatics, 65536, "Windows.Devices.Portable.PortableDeviceContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ServiceDevice {}
             #[repr(i32)]
             #[Windows::Foundation::Metadata::ContractVersion(PortableDeviceContract, 65536)]
@@ -35,10 +35,10 @@ mod Windows {
                 SmsService = 5,
                 TasksService = 6,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(PortableDeviceContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IStorageDeviceStatics, 65536, "Windows.Devices.Portable.PortableDeviceContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class StorageDevice {}
         }
     }

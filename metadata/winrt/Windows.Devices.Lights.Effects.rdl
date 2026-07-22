@@ -15,22 +15,22 @@ mod Windows {
                     event BitmapRequested: super::super::super::Foundation::TypedEventHandler<LampArrayBitmapEffect, LampArrayBitmapRequestedEventArgs>;
                 }
                 #[guid(0x13608090_e336_4c8f_9053_a92407ca7b1d)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayBitmapEffect)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayBitmapEffect)]
                 interface ILampArrayBitmapEffectFactory {
                     fn CreateInstance(&self, lampArray: super::LampArray, lampIndexes: [i32]) -> LampArrayBitmapEffect;
                 }
                 #[guid(0xc8b4af9e_fe63_4d51_babd_619defb454ba)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayBitmapRequestedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayBitmapRequestedEventArgs)]
                 interface ILampArrayBitmapRequestedEventArgs {
                     #[get]
                     SinceStarted: super::super::super::Foundation::TimeSpan;
                     fn UpdateBitmap(&self, bitmap: super::super::super::Graphics::Imaging::SoftwareBitmap);
                 }
                 #[guid(0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayBlinkEffect)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayBlinkEffect)]
                 interface ILampArrayBlinkEffect {
                     Color: super::super::super::UI::Color;
                     AttackDuration: super::super::super::Foundation::TimeSpan;
@@ -42,14 +42,14 @@ mod Windows {
                     RepetitionMode: LampArrayRepetitionMode;
                 }
                 #[guid(0x879f1d97_9f50_49b2_a56f_013aa08d55e0)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayBlinkEffect)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayBlinkEffect)]
                 interface ILampArrayBlinkEffectFactory {
                     fn CreateInstance(&self, lampArray: super::LampArray, lampIndexes: [i32]) -> LampArrayBlinkEffect;
                 }
                 #[guid(0x2b004437_40a7_432e_a0b9_0d570c2153ff)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayColorRampEffect)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(LampArrayColorRampEffect)]
                 interface ILampArrayColorRampEffect {
                     Color: super::super::super::UI::Color;
                     RampDuration: super::super::super::Foundation::TimeSpan;
@@ -129,38 +129,38 @@ mod Windows {
                     fn SetColorsForIndices(&self, desiredColors: [super::super::super::UI::Color], lampIndexes: [i32]);
                 }
                 #[Windows::Foundation::Metadata::Activatable(ILampArrayBitmapEffectFactory, 458752, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class LampArrayBitmapEffect {
                     ILampArrayBitmapEffect,
                     ILampArrayEffect,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class LampArrayBitmapRequestedEventArgs {
                     ILampArrayBitmapRequestedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(ILampArrayBlinkEffectFactory, 458752, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class LampArrayBlinkEffect {
                     ILampArrayBlinkEffect,
                     ILampArrayEffect,
                 }
+                #[Windows::Foundation::Metadata::Activatable(ILampArrayColorRampEffectFactory, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Activatable(ILampArrayColorRampEffectFactory, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class LampArrayColorRampEffect {
                     ILampArrayColorRampEffect,
                     ILampArrayEffect,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::Activatable(ILampArrayCustomEffectFactory, 458752, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class LampArrayCustomEffect {
                     ILampArrayCustomEffect,
                     ILampArrayEffect,
@@ -171,11 +171,11 @@ mod Windows {
                     ClearState = 0,
                     KeepState = 1,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Static(ILampArrayEffectPlaylistStatics, 458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Activatable(458752, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ILampArrayEffectPlaylistStatics, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class LampArrayEffectPlaylist {
                     ILampArrayEffectPlaylist,
                     super::super::super::Foundation::Collections::IVectorView<ILampArrayEffect>,
@@ -193,10 +193,10 @@ mod Windows {
                     Occurrences = 0,
                     Forever = 1,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
                 #[Windows::Foundation::Metadata::Activatable(ILampArraySolidEffectFactory, 458752, "Windows.Foundation.UniversalApiContract")]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 458752)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class LampArraySolidEffect {
                     ILampArraySolidEffect,
                     ILampArrayEffect,

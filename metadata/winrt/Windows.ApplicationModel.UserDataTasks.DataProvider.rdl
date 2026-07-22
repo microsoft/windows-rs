@@ -4,8 +4,8 @@ mod Windows {
         mod UserDataTasks {
             mod DataProvider {
                 #[guid(0x9ff39d1d_a447_428b_afe9_e5402bdeb041)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskDataProviderConnection)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskDataProviderConnection)]
                 interface IUserDataTaskDataProviderConnection {
                     event CreateOrUpdateTaskRequested: super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListCreateOrUpdateTaskRequestEventArgs>;
                     event SyncRequested: super::super::super::Foundation::TypedEventHandler<UserDataTaskDataProviderConnection, UserDataTaskListSyncManagerSyncRequestEventArgs>;
@@ -15,8 +15,8 @@ mod Windows {
                     fn Start(&self);
                 }
                 #[guid(0xae273202_b1c9_453e_afc5_b30af3bd217d)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskDataProviderTriggerDetails)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskDataProviderTriggerDetails)]
                 interface IUserDataTaskDataProviderTriggerDetails {
                     #[get]
                     Connection: UserDataTaskDataProviderConnection;
@@ -43,8 +43,8 @@ mod Windows {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x2133772c_55c2_4300_8279_04326e07cce4)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskListCreateOrUpdateTaskRequest)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskListCreateOrUpdateTaskRequest)]
                 interface IUserDataTaskListCreateOrUpdateTaskRequest {
                     #[get]
                     TaskListId: String;
@@ -64,8 +64,8 @@ mod Windows {
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0x4b863c68_7657_4f3d_b074_d47ec8df07e7)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskListDeleteTaskRequest)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskListDeleteTaskRequest)]
                 interface IUserDataTaskListDeleteTaskRequest {
                     #[get]
                     TaskListId: String;
@@ -98,8 +98,8 @@ mod Windows {
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x7a3b924a_cc2f_4e7b_aacd_a5b9d29cfa4e)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskListSkipOccurrenceRequestEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskListSkipOccurrenceRequestEventArgs)]
                 interface IUserDataTaskListSkipOccurrenceRequestEventArgs {
                     #[get]
                     Request: UserDataTaskListSkipOccurrenceRequest;
@@ -117,28 +117,28 @@ mod Windows {
                     fn ReportFailedAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x8ead1c12_768e_43bd_8385_5cdc351ffdea)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskListSyncManagerSyncRequestEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(UserDataTaskListSyncManagerSyncRequestEventArgs)]
                 interface IUserDataTaskListSyncManagerSyncRequestEventArgs {
                     #[get]
                     Request: UserDataTaskListSyncManagerSyncRequest;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class UserDataTaskDataProviderConnection {
                     IUserDataTaskDataProviderConnection,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class UserDataTaskDataProviderTriggerDetails {
                     IUserDataTaskDataProviderTriggerDetails,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class UserDataTaskListCompleteTaskRequest {
                     IUserDataTaskListCompleteTaskRequest,
                 }
@@ -148,51 +148,51 @@ mod Windows {
                 class UserDataTaskListCompleteTaskRequestEventArgs {
                     IUserDataTaskListCompleteTaskRequestEventArgs,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class UserDataTaskListCreateOrUpdateTaskRequest {
                     IUserDataTaskListCreateOrUpdateTaskRequest,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 class UserDataTaskListCreateOrUpdateTaskRequestEventArgs {
                     IUserDataTaskListCreateOrUpdateTaskRequestEventArgs,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class UserDataTaskListDeleteTaskRequest {
                     IUserDataTaskListDeleteTaskRequest,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class UserDataTaskListDeleteTaskRequestEventArgs {
                     IUserDataTaskListDeleteTaskRequestEventArgs,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 class UserDataTaskListSkipOccurrenceRequest {
                     IUserDataTaskListSkipOccurrenceRequest,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 class UserDataTaskListSkipOccurrenceRequestEventArgs {
                     IUserDataTaskListSkipOccurrenceRequestEventArgs,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 class UserDataTaskListSyncManagerSyncRequest {
                     IUserDataTaskListSyncManagerSyncRequest,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class UserDataTaskListSyncManagerSyncRequestEventArgs {
                     IUserDataTaskListSyncManagerSyncRequestEventArgs,
                 }

@@ -3,9 +3,9 @@ mod Windows {
     mod Win32 {
         #[guid(0xd3ee12ad_3865_4362_9746_b75a682df0e6)]
         interface IAccountsSettingsPaneInterop: IInspectable {
-            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] accountsSettingsPane: *mut *mut void) -> HRESULT;
-            fn ShowManageAccountsForWindowAsync(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] asyncAction: *mut *mut void) -> HRESULT;
-            fn ShowAddAccountForWindowAsync(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] asyncAction: *mut *mut void) -> HRESULT;
+            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[iid_is] #[retval] accountsSettingsPane: *mut *mut void) -> HRESULT;
+            fn ShowManageAccountsForWindowAsync(&self, appWindow: HWND, riid: *const GUID, #[iid_is] #[retval] asyncAction: *mut *mut void) -> HRESULT;
+            fn ShowAddAccountForWindowAsync(&self, appWindow: HWND, riid: *const GUID, #[iid_is] #[retval] asyncAction: *mut *mut void) -> HRESULT;
         }
     }
 }

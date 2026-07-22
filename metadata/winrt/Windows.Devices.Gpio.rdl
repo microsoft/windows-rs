@@ -9,8 +9,8 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::Activatable(IGpioChangeCounterFactory, 196608, "Windows.Devices.DevicesLowLevelContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class GpioChangeCounter {
                 IGpioChangeCounter,
                 super::super::Foundation::IClosable,
@@ -22,10 +22,10 @@ mod Windows {
                 Rising = 1,
                 Both = 2,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::Activatable(IGpioChangeReaderFactory, 196608, "Windows.Devices.DevicesLowLevelContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class GpioChangeReader {
                 IGpioChangeReader,
                 super::super::Foundation::IClosable,
@@ -35,11 +35,11 @@ mod Windows {
                 RelativeTime: super::super::Foundation::TimeSpan,
                 Edge: GpioPinEdge,
             }
-            #[Windows::Foundation::Metadata::Static(IGpioControllerStatics2, 131072, "Windows.Devices.DevicesLowLevelContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IGpioControllerStatics, 65536, "Windows.Devices.DevicesLowLevelContract")]
+            #[Windows::Foundation::Metadata::Static(IGpioControllerStatics2, 131072, "Windows.Devices.DevicesLowLevelContract")]
             class GpioController {
                 IGpioController,
             }
@@ -52,8 +52,8 @@ mod Windows {
                 MuxingConflict = 3,
                 UnknownError = 4,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class GpioPin {
                 IGpioPin,
@@ -83,9 +83,9 @@ mod Windows {
                 Low = 0,
                 High = 1,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class GpioPinValueChangedEventArgs {
                 IGpioPinValueChangedEventArgs,
             }
@@ -96,8 +96,8 @@ mod Windows {
                 SharedReadOnly = 1,
             }
             #[guid(0xcb5ec0de_6801_43ff_803d_4576628a8b26)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GpioChangeCounter)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioChangeCounter)]
             interface IGpioChangeCounter: super::super::Foundation::IClosable {
                 #[set]
                 Polarity: GpioChangePolarity;
@@ -117,8 +117,8 @@ mod Windows {
                 fn Create(&self, pin: GpioPin) -> GpioChangeCounter;
             }
             #[guid(0x0abc885f_e031_48e8_8590_70de78363c6d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GpioChangeReader)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioChangeReader)]
             interface IGpioChangeReader: super::super::Foundation::IClosable {
                 #[get]
                 Capacity: i32;
@@ -151,8 +151,8 @@ mod Windows {
                 fn CreateWithCapacity(&self, pin: GpioPin, minCapacity: i32) -> GpioChangeReader;
             }
             #[guid(0x284012e3_7461_469c_a8bc_61d69d08a53c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GpioController)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioController)]
             interface IGpioController {
                 #[get]
                 PinCount: i32;
@@ -163,8 +163,8 @@ mod Windows {
                 fn TryOpenPin(&self, pinNumber: i32, sharingMode: GpioSharingMode, pin: &mut GpioPin, openStatus: &mut GpioOpenStatus) -> bool;
             }
             #[guid(0x2ed6f42e_7af7_4116_9533_c43d99a1fb64)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GpioController)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioController)]
             interface IGpioControllerStatics {
                 fn GetDefault(&self) -> GpioController;
             }
@@ -178,8 +178,8 @@ mod Windows {
                 fn GetDefaultAsync(&self) -> super::super::Foundation::IAsyncOperation<GpioController>;
             }
             #[guid(0x11d9b087_afae_4790_9ee9_e0eac942d201)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(GpioPin)]
             #[Windows::Foundation::Metadata::ContractVersion(super::DevicesLowLevelContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(GpioPin)]
             interface IGpioPin: super::super::Foundation::IClosable {
                 event ValueChanged: super::super::Foundation::TypedEventHandler<GpioPin, GpioPinValueChangedEventArgs>;
                 DebounceTimeout: super::super::Foundation::TimeSpan;

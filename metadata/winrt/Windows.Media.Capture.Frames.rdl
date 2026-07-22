@@ -3,31 +3,31 @@ mod Windows {
     mod Media {
         mod Capture {
             mod Frames {
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class AudioMediaFrame {
                     IAudioMediaFrame,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class BufferMediaFrame {
                     IBufferMediaFrame,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class DepthMediaFrame {
                     IDepthMediaFrame,
                     IDepthMediaFrame2,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class DepthMediaFrameFormat {
                     IDepthMediaFrameFormat,
                 }
@@ -51,8 +51,8 @@ mod Windows {
                     Buffer: super::super::super::Storage::Streams::IBuffer;
                 }
                 #[guid(0x47135e4f_8549_45c0_925b_80d35efdb10a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DepthMediaFrame)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DepthMediaFrame)]
                 interface IDepthMediaFrame {
                     #[get]
                     FrameReference: MediaFrameReference;
@@ -63,8 +63,8 @@ mod Windows {
                     fn TryCreateCoordinateMapper(&self, cameraIntrinsics: super::super::Devices::Core::CameraIntrinsics, coordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem) -> super::super::Devices::Core::DepthCorrelatedCoordinateMapper;
                 }
                 #[guid(0x6cca473d_c4a4_4176_b0cd_33eae3b35aa3)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DepthMediaFrame)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DepthMediaFrame)]
                 interface IDepthMediaFrame2 {
                     #[get]
                     MaxReliableDepth: u32;
@@ -72,8 +72,8 @@ mod Windows {
                     MinReliableDepth: u32;
                 }
                 #[guid(0xc312cf40_d729_453e_8780_2e04f140d28e)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(DepthMediaFrameFormat)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(DepthMediaFrameFormat)]
                 interface IDepthMediaFrameFormat {
                     #[get]
                     VideoFormat: VideoMediaFrameFormat;
@@ -92,8 +92,8 @@ mod Windows {
                     IsIlluminated: bool;
                 }
                 #[guid(0x0b430add_a490_4435_ada1_9affd55239f7)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameArrivedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameArrivedEventArgs)]
                 interface IMediaFrameArrivedEventArgs {}
                 #[guid(0x71902b4e_b279_4a97_a9db_bd5a2fb78f39)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
@@ -111,8 +111,8 @@ mod Windows {
                     VideoFormat: VideoMediaFrameFormat;
                 }
                 #[guid(0x63856340_5e87_4c10_86d1_6df097a6c6a8)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameFormat)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameFormat)]
                 interface IMediaFrameFormat2 {
                     #[get]
                     AudioEncodingProperties: super::super::MediaProperties::AudioEncodingProperties;
@@ -129,8 +129,8 @@ mod Windows {
                     fn StopAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0x871127b3_8531_4050_87cc_a13733cf3e9b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameReader)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameReader)]
                 interface IMediaFrameReader2 {
                     #[set]
                     AcquisitionMode: MediaFrameReaderAcquisitionMode;
@@ -159,15 +159,15 @@ mod Windows {
                     CoordinateSystem: super::super::super::Perception::Spatial::SpatialCoordinateSystem;
                 }
                 #[guid(0xddbc3ecc_d5b2_49ef_836a_947d989b80c1)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameReference)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 393216)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameReference)]
                 interface IMediaFrameReference2 {
                     #[get]
                     AudioMediaFrame: AudioMediaFrame;
                 }
                 #[guid(0xd6782953_90db_46a8_8add_2aa884a8d253)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSource)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSource)]
                 interface IMediaFrameSource {
                     #[get]
                     Info: MediaFrameSourceInfo;
@@ -183,8 +183,8 @@ mod Windows {
                     fn TryGetCameraIntrinsics(&self, format: MediaFrameFormat) -> super::super::Devices::Core::CameraIntrinsics;
                 }
                 #[guid(0x6d076635_316d_4b8f_b7b6_eeb04a8c6525)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSourceController)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSourceController)]
                 interface IMediaFrameSourceController {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetPropertyAsync(&self, propertyId: String) -> super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>;
@@ -194,8 +194,8 @@ mod Windows {
                     VideoDeviceController: super::super::Devices::VideoDeviceController;
                 }
                 #[guid(0xefc49fd4_fcf2_4a03_b4e4_ac9628739bee)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSourceController)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSourceController)]
                 interface IMediaFrameSourceController2 {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetPropertyByExtendedIdAsync(&self, extendedPropertyId: [u8], maxPropertyValueSize: super::super::super::Foundation::IReference<u32>) -> super::super::super::Foundation::IAsyncOperation<MediaFrameSourceGetPropertyResult>;
@@ -210,8 +210,8 @@ mod Windows {
                     AudioDeviceController: super::super::Devices::AudioDeviceController;
                 }
                 #[guid(0x088616c2_3a64_4bd5_bd2b_e7c898d2f37a)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSourceGetPropertyResult)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSourceGetPropertyResult)]
                 interface IMediaFrameSourceGetPropertyResult {
                     #[get]
                     Status: MediaFrameSourceGetPropertyStatus;
@@ -230,8 +230,8 @@ mod Windows {
                     SourceInfos: super::super::super::Foundation::Collections::IVectorView<MediaFrameSourceInfo>;
                 }
                 #[guid(0x1c48bfc5_436f_4508_94cf_d5d8b7326445)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSourceGroup)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MediaFrameSourceGroup)]
                 interface IMediaFrameSourceGroupStatics {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn FindAllAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<MediaFrameSourceGroup>>;
@@ -281,12 +281,12 @@ mod Windows {
                     IsShareable: bool;
                 }
                 #[guid(0x63115e01_cf51_48fd_aab0_6d693eb48127)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MultiSourceMediaFrameArrivedEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MultiSourceMediaFrameArrivedEventArgs)]
                 interface IMultiSourceMediaFrameArrivedEventArgs {}
                 #[guid(0x8d144402_f763_488d_98f2_b437bcf075e7)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MultiSourceMediaFrameReader)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MultiSourceMediaFrameReader)]
                 interface IMultiSourceMediaFrameReader: super::super::super::Foundation::IClosable {
                     event FrameArrived: super::super::super::Foundation::TypedEventHandler<MultiSourceMediaFrameReader, MultiSourceMediaFrameArrivedEventArgs>;
                     fn TryAcquireLatestFrame(&self) -> MultiSourceMediaFrameReference;
@@ -296,8 +296,8 @@ mod Windows {
                     fn StopAsync(&self) -> super::super::super::Foundation::IAsyncAction;
                 }
                 #[guid(0xef5c8abd_fc5c_4c6b_9d81_3cb9cc637c26)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MultiSourceMediaFrameReader)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 327680)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MultiSourceMediaFrameReader)]
                 interface IMultiSourceMediaFrameReader2 {
                     #[set]
                     AcquisitionMode: MediaFrameReaderAcquisitionMode;
@@ -305,14 +305,14 @@ mod Windows {
                     AcquisitionMode: MediaFrameReaderAcquisitionMode;
                 }
                 #[guid(0x21964b1a_7fe2_44d6_92e5_298e6d2810e9)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(MultiSourceMediaFrameReference)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(MultiSourceMediaFrameReference)]
                 interface IMultiSourceMediaFrameReference: super::super::super::Foundation::IClosable {
                     fn TryGetFrameReferenceBySourceId(&self, sourceId: String) -> MediaFrameReference;
                 }
                 #[guid(0x00dd4ccb_32bd_4fe1_a013_7cc13cf5dbcf)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(VideoMediaFrame)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VideoMediaFrame)]
                 interface IVideoMediaFrame {
                     #[get]
                     FrameReference: MediaFrameReference;
@@ -331,8 +331,8 @@ mod Windows {
                     fn GetVideoFrame(&self) -> super::super::VideoFrame;
                 }
                 #[guid(0x46027fc0_d71b_45c7_8f14_6d9a0ae604e4)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(VideoMediaFrameFormat)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(VideoMediaFrameFormat)]
                 interface IVideoMediaFrameFormat {
                     #[get]
                     MediaFrameFormat: MediaFrameFormat;
@@ -343,32 +343,32 @@ mod Windows {
                     #[get]
                     Height: u32;
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class InfraredMediaFrame {
                     IInfraredMediaFrame,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class MediaFrameArrivedEventArgs {
                     IMediaFrameArrivedEventArgs,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class MediaFrameFormat {
                     IMediaFrameFormat,
                     IMediaFrameFormat2,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class MediaFrameReader {
                     IMediaFrameReader,
                     super::super::super::Foundation::IClosable,
@@ -391,33 +391,33 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class MediaFrameReference {
                     IMediaFrameReference,
                     super::super::super::Foundation::IClosable,
                     IMediaFrameReference2,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class MediaFrameSource {
                     IMediaFrameSource,
                 }
-                #[Windows::Foundation::Metadata::Threading(Both)]
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class MediaFrameSourceController {
                     IMediaFrameSourceController,
                     IMediaFrameSourceController2,
                     IMediaFrameSourceController3,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class MediaFrameSourceGetPropertyResult {
                     IMediaFrameSourceGetPropertyResult,
                 }
@@ -433,15 +433,15 @@ mod Windows {
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
-                #[Windows::Foundation::Metadata::Static(IMediaFrameSourceGroupStatics, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(IMediaFrameSourceGroupStatics, 196608, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class MediaFrameSourceGroup {
                     IMediaFrameSourceGroup,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class MediaFrameSourceInfo {
                     IMediaFrameSourceInfo,
@@ -470,16 +470,16 @@ mod Windows {
                     DeviceNotAvailable = 4,
                     NotInControl = 5,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
-                #[Windows::Foundation::Metadata::Threading(Both)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Threading(Both)]
                 class MultiSourceMediaFrameArrivedEventArgs {
                     IMultiSourceMediaFrameArrivedEventArgs,
                 }
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class MultiSourceMediaFrameReader {
                     IMultiSourceMediaFrameReader,
@@ -495,25 +495,25 @@ mod Windows {
                     DeviceNotAvailable = 3,
                     UnknownFailure = 4,
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class MultiSourceMediaFrameReference {
                     IMultiSourceMediaFrameReference,
                     super::super::super::Foundation::IClosable,
                 }
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
                 class VideoMediaFrame {
                     IVideoMediaFrame,
                 }
+                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
                 #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772162)]
-                #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 196608)]
                 class VideoMediaFrameFormat {
                     IVideoMediaFrameFormat,
                 }

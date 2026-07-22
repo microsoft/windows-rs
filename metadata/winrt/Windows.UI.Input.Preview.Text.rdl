@@ -9,21 +9,21 @@ mod Windows {
                     class ConversionModeChangedEventArgs {
                         IConversionModeChangedEventArgs,
                     }
-                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     class FocusEnteredEventArgs {
                         IFocusEnteredEventArgs,
                     }
                     #[guid(0xb49761f9_5b21_513c_b6c0_78f27d26b010)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(ConversionModeChangedEventArgs)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ConversionModeChangedEventArgs)]
                     interface IConversionModeChangedEventArgs {
                         #[get]
                         NewConversionMode: TextConversionMode;
                     }
                     #[guid(0xca4dc200_875f_501d_af14_413a0aa1ed5f)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(FocusEnteredEventArgs)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(FocusEnteredEventArgs)]
                     interface IFocusEnteredEventArgs {
                         #[get]
                         FocusedTextBoxInfo: TextBoxInfo;
@@ -36,8 +36,8 @@ mod Windows {
                         DelegationOn: bool;
                     }
                     #[guid(0x0c30f686_a058_5ecc_abd2_9cc861c1185b)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(KeyEventReceivedEventArgs)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(KeyEventReceivedEventArgs)]
                     interface IKeyEventReceivedEventArgs {
                         #[get]
                         VirtualKey: super::super::super::super::System::VirtualKey;
@@ -54,8 +54,8 @@ mod Windows {
                         Handled: bool;
                     }
                     #[guid(0x2afe79b6_5818_50e0_8fa8_81bc96428c46)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(KeyboardInputProcessor)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(KeyboardInputProcessor)]
                     interface IKeyboardInputProcessor {
                         #[get]
                         InputProfile: String;
@@ -85,15 +85,15 @@ mod Windows {
                         event ReconversionRequested: super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, ReconversionRequestedEventArgs>;
                     }
                     #[guid(0x73852244_d202_55fe_9edf_beb7ec19f937)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(ReconversionRequestedEventArgs)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(ReconversionRequestedEventArgs)]
                     interface IReconversionRequestedEventArgs {
                         #[get]
                         Range: super::super::super::Text::Core::CoreTextRange;
                     }
                     #[guid(0x2cb70a41_5aed_58c5_b4c1_8ee4e1492f9e)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(TextBoxContentChangedEventArgs)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextBoxContentChangedEventArgs)]
                     interface ITextBoxContentChangedEventArgs {
                         #[get]
                         TextBoxId: TextBoxId;
@@ -121,15 +121,15 @@ mod Windows {
                         DisabledFeatures: TextBoxFeatures;
                     }
                     #[guid(0xac1275af_648c_5bac_b29f_d1ea17e9e6d6)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(TextBoxInfoChangedEventArgs)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextBoxInfoChangedEventArgs)]
                     interface ITextBoxInfoChangedEventArgs {
                         #[get]
                         TextBoxInfo: TextBoxInfo;
                     }
                     #[guid(0x5cea9aea_524d_50a4_b08a_c83d8d25ec6e)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(TextComposition)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextComposition)]
                     interface ITextComposition {
                         #[get]
                         Text: String;
@@ -161,8 +161,8 @@ mod Windows {
                         fn SetTextStyle(&self, value: TextStyle);
                     }
                     #[guid(0x0bcad18a_d31b_5787_aff9_995ee743aea8)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(TextEditSession)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextEditSession)]
                     interface ITextEditSession {
                         #[get]
                         TextBoxId: TextBoxId;
@@ -212,8 +212,8 @@ mod Windows {
                         event InputDelegationModeChanged: super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, InputDelegationModeChangedEventArgs>;
                     }
                     #[guid(0x8e23f89c_ab1f_551a_8751_7d4f29e34d88)]
-                    #[Windows::Foundation::Metadata::ExclusiveTo(TextInputService)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::ExclusiveTo(TextInputService)]
                     interface ITextInputService {
                         fn CreateKeyboardInputProcessor(&self, inputProfile: String) -> KeyboardInputProcessor;
                         fn CreateTextInputProvider(&self, inputProfile: String) -> TextInputProvider;
@@ -224,8 +224,8 @@ mod Windows {
                     interface ITextInputServiceStatics {
                         fn GetForCurrentThread(&self) -> TextInputService;
                     }
-                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     class InputDelegationModeChangedEventArgs {
                         IInputDelegationModeChangedEventArgs,
                     }
@@ -238,8 +238,8 @@ mod Windows {
                         Gamepad = 3,
                         Injection = 4,
                     }
-                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     class KeyEventReceivedEventArgs {
                         IKeyEventReceivedEventArgs,
                     }
@@ -259,8 +259,8 @@ mod Windows {
                         Rejected = 5,
                         Canceled = 6,
                     }
-                    #[Windows::Foundation::Metadata::ContractVersion(65536)]
                     #[Windows::Foundation::Metadata::ApiContract]
+                    #[Windows::Foundation::Metadata::ContractVersion(65536)]
                     struct PreviewTextContract {}
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
@@ -330,8 +330,8 @@ mod Windows {
                     class TextComposition {
                         ITextComposition,
                     }
-                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
+                    #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     class TextCompositionSegment {
                         ITextCompositionSegment,
                     }
@@ -361,9 +361,9 @@ mod Windows {
                     class TextInputProvider {
                         ITextInputProvider,
                     }
+                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                     #[Windows::Foundation::Metadata::Static(ITextInputServiceStatics, 65536, "Windows.UI.Input.Preview.Text.PreviewTextContract")]
-                    #[Windows::Foundation::Metadata::ContractVersion(PreviewTextContract, 65536)]
                     #[Windows::Foundation::Metadata::Threading(Both)]
                     class TextInputService {
                         ITextInputService,

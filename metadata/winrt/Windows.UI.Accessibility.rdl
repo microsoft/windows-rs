@@ -3,8 +3,8 @@ mod Windows {
     mod UI {
         mod Accessibility {
             #[guid(0x557eb5e5_54d0_5ccd_9fc5_ed33357f8a9f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ScreenReaderPositionChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ScreenReaderPositionChangedEventArgs)]
             interface IScreenReaderPositionChangedEventArgs {
                 #[get]
                 ScreenPositionInRawPixels: super::super::Foundation::Rect;
@@ -12,22 +12,22 @@ mod Windows {
                 IsReadingText: bool;
             }
             #[guid(0x19475427_eac0_50d3_bdd9_9b487a226256)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ScreenReaderService)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ScreenReaderService)]
             interface IScreenReaderService {
                 #[get]
                 CurrentScreenReaderPosition: ScreenReaderPositionChangedEventArgs;
                 event ScreenReaderPositionChanged: super::super::Foundation::TypedEventHandler<ScreenReaderService, ScreenReaderPositionChangedEventArgs>;
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class ScreenReaderPositionChangedEventArgs {
                 IScreenReaderPositionChangedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(458752, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ScreenReaderService {
                 IScreenReaderService,
             }

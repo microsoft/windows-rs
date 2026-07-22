@@ -3,8 +3,8 @@ mod Windows {
     mod ApplicationModel {
         mod LockScreen {
             #[guid(0x38ee31ad_d94f_4e7c_81fa_4f4436506281)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LockApplicationHost)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LockApplicationHost)]
             interface ILockApplicationHost {
                 fn RequestUnlock(&self);
                 event Unlocking: super::super::Foundation::TypedEventHandler<LockApplicationHost, LockScreenUnlockingEventArgs>;
@@ -16,8 +16,8 @@ mod Windows {
                 fn GetForCurrentView(&self) -> LockApplicationHost;
             }
             #[guid(0xe95105d9_2bff_4db0_9b4f_3824778b9c9a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LockScreenBadge)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LockScreenBadge)]
             interface ILockScreenBadge {
                 #[get]
                 Logo: super::super::Storage::Streams::IRandomAccessStream;
@@ -47,8 +47,8 @@ mod Windows {
                 AlarmIcon: super::super::Storage::Streams::IRandomAccessStream;
             }
             #[guid(0x7e7d1ad6_5203_43e7_9bd6_7c3947d1e3fe)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LockScreenUnlockingDeferral)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LockScreenUnlockingDeferral)]
             interface ILockScreenUnlockingDeferral {
                 fn Complete(&self);
             }
@@ -67,27 +67,27 @@ mod Windows {
             class LockApplicationHost {
                 ILockApplicationHost,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LockScreenBadge {
                 ILockScreenBadge,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LockScreenInfo {
                 ILockScreenInfo,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LockScreenUnlockingDeferral {
                 ILockScreenUnlockingDeferral,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class LockScreenUnlockingEventArgs {
                 ILockScreenUnlockingEventArgs,
             }

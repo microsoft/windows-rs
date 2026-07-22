@@ -9,8 +9,8 @@ mod Windows {
                 Light = 1,
             }
             #[guid(0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(JumpList)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(JumpList)]
             interface IJumpList {
                 #[get]
                 Items: super::super::Foundation::Collections::IVector<JumpListItem>;
@@ -150,8 +150,8 @@ mod Windows {
                 event VisualElementsRequested: super::super::Foundation::TypedEventHandler<SecondaryTile, VisualElementsRequestedEventArgs>;
             }
             #[guid(0x57f52ca0_51bc_4abf_8ebf_627a0398b05a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
             interface ISecondaryTileFactory {
                 #[Windows::Foundation::Metadata::Deprecated("SecondaryTile(string, string, string, string, Windows.UI.StartScreen.TileOptions, Windows.Foundation.Uri) may be altered or unavailable for releases after Windows Phone 8.1. Instead, use SecondaryTile(string, string, string, Windows.Foundation.Uri, Windows.UI.StartScreen.TileSize).", Deprecate, 65536, "Windows.Foundation.UniversalApiContract")]
                 fn CreateTile(&self, tileId: String, shortName: String, displayName: String, arguments: String, tileOptions: TileOptions, logoReference: super::super::Foundation::Uri) -> SecondaryTile;
@@ -160,14 +160,14 @@ mod Windows {
                 fn CreateWithId(&self, tileId: String) -> SecondaryTile;
             }
             #[guid(0x274b8a3b_522d_448e_9eb2_d0672ab345c8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
             interface ISecondaryTileFactory2: ISecondaryTileFactory {
                 fn CreateMinimalTile(&self, tileId: String, displayName: String, arguments: String, square150x150Logo: super::super::Foundation::Uri, desiredSize: TileSize) -> SecondaryTile;
             }
             #[guid(0x99908dae_d051_4676_87fe_9ec242d83c74)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SecondaryTile)]
             interface ISecondaryTileStatics {
                 fn Exists(&self, tileId: String) -> bool;
                 #[Windows::Foundation::Metadata::Overload("FindAllAsync")]
@@ -265,8 +265,8 @@ mod Windows {
                 fn RequestAddAppListEntryAsync(&self, appListEntry: super::super::ApplicationModel::Core::AppListEntry) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x08a716b6_316b_4ad9_acb8_fe9cf00bd608)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(StartScreenManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StartScreenManager)]
             interface IStartScreenManager2: IStartScreenManager {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ContainsSecondaryTileAsync(&self, tileId: String) -> super::super::Foundation::IAsyncOperation<bool>;
@@ -274,8 +274,8 @@ mod Windows {
                 fn TryRemoveSecondaryTileAsync(&self, tileId: String) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x7865ef0f_b585_464e_8993_34e8f8738d48)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(StartScreenManager)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(StartScreenManager)]
             interface IStartScreenManagerStatics {
                 fn GetDefault(&self) -> StartScreenManager;
                 fn GetForUser(&self, user: super::super::System::User) -> StartScreenManager;
@@ -315,14 +315,14 @@ mod Windows {
                 fn GetDeferral(&self) -> VisualElementsRequestDeferral;
             }
             #[guid(0xa1656eb0_0126_4357_8204_bd82bb2a046d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VisualElementsRequestDeferral)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VisualElementsRequestDeferral)]
             interface IVisualElementsRequestDeferral {
                 fn Complete(&self);
             }
             #[guid(0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VisualElementsRequestedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VisualElementsRequestedEventArgs)]
             interface IVisualElementsRequestedEventArgs {
                 #[get]
                 Request: VisualElementsRequest;
@@ -352,19 +352,19 @@ mod Windows {
                 Frequent = 1,
                 Recent = 2,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(ISecondaryTileStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Activatable(ISecondaryTileFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(ISecondaryTileFactory2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
-            #[Windows::Foundation::Metadata::Activatable(ISecondaryTileFactory2, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ISecondaryTileStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class SecondaryTile {
                 ISecondaryTile,
                 ISecondaryTile2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Muse(Version = 100859904)]
             class SecondaryTileVisualElements {
                 ISecondaryTileVisualElements,
@@ -372,15 +372,15 @@ mod Windows {
                 ISecondaryTileVisualElements3,
                 ISecondaryTileVisualElements4,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IStartScreenManagerStatics, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             class StartScreenManager {
                 IStartScreenManager,
                 IStartScreenManager2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class TileMixedRealityModel {
                 ITileMixedRealityModel,
                 ITileMixedRealityModel2,
@@ -412,18 +412,18 @@ mod Windows {
                 Square71x71 = 6,
                 Square44x44 = 7,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class VisualElementsRequest {
                 IVisualElementsRequest,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class VisualElementsRequestDeferral {
                 IVisualElementsRequestDeferral,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class VisualElementsRequestedEventArgs {
                 IVisualElementsRequestedEventArgs,
             }

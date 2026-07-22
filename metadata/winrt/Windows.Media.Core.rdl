@@ -17,11 +17,11 @@ mod Windows {
                 LicensingRequirement = 1,
                 SpatialAudioNotSupported = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Activatable(IAudioStreamDescriptorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AudioStreamDescriptor {
                 IAudioStreamDescriptor,
                 IMediaStreamDescriptor,
@@ -29,32 +29,32 @@ mod Windows {
                 IMediaStreamDescriptor2,
                 IAudioStreamDescriptor3,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AudioTrack {
                 IMediaTrack,
                 IAudioTrack,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AudioTrackOpenFailedEventArgs {
                 IAudioTrackOpenFailedEventArgs,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             class AudioTrackSupportInfo {
                 IAudioTrackSupportInfo,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class ChapterCue {
                 IChapterCue,
@@ -66,10 +66,10 @@ mod Windows {
                 Encoder = 0,
                 Decoder = 1,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class CodecInfo {
                 ICodecInfo,
             }
@@ -79,58 +79,58 @@ mod Windows {
                 Audio = 0,
                 Video = 1,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772163)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class CodecQuery {
                 ICodecQuery,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
-            #[Windows::Foundation::Metadata::Static(ICodecSubtypesStatics2, 1245184, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(ICodecSubtypesStatics, 262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ICodecSubtypesStatics, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICodecSubtypesStatics2, 1245184, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class CodecSubtypes {}
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class DataCue {
                 IDataCue,
                 IMediaCue,
                 IDataCue2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class FaceDetectedEventArgs {
                 IFaceDetectedEventArgs,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class FaceDetectionEffect {
                 IFaceDetectionEffect,
                 super::IMediaExtension,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class FaceDetectionEffectDefinition {
                 super::Effects::IVideoEffectDefinition,
                 IFaceDetectionEffectDefinition,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class FaceDetectionEffectFrame {
                 IFaceDetectionEffectFrame,
                 super::IMediaFrame,
@@ -143,17 +143,17 @@ mod Windows {
                 Balanced = 1,
                 HighQuality = 2,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class HighDynamicRangeControl {
                 IHighDynamicRangeControl,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class HighDynamicRangeOutput {
                 IHighDynamicRangeOutput,
             }
@@ -165,8 +165,8 @@ mod Windows {
                 EncodingProperties: super::MediaProperties::AudioEncodingProperties;
             }
             #[guid(0x2e68f1f6_a448_497b_8840_85082665acf9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AudioStreamDescriptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioStreamDescriptor)]
             interface IAudioStreamDescriptor2: IMediaStreamDescriptor {
                 #[set]
                 LeadingEncoderPadding: super::super::Foundation::IReference<u32>;
@@ -184,8 +184,8 @@ mod Windows {
                 fn Copy(&self) -> AudioStreamDescriptor;
             }
             #[guid(0x4a86ce9e_4cb1_4380_8e0c_83504b7f5bf3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AudioStreamDescriptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AudioStreamDescriptor)]
             interface IAudioStreamDescriptorFactory {
                 fn Create(&self, encodingProperties: super::MediaProperties::AudioEncodingProperties) -> AudioStreamDescriptor;
             }
@@ -223,8 +223,8 @@ mod Windows {
                 MediaSourceStatus: MediaSourceStatus;
             }
             #[guid(0x72a98001_d38a_4c0a_8fa6_75cddaf4664c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ChapterCue)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ChapterCue)]
             interface IChapterCue: IMediaCue {
                 #[set]
                 Title: String;
@@ -247,8 +247,8 @@ mod Windows {
                 IsTrusted: bool;
             }
             #[guid(0x222a953a_af61_4e04_808a_a4634e2f3ac4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CodecQuery)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CodecQuery)]
             interface ICodecQuery {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn FindAllAsync(&self, kind: CodecKind, category: CodecCategory, subType: String) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<CodecInfo>>;
@@ -368,8 +368,8 @@ mod Windows {
                 VideoFormatAv1: String;
             }
             #[guid(0x7c7f676d_1fbc_4e2d_9a87_ee38bd1dc637)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(DataCue)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(DataCue)]
             interface IDataCue: IMediaCue {
                 #[set]
                 Data: super::super::Storage::Streams::IBuffer;
@@ -384,15 +384,15 @@ mod Windows {
                 Properties: super::super::Foundation::Collections::PropertySet;
             }
             #[guid(0x19918426_c65b_46ba_85f8_13880576c90a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(FaceDetectedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FaceDetectedEventArgs)]
             interface IFaceDetectedEventArgs {
                 #[get]
                 ResultFrame: FaceDetectionEffectFrame;
             }
             #[guid(0xae15ebd2_0542_42a9_bc90_f283a29f46c1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(FaceDetectionEffect)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FaceDetectionEffect)]
             interface IFaceDetectionEffect: super::IMediaExtension {
                 #[set]
                 Enabled: bool;
@@ -418,15 +418,15 @@ mod Windows {
                 SynchronousDetectionEnabled: bool;
             }
             #[guid(0x8ab08993_5dc8_447b_a247_5270bd802ece)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(FaceDetectionEffectFrame)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FaceDetectionEffectFrame)]
             interface IFaceDetectionEffectFrame: super::IMediaFrame + super::super::Foundation::IClosable {
                 #[get]
                 DetectedFaces: super::super::Foundation::Collections::IVectorView<super::FaceAnalysis::DetectedFace>;
             }
             #[guid(0x55f1a7ae_d957_4dc9_9d1c_8553a82a7d99)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HighDynamicRangeControl)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HighDynamicRangeControl)]
             interface IHighDynamicRangeControl {
                 #[set]
                 Enabled: bool;
@@ -434,8 +434,8 @@ mod Windows {
                 Enabled: bool;
             }
             #[guid(0x0f57806b_253b_4119_bb40_3a90e51384f7)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(HighDynamicRangeOutput)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(HighDynamicRangeOutput)]
             interface IHighDynamicRangeOutput {
                 #[get]
                 Certainty: f64;
@@ -443,8 +443,8 @@ mod Windows {
                 FrameControllers: super::super::Foundation::Collections::IVectorView<super::Devices::Core::FrameController>;
             }
             #[guid(0x52828282_367b_440b_9116_3c84570dd270)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ImageCue)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ImageCue)]
             interface IImageCue: IMediaCue {
                 Position: TimedTextPoint;
                 Extent: TimedTextSize;
@@ -464,8 +464,8 @@ mod Windows {
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
             #[guid(0x78edbe35_27a0_42e0_9cd3_738d2089de9c)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(LowLightFusionResult)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(LowLightFusionResult)]
             interface ILowLightFusionResult {
                 #[get]
                 Frame: super::super::Graphics::Imaging::SoftwareBitmap;
@@ -482,8 +482,8 @@ mod Windows {
                 fn FuseAsync(&self, frameSet: super::super::Foundation::Collections::IIterable<super::super::Graphics::Imaging::SoftwareBitmap>) -> super::super::Foundation::IAsyncOperationWithProgress<LowLightFusionResult, f64>;
             }
             #[guid(0x2b7e40aa_de07_424f_83f1_f1de46c4fa2e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaBinder)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaBinder)]
             interface IMediaBinder {
                 event Binding: super::super::Foundation::TypedEventHandler<MediaBinder, MediaBindingEventArgs>;
                 Token: String;
@@ -491,8 +491,8 @@ mod Windows {
                 Source: MediaSource;
             }
             #[guid(0xb61cb25a_1b6d_4630_a86d_2f0837f712e5)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaBindingEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaBindingEventArgs)]
             interface IMediaBindingEventArgs {
                 event Canceled: super::super::Foundation::TypedEventHandler<MediaBindingEventArgs, Object>;
                 #[get]
@@ -542,8 +542,8 @@ mod Windows {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IMediaSource {}
             #[guid(0x2eb61048_655f_4c37_b813_b4e45dfa0abe)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             interface IMediaSource2: super::Playback::IMediaPlaybackSource + super::super::Foundation::IClosable {
                 event OpenOperationCompleted: super::super::Foundation::TypedEventHandler<MediaSource, MediaSourceOpenOperationCompletedEventArgs>;
                 #[get]
@@ -567,8 +567,8 @@ mod Windows {
                 fn Reset(&self);
             }
             #[guid(0xbdafad57_8eff_4c63_85a6_84de0ae3e4f2)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             interface IMediaSource4: IMediaSource3 + IMediaSource2 + super::Playback::IMediaPlaybackSource + super::super::Foundation::IClosable {
                 #[get]
                 AdaptiveMediaSource: super::Streaming::Adaptive::AdaptiveMediaSource;
@@ -582,15 +582,15 @@ mod Windows {
                 fn OpenAsync(&self) -> super::super::Foundation::IAsyncAction;
             }
             #[guid(0x331a22ae_ed2e_4a22_94c8_b743a92b3022)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             interface IMediaSource5 {
                 #[get]
                 DownloadOperation: super::super::Networking::BackgroundTransfer::DownloadOperation;
             }
             #[guid(0x61e1ea97_1916_4810_b7f4_b642be829596)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSourceAppServiceConnection)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSourceAppServiceConnection)]
             interface IMediaSourceAppServiceConnection {
                 event InitializeMediaStreamSourceRequested: super::super::Foundation::TypedEventHandler<MediaSourceAppServiceConnection, InitializeMediaStreamSourceRequestedEventArgs>;
                 fn Start(&self);
@@ -609,8 +609,8 @@ mod Windows {
                 ExtendedError: HRESULT;
             }
             #[guid(0xfc682ceb_e281_477c_a8e0_1acd654114c8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSourceOpenOperationCompletedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSourceOpenOperationCompletedEventArgs)]
             interface IMediaSourceOpenOperationCompletedEventArgs {
                 #[get]
                 Error: MediaSourceError;
@@ -638,8 +638,8 @@ mod Windows {
                 fn CreateFromUri(&self, uri: super::super::Foundation::Uri) -> MediaSource;
             }
             #[guid(0xeee161a4_7f13_4896_b8cb_df0de5bcb9f1)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             interface IMediaSourceStatics2 {
                 fn CreateFromMediaBinder(&self, binder: MediaBinder) -> MediaSource;
             }
@@ -650,8 +650,8 @@ mod Windows {
                 fn CreateFromMediaFrameSource(&self, frameSource: super::Capture::Frames::MediaFrameSource) -> MediaSource;
             }
             #[guid(0x281b3bfc_e50a_4428_a500_9c4ed918d3f0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaSource)]
             interface IMediaSourceStatics4 {
                 fn CreateFromDownloadOperation(&self, downloadOperation: super::super::Networking::BackgroundTransfer::DownloadOperation) -> MediaSource;
             }
@@ -678,8 +678,8 @@ mod Windows {
                 Label: String;
             }
             #[guid(0x5c8db627_4b80_4361_9837_6cb7481ad9d6)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSample)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSample)]
             interface IMediaStreamSample {
                 event Processed: super::super::Foundation::TypedEventHandler<MediaStreamSample, Object>;
                 #[get]
@@ -708,8 +708,8 @@ mod Windows {
                 Discontinuous: bool;
             }
             #[guid(0x45078691_fce8_4746_a1c8_10c25d3d7cd3)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSample)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSample)]
             interface IMediaStreamSample2 {
                 #[get]
                 Direct3D11Surface: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface;
@@ -726,22 +726,22 @@ mod Windows {
                 fn GetSubSampleMapping(&self, value: &mut [u8]);
             }
             #[guid(0xdfdf218f_a6cf_4579_be41_73dd941ad972)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSample)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSample)]
             interface IMediaStreamSampleStatics {
                 fn CreateFromBuffer(&self, buffer: super::super::Storage::Streams::IBuffer, timestamp: super::super::Foundation::TimeSpan) -> MediaStreamSample;
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateFromStreamAsync(&self, stream: super::super::Storage::Streams::IInputStream, count: u32, timestamp: super::super::Foundation::TimeSpan) -> super::super::Foundation::IAsyncOperation<MediaStreamSample>;
             }
             #[guid(0x9efe9521_6d46_494c_a2f8_d662922e2dd7)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSample)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSample)]
             interface IMediaStreamSampleStatics2 {
                 fn CreateFromDirect3D11Surface(&self, surface: super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface, timestamp: super::super::Foundation::TimeSpan) -> MediaStreamSample;
             }
             #[guid(0x3712d543_45eb_4138_aa62_c01e26f3843f)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSource)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSource)]
             interface IMediaStreamSource: IMediaSource {
                 event Closed: super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceClosedEventArgs>;
                 event Starting: super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceStartingEventArgs>;
@@ -778,8 +778,8 @@ mod Windows {
                 fn AddProtectionKey(&self, streamDescriptor: IMediaStreamDescriptor, keyIdentifier: [u8], licenseData: [u8]);
             }
             #[guid(0xec55d0ad_2e6a_4f74_adbb_b562d1533849)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSource)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSource)]
             interface IMediaStreamSource2: IMediaStreamSource + IMediaSource {
                 event SampleRendered: super::super::Foundation::TypedEventHandler<MediaStreamSource, MediaStreamSourceSampleRenderedEventArgs>;
             }
@@ -802,22 +802,22 @@ mod Windows {
                 IsLive: bool;
             }
             #[guid(0xcd8c7eb2_4816_4e24_88f0_491ef7386406)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSourceClosedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSourceClosedEventArgs)]
             interface IMediaStreamSourceClosedEventArgs {
                 #[get]
                 Request: MediaStreamSourceClosedRequest;
             }
             #[guid(0x907c00e9_18a3_4951_887a_2c1eebd5c69e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSourceClosedRequest)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSourceClosedRequest)]
             interface IMediaStreamSourceClosedRequest {
                 #[get]
                 Reason: MediaStreamSourceClosedReason;
             }
             #[guid(0xef77e0d9_d158_4b7a_863f_203342fbfd41)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSource)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSource)]
             interface IMediaStreamSourceFactory {
                 fn CreateFromDescriptor(&self, descriptor: IMediaStreamDescriptor) -> MediaStreamSource;
                 fn CreateFromDescriptors(&self, descriptor: IMediaStreamDescriptor, descriptor2: IMediaStreamDescriptor) -> MediaStreamSource;
@@ -856,15 +856,15 @@ mod Windows {
                 Request: MediaStreamSourceSampleRequest;
             }
             #[guid(0xf41468f2_c274_4940_a5bb_28a572452fa7)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSourceStartingEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSourceStartingEventArgs)]
             interface IMediaStreamSourceStartingEventArgs {
                 #[get]
                 Request: MediaStreamSourceStartingRequest;
             }
             #[guid(0x2a9093e4_35c4_4b1b_a791_0d99db56dd1d)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSourceStartingRequest)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSourceStartingRequest)]
             interface IMediaStreamSourceStartingRequest {
                 #[get]
                 StartPosition: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>;
@@ -888,14 +888,14 @@ mod Windows {
                 fn GetDeferral(&self) -> MediaStreamSourceSwitchStreamsRequestDeferral;
             }
             #[guid(0xbee3d835_a505_4f9a_b943_2b8cb1b4bbd9)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSourceSwitchStreamsRequestDeferral)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSourceSwitchStreamsRequestDeferral)]
             interface IMediaStreamSourceSwitchStreamsRequestDeferral {
                 fn Complete(&self);
             }
             #[guid(0x42202b72_6ea1_4677_981e_350a0da412aa)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSourceSwitchStreamsRequestedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MediaStreamSourceSwitchStreamsRequestedEventArgs)]
             interface IMediaStreamSourceSwitchStreamsRequestedEventArgs {
                 #[get]
                 Request: MediaStreamSourceSwitchStreamsRequest;
@@ -941,9 +941,9 @@ mod Windows {
                 fn Remove(&self, start: super::super::Foundation::TimeSpan, end: super::super::Foundation::IReference<super::super::Foundation::TimeSpan>);
             }
             #[guid(0x95fae8e7_a8e7_4ebf_8927_145e940ba511)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(MseSourceBufferList)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IMseSourceBufferList {
                 event SourceBufferAdded: super::super::Foundation::TypedEventHandler<MseSourceBufferList, Object>;
                 event SourceBufferRemoved: super::super::Foundation::TypedEventHandler<MseSourceBufferList, Object>;
@@ -951,9 +951,9 @@ mod Windows {
                 Buffers: super::super::Foundation::Collections::IVectorView<MseSourceBuffer>;
             }
             #[guid(0xb0b4198d_02f4_4923_88dd_81bc3f360ffa)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MseStreamSource)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MseStreamSource)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IMseStreamSource: IMediaSource {
                 event Opened: super::super::Foundation::TypedEventHandler<MseStreamSource, Object>;
                 event Ended: super::super::Foundation::TypedEventHandler<MseStreamSource, Object>;
@@ -970,22 +970,22 @@ mod Windows {
                 fn EndOfStream(&self, status: MseEndOfStreamStatus);
             }
             #[guid(0x66f57d37_f9e7_418a_9cde_a020e956552b)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MseStreamSource)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MseStreamSource)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IMseStreamSource2 {
                 LiveSeekableRange: super::super::Foundation::IReference<MseTimeRange>;
             }
             #[guid(0x465c679d_d570_43ce_ba21_0bff5f3fbd0a)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(MseStreamSource)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(MseStreamSource)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IMseStreamSourceStatics {
                 fn IsContentTypeSupported(&self, contentType: String) -> bool;
             }
             #[guid(0xc04ba319_ca41_4813_bffd_7b08b0ed2557)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SceneAnalysisEffect)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SceneAnalysisEffect)]
             interface ISceneAnalysisEffect: super::IMediaExtension {
                 #[get]
                 HighDynamicRangeAnalyzer: HighDynamicRangeControl;
@@ -996,8 +996,8 @@ mod Windows {
                 event SceneAnalyzed: super::super::Foundation::TypedEventHandler<SceneAnalysisEffect, SceneAnalyzedEventArgs>;
             }
             #[guid(0xd8b10e4c_7fd9_42e1_85eb_6572c297c987)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(SceneAnalysisEffectFrame)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(SceneAnalysisEffectFrame)]
             interface ISceneAnalysisEffectFrame: super::IMediaFrame + super::super::Foundation::IClosable {
                 #[get]
                 FrameControlValues: super::Capture::CapturedFrameControlValues;
@@ -1036,8 +1036,8 @@ mod Windows {
                 EndPositionInInput: super::super::Foundation::IReference<i32>;
             }
             #[guid(0x133336bf_296a_463e_9ff9_01cd25691408)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataStreamDescriptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataStreamDescriptor)]
             interface ITimedMetadataStreamDescriptor {
                 #[get]
                 EncodingProperties: super::MediaProperties::TimedMetadataEncodingProperties;
@@ -1050,8 +1050,8 @@ mod Windows {
                 fn Create(&self, encodingProperties: super::MediaProperties::TimedMetadataEncodingProperties) -> TimedMetadataStreamDescriptor;
             }
             #[guid(0x9e6aed9e_f67a_49a9_b330_cf03b0e9cf07)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataTrack)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataTrack)]
             interface ITimedMetadataTrack: IMediaTrack {
                 event CueEntered: super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>;
                 event CueExited: super::super::Foundation::TypedEventHandler<TimedMetadataTrack, MediaCueEventArgs>;
@@ -1068,8 +1068,8 @@ mod Windows {
                 fn RemoveCue(&self, cue: IMediaCue);
             }
             #[guid(0x21b4b648_9f9d_40ba_a8f3_1a92753aef0b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataTrack)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataTrack)]
             interface ITimedMetadataTrack2: ITimedMetadataTrack + IMediaTrack {
                 #[get]
                 PlaybackItem: super::Playback::MediaPlaybackItem;
@@ -1092,8 +1092,8 @@ mod Windows {
                 fn Create(&self, id: String, language: String, kind: TimedMetadataKind) -> TimedMetadataTrack;
             }
             #[guid(0xa57fc9d1_6789_4d4d_b07f_84b4f31acb70)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataTrackFailedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TimedMetadataTrackFailedEventArgs)]
             interface ITimedMetadataTrackFailedEventArgs {
                 #[get]
                 Error: TimedMetadataTrackError;
@@ -1122,8 +1122,8 @@ mod Windows {
                 Lines: super::super::Foundation::Collections::IVector<TimedTextLine>;
             }
             #[guid(0x978d7ce2_7308_4c66_be50_65777289f5df)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextLine)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextLine)]
             interface ITimedTextLine {
                 Text: String;
                 #[get]
@@ -1147,8 +1147,8 @@ mod Windows {
                 ScrollMode: TimedTextScrollMode;
             }
             #[guid(0x10335c29_5b3c_5693_9959_d05a0bd24628)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextRuby)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextRuby)]
             interface ITimedTextRuby {
                 Text: String;
                 Position: TimedTextRubyPosition;
@@ -1162,8 +1162,8 @@ mod Windows {
                 event Resolved: super::super::Foundation::TypedEventHandler<TimedTextSource, TimedTextSourceResolveResultEventArgs>;
             }
             #[guid(0x48907c9c_dcd8_4c33_9ad3_6cdce7b1c566)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextSourceResolveResultEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextSourceResolveResultEventArgs)]
             interface ITimedTextSourceResolveResultEventArgs {
                 #[get]
                 Error: TimedMetadataTrackError;
@@ -1223,8 +1223,8 @@ mod Windows {
                 IsOverlineEnabled: bool;
             }
             #[guid(0xf803f93b_3e99_595e_bbb7_78a2fa13c270)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextStyle)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextStyle)]
             interface ITimedTextStyle3 {
                 #[get]
                 Ruby: TimedTextRuby;
@@ -1234,16 +1234,16 @@ mod Windows {
                 FontAngleInDegrees: f64;
             }
             #[guid(0xd713502f_3261_4722_a0c2_b937b2390f14)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextSubformat)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(TimedTextSubformat)]
             interface ITimedTextSubformat {
                 StartIndex: i32;
                 Length: i32;
                 SubformatStyle: TimedTextStyle;
             }
             #[guid(0x0808a650_9698_4e57_877b_bd7cb2ee0f8a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VideoStabilizationEffect)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoStabilizationEffect)]
             interface IVideoStabilizationEffect: super::IMediaExtension {
                 #[set]
                 Enabled: bool;
@@ -1253,15 +1253,15 @@ mod Windows {
                 fn GetRecommendedStreamConfiguration(&self, controller: super::Devices::VideoDeviceController, desiredProperties: super::MediaProperties::VideoEncodingProperties) -> super::Capture::VideoStreamConfiguration;
             }
             #[guid(0x187eff28_67bb_4713_b900_4168da164529)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VideoStabilizationEffectEnabledChangedEventArgs)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoStabilizationEffectEnabledChangedEventArgs)]
             interface IVideoStabilizationEffectEnabledChangedEventArgs {
                 #[get]
                 Reason: VideoStabilizationEffectEnabledChangedReason;
             }
             #[guid(0x12ee0d55_9c2b_4440_8057_2c7a90f0cbec)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VideoStreamDescriptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoStreamDescriptor)]
             interface IVideoStreamDescriptor: IMediaStreamDescriptor {
                 #[get]
                 EncodingProperties: super::MediaProperties::VideoEncodingProperties;
@@ -1273,14 +1273,14 @@ mod Windows {
                 fn Copy(&self) -> VideoStreamDescriptor;
             }
             #[guid(0x494ef6d1_bb75_43d2_9e5e_7b79a3afced4)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VideoStreamDescriptor)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoStreamDescriptor)]
             interface IVideoStreamDescriptorFactory {
                 fn Create(&self, encodingProperties: super::MediaProperties::VideoEncodingProperties) -> VideoStreamDescriptor;
             }
             #[guid(0x99f3b7f3_e298_4396_bb6a_a51be6a2a20a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VideoTrack)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoTrack)]
             interface IVideoTrack {
                 event OpenFailed: super::super::Foundation::TypedEventHandler<VideoTrack, VideoTrackOpenFailedEventArgs>;
                 fn GetEncodingProperties(&self) -> super::MediaProperties::VideoEncodingProperties;
@@ -1299,8 +1299,8 @@ mod Windows {
                 ExtendedError: HRESULT;
             }
             #[guid(0x4bb534a0_fc5f_450d_8ff0_778d590486de)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(VideoTrackSupportInfo)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(VideoTrackSupportInfo)]
             interface IVideoTrackSupportInfo {
                 #[get]
                 DecoderStatus: MediaDecoderStatus;
@@ -1308,55 +1308,55 @@ mod Windows {
                 MediaSourceStatus: MediaSourceStatus;
             }
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ImageCue {
                 IImageCue,
                 IMediaCue,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             class InitializeMediaStreamSourceRequestedEventArgs {
                 IInitializeMediaStreamSourceRequestedEventArgs,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ILowLightFusionStatics, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class LowLightFusion {}
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
-            #[Windows::Foundation::Metadata::GCPressure(amount = High)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772164)]
+            #[Windows::Foundation::Metadata::GCPressure(amount = High)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class LowLightFusionResult {
                 ILowLightFusionResult,
                 super::super::Foundation::IClosable,
             }
             #[Windows::Foundation::Metadata::Activatable(131072, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaBinder {
                 IMediaBinder,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaBindingEventArgs {
                 IMediaBindingEventArgs,
                 IMediaBindingEventArgs2,
                 IMediaBindingEventArgs3,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaCueEventArgs {
                 IMediaCueEventArgs,
@@ -1369,14 +1369,14 @@ mod Windows {
                 UnsupportedEncoderProperties = 2,
                 Degraded = 3,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IMediaSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IMediaSourceStatics2, 131072, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IMediaSourceStatics3, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IMediaSourceStatics4, 393216, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Static(IMediaSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             class MediaSource {
                 IMediaSource2,
                 super::super::Foundation::IClosable,
@@ -1390,16 +1390,16 @@ mod Windows {
             class MediaSourceAppServiceConnection {
                 IMediaSourceAppServiceConnection,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaSourceError {
                 IMediaSourceError,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaSourceOpenOperationCompletedEventArgs {
                 IMediaSourceOpenOperationCompletedEventArgs,
@@ -1413,10 +1413,10 @@ mod Windows {
                 Failed = 3,
                 Closed = 4,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 131072)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaSourceStateChangedEventArgs {
                 IMediaSourceStateChangedEventArgs,
             }
@@ -1427,34 +1427,34 @@ mod Windows {
                 Unknown = 1,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IMediaStreamSampleStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IMediaStreamSampleStatics2, 458752, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaStreamSample {
                 IMediaStreamSample,
                 IMediaStreamSample2,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::HasVariant]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class MediaStreamSamplePropertySet {
                 super::super::Foundation::Collections::IMap<GUID, Object>,
                 super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<GUID, Object>>,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaStreamSampleProtectionProperties {
                 IMediaStreamSampleProtectionProperties,
             }
             #[Windows::Foundation::Metadata::Activatable(IMediaStreamSourceFactory, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaStreamSource {
                 IMediaStreamSource,
@@ -1463,10 +1463,10 @@ mod Windows {
                 IMediaStreamSource3,
                 IMediaStreamSource4,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaStreamSourceClosedEventArgs {
                 IMediaStreamSourceClosedEventArgs,
             }
@@ -1481,10 +1481,10 @@ mod Windows {
                 UnsupportedEncodingFormat = 5,
                 MissingSampleRequestedEventHandler = 6,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaStreamSourceClosedRequest {
                 IMediaStreamSourceClosedRequest,
             }
@@ -1500,52 +1500,52 @@ mod Windows {
                 DecodeError = 6,
                 UnsupportedMediaFormat = 7,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaStreamSourceSampleRenderedEventArgs {
                 IMediaStreamSourceSampleRenderedEventArgs,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class MediaStreamSourceSampleRequest {
                 IMediaStreamSourceSampleRequest,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaStreamSourceSampleRequestDeferral {
                 IMediaStreamSourceSampleRequestDeferral,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             class MediaStreamSourceSampleRequestedEventArgs {
                 IMediaStreamSourceSampleRequestedEventArgs,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaStreamSourceStartingEventArgs {
                 IMediaStreamSourceStartingEventArgs,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaStreamSourceStartingRequest {
                 IMediaStreamSourceStartingRequest,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaStreamSourceStartingRequestDeferral {
                 IMediaStreamSourceStartingRequestDeferral,
             }
@@ -1563,10 +1563,10 @@ mod Windows {
             class MediaStreamSourceSwitchStreamsRequestDeferral {
                 IMediaStreamSourceSwitchStreamsRequestDeferral,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class MediaStreamSourceSwitchStreamsRequestedEventArgs {
                 IMediaStreamSourceSwitchStreamsRequestedEventArgs,
             }
@@ -1578,15 +1578,15 @@ mod Windows {
                 TimedMetadata = 2,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum MseAppendMode {
                 Segments = 0,
                 Sequence = 1,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum MseEndOfStreamStatus {
                 Success = 0,
                 NetworkError = 1,
@@ -1594,36 +1594,36 @@ mod Windows {
                 UnknownError = 3,
             }
             #[repr(i32)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             enum MseReadyState {
                 Closed = 0,
                 Open = 1,
                 Ended = 2,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class MseSourceBuffer {
                 IMseSourceBuffer,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class MseSourceBufferList {
                 IMseSourceBufferList,
             }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Static(IMseStreamSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(IMseStreamSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class MseStreamSource {
                 IMseStreamSource,
                 IMediaSource,
@@ -1634,25 +1634,25 @@ mod Windows {
                 Start: super::super::Foundation::TimeSpan,
                 End: super::super::Foundation::TimeSpan,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SceneAnalysisEffect {
                 ISceneAnalysisEffect,
                 super::IMediaExtension,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SceneAnalysisEffectDefinition {
                 super::Effects::IVideoEffectDefinition,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SceneAnalysisEffectFrame {
                 ISceneAnalysisEffectFrame,
@@ -1667,18 +1667,18 @@ mod Windows {
                 Hdr = 1,
                 LowLight = 2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class SceneAnalyzedEventArgs {
                 ISceneAnalyzedEventArgs,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(262144, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class SpeechCue {
                 ISpeechCue,
                 IMediaCue,
@@ -1695,28 +1695,28 @@ mod Windows {
                 ImageSubtitle = 6,
                 Speech = 7,
             }
+            #[Windows::Foundation::Metadata::Activatable(ITimedMetadataStreamDescriptorFactory, 393216, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::Activatable(ITimedMetadataStreamDescriptorFactory, 393216, "Windows.Foundation.UniversalApiContract")]
             class TimedMetadataStreamDescriptor {
                 IMediaStreamDescriptor,
                 ITimedMetadataStreamDescriptor,
                 IMediaStreamDescriptor2,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::Activatable(ITimedMetadataTrackFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TimedMetadataTrack {
                 ITimedMetadataTrack,
                 IMediaTrack,
                 ITimedMetadataTrack2,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TimedMetadataTrackError {
                 ITimedMetadataTrackError,
@@ -1729,15 +1729,15 @@ mod Windows {
                 NetworkError = 2,
                 InternalError = 3,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TimedMetadataTrackFailedEventArgs {
                 ITimedMetadataTrackFailedEventArgs,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class TimedTextBouten {
                 ITimedTextBouten,
@@ -1761,11 +1761,11 @@ mod Windows {
                 FilledSesame = 6,
                 OpenSesame = 7,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TimedTextCue {
                 ITimedTextCue,
                 IMediaCue,
@@ -1797,9 +1797,9 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TimedTextLine {
                 ITimedTextLine,
             }
@@ -1824,17 +1824,17 @@ mod Windows {
                 Y: f64,
                 Unit: TimedTextUnit,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TimedTextRegion {
                 ITimedTextRegion,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 1)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             class TimedTextRuby {
                 ITimedTextRuby,
             }
@@ -1876,37 +1876,37 @@ mod Windows {
                 Width: f64,
                 Unit: TimedTextUnit,
             }
-            #[Windows::Foundation::Metadata::Static(ITimedTextSourceStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(ITimedTextSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Static(ITimedTextSourceStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ITimedTextSourceStatics2, 262144, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class TimedTextSource {
                 ITimedTextSource,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TimedTextSourceResolveResultEventArgs {
                 ITimedTextSourceResolveResultEventArgs,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class TimedTextStyle {
                 ITimedTextStyle,
                 ITimedTextStyle2,
                 ITimedTextStyle3,
             }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             class TimedTextSubformat {
                 ITimedTextSubformat,
             }
@@ -1939,26 +1939,26 @@ mod Windows {
                 RightLeft = 5,
                 TopBottom = 6,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class VideoStabilizationEffect {
                 IVideoStabilizationEffect,
                 super::IMediaExtension,
             }
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class VideoStabilizationEffectDefinition {
                 super::Effects::IVideoEffectDefinition,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class VideoStabilizationEffectEnabledChangedEventArgs {
                 IVideoStabilizationEffectEnabledChangedEventArgs,
             }
@@ -1969,11 +1969,11 @@ mod Windows {
                 PixelRateTooHigh = 1,
                 RunningSlowly = 2,
             }
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Activatable(IVideoStreamDescriptorFactory, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 100859904)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class VideoStreamDescriptor {
                 IVideoStreamDescriptor,
                 IMediaStreamDescriptor,
@@ -1982,21 +1982,21 @@ mod Windows {
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class VideoTrack {
                 IMediaTrack,
                 IVideoTrack,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class VideoTrackOpenFailedEventArgs {
                 IVideoTrackOpenFailedEventArgs,
             }
-            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
+            #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class VideoTrackSupportInfo {

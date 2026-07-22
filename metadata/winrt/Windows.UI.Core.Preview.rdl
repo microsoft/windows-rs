@@ -4,34 +4,34 @@ mod Windows {
         mod Core {
             mod Preview {
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Static(ICoreAppWindowPreviewStatics, 524288, "Windows.Foundation.UniversalApiContract")]
                 #[Windows::Foundation::Metadata::Threading(Both)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 class CoreAppWindowPreview {
                     ICoreAppWindowPreview,
                 }
-                #[Windows::Foundation::Metadata::WebHostHidden]
-                #[Windows::Foundation::Metadata::ExclusiveTo(CoreAppWindowPreview)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreAppWindowPreview)]
+                #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICoreAppWindowPreview {}
                 #[guid(0x33ac21be_423b_5db6_8a8e_4dc87353b75b)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(CoreAppWindowPreview)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 524288)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(CoreAppWindowPreview)]
                 #[Windows::Foundation::Metadata::WebHostHidden]
                 interface ICoreAppWindowPreviewStatics {
                     fn GetIdFromWindow(&self, window: super::super::WindowManagement::AppWindow) -> i32;
                 }
                 #[guid(0x83d00de1_cbe5_4f31_8414_361da046518f)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SystemNavigationCloseRequestedPreviewEventArgs)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SystemNavigationCloseRequestedPreviewEventArgs)]
                 interface ISystemNavigationCloseRequestedPreviewEventArgs {
                     Handled: bool;
                     fn GetDeferral(&self) -> super::super::super::Foundation::Deferral;
                 }
                 #[guid(0xec5f0488_6425_4777_a536_cb5634427f0d)]
-                #[Windows::Foundation::Metadata::ExclusiveTo(SystemNavigationManagerPreview)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::ExclusiveTo(SystemNavigationManagerPreview)]
                 interface ISystemNavigationManagerPreview {
                     event CloseRequested: super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>;
                 }
@@ -46,9 +46,9 @@ mod Windows {
                 class SystemNavigationCloseRequestedPreviewEventArgs {
                     ISystemNavigationCloseRequestedPreviewEventArgs,
                 }
-                #[Windows::Foundation::Metadata::Static(ISystemNavigationManagerPreviewStatics, 262144, "Windows.Foundation.UniversalApiContract")]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::super::Foundation::UniversalApiContract, 262144)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+                #[Windows::Foundation::Metadata::Static(ISystemNavigationManagerPreviewStatics, 262144, "Windows.Foundation.UniversalApiContract")]
                 class SystemNavigationManagerPreview {
                     ISystemNavigationManagerPreview,
                 }

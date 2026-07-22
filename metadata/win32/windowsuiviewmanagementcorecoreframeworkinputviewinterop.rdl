@@ -3,7 +3,7 @@ mod Windows {
     mod Win32 {
         #[guid(0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5)]
         interface ICoreFrameworkInputViewInterop: IInspectable {
-            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] coreFrameworkInputView: *mut *mut void) -> HRESULT;
+            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[iid_is] #[retval] coreFrameworkInputView: *mut *mut void) -> HRESULT;
         }
     }
 }

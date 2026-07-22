@@ -3,8 +3,8 @@ mod Windows {
     mod ApplicationModel {
         mod Resources {
             #[guid(0x08524908_16ef_45ad_a602_293637d7e61a)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
             interface IResourceLoader {
                 fn GetString(&self, resource: String) -> String;
             }
@@ -15,14 +15,14 @@ mod Windows {
                 fn GetStringForUri(&self, uri: super::super::Foundation::Uri) -> String;
             }
             #[guid(0xc33a3603_69dc_4285_a077_d5c0e47ccbe8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
             interface IResourceLoaderFactory {
                 fn CreateResourceLoaderByName(&self, name: String) -> ResourceLoader;
             }
             #[guid(0xbf777ce1_19c8_49c2_953c_47e9227b334e)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
             interface IResourceLoaderStatics {
                 fn GetStringForReference(&self, uri: super::super::Foundation::Uri) -> String;
             }
@@ -46,20 +46,20 @@ mod Windows {
                 fn GetForUIContext(&self, context: super::super::UI::UIContext) -> ResourceLoader;
             }
             #[guid(0x9fb36c32_6c8c_4316_962e_909539b5c259)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 786432)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ResourceLoader)]
             interface IResourceLoaderStatics4 {
                 fn GetDefaultPriPath(&self, packageFullName: String) -> String;
             }
+            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Activatable(IResourceLoaderFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IResourceLoaderStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Threading(Both)]
-            #[Windows::Foundation::Metadata::Activatable(65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IResourceLoaderStatics2, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Static(IResourceLoaderStatics3, 524288, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(IResourceLoaderStatics4, 786432, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Activatable(IResourceLoaderFactory, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class ResourceLoader {
                 IResourceLoader,
                 IResourceLoader2,

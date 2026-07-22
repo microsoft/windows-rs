@@ -584,15 +584,15 @@ mod Windows {
         }
         #[guid(0x227ac7a8_8423_42ce_b7cf_03061ec9aaa3)]
         interface ICreateWithLocalTransaction: IUnknown {
-            fn CreateInstanceWithSysTx(&self, pTransaction: IUnknown, rclsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn CreateInstanceWithSysTx(&self, pTransaction: IUnknown, rclsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] pObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0x455acf59_5345_11d2_99cf_00c04f797bc9)]
         interface ICreateWithTipTransactionEx: IUnknown {
-            fn CreateInstance(&self, bstrTipUrl: BSTR, rclsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, bstrTipUrl: BSTR, rclsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] pObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0x455acf57_5345_11d2_99cf_00c04f797bc9)]
         interface ICreateWithTransactionEx: IUnknown {
-            fn CreateInstance(&self, pTransaction: ITransaction, rclsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, pTransaction: ITransaction, rclsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] pObject: *mut *mut void) -> HRESULT;
         }
         #[guid(0xbbc01830_8d3b_11d1_82ec_00a0c91eede9)]
         interface ICrmCompensator: IUnknown {
@@ -835,7 +835,7 @@ mod Windows {
         }
         #[guid(0x51372ae0_cae7_11cf_be81_00aa00a2fa25)]
         interface IObjectContext: IUnknown {
-            fn CreateInstance(&self, rclsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] ppv: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, rclsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] ppv: *mut *mut void) -> HRESULT;
             fn SetComplete(&self) -> HRESULT;
             fn SetAbort(&self) -> HRESULT;
             fn EnableCommit(&self) -> HRESULT;
@@ -1076,7 +1076,7 @@ mod Windows {
         }
         #[guid(0x7999fc22_d3c6_11cf_acab_00a024a55aef)]
         interface ITransactionContextEx: IUnknown {
-            fn CreateInstance(&self, rclsid: *const GUID, riid: *const GUID, #[retval] #[iid_is] pObject: *mut *mut void) -> HRESULT;
+            fn CreateInstance(&self, rclsid: *const GUID, riid: *const GUID, #[iid_is] #[retval] pObject: *mut *mut void) -> HRESULT;
             fn Commit(&self) -> HRESULT;
             fn Abort(&self) -> HRESULT;
         }

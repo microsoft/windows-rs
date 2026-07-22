@@ -42,10 +42,10 @@ mod Windows {
                     #[Windows::Foundation::Metadata::RemoteAsync]
                     fn GetControllersAsync(&self) -> super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<ISpiControllerProvider>>;
                 }
-                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
-                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 #[Windows::Foundation::Metadata::Activatable(IProviderSpiConnectionSettingsFactory, 131072, "Windows.Devices.DevicesLowLevelContract")]
                 #[Windows::Foundation::Metadata::ContractVersion(super::super::DevicesLowLevelContract, 131072)]
+                #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
+                #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
                 class ProviderSpiConnectionSettings {
                     IProviderSpiConnectionSettings,
                 }

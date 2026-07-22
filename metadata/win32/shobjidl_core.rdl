@@ -992,7 +992,7 @@ mod Windows {
         }
         #[guid(0x3a3dcd6c_3eab_43dc_bcde_45671ce800c8)]
         interface IDataTransferManagerInterop: IUnknown {
-            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[retval] #[iid_is] dataTransferManager: *mut *mut void) -> HRESULT;
+            fn GetForWindow(&self, appWindow: HWND, riid: *const GUID, #[iid_is] #[retval] dataTransferManager: *mut *mut void) -> HRESULT;
             fn ShowShareUIForWindow(&self, appWindow: HWND) -> HRESULT;
         }
         #[guid(0x41ded17d_d6b3_4261_997d_88c60e4b1d58)]

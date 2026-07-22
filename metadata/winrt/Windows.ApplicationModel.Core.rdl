@@ -3,9 +3,9 @@ mod Windows {
     mod ApplicationModel {
         mod Core {
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::DualApiPartition(version = 167772160)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class AppListEntry {
                 IAppListEntry,
                 IAppListEntry2,
@@ -20,23 +20,23 @@ mod Windows {
                 InvalidUser = 2,
                 Other = 3,
             }
-            #[Windows::Foundation::Metadata::Static(ICoreImmersiveApplication3, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(ICoreApplication, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::Static(ICoreImmersiveApplication2, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(ICoreApplicationExit, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(ICoreImmersiveApplication, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Static(ICoreApplication3, 327680, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::Static(ICoreApplication2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
+            #[Windows::Foundation::Metadata::Static(ICoreApplication, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICoreApplication2, 196608, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICoreApplication3, 327680, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICoreApplicationExit, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(ICoreApplicationUnhandledError, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Static(ICoreApplicationUseCount, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICoreImmersiveApplication, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICoreImmersiveApplication2, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Static(ICoreImmersiveApplication3, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class CoreApplication {}
-            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
+            #[Windows::Foundation::Metadata::Muse(Version = 100794368)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CoreApplicationView {
                 ICoreApplicationView,
@@ -45,22 +45,22 @@ mod Windows {
                 ICoreApplicationView5,
                 ICoreApplicationView6,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Standard)]
             #[Windows::Foundation::Metadata::Muse(Version = 167772160)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             class CoreApplicationViewTitleBar {
                 ICoreApplicationViewTitleBar,
             }
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class HostedViewClosingEventArgs {
                 IHostedViewClosingEventArgs,
             }
             #[guid(0xef00f07f_2108_490a_877a_8a9f17c25fad)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppListEntry)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppListEntry)]
             interface IAppListEntry {
                 #[get]
                 DisplayInfo: super::AppDisplayInfo;
@@ -68,8 +68,8 @@ mod Windows {
                 fn LaunchAsync(&self) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0xd0a618ad_bf35_42ac_ac06_86eeeb41d04b)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppListEntry)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppListEntry)]
             interface IAppListEntry2 {
                 #[get]
                 AppUserModelId: String;
@@ -82,16 +82,16 @@ mod Windows {
                 fn LaunchForUserAsync(&self, user: super::super::System::User) -> super::super::Foundation::IAsyncOperation<bool>;
             }
             #[guid(0x2a131ed2_56f5_487c_8697_5166f3b33da0)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(AppListEntry)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 720896)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(AppListEntry)]
             interface IAppListEntry4 {
                 #[get]
                 AppInfo: super::AppInfo;
             }
             #[guid(0x0aacf7a4_5e1d_49df_8034_fb6a68bc5ed1)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplication)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreApplication {
                 #[get]
                 Id: String;
@@ -104,9 +104,9 @@ mod Windows {
                 fn RunWithActivationFactories(&self, activationFactoryCallback: super::super::Foundation::IGetActivationFactory);
             }
             #[guid(0x998681fb_1ab6_4b7f_be4a_9a0645224c04)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 196608)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplication)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreApplication2 {
                 event BackgroundActivated: super::super::Foundation::EventHandler<super::Activation::BackgroundActivatedEventArgs>;
                 event LeavingBackground: super::super::Foundation::EventHandler<super::LeavingBackgroundEventArgs>;
@@ -124,31 +124,31 @@ mod Windows {
                 fn RequestRestartForUserAsync(&self, user: super::super::System::User, launchArguments: String) -> super::super::Foundation::IAsyncOperation<AppRestartFailureReason>;
             }
             #[guid(0xcf86461d_261e_4b72_9acd_44ed2ace6a29)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplication)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface ICoreApplicationExit {
                 fn Exit(&self);
                 event Exiting: super::super::Foundation::EventHandler<Object>;
             }
             #[guid(0xf0e24ab0_dd09_42e1_b0bc_e0e131f78d7e)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreApplicationUnhandledError {
                 event UnhandledErrorDetected: super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>;
             }
             #[guid(0x518dc408_c077_475b_809e_0bc0c57e4b74)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplication)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreApplicationUseCount {
                 fn IncrementApplicationUseCount(&self);
                 fn DecrementApplicationUseCount(&self);
             }
             #[guid(0x638bb2db_451d_4661_b099_414f34ffb9f1)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplicationView)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplicationView)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreApplicationView {
                 #[get]
                 CoreWindow: super::super::UI::Core::CoreWindow;
@@ -160,8 +160,8 @@ mod Windows {
             }
             #[guid(0x68eb7adf_917f_48eb_9aeb_7de53e086ab1)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplicationView)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreApplicationView2 {
                 #[get]
                 Dispatcher: super::super::UI::Core::CoreDispatcher;
@@ -178,8 +178,8 @@ mod Windows {
                 event HostedViewClosing: super::super::Foundation::TypedEventHandler<CoreApplicationView, HostedViewClosingEventArgs>;
             }
             #[guid(0x2bc095a8_8ef0_446d_9e60_3a3e0428c671)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplicationView)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplicationView)]
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreApplicationView5 {
                 #[get]
@@ -187,16 +187,16 @@ mod Windows {
             }
             #[guid(0xc119d49a_0679_49ba_803f_b79c5cf34cca)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 327680)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplicationView)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreApplicationView6 {
                 #[get]
                 DispatcherQueue: super::super::System::DispatcherQueue;
             }
             #[guid(0x006d35e3_e1f1_431b_9508_29b96926ac53)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplicationViewTitleBar)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreApplicationViewTitleBar {
                 #[set]
                 ExtendViewIntoTitleBar: bool;
@@ -214,30 +214,30 @@ mod Windows {
                 event IsVisibleChanged: super::super::Foundation::TypedEventHandler<CoreApplicationViewTitleBar, Object>;
             }
             #[guid(0x1ada0e3e_e4a2_4123_b451_dc96bf800419)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplication)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplication)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreImmersiveApplication {
                 #[get]
                 Views: super::super::Foundation::Collections::IVectorView<CoreApplicationView>;
-                #[Windows::Foundation::Metadata::Overload("CreateNewView")]
                 #[Windows::Foundation::Metadata::DefaultOverload]
+                #[Windows::Foundation::Metadata::Overload("CreateNewView")]
                 fn CreateNewView(&self, runtimeType: String, entryPoint: String) -> CoreApplicationView;
                 #[get]
                 MainView: CoreApplicationView;
             }
             #[guid(0x828e1e36_e9e3_4cfc_9b66_48b78ea9bb2c)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplication)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplication)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreImmersiveApplication2 {
                 #[Windows::Foundation::Metadata::Overload("CreateNewViewFromMainView")]
                 fn CreateNewView(&self) -> CoreApplicationView;
             }
             #[guid(0x34a05b2f_ee0d_41e5_8314_cf10c91bf0af)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(CoreApplication)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ICoreImmersiveApplication3 {
                 #[Windows::Foundation::Metadata::Overload("CreateNewViewWithViewSource")]
                 fn CreateNewView(&self, viewSource: IFrameworkViewSource) -> CoreApplicationView;
@@ -259,25 +259,25 @@ mod Windows {
                 fn CreateView(&self) -> IFrameworkView;
             }
             #[guid(0xd238943c_b24e_4790_acb5_3e4243c4ff87)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(HostedViewClosingEventArgs)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IHostedViewClosingEventArgs {
                 fn GetDeferral(&self) -> super::super::Foundation::Deferral;
             }
             #[guid(0x9459b726_53b5_4686_9eaf_fa8162dc3980)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(UnhandledError)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(UnhandledError)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IUnhandledError {
                 #[get]
                 Handled: bool;
                 fn Propagate(&self);
             }
             #[guid(0x679ab78b_b336_4822_ac40_0d750f0b7a2b)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(UnhandledErrorDetectedEventArgs)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface IUnhandledErrorDetectedEventArgs {
                 #[get]
                 UnhandledError: UnhandledError;

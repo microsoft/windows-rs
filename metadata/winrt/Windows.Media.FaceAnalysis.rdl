@@ -8,17 +8,17 @@ mod Windows {
             class DetectedFace {
                 IDetectedFace,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IFaceDetectorStatics, 65536, "Windows.Foundation.UniversalApiContract")]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::Threading(Both)]
             class FaceDetector {
                 IFaceDetector,
             }
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::Threading(Both)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IFaceTrackerStatics, 65536, "Windows.Foundation.UniversalApiContract")]
+            #[Windows::Foundation::Metadata::Threading(Both)]
             class FaceTracker {
                 IFaceTracker,
             }
@@ -43,8 +43,8 @@ mod Windows {
                 MaxDetectableFaceSize: super::super::Graphics::Imaging::BitmapSize;
             }
             #[guid(0xbc042d67_9047_33f6_881b_6746c1b218b8)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(FaceDetector)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FaceDetector)]
             interface IFaceDetectorStatics {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn CreateAsync(&self) -> super::super::Foundation::IAsyncOperation<FaceDetector>;
@@ -54,8 +54,8 @@ mod Windows {
                 IsSupported: bool;
             }
             #[guid(0x6ba67d8c_a841_4420_93e6_2420a1884fcf)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(FaceTracker)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FaceTracker)]
             interface IFaceTracker {
                 #[Windows::Foundation::Metadata::RemoteAsync]
                 fn ProcessNextFrameAsync(&self, videoFrame: super::VideoFrame) -> super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVector<DetectedFace>>;

@@ -48,11 +48,11 @@ mod Windows {
             struct FontWeight {
                 Weight: u16,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(IFontWeightsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class FontWeights {
                 IFontWeights,
             }
@@ -72,8 +72,8 @@ mod Windows {
                 Center = 2,
             }
             #[guid(0x1ed52525_1c5f_48cb_b335_78b50a2ee642)]
-            #[Windows::Foundation::Metadata::ExclusiveTo(ContentLinkInfo)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(ContentLinkInfo)]
             interface IContentLinkInfo {
                 Id: u32;
                 DisplayText: String;
@@ -87,9 +87,9 @@ mod Windows {
             #[Windows::Foundation::Metadata::WebHostHidden]
             interface IFontWeights {}
             #[guid(0xb3b579d5_1ba9_48eb_9dad_c095e8c23ba3)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(FontWeights)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(FontWeights)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IFontWeightsStatics {
                 #[get]
                 Black: FontWeight;
@@ -116,14 +116,14 @@ mod Windows {
             }
             #[guid(0x374e3515_ba8a_4a6e_8c59_0dde3d0cf5cd)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 393216)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextRange)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface IRichEditTextRange {
                 ContentLinkInfo: ContentLinkInfo;
             }
             #[guid(0x5adef3db_05fb_442d_8065_642afea02ced)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ITextCharacterFormat {
                 AllCaps: FormatEffect;
                 BackgroundColor: super::Color;
@@ -155,9 +155,9 @@ mod Windows {
                 fn IsEqual(&self, format: ITextCharacterFormat) -> bool;
             }
             #[guid(0x779e7c33_189d_4bfa_97c8_10db135d976e)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             #[Windows::Foundation::Metadata::ExclusiveTo(TextConstants)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
             interface ITextConstantsStatics {
                 #[get]
                 AutoColor: super::Color;
@@ -177,8 +177,8 @@ mod Windows {
                 UndefinedFontStyle: FontStyle;
             }
             #[guid(0xbeee4ddb_90b2_408c_a2f6_0a0ac31e33e4)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ITextDocument {
                 CaretType: CaretType;
                 DefaultTabStop: f32;
@@ -207,32 +207,32 @@ mod Windows {
                 fn Undo(&self);
             }
             #[guid(0xf2311112_8c89_49c9_9118_f057cbb814ee)]
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextDocument)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             interface ITextDocument2 {
                 AlignmentIncludesTrailingWhitespace: bool;
                 IgnoreTrailingCharacterSpacing: bool;
             }
             #[guid(0x75ab03a1_a6f8_441d_aa18_0a851d6e5e3c)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextDocument)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 458752)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextDocument)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ITextDocument3 {
                 fn ClearUndoRedoHistory(&self);
             }
             #[guid(0x619c20f2_cb3b_4521_981f_2865b1b93f04)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextDocument)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 655360)]
+            #[Windows::Foundation::Metadata::ExclusiveTo(RichEditTextDocument)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ITextDocument4 {
                 fn SetMath(&self, value: String);
                 fn GetMath(&self, value: &mut String);
                 fn SetMathMode(&self, mode: RichEditMathMode);
             }
             #[guid(0x2cf8cfa6_4676_498a_93f5_bbdbfc0bd883)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ITextParagraphFormat {
                 Alignment: ParagraphAlignment;
                 #[get]
@@ -272,8 +272,8 @@ mod Windows {
                 fn SetLineSpacing(&self, rule: LineSpacingRule, spacing: f32);
             }
             #[guid(0x5b9e4e57_c072_42a0_8945_af503ee54768)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             interface ITextRange {
                 Character: Char16;
                 CharacterFormat: ITextCharacterFormat;
@@ -468,9 +468,9 @@ mod Windows {
                 NoMath = 0,
                 MathOnly = 1,
             }
+            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::WebHostHidden]
-            #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 262144)]
             class RichEditTextDocument {
                 ITextDocument,
                 ITextDocument2,
@@ -522,11 +522,11 @@ mod Windows {
                 ThickLines = 4,
                 Equals = 5,
             }
-            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::ContractVersion(super::super::Foundation::UniversalApiContract, 65536)]
-            #[Windows::Foundation::Metadata::WebHostHidden]
+            #[Windows::Foundation::Metadata::MarshalingBehavior(Agile)]
             #[Windows::Foundation::Metadata::Static(ITextConstantsStatics, 65536, "Windows.Foundation.UniversalApiContract")]
             #[Windows::Foundation::Metadata::Threading(Both)]
+            #[Windows::Foundation::Metadata::WebHostHidden]
             class TextConstants {}
             #[repr(u32)]
             #[flags]
